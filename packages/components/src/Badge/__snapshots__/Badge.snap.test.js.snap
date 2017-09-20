@@ -1,16 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Badge should render Badge with icon in outline style 1`] = `
+exports[`BadgeSpec should render Badge 1`] = `
 <div
-  className="undefined tc-badge tc-badge-outline tc-badge-with-icon"
+  className="tc-badge tc-badge-readonly"
+  style={undefined}
 >
-  <span
-    className="undefined tc-badge-label tc-badge-label-with-icon"
-  >
-    Label 1
-  </span>
   <button
-    className="undefined tc-badge-delete-icon btn btn-default"
+    className="tc-badge-button"
+    disabled={false}
+    onClick={undefined}
+  >
+    <span
+      className="tc-badge-label"
+    >
+      Label
+    </span>
+  </button>
+</div>
+`;
+
+exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
+<div
+  className="tc-badge"
+  style={undefined}
+>
+  <button
+    className="tc-badge-button"
+    disabled={false}
+    onClick={undefined}
+  >
+    <span
+      className="tc-badge-category"
+    >
+      Category
+    </span>
+    <span
+      className="tc-badge-label"
+    >
+      Label
+    </span>
+  </button>
+  <button
+    className="tc-badge-delete-icon btn btn-default"
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -33,17 +64,24 @@ exports[`Badge should render Badge with icon in outline style 1`] = `
 </div>
 `;
 
-exports[`Badge should render Badge with icon in solid style 1`] = `
+exports[`BadgeSpec should render Badge with delete icon 1`] = `
 <div
-  className="undefined tc-badge tc-badge-solid tc-badge-with-icon"
+  className="tc-badge"
+  style={undefined}
 >
-  <span
-    className="undefined tc-badge-label tc-badge-label-with-icon"
-  >
-    Label 1
-  </span>
   <button
-    className="undefined tc-badge-delete-icon btn btn-default"
+    className="tc-badge-button"
+    disabled={false}
+    onClick={undefined}
+  >
+    <span
+      className="tc-badge-label"
+    >
+      Label
+    </span>
+  </button>
+  <button
+    className="tc-badge-delete-icon btn btn-default"
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -66,26 +104,82 @@ exports[`Badge should render Badge with icon in solid style 1`] = `
 </div>
 `;
 
-exports[`Badge should render Badge without icon in outline style 1`] = `
+exports[`BadgeSpec should render disabled Badge with delete icon 1`] = `
 <div
-  className="tc-badge tc-badge-outline"
+  className="tc-badge tc-badge-disabled"
+  style={undefined}
 >
-  <span
-    className="tc-badge-label"
+  <button
+    className="tc-badge-button"
+    disabled={true}
+    onClick={undefined}
   >
-    Label 1
-  </span>
+    <span
+      className="tc-badge-label"
+    >
+      Label
+    </span>
+  </button>
+  <button
+    className="tc-badge-delete-icon btn btn-default"
+    disabled={true}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseDown={[Function]}
+    onMouseOver={[Function]}
+    role={null}
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-cross"
+      />
+    </svg>
+  </button>
 </div>
 `;
 
-exports[`Badge should render Badge without icon in solid style 1`] = `
+exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
 <div
-  className="tc-badge tc-badge-solid"
+  className="tc-badge tc-badge-selected"
+  style={undefined}
 >
-  <span
-    className="tc-badge-label"
+  <button
+    className="tc-badge-button"
+    disabled={false}
+    onClick={undefined}
   >
-    Label 1
-  </span>
+    <span
+      className="tc-badge-label"
+    >
+      Label
+    </span>
+  </button>
+  <button
+    className="tc-badge-delete-icon btn btn-default"
+    disabled={false}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseDown={[Function]}
+    onMouseOver={[Function]}
+    role={null}
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-cross"
+      />
+    </svg>
+  </button>
 </div>
 `;

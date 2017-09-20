@@ -8,6 +8,7 @@ exports[`Toggle should render a Checkbox 1`] = `
     htmlFor="id"
   >
     <input
+      autoFocus={undefined}
       checked={false}
       disabled={false}
       id="id"
@@ -30,6 +31,7 @@ exports[`Toggle should render a Toggle 1`] = `
     htmlFor="id"
   >
     <input
+      autoFocus={undefined}
       checked={false}
       disabled={false}
       id="id"
@@ -52,6 +54,7 @@ exports[`Toggle should render a Toggle with label 1`] = `
     htmlFor="id"
   >
     <input
+      autoFocus={undefined}
       checked={false}
       disabled={false}
       id="id"
@@ -66,6 +69,29 @@ exports[`Toggle should render a Toggle with label 1`] = `
 </div>
 `;
 
+exports[`Toggle should render a autoFocused Toggle 1`] = `
+<div
+  className="checkbox tc-toggle switch checkbox"
+>
+  <label
+    htmlFor="id"
+  >
+    <input
+      autoFocus={true}
+      checked={false}
+      disabled={false}
+      id="id"
+      onBlur={undefined}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span>
+      
+    </span>
+  </label>
+</div>
+`;
+
 exports[`Toggle should render a checked Toggle 1`] = `
 <div
   className="checkbox tc-toggle switch checkbox"
@@ -74,6 +100,7 @@ exports[`Toggle should render a checked Toggle 1`] = `
     htmlFor="id"
   >
     <input
+      autoFocus={undefined}
       checked={true}
       disabled={false}
       id="id"
@@ -96,6 +123,7 @@ exports[`Toggle should render a disabled Toggle 1`] = `
     htmlFor="id"
   >
     <input
+      autoFocus={undefined}
       checked={false}
       disabled={true}
       id="id"

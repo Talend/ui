@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UIForm container #onChange should update state properties and errors 1`] = `
+exports[`UIForm container #onChange should update state properties 1`] = `
 Object {
-  "errors": Object {
-    "lastname": "too short",
-  },
+  "errors": Object {},
   "jsonSchema": Object {
     "properties": Object {
       "check": Object {},
@@ -229,6 +227,7 @@ exports[`UIForm container should render form 2`] = `
   action={undefined}
   actions={undefined}
   autoComplete="off"
+  className="my-form-class"
   customValidation={[Function]}
   encType={undefined}
   errors={Object {}}

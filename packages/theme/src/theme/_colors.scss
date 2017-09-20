@@ -7,87 +7,103 @@
 /// and to draw attention to the important elements of interaction.
 ///
 /// @type Color
-$st-tropaz: #266092;
+$regal-blue: #17486E;
 
-/// Secondary color
+/// Primary color, mostly used for the selected elements
+/// and to draw attention to the important elements of interaction.
 ///
 /// @type Color
-$rio-grande: #C3D600;
+$st-tropaz: #236192;
 
-/// Contextual color for informational alert messages
+/// Primary color, mostly used for the selected elements
+/// and to draw attention to the important elements of interaction.
 ///
 /// @type Color
-$scooter: #66BDFF;
+$green-talend: #B6BE00;
 
-/// Linked to valid/validated/validation elements.
-///
-/// @type Color
-$limeade: #8ABC00;
-
-/// Used for validation message in inputs
-///
-/// @type Color
-$pirate-gold: #B78001;
-
-/// Used to notify invalid elements or warning information.
-///
-/// @type Color
-$lightning-yellow: #F2DA0D;
-
-/// Used for errors.
-///
-/// @type Color
-$chestnut-rose: #E96065;
-
-/// Used for labels, titles.
+/// Greyscale.
 ///
 /// @type Color
 $black: #202020;
 
-/// Used for some labels
-///
-/// @type Color
-$mine-shaft: #333;
-
-/// Used for subtitles.
+/// Greyscale.
 ///
 /// @type Color
 $dove-gray: #555;
 
-/// Used for some labels
+/// Greyscale.
 ///
 /// @type color
 $dark-silver: #888;
 
-/// Used for backgrounds.
+/// Greyscale.
 ///
 /// @type Color
-$silver: #C6C6C6;
+$gray: #969696;
 
-/// Used for input disabled colors, etc..
+/// Greyscale.
 ///
 /// @type Color
 $silver-chalice: #ABABAB;
 
-/// Used for backgrounds etc.
+/// Greyscale.
 ///
 /// @type Color
-$alto: #DEDEDE;
+$silver: #C6C6C6;
 
-/// Used for panels.
+/// Secondary color.
+/// Used to valid/validated/validation elements.
 ///
 /// @type Color
-$concrete: #F2F2F2;
+$rio-grande: #C3D600;
 
-/// Used for empty spaces, toolbar-panels etc.
+/// Secondary color.
+/// Contextual color for informational alert messages.
+///
+/// @type Color
+$scooter: #66BDFF;
+
+/// Secondary color.
+/// Errors and to notify non-valid elements or warning information.
+///
+/// @type Color
+$chestnut-rose: #E96065;
+
+/// Secondary color.
+/// Used to notify invalid elements or warning information.
+///
+/// @type Color
+$lightning-yellow: #F3C446;
+
+/// Background color.
 ///
 /// @type Color
 $white: #FFF;
 
-/// Used for default color theme
+/// Background color.
 ///
 /// @type Color
-$smalt-blue:    #4F8992;
+$concrete: #F2F2F2;
+
+/// Background color.
+///
+/// @type Color
+$alto: #D5D5D5;
+
+/// Background color.
+///
+/// @type Color
+$gallery: #EAEAEA;
+
+/// Background color.
+///
+/// @type Color
+$slate-gray: #758495;
+
+/// Background color.
+///
+/// @type Color
+$wild-sand: #F6F6F6;
 
 /// Used for shadows
 ///

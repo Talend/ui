@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 import { AutoSizer, List } from 'react-virtualized';
 
@@ -144,9 +145,9 @@ Items.propTypes = {
 		checked: PropTypes.bool,
 		index: PropTypes.number,
 	})),
-	getItemHeight: React.PropTypes.oneOfType([
-		React.PropTypes.func,
-		React.PropTypes.number,
+	getItemHeight: PropTypes.oneOfType([
+		PropTypes.func,
+		PropTypes.number,
 	]),
 	searchCriteria: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,

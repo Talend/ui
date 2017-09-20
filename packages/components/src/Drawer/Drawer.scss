@@ -4,7 +4,9 @@ $tc-drawer-initial-offset: 1000px !default;
 $tc-drawer-bgcolor: #FFF !default;
 $tc-drawer-transition-duration: 230ms !default;
 $tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
-$tc-action-bar-background-color: lighten($alto, 5%) !default;
+$tc-action-bar-background-color: $concrete !default;
+$tc-drawer-content-max-width: 650px !default;
+$tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 
 @function set-text-color($color) {
 	@if (lightness($color) > 60) {
@@ -46,23 +48,44 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	height: 100%;
 }
 
+.tc-drawer-tabs-container {
+	background-color: $tc-drawer-tabs-background;
+}
+
 .drawer-stacked {
 	width: 100%;
 }
 
+@media screen and (min-width: $screen-xs-max) {
+	.drawer-stacked {
+		.tc-drawer-header-title,
+		.tc-drawer-tabs,
+		.tc-drawer-content,
+		.tc-drawer-actionbar,
+		.tc-drawer-footer > nav {
+			width: $tc-drawer-content-max-width;
+			margin: 0 auto;
+		}
+	}
+}
+
 .tc-drawer-header {
-	padding: $padding-normal;
 	background-color: $brand-primary-lighter;
 
-	h1 {
-		font-size: $font-size-large;
-		margin: 0;
-		color: white;
-		text-transform: uppercase;
-		text-overflow: ellipsis;
-		width: 90%;
-		white-space: nowrap;
-		overflow: hidden;
+	&-title {
+		padding: $padding-normal;
+		position: relative;
+
+		h1 {
+			font-size: $font-size-large;
+			margin: 0;
+			color: white;
+			text-transform: uppercase;
+			text-overflow: ellipsis;
+			width: 90%;
+			white-space: nowrap;
+			overflow: hidden;
+		}
 	}
 }
 
@@ -82,6 +105,10 @@ $tc-action-bar-background-color: lighten($alto, 5%) !default;
 	padding: $padding-large $padding-normal;
 	flex-grow: 1;
 	overflow-y: auto;
+}
+
+.tc-drawer-actionbar-container {
+	background: $tc-action-bar-background-color;
 }
 
 .tc-drawer-footer {

@@ -1,4 +1,4 @@
-import { getValue, omit, convertValue } from './properties';
+import { convertValue, getValue, mutateValue, omit, omitAll } from './properties';
 
 describe('Properties utils', () => {
 	describe('#getValue', () => {
@@ -37,7 +37,7 @@ describe('Properties utils', () => {
 	});
 
 	describe('#omit', () => {
-		it('should copy all properties except the omitted ones', () => {
+		it('should copy all properties except the omitted one', () => {
 			// given
 			const properties = {
 				toKeep: 'toto',
@@ -47,6 +47,28 @@ describe('Properties utils', () => {
 
 			// when
 			const result = omit(properties, 'toBeOmitted');
+
+			// then
+			expect(result).toEqual({
+				toKeep: 'toto',
+				other: 'titi',
+			});
+		});
+	});
+
+	describe('#omitAll', () => {
+		it('should copy all properties except the omitted ones', () => {
+			// given
+			const properties = {
+				toKeep: 'toto',
+				toBeOmitted: 'tata',
+				toBeOmittedBis: 'tata',
+				toBeOmittedTer: 'tata',
+				other: 'titi',
+			};
+
+			// when
+			const result = omitAll(properties, ['toBeOmitted', 'toBeOmittedBis', 'toBeOmittedTer']);
 
 			// then
 			expect(result).toEqual({
@@ -77,6 +99,45 @@ describe('Properties utils', () => {
 
 			// then
 			expect(convertedValue).toBe(3.5);
+		});
+	});
+
+	describe('#mutateValue', () => {
+		it('should return the modified properties', () => {
+			// given
+			const properties = {
+				user: {
+					firstname: 'toto',
+					lastname: 'tata',
+				},
+			};
+			const key = ['user', 'firstname'];
+
+			// when
+			const value = mutateValue(properties, key, 'titi');
+
+			// then
+			expect(value).toEqual({
+				user: {
+					firstname: 'titi',
+					lastname: 'tata',
+				},
+			});
+		});
+
+		it('should add a value, creating nested objects', () => {
+			// given
+			const key = ['user', 'firstname'];
+
+			// when
+			const value = mutateValue(undefined, key, 'titi');
+
+			// then
+			expect(value).toEqual({
+				user: {
+					firstname: 'titi',
+				},
+			});
 		});
 	});
 });

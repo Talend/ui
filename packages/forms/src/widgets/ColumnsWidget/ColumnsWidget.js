@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import SchemaField from 'react-jsonschema-form/lib/components/fields/SchemaField';
 import TitleField from 'react-jsonschema-form/lib/components/fields/TitleField';
 
@@ -13,16 +14,18 @@ function getColumnRenderer(type) {
 	return ObjectField;
 }
 
-function Column({ className, schema, formData, onChange, onBlur, registry }) {
-	const Renderer = getColumnRenderer(schema.type);
+function Column(props) {
+	const Renderer = getColumnRenderer(props.schema.type);
 	return (
-		<div className={`${className} ${theme.column}`}>
+		<div className={`${props.className} ${theme.column}`}>
 			<Renderer
-				schema={schema}
-				formData={formData}
-				onChange={onChange}
-				onBlur={onBlur}
-				registry={registry}
+				schema={props.schema}
+				formData={props.formData}
+				uiSchema={props.uiSchema[props.columnKey]}
+				onChange={props.onChange}
+				onBlur={props.onBlur}
+				registry={props.registry}
+				readonly={props.uiSchema['ui:readonly']}
 			/>
 		</div>
 	);
@@ -31,8 +34,10 @@ function Column({ className, schema, formData, onChange, onBlur, registry }) {
 if (process.env.NODE_ENV !== 'production') {
 	Column.propTypes = {
 		className: PropTypes.string,
+		columnKey: PropTypes.string.isRequired,
 		schema: PropTypes.object.isRequired,
 		formData: PropTypes.object.isRequired,
+		uiSchema: PropTypes.object.isRequired,
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func.isRequired,
 		registry: SchemaField.propTypes.registry,
@@ -54,6 +59,7 @@ export default function ColumnsWidget({ name, schema, formData, onChange, onBlur
 					<Column
 						{...props}
 						key={key}
+						columnKey={key}
 						schema={schema.properties[key]}
 						formData={formData[key]}
 						onChange={onColumnChange(key, onChange, formData)}

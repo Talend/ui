@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
@@ -24,11 +25,18 @@ import theme from './SidePanel.scss';
  />
  *
  */
-function SidePanel(props) {
-	const { selected, onSelect } = props;
-	const actions = props.actions || [];
-
-	const dockedCSS = { [theme.docked]: props.docked };
+function SidePanel({
+	id,
+	selected,
+	onSelect,
+	actions = [],
+	docked,
+	tooltipPlacement,
+	onToggleDock,
+	expandTitle = 'Expand',
+	collapseTitle = 'Collapse',
+}) {
+	const dockedCSS = { [theme.docked]: docked };
 	const navCSS = classNames(
 		theme['tc-side-panel'],
 		dockedCSS,
@@ -46,19 +54,18 @@ function SidePanel(props) {
 		return action.active;
 	};
 
+	const toggleButtonTitle = docked ? expandTitle : collapseTitle;
+
 	return (
 		<nav className={navCSS}>
 			<ul className={listCSS}>
-				<li className={theme['toggle-btn']}>
+				<li className={theme['toggle-btn']} title={toggleButtonTitle}>
 					<Action
-						id={props.id && `${props.id}-toggle-dock`}
+						id={id && `${id}-toggle-dock`}
 						className={theme.link}
 						bsStyle="link"
-						onClick={props.onToggleDock}
-						label="Toggle side panel"
-						icon="talend-arrow-left"
-						hideLabel
-						tooltipPlacement={props.tooltipPlacement}
+						onClick={onToggleDock}
+						icon="talend-opener"
 					/>
 				</li>
 				{actions.map(action => (
@@ -70,7 +77,7 @@ function SidePanel(props) {
 						)}
 					>
 						<Action
-							id={props.id && `${props.id}-nav-${action.label.toLowerCase().split(' ').join('-')}`}
+							id={id && `${id}-nav-${action.label.toLowerCase().split(' ').join('-')}`}
 							bsStyle="link"
 							role="link"
 							className={theme.link}
@@ -84,8 +91,8 @@ function SidePanel(props) {
 							}}
 							label={action.label}
 							icon={action.icon}
-							hideLabel={props.docked}
-							tooltipPlacement={props.tooltipPlacement}
+							hideLabel={docked}
+							tooltipPlacement={tooltipPlacement}
 						/>
 					</li>
 				))}
@@ -94,22 +101,24 @@ function SidePanel(props) {
 	);
 }
 
-const actionPropType = React.PropTypes.shape({
-	active: React.PropTypes.bool,
-	icon: React.PropTypes.string,
-	key: React.PropTypes.string,
-	label: React.PropTypes.string,
-	onClick: React.PropTypes.func,
+const actionPropType = PropTypes.shape({
+	active: PropTypes.bool,
+	icon: PropTypes.string,
+	key: PropTypes.string,
+	label: PropTypes.string,
+	onClick: PropTypes.func,
 });
 
 SidePanel.propTypes = {
-	id: React.PropTypes.string,
-	actions: React.PropTypes.arrayOf(actionPropType),
-	onSelect: React.PropTypes.func,
-	onToggleDock: React.PropTypes.func,
-	docked: React.PropTypes.bool,
+	id: PropTypes.string,
+	actions: PropTypes.arrayOf(actionPropType),
+	onSelect: PropTypes.func,
+	onToggleDock: PropTypes.func,
+	docked: PropTypes.bool,
 	selected: actionPropType,
-	tooltipPlacement: React.PropTypes.string,
+	tooltipPlacement: PropTypes.string,
+	expandTitle: PropTypes.string,
+	collapseTitle: PropTypes.string,
 };
 
 SidePanel.defaultProps = {

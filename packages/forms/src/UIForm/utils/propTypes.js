@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 
 export const formPropTypes = {
 	/** Form element configuration: auto complete */
@@ -10,6 +10,10 @@ export const formPropTypes = {
 	 *  This will be prevented if you provide an onSubmit props
 	 */
 	action: PropTypes.string,
+	/**
+	 * Form custom classname
+	 */
+	className: PropTypes.string,
 	/** Form definition: encoding type */
 	encType: PropTypes.string,
 	/** Form definition: form name. This is also used to create input ids */

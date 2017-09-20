@@ -1,7 +1,9 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { I18nextProvider } from 'react-i18next';
+import { storiesOf, action } from '@storybook/react';
 
 import { Enumeration, IconsProvider } from '../src/index';
+import i18n from './config/i18n';
 
 const addItemAction = {
 	label: 'Add item',
@@ -41,22 +43,25 @@ const abortAction = {
 
 const ITEM_DEFAULT_HEIGHT = 33;
 
+const items = [];
+for (let i = 0; i < 1000; i += 1) {
+	items.push({ values: [`Lorem ipsum dolor sit amet ${i}`] });
+}
+
 const props = {
 	required: true,
 	displayMode: 'DISPLAY_MODE_DEFAULT',
 	headerDefault: [addItemAction, loadingAction],
 	headerSelected: [deleteItemAction],
 	headerInput: [validateAction, abortAction],
-	items: Array(1000).fill('').map((item, index) => ({
-		values: [`Lorem ipsum dolor sit amet ${index}`],
-	})),
+	items,
 	itemsProp: {
 		key: 'values',
 		onSubmitItem: action('itemEdit.onSubmit'),
 		onItemChange: action('itemEdit.onItemchange'),
 		onAbortItem: action('itemEdit.onCancel'),
 		onSelectItem: action('itemEdit.onSelect'),
-		getItemHeight: (isInEdit) => { return ITEM_DEFAULT_HEIGHT; },
+		getItemHeight: () => ITEM_DEFAULT_HEIGHT,
 		onLoadData: action('items.onLoadData'),
 		actionsDefault: [{
 			disabled: false,
@@ -87,21 +92,28 @@ const props = {
 	onAddKeyDown: action('onAddKeyDown'),
 };
 
-const dropDownActions = {
-	...props,
-};
+const defaultEmptyListProps = Object.assign({}, props, { items: [] });
 
-dropDownActions.headerDefault[0] = {
-	...dropDownActions.headerDefault[0],
-	displayMode: 'dropdown',
-	items: [{
-		label: 'Add values from a file',
-		id: 'append-uploding',
-		onClick: action('add values'),
-	}, {
-		label: 'Overwrite existing values',
-		id: 'append-uploding',
-		onClick: action('overwrite'),
+const searchModeEmptyListProps = Object.assign(
+		{},
+		defaultEmptyListProps,
+		{ displayMode: 'DISPLAY_MODE_SEARCH' }
+);
+
+const dropDownActionsProps = {
+	...props,
+	headerDefault: [{
+		...props.headerDefault[0],
+		displayMode: 'dropdown',
+		items: [{
+			label: 'Add values from a file',
+			id: 'add-value',
+			onClick: action('add values'),
+		}, {
+			label: 'Overwrite existing values',
+			id: 'append-uploding',
+			onClick: action('overwrite'),
+		}],
 	}],
 };
 
@@ -143,6 +155,11 @@ selectedValuesProps.items = Array(50).fill('').map((item, index) => ({
 	isSelected: index % 2 === 0,
 }));
 
+const selectedValuesCheckboxesProps = {
+	...selectedValuesProps,
+	showCheckboxes: true,
+};
+
 const headerErrorProps = {
 	...props,
 	displayMode: 'DISPLAY_MODE_ADD',
@@ -168,6 +185,11 @@ editItemPropsWithError.items[0] = {
 	error: 'an error occured',
 };
 
+const customLabelProps = {
+	...props,
+	label: 'Users',
+};
+
 storiesOf('Enumeration', module)
 	.addWithInfo('default', () => (
 		<div>
@@ -178,12 +200,34 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
+	.addWithInfo('default - empty list with i18n', () => (
+			<div>
+				<p>Empty list by default:</p>
+				<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+				<button onClick={() => i18n.changeLanguage('it')}>it</button>
+				<IconsProvider />
+				<I18nextProvider i18n={i18n}>
+					<Enumeration
+						{...defaultEmptyListProps}
+					/>
+				</I18nextProvider>
+			</div>
+	))
+	.addWithInfo('default - empty list', () => (
+			<div>
+				<p>Empty list by default:</p>
+				<IconsProvider />
+				<Enumeration
+					{...defaultEmptyListProps}
+				/>
+			</div>
+	))
 	.addWithInfo('default with dropdown', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
 			<Enumeration
-				{...props}
+				{...dropDownActionsProps}
 			/>
 		</div>
 	))
@@ -214,6 +258,15 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
+	.addWithInfo('search mode - empty list', () => (
+			<div>
+				<p>empty list in search mode :</p>
+				<IconsProvider />
+				<Enumeration
+						{...searchModeEmptyListProps}
+				/>
+			</div>
+	))
 	.addWithInfo('selected values', () => (
 		<div>
 			<p>By default :</p>
@@ -221,6 +274,17 @@ storiesOf('Enumeration', module)
 			<Enumeration
 				{...selectedValuesProps}
 			/>
+		</div>
+	))
+	.addWithInfo('selected values with checkboxes', () => (
+		<div>
+			<p>By default :</p>
+			<IconsProvider />
+			<form>
+				<Enumeration
+					{...selectedValuesCheckboxesProps}
+				/>
+			</form>
 		</div>
 	))
 	.addWithInfo('with header error', () => (
@@ -238,6 +302,15 @@ storiesOf('Enumeration', module)
 			<IconsProvider />
 			<Enumeration
 				{...editItemPropsWithError}
+			/>
+		</div>
+	))
+	.addWithInfo('with custom label', () => (
+		<div>
+			<p>Should be 'Users' instead of 'Values'</p>
+			<IconsProvider />
+			<Enumeration
+				{...customLabelProps}
 			/>
 		</div>
 	));

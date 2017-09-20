@@ -15,6 +15,24 @@ export function getValue(properties, key) {
 }
 
 /**
+ * Omit multiple properties from an object
+ * @param properties The object
+ * @param keys The array of keys to omit
+ */
+export function omitAll(properties, keys) {
+	if (!keys || !keys.length) {
+		return properties;
+	}
+	const result = {};
+	Object.keys(properties)
+		.filter(nextKey => keys.indexOf(nextKey) === -1)
+		.forEach((nextKey) => {
+			result[nextKey] = properties[nextKey];
+		});
+	return result;
+}
+
+/**
  * Omit a property from an object
  * @param properties The object
  * @param key The key to omit
@@ -23,13 +41,7 @@ export function omit(properties, key) {
 	if (!key) {
 		return properties;
 	}
-	const result = {};
-	Object.keys(properties)
-		.filter(nextKey => nextKey !== key)
-		.forEach((nextKey) => {
-			result[nextKey] = properties[nextKey];
-		});
-	return result;
+	return omitAll(properties, [key]);
 }
 
 /**
@@ -42,4 +54,31 @@ export function convertValue(type, value) {
 		return parseFloat(value);
 	}
 	return value;
+}
+
+/**
+ * Mutate the properties, setting the value in the path identified by key
+ * @param {object | array} properties The original properties store
+ * @param {array} key The key chain (array of strings) to identify the path
+ * @param {any} value The value to set
+ * @returns {object} The new mutated properties store.
+ */
+export function mutateValue(properties = {}, key, value) {
+	if (!key.length) {
+		return value;
+	}
+
+	const nextKey = key[0];
+	const restKeys = key.slice(1);
+	const nextValue = mutateValue(properties[nextKey], restKeys, value);
+
+	let nextProperties;
+	if (properties instanceof Array) {
+		nextProperties = properties.slice(0);
+	} else {
+		nextProperties = { ...properties };
+	}
+
+	nextProperties[nextKey] = nextValue;
+	return nextProperties;
 }

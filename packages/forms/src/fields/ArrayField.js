@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 import {
 	getWidget,
@@ -149,7 +150,6 @@ function DefaultNormalArrayFieldTemplate(props) {
 					description={props.schema.description}
 				/>
 			) : null}
-
 			<div
 				className="row array-item-list"
 				key={`array-item-list-${props.idSchema.$id}`}
@@ -177,6 +177,15 @@ class ArrayField extends Component {
 		autofocus: false,
 	};
 
+	constructor(props) {
+		super(props);
+		this.onAddClick = this.onAddClick.bind(this);
+		this.onDropIndexClick = this.onDropIndexClick.bind(this);
+		this.onReorderClick = this.onReorderClick.bind(this);
+		this.onChangeForIndex = this.onChangeForIndex.bind(this);
+		this.onSelectChange = this.onSelectChange.bind(this);
+	}
+
 	shouldComponentUpdate(nextProps, nextState) {
 		return shouldRender(this, nextProps, nextState);
 	}
@@ -189,6 +198,7 @@ class ArrayField extends Component {
 		if (isFixedItems(schema) && allowAdditionalItems(schema)) {
 			itemSchema = schema.additionalItems;
 		}
+		formData.forEach(item => Object.assign(item, { isClosed: true }));
 		this.props.onChange([
 			...formData,
 			getDefaultFormState(itemSchema, undefined, definitions),
@@ -267,8 +277,7 @@ class ArrayField extends Component {
 		const { ArrayFieldTemplate, definitions, fields, widgets } = registry;
 		const { TitleField, DescriptionField } = fields;
 		const itemsSchema = retrieveSchema(schema.items, definitions);
-		const { widget, addable = true, ...options } = getUiOptions(uiSchema);
-
+		const { widget, addable = true, type = 'element', ...options } = getUiOptions(uiSchema);
 		if (typeof widget === 'string') {
 			if (widget === 'hidden') {
 				return null;
@@ -290,7 +299,10 @@ class ArrayField extends Component {
 		}
 
 		const arrayProps = {
+			type,
 			canAdd: addable,
+			minItems: schema.minItems || 0,
+			maxItems: schema.maxItems || 999,
 			items: formData.map((item, index) => {
 				const itemErrorSchema = errorSchema ? errorSchema[index] : undefined;
 				const itemIdPrefix = `${idSchema.$id}_${index}`;
@@ -322,8 +334,9 @@ class ArrayField extends Component {
 		};
 
 		// Check if a custom render function was passed in
-		const renderFunction = ArrayFieldTemplate || DefaultNormalArrayFieldTemplate;
-		return renderFunction(arrayProps);
+		// backported from 0.49.0
+		const TemplateComponent = ArrayFieldTemplate || DefaultNormalArrayFieldTemplate;
+		return <TemplateComponent {...arrayProps} />;
 	}
 
 	renderMultiSelect() {
@@ -400,7 +413,6 @@ class ArrayField extends Component {
 			retrieveSchema(schema.additionalItems, definitions) : null;
 		const { addable = true } = getUiOptions(uiSchema);
 		const canAdd = addable && additionalSchema;
-
 		if (!items || items.length < itemSchemas.length) {
 			// to make sure at least all fixed items are generated
 			items = items || [];
@@ -507,6 +519,7 @@ class ArrayField extends Component {
 			hasMoveDown: has.moveDown,
 			hasRemove: has.remove,
 			index,
+			itemData,
 			onDropIndexClick: this.onDropIndexClick,
 			onReorderClick: this.onReorderClick,
 			readonly,

@@ -18,7 +18,9 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
   }
   height={600}
   id="my-list-id"
+  isActive={[Function]}
   isSelected={[Function]}
+  onRowClick={[Function]}
   rowHeight={50}
   selectionToggle={[Function]}
   sort={[Function]}
@@ -84,6 +86,8 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
 
 exports[`VirtualizedList should use AutoSizer 1`] = `
 <AutoSizer
+  disableHeight={false}
+  disableWidth={false}
   onResize={[Function]}
 >
   [Function]

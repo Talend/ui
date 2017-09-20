@@ -5,6 +5,8 @@
 
 /* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 import { connect } from 'react-redux';
 import registry from './registry';
@@ -95,7 +97,7 @@ function loadComponents(context, item) {
 			item.component = props => <WithView view={item.view} {...props} />;
 			item.component.displayName = 'WithView';
 			item.component.propTypes = {
-				view: React.PropTypes.string,
+				view: PropTypes.string,
 			};
 		}
 	}

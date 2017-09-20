@@ -53,7 +53,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 			}
 
 			&.full :global(.tc-svg-icon) {
-				width: 75px;
+				width: 85px;
 			}
 		}
 
@@ -116,6 +116,16 @@ $background-color-on-hover: shade($brand-primary, 30);
 				font-style: italic;
 				animation: fadeIn 0.2s;
 				width: 400px;
+			}
+		}
+	}
+
+	.tc-header-bar-user {
+		.user-lastname {
+			text-transform: uppercase;
+
+			&:before {
+				content: ' ';
 			}
 		}
 	}

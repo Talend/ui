@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 
 import Actions from './../Actions/Actions.component';
@@ -29,20 +30,22 @@ import css from './Status.scss';
  <Status {...status}/>
  */
 
-export const STATUS_IN_PROGRESS = 'inProgress';
-export const STATUS_SUCCESSFUL = 'successful';
-export const STATUS_FAILED = 'failed';
-export const STATUS_CANCELED = 'canceled';
+export const STATUS = {
+	IN_PROGRESS: 'inProgress',
+	SUCCESSFUL: 'successful',
+	FAILED: 'failed',
+	CANCELED: 'canceled',
+};
 
 function getbsStyleFromStatus(status) {
 	switch (status) {
-	case STATUS_IN_PROGRESS:
+	case STATUS.IN_PROGRESS:
 		return 'info';
-	case STATUS_SUCCESSFUL:
+	case STATUS.SUCCESSFUL:
 		return 'success';
-	case STATUS_FAILED:
+	case STATUS.FAILED:
 		return 'danger';
-	case STATUS_CANCELED:
+	case STATUS.CANCELED:
 		return 'muted';
 	default:
 		return '';
@@ -50,7 +53,7 @@ function getbsStyleFromStatus(status) {
 }
 
 function renderIcon(status, icon, progress) {
-	if (status === STATUS_IN_PROGRESS) {
+	if (status === STATUS.IN_PROGRESS) {
 		if (icon) {
 			return <Icon name={icon} />;
 		}
@@ -76,10 +79,10 @@ function Status(props) {
 	);
 
 	return (
-		<div className={rootClassnames} >
+		<div role="status" className={rootClassnames} >
 			{renderIcon(status, icon, progress)}
-			<span className={classNames(css['tc-status-label'], 'tc-status-label')}> {label} </span>
-			<span className={css['tc-status-actions']}>
+			<span className={classNames(css['tc-status-label'], 'tc-status-label')}>{label}</span>
+			<span className={classNames(css['tc-status-actions'], 'tc-status-actions')}>
 				<Actions actions={actions} />
 			</span>
 		</div>
@@ -88,10 +91,10 @@ function Status(props) {
 
 Status.propTypes = {
 	status: PropTypes.oneOf([
-		STATUS_IN_PROGRESS,
-		STATUS_SUCCESSFUL,
-		STATUS_FAILED,
-		STATUS_CANCELED,
+		STATUS.IN_PROGRESS,
+		STATUS.SUCCESSFUL,
+		STATUS.FAILED,
+		STATUS.CANCELED,
 	]),
 	label: PropTypes.string.isRequired,
 	icon: PropTypes.string,

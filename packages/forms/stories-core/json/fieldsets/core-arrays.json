@@ -1,0 +1,68 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "required": [
+      "comments"
+    ],
+    "properties": {
+      "comments": {
+        "type": "array",
+        "maxItems": 2,
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "pattern": "^\\S+@\\S+$"
+            },
+            "comment": {
+              "type": "string",
+              "maxLength": 20
+            }
+          },
+          "required": [
+            "name",
+            "comment"
+          ]
+        }
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "comments",
+      "triggers": ["validation"],
+      "items": [
+        {
+          "key": "comments[].name",
+          "title": "Name"
+        },
+        {
+          "key": "comments[].email",
+          "title": "Email",
+          "description": "Email will be used for evil."
+        },
+        {
+          "key": "comments[].comment",
+          "title": "Comment",
+          "type": "textarea",
+          "rows": 3,
+          "validationMessage": "Don't be greedy!"
+        }
+      ]
+    }
+  ],
+  "properties": {
+    "comments": [
+      {
+        "name": "Jimmy",
+        "email": "jimmy@lol.com",
+        "comment": "Let's do this"
+      }
+    ]
+  }
+}

@@ -60,6 +60,20 @@
             "title": "Field Right"
           }
         }
+      },
+      "readOnlyFieldsColumns": {
+        "type": "object",
+        "title": "Read only Column Fields",
+        "properties": {
+          "fieldLeft": {
+            "type": "string",
+            "title": "Field Left"
+          },
+          "fieldRight": {
+            "type": "string",
+            "title": "Field Right"
+          }
+        }
       }
     }
   },
@@ -68,10 +82,21 @@
       "ui:widget": "columns"
     },
     "fieldsColumns": {
-      "ui:widget": "columns"
+      "ui:widget": "columns",
+      "fieldLeft": {
+        "ui:help": "This is a field hint"
+      }
+    },
+    "readOnlyFieldsColumns": {
+      "ui:widget": "columns",
+      "ui:readonly": true
     }
   },
   "properties": {
-    "title": "My current tasks"
+    "title": "My current tasks",
+    "readOnlyFieldsColumns": {
+      "fieldLeft": "left",
+      "fieldRight": "right"
+    }
   }
 }

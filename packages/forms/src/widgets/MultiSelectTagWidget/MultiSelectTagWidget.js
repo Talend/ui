@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Badge from 'react-talend-components/lib/Badge';
 import { MenuItem } from 'react-bootstrap';
@@ -9,9 +10,7 @@ const ENTER = 'ENTER';
 const LEAVE = 'LEAVE';
 
 const INPUT_TEXT_INDENT = 7.5;
-const INPUT_HEIGHT = 32;
-const BADGE_HEIGHT = 24;
-const BADGES_MARGIN_TOP = 7;
+const INPUT_HEIGHT = 38;
 const INPUT_MIN_WIDTH = 135;
 const DROP_DOWN_ITEM_HEIGHT = 39;
 const DROP_DOWN_PADDING = 10;
@@ -184,23 +183,29 @@ class MultiSelectTagWidget extends React.Component {
 	onTagsMount(tags) {
 		if (tags && this.input) {
 			const lastTag = tags.querySelector('div.tc-badge:last-child');
+			const inputWidth = this.input.offsetWidth;
+			let paddingTop = 0;
+			let height = INPUT_HEIGHT;
+			let paddingLeft = INPUT_TEXT_INDENT;
+
 			if (lastTag) {
-				const paddingLeft = lastTag.offsetLeft + lastTag.offsetWidth + INPUT_TEXT_INDENT;
-				let paddingTop = lastTag.offsetTop - BADGES_MARGIN_TOP;
-				const toNextLine = (this.input.offsetWidth - paddingLeft) < INPUT_MIN_WIDTH;
-				if (toNextLine) {
-					paddingTop += BADGE_HEIGHT;
-					this.input.style.paddingLeft = `${INPUT_TEXT_INDENT}px`;
-				} else {
-					this.input.style.paddingLeft = `${paddingLeft}px`;
+				const overflowCheck = lastTag.offsetLeft + lastTag.offsetWidth;
+
+				if (tags.offsetHeight > INPUT_HEIGHT) {
+					paddingTop = tags.offsetHeight - INPUT_HEIGHT;
 				}
-				this.input.style.paddingTop = `${paddingTop}px`;
-				this.input.style.height = `${parseInt(this.input.style.paddingTop, 10) + INPUT_HEIGHT}px`;
-			} else {
-				this.input.style.paddingLeft = '0px';
-				this.input.style.paddingTop = '0px';
-				this.input.style.height = `${INPUT_HEIGHT}px`;
+				if (inputWidth < INPUT_MIN_WIDTH + overflowCheck) {
+					paddingTop += INPUT_HEIGHT;
+				} else {
+					paddingLeft += overflowCheck;
+				}
+
+				height += paddingTop;
 			}
+
+			this.input.style.paddingLeft = `${paddingLeft}px`;
+			this.input.style.paddingTop = `${paddingTop}px`;
+			this.input.style.height = `${height}px`;
 		}
 	}
 
@@ -256,6 +261,7 @@ class MultiSelectTagWidget extends React.Component {
 			dropdown: true,
 			open: this.state.showDropDownOptions,
 		});
+		const badgeStyle = { display: 'inline-flex' };
 
 		return (
 			<div className={className} ref={component => this.onComponentMount(component)}>
@@ -274,13 +280,14 @@ class MultiSelectTagWidget extends React.Component {
 					<span className="caret" />
 				</div>
 				<div
+					style={{ display: 'inline-block' }}
 					className={classNames(theme['tags-container'], 'tags-container')}
 					ref={tags => this.onTagsMount(tags)}
 				>
 					{
 						value.map((val, index) => {
 							const label = value2Label[val] || val;
-							const BadgeProps = { label, key: index };
+							const BadgeProps = { label, key: index, style: badgeStyle };
 							if (!readonly) {
 								BadgeProps.onDelete = () => this.onRemoveTag(val);
 							}
@@ -313,30 +320,30 @@ DropDownOptions.defaultProps = {
 };
 
 if (process.env.NODE_ENV !== 'production') {
-	const Tag = React.PropTypes.shape({
-		label: React.PropTypes.string.isRequired,
-		value: React.PropTypes.string,
+	const Tag = PropTypes.shape({
+		label: PropTypes.string.isRequired,
+		value: PropTypes.string,
 	});
 
 	DropDownOptions.propTypes = {
-		options: React.PropTypes.arrayOf(Tag),
-		onSelectOption: React.PropTypes.func.isRequired,
-		filterText: React.PropTypes.string,
-		createIfNoneMatch: React.PropTypes.bool,
-		onCreateNew: React.PropTypes.func,
-		onMouseEvent: React.PropTypes.func,
-		selectedIndex: React.PropTypes.number,
-		noAvailableMessage: React.PropTypes.string,
+		options: PropTypes.arrayOf(Tag),
+		onSelectOption: PropTypes.func.isRequired,
+		filterText: PropTypes.string,
+		createIfNoneMatch: PropTypes.bool,
+		onCreateNew: PropTypes.func,
+		onMouseEvent: PropTypes.func,
+		selectedIndex: PropTypes.number,
+		noAvailableMessage: PropTypes.string,
 	};
 
 	MultiSelectTagWidget.propTypes = {
-		value: React.PropTypes.array, //eslint-disable-line
-		options: React.PropTypes.shape({
-			enumOptions: React.PropTypes.arrayOf(Tag),
+		value: PropTypes.array, //eslint-disable-line
+		options: PropTypes.shape({
+			enumOptions: PropTypes.arrayOf(Tag),
 		}),
-		readonly: React.PropTypes.bool,
-		onChange: React.PropTypes.func,
-		schema: React.PropTypes.object.isRequired, //eslint-disable-line
+		readonly: PropTypes.bool,
+		onChange: PropTypes.func,
+		schema: PropTypes.object.isRequired, //eslint-disable-line
 	};
 }
 

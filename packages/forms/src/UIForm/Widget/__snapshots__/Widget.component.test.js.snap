@@ -12,6 +12,7 @@ exports[`Widget component should render custom widget 1`] = `
   id="myForm-user-firstname"
   isValid={false}
   onChange={[Function]}
+  onFinish={undefined}
   onTrigger={[Function]}
   properties={
     Object {
@@ -49,6 +50,7 @@ exports[`Widget component should render widget 1`] = `
   id="myForm-user-firstname"
   isValid={false}
   onChange={[Function]}
+  onFinish={[Function]}
   onTrigger={[Function]}
   properties={
     Object {

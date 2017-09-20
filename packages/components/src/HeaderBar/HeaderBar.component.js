@@ -1,12 +1,15 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 
 import Action from '../Actions/Action';
 import ActionDropdown from '../Actions/ActionDropdown';
 import ActionSplitDropdown from '../Actions/ActionSplitDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
-
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import { DEFAULT_I18N } from '../translate';
 
 function getRenderers(renderers) {
 	return Object.assign(
@@ -20,7 +23,7 @@ function getRenderers(renderers) {
 	);
 }
 
-function Logo({ isFull, renderers, ...props }) {
+function Logo({ isFull, renderers, t, ...props }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
 	const itemClassName = classNames(
 		theme['tc-header-bar-action'],
@@ -41,7 +44,7 @@ function Logo({ isFull, renderers, ...props }) {
 				bsStyle="link"
 				className={actionClassName}
 				hideLabel
-				label="Go to Portal"
+				label={t('HEADERBAR_GO_PORTAL', { defaultValue: 'Go to Portal' })}
 				icon={icon}
 				tooltipPlacement="bottom"
 				{...props}
@@ -49,13 +52,6 @@ function Logo({ isFull, renderers, ...props }) {
 		</li>
 	);
 }
-
-Logo.propTypes = {
-	isFull: React.PropTypes.bool,
-	renderers: React.PropTypes.shape({
-		Action: React.PropTypes.func,
-	}),
-};
 
 function Brand({ name, isSeparated, renderers, ...props }) {
 	const className = classNames(
@@ -78,13 +74,6 @@ function Brand({ name, isSeparated, renderers, ...props }) {
 	);
 }
 
-Brand.propTypes = {
-	isSeparated: React.PropTypes.bool,
-	renderers: React.PropTypes.shape({
-		Action: React.PropTypes.func,
-	}),
-};
-
 function Environment({ renderers, ...props }) {
 	return (
 		<li className={theme['tc-header-bar-action']}>
@@ -97,12 +86,6 @@ function Environment({ renderers, ...props }) {
 		</li>
 	);
 }
-
-Environment.propTypes = {
-	renderers: React.PropTypes.shape({
-		ActionDropdown: React.PropTypes.func,
-	}),
-};
 
 function Search({ renderers, ...props }) {
 	const className = classNames(
@@ -121,16 +104,11 @@ function Search({ renderers, ...props }) {
 	);
 }
 
-Search.propTypes = Typeahead.propTypes;
-Search.propTypes.renderers = React.PropTypes.shape({
-	Typeahead: React.PropTypes.func,
-});
-
-function Help({ renderers, ...props }) {
+function Help({ renderers, t, ...props }) {
 	const global = {
 		bsStyle: 'link',
 		icon: 'talend-question-circle',
-		label: 'Help',
+		label: t('HEADERBAR_HELP', { defaultValue: 'Help' }),
 		tooltipPlacement: 'bottom',
 		...props,
 	};
@@ -146,18 +124,24 @@ function Help({ renderers, ...props }) {
 	);
 }
 
-Help.propTypes = {
-	renderers: React.PropTypes.shape({
-		ActionSplitDropdown: React.PropTypes.func,
-		Action: React.PropTypes.func,
-	}),
-};
-
-function User({ name, renderers, ...props }) {
+function User({ name, firstName, lastName, renderers, ...rest }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
+		theme['tc-header-bar-user'],
 		theme.separated,
 	);
+
+	function getDisplayName(params) {
+		if (params.firstName && params.lastName) {
+			return (
+				<span className={classNames(theme['user-name'], 'user-name')}>
+					<span className={classNames(theme['user-firstname'], 'user-firstname')}>{params.firstName}</span>
+					<span className={classNames(theme['user-lastname'], 'user-lastname')}>{params.lastName}</span>
+				</span>
+			);
+		}
+		return params.name;
+	}
 
 	return (
 		<li className={className}>
@@ -166,40 +150,31 @@ function User({ name, renderers, ...props }) {
 				icon="talend-user-circle"
 				pullRight
 				tooltipPlacement="bottom"
-				label={name}
-				{...props}
+				tooltipLabel={name}
+				label={getDisplayName({ name, firstName, lastName })}
+				{...rest}
 			/>
 		</li>
 	);
 }
 
-User.propTypes = {
-	renderers: React.PropTypes.shape({
-		ActionDropdown: React.PropTypes.func,
-	}),
-};
-
-function Products({ renderers, ...props }) {
+function Products({ renderers, t, ...props }) {
 	return (
 		<li className={theme['tc-header-bar-action']}>
 			<renderers.ActionDropdown
 				bsStyle="link"
 				className={theme['tc-header-bar-products']}
 				icon="talend-launcher"
-				label="Apps"
+				label={t('HEADERBAR_APPS', { defaultValue: 'Apps' })}
 				pullRight
+				hideLabel
+				noCaret
 				tooltipPlacement="bottom"
 				{...props}
 			/>
 		</li>
 	);
 }
-
-Products.propTypes = {
-	renderers: React.PropTypes.shape({
-		ActionDropdown: React.PropTypes.func,
-	}),
-};
 
 function HeaderBar(props) {
 	const renderers = getRenderers(props.renderers);
@@ -216,15 +191,19 @@ function HeaderBar(props) {
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar')}>
 			<ul className={theme['tc-header-bar-actions']}>
-				<Components.Logo renderers={renderers} {...props.logo} />
-				<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} />
+				{ props.logo && <Components.Logo renderers={renderers} {...props.logo} t={props.t} /> }
+				{ props.brand &&
+				<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} /> }
 				{ props.env && <Components.Environment renderers={renderers} {...props.env} /> }
 			</ul>
 			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
 				{ props.search && <Components.Search renderers={renderers} {...props.search} /> }
-				{ props.help && <Components.Help renderers={renderers} {...props.help} /> }
+				{ props.help && <Components.Help renderers={renderers} {...props.help} t={props.t} /> }
 				{ props.user && <Components.User renderers={renderers} {...props.user} /> }
-				{ props.products && <Components.Products renderers={renderers} {...props.products} /> }
+				{
+					props.products &&
+					<Components.Products renderers={renderers} {...props.products} t={props.t} />
+				}
 			</ul>
 		</nav>
 	);
@@ -238,22 +217,77 @@ HeaderBar.Help = Help;
 HeaderBar.User = User;
 HeaderBar.Products = Products;
 
-HeaderBar.propTypes = {
-	logo: React.PropTypes.shape(Logo.propTypes).isRequired,
-	brand: React.PropTypes.shape(Brand.propTypes).isRequired,
-	env: React.PropTypes.shape(Environment.propTypes),
-	search: React.PropTypes.shape(Search.propTypes),
-	help: React.PropTypes.shape(Help.propTypes),
-	user: React.PropTypes.shape(User.propTypes),
-	products: React.PropTypes.shape(Products.propTypes),
-	renderers: React.PropTypes.shape({
-		Logo: React.PropTypes.func,
-		Brand: React.PropTypes.func,
-		Environment: React.PropTypes.func,
-		Search: React.PropTypes.func,
-		User: React.PropTypes.func,
-		Products: React.PropTypes.func,
-	}),
-};
+if (process.env.NODE_ENV !== 'production') {
+	Logo.propTypes = {
+		isFull: PropTypes.bool,
+		renderers: PropTypes.shape({
+			Action: PropTypes.func,
+		}),
+		t: PropTypes.func.isRequired,
+	};
 
-export default HeaderBar;
+	Brand.propTypes = {
+		isSeparated: PropTypes.bool,
+		renderers: PropTypes.shape({
+			Action: PropTypes.func,
+		}),
+	};
+
+	Environment.propTypes = {
+		renderers: PropTypes.shape({
+			ActionDropdown: PropTypes.func,
+		}),
+	};
+
+	Search.propTypes = {
+		...Typeahead.propTypes,
+		renderers: PropTypes.shape({
+			Typeahead: PropTypes.func,
+		}),
+	};
+
+	Help.propTypes = {
+		renderers: PropTypes.shape({
+			ActionSplitDropdown: PropTypes.func,
+			Action: PropTypes.func,
+		}),
+		t: PropTypes.func.isRequired,
+	};
+
+	User.propTypes = {
+		renderers: PropTypes.shape({
+			ActionDropdown: PropTypes.func,
+			name: PropTypes.string.isRequired,
+			firstName: PropTypes.string,
+			lastName: PropTypes.string,
+		}),
+	};
+
+	Products.propTypes = {
+		renderers: PropTypes.shape({
+			ActionDropdown: PropTypes.func,
+		}),
+		t: PropTypes.func.isRequired,
+	};
+
+	HeaderBar.propTypes = {
+		logo: PropTypes.shape(Logo.propTypes),
+		brand: PropTypes.shape(Brand.propTypes),
+		env: PropTypes.shape(Environment.propTypes),
+		search: PropTypes.shape(Search.propTypes),
+		help: PropTypes.shape(Help.propTypes),
+		user: PropTypes.shape(User.propTypes),
+		products: PropTypes.shape(Products.propTypes),
+		renderers: PropTypes.shape({
+			Logo: PropTypes.func,
+			Brand: PropTypes.func,
+			Environment: PropTypes.func,
+			Search: PropTypes.func,
+			User: PropTypes.func,
+			Products: PropTypes.func,
+		}),
+		t: PropTypes.func,
+	};
+}
+
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(HeaderBar);

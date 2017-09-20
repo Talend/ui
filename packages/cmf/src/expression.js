@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import React from 'react';
 import invariant from 'invariant';
 import Registry from './registry';
 
@@ -41,8 +43,34 @@ function call(expression, context, payload) {
 	return check({ context, payload }, ...args);
 }
 
+function getProps(props, attrs, context, payload = {}) {
+	const newProps = Object.assign({}, props, payload);
+	attrs.forEach((attr) => {
+		const value = props[attr];
+		if (typeof value === 'string' || typeof value === 'object') {
+			newProps[attr] = call(value, context, newProps);
+		}
+	});
+	return newProps;
+}
+
+function withExpression(Component, attrs) {
+	function WithExpression(props, context) {
+		return <Component {...getProps(props, attrs, context)} />;
+	}
+	WithExpression.contextTypes = {
+		registry: PropTypes.object,
+		router: PropTypes.object,
+		store: PropTypes.object,
+	};
+	WithExpression.displayName = `WithExpression(${Component.displayName || Component.name})`;
+	return WithExpression;
+}
+
 export default {
 	register,
 	get,
 	call,
+	getProps,
+	withExpression,
 };

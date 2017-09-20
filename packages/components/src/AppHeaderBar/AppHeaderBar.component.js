@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
 	Button,
@@ -33,7 +34,7 @@ function NavListItem(props) {
 }
 
 NavListItem.propTypes = {
-	item: React.PropTypes.shape(Action.propTypes),
+	item: PropTypes.shape(Action.propTypes),
 };
 
 export function renderNavItem(item, index) {
@@ -42,7 +43,7 @@ export function renderNavItem(item, index) {
 
 renderNavItem.propTypes = {
 	item: NavListItem.propTypes,
-	index: React.PropTypes.number,
+	index: PropTypes.number,
 };
 
 export function renderDropdownItem(props, index) {
@@ -56,9 +57,9 @@ export function renderDropdownItem(props, index) {
 }
 
 renderDropdownItem.propTypes = {
-	icon: React.PropTypes.string,
-	name: React.PropTypes.string,
-	onClick: React.PropTypes.func,
+	icon: PropTypes.string,
+	name: PropTypes.string,
+	onClick: PropTypes.func,
 };
 
 export function renderDropdown(props, index) {
@@ -76,9 +77,9 @@ export function renderDropdown(props, index) {
 	);
 }
 renderDropdown.propTypes = {
-	dropdown: React.PropTypes.shape(NavDropdown.propTypes),
-	items: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderDropdownItem.propTypes),
+	dropdown: PropTypes.shape(NavDropdown.propTypes),
+	items: PropTypes.arrayOf(
+		PropTypes.shape(renderDropdownItem.propTypes),
 	),
 };
 
@@ -100,13 +101,13 @@ export function renderNav(props) {
 	);
 }
 renderNav.propTypes = {
-	nav: React.PropTypes.shape(Nav.propTypes),
-	navItems: React.PropTypes.arrayOf(
-		React.PropTypes.shape({
-			type: React.PropTypes.oneOf([NAV_ITEM, DROPDOWN]),
-			item: React.PropTypes.oneOfType([
-				React.PropTypes.shape(renderNavItem.propTypes),
-				React.PropTypes.shape(renderDropdown.propTypes),
+	nav: PropTypes.shape(Nav.propTypes),
+	navItems: PropTypes.arrayOf(
+		PropTypes.shape({
+			type: PropTypes.oneOf([NAV_ITEM, DROPDOWN]),
+			item: PropTypes.oneOfType([
+				PropTypes.shape(renderNavItem.propTypes),
+				PropTypes.shape(renderDropdown.propTypes),
 			]),
 		}),
 	),
@@ -120,8 +121,8 @@ export function renderFormGroup(props, index) {
 	);
 }
 renderFormGroup.propTypes = {
-	formgroup: React.PropTypes.shape(FormGroup.propTypes),
-	formcontrol: React.PropTypes.shape(FormControl.propTypes),
+	formgroup: PropTypes.shape(FormGroup.propTypes),
+	formcontrol: PropTypes.shape(FormControl.propTypes),
 };
 
 export function renderForm(props, index) {
@@ -136,12 +137,12 @@ export function renderForm(props, index) {
 	);
 }
 renderForm.propTypes = {
-	form: React.PropTypes.shape(Navbar.Form.propTypes),
-	formgroups: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderFormGroup.propTypes),
+	form: PropTypes.shape(Navbar.Form.propTypes),
+	formgroups: PropTypes.arrayOf(
+		PropTypes.shape(renderFormGroup.propTypes),
 	),
-	button: React.PropTypes.shape(Button.propTypes),
-	buttonLabel: React.PropTypes.string,
+	button: PropTypes.shape(Button.propTypes),
+	buttonLabel: PropTypes.string,
 };
 
 export function renderTypeahead(search, index) {
@@ -151,7 +152,7 @@ export function renderTypeahead(search, index) {
 		</form>
 	);
 }
-renderTypeahead.propTypes = React.PropTypes.shape(Typeahead.propTypes);
+renderTypeahead.propTypes = PropTypes.shape(Typeahead.propTypes);
 
 export function renderContent(props, index) {
 	if (props.navs) {
@@ -166,13 +167,13 @@ export function renderContent(props, index) {
 	return null;
 }
 renderContent.propTypes = {
-	navs: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderNav.propTypes),
+	navs: PropTypes.arrayOf(
+		PropTypes.shape(renderNav.propTypes),
 	),
-	forms: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderForm.propTypes),
+	forms: PropTypes.arrayOf(
+		PropTypes.shape(renderForm.propTypes),
 	),
-	search: React.PropTypes.shape(Typeahead.propTypes),
+	search: PropTypes.shape(Typeahead.propTypes),
 };
 
 /**
@@ -217,14 +218,15 @@ function AppHeaderBar(props) {
 }
 
 AppHeaderBar.propTypes = {
-	app: React.PropTypes.string.isRequired,
-	brandLink: React.PropTypes.shape({
-		onClick: React.PropTypes.func,
-		className: React.PropTypes.string,
+	app: PropTypes.string.isRequired,
+	brandLink: PropTypes.shape({
+		onClick: PropTypes.func,
+		className: PropTypes.string,
 	}),
-	content: React.PropTypes.arrayOf(
-		React.PropTypes.shape(renderContent.propTypes),
+	content: PropTypes.arrayOf(
+		PropTypes.shape(renderContent.propTypes),
 	),
 };
+AppHeaderBar.displayName = 'AppHeaderBar';
 
 export default AppHeaderBar;

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 
 /**
@@ -16,7 +17,7 @@ import classNames from 'classnames';
  *
  * @return XML(JSX) React pure component
  * **/
-function Toggle({ id, onChange, onBlur, label, checked, disabled, className }) {
+function Toggle({ id, onChange, onBlur, label, checked, autoFocus, disabled, className }) {
 	return (
 		<div className={classNames('checkbox tc-toggle', className)}>
 			<label htmlFor={id}>
@@ -26,6 +27,7 @@ function Toggle({ id, onChange, onBlur, label, checked, disabled, className }) {
 					onChange={onChange}
 					onBlur={onBlur}
 					checked={checked}
+					autoFocus={autoFocus}
 					disabled={disabled}
 				/>
 				<span>{label}</span>
@@ -47,6 +49,7 @@ Toggle.propTypes = {
 	onChange: PropTypes.func.isRequired,
 	onBlur: PropTypes.func,
 	checked: PropTypes.bool,
+	autoFocus: PropTypes.bool,
 	disabled: PropTypes.bool,
 	className: PropTypes.string,
 };

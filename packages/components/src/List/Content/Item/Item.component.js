@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
@@ -152,27 +153,27 @@ function Item({ id, columns, actions, item, itemProps }) {
 }
 
 Item.propTypes = {
-	id: React.PropTypes.string,
-	columns: React.PropTypes.arrayOf(Column.propTypes).isRequired,
-	actions: React.PropTypes.arrayOf(React.PropTypes.shape({
-		key: React.PropTypes.string.isRequired,
-		label: React.PropTypes.string.isRequired,
-		icon: React.PropTypes.string.isRequired,
-		className: React.PropTypes.string,
-		onClick: React.PropTypes.func.isRequired,
+	id: PropTypes.string,
+	columns: PropTypes.arrayOf(Column.propTypes).isRequired,
+	actions: PropTypes.arrayOf(PropTypes.shape({
+		key: PropTypes.string.isRequired,
+		label: PropTypes.string.isRequired,
+		icon: PropTypes.string.isRequired,
+		className: PropTypes.string,
+		onClick: PropTypes.func.isRequired,
 	})),
-	item: React.PropTypes.shape({
-		display: React.PropTypes.string,
+	item: PropTypes.shape({
+		display: PropTypes.string,
 	}).isRequired,
-	itemProps: React.PropTypes.shape({
-		classNameKey: React.PropTypes.string,
-		selectedClass: React.PropTypes.string,
-		isSelected: React.PropTypes.func,
-		onSelect: React.PropTypes.func,
-		onOpen: React.PropTypes.func,
-		onChange: React.PropTypes.func,
-		onSubmit: React.PropTypes.func,
-		onCancel: React.PropTypes.func,
+	itemProps: PropTypes.shape({
+		classNameKey: PropTypes.string,
+		selectedClass: PropTypes.string,
+		isSelected: PropTypes.func,
+		onSelect: PropTypes.func,
+		onOpen: PropTypes.func,
+		onChange: PropTypes.func,
+		onSubmit: PropTypes.func,
+		onCancel: PropTypes.func,
 	}),
 };
 

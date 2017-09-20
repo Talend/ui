@@ -1,7 +1,8 @@
 /**
  * @module react-cmf/lib/RegistryProvider
  */
-import React, { Children, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Children } from 'react';
 import Registry from './registry';
 
 /**

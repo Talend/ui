@@ -1,7 +1,10 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook'; // eslint-disable-line import/no-extraneous-dependencies
+import { storiesOf, action } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from 'talend-icons/dist/react';
+
+import { I18nextProvider } from 'react-i18next';
+import i18n from './config/i18n';
 
 import { HeaderBar, IconsProvider } from '../src';
 
@@ -91,8 +94,9 @@ const props = {
 	search: {
 		icon: {
 			name: 'talend-search',
-			title: 'icon',
+			title: 'Search',
 			bsStyle: 'link',
+			tooltipPlacement: 'bottom',
 		},
 		id: 'header-search',
 		onToggle: action('onSearchClick'),
@@ -110,7 +114,9 @@ const props = {
 				onClick: action('onSettingsClick'),
 			},
 		],
-		name: 'User NAME',
+		name: 'John Doe',
+		firstName: 'John',
+		lastName: 'Doe',
 	},
 	products: {
 		id: 'header-products',
@@ -137,12 +143,18 @@ const props = {
 
 const decoratedStories = storiesOf('HeaderBar', module)
 	.addDecorator(story => (
-		<div>
-			{story()}
-			<div className="container" style={{ paddingTop: 40 }} />
-			<IconsProvider defaultIcons={icons} />
-		</div>
+		<I18nextProvider i18n={i18n}>
+			<div>
+				{story()}
+				<div className="container" style={{ paddingTop: 40 }} />
+				<IconsProvider defaultIcons={icons} />
+			</div>
+		</I18nextProvider>
 	));
+
+if (!decoratedStories.addWithInfo) {
+	decoratedStories.addWithInfo = decoratedStories.add;
+}
 
 decoratedStories
 	.addWithInfo('default', () => {

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
 import ActionBar from '../ActionBar';
@@ -92,9 +93,9 @@ function DrawerTitle({ title, children, onCancelAction }) {
 		return null;
 	}
 	return (
-		<div>
-			<div className={theme['tc-drawer-header']}>
-				<h1>{title}</h1>
+		<div className={theme['tc-drawer-header']}>
+			<div className={theme['tc-drawer-header-title']}>
+				<h1 title={title}>{title}</h1>
 				{cancelActionComponent(onCancelAction)}
 			</div>
 			<div className={theme['tc-drawer-header-with-tabs']}>
@@ -169,12 +170,20 @@ function Drawer({
 			withTransition={withTransition}
 		>
 			<DrawerTitle title={title} onCancelAction={onCancelAction} />
-			{tabs && (<TabBar {...tabs} />)}
+			{tabs && (
+				<div className={theme['tc-drawer-tabs-container']}>
+					<TabBar {...tabs} className={theme['tc-drawer-tabs']} />
+				</div>
+			)}
 			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
 				<DrawerContent>
 					{children}
 				</DrawerContent>
-				<ActionBar {...combinedFooterActions(onCancelAction, footerActions)} />
+				<div className={theme['tc-drawer-actionbar-container']}>
+					<ActionBar
+						{...combinedFooterActions(onCancelAction, footerActions)} className={theme['tc-drawer-actionbar']}
+					/>
+				</div>
 			</div>
 		</DrawerContainer>
 	);

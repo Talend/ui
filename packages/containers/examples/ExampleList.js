@@ -1,7 +1,10 @@
 import React from 'react';
 import { IconsProvider } from 'react-talend-components';
 import Immutable from 'immutable';
+import { I18nextProvider } from 'react-i18next';
+
 import { List } from '../src';
+import i18n from './config/i18n';
 
 const list = {
 	columns: [
@@ -90,6 +93,27 @@ const ExampleList = {
 				<List list={list} actions={actions} items={items} />
 			</div>
 		</div>
+	),
+	virtualized: () => (
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List {...props} items={items} virtualized />
+			</div>
+		</div>
+	),
+	i18n: () => (
+		<I18nextProvider i18n={i18n}>
+			<div>
+				<p>Change language on the toolbar</p>
+				<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+				<button onClick={() => i18n.changeLanguage('it')}>it</button>
+				<IconsProvider />
+				<div className="list-container">
+					<List {...props} items={items} virtualized />
+				</div>
+			</div>
+		</I18nextProvider>
 	),
 };
 export default ExampleList;

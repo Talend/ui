@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
@@ -21,18 +22,18 @@ function Tab({ item, onClick, isSelected }) {
 }
 
 Tab.propTypes = {
-	item: React.PropTypes.shape({
-		id: React.PropTypes.string,
-		key: React.PropTypes.string.isRequired,
-		label: React.PropTypes.string.isRequired,
+	item: PropTypes.shape({
+		id: PropTypes.string,
+		key: PropTypes.string.isRequired,
+		label: PropTypes.string.isRequired,
 	}).isRequired,
-	isSelected: React.PropTypes.bool,
-	onClick: React.PropTypes.func.isRequired,
+	isSelected: PropTypes.bool,
+	onClick: PropTypes.func.isRequired,
 };
 
-function TabBar({ items, onSelect, selected }) {
+function TabBar({ items, onSelect, selected, className }) {
 	return (
-		<nav className={classNames(['nav', 'tc-tab-bar', theme['tc-tab-bar']])}>
+		<nav className={classNames(['nav', 'tc-tab-bar', className, theme['tc-tab-bar']])}>
 			<ul className="nav nav-tabs tc-tab-bar-actions">
 				{items.map(item => (
 					<Tab key={item.key} onClick={onSelect} isSelected={selected === item.key} item={item} />
@@ -43,13 +44,14 @@ function TabBar({ items, onSelect, selected }) {
 }
 
 TabBar.propTypes = {
-	items: React.PropTypes.arrayOf(React.PropTypes.shape({
-		id: React.PropTypes.string,
-		key: React.PropTypes.string.isRequired,
-		label: React.PropTypes.string.isRequired,
+	items: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.string,
+		key: PropTypes.string.isRequired,
+		label: PropTypes.string.isRequired,
 	})).isRequired,
-	onSelect: React.PropTypes.func.isRequired,
-	selected: React.PropTypes.string,
+	onSelect: PropTypes.func.isRequired,
+	selected: PropTypes.string,
+	className: PropTypes.string,
 };
 
 TabBar.Tab = Tab;

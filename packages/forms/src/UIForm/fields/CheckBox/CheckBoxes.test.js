@@ -26,6 +26,7 @@ describe('CheckBoxes field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				values={values}
 			/>
@@ -43,6 +44,7 @@ describe('CheckBoxes field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 			/>
 		);
@@ -65,6 +67,7 @@ describe('CheckBoxes field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={disabledSchema}
 			/>
 		);
@@ -84,6 +87,7 @@ describe('CheckBoxes field', () => {
 					isValid
 					errorMessage={'My error message'}
 					onChange={onChange}
+					onFinish={jest.fn()}
 					schema={schema}
 					value={values}
 				/>
@@ -94,7 +98,10 @@ describe('CheckBoxes field', () => {
 			wrapper.find('input').at(2).simulate('change', event);
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), schema, ['foo', 'bar', 'lol']);
+			expect(onChange).toBeCalledWith(
+				expect.anything(),
+				{ schema, value: ['foo', 'bar', 'lol'] }
+			);
 		});
 
 		it('should trigger callback, adding a value to undefined values', () => {
@@ -106,6 +113,7 @@ describe('CheckBoxes field', () => {
 					isValid
 					errorMessage={'My error message'}
 					onChange={onChange}
+					onFinish={jest.fn()}
 					schema={schema}
 				/>
 			);
@@ -115,7 +123,10 @@ describe('CheckBoxes field', () => {
 			wrapper.find('input').at(2).simulate('change', event);
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), schema, ['lol']);
+			expect(onChange).toBeCalledWith(
+				expect.anything(),
+				{ schema, value: ['lol'] }
+			);
 		});
 
 		it('should trigger callback, removing a value to existing multi values', () => {
@@ -128,6 +139,7 @@ describe('CheckBoxes field', () => {
 					isValid
 					errorMessage={'My error message'}
 					onChange={onChange}
+					onFinish={jest.fn()}
 					schema={schema}
 					value={values}
 				/>
@@ -138,7 +150,10 @@ describe('CheckBoxes field', () => {
 			wrapper.find('input').at(0).simulate('change', event);
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), schema, ['bar']);
+			expect(onChange).toBeCalledWith(
+				expect.anything(),
+				{ schema, value: ['bar'] }
+			);
 		});
 
 		it('should trigger callback, removing a value to existing single value', () => {
@@ -151,6 +166,7 @@ describe('CheckBoxes field', () => {
 					isValid
 					errorMessage={'My error message'}
 					onChange={onChange}
+					onFinish={jest.fn()}
 					schema={schema}
 					value={values}
 				/>
@@ -161,7 +177,34 @@ describe('CheckBoxes field', () => {
 			wrapper.find('input').at(0).simulate('change', event);
 
 			// then
-			expect(onChange).toBeCalledWith(expect.anything(), schema, undefined);
+			expect(onChange).toBeCalledWith(
+				expect.anything(),
+				{ schema, value: undefined },
+			);
 		});
+	});
+
+	it('should trigger onFinish on checkbox blur', () => {
+		// given
+		const values = ['foo', 'bar'];
+		const onFinish = jest.fn();
+		const wrapper = mount(
+			<CheckBoxes
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				onFinish={onFinish}
+				schema={schema}
+				value={values}
+			/>
+		);
+		const event = { target: { checked: true } };
+
+		// when
+		wrapper.find('input').at(2).simulate('blur', event);
+
+		// then
+		expect(onFinish).toBeCalledWith(expect.anything(), { schema });
 	});
 });

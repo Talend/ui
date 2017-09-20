@@ -19,6 +19,7 @@ describe('CheckBox field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				value
 			/>
@@ -42,6 +43,7 @@ describe('CheckBox field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value
 			/>
@@ -51,7 +53,7 @@ describe('CheckBox field', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should trigger onChange', () => {
+	it('should trigger onChange on input change', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = mount(
@@ -60,6 +62,7 @@ describe('CheckBox field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={onChange}
+				onFinish={jest.fn()}
 				schema={schema}
 				value
 			/>
@@ -70,6 +73,29 @@ describe('CheckBox field', () => {
 		wrapper.find('input').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(expect.anything(), schema, false);
+		expect(onChange).toBeCalledWith(expect.anything(), { schema, value: false });
+	});
+
+	it('should trigger onFinish on input blur', () => {
+		// given
+		const onFinish = jest.fn();
+		const wrapper = mount(
+			<CheckBox
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				onFinish={onFinish}
+				schema={schema}
+				value
+			/>
+		);
+		const event = { target: { checked: false } };
+
+		// when
+		wrapper.find('input').simulate('blur', event);
+
+		// then
+		expect(onFinish).toBeCalledWith(expect.anything(), { schema });
 	});
 });

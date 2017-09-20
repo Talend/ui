@@ -1,9 +1,11 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classnames from 'classnames';
 
 import { Actions, Action } from '../../Actions';
 import ItemTitle from '../ItemTitle';
 import TooltipTrigger from '../../TooltipTrigger';
+import NoRows from '../../VirtualizedList/NoRows';
 import DisplayPropTypes from '../Display/Display.propTypes';
 
 import theme from './DisplayTable.scss';
@@ -304,10 +306,6 @@ function DisplayTable(props) {
 		'tc-list-display-table',
 		theme.table,
 	);
-	let message = null;
-	if (!items || items.length === 0) {
-		message = <span className={theme['no-result']}>No result found</span>;
-	}
 
 	return (
 		<div className={containerClassName}>
@@ -338,7 +336,7 @@ function DisplayTable(props) {
 						)}
 					</tbody>
 				</table>
-				{message}
+				{ !items.length && <NoRows /> }
 			</div>
 		</div>
 	);

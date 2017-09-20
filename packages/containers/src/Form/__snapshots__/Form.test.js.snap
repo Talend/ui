@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container(Form) should pass props to Form lib 1`] = `
+Object {
+  "ArrayFieldTemplate": [Function],
+  "actions": Array [],
+  "buttonBlockClass": "form-actions",
+  "children": undefined,
+  "className": "tc-form rjsf foo pristine",
+  "data": Object {
+    "jsonSchema": Object {
+      "schema": true,
+    },
+    "properties": Object {},
+    "uiSchema": Object {
+      "uiSchema": true,
+    },
+  },
+  "fields": undefined,
+  "onChange": [Function],
+  "onSubmit": [Function],
+  "onTrigger": [Function],
+  "other": true,
+}
+`;
+
+exports[`Container(Form) should render a Form 1`] = `
+<TalendForm
+  ArrayFieldTemplate={[Function]}
+  actions={Array []}
+  buttonBlockClass="form-actions"
+  className="tc-form rjsf pristine"
+  data={
+    Object {
+      "jsonSchema": Object {
+        "schema": true,
+      },
+      "properties": Object {},
+      "uiSchema": Object {
+        "uiSchema": true,
+      },
+    }
+  }
+  fields={undefined}
+  onChange={[Function]}
+  onSubmit={[Function]}
+  onTrigger={[Function]}
+  other={true}
+/>
+`;
+
+exports[`Container(Form) should use props.onChange 1`] = `
+Array [
+  Object {
+    "foo": "bar",
+  },
+]
+`;
+
+exports[`Container(Form) should use props.onChange 2`] = `
+Array [
+  Object {
+    "data": undefined,
+    "dirty": true,
+  },
+]
+`;
+
+exports[`Container(Form) should use props.onTrigger 1`] = `
+Array [
+  Object {
+    "foo": "bar",
+  },
+  "my-form",
+  "key",
+  "value",
+]
+`;

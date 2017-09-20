@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 
 import { Action, ActionDropdown } from '../../Actions/';
@@ -49,10 +50,10 @@ function getAction(action, index) {
 	);
 }
 
-function Header({ headerDefault, required }) {
+function Header({ headerDefault, required, label }) {
 	return (
 		<header className={headerClasses()}>
-			<span>Values{required && '*'}</span>
+			<span>{label}{required && '*'}</span>
 			<div className="actions">
 				{headerDefault.map(getAction)}
 			</div>
@@ -63,6 +64,7 @@ function Header({ headerDefault, required }) {
 Header.propTypes = {
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
 	required: PropTypes.bool,
+	label: PropTypes.string,
 };
 
 export default Header;

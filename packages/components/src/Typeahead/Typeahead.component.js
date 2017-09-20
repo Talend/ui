@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import uuid from 'uuid';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
@@ -33,36 +34,12 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 		);
 	}
 
-	const containerClass = classNames(
-		theme['tc-typeahead-container'],
-		(position === 'right') && theme.right,
-	);
+	const sectionProps = rest.multiSection ?
+		{ getSectionItems: section => section.suggestions, renderSectionTitle } :
+		null;
 
-	const autowhateverProps = {
-		...rest,
-		inputProps: {
-			value: rest.value,
-			placeholder: rest.placeholder,
-			onBlur: rest.onBlur,
-			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
-			onKeyDown: rest.onKeyDown,
-			debounceMinLength: rest.debounceMinLength,
-			debounceTimeout: rest.debounceTimeout,
-			icon,
-		},
-		itemProps: {
-			onMouseDown: rest.onSelect,
-		},
-		renderInputComponent,
-		renderItemsContainer: renderItemsContainerFactory(
-			rest.items, rest.noResultText, rest.searching, rest.searchingText),
-		renderSectionTitle,
-		renderItem,
-		multiSection: true,
-		getSectionItems: section => section.suggestions,
+	const themeProps = {
 		theme: {
-			...rest.theme,
-			container: containerClass,
 			containerOpen: theme['container-open'],
 			highlight: theme['highlight-match'],
 			input: theme['typeahead-input'],
@@ -70,11 +47,57 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			itemsContainer: theme['items-container'],
 			itemsList: theme.items,
 			sectionContainer: theme['section-container'],
+
+			...rest.theme,
+			container: classNames(
+				theme['tc-typeahead-container'],
+				(position === 'right') && theme.right,
+				rest.theme && rest.theme.container,
+				rest.className,
+			),
 		},
-		focusedSectionIndex: rest.focusedSectionIndex,
-		focusedItemIndex: rest.focusedItemIndex,
-		items: rest.items || [],
+	};
+
+	const inputProps = {
+		renderInputComponent,
+		inputProps: {
+			autoFocus: rest.autoFocus,
+			debounceMinLength: rest.debounceMinLength,
+			debounceTimeout: rest.debounceTimeout,
+			disabled: rest.disabled,
+			inputRef: rest.inputRef,
+			onBlur: rest.onBlur,
+			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
+			onFocus: rest.onFocus,
+			onKeyDown: rest.onKeyDown,
+			placeholder: rest.placeholder,
+			readOnly: rest.readOnly,
+			value: rest.value,
+			icon,
+		},
+	};
+
+	const defaultRenderersProps = {
+		renderItem,
+		renderItemsContainer: renderItemsContainerFactory(
+			rest.items,
+			rest.noResultText,
+			rest.searching,
+			rest.searchingText
+		),
 		renderItemData: { value: rest.value },
+	};
+
+	const autowhateverProps = {
+		...defaultRenderersProps,
+		...rest,
+		...sectionProps,
+		...themeProps,
+		...inputProps,
+		items: rest.items || [],
+		itemProps: {
+			onMouseDown: rest.onSelect,
+		},
 	};
 
 	return (
@@ -83,48 +106,69 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 }
 
 Typeahead.defaultProps = {
+	autoFocus: true,
+	disabled: false,
 	id: uuid.v4(),
-	position: 'left',
 	items: null,
+	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
 	noResultText: 'No result.',
+	position: 'left',
+	readOnly: false,
 	searching: false,
 	searchingText: 'Searching for matches…',
 };
 
 Typeahead.propTypes = {
+	// container
 	id: PropTypes.string,
+	className: PropTypes.string,
+	noResultText: PropTypes.string,
+	position: PropTypes.oneOf(['left', 'right']),
+	searching: PropTypes.bool,
+	searchingText: PropTypes.string,
+
+	// toggle button
 	onToggle: PropTypes.func,
 	icon: PropTypes.shape({
 		name: PropTypes.string,
 		title: PropTypes.string,
 		bsStyle: PropTypes.string,
 	}),
-	position: PropTypes.oneOf(['left', 'right']),
-	value: PropTypes.string,
-	placeholder: PropTypes.string,
+
+	// input
+	autoFocus: PropTypes.bool,
+	debounceMinLength: PropTypes.number,
+	debounceTimeout: PropTypes.number,
+	disabled: PropTypes.bool,
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
+	onFocus: PropTypes.func,
+	inputRef: PropTypes.func,
+	placeholder: PropTypes.string,
+	readOnly: PropTypes.bool,
+	value: PropTypes.string,
+
+	// suggestions
 	onSelect: PropTypes.func,
 	onKeyDown: PropTypes.func,
 	focusedSectionIndex: PropTypes.number,
 	focusedItemIndex: PropTypes.number,
+	multiSection: PropTypes.bool,
 	items: PropTypes.arrayOf(
-		PropTypes.shape({
-			title: PropTypes.string,
-			description: PropTypes.string,
-			suggestions: PropTypes.arrayOf(
-				PropTypes.shape({
-					title: PropTypes.string,
-					description: PropTypes.string,
-				}),
-			),
-		}),
+		PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.shape({
+				title: PropTypes.string,
+				description: PropTypes.string,
+				suggestions: PropTypes.arrayOf(
+					PropTypes.shape({
+						title: PropTypes.string,
+						description: PropTypes.string,
+					}),
+				),
+			}),
+		])
 	),
-	noResultText: PropTypes.string,
-	searching: PropTypes.bool,
-	searchingText: PropTypes.string,
-	debounceMinLength: PropTypes.number,
-	debounceTimeout: PropTypes.number,
 };
 
 export default Typeahead;

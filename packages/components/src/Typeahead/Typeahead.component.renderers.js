@@ -1,17 +1,20 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
+import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
 
-export const renderInputComponent = (props) => {
+export function renderInputComponent(props) {
 	const {
 		key,
 		debounceMinLength,
 		debounceTimeout,
 		icon,
+		inputRef,
 		...rest
 	} = props;
 
@@ -27,18 +30,20 @@ export const renderInputComponent = (props) => {
 					id={key}
 					{...rest}
 					autoFocus
+					debounceTimeout={debounceTimeout}
 					element={FormControl}
 					minLength={debounceMinLength}
-					debounceTimeout={debounceTimeout}
+					ref={inputRef}
 				/> : <FormControl
 					id={key}
 					autoFocus
+					inputRef={inputRef}
 					{...rest}
 				/> }
 			{renderedIcon}
 		</div>
 	);
-};
+}
 renderInputComponent.propTypes = {
 	key: PropTypes.string,
 	debounceMinLength: PropTypes.number,
@@ -47,9 +52,10 @@ renderInputComponent.propTypes = {
 		name: PropTypes.string,
 		title: PropTypes.string,
 	}),
+	inputRef: PropTypes.func,
 };
 
-const ItemContainer = (props) => {
+function ItemContainer(props) {
 	const { items, noResultText, searching, searchingText, ...containerProps } = props;
 	const { className, ...restProps } = containerProps;
 	if (searching) {
@@ -69,27 +75,30 @@ const ItemContainer = (props) => {
 	return (
 		<div {...containerProps} />
 	);
-};
+}
 ItemContainer.propTypes = {
 	className: PropTypes.string,
 	items: PropTypes.arrayOf(
-		PropTypes.shape({
-			title: PropTypes.string,
-			description: PropTypes.string,
-			suggestions: PropTypes.arrayOf(
-				PropTypes.shape({
-					title: PropTypes.string,
-					description: PropTypes.string,
-				}),
-			),
-		}),
+		PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.shape({
+				title: PropTypes.string,
+				description: PropTypes.string,
+				suggestions: PropTypes.arrayOf(
+					PropTypes.shape({
+						title: PropTypes.string,
+						description: PropTypes.string,
+					}),
+				),
+			}),
+		])
 	),
 	noResultText: PropTypes.string,
 	searching: PropTypes.bool,
 	searchingText: PropTypes.string,
 };
 
-export const renderItemsContainerFactory = (items, noResultText, searching, searchingText) => {
+export function renderItemsContainerFactory(items, noResultText, searching, searchingText) {
 	const renderItemsContainerComponent = (props) => {
 		const { id, key, ref, ...rest } = props;
 		return (
@@ -116,9 +125,9 @@ export const renderItemsContainerFactory = (items, noResultText, searching, sear
 	};
 
 	return renderItemsContainerComponent;
-};
+}
 
-export const renderSectionTitle = (section) => {
+export function renderSectionTitle(section) {
 	if (section) {
 		return (
 			<div className={theme['section-header']}>
@@ -128,35 +137,25 @@ export const renderSectionTitle = (section) => {
 		);
 	}
 	return null;
-};
-
-function emphasise(text, value) {
-	if (!text) {
-		return '';
-	}
-	if (!value) {
-		return [text];
-	}
-
-	const parts = text.split(new RegExp(`(${value})`, 'gi')).filter(Boolean);
-	return parts.map((part) => {
-		if (value && part.toUpperCase() === value.toUpperCase()) {
-			return <em className={theme['highlight-match']}>{part}</em>;
-		}
-		return part;
-	});
 }
 
-export const renderItem = (item, { value }) => {
-	const title = item.title ? item.title.trim() : '';
+export function renderItem(item, { value }) {
+	let title;
+	let description;
+	if (typeof item === 'string') {
+		title = item;
+	} else {
+		title = item.title ? item.title.trim() : '';
+		description = item.description;
+	}
 	return (
 		<div className={theme.item} title={title}>
 			<span className={theme['item-title']}>
-				{ emphasise(title, value) }
+				<Emphasis value={value} text={title} />
 			</span>
-			<p className={theme['item-description']}>
-				{ emphasise(item.description, value) }
-			</p>
+			{description && <p className={theme['item-description']}>
+				<Emphasis value={value} text={description} />
+			</p>}
 		</div>
 	);
-};
+}

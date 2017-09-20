@@ -56,9 +56,23 @@ describe('ListToVirtualizedList', () => {
 	});
 
 	it('should add actionsKey to titleProps', () => {
-		const wrapper = shallow(
-			<ListToVirtualizedList {...props} />
-		);
+		// when
+		const wrapper = shallow(<ListToVirtualizedList {...props} />);
+
+		// then
+		wrapper.find(VirtualizedList.Content).forEach((element) => {
+			const eProps = element.props();
+			if (eProps.columnData) {
+				expect(eProps.columnData.actionsKey).toBe('actions');
+			}
+		});
+	});
+
+	it('should NOT add actionsKey without titleProps', () => {
+		// when
+		const wrapper = shallow(<ListToVirtualizedList {...props} titleProps={undefined} />);
+
+		// then
 		wrapper.find(VirtualizedList.Content).forEach((element) => {
 			const eProps = element.props();
 			if (eProps.columnData) {
@@ -68,9 +82,10 @@ describe('ListToVirtualizedList', () => {
 	});
 
 	it('should find supposedActions based on items', () => {
-		const wrapper = shallow(
-			<ListToVirtualizedList {...props} />
-		);
+		// when
+		const wrapper = shallow(<ListToVirtualizedList {...props} />);
+
+		// then
 		wrapper.find(VirtualizedList.Content).forEach((element) => {
 			const eProps = element.props();
 			if (eProps.label === 'Actions') {
@@ -115,5 +130,75 @@ describe('ListToVirtualizedList', () => {
 
 		// then
 		expect(onChange).toBeCalledWith(null, { field: 'name', isDescending: true });
+	});
+
+	it('should adapt selection isSelected', () => {
+		// given
+		const isSelected = jest.fn();
+		const virtualizedProps = shallow(
+			<ListToVirtualizedList
+				{...props}
+				itemProps={{ isSelected }}
+			/>
+		).props();
+
+		// when
+		virtualizedProps.isSelected(props.items[0]);
+
+		// then
+		expect(isSelected).toBeCalledWith(props.items[0]);
+	});
+
+	it('should adapt selection onToggle', () => {
+		// given
+		const onToggle = jest.fn();
+		const event = { target: {} };
+		const virtualizedProps = shallow(
+			<ListToVirtualizedList
+				{...props}
+				itemProps={{ onToggle }}
+			/>
+		).props();
+
+		// when
+		virtualizedProps.selectionToggle(event, props.items[0]);
+
+		// then
+		expect(onToggle).toBeCalledWith(event, props.items[0]);
+	});
+
+	it('should adapt click onRowClick', () => {
+		// given
+		const onRowClick = jest.fn();
+		const event = { target: {} };
+		const virtualizedProps = shallow(
+			<ListToVirtualizedList
+				{...props}
+				itemProps={{ onRowClick }}
+			/>
+		).props();
+
+		// when
+		virtualizedProps.onRowClick(event, props.items[0]);
+
+		// then
+		expect(onRowClick).toBeCalledWith(event, props.items[0]);
+	});
+
+	it('should adapt selection isActive', () => {
+		// given
+		const isActive = jest.fn();
+		const virtualizedProps = shallow(
+			<ListToVirtualizedList
+				{...props}
+				itemProps={{ isActive }}
+			/>
+		).props();
+
+		// when
+		virtualizedProps.isActive(props.items[0]);
+
+		// then
+		expect(isActive).toBeCalledWith(props.items[0]);
 	});
 });

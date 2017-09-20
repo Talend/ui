@@ -1,5 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Enumeration should render with EmptyListPlaceholder in default mode when there's no items in list 1`] = `
+<div
+  className="undefined tc-enumeration"
+>
+  <header
+    className="undefined tc-enumeration-header"
+  >
+    <span>
+      Values
+    </span>
+    <div
+      className="actions"
+    />
+  </header>
+  <p
+    className="undefined tc-enumeration-hint"
+  >
+    The list is empty
+  </p>
+</div>
+`;
+
+exports[`Enumeration should render with EmptyListPlaceholder in search mode when there's no items in list 1`] = `
+<div
+  className="undefined tc-enumeration"
+>
+  <header
+    className="undefined tc-enumeration-header"
+  >
+    <input
+      autoFocus={true}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Search"
+      type="text"
+      value={undefined}
+    />
+  </header>
+  <p
+    className="undefined tc-enumeration-hint"
+  >
+    No results
+  </p>
+</div>
+`;
+
 exports[`Enumeration should render with header in add state and list in default state 1`] = `
 <div
   className="undefined tc-enumeration"
@@ -67,6 +113,7 @@ exports[`Enumeration should render with header in add state and list in default 
     >
       <div
         aria-label="grid"
+        aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List undefined"
         id={undefined}
         onScroll={[Function]}
@@ -88,6 +135,7 @@ exports[`Enumeration should render with header in add state and list in default 
       >
         <div
           className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
           style={
             Object {
               "height": 126,
@@ -120,10 +168,6 @@ exports[`Enumeration should render with header in add state and list in default 
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -198,10 +242,6 @@ exports[`Enumeration should render with header in add state and list in default 
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -276,10 +316,6 @@ exports[`Enumeration should render with header in add state and list in default 
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -386,6 +422,7 @@ exports[`Enumeration should render with header in default state and first item i
     >
       <div
         aria-label="grid"
+        aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List undefined"
         id={undefined}
         onScroll={[Function]}
@@ -407,6 +444,7 @@ exports[`Enumeration should render with header in default state and first item i
       >
         <div
           className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
           style={
             Object {
               "height": 126,
@@ -510,10 +548,6 @@ exports[`Enumeration should render with header in default state and first item i
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -588,10 +622,316 @@ exports[`Enumeration should render with header in default state and first item i
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
+                type="button"
+              >
+                <span>
+                  Lorem ipsum dolor sit amet 2
+                </span>
+              </button>
+              <div
+                className="undefined tc-enumeration-item-actions"
+              >
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-pencil"
+                    />
+                  </svg>
+                </button>
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-trash"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ul>
+</div>
+`;
+
+exports[`Enumeration should render with header in default state with custom label 1`] = `
+<div
+  className="undefined tc-enumeration"
+>
+  <header
+    className="undefined tc-enumeration-header"
+  >
+    <span>
+      Users
+      *
+    </span>
+    <div
+      className="actions"
+    >
+      <button
+        className="btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onMouseOver={[Function]}
+        role="link"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          focusable="false"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-plus"
+          />
+        </svg>
+      </button>
+    </div>
+  </header>
+  <ul
+    className="undefined tc-enumeration-items"
+    onScroll={[Function]}
+  >
+    <div
+      id="autoSizer"
+    >
+      <div
+        aria-label="grid"
+        aria-readonly={true}
+        className="ReactVirtualized__Grid ReactVirtualized__List undefined"
+        id={undefined}
+        onScroll={[Function]}
+        role="grid"
+        style={
+          Object {
+            "WebkitOverflowScrolling": "touch",
+            "boxSizing": "border-box",
+            "direction": "ltr",
+            "height": 30,
+            "overflowX": "hidden",
+            "overflowY": "auto",
+            "position": "relative",
+            "width": 30,
+            "willChange": "transform",
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
+          style={
+            Object {
+              "height": 126,
+              "maxHeight": 126,
+              "maxWidth": 30,
+              "overflow": "hidden",
+              "pointerEvents": "",
+              "position": "relative",
+              "width": "auto",
+            }
+          }
+        >
+          <div
+            className="undefined tc-item-container"
+            style={
+              Object {
+                "height": 42,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": "100%",
+              }
+            }
+          >
+            <li
+              className="tc-enumeration-item"
+              id="0-item"
+            >
+              <button
+                className="undefined tc-enumeration-item-label btn btn-default"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <span>
+                  Lorem ipsum dolor sit amet 0
+                </span>
+              </button>
+              <div
+                className="undefined tc-enumeration-item-actions"
+              >
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-pencil"
+                    />
+                  </svg>
+                </button>
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-trash"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </li>
+          </div>
+          <div
+            className="undefined tc-item-container"
+            style={
+              Object {
+                "height": 42,
+                "left": 0,
+                "position": "absolute",
+                "top": 42,
+                "width": "100%",
+              }
+            }
+          >
+            <li
+              className="tc-enumeration-item"
+              id="1-item"
+            >
+              <button
+                className="undefined tc-enumeration-item-label btn btn-default"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <span>
+                  Lorem ipsum dolor sit amet 1
+                </span>
+              </button>
+              <div
+                className="undefined tc-enumeration-item-actions"
+              >
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-pencil"
+                    />
+                  </svg>
+                </button>
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-trash"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </li>
+          </div>
+          <div
+            className="undefined tc-item-container"
+            style={
+              Object {
+                "height": 42,
+                "left": 0,
+                "position": "absolute",
+                "top": 84,
+                "width": "100%",
+              }
+            }
+          >
+            <li
+              className="tc-enumeration-item"
+              id="2-item"
+            >
+              <button
+                className="undefined tc-enumeration-item-label btn btn-default"
+                disabled={false}
+                onClick={[Function]}
                 type="button"
               >
                 <span>
@@ -699,6 +1039,7 @@ exports[`Enumeration should render with header in default state, list in default
     >
       <div
         aria-label="grid"
+        aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List undefined"
         id={undefined}
         onScroll={[Function]}
@@ -720,6 +1061,7 @@ exports[`Enumeration should render with header in default state, list in default
       >
         <div
           className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
           style={
             Object {
               "height": 126,
@@ -752,10 +1094,6 @@ exports[`Enumeration should render with header in default state, list in default
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -830,10 +1168,6 @@ exports[`Enumeration should render with header in default state, list in default
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -908,10 +1242,6 @@ exports[`Enumeration should render with header in default state, list in default
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -1040,6 +1370,7 @@ exports[`Enumeration should render with header in search state and list in defau
     >
       <div
         aria-label="grid"
+        aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List undefined"
         id={undefined}
         onScroll={[Function]}
@@ -1061,6 +1392,7 @@ exports[`Enumeration should render with header in search state and list in defau
       >
         <div
           className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
           style={
             Object {
               "height": 126,
@@ -1341,6 +1673,7 @@ exports[`Enumeration should render with header in selected state with trash icon
     >
       <div
         aria-label="grid"
+        aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List undefined"
         id={undefined}
         onScroll={[Function]}
@@ -1362,6 +1695,7 @@ exports[`Enumeration should render with header in selected state with trash icon
       >
         <div
           className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
           style={
             Object {
               "height": 126,
@@ -1394,10 +1728,6 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -1472,10 +1802,6 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
                 <span>
@@ -1550,12 +1876,356 @@ exports[`Enumeration should render with header in selected state with trash icon
                 className="undefined tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                onMouseOver={[Function]}
-                role={null}
                 type="button"
               >
+                <span>
+                  Lorem ipsum dolor sit amet 2
+                </span>
+              </button>
+              <div
+                className="undefined tc-enumeration-item-actions"
+              >
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-pencil"
+                    />
+                  </svg>
+                </button>
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-trash"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ul>
+</div>
+`;
+
+exports[`Enumeration should render with header in selected state with trash icon, and two items in selected mode with checkboxes 1`] = `
+<div
+  className="undefined tc-enumeration"
+>
+  <header
+    className="undefined tc-enumeration-header"
+  >
+    <span>
+      2 selected values
+    </span>
+    <button
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseOver={[Function]}
+      role="link"
+      type="button"
+    />
+  </header>
+  <ul
+    className="undefined tc-enumeration-items"
+    onScroll={[Function]}
+  >
+    <div
+      id="autoSizer"
+    >
+      <div
+        aria-label="grid"
+        aria-readonly={true}
+        className="ReactVirtualized__Grid ReactVirtualized__List undefined"
+        id={undefined}
+        onScroll={[Function]}
+        role="grid"
+        style={
+          Object {
+            "WebkitOverflowScrolling": "touch",
+            "boxSizing": "border-box",
+            "direction": "ltr",
+            "height": 30,
+            "overflowX": "hidden",
+            "overflowY": "auto",
+            "position": "relative",
+            "width": 30,
+            "willChange": "transform",
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
+          style={
+            Object {
+              "height": 126,
+              "maxHeight": 126,
+              "maxWidth": 30,
+              "overflow": "hidden",
+              "pointerEvents": "",
+              "position": "relative",
+              "width": "auto",
+            }
+          }
+        >
+          <div
+            className="undefined tc-item-container"
+            style={
+              Object {
+                "height": 42,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": "100%",
+              }
+            }
+          >
+            <li
+              className="undefined tc-enumeration-item selected-item"
+              id="0-item"
+            >
+              <button
+                className="undefined tc-enumeration-item-label btn btn-default"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <div
+                  className="checkbox tc-toggle tc-enumeration-checkbox"
+                >
+                  <label
+                    htmlFor={undefined}
+                  >
+                    <input
+                      autoFocus={undefined}
+                      checked={true}
+                      disabled={undefined}
+                      id={undefined}
+                      onBlur={undefined}
+                      onChange={undefined}
+                      type="checkbox"
+                    />
+                    <span />
+                  </label>
+                </div>
+                <span>
+                  Lorem ipsum dolor sit amet 0
+                </span>
+              </button>
+              <div
+                className="undefined tc-enumeration-item-actions"
+              >
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-pencil"
+                    />
+                  </svg>
+                </button>
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-trash"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </li>
+          </div>
+          <div
+            className="undefined tc-item-container"
+            style={
+              Object {
+                "height": 42,
+                "left": 0,
+                "position": "absolute",
+                "top": 42,
+                "width": "100%",
+              }
+            }
+          >
+            <li
+              className="undefined tc-enumeration-item selected-item"
+              id="1-item"
+            >
+              <button
+                className="undefined tc-enumeration-item-label btn btn-default"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <div
+                  className="checkbox tc-toggle tc-enumeration-checkbox"
+                >
+                  <label
+                    htmlFor={undefined}
+                  >
+                    <input
+                      autoFocus={undefined}
+                      checked={true}
+                      disabled={undefined}
+                      id={undefined}
+                      onBlur={undefined}
+                      onChange={undefined}
+                      type="checkbox"
+                    />
+                    <span />
+                  </label>
+                </div>
+                <span>
+                  Lorem ipsum dolor sit amet 1
+                </span>
+              </button>
+              <div
+                className="undefined tc-enumeration-item-actions"
+              >
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-pencil"
+                    />
+                  </svg>
+                </button>
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-trash"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </li>
+          </div>
+          <div
+            className="undefined tc-item-container"
+            style={
+              Object {
+                "height": 42,
+                "left": 0,
+                "position": "absolute",
+                "top": 84,
+                "width": "100%",
+              }
+            }
+          >
+            <li
+              className="tc-enumeration-item"
+              id="2-item"
+            >
+              <button
+                className="undefined tc-enumeration-item-label btn btn-default"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <div
+                  className="checkbox tc-toggle tc-enumeration-checkbox"
+                >
+                  <label
+                    htmlFor={undefined}
+                  >
+                    <input
+                      autoFocus={undefined}
+                      checked={undefined}
+                      disabled={undefined}
+                      id={undefined}
+                      onBlur={undefined}
+                      onChange={undefined}
+                      type="checkbox"
+                    />
+                    <span />
+                  </label>
+                </div>
                 <span>
                   Lorem ipsum dolor sit amet 2
                 </span>
@@ -1651,5 +2321,10 @@ exports[`Enumeration should render with header without items 1`] = `
       </button>
     </div>
   </header>
+  <p
+    className="undefined tc-enumeration-hint"
+  >
+    The list is empty
+  </p>
 </div>
 `;

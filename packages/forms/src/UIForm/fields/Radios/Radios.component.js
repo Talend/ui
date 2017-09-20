@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 import FieldTemplate from '../FieldTemplate';
 
-export default function Radios({ id, isValid, errorMessage, onChange, schema, value }) {
-	const { autoFocus, description, disabled, inline, title } = schema;
+export default function Radios({ id, isValid, errorMessage, onChange, onFinish, schema, value }) {
+	const { autoFocus, description, disabled = false, inline, title } = schema;
 
 	const radioClassNames = classNames({
 		radio: !inline,
@@ -26,7 +27,8 @@ export default function Radios({ id, isValid, errorMessage, onChange, schema, va
 								checked={option.value === value}
 								disabled={disabled}
 								name={id}
-								onChange={event => onChange(event, schema, option.value)}
+								onBlur={event => onFinish(event, { schema })}
+								onChange={event => onChange(event, { schema, value: option.value })}
 								type={'radio'}
 								value={option.value}
 							/>
@@ -45,6 +47,7 @@ if (process.env.NODE_ENV !== 'production') {
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,

@@ -63,6 +63,27 @@ describe('SimpleCheckBox field', () => {
 		wrapper.find('input').at(0).simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, schema, false);
+		expect(onChange).toBeCalledWith(event, { schema, value: false });
+	});
+
+	it('should trigger onFinish on checkbox blur', () => {
+		// given
+		const onFinish = jest.fn();
+		const wrapper = shallow(
+			<SimpleCheckBox
+				id={'myForm'}
+				label={'My checkbox custom label'}
+				onFinish={onFinish}
+				schema={schema}
+				value
+			/>
+		);
+		const event = { target: { checked: false } };
+
+		// when
+		wrapper.find('input').at(0).simulate('blur', event);
+
+		// then
+		expect(onFinish).toBeCalledWith(event, { schema });
 	});
 });

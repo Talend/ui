@@ -1,46 +1,37 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { List as VirtualizedList } from 'react-virtualized';
 import getRowSelectionRenderer from '../RowSelection';
-import { getRowData } from '../utils/gridrow';
+import NoRows from '../NoRows';
 
 import theme from './ListGrid.scss';
-
-export function NoRow() {
-	return (
-		<div className={'tc-list-no-rows'}>
-			No rows
-		</div>
-	);
-}
-
-function getRowDataFromParent({ parent, index }) {
-	return getRowData(parent, index);
-}
 
 /**
  * List renderer that accepts a custom row renderer.
  * The row renderer will create a row element for each collection item.
  */
-export default function ListGrid(props) {
+function ListGrid(props) {
 	const {
 		children,
 		collection,
 		id,
 		height,
+		isActive,
 		isSelected,
+		onRowClick,
 		rowHeight,
 		rowRenderer,
-		selectionToggle,
 		width,
 	} = props;
 
 	let enhancedRowRenderer = rowRenderer;
-	if (selectionToggle) {
+	if (isActive || isSelected) {
 		enhancedRowRenderer = getRowSelectionRenderer(
 			rowRenderer,
 			{
+				isActive,
 				isSelected,
-				getRowData: getRowDataFromParent,
+				getRowData: ({ index }) => collection[index],
 			}
 		);
 	}
@@ -52,10 +43,12 @@ export default function ListGrid(props) {
 			id={id}
 			height={height}
 			overscanRowCount={10}
-			noRowsRenderer={NoRow}
+			onRowClick={onRowClick}
+			noRowsRenderer={NoRows}
 			rowCount={collection.length}
 			rowHeight={rowHeight}
 			rowRenderer={enhancedRowRenderer}
+			rowGetter={index => collection[index]}
 			width={width}
 		>
 			{children}
@@ -63,16 +56,18 @@ export default function ListGrid(props) {
 	);
 }
 
+
 ListGrid.displayName = 'VirtualizedList(ListGrid)';
 ListGrid.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.element),
 	collection: PropTypes.arrayOf(PropTypes.object),
 	height: PropTypes.number,
 	id: PropTypes.string,
+	isActive: PropTypes.func,
 	isSelected: PropTypes.func,
+	onRowClick: PropTypes.func,
 	rowHeight: PropTypes.number,
 	rowRenderer: PropTypes.func,
-	selectionToggle: PropTypes.func,
 	width: PropTypes.number,
 };
 
@@ -80,3 +75,5 @@ ListGrid.propTypes = {
 ListGrid.defaultProps = {
 	rowHeight: 135,
 };
+
+export default ListGrid;

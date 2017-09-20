@@ -61,4 +61,76 @@ describe('actionAPI.getActionsProps', () => {
 		expect(calls[1][0].model).toBe(a2.model);
 		expect(calls[1][0].type).toBe('@@router/CALL_HISTORY_METHOD');
 	});
+
+	it('should return props for multiple object actions', () => {
+		const context = mock.context();
+		const model = { model: {} };
+		const a1 = {
+			label: 'A1',
+			payload: {
+				type: 'ACTION_ONE',
+			},
+		};
+		const a2 = {
+			label: 'A2',
+			actionCreator: 'my',
+		};
+		const props = action.getProps(context, [a1, a2], model);
+		expect(props[0].label).toBe('A1');
+		expect(props[0].payload.type).toBe('ACTION_ONE');
+		expect(props[0].model).toBe(model);
+		expect(props[1].label).toBe('A2');
+		expect(props[1].actionCreator).toBe('my');
+		expect(props[1].model).toBe(model);
+	});
+});
+
+describe('actionAPI.evalExpressions', () => {
+	it('should eval available', () => {
+		const actionInfo = {
+			available: 'isInTest',
+			disabled: 'isDisabled',
+			inProgress: 'isInProgress',
+			label: 'Run',
+			labelInProgress: 'Running',
+			labelExpression: 'getLabel',
+		};
+		function isInTest({ context }) {
+			return context.router.location === '/test';
+		}
+		function isDisabled({ payload }) {
+			return payload.model.value;
+		}
+		function isInProgress({ payload }) {
+			return payload.model.value;
+		}
+		function getLabel({ payload }) {
+			return payload.model.value ? payload.labelInProgress : payload.label;
+		}
+
+		const modelTruthy = { value: true };
+		const modelFalsy = { value: false };
+		const context = {
+			registry: {
+				'expression:isInTest': isInTest,
+				'expression:isDisabled': isDisabled,
+				'expression:isInProgress': isInProgress,
+				'expression:getLabel': getLabel,
+			},
+			router: {
+				location: '/test',
+			},
+		};
+		const truthyAction = action.evalExpressions(actionInfo, context, { model: modelTruthy });
+		expect(truthyAction.available).toBe(true);
+		expect(truthyAction.disabled).toBe(true);
+		expect(truthyAction.inProgress).toBe(true);
+		expect(truthyAction.label).toBe('Running');
+
+		const falsyAction = action.evalExpressions(actionInfo, context, { model: modelFalsy });
+		expect(falsyAction.available).toBe(true);
+		expect(falsyAction.disabled).toBe(false);
+		expect(falsyAction.inProgress).toBe(false);
+		expect(falsyAction.label).toBe('Run');
+	});
 });

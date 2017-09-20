@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action } from '@storybook/react';
 import talendIcons from 'talend-icons/dist/react';
 
 import { SidePanel, IconsProvider } from '../src/index';
@@ -9,6 +9,7 @@ const icons = {
 	'talend-dataprep': talendIcons['talend-dataprep'],
 	'talend-download': talendIcons['talend-download'],
 	'talend-star': talendIcons['talend-star'],
+	'talend-opener': talendIcons['talend-opener'],
 };
 
 const actions = [
@@ -44,7 +45,12 @@ const items = [{
 	icon: 'talend-star',
 }];
 
-storiesOf('SidePanel', module)
+const stories = storiesOf('SidePanel', module);
+if (!stories.addWithInfo) {
+	stories.addWithInfo = stories.add;
+}
+
+stories
 	.addWithInfo('default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />

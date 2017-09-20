@@ -2,9 +2,36 @@
 
 exports[`Component HomeListView should children transformed as array in props.drawer 1`] = `
 Array [
-  <h1>
-    Hello children
-</h1>,
+  Object {
+    "props": Object {
+      "children": Object {
+        "props": Object {
+          "children": Object {
+            "props": Object {
+              "children": null,
+            },
+          },
+          "label": "foo",
+        },
+      },
+      "foo": "bar",
+    },
+  },
+  Object {
+    "props": Object {
+      "children": Object {
+        "props": Object {
+          "children": null,
+        },
+      },
+      "label": "foo",
+    },
+  },
+  Object {
+    "props": Object {
+      "children": null,
+    },
+  },
 ]
 `;
 
@@ -45,13 +72,13 @@ exports[`Component HomeListView should render with object props 1`] = `
     ]
   }
   header={
-    <Connect(AppHeaderBar)
+    <Connect(CMF(AppHeaderBar))
       app="hello app"
     />
   }
   mode="TwoColumns"
   one={
-    <Connect(CMF(undefined))
+    <Connect(CMF(Container(SidePanel)))
       actionIds={
         Array [
           "menu:demo",

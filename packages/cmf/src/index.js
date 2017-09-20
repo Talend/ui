@@ -6,6 +6,7 @@ import api from './api';
 import App from './App';
 import cmfConnect from './cmfConnect';
 import ConnectedDispatcher from './Dispatcher';
+import Inject from './Inject.component.js';
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
 import history from './history';
@@ -14,6 +15,7 @@ import actions from './actions/';
 import reducers from './reducers/';
 import getErrorMiddleware from './middlewares/error';
 import componentState from './componentState';
+import sagaRouter from './sagaRouter';
 
 const Dispatcher = ConnectedDispatcher;
 
@@ -35,11 +37,13 @@ export {
 	App,
 	cmfConnect,
 	Dispatcher,
+	Inject,
 	history,
 	store,
 	reducers,
 	componentState,
 	RegistryProvider,
 	UIRouter,
-	getErrorMiddleware, // (slug) => middleware to post error
+	getErrorMiddleware,
+	sagaRouter,
 };

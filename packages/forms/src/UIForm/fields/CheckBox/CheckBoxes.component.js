@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import SimpleCheckBox from './SimpleCheckBox.component';
 import FieldTemplate from '../FieldTemplate';
 
@@ -13,7 +14,7 @@ function getValues(value = [], itemValue, checked) {
 }
 
 export default function CheckBoxes(props) {
-	const { id, isValid, errorMessage, onChange, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
 	const { description, title, titleMap } = schema;
 
 	return (
@@ -30,12 +31,15 @@ export default function CheckBoxes(props) {
 						key={index}
 						label={item.name}
 						onChange={
-							(event, _, checked) => onChange(
+							(event, payload) => onChange(
 								event,
-								schema,
-								getValues(value, item.value, checked)
+								{
+									schema: payload.schema,
+									value: getValues(value, item.value, payload.value),
+								}
 							)
 						}
+						onFinish={onFinish}
 						schema={schema}
 						value={value && value.includes(item.value)}
 					/>
@@ -52,6 +56,7 @@ if (process.env.NODE_ENV !== 'production') {
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			description: PropTypes.string,
 			title: PropTypes.string,

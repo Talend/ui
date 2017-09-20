@@ -100,6 +100,7 @@ $item-height: 40px;
 			margin-left: auto;
 			visibility: hidden;
 			outline: none;
+			padding: 0 $padding-smaller;
 
 			:global(.tc-svg-icon) {
 				width: $svg-md-size;
@@ -113,10 +114,12 @@ $item-height: 40px;
 			}
 		}
 
-		:global(.tc-badge-solid) {
+		:global(.tc-badge-button) {
 			height: $item-height - 2 * $padding-small;
-			margin: 0 $padding-large 0 0;
+			margin: 0 $padding-normal 0 0;
 			border: none;
+			padding: 0 $padding-smaller;
+			border-radius: $border-radius-small;
 		}
 	}
 

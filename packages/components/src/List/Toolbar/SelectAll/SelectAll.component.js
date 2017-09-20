@@ -1,9 +1,11 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
+import { getDefaultTranslate } from '../../../translate';
 import theme from './SelectAll.scss';
 
-function SelectAll({ id, items, isSelected, onToggleAll }) {
+function SelectAll({ id, items, isSelected, onToggleAll, t }) {
 	const isAllSelected = () => items.length > 0 && items.findIndex(item => !isSelected(item)) < 0;
 	const checkboxId = id && `${id}-check-all`;
 	return (
@@ -17,7 +19,7 @@ function SelectAll({ id, items, isSelected, onToggleAll }) {
 						checked={isAllSelected()}
 						disabled={!items.length}
 					/>
-					<span>Select All</span>
+					<span>{t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}</span>
 				</label>
 			</div>
 		</form>
@@ -25,10 +27,15 @@ function SelectAll({ id, items, isSelected, onToggleAll }) {
 }
 
 SelectAll.propTypes = {
-	id: React.PropTypes.string,
-	items: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-	isSelected: React.PropTypes.func.isRequired,
-	onToggleAll: React.PropTypes.func.isRequired,
+	id: PropTypes.string,
+	items: PropTypes.arrayOf(PropTypes.object).isRequired,
+	isSelected: PropTypes.func.isRequired,
+	onToggleAll: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
+};
+
+SelectAll.defaultProps = {
+	t: getDefaultTranslate,
 };
 
 export default SelectAll;

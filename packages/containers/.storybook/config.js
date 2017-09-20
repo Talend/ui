@@ -1,9 +1,10 @@
-import { action, storiesOf, configure, setAddon } from '@kadira/storybook';
+import 'babel-polyfill';
+import { action, storiesOf, configure, setAddon } from '@storybook/react';
 import cmf from 'react-storybook-cmf';
 import mock from 'react-cmf/lib/mock';
 import { api } from 'react-cmf';
 
-import '!style!css!postcss!sass!bootstrap-talend-theme/src/theme/theme.scss';
+import 'bootstrap-talend-theme/src/theme/theme.scss';
 
 import examples from '../examples';
 

@@ -21,6 +21,8 @@ describe('talend:app', function () {
 
 	describe('default settings', function () {
 		beforeEach(function onDone(done) {
+			this.timeout(5000);
+
 			this.app.on('end', done);
 		});
 
