@@ -4,7 +4,7 @@
 
 	svg {
 		padding: 2px;
-		margin-right:5px;
+		margin-right: 5px;
 	}
 
 	li {
@@ -14,11 +14,11 @@
 	}
 
 	button {
-		font-size : 1.4rem;
+		font-size: 1.4rem;
 	}
 
 	button > sup {
-		top : -1;
+		top: -1;
 		margin-left: 15px;
 	}
 
@@ -30,15 +30,15 @@
 		color: red;
 	}
 
-	.widerIconSelection {
-		display : inline-flex;
+	.wider-icon-selection {
+		display: inline-flex;
 		width: 9px;
 		height: 9px;
 		color: $scooter;
-		padding: 0px;
+		padding: 0;
 	}
 
-	.unselectedLineHover:hover {
+	.unselected-line-hover:hover {
 		background-color: green;
 	}
 
@@ -56,79 +56,78 @@
 		width: 9px;
 		border-width: 1px;
 		background-color: rgba($wedgewood, 0.3);
-		color: $wedgewood !important;
+		color: $wedgewood;
 		font-family: 'Source Sans Pro';
 		font-size: 10px;
 		padding: 2px 5px;
-		color : $white;
-		display :inline-table;
+		display: inline-table;
 		margin-left: 10px;
 	}
 
-	sup selected{
+	sup selected {
 		background-color: rgba($wedgewood, 1);
 	}
 
 	sup::before {
-		margin-right : 15px;
+		margin-right: 15px;
 	}
 
-	.rootLabelOverflow {
+	.root-label-overflow {
 		white-space: nowrap;
 		overflow: hidden;
 		max-width: 25%;
 		text-overflow: ellipsis;
 	}
 
-	.selectedBadge{
-		background-color :rgba(93,136,170, 0.75);
-		color: $black !important;
+	.selected-badge {
+		background-color: rgba(93, 136, 170, 0.75);
+		color: $black;
 	}
 
-	.selectedLine {
-		background-color :rgba(93,136,170, 0.1);
+	.selected-line {
+		background-color: rgba(93, 136, 170, 0.1);
 		opacity: 0.75;
-		color: $black !important;
+		color: $black;
 	}
 
-	.lineKey {
+	.line-key {
 		font-family: 'Source Sans Pro';
 		font-size: 14px;
 		opacity: 0.75;
-		padding-left : 5px;
-		display:inline;
-		color:$black;
+		padding-left: 5px;
+		display: inline;
+		color: $black;
 	}
 
-	.lineValue {
+	.line-value {
 		font-family: 'Source Sans Pro';
 		font-size: 15px;
 		vertical-align: baseline;
 		color: $wedgewood;
-		display:inline;
+		display: inline;
 	}
 
-	.lineValueSelected {
+	.line-value-selected {
 		font-family: 'Source Sans Pro';
 		font-size: 14px;
 		vertical-align: baseline;
-		display:inline;
+		display: inline;
 	}
 
-	.lineType {
+	.line-type {
 		font-family: 'Inconsolata';
 		font-size: 14px;
 		color: $dark-silver;
 		opacity: 0.75;
-		display:inline;
-		margin-right : 15px;
-		margin-left : 4px;
+		display: inline;
+		margin-right: 15px;
+		margin-left: 4px;
 		vertical-align: top;
 	}
 
-	.verticalLine {
+	.vertical-line {
 		border-left: solid 1px $alto;
-		margin-left : 4px;
+		margin-left: 4px;
 		margin-bottom: 8px;
 	}
 }
