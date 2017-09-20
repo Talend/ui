@@ -251,6 +251,10 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 	const iconName = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
 	const iconTransform = isOpened ? null : 'rotate-180';
 	const decoratedLength = (info.type === 'array') ? `[${info.length}]` : `(${info.length})`;
+	const badgeClasses = classNames({
+		badge: true,
+		[theme.selectedBadge]: props.selectedJsonpath === jsonpath,
+	});
 
 	return (
 		<div>
@@ -273,14 +277,14 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 			>
 				<span className={theme.hierarchical}>
 					{props.showType ? (<div
-						className={`tc- object - viewer - linetype ${theme.lineType} `}
+						className={`tc-object-viewer-linetype ${theme.lineType} `}
 						onClick={e => props.onSelect(e, { data, isOpened, jsonpath })}
 					>
 						({info.type})
 					</div>
 					) : null}
 					<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
-						<sup className="badge">
+						<sup className={badgeClasses}>
 							{decoratedLength}
 						</sup>
 					</TooltipTrigger>
