@@ -9,6 +9,7 @@ const icons = {
 	'talend-dataprep': talendIcons['talend-dataprep'],
 	'talend-download': talendIcons['talend-download'],
 	'talend-star': talendIcons['talend-star'],
+	'talend-opener': talendIcons['talend-opener'],
 };
 
 const actions = [

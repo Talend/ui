@@ -3,9 +3,9 @@
 /// @group Custom widgets
 ////
 
-/// Side panel toggle button color
-/// @type Color
-$tc-side-panel-toggle-color: tint($brand-primary, 75);
+$list-item-hover-color: rgba($white, 0.12);
+$list-item-active-color: rgba($white, 0.25);
+$toggle-button-opacity: 0.75;
 
 .tc-side-panel {
 	overflow-x: hidden;
@@ -44,7 +44,11 @@ $tc-side-panel-toggle-color: tint($brand-primary, 75);
 	}
 
 	:global(.tc-side-panel-list-item):hover {
-		background-color: darken($brand-primary, 2%);
+		background-color: $list-item-hover-color;
+	}
+
+	:global(.tc-side-panel-list-item.active) {
+		background-color: $list-item-active-color;
 	}
 
 	&.docked {
@@ -66,26 +70,43 @@ $tc-side-panel-toggle-color: tint($brand-primary, 75);
 				opacity: 0;
 			}
 		}
+
+		.toggle-btn {
+			text-align: center;
+			padding-left: 0;
+
+			:global(.btn.btn-link) {
+				padding: $padding-small;
+			}
+		}
 	}
 
 	.toggle-btn {
 		margin-bottom: $padding-normal + $padding-large;
+		text-align: left;
+		padding-left: $padding-small;
 
 		:global(.btn.btn-link) {
 			outline: none;
+			padding: $padding-small;
+			display: inline-block;
+			width: auto;
+			opacity: $toggle-button-opacity;
+			margin: 0 auto;
+
+			&:hover {
+				opacity: 1;
+				background-color: $list-item-hover-color;
+			}
 
 			:global(.tc-svg-icon) {
-				fill: $tc-side-panel-toggle-color;
-				width: $svg-md-size;
-				height: $svg-md-size;
+				width: $svg-sm-size;
+				height: $svg-sm-size;
 				transition: 0.2s transform ease-out;
 			}
 
-			&:before {
-				color: $tc-side-panel-toggle-color;
-				content: '|';
-				font-size: $font-size-base;
-				font-weight: bold;
+			:global(.tc-svg-icon) + span {
+				margin-left: 0;
 			}
 		}
 
