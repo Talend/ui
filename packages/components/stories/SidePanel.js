@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 import talendIcons from 'talend-icons/dist/react';
 
-import { SidePanel, IconsProvider } from '../src/index';
+import { SidePanel, IconsProvider, Layout } from '../src/index';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -10,6 +10,7 @@ const icons = {
 	'talend-download': talendIcons['talend-download'],
 	'talend-star': talendIcons['talend-star'],
 	'talend-opener': talendIcons['talend-opener'],
+	'talend-world': talendIcons['talend-world'],
 };
 
 const actions = [
@@ -85,5 +86,50 @@ stories
 				tooltipPlacement="top"
 			/>
 		</div>
-	));
+	))
+	.addWithInfo('With layout (toggle interactive)', () => {
+		class WithLayout extends React.Component {
+			constructor() {
+				super();
+				this.state = { docked: false };
+			}
+			render() {
+				const panelItems = items.concat([
+					{
+						key: 'longname',
+						label: 'Some super super super long name',
+						icon: 'talend-world',
+					},
+					{
+						key: 'longername',
+						label: 'Some really unexpected long string with title',
+						icon: 'talend-world',
+					},
+				]);
+				const panel = (
+					<SidePanel
+						actions={panelItems}
+						onSelect={action('onItemSelect')}
+						onToggleDock={() => this.setState({ docked: !this.state.docked })}
+						docked={this.state.docked}
+						tooltipPlacement="top"
+					/>
+				);
+				return (<Layout
+					mode="TwoColumns"
+					one={panel}
+				>
+					<ol>
+						{new Array(100).fill('This is some random content').map(item => <li>{item}</li>)}
+					</ol>
+					<IconsProvider defaultIcons={icons} />
+				</Layout>);
+			}
+		}
+
+
+		return (
+			<WithLayout />
+		);
+	});
 

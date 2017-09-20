@@ -93,6 +93,7 @@ function SidePanel({
 							icon={action.icon}
 							hideLabel={docked}
 							tooltipPlacement={tooltipPlacement}
+							maxLabelLength={36}
 						/>
 					</li>
 				))}

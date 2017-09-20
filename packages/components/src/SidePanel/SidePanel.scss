@@ -6,21 +6,23 @@
 $list-item-hover-color: rgba($white, 0.12);
 $list-item-active-color: rgba($white, 0.25);
 $toggle-button-opacity: 0.75;
+$tc-side-panel-width: 200px !default;
+$tc-side-panel-docked-width: 54px !default;
 
 .tc-side-panel {
 	overflow-x: hidden;
 	padding: 0;
-	transition: 0.2s padding ease-out;
+	transition: 0.2s width ease-out;
+	width: $tc-side-panel-width;
+
+	&>ul {
+		width: $tc-side-panel-width;
+	}
 
 	:global(.btn) svg:global(.tc-svg-icon) {
 		width: $svg-lg-size;
 		height: $svg-lg-size;
 		margin: 0;
-	}
-
-	.action-list {
-		margin: 0;
-		transition: 0.2s margin ease-out;
 	}
 
 	.link {
@@ -32,17 +34,17 @@ $toggle-button-opacity: 0.75;
 			margin-left: $padding-normal;
 			vertical-align: text-bottom;
 		}
-
-		span {
-			transition: 0.2s opacity linear;
-		}
 	}
 
 	//override nav-pill a bit
 	:global(.nav-pills .btn.btn-link) {
 		padding: $padding-normal $padding-large;
+		text-overflow: inherit;
 	}
-
+	:global(.nav-pills .btn.btn-link) > span {
+		white-space: normal;
+		vertical-align: middle;
+	}
 	:global(.tc-side-panel-list-item):hover {
 		background-color: $list-item-hover-color;
 	}
@@ -52,7 +54,7 @@ $toggle-button-opacity: 0.75;
 	}
 
 	&.docked {
-		padding: 0;
+		width: $tc-side-panel-docked-width;
 
 		:global(.nav-pills) {
 			//override nav-pill a bit
@@ -65,16 +67,9 @@ $toggle-button-opacity: 0.75;
 					transform: rotate(-180deg);
 				}
 			}
-
-			.link span {
-				opacity: 0;
-			}
 		}
 
 		.toggle-btn {
-			text-align: center;
-			padding-left: 0;
-
 			:global(.btn.btn-link) {
 				padding: $padding-small;
 			}
