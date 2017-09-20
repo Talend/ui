@@ -9,7 +9,7 @@ import {
 	Layout,
 	TooltipTrigger,
 	Typeahead,
-} from 'react-talend-components';
+} from '@talend/react-components';
 
 import actionAPI from './actionAPI';
 import componentState from './state';

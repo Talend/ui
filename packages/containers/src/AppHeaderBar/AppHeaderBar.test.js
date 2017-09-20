@@ -1,4 +1,5 @@
-import { AppHeaderBar as PureAppHeaderBar } from 'react-talend-components';
+import React from 'react';
+import { AppHeaderBar as PureAppHeaderBar } from '@talend/react-components';
 
 import AppHeaderBar, {
 	mapStateToProps,
@@ -6,7 +7,10 @@ import AppHeaderBar, {
 	mergeProps,
 } from './AppHeaderBar.component';
 
-jest.mock('react-talend-components');
+jest.mock(
+	'@talend/react-components',
+	() => ({ AppHeaderBar: props => (<div className="tc-appheaderbar" {...props} />) })
+);
 
 describe('AppHeaderBar', () => {
 	it('should map state to props', () => {

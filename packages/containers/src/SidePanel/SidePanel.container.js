@@ -1,8 +1,8 @@
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { SidePanel as Component } from 'react-talend-components';
-import { componentState } from 'react-cmf';
+import { SidePanel as Component } from '@talend/react-components';
+import { componentState } from '@talend/react-cmf';
 import { Map } from 'immutable';
 
 import { getActionsProps } from '../actionAPI';
@@ -36,6 +36,7 @@ export function getActions(actionIds, context) {
  * @param {object} props react props
  */
 class SidePanel extends React.Component {
+	static displayName = 'Container(SidePanel)';
 	static propTypes = {
 		actionIds: PropTypes.arrayOf(
 			PropTypes.oneOfType([

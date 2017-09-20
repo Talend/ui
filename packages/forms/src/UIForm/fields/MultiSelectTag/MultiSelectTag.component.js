@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
-import Typeahead from 'react-talend-components/lib/Typeahead';
-import Badge from 'react-talend-components/lib/Badge';
+import Typeahead from '@talend/react-components/lib/Typeahead';
+import Badge from '@talend/react-components/lib/Badge';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './MultiSelectTag.scss';

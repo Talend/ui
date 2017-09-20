@@ -1,4 +1,4 @@
-import { api } from 'react-cmf';
+import { api } from '@talend/react-cmf';
 
 /**
  * add support for expression in actions.

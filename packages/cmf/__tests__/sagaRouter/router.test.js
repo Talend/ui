@@ -109,6 +109,60 @@ describe('routerSaga RouteChange', () => {
 		const expectedCancelYield = cancel(mockTask);
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(expectedCancelYield);
 	});
+
+	it('stop unmatched saga before spawning new ones, no matter the declaration order', () => {
+		const mockTask = createMockTask();
+		function getMockedHistory() {
+			let count = 0;
+			return {
+				getCurrentLocation() {
+					if (count === 0 || count === 2) {
+						count = 1;
+						return {
+							pathname: '/toCancelFirst',
+						};
+					}
+					return {
+						pathname: '/toStartAfter',
+					};
+				},
+			};
+		}
+		const routes = {
+			'/toStartAfter': function* matchingSaga() {
+				yield take('SOMETHING');
+			},
+			'/toCancelFirst': function* matchingSaga() {
+				yield take('SOMETHING');
+			},
+		};
+		const gen = routerSaga(getMockedHistory(), routes);
+		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
+		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
+			spawn(routes['/toCancelFirst'], {})
+		);
+		expect(gen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
+		const expectedCancelYield = cancel(mockTask);
+		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(expectedCancelYield);
+
+		const alternateRoutes = {
+			'/toCancelFirst': function* matchingSaga() {
+				yield take('SOMETHING');
+			},
+			'/toStartAfter': function* matchingSaga() {
+				yield take('SOMETHING');
+			},
+		};
+
+		const anotherGen = routerSaga(getMockedHistory(), alternateRoutes);
+		expect(anotherGen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
+		expect(anotherGen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
+			spawn(alternateRoutes['/toCancelFirst'], {})
+		);
+		expect(anotherGen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
+		const anotherExpectedCancelYield = cancel(mockTask);
+		expect(anotherGen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(anotherExpectedCancelYield);
+	});
 });
 
 describe('routerSaga route and route params', () => {

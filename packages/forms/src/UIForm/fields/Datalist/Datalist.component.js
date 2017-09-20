@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import keycode from 'keycode';
-import Typeahead from 'react-talend-components/lib/Typeahead';
+import Typeahead from '@talend/react-components/lib/Typeahead';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './Datalist.scss';
