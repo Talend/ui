@@ -2,9 +2,11 @@ import React from 'react';
 import { storiesOf, action } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
 import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from 'talend-icons/dist/react';
+import { I18nextProvider } from 'react-i18next';
 import { cloneDeep } from 'lodash';
 
 import { List, IconsProvider } from '../src/index';
+import i18n from './config/i18n';
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -557,6 +559,19 @@ storiesOf('List', module)
 		);
 	})
 
+	.add('Virtualized - list with i18n', () => (
+		<div>
+			<h1>List with i18n</h1>
+			<p>Change language in the toolbar</p>
+			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+			<button onClick={() => i18n.changeLanguage('it')}>it</button>
+			<IconsProvider defaultIcons={icons} />
+			<I18nextProvider i18n={i18n}>
+				<List {...props} virtualized />
+			</I18nextProvider>
+		</div>
+	))
+
 	.add('DEPRECATED - Table (migrated to virtualized)', () => (
 		<div className="display-table tc-list-fixed-name-column">
 			<h1>List</h1>
@@ -791,4 +806,3 @@ storiesOf('List', module)
 			<List {...getPropsFor('tile')} />
 		</div>
 	));
-

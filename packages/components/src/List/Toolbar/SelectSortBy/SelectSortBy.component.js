@@ -3,6 +3,7 @@ import React from 'react';
 import { NavItem, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
+import { getDefaultTranslate } from '../../../translate';
 import theme from './SelectSortBy.scss';
 
 function SortByItem({ option, index, id }) {
@@ -25,7 +26,7 @@ SortByItem.propTypes = {
 	id: PropTypes.string,
 };
 
-function SelectSortBy({ field, id, isDescending, onChange, options }) {
+function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 	const order = isDescending || false;
 	const selected = field && options.find(item => item.id === field);
 
@@ -60,7 +61,11 @@ function SelectSortBy({ field, id, isDescending, onChange, options }) {
 					id={id && `${id}-order`}
 					onClick={onChangeOrder}
 				>
-					{order ? 'Descending' : 'Ascending'}
+					{
+						order ?
+							t('LIST_SELECT_SORT_BY_ORDER_DESC', { defaultValue: 'Descending' }) :
+							t('LIST_SELECT_SORT_BY_ORDER_ASC', { defaultValue: 'Ascending' })
+					}
 				</NavItem>
 			)}
 		</Nav>
@@ -78,6 +83,11 @@ SelectSortBy.propTypes = {
 			name: PropTypes.string,
 		}),
 	).isRequired,
+	t: PropTypes.func.isRequired,
+};
+
+SelectSortBy.defaultProps = {
+	t: getDefaultTranslate,
 };
 
 export default SelectSortBy;

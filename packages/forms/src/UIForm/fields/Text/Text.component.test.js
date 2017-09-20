@@ -20,7 +20,26 @@ describe('Text field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
+				value={'toto'}
+			/>
+		);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
+	it('should render password input', () => {
+		// when
+		const wrapper = shallow(
+			<Text
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={{ ...schema, type: 'password' }}
 				value={'toto'}
 			/>
 		);
@@ -43,6 +62,7 @@ describe('Text field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value={'toto'}
 			/>
@@ -66,6 +86,7 @@ describe('Text field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={readOnlySchema}
 				value={'toto'}
 			/>
@@ -84,6 +105,7 @@ describe('Text field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={onChange}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'toto'}
 			/>
@@ -121,5 +143,28 @@ describe('Text field', () => {
 
 		// then
 		expect(onChange).toBeCalledWith(event, { schema: numberSchema, value: 25 });
+	});
+
+	it('should trigger onFinish on input blur', () => {
+		// given
+		const onFinish = jest.fn();
+		const wrapper = shallow(
+			<Text
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				onFinish={onFinish}
+				schema={schema}
+				value={'toto'}
+			/>
+		);
+		const event = { target: { value: 'totoa' } };
+
+		// when
+		wrapper.find('input').simulate('blur', event);
+
+		// then
+		expect(onFinish).toBeCalledWith(event, { schema });
 	});
 });

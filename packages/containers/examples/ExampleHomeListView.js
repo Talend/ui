@@ -6,7 +6,6 @@ import Immutable from 'immutable';
 
 import { HomeListView } from '../src';
 
-
 const primary = {
 	label: 'Primary',
 	bsStyle: 'primary',
@@ -87,6 +86,7 @@ const icons = {
 	'talend-table': talendIcons['talend-table'],
 	'talend-tiles': talendIcons['talend-tiles'],
 	'talend-trash': talendIcons['talend-trash'],
+	'talend-opener': talendIcons['talend-opener'],
 };
 
 const header = {

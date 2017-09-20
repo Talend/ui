@@ -1,80 +1,117 @@
+$tc-badge-label-font-size: 13px !default;
+$tc-badge-height: 25px !default;
+$tc-badge-delete-icon-size: $svg-xs-size !default;
+// it should sum up in 25px height:
+$tc-badge-vertical-padding: ($tc-badge-height - $tc-badge-label-font-size * $line-height-base) / 2 !default;
+$tc-badge-margin: $padding-smaller !default;
+
 .tc-badge {
-	border-radius: $border-radius-base;
-	display: inline-block;
-	font-size: $font-size-small;
-	margin: $padding-smaller $padding-normal / 2 0;
-	max-width: calc(100% - #{$padding-normal});
-	padding: 0 $padding-smaller;
-	position: relative;
+	display: inline-flex;
+	max-width: 100%;
 
-	&,
-	svg {
-		color: $text-color;
-	}
+	.tc-badge-button {
+		display: inline-flex;
+		height: $tc-badge-height;
+		margin: $tc-badge-margin;
+		padding: $tc-badge-vertical-padding $padding-small;
+		padding-right: calc(#{$padding-larger} + #{$tc-badge-delete-icon-size});
+		background-color: $gallery;
+		letter-spacing: 0.4px;
+		border: none;
+		max-width: 100%;
 
-	&.tc-badge-outline {
-		background: $white;
-		border: 1px solid $brand-primary-darker;
-		font-weight: normal;
+		.tc-badge-category {
+			background-color: $concrete;
+			font-size: $tc-badge-label-font-size;
+			text-transform: uppercase;
 
-		&.tc-badge-with-icon:hover {
-			background: opacify($brand-primary, 0.25);
+			margin-top: -$tc-badge-vertical-padding;
+			margin-right: $padding-small;
+			margin-left: -$padding-small;
+			margin-bottom: -$tc-badge-vertical-padding;
+			padding: $tc-badge-vertical-padding $padding-small;
+		}
 
-			&,
-			svg {
-				color: $white;
+		.tc-badge-label {
+			font-size: $tc-badge-label-font-size;
+			font-weight: 700;
+
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		&:hover {
+			background-color: $alto;
+
+			.tc-badge-category {
+				background-color: $gallery;
 			}
 		}
 	}
 
-	&.tc-badge-solid {
-		background: $brand-primary-darker;
-		color: $white;
-		border: 1px solid $brand-primary-darker;
-		text-transform: uppercase;
-		opacity: 0.85;
+	svg,
+	.tc-badge-label,
+	.tc-badge-category {
+		color: $dark-silver;
+	}
 
-		svg {
-			color: $white;
-		}
-
-		&.tc-badge-with-icon:hover {
-			background: lighten($brand-primary, $btn-background-tint-percent/100);
+	&-readonly.tc-badge {
+		.tc-badge-button {
+			padding-right: $padding-small;
 		}
 	}
 
-	.tc-badge-label {
-		display: block;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
+	&-selected:not(&-disabled) {
+		svg,
+		.tc-badge-label,
+		.tc-badge-category {
+			color: $white;
+		}
 
-		&-with-icon {
-			margin-right: $padding-large;
+		.tc-badge-button {
+			background-color: $scooter;
+
+			.tc-badge-category {
+				background-color: rgba($white, 0.2);
+			}
+
+			&:hover {
+				background-color: darken($scooter, 10);
+			}
+		}
+	}
+
+	&-disabled {
+		.tc-badge-button {
+			background-color: $gallery;
+
+			svg,
+			.tc-badge-label,
+			.tc-badge-category {
+				color: $silver;
+			}
+
+			.tc-badge-category {
+				background-color: $concrete;
+			}
 		}
 	}
 
 	.tc-badge-delete-icon {
-		position: absolute;
-		top: -1px;
-		right: 0;
-		padding: 0 3px;
-		border: none;
+		position: relative;
+		margin: auto;
+		height: $tc-badge-height - 2 * $tc-badge-vertical-padding;
+		padding: 0;
 		background: transparent;
 		box-shadow: none;
-		cursor: pointer;
-		line-height: inherit;
+		left: -$padding-large;
 
 		svg {
+			display: block;
 			margin: 0;
-			height: $svg-sm-size;
-			width: $svg-sm-size;
-			padding: 2px;
-
-			& + span {
-				padding: 0;
-			}
+			height: $tc-badge-delete-icon-size;
+			width: $tc-badge-delete-icon-size;
 		}
 	}
 }
-

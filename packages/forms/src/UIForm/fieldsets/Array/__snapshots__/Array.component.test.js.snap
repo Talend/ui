@@ -29,6 +29,7 @@ exports[`Array component should render array 1`] = `
           id="talend-array-0"
           items={Array []}
           onChange={[Function]}
+          onFinish={[Function]}
           schema={
             Object {
               "items": Array [
@@ -122,6 +123,7 @@ exports[`Array component should render array 1`] = `
           id="talend-array-1"
           items={Array []}
           onChange={[Function]}
+          onFinish={[Function]}
           schema={
             Object {
               "items": Array [
@@ -215,6 +217,7 @@ exports[`Array component should render array 1`] = `
           id="talend-array-2"
           items={Array []}
           onChange={[Function]}
+          onFinish={[Function]}
           schema={
             Object {
               "items": Array [

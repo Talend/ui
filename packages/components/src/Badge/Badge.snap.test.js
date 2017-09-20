@@ -3,14 +3,11 @@ import renderer from 'react-test-renderer';
 
 import Badge from './Badge.component';
 
-jest.mock('react-dom');
-
-describe('Badge', () => {
-	it('should render Badge without icon in outline style', () => {
+describe('BadgeSpec', () => {
+	it('should render Badge', () => {
 		// given
 		const props = {
-			label: 'Label 1',
-			tcStyle: 'outline',
+			label: 'Label',
 		};
 		// when
 		const wrapper = renderer.create(
@@ -19,11 +16,11 @@ describe('Badge', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should render Badge with icon in outline style', () => {
+
+	it('should render Badge with delete icon', () => {
 		// given
 		const props = {
-			label: 'Label 1',
-			tcStyle: 'outline',
+			label: 'Label',
 			onDelete: () => {},
 		};
 		// when
@@ -33,10 +30,13 @@ describe('Badge', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should render Badge without icon in solid style', () => {
+
+	it('should render selected Badge with delete icon', () => {
 		// given
 		const props = {
-			label: 'Label 1',
+			label: 'Label',
+			selected: true,
+			onDelete: () => {},
 		};
 		// when
 		const wrapper = renderer.create(
@@ -45,10 +45,27 @@ describe('Badge', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should render Badge with icon in solid style', () => {
+
+	it('should render disabled Badge with delete icon', () => {
 		// given
 		const props = {
-			label: 'Label 1',
+			label: 'Label',
+			disabled: true,
+			onDelete: () => {},
+		};
+		// when
+		const wrapper = renderer.create(
+			<Badge {...props} />
+		).toJSON();
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render Badge with category and delete icon', () => {
+		// given
+		const props = {
+			label: 'Label',
+			category: 'Category',
 			onDelete: () => {},
 		};
 		// when

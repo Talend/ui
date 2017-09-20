@@ -13,6 +13,7 @@ describe('Container(Form)', () => {
 				jsonSchema={{ schema: true }}
 				uiSchema={{ uiSchema: true }}
 				actions={[]}
+				className="foo"
 				formProps={{ other: true }} // extra props
 			/>
 		);
@@ -36,16 +37,21 @@ describe('Container(Form)', () => {
 	it('should use props.onSubmit', () => {
 		const onSubmit = jest.fn();
 		const dispatchActionCreator = jest.fn();
+		const setState = jest.fn();
 		const form = new Container({
 			state: fromJS({ data: { schema: true } }),
-			setState: jest.fn(),
+			setState,
 			onSubmitActionCreator: 'myaction',
 			onSubmit,
 			dispatchActionCreator,
 		});
 		form.onSubmit({ foo: 'bar' });
-		expect(onSubmit.mock.calls[0][0]).toMatchSnapshot();
-		expect(dispatchActionCreator.mock.calls[0]).toMatchSnapshot();
+		expect(onSubmit.mock.calls[0][0]).toEqual({ foo: 'bar' });
+		expect(dispatchActionCreator.mock.calls[0][0]).toBe('myaction');
+		expect(dispatchActionCreator.mock.calls[0][1]).toBe(null);
+		expect(dispatchActionCreator.mock.calls[0][2].formData).toEqual({ foo: 'bar' });
+		expect(dispatchActionCreator.mock.calls[0][2].props.state.size).toBe(1);
+		expect(setState.mock.calls.length).toBe(0);
 	});
 
 	it('should use props.onChange', () => {

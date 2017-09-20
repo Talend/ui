@@ -3,8 +3,6 @@ import renderer from 'react-test-renderer';
 
 import TreeView from './TreeView.component';
 
-jest.mock('react-dom');
-
 const defaultProps = {
 	id: 'id',
 	structure: [{

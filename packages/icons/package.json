@@ -29,27 +29,27 @@
     "svgo": "svgo -f src/svg --config=.svgo.yml"
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
+    "autoprefixer": "^6.7.7",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
-    "babel-plugin-transform-class-properties": "6.18.0",
-    "babel-plugin-transform-object-rest-spread": "6.16.0",
-    "babel-preset-es2015": "6.14.0",
-    "babel-preset-react": "6.11.1",
+    "babel-plugin-transform-class-properties": "6.23.0",
+    "babel-plugin-transform-object-rest-spread": "6.20.2",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-react": "6.16.0",
     "babel-register": "^6.14.0",
     "css-loader": "0.28.2",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "fontgen-loader": "^0.2.1",
+    "extract-text-webpack-plugin": "2.1.0",
+    "fontgen-loader": "0.2.1",
     "mkdirp": "^0.5.1",
     "react": "15.5.4",
-    "style-loader": "^0.13.1",
+    "style-loader": "0.16.1",
     "svgo": "0.7.1",
-    "webpack": "^1.14.0"
+    "webpack": "^2.5.1"
   },
   "keywords": [
     "Talend",
     "icons",
     "svg"
   ],
-  "version": "0.102.4"
+  "version": "0.111.0"
 }

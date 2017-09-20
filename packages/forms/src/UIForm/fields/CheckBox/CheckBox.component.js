@@ -4,7 +4,7 @@ import SimpleCheckBox from './SimpleCheckBox.component';
 import FieldTemplate from '../FieldTemplate';
 
 export default function CheckBox(props) {
-	const { id, isValid, errorMessage, onChange, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
 	const { description, title } = schema;
 
 	return (
@@ -17,6 +17,7 @@ export default function CheckBox(props) {
 				id={id}
 				label={title || value}
 				onChange={onChange}
+				onFinish={onFinish}
 				schema={schema}
 				value={value}
 			/>
@@ -30,6 +31,7 @@ if (process.env.NODE_ENV !== 'production') {
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			description: PropTypes.string,
 			title: PropTypes.string,

@@ -2,7 +2,6 @@
 
 exports[`Model actions #updateFormData action should create the action payload 1`] = `
 Object {
-  "error": "error",
   "formName": "formName",
   "schema": Object {
     "jsonSchema": "json",

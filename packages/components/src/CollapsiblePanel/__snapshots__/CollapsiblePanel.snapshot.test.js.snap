@@ -21,6 +21,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         >
           <div
             className="tc-status text-info undefined"
+            role="status"
           >
             <i
               aria-hidden="true"
@@ -31,12 +32,10 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             <span
               className="tc-status-label"
             >
-               
               inProgress
-               
             </span>
             <span
-              className={undefined}
+              className="tc-status-actions"
             >
               <div
                 className="tc-actions btn-group"
@@ -212,6 +211,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         >
           <div
             className="tc-status text-info undefined"
+            role="status"
           >
             <i
               aria-hidden="true"
@@ -222,12 +222,10 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             <span
               className="tc-status-label"
             >
-               
               inProgress
-               
             </span>
             <span
-              className={undefined}
+              className="tc-status-actions"
             >
               <div
                 className="tc-actions btn-group"
@@ -403,6 +401,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
         >
           <div
             className="tc-status text-info undefined"
+            role="status"
           >
             <i
               aria-hidden="true"
@@ -413,12 +412,10 @@ exports[`CollapsiblePanel should render default without content 1`] = `
             <span
               className="tc-status-label"
             >
-               
               inProgress
-               
             </span>
             <span
-              className={undefined}
+              className="tc-status-actions"
             >
               <div
                 className="tc-actions btn-group"

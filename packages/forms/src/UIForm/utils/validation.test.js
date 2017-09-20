@@ -1,4 +1,12 @@
-import { validateAll, validateArray, validateSimple, validateSingle, validateValue, isValid } from './validation';
+import {
+	adaptAdditionalRules,
+	isValid,
+	validateAll,
+	validateArray,
+	validateSimple,
+	validateSingle,
+	validateValue,
+} from './validation';
 
 const customError = 'This field is invalid';
 function customValidationFn() {
@@ -384,6 +392,76 @@ describe('Validation utils', () => {
 
 			// then
 			expect(valid).toBe(true);
+		});
+	});
+
+	describe('#adaptAdditionalRules', () => {
+		it('should adapt mergedSchema to avoid enum validation', () => {
+			// given
+			const schema = {
+				key: ['gender'],
+				restricted: false,
+				schema: {
+					key: ['gender'],
+					type: 'string',
+					enum: ['M', 'F'],
+				},
+				type: 'text',
+				widget: 'datalist',
+			};
+
+			// when
+			const adaptedSchema = adaptAdditionalRules(schema);
+
+			// then
+			expect(adaptedSchema).toEqual({
+				key: ['gender'],
+				restricted: false,
+				schema: {
+					key: ['gender'],
+					type: 'string',
+					enum: undefined, // no enum anymore
+				},
+				type: 'text',
+				widget: 'datalist',
+			});
+		});
+
+		it('should adapt mergedSchema to avoid enum validation on array', () => {
+			// given
+			const schema = {
+				key: ['gender'],
+				restricted: false,
+				schema: {
+					key: ['genders'],
+					type: 'array',
+					items: {
+						type: 'string',
+						enum: ['M', 'F'],
+					},
+				},
+				type: 'text',
+				widget: 'multiSelectTag',
+			};
+
+			// when
+			const adaptedSchema = adaptAdditionalRules(schema);
+
+			// then
+			expect(adaptedSchema).toEqual({
+				key: ['gender'],
+				restricted: false,
+				schema: {
+					key: ['genders'],
+					type: 'array',
+					items: {
+						type: 'string',
+						enum: undefined,
+					},
+				},
+				type: 'text',
+				widget: 'multiSelectTag',
+			});
 		});
 	});
 });

@@ -120,7 +120,7 @@ describe('SingleButton field', () => {
 		// then
 		expect(onTrigger).toHaveBeenCalledWith(
 			expect.anything(),
-			{ type: triggerSchema.triggers[0], schema: triggerSchema }
+			{ trigger: triggerSchema.triggers[0], schema: triggerSchema }
 		);
 	});
 });

@@ -1,5 +1,5 @@
 
-> bootstrap-talend-theme@0.102.3 lint:style /home/travis/build/Talend/ui/packages/theme
+> bootstrap-talend-theme@0.111.0 lint:style /home/travis/build/Talend/ui/packages/theme
 > sass-lint -q -v
 
 
@@ -10,16 +10,16 @@ src/theme/_dropdowns.scss
   19:22  error  !important not allowed  no-important
 
 src/theme/_forms.scss
-   23:11  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   24:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   41:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   42:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   91:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  277:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  290:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  303:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  326:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  470:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+   26:11  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   27:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   44:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   45:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   94:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  280:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  293:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  306:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  329:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  473:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes

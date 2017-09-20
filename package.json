@@ -2,13 +2,14 @@
   "devDependencies": {
     "commander": "^2.9.0",
     "cpx": "^1.5.0",
+    "i18next-parser": "^0.12.0",
     "lerna": "2.0.0",
     "npm-watch": "^0.1.8",
     "surge": "^0.18.0"
   },
   "scripts": {
     "postinstall": "lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress --mutex network && ./copylibs.js",
-    "update-versions": "./version.js",
+    "update-versions": "./version.js && lerna exec -- yarn && ./copylibs.js",
     "build": "lerna exec --ignore=generator-talend -- yarn run prepublish && ./copylibs.js",
     "build-cmf": "lerna exec --scope=*cmf -- yarn run prepublish && ./copylibs.js --scope=cmf",
     "build-components": "lerna exec --scope=*components -- yarn run prepublish && ./copylibs.js --scope=components",
@@ -24,7 +25,10 @@
     "publish": "lerna publish --force-publish=*",
     "build-storybook": "export TRAVIS_BRANCH='master' && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
     "publish-storybook": "npm run build-storybook && cd .static && surge",
-    "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %<(70,trunc)%s\" --date=short --color"
+    "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %<(70,trunc)%s\" --date=short --color",
+    "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms",
+    "extract-i18n-components": "i18next packages/components/src -r -o i18n/components -n tui-components -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'",
+    "extract-i18n-forms": "i18next packages/forms/src -r -o i18n/forms -n tui-forms -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'"
   },
   "watch": {
     "build-cmf": {

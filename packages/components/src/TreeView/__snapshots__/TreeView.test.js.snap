@@ -102,13 +102,20 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
             className={undefined}
           >
             <div
-              className="tc-badge tc-badge-solid"
+              className="tc-badge tc-badge-readonly"
+              style={undefined}
             >
-              <span
-                className="tc-badge-label"
+              <button
+                className="tc-badge-button"
+                disabled={false}
+                onClick={undefined}
               >
-                101
-              </span>
+                <span
+                  className="tc-badge-label"
+                >
+                  101
+                </span>
+              </button>
             </div>
             <button
               className="btn btn-link"
