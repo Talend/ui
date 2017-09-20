@@ -16,6 +16,12 @@ const COMPLEX_TYPES = ['object', 'array'];
 export const ARRAY_ABSTRACT = '[...]';
 export const OBJECT_ABSTRACT = '{...}';
 
+function stopAndSelect(event, onSelect, jsonpath) {
+	event.stopPropagation();
+	onSelect(event, jsonpath);
+}
+
+
 export function NativeValue({
 	data,
 	edit,
@@ -39,16 +45,11 @@ export function NativeValue({
 
 	const isSelectedLine = (selectedJsonpath && (selectedJsonpath === jsonpath));
 
-	function stopAndSelect(event) {
-		event.stopPropagation();
-		onSelect(event, jsonpath);
-	}
-
 	if (isSelectedLine) {
 		return (
 			<div
 				className={`${theme.native} ${theme['line-value-selected']}`}
-				onClick={stopAndSelect}
+				onClick={e => stopAndSelect(e, onSelect, jsonpath)}
 			>
 				{display}
 			</div>
@@ -149,6 +150,12 @@ LineItem.propTypes = {
 	onSelect: PropTypes.func,
 };
 
+/**
+ * return Info object of the data
+ * @param {Object|Array} 	data		The data to display
+ * @param {string} 			tupleLabel 	The label that will replace the 'Object' type displayed
+ * @return {Object}						DataInfo object
+ */
 export function getDataInfo(data, tupleLabel) {
 	const info = {
 		type: typeof data,
@@ -174,6 +181,14 @@ export function getDataInfo(data, tupleLabel) {
 	return info;
 }
 
+/**
+ * return The concatenation of already built abstract
+ * and the native value or complexe types representation
+ *
+ * @param {string} 	acc		Accumulator
+ * @param {any}		item 	Current object|literal of the iteration
+ * @return {string} 		The abstract being built
+ */
 export function abstracter(acc, item) {
 	if (Array.isArray(item)) {
 		if (acc.length > 0) {
@@ -190,9 +205,17 @@ export function abstracter(acc, item) {
 		return `${acc}, ${item}`;
 	}
 
+	// interpolation is useful for boolean values
 	return `${item}`;
 }
 
+/**
+ * return The abstract of and array or object
+ * with simple representation for complex types
+ *
+ * @param {Object|Array} 	data	data to abstract by values
+ * @return {string} 		The abstract built
+ */
 export function getDataAbstract(data) {
 	let abstract = '';
 	if (Array.isArray(data)) {
