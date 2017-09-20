@@ -40,7 +40,19 @@ describe('JSONLike', () => {
 
 	describe('getDataAbstract', () => {
 		const parking = { lot: false, valet: false, garage: false };
-		const mixedObject = { good_for: { dessert: false, kids: true, drinks: false, breakfast: false, lunch: false, dinner: true }, parking, take_reservations: true, noise_level: 'quiet' };
+		const mixedObject = {
+			good_for: {
+				dessert: false,
+				kids: true,
+				drinks: false,
+				breakfast: false,
+				lunch: false,
+				dinner: true,
+			},
+			parking,
+			take_reservations: true,
+			noise_level: 'quiet',
+		};
 		const someArray = [1, 2, 3];
 		const mixedArray = ['value1', { obj1Key1: 'obj1kVCalue1' }, ...someArray];
 		const someNestedArray = { k1: someArray, k2: 'v2' };
