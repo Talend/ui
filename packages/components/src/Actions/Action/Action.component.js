@@ -92,7 +92,6 @@ function Action(props) {
 		tooltip,
 		tooltipLabel,
 		available,
-		maxLabelLength,
 		...rest
 	} = props;
 
