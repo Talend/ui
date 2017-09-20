@@ -2,21 +2,29 @@
 > react-talend-components@0.111.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config .eslintrc src
 
-Cannot read config file: /home/travis/build/Talend/ui/.eslintrc
-Error: missed comma between flow collection entries at line 10, column 3:
-    		"new-cap": [
-      ^
-YAMLException: Cannot read config file: /home/travis/build/Talend/ui/.eslintrc
-Error: missed comma between flow collection entries at line 10, column 3:
-    		"new-cap": [
-      ^
-    at generateError (/home/travis/build/Talend/ui/packages/components/node_modules/js-yaml/lib/js-yaml/loader.js:165:10)
-    at throwError (/home/travis/build/Talend/ui/packages/components/node_modules/js-yaml/lib/js-yaml/loader.js:171:9)
-    at readFlowCollection (/home/travis/build/Talend/ui/packages/components/node_modules/js-yaml/lib/js-yaml/loader.js:691:7)
-    at composeNode (/home/travis/build/Talend/ui/packages/components/node_modules/js-yaml/lib/js-yaml/loader.js:1333:11)
-    at readFlowCollection (/home/travis/build/Talend/ui/packages/components/node_modules/js-yaml/lib/js-yaml/loader.js:719:7)
-    at composeNode (/home/travis/build/Talend/ui/packages/components/node_modules/js-yaml/lib/js-yaml/loader.js:1333:11)
-    at readBlockMapping (/home/travis/build/Talend/ui/packages/components/node_modules/js-yaml/lib/js-yaml/loader.js:1009:16)
-    at composeNode (/home/travis/build/Talend/ui/packages/components/node_modules/js-yaml/lib/js-yaml/loader.js:1332:12)
-    at readDocument (/home/travis/build/Talend/ui/packages/components/node_modules/js-yaml/lib/js-yaml/loader.js:1492:3)
-    at loadDocuments (/home/travis/build/Talend/ui/packages/components/node_modules/js-yaml/lib/js-yaml/loader.js:1548:5)
+The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/Action/Action.component.js
+  3:8  error  'classnames' is defined but never used  no-unused-vars
+
+/home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/__snapshots__/config.js
+  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  4:2  error  Unexpected require()                                                                    global-require
+
+/home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
+  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  4:2  error  Unexpected require()                                                                    global-require
+
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/__snapshots__/config.js
+  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  4:2  error  Unexpected require()                                                                    global-require
+
+/home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
+  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  4:2  error  Unexpected require()                                                                    global-require
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
+  42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
+✖ 10 problems (10 errors, 0 warnings)
+

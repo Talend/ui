@@ -2,21 +2,19 @@
 > react-cmf@0.111.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
-Cannot read config file: /home/travis/build/Talend/ui/.eslintrc
-Error: missed comma between flow collection entries at line 10, column 3:
-    		"new-cap": [
-      ^
-YAMLException: Cannot read config file: /home/travis/build/Talend/ui/.eslintrc
-Error: missed comma between flow collection entries at line 10, column 3:
-    		"new-cap": [
-      ^
-    at generateError (/home/travis/build/Talend/ui/packages/cmf/node_modules/js-yaml/lib/js-yaml/loader.js:165:10)
-    at throwError (/home/travis/build/Talend/ui/packages/cmf/node_modules/js-yaml/lib/js-yaml/loader.js:171:9)
-    at readFlowCollection (/home/travis/build/Talend/ui/packages/cmf/node_modules/js-yaml/lib/js-yaml/loader.js:691:7)
-    at composeNode (/home/travis/build/Talend/ui/packages/cmf/node_modules/js-yaml/lib/js-yaml/loader.js:1333:11)
-    at readFlowCollection (/home/travis/build/Talend/ui/packages/cmf/node_modules/js-yaml/lib/js-yaml/loader.js:719:7)
-    at composeNode (/home/travis/build/Talend/ui/packages/cmf/node_modules/js-yaml/lib/js-yaml/loader.js:1333:11)
-    at readBlockMapping (/home/travis/build/Talend/ui/packages/cmf/node_modules/js-yaml/lib/js-yaml/loader.js:1009:16)
-    at composeNode (/home/travis/build/Talend/ui/packages/cmf/node_modules/js-yaml/lib/js-yaml/loader.js:1332:12)
-    at readDocument (/home/travis/build/Talend/ui/packages/cmf/node_modules/js-yaml/lib/js-yaml/loader.js:1492:3)
-    at loadDocuments (/home/travis/build/Talend/ui/packages/cmf/node_modules/js-yaml/lib/js-yaml/loader.js:1548:5)
+The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/cmf/src/componentState.js
+  67:3  warning  Unexpected console statement  no-console
+
+/home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
+  8:2  warning  Unexpected console statement  no-console
+
+/home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
+  17:17  error  Expected 'this' to be used by class method 'getChildContext'  class-methods-use-this
+
+/home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
+  35:2  warning  Unexpected constant condition  no-constant-condition
+
+✖ 4 problems (1 error, 3 warnings)
+
