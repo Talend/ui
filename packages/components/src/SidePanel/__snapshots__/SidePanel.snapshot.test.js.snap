@@ -61,6 +61,19 @@ exports[`Storyshots SidePanel default 1`] = `
         />
       </svg>
     </symbol>
+    <symbol
+      id="talend-opener"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.5083,6.998 L8.7373,12.149 C8.8373,12.248 8.8373,12.407 8.7373,12.505 L7.2943,13.926 C7.1953,14.024 7.0323,14.024 6.9333,13.926 L1.5393,8.613 C1.5323,8.607 1.5243,8.61 1.5183,8.604 L0.0743,7.182 C-0.0247,7.084 -0.0247,6.925 0.0743,6.827 L0.0753,6.826 C0.0773,6.824 0.0763,6.82 0.0793,6.818 L1.5223,5.396 C1.5253,5.394 1.5283,5.395 1.5303,5.393 L6.9293,0.074 C7.0293,-0.024 7.1913,-0.024 7.2903,0.074 L8.7343,1.495 C8.8333,1.593 8.8333,1.752 8.7343,1.851 L3.5083,6.998 Z M15.9253,12.1494 C16.0253,12.2474 16.0253,12.4064 15.9253,12.5044 L14.4823,13.9264 C14.3823,14.0244 14.2213,14.0244 14.1213,13.9264 L8.7283,8.6124 C8.7223,8.6074 8.7123,8.6094 8.7063,8.6044 L7.2633,7.1824 C7.1633,7.0844 7.1633,6.9244 7.2633,6.8264 C7.2653,6.8244 7.2653,6.8204 7.2673,6.8174 L8.7103,5.3964 C8.7123,5.3944 8.7163,5.3954 8.7183,5.3924 L14.1173,0.0734 C14.2173,-0.0246 14.3783,-0.0246 14.4783,0.0734 L15.9213,1.4954 C16.0213,1.5934 16.0213,1.7524 15.9213,1.8504 L10.6963,6.9984 L15.9253,12.1494 Z"
+          transform="translate(0 1)"
+        />
+      </svg>
+    </symbol>
   </svg>
   <nav
     className="tc-side-panel"
@@ -70,15 +83,14 @@ exports[`Storyshots SidePanel default 1`] = `
     >
       <li
         className={undefined}
+        title="Collapse"
       >
         <button
           className="btn btn-link"
           disabled={false}
           id="context-toggle-dock"
           onClick={[Function]}
-          onFocus={[Function]}
           onMouseDown={[Function]}
-          onMouseOver={[Function]}
           role={null}
           type="button"
         >
@@ -89,9 +101,10 @@ exports[`Storyshots SidePanel default 1`] = `
             title={null}
           >
             <use
-              xlinkHref="#talend-arrow-left"
+              xlinkHref="#talend-opener"
             />
           </svg>
+          <span />
         </button>
       </li>
       <li
@@ -241,6 +254,19 @@ exports[`Storyshots SidePanel docked 1`] = `
         />
       </svg>
     </symbol>
+    <symbol
+      id="talend-opener"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.5083,6.998 L8.7373,12.149 C8.8373,12.248 8.8373,12.407 8.7373,12.505 L7.2943,13.926 C7.1953,14.024 7.0323,14.024 6.9333,13.926 L1.5393,8.613 C1.5323,8.607 1.5243,8.61 1.5183,8.604 L0.0743,7.182 C-0.0247,7.084 -0.0247,6.925 0.0743,6.827 L0.0753,6.826 C0.0773,6.824 0.0763,6.82 0.0793,6.818 L1.5223,5.396 C1.5253,5.394 1.5283,5.395 1.5303,5.393 L6.9293,0.074 C7.0293,-0.024 7.1913,-0.024 7.2903,0.074 L8.7343,1.495 C8.8333,1.593 8.8333,1.752 8.7343,1.851 L3.5083,6.998 Z M15.9253,12.1494 C16.0253,12.2474 16.0253,12.4064 15.9253,12.5044 L14.4823,13.9264 C14.3823,14.0244 14.2213,14.0244 14.1213,13.9264 L8.7283,8.6124 C8.7223,8.6074 8.7123,8.6094 8.7063,8.6044 L7.2633,7.1824 C7.1633,7.0844 7.1633,6.9244 7.2633,6.8264 C7.2653,6.8244 7.2653,6.8204 7.2673,6.8174 L8.7103,5.3964 C8.7123,5.3944 8.7163,5.3954 8.7183,5.3924 L14.1173,0.0734 C14.2173,-0.0246 14.3783,-0.0246 14.4783,0.0734 L15.9213,1.4954 C16.0213,1.5934 16.0213,1.7524 15.9213,1.8504 L10.6963,6.9984 L15.9253,12.1494 Z"
+          transform="translate(0 1)"
+        />
+      </svg>
+    </symbol>
   </svg>
   <nav
     className="undefined tc-side-panel"
@@ -250,14 +276,13 @@ exports[`Storyshots SidePanel docked 1`] = `
     >
       <li
         className={undefined}
+        title="Expand"
       >
         <button
           className="btn btn-link"
           disabled={false}
           onClick={[Function]}
-          onFocus={[Function]}
           onMouseDown={[Function]}
-          onMouseOver={[Function]}
           role={null}
           type="button"
         >
@@ -268,9 +293,10 @@ exports[`Storyshots SidePanel docked 1`] = `
             title={null}
           >
             <use
-              xlinkHref="#talend-arrow-left"
+              xlinkHref="#talend-opener"
             />
           </svg>
+          <span />
         </button>
       </li>
       <li
@@ -414,6 +440,19 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
         />
       </svg>
     </symbol>
+    <symbol
+      id="talend-opener"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.5083,6.998 L8.7373,12.149 C8.8373,12.248 8.8373,12.407 8.7373,12.505 L7.2943,13.926 C7.1953,14.024 7.0323,14.024 6.9333,13.926 L1.5393,8.613 C1.5323,8.607 1.5243,8.61 1.5183,8.604 L0.0743,7.182 C-0.0247,7.084 -0.0247,6.925 0.0743,6.827 L0.0753,6.826 C0.0773,6.824 0.0763,6.82 0.0793,6.818 L1.5223,5.396 C1.5253,5.394 1.5283,5.395 1.5303,5.393 L6.9293,0.074 C7.0293,-0.024 7.1913,-0.024 7.2903,0.074 L8.7343,1.495 C8.8333,1.593 8.8333,1.752 8.7343,1.851 L3.5083,6.998 Z M15.9253,12.1494 C16.0253,12.2474 16.0253,12.4064 15.9253,12.5044 L14.4823,13.9264 C14.3823,14.0244 14.2213,14.0244 14.1213,13.9264 L8.7283,8.6124 C8.7223,8.6074 8.7123,8.6094 8.7063,8.6044 L7.2633,7.1824 C7.1633,7.0844 7.1633,6.9244 7.2633,6.8264 C7.2653,6.8244 7.2653,6.8204 7.2673,6.8174 L8.7103,5.3964 C8.7123,5.3944 8.7163,5.3954 8.7183,5.3924 L14.1173,0.0734 C14.2173,-0.0246 14.3783,-0.0246 14.4783,0.0734 L15.9213,1.4954 C16.0213,1.5934 16.0213,1.7524 15.9213,1.8504 L10.6963,6.9984 L15.9253,12.1494 Z"
+          transform="translate(0 1)"
+        />
+      </svg>
+    </symbol>
   </svg>
   <nav
     className="tc-side-panel"
@@ -423,14 +462,13 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
     >
       <li
         className={undefined}
+        title="Collapse"
       >
         <button
           className="btn btn-link"
           disabled={false}
           onClick={[Function]}
-          onFocus={[Function]}
           onMouseDown={[Function]}
-          onMouseOver={[Function]}
           role={null}
           type="button"
         >
@@ -441,9 +479,10 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
             title={null}
           >
             <use
-              xlinkHref="#talend-arrow-left"
+              xlinkHref="#talend-opener"
             />
           </svg>
+          <span />
         </button>
       </li>
       <li
