@@ -34,7 +34,7 @@ const ADDONS = {
 	'react-immutable-proptypes': '2.1.0',
 	'react-jsonschema-form': '0.42.0',
 	'react-tap-event-plugin': '2.0.0',
-	'react-virtualized': '9.10.0',
+	'react-virtualized': '9.10.1',
 	'slugify': '1.1.0',
 	'whatwg-fetch': '2.0.3',
 };
@@ -61,7 +61,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-router': '3.0.5',
 	'react-router-redux': '4.0.8',
 	'react-test-renderer': REACT_VERSION,
-	'react-virtualized': '^9.10.0',
+	'react-virtualized': '9.10.1',
 	reselect: '^2.5.4',
 
 	redux: '3.6.0',
