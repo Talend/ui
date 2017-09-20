@@ -2,7 +2,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { object } from '@storybook/addon-knobs';
 import { Tabs, Tab } from 'react-bootstrap';
-import IconsProvider from 'react-talend-components/lib/IconsProvider';
+import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { UIForm, ConnectedUIForm } from '../src/UIForm';
 
 const conceptsFilenames = require.context('./json/concepts', true, /.(js|json)$/);

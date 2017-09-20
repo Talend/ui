@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ListView from 'react-talend-components/lib/ListView';
+import ListView from '@talend/react-components/lib/ListView';
 
 import {
 	search,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import icons from 'talend-icons/dist/react';
+import icons from '@talend/icons/dist/react';
 
 import { Icon, IconsProvider } from '../src/index';
 const testIcon = (<svg viewBox="0 0 20 20">

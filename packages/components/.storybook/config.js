@@ -8,7 +8,7 @@ import { configure, setAddon } from '@storybook/react';
 import infoAddon from '@storybook/addon-info';
 import withPropsCombinations from 'react-storybook-addon-props-combinations';
 
-import 'bootstrap-talend-theme/src/theme/theme.scss';
+import '@talend/bootstrap-theme/src/theme/theme.scss';
 
 a11y(ReactDOM);
 

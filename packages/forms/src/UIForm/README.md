@@ -342,7 +342,7 @@ Take a look at
 
 ```javascript
 import React from 'react';
-import { UIForm } from 'react-talend-forms/lib/UIForm';
+import { UIForm } from '@talend/react-forms/lib/UIForm';
 
 class MyComponent extends React.Component {
 	customValidation(schema, value, properties) {
@@ -370,7 +370,7 @@ class MyComponent extends React.Component {
 
 ```javascript
 import { createStore, combineReducers } from 'redux';
-import { formReducer } from 'react-talend-forms/lib/UIForm';
+import { formReducer } from '@talend/react-forms/lib/UIForm';
 
 const reducers = {
   // ... your other reducers here ...
@@ -382,7 +382,7 @@ const store = createStore(reducer)
 
 ```javascript
 import React from 'react';
-import { ConnectedUIForm } from 'react-talend-forms/lib/UIForm';
+import { ConnectedUIForm } from '@talend/react-forms/lib/UIForm';
 
 class MyComponent extends React.Component {
 	constructor(props) {

@@ -113,6 +113,7 @@ exports[`Enumeration should render with header in add state and list in default 
     >
       <div
         aria-label="grid"
+        aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List undefined"
         id={undefined}
         onScroll={[Function]}
@@ -134,6 +135,7 @@ exports[`Enumeration should render with header in add state and list in default 
       >
         <div
           className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
           style={
             Object {
               "height": 126,
@@ -420,6 +422,7 @@ exports[`Enumeration should render with header in default state and first item i
     >
       <div
         aria-label="grid"
+        aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List undefined"
         id={undefined}
         onScroll={[Function]}
@@ -441,6 +444,7 @@ exports[`Enumeration should render with header in default state and first item i
       >
         <div
           className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
           style={
             Object {
               "height": 126,
@@ -725,6 +729,7 @@ exports[`Enumeration should render with header in default state with custom labe
     >
       <div
         aria-label="grid"
+        aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List undefined"
         id={undefined}
         onScroll={[Function]}
@@ -746,6 +751,7 @@ exports[`Enumeration should render with header in default state with custom labe
       >
         <div
           className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
           style={
             Object {
               "height": 126,
@@ -1033,6 +1039,7 @@ exports[`Enumeration should render with header in default state, list in default
     >
       <div
         aria-label="grid"
+        aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List undefined"
         id={undefined}
         onScroll={[Function]}
@@ -1054,6 +1061,7 @@ exports[`Enumeration should render with header in default state, list in default
       >
         <div
           className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
           style={
             Object {
               "height": 126,
@@ -1362,6 +1370,7 @@ exports[`Enumeration should render with header in search state and list in defau
     >
       <div
         aria-label="grid"
+        aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List undefined"
         id={undefined}
         onScroll={[Function]}
@@ -1383,6 +1392,7 @@ exports[`Enumeration should render with header in search state and list in defau
       >
         <div
           className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
           style={
             Object {
               "height": 126,
@@ -1663,6 +1673,7 @@ exports[`Enumeration should render with header in selected state with trash icon
     >
       <div
         aria-label="grid"
+        aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List undefined"
         id={undefined}
         onScroll={[Function]}
@@ -1684,6 +1695,7 @@ exports[`Enumeration should render with header in selected state with trash icon
       >
         <div
           className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
           style={
             Object {
               "height": 126,
@@ -1955,6 +1967,7 @@ exports[`Enumeration should render with header in selected state with trash icon
     >
       <div
         aria-label="grid"
+        aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List undefined"
         id={undefined}
         onScroll={[Function]}
@@ -1976,6 +1989,7 @@ exports[`Enumeration should render with header in selected state with trash icon
       >
         <div
           className="ReactVirtualized__Grid__innerScrollContainer"
+          role="rowgroup"
           style={
             Object {
               "height": 126,
