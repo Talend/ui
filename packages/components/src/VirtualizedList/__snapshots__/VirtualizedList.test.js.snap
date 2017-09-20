@@ -86,6 +86,8 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
 
 exports[`VirtualizedList should use AutoSizer 1`] = `
 <AutoSizer
+  disableHeight={false}
+  disableWidth={false}
   onResize={[Function]}
 >
   [Function]
