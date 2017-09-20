@@ -2,50 +2,21 @@
 > react-talend-containers@0.111.0 lint:es /home/travis/build/Talend/ui/packages/containers
 > eslint --config .eslintrc src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/containers/src/Action/Action.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/ActionBar/ActionBar.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/Actions/Actions.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
-  34:74  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
-
-/home/travis/build/Talend/ui/packages/containers/src/Form/Form.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/List/List.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.test.js
-  1:8   error  'React' is defined but never used                                                              no-unused-vars
-  7:18  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
-
-/home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.test.js
-  4:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/state.js
-  3:1  warning  Unexpected console statement  no-console
-
-✖ 15 problems (14 errors, 1 warning)
-
+Cannot read config file: /home/travis/build/Talend/ui/.eslintrc
+Error: missed comma between flow collection entries at line 10, column 3:
+    		"new-cap": [
+      ^
+YAMLException: Cannot read config file: /home/travis/build/Talend/ui/.eslintrc
+Error: missed comma between flow collection entries at line 10, column 3:
+    		"new-cap": [
+      ^
+    at generateError (/home/travis/build/Talend/ui/packages/containers/node_modules/js-yaml/lib/js-yaml/loader.js:165:10)
+    at throwError (/home/travis/build/Talend/ui/packages/containers/node_modules/js-yaml/lib/js-yaml/loader.js:171:9)
+    at readFlowCollection (/home/travis/build/Talend/ui/packages/containers/node_modules/js-yaml/lib/js-yaml/loader.js:691:7)
+    at composeNode (/home/travis/build/Talend/ui/packages/containers/node_modules/js-yaml/lib/js-yaml/loader.js:1333:11)
+    at readFlowCollection (/home/travis/build/Talend/ui/packages/containers/node_modules/js-yaml/lib/js-yaml/loader.js:719:7)
+    at composeNode (/home/travis/build/Talend/ui/packages/containers/node_modules/js-yaml/lib/js-yaml/loader.js:1333:11)
+    at readBlockMapping (/home/travis/build/Talend/ui/packages/containers/node_modules/js-yaml/lib/js-yaml/loader.js:1009:16)
+    at composeNode (/home/travis/build/Talend/ui/packages/containers/node_modules/js-yaml/lib/js-yaml/loader.js:1332:12)
+    at readDocument (/home/travis/build/Talend/ui/packages/containers/node_modules/js-yaml/lib/js-yaml/loader.js:1492:3)
+    at loadDocuments (/home/travis/build/Talend/ui/packages/containers/node_modules/js-yaml/lib/js-yaml/loader.js:1548:5)
