@@ -3,10 +3,10 @@
  * Being the first import is important, so that it is the default style
  * and other style can override it
  */
-import 'bootstrap-talend-theme/src/theme/theme.scss';
+import '@talend/bootstrap-theme/src/theme/theme.scss';
 import React from 'react';
 import { render } from 'react-dom';
-import { App, store as cmfstore, actions } from 'react-cmf';
+import { App, store as cmfstore, actions } from '@talend/react-cmf';
 import { browserHistory } from 'react-router';
 import { routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 

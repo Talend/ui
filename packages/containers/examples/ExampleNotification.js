@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from 'react-talend-components';
+import { IconsProvider } from '@talend/react-components';
 import { List, Map } from 'immutable';
 import { Notification } from '../src';
 

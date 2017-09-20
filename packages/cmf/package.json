@@ -1,7 +1,8 @@
 {
-  "name": "react-cmf",
+  "name": "@talend/react-cmf",
   "description": "A framework built on top of best react libraries",
   "main": "lib/index.js",
+  "license": "Apache-2.0",
   "scripts": {
     "prepublish": "babel -d lib ./src/",
     "start": "echo nothing to start",
@@ -11,20 +12,25 @@
     "lint:es": "eslint --config .eslintrc --ext .js src",
     "lint": "npm run lint:es"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Talend/react-cmf.git"
-  },
   "keywords": [
     "react",
+    "talend",
+    "cmf",
     "framework"
   ],
-  "author": "Jean-Michel FRANCOIS <jmfrancois@talend.com>",
-  "license": "Apache-2.0",
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/cmf#readme",
   "bugs": {
-    "url": "https://github.com/Talend/react-cmf/issues"
+    "url": "https://github.com/Talend/ui/issues"
   },
-  "homepage": "https://github.com/Talend/react-cmf#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {
+    "babel-polyfill": "6.26.0",
+    "hoist-non-react-statics": "^1.2.0"
+  },
   "devDependencies": {
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
@@ -73,19 +79,6 @@
     "redux-thunk": "2.2.0",
     "rimraf": "^2.6.1"
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!**/node_modules/**",
-      "!**/__snapshots__/**"
-    ],
-    "transform": {
-      ".*": "<rootDir>/node_modules/babel-jest"
-    },
-    "setupFiles": [
-      "./env__tests.js"
-    ]
-  },
   "peerDependencies": {
     "classnames": "2.2.5",
     "immutable": "3.8.1",
@@ -107,9 +100,21 @@
     "redux-storage-engine-localstorage": "^1.1.4",
     "redux-thunk": "2.2.0"
   },
-  "version": "0.111.0",
-  "dependencies": {
-    "babel-polyfill": "6.26.0",
-    "hoist-non-react-statics": "^1.2.0"
-  }
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/__snapshots__/**"
+    ],
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
+    "setupFiles": [
+      "./env__tests.js"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.111.0"
 }

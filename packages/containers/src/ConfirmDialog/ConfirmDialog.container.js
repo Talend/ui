@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Map } from 'immutable';
-import { ConfirmDialog as Component } from 'react-talend-components';
-import { componentState } from 'react-cmf';
+import { ConfirmDialog as Component } from '@talend/react-components';
+import { componentState } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
 

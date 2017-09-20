@@ -1,11 +1,16 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { store, Provider } from 'react-cmf/lib/mock';
+import { store, Provider } from '@talend/react-cmf/lib/mock';
 import { fromJS } from 'immutable';
 import Container from './Notification.container';
 import Connected, { mergeProps, deleteNotification } from './Notification.connect';
 import pushNotification from './pushNotification';
 import clearNotifications from './clearNotifications';
+
+jest.mock(
+	'@talend/react-components',
+	() => ({ Notification: props => (<div className="tc-notifications" notifications={props.notifications} />) })
+);
 
 describe('Container Notification', () => {
 	it('should render', () => {
