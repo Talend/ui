@@ -3,12 +3,14 @@
 /// @group Custom widgets
 ////
 
-$list-item-hover-color: rgba($white, 0.12);
-$list-item-active-color: rgba($white, 0.25);
+$list-item-hover-color: rgba($white, 0.12) !default;
+$list-item-active-color: rgba($white, 0.25) !default;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-width: 200px !default;
-$tc-side-panel-docked-width: 54px !default;
+$tc-side-panel-docked-width: 50px !default;
 $tc-side-panel-labels-width: 135px !default;
+$tc-side-panel-icons-size: 20px !default;
+$toggle-button-padding: $padding-small - 1;
 
 .tc-side-panel {
 	overflow-x: hidden;
@@ -21,8 +23,8 @@ $tc-side-panel-labels-width: 135px !default;
 	}
 
 	:global(.btn) svg:global(.tc-svg-icon) {
-		width: $svg-lg-size;
-		height: $svg-lg-size;
+		width: $tc-side-panel-icons-size;
+		height: $tc-side-panel-icons-size;
 		margin: 0;
 	}
 
@@ -86,7 +88,7 @@ $tc-side-panel-labels-width: 135px !default;
 	.toggle-btn {
 		margin-bottom: $padding-normal + $padding-large;
 		text-align: left;
-		padding-left: $padding-small;
+		padding-left: $toggle-button-padding;
 
 		:global(.btn.btn-link) {
 			outline: none;
