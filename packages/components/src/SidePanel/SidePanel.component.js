@@ -70,6 +70,7 @@ function SidePanel({
 				</li>
 				{actions.map(action => (
 					<li
+						title={action.label}
 						key={action.key || action.label}
 						className={classNames(
 							'tc-side-panel-list-item',
@@ -91,9 +92,6 @@ function SidePanel({
 							}}
 							label={action.label}
 							icon={action.icon}
-							hideLabel={docked}
-							tooltipPlacement={tooltipPlacement}
-							maxLabelLength={36}
 						/>
 					</li>
 				))}

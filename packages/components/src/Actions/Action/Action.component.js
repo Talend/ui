@@ -31,12 +31,9 @@ getIcon.propTypes = {
 	inProgress: PropTypes.bool,
 };
 
-function getLabel({ hideLabel, label, maxLabelLength }) {
+function getLabel({ hideLabel, label }) {
 	if (hideLabel) {
 		return null;
-	}
-	if (maxLabelLength && label && label.length > maxLabelLength) {
-		return (<span key="label" title={label}>{`${label.slice(0, maxLabelLength)}...`}</span>);
 	}
 	return (<span key="label">{label}</span>);
 }
@@ -44,7 +41,6 @@ function getLabel({ hideLabel, label, maxLabelLength }) {
 getLabel.propTypes = {
 	label: PropTypes.string,
 	hideLabel: PropTypes.bool,
-	maxLabelLength: PropTypes.number,
 };
 
 function adjustContentPlacement(icon, label, iconPosition) {
@@ -150,7 +146,6 @@ Action.propTypes = {
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
-	maxLabelLength: PropTypes.number,
 };
 
 Action.defaultProps = {

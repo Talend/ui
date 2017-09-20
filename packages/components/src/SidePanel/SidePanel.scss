@@ -8,6 +8,7 @@ $list-item-active-color: rgba($white, 0.25);
 $toggle-button-opacity: 0.75;
 $tc-side-panel-width: 200px !default;
 $tc-side-panel-docked-width: 54px !default;
+$tc-side-panel-labels-width: 135px !default;
 
 .tc-side-panel {
 	overflow-x: hidden;
@@ -42,8 +43,10 @@ $tc-side-panel-docked-width: 54px !default;
 		text-overflow: inherit;
 	}
 	:global(.nav-pills .btn.btn-link) > span {
-		white-space: normal;
 		vertical-align: middle;
+		text-overflow: ellipsis;
+		width: $tc-side-panel-labels-width;
+		overflow: hidden;
 	}
 	:global(.tc-side-panel-list-item):hover {
 		background-color: $list-item-hover-color;
@@ -103,10 +106,10 @@ $tc-side-panel-docked-width: 54px !default;
 				height: $svg-sm-size;
 				transition: 0.2s transform ease-out;
 			}
+		}
 
-			:global(.tc-svg-icon) + span {
-				margin-left: 0;
-			}
+		:global(.btn.btn-link) > span {
+			display: none;
 		}
 
 		&:hover {

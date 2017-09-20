@@ -100,11 +100,6 @@ stories
 						label: 'Some super super super long name',
 						icon: 'talend-world',
 					},
-					{
-						key: 'longername',
-						label: 'Some really unexpected long string with title',
-						icon: 'talend-world',
-					},
 				]);
 				const panel = (
 					<SidePanel
