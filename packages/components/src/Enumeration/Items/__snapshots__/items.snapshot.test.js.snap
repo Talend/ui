@@ -10,6 +10,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
   >
     <div
       aria-label="grid"
+      aria-readonly={true}
       className="ReactVirtualized__Grid ReactVirtualized__List undefined"
       id={undefined}
       onScroll={[Function]}
@@ -31,6 +32,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
     >
       <div
         className="ReactVirtualized__Grid__innerScrollContainer"
+        role="rowgroup"
         style={
           Object {
             "height": 126,

@@ -42,10 +42,23 @@ export default class MultiSelectTag extends React.Component {
 	}
 
 	/**
+	 * On Tags value change, we update suggestions if they are displayed
+	 * @param { Object } nextProps The new props
+	 */
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.value === this.props.value) {
+			return;
+		}
+		if (this.state.suggestions) {
+			this.updateSuggestions(undefined, nextProps);
+		}
+	}
+
+	/**
 	 * Manage suggestion selection
-	 * @param event
-	 * @param focusedItemIndex
-	 * @param newFocusedItemIndex
+	 * @param { object } event
+	 * @param { number } focusedItemIndex
+	 * @param { number } newFocusedItemIndex
 	 */
 	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
 		switch (event.which) {
@@ -73,8 +86,8 @@ export default class MultiSelectTag extends React.Component {
 
 	/**
 	 * Update suggestions on input value change
-	 * @param event The input change event
-	 * @param value The new input value
+	 * @param { object } event The input change event
+	 * @param { string } value The new input value
 	 */
 	onChange(event, { value }) {
 		this.updateSuggestions(value);
@@ -89,8 +102,8 @@ export default class MultiSelectTag extends React.Component {
 
 	/**
 	 * Add a new tag
-	 * @param event The user event
-	 * @param itemIndex The selected suggestion index
+	 * @param { object } event The user event
+	 * @param { number } itemIndex The selected suggestion index
 	 */
 	onAddTag(event, { itemIndex }) {
 		const currentValue = this.state.value;
@@ -109,8 +122,8 @@ export default class MultiSelectTag extends React.Component {
 
 	/**
 	 * Remove a tag
-	 * @param event The user event
-	 * @param itemIndex The tag index
+	 * @param { object } event The user event
+	 * @param { number } itemIndex The tag index
 	 */
 	onRemoveTag(event, itemIndex) {
 		const value = this.props.value.slice(0);
@@ -134,28 +147,32 @@ export default class MultiSelectTag extends React.Component {
 	 * Update suggestions
 	 * - remove current tags values
 	 * - filter based on input value
-	 * @param value The new input value. Undefined if we should use the current input value.
+	 * @param { string } value The new input value. If not provided, it uses the current input value.
+	 * @param { object } props The props to use. If not provided, it uses this.props.
 	 */
-	updateSuggestions(value) {
-		const currentValue = value === undefined ? this.state.value : value;
-		let suggestions = this.props.schema.titleMap
-			.map(item => item.value)
-			.filter(item => this.props.value.indexOf(item) < 0);
+	updateSuggestions(value, props) {
+		this.setState((oldState) => {
+			const currentValue = value === undefined ? oldState.value : value;
+			const currentProps = props === undefined ? this.props : props;
+			let suggestions = currentProps.schema.titleMap
+				.map(item => item.value)
+				.filter(item => currentProps.value.indexOf(item) < 0);
 
-		if (currentValue) {
-			const escapedValue = escapeRegexCharacters(currentValue.trim());
-			const regex = new RegExp(escapedValue, 'i');
-			suggestions = suggestions.filter(itemValue => regex.test(itemValue));
+			if (currentValue) {
+				const escapedValue = escapeRegexCharacters(currentValue.trim());
+				const regex = new RegExp(escapedValue, 'i');
+				suggestions = suggestions.filter(itemValue => regex.test(itemValue));
 
-			if (!suggestions.length && this.props.schema.restricted === false) {
-				suggestions.push(getNewItemText(currentValue));
+				if (!suggestions.length && currentProps.schema.restricted === false) {
+					suggestions.push(getNewItemText(currentValue));
+				}
 			}
-		}
 
-		this.setState({
-			focusedItemIndex: suggestions.length ? 0 : undefined,
-			suggestions,
-			value: currentValue,
+			return {
+				focusedItemIndex: suggestions.length ? 0 : undefined,
+				suggestions,
+				value: currentValue,
+			};
 		});
 	}
 

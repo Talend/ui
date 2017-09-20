@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { mount, shallow } from 'enzyme';
 import Typeahead from '@talend/react-components/lib/Typeahead';
 import keycode from 'keycode';
@@ -32,7 +33,7 @@ describe('MultiSelectTag field', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should update suggestion', () => {
+	it('should update suggestion on input change', () => {
 		// given
 		const wrapper = mount(<MultiSelectTag {...props} />);
 
@@ -41,6 +42,21 @@ describe('MultiSelectTag field', () => {
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual(['titi']);
+	});
+
+	it('should update suggestion on props.value change', () => {
+		// given
+		const node = document.createElement('div');
+		// eslint-disable-next-line react/no-render-return-value
+		const instance = ReactDOM.render(<MultiSelectTag {...props} />, node);
+		instance.updateSuggestions();
+		expect(instance.state.suggestions).toEqual(['titi']);
+
+		// when : trigger a props update
+		ReactDOM.render(<MultiSelectTag {...props} value={['aze']} />, node);
+
+		// then
+		expect(instance.state.suggestions).toEqual(['titi', 'tutu']);
 	});
 
 	it('should suggest new item creation when widget is not restricted', () => {

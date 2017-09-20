@@ -36,6 +36,7 @@ export function getActions(actionIds, context) {
  * @param {object} props react props
  */
 class SidePanel extends React.Component {
+	static displayName = 'Container(SidePanel)';
 	static propTypes = {
 		actionIds: PropTypes.arrayOf(
 			PropTypes.oneOfType([

@@ -45,7 +45,7 @@
     "lodash": "4.17.4",
     "react-autowhatever": "7.0.0",
     "react-debounce-input": "2.4.2",
-    "react-virtualized": "^9.7.0"
+    "react-virtualized": "9.10.1"
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
