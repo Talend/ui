@@ -33,8 +33,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.test.js
     2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  101:5  error  Expected indentation of 3 tabs but found 4                                    indent
-  102:4  error  Expected indentation of 2 tabs but found 3                                    indent
+  127:5  error  Expected indentation of 3 tabs but found 4                                    indent
+  128:4  error  Expected indentation of 2 tabs but found 3                                    indent
 
 /home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.test.js
   1:8   error  'React' is defined but never used                                                              no-unused-vars
