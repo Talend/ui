@@ -56,6 +56,10 @@ $tc-side-panel-docked-width: 54px !default;
 	&.docked {
 		width: $tc-side-panel-docked-width;
 
+		:global(.tc-side-panel-list-item) {
+			width: $tc-side-panel-docked-width;
+		}
+
 		:global(.nav-pills) {
 			//override nav-pill a bit
 			:global(.btn.btn-link) {
