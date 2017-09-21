@@ -38,7 +38,9 @@ exports[`Storyshots SidePanel With layout (toggle interactive) 1`] = `
                   xlinkHref="#talend-opener"
                 />
               </svg>
-              <span />
+              <span>
+                
+              </span>
             </button>
           </li>
           <li
@@ -681,7 +683,9 @@ exports[`Storyshots SidePanel default 1`] = `
               xlinkHref="#talend-opener"
             />
           </svg>
-          <span />
+          <span>
+            
+          </span>
         </button>
       </li>
       <li
@@ -888,7 +892,9 @@ exports[`Storyshots SidePanel docked 1`] = `
               xlinkHref="#talend-opener"
             />
           </svg>
-          <span />
+          <span>
+            
+          </span>
         </button>
       </li>
       <li
@@ -1092,7 +1098,9 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
               xlinkHref="#talend-opener"
             />
           </svg>
-          <span />
+          <span>
+            
+          </span>
         </button>
       </li>
       <li

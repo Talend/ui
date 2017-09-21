@@ -110,18 +110,20 @@ stories
 						tooltipPlacement="top"
 					/>
 				);
-				return (<Layout
-					mode="TwoColumns"
-					one={panel}
-				>
-					<ol>
-						{new Array(100).fill('This is some random content').map(item => <li>{item}</li>)}
-					</ol>
-					<IconsProvider defaultIcons={icons} />
-				</Layout>);
+				return (
+					<Layout	mode="TwoColumns" one={panel}>
+						<ol>
+							{
+								new Array(100)
+									.fill('This is some random content')
+									.map((item, num) => <li key={num}>{item}</li>)
+							}
+						</ol>
+						<IconsProvider defaultIcons={icons} />
+					</Layout>
+				);
 			}
 		}
-
 
 		return (
 			<WithLayout />
