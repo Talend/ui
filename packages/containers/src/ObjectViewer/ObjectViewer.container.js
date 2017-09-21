@@ -7,46 +7,31 @@ import { ObjectViewer as Component } from 'react-talend-components';
 import { componentState } from 'react-cmf';
 
 export const DEFAULT_STATE = new Map({
-	edited: new List(),  // Array of JSONPath
-	opened: new List(),  // Array of JSONPath
-	selectedJsonpath: '',  // Selected JSONPath
-	modified: new Map(),  // Store the onChange
+	edited: new List(), // Array of JSONPath
+	opened: new List(), // Array of JSONPath
+	selectedJsonpath: '', // Selected JSONPath
+	modified: new Map(), // Store the onChange
 });
 
 export function open(path, state) {
-	return state.set(
-		'opened',
-		state.get('opened').push(path),
-	);
+	return state.set('opened', state.get('opened').push(path));
 }
 
 export function select(path, state) {
-	return state.set(
-		'selectedJsonpath',
-		path,
-	);
+	return state.set('selectedJsonpath', path);
 }
 
 export function close(path, state) {
 	const opened = state.get('opened');
-	return state.set(
-		'opened',
-		opened.delete(opened.indexOf(path)),
-	);
+	return state.set('opened', opened.delete(opened.indexOf(path)));
 }
 
 export function edit(path, state) {
-	return state.set(
-		'edited',
-		state.get('edited').push(path),
-	);
+	return state.set('edited', state.get('edited').push(path));
 }
 
 export function change(path, state, value) {
-	return state.set(
-		'modified',
-		state.get('modified').set(path, value),
-	);
+	return state.set('modified', state.get('modified').set(path, value));
 }
 
 class ObjectViewer extends React.Component {
@@ -92,19 +77,12 @@ class ObjectViewer extends React.Component {
 	}
 
 	onChange(event, data) {
-		const newState = change(
-			data.jsonpath,
-			this.props.state,
-			event.target.value,
-		);
+		const newState = change(data.jsonpath, this.props.state, event.target.value);
 		this.props.setState(newState);
 	}
 
 	onSelect(event, data) {
-		const newState = select(
-			data,
-			this.props.state
-		);
+		const newState = select(data, this.props.state);
 		this.props.setState(newState);
 	}
 
