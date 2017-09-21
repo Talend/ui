@@ -3,8 +3,8 @@ import React from 'react';
 import { List, Map } from 'immutable';
 import get from 'lodash/get';
 
-import { ObjectViewer as Component } from 'react-talend-components';
-import { componentState } from 'react-cmf';
+import { ObjectViewer as Component } from '@talend/react-components';
+import { componentState } from '@talend/react-cmf';
 
 export const DEFAULT_STATE = new Map({
 	edited: new List(), // Array of JSONPath

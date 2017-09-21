@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from 'react-talend-components';
+import { IconsProvider } from '@talend/react-components';
 import { ObjectViewer } from '../src';
 
 const veryLongDatasetLabel = 'Dataset of something that I cant\'t imagine; Dataset of something that I cant\'t imagine; Dataset of something that I cant\'t imagine';

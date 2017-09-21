@@ -1,4 +1,4 @@
-import { cmfConnect } from 'react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 import Container, { DEFAULT_STATE } from './ConfirmDialog.container';
 
 export default cmfConnect({

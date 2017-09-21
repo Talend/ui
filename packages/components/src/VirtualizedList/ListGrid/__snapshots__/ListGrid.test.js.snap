@@ -12,6 +12,7 @@ exports[`ListGrid should render no-rows component 1`] = `
   width={1024}
 >
   <List
+    autoHeight={false}
     collection={Array []}
     estimatedRowSize={30}
     height={600}
@@ -32,13 +33,18 @@ exports[`ListGrid should render no-rows component 1`] = `
   >
     <Grid
       aria-label="grid"
+      aria-readonly={true}
       autoContainerWidth={true}
+      autoHeight={false}
+      autoWidth={false}
       cellRangeRenderer={[Function]}
       cellRenderer={[Function]}
       className="ReactVirtualized__List"
       collection={Array []}
       columnCount={1}
       columnWidth={1024}
+      containerRole="rowgroup"
+      containerStyle={Object {}}
       estimatedColumnSize={100}
       estimatedRowSize={30}
       getScrollbarSize={[Function]}
@@ -69,6 +75,7 @@ exports[`ListGrid should render no-rows component 1`] = `
     >
       <div
         aria-label="grid"
+        aria-readonly={true}
         className="ReactVirtualized__Grid ReactVirtualized__List"
         id="my-list"
         onScroll={[Function]}
@@ -99,6 +106,7 @@ exports[`ListGrid should render no-rows component 1`] = `
 
 exports[`ListGrid should render react-virtualized list 1`] = `
 <List
+  autoHeight={false}
   className={undefined}
   collection={
     Array [

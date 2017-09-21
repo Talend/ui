@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import { ObjectViewer as Component } from 'react-talend-components';
+import { ObjectViewer as Component } from '@talend/react-components';
 import Container, { DEFAULT_STATE } from './ObjectViewer.container';
 import Connected from './ObjectViewer.connect';
 
