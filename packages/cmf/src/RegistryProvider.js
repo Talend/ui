@@ -4,6 +4,7 @@
 import PropTypes from 'prop-types';
 import React, { Children } from 'react';
 import Registry from './registry';
+import CONST from './constant';
 
 /**
  * The provider is a JSX wrapper to inject the registry as a context var
@@ -32,18 +33,18 @@ export default class RegistryProvider extends React.Component {
 	}
 }
 
-const ACTION_CREATOR_PREFIX = 'actionCreator';
-const COMPONENT_PREFIX = 'component';
-
 function Register(props, context) {
 	let id;
 	let item;
 	if (props.component) {
-		id = `${COMPONENT_PREFIX}:${props.id}`;
+		id = `${CONST.REGISTRY_COMPONENT}:${props.id}`;
 		item = props.component;
 	} else if (props.actionCreator) {
-		id = `${ACTION_CREATOR_PREFIX}:${props.id}`;
+		id = `${CONST.REGISTRY_ACTION_CREATOR}:${props.id}`;
 		item = props.actionCreator;
+	} else if (props.expression) {
+		id = `${CONST.REGISTRY_EXPRESSION}:${props.id}`;
+		item = props.expression;
 	}
 	Registry.addToRegistry(id, item, context);
 }
