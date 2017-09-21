@@ -31,7 +31,6 @@ function SidePanel({
 	onSelect,
 	actions = [],
 	docked,
-	tooltipPlacement,
 	onToggleDock,
 	expandTitle = 'Expand',
 	collapseTitle = 'Collapse',
@@ -66,10 +65,12 @@ function SidePanel({
 						bsStyle="link"
 						onClick={onToggleDock}
 						icon="talend-opener"
+						label=""
 					/>
 				</li>
 				{actions.map(action => (
 					<li
+						title={action.label}
 						key={action.key || action.label}
 						className={classNames(
 							'tc-side-panel-list-item',
@@ -91,8 +92,6 @@ function SidePanel({
 							}}
 							label={action.label}
 							icon={action.icon}
-							hideLabel={docked}
-							tooltipPlacement={tooltipPlacement}
 						/>
 					</li>
 				))}
@@ -116,12 +115,8 @@ SidePanel.propTypes = {
 	onToggleDock: PropTypes.func,
 	docked: PropTypes.bool,
 	selected: actionPropType,
-	tooltipPlacement: PropTypes.string,
 	expandTitle: PropTypes.string,
 	collapseTitle: PropTypes.string,
 };
 
-SidePanel.defaultProps = {
-	tooltipPlacement: 'right',
-};
 export default SidePanel;
