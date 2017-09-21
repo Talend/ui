@@ -16,7 +16,7 @@ const COMPLEX_TYPES = ['object', 'array'];
 export const ARRAY_ABSTRACT = '[...]';
 export const OBJECT_ABSTRACT = '{...}';
 
-function stopAndSelect(event, onSelect, jsonpath) {
+function stopAndSelect(event, { onSelect, jsonpath }) {
 	event.stopPropagation();
 	onSelect(event, jsonpath);
 }
@@ -49,7 +49,7 @@ export function NativeValue({
 		return (
 			<div
 				className={`${theme.native} ${theme['line-value-selected']}`}
-				onClick={e => stopAndSelect(e, onSelect, jsonpath)}
+				onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 			>
 				{display}
 			</div>
@@ -59,7 +59,7 @@ export function NativeValue({
 	return (
 		<div
 			className={`${theme[type]} ${theme.native} ${theme['line-value']}`}
-			onClick={stopAndSelect}
+			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 		>
 			{display}
 		</div>
@@ -115,13 +115,9 @@ export function LineItem({
 		props.onMouseOver = e => onMouseOver(e, mouseOverData);
 	}
 
-	const isHovered = (mouseOverData.data.jsonpath === jsonpath);
+	const isHovered = false && (mouseOverData.data.jsonpath === jsonpath);
 	const isSelectedLine = (selectedJsonpath && (selectedJsonpath === jsonpath));
 
-	function stopAndSelect(e) {
-		e.stopPropagation();
-		onSelect(e, jsonpath);
-	}
 
 	const classes = classNames({
 		[theme['selected-line']]: isSelectedLine,
@@ -131,7 +127,7 @@ export function LineItem({
 	return (
 		<span
 			className={classes}
-			onClick={stopAndSelect}
+			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 			{...props}
 		>
 			{getName(name)}
@@ -229,47 +225,9 @@ export function getDataAbstract(data) {
 	return abstract;
 }
 
-export function Item({ data, name, opened, edited, jsonpath, ...props }) {
-	if (props.tupleLabel) {
-		COMPLEX_TYPES.push(props.tupleLabel);
-	}
-
-	if (data === undefined) {
-		return null;
-	}
-	const info = getDataInfo(data, props.tupleLabel);
-	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
-	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
+export function ComplexItem({ data, name, opened, edited, jsonpath, info, ...props }) {
 	const isOpened = opened.indexOf(jsonpath) !== -1;
-
-
-	if (isNativeType) {
-		return (
-			<LineItem
-				name={name}
-				onMouseOver={props.onMouseOver}
-				mouseOverData={{ data, isOpened, isEdited }}
-				onSelect={props.onSelect}
-				jsonpath={jsonpath}
-				selectedJsonpath={props.selectedJsonpath}
-			>
-				<NativeValue
-					data={data}
-					edit={isEdited}
-					jsonpath={jsonpath}
-					onSelect={props.onSelect}
-					onEdit={props.onEdit}
-					onChange={props.onChange}
-					selectedJsonpath={props.selectedJsonpath}
-				/>
-				{props.showType &&
-					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>
-						({info.type})
-					</div>
-				}
-			</LineItem >
-		);
-	}
+	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
 
 	const iconName = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
 	const iconTransform = isOpened ? null : 'rotate-180';
@@ -333,6 +291,90 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 				</span>
 			</LineItem>
 		</div >
+	);
+}
+
+ComplexItem.propTypes = {
+	data: PropTypes.oneOfType([
+		PropTypes.bool,
+		PropTypes.number,
+		PropTypes.string,
+		PropTypes.object,
+		PropTypes.array,
+	]),
+	name: PropTypes.string,
+	opened: PropTypes.arrayOf(PropTypes.string),
+	edited: PropTypes.arrayOf(PropTypes.string),
+	jsonpath: PropTypes.string,
+	tupleLabel: PropTypes.string,
+	onMouseOver: PropTypes.func,
+	onEdit: PropTypes.func,
+	onToggle: PropTypes.func,
+	onSelect: PropTypes.func,
+	selectedJsonpath: PropTypes.string,
+	onSubmit: PropTypes.func,
+	onChange: PropTypes.func,
+	showType: PropTypes.bool,
+	info: PropTypes.shape({
+		type: PropTypes.string,
+		keys: PropTypes.array,
+		length: PropTypes.number,
+	}
+	),
+};
+
+export function Item({ data, name, opened, edited, jsonpath, ...props }) {
+	if (props.tupleLabel) {
+		COMPLEX_TYPES.push(props.tupleLabel);
+	}
+
+	if (data === undefined) {
+		return null;
+	}
+	const info = getDataInfo(data, props.tupleLabel);
+	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
+	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
+	const isOpened = opened.indexOf(jsonpath) !== -1;
+
+
+	if (isNativeType) {
+		return (
+			<LineItem
+				name={name}
+				onMouseOver={props.onMouseOver}
+				mouseOverData={{ data, isOpened, isEdited }}
+				onSelect={props.onSelect}
+				jsonpath={jsonpath}
+				selectedJsonpath={props.selectedJsonpath}
+			>
+				<NativeValue
+					data={data}
+					edit={isEdited}
+					jsonpath={jsonpath}
+					onSelect={props.onSelect}
+					onEdit={props.onEdit}
+					onChange={props.onChange}
+					selectedJsonpath={props.selectedJsonpath}
+				/>
+				{props.showType &&
+					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>
+						({info.type})
+					</div>
+				}
+			</LineItem >
+		);
+	}
+
+	return (
+		<ComplexItem
+			{...props}
+			jsonpath={jsonpath}
+			info={info}
+			data={data}
+			onToggle={props.onToggle}
+			opened={opened}
+			edited={edited}
+		/>
 	);
 }
 
@@ -401,7 +443,7 @@ export function JSONLike({ onSubmit, ...props }) {
 	}
 
 	return (
-		<div className={`tc- object - viewer ${theme.container} `}>
+		<div className={`tc-object-viewer ${theme.container}`}>
 			<TooltipTrigger
 				label={rootComputedLabel}
 				tooltipPlacement="right"
