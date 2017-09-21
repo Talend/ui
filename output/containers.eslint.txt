@@ -33,9 +33,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   12:90  error  'notifications' is missing in props validation                                             react/prop-types
 
 /home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.test.js
-    2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  127:5  error  Expected indentation of 3 tabs but found 4                                    indent
-  128:4  error  Expected indentation of 2 tabs but found 3                                    indent
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.test.js
   12:18  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
@@ -49,5 +47,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/state.js
   3:1  warning  Unexpected console statement  no-console
 
-✖ 17 problems (16 errors, 1 warning)
+✖ 15 problems (14 errors, 1 warning)
 
