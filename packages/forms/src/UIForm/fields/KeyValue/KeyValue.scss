@@ -1,0 +1,23 @@
+.key-value {
+	display: flex;
+
+	dd, dt {
+		flex: 1;
+	}
+	dt {
+		position: relative;
+		padding-right: 1.5rem;
+
+	}
+	dt:after {
+		position: absolute;
+		content: '=';
+		right: -1.25rem;
+		bottom: 0;
+		padding: 0 1rem;
+	}
+	dd {
+		padding-left: 1.5rem;
+	}
+}
+

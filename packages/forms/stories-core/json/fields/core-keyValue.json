@@ -1,0 +1,76 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Key/Value",
+    "properties": {
+      "simpleKeyValue": {
+        "type": "object",
+        "properties": {
+          "key": { "type": "string" },
+          "value": { "type": "string" }
+        },
+        "required": ["value"]
+      },
+      "selectKeyValue": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "foo",
+              "bar",
+              "fuzz",
+              "qux"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "enum": [
+              "foo",
+              "bar",
+              "fuzz",
+              "qux"
+            ]
+          }
+        }
+      }
+    },
+    "required": ["simpleKeyValue"]
+  },
+  "uiSchema": [
+    {
+      "key": "simpleKeyValue",
+      "items": [
+        {
+          "autoFocus": true,
+          "key": "simpleKeyValue.key",
+          "placeholder": "Enter a key"
+        },
+        {
+          "key": "simpleKeyValue.value",
+          "placeholder": "Enter a value"
+        }
+      ],
+      "title": "Simple Key/Value",
+      "widget": "keyValue"
+    },
+    {
+      "key": "selectKeyValue",
+      "items": [
+        {
+          "key": "selectKeyValue.key",
+          "placeholder": "Enter a key",
+          "widget": "select"
+        },
+        {
+          "key": "selectKeyValue.value",
+          "placeholder": "Enter a value",
+          "widget": "select"
+        }
+      ],
+      "title": "Select Key/Value",
+      "widget": "keyValue"
+    }
+  ],
+  "properties": {}
+}
