@@ -15,15 +15,15 @@ export const DISPLAY_MODES = {
 export default function ObjectViewer({ displayMode, ...props }) {
 	switch (displayMode) {
 		case DISPLAY_MODES.TABLE:
-			return (<Table {...props} />);
+			return <Table {...props} />;
 		case DISPLAY_MODES.FLAT:
-			return (<Table {...props} flat />);
+			return <Table {...props} flat />;
 		case DISPLAY_MODES.TREE:
-			return (<JSONLike {...props} />);
+			return <JSONLike {...props} />;
 		case DISPLAY_MODES.LIST:
-			return (<List {...props} />);
+			return <List {...props} />;
 		default:
-			return (<JSONLike {...props} />);
+			return <JSONLike {...props} />;
 	}
 }
 
