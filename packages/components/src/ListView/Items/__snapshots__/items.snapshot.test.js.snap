@@ -9,6 +9,7 @@ exports[`Items should display a checked item between the two others 1`] = `
   >
     <div
       aria-label="grid"
+      aria-readonly={true}
       className="ReactVirtualized__Grid ReactVirtualized__List tc-list-items"
       id={undefined}
       onScroll={[Function]}
@@ -30,6 +31,7 @@ exports[`Items should display a checked item between the two others 1`] = `
     >
       <div
         className="ReactVirtualized__Grid__innerScrollContainer"
+        role="rowgroup"
         style={
           Object {
             "height": 166,

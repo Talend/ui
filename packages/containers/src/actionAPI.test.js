@@ -1,4 +1,4 @@
-import mock from 'react-cmf/lib/mock';
+import mock from '@talend/react-cmf/lib/mock';
 
 import action, { getActionsProps } from './actionAPI';
 

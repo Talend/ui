@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from 'react-talend-components';
+import { IconsProvider } from '@talend/react-components';
 import Immutable from 'immutable';
 import { I18nextProvider } from 'react-i18next';
 

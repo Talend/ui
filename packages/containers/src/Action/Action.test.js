@@ -1,11 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import mock from 'react-cmf/lib/mock';
+import mock from '@talend/react-cmf/lib/mock';
 
 import Action from './Action.component';
 
-jest.mock('react-talend-components');
-jest.mock('react-dom');
+jest.mock(
+	'@talend/react-components',
+	() => ({ Action: props => (<button className="tc-action" {...props} />) })
+);
 
 describe('Action', () => {
 	it('should render from name props', () => {

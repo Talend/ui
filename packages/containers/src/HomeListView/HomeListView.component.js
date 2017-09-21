@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Layout } from 'react-talend-components';
+import { Layout } from '@talend/react-components';
 
 import AppHeaderBar from '../AppHeaderBar';
 import List from '../List';

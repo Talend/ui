@@ -1,4 +1,4 @@
-import { I18N_DOMAIN_COMPONENTS } from 'react-talend-components';
+import { I18N_DOMAIN_COMPONENTS } from '@talend/react-components';
 import i18n from 'i18next';
 
 import I18N_DOMAIN_FORMS from '../../src/constants';
