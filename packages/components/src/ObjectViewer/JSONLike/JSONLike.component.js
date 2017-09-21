@@ -383,7 +383,7 @@ Item.propTypes = {
 	tupleLabel: PropTypes.string,
 	onMouseOver: PropTypes.func,
 	onEdit: PropTypes.func,
-	onToggle: PropTypes.func,
+	onToggle: PropTypes.func.isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selectedJsonpath: PropTypes.string,
 	onSubmit: PropTypes.func,

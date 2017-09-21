@@ -98,8 +98,8 @@ class ObjectViewer extends React.Component {
 				onSubmit={this.props.onSubmit}
 				onChange={this.props.onSubmit ? this.onChange : undefined}
 				onSelect={this.onSelect}
-				onToggle={this.onToggle}
 				onEdit={this.onEdit}
+				onToggle={this.onToggle}
 				selectedJsonpath={state.selectedJsonpath}
 				opened={state.opened}
 				edited={state.edited}

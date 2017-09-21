@@ -5,7 +5,7 @@ import { ObjectViewer as Component } from 'react-talend-components';
 import Container, { DEFAULT_STATE } from './ObjectViewer.container';
 import Connected from './ObjectViewer.connect';
 
-const selectedPath = '$[0][\'str\']';
+const selectedPath = "$[0]['str']";
 const kTrue = true;
 const data = [
 	{
@@ -15,12 +15,8 @@ const data = [
 		obj: {
 			bool: true,
 		},
-		arrayInt: [
-			1, 2, 3, 4,
-		],
-		arrayOb: [
-			{ foo: 'bar' },
-		],
+		arrayInt: [1, 2, 3, 4],
+		arrayOb: [{ foo: 'bar' }],
 	},
 	{
 		int: 2,
@@ -29,9 +25,7 @@ const data = [
 		obj: {
 			bool: false,
 		},
-		arrayOb: [
-			{ foo: 3.2 },
-		],
+		arrayOb: [{ foo: 3.2 }],
 	},
 ];
 
@@ -39,11 +33,7 @@ describe('Container ObjectViewer', () => {
 	it('should pass needed props to pure component', () => {
 		const setState = jest.fn();
 		const wrapper = shallow(
-			<Container
-				data={data}
-				state={DEFAULT_STATE}
-				setState={setState}
-			/>,
+			<Container data={data} state={DEFAULT_STATE} setState={setState} />,
 		);
 		expect(wrapper.find(Component).length).toBe(1);
 		const props = wrapper.props();
@@ -58,7 +48,7 @@ describe('Container ObjectViewer', () => {
 		expect(props.edited.length).toBe(0);
 
 		expect(wrapper.props().opened.length).toBe(0);
-		const path = '$[0][\'obj\']';
+		const path = "$[0]['obj']";
 		// open
 		props.onToggle(null, {
 			isOpened: false,
@@ -81,51 +71,40 @@ describe('Container ObjectViewer', () => {
 	xit('should not display types by default', () => {
 		const setState = jest.fn();
 		const wrapper = shallow(
-			<Container
-				data={data}
-				state={DEFAULT_STATE}
-				setState={setState}
-			/>,
+			<Container data={data} state={DEFAULT_STATE} setState={setState} />,
 		);
 
-		expect(wrapper.find('.tc-object-viewer-linetype').length).toBe(0);
+		expect(wrapper.find('.tc-object-viewer-line-type').length).toBe(0);
 	});
 	xit('should display types', () => {
 		const setState = jest.fn();
 		const wrapper = mount(
-			<Container
-				data={data}
-				state={DEFAULT_STATE}
-				setState={setState}
-				showType={kTrue}
-			/>,
+			<Container data={data} state={DEFAULT_STATE} setState={setState} showType={kTrue} />,
 		);
 
-		expect(wrapper.find('.tc-object-viewer-linetype').length).not.toBe(0);
+		expect(wrapper.find('.tc-object-viewer-line-type').length).not.toBe(0);
 	});
 	it('should add onChange is onSubmit', () => {
 		const onSubmit = jest.fn();
 		const setState = jest.fn();
 		const wrapper = shallow(
-			<Container
-				data={data}
-				state={DEFAULT_STATE}
-				setState={setState}
-				onSubmit={onSubmit}
-			/>,
+			<Container data={data} state={DEFAULT_STATE} setState={setState} onSubmit={onSubmit} />,
 		);
 		const props = wrapper.props();
-		const path = '$[0][\'int\']';
+		const path = "$[0]['int']";
 		expect(typeof props.onChange).toBe('function');
 		expect(typeof props.onEdit).toBe('function');
 		expect(props.onSubmit).toBe(onSubmit);
-		props.onChange({
-			target: {
-				value: 2,
+		props.onChange(
+			{
+				target: {
+					value: 2,
+				},
 			},
-		}, {
+			{
 				jsonpath: path,
-			});
+			},
+		);
 		expect(setState.mock.calls.length).toBe(1);
 		expect(setState.mock.calls[0][0].get('modified').size).toBe(1);
 		expect(setState.mock.calls[0][0].get('modified').get(path)).toBe(2);
@@ -145,4 +124,3 @@ describe('Connected ObjectViewer', () => {
 		expect(Connected.WrappedComponent).toBe(Container);
 	});
 });
-
