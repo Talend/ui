@@ -53,37 +53,45 @@ class ObjectViewer extends React.Component {
 	}
 
 	onToggle(event, data) {
-		let newState;
-		if (data.isOpened) {
-			newState = close(data.jsonpath, this.props.state);
-		} else if (data.isOpened === false) {
-			// we don't want to match on undefined as false
-			newState = open(data.jsonpath, this.props.state);
-		}
+		this.props.setState(prevState => {
+			let newState;
+			if (data.isOpened) {
+				newState = close(data.jsonpath, prevState.state);
+			} else if (data.isOpened === false) {
+				// we don't want to match on undefined as false
+				newState = open(data.jsonpath, prevState.state);
+			}
 
-		if (newState) {
-			this.props.setState(newState);
-		}
+			if (newState) {
+				this.props.setState(newState);
+			}
+		});
 	}
 
 	onEdit(event, data) {
-		let newState;
-		if (data.edit === false) {
-			newState = edit(data.jsonpath, this.props.state);
-		}
-		if (newState) {
-			this.props.setState(newState);
-		}
+		this.props.setState(prevState => {
+			let newState;
+			if (data.edit === false) {
+				newState = edit(data.jsonpath, prevState.state);
+			}
+			if (newState) {
+				this.props.setState(newState);
+			}
+		});
 	}
 
 	onChange(event, data) {
-		const newState = change(data.jsonpath, this.props.state, event.target.value);
-		this.props.setState(newState);
+		this.props.setState(prevState => {
+			const newState = change(data.jsonpath, prevState.state, event.target.value);
+			this.props.setState(newState);
+		});
 	}
 
 	onSelect(event, data) {
-		const newState = select(data, this.props.state);
-		this.props.setState(newState);
+		this.props.setState(prevState => {
+			const newState = select(data, prevState.state);
+			this.props.setState(newState);
+		});
 	}
 
 	render() {

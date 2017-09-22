@@ -6,21 +6,6 @@
 src/theme/_buttons.scss
   14:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
 
-src/theme/_colors.scss
-  116:19  warning  Commas should be followed by a space  space-after-comma
-  116:23  warning  Commas should be followed by a space  space-after-comma
-  121:15  warning  No space allowed before `:`           space-before-colon
-  121:25  warning  Commas should be followed by a space  space-after-comma
-  121:29  warning  Commas should be followed by a space  space-after-comma
-  126:22  warning  Commas should be followed by a space  space-after-comma
-  126:26  warning  Commas should be followed by a space  space-after-comma
-  131:21  warning  Commas should be followed by a space  space-after-comma
-  131:25  warning  Commas should be followed by a space  space-after-comma
-  136:11  warning  No space allowed before `:`           space-before-colon
-  136:21  warning  Commas should be followed by a space  space-after-comma
-  136:25  warning  Commas should be followed by a space  space-after-comma
-  136:30  warning  Files must end with a new line        final-newline
-
 src/theme/_dropdowns.scss
   19:22  error  !important not allowed  no-important
 
@@ -42,5 +27,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 29 problems (14 errors, 15 warnings)
+✖ 16 problems (14 errors, 2 warnings)
 
