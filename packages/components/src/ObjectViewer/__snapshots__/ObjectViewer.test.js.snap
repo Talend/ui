@@ -6641,7 +6641,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
         </div>
         <div>
           <a
-            className="tfd-svg-anchor undefined"
+            className="tc-svg-anchor"
             onClick={[Function]}
             xlinkHref="#"
           >
@@ -6771,7 +6771,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -6812,7 +6812,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -6972,7 +6972,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -7118,7 +7118,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -7408,7 +7408,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
         </div>
         <div>
           <a
-            className="tfd-svg-anchor undefined"
+            className="tc-svg-anchor"
             onClick={[Function]}
             xlinkHref="#"
           >
@@ -7538,7 +7538,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -7579,7 +7579,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -7739,7 +7739,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -7885,7 +7885,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -8175,7 +8175,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
         </div>
         <div>
           <a
-            className="tfd-svg-anchor undefined"
+            className="tc-svg-anchor"
             onClick={[Function]}
             xlinkHref="#"
           >
@@ -8305,7 +8305,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -8346,7 +8346,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -8506,7 +8506,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -8652,7 +8652,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -8942,7 +8942,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
         </div>
         <div>
           <a
-            className="tfd-svg-anchor undefined"
+            className="tc-svg-anchor"
             onClick={[Function]}
             xlinkHref="#"
           >
@@ -9072,7 +9072,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -9113,7 +9113,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -9273,7 +9273,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -9419,7 +9419,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -9709,7 +9709,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
         </div>
         <div>
           <a
-            className="tfd-svg-anchor undefined"
+            className="tc-svg-anchor"
             onClick={[Function]}
             xlinkHref="#"
           >
@@ -9839,7 +9839,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -9880,7 +9880,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -10040,7 +10040,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -10186,7 +10186,7 @@ exports[`Storyshots ObjectViewer list default 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -10521,7 +10521,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
         </div>
         <div>
           <a
-            className="tfd-svg-anchor undefined"
+            className="tc-svg-anchor"
             onClick={[Function]}
             xlinkHref="#"
           >
@@ -10651,7 +10651,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -10692,7 +10692,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -10852,7 +10852,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -10998,7 +10998,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -11289,7 +11289,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
         </div>
         <div>
           <a
-            className="tfd-svg-anchor undefined"
+            className="tc-svg-anchor"
             onClick={[Function]}
             xlinkHref="#"
           >
@@ -11419,7 +11419,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -11460,7 +11460,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -11620,7 +11620,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -11766,7 +11766,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -12057,7 +12057,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
         </div>
         <div>
           <a
-            className="tfd-svg-anchor undefined"
+            className="tc-svg-anchor"
             onClick={[Function]}
             xlinkHref="#"
           >
@@ -12187,7 +12187,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -12228,7 +12228,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -12388,7 +12388,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -12534,7 +12534,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -12825,7 +12825,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
         </div>
         <div>
           <a
-            className="tfd-svg-anchor undefined"
+            className="tc-svg-anchor"
             onClick={[Function]}
             xlinkHref="#"
           >
@@ -12955,7 +12955,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -12996,7 +12996,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -13156,7 +13156,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -13302,7 +13302,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -13593,7 +13593,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
         </div>
         <div>
           <a
-            className="tfd-svg-anchor undefined"
+            className="tc-svg-anchor"
             onClick={[Function]}
             xlinkHref="#"
           >
@@ -13723,7 +13723,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -13764,7 +13764,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -13924,7 +13924,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                           <li>
                             <div>
                               <a
-                                className="tfd-svg-anchor undefined"
+                                className="tc-svg-anchor"
                                 onClick={[Function]}
                                 xlinkHref="#"
                               >
@@ -14070,7 +14070,7 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                 <li>
                   <div>
                     <a
-                      className="tfd-svg-anchor undefined"
+                      className="tc-svg-anchor"
                       onClick={[Function]}
                       xlinkHref="#"
                     >
@@ -14401,7 +14401,7 @@ exports[`Storyshots ObjectViewer primitive array tree 1`] = `
     </div>
     <div>
       <a
-        className="tfd-svg-anchor undefined"
+        className="tc-svg-anchor"
         onClick={[Function]}
         xlinkHref="#"
       >
@@ -14688,7 +14688,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -14723,7 +14723,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -14883,7 +14883,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -15040,7 +15040,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -15431,7 +15431,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -15466,7 +15466,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -15626,7 +15626,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -15783,7 +15783,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -16174,7 +16174,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -16209,7 +16209,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -16369,7 +16369,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -16526,7 +16526,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -16917,7 +16917,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -16952,7 +16952,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -17112,7 +17112,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -17269,7 +17269,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -17660,7 +17660,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -17695,7 +17695,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -17855,7 +17855,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -18012,7 +18012,7 @@ exports[`Storyshots ObjectViewer table default 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -18480,7 +18480,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -18515,7 +18515,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -18675,7 +18675,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -18833,7 +18833,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -19230,7 +19230,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -19265,7 +19265,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -19425,7 +19425,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -19583,7 +19583,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -19980,7 +19980,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -20015,7 +20015,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -20175,7 +20175,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -20333,7 +20333,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -20730,7 +20730,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -20765,7 +20765,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -20925,7 +20925,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -21083,7 +21083,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -21480,7 +21480,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -21515,7 +21515,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -21675,7 +21675,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                     <li>
                       <div>
                         <a
-                          className="tfd-svg-anchor undefined"
+                          className="tc-svg-anchor"
                           onClick={[Function]}
                           xlinkHref="#"
                         >
@@ -21833,7 +21833,7 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
             </div>
             <div>
               <a
-                className="tfd-svg-anchor undefined"
+                className="tc-svg-anchor"
                 onClick={[Function]}
                 xlinkHref="#"
               >
@@ -22155,7 +22155,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
     </div>
     <div>
       <a
-        className="tfd-svg-anchor undefined"
+        className="tc-svg-anchor"
         onClick={[Function]}
         xlinkHref="#"
       >
@@ -22190,7 +22190,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -22326,7 +22326,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -22367,7 +22367,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -22527,7 +22527,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -22673,7 +22673,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -22952,7 +22952,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -23088,7 +23088,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -23129,7 +23129,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -23289,7 +23289,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -23435,7 +23435,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -23714,7 +23714,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -23850,7 +23850,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -23891,7 +23891,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -24051,7 +24051,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -24197,7 +24197,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -24476,7 +24476,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -24612,7 +24612,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -24653,7 +24653,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -24813,7 +24813,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -24959,7 +24959,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -25238,7 +25238,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -25374,7 +25374,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -25415,7 +25415,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -25575,7 +25575,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -25721,7 +25721,7 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -26055,7 +26055,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
     </div>
     <div>
       <a
-        className="tfd-svg-anchor undefined"
+        className="tc-svg-anchor"
         onClick={[Function]}
         xlinkHref="#"
       >
@@ -26090,7 +26090,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -26226,7 +26226,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -26267,7 +26267,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -26427,7 +26427,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -26573,7 +26573,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -26852,7 +26852,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -26988,7 +26988,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -27029,7 +27029,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -27189,7 +27189,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -27335,7 +27335,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -27614,7 +27614,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -27750,7 +27750,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -27791,7 +27791,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -27951,7 +27951,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -28097,7 +28097,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -28376,7 +28376,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -28512,7 +28512,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -28553,7 +28553,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -28713,7 +28713,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -28859,7 +28859,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -29138,7 +29138,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -29274,7 +29274,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -29315,7 +29315,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -29475,7 +29475,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -29621,7 +29621,7 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -29955,7 +29955,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
     </div>
     <div>
       <a
-        className="tfd-svg-anchor undefined"
+        className="tc-svg-anchor"
         onClick={[Function]}
         xlinkHref="#"
       >
@@ -29990,7 +29990,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -30126,7 +30126,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -30167,7 +30167,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -30327,7 +30327,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -30473,7 +30473,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -30752,7 +30752,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -30888,7 +30888,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -30929,7 +30929,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -31089,7 +31089,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -31235,7 +31235,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -31514,7 +31514,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -31650,7 +31650,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -31691,7 +31691,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -31851,7 +31851,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -31997,7 +31997,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -32276,7 +32276,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -32412,7 +32412,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -32453,7 +32453,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -32613,7 +32613,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -32759,7 +32759,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -33038,7 +33038,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -33174,7 +33174,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -33215,7 +33215,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -33375,7 +33375,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -33521,7 +33521,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -33855,7 +33855,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
     </div>
     <div>
       <a
-        className="tfd-svg-anchor undefined"
+        className="tc-svg-anchor"
         onClick={[Function]}
         xlinkHref="#"
       >
@@ -33898,7 +33898,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -34077,7 +34077,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -34126,7 +34126,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -34336,7 +34336,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -34525,7 +34525,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -34896,7 +34896,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -35075,7 +35075,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -35124,7 +35124,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -35334,7 +35334,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -35523,7 +35523,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -35894,7 +35894,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -36073,7 +36073,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -36122,7 +36122,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -36332,7 +36332,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -36521,7 +36521,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -36892,7 +36892,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -37071,7 +37071,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -37120,7 +37120,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -37330,7 +37330,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -37519,7 +37519,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -37890,7 +37890,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -38069,7 +38069,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -38118,7 +38118,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -38328,7 +38328,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -38517,7 +38517,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -38942,7 +38942,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
     </div>
     <div>
       <a
-        className="tfd-svg-anchor undefined"
+        className="tc-svg-anchor"
         onClick={[Function]}
         xlinkHref="#"
       >
@@ -38977,7 +38977,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -39113,7 +39113,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -39154,7 +39154,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -39314,7 +39314,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -39460,7 +39460,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -39739,7 +39739,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -39875,7 +39875,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -39916,7 +39916,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -40076,7 +40076,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -40222,7 +40222,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -40501,7 +40501,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -40637,7 +40637,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -40678,7 +40678,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -40838,7 +40838,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -40984,7 +40984,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -41263,7 +41263,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -41399,7 +41399,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -41440,7 +41440,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -41600,7 +41600,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -41746,7 +41746,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -42025,7 +42025,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -42161,7 +42161,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -42202,7 +42202,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -42362,7 +42362,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -42508,7 +42508,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -42841,7 +42841,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
     </div>
     <div>
       <a
-        className="tfd-svg-anchor undefined"
+        className="tc-svg-anchor"
         onClick={[Function]}
         xlinkHref="#"
       >
@@ -42876,7 +42876,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -43012,7 +43012,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -43053,7 +43053,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -43213,7 +43213,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -43359,7 +43359,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -43638,7 +43638,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -43774,7 +43774,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -43815,7 +43815,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -43975,7 +43975,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -44121,7 +44121,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -44400,7 +44400,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -44536,7 +44536,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -44577,7 +44577,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -44737,7 +44737,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -44883,7 +44883,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -45162,7 +45162,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -45298,7 +45298,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -45339,7 +45339,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -45499,7 +45499,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -45645,7 +45645,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -45924,7 +45924,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -46060,7 +46060,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -46101,7 +46101,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -46261,7 +46261,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -46407,7 +46407,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -46740,7 +46740,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
     </div>
     <div>
       <a
-        className="tfd-svg-anchor undefined"
+        className="tc-svg-anchor"
         onClick={[Function]}
         xlinkHref="#"
       >
@@ -46775,7 +46775,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -46911,7 +46911,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -46952,7 +46952,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -47112,7 +47112,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -47258,7 +47258,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -47537,7 +47537,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -47673,7 +47673,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -47714,7 +47714,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -47874,7 +47874,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -48020,7 +48020,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -48299,7 +48299,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -48435,7 +48435,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -48476,7 +48476,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -48636,7 +48636,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -48782,7 +48782,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -49061,7 +49061,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -49197,7 +49197,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -49238,7 +49238,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -49398,7 +49398,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -49544,7 +49544,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -49823,7 +49823,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
             <li>
               <div>
                 <a
-                  className="tfd-svg-anchor undefined"
+                  className="tc-svg-anchor"
                   onClick={[Function]}
                   xlinkHref="#"
                 >
@@ -49959,7 +49959,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
@@ -50000,7 +50000,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -50160,7 +50160,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                                 <li>
                                   <div>
                                     <a
-                                      className="tfd-svg-anchor undefined"
+                                      className="tc-svg-anchor"
                                       onClick={[Function]}
                                       xlinkHref="#"
                                     >
@@ -50306,7 +50306,7 @@ exports[`Storyshots ObjectViewer tree without rootLabel 1`] = `
                       <li>
                         <div>
                           <a
-                            className="tfd-svg-anchor undefined"
+                            className="tc-svg-anchor"
                             onClick={[Function]}
                             xlinkHref="#"
                           >
