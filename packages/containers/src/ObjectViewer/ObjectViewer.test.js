@@ -1,11 +1,19 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import { List, Map } from 'immutable';
 
 import { ObjectViewer as Component } from '@talend/react-components';
-import Container, { DEFAULT_STATE } from './ObjectViewer.container';
+import Container, {
+	DEFAULT_STATE,
+	toggleState,
+	selectWrapper,
+	editWrapper,
+	change,
+} from './ObjectViewer.container';
 import Connected from './ObjectViewer.connect';
 
 const selectedPath = "$[0]['str']";
+const path = "$[0]['arrayInt']";
 const kTrue = true;
 const data = [
 	{
@@ -47,26 +55,13 @@ describe('Container ObjectViewer', () => {
 		expect(Array.isArray(props.edited)).toBe(true);
 		expect(props.edited.length).toBe(0);
 
-		expect(wrapper.props().opened.length).toBe(0);
-		const path = "$[0]['obj']";
 		// open
 		props.onToggle(null, {
 			isOpened: false,
 			jsonpath: path,
 		});
-		expect(setState.mock.calls.length).toBe(1);
-		expect(setState.mock.calls[0][0].get('opened').get(0)).toBe(path);
-		// close
-		props.onToggle(null, {
-			isOpened: true,
-			jsonpath: path,
-		});
-		expect(setState.mock.calls.length).toBe(2);
-		expect(setState.mock.calls[1][0].get('opened').size).toBe(0);
-		// select
-		props.onSelect(null, selectedPath);
-		expect(setState.mock.calls.length).toBe(3);
-		expect(setState.mock.calls[2][0].get('selectedJsonpath')).toBe(selectedPath);
+
+		expect(typeof setState.mock.calls[0][0]).toBe('function');
 	});
 	xit('should not display types by default', () => {
 		const setState = jest.fn();
@@ -91,7 +86,7 @@ describe('Container ObjectViewer', () => {
 			<Container data={data} state={DEFAULT_STATE} setState={setState} onSubmit={onSubmit} />,
 		);
 		const props = wrapper.props();
-		const path = "$[0]['int']";
+
 		expect(typeof props.onChange).toBe('function');
 		expect(typeof props.onEdit).toBe('function');
 		expect(props.onSubmit).toBe(onSubmit);
@@ -105,16 +100,11 @@ describe('Container ObjectViewer', () => {
 				jsonpath: path,
 			},
 		);
-		expect(setState.mock.calls.length).toBe(1);
-		expect(setState.mock.calls[0][0].get('modified').size).toBe(1);
-		expect(setState.mock.calls[0][0].get('modified').get(path)).toBe(2);
 
-		props.onEdit(null, {
-			edit: false,
-			jsonpath: path,
-		});
-		expect(setState.mock.calls.length).toBe(2);
-		expect(setState.mock.calls[1][0].get('edited').size).toBe(1);
+		console.log('what ', setState.mock.calls[0][0]);
+
+		expect(setState.mock.calls.length).toBe(1);
+		expect(typeof setState.mock.calls[0][0]).toBe('function');
 	});
 });
 
@@ -122,5 +112,55 @@ describe('Connected ObjectViewer', () => {
 	it('should connect ObjectViewer', () => {
 		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
 		expect(Connected.WrappedComponent).toBe(Container);
+	});
+});
+
+describe('editValue', () => {
+	it('should edit', () => {
+		const prevState = { state: DEFAULT_STATE };
+		const someData = {
+			edit: false,
+			jsonpath: path,
+		};
+
+		prevState.state = editWrapper(prevState, someData);
+		expect(prevState.state.get('edited').size).toBe(1);
+	});
+	it('should change', () => {
+		const prevState = { state: DEFAULT_STATE };
+
+		prevState.state = change(path, prevState.state, 'new label');
+
+		expect(prevState.state.get('modified').size).toBe(1);
+		// expect(setState.mock.calls[0][0].get('modified').get(path)).toBe(2);
+	});
+});
+
+describe('toggleState', () => {
+	const prevState = { state: DEFAULT_STATE };
+	it('should open', () => {
+		const newState = toggleState(prevState, { isOpened: false, jsonpath: path });
+		expect(newState.get('opened').size).toBe(1);
+		expect(newState.get('opened').first()).toEqual(path);
+	});
+
+	it(' should close', () => {
+		prevState.state = prevState.state.set('opened', prevState.state.get('opened').push(path));
+
+		expect(prevState.state.get('opened').size).toBe(1);
+		expect(prevState.state.get('opened').first()).toEqual(path);
+
+		const newState = toggleState(prevState, { isOpened: true, jsonpath: path });
+		expect(newState.get('opened').size).toBe(0);
+	});
+});
+
+describe('select', () => {
+	it('should highlight', () => {
+		const prevState = { state: DEFAULT_STATE };
+		prevState.state = selectWrapper(prevState, path);
+
+		// const newState = selectWrapper(prevState, { isOpened: true, jsonpath: path });
+		expect(prevState.state.get('selectedJsonpath')).toEqual(path);
 	});
 });

@@ -34,6 +34,29 @@ export function change(path, state, value) {
 	return state.set('modified', state.get('modified').set(path, value));
 }
 
+export function toggleState(prevState, data) {
+	if (data.isOpened) {
+		return close(data.jsonpath, prevState.state);
+	} else if (data.isOpened === false) {
+		// we don't want to match on undefined as false
+		return open(data.jsonpath, prevState.state);
+	}
+
+	return prevState;
+}
+
+export function selectWrapper(prevState, data) {
+	return select(data, prevState.state);
+}
+
+export function editWrapper(prevState, data) {
+	if (data.edit === false) {
+		return edit(data.jsonpath, prevState.state);
+	}
+
+	return prevState;
+}
+
 class ObjectViewer extends React.Component {
 	static displayName = 'CMFContainer(ObjectViewer)';
 	static propTypes = {
@@ -53,45 +76,21 @@ class ObjectViewer extends React.Component {
 	}
 
 	onToggle(event, data) {
-		this.props.setState(prevState => {
-			let newState;
-			if (data.isOpened) {
-				newState = close(data.jsonpath, prevState.state);
-			} else if (data.isOpened === false) {
-				// we don't want to match on undefined as false
-				newState = open(data.jsonpath, prevState.state);
-			}
-
-			if (newState) {
-				this.props.setState(newState);
-			}
-		});
+		this.props.setState(prevState => toggleState(prevState, data));
 	}
 
 	onEdit(event, data) {
-		this.props.setState(prevState => {
-			let newState;
-			if (data.edit === false) {
-				newState = edit(data.jsonpath, prevState.state);
-			}
-			if (newState) {
-				this.props.setState(newState);
-			}
-		});
+		this.props.setState(prevState => editWrapper(prevState, data));
 	}
 
 	onChange(event, data) {
-		this.props.setState(prevState => {
-			const newState = change(data.jsonpath, prevState.state, event.target.value);
-			this.props.setState(newState);
-		});
+		this.props.setState(prevState =>
+			change(data.jsonpath, prevState.state, event.target.value),
+		);
 	}
 
 	onSelect(event, data) {
-		this.props.setState(prevState => {
-			const newState = select(data, prevState.state);
-			this.props.setState(newState);
-		});
+		this.props.setState(prevState => selectWrapper(prevState, data));
 	}
 
 	render() {
