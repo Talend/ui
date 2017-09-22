@@ -107,6 +107,7 @@ export function LineItem({
 	});
 
 	return (
+	// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<span
 			className={classes}
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
