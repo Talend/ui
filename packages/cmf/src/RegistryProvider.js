@@ -4,6 +4,8 @@
 import PropTypes from 'prop-types';
 import React, { Children } from 'react';
 import Registry from './registry';
+import action from './action';
+import expression from './expression';
 import CONST from './constant';
 
 /**
@@ -39,24 +41,23 @@ function Register(props, context) {
 	if (props.component) {
 		id = `${CONST.REGISTRY_COMPONENT_PREFIX}:${props.id}`;
 		item = props.component;
+		Registry.addToRegistry(id, item, context);
 		if (item.actions) {
 			Object.keys(item.actions).forEach(key => {
-				Registry.addToRegistry(key, item.actions[key], context);
+				action.registerActionCreator(key, item.actions[key], context);
 			});
 		}
 		if (item.expressions) {
 			Object.keys(item.expressions).forEach(key => {
-				Registry.addToRegistry(key, item.expressions[key], context);
+				expression.register(key, item.expressions[key], context)
 			});
 		}
 	} else if (props.actionCreator) {
-		id = `${CONST.REGISTRY_ACTION_CREATOR}:${props.id}`;
-		item = props.actionCreator;
+		action.registerActionCreator(props.id, props.actionCreator, context);
 	} else if (props.expression) {
-		id = `${CONST.REGISTRY_EXPRESSION}:${props.id}`;
-		item = props.expression;
+		expression.register(props.id, props.expression, context);
 	}
-	Registry.addToRegistry(id, item, context);
+	return null;
 }
 
 Register.contextTypes = {
