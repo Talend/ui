@@ -33,7 +33,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   12:90  error  'notifications' is missing in props validation                                             react/prop-types
 
 /home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+    2:1   error    'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+    3:10  error    'List' is defined but never used                                              no-unused-vars
+    3:16  error    'Map' is defined but never used                                               no-unused-vars
+   15:7   error    'selectedPath' is assigned a value but never used                             no-unused-vars
+  104:3   warning  Unexpected console statement                                                  no-console
 
 /home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.test.js
   12:18  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
@@ -47,5 +51,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/state.js
   3:1  warning  Unexpected console statement  no-console
 
-✖ 15 problems (14 errors, 1 warning)
+✖ 19 problems (17 errors, 2 warnings)
 
