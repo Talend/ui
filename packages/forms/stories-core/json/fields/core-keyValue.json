@@ -3,10 +3,8 @@
     "type": "object",
     "title": "Key/Value",
     "properties": {
-      "simpleKeyValue": {
-        "type": "object"
-      },
-      "selectKeyValue": {
+      "simpleKeyValue": { "type": "object" },
+      "advancedKeyValue": {
         "type": "object",
         "properties": {
           "key": {
@@ -22,11 +20,26 @@
         },
         "required": ["key", "value"]
       },
-      "variables": {
+      "simpleVariables": {
         "type": "array",
-        "maxItems": 2,
+        "items": { "type": "object" }
+      },
+      "advancedVariables": {
+        "type": "array",
         "items": {
           "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "foo",
+                "bar",
+                "fuzz",
+                "qux"
+              ]
+            },
+            "value": { "type": "number" }
+          },
           "required": ["key"]
         }
       }
@@ -36,15 +49,16 @@
   "uiSchema": [
     {
       "key": "simpleKeyValue",
+      "description": "This is a default key/value widget. Inputs are text.",
       "title": "Simple Key/Value",
-      "widget": "keyValue",
-      "description": "This is a default key/value widget. Inputs are text."
+      "widget": "keyValue"
     },
     {
-      "key": "selectKeyValue",
+      "key": "advancedKeyValue",
+      "description": "This is a customized key/value widget. Select as key, number as value.",
       "items": [
         {
-          "key": "selectKeyValue.key",
+          "key": "advancedKeyValue.key",
           "placeholder": "Enter a key",
           "title": "Type of things *",
           "titleMap": {
@@ -56,7 +70,7 @@
           "widget": "select"
         },
         {
-          "key": "selectKeyValue.value",
+          "key": "advancedKeyValue.value",
           "placeholder": "Enter a number",
           "title": "Number of things *"
         }
@@ -65,7 +79,33 @@
       "widget": "keyValue"
     },
     {
-      "key": "variables",
+      "key": "simpleVariables",
+      "description": "This is a simple key/value array.",
+      "itemWidget": "keyValue",
+      "reorder": false
+    },
+    {
+      "key": "advancedVariables",
+      "description": "This is an advanced key/value array.",
+      "items": [
+        {
+          "key": "advancedVariables[].key",
+          "placeholder": "Enter a key",
+          "title": "Type of things *",
+          "titleMap": {
+            "foo": "The foo option",
+            "bar": "The bar option",
+            "fuzz": "The fuzz option",
+            "qux": "The qux option"
+          },
+          "widget": "select"
+        },
+        {
+          "key": "advancedVariables[].value",
+          "placeholder": "Enter a number",
+          "title": "Number of things *"
+        }
+      ],
       "itemWidget": "keyValue",
       "reorder": false
     }
