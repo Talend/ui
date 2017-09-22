@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { List, Map } from 'immutable';
 
 import { ObjectViewer as Component } from '@talend/react-components';
 import Container, {
@@ -12,7 +11,6 @@ import Container, {
 } from './ObjectViewer.container';
 import Connected from './ObjectViewer.connect';
 
-const selectedPath = "$[0]['str']";
 const path = "$[0]['arrayInt']";
 const kTrue = true;
 const data = [
@@ -101,8 +99,6 @@ describe('Container ObjectViewer', () => {
 			},
 		);
 
-		console.log('what ', setState.mock.calls[0][0]);
-
 		expect(setState.mock.calls.length).toBe(1);
 		expect(typeof setState.mock.calls[0][0]).toBe('function');
 	});
@@ -132,7 +128,6 @@ describe('editValue', () => {
 		prevState.state = change(path, prevState.state, 'new label');
 
 		expect(prevState.state.get('modified').size).toBe(1);
-		// expect(setState.mock.calls[0][0].get('modified').get(path)).toBe(2);
 	});
 });
 
@@ -160,7 +155,6 @@ describe('select', () => {
 		const prevState = { state: DEFAULT_STATE };
 		prevState.state = selectWrapper(prevState, path);
 
-		// const newState = selectWrapper(prevState, { isOpened: true, jsonpath: path });
 		expect(prevState.state.get('selectedJsonpath')).toEqual(path);
 	});
 });
