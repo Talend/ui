@@ -36,21 +36,16 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath, selected
 	}
 
 	const isSelectedLine = selectedJsonpath && selectedJsonpath === jsonpath;
-
-	if (isSelectedLine) {
-		return (
-			<div
-				className={`${theme.native} ${theme['line-value-selected']}`}
-				onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
-			>
-				{display}
-			</div>
-		);
-	}
+	const lineValueClasses = classNames({
+		[theme.native]: true,
+		[theme[type]]: true,
+		[theme['line-value']]: true,
+		[theme['line-value-selected']]: isSelectedLine,
+	});
 
 	return (
 		<div
-			className={`${theme[type]} ${theme.native} ${theme['line-value']}`}
+			className={lineValueClasses}
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 		>
 			{display}
