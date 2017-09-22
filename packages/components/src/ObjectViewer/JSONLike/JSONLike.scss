@@ -3,8 +3,7 @@
 	display: block;
 
 	svg {
-		padding: 2px;
-		margin-right: 5px;
+		margin-right: $caret-width-large;
 	}
 
 	li {
@@ -52,13 +51,12 @@
 	}
 
 	sup {
-		top: -0.2em;
+		top: $object-viewer-badge-offset;
 		height: 9px;
 		width: 9px;
 		border-width: 1px;
-		background-color: rgba($wedgewood, 0.3);
-		color: $wedgewood;
-		font-family: 'Source Sans Pro';
+		background-color: rgba($brand-primary, 0.3);
+		color: $brand-primary;
 		font-size: 10px;
 		padding: 2px 5px;
 		display: inline-table;
@@ -66,7 +64,7 @@
 	}
 
 	sup selected {
-		background-color: rgba($wedgewood, 1);
+		background-color: rgba($brand-primary, 1);
 	}
 
 	sup::before {
@@ -92,7 +90,6 @@
 	}
 
 	.line-key {
-		font-family: 'Source Sans Pro';
 		font-size: 14px;
 		opacity: 0.75;
 		padding-left: 5px;
@@ -101,18 +98,18 @@
 	}
 
 	.line-value {
-		font-family: 'Source Sans Pro';
-		font-size: 15px;
-		vertical-align: baseline;
-		color: $wedgewood;
+		color: $brand-primary;
 		display: inline;
+		font-size: $object-viewer-value-font-size;
+		vertical-align: baseline;
+		border: none;
+		background: none;
+		padding: 0;
+		cursor: default;
 	}
 
 	.line-value-selected {
-		font-family: 'Source Sans Pro';
-		font-size: 15px;
-		vertical-align: baseline;
-		display: inline;
+		color: $black;
 	}
 
 	.line-type {
@@ -124,6 +121,10 @@
 		margin-right: 15px;
 		margin-left: 4px;
 		vertical-align: top;
+		border: none;
+		background: none;
+		padding: 0;
+		cursor: default;
 	}
 
 	.vertical-line {

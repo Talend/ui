@@ -36,25 +36,20 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath, selected
 	}
 
 	const isSelectedLine = selectedJsonpath && selectedJsonpath === jsonpath;
-
-	if (isSelectedLine) {
-		return (
-			<div
-				className={`${theme.native} ${theme['line-value-selected']}`}
-				onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
-			>
-				{display}
-			</div>
-		);
-	}
+	const lineValueClasses = classNames({
+		[theme.native]: true,
+		[theme[type]]: true,
+		[theme['line-value']]: true,
+		[theme['line-value-selected']]: isSelectedLine,
+	});
 
 	return (
-		<div
-			className={`${theme[type]} ${theme.native} ${theme['line-value']}`}
+		<button
+			className={lineValueClasses}
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 		>
 			{display}
-		</div>
+		</button>
 	);
 }
 
@@ -112,6 +107,7 @@ export function LineItem({
 	});
 
 	return (
+	// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<span
 			className={classes}
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
@@ -245,12 +241,12 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 			>
 				<span className={theme.hierarchical}>
 					{props.showType ? (
-						<div
+						<button
 							className={`tc-object-viewer-line-type ${theme['line-type']} `}
 							onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 						>
 							({info.type})
-						</div>
+						</button>
 					) : null}
 					<TooltipTrigger
 						className="offset"
