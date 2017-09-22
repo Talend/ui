@@ -2,50 +2,17 @@
 > @talend/react-containers@0.112.0 lint:es /home/travis/build/Talend/ui/packages/containers
 > eslint --config .eslintrc src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/containers/src/Action/Action.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/ActionBar/ActionBar.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/Actions/Actions.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
-  35:74  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
-
-/home/travis/build/Talend/ui/packages/containers/src/Form/Form.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/List/List.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  12:90  error  'notifications' is missing in props validation                                             react/prop-types
-
-/home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.test.js
-  12:18  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
-
-/home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.test.js
-  4:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/state.js
-  3:1  warning  Unexpected console statement  no-console
-
-✖ 15 problems (14 errors, 1 warning)
-
+Cannot read config file: /home/travis/build/Talend/ui/packages/containers/.eslintrc
+Error: ENOENT: no such file or directory, open '/home/travis/build/Talend/ui/packages/containers/.eslintrc'
+Error: Cannot read config file: /home/travis/build/Talend/ui/packages/containers/.eslintrc
+Error: ENOENT: no such file or directory, open '/home/travis/build/Talend/ui/packages/containers/.eslintrc'
+    at Error (native)
+    at Object.fs.openSync (fs.js:642:18)
+    at Object.fs.readFileSync (fs.js:510:33)
+    at readFile (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/config/config-file.js:70:24)
+    at loadLegacyConfigFile (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/config/config-file.js:142:44)
+    at loadConfigFile (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/config/config-file.js:241:22)
+    at Object.load (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/config/config-file.js:535:18)
+    at loadConfig (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/config.js:63:33)
+    at new Config (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/config.js:231:42)
+    at CLIEngine.executeOnFiles (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/cli-engine.js:590:28)

@@ -2,19 +2,17 @@
 > @talend/react-cmf@0.112.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config .eslintrc --ext .js src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/cmf/src/componentState.js
-  67:3  warning  Unexpected console statement  no-console
-
-/home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
-  8:2  warning  Unexpected console statement  no-console
-
-/home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
-  17:17  error  Expected 'this' to be used by class method 'getChildContext'  class-methods-use-this
-
-/home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
-  45:2  warning  Unexpected constant condition  no-constant-condition
-
-✖ 4 problems (1 error, 3 warnings)
-
+Cannot read config file: /home/travis/build/Talend/ui/packages/cmf/.eslintrc
+Error: ENOENT: no such file or directory, open '/home/travis/build/Talend/ui/packages/cmf/.eslintrc'
+Error: Cannot read config file: /home/travis/build/Talend/ui/packages/cmf/.eslintrc
+Error: ENOENT: no such file or directory, open '/home/travis/build/Talend/ui/packages/cmf/.eslintrc'
+    at Error (native)
+    at Object.fs.openSync (fs.js:642:18)
+    at Object.fs.readFileSync (fs.js:510:33)
+    at readFile (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-file.js:70:24)
+    at loadLegacyConfigFile (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-file.js:142:44)
+    at loadConfigFile (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-file.js:241:22)
+    at Object.load (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-file.js:535:18)
+    at loadConfig (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config.js:63:33)
+    at new Config (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config.js:231:42)
+    at CLIEngine.executeOnFiles (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/cli-engine.js:590:28)

@@ -2,12 +2,17 @@
 > @talend/log@0.112.0 lint:es /home/travis/build/Talend/ui/packages/logging
 > eslint --config .eslintrc --ext .js src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/logging/src/transport.js
-  33:27  warning  Unexpected console statement  no-console
-  38:3   warning  Unexpected console statement  no-console
-  41:29  warning  Unexpected console statement  no-console
-
-✖ 3 problems (0 errors, 3 warnings)
-
+Cannot read config file: /home/travis/build/Talend/ui/packages/logging/.eslintrc
+Error: ENOENT: no such file or directory, open '/home/travis/build/Talend/ui/packages/logging/.eslintrc'
+Error: Cannot read config file: /home/travis/build/Talend/ui/packages/logging/.eslintrc
+Error: ENOENT: no such file or directory, open '/home/travis/build/Talend/ui/packages/logging/.eslintrc'
+    at Error (native)
+    at Object.fs.openSync (fs.js:642:18)
+    at Object.fs.readFileSync (fs.js:510:33)
+    at readFile (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/config/config-file.js:70:24)
+    at loadLegacyConfigFile (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/config/config-file.js:142:44)
+    at loadConfigFile (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/config/config-file.js:241:22)
+    at Object.load (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/config/config-file.js:535:18)
+    at loadConfig (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/config.js:63:33)
+    at new Config (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/config.js:231:42)
+    at CLIEngine.executeOnFiles (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/cli-engine.js:590:28)
