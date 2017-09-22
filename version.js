@@ -14,7 +14,7 @@ program
 	.option('-f, --force')
 	.parse(process.argv);
 
-const REACT_VERSION = '15.5.4';
+const REACT_VERSION = '^15.6.1';
 const JEST_VERSION = '20.0.3';
 
 const ADDONS = {
