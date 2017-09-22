@@ -6,14 +6,29 @@ import FieldTemplate from '../FieldTemplate';
 
 import theme from './KeyValue.scss';
 
+const defaultChildrenSchema = {
+	schema: { type: 'string' },
+	type: 'text',
+};
+
 function getLast(array = []) {
 	return array[array.length - 1];
 }
 
-function getChildSchema(parentSchema, childrenSchemas, type) {
+function getChildSchema(parentSchema, type) {
+	const childKey = parentSchema.key.concat(type);
+	const childrenSchemas = parentSchema.items || [];
 	const childSchema = childrenSchemas.find(item => getLast(item.key) === type);
+	if (!childSchema) {
+		return {
+			...defaultChildrenSchema,
+			key: childKey,
+		};
+	}
 	return {
+		...defaultChildrenSchema,
 		...childSchema,
+		key: childKey,
 		autoFocus: parentSchema.autoFocus || childSchema.autoFocus,
 		disabled: parentSchema.disabled || childSchema.disabled,
 		readOnly: parentSchema.readOnly || childSchema.readOnly,
@@ -23,12 +38,11 @@ function getChildSchema(parentSchema, childrenSchemas, type) {
 function KeyValue({ id, isValid, errorMessage, onChange, onFinish, schema, value, ...restProps }) {
 	const {
 		description,
-		items = [],
 		title,
 	} = schema;
 
-	const keySchema = getChildSchema(schema, items, 'key');
-	const valueSchema = getChildSchema(schema, items, 'value');
+	const keySchema = getChildSchema(schema, 'key');
+	const valueSchema = getChildSchema(schema, 'value');
 
 	return (
 		<FieldTemplate

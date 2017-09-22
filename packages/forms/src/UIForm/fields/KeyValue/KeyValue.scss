@@ -1,8 +1,17 @@
 .key-value {
 	display: flex;
 
-	dt {
+	dt,
+	dd {
 		flex: 1;
+
+		> :global(.form-group) {
+			margin-bottom: 0;
+		}
+	}
+
+	dt {
+		font-weight: normal;
 		padding-right: 1.5rem;
 		position: relative;
 
@@ -16,7 +25,6 @@
 	}
 
 	dd {
-		flex: 1;
 		padding-left: 1.5rem;
 	}
 }

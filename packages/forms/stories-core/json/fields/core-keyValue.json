@@ -4,12 +4,7 @@
     "title": "Key/Value",
     "properties": {
       "simpleKeyValue": {
-        "type": "object",
-        "properties": {
-          "key": { "type": "string" },
-          "value": { "type": "string" }
-        },
-        "required": ["key"]
+        "type": "object"
       },
       "selectKeyValue": {
         "type": "object",
@@ -23,37 +18,27 @@
               "qux"
             ]
           },
-          "value": {
-            "type": "string",
-            "enum": [
-              "foo",
-              "bar",
-              "fuzz",
-              "qux"
-            ]
-          }
+          "value": { "type": "number" }
         },
         "required": ["key", "value"]
+      },
+      "variables": {
+        "type": "array",
+        "maxItems": 2,
+        "items": {
+          "type": "object",
+          "required": ["key"]
+        }
       }
     },
-    "required": ["simpleKeyValue"]
+    "required": []
   },
   "uiSchema": [
     {
       "key": "simpleKeyValue",
-      "items": [
-        {
-          "autoFocus": true,
-          "key": "simpleKeyValue.key",
-          "placeholder": "Enter a key"
-        },
-        {
-          "key": "simpleKeyValue.value",
-          "placeholder": "Enter a value"
-        }
-      ],
       "title": "Simple Key/Value",
-      "widget": "keyValue"
+      "widget": "keyValue",
+      "description": "This is a default key/value widget. Inputs are text."
     },
     {
       "key": "selectKeyValue",
@@ -61,11 +46,7 @@
         {
           "key": "selectKeyValue.key",
           "placeholder": "Enter a key",
-          "widget": "select"
-        },
-        {
-          "key": "selectKeyValue.value",
-          "placeholder": "Enter a value",
+          "title": "Type of things *",
           "titleMap": {
             "foo": "The foo option",
             "bar": "The bar option",
@@ -73,10 +54,20 @@
             "qux": "The qux option"
           },
           "widget": "select"
+        },
+        {
+          "key": "selectKeyValue.value",
+          "placeholder": "Enter a number",
+          "title": "Number of things *"
         }
       ],
       "title": "Select Key/Value",
       "widget": "keyValue"
+    },
+    {
+      "key": "variables",
+      "itemWidget": "keyValue",
+      "reorder": false
     }
   ],
   "properties": {}
