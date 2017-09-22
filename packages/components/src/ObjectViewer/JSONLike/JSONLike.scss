@@ -98,10 +98,14 @@
 	}
 
 	.line-value {
-		font-size: $object-viewer-value-font-size;
-		vertical-align: baseline;
 		color: $brand-primary;
 		display: inline;
+		font-size: $object-viewer-value-font-size;
+		vertical-align: baseline;
+		border: none;
+		background: none;
+		padding: 0;
+		cursor: default;
 	}
 
 	.line-value-selected {
@@ -117,6 +121,10 @@
 		margin-right: 15px;
 		margin-left: 4px;
 		vertical-align: top;
+		border: none;
+		background: none;
+		padding: 0;
+		cursor: default;
 	}
 
 	.vertical-line {

@@ -44,12 +44,12 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath, selected
 	});
 
 	return (
-		<div
+		<button
 			className={lineValueClasses}
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 		>
 			{display}
-		</div>
+		</button>
 	);
 }
 
@@ -240,12 +240,12 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 			>
 				<span className={theme.hierarchical}>
 					{props.showType ? (
-						<div
+						<button
 							className={`tc-object-viewer-line-type ${theme['line-type']} `}
 							onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 						>
 							({info.type})
-						</div>
+						</button>
 					) : null}
 					<TooltipTrigger
 						className="offset"
