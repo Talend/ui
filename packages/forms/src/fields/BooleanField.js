@@ -8,7 +8,7 @@ import {
 	optionsList,
 	getDefaultRegistry,
 } from 'react-jsonschema-form/lib/utils';
-import Toggle from 'react-talend-components/lib/Toggle';
+import Toggle from '@talend/react-components/lib/Toggle';
 
 
 function buildOptions(schema) {

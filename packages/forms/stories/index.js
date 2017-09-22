@@ -8,8 +8,8 @@ import { storiesOf, action } from '@storybook/react';
 import { withKnobs, object } from '@storybook/addon-knobs';
 
 import Well from 'react-bootstrap/lib/Well';
-import IconsProvider from 'react-talend-components/lib/IconsProvider';
-import { Action, Dialog } from 'react-talend-components';
+import IconsProvider from '@talend/react-components/lib/IconsProvider';
+import { Action, Dialog } from '@talend/react-components';
 
 import i18n from './config/i18n';
 import Form from '../src/Form';

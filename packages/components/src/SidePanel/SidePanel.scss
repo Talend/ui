@@ -3,24 +3,29 @@
 /// @group Custom widgets
 ////
 
-$list-item-hover-color: rgba($white, 0.12);
-$list-item-active-color: rgba($white, 0.25);
+$list-item-hover-color: rgba($white, 0.12) !default;
+$list-item-active-color: rgba($white, 0.25) !default;
 $toggle-button-opacity: 0.75;
+$tc-side-panel-width: 200px !default;
+$tc-side-panel-docked-width: 50px !default;
+$tc-side-panel-labels-width: 135px !default;
+$tc-side-panel-icons-size: 20px !default;
+$toggle-button-padding: $padding-small - 1;
 
 .tc-side-panel {
 	overflow-x: hidden;
 	padding: 0;
-	transition: 0.2s padding ease-out;
+	transition: 0.2s width ease-out;
+	width: $tc-side-panel-width;
 
-	:global(.btn) svg:global(.tc-svg-icon) {
-		width: $svg-lg-size;
-		height: $svg-lg-size;
-		margin: 0;
+	&>ul {
+		width: $tc-side-panel-width;
 	}
 
-	.action-list {
+	:global(.btn) svg:global(.tc-svg-icon) {
+		width: $tc-side-panel-icons-size;
+		height: $tc-side-panel-icons-size;
 		margin: 0;
-		transition: 0.2s margin ease-out;
 	}
 
 	.link {
@@ -32,15 +37,19 @@ $toggle-button-opacity: 0.75;
 			margin-left: $padding-normal;
 			vertical-align: text-bottom;
 		}
-
-		span {
-			transition: 0.2s opacity linear;
-		}
 	}
 
 	//override nav-pill a bit
 	:global(.nav-pills .btn.btn-link) {
 		padding: $padding-normal $padding-large;
+		text-overflow: inherit;
+	}
+
+	:global(.nav-pills .btn.btn-link) > span {
+		vertical-align: middle;
+		text-overflow: ellipsis;
+		width: $tc-side-panel-labels-width;
+		overflow: hidden;
 	}
 
 	:global(.tc-side-panel-list-item):hover {
@@ -52,7 +61,11 @@ $toggle-button-opacity: 0.75;
 	}
 
 	&.docked {
-		padding: 0;
+		width: $tc-side-panel-docked-width;
+
+		:global(.tc-side-panel-list-item) {
+			width: $tc-side-panel-docked-width;
+		}
 
 		:global(.nav-pills) {
 			//override nav-pill a bit
@@ -65,16 +78,9 @@ $toggle-button-opacity: 0.75;
 					transform: rotate(-180deg);
 				}
 			}
-
-			.link span {
-				opacity: 0;
-			}
 		}
 
 		.toggle-btn {
-			text-align: center;
-			padding-left: 0;
-
 			:global(.btn.btn-link) {
 				padding: $padding-small;
 			}
@@ -84,7 +90,7 @@ $toggle-button-opacity: 0.75;
 	.toggle-btn {
 		margin-bottom: $padding-normal + $padding-large;
 		text-align: left;
-		padding-left: $padding-small;
+		padding-left: $toggle-button-padding;
 
 		:global(.btn.btn-link) {
 			outline: none;
@@ -104,10 +110,10 @@ $toggle-button-opacity: 0.75;
 				height: $svg-sm-size;
 				transition: 0.2s transform ease-out;
 			}
+		}
 
-			:global(.tc-svg-icon) + span {
-				margin-left: 0;
-			}
+		:global(.btn.btn-link) > span {
+			display: none;
 		}
 
 		&:hover {

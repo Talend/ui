@@ -2,7 +2,7 @@ import React from 'react';
 import keycode from 'keycode';
 import { Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
-import { Provider, store as mock } from 'react-cmf/lib/mock';
+import { Provider, store as mock } from '@talend/react-cmf/lib/mock';
 
 import Container from './ShortcutManager.container';
 import Connected from './ShortcutManager.connect';

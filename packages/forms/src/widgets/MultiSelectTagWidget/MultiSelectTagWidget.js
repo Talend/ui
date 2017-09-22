@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Badge from 'react-talend-components/lib/Badge';
+import Badge from '@talend/react-components/lib/Badge';
 import { MenuItem } from 'react-bootstrap';
 import classNames from 'classnames';
 import keycode from 'keycode';

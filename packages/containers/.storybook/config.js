@@ -1,10 +1,10 @@
 import 'babel-polyfill';
 import { action, storiesOf, configure, setAddon } from '@storybook/react';
 import cmf from 'react-storybook-cmf';
-import mock from 'react-cmf/lib/mock';
-import { api } from 'react-cmf';
+import mock from '@talend/react-cmf/lib/mock';
+import { api } from '@talend/react-cmf';
 
-import 'bootstrap-talend-theme/src/theme/theme.scss';
+import '@talend/bootstrap-theme/src/theme/theme.scss';
 
 import examples from '../examples';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { mount, shallow } from 'enzyme';
-import Typeahead from 'react-talend-components/lib/Typeahead';
+import Typeahead from '@talend/react-components/lib/Typeahead';
 import keycode from 'keycode';
 import MultiSelectTag from './MultiSelectTag.component';
 

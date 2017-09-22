@@ -1,12 +1,18 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { fromJS, Map } from 'immutable';
-import { store, Provider } from 'react-cmf/lib/mock';
+import { store, Provider } from '@talend/react-cmf/lib/mock';
 
 import Container from './ConfirmDialog.container';
 import Connected from './ConfirmDialog.connect';
 
+
 import { showConfirmDialog, hideConfirmDialog } from './showHideConfirmDialog';
+
+jest.mock(
+	'@talend/react-components',
+	() => ({ ConfirmDialog: props => (<div className="tc-confirm-dialog" {...props} />) })
+);
 
 describe('Container ConfirmDialog', () => {
 	it('should not render', () => {
