@@ -9,7 +9,7 @@
           "key": { "type": "string" },
           "value": { "type": "string" }
         },
-        "required": ["value"]
+        "required": ["key"]
       },
       "selectKeyValue": {
         "type": "object",
@@ -32,7 +32,8 @@
               "qux"
             ]
           }
-        }
+        },
+        "required": ["key", "value"]
       }
     },
     "required": ["simpleKeyValue"]
@@ -65,6 +66,12 @@
         {
           "key": "selectKeyValue.value",
           "placeholder": "Enter a value",
+          "titleMap": {
+            "foo": "The foo option",
+            "bar": "The bar option",
+            "fuzz": "The fuzz option",
+            "qux": "The qux option"
+          },
           "widget": "select"
         }
       ],

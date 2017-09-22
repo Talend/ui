@@ -1,22 +1,22 @@
 .key-value {
 	display: flex;
 
-	dd, dt {
-		flex: 1;
-	}
 	dt {
-		position: relative;
+		flex: 1;
 		padding-right: 1.5rem;
+		position: relative;
 
+		&:after {
+			content: '=';
+			padding: 0 1rem;
+			position: absolute;
+			right: -1.25rem;
+			top: 30px;
+		}
 	}
-	dt:after {
-		position: absolute;
-		content: '=';
-		right: -1.25rem;
-		bottom: 0;
-		padding: 0 1rem;
-	}
+
 	dd {
+		flex: 1;
 		padding-left: 1.5rem;
 	}
 }

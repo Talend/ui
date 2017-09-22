@@ -10,32 +10,26 @@ function getLast(array = []) {
 	return array[array.length - 1];
 }
 
+function getChildSchema(parentSchema, childrenSchemas, type) {
+	const childSchema = childrenSchemas.find(item => getLast(item.key) === type);
+	return {
+		...childSchema,
+		autoFocus: parentSchema.autoFocus || childSchema.autoFocus,
+		disabled: parentSchema.disabled || childSchema.disabled,
+		readOnly: parentSchema.readOnly || childSchema.readOnly,
+	};
+}
+
 function KeyValue({ id, isValid, errorMessage, onChange, onFinish, schema, value, ...restProps }) {
 	const {
-		autoFocus,
 		description,
-		disabled = false,
 		items = [],
-		readOnly = false,
 		title,
 	} = schema;
 
-	console.log(schema)
-	let keySchema = items.find(item => getLast(item.key) === 'key');
-	keySchema = {
-		...keySchema,
-		autoFocus: autoFocus || keySchema.autoFocus,
-		disabled: disabled || keySchema.disabled,
-		readOnly: readOnly || keySchema.readOnly,
-	};
+	const keySchema = getChildSchema(schema, items, 'key');
+	const valueSchema = getChildSchema(schema, items, 'value');
 
-	let valueSchema = items.find(item => getLast(item.key) === 'value');
-	valueSchema = {
-		...valueSchema,
-		disabled: disabled || valueSchema.disabled,
-		readOnly: readOnly || valueSchema.readOnly,
-	};
-//TODO onChange onFinish
 	return (
 		<FieldTemplate
 			description={description}
@@ -43,7 +37,6 @@ function KeyValue({ id, isValid, errorMessage, onChange, onFinish, schema, value
 			id={id}
 			isValid={isValid}
 			label={title}
-			labelAfter
 		>
 			<dl className={theme['key-value']}>
 				<dt>
