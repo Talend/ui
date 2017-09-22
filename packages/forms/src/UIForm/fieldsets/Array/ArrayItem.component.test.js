@@ -43,6 +43,25 @@ describe('Array Item component', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
+	it('should NOT render moveUp/moveDown', () => {
+		// when
+		const wrapper = shallow(
+			<ArrayItem
+				hasMoveDown={false}
+				hasMoveUp
+				id={'talend-control-3'}
+				index={3}
+				onRemove={jest.fn()}
+				value={{ }}
+			>
+				<span>This is the item content</span>
+			</ArrayItem>
+		);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
 	it('should disable moveDown', () => {
 		// when
 		const wrapper = shallow(
