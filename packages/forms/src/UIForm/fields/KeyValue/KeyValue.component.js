@@ -6,27 +6,35 @@ import FieldTemplate from '../FieldTemplate';
 
 import theme from './KeyValue.scss';
 
-const defaultChildrenSchema = {
+/**
+ * Default part (key or value) schema
+ */
+const defaultPartSchema = {
 	schema: { type: 'string' },
 	type: 'text',
 };
 
+/**
+ * Get last item in array
+ */
 function getLast(array = []) {
 	return array[array.length - 1];
 }
 
-function getChildSchema(parentSchema, type) {
-	const childKey = parentSchema.key.concat(type);
+/**
+ * Adapt part (key or value) schema
+ * @param parentSchema The KeyValue schema
+ * @param part 'key' or 'value'
+ */
+function getPartSchema(parentSchema, part) {
+	const childKey = parentSchema.key.concat(part);
 	const childrenSchemas = parentSchema.items || [];
-	const childSchema = childrenSchemas.find(item => getLast(item.key) === type);
+	let childSchema = childrenSchemas.find(item => getLast(item.key) === part);
 	if (!childSchema) {
-		return {
-			...defaultChildrenSchema,
-			key: childKey,
-		};
+		childSchema = {};
 	}
 	return {
-		...defaultChildrenSchema,
+		...defaultPartSchema,
 		...childSchema,
 		key: childKey,
 		autoFocus: parentSchema.autoFocus || childSchema.autoFocus,
@@ -41,8 +49,8 @@ function KeyValue({ id, isValid, errorMessage, onChange, onFinish, schema, value
 		title,
 	} = schema;
 
-	const keySchema = getChildSchema(schema, 'key');
-	const valueSchema = getChildSchema(schema, 'value');
+	const keySchema = getPartSchema(schema, 'key');
+	const valueSchema = getPartSchema(schema, 'value');
 
 	return (
 		<FieldTemplate
@@ -91,9 +99,10 @@ if (process.env.NODE_ENV !== 'production') {
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
+			key: PropTypes.arrayOf(PropTypes.string),
+			items: PropTypes.array,
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,
-			type: PropTypes.string,
 		}),
 		value: PropTypes.shape({
 			key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
