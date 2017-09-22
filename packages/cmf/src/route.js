@@ -12,9 +12,7 @@ import { connect } from 'react-redux';
 import registry from './registry';
 import { mapStateToViewProps } from './settings';
 import deprecated from './deprecated';
-
-const COMPONENT_PREFIX = '_.route.component';
-const HOOK_PREFIX = '_.route.hook';
+import CONST from './constant';
 
 /**
  * return a component from the registry
@@ -23,7 +21,7 @@ const HOOK_PREFIX = '_.route.hook';
  * @return {function} the react component
  */
 function getComponentFromRegistry(context, id) {
-	const component = context.registry[`${COMPONENT_PREFIX}:${id}`];
+	const component = context.registry[`${CONST.REGISTRY_COMPONENT_PREFIX}:${id}`];
 	if (!component) {
 		throw new Error(`component not found in the registry: ${id}`);
 	}
@@ -37,7 +35,7 @@ function getComponentFromRegistry(context, id) {
  * @param  {any} component
  */
 function registerComponent(id, component) {
-	registry.addToRegistry(`${COMPONENT_PREFIX}:${id}`, component);
+	registry.addToRegistry(`${CONST.REGISTRY_COMPONENT_PREFIX}:${id}`, component);
 }
 
 /**
@@ -49,7 +47,7 @@ function registerFunction(id, func) {
 	if ((typeof func) !== 'function') {
 		throw new Error('registerFunction wait for a function');
 	}
-	registry.addToRegistry(`${HOOK_PREFIX}:${id}`, func);
+	registry.addToRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, func);
 }
 
 /**
@@ -57,7 +55,7 @@ function registerFunction(id, func) {
  * @param  {string} id
  */
 function getFunction(id) {
-	return registry.getFromRegistry(`${HOOK_PREFIX}:${id}`);
+	return registry.getFromRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`);
 }
 
 /**

@@ -37,8 +37,18 @@ function Register(props, context) {
 	let id;
 	let item;
 	if (props.component) {
-		id = `${CONST.REGISTRY_COMPONENT}:${props.id}`;
+		id = `${CONST.REGISTRY_COMPONENT_PREFIX}:${props.id}`;
 		item = props.component;
+		if (item.actions) {
+			Object.keys(item.actions).forEach(key => {
+				Registry.addToRegistry(key, item.actions[key], context);
+			});
+		}
+		if (item.expressions) {
+			Object.keys(item.expressions).forEach(key => {
+				Registry.addToRegistry(key, item.expressions[key], context);
+			});
+		}
 	} else if (props.actionCreator) {
 		id = `${CONST.REGISTRY_ACTION_CREATOR}:${props.id}`;
 		item = props.actionCreator;
