@@ -43,13 +43,13 @@ function Register(props, context) {
 		item = props.component;
 		Registry.addToRegistry(id, item, context);
 		if (item.actions) {
-			Object.keys(item.actions).forEach(key => {
+			Object.keys(item.actions).forEach((key) => {
 				action.registerActionCreator(key, item.actions[key], context);
 			});
 		}
 		if (item.expressions) {
-			Object.keys(item.expressions).forEach(key => {
-				expression.register(key, item.expressions[key], context)
+			Object.keys(item.expressions).forEach((key) => {
+				expression.register(key, item.expressions[key], context);
 			});
 		}
 	} else if (props.actionCreator) {
