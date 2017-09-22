@@ -61,7 +61,7 @@ function Icon({ className, name, title, transform, onClick }) {
 	}
 	if (onClick && name) {
 		const classname = classnames(
-			theme['svg-icon'],
+			theme['tc-svg-icon'],
 			'tc-svg-icon',
 			className,
 			SVG_TRANSFORMS[transform],
@@ -72,7 +72,7 @@ function Icon({ className, name, title, transform, onClick }) {
 			<a
 				xlinkHref="#"
 				onClick={onClick}
-				className={`tfd-svg-anchor ${theme.link}`}
+				className={classnames('tc-svg-anchor', theme.link)}
 			>
 				<svg className={classname} {...accessibility}>
 					<use xlinkHref={`#${name}`} />
@@ -101,7 +101,7 @@ Icon.propTypes = {
 	name: PropTypes.string.isRequired,
 	title: PropTypes.string,
 	transform: PropTypes.oneOf(TRANSFORMS),
-	onClick: PropTypes.func,
+	onClick: PropTypes.func.isRequired,
 };
 
 export default Icon;
