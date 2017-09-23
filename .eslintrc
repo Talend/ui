@@ -12,13 +12,14 @@
     ],
     "no-tabs": "off",
     "react/prefer-es6-class": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "react/jsx-indent": ["error", "tab"],
     "react/jsx-indent-props": ["error", "tab"]
   },
   "env": {
     "es6": true,
     "browser": true,
-    "jasmine": true
+    "jest": true
   },
   "globals": {},
   "parserOptions": {
