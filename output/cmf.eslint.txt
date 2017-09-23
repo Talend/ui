@@ -10,13 +10,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   8:2  warning  Unexpected console statement  no-console
 
-/home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
-  46:38  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-  51:42  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-  52:61  error  Missing semicolon                                                                    semi
-
 /home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
   45:2  warning  Unexpected constant condition  no-constant-condition
 
-✖ 6 problems (3 errors, 3 warnings)
+✖ 3 problems (0 errors, 3 warnings)
 
