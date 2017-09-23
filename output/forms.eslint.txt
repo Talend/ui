@@ -5,242 +5,79 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
-  560:3   error  Prop type `object` is forbidden                                             react/forbid-prop-types
-  563:14  error  'uiSchema.ui:options.addable' PropType is defined but prop is never used    react/no-unused-prop-types
-  564:16  error  'uiSchema.ui:options.orderable' PropType is defined but prop is never used  react/no-unused-prop-types
-  565:16  error  'uiSchema.ui:options.removable' PropType is defined but prop is never used  react/no-unused-prop-types
-  568:3   error  Prop type `object` is forbidden                                             react/forbid-prop-types
-  569:3   error  Prop type `object` is forbidden                                             react/forbid-prop-types
-  572:3   error  Prop type `array` is forbidden                                              react/forbid-prop-types
-  578:3   error  Prop type `object` is forbidden                                             react/forbid-prop-types
-  591:3   error  Prop type `object` is forbidden                                             react/forbid-prop-types
-  598:3   error  Prop type `object` is forbidden                                             react/forbid-prop-types
-  625:3   error  Prop type `object` is forbidden                                             react/forbid-prop-types
-  626:3   error  Prop type `object` is forbidden                                             react/forbid-prop-types
-  646:3   error  Prop type `object` is forbidden                                             react/forbid-prop-types
-  647:3   error  Prop type `object` is forbidden                                             react/forbid-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  560:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  568:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  569:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  572:3  error  Prop type `array` is forbidden   react/forbid-prop-types
+  578:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  591:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  598:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  625:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  626:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  646:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  647:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
-  72:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
-  73:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
-  74:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
-  83:13  error  'registry.widgets' PropType is defined but prop is never used      react/no-unused-prop-types
-  87:12  error  'registry.fields' PropType is defined but prop is never used       react/no-unused-prop-types
-  88:17  error  'registry.definitions' PropType is defined but prop is never used  react/no-unused-prop-types
-  89:17  error  'registry.formContext' PropType is defined but prop is never used  react/no-unused-prop-types
+  72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  73:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  74:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
-   86:8   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
-  154:14  error  'registry.widgets' PropType is defined but prop is never used                        react/no-unused-prop-types
-  156:13  error  'registry.fields' PropType is defined but prop is never used                         react/no-unused-prop-types
-  157:18  error  'registry.definitions' PropType is defined but prop is never used                    react/no-unused-prop-types
-  158:18  error  'registry.formContext' PropType is defined but prop is never used                    react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  86:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/StringField.js
-  60:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
-  61:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
-  62:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
-  70:13  error  'registry.widgets' PropType is defined but prop is never used      react/no-unused-prop-types
-  74:12  error  'registry.fields' PropType is defined but prop is never used       react/no-unused-prop-types
-  75:17  error  'registry.definitions' PropType is defined but prop is never used  react/no-unused-prop-types
-  76:17  error  'registry.formContext' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/Form.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-  3:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  60:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  61:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  62:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
   84:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   85:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Button/Button.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Button/Buttons.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Button/SingleButton.component.js
-  43:13  error  'schema.bsStyle' PropType is defined but prop is never used     react/no-unused-prop-types
-  44:14  error  'schema.disabled' PropType is defined but prop is never used    react/no-unused-prop-types
-  45:16  error  'schema.inProgress' PropType is defined but prop is never used  react/no-unused-prop-types
-  46:10  error  'schema.name' PropType is defined but prop is never used        react/no-unused-prop-types
-  47:11  error  'schema.title' PropType is defined but prop is never used       react/no-unused-prop-types
-  48:14  error  'schema.triggers' PropType is defined but prop is never used    react/no-unused-prop-types
-  49:10  error  'schema.type' PropType is defined but prop is never used        react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Button/SingleButton.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/CheckBox.component.js
-  36:17  error  'schema.description' PropType is defined but prop is never used  react/no-unused-prop-types
-  37:11  error  'schema.title' PropType is defined but prop is never used        react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/CheckBox.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/CheckBoxes.component.js
-  61:17  error  'schema.description' PropType is defined but prop is never used      react/no-unused-prop-types
-  62:11  error  'schema.title' PropType is defined but prop is never used            react/no-unused-prop-types
-  63:14  error  'schema.titleMap' PropType is defined but prop is never used         react/no-unused-prop-types
-  64:11  error  'schema.titleMap.*.name' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/CheckBoxes.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
-   8:4   error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
-  32:15  error  'schema.autoFocus' PropType is defined but prop is never used                                                    react/no-unused-prop-types
-  33:14  error  'schema.disabled' PropType is defined but prop is never used                                                     react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  8:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Datalist/Datalist.component.js
-   76:3   error  Expected indentation of 3 tabs but found 2                           indent
-   77:4   error  Expected indentation of 4 tabs but found 3                           indent
-   78:4   error  Expected indentation of 4 tabs but found 3                           indent
-   79:4   error  Expected indentation of 4 tabs but found 3                           indent
-   80:3   error  Expected indentation of 3 tabs but found 2                           indent
-   81:4   error  Expected indentation of 4 tabs but found 3                           indent
-   84:4   error  Expected indentation of 4 tabs but found 3                           indent
-   85:4   error  Expected indentation of 4 tabs but found 3                           indent
-   93:4   error  Expected indentation of 4 tabs but found 3                           indent
-   94:4   error  Expected indentation of 4 tabs but found 3                           indent
-   95:3   error  Expected indentation of 3 tabs but found 2                           indent
-   96:4   error  Expected indentation of 4 tabs but found 3                           indent
-   97:4   error  Expected indentation of 4 tabs but found 3                           indent
-  101:4   error  Expected indentation of 4 tabs but found 3                           indent
-  102:4   error  Expected indentation of 4 tabs but found 3                           indent
-  103:3   error  Expected indentation of 3 tabs but found 2                           indent
-  104:4   error  Expected indentation of 4 tabs but found 3                           indent
-  105:4   error  Expected indentation of 4 tabs but found 3                           indent
-  106:4   error  Expected indentation of 4 tabs but found 3                           indent
-  107:3   error  Expected indentation of 3 tabs but found 2                           indent
-  108:4   error  Expected indentation of 4 tabs but found 3                           indent
-  235:16  error  'schema.restricted' PropType is defined but prop is never used       react/no-unused-prop-types
-  238:11  error  'schema.titleMap.*.name' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Datalist/Datalist.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/FieldTemplate/FieldTemplate.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+   76:3  error  Expected indentation of 3 tabs but found 2  indent
+   77:4  error  Expected indentation of 4 tabs but found 3  indent
+   78:4  error  Expected indentation of 4 tabs but found 3  indent
+   79:4  error  Expected indentation of 4 tabs but found 3  indent
+   80:3  error  Expected indentation of 3 tabs but found 2  indent
+   81:4  error  Expected indentation of 4 tabs but found 3  indent
+   84:4  error  Expected indentation of 4 tabs but found 3  indent
+   85:4  error  Expected indentation of 4 tabs but found 3  indent
+   93:4  error  Expected indentation of 4 tabs but found 3  indent
+   94:4  error  Expected indentation of 4 tabs but found 3  indent
+   95:3  error  Expected indentation of 3 tabs but found 2  indent
+   96:4  error  Expected indentation of 4 tabs but found 3  indent
+   97:4  error  Expected indentation of 4 tabs but found 3  indent
+  101:4  error  Expected indentation of 4 tabs but found 3  indent
+  102:4  error  Expected indentation of 4 tabs but found 3  indent
+  103:3  error  Expected indentation of 3 tabs but found 2  indent
+  104:4  error  Expected indentation of 4 tabs but found 3  indent
+  105:4  error  Expected indentation of 4 tabs but found 3  indent
+  106:4  error  Expected indentation of 4 tabs but found 3  indent
+  107:3  error  Expected indentation of 3 tabs but found 2  indent
+  108:4  error  Expected indentation of 4 tabs but found 3  indent
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/MultiSelectTag/MultiSelectTag.component.js
-   65:3   error  Expected indentation of 3 tabs but found 2                           indent
-   66:4   error  Expected indentation of 4 tabs but found 3                           indent
-   68:4   error  Expected indentation of 4 tabs but found 3                           indent
-   71:4   error  Expected indentation of 4 tabs but found 3                           indent
-   72:3   error  Expected indentation of 3 tabs but found 2                           indent
-   73:3   error  Expected indentation of 3 tabs but found 2                           indent
-   74:4   error  Expected indentation of 4 tabs but found 3                           indent
-   75:4   error  Expected indentation of 4 tabs but found 3                           indent
-   76:4   error  Expected indentation of 4 tabs but found 3                           indent
-   77:3   error  Expected indentation of 3 tabs but found 2                           indent
-   78:4   error  Expected indentation of 4 tabs but found 3                           indent
-   81:4   error  Expected indentation of 4 tabs but found 3                           indent
-   82:3   error  Expected indentation of 3 tabs but found 2                           indent
-   83:4   error  Expected indentation of 4 tabs but found 3                           indent
-  238:15  error  'schema.autoFocus' PropType is defined but prop is never used        react/no-unused-prop-types
-  239:17  error  'schema.description' PropType is defined but prop is never used      react/no-unused-prop-types
-  240:14  error  'schema.disabled' PropType is defined but prop is never used         react/no-unused-prop-types
-  241:17  error  'schema.placeholder' PropType is defined but prop is never used      react/no-unused-prop-types
-  242:14  error  'schema.readOnly' PropType is defined but prop is never used         react/no-unused-prop-types
-  243:16  error  'schema.restricted' PropType is defined but prop is never used       react/no-unused-prop-types
-  244:11  error  'schema.title' PropType is defined but prop is never used            react/no-unused-prop-types
-  245:14  error  'schema.titleMap' PropType is defined but prop is never used         react/no-unused-prop-types
-  246:11  error  'schema.titleMap.*.name' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/MultiSelectTag/MultiSelectTag.component.test.js
-  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/RadioOrSelect/RadioOrSelect.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  65:3  error  Expected indentation of 3 tabs but found 2  indent
+  66:4  error  Expected indentation of 4 tabs but found 3  indent
+  68:4  error  Expected indentation of 4 tabs but found 3  indent
+  71:4  error  Expected indentation of 4 tabs but found 3  indent
+  72:3  error  Expected indentation of 3 tabs but found 2  indent
+  73:3  error  Expected indentation of 3 tabs but found 2  indent
+  74:4  error  Expected indentation of 4 tabs but found 3  indent
+  75:4  error  Expected indentation of 4 tabs but found 3  indent
+  76:4  error  Expected indentation of 4 tabs but found 3  indent
+  77:3  error  Expected indentation of 3 tabs but found 2  indent
+  78:4  error  Expected indentation of 4 tabs but found 3  indent
+  81:4  error  Expected indentation of 4 tabs but found 3  indent
+  82:3  error  Expected indentation of 3 tabs but found 2  indent
+  83:4  error  Expected indentation of 4 tabs but found 3  indent
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
-  23:7   error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
-  52:15  error  'schema.autoFocus' PropType is defined but prop is never used                                                    react/no-unused-prop-types
-  53:17  error  'schema.description' PropType is defined but prop is never used                                                  react/no-unused-prop-types
-  54:14  error  'schema.disabled' PropType is defined but prop is never used                                                     react/no-unused-prop-types
-  55:12  error  'schema.inline' PropType is defined but prop is never used                                                       react/no-unused-prop-types
-  56:11  error  'schema.title' PropType is defined but prop is never used                                                        react/no-unused-prop-types
-  57:14  error  'schema.titleMap' PropType is defined but prop is never used                                                     react/no-unused-prop-types
-  58:11  error  'schema.titleMap.*.name' PropType is defined but prop is never used                                              react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Select/Select.component.js
-  81:15  error  'schema.autoFocus' PropType is defined but prop is never used        react/no-unused-prop-types
-  82:17  error  'schema.description' PropType is defined but prop is never used      react/no-unused-prop-types
-  83:14  error  'schema.disabled' PropType is defined but prop is never used         react/no-unused-prop-types
-  84:17  error  'schema.placeholder' PropType is defined but prop is never used      react/no-unused-prop-types
-  85:14  error  'schema.readOnly' PropType is defined but prop is never used         react/no-unused-prop-types
-  86:11  error  'schema.title' PropType is defined but prop is never used            react/no-unused-prop-types
-  87:14  error  'schema.titleMap' PropType is defined but prop is never used         react/no-unused-prop-types
-  88:11  error  'schema.titleMap.*.name' PropType is defined but prop is never used  react/no-unused-prop-types
-  91:10  error  'schema.type' PropType is defined but prop is never used             react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Select/Select.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Text/Text.component.js
-  58:15  error  'schema.autoFocus' PropType is defined but prop is never used    react/no-unused-prop-types
-  59:17  error  'schema.description' PropType is defined but prop is never used  react/no-unused-prop-types
-  60:14  error  'schema.disabled' PropType is defined but prop is never used     react/no-unused-prop-types
-  61:17  error  'schema.placeholder' PropType is defined but prop is never used  react/no-unused-prop-types
-  62:14  error  'schema.readOnly' PropType is defined but prop is never used     react/no-unused-prop-types
-  63:11  error  'schema.title' PropType is defined but prop is never used        react/no-unused-prop-types
-  64:10  error  'schema.type' PropType is defined but prop is never used         react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Text/Text.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/TextArea/TextArea.component.js
-  51:15  error  'schema.autoFocus' PropType is defined but prop is never used    react/no-unused-prop-types
-  52:17  error  'schema.description' PropType is defined but prop is never used  react/no-unused-prop-types
-  53:14  error  'schema.disabled' PropType is defined but prop is never used     react/no-unused-prop-types
-  54:9   error  'schema.key' PropType is defined but prop is never used          react/no-unused-prop-types
-  55:17  error  'schema.placeholder' PropType is defined but prop is never used  react/no-unused-prop-types
-  56:14  error  'schema.readOnly' PropType is defined but prop is never used     react/no-unused-prop-types
-  57:10  error  'schema.rows' PropType is defined but prop is never used         react/no-unused-prop-types
-  58:11  error  'schema.title' PropType is defined but prop is never used        react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/TextArea/TextArea.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Toggle/Toggle.component.js
-  37:15  error  'schema.autoFocus' PropType is defined but prop is never used    react/no-unused-prop-types
-  38:17  error  'schema.description' PropType is defined but prop is never used  react/no-unused-prop-types
-  39:14  error  'schema.disabled' PropType is defined but prop is never used     react/no-unused-prop-types
-  40:11  error  'schema.title' PropType is defined but prop is never used        react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Toggle/Toggle.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/Array.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/ArrayItem.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Columns/Columns.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Fieldset/Fieldset.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Tabs/Tabs.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/Message/Message.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/reducers/form.reducer.js
   29:2  error  Expected indentation of 2 tabs but found 1  indent
@@ -265,30 +102,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   22:2  error  Expected indentation of 2 tabs but found 1  indent
   23:3  error  Expected indentation of 3 tabs but found 2  indent
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.connect.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/Widget/Widget.component.js
-  47:9   error  'schema.key' PropType is defined but prop is never used                react/no-unused-prop-types
-  48:10  error  'schema.type' PropType is defined but prop is never used               react/no-unused-prop-types
-  49:23  error  'schema.validationMessage' PropType is defined but prop is never used  react/no-unused-prop-types
-  50:12  error  'schema.widget' PropType is defined but prop is never used             react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/Widget/Widget.component.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/CodeWidget/CodeWidget.component.js
-  94:15  error  'options.language' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/CodeWidget/CodeWidget.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   38:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   39:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -296,88 +109,45 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   78:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   79:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
-  154:3   error  Expected indentation of 3 tabs but found 2                           indent
-  155:4   error  Expected indentation of 4 tabs but found 3                           indent
-  156:4   error  Expected indentation of 4 tabs but found 3                           indent
-  157:4   error  Expected indentation of 4 tabs but found 3                           indent
-  158:3   error  Expected indentation of 3 tabs but found 2                           indent
-  160:4   error  Expected indentation of 4 tabs but found 3                           indent
-  163:4   error  Expected indentation of 4 tabs but found 3                           indent
-  164:4   error  Expected indentation of 4 tabs but found 3                           indent
-  165:3   error  Expected indentation of 3 tabs but found 2                           indent
-  166:3   error  Expected indentation of 3 tabs but found 2                           indent
-  167:4   error  Expected indentation of 4 tabs but found 3                           indent
-  168:4   error  Expected indentation of 4 tabs but found 3                           indent
-  169:4   error  Expected indentation of 4 tabs but found 3                           indent
-  170:3   error  Expected indentation of 3 tabs but found 2                           indent
-  171:4   error  Expected indentation of 4 tabs but found 3                           indent
-  371:11  error  'schema.title' PropType is defined but prop is never used            react/no-unused-prop-types
-  372:10  error  'schema.enum' PropType is defined but prop is never used             react/no-unused-prop-types
-  375:16  error  'formContext.fetchItems' PropType is defined but prop is never used  react/no-unused-prop-types
-  378:17  error  'options.enumOptions' PropType is defined but prop is never used     react/no-unused-prop-types
-  380:16  error  'options.restricted' PropType is defined but prop is never used      react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-  4:1  error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies       import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
-    3:1   error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  228:30  error  'jasmine' is not defined                                                              no-undef
-  230:5   error  'jasmine' is not defined                                                              no-undef
-  231:5   error  'jasmine' is not defined                                                              no-undef
-  259:30  error  'jasmine' is not defined                                                              no-undef
-  261:5   error  'jasmine' is not defined                                                              no-undef
-  262:5   error  'jasmine' is not defined                                                              no-undef
-  292:5   error  'jasmine' is not defined                                                              no-undef
-  293:5   error  'jasmine' is not defined                                                              no-undef
-  323:5   error  'jasmine' is not defined                                                              no-undef
-  324:5   error  'jasmine' is not defined                                                              no-undef
-  338:4   error  'spyOn' is not defined                                                                no-undef
-  361:16  error  'spyOn' is not defined                                                                no-undef
-  394:5   error  'jasmine' is not defined                                                              no-undef
-  395:5   error  'jasmine' is not defined                                                              no-undef
+  154:3  error  Expected indentation of 3 tabs but found 2  indent
+  155:4  error  Expected indentation of 4 tabs but found 3  indent
+  156:4  error  Expected indentation of 4 tabs but found 3  indent
+  157:4  error  Expected indentation of 4 tabs but found 3  indent
+  158:3  error  Expected indentation of 3 tabs but found 2  indent
+  160:4  error  Expected indentation of 4 tabs but found 3  indent
+  163:4  error  Expected indentation of 4 tabs but found 3  indent
+  164:4  error  Expected indentation of 4 tabs but found 3  indent
+  165:3  error  Expected indentation of 3 tabs but found 2  indent
+  166:3  error  Expected indentation of 3 tabs but found 2  indent
+  167:4  error  Expected indentation of 4 tabs but found 3  indent
+  168:4  error  Expected indentation of 4 tabs but found 3  indent
+  169:4  error  Expected indentation of 4 tabs but found 3  indent
+  170:3  error  Expected indentation of 3 tabs but found 2  indent
+  171:4  error  Expected indentation of 4 tabs but found 3  indent
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   73:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.js
-  123:3   error  Prop type `any` is forbidden                                      react/forbid-prop-types
-  125:17  error  'options.enumOptions' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  123:3  error  Prop type `any` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
-  114:3   error  Expected indentation of 3 tabs but found 2                        indent
-  118:3   error  Expected indentation of 3 tabs but found 2                        indent
-  119:4   error  Expected indentation of 4 tabs but found 3                        indent
-  134:3   error  Expected indentation of 3 tabs but found 2                        indent
-  140:3   error  Expected indentation of 3 tabs but found 2                        indent
-  156:3   error  Expected indentation of 3 tabs but found 2                        indent
-  165:3   error  Expected indentation of 3 tabs but found 2                        indent
-  174:3   error  Expected indentation of 3 tabs but found 2                        indent
-  342:17  error  'options.enumOptions' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
-  3:1  error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  114:3  error  Expected indentation of 3 tabs but found 2  indent
+  118:3  error  Expected indentation of 3 tabs but found 2  indent
+  119:4  error  Expected indentation of 4 tabs but found 3  indent
+  134:3  error  Expected indentation of 3 tabs but found 2  indent
+  140:3  error  Expected indentation of 3 tabs but found 2  indent
+  156:3  error  Expected indentation of 3 tabs but found 2  indent
+  165:3  error  Expected indentation of 3 tabs but found 2  indent
+  174:3  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/TabsWidget.js
-  56:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
-  59:13  error  'registry.widgets' PropType is defined but prop is never used      react/no-unused-prop-types
-  63:12  error  'registry.fields' PropType is defined but prop is never used       react/no-unused-prop-types
-  65:17  error  'registry.formContext' PropType is defined but prop is never used  react/no-unused-prop-types
-  67:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
-  68:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
-  69:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
+  56:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  69:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 253 problems (253 errors, 0 warnings)
+✖ 109 problems (109 errors, 0 warnings)
 

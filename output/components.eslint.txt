@@ -5,38 +5,17 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.component.js
-   84:5   error  Expected indentation of 5 tabs but found 4                                  indent
-   85:6   error  Expected indentation of 6 tabs but found 5                                  indent
-   86:5   error  Expected indentation of 5 tabs but found 4                                  indent
-   87:6   error  Expected indentation of 6 tabs but found 5                                  indent
-   88:5   error  Expected indentation of 5 tabs but found 4                                  indent
-   89:6   error  Expected indentation of 6 tabs but found 5                                  indent
-   90:5   error  Expected indentation of 5 tabs but found 4                                  indent
-   91:6   error  Expected indentation of 6 tabs but found 5                                  indent
-  104:12  error  'renderers.Action' PropType is defined but prop is never used               react/no-unused-prop-types
-  105:13  error  'renderers.Actions' PropType is defined but prop is never used              react/no-unused-prop-types
-  106:25  error  'renderers.ActionSplitDropdown' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.snapshot.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  84:5  error  Expected indentation of 5 tabs but found 4  indent
+  85:6  error  Expected indentation of 6 tabs but found 5  indent
+  86:5  error  Expected indentation of 5 tabs but found 4  indent
+  87:6  error  Expected indentation of 6 tabs but found 5  indent
+  88:5  error  Expected indentation of 5 tabs but found 4  indent
+  89:6  error  Expected indentation of 6 tabs but found 5  indent
+  90:5  error  Expected indentation of 5 tabs but found 4  indent
+  91:6  error  Expected indentation of 6 tabs but found 5  indent
 
 /home/travis/build/Talend/ui/packages/components/src/Actions/Action/Action.component.js
   3:8  error  'classnames' is defined but never used  no-unused-vars
-
-/home/travis/build/Talend/ui/packages/components/src/Actions/Action/Action.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/ActionDropdown.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/ActionDropdown.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  24:40  error  'jasmine' is not defined                                                      no-undef
-  30:40  error  'jasmine' is not defined                                                      no-undef
 
 /home/travis/build/Talend/ui/packages/components/src/Actions/Actions.component.js
   26:2  error  Expected indentation of 2 tabs but found 1  indent
@@ -46,88 +25,27 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   30:2  error  Expected indentation of 2 tabs but found 1  indent
   31:3  error  Expected indentation of 3 tabs but found 2  indent
 
-/home/travis/build/Talend/ui/packages/components/src/Actions/Actions.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Actions/ActionSplitDropdown/ActionSplitDropdown.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/AppHeaderBar.component.js
-   92:5   error  Expected indentation of 5 tabs but found 4                        indent
-   93:6   error  Expected indentation of 6 tabs but found 5                        indent
-   94:5   error  Expected indentation of 5 tabs but found 4                        indent
-   95:6   error  Expected indentation of 6 tabs but found 5                        indent
-   96:5   error  Expected indentation of 5 tabs but found 4                        indent
-   97:6   error  Expected indentation of 6 tabs but found 5                        indent
-  223:12  error  'brandLink.onClick' PropType is defined but prop is never used    react/no-unused-prop-types
-  224:14  error  'brandLink.className' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/AppHeaderBar.snapshot.test.js
-  1:1  error  '@storybook/addon-storyshots' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/AppHeaderBar.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Badge/Badge.snap.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Breadcrumbs/Breadcrumbs.component.js
-  108:10  error  'items.*.text' PropType is defined but prop is never used     react/no-unused-prop-types
-  109:11  error  'items.*.title' PropType is defined but prop is never used    react/no-unused-prop-types
-  110:13  error  'items.*.onClick' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/Breadcrumbs/Breadcrumbs.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Breadcrumbs/Breadcrumbs.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/CircularProgress/CircularProgress.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  92:5  error  Expected indentation of 5 tabs but found 4  indent
+  93:6  error  Expected indentation of 6 tabs but found 5  indent
+  94:5  error  Expected indentation of 5 tabs but found 4  indent
+  95:6  error  Expected indentation of 6 tabs but found 5  indent
+  96:5  error  Expected indentation of 5 tabs but found 4  indent
+  97:6  error  Expected indentation of 6 tabs but found 5  indent
 
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
-   48:2   error  Expected indentation of 2 tabs but found 1                          indent
-   49:3   error  Expected indentation of 3 tabs but found 2                          indent
-   64:2   error  Expected indentation of 2 tabs but found 1                          indent
-   65:3   error  Expected indentation of 3 tabs but found 2                          indent
-   75:2   error  Expected indentation of 2 tabs but found 1                          indent
-   76:3   error  Expected indentation of 3 tabs but found 2                          indent
-   84:2   error  Expected indentation of 2 tabs but found 1                          indent
-   85:3   error  Expected indentation of 3 tabs but found 2                          indent
-  265:11  error  'content.*.label' PropType is defined but prop is never used        react/no-unused-prop-types
-  266:17  error  'content.*.description' PropType is defined but prop is never used  react/no-unused-prop-types
-  269:10  error  'content.head' PropType is defined but prop is never used           react/no-unused-prop-types
-  270:17  error  'content.description' PropType is defined but prop is never used    react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.test.js
-  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/ConfirmDialog/ConfirmDialog.test.js
-  3:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  5:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Dialog/Dialog.component.js
-  39:64  error  'bsDialogProps.manager' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/Dialog/Dialog.test.js
-  3:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Dialog/DialogModalProps.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Emphasis/Emphasis.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  48:2  error  Expected indentation of 2 tabs but found 1  indent
+  49:3  error  Expected indentation of 3 tabs but found 2  indent
+  64:2  error  Expected indentation of 2 tabs but found 1  indent
+  65:3  error  Expected indentation of 3 tabs but found 2  indent
+  75:2  error  Expected indentation of 2 tabs but found 1  indent
+  76:3  error  Expected indentation of 3 tabs but found 2  indent
+  84:2  error  Expected indentation of 2 tabs but found 1  indent
+  85:3  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Enumeration.component.js
   134:2  error  Expected indentation of 2 tabs but found 1  indent
@@ -136,33 +54,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   168:2  error  Expected indentation of 2 tabs but found 1  indent
   176:2  error  Expected indentation of 2 tabs but found 1  indent
   177:3  error  Expected indentation of 3 tabs but found 2  indent
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Enumeration.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/header.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/header.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/headerInput.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/headerInput.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/headerSelected.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/headerSelected.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/item.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/Item.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/ItemEdit.component.js
   56:3  error  Expected indentation of 3 tabs but found 2  indent
@@ -174,46 +65,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   62:3  error  Expected indentation of 3 tabs but found 2  indent
   63:4  error  Expected indentation of 4 tabs but found 3  indent
 
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/itemEdit.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/ItemEdit.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Items.component.js
   55:3  error  Expected indentation of 3 tabs but found 2  indent
   74:3  error  Expected indentation of 3 tabs but found 2  indent
 
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/items.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
-
-/home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
-  282:10  error  'renderers.Logo' PropType is defined but prop is never used         react/no-unused-prop-types
-  283:11  error  'renderers.Brand' PropType is defined but prop is never used        react/no-unused-prop-types
-  284:17  error  'renderers.Environment' PropType is defined but prop is never used  react/no-unused-prop-types
-  285:12  error  'renderers.Search' PropType is defined but prop is never used       react/no-unused-prop-types
-  286:10  error  'renderers.User' PropType is defined but prop is never used         react/no-unused-prop-types
-  287:14  error  'renderers.Products' PropType is defined but prop is never used     react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.snapshot.test.js
-  1:1  error  '@storybook/addon-storyshots' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/HttpError/HttpError.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Icon/Icon.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/IconsProvider/IconsProvider.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/JSONSchemaRenderer/JSONSchemaRenderer.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Layout/Layout.component.js
   45:2  error  Expected indentation of 2 tabs but found 1  indent
@@ -225,44 +83,15 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   51:2  error  Expected indentation of 2 tabs but found 1  indent
   52:3  error  Expected indentation of 3 tabs but found 2  indent
 
-/home/travis/build/Talend/ui/packages/components/src/Layout/Layout.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Layout/OneColumn/OneColumn.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Layout/TwoColumns/TwoColumns.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/List/Content/Content.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/components/src/List/Content/Item/Item.component.js
-  132:3   error  Expected indentation of 3 tabs but found 2                            indent
-  133:4   error  Expected indentation of 4 tabs but found 3                            indent
-  134:3   error  Expected indentation of 3 tabs but found 2                            indent
-  135:4   error  Expected indentation of 4 tabs but found 3                            indent
-  136:3   error  Expected indentation of 3 tabs but found 2                            indent
-  137:4   error  Expected indentation of 4 tabs but found 3                            indent
-  138:3   error  Expected indentation of 3 tabs but found 2                            indent
-  139:4   error  Expected indentation of 4 tabs but found 3                            indent
-  159:8   error  'actions.*.key' PropType is defined but prop is never used            react/no-unused-prop-types
-  160:10  error  'actions.*.label' PropType is defined but prop is never used          react/no-unused-prop-types
-  161:9   error  'actions.*.icon' PropType is defined but prop is never used           react/no-unused-prop-types
-  162:14  error  'actions.*.className' PropType is defined but prop is never used      react/no-unused-prop-types
-  163:12  error  'actions.*.onClick' PropType is defined but prop is never used        react/no-unused-prop-types
-  166:12  error  'item.display' PropType is defined but prop is never used             react/no-unused-prop-types
-  169:17  error  'itemProps.classNameKey' PropType is defined but prop is never used   react/no-unused-prop-types
-  170:18  error  'itemProps.selectedClass' PropType is defined but prop is never used  react/no-unused-prop-types
-  171:15  error  'itemProps.isSelected' PropType is defined but prop is never used     react/no-unused-prop-types
-  172:13  error  'itemProps.onSelect' PropType is defined but prop is never used       react/no-unused-prop-types
-  173:11  error  'itemProps.onOpen' PropType is defined but prop is never used         react/no-unused-prop-types
-  174:13  error  'itemProps.onChange' PropType is defined but prop is never used       react/no-unused-prop-types
-  175:13  error  'itemProps.onSubmit' PropType is defined but prop is never used       react/no-unused-prop-types
-  176:13  error  'itemProps.onCancel' PropType is defined but prop is never used       react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/List/Content/Item/Item.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  132:3  error  Expected indentation of 3 tabs but found 2  indent
+  133:4  error  Expected indentation of 4 tabs but found 3  indent
+  134:3  error  Expected indentation of 3 tabs but found 2  indent
+  135:4  error  Expected indentation of 4 tabs but found 3  indent
+  136:3  error  Expected indentation of 3 tabs but found 2  indent
+  137:4  error  Expected indentation of 4 tabs but found 3  indent
+  138:3  error  Expected indentation of 3 tabs but found 2  indent
+  139:4  error  Expected indentation of 4 tabs but found 3  indent
 
 /home/travis/build/Talend/ui/packages/components/src/List/Content/ItemTitle/ItemTitle.component.js
    44:3  error  Expected indentation of 3 tabs but found 2  indent
@@ -282,78 +111,20 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   102:3  error  Expected indentation of 3 tabs but found 2  indent
   103:4  error  Expected indentation of 4 tabs but found 3  indent
 
-/home/travis/build/Talend/ui/packages/components/src/List/Content/ItemTitle/ItemTitle.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/List/Content/ItemTitle/ItemTitle.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/List/DisplayLarge/DisplayLarge.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/List/DisplayTable/DisplayTable.component.js
-   48:8   error  'column.key' PropType is defined but prop is never used         react/no-unused-prop-types
-  130:26  error  'columns.*.key' PropType is defined but prop is never used      react/no-unused-prop-types
-  197:8   error  'column.key' PropType is defined but prop is never used         react/no-unused-prop-types
-  198:10  error  'column.label' PropType is defined but prop is never used       react/no-unused-prop-types
-  199:15  error  'column.hideHeader' PropType is defined but prop is never used  react/no-unused-prop-types
-  202:10  error  'sort.field' PropType is defined but prop is never used         react/no-unused-prop-types
-  203:17  error  'sort.isDescending' PropType is defined but prop is never used  react/no-unused-prop-types
-  204:13  error  'sort.onChange' PropType is defined but prop is never used      react/no-unused-prop-types
-  230:28  error  'columns.*.label' PropType is defined but prop is never used    react/no-unused-prop-types
-  235:10  error  'sort.field' PropType is defined but prop is never used         react/no-unused-prop-types
-  236:17  error  'sort.isDescending' PropType is defined but prop is never used  react/no-unused-prop-types
-  237:13  error  'sort.onChange' PropType is defined but prop is never used      react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/List/DisplayTable/DisplayTable.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/List/DisplayTable/DisplayTable.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/List/DisplayTile/DisplayTile.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/components/src/List/ItemTitle/ItemTitle.component.js
-   74:3   error  Expected indentation of 3 tabs but found 2                              indent
-   75:4   error  Expected indentation of 4 tabs but found 3                              indent
-   76:4   error  Expected indentation of 4 tabs but found 3                              indent
-   77:3   error  Expected indentation of 3 tabs but found 2                              indent
-   78:4   error  Expected indentation of 4 tabs but found 3                              indent
-   79:4   error  Expected indentation of 4 tabs but found 3                              indent
-   80:3   error  Expected indentation of 3 tabs but found 2                              indent
-   81:4   error  Expected indentation of 4 tabs but found 3                              indent
-  185:8   error  'titleProps.key' PropType is defined but prop is never used             react/no-unused-prop-types
-  186:12  error  'titleProps.iconKey' PropType is defined but prop is never used         react/no-unused-prop-types
-  187:19  error  'titleProps.displayModeKey' PropType is defined but prop is never used  react/no-unused-prop-types
-  188:12  error  'titleProps.onClick' PropType is defined but prop is never used         react/no-unused-prop-types
-  189:17  error  'titleProps.onEditSubmit' PropType is defined but prop is never used    react/no-unused-prop-types
-  190:17  error  'titleProps.onEditCancel' PropType is defined but prop is never used    react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/List/ItemTitle/ItemTitle.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  74:3  error  Expected indentation of 3 tabs but found 2  indent
+  75:4  error  Expected indentation of 4 tabs but found 3  indent
+  76:4  error  Expected indentation of 4 tabs but found 3  indent
+  77:3  error  Expected indentation of 3 tabs but found 2  indent
+  78:4  error  Expected indentation of 4 tabs but found 3  indent
+  79:4  error  Expected indentation of 4 tabs but found 3  indent
+  80:3  error  Expected indentation of 3 tabs but found 2  indent
+  81:4  error  Expected indentation of 4 tabs but found 3  indent
 
 /home/travis/build/Talend/ui/packages/components/src/List/List.component.js
   76:2  error  Expected indentation of 2 tabs but found 1  indent
   77:2  error  Expected indentation of 2 tabs but found 1  indent
   78:2  error  Expected indentation of 2 tabs but found 1  indent
-
-/home/travis/build/Talend/ui/packages/components/src/List/List.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.component.js
-  76:13  error  'itemProps.isActive' PropType is defined but prop is never used     react/no-unused-prop-types
-  77:15  error  'itemProps.isSelected' PropType is defined but prop is never used   react/no-unused-prop-types
-  78:15  error  'itemProps.onRowClick' PropType is defined but prop is never used   react/no-unused-prop-types
-  79:13  error  'itemProps.onToggle' PropType is defined but prop is never used     react/no-unused-prop-types
-  83:13  error  'sort.onChange' PropType is defined but prop is never used          react/no-unused-prop-types
-  84:10  error  'sort.field' PropType is defined but prop is never used             react/no-unused-prop-types
-  85:17  error  'sort.isDescending' PropType is defined but prop is never used      react/no-unused-prop-types
-  88:15  error  'titleProps.actionsKey' PropType is defined but prop is never used  react/no-unused-prop-types
-  89:8   error  'titleProps.key' PropType is defined but prop is never used         react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Filter/Filter.component.js
   16:2  error  Expected indentation of 2 tabs but found 1  indent
@@ -365,15 +136,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   26:2  error  Expected indentation of 2 tabs but found 1  indent
   27:3  error  Expected indentation of 3 tabs but found 2  indent
 
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Filter/Filter.snapshot.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Filter/Filter.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Label/Label.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Pagination/Pagination.component.js
   45:3  error  Expected indentation of 3 tabs but found 2  indent
   49:3  error  Expected indentation of 3 tabs but found 2  indent
@@ -381,15 +143,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   57:3  error  Expected indentation of 3 tabs but found 2  indent
   61:3  error  Expected indentation of 3 tabs but found 2  indent
   62:4  error  Expected indentation of 4 tabs but found 3  indent
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Pagination/Pagination.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Pagination/Pagination.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectAll/SelectAll.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectDisplayMode/SelectDisplayMode.component.js
   11:2  error  Expected indentation of 2 tabs but found 1  indent
@@ -409,56 +162,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   30:2  error  Expected indentation of 2 tabs but found 1  indent
   31:3  error  Expected indentation of 3 tabs but found 2  indent
 
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectDisplayMode/SelectDisplayMode.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectSortBy/SelectSortBy.component.js
-  23:9   error  'option.name' PropType is defined but prop is never used     react/no-unused-prop-types
-  83:10  error  'options.*.name' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectSortBy/SelectSortBy.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Toolbar.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/Header/Header.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/Header/Header.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/Header/headerInput.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/Header/headerInput.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/Items/Item/item.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/Items/Item/Item.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/Items/Items.component.js
-  143:10  error  'items.*.label' PropType is defined but prop is never used     react/no-unused-prop-types
-  144:13  error  'items.*.onChange' PropType is defined but prop is never used  react/no-unused-prop-types
-  145:12  error  'items.*.checked' PropType is defined but prop is never used   react/no-unused-prop-types
-  146:10  error  'items.*.index' PropType is defined but prop is never used     react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/Items/items.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/components/src/ListView/ListView.component.js
   86:2  error  Expected indentation of 2 tabs but found 1  indent
   95:2  error  Expected indentation of 2 tabs but found 1  indent
-
-/home/travis/build/Talend/ui/packages/components/src/Notification/Notification.snap.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Notification/Notification.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -476,21 +182,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   25:2  error  Expected indentation of 2 tabs but found 1  indent
   26:3  error  Expected indentation of 3 tabs but found 2  indent
 
-/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/ObjectViewer.test.js
-  1:1  error  '@storybook/addon-storyshots' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Progress/Progress.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
-
-/home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.snapshot.test.js
-  1:1  error  '@storybook/addon-storyshots' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.test.js
-  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Status/Status.component.js
   42:2  error  Expected indentation of 2 tabs but found 1  indent
@@ -504,112 +198,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   50:2  error  Expected indentation of 2 tabs but found 1  indent
   51:3  error  Expected indentation of 3 tabs but found 2  indent
 
-/home/travis/build/Talend/ui/packages/components/src/Status/Status.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/TabBar/TabBar.component.js
-  26:7   error  'item.id' PropType is defined but prop is never used        react/no-unused-prop-types
-  27:8   error  'item.key' PropType is defined but prop is never used       react/no-unused-prop-types
-  28:10  error  'item.label' PropType is defined but prop is never used     react/no-unused-prop-types
-  48:7   error  'items.*.id' PropType is defined but prop is never used     react/no-unused-prop-types
-  49:8   error  'items.*.key' PropType is defined but prop is never used    react/no-unused-prop-types
-  50:10  error  'items.*.label' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/TabBar/TabBar.snapshot.test.js
-  1:1  error  '@storybook/addon-storyshots' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/TabBar/TabBar.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Toggle/Toggle.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Toggle/Toggle.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/TooltipTrigger/TooltipTrigger.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/TreeView/TreeView.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/TreeView/TreeViewItem/TreeViewItem.component.js
-  116:9   error  'item.name' PropType is defined but prop is never used              react/no-unused-prop-types
-  117:12  error  'item.toggled' PropType is defined but prop is never used           react/no-unused-prop-types
-  118:13  error  'item.selected' PropType is defined but prop is never used          react/no-unused-prop-types
-  119:13  error  'item.children' PropType is defined but prop is never used          react/no-unused-prop-types
-  120:9   error  'item.icon' PropType is defined but prop is never used              react/no-unused-prop-types
-  121:12  error  'item.actions' PropType is defined but prop is never used           react/no-unused-prop-types
-  122:12  error  'item.actions.*.action' PropType is defined but prop is never used  react/no-unused-prop-types
-  123:11  error  'item.actions.*.label' PropType is defined but prop is never used   react/no-unused-prop-types
-  124:10  error  'item.actions.*.icon' PropType is defined but prop is never used    react/no-unused-prop-types
-  126:12  error  'item.counter' PropType is defined but prop is never used           react/no-unused-prop-types
-  127:16  error  'item.showCounter' PropType is defined but prop is never used       react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.snapshot.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellActions/CellActions.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellCheckbox/CellCheckbox.component.js
-  35:7   error  'columnData.id' PropType is defined but prop is never used        react/no-unused-prop-types
-  37:10  error  'columnData.label' PropType is defined but prop is never used     react/no-unused-prop-types
-  39:13  error  'columnData.onChange' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellCheckbox/CellCheckbox.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitle.component.js
-  78:7   error  'columnData.id' PropType is defined but prop is never used              react/no-unused-prop-types
-  80:12  error  'columnData.onClick' PropType is defined but prop is never used         react/no-unused-prop-types
-  82:15  error  'columnData.actionsKey' PropType is defined but prop is never used      react/no-unused-prop-types
-  84:19  error  'columnData.displayModeKey' PropType is defined but prop is never used  react/no-unused-prop-types
-  86:12  error  'columnData.iconKey' PropType is defined but prop is never used         react/no-unused-prop-types
-  88:17  error  'columnData.onEditCancel' PropType is defined but prop is never used    react/no-unused-prop-types
-  90:17  error  'columnData.onEditSubmit' PropType is defined but prop is never used    react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitle.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleInput.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleSelector.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListGrid/ListGrid.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
-  3:1  error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListTable/ListTable.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
-  3:1  error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/NoRows/NoRows.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RendererSelector.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowSelection/RowSelection.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/components/src/WithDrawer/withDrawer.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-✖ 347 problems (347 errors, 0 warnings)
+✖ 149 problems (149 errors, 0 warnings)
 
