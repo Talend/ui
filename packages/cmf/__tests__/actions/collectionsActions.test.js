@@ -35,17 +35,6 @@ describe('test collection management action creators', () => {
 		store.dispatch(removeCollection('collectionId'));
 		expect(store.getActions()).toEqual(expectedActions);
 	});
-
-	it('removeCollection throw when collection doesn\'t exist', () => {
-		const store = mockStore({
-			cmf: {
-				collections: new Map(),
-			},
-		});
-		expect(() => {
-			store.dispatch(removeCollection('unknown collection'));
-		}).toThrowError('Can\'t remove collection unknown collection since it doesn\'t already exist.');
-	});
 });
 
 describe('mutateCollection', () => {

@@ -2,6 +2,7 @@
  * @module react-cmf/lib/reducers/collectionsReducers
  */
 import { Map, List, fromJS } from 'immutable';
+import invariant from 'invariant';
 import ACTIONS from '../actions';
 
 export const defaultState = new Map();
@@ -150,6 +151,13 @@ function collectionsReducers(state = defaultState, action) {
 	case ACTIONS.collectionsActions.COLLECTION_ADD_OR_REPLACE:
 		return state.set(action.collectionId, fromJS(action.data));
 	case ACTIONS.collectionsActions.COLLECTION_REMOVE:
+		if (!state.get(action.collectionId)) {
+			invariant(
+				process.env.NODE_ENV === 'production',
+				`Can't remove collection ${action.collectionId} since it doesn't already exist.`,
+			);
+			return state;
+		}
 		return state.delete(action.collectionId);
 	case ACTIONS.collectionsActions.COLLECTION_MUTATE:
 		return mutateCollection(state, action);
