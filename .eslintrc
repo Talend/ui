@@ -2,7 +2,7 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["*.test.js", ".spec.js"]}],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
     "indent": ["error", "tab", { "SwitchCase": 1 }],
     "new-cap": [
         2,
@@ -14,11 +14,13 @@
     "react/prefer-es6-class": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "react/jsx-indent": ["error", "tab"],
-    "react/jsx-indent-props": ["error", "tab"]
+    "react/jsx-indent-props": ["error", "tab"],
+    "react/no-unused-prop-types": [2, { "skipShapeProps": true }]
   },
   "env": {
     "es6": true,
     "browser": true,
+    "jasmine": true,
     "jest": true
   },
   "globals": {},
