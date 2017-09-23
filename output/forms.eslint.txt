@@ -5,7 +5,6 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
-   22:10  error  JSX not allowed in files with extension '.js'                               react/jsx-filename-extension
   560:3   error  Prop type `object` is forbidden                                             react/forbid-prop-types
   563:14  error  'uiSchema.ui:options.addable' PropType is defined but prop is never used    react/no-unused-prop-types
   564:16  error  'uiSchema.ui:options.orderable' PropType is defined but prop is never used  react/no-unused-prop-types
@@ -22,11 +21,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   647:3   error  Prop type `object` is forbidden                                             react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.test.js
-   2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  15:4  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/BooleanField.js
-  65:10  error  JSX not allowed in files with extension '.js'                      react/jsx-filename-extension
   72:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
   73:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
   74:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
@@ -36,7 +33,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   89:17  error  'registry.formContext' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
-   66:6   error  JSX not allowed in files with extension '.js'                                        react/jsx-filename-extension
    86:8   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
   154:14  error  'registry.widgets' PropType is defined but prop is never used                        react/no-unused-prop-types
   156:13  error  'registry.fields' PropType is defined but prop is never used                         react/no-unused-prop-types
@@ -44,14 +40,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   158:18  error  'registry.formContext' PropType is defined but prop is never used                    react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  10:56  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/forms/src/fields/ObjectField.js
-  69:12  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/fields/StringField.js
-  39:3   error  JSX not allowed in files with extension '.js'                      react/jsx-filename-extension
   60:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
   61:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
   62:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
@@ -60,49 +51,21 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   75:17  error  'registry.definitions' PropType is defined but prop is never used  react/no-unused-prop-types
   76:17  error  'registry.formContext' PropType is defined but prop is never used  react/no-unused-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/Form.js
-  50:10  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
 /home/travis/build/Talend/ui/packages/forms/src/Form.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-    3:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   77:42  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-  130:19  error  'jest' is not defined                                                                      no-undef
-  131:19  error  'jest' is not defined                                                                      no-undef
-  132:20  error  'jest' is not defined                                                                      no-undef
-  189:4   error  'jest' is not defined                                                                      no-undef
-  286:25  error  'jest' is not defined                                                                      no-undef
-  345:25  error  'jest' is not defined                                                                      no-undef
-
-/home/travis/build/Talend/ui/packages/forms/src/templates/ArrayFieldTemplate.js
-  12:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
+  3:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/templates/FieldTemplate.js
-  50:12  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-  84:3   error  Prop type `object` is forbidden                react/forbid-prop-types
-  85:3   error  Prop type `object` is forbidden                react/forbid-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/templates/LabelTemplate.js
-  11:10  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Button/Button.component.js
-  10:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  84:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  85:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Button/Button.component.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  18:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  22:16  error  'jest' is not defined                                                         no-undef
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Button/Buttons.component.js
-  14:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Button/Buttons.component.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  36:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  38:16  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Button/SingleButton.component.js
-  23:3   error  JSX not allowed in files with extension '.js'                   react/jsx-filename-extension
   43:13  error  'schema.bsStyle' PropType is defined but prop is never used     react/no-unused-prop-types
   44:14  error  'schema.disabled' PropType is defined but prop is never used    react/no-unused-prop-types
   45:16  error  'schema.inProgress' PropType is defined but prop is never used  react/no-unused-prop-types
@@ -112,65 +75,31 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   49:10  error  'schema.type' PropType is defined but prop is never used        react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Button/SingleButton.component.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   16:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  108:21  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/CheckBox.component.js
-  11:3   error  JSX not allowed in files with extension '.js'                    react/jsx-filename-extension
   36:17  error  'schema.description' PropType is defined but prop is never used  react/no-unused-prop-types
   37:11  error  'schema.title' PropType is defined but prop is never used        react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/CheckBox.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  17:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  21:15  error  'jest' is not defined                                                         no-undef
-  22:15  error  'jest' is not defined                                                         no-undef
-  45:15  error  'jest' is not defined                                                         no-undef
-  46:15  error  'jest' is not defined                                                         no-undef
-  58:20  error  'jest' is not defined                                                         no-undef
-  65:15  error  'jest' is not defined                                                         no-undef
-  81:20  error  'jest' is not defined                                                         no-undef
-  87:15  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/CheckBoxes.component.js
-  21:3   error  JSX not allowed in files with extension '.js'                        react/jsx-filename-extension
   61:17  error  'schema.description' PropType is defined but prop is never used      react/no-unused-prop-types
   62:11  error  'schema.title' PropType is defined but prop is never used            react/no-unused-prop-types
   63:14  error  'schema.titleMap' PropType is defined but prop is never used         react/no-unused-prop-types
   64:11  error  'schema.titleMap.*.name' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/CheckBoxes.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   24:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   28:15  error  'jest' is not defined                                                         no-undef
-   29:15  error  'jest' is not defined                                                         no-undef
-   46:15  error  'jest' is not defined                                                         no-undef
-   47:15  error  'jest' is not defined                                                         no-undef
-   69:15  error  'jest' is not defined                                                         no-undef
-   70:15  error  'jest' is not defined                                                         no-undef
-   83:21  error  'jest' is not defined                                                         no-undef
-   90:16  error  'jest' is not defined                                                         no-undef
-  109:21  error  'jest' is not defined                                                         no-undef
-  116:16  error  'jest' is not defined                                                         no-undef
-  135:21  error  'jest' is not defined                                                         no-undef
-  142:16  error  'jest' is not defined                                                         no-undef
-  162:21  error  'jest' is not defined                                                         no-undef
-  169:16  error  'jest' is not defined                                                         no-undef
-  190:20  error  'jest' is not defined                                                         no-undef
-  196:15  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
-   7:3   error  JSX not allowed in files with extension '.js'                                                                    react/jsx-filename-extension
    8:4   error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
   32:15  error  'schema.autoFocus' PropType is defined but prop is never used                                                    react/no-unused-prop-types
   33:14  error  'schema.disabled' PropType is defined but prop is never used                                                     react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  15:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  50:20  error  'jest' is not defined                                                         no-undef
-  71:20  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Datalist/Datalist.component.js
    76:3   error  Expected indentation of 3 tabs but found 2                           indent
@@ -194,36 +123,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   106:4   error  Expected indentation of 4 tabs but found 3                           indent
   107:3   error  Expected indentation of 3 tabs but found 2                           indent
   108:4   error  Expected indentation of 4 tabs but found 3                           indent
-  183:4   error  JSX not allowed in files with extension '.js'                        react/jsx-filename-extension
   235:16  error  'schema.restricted' PropType is defined but prop is never used       react/no-unused-prop-types
   238:11  error  'schema.titleMap.*.name' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Datalist/Datalist.component.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   28:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   32:15  error  'jest' is not defined                                                         no-undef
-   33:15  error  'jest' is not defined                                                         no-undef
-   50:15  error  'jest' is not defined                                                         no-undef
-   51:15  error  'jest' is not defined                                                         no-undef
-   66:20  error  'jest' is not defined                                                         no-undef
-   67:20  error  'jest' is not defined                                                         no-undef
-  100:15  error  'jest' is not defined                                                         no-undef
-  101:15  error  'jest' is not defined                                                         no-undef
-  125:15  error  'jest' is not defined                                                         no-undef
-  126:15  error  'jest' is not defined                                                         no-undef
-  149:15  error  'jest' is not defined                                                         no-undef
-  150:15  error  'jest' is not defined                                                         no-undef
-  166:20  error  'jest' is not defined                                                         no-undef
-  167:20  error  'jest' is not defined                                                         no-undef
-  199:15  error  'jest' is not defined                                                         no-undef
-  200:15  error  'jest' is not defined                                                         no-undef
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/FieldTemplate/FieldTemplate.component.js
-  9:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/FieldTemplate/FieldTemplate.component.test.js
-   2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  10:4  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/MultiSelectTag/MultiSelectTag.component.js
    65:3   error  Expected indentation of 3 tabs but found 2                           indent
@@ -240,7 +147,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
    81:4   error  Expected indentation of 4 tabs but found 3                           indent
    82:3   error  Expected indentation of 3 tabs but found 2                           indent
    83:4   error  Expected indentation of 4 tabs but found 3                           indent
-  183:4   error  JSX not allowed in files with extension '.js'                        react/jsx-filename-extension
   238:15  error  'schema.autoFocus' PropType is defined but prop is never used        react/no-unused-prop-types
   239:17  error  'schema.description' PropType is defined but prop is never used      react/no-unused-prop-types
   240:14  error  'schema.disabled' PropType is defined but prop is never used         react/no-unused-prop-types
@@ -252,28 +158,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   246:11  error  'schema.titleMap.*.name' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/MultiSelectTag/MultiSelectTag.component.test.js
-    3:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   13:13  error  'jest' is not defined                                                         no-undef
-   14:13  error  'jest' is not defined                                                         no-undef
-   30:27  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   87:20  error  'jest' is not defined                                                         no-undef
-   88:20  error  'jest' is not defined                                                         no-undef
-  108:20  error  'jest' is not defined                                                         no-undef
-  109:20  error  'jest' is not defined                                                         no-undef
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/RadioOrSelect/RadioOrSelect.component.js
-  10:10  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/RadioOrSelect/RadioOrSelect.component.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  24:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  28:15  error  'jest' is not defined                                                         no-undef
-  29:15  error  'jest' is not defined                                                         no-undef
-  55:15  error  'jest' is not defined                                                         no-undef
-  56:15  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
-  14:3   error  JSX not allowed in files with extension '.js'                                                                    react/jsx-filename-extension
   23:7   error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
   52:15  error  'schema.autoFocus' PropType is defined but prop is never used                                                    react/no-unused-prop-types
   53:17  error  'schema.description' PropType is defined but prop is never used                                                  react/no-unused-prop-types
@@ -284,21 +174,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   58:11  error  'schema.titleMap.*.name' PropType is defined but prop is never used                                              react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   22:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   26:15  error  'jest' is not defined                                                         no-undef
-   27:15  error  'jest' is not defined                                                         no-undef
-   50:15  error  'jest' is not defined                                                         no-undef
-   51:15  error  'jest' is not defined                                                         no-undef
-   74:15  error  'jest' is not defined                                                         no-undef
-   75:15  error  'jest' is not defined                                                         no-undef
-   87:20  error  'jest' is not defined                                                         no-undef
-   94:15  error  'jest' is not defined                                                         no-undef
-  110:20  error  'jest' is not defined                                                         no-undef
-  116:15  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Select/Select.component.js
-  28:3   error  JSX not allowed in files with extension '.js'                        react/jsx-filename-extension
   81:15  error  'schema.autoFocus' PropType is defined but prop is never used        react/no-unused-prop-types
   82:17  error  'schema.description' PropType is defined but prop is never used      react/no-unused-prop-types
   83:14  error  'schema.disabled' PropType is defined but prop is never used         react/no-unused-prop-types
@@ -310,25 +188,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   91:10  error  'schema.type' PropType is defined but prop is never used             react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Select/Select.component.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   27:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   31:15  error  'jest' is not defined                                                         no-undef
-   32:15  error  'jest' is not defined                                                         no-undef
-   60:15  error  'jest' is not defined                                                         no-undef
-   61:15  error  'jest' is not defined                                                         no-undef
-   84:15  error  'jest' is not defined                                                         no-undef
-   85:15  error  'jest' is not defined                                                         no-undef
-  108:15  error  'jest' is not defined                                                         no-undef
-  109:15  error  'jest' is not defined                                                         no-undef
-  121:20  error  'jest' is not defined                                                         no-undef
-  128:15  error  'jest' is not defined                                                         no-undef
-  147:20  error  'jest' is not defined                                                         no-undef
-  170:15  error  'jest' is not defined                                                         no-undef
-  189:20  error  'jest' is not defined                                                         no-undef
-  195:15  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Text/Text.component.js
-  20:3   error  JSX not allowed in files with extension '.js'                    react/jsx-filename-extension
   58:15  error  'schema.autoFocus' PropType is defined but prop is never used    react/no-unused-prop-types
   59:17  error  'schema.description' PropType is defined but prop is never used  react/no-unused-prop-types
   60:14  error  'schema.disabled' PropType is defined but prop is never used     react/no-unused-prop-types
@@ -338,24 +200,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   64:10  error  'schema.type' PropType is defined but prop is never used         react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Text/Text.component.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   18:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   22:15  error  'jest' is not defined                                                         no-undef
-   23:15  error  'jest' is not defined                                                         no-undef
-   40:15  error  'jest' is not defined                                                         no-undef
-   41:15  error  'jest' is not defined                                                         no-undef
-   64:15  error  'jest' is not defined                                                         no-undef
-   65:15  error  'jest' is not defined                                                         no-undef
-   88:15  error  'jest' is not defined                                                         no-undef
-   89:15  error  'jest' is not defined                                                         no-undef
-  101:20  error  'jest' is not defined                                                         no-undef
-  108:15  error  'jest' is not defined                                                         no-undef
-  128:20  error  'jest' is not defined                                                         no-undef
-  150:20  error  'jest' is not defined                                                         no-undef
-  156:15  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/TextArea/TextArea.component.js
-  18:3   error  JSX not allowed in files with extension '.js'                    react/jsx-filename-extension
   51:15  error  'schema.autoFocus' PropType is defined but prop is never used    react/no-unused-prop-types
   52:17  error  'schema.description' PropType is defined but prop is never used  react/no-unused-prop-types
   53:14  error  'schema.disabled' PropType is defined but prop is never used     react/no-unused-prop-types
@@ -366,109 +213,34 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   58:11  error  'schema.title' PropType is defined but prop is never used        react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/TextArea/TextArea.component.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   19:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   23:15  error  'jest' is not defined                                                         no-undef
-   24:15  error  'jest' is not defined                                                         no-undef
-   47:15  error  'jest' is not defined                                                         no-undef
-   48:15  error  'jest' is not defined                                                         no-undef
-   71:15  error  'jest' is not defined                                                         no-undef
-   72:15  error  'jest' is not defined                                                         no-undef
-   95:15  error  'jest' is not defined                                                         no-undef
-   96:15  error  'jest' is not defined                                                         no-undef
-  108:20  error  'jest' is not defined                                                         no-undef
-  115:15  error  'jest' is not defined                                                         no-undef
-  132:20  error  'jest' is not defined                                                         no-undef
-  138:15  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Toggle/Toggle.component.js
-  11:3   error  JSX not allowed in files with extension '.js'                    react/jsx-filename-extension
   37:15  error  'schema.autoFocus' PropType is defined but prop is never used    react/no-unused-prop-types
   38:17  error  'schema.description' PropType is defined but prop is never used  react/no-unused-prop-types
   39:14  error  'schema.disabled' PropType is defined but prop is never used     react/no-unused-prop-types
   40:11  error  'schema.title' PropType is defined but prop is never used        react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Toggle/Toggle.component.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   16:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   20:15  error  'jest' is not defined                                                         no-undef
-   21:15  error  'jest' is not defined                                                         no-undef
-   44:15  error  'jest' is not defined                                                         no-undef
-   45:15  error  'jest' is not defined                                                         no-undef
-   68:15  error  'jest' is not defined                                                         no-undef
-   69:15  error  'jest' is not defined                                                         no-undef
-   81:20  error  'jest' is not defined                                                         no-undef
-   88:15  error  'jest' is not defined                                                         no-undef
-  103:20  error  'jest' is not defined                                                         no-undef
-  109:15  error  'jest' is not defined                                                         no-undef
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/Array.component.js
-  128:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/Array.component.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   88:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   93:15  error  'jest' is not defined                                                         no-undef
-   94:15  error  'jest' is not defined                                                         no-undef
-  107:21  error  'jest' is not defined                                                         no-undef
-  108:21  error  'jest' is not defined                                                         no-undef
-  136:21  error  'jest' is not defined                                                         no-undef
-  137:21  error  'jest' is not defined                                                         no-undef
-  163:21  error  'jest' is not defined                                                         no-undef
-  171:16  error  'jest' is not defined                                                         no-undef
-  203:21  error  'jest' is not defined                                                         no-undef
-  204:21  error  'jest' is not defined                                                         no-undef
-  230:21  error  'jest' is not defined                                                         no-undef
-  238:16  error  'jest' is not defined                                                         no-undef
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/ArrayItem.component.js
-  21:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/ArrayItem.component.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-    9:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   14:15  error  'jest' is not defined                                                         no-undef
-   15:16  error  'jest' is not defined                                                         no-undef
-   34:15  error  'jest' is not defined                                                         no-undef
-   35:16  error  'jest' is not defined                                                         no-undef
-   54:15  error  'jest' is not defined                                                         no-undef
-   55:16  error  'jest' is not defined                                                         no-undef
-   74:15  error  'jest' is not defined                                                         no-undef
-   75:16  error  'jest' is not defined                                                         no-undef
-   88:20  error  'jest' is not defined                                                         no-undef
-   97:16  error  'jest' is not defined                                                         no-undef
-  113:21  error  'jest' is not defined                                                         no-undef
-  121:15  error  'jest' is not defined                                                         no-undef
-  138:21  error  'jest' is not defined                                                         no-undef
-  146:15  error  'jest' is not defined                                                         no-undef
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Columns/Columns.component.js
-  12:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Columns/Columns.component.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  55:27  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Fieldset/Fieldset.component.js
-  10:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Fieldset/Fieldset.component.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  26:27  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Tabs/Tabs.component.js
-  15:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Tabs/Tabs.component.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  42:27  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/Message/Message.component.js
-  14:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/Message/Message.component.test.js
-   2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  10:4  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/reducers/form.reducer.js
   29:2  error  Expected indentation of 2 tabs but found 1  indent
@@ -493,74 +265,41 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   22:2  error  Expected indentation of 2 tabs but found 1  indent
   23:3  error  Expected indentation of 3 tabs but found 2  indent
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.js
-  196:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   12:14  error  'jest' is not defined                                                         no-undef
-   13:15  error  'jest' is not defined                                                         no-undef
-   14:16  error  'jest' is not defined                                                         no-undef
-   20:27  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  202:41  error  'jest' is not defined                                                         no-undef
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.connect.js
-  67:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.connect.test.js
-   2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  16:4  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.js
-  91:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  15:27  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/Widget/Widget.component.js
-  22:3   error  JSX not allowed in files with extension '.js'                          react/jsx-filename-extension
   47:9   error  'schema.key' PropType is defined but prop is never used                react/no-unused-prop-types
   48:10  error  'schema.type' PropType is defined but prop is never used               react/no-unused-prop-types
   49:23  error  'schema.validationMessage' PropType is defined but prop is never used  react/no-unused-prop-types
   50:12  error  'schema.widget' PropType is defined but prop is never used             react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/Widget/Widget.component.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   25:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   27:15  error  'jest' is not defined                                                         no-undef
-   28:15  error  'jest' is not defined                                                         no-undef
-   29:16  error  'jest' is not defined                                                         no-undef
-   76:15  error  'jest' is not defined                                                         no-undef
-   77:16  error  'jest' is not defined                                                         no-undef
-  100:15  error  'jest' is not defined                                                         no-undef
-  101:16  error  'jest' is not defined                                                         no-undef
-  117:15  error  'jest' is not defined                                                         no-undef
-  118:16  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/CodeWidget/CodeWidget.component.js
-  11:9   error  JSX not allowed in files with extension '.js'                  react/jsx-filename-extension
   94:15  error  'options.language' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/CodeWidget/CodeWidget.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  13:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  30:22  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
-  20:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-  38:3  error  Prop type `object` is forbidden                react/forbid-prop-types
-  39:3  error  Prop type `object` is forbidden                react/forbid-prop-types
-  40:3  error  Prop type `object` is forbidden                react/forbid-prop-types
-  78:3  error  Prop type `object` is forbidden                react/forbid-prop-types
-  79:3  error  Prop type `object` is forbidden                react/forbid-prop-types
+  38:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  39:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  40:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  78:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  79:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.test.js
-   2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  12:4  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
-   22:9   error  JSX not allowed in files with extension '.js'                        react/jsx-filename-extension
   154:3   error  Expected indentation of 3 tabs but found 2                           indent
   155:4   error  Expected indentation of 4 tabs but found 3                           indent
   156:4   error  Expected indentation of 4 tabs but found 3                           indent
@@ -583,70 +322,40 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   380:16  error  'options.restricted' PropType is defined but prop is never used      react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.test.js
-    2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-    3:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-    4:1   error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies       import/no-extraneous-dependencies
-   33:19  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-   88:15  error  'jest' is not defined                                                                      no-undef
-  103:15  error  'jest' is not defined                                                                      no-undef
-  121:15  error  'jest' is not defined                                                                      no-undef
-  139:15  error  'jest' is not defined                                                                      no-undef
-  152:20  error  'jest' is not defined                                                                      no-undef
-  173:20  error  'jest' is not defined                                                                      no-undef
-  191:20  error  'jest' is not defined                                                                      no-undef
-  213:20  error  'jest' is not defined                                                                      no-undef
-  234:20  error  'jest' is not defined                                                                      no-undef
-  257:20  error  'jest' is not defined                                                                      no-undef
-  309:20  error  'jest' is not defined                                                                      no-undef
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-  765:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
+  4:1  error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies       import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.test.js
     2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
     3:1   error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-    8:25  error  JSX not allowed in files with extension '.js'                                         react/jsx-filename-extension
-   55:15  error  'jest' is not defined                                                                 no-undef
-   72:15  error  'jest' is not defined                                                                 no-undef
-   90:15  error  'jest' is not defined                                                                 no-undef
-  108:15  error  'jest' is not defined                                                                 no-undef
-  128:15  error  'jest' is not defined                                                                 no-undef
-  148:19  error  'jest' is not defined                                                                 no-undef
-  155:15  error  'jest' is not defined                                                                 no-undef
-  175:15  error  'jest' is not defined                                                                 no-undef
-  208:20  error  'jest' is not defined                                                                 no-undef
-  239:20  error  'jest' is not defined                                                                 no-undef
-  270:20  error  'jest' is not defined                                                                 no-undef
-  301:20  error  'jest' is not defined                                                                 no-undef
-  330:4   error  'jest' is not defined                                                                 no-undef
-  337:41  error  'jest' is not defined                                                                 no-undef
-  342:4   error  'jest' is not defined                                                                 no-undef
-  382:40  error  'jest' is not defined                                                                 no-undef
+  228:30  error  'jasmine' is not defined                                                              no-undef
+  230:5   error  'jasmine' is not defined                                                              no-undef
+  231:5   error  'jasmine' is not defined                                                              no-undef
+  259:30  error  'jasmine' is not defined                                                              no-undef
+  261:5   error  'jasmine' is not defined                                                              no-undef
+  262:5   error  'jasmine' is not defined                                                              no-undef
+  292:5   error  'jasmine' is not defined                                                              no-undef
+  293:5   error  'jasmine' is not defined                                                              no-undef
+  323:5   error  'jasmine' is not defined                                                              no-undef
+  324:5   error  'jasmine' is not defined                                                              no-undef
+  338:4   error  'spyOn' is not defined                                                                no-undef
+  361:16  error  'spyOn' is not defined                                                                no-undef
+  394:5   error  'jasmine' is not defined                                                              no-undef
+  395:5   error  'jasmine' is not defined                                                              no-undef
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
-  29:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-  72:3  error  Prop type `object` is forbidden                react/forbid-prop-types
-  73:3  error  Prop type `object` is forbidden                react/forbid-prop-types
+  72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
+  73:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.js
-  102:4   error  JSX not allowed in files with extension '.js'                     react/jsx-filename-extension
   123:3   error  Prop type `any` is forbidden                                      react/forbid-prop-types
   125:17  error  'options.enumOptions' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-    5:1   error  'jest' is not defined                                                         no-undef
-   54:28  error  'jest' is not defined                                                         no-undef
-   72:28  error  'jest' is not defined                                                         no-undef
-   93:16  error  'jest' is not defined                                                         no-undef
-  110:28  error  'jest' is not defined                                                         no-undef
-  168:28  error  'jest' is not defined                                                         no-undef
-  191:28  error  'jest' is not defined                                                         no-undef
-  217:19  error  'jest' is not defined                                                         no-undef
-  295:20  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
-   30:3   error  JSX not allowed in files with extension '.js'                     react/jsx-filename-extension
   114:3   error  Expected indentation of 3 tabs but found 2                        indent
   118:3   error  Expected indentation of 3 tabs but found 2                        indent
   119:4   error  Expected indentation of 4 tabs but found 3                        indent
@@ -658,15 +367,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   342:17  error  'options.enumOptions' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.test.js
-   2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
-   3:1  error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  27:4  error  JSX not allowed in files with extension '.js'                                         react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/forms/src/widgets/RadioOrSelectWidget.js
-  18:11  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
+  3:1  error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/TabsWidget.js
-  25:4   error  JSX not allowed in files with extension '.js'                      react/jsx-filename-extension
   56:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
   59:13  error  'registry.widgets' PropType is defined but prop is never used      react/no-unused-prop-types
   63:12  error  'registry.fields' PropType is defined but prop is never used       react/no-unused-prop-types
@@ -675,8 +379,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   68:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
   69:3   error  Prop type `object` is forbidden                                    react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/ToggleWidget.js
-  16:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
-✖ 512 problems (512 errors, 0 warnings)
+✖ 253 problems (253 errors, 0 warnings)
 

@@ -5,7 +5,6 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.component.js
-   77:3   error  JSX not allowed in files with extension '.js'                               react/jsx-filename-extension
    84:5   error  Expected indentation of 5 tabs but found 4                                  indent
    85:6   error  Expected indentation of 6 tabs but found 5                                  indent
    86:5   error  Expected indentation of 5 tabs but found 4                                  indent
@@ -19,91 +18,45 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   106:25  error  'renderers.ActionSplitDropdown' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.snapshot.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   9:11  error  'jest' is not defined                                                         no-undef
-  16:11  error  'jest' is not defined                                                         no-undef
-  23:11  error  'jest' is not defined                                                         no-undef
-  27:13  error  'jest' is not defined                                                         no-undef
-  31:13  error  'jest' is not defined                                                         no-undef
-  44:13  error  'jest' is not defined                                                         no-undef
-  50:13  error  'jest' is not defined                                                         no-undef
-  66:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   9:23  error  'jest' is not defined                                                         no-undef
-  21:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Actions/Action/Action.component.js
-   3:8   error  'classnames' is defined but never used         no-unused-vars
-  19:11  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  3:8  error  'classnames' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/Actions/Action/Action.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   3:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                                      no-undef
-  11:11  error  'jest' is not defined                                                                      no-undef
-  17:15  error  'jest' is not defined                                                                      no-undef
-  23:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/ActionDropdown.component.js
-  15:11  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/ActionDropdown.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                                      no-undef
-  12:12  error  'jest' is not defined                                                                      no-undef
-  16:12  error  'jest' is not defined                                                                      no-undef
-  30:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/ActionDropdown.test.js
    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   8:25  error  'jest' is not defined                                                         no-undef
-  18:40  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  24:40  error  'jasmine' is not defined                                                      no-undef
+  30:40  error  'jasmine' is not defined                                                      no-undef
 
 /home/travis/build/Talend/ui/packages/components/src/Actions/Actions.component.js
-  26:2  error  Expected indentation of 2 tabs but found 1     indent
-  27:3  error  Expected indentation of 3 tabs but found 2     indent
-  28:2  error  Expected indentation of 2 tabs but found 1     indent
-  29:3  error  Expected indentation of 3 tabs but found 2     indent
-  30:2  error  Expected indentation of 2 tabs but found 1     indent
-  31:3  error  Expected indentation of 3 tabs but found 2     indent
-  87:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  26:2  error  Expected indentation of 2 tabs but found 1  indent
+  27:3  error  Expected indentation of 3 tabs but found 2  indent
+  28:2  error  Expected indentation of 2 tabs but found 1  indent
+  29:3  error  Expected indentation of 3 tabs but found 2  indent
+  30:2  error  Expected indentation of 2 tabs but found 1  indent
+  31:3  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/components/src/Actions/Actions.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                                      no-undef
-  12:12  error  'jest' is not defined                                                                      no-undef
-  18:12  error  'jest' is not defined                                                                      no-undef
-  23:12  error  'jest' is not defined                                                                      no-undef
-  33:14  error  'jest' is not defined                                                                      no-undef
-  37:14  error  'jest' is not defined                                                                      no-undef
-  45:12  error  'jest' is not defined                                                                      no-undef
-  49:14  error  'jest' is not defined                                                                      no-undef
-  53:14  error  'jest' is not defined                                                                      no-undef
-  69:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/Actions/ActionSplitDropdown/ActionSplitDropdown.component.js
-  51:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Actions/ActionSplitDropdown/ActionSplitDropdown.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  10:12  error  'jest' is not defined                                                         no-undef
-  14:12  error  'jest' is not defined                                                         no-undef
-  23:13  error  'jest' is not defined                                                         no-undef
-  28:27  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  39:13  error  'jest' is not defined                                                         no-undef
-  56:13  error  'jest' is not defined                                                         no-undef
-  60:15  error  'jest' is not defined                                                         no-undef
-  65:15  error  'jest' is not defined                                                         no-undef
-  83:13  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/AppHeaderBar.component.js
-   24:3   error  JSX not allowed in files with extension '.js'                     react/jsx-filename-extension
    92:5   error  Expected indentation of 5 tabs but found 4                        indent
    93:6   error  Expected indentation of 6 tabs but found 5                        indent
    94:5   error  Expected indentation of 5 tabs but found 4                        indent
@@ -117,56 +70,28 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/addon-storyshots' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/AppHeaderBar.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   8:22  error  'jest' is not defined                                                         no-undef
-  15:18  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/test.props.js
-   51:14  error  'jest' is not defined  no-undef
-   61:16  error  'jest' is not defined  no-undef
-   66:13  error  'jest' is not defined  no-undef
-   77:12  error  'jest' is not defined  no-undef
-   86:76  error  'jest' is not defined  no-undef
-   95:77  error  'jest' is not defined  no-undef
-  103:20  error  'jest' is not defined  no-undef
-  109:20  error  'jest' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/Badge/Badge.component.js
-  14:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Badge/Badge.snap.test.js
-   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  14:4  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Breadcrumbs/Breadcrumbs.component.js
-   55:5   error  JSX not allowed in files with extension '.js'                 react/jsx-filename-extension
   108:10  error  'items.*.text' PropType is defined but prop is never used     react/no-unused-prop-types
   109:11  error  'items.*.title' PropType is defined but prop is never used    react/no-unused-prop-types
   110:13  error  'items.*.onClick' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/Breadcrumbs/Breadcrumbs.snapshot.test.js
-   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   5:1  error  'jest' is not defined                                                                      no-undef
-  17:4  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Breadcrumbs/Breadcrumbs.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   9:24  error  'jest' is not defined                                                         no-undef
-  10:24  error  'jest' is not defined                                                         no-undef
-  11:24  error  'jest' is not defined                                                         no-undef
-  21:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/CircularProgress/CircularProgress.component.js
-  49:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/CircularProgress/CircularProgress.test.js
-  2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  8:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
    48:2   error  Expected indentation of 2 tabs but found 1                          indent
    49:3   error  Expected indentation of 3 tabs but found 2                          indent
-   57:12  error  JSX not allowed in files with extension '.js'                       react/jsx-filename-extension
    64:2   error  Expected indentation of 2 tabs but found 1                          indent
    65:3   error  Expected indentation of 3 tabs but found 2                          indent
    75:2   error  Expected indentation of 2 tabs but found 1                          indent
@@ -179,310 +104,94 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   270:17  error  'content.description' PropType is defined but prop is never used    react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.snapshot.test.js
-    2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-    6:1   error  'jest' is not defined                                                                      no-undef
-   19:15  error  'jest' is not defined                                                                      no-undef
-   24:15  error  'jest' is not defined                                                                      no-undef
-   32:13  error  'jest' is not defined                                                                      no-undef
-   62:12  error  'jest' is not defined                                                                      no-undef
-   63:12  error  'jest' is not defined                                                                      no-undef
-  112:12  error  'jest' is not defined                                                                      no-undef
-  113:12  error  'jest' is not defined                                                                      no-undef
-  121:12  error  'jest' is not defined                                                                      no-undef
-  122:12  error  'jest' is not defined                                                                      no-undef
-  129:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.test.js
-   3:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  51:12  error  'jest' is not defined                                                         no-undef
-  68:12  error  'jest' is not defined                                                         no-undef
-  74:26  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/ConfirmDialog/ConfirmDialog.component.js
-  49:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/ConfirmDialog/ConfirmDialog.test.js
-    3:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-    5:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-   12:10  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-   21:1   error  'jest' is not defined                                                                      no-undef
-   22:1   error  'jest' is not defined                                                                      no-undef
-   31:1   error  'jest' is not defined                                                                      no-undef
-   39:11  error  'jest' is not defined                                                                      no-undef
-   45:11  error  'jest' is not defined                                                                      no-undef
-  174:15  error  'jest' is not defined                                                                      no-undef
+  3:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  5:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Dialog/Dialog.component.js
-  15:3   error  JSX not allowed in files with extension '.js'                       react/jsx-filename-extension
   39:64  error  'bsDialogProps.manager' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/Dialog/Dialog.test.js
-   3:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  10:11  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-  19:1   error  'jest' is not defined                                                                      no-undef
-  20:1   error  'jest' is not defined                                                                      no-undef
-  42:12  error  'jest' is not defined                                                                      no-undef
-  50:11  error  'jest' is not defined                                                                      no-undef
-  57:12  error  'jest' is not defined                                                                      no-undef
-  65:11  error  'jest' is not defined                                                                      no-undef
-  72:12  error  'jest' is not defined                                                                      no-undef
+  3:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Dialog/DialogModalProps.test.js
-   2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  32:4  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.component.js
-  27:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Drawer/Drawer.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   3:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-  10:4   error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-  70:14  error  'jest' is not defined                                                                      no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/Emphasis/Emphasis.component.js
-  26:12  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Emphasis/Emphasis.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  13:27  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Enumeration.component.js
-   36:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-  134:2  error  Expected indentation of 2 tabs but found 1     indent
-  145:2  error  Expected indentation of 2 tabs but found 1     indent
-  158:2  error  Expected indentation of 2 tabs but found 1     indent
-  168:2  error  Expected indentation of 2 tabs but found 1     indent
-  176:2  error  Expected indentation of 2 tabs but found 1     indent
-  177:3  error  Expected indentation of 3 tabs but found 2     indent
+  134:2  error  Expected indentation of 2 tabs but found 1  indent
+  145:2  error  Expected indentation of 2 tabs but found 1  indent
+  158:2  error  Expected indentation of 2 tabs but found 1  indent
+  168:2  error  Expected indentation of 2 tabs but found 1  indent
+  176:2  error  Expected indentation of 2 tabs but found 1  indent
+  177:3  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Enumeration.snapshot.test.js
-    2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-    5:1   error  'jest' is not defined                                                                      no-undef
-    6:2   error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-   44:14  error  'jest' is not defined                                                                      no-undef
-   51:14  error  'jest' is not defined                                                                      no-undef
-   56:14  error  'jest' is not defined                                                                      no-undef
-   61:14  error  'jest' is not defined                                                                      no-undef
-   68:19  error  'jest' is not defined                                                                      no-undef
-   69:18  error  'jest' is not defined                                                                      no-undef
-   70:19  error  'jest' is not defined                                                                      no-undef
-   77:15  error  'jest' is not defined                                                                      no-undef
-   82:15  error  'jest' is not defined                                                                      no-undef
-   89:15  error  'jest' is not defined                                                                      no-undef
-   92:17  error  'jest' is not defined                                                                      no-undef
-   93:18  error  'jest' is not defined                                                                      no-undef
-  110:14  error  'jest' is not defined                                                                      no-undef
-  117:14  error  'jest' is not defined                                                                      no-undef
-  122:14  error  'jest' is not defined                                                                      no-undef
-  127:14  error  'jest' is not defined                                                                      no-undef
-  132:19  error  'jest' is not defined                                                                      no-undef
-  133:18  error  'jest' is not defined                                                                      no-undef
-  134:19  error  'jest' is not defined                                                                      no-undef
-  141:15  error  'jest' is not defined                                                                      no-undef
-  146:15  error  'jest' is not defined                                                                      no-undef
-  153:15  error  'jest' is not defined                                                                      no-undef
-  156:17  error  'jest' is not defined                                                                      no-undef
-  157:18  error  'jest' is not defined                                                                      no-undef
-  174:14  error  'jest' is not defined                                                                      no-undef
-  181:14  error  'jest' is not defined                                                                      no-undef
-  186:14  error  'jest' is not defined                                                                      no-undef
-  191:14  error  'jest' is not defined                                                                      no-undef
-  198:19  error  'jest' is not defined                                                                      no-undef
-  199:18  error  'jest' is not defined                                                                      no-undef
-  206:15  error  'jest' is not defined                                                                      no-undef
-  211:15  error  'jest' is not defined                                                                      no-undef
-  218:15  error  'jest' is not defined                                                                      no-undef
-  221:17  error  'jest' is not defined                                                                      no-undef
-  222:18  error  'jest' is not defined                                                                      no-undef
-  240:14  error  'jest' is not defined                                                                      no-undef
-  247:14  error  'jest' is not defined                                                                      no-undef
-  252:14  error  'jest' is not defined                                                                      no-undef
-  258:14  error  'jest' is not defined                                                                      no-undef
-  263:14  error  'jest' is not defined                                                                      no-undef
-  270:19  error  'jest' is not defined                                                                      no-undef
-  271:18  error  'jest' is not defined                                                                      no-undef
-  278:15  error  'jest' is not defined                                                                      no-undef
-  283:15  error  'jest' is not defined                                                                      no-undef
-  290:15  error  'jest' is not defined                                                                      no-undef
-  293:17  error  'jest' is not defined                                                                      no-undef
-  294:18  error  'jest' is not defined                                                                      no-undef
-  314:14  error  'jest' is not defined                                                                      no-undef
-  321:14  error  'jest' is not defined                                                                      no-undef
-  326:14  error  'jest' is not defined                                                                      no-undef
-  331:14  error  'jest' is not defined                                                                      no-undef
-  338:19  error  'jest' is not defined                                                                      no-undef
-  339:18  error  'jest' is not defined                                                                      no-undef
-  346:15  error  'jest' is not defined                                                                      no-undef
-  351:15  error  'jest' is not defined                                                                      no-undef
-  358:15  error  'jest' is not defined                                                                      no-undef
-  364:15  error  'jest' is not defined                                                                      no-undef
-  367:17  error  'jest' is not defined                                                                      no-undef
-  368:18  error  'jest' is not defined                                                                      no-undef
-  401:14  error  'jest' is not defined                                                                      no-undef
-  408:14  error  'jest' is not defined                                                                      no-undef
-  413:14  error  'jest' is not defined                                                                      no-undef
-  418:14  error  'jest' is not defined                                                                      no-undef
-  425:19  error  'jest' is not defined                                                                      no-undef
-  426:18  error  'jest' is not defined                                                                      no-undef
-  433:15  error  'jest' is not defined                                                                      no-undef
-  438:15  error  'jest' is not defined                                                                      no-undef
-  445:15  error  'jest' is not defined                                                                      no-undef
-  448:17  error  'jest' is not defined                                                                      no-undef
-  449:18  error  'jest' is not defined                                                                      no-undef
-  484:14  error  'jest' is not defined                                                                      no-undef
-  491:14  error  'jest' is not defined                                                                      no-undef
-  496:14  error  'jest' is not defined                                                                      no-undef
-  501:14  error  'jest' is not defined                                                                      no-undef
-  508:19  error  'jest' is not defined                                                                      no-undef
-  509:18  error  'jest' is not defined                                                                      no-undef
-  516:15  error  'jest' is not defined                                                                      no-undef
-  521:15  error  'jest' is not defined                                                                      no-undef
-  528:15  error  'jest' is not defined                                                                      no-undef
-  531:17  error  'jest' is not defined                                                                      no-undef
-  532:18  error  'jest' is not defined                                                                      no-undef
-  562:14  error  'jest' is not defined                                                                      no-undef
-  569:14  error  'jest' is not defined                                                                      no-undef
-  574:14  error  'jest' is not defined                                                                      no-undef
-  579:14  error  'jest' is not defined                                                                      no-undef
-  586:19  error  'jest' is not defined                                                                      no-undef
-  587:18  error  'jest' is not defined                                                                      no-undef
-  588:19  error  'jest' is not defined                                                                      no-undef
-  595:15  error  'jest' is not defined                                                                      no-undef
-  600:15  error  'jest' is not defined                                                                      no-undef
-  607:15  error  'jest' is not defined                                                                      no-undef
-  610:17  error  'jest' is not defined                                                                      no-undef
-  611:18  error  'jest' is not defined                                                                      no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/Header.component.js
-  24:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/header.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  17:14  error  'jest' is not defined                                                                      no-undef
-  21:15  error  'jest' is not defined                                                                      no-undef
-  25:15  error  'jest' is not defined                                                                      no-undef
-  32:4   error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-  47:14  error  'jest' is not defined                                                                      no-undef
-  69:14  error  'jest' is not defined                                                                      no-undef
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/header.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  15:14  error  'jest' is not defined                                                         no-undef
-  18:26  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/HeaderInput.component.js
-  34:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/headerInput.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  17:14  error  'jest' is not defined                                                                      no-undef
-  22:14  error  'jest' is not defined                                                                      no-undef
-  37:4   error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-  55:14  error  'jest' is not defined                                                                      no-undef
-  60:14  error  'jest' is not defined                                                                      no-undef
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/headerInput.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  16:14  error  'jest' is not defined                                                         no-undef
-  21:14  error  'jest' is not defined                                                         no-undef
-  24:31  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/HeaderSelected.component.js
-  22:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/headerSelected.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  15:14  error  'jest' is not defined                                                                      no-undef
-  30:4   error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/headerSelected.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  16:14  error  'jest' is not defined                                                         no-undef
-  20:31  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/Item.component.js
-  52:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/item.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  11:17  error  'jest' is not defined                                                                      no-undef
-  12:16  error  'jest' is not defined                                                                      no-undef
-  13:17  error  'jest' is not defined                                                                      no-undef
-  18:13  error  'jest' is not defined                                                                      no-undef
-  22:13  error  'jest' is not defined                                                                      no-undef
-  32:17  error  'jest' is not defined                                                                      no-undef
-  33:16  error  'jest' is not defined                                                                      no-undef
-  34:17  error  'jest' is not defined                                                                      no-undef
-  50:4   error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/Item.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  11:17  error  'jest' is not defined                                                         no-undef
-  12:16  error  'jest' is not defined                                                         no-undef
-  13:17  error  'jest' is not defined                                                         no-undef
-  17:13  error  'jest' is not defined                                                         no-undef
-  21:13  error  'jest' is not defined                                                         no-undef
-  32:24  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/ItemEdit.component.js
-  56:3  error  Expected indentation of 3 tabs but found 2     indent
-  57:4  error  Expected indentation of 4 tabs but found 3     indent
-  58:4  error  Expected indentation of 4 tabs but found 3     indent
-  59:3  error  Expected indentation of 3 tabs but found 2     indent
-  60:4  error  Expected indentation of 4 tabs but found 3     indent
-  61:4  error  Expected indentation of 4 tabs but found 3     indent
-  62:3  error  Expected indentation of 3 tabs but found 2     indent
-  63:4  error  Expected indentation of 4 tabs but found 3     indent
-  79:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  56:3  error  Expected indentation of 3 tabs but found 2  indent
+  57:4  error  Expected indentation of 4 tabs but found 3  indent
+  58:4  error  Expected indentation of 4 tabs but found 3  indent
+  59:3  error  Expected indentation of 3 tabs but found 2  indent
+  60:4  error  Expected indentation of 4 tabs but found 3  indent
+  61:4  error  Expected indentation of 4 tabs but found 3  indent
+  62:3  error  Expected indentation of 3 tabs but found 2  indent
+  63:4  error  Expected indentation of 4 tabs but found 3  indent
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/itemEdit.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  10:17  error  'jest' is not defined                                                                      no-undef
-  11:17  error  'jest' is not defined                                                                      no-undef
-  12:16  error  'jest' is not defined                                                                      no-undef
-  16:13  error  'jest' is not defined                                                                      no-undef
-  20:13  error  'jest' is not defined                                                                      no-undef
-  48:4   error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/ItemEdit.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   13:17  error  'jest' is not defined                                                         no-undef
-   14:16  error  'jest' is not defined                                                         no-undef
-   18:13  error  'jest' is not defined                                                         no-undef
-   22:13  error  'jest' is not defined                                                         no-undef
-   38:24  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   62:19  error  'jest' is not defined                                                         no-undef
-   63:18  error  'jest' is not defined                                                         no-undef
-   67:15  error  'jest' is not defined                                                         no-undef
-   71:15  error  'jest' is not defined                                                         no-undef
-   99:19  error  'jest' is not defined                                                         no-undef
-  100:18  error  'jest' is not defined                                                         no-undef
-  104:15  error  'jest' is not defined                                                         no-undef
-  108:15  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Items.component.js
-  55:3  error  Expected indentation of 3 tabs but found 2     indent
-  66:5  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-  74:3  error  Expected indentation of 3 tabs but found 2     indent
+  55:3  error  Expected indentation of 3 tabs but found 2  indent
+  74:3  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/items.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   5:1   error  'jest' is not defined                                                                      no-undef
-   6:2   error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-  24:19  error  'jest' is not defined                                                                      no-undef
-  25:18  error  'jest' is not defined                                                                      no-undef
-  26:19  error  'jest' is not defined                                                                      no-undef
-  33:15  error  'jest' is not defined                                                                      no-undef
-  38:15  error  'jest' is not defined                                                                      no-undef
-  45:15  error  'jest' is not defined                                                                      no-undef
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
-   42:3   error  JSX not allowed in files with extension '.js'                       react/jsx-filename-extension
   282:10  error  'renderers.Logo' PropType is defined but prop is never used         react/no-unused-prop-types
   283:11  error  'renderers.Brand' PropType is defined but prop is never used        react/no-unused-prop-types
   284:17  error  'renderers.Environment' PropType is defined but prop is never used  react/no-unused-prop-types
@@ -493,76 +202,42 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.snapshot.test.js
   1:1  error  '@storybook/addon-storyshots' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-/home/travis/build/Talend/ui/packages/components/src/HttpError/HttpError.component.js
-  25:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
 /home/travis/build/Talend/ui/packages/components/src/HttpError/HttpError.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  15:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/Icon/Icon.component.js
-  52:11  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Icon/Icon.test.js
-  2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  8:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/IconsProvider/IconsProvider.component.js
-  23:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/IconsProvider/IconsProvider.test.js
-  2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  8:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/JSONSchemaRenderer/JSONSchemaRenderer.component.js
-  68:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/JSONSchemaRenderer/JSONSchemaRenderer.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   3:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-  10:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Layout/Layout.component.js
-  45:2  error  Expected indentation of 2 tabs but found 1     indent
-  46:3  error  Expected indentation of 3 tabs but found 2     indent
-  47:3  error  Expected indentation of 3 tabs but found 2     indent
-  48:2  error  Expected indentation of 2 tabs but found 1     indent
-  49:3  error  Expected indentation of 3 tabs but found 2     indent
-  50:3  error  Expected indentation of 3 tabs but found 2     indent
-  51:2  error  Expected indentation of 2 tabs but found 1     indent
-  52:3  error  Expected indentation of 3 tabs but found 2     indent
-  55:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  45:2  error  Expected indentation of 2 tabs but found 1  indent
+  46:3  error  Expected indentation of 3 tabs but found 2  indent
+  47:3  error  Expected indentation of 3 tabs but found 2  indent
+  48:2  error  Expected indentation of 2 tabs but found 1  indent
+  49:3  error  Expected indentation of 3 tabs but found 2  indent
+  50:3  error  Expected indentation of 3 tabs but found 2  indent
+  51:2  error  Expected indentation of 2 tabs but found 1  indent
+  52:3  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/components/src/Layout/Layout.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                                      no-undef
-   8:17  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-  30:12  error  'jest' is not defined                                                                      no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/Layout/OneColumn/OneColumn.component.js
-  26:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Layout/OneColumn/OneColumn.test.js
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  9:4  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/Layout/TwoColumns/TwoColumns.component.js
-  35:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
 
 /home/travis/build/Talend/ui/packages/components/src/Layout/TwoColumns/TwoColumns.test.js
-  2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  9:15  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/List/Content/Content.component.js
-  20:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Content/Content.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                                      no-undef
-  52:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Content/Item/Item.component.js
-   12:3   error  JSX not allowed in files with extension '.js'                         react/jsx-filename-extension
   132:3   error  Expected indentation of 3 tabs but found 2                            indent
   133:4   error  Expected indentation of 4 tabs but found 3                            indent
   134:3   error  Expected indentation of 3 tabs but found 2                            indent
@@ -587,60 +262,36 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   176:13  error  'itemProps.onCancel' PropType is defined but prop is never used       react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/List/Content/Item/Item.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                                      no-undef
-  27:12  error  'jest' is not defined                                                                      no-undef
-  33:12  error  'jest' is not defined                                                                      no-undef
-  46:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Content/ItemTitle/ItemTitle.component.js
-   13:10  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-   44:3   error  Expected indentation of 3 tabs but found 2     indent
-   45:4   error  Expected indentation of 4 tabs but found 3     indent
-   46:4   error  Expected indentation of 4 tabs but found 3     indent
-   47:3   error  Expected indentation of 3 tabs but found 2     indent
-   48:4   error  Expected indentation of 4 tabs but found 3     indent
-   49:4   error  Expected indentation of 4 tabs but found 3     indent
-   50:3   error  Expected indentation of 3 tabs but found 2     indent
-   51:4   error  Expected indentation of 4 tabs but found 3     indent
-   96:3   error  Expected indentation of 3 tabs but found 2     indent
-   97:4   error  Expected indentation of 4 tabs but found 3     indent
-   98:3   error  Expected indentation of 3 tabs but found 2     indent
-   99:4   error  Expected indentation of 4 tabs but found 3     indent
-  100:3   error  Expected indentation of 3 tabs but found 2     indent
-  101:4   error  Expected indentation of 4 tabs but found 3     indent
-  102:3   error  Expected indentation of 3 tabs but found 2     indent
-  103:4   error  Expected indentation of 4 tabs but found 3     indent
+   44:3  error  Expected indentation of 3 tabs but found 2  indent
+   45:4  error  Expected indentation of 4 tabs but found 3  indent
+   46:4  error  Expected indentation of 4 tabs but found 3  indent
+   47:3  error  Expected indentation of 3 tabs but found 2  indent
+   48:4  error  Expected indentation of 4 tabs but found 3  indent
+   49:4  error  Expected indentation of 4 tabs but found 3  indent
+   50:3  error  Expected indentation of 3 tabs but found 2  indent
+   51:4  error  Expected indentation of 4 tabs but found 3  indent
+   96:3  error  Expected indentation of 3 tabs but found 2  indent
+   97:4  error  Expected indentation of 4 tabs but found 3  indent
+   98:3  error  Expected indentation of 3 tabs but found 2  indent
+   99:4  error  Expected indentation of 4 tabs but found 3  indent
+  100:3  error  Expected indentation of 3 tabs but found 2  indent
+  101:4  error  Expected indentation of 4 tabs but found 3  indent
+  102:3  error  Expected indentation of 3 tabs but found 2  indent
+  103:4  error  Expected indentation of 4 tabs but found 3  indent
 
 /home/travis/build/Talend/ui/packages/components/src/List/Content/ItemTitle/ItemTitle.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  15:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-  27:13  error  'jest' is not defined                                                                      no-undef
-  43:14  error  'jest' is not defined                                                                      no-undef
-  44:14  error  'jest' is not defined                                                                      no-undef
-  45:14  error  'jest' is not defined                                                                      no-undef
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Content/ItemTitle/ItemTitle.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  11:12  error  'jest' is not defined                                                         no-undef
-  12:12  error  'jest' is not defined                                                         no-undef
-  13:12  error  'jest' is not defined                                                         no-undef
-  22:13  error  'jest' is not defined                                                         no-undef
-  24:25  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/List/DisplayLarge/DisplayLarge.component.js
-  51:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/DisplayLarge/DisplayLarge.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                                      no-undef
-  19:14  error  'jest' is not defined                                                                      no-undef
-  24:14  error  'jest' is not defined                                                                      no-undef
-  65:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-  79:14  error  'jest' is not defined                                                                      no-undef
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/DisplayTable/DisplayTable.component.js
-   22:11  error  JSX not allowed in files with extension '.js'                   react/jsx-filename-extension
    48:8   error  'column.key' PropType is defined but prop is never used         react/no-unused-prop-types
   130:26  error  'columns.*.key' PropType is defined but prop is never used      react/no-unused-prop-types
   197:8   error  'column.key' PropType is defined but prop is never used         react/no-unused-prop-types
@@ -655,38 +306,15 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   237:13  error  'sort.onChange' PropType is defined but prop is never used      react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/List/DisplayTable/DisplayTable.snapshot.test.js
-    2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-    6:1   error  'jest' is not defined                                                                      no-undef
-   13:12  error  'jest' is not defined                                                                      no-undef
-   18:12  error  'jest' is not defined                                                                      no-undef
-   32:13  error  'jest' is not defined                                                                      no-undef
-   36:13  error  'jest' is not defined                                                                      no-undef
-   70:12  error  'jest' is not defined                                                                      no-undef
-   93:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-  107:14  error  'jest' is not defined                                                                      no-undef
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/DisplayTable/DisplayTable.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   21:13  error  'jest' is not defined                                                         no-undef
-   25:13  error  'jest' is not defined                                                         no-undef
-   62:14  error  'jest' is not defined                                                         no-undef
-   71:17  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   88:14  error  'jest' is not defined                                                         no-undef
-  171:37  error  'jest' is not defined                                                         no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/List/DisplayTile/DisplayTile.component.js
-  20:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/DisplayTile/DisplayTile.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                                      no-undef
-  19:14  error  'jest' is not defined                                                                      no-undef
-  24:14  error  'jest' is not defined                                                                      no-undef
-  65:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-  97:14  error  'jest' is not defined                                                                      no-undef
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/ItemTitle/ItemTitle.component.js
-   37:3   error  JSX not allowed in files with extension '.js'                           react/jsx-filename-extension
    74:3   error  Expected indentation of 3 tabs but found 2                              indent
    75:4   error  Expected indentation of 4 tabs but found 3                              indent
    76:4   error  Expected indentation of 4 tabs but found 3                              indent
@@ -703,38 +331,17 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   190:17  error  'titleProps.onEditCancel' PropType is defined but prop is never used    react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/List/ItemTitle/ItemTitle.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   32:27  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   47:14  error  'jest' is not defined                                                         no-undef
-  118:14  error  'jest' is not defined                                                         no-undef
-  139:14  error  'jest' is not defined                                                         no-undef
-  160:19  error  'jest' is not defined                                                         no-undef
-  161:19  error  'jest' is not defined                                                         no-undef
-  184:19  error  'jest' is not defined                                                         no-undef
-  185:19  error  'jest' is not defined                                                         no-undef
-  208:19  error  'jest' is not defined                                                         no-undef
-  209:19  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/List.component.js
-  40:10  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-  76:2   error  Expected indentation of 2 tabs but found 1     indent
-  77:2   error  Expected indentation of 2 tabs but found 1     indent
-  78:2   error  Expected indentation of 2 tabs but found 1     indent
+  76:2  error  Expected indentation of 2 tabs but found 1  indent
+  77:2  error  Expected indentation of 2 tabs but found 1  indent
+  78:2  error  Expected indentation of 2 tabs but found 1  indent
 
 /home/travis/build/Talend/ui/packages/components/src/List/List.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  17:16  error  'jest' is not defined                                                                      no-undef
-  18:13  error  'jest' is not defined                                                                      no-undef
-  21:12  error  'jest' is not defined                                                                      no-undef
-  27:13  error  'jest' is not defined                                                                      no-undef
-  31:13  error  'jest' is not defined                                                                      no-undef
-  40:13  error  'jest' is not defined                                                                      no-undef
-  44:13  error  'jest' is not defined                                                                      no-undef
-  45:13  error  'jest' is not defined                                                                      no-undef
-  57:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.component.js
-  38:3   error  JSX not allowed in files with extension '.js'                       react/jsx-filename-extension
   76:13  error  'itemProps.isActive' PropType is defined but prop is never used     react/no-unused-prop-types
   77:15  error  'itemProps.isSelected' PropType is defined but prop is never used   react/no-unused-prop-types
   78:15  error  'itemProps.onRowClick' PropType is defined but prop is never used   react/no-unused-prop-types
@@ -746,179 +353,95 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   89:8   error  'titleProps.key' PropType is defined but prop is never used         react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   25:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  120:20  error  'jest' is not defined                                                         no-undef
-  137:22  error  'jest' is not defined                                                         no-undef
-  154:20  error  'jest' is not defined                                                         no-undef
-  172:22  error  'jest' is not defined                                                         no-undef
-  190:20  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Filter/Filter.component.js
-  16:2   error  Expected indentation of 2 tabs but found 1     indent
-  17:3   error  Expected indentation of 3 tabs but found 2     indent
-  20:3   error  Expected indentation of 3 tabs but found 2     indent
-  21:2   error  Expected indentation of 2 tabs but found 1     indent
-  22:3   error  Expected indentation of 3 tabs but found 2     indent
-  25:3   error  Expected indentation of 3 tabs but found 2     indent
-  26:2   error  Expected indentation of 2 tabs but found 1     indent
-  27:3   error  Expected indentation of 3 tabs but found 2     indent
-  60:11  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  16:2  error  Expected indentation of 2 tabs but found 1  indent
+  17:3  error  Expected indentation of 3 tabs but found 2  indent
+  20:3  error  Expected indentation of 3 tabs but found 2  indent
+  21:2  error  Expected indentation of 2 tabs but found 1  indent
+  22:3  error  Expected indentation of 3 tabs but found 2  indent
+  25:3  error  Expected indentation of 3 tabs but found 2  indent
+  26:2  error  Expected indentation of 2 tabs but found 1  indent
+  27:3  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Filter/Filter.snapshot.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                         no-undef
-   9:15  error  'jest' is not defined                                                         no-undef
-  13:27  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Filter/Filter.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                         no-undef
-  12:11  error  'jest' is not defined                                                         no-undef
-  13:13  error  'jest' is not defined                                                         no-undef
-  14:13  error  'jest' is not defined                                                         no-undef
-  26:32  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Label/Label.component.js
-  7:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Label/Label.snapshot.test.js
-   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1  error  'jest' is not defined                                                                      no-undef
-  16:4  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Pagination/Pagination.component.js
-  23:10  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-  45:3   error  Expected indentation of 3 tabs but found 2     indent
-  49:3   error  Expected indentation of 3 tabs but found 2     indent
-  53:3   error  Expected indentation of 3 tabs but found 2     indent
-  57:3   error  Expected indentation of 3 tabs but found 2     indent
-  61:3   error  Expected indentation of 3 tabs but found 2     indent
-  62:4   error  Expected indentation of 4 tabs but found 3     indent
+  45:3  error  Expected indentation of 3 tabs but found 2  indent
+  49:3  error  Expected indentation of 3 tabs but found 2  indent
+  53:3  error  Expected indentation of 3 tabs but found 2  indent
+  57:3  error  Expected indentation of 3 tabs but found 2  indent
+  61:3  error  Expected indentation of 3 tabs but found 2  indent
+  62:4  error  Expected indentation of 4 tabs but found 3  indent
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Pagination/Pagination.snapshot.test.js
-    2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-    6:1   error  'jest' is not defined                                                                      no-undef
-   14:14  error  'jest' is not defined                                                                      no-undef
-   18:4   error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-   30:14  error  'jest' is not defined                                                                      no-undef
-   45:14  error  'jest' is not defined                                                                      no-undef
-   61:14  error  'jest' is not defined                                                                      no-undef
-   76:14  error  'jest' is not defined                                                                      no-undef
-   91:14  error  'jest' is not defined                                                                      no-undef
-  106:14  error  'jest' is not defined                                                                      no-undef
-  121:14  error  'jest' is not defined                                                                      no-undef
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Pagination/Pagination.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  11:12  error  'jest' is not defined                                                         no-undef
-  17:26  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectAll/SelectAll.component.js
-  12:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectAll/SelectAll.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                                      no-undef
-  10:14  error  'jest' is not defined                                                                      no-undef
-  11:15  error  'jest' is not defined                                                                      no-undef
-  17:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-  35:16  error  'jest' is not defined                                                                      no-undef
-  36:17  error  'jest' is not defined                                                                      no-undef
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectDisplayMode/SelectDisplayMode.component.js
-  11:2   error  Expected indentation of 2 tabs but found 1     indent
-  12:3   error  Expected indentation of 3 tabs but found 2     indent
-  13:2   error  Expected indentation of 2 tabs but found 1     indent
-  14:3   error  Expected indentation of 3 tabs but found 2     indent
-  15:2   error  Expected indentation of 2 tabs but found 1     indent
-  16:3   error  Expected indentation of 3 tabs but found 2     indent
-  17:2   error  Expected indentation of 2 tabs but found 1     indent
-  18:3   error  Expected indentation of 3 tabs but found 2     indent
-  24:2   error  Expected indentation of 2 tabs but found 1     indent
-  25:3   error  Expected indentation of 3 tabs but found 2     indent
-  26:2   error  Expected indentation of 2 tabs but found 1     indent
-  27:3   error  Expected indentation of 3 tabs but found 2     indent
-  28:2   error  Expected indentation of 2 tabs but found 1     indent
-  29:3   error  Expected indentation of 3 tabs but found 2     indent
-  30:2   error  Expected indentation of 2 tabs but found 1     indent
-  31:3   error  Expected indentation of 3 tabs but found 2     indent
-  40:23  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  11:2  error  Expected indentation of 2 tabs but found 1  indent
+  12:3  error  Expected indentation of 3 tabs but found 2  indent
+  13:2  error  Expected indentation of 2 tabs but found 1  indent
+  14:3  error  Expected indentation of 3 tabs but found 2  indent
+  15:2  error  Expected indentation of 2 tabs but found 1  indent
+  16:3  error  Expected indentation of 3 tabs but found 2  indent
+  17:2  error  Expected indentation of 2 tabs but found 1  indent
+  18:3  error  Expected indentation of 3 tabs but found 2  indent
+  24:2  error  Expected indentation of 2 tabs but found 1  indent
+  25:3  error  Expected indentation of 3 tabs but found 2  indent
+  26:2  error  Expected indentation of 2 tabs but found 1  indent
+  27:3  error  Expected indentation of 3 tabs but found 2  indent
+  28:2  error  Expected indentation of 2 tabs but found 1  indent
+  29:3  error  Expected indentation of 3 tabs but found 2  indent
+  30:2  error  Expected indentation of 2 tabs but found 1  indent
+  31:3  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectDisplayMode/SelectDisplayMode.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                                      no-undef
-   9:12  error  'jest' is not defined                                                                      no-undef
-  16:4   error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectSortBy/SelectSortBy.component.js
-  11:3   error  JSX not allowed in files with extension '.js'                react/jsx-filename-extension
   23:9   error  'option.name' PropType is defined but prop is never used     react/no-unused-prop-types
   83:10  error  'options.*.name' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectSortBy/SelectSortBy.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   3:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-  10:12  error  'jest' is not defined                                                                      no-undef
-  27:4   error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Toolbar.component.js
-  67:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Toolbar.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                                      no-undef
-  19:14  error  'jest' is not defined                                                                      no-undef
-  29:14  error  'jest' is not defined                                                                      no-undef
-  37:14  error  'jest' is not defined                                                                      no-undef
-  38:15  error  'jest' is not defined                                                                      no-undef
-  43:23  error  'jest' is not defined                                                                      no-undef
-  49:12  error  'jest' is not defined                                                                      no-undef
-  59:22  error  'jest' is not defined                                                                      no-undef
-  64:12  error  'jest' is not defined                                                                      no-undef
-  65:12  error  'jest' is not defined                                                                      no-undef
-  71:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/Header/Header.component.js
-  22:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/ListView/Header/Header.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  16:14  error  'jest' is not defined                                                                      no-undef
-  22:4   error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/ListView/Header/Header.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  16:14  error  'jest' is not defined                                                         no-undef
-  19:26  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/Header/HeaderInput.component.js
-  24:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/ListView/Header/headerInput.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  17:15  error  'jest' is not defined                                                                      no-undef
-  33:4   error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/ListView/Header/headerInput.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  16:15  error  'jest' is not defined                                                         no-undef
-  20:31  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/Items/Item/Item.component.js
-  20:77  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/ListView/Items/Item/item.snapshot.test.js
-   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  20:4  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/ListView/Items/Item/Item.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   7:12  error  'jest' is not defined                                                         no-undef
-  13:24  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/ListView/Items/Items.component.js
-   64:4   error  JSX not allowed in files with extension '.js'                  react/jsx-filename-extension
   143:10  error  'items.*.label' PropType is defined but prop is never used     react/no-unused-prop-types
   144:13  error  'items.*.onChange' PropType is defined but prop is never used  react/no-unused-prop-types
   145:12  error  'items.*.checked' PropType is defined but prop is never used   react/no-unused-prop-types
@@ -926,119 +449,65 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/ListView/Items/items.snapshot.test.js
   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  5:1  error  'jest' is not defined                                                                      no-undef
-  6:2  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
 
 /home/travis/build/Talend/ui/packages/components/src/ListView/ListView.component.js
-  20:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-  86:2  error  Expected indentation of 2 tabs but found 1     indent
-  95:2  error  Expected indentation of 2 tabs but found 1     indent
-
-/home/travis/build/Talend/ui/packages/components/src/Notification/Notification.component.js
-  57:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  86:2  error  Expected indentation of 2 tabs but found 1  indent
+  95:2  error  Expected indentation of 2 tabs but found 1  indent
 
 /home/travis/build/Talend/ui/packages/components/src/Notification/Notification.snap.test.js
-   2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  40:4  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Notification/Notification.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-    6:1   error  'jest' is not defined                                                         no-undef
-   35:26  error  'jest' is not defined                                                         no-undef
-   36:23  error  'jest' is not defined                                                         no-undef
-   37:23  error  'jest' is not defined                                                         no-undef
-   38:18  error  'jest' is not defined                                                         no-undef
-   46:22  error  'jest' is not defined                                                         no-undef
-   47:24  error  'jest' is not defined                                                         no-undef
-   66:43  error  'jest' is not defined                                                         no-undef
-   72:22  error  'jest' is not defined                                                         no-undef
-   82:23  error  'jest' is not defined                                                         no-undef
-   85:24  error  'jest' is not defined                                                         no-undef
-  112:10  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  119:4   error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
-  25:10  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/List/List.component.js
-  12:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/ObjectViewer.component.js
-  17:2   error  Expected indentation of 2 tabs but found 1     indent
-  18:3   error  Expected indentation of 3 tabs but found 2     indent
-  18:11  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-  19:2   error  Expected indentation of 2 tabs but found 1     indent
-  20:3   error  Expected indentation of 3 tabs but found 2     indent
-  21:2   error  Expected indentation of 2 tabs but found 1     indent
-  22:3   error  Expected indentation of 3 tabs but found 2     indent
-  23:2   error  Expected indentation of 2 tabs but found 1     indent
-  24:3   error  Expected indentation of 3 tabs but found 2     indent
-  25:2   error  Expected indentation of 2 tabs but found 1     indent
-  26:3   error  Expected indentation of 3 tabs but found 2     indent
+  17:2  error  Expected indentation of 2 tabs but found 1  indent
+  18:3  error  Expected indentation of 3 tabs but found 2  indent
+  19:2  error  Expected indentation of 2 tabs but found 1  indent
+  20:3  error  Expected indentation of 3 tabs but found 2  indent
+  21:2  error  Expected indentation of 2 tabs but found 1  indent
+  22:3  error  Expected indentation of 3 tabs but found 2  indent
+  23:2  error  Expected indentation of 2 tabs but found 1  indent
+  24:3  error  Expected indentation of 3 tabs but found 2  indent
+  25:2  error  Expected indentation of 2 tabs but found 1  indent
+  26:3  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/ObjectViewer.test.js
   1:1  error  '@storybook/addon-storyshots' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/Table/Table.component.js
-  50:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/Progress/Progress.component.js
-  33:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
 /home/travis/build/Talend/ui/packages/components/src/Progress/Progress.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  15:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.component.js
-  59:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.snapshot.test.js
   1:1  error  '@storybook/addon-storyshots' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.test.js
-   3:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   9:19  error  'jest' is not defined                                                         no-undef
-  10:24  error  'jest' is not defined                                                         no-undef
-  20:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  36:31  error  'jest' is not defined                                                         no-undef
-  37:27  error  'jest' is not defined                                                         no-undef
-  38:28  error  'jest' is not defined                                                         no-undef
-  51:19  error  'jest' is not defined                                                         no-undef
+  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Status/Status.component.js
-  42:2   error  Expected indentation of 2 tabs but found 1     indent
-  43:3   error  Expected indentation of 3 tabs but found 2     indent
-  44:2   error  Expected indentation of 2 tabs but found 1     indent
-  45:3   error  Expected indentation of 3 tabs but found 2     indent
-  46:2   error  Expected indentation of 2 tabs but found 1     indent
-  47:3   error  Expected indentation of 3 tabs but found 2     indent
-  48:2   error  Expected indentation of 2 tabs but found 1     indent
-  49:3   error  Expected indentation of 3 tabs but found 2     indent
-  50:2   error  Expected indentation of 2 tabs but found 1     indent
-  51:3   error  Expected indentation of 3 tabs but found 2     indent
-  58:11  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  42:2  error  Expected indentation of 2 tabs but found 1  indent
+  43:3  error  Expected indentation of 3 tabs but found 2  indent
+  44:2  error  Expected indentation of 2 tabs but found 1  indent
+  45:3  error  Expected indentation of 3 tabs but found 2  indent
+  46:2  error  Expected indentation of 2 tabs but found 1  indent
+  47:3  error  Expected indentation of 3 tabs but found 2  indent
+  48:2  error  Expected indentation of 2 tabs but found 1  indent
+  49:3  error  Expected indentation of 3 tabs but found 2  indent
+  50:2  error  Expected indentation of 2 tabs but found 1  indent
+  51:3  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/components/src/Status/Status.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                                      no-undef
-  16:13  error  'jest' is not defined                                                                      no-undef
-  22:13  error  'jest' is not defined                                                                      no-undef
-  34:13  error  'jest' is not defined                                                                      no-undef
-  40:13  error  'jest' is not defined                                                                      no-undef
-  53:13  error  'jest' is not defined                                                                      no-undef
-  59:13  error  'jest' is not defined                                                                      no-undef
-  67:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/TabBar/TabBar.component.js
-  13:3   error  JSX not allowed in files with extension '.js'               react/jsx-filename-extension
   26:7   error  'item.id' PropType is defined but prop is never used        react/no-unused-prop-types
   27:8   error  'item.key' PropType is defined but prop is never used       react/no-unused-prop-types
   28:10  error  'item.label' PropType is defined but prop is never used     react/no-unused-prop-types
@@ -1050,45 +519,22 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/addon-storyshots' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/TabBar/TabBar.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   5:17  error  'jest' is not defined                                                         no-undef
-  31:19  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/Toggle/Toggle.component.js
-  22:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Toggle/Toggle.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   6:1   error  'jest' is not defined                                                                      no-undef
-  16:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Toggle/Toggle.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   7:12  error  'jest' is not defined                                                         no-undef
-   8:10  error  'jest' is not defined                                                         no-undef
-  17:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/TooltipTrigger/TooltipTrigger.component.js
-  62:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/TooltipTrigger/TooltipTrigger.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   3:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
-   7:1   error  'jest' is not defined                                                                      no-undef
-  19:12  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/TranslateWrapper/TranslateWrapper.component.js
-  7:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/TreeView/TreeView.component.js
-  56:2  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  3:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies               import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/TreeView/TreeView.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  39:35  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/TreeView/TreeViewItem/TreeViewItem.component.js
-   57:11  error  JSX not allowed in files with extension '.js'                       react/jsx-filename-extension
   116:9   error  'item.name' PropType is defined but prop is never used              react/no-unused-prop-types
   117:12  error  'item.toggled' PropType is defined but prop is never used           react/no-unused-prop-types
   118:13  error  'item.selected' PropType is defined but prop is never used          react/no-unused-prop-types
@@ -1101,58 +547,24 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   126:12  error  'item.counter' PropType is defined but prop is never used           react/no-unused-prop-types
   127:16  error  'item.showCounter' PropType is defined but prop is never used       react/no-unused-prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.js
-  25:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.renderers.js
-  21:32  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
 /home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.snapshot.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   5:1   error  'jest' is not defined                                                                      no-undef
-  48:15  error  'jest' is not defined                                                                      no-undef
-  58:13  error  JSX not allowed in files with extension '.js'                                              react/jsx-filename-extension
+  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-    5:1   error  'jest' is not defined                                                         no-undef
-   53:15  error  'jest' is not defined                                                         no-undef
-   55:22  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-   69:21  error  'jest' is not defined                                                         no-undef
-   88:21  error  'jest' is not defined                                                         no-undef
-  110:21  error  'jest' is not defined                                                         no-undef
-  139:19  error  'jest' is not defined                                                         no-undef
-  158:21  error  'jest' is not defined                                                         no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/utils/getPropsFrom.test.js
-  7:19  error  'jest' is not defined  no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellActions/CellActions.component.js
-  16:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellActions/CellActions.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  11:12  error  'jest' is not defined                                                         no-undef
-  21:14  error  'jest' is not defined                                                         no-undef
-  25:14  error  'jest' is not defined                                                         no-undef
-  33:12  error  'jest' is not defined                                                         no-undef
-  37:14  error  'jest' is not defined                                                         no-undef
-  41:14  error  'jest' is not defined                                                         no-undef
-  50:27  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellCheckbox/CellCheckbox.component.js
-  12:3   error  JSX not allowed in files with extension '.js'                     react/jsx-filename-extension
   35:7   error  'columnData.id' PropType is defined but prop is never used        react/no-unused-prop-types
   37:10  error  'columnData.label' PropType is defined but prop is never used     react/no-unused-prop-types
   39:13  error  'columnData.onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellCheckbox/CellCheckbox.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   9:12  error  'jest' is not defined                                                         no-undef
-  16:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitle.component.js
-  34:3   error  JSX not allowed in files with extension '.js'                           react/jsx-filename-extension
   78:7   error  'columnData.id' PropType is defined but prop is never used              react/no-unused-prop-types
   80:12  error  'columnData.onClick' PropType is defined but prop is never used         react/no-unused-prop-types
   82:15  error  'columnData.actionsKey' PropType is defined but prop is never used      react/no-unused-prop-types
@@ -1162,146 +574,42 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   90:17  error  'columnData.onEditSubmit' PropType is defined but prop is never used    react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitle.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   12:13  error  'jest' is not defined                                                         no-undef
-   13:18  error  'jest' is not defined                                                         no-undef
-   14:18  error  'jest' is not defined                                                         no-undef
-   25:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  120:15  error  'jest' is not defined                                                         no-undef
-  125:15  error  'jest' is not defined                                                         no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleInput.component.js
-  42:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleInput.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  14:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  17:19  error  'jest' is not defined                                                         no-undef
-  18:19  error  'jest' is not defined                                                         no-undef
-  30:24  error  'jest' is not defined                                                         no-undef
-  31:24  error  'jest' is not defined                                                         no-undef
-  59:24  error  'jest' is not defined                                                         no-undef
-  60:24  error  'jest' is not defined                                                         no-undef
-  88:24  error  'jest' is not defined                                                         no-undef
-  89:24  error  'jest' is not defined                                                         no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleSelector.component.js
-  26:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleSelector.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  16:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  21:19  error  'jest' is not defined                                                         no-undef
-  22:19  error  'jest' is not defined                                                         no-undef
-  42:14  error  'jest' is not defined                                                         no-undef
-  54:19  error  'jest' is not defined                                                         no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListGrid/ListGrid.component.js
-  40:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListGrid/ListGrid.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
-   3:1   error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  14:4   error  JSX not allowed in files with extension '.js'                                         react/jsx-filename-extension
-  20:17  error  'jest' is not defined                                                                 no-undef
-  50:17  error  'jest' is not defined                                                                 no-undef
-  53:22  error  'jest' is not defined                                                                 no-undef
-  78:17  error  'jest' is not defined                                                                 no-undef
-  81:22  error  'jest' is not defined                                                                 no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListTable/ListTable.component.js
-  51:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
+  3:1  error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListTable/ListTable.test.js
-    2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
-    3:1   error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-   13:4   error  JSX not allowed in files with extension '.js'                                         react/jsx-filename-extension
-   46:11  error  'jest' is not defined                                                                 no-undef
-   77:15  error  'jest' is not defined                                                                 no-undef
-   78:17  error  'jest' is not defined                                                                 no-undef
-   79:17  error  'jest' is not defined                                                                 no-undef
-   80:22  error  'jest' is not defined                                                                 no-undef
-  105:17  error  'jest' is not defined                                                                 no-undef
-  106:22  error  'jest' is not defined                                                                 no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/NoRows/NoRows.component.js
-  6:9  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies          import/no-extraneous-dependencies
+  3:1  error  'enzyme-to-json' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/NoRows/NoRows.test.js
-  2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  8:27  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RendererSelector.component.js
-  50:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RendererSelector.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  12:2   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  43:15  error  'jest' is not defined                                                         no-undef
-  44:17  error  'jest' is not defined                                                         no-undef
-  45:17  error  'jest' is not defined                                                         no-undef
-  46:22  error  'jest' is not defined                                                         no-undef
-  47:11  error  'jest' is not defined                                                         no-undef
-  67:15  error  'jest' is not defined                                                         no-undef
-  68:17  error  'jest' is not defined                                                         no-undef
-  69:17  error  'jest' is not defined                                                         no-undef
-  70:22  error  'jest' is not defined                                                         no-undef
-  71:11  error  'jest' is not defined                                                         no-undef
-  92:15  error  'jest' is not defined                                                         no-undef
-  93:17  error  'jest' is not defined                                                         no-undef
-  94:17  error  'jest' is not defined                                                         no-undef
-  96:22  error  'jest' is not defined                                                         no-undef
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
-  30:4  error  JSX not allowed in files with extension '.js'                                        react/jsx-filename-extension
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  18:12  error  'jest' is not defined                                                         no-undef
-  23:12  error  'jest' is not defined                                                         no-undef
-  48:4   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowSelection/RowSelection.component.js
-  26:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowSelection/RowSelection.test.js
-  2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  7:10  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/gridrow.test.js
-   22:32  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-  128:27  error  'jest' is not defined                          no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
-  18:4  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.test.js
-  12:23  error  'jest' is not defined                          no-undef
-  13:28  error  'jest' is not defined                          no-undef
-  15:5   error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.component.js
-  33:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.test.js
-   2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  11:2   error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
-  42:17  error  'jest' is not defined                                                         no-undef
-  44:22  error  'jest' is not defined                                                         no-undef
-  45:11  error  'jest' is not defined                                                         no-undef
-  65:15  error  'jest' is not defined                                                         no-undef
-  66:17  error  'jest' is not defined                                                         no-undef
-  67:17  error  'jest' is not defined                                                         no-undef
-  69:22  error  'jest' is not defined                                                         no-undef
-  70:11  error  'jest' is not defined                                                         no-undef
-
-/home/travis/build/Talend/ui/packages/components/src/WithDrawer/WithDrawer.component.js
-  27:3  error  JSX not allowed in files with extension '.js'  react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/WithDrawer/withDrawer.test.js
-  2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  9:18  error  JSX not allowed in files with extension '.js'                                 react/jsx-filename-extension
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 933 problems (933 errors, 0 warnings)
+✖ 347 problems (347 errors, 0 warnings)
 
