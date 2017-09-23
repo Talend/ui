@@ -1,18 +1,169 @@
 
 > @talend/log@0.112.0 lint:es /home/travis/build/Talend/ui/packages/logging
-> eslint --config .eslintrc --ext .js src
+> eslint --config ../../.eslintrc --ext .js src
 
-Cannot read config file: /home/travis/build/Talend/ui/packages/logging/.eslintrc
-Error: ENOENT: no such file or directory, open '/home/travis/build/Talend/ui/packages/logging/.eslintrc'
-Error: Cannot read config file: /home/travis/build/Talend/ui/packages/logging/.eslintrc
-Error: ENOENT: no such file or directory, open '/home/travis/build/Talend/ui/packages/logging/.eslintrc'
-    at Error (native)
-    at Object.fs.openSync (fs.js:642:18)
-    at Object.fs.readFileSync (fs.js:510:33)
-    at readFile (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/config/config-file.js:70:24)
-    at loadLegacyConfigFile (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/config/config-file.js:142:44)
-    at loadConfigFile (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/config/config-file.js:241:22)
-    at Object.load (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/config/config-file.js:535:18)
-    at loadConfig (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/config.js:63:33)
-    at new Config (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/config.js:231:42)
-    at CLIEngine.executeOnFiles (/home/travis/build/Talend/ui/packages/logging/node_modules/eslint/lib/cli-engine.js:590:28)
+The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/logging/src/errorTransformer.js
+  14:2  error  Unexpected tab character  no-tabs
+  15:2  error  Unexpected tab character  no-tabs
+  23:2  error  Unexpected tab character  no-tabs
+  24:2  error  Unexpected tab character  no-tabs
+  25:2  error  Unexpected tab character  no-tabs
+  26:2  error  Unexpected tab character  no-tabs
+  27:2  error  Unexpected tab character  no-tabs
+  28:2  error  Unexpected tab character  no-tabs
+  29:2  error  Unexpected tab character  no-tabs
+  30:2  error  Unexpected tab character  no-tabs
+  31:2  error  Unexpected tab character  no-tabs
+  32:2  error  Unexpected tab character  no-tabs
+  33:2  error  Unexpected tab character  no-tabs
+  67:2  error  Unexpected tab character  no-tabs
+  68:2  error  Unexpected tab character  no-tabs
+  69:2  error  Unexpected tab character  no-tabs
+  70:2  error  Unexpected tab character  no-tabs
+  71:2  error  Unexpected tab character  no-tabs
+  72:2  error  Unexpected tab character  no-tabs
+  74:2  error  Unexpected tab character  no-tabs
+  76:2  error  Unexpected tab character  no-tabs
+  77:2  error  Unexpected tab character  no-tabs
+  78:2  error  Unexpected tab character  no-tabs
+  79:2  error  Unexpected tab character  no-tabs
+  80:2  error  Unexpected tab character  no-tabs
+  81:2  error  Unexpected tab character  no-tabs
+  83:2  error  Unexpected tab character  no-tabs
+  84:2  error  Unexpected tab character  no-tabs
+  85:2  error  Unexpected tab character  no-tabs
+  87:2  error  Unexpected tab character  no-tabs
+  88:2  error  Unexpected tab character  no-tabs
+  89:2  error  Unexpected tab character  no-tabs
+  91:2  error  Unexpected tab character  no-tabs
+  93:2  error  Unexpected tab character  no-tabs
+
+/home/travis/build/Talend/ui/packages/logging/src/errorTransformer.test.js
+   7:2  error  Unexpected tab character  no-tabs
+  11:2  error  Unexpected tab character  no-tabs
+  12:2  error  Unexpected tab character  no-tabs
+  13:2  error  Unexpected tab character  no-tabs
+  14:2  error  Unexpected tab character  no-tabs
+  16:2  error  Unexpected tab character  no-tabs
+  17:2  error  Unexpected tab character  no-tabs
+  18:2  error  Unexpected tab character  no-tabs
+  19:2  error  Unexpected tab character  no-tabs
+  20:2  error  Unexpected tab character  no-tabs
+  21:2  error  Unexpected tab character  no-tabs
+  22:2  error  Unexpected tab character  no-tabs
+  24:2  error  Unexpected tab character  no-tabs
+  25:2  error  Unexpected tab character  no-tabs
+  26:2  error  Unexpected tab character  no-tabs
+  27:2  error  Unexpected tab character  no-tabs
+  28:2  error  Unexpected tab character  no-tabs
+  29:2  error  Unexpected tab character  no-tabs
+  30:2  error  Unexpected tab character  no-tabs
+  32:2  error  Unexpected tab character  no-tabs
+  33:2  error  Unexpected tab character  no-tabs
+  34:2  error  Unexpected tab character  no-tabs
+  35:2  error  Unexpected tab character  no-tabs
+  37:2  error  Unexpected tab character  no-tabs
+  38:2  error  Unexpected tab character  no-tabs
+  40:2  error  Unexpected tab character  no-tabs
+  41:2  error  Unexpected tab character  no-tabs
+  42:2  error  Unexpected tab character  no-tabs
+  43:2  error  Unexpected tab character  no-tabs
+  44:2  error  Unexpected tab character  no-tabs
+  45:2  error  Unexpected tab character  no-tabs
+  46:2  error  Unexpected tab character  no-tabs
+  47:2  error  Unexpected tab character  no-tabs
+  48:2  error  Unexpected tab character  no-tabs
+  50:2  error  Unexpected tab character  no-tabs
+  51:2  error  Unexpected tab character  no-tabs
+  52:2  error  Unexpected tab character  no-tabs
+  53:2  error  Unexpected tab character  no-tabs
+  54:2  error  Unexpected tab character  no-tabs
+  55:2  error  Unexpected tab character  no-tabs
+  56:2  error  Unexpected tab character  no-tabs
+  57:2  error  Unexpected tab character  no-tabs
+  58:2  error  Unexpected tab character  no-tabs
+  59:2  error  Unexpected tab character  no-tabs
+  60:2  error  Unexpected tab character  no-tabs
+  61:2  error  Unexpected tab character  no-tabs
+  62:2  error  Unexpected tab character  no-tabs
+  63:2  error  Unexpected tab character  no-tabs
+  65:2  error  Unexpected tab character  no-tabs
+  66:2  error  Unexpected tab character  no-tabs
+  67:2  error  Unexpected tab character  no-tabs
+  68:2  error  Unexpected tab character  no-tabs
+  69:2  error  Unexpected tab character  no-tabs
+  71:2  error  Unexpected tab character  no-tabs
+  72:2  error  Unexpected tab character  no-tabs
+  73:2  error  Unexpected tab character  no-tabs
+  74:2  error  Unexpected tab character  no-tabs
+  75:2  error  Unexpected tab character  no-tabs
+  76:2  error  Unexpected tab character  no-tabs
+  77:2  error  Unexpected tab character  no-tabs
+  78:2  error  Unexpected tab character  no-tabs
+  79:2  error  Unexpected tab character  no-tabs
+  80:2  error  Unexpected tab character  no-tabs
+  81:2  error  Unexpected tab character  no-tabs
+
+/home/travis/build/Talend/ui/packages/logging/src/transport.js
+   2:2   error    Unexpected tab character      no-tabs
+   3:2   error    Unexpected tab character      no-tabs
+   4:2   error    Unexpected tab character      no-tabs
+   5:2   error    Unexpected tab character      no-tabs
+   6:2   error    Unexpected tab character      no-tabs
+   7:2   error    Unexpected tab character      no-tabs
+   8:2   error    Unexpected tab character      no-tabs
+   9:2   error    Unexpected tab character      no-tabs
+  10:2   error    Unexpected tab character      no-tabs
+  11:2   error    Unexpected tab character      no-tabs
+  13:2   error    Unexpected tab character      no-tabs
+  14:2   error    Unexpected tab character      no-tabs
+  15:2   error    Unexpected tab character      no-tabs
+  16:2   error    Unexpected tab character      no-tabs
+  17:2   error    Unexpected tab character      no-tabs
+  18:2   error    Unexpected tab character      no-tabs
+  19:2   error    Unexpected tab character      no-tabs
+  20:2   error    Unexpected tab character      no-tabs
+  21:2   error    Unexpected tab character      no-tabs
+  22:2   error    Unexpected tab character      no-tabs
+  26:2   error    Unexpected tab character      no-tabs
+  27:2   error    Unexpected tab character      no-tabs
+  28:2   error    Unexpected tab character      no-tabs
+  29:2   error    Unexpected tab character      no-tabs
+  33:2   error    Unexpected tab character      no-tabs
+  33:27  warning  Unexpected console statement  no-console
+  34:2   error    Unexpected tab character      no-tabs
+  35:2   error    Unexpected tab character      no-tabs
+  36:2   error    Unexpected tab character      no-tabs
+  37:2   error    Unexpected tab character      no-tabs
+  38:2   error    Unexpected tab character      no-tabs
+  38:3   warning  Unexpected console statement  no-console
+  39:2   error    Unexpected tab character      no-tabs
+  40:2   error    Unexpected tab character      no-tabs
+  41:2   error    Unexpected tab character      no-tabs
+  41:29  warning  Unexpected console statement  no-console
+  45:2   error    Unexpected tab character      no-tabs
+  46:2   error    Unexpected tab character      no-tabs
+  47:2   error    Unexpected tab character      no-tabs
+  48:2   error    Unexpected tab character      no-tabs
+  49:2   error    Unexpected tab character      no-tabs
+  50:2   error    Unexpected tab character      no-tabs
+  51:2   error    Unexpected tab character      no-tabs
+  55:2   error    Unexpected tab character      no-tabs
+  56:2   error    Unexpected tab character      no-tabs
+  57:2   error    Unexpected tab character      no-tabs
+  58:2   error    Unexpected tab character      no-tabs
+  62:2   error    Unexpected tab character      no-tabs
+  63:2   error    Unexpected tab character      no-tabs
+  64:2   error    Unexpected tab character      no-tabs
+  68:2   error    Unexpected tab character      no-tabs
+  69:2   error    Unexpected tab character      no-tabs
+  70:2   error    Unexpected tab character      no-tabs
+  71:2   error    Unexpected tab character      no-tabs
+  72:2   error    Unexpected tab character      no-tabs
+  73:2   error    Unexpected tab character      no-tabs
+  74:2   error    Unexpected tab character      no-tabs
+
+✖ 155 problems (152 errors, 3 warnings)
+
