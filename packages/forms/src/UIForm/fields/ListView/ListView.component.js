@@ -4,19 +4,6 @@ import ListView from '@talend/react-components/lib/ListView';
 
 import FieldTemplate from '../FieldTemplate';
 
-import {
-	search,
-	abort,
-} from './ListView.actions';
-
-import {
-	onInputChange,
-	onToggleAll,
-	onAbortHandler,
-	onItemChange,
-	onAddKeyDown,
-} from './ListView.handlers';
-
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 const DEFAULT_ITEM_HEIGHT = 33;
@@ -30,6 +17,7 @@ class ListViewWidget extends React.Component {
 		this.state = {
 			...this.initItems(props),
 			getItemHeight: () => DEFAULT_ITEM_HEIGHT,
+			onToggleAll: this.onToggleAll.bind(this),
 		};
 	}
 
@@ -76,7 +64,7 @@ class ListViewWidget extends React.Component {
 
 		const newItems = items.map(updateChecked);
 		const newDisplayedItems = displayedItems.map(updateChecked);
-		const toggleAllChecked = displayedItems.every(item => item.checked);
+		const toggleAllChecked = newDisplayedItems.every(item => item.checked);
 
 		return {
 			displayedItems: newDisplayedItems,
@@ -94,6 +82,18 @@ class ListViewWidget extends React.Component {
 				return item.checked;
 			})
 			.map(item => item.value);
+		this.onChange(event, value);
+	}
+
+	onToggleAll(event) {
+		const value = this.state.toggleAllChecked ?
+			[] :
+			this.state.items.map(item => item.value);
+		this.onChange(event, value);
+	}
+
+	onChange(event, newValue) {
+		const value = newValue.length ? newValue : undefined;
 		const payload = { schema: this.props.schema, value };
 		this.props.onChange(event, payload);
 		this.props.onFinish(event, payload);
@@ -108,11 +108,15 @@ class ListViewWidget extends React.Component {
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
 			>
-				<ListView {...listViewProps} />
+				<ListView {...this.state} />
 			</FieldTemplate>
 		);
 	}
 }
+
+ListViewWidget.defaultProps = {
+	value: [],
+};
 
 if (process.env.NODE_ENV !== 'production') {
 	ListViewWidget.propTypes = {
