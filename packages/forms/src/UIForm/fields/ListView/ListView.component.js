@@ -13,10 +13,24 @@ class ListViewWidget extends React.Component {
 		super(props);
 
 		this.onItemChange = this.onItemChange.bind(this);
+		this.defaultHeaderActions = [{
+			icon: 'talend-search',
+			id: `${props.id}-search`,
+			label: 'Search for specific values',
+			onClick: this.switchToSearchMode.bind(this),
+		}];
+		this.searchHeaderActions = [{
+			label: 'Abort',
+			icon: 'talend-cross',
+			id: 'abort',
+			onClick: this.switchToDefaultMode.bind(this),
+		}];
 
 		this.state = {
 			...this.initItems(props),
 			getItemHeight: () => DEFAULT_ITEM_HEIGHT,
+			headerDefault: this.defaultHeaderActions,
+			onInputChange: this.onInputChange.bind(this),
 			onToggleAll: this.onToggleAll.bind(this),
 		};
 	}
@@ -44,6 +58,7 @@ class ListViewWidget extends React.Component {
 
 		return {
 			displayedItems,
+			headerLabel: schema.title,
 			items,
 			required: schema.required,
 			toggleAllChecked,
@@ -71,6 +86,51 @@ class ListViewWidget extends React.Component {
 			items: newItems,
 			toggleAllChecked,
 		};
+	}
+
+	switchToSearchMode() {
+		this.setState({
+			headerInput: this.searchHeaderActions,
+			displayMode: DISPLAY_MODE_SEARCH,
+		});
+	}
+
+	switchToDefaultMode() {
+		this.setState({
+			headerInput: this.defaultHeaderActions,
+			displayMode: DISPLAY_MODE_DEFAULT,
+		});
+	}
+
+	onInputChange(event, value) {
+		/*if (this.timerSearch) {
+			clearTimeout(this.timerSearch);
+		}
+		this.timerSearch = setTimeout(() => {
+			if (this.callActionHandler(
+					LISTVIEW_SEARCH_ACTION,
+					value.value,
+					onSearchHandler.bind(this)
+				)) {
+				this.setState({
+					loadingSearchCriteria: value.value,
+					headerInput: this.loadingInputsActions,
+				});
+			} else {
+				const searchCriteria = value.value;
+				const newDisplayedItems = this.state.items.filter(
+					item => item.label.toLowerCase().includes(searchCriteria.toLowerCase())
+				);
+				const toggleAllChecked = !!newDisplayedItems.length &&
+					newDisplayedItems.length === newDisplayedItems.filter(i => i.checked).length;
+				this.setState({
+					toggleAllChecked,
+					searchCriteria,
+					displayedItems: newDisplayedItems,
+				});
+			}
+			this.timerSearch = null;
+		}, 400);*/
 	}
 
 	onItemChange(changedItem, event) {
@@ -106,7 +166,6 @@ class ListViewWidget extends React.Component {
 				errorMessage={this.props.errorMessage}
 				id={this.props.id}
 				isValid={this.props.isValid}
-				label={this.props.schema.title}
 			>
 				<ListView {...this.state} />
 			</FieldTemplate>
