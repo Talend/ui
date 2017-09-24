@@ -64,7 +64,7 @@ export function errorIfMergingStateDoesntExist(state, action) {
  */
 export function componentsReducers(state = defaultState, action) {
 	switch (action.type) {
-	case ACTIONS.componentsActions.COMPONENT_ADD_STATE:
+	case ACTIONS.components.COMPONENT_ADD_STATE:
 		warnIfAnotherComponentBind(state, action);
 		if (action.initialComponentState) {
 			return state.setIn(
@@ -77,14 +77,14 @@ export function componentsReducers(state = defaultState, action) {
 			[action.componentName, action.key],
 			new Map()
 		);
-	case ACTIONS.componentsActions.COMPONENT_MERGE_STATE:
+	case ACTIONS.components.COMPONENT_MERGE_STATE:
 		errorIfMergingStateDoesntExist(state, action);
 
 		return state.mergeIn(
 			[action.componentName, action.key],
 			fromJS(action.componentState)
 		);
-	case ACTIONS.componentsActions.COMPONENT_REMOVE_STATE:
+	case ACTIONS.components.COMPONENT_REMOVE_STATE:
 		warnIfRemovingStateDoesntExist(state, action);
 		return state.deleteIn([action.componentName, action.key]);
 	default: {

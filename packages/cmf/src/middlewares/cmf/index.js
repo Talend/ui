@@ -7,7 +7,7 @@ const cmfMiddleware = store => next => (action) => {
 	}
 	if (config.collectionId && action.response) {
 		store.dispatch(
-			actions.collections.addOrReplaceCollection(
+			actions.collections.addOrReplace(
 				config.collectionId, action.response,
 			),
 		);

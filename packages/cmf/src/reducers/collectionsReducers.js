@@ -148,9 +148,9 @@ function mutateCollection(state, action) {
  */
 function collectionsReducers(state = defaultState, action) {
 	switch (action.type) {
-	case ACTIONS.collectionsActions.COLLECTION_ADD_OR_REPLACE:
+	case ACTIONS.collections.COLLECTION_ADD_OR_REPLACE:
 		return state.set(action.collectionId, fromJS(action.data));
-	case ACTIONS.collectionsActions.COLLECTION_REMOVE:
+	case ACTIONS.collections.COLLECTION_REMOVE:
 		if (!state.get(action.collectionId)) {
 			invariant(
 				process.env.NODE_ENV === 'production',
@@ -159,7 +159,7 @@ function collectionsReducers(state = defaultState, action) {
 			return state;
 		}
 		return state.delete(action.collectionId);
-	case ACTIONS.collectionsActions.COLLECTION_MUTATE:
+	case ACTIONS.collections.COLLECTION_MUTATE:
 		return mutateCollection(state, action);
 	default:
 		return state;
