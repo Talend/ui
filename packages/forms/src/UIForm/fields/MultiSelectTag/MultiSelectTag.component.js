@@ -62,25 +62,25 @@ export default class MultiSelectTag extends React.Component {
 	 */
 	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
 		switch (event.which) {
-		case keycode.codes.enter:
-			event.preventDefault();
-			// suggestions are displayed and an item has the focus : we select it
-			if (Number.isInteger(focusedItemIndex)) {
-				this.onAddTag(event, { itemIndex: focusedItemIndex });
-			}
-			break;
-		case keycode.codes.down:
-		case keycode.codes.up:
-			event.preventDefault();
-			this.setState({ focusedItemIndex: newFocusedItemIndex });
-			break;
-		case keycode.codes.backspace:
-			if (!this.state.value && this.props.value.length) {
-				this.onRemoveTag(event, this.props.value.length - 1);
-			}
-			break;
-		default:
-			break;
+			case keycode.codes.enter:
+				event.preventDefault();
+				// suggestions are displayed and an item has the focus : we select it
+				if (Number.isInteger(focusedItemIndex)) {
+					this.onAddTag(event, { itemIndex: focusedItemIndex });
+				}
+				break;
+			case keycode.codes.down:
+			case keycode.codes.up:
+				event.preventDefault();
+				this.setState({ focusedItemIndex: newFocusedItemIndex });
+				break;
+			case keycode.codes.backspace:
+				if (!this.state.value && this.props.value.length) {
+					this.onRemoveTag(event, this.props.value.length - 1);
+				}
+				break;
+			default:
+				break;
 		}
 	}
 

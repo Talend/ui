@@ -45,8 +45,7 @@ const simplePropTypes = {
 
 function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 	switch (displayMode) {
-	case TYPE_STATUS:
-		{
+		case TYPE_STATUS: {
 			const { actions, ...restStatus } = headerItem;
 			const adaptActions = actions.map(
 				action => ({
@@ -61,8 +60,7 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 				className={css[className]}
 			/>);
 		}
-	case TYPE_ACTION:
-		{
+		case TYPE_ACTION: {
 			const { onClick, ...restAction } = headerItem;
 			return (
 				<Action
@@ -72,8 +70,7 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 					{...restAction}
 				/>);
 		}
-	case TYPE_BADGE:
-		{
+		case TYPE_BADGE: {
 			const { label, tooltipPlacement, ...rest } = headerItem;
 			return (
 				<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
@@ -81,8 +78,7 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 				</TooltipTrigger>
 			);
 		}
-	default:
-		{
+		default: {
 			const { label, tooltipPlacement } = headerItem;
 			return (
 				<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
