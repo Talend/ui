@@ -50,10 +50,12 @@ class ListViewWidget extends React.Component {
 	componentWillReceiveProps({ schema, value }) {
 		if (schema !== this.props.schema) {
 			this.setState(oldState =>
-				initItems(schema, value, oldState.searchCriteria, this.onItemChange.bind(this)),
+				initItems(schema, value, oldState.searchCriteria, this.onToggleItem.bind(this)),
 			);
 		} else if (value !== this.props.value) {
-			this.setState(oldState => updateItems(oldState.items, value, oldState.searchCriteria));
+			this.setState(oldState =>
+				updateItems(oldState.items, value, oldState.searchCriteria)
+			);
 		}
 	}
 
@@ -105,9 +107,9 @@ class ListViewWidget extends React.Component {
 	 * @param { Object } event The toggle event
 	 * @param { Object } changedItem The item to toggle
 	 */
-	onItemChange(event, changedItem) {
+	onToggleItem(event, changedItem) {
 		const value = this.state.items
-			.filter(item => {
+			.filter((item) => {
 				if (changedItem === item) {
 					return !item.checked;
 				}
@@ -125,19 +127,21 @@ class ListViewWidget extends React.Component {
 	 */
 	onToggleAll(event) {
 		let checkedItems;
-		if (this.state.searchCriteria) {
-			if (this.state.toggleAllChecked) {
-				checkedItems = this.state.items.filter(
-					item => item.checked && !this.state.displayedItems.includes(item),
-				);
-			} else {
-				checkedItems = this.state.items.filter(
-					item => item.checked || this.state.displayedItems.includes(item),
-				);
-			}
+		if (this.state.searchCriteria && this.state.toggleAllChecked) {
+			// User uncheck with filter : we remove filtered items from checked list
+			checkedItems = this.state.items.filter(
+				item => item.checked && !this.state.displayedItems.includes(item),
+			);
+		} else if (this.state.searchCriteria && !this.state.toggleAllChecked) {
+			// User check with filter : we add filtered items in checked list
+			checkedItems = this.state.items.filter(
+				item => item.checked || this.state.displayedItems.includes(item),
+			);
 		} else if (this.state.toggleAllChecked) {
+			// User uncheck all items
 			checkedItems = [];
 		} else {
+			// User check all items
 			checkedItems = this.state.items;
 		}
 

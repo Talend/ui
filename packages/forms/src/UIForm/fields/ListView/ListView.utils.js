@@ -25,15 +25,15 @@ export function getItemsProps(items, searchCriteria) {
  * @param { Object } schema The merged schema
  * @param { Array } value the listView value
  * @param { string } searchCriteria The filter criteria
- * @param { function } onItemChange The toggle callback
+ * @param { function } onChange The toggle callback
  * @returns { Object } The items related state
  */
-export function initItems(schema, value, searchCriteria, onItemChange) {
+export function initItems(schema, value, searchCriteria, onChange) {
 	const items = schema.titleMap.map((option, index) => ({
 		checked: value.indexOf(option.value) !== -1,
 		index,
 		label: option.name,
-		onChange: onItemChange,
+		onChange,
 		value: option.value,
 	}));
 
