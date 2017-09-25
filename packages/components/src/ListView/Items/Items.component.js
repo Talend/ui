@@ -82,7 +82,7 @@ class Items extends React.PureComponent {
 
 	renderToggleAll() {
 		const { id, toggleAllLabel, toggleAllChecked, onToggleAll } = this.props;
-		const toggleAllId = `${id}-toggle-all`;
+		const toggleAllId = `${id || 'tc-listview'}-toggle-all`;
 		return (
 			<div className="checkbox">
 				<label htmlFor={toggleAllId}>
@@ -99,13 +99,16 @@ class Items extends React.PureComponent {
 	}
 
 	renderItem(item, index) {
-		const computedIndex = this.hasToggleAll ? index + 1 : index;
+		let computedIndex = this.hasToggleAll ? index + 1 : index;
+		if (this.props.id) {
+			computedIndex = `${this.props.id}-${computedIndex}`;
+		}
 		// affecting index to the item
 
 		return (
 			<Item
 				key={`${computedIndex}-item`}
-				id={`${this.props.id}-${computedIndex}-item`}
+				id={`${computedIndex}-item`}
 				item={item}
 				searchCriteria={this.props.searchCriteria}
 			/>
@@ -137,10 +140,6 @@ class Items extends React.PureComponent {
 		);
 	}
 }
-
-Items.defaultProps = {
-	id: 'tc-listview',
-};
 
 Items.propTypes = {
 	id: PropTypes.string,

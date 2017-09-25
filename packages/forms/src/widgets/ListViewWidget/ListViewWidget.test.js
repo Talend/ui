@@ -29,7 +29,6 @@ function generateProps(values, selected) {
 		options: {
 			enumOptions: values.map(getValueLabelPair),
 		},
-		id: 'root_documents',
 		multiple: true,
 		value: selected || [],
 		disabled: false,
