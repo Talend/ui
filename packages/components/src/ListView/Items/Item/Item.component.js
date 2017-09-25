@@ -36,7 +36,7 @@ function Item(props) {
 							id={itemId}
 							type="checkbox"
 							checked={item.checked}
-							onChange={event => item.onChange(item, event)}
+							onChange={event => item.onChange(event, item)}
 						/>
 						<span className={itemLabelClasses()}>
 							{searchCriteria ? getSearchedLabel(item.label) : item.label}
