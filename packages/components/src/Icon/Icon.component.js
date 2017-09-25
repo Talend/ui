@@ -82,7 +82,7 @@ function Icon({ className, name, title, transform, onClick }) {
 	}
 	if (name) {
 		const classname = classnames(
-			theme['svg-icon'],
+			theme['tc-svg-icon'],
 			'tc-svg-icon',
 			className,
 			SVG_TRANSFORMS[transform],
