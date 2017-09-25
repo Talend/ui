@@ -145,10 +145,7 @@ Items.propTypes = {
 		checked: PropTypes.bool,
 		index: PropTypes.number,
 	})),
-	getItemHeight: PropTypes.oneOfType([
-		PropTypes.func,
-		PropTypes.number,
-	]),
+	getItemHeight: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,
 	toggleAllLabel: PropTypes.string,

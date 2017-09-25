@@ -32,7 +32,7 @@ class ListViewWidget extends React.Component {
 		];
 
 		this.state = {
-			...this.initItems(props),
+			...initItems(props.schema, props.value, null, this.onToggleItem.bind(this)),
 			getItemHeight: () => DEFAULT_ITEM_HEIGHT,
 			headerDefault: this.defaultHeaderActions,
 			onAddKeyDown: this.onInputKeyDown.bind(this),
