@@ -61,6 +61,7 @@
 		padding: 2px 5px;
 		display: inline-table;
 		margin-left: 10px;
+		vertical-align: text-bottom;
 	}
 
 	sup selected {
@@ -115,13 +116,13 @@
 
 	.line-type {
 		font-family: 'Inconsolata';
-		font-size: 14px;
+		font-size: 12px;
 		color: $dark-silver;
 		opacity: 0.75;
 		display: inline;
 		margin-right: 15px;
 		margin-left: 4px;
-		vertical-align: top;
+		vertical-align: text-bottom;
 		border: none;
 		background: none;
 		padding: 0;
