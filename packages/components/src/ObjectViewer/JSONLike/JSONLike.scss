@@ -2,12 +2,44 @@
 .container {
 	display: block;
 
+	svg {
+		margin-right: $caret-width-large;
+	}
+
 	li {
 		list-style-type: none;
+		font-size: 1rem;
+		display: flex;
+	}
+
+	button {
+		font-size: 1.4rem;
+	}
+
+	button > sup {
+		top: -1;
+		margin-left: 15px;
+	}
+
+	.link {
+		cursor: pointer;
 	}
 
 	.opened {
 		color: red;
+	}
+
+	.wider-icon-selection {
+		display: inline-flex;
+		width: 9px;
+		height: 9px;
+		color: $scooter;
+		padding: 0;
+		font-size: 1rem;
+	}
+
+	.unselected-line-hover:hover {
+		background-color: green;
 	}
 
 	:global(.btn) {
@@ -15,7 +47,89 @@
 	}
 
 	.name:after {
-		content: ':';
+		content: ':  ';
 	}
 
+	sup {
+		top: $object-viewer-badge-offset;
+		height: 9px;
+		width: 9px;
+		border-width: 1px;
+		background-color: rgba($brand-primary, 0.3);
+		color: $brand-primary;
+		font-size: 10px;
+		padding: 2px 5px;
+		display: inline-table;
+		margin-left: 10px;
+	}
+
+	sup selected {
+		background-color: rgba($brand-primary, 1);
+	}
+
+	sup::before {
+		margin-right: 15px;
+	}
+
+	.root-label-overflow {
+		white-space: nowrap;
+		overflow: hidden;
+		max-width: 25%;
+		text-overflow: ellipsis;
+	}
+
+	.selected-badge {
+		background-color: rgba(93, 136, 170, 0.75);
+		color: $black;
+	}
+
+	.selected-line {
+		background-color: rgba(93, 136, 170, 0.1);
+		opacity: 0.75;
+		color: $black;
+	}
+
+	.line-key {
+		font-size: 14px;
+		opacity: 0.75;
+		padding-left: 5px;
+		display: inline;
+		color: $black;
+	}
+
+	.line-value {
+		color: $brand-primary;
+		display: inline;
+		font-size: $object-viewer-value-font-size;
+		vertical-align: baseline;
+		border: none;
+		background: none;
+		padding: 0;
+		cursor: default;
+	}
+
+	.line-value-selected {
+		color: $black;
+	}
+
+	.line-type {
+		font-family: 'Inconsolata';
+		font-size: 14px;
+		color: $dark-silver;
+		opacity: 0.75;
+		display: inline;
+		margin-right: 15px;
+		margin-left: 4px;
+		vertical-align: top;
+		border: none;
+		background: none;
+		padding: 0;
+		cursor: default;
+	}
+
+	.vertical-line {
+		border-left: solid 1px $alto;
+		margin-left: 4px;
+		margin-bottom: 8px;
+	}
 }

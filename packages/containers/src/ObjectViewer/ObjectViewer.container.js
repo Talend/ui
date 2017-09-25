@@ -7,38 +7,54 @@ import { ObjectViewer as Component } from '@talend/react-components';
 import { componentState } from '@talend/react-cmf';
 
 export const DEFAULT_STATE = new Map({
-	edited: new List(),  // Array of JSONPath
-	opened: new List(),  // Array of JSONPath
-	modified: new Map(),  // Store the onChange
+	edited: new List(), // Array of JSONPath
+	opened: new List(), // Array of JSONPath
+	selectedJsonpath: '', // Selected JSONPath
+	modified: new Map(), // Store the onChange
 });
 
 export function open(path, state) {
-	return state.set(
-		'opened',
-		state.get('opened').push(path),
-	);
+	return state.set('opened', state.get('opened').push(path));
+}
+
+export function select(path, state) {
+	return state.set('selectedJsonpath', path);
 }
 
 export function close(path, state) {
 	const opened = state.get('opened');
-	return state.set(
-		'opened',
-		opened.delete(opened.indexOf(path)),
-	);
+	return state.set('opened', opened.delete(opened.indexOf(path)));
 }
 
 export function edit(path, state) {
-	return state.set(
-		'edited',
-		state.get('edited').push(path),
-	);
+	return state.set('edited', state.get('edited').push(path));
 }
 
 export function change(path, state, value) {
-	return state.set(
-		'modified',
-		state.get('modified').set(path, value),
-	);
+	return state.set('modified', state.get('modified').set(path, value));
+}
+
+export function toggleState(prevState, data) {
+	if (data.isOpened) {
+		return close(data.jsonpath, prevState.state);
+	} else if (data.isOpened === false) {
+		// we don't want to match on undefined as false
+		return open(data.jsonpath, prevState.state);
+	}
+
+	return prevState;
+}
+
+export function selectWrapper(prevState, data) {
+	return select(data, prevState.state);
+}
+
+export function editWrapper(prevState, data) {
+	if (data.edit === false) {
+		return edit(data.jsonpath, prevState.state);
+	}
+
+	return prevState;
 }
 
 class ObjectViewer extends React.Component {
@@ -53,32 +69,28 @@ class ObjectViewer extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.onClick = this.onClick.bind(this);
+		this.onToggle = this.onToggle.bind(this);
+		this.onEdit = this.onEdit.bind(this);
 		this.onChange = this.onChange.bind(this);
+		this.onSelect = this.onSelect.bind(this);
 	}
 
-	onClick(event, data) {
-		let newState;
-		if (data.isOpened) {
-			newState = close(data.jsonpath, this.props.state);
-		} else if (data.isOpened === false) {
-			// we don't want to match on undefined as false
-			newState = open(data.jsonpath, this.props.state);
-		} else if (data.edit === false) {
-			newState = edit(data.jsonpath, this.props.state);
-		}
-		if (newState) {
-			this.props.setState(newState);
-		}
+	onToggle(event, data) {
+		this.props.setState(prevState => toggleState(prevState, data));
+	}
+
+	onEdit(event, data) {
+		this.props.setState(prevState => editWrapper(prevState, data));
 	}
 
 	onChange(event, data) {
-		const newState = change(
-			data.jsonpath,
-			this.props.state,
-			event.target.value,
+		this.props.setState(prevState =>
+			change(data.jsonpath, prevState.state, event.target.value),
 		);
-		this.props.setState(newState);
+	}
+
+	onSelect(event, data) {
+		this.props.setState(prevState => selectWrapper(prevState, data));
 	}
 
 	render() {
@@ -89,9 +101,13 @@ class ObjectViewer extends React.Component {
 			<Component
 				data={this.props.data}
 				displayMode={this.props.displayMode}
-				onClick={this.onClick}
+				showType={this.props.showType}
 				onSubmit={this.props.onSubmit}
 				onChange={this.props.onSubmit ? this.onChange : undefined}
+				onSelect={this.onSelect}
+				onEdit={this.onEdit}
+				onToggle={this.onToggle}
+				selectedJsonpath={state.selectedJsonpath}
 				opened={state.opened}
 				edited={state.edited}
 			/>

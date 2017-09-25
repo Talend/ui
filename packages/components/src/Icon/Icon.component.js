@@ -36,7 +36,7 @@ export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
  * @example
 <Icon name="fa-bars"></Icon>
  */
-function Icon({ className, name, title, transform }) {
+function Icon({ className, name, title, transform, onClick }) {
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
@@ -59,6 +59,27 @@ function Icon({ className, name, title, transform }) {
 		);
 		return (<i className={classes} {...accessibility} />);
 	}
+	if (onClick && name) {
+		const classname = classnames(
+			theme['tc-svg-icon'],
+			'tc-svg-icon',
+			className,
+			SVG_TRANSFORMS[transform],
+		);
+		return (
+			// eslint doesn't recognizes the xlinkHref mention
+			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+			<a
+				xlinkHref="#"
+				onClick={onClick}
+				className={classnames('tc-svg-anchor', theme.link)}
+			>
+				<svg className={classname} {...accessibility}>
+					<use xlinkHref={`#${name}`} />
+				</svg>
+			</a>
+		);
+	}
 	if (name) {
 		const classname = classnames(
 			theme['svg-icon'],
@@ -80,6 +101,7 @@ Icon.propTypes = {
 	name: PropTypes.string.isRequired,
 	title: PropTypes.string,
 	transform: PropTypes.oneOf(TRANSFORMS),
+	onClick: PropTypes.func.isRequired,
 };
 
 export default Icon;
