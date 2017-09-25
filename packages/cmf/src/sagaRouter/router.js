@@ -53,6 +53,7 @@ export default function* routerSaga(history, routes) {
 				currentLocation,
 				index,
 			);
+			console.log('match', match);
 			if (shouldCancelSaga(maybeSaga, match)) {
 				yield cancel(maybeSaga.saga);
 			} else if (shouldRestartSaga(maybeSaga, match)) {
