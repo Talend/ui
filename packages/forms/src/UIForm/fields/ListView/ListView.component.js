@@ -179,7 +179,11 @@ class ListViewWidget extends React.Component {
 				id={this.props.id}
 				isValid={this.props.isValid}
 			>
-				<ListView {...this.state} items={this.state.displayedItems} />
+				<ListView
+					{...this.state}
+					id={this.props.id}
+					items={this.state.displayedItems}
+				/>
 			</FieldTemplate>
 		);
 	}

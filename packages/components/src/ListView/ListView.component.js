@@ -45,6 +45,7 @@ ListView.defaultProps = {
 function ItemsListView(props) {
 	return (
 		<Items
+			id={props.id}
 			items={props.items}
 			searchCriteria={props.searchCriteria}
 			toggleAllChecked={props.toggleAllChecked}
@@ -63,6 +64,7 @@ ItemsListView.defaultProps = {
 ItemsListView.propTypes = {
 	emptyLabel: PropTypes.string,
 	getItemHeight: PropTypes.func,
+	id: PropTypes.string,
 	items: ListView.propTypes.items,
 	onToggleAll: PropTypes.func,
 	searchCriteria: PropTypes.string,
