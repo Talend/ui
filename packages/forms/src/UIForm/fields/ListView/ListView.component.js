@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import keycode from 'keycode';
 import ListView from '@talend/react-components/lib/ListView';
 
 import FieldTemplate from '../FieldTemplate';
@@ -7,6 +8,20 @@ import FieldTemplate from '../FieldTemplate';
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 const DEFAULT_ITEM_HEIGHT = 33;
+
+function getItemsProps(items, searchCriteria) {
+	const displayedItems = searchCriteria ?
+		items.filter(item => item.label.toLowerCase().includes(searchCriteria.toLowerCase())) :
+		items;
+	const toggleAllChecked = displayedItems.every(item => item.checked);
+
+	return {
+		displayedItems,
+		items,
+		searchCriteria,
+		toggleAllChecked,
+	};
+}
 
 class ListViewWidget extends React.Component {
 	constructor(props) {
@@ -30,6 +45,7 @@ class ListViewWidget extends React.Component {
 			...this.initItems(props),
 			getItemHeight: () => DEFAULT_ITEM_HEIGHT,
 			headerDefault: this.defaultHeaderActions,
+			onAddKeyDown: this.onInputKeyDown.bind(this),
 			onInputChange: this.onInputChange.bind(this),
 			onToggleAll: this.onToggleAll.bind(this),
 		};
@@ -51,21 +67,15 @@ class ListViewWidget extends React.Component {
 			onChange: this.onItemChange,
 			value: option.value,
 		}));
-		const displayedItems = searchCriteria ?
-			items.filter(item => item.label.toLowerCase().includes(searchCriteria.toLowerCase())) :
-			items;
-		const toggleAllChecked = displayedItems.every(item => item.checked);
 
 		return {
-			displayedItems,
+			...getItemsProps(items, searchCriteria),
 			headerLabel: schema.title,
-			items,
 			required: schema.required,
-			toggleAllChecked,
 		};
 	}
 
-	updateItems({ value }, { displayedItems, items }) {
+	updateItems({ value }, { items, searchCriteria }) {
 		function updateChecked(item) {
 			const checked = value.indexOf(item.value) !== -1;
 			if (item.checked !== checked) {
@@ -78,14 +88,7 @@ class ListViewWidget extends React.Component {
 		}
 
 		const newItems = items.map(updateChecked);
-		const newDisplayedItems = displayedItems.map(updateChecked);
-		const toggleAllChecked = newDisplayedItems.every(item => item.checked);
-
-		return {
-			displayedItems: newDisplayedItems,
-			items: newItems,
-			toggleAllChecked,
-		};
+		return getItemsProps(newItems, searchCriteria);
 	}
 
 	switchToSearchMode() {
@@ -96,42 +99,35 @@ class ListViewWidget extends React.Component {
 	}
 
 	switchToDefaultMode() {
-		this.setState({
+		this.setState(oldState => ({
 			headerInput: this.defaultHeaderActions,
 			displayMode: DISPLAY_MODE_DEFAULT,
-		});
+			displayedItems: oldState.items,
+		}));
 	}
 
-	onInputChange(event, value) {
-		/*if (this.timerSearch) {
+	onInputChange(event, { value }) {
+		if (this.timerSearch) {
 			clearTimeout(this.timerSearch);
 		}
 		this.timerSearch = setTimeout(() => {
-			if (this.callActionHandler(
-					LISTVIEW_SEARCH_ACTION,
-					value.value,
-					onSearchHandler.bind(this)
-				)) {
-				this.setState({
-					loadingSearchCriteria: value.value,
-					headerInput: this.loadingInputsActions,
-				});
-			} else {
-				const searchCriteria = value.value;
-				const newDisplayedItems = this.state.items.filter(
-					item => item.label.toLowerCase().includes(searchCriteria.toLowerCase())
-				);
-				const toggleAllChecked = !!newDisplayedItems.length &&
-					newDisplayedItems.length === newDisplayedItems.filter(i => i.checked).length;
-				this.setState({
-					toggleAllChecked,
-					searchCriteria,
-					displayedItems: newDisplayedItems,
-				});
-			}
+			this.setState(getItemsProps(this.state.items, value));
 			this.timerSearch = null;
-		}, 400);*/
+		}, 400);
 	}
+
+	onInputKeyDown(event) {
+		if (event.keyCode === keycode('enter')) {
+			event.stopPropagation();
+			event.preventDefault();
+		}
+		if (event.keyCode === keycode('escape')) {
+			event.stopPropagation();
+			event.preventDefault();
+			this.switchToDefaultMode();
+		}
+	}
+
 
 	onItemChange(changedItem, event) {
 		const value = this.state.items
@@ -148,7 +144,7 @@ class ListViewWidget extends React.Component {
 	onToggleAll(event) {
 		const value = this.state.toggleAllChecked ?
 			[] :
-			this.state.items.map(item => item.value);
+			this.state.displayedItems.map(item => item.value);
 		this.onChange(event, value);
 	}
 
@@ -167,7 +163,7 @@ class ListViewWidget extends React.Component {
 				id={this.props.id}
 				isValid={this.props.isValid}
 			>
-				<ListView {...this.state} />
+				<ListView {...this.state} items={this.state.displayedItems} />
 			</FieldTemplate>
 		);
 	}
@@ -197,7 +193,7 @@ if (process.env.NODE_ENV !== 'production') {
 				value: PropTypes.string.isRequired,
 			})),
 		}),
-		value: PropTypes.string,
+		value: PropTypes.arrayOf(PropTypes.string),
 	};
 }
 

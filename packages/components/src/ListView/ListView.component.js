@@ -31,18 +31,15 @@ function ListView(props) {
 }
 
 ListView.propTypes = {
+	emptyLabel: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.object),
 	noResultLabel: PropTypes.string,
 };
 
 ListView.defaultProps = {
-	displayMode: DISPLAY_MODE_DEFAULT,
-	headerLabel: 'Values',
 	emptyLabel: 'This list is empty.',
-	noResultLabel: 'No result found.',
-	toggleAllLabel: 'All',
-	searchPlaceholder: 'Search',
 	items: [],
+	noResultLabel: 'No result found.',
 };
 
 function ItemsListView(props) {
@@ -59,14 +56,18 @@ function ItemsListView(props) {
 	);
 }
 
+ItemsListView.defaultProps = {
+	toggleAllLabel: 'All',
+};
+
 ItemsListView.propTypes = {
-	items: ListView.propTypes.items,
-	searchCriteria: ListView.propTypes.searchCriteria,
-	toggleAllChecked: ListView.propTypes.toggleAllChecked,
-	toggleAllLabel: ListView.propTypes.toggleAllLabel,
-	onToggleAll: ListView.propTypes.onToggleAll,
-	getItemHeight: ListView.propTypes.getItemHeight,
 	emptyLabel: PropTypes.string,
+	getItemHeight: PropTypes.func,
+	items: ListView.propTypes.items,
+	onToggleAll: PropTypes.func,
+	searchCriteria: PropTypes.string,
+	toggleAllChecked: PropTypes.bool,
+	toggleAllLabel: PropTypes.string,
 };
 
 function HeaderListView(props) {
@@ -105,16 +106,22 @@ function HeaderListView(props) {
 	}
 }
 
+HeaderListView.defaultProps = {
+	displayMode: DISPLAY_MODE_DEFAULT,
+	headerLabel: 'Values',
+	searchPlaceholder: 'Search',
+};
+
 HeaderListView.propTypes = {
-	displayMode: ListView.propTypes.displayMode,
-	headerDefault: ListView.propTypes.headerDefault,
-	headerInput: ListView.propTypes.headerInput,
-	onInputChange: ListView.propTypes.onInputChange,
-	onAddKeyDown: ListView.propTypes.onAddKeyDown,
-	headerLabel: ListView.propTypes.headerLabel,
-	searchPlaceholder: ListView.propTypes.searchPlaceholder,
-	required: ListView.propTypes.required,
+	displayMode: PropTypes.string,
+	headerDefault: PropTypes.arrayOf(PropTypes.object),
+	headerInput: PropTypes.arrayOf(PropTypes.object),
+	headerLabel: PropTypes.string,
 	items: ListView.propTypes.items,
+	onInputChange: PropTypes.func,
+	onAddKeyDown: PropTypes.func,
+	required: PropTypes.bool,
+	searchPlaceholder: PropTypes.string,
 };
 
 export default ListView;
