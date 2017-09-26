@@ -2,33 +2,34 @@ import { take } from 'redux-saga/effects';
 
 import matchPath from './matchPath';
 
-
-function formatPath(path, parentPath) {
-	const fPath = parentPath ? `${parentPath}/${path}` : `/${path}`;
+export function formatPath(path, parentPath) {
+	let fPath = '';
+	if (parentPath && parentPath === '/') {
+		fPath = `${parentPath}${path}`;
+	} else if (parentPath) {
+		fPath = `${parentPath}/${path}`;
+	} else {
+		fPath = path;
+	}
 	return fPath.replace(/[(]/g, '').replace(/[)]/g, '?');
 }
 
-function buildMapFromRoutes(childRoutes, mapRoutes, parentPath) {
-	childRoutes.forEach((route) => {
-		formatPath(route.path);
-		const path = formatPath(route.path, parentPath);
-		if (route.documentTitle) {
-			mapRoutes.set(path, route.documentTitle);
-		}
-		if (route.childRoutes) {
-			buildMapFromRoutes(route.childRoutes, mapRoutes, path);
-		}
-	});
+export function buildMapFromRoutes(routes, mapRoutes, parentPath) {
+	const path = formatPath(routes.path, parentPath);
+	if (routes.documentTitle) {
+		mapRoutes.set(path, routes.documentTitle);
+	}
+	const childRoutes = routes.childRoutes;
+	if (childRoutes) {
+		childRoutes.forEach((route) => {
+			buildMapFromRoutes(route, mapRoutes, path);
+		});
+	}
 	return mapRoutes;
 }
 
-// function buildMapFromRoutes(routes) {
-// 	return recursiveRoutes(routes.childRoutes, );
-// }
-
-function getTitleFromRoutes(mapRoutes, location) {
-	const defaultTitle = 'Data Catalog | Talend';
-	let title = defaultTitle;
+export function getTitleFromRoutes(mapRoutes, location, defaultDocTitle) {
+	let title = defaultDocTitle;
 	mapRoutes.forEach((value, key) => {
 		const ret = matchPath(location, { path: key });
 		if (ret && ret.isExact) title = value;
@@ -36,18 +37,20 @@ function getTitleFromRoutes(mapRoutes, location) {
 	return title;
 }
 
-function assignDocTitle(title) {
-	if (title) { document.title = title; }
+export function assignDocTitle(title) {
+	if (title) {
+		document.title = title;
+	}
 }
 
 export default function* changeDocumentTitle() {
 	const { settings } = yield take('REACT_CMF.REQUEST_SETTINGS_OK');
-	console.log('settings', settings);
 	const mapRoutes = buildMapFromRoutes(settings.routes, new Map());
-	console.log('mapRoutes', mapRoutes);
+	const defaultDocTitle = mapRoutes.get('/');
+	assignDocTitle(defaultDocTitle);
 	while (1) {
 		const router = yield take('@@router/LOCATION_CHANGE');
-		const title = getTitleFromRoutes(mapRoutes, router.payload.pathname);
-		assignDocTitle(title);
+		const docTitle = getTitleFromRoutes(mapRoutes, router.payload.pathname, defaultDocTitle);
+		assignDocTitle(docTitle);
 	}
 }
