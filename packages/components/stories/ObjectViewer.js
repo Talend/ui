@@ -15,7 +15,7 @@ const veryLongCafeName = "Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong na
 const data = [
 	{
 		business_id: 0,
-		name: veryLongCafeName,
+		name: `${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName}`,
 		category: 'Club',
 		rating: 4,
 		num_of_reviews: 2647,
@@ -219,6 +219,17 @@ const openedNativeTypeHandler = {
 	onChange: action('onChange'),
 };
 
+const rootOpenedTypeHandler = {
+	edited: [],
+	opened: ['$', '$[0]'],
+	onClick: action('onClick'),
+	onSelect: (e, jsonpath) => {
+		selectedJsonpath = jsonpath;
+	},
+	onSubmit: action('onSubmit'),
+	onChange: action('onChange'),
+};
+
 const stories = storiesOf('ObjectViewer', module);
 if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
@@ -234,7 +245,7 @@ stories
 	.addWithInfo('primitive array tree', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer data={primitiveArray} {...openedNativeTypeHandler} />
+			<ObjectViewer data={primitiveArray} {...rootOpenedTypeHandler} />
 		</div>
 	))
 	.addWithInfo('tree with hightlighting', () => (

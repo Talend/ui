@@ -43,14 +43,21 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath, selected
 		[theme['line-value-selected']]: isSelectedLine,
 	});
 
+	const buttonInnerDivClasses = classNames({
+		[theme['inner-button-text']]: true
+	});
+
 	return (
-		<button
-			className={lineValueClasses}
-			type="button"
-			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
-		>
-			{display}
-		</button>
+			<button
+				className={lineValueClasses}
+				type="button"
+				onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
+			>
+				<div 
+					className={buttonInnerDivClasses}>
+					{display}
+				</div>
+			</button>
 	);
 }
 
@@ -103,6 +110,7 @@ export function LineItem({
 	const isSelectedLine = selectedJsonpath && selectedJsonpath === jsonpath;
 
 	const classes = classNames({
+		[theme['full-width']] : true,
 		[theme['selected-line']]: isSelectedLine,
 		[theme['unselected-line-hover']]: isHovered,
 	});
