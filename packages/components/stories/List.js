@@ -354,6 +354,25 @@ storiesOf('List', module)
 		);
 	})
 
+	.add('Virtualized - table display without click on title', () => {
+		const tprops = {
+			...props,
+		};
+
+		tprops.list.titleProps.onClick = null;
+
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					Display the list in table mode.<br />
+					This is the default mode.
+				</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...props} virtualized />
+			</div>
+		);
+	})
 	.add('Virtualized - table display', () => (
 		<div style={{ height: '60vh' }} className="virtualized-list">
 			<h1>List</h1>
@@ -580,6 +599,22 @@ storiesOf('List', module)
 			<List {...props} />
 		</div>
 	))
+	.add('DEPRECATED - Table without action on title', () => {
+		const tprops = {
+			...props,
+		};
+
+		tprops.list.titleProps.onClick = null;
+
+		return (
+			<div className="display-table tc-list-fixed-name-column">
+				<h1>List</h1>
+				<p>Display a list by defining your.</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...props} />
+			</div>
+		);
+	})
 	.add('DEPRECATED - Large (migrated to virtualized)', () => {
 		const tprops = cloneDeep(props);
 		tprops.displayMode = 'large';

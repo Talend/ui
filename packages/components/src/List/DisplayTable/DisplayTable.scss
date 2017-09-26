@@ -105,6 +105,9 @@ $tc-list-table-header-height: 36px !default;
 					flex-grow: 0;
 					opacity: 0;
 					visibility: hidden;
+
+					position: absolute;
+					right: 0;
 					background: linear-gradient(to right, rgba($tc-list-table-hover-bg, 0), $tc-list-table-hover-bg $padding-large);
 				}
 			}

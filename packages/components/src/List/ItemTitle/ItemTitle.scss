@@ -7,6 +7,7 @@ $tc-list-item-title-icon-size: $svg-lg-size !default;
 	line-height: $btn-line-height;
 
 	& > span {
+		padding: 0 $padding-normal;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;

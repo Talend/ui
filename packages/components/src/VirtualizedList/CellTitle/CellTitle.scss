@@ -26,6 +26,8 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		white-space: nowrap;
 		flex-grow: 1;
 
+		padding: 0 $padding-normal;
+
 		color: $tc-list-title-color;
 		font-size: inherit;
 		font-weight: 600;
@@ -49,6 +51,9 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		visibility: hidden;
 		z-index: 1;
 
+		position: absolute;
+		right: 0;
+		top: 0;
 		background: linear-gradient(to right, transparent, $tc-list-row-hover-bg $padding-large);
 
 		:global(.btn-link) {
@@ -98,6 +103,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 :global(.tc-list-title-cell) {
 	display: flex;
 	min-width: 0;
+	line-height: $btn-line-height;
 
 	> *:first-child {
 		min-width: 0;
