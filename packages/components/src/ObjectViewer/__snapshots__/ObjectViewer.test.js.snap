@@ -14412,7 +14412,7 @@ exports[`Storyshots ObjectViewer primitive array tree 1`] = `
           title={null}
         >
           <use
-            xlinkHref="#talend-chevron-left"
+            xlinkHref="#talend-caret-down"
           />
         </svg>
       </a>
@@ -14431,7 +14431,7 @@ exports[`Storyshots ObjectViewer primitive array tree 1`] = `
             [3]
           </sup>
           <ul
-            className="hidden"
+            className="undefined "
           >
             <li>
               <span
@@ -38930,8 +38930,9 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
       </svg>
     </symbol>
   </svg>
-  <div
-    className="tc-object-viewer undefined"
+  <form
+    className="tc-object-viewer undefined "
+    onSubmit={[Function]}
   >
     <div
       className={undefined}
@@ -38953,7 +38954,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
           title={null}
         >
           <use
-            xlinkHref="#talend-chevron-left"
+            xlinkHref="#talend-caret-down"
           />
         </svg>
       </a>
@@ -38964,6 +38965,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
         <span
           className={undefined}
         >
+          <button
+            className="tc-object-viewer-line-type undefined "
+            onClick={[Function]}
+          >
+            (
+            array
+            )
+          </button>
           <sup
             className="badge"
             onFocus={[Function]}
@@ -38972,7 +38981,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
             [5]
           </sup>
           <ul
-            className="hidden"
+            className="undefined "
           >
             <li>
               <div>
@@ -38988,7 +38997,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                     title={null}
                   >
                     <use
-                      xlinkHref="#talend-chevron-left"
+                      xlinkHref="#talend-caret-down"
                     />
                   </svg>
                 </a>
@@ -39005,6 +39014,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                   <span
                     className={undefined}
                   >
+                    <button
+                      className="tc-object-viewer-line-type undefined "
+                      onClick={[Function]}
+                    >
+                      (
+                      Record
+                      )
+                    </button>
                     <sup
                       className="badge"
                       onFocus={[Function]}
@@ -39013,7 +39030,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                       (7)
                     </sup>
                     <ul
-                      className="hidden"
+                      className="undefined "
                     >
                       <li>
                         <span
@@ -39032,6 +39049,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             0
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -39051,6 +39075,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            string
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -39070,6 +39101,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             Club
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            string
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -39089,6 +39127,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             4
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -39108,6 +39153,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             2647
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -39141,6 +39193,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                             <span
                               className={undefined}
                             >
+                              <button
+                                className="tc-object-viewer-line-type undefined "
+                                onClick={[Function]}
+                              >
+                                (
+                                Record
+                                )
+                              </button>
                               <sup
                                 className="badge"
                                 onFocus={[Function]}
@@ -39182,6 +39242,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                       <span
                                         className={undefined}
                                       >
+                                        <button
+                                          className="tc-object-viewer-line-type undefined "
+                                          onClick={[Function]}
+                                        >
+                                          (
+                                          Record
+                                          )
+                                        </button>
                                         <sup
                                           className="badge"
                                           onFocus={[Function]}
@@ -39209,6 +39277,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -39228,6 +39303,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -39247,6 +39329,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -39266,6 +39355,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -39285,6 +39381,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -39304,6 +39407,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                         </ul>
@@ -39342,6 +39452,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                       <span
                                         className={undefined}
                                       >
+                                        <button
+                                          className="tc-object-viewer-line-type undefined "
+                                          onClick={[Function]}
+                                        >
+                                          (
+                                          Record
+                                          )
+                                        </button>
                                         <sup
                                           className="badge"
                                           onFocus={[Function]}
@@ -39369,6 +39487,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -39388,6 +39513,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -39407,6 +39539,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                         </ul>
@@ -39431,6 +39570,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       true
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      boolean
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -39450,6 +39596,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       quiet
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                               </ul>
@@ -39488,6 +39641,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                             <span
                               className={undefined}
                             >
+                              <button
+                                className="tc-object-viewer-line-type undefined "
+                                onClick={[Function]}
+                              >
+                                (
+                                Record
+                                )
+                              </button>
                               <sup
                                 className="badge"
                                 onFocus={[Function]}
@@ -39515,6 +39676,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       STANDARD
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -39534,6 +39702,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       72132
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -39553,6 +39728,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       false
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      boolean
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -39572,6 +39754,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       1400
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -39591,6 +39780,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       NA- US - AR - REDFIELD
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -39610,6 +39806,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       2653
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -39629,6 +39832,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       PRIMARY
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -39648,6 +39858,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       56190766
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -39667,6 +39884,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       AR
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -39686,6 +39910,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       -92.18
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -39705,6 +39936,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       34.44
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -39724,6 +39962,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       REDFIELD
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                               </ul>
@@ -39767,6 +40012,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                   <span
                     className={undefined}
                   >
+                    <button
+                      className="tc-object-viewer-line-type undefined "
+                      onClick={[Function]}
+                    >
+                      (
+                      Record
+                      )
+                    </button>
                     <sup
                       className="badge"
                       onFocus={[Function]}
@@ -39794,6 +40047,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             1
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -39813,6 +40073,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            string
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -39832,6 +40099,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             Club
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            string
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -39851,6 +40125,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             4
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -39870,6 +40151,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             2647
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -39903,6 +40191,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                             <span
                               className={undefined}
                             >
+                              <button
+                                className="tc-object-viewer-line-type undefined "
+                                onClick={[Function]}
+                              >
+                                (
+                                Record
+                                )
+                              </button>
                               <sup
                                 className="badge"
                                 onFocus={[Function]}
@@ -39944,6 +40240,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                       <span
                                         className={undefined}
                                       >
+                                        <button
+                                          className="tc-object-viewer-line-type undefined "
+                                          onClick={[Function]}
+                                        >
+                                          (
+                                          Record
+                                          )
+                                        </button>
                                         <sup
                                           className="badge"
                                           onFocus={[Function]}
@@ -39971,6 +40275,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -39990,6 +40301,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -40009,6 +40327,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -40028,6 +40353,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -40047,6 +40379,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -40066,6 +40405,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                         </ul>
@@ -40104,6 +40450,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                       <span
                                         className={undefined}
                                       >
+                                        <button
+                                          className="tc-object-viewer-line-type undefined "
+                                          onClick={[Function]}
+                                        >
+                                          (
+                                          Record
+                                          )
+                                        </button>
                                         <sup
                                           className="badge"
                                           onFocus={[Function]}
@@ -40131,6 +40485,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -40150,6 +40511,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -40169,6 +40537,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                         </ul>
@@ -40193,6 +40568,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       true
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      boolean
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -40212,6 +40594,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       quiet
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                               </ul>
@@ -40250,6 +40639,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                             <span
                               className={undefined}
                             >
+                              <button
+                                className="tc-object-viewer-line-type undefined "
+                                onClick={[Function]}
+                              >
+                                (
+                                Record
+                                )
+                              </button>
                               <sup
                                 className="badge"
                                 onFocus={[Function]}
@@ -40277,6 +40674,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       STANDARD
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -40296,6 +40700,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       72132
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -40315,6 +40726,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       false
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      boolean
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -40334,6 +40752,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       1400
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -40353,6 +40778,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       NA- US - AR - REDFIELD
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -40372,6 +40804,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       2653
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -40391,6 +40830,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       PRIMARY
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -40410,6 +40856,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       56190766
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -40429,6 +40882,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       AR
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -40448,6 +40908,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       -92.18
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -40467,6 +40934,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       34.44
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -40486,6 +40960,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       REDFIELD
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                               </ul>
@@ -40529,6 +41010,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                   <span
                     className={undefined}
                   >
+                    <button
+                      className="tc-object-viewer-line-type undefined "
+                      onClick={[Function]}
+                    >
+                      (
+                      Record
+                      )
+                    </button>
                     <sup
                       className="badge"
                       onFocus={[Function]}
@@ -40556,6 +41045,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             2
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -40575,6 +41071,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             Nancy's Club
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            string
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -40594,6 +41097,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             Club
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            string
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -40613,6 +41123,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             2
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -40632,6 +41149,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             3779
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -40665,6 +41189,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                             <span
                               className={undefined}
                             >
+                              <button
+                                className="tc-object-viewer-line-type undefined "
+                                onClick={[Function]}
+                              >
+                                (
+                                Record
+                                )
+                              </button>
                               <sup
                                 className="badge"
                                 onFocus={[Function]}
@@ -40706,6 +41238,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                       <span
                                         className={undefined}
                                       >
+                                        <button
+                                          className="tc-object-viewer-line-type undefined "
+                                          onClick={[Function]}
+                                        >
+                                          (
+                                          Record
+                                          )
+                                        </button>
                                         <sup
                                           className="badge"
                                           onFocus={[Function]}
@@ -40733,6 +41273,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -40752,6 +41299,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -40771,6 +41325,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -40790,6 +41351,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -40809,6 +41377,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -40828,6 +41403,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                         </ul>
@@ -40866,6 +41448,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                       <span
                                         className={undefined}
                                       >
+                                        <button
+                                          className="tc-object-viewer-line-type undefined "
+                                          onClick={[Function]}
+                                        >
+                                          (
+                                          Record
+                                          )
+                                        </button>
                                         <sup
                                           className="badge"
                                           onFocus={[Function]}
@@ -40893,6 +41483,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -40912,6 +41509,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -40931,6 +41535,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                         </ul>
@@ -40955,6 +41566,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       true
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      boolean
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -40974,6 +41592,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       average
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                               </ul>
@@ -41012,6 +41637,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                             <span
                               className={undefined}
                             >
+                              <button
+                                className="tc-object-viewer-line-type undefined "
+                                onClick={[Function]}
+                              >
+                                (
+                                Record
+                                )
+                              </button>
                               <sup
                                 className="badge"
                                 onFocus={[Function]}
@@ -41039,6 +41672,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       PO BOX
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41058,6 +41698,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       88221
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41077,6 +41724,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       false
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      boolean
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41096,6 +41750,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       967
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41115,6 +41776,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       NA-US - NM - CARLSBAD
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41134,6 +41802,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       1638
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41153,6 +41828,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       PRIMARY
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41172,6 +41854,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       37060120
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41191,6 +41880,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       NM
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41210,6 +41906,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       -104.23
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41229,6 +41932,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       32.4
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41248,6 +41958,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       CARLSBAD
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                               </ul>
@@ -41291,6 +42008,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                   <span
                     className={undefined}
                   >
+                    <button
+                      className="tc-object-viewer-line-type undefined "
+                      onClick={[Function]}
+                    >
+                      (
+                      Record
+                      )
+                    </button>
                     <sup
                       className="badge"
                       onFocus={[Function]}
@@ -41318,6 +42043,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             3
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -41337,6 +42069,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             Cecelia's Club
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            string
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -41356,6 +42095,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             Cafe
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            string
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -41375,6 +42121,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             4
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -41394,6 +42147,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             16547
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -41427,6 +42187,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                             <span
                               className={undefined}
                             >
+                              <button
+                                className="tc-object-viewer-line-type undefined "
+                                onClick={[Function]}
+                              >
+                                (
+                                Record
+                                )
+                              </button>
                               <sup
                                 className="badge"
                                 onFocus={[Function]}
@@ -41468,6 +42236,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                       <span
                                         className={undefined}
                                       >
+                                        <button
+                                          className="tc-object-viewer-line-type undefined "
+                                          onClick={[Function]}
+                                        >
+                                          (
+                                          Record
+                                          )
+                                        </button>
                                         <sup
                                           className="badge"
                                           onFocus={[Function]}
@@ -41495,6 +42271,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -41514,6 +42297,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -41533,6 +42323,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -41552,6 +42349,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -41571,6 +42375,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -41590,6 +42401,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                         </ul>
@@ -41628,6 +42446,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                       <span
                                         className={undefined}
                                       >
+                                        <button
+                                          className="tc-object-viewer-line-type undefined "
+                                          onClick={[Function]}
+                                        >
+                                          (
+                                          Record
+                                          )
+                                        </button>
                                         <sup
                                           className="badge"
                                           onFocus={[Function]}
@@ -41655,6 +42481,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -41674,6 +42507,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -41693,6 +42533,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                         </ul>
@@ -41717,6 +42564,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       false
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      boolean
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41736,6 +42590,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       noisy
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                               </ul>
@@ -41774,6 +42635,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                             <span
                               className={undefined}
                             >
+                              <button
+                                className="tc-object-viewer-line-type undefined "
+                                onClick={[Function]}
+                              >
+                                (
+                                Record
+                                )
+                              </button>
                               <sup
                                 className="badge"
                                 onFocus={[Function]}
@@ -41801,6 +42670,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       PO BOX
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41820,6 +42696,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       47445
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41839,6 +42722,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       false
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      boolean
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41858,6 +42748,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       123
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41877,6 +42774,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       NA-US - IN - MIDLAND
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41896,6 +42800,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       123
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41915,6 +42826,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       PRIMARY
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41934,6 +42852,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       456
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41953,6 +42878,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       IN
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41972,6 +42904,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       -87.16
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -41991,6 +42930,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       39.09
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -42010,6 +42956,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       MIDLAND
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                               </ul>
@@ -42053,6 +43006,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                   <span
                     className={undefined}
                   >
+                    <button
+                      className="tc-object-viewer-line-type undefined "
+                      onClick={[Function]}
+                    >
+                      (
+                      Record
+                      )
+                    </button>
                     <sup
                       className="badge"
                       onFocus={[Function]}
@@ -42080,6 +43041,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             4
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -42099,6 +43067,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             Gordon's Bar
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            string
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -42118,6 +43093,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             Cafe
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            string
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -42137,6 +43119,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             1
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -42156,6 +43145,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           >
                             152
                           </button>
+                          <div
+                            className="tc-object-viewer-line-type undefined"
+                          >
+                            (
+                            number
+                            )
+                          </div>
                         </span>
                       </li>
                       <li>
@@ -42189,6 +43185,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                             <span
                               className={undefined}
                             >
+                              <button
+                                className="tc-object-viewer-line-type undefined "
+                                onClick={[Function]}
+                              >
+                                (
+                                Record
+                                )
+                              </button>
                               <sup
                                 className="badge"
                                 onFocus={[Function]}
@@ -42230,6 +43234,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                       <span
                                         className={undefined}
                                       >
+                                        <button
+                                          className="tc-object-viewer-line-type undefined "
+                                          onClick={[Function]}
+                                        >
+                                          (
+                                          Record
+                                          )
+                                        </button>
                                         <sup
                                           className="badge"
                                           onFocus={[Function]}
@@ -42257,6 +43269,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -42276,6 +43295,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -42295,6 +43321,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -42314,6 +43347,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -42333,6 +43373,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -42352,6 +43399,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                         </ul>
@@ -42390,6 +43444,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                       <span
                                         className={undefined}
                                       >
+                                        <button
+                                          className="tc-object-viewer-line-type undefined "
+                                          onClick={[Function]}
+                                        >
+                                          (
+                                          Record
+                                          )
+                                        </button>
                                         <sup
                                           className="badge"
                                           onFocus={[Function]}
@@ -42417,6 +43479,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -42436,6 +43505,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 false
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                           <li>
@@ -42455,6 +43531,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                               >
                                                 true
                                               </button>
+                                              <div
+                                                className="tc-object-viewer-line-type undefined"
+                                              >
+                                                (
+                                                boolean
+                                                )
+                                              </div>
                                             </span>
                                           </li>
                                         </ul>
@@ -42479,6 +43562,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       true
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      boolean
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -42498,6 +43588,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       noisy
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                               </ul>
@@ -42536,6 +43633,14 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                             <span
                               className={undefined}
                             >
+                              <button
+                                className="tc-object-viewer-line-type undefined "
+                                onClick={[Function]}
+                              >
+                                (
+                                Record
+                                )
+                              </button>
                               <sup
                                 className="badge"
                                 onFocus={[Function]}
@@ -42563,6 +43668,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       STANDARD
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -42582,6 +43694,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       65638
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -42601,6 +43720,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       false
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      boolean
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -42620,6 +43746,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       123
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -42639,6 +43772,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       NA- US - MO - DRURY
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -42658,6 +43798,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       123
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -42677,6 +43824,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       PRIMARY
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -42696,6 +43850,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       456
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -42715,6 +43876,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       MO
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -42734,6 +43902,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       -92.32
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -42753,6 +43928,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       36.92
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      number
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                                 <li>
@@ -42772,6 +43954,13 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                                     >
                                       DRURY
                                     </button>
+                                    <div
+                                      className="tc-object-viewer-line-type undefined"
+                                    >
+                                      (
+                                      string
+                                      )
+                                    </div>
                                   </span>
                                 </li>
                               </ul>
@@ -42788,7 +43977,7 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </form>
 </div>
 `;
 
@@ -42829,8 +44018,9 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
       </svg>
     </symbol>
   </svg>
-  <div
-    className="tc-object-viewer undefined"
+  <form
+    className="tc-object-viewer undefined "
+    onSubmit={[Function]}
   >
     <div
       className={undefined}
@@ -42852,7 +44042,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
           title={null}
         >
           <use
-            xlinkHref="#talend-chevron-left"
+            xlinkHref="#talend-caret-down"
           />
         </svg>
       </a>
@@ -42871,7 +44061,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
             [5]
           </sup>
           <ul
-            className="hidden"
+            className="undefined "
           >
             <li>
               <div>
@@ -42887,7 +44077,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                     title={null}
                   >
                     <use
-                      xlinkHref="#talend-chevron-left"
+                      xlinkHref="#talend-caret-down"
                     />
                   </svg>
                 </a>
@@ -42912,7 +44102,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                       (7)
                     </sup>
                     <ul
-                      className="hidden"
+                      className="undefined "
                     >
                       <li>
                         <span
@@ -46687,7 +47877,7 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
         </span>
       </span>
     </div>
-  </div>
+  </form>
 </div>
 `;
 
