@@ -15,6 +15,10 @@ $tc-icon-size: $svg-md-size !default;
 	}
 }
 
+.link {
+	cursor: pointer;
+}
+
 .spin {
 	animation-name: svg-spin;
 	animation-duration: 2s;
