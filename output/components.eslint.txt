@@ -1,205 +1,46 @@
 
-> @talend/react-components@0.112.0 lint:es /home/travis/build/Talend/ui/packages/components
-> eslint --config ../../.eslintrc src
+> @talend/react-components@0.113.1 lint:es /home/travis/build/Talend/ui/packages/components
+> eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.component.js
-  84:5  error  Expected indentation of 5 tabs but found 4  indent
-  85:6  error  Expected indentation of 6 tabs but found 5  indent
-  86:5  error  Expected indentation of 5 tabs but found 4  indent
-  87:6  error  Expected indentation of 6 tabs but found 5  indent
-  88:5  error  Expected indentation of 5 tabs but found 4  indent
-  89:6  error  Expected indentation of 6 tabs but found 5  indent
-  90:5  error  Expected indentation of 5 tabs but found 4  indent
-  91:6  error  Expected indentation of 6 tabs but found 5  indent
-
 /home/travis/build/Talend/ui/packages/components/src/Actions/Action/Action.component.js
   3:8  error  'classnames' is defined but never used  no-unused-vars
-
-/home/travis/build/Talend/ui/packages/components/src/Actions/Actions.component.js
-  26:2  error  Expected indentation of 2 tabs but found 1  indent
-  27:3  error  Expected indentation of 3 tabs but found 2  indent
-  28:2  error  Expected indentation of 2 tabs but found 1  indent
-  29:3  error  Expected indentation of 3 tabs but found 2  indent
-  30:2  error  Expected indentation of 2 tabs but found 1  indent
-  31:3  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/AppHeaderBar.component.js
-  92:5  error  Expected indentation of 5 tabs but found 4  indent
-  93:6  error  Expected indentation of 6 tabs but found 5  indent
-  94:5  error  Expected indentation of 5 tabs but found 4  indent
-  95:6  error  Expected indentation of 6 tabs but found 5  indent
-  96:5  error  Expected indentation of 5 tabs but found 4  indent
-  97:6  error  Expected indentation of 6 tabs but found 5  indent
-
-/home/travis/build/Talend/ui/packages/components/src/CollapsiblePanel/CollapsiblePanel.component.js
-  48:2  error  Expected indentation of 2 tabs but found 1  indent
-  49:3  error  Expected indentation of 3 tabs but found 2  indent
-  64:2  error  Expected indentation of 2 tabs but found 1  indent
-  65:3  error  Expected indentation of 3 tabs but found 2  indent
-  75:2  error  Expected indentation of 2 tabs but found 1  indent
-  76:3  error  Expected indentation of 3 tabs but found 2  indent
-  84:2  error  Expected indentation of 2 tabs but found 1  indent
-  85:3  error  Expected indentation of 3 tabs but found 2  indent
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Enumeration.component.js
-  134:2  error  Expected indentation of 2 tabs but found 1  indent
-  145:2  error  Expected indentation of 2 tabs but found 1  indent
-  158:2  error  Expected indentation of 2 tabs but found 1  indent
-  168:2  error  Expected indentation of 2 tabs but found 1  indent
-  176:2  error  Expected indentation of 2 tabs but found 1  indent
-  177:3  error  Expected indentation of 3 tabs but found 2  indent
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/ItemEdit.component.js
-  56:3  error  Expected indentation of 3 tabs but found 2  indent
-  57:4  error  Expected indentation of 4 tabs but found 3  indent
-  58:4  error  Expected indentation of 4 tabs but found 3  indent
-  59:3  error  Expected indentation of 3 tabs but found 2  indent
-  60:4  error  Expected indentation of 4 tabs but found 3  indent
-  61:4  error  Expected indentation of 4 tabs but found 3  indent
-  62:3  error  Expected indentation of 3 tabs but found 2  indent
-  63:4  error  Expected indentation of 4 tabs but found 3  indent
-
-/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Items.component.js
-  55:3  error  Expected indentation of 3 tabs but found 2  indent
-  74:3  error  Expected indentation of 3 tabs but found 2  indent
-
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
-
-/home/travis/build/Talend/ui/packages/components/src/Layout/Layout.component.js
-  45:2  error  Expected indentation of 2 tabs but found 1  indent
-  46:3  error  Expected indentation of 3 tabs but found 2  indent
-  47:3  error  Expected indentation of 3 tabs but found 2  indent
-  48:2  error  Expected indentation of 2 tabs but found 1  indent
-  49:3  error  Expected indentation of 3 tabs but found 2  indent
-  50:3  error  Expected indentation of 3 tabs but found 2  indent
-  51:2  error  Expected indentation of 2 tabs but found 1  indent
-  52:3  error  Expected indentation of 3 tabs but found 2  indent
-
-/home/travis/build/Talend/ui/packages/components/src/List/Content/Item/Item.component.js
-  132:3  error  Expected indentation of 3 tabs but found 2  indent
-  133:4  error  Expected indentation of 4 tabs but found 3  indent
-  134:3  error  Expected indentation of 3 tabs but found 2  indent
-  135:4  error  Expected indentation of 4 tabs but found 3  indent
-  136:3  error  Expected indentation of 3 tabs but found 2  indent
-  137:4  error  Expected indentation of 4 tabs but found 3  indent
-  138:3  error  Expected indentation of 3 tabs but found 2  indent
-  139:4  error  Expected indentation of 4 tabs but found 3  indent
-
-/home/travis/build/Talend/ui/packages/components/src/List/Content/ItemTitle/ItemTitle.component.js
-   44:3  error  Expected indentation of 3 tabs but found 2  indent
-   45:4  error  Expected indentation of 4 tabs but found 3  indent
-   46:4  error  Expected indentation of 4 tabs but found 3  indent
-   47:3  error  Expected indentation of 3 tabs but found 2  indent
-   48:4  error  Expected indentation of 4 tabs but found 3  indent
-   49:4  error  Expected indentation of 4 tabs but found 3  indent
-   50:3  error  Expected indentation of 3 tabs but found 2  indent
-   51:4  error  Expected indentation of 4 tabs but found 3  indent
-   96:3  error  Expected indentation of 3 tabs but found 2  indent
-   97:4  error  Expected indentation of 4 tabs but found 3  indent
-   98:3  error  Expected indentation of 3 tabs but found 2  indent
-   99:4  error  Expected indentation of 4 tabs but found 3  indent
-  100:3  error  Expected indentation of 3 tabs but found 2  indent
-  101:4  error  Expected indentation of 4 tabs but found 3  indent
-  102:3  error  Expected indentation of 3 tabs but found 2  indent
-  103:4  error  Expected indentation of 4 tabs but found 3  indent
-
-/home/travis/build/Talend/ui/packages/components/src/List/ItemTitle/ItemTitle.component.js
-  74:3  error  Expected indentation of 3 tabs but found 2  indent
-  75:4  error  Expected indentation of 4 tabs but found 3  indent
-  76:4  error  Expected indentation of 4 tabs but found 3  indent
-  77:3  error  Expected indentation of 3 tabs but found 2  indent
-  78:4  error  Expected indentation of 4 tabs but found 3  indent
-  79:4  error  Expected indentation of 4 tabs but found 3  indent
-  80:3  error  Expected indentation of 3 tabs but found 2  indent
-  81:4  error  Expected indentation of 4 tabs but found 3  indent
-
-/home/travis/build/Talend/ui/packages/components/src/List/List.component.js
-  76:2  error  Expected indentation of 2 tabs but found 1  indent
-  77:2  error  Expected indentation of 2 tabs but found 1  indent
-  78:2  error  Expected indentation of 2 tabs but found 1  indent
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Filter/Filter.component.js
-  16:2  error  Expected indentation of 2 tabs but found 1  indent
-  17:3  error  Expected indentation of 3 tabs but found 2  indent
-  20:3  error  Expected indentation of 3 tabs but found 2  indent
-  21:2  error  Expected indentation of 2 tabs but found 1  indent
-  22:3  error  Expected indentation of 3 tabs but found 2  indent
-  25:3  error  Expected indentation of 3 tabs but found 2  indent
-  26:2  error  Expected indentation of 2 tabs but found 1  indent
-  27:3  error  Expected indentation of 3 tabs but found 2  indent
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Pagination/Pagination.component.js
-  45:3  error  Expected indentation of 3 tabs but found 2  indent
-  49:3  error  Expected indentation of 3 tabs but found 2  indent
-  53:3  error  Expected indentation of 3 tabs but found 2  indent
-  57:3  error  Expected indentation of 3 tabs but found 2  indent
-  61:3  error  Expected indentation of 3 tabs but found 2  indent
-  62:4  error  Expected indentation of 4 tabs but found 3  indent
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectDisplayMode/SelectDisplayMode.component.js
-  11:2  error  Expected indentation of 2 tabs but found 1  indent
-  12:3  error  Expected indentation of 3 tabs but found 2  indent
-  13:2  error  Expected indentation of 2 tabs but found 1  indent
-  14:3  error  Expected indentation of 3 tabs but found 2  indent
-  15:2  error  Expected indentation of 2 tabs but found 1  indent
-  16:3  error  Expected indentation of 3 tabs but found 2  indent
-  17:2  error  Expected indentation of 2 tabs but found 1  indent
-  18:3  error  Expected indentation of 3 tabs but found 2  indent
-  24:2  error  Expected indentation of 2 tabs but found 1  indent
-  25:3  error  Expected indentation of 3 tabs but found 2  indent
-  26:2  error  Expected indentation of 2 tabs but found 1  indent
-  27:3  error  Expected indentation of 3 tabs but found 2  indent
-  28:2  error  Expected indentation of 2 tabs but found 1  indent
-  29:3  error  Expected indentation of 3 tabs but found 2  indent
-  30:2  error  Expected indentation of 2 tabs but found 1  indent
-  31:3  error  Expected indentation of 3 tabs but found 2  indent
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/ListView.component.js
-  86:2  error  Expected indentation of 2 tabs but found 1  indent
-  95:2  error  Expected indentation of 2 tabs but found 1  indent
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
+  230:14  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+  423:15  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/ObjectViewer.component.js
-  17:2  error  Expected indentation of 2 tabs but found 1  indent
-  18:3  error  Expected indentation of 3 tabs but found 2  indent
-  19:2  error  Expected indentation of 2 tabs but found 1  indent
-  20:3  error  Expected indentation of 3 tabs but found 2  indent
-  21:2  error  Expected indentation of 2 tabs but found 1  indent
-  22:3  error  Expected indentation of 3 tabs but found 2  indent
-  23:2  error  Expected indentation of 2 tabs but found 1  indent
-  24:3  error  Expected indentation of 3 tabs but found 2  indent
-  25:2  error  Expected indentation of 2 tabs but found 1  indent
-  26:3  error  Expected indentation of 3 tabs but found 2  indent
+  17:3  error  Expected indentation of 1 tab but found 2   indent
+  18:4  error  Expected indentation of 2 tabs but found 3  indent
+  19:3  error  Expected indentation of 1 tab but found 2   indent
+  20:4  error  Expected indentation of 2 tabs but found 3  indent
+  21:3  error  Expected indentation of 1 tab but found 2   indent
+  22:4  error  Expected indentation of 2 tabs but found 3  indent
+  23:3  error  Expected indentation of 1 tab but found 2   indent
+  24:4  error  Expected indentation of 2 tabs but found 3  indent
+  25:3  error  Expected indentation of 1 tab but found 2   indent
+  26:4  error  Expected indentation of 2 tabs but found 3  indent
 
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Status/Status.component.js
-  42:2  error  Expected indentation of 2 tabs but found 1  indent
-  43:3  error  Expected indentation of 3 tabs but found 2  indent
-  44:2  error  Expected indentation of 2 tabs but found 1  indent
-  45:3  error  Expected indentation of 3 tabs but found 2  indent
-  46:2  error  Expected indentation of 2 tabs but found 1  indent
-  47:3  error  Expected indentation of 3 tabs but found 2  indent
-  48:2  error  Expected indentation of 2 tabs but found 1  indent
-  49:3  error  Expected indentation of 3 tabs but found 2  indent
-  50:2  error  Expected indentation of 2 tabs but found 1  indent
-  51:3  error  Expected indentation of 3 tabs but found 2  indent
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 149 problems (149 errors, 0 warnings)
+✖ 22 problems (22 errors, 0 warnings)
 

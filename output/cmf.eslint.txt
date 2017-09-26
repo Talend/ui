@@ -1,12 +1,8 @@
 
-> @talend/react-cmf@0.112.0 lint:es /home/travis/build/Talend/ui/packages/cmf
-> eslint --config ../../.eslintrc --ext .js src
+> @talend/react-cmf@0.113.1 lint:es /home/travis/build/Talend/ui/packages/cmf
+> eslint --config .eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/cmf/src/App.js
-  30:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  32:2  error  Prop type `object` is forbidden  react/forbid-prop-types
 
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   67:3  warning  Unexpected console statement  no-console
@@ -14,52 +10,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   8:2  warning  Unexpected console statement  no-console
 
-/home/travis/build/Talend/ui/packages/cmf/src/mock/provider.js
-  56:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  57:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  58:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  59:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-
-/home/travis/build/Talend/ui/packages/cmf/src/reducers/collectionsReducers.js
-  150:2  error  Expected indentation of 2 tabs but found 1  indent
-  151:3  error  Expected indentation of 3 tabs but found 2  indent
-  152:2  error  Expected indentation of 2 tabs but found 1  indent
-  153:3  error  Expected indentation of 3 tabs but found 2  indent
-  154:2  error  Expected indentation of 2 tabs but found 1  indent
-  155:3  error  Expected indentation of 3 tabs but found 2  indent
-  156:2  error  Expected indentation of 2 tabs but found 1  indent
-  157:3  error  Expected indentation of 3 tabs but found 2  indent
-
-/home/travis/build/Talend/ui/packages/cmf/src/reducers/componentsReducers.js
-  67:2  error  Expected indentation of 2 tabs but found 1  indent
-  68:3  error  Expected indentation of 3 tabs but found 2  indent
-  69:3  error  Expected indentation of 3 tabs but found 2  indent
-  76:3  error  Expected indentation of 3 tabs but found 2  indent
-  80:2  error  Expected indentation of 2 tabs but found 1  indent
-  81:3  error  Expected indentation of 3 tabs but found 2  indent
-  83:3  error  Expected indentation of 3 tabs but found 2  indent
-  87:2  error  Expected indentation of 2 tabs but found 1  indent
-  88:3  error  Expected indentation of 3 tabs but found 2  indent
-  89:3  error  Expected indentation of 3 tabs but found 2  indent
-  90:2  error  Expected indentation of 2 tabs but found 1  indent
-
-/home/travis/build/Talend/ui/packages/cmf/src/reducers/settingsReducers.js
-  24:2  error  Expected indentation of 2 tabs but found 1  indent
-  25:3  error  Expected indentation of 3 tabs but found 2  indent
-  28:2  error  Expected indentation of 2 tabs but found 1  indent
-  31:3  error  Expected indentation of 3 tabs but found 2  indent
-  34:2  error  Expected indentation of 2 tabs but found 1  indent
-  35:3  error  Expected indentation of 3 tabs but found 2  indent
-
 /home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
   17:17  error  Expected 'this' to be used by class method 'getChildContext'  class-methods-use-this
 
 /home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
   45:2  warning  Unexpected constant condition  no-constant-condition
 
-/home/travis/build/Talend/ui/packages/cmf/src/UIRouter.js
-  29:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-  30:2  error  Prop type `object` is forbidden  react/forbid-prop-types
-
-✖ 37 problems (34 errors, 3 warnings)
+✖ 4 problems (1 error, 3 warnings)
 

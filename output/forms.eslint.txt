@@ -1,6 +1,6 @@
 
-> @talend/react-forms@0.112.0 lint:es /home/travis/build/Talend/ui/packages/forms
-> eslint --config ../../.eslintrc src
+> @talend/react-forms@0.113.1 lint:es /home/travis/build/Talend/ui/packages/forms
+> eslint --config .eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
@@ -37,70 +37,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
   8:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Datalist/Datalist.component.js
-   76:3  error  Expected indentation of 3 tabs but found 2  indent
-   77:4  error  Expected indentation of 4 tabs but found 3  indent
-   78:4  error  Expected indentation of 4 tabs but found 3  indent
-   79:4  error  Expected indentation of 4 tabs but found 3  indent
-   80:3  error  Expected indentation of 3 tabs but found 2  indent
-   81:4  error  Expected indentation of 4 tabs but found 3  indent
-   84:4  error  Expected indentation of 4 tabs but found 3  indent
-   85:4  error  Expected indentation of 4 tabs but found 3  indent
-   93:4  error  Expected indentation of 4 tabs but found 3  indent
-   94:4  error  Expected indentation of 4 tabs but found 3  indent
-   95:3  error  Expected indentation of 3 tabs but found 2  indent
-   96:4  error  Expected indentation of 4 tabs but found 3  indent
-   97:4  error  Expected indentation of 4 tabs but found 3  indent
-  101:4  error  Expected indentation of 4 tabs but found 3  indent
-  102:4  error  Expected indentation of 4 tabs but found 3  indent
-  103:3  error  Expected indentation of 3 tabs but found 2  indent
-  104:4  error  Expected indentation of 4 tabs but found 3  indent
-  105:4  error  Expected indentation of 4 tabs but found 3  indent
-  106:4  error  Expected indentation of 4 tabs but found 3  indent
-  107:3  error  Expected indentation of 3 tabs but found 2  indent
-  108:4  error  Expected indentation of 4 tabs but found 3  indent
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/MultiSelectTag/MultiSelectTag.component.js
-  65:3  error  Expected indentation of 3 tabs but found 2  indent
-  66:4  error  Expected indentation of 4 tabs but found 3  indent
-  68:4  error  Expected indentation of 4 tabs but found 3  indent
-  71:4  error  Expected indentation of 4 tabs but found 3  indent
-  72:3  error  Expected indentation of 3 tabs but found 2  indent
-  73:3  error  Expected indentation of 3 tabs but found 2  indent
-  74:4  error  Expected indentation of 4 tabs but found 3  indent
-  75:4  error  Expected indentation of 4 tabs but found 3  indent
-  76:4  error  Expected indentation of 4 tabs but found 3  indent
-  77:3  error  Expected indentation of 3 tabs but found 2  indent
-  78:4  error  Expected indentation of 4 tabs but found 3  indent
-  81:4  error  Expected indentation of 4 tabs but found 3  indent
-  82:3  error  Expected indentation of 3 tabs but found 2  indent
-  83:4  error  Expected indentation of 4 tabs but found 3  indent
-
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/reducers/form.reducer.js
-  29:2  error  Expected indentation of 2 tabs but found 1  indent
-  43:2  error  Expected indentation of 2 tabs but found 1  indent
-  61:2  error  Expected indentation of 2 tabs but found 1  indent
-  62:3  error  Expected indentation of 3 tabs but found 2  indent
-  63:2  error  Expected indentation of 2 tabs but found 1  indent
-  64:2  error  Expected indentation of 2 tabs but found 1  indent
-  65:2  error  Expected indentation of 2 tabs but found 1  indent
-  78:2  error  Expected indentation of 2 tabs but found 1  indent
-  79:3  error  Expected indentation of 3 tabs but found 2  indent
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/reducers/model.reducer.js
-  11:2  error  Expected indentation of 2 tabs but found 1  indent
-  12:3  error  Expected indentation of 3 tabs but found 2  indent
-  13:2  error  Expected indentation of 2 tabs but found 1  indent
-  14:3  error  Expected indentation of 3 tabs but found 2  indent
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/reducers/validations.reducer.js
-  10:2  error  Expected indentation of 2 tabs but found 1  indent
-  19:2  error  Expected indentation of 2 tabs but found 1  indent
-  22:2  error  Expected indentation of 2 tabs but found 1  indent
-  23:3  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   38:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -109,23 +47,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   78:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   79:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
-  154:3  error  Expected indentation of 3 tabs but found 2  indent
-  155:4  error  Expected indentation of 4 tabs but found 3  indent
-  156:4  error  Expected indentation of 4 tabs but found 3  indent
-  157:4  error  Expected indentation of 4 tabs but found 3  indent
-  158:3  error  Expected indentation of 3 tabs but found 2  indent
-  160:4  error  Expected indentation of 4 tabs but found 3  indent
-  163:4  error  Expected indentation of 4 tabs but found 3  indent
-  164:4  error  Expected indentation of 4 tabs but found 3  indent
-  165:3  error  Expected indentation of 3 tabs but found 2  indent
-  166:3  error  Expected indentation of 3 tabs but found 2  indent
-  167:4  error  Expected indentation of 4 tabs but found 3  indent
-  168:4  error  Expected indentation of 4 tabs but found 3  indent
-  169:4  error  Expected indentation of 4 tabs but found 3  indent
-  170:3  error  Expected indentation of 3 tabs but found 2  indent
-  171:4  error  Expected indentation of 4 tabs but found 3  indent
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
   72:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   73:3  error  Prop type `object` is forbidden  react/forbid-prop-types
@@ -133,21 +54,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.js
   123:3  error  Prop type `any` is forbidden  react/forbid-prop-types
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
-  114:3  error  Expected indentation of 3 tabs but found 2  indent
-  118:3  error  Expected indentation of 3 tabs but found 2  indent
-  119:4  error  Expected indentation of 4 tabs but found 3  indent
-  134:3  error  Expected indentation of 3 tabs but found 2  indent
-  140:3  error  Expected indentation of 3 tabs but found 2  indent
-  156:3  error  Expected indentation of 3 tabs but found 2  indent
-  165:3  error  Expected indentation of 3 tabs but found 2  indent
-  174:3  error  Expected indentation of 3 tabs but found 2  indent
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/TabsWidget.js
   56:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   67:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   68:3  error  Prop type `object` is forbidden  react/forbid-prop-types
   69:3  error  Prop type `object` is forbidden  react/forbid-prop-types
 
-✖ 109 problems (109 errors, 0 warnings)
+✖ 34 problems (34 errors, 0 warnings)
 
