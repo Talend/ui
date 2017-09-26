@@ -2,8 +2,6 @@ import React from 'react';
 import { IconsProvider } from '@talend/react-components';
 import { ObjectViewer } from '../src';
 
-const veryLongDatasetLabel =
-	"Dataset of something that I cant't imagine; Dataset of something that I cant't imagine; Dataset of something that I cant't imagine";
 const veryLongCafeName = "Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name";
 const data = [
 	{
@@ -178,8 +176,7 @@ const data = [
 	},
 ];
 
-let selectedJsonpath = "$[0]['name']";
-const kTrue = true;
+const selectedJsonpath = "$[0]['name']";
 
 const ExampleObjectViewer = {
 	default: () => (
@@ -203,7 +200,13 @@ const ExampleObjectViewer = {
 	'JsonLike with types': () => (
 		<div>
 			<IconsProvider />
-			<ObjectViewer data={data} showType={kTrue} />
+			<ObjectViewer data={data} showType />
+		</div>
+	),
+	'JsonLike with tuple name': () => (
+		<div>
+			<IconsProvider />
+			<ObjectViewer data={data} showType tupleLabel="Record" />
 		</div>
 	),
 	'list default': () => (
