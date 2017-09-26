@@ -1,5 +1,5 @@
 
-> @talend/bootstrap-theme@0.113.0 lint:style /home/travis/build/Talend/ui/packages/theme
+> @talend/bootstrap-theme@0.113.1 lint:style /home/travis/build/Talend/ui/packages/theme
 > sass-lint -q -v
 
 
