@@ -99,10 +99,7 @@ class ObjectViewer extends React.Component {
 		// We need for that a better JSONPath support.
 		return (
 			<Component
-				data={this.props.data}
-				displayMode={this.props.displayMode}
-				showType={this.props.showType}
-				onSubmit={this.props.onSubmit}
+				{...this.props}
 				onChange={this.props.onSubmit ? this.onChange : undefined}
 				onSelect={this.onSelect}
 				onEdit={this.onEdit}
@@ -110,7 +107,6 @@ class ObjectViewer extends React.Component {
 				selectedJsonpath={state.selectedJsonpath}
 				opened={state.opened}
 				edited={state.edited}
-				{...this.props}
 			/>
 		);
 	}
