@@ -185,6 +185,12 @@ const ExampleObjectViewer = {
 			<ObjectViewer data={data} />
 		</div>
 	),
+	'JsonLike with rootLabel': () => (
+		<div>
+			<IconsProvider />
+			<ObjectViewer data={data} rootLabel="Dataset des cafés" />
+		</div>
+	),
 	'JsonLike with hightlight': () => (
 		<div>
 			<IconsProvider />
