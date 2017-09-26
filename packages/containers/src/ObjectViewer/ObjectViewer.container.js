@@ -110,6 +110,7 @@ class ObjectViewer extends React.Component {
 				selectedJsonpath={state.selectedJsonpath}
 				opened={state.opened}
 				edited={state.edited}
+				{...this.props}
 			/>
 		);
 	}
