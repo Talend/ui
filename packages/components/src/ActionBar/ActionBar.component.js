@@ -81,14 +81,14 @@ function SwitchActions({ actions, left, right, selected, renderers }) {
 			{ actions.map((action, index) => {
 				const { displayMode, ...rest } = action;
 				switch (displayMode) {
-				case DISPLAY_MODES.DROPDOWN:
-					return <Renderers.ActionDropdown key={index} {...rest} />;
-				case DISPLAY_MODES.SPLIT_DROPDOWN:
-					return <Renderers.ActionSplitDropdown key={index} {...rest} />;
-				case DISPLAY_MODES.BTN_GROUP:
-					return <Renderers.Actions key={index} {...rest} />;
-				default:
-					return <Renderers.Action key={index} {...rest} />;
+					case DISPLAY_MODES.DROPDOWN:
+						return <Renderers.ActionDropdown key={index} {...rest} />;
+					case DISPLAY_MODES.SPLIT_DROPDOWN:
+						return <Renderers.ActionSplitDropdown key={index} {...rest} />;
+					case DISPLAY_MODES.BTN_GROUP:
+						return <Renderers.Actions key={index} {...rest} />;
+					default:
+						return <Renderers.Action key={index} {...rest} />;
 				}
 			}) }
 		</Content>

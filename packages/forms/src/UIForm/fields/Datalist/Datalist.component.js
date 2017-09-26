@@ -73,39 +73,39 @@ class Datalist extends Component {
 	 */
 	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
 		switch (event.which) {
-		case keycode.codes.esc:
-			event.preventDefault();
-			this.resetValue();
-			break;
-		case keycode.codes.enter:
-			if (!this.state.suggestions) {
+			case keycode.codes.esc:
+				event.preventDefault();
+				this.resetValue();
 				break;
-			}
-			event.preventDefault();
-			if (Number.isInteger(focusedItemIndex)) {
-				// suggestions are displayed and an item has the focus : we select it
-				this.onSelect(event, { itemIndex: focusedItemIndex });
-			} else if (this.state.value !== this.state.previousValue) {
-				// there is no focused item and the current value is not persisted
-				// we persist it
-				this.updateValue(event, this.state.value, true);
-			}
-			this.resetSuggestions();
-			break;
-		case keycode.codes.down:
-			event.preventDefault();
-			if (!this.state.suggestions) {
-				// display all suggestions when they are not displayed
-				this.updateSuggestions();
-			}
-			this.setState({ focusedItemIndex: newFocusedItemIndex });
-			break;
-		case keycode.codes.up:
-			event.preventDefault();
-			this.setState({ focusedItemIndex: newFocusedItemIndex });
-			break;
-		default:
-			break;
+			case keycode.codes.enter:
+				if (!this.state.suggestions) {
+					break;
+				}
+				event.preventDefault();
+				if (Number.isInteger(focusedItemIndex)) {
+					// suggestions are displayed and an item has the focus : we select it
+					this.onSelect(event, { itemIndex: focusedItemIndex });
+				} else if (this.state.value !== this.state.previousValue) {
+					// there is no focused item and the current value is not persisted
+					// we persist it
+					this.updateValue(event, this.state.value, true);
+				}
+				this.resetSuggestions();
+				break;
+			case keycode.codes.down:
+				event.preventDefault();
+				if (!this.state.suggestions) {
+					// display all suggestions when they are not displayed
+					this.updateSuggestions();
+				}
+				this.setState({ focusedItemIndex: newFocusedItemIndex });
+				break;
+			case keycode.codes.up:
+				event.preventDefault();
+				this.setState({ focusedItemIndex: newFocusedItemIndex });
+				break;
+			default:
+				break;
 		}
 	}
 
