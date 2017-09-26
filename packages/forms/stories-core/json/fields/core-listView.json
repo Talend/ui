@@ -223,6 +223,9 @@
     {
       "key": "mappedListView",
       "description": "This ListView displays a mapping of the values",
+      "emptyLabel": "There is no countries",
+      "noResultLabel": "No country matching your filter",
+      "placeholder": "Search filter",
       "title": "Mapped List View",
       "titleMap": {
         "country1": "Afghanistan",

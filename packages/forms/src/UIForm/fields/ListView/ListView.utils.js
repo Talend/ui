@@ -39,8 +39,11 @@ export function initItems(schema, value, searchCriteria, onChange) {
 
 	return {
 		...getItemsProps(items, searchCriteria),
+		emptyLabel: schema.emptyLabel,
 		headerLabel: schema.title,
+		noResultLabel: schema.noResultLabel,
 		required: schema.required,
+		searchPlaceholder: schema.placeholder,
 	};
 }
 

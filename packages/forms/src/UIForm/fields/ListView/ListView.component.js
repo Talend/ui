@@ -201,11 +201,11 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
-			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
+			emptyLabel: PropTypes.string,
+			noResultLabel: PropTypes.string,
 			placeholder: PropTypes.string,
-			readOnly: PropTypes.bool,
 			required: PropTypes.bool,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
