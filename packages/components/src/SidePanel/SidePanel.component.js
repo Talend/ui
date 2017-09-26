@@ -30,7 +30,7 @@ function SidePanel({
 	selected,
 	onSelect,
 	actions = [],
-	docked,
+	docked = true,
 	onToggleDock,
 	expandTitle = 'Expand',
 	collapseTitle = 'Collapse',
@@ -57,6 +57,7 @@ function SidePanel({
 
 	return (
 		<nav className={navCSS}>
+			<button className={theme['background-overlay']} onClick={onToggleDock} />
 			<ul className={listCSS}>
 				<li className={theme['toggle-btn']} title={toggleButtonTitle}>
 					<Action

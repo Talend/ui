@@ -91,7 +91,7 @@ stories
 		class WithLayout extends React.Component {
 			constructor() {
 				super();
-				this.state = { docked: false };
+				this.state = { docked: true };
 			}
 			render() {
 				const panelItems = items.concat([
@@ -108,6 +108,7 @@ stories
 						onToggleDock={() => this.setState({ docked: !this.state.docked })}
 						docked={this.state.docked}
 						tooltipPlacement="top"
+						selected={items[1]}
 					/>
 				);
 				return (
