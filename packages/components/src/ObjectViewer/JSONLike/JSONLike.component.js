@@ -46,6 +46,7 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath, selected
 	return (
 		<button
 			className={lineValueClasses}
+			type="button"
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 		>
 			{display}
@@ -243,6 +244,7 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 					{props.showType ? (
 						<button
 							className={`tc-object-viewer-line-type ${theme['line-type']} `}
+							type="button"
 							onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 						>
 							({info.type})
