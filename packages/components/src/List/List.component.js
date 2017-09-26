@@ -73,9 +73,12 @@ function DisplayModeComponent({ displayMode, id, list, useContent, virtualized }
 		);
 	}
 	switch (displayMode) {
-	case 'tile': return <DisplayTile id={id} {...list} />;
-	case 'large': return <DisplayLarge id={id} {...list} />;
-	default: return <DisplayTable id={id} {...list} />;
+		case 'tile':
+			return <DisplayTile id={id} {...list} />;
+		case 'large':
+			return <DisplayLarge id={id} {...list} />;
+		default:
+			return <DisplayTable id={id} {...list} />;
 	}
 }
 DisplayModeComponent.propTypes = {
