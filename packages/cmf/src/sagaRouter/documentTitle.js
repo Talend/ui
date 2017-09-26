@@ -28,7 +28,7 @@ export function buildMapFromRoutes(routes, mapRoutes, parentPath) {
 		mapRoutes.set(path, routes.documentTitle);
 	}
 	const childRoutes = routes.childRoutes;
-	if (childRoutes) {
+	if (childRoutes && childRoutes instanceof Array) {
 		childRoutes.forEach((route) => {
 			buildMapFromRoutes(route, mapRoutes, path);
 		});
