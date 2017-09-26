@@ -24,6 +24,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		flex-grow: 1;
 
 		color: $tc-list-title-color;
 		font-size: inherit;
@@ -48,9 +49,6 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		visibility: hidden;
 		z-index: 1;
 
-		position: absolute;
-		right: 0;
-		top: 0;
 		background: linear-gradient(to right, transparent, $tc-list-row-hover-bg $padding-large);
 
 		:global(.btn-link) {
