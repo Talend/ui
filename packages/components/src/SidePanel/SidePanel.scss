@@ -15,7 +15,7 @@ $toggle-button-padding: $padding-small - 1;
 .tc-side-panel {
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	height: 100%;
 	width: $tc-side-panel-docked-width;
 
 	.background-overlay {

@@ -51,9 +51,17 @@ if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
 }
 
+const Container = ({ children }) => (
+	<div style={{ height: '100vh' }}>{children}</div>
+);
+
+Container.propTypes = {
+	children: React.PropTypes.arrayOf(React.PropTypes.node)
+};
+
 stories
 	.addWithInfo('default', () => (
-		<div>
+		<Container>
 			<IconsProvider defaultIcons={icons} />
 			<SidePanel
 				id="context"
@@ -62,10 +70,10 @@ stories
 				docked={false}
 				tooltipPlacement="top"
 			/>
-		</div>
+		</Container>
 	))
 	.addWithInfo('docked', () => (
-		<div>
+		<Container>
 			<IconsProvider defaultIcons={icons} />
 			<SidePanel
 				actions={actions}
@@ -73,10 +81,10 @@ stories
 				docked
 				tooltipPlacement="top"
 			/>
-		</div>
+		</Container>
 	))
 	.addWithInfo('with onSelect function', () => (
-		<div>
+		<Container>
 			<IconsProvider defaultIcons={icons} />
 			<SidePanel
 				actions={items}
@@ -85,7 +93,7 @@ stories
 				selected={items[1]}
 				tooltipPlacement="top"
 			/>
-		</div>
+		</Container>
 	))
 	.addWithInfo('With layout (toggle interactive)', () => {
 		class WithLayout extends React.Component {
