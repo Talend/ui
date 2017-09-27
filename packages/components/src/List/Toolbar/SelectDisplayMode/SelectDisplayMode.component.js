@@ -8,27 +8,27 @@ import Icon from '../../../Icon';
 
 function getIcon(selected) {
 	switch (selected) {
-	case 'table':
-		return 'talend-table';
-	case 'large':
-		return 'talend-expanded';
-	case 'tile':
-		return 'talend-tiles';
-	default:
-		return 'talend-table';
+		case 'table':
+			return 'talend-table';
+		case 'large':
+			return 'talend-expanded';
+		case 'tile':
+			return 'talend-tiles';
+		default:
+			return 'talend-table';
 	}
 }
 
 function getLabel(selected, t) {
 	switch (selected) {
-	case 'table':
-		return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
-	case 'large':
-		return t('LIST_SELECT_DISPLAY_MODE_LARGE', { defaultValue: 'Expanded' });
-	case 'tile':
-		return t('LIST_SELECT_DISPLAY_MODE_TILE', { defaultValue: 'Tile' });
-	default:
-		return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
+		case 'table':
+			return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
+		case 'large':
+			return t('LIST_SELECT_DISPLAY_MODE_LARGE', { defaultValue: 'Expanded' });
+		case 'tile':
+			return t('LIST_SELECT_DISPLAY_MODE_TILE', { defaultValue: 'Tile' });
+		default:
+			return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
 	}
 }
 
