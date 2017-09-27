@@ -13,18 +13,18 @@ import theme from './Filter.scss';
 
 function onKeyDown(event, escAction, enterAction) {
 	switch (event.keyCode) {
-	case keycode.codes.enter:
-		if (enterAction) {
-			enterAction(event);
-		}
-		break;
-	case keycode.codes.esc:
-		if (escAction) {
-			escAction(event);
-		}
-		break;
-	default:
-		break;
+		case keycode.codes.enter:
+			if (enterAction) {
+				enterAction(event);
+			}
+			break;
+		case keycode.codes.esc:
+			if (escAction) {
+				escAction(event);
+			}
+			break;
+		default:
+			break;
 	}
 }
 
