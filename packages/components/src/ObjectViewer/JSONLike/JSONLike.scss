@@ -60,7 +60,6 @@
 		padding: 2px 5px;
 		display: inline-table;
 		margin-left: 10px;
-		vertical-align: text-bottom;
 		border: solid 1px #dce4eb;
 	}
 
@@ -116,8 +115,6 @@
 		padding: 0;
 		cursor: text;
 		margin-left: 4px;
-
-		/* https://stackoverflow.com/questions/34833815/showing-truncated-text-on-hover-using-css-ellipsis-overlaps-text-below-it */
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
@@ -125,11 +122,8 @@
 	}
 
 	.inner-button-text {
-		/* width : 550px; */
 		max-width: 100%;
 		display: inline;
-
-		/* width: calc(100%-150px); */
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
@@ -138,7 +132,6 @@
 	.inner-button-text:hover {
 		overflow: visible;
 		white-space: normal;
-		height: auto; /* just added this line */
 		max-width: 100%;
 	}
 

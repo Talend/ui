@@ -37,8 +37,6 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath, selected
 
 	const isSelectedLine = selectedJsonpath && selectedJsonpath === jsonpath;
 	const lineValueClasses = classNames({
-		[theme.native]: true,
-		[theme[type]]: true,
 		[theme['line-value']]: true,
 		[theme['line-value-selected']]: isSelectedLine,
 	});
