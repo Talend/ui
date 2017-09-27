@@ -9,9 +9,7 @@ import matchPath from './matchPath';
  */
 export function formatPath(path, parentPath) {
 	let fPath = path;
-	if (parentPath) {
-		fPath = parentPath.endsWith('/') ? `${parentPath}${path}` : `${parentPath}/${path}`;
-	}
+	fPath = parentPath && parentPath.endsWith('/') ? `${parentPath}${path}` : `${parentPath}/${path}`;
 	// Convert optional url parameters to React Router V2 --> V4 (:param) --> :param?
 	return fPath.replace(/[(]/g, '').replace(/[)]/g, '?');
 }
