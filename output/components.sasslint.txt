@@ -1,7 +1,10 @@
 
-> @talend/react-components@0.112.0 lint:style /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.114.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
+
+src/ObjectViewer/JSONLike/JSONLike.scss
+  65:21  warning  Hex notation should all be upper case  hex-notation
 
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
@@ -9,5 +12,5 @@ src/VirtualizedList/NoRows/NoRows.scss
 src/VirtualizedList/RowSelection/RowSelection.scss
   12:1  warning  Space expected between blocks  empty-line-between-blocks
 
-✖ 2 problems (0 errors, 2 warnings)
+✖ 3 problems (0 errors, 3 warnings)
 

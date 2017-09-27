@@ -83,25 +83,25 @@ function HeaderListView(props) {
 	} = props;
 
 	switch (displayMode) {
-	case DISPLAY_MODE_SEARCH: {
-		const propsInput = {
-			headerInput,
-			onInputChange,
-			onAddKeyDown,
-			inputPlaceholder: searchPlaceholder,
-		};
-		return <HeaderInput {...propsInput} />;
-	}
-	default: {
-		const propsDefault = {
-			headerDefault,
-			headerLabel,
-			required,
-			nbItems: items.length,
-			nbItemsSelected: items.filter(item => !!item.checked).length,
-		};
-		return <Header {...propsDefault} />;
-	}
+		case DISPLAY_MODE_SEARCH: {
+			const propsInput = {
+				headerInput,
+				onInputChange,
+				onAddKeyDown,
+				inputPlaceholder: searchPlaceholder,
+			};
+			return <HeaderInput {...propsInput} />;
+		}
+		default: {
+			const propsDefault = {
+				headerDefault,
+				headerLabel,
+				required,
+				nbItems: items.length,
+				nbItemsSelected: items.filter(item => !!item.checked).length,
+			};
+			return <Header {...propsDefault} />;
+		}
 	}
 }
 

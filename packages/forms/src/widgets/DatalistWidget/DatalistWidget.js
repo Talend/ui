@@ -170,24 +170,24 @@ class DatalistWidget extends React.Component {
 		focusedItemIndex,
 	}) {
 		switch (event.which) {
-		case keycode.codes.esc:
-			this.resetValue();
-			event.preventDefault();
-			break;
-		case keycode.codes.enter:
-			// could be null in case of no match
-			if (focusedItemIndex != null) {
-				this.selectItem(focusedSectionIndex, focusedItemIndex);
-			}
-			event.preventDefault();
-			break;
-		case keycode.codes.up:
-		case keycode.codes.down:
-			event.preventDefault();
-			this.focusOnItem(newFocusedSectionIndex, newFocusedItemIndex);
-			break;
-		default:
-			break;
+			case keycode.codes.esc:
+				this.resetValue();
+				event.preventDefault();
+				break;
+			case keycode.codes.enter:
+				// could be null in case of no match
+				if (focusedItemIndex != null) {
+					this.selectItem(focusedSectionIndex, focusedItemIndex);
+				}
+				event.preventDefault();
+				break;
+			case keycode.codes.up:
+			case keycode.codes.down:
+				event.preventDefault();
+				this.focusOnItem(newFocusedSectionIndex, newFocusedItemIndex);
+				break;
+			default:
+				break;
 		}
 	}
 

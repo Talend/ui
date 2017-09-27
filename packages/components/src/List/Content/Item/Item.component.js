@@ -129,14 +129,14 @@ function Item({ id, columns, actions, item, itemProps }) {
 
 	const getCellFor = (column, index) => {
 		switch (column.type) {
-		case 'action':
-			return getActionColumn(column, index);
-		case 'icon':
-			return getIcon(column, index);
-		case 'title':
-			return getTitle(column, index);
-		default:
-			return null;
+			case 'action':
+				return getActionColumn(column, index);
+			case 'icon':
+				return getIcon(column, index);
+			case 'title':
+				return getTitle(column, index);
+			default:
+				return null;
 		}
 	};
 

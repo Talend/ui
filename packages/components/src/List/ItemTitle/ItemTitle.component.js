@@ -71,14 +71,14 @@ export class TitleInput extends React.Component {
 
 	onKeyUp(event) {
 		switch (event.keyCode) {
-		case ESC_KEY:
-			this.cancel(event);
-			break;
-		case ENTER_KEY:
-			this.submit(event);
-			break;
-		default:
-			break;
+			case ESC_KEY:
+				this.cancel(event);
+				break;
+			case ENTER_KEY:
+				this.submit(event);
+				break;
+			default:
+				break;
 		}
 	}
 
