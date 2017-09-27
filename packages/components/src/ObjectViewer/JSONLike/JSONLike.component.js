@@ -41,17 +41,13 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath, selected
 		[theme['line-value-selected']]: isSelectedLine,
 	});
 
-	const buttonInnerDivClasses = classNames({
-		[theme['inner-button-text']]: true,
-	});
-
 	return (
 		<button
 			className={lineValueClasses}
 			type="button"
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 		>
-			<div className={buttonInnerDivClasses}>{display}</div>
+			<div className={theme['inner-button-text']}>{display}</div>
 		</button>
 	);
 }
