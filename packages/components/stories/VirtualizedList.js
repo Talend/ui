@@ -170,28 +170,15 @@ const collection = [
 	},
 ];
 
-const collectionLotOfItems = [
+const collectionWithLotOfItems = [
 	{
 		id: 0,
-		name: 'Title with icon and actions',
+		name: 'Title with items',
 		created: '2016-09-22',
 		modified: '2016-09-22',
-		description: 'Simple row with icon and actions',
+		description: 'Simple row with lot of items',
 		author: 'Jean-Pierre DUPONT',
 		rating: 'rating1',
-		field1: 'field',
-		field2: 'field',
-		display: 'text',
-		className: 'item-0-class',
-	},
-	{
-		id: 1,
-		name: 'Title without actions',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		description: 'Simple row without actions',
-		author: 'Jean-Pierre DUPONT',
-		rating:'rating2',
 		field1: 'field',
 		field2: 'field',
 		display: 'text',
@@ -486,7 +473,7 @@ storiesOf('Virtualized List', module)
 			</section>
 		</div>
 	))
-	.add('List > Large with mor ethan 6 items', () => (
+	.add('List > Large with lot of items', () => (
 		<div>
 			<h1>Virtualized List</h1>
 			<p>
@@ -498,7 +485,7 @@ storiesOf('Virtualized List', module)
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
-					collection={collectionLotOfItems}
+					collection={collectionWithLotOfItems}
 					id={'my-list'}
 					rowHeight={135}
 					type={listTypes.LARGE}

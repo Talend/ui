@@ -30,14 +30,14 @@ $tc-list-large-field-value-color: $dove-gray !default;
 	}
 
 	.content {
-		column-count: 3;
-		flex: 1;
 		min-height: 0;
 		padding: 0 $padding-large;
+		display: flex;
+		flex-wrap: wrap;
 
 		> li {
 			list-style: none;
-			display: flex;
+			flex: 1 0 300px;
 		}
 	}
 
