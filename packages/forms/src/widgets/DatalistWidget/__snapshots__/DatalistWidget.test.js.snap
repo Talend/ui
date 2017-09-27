@@ -674,7 +674,7 @@ exports[`DatalistWidget should render items under category when it has "category
           "value": "blue",
         },
       ],
-      "withCategory": true,
+      "groupBy": "category",
     }
   }
 >
@@ -707,6 +707,7 @@ exports[`DatalistWidget should render items under category when it has "category
           "items": Array [
             Object {
               "text": "Apple",
+              "value": "apple",
             },
           ],
           "title": "fruit",
@@ -715,6 +716,7 @@ exports[`DatalistWidget should render items under category when it has "category
           "items": Array [
             Object {
               "text": "Blue",
+              "value": "blue",
             },
           ],
           "title": "color",
@@ -804,6 +806,7 @@ exports[`DatalistWidget should render items under category when it has "category
                 "items": Array [
                   Object {
                     "text": "Apple",
+                    "value": "apple",
                   },
                 ],
                 "title": "fruit",
@@ -834,6 +837,7 @@ exports[`DatalistWidget should render items under category when it has "category
               Array [
                 Object {
                   "text": "Apple",
+                  "value": "apple",
                 },
               ]
             }
@@ -857,6 +861,7 @@ exports[`DatalistWidget should render items under category when it has "category
                 item={
                   Object {
                     "text": "Apple",
+                    "value": "apple",
                   }
                 }
                 itemIndex={0}
@@ -907,6 +912,7 @@ exports[`DatalistWidget should render items under category when it has "category
                 "items": Array [
                   Object {
                     "text": "Blue",
+                    "value": "blue",
                   },
                 ],
                 "title": "color",
@@ -937,6 +943,7 @@ exports[`DatalistWidget should render items under category when it has "category
               Array [
                 Object {
                   "text": "Blue",
+                  "value": "blue",
                 },
               ]
             }
@@ -960,6 +967,7 @@ exports[`DatalistWidget should render items under category when it has "category
                 item={
                   Object {
                     "text": "Blue",
+                    "value": "blue",
                   }
                 }
                 itemIndex={0}
@@ -1156,7 +1164,7 @@ exports[`DatalistWidget should select item under category when press enter on fo
           "value": "blue",
         },
       ],
-      "withCategory": true,
+      "groupBy": "category",
     }
   }
 >
@@ -1173,7 +1181,7 @@ exports[`DatalistWidget should select item under category when press enter on fo
         "onKeyDown": [Function],
         "placeholder": undefined,
         "required": undefined,
-        "value": "Apple",
+        "value": "apple",
       }
     }
     itemProps={
@@ -1189,7 +1197,7 @@ exports[`DatalistWidget should select item under category when press enter on fo
     renderItem={[Function]}
     renderItemData={
       Object {
-        "value": "Apple",
+        "value": "apple",
       }
     }
     renderItemsContainer={[Function]}

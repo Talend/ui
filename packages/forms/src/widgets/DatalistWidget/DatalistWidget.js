@@ -64,7 +64,7 @@ function itemsContainerClickHandler() {
 
 function renderSectionTitle(section) {
 	return (
-			<div className={theme['title']}>{section.title}</div>
+		<div className={theme.title}>{section.title}</div>
 	);
 }
 
@@ -104,9 +104,10 @@ class DatalistWidget extends React.Component {
 		};
 
 		this.itemProps = {
-			onMouseEnter: (event, {sectionIndex, itemIndex}) => this.focusOnItem(sectionIndex, itemIndex),
+			onMouseEnter: (event, { sectionIndex, itemIndex }) =>
+					this.focusOnItem(sectionIndex, itemIndex),
 			onMouseLeave: () => this.focusOnItem(),
-			onMouseDown: (event, {sectionIndex, itemIndex}) => {
+			onMouseDown: (event, { sectionIndex, itemIndex }) => {
 				this.selectItem(sectionIndex, itemIndex);
 			},
 		};
@@ -162,7 +163,12 @@ class DatalistWidget extends React.Component {
 		}
 	}
 
-	onKeyDown(event, { newFocusedSectionIndex, newFocusedItemIndex, focusedSectionIndex, focusedItemIndex}) {
+	onKeyDown(event, {
+		newFocusedSectionIndex,
+		newFocusedItemIndex,
+		focusedSectionIndex,
+		focusedItemIndex,
+	}) {
 		switch (event.which) {
 		case keycode.codes.esc:
 			this.resetValue();
@@ -221,11 +227,10 @@ class DatalistWidget extends React.Component {
 		const escapedValue = escapeRegexCharacters(this.getLabel(value).trim());
 		const regex = new RegExp(escapedValue, 'i');
 
-		if(this.props.options && this.props.options.enumOptions) {
+		if (this.props.options && this.props.options.enumOptions) {
 			return suggestions.filter(item => regex.test(item.label));
-		} else {
-			return suggestions.filter(item => regex.test(item));
 		}
+		return suggestions.filter(item => regex.test(item));
 	}
 
 	setValue(value) {
@@ -235,7 +240,7 @@ class DatalistWidget extends React.Component {
 	getItems() {
 		const { options, schema, formContext } = this.props;
 
-		if(options && options.enumOptions && options.withCategory) {
+		if (options && options.enumOptions && options.groupBy) {
 			return options.enumOptions.map(item => ({ value: item.value, ...item.label }));
 		} else if (options && options.enumOptions) {
 			return options.enumOptions;
@@ -245,6 +250,28 @@ class DatalistWidget extends React.Component {
 			return formContext.fetchItems(schema.title);
 		}
 		return [];
+	}
+
+	getDropdownItems(suggestions) {
+		// options with categories
+		if (this.props.options && this.props.options.groupBy) {
+			const category = this.props.options.groupBy;
+			const categoryMap = {};
+			suggestions.forEach((suggestion) => {
+				if (!Object.prototype.hasOwnProperty.call(categoryMap, suggestion[category])) {
+					categoryMap[suggestion[category]] = [{ text: suggestion.label, value: suggestion.value }];
+				} else {
+					categoryMap[suggestion[category]].push({
+						text: suggestion.label,
+						value: suggestion.value,
+					});
+				}
+			});
+			return Object.keys(categoryMap).map(key => ({ title: key, items: categoryMap[key] }));
+		} else if (this.props.options && this.props.options.enumOptions) {
+			return suggestions.map(s => s.value);
+		}
+		return suggestions;
 	}
 
 	isPartOfItems(value) {
@@ -299,12 +326,15 @@ class DatalistWidget extends React.Component {
 		});
 	}
 
+
 	focusOnItem(sectionIndex, itemIndex) {
-		this.setState({sectionIndex, itemIndex});
+		this.setState({ sectionIndex, itemIndex });
 	}
 
 	selectItem(sectionIndex, itemIndex) {
-		const selectedItem = sectionIndex != null ? this.state.items[sectionIndex]["items"][itemIndex].text : this.state.items[itemIndex];
+		const selectedItem = sectionIndex != null ?
+				this.state.items[sectionIndex].items[itemIndex].value :
+				this.state.items[itemIndex];
 
 		if (selectedItem && selectedItem !== this.state.value) {
 			this.setValue(selectedItem);
@@ -343,25 +373,6 @@ class DatalistWidget extends React.Component {
 			</div>);
 	}
 
-	getDropdownItems(suggestions) {
-		// options with categories
-		if(this.props.options && this.props.options.withCategory) {
-			const categoryMap = suggestions.reduce((acc, cur) => {
-				if(!acc.hasOwnProperty(cur.category)) {
-					acc[cur.category] = [{text: cur.label}];
-				} else {
-					acc[cur.category].push({text: cur.label})
-				}
-				return acc;
-			}, {});
-			return Object.keys(categoryMap).map(key => ({title: key, items: categoryMap[key]}));
-		} else if (this.props.options && this.props.options.enumOptions) {
-			return suggestions.map(s => s.value);
-		} else {
-			return suggestions;
-		}
-
-	}
 
 	render() {
 		let renderItemsContainer;
@@ -384,12 +395,12 @@ class DatalistWidget extends React.Component {
 			renderItem: this.renderDatalistItem,
 			inputProps: this.inputProps,
 			theme: this.style,
-			renderItemData: renderItemData,
+			renderItemData,
 			renderInputComponent: this.renderDatalistInput,
-			renderItemsContainer: renderItemsContainer,
+			renderItemsContainer,
 			itemProps: this.itemProps,
 			focusedItemIndex: this.state.itemIndex,
-			ref: ref => this.reference = ref,
+			ref: (ref) => { this.reference = ref; },
 		};
 
 		const propsWithCategory = Object.assign({}, props, {
@@ -400,9 +411,9 @@ class DatalistWidget extends React.Component {
 			focusedSectionIndex: this.state.sectionIndex,
 		});
 
-		if (this.props.options && this.props.options.withCategory){
+		if (this.props.options && this.props.options.groupBy) {
 			return (
-					<Autowhatever {...propsWithCategory} />
+				<Autowhatever {...propsWithCategory} />
 			);
 		}
 		return (
@@ -434,7 +445,7 @@ if (process.env.NODE_ENV !== 'production') {
 			enumOptions: PropTypes.array,
 			// Is the field value restricted to the suggestion list
 			restricted: PropTypes.bool,
-			withCategory: PropTypes.bool,
+			groupBy: PropTypes.string,
 		}),
 		renderItemsContainer: PropTypes.func,
 		renderNoMatch: PropTypes.func,

@@ -333,19 +333,19 @@ describe('DatalistWidget', () => {
 	});
 
 	const options = {
-		enumOptions:[
-			{ value: 'apple', label: { label: 'Apple', category: 'fruit'} },
-			{ value:'blue', label: { label: 'Blue', category: 'color'} }
+		enumOptions: [
+			{ value: 'apple', label: { label: 'Apple', category: 'fruit' } },
+			{ value: 'blue', label: { label: 'Blue', category: 'color' } },
 		],
-		withCategory: true,
+		groupBy: 'category',
 	};
 
-	it('should render items under category when it has "category" property', ()=>{
+	it('should render items under category when it has "category" property', () => {
 		// given
 		const wrapper = mount(
 			<DatalistWidget
-					id="datawidget"
-					options={options}
+				id="datawidget"
+				options={options}
 			/>
 		);
 
@@ -361,22 +361,21 @@ describe('DatalistWidget', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
 			<DatalistWidget
-					id="datawidget"
-					options={options}
-					onChange={onChange}
+				id="datawidget"
+				options={options}
+				onChange={onChange}
 			/>
 		);
 
 		// when
 		wrapper.find('input').at(0).simulate('focus');
-		let event = new KeyboardEvent('keydown', {'keyCode': 37});
+		const event = new KeyboardEvent('keydown', { keyCode: 37 });
 		document.dispatchEvent(event);
 		wrapper.find('li').at(0).simulate('mouseDown');
 
 		// then
-		expect(onChange).toBeCalledWith('Apple');
+		expect(onChange).toBeCalledWith('apple');
 
 		expect(toJson(wrapper)).toMatchSnapshot();
-
 	});
 });

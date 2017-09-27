@@ -50,7 +50,7 @@
           "hero13"
         ],
         "enumNames": [
-          {"label": "Captain Marvel", "category": "Female"},
+          {"label": "Wonder Woman", "category": "Female"},
           {"label": "Captain America", "category": "Male"},
           {"label": "Daredevil", "category": "Male"},
           {"label": "Deadpool", "category": "Male"},
@@ -128,7 +128,8 @@
     "d": {
       "ui:widget": "datalist",
       "ui:options": {
-        "withCategory": true
+        "groupBy": "category",
+        "restricted": true
       }
     }
   }
