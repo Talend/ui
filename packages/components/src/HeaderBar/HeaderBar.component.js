@@ -255,12 +255,10 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	User.propTypes = {
-		renderers: PropTypes.shape({
-			ActionDropdown: PropTypes.func,
-			name: PropTypes.string.isRequired,
-			firstName: PropTypes.string,
-			lastName: PropTypes.string,
-		}),
+		ActionDropdown: PropTypes.func,
+		name: PropTypes.string.isRequired,
+		firstName: PropTypes.string,
+		lastName: PropTypes.string,
 	};
 
 	Products.propTypes = {
@@ -271,13 +269,13 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	HeaderBar.propTypes = {
-		logo: PropTypes.shape(Logo.propTypes),
+		logo: PropTypes.shape({ ...Logo.propTypes, t: undefined }),
 		brand: PropTypes.shape(Brand.propTypes),
 		env: PropTypes.shape(Environment.propTypes),
 		search: PropTypes.shape(Search.propTypes),
-		help: PropTypes.shape(Help.propTypes),
+		help: PropTypes.shape({ ...Help.propTypes, t: undefined }),
 		user: PropTypes.shape(User.propTypes),
-		products: PropTypes.shape(Products.propTypes),
+		products: PropTypes.shape({ ...Products.propTypes, t: undefined }),
 		renderers: PropTypes.shape({
 			Logo: PropTypes.func,
 			Brand: PropTypes.func,
