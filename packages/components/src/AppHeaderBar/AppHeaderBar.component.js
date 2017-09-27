@@ -89,12 +89,12 @@ export function renderNav(props) {
 			{props.navItems.map((itemDef, index) => {
 				const { type, item } = itemDef;
 				switch (type) {
-				case NAV_ITEM:
-					return renderNavItem(item, index);
-				case DROPDOWN:
-					return renderDropdown(item, index);
-				default:
-					return null;
+					case NAV_ITEM:
+						return renderNavItem(item, index);
+					case DROPDOWN:
+						return renderDropdown(item, index);
+					default:
+						return null;
 				}
 			})}
 		</Nav>

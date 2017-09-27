@@ -9,7 +9,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "lint:es": "eslint --config .eslintrc --ext .js src",
+    "lint:es": "eslint --config ../../.eslintrc --ext .js src",
     "lint": "npm run lint:es"
   },
   "keywords": [
