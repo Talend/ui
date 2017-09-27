@@ -42,7 +42,7 @@ $tf-typeahead-section-border-color: #E0E0E0 !default;
 }
 
 .no-result {
-	padding: $padding-normal;
+	padding: $padding-smaller;
 	font-size: 1.5rem;
 	font-style: italic;
 	color: $tf-typeahead-no-result-color;
@@ -71,7 +71,7 @@ $tf-typeahead-section-border-color: #E0E0E0 !default;
 
 .item {
 	margin-bottom: 0;
-	padding: $padding-smaller;
+	padding: $padding-normal;
 	cursor: pointer;
 
 	&-focused {
