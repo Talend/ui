@@ -652,6 +652,360 @@ exports[`DatalistWidget should render input 1`] = `
 </div>
 `;
 
+exports[`DatalistWidget should render items under category when it has "category" property 1`] = `
+<DatalistWidget
+  formContext={Object {}}
+  id="datawidget"
+  options={
+    Object {
+      "enumOptions": Array [
+        Object {
+          "label": Object {
+            "category": "fruit",
+            "label": "Apple",
+          },
+          "value": "apple",
+        },
+        Object {
+          "label": Object {
+            "category": "color",
+            "label": "Blue",
+          },
+          "value": "blue",
+        },
+      ],
+      "withCategory": true,
+    }
+  }
+>
+  <Autowhatever
+    focusedItemIndex={null}
+    focusedSectionIndex={null}
+    getSectionItems={[Function]}
+    id="datawidget"
+    inputProps={
+      Object {
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "onKeyDown": [Function],
+        "placeholder": undefined,
+        "required": undefined,
+        "value": "",
+      }
+    }
+    itemProps={
+      Object {
+        "onMouseDown": [Function],
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      }
+    }
+    items={
+      Array [
+        Object {
+          "items": Array [
+            Object {
+              "text": "Apple",
+            },
+          ],
+          "title": "fruit",
+        },
+        Object {
+          "items": Array [
+            Object {
+              "text": "Blue",
+            },
+          ],
+          "title": "color",
+        },
+      ]
+    }
+    multiSection={true}
+    renderInputComponent={[Function]}
+    renderItem={[Function]}
+    renderItemData={
+      Object {
+        "value": "",
+      }
+    }
+    renderItemsContainer={[Function]}
+    renderSectionTitle={[Function]}
+    shouldRenderSection={[Function]}
+    theme={
+      Object {
+        "container": "form-control tf-typeahead-container",
+        "containerOpen": undefined,
+        "highlight": undefined,
+        "input": undefined,
+        "itemFocused": undefined,
+        "itemsContainer": undefined,
+        "itemsList": undefined,
+      }
+    }
+  >
+    <div
+      className="form-control tf-typeahead-container"
+    >
+      <div>
+        <FormControl
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-expanded={true}
+          aria-haspopup={true}
+          aria-owns="react-autowhatever-datawidget"
+          autoComplete="off"
+          bsClass="form-control"
+          componentClass="input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="combobox"
+          style={Object {}}
+          type="text"
+          value=""
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-expanded={true}
+            aria-haspopup={true}
+            aria-owns="react-autowhatever-datawidget"
+            autoComplete="off"
+            className="form-control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            role="combobox"
+            style={Object {}}
+            type="text"
+            value=""
+          />
+        </FormControl>
+        <div>
+          <span
+            className="caret"
+          />
+        </div>
+      </div>
+      <div
+        id="react-autowhatever-datawidget"
+        style={Object {}}
+      >
+        <div
+          style={Object {}}
+        >
+          <SectionTitle
+            renderSectionTitle={[Function]}
+            section={
+              Object {
+                "items": Array [
+                  Object {
+                    "text": "Apple",
+                  },
+                ],
+                "title": "fruit",
+              }
+            }
+            sectionKeyPrefix="react-autowhatever-datawidget-section-0-"
+            theme={[Function]}
+          >
+            <div
+              style={Object {}}
+            >
+              <div>
+                fruit
+              </div>
+            </div>
+          </SectionTitle>
+          <ItemsList
+            focusedItemIndex={null}
+            getItemId={[Function]}
+            itemProps={
+              Object {
+                "onMouseDown": [Function],
+                "onMouseEnter": [Function],
+                "onMouseLeave": [Function],
+              }
+            }
+            items={
+              Array [
+                Object {
+                  "text": "Apple",
+                },
+              ]
+            }
+            keyPrefix="react-autowhatever-datawidget-"
+            onFocusedItemChange={[Function]}
+            renderItem={[Function]}
+            renderItemData={
+              Object {
+                "value": "",
+              }
+            }
+            sectionIndex={0}
+            theme={[Function]}
+          >
+            <ul
+              role="listbox"
+              style={Object {}}
+            >
+              <Item
+                id="react-autowhatever-datawidget-section-0-item-0"
+                item={
+                  Object {
+                    "text": "Apple",
+                  }
+                }
+                itemIndex={0}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                renderItem={[Function]}
+                renderItemData={
+                  Object {
+                    "value": "",
+                  }
+                }
+                sectionIndex={0}
+                style={Object {}}
+              >
+                <li
+                  id="react-autowhatever-datawidget-section-0-item-0"
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  role="option"
+                  style={Object {}}
+                >
+                  <div
+                    className="datalist-item"
+                  >
+                    <Emphasis
+                      text="Apple"
+                      value=""
+                    >
+                      <span>
+                        Apple
+                      </span>
+                    </Emphasis>
+                  </div>
+                </li>
+              </Item>
+            </ul>
+          </ItemsList>
+        </div>
+        <div
+          style={Object {}}
+        >
+          <SectionTitle
+            renderSectionTitle={[Function]}
+            section={
+              Object {
+                "items": Array [
+                  Object {
+                    "text": "Blue",
+                  },
+                ],
+                "title": "color",
+              }
+            }
+            sectionKeyPrefix="react-autowhatever-datawidget-section-1-"
+            theme={[Function]}
+          >
+            <div
+              style={Object {}}
+            >
+              <div>
+                color
+              </div>
+            </div>
+          </SectionTitle>
+          <ItemsList
+            focusedItemIndex={null}
+            getItemId={[Function]}
+            itemProps={
+              Object {
+                "onMouseDown": [Function],
+                "onMouseEnter": [Function],
+                "onMouseLeave": [Function],
+              }
+            }
+            items={
+              Array [
+                Object {
+                  "text": "Blue",
+                },
+              ]
+            }
+            keyPrefix="react-autowhatever-datawidget-"
+            onFocusedItemChange={[Function]}
+            renderItem={[Function]}
+            renderItemData={
+              Object {
+                "value": "",
+              }
+            }
+            sectionIndex={1}
+            theme={[Function]}
+          >
+            <ul
+              role="listbox"
+              style={Object {}}
+            >
+              <Item
+                id="react-autowhatever-datawidget-section-1-item-0"
+                item={
+                  Object {
+                    "text": "Blue",
+                  }
+                }
+                itemIndex={0}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                renderItem={[Function]}
+                renderItemData={
+                  Object {
+                    "value": "",
+                  }
+                }
+                sectionIndex={1}
+                style={Object {}}
+              >
+                <li
+                  id="react-autowhatever-datawidget-section-1-item-0"
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  role="option"
+                  style={Object {}}
+                >
+                  <div
+                    className="datalist-item"
+                  >
+                    <Emphasis
+                      text="Blue"
+                      value=""
+                    >
+                      <span>
+                        Blue
+                      </span>
+                    </Emphasis>
+                  </div>
+                </li>
+              </Item>
+            </ul>
+          </ItemsList>
+        </div>
+      </div>
+    </div>
+  </Autowhatever>
+</DatalistWidget>
+`;
+
 exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
 <DatalistWidget
   formContext={Object {}}
@@ -772,6 +1126,135 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
       </div>
       <div
         id="react-autowhatever-myWidget"
+        style={Object {}}
+      />
+    </div>
+  </Autowhatever>
+</DatalistWidget>
+`;
+
+exports[`DatalistWidget should select item under category when press enter on focused item 1`] = `
+<DatalistWidget
+  formContext={Object {}}
+  id="datawidget"
+  onChange={[Function]}
+  options={
+    Object {
+      "enumOptions": Array [
+        Object {
+          "label": Object {
+            "category": "fruit",
+            "label": "Apple",
+          },
+          "value": "apple",
+        },
+        Object {
+          "label": Object {
+            "category": "color",
+            "label": "Blue",
+          },
+          "value": "blue",
+        },
+      ],
+      "withCategory": true,
+    }
+  }
+>
+  <Autowhatever
+    focusedItemIndex={null}
+    focusedSectionIndex={null}
+    getSectionItems={[Function]}
+    id="datawidget"
+    inputProps={
+      Object {
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "onKeyDown": [Function],
+        "placeholder": undefined,
+        "required": undefined,
+        "value": "Apple",
+      }
+    }
+    itemProps={
+      Object {
+        "onMouseDown": [Function],
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      }
+    }
+    items={Array []}
+    multiSection={true}
+    renderInputComponent={[Function]}
+    renderItem={[Function]}
+    renderItemData={
+      Object {
+        "value": "Apple",
+      }
+    }
+    renderItemsContainer={[Function]}
+    renderSectionTitle={[Function]}
+    shouldRenderSection={[Function]}
+    theme={
+      Object {
+        "container": "form-control tf-typeahead-container",
+        "containerOpen": undefined,
+        "highlight": undefined,
+        "input": undefined,
+        "itemFocused": undefined,
+        "itemsContainer": undefined,
+        "itemsList": undefined,
+      }
+    }
+  >
+    <div
+      className="form-control tf-typeahead-container"
+    >
+      <div>
+        <FormControl
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-expanded={false}
+          aria-haspopup={false}
+          aria-owns="react-autowhatever-datawidget"
+          autoComplete="off"
+          bsClass="form-control"
+          componentClass="input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="combobox"
+          style={Object {}}
+          type="text"
+          value="Apple"
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={false}
+            aria-owns="react-autowhatever-datawidget"
+            autoComplete="off"
+            className="form-control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            role="combobox"
+            style={Object {}}
+            type="text"
+            value="Apple"
+          />
+        </FormControl>
+        <div>
+          <span
+            className="caret"
+          />
+        </div>
+      </div>
+      <div
+        id="react-autowhatever-datawidget"
         style={Object {}}
       />
     </div>
