@@ -170,6 +170,35 @@ const collection = [
 	},
 ];
 
+const collectionLotOfItems = [
+	{
+		id: 0,
+		name: 'Title with icon and actions',
+		created: '2016-09-22',
+		modified: '2016-09-22',
+		description: 'Simple row with icon and actions',
+		author: 'Jean-Pierre DUPONT',
+		rating: 'rating1',
+		field1: 'field',
+		field2: 'field',
+		display: 'text',
+		className: 'item-0-class',
+	},
+	{
+		id: 1,
+		name: 'Title without actions',
+		created: '2016-09-22',
+		modified: '2016-09-22',
+		description: 'Simple row without actions',
+		author: 'Jean-Pierre DUPONT',
+		rating:'rating2',
+		field1: 'field',
+		field2: 'field',
+		display: 'text',
+		className: 'item-0-class',
+	},
+];
+
 for (let i = collection.length; i < 100; i += 1) {
 	collection.push({
 		id: i,
@@ -436,6 +465,65 @@ storiesOf('Virtualized List', module)
 						label=""
 						dataKey="actions"
 						{...CellActions}
+					/>
+					<VirtualizedList.Content
+						label="Description"
+						dataKey="description"
+					/>
+					<VirtualizedList.Content
+						label="Author"
+						dataKey="author"
+					/>
+					<VirtualizedList.Content
+						label="Created"
+						dataKey="created"
+					/>
+					<VirtualizedList.Content
+						label="Modified"
+						dataKey="modified"
+					/>
+				</VirtualizedList>
+			</section>
+		</div>
+	))
+	.add('List > Large with mor ethan 6 items', () => (
+		<div>
+			<h1>Virtualized List</h1>
+			<p>
+				On Large rendering, the title is automatically placed at the top.<br />
+				The rest of the fields are displayed on the <b>VirtualizedList.Content</b> order.<br/>
+				The row height is by default <b>135px</b> but can be customized by passing a
+				<b>rowHeight</b> props.
+			</p>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList
+					collection={collectionLotOfItems}
+					id={'my-list'}
+					rowHeight={135}
+					type={listTypes.LARGE}
+				>
+					<VirtualizedList.Content
+						label="Id"
+						dataKey="id"
+					/>
+					<VirtualizedList.Content
+						label="Name"
+						dataKey="name"
+						columnData={titleProps}
+						{...CellTitle}
+					/>
+					<VirtualizedList.Content
+						label="Rating"
+						dataKey="rating"
+					/>
+					<VirtualizedList.Content
+						label="Field1"
+						dataKey="field1"
+					/>
+					<VirtualizedList.Content
+						label="Field2"
+						dataKey="field2"
 					/>
 					<VirtualizedList.Content
 						label="Description"
