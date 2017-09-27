@@ -8,9 +8,9 @@ import { mutateValue } from '../utils/properties';
  */
 export default function modelReducer(state = {}, action) {
 	switch (action.type) {
-	case TF_UPDATE_FORM_DATA:
-		return mutateValue(state, action.schema.key, action.value);
-	default:
-		return state;
+		case TF_UPDATE_FORM_DATA:
+			return mutateValue(state, action.schema.key, action.value);
+		default:
+			return state;
 	}
 }

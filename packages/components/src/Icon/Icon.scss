@@ -5,7 +5,7 @@
 
 $tc-icon-size: $svg-md-size !default;
 
-.svg-icon {
+.tc-svg-icon {
 	width: $tc-icon-size;
 	height: $tc-icon-size;
 	fill: currentColor;
@@ -13,6 +13,10 @@ $tc-icon-size: $svg-md-size !default;
 	use {
 		pointer-events: none;
 	}
+}
+
+.link {
+	cursor: pointer;
 }
 
 .spin {

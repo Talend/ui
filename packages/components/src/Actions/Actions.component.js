@@ -23,12 +23,12 @@ function getButtonGroupProps(props) {
 
 function getActionComponent(displayMode) {
 	switch (displayMode) {
-	case TYPE_DROPDOWN:
-		return ActionDropdown;
-	case TYPE_SPLIT_DROPDOWN:
-		return ActionSplitDropdown;
-	default:
-		return Action;
+		case TYPE_DROPDOWN:
+			return ActionDropdown;
+		case TYPE_SPLIT_DROPDOWN:
+			return ActionSplitDropdown;
+		default:
+			return Action;
 	}
 }
 
