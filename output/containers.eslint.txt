@@ -1,51 +1,17 @@
 
-> @talend/react-containers@0.113.0 lint:es /home/travis/build/Talend/ui/packages/containers
-> eslint --config .eslintrc src
+> @talend/react-containers@0.114.0 lint:es /home/travis/build/Talend/ui/packages/containers
+> eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/containers/src/Action/Action.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/ActionBar/ActionBar.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/Actions/Actions.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
-  35:74  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
-
-/home/travis/build/Talend/ui/packages/containers/src/Form/Form.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/List/List.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
-   2:1   error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  12:90  error  'notifications' is missing in props validation                                             react/prop-types
-
-/home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.test.js
-  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  12:90  error  'notifications' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.test.js
   12:18  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
-/home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.test.js
-  4:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.test.js
-  2:1  error  'react-test-renderer' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/containers/src/state.js
   3:1  warning  Unexpected console statement  no-console
 
-✖ 15 problems (14 errors, 1 warning)
+✖ 3 problems (2 errors, 1 warning)
 
