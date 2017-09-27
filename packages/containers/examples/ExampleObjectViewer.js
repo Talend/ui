@@ -6,7 +6,7 @@ const veryLongCafeName = "Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong na
 const data = [
 	{
 		business_id: 0,
-		name: veryLongCafeName,
+		name: `${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName}`,
 		category: 'Club',
 		rating: 4,
 		num_of_reviews: 2647,
@@ -203,7 +203,7 @@ const ExampleObjectViewer = {
 			<ObjectViewer data={data} showType />
 		</div>
 	),
-	'JsonLike with tuple name': () => (
+	'JsonLike with types and tuple name': () => (
 		<div>
 			<IconsProvider />
 			<ObjectViewer data={data} showType tupleLabel="Record" />
