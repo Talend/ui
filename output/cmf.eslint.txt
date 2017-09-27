@@ -16,5 +16,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
   45:2  warning  Unexpected constant condition  no-constant-condition
 
-✖ 5 problems (2 errors, 3 warnings)
+✖ 4 problems (1 error, 3 warnings)
 
