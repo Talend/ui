@@ -39,16 +39,16 @@ export const STATUS = {
 
 function getbsStyleFromStatus(status) {
 	switch (status) {
-	case STATUS.IN_PROGRESS:
-		return 'info';
-	case STATUS.SUCCESSFUL:
-		return 'success';
-	case STATUS.FAILED:
-		return 'danger';
-	case STATUS.CANCELED:
-		return 'muted';
-	default:
-		return '';
+		case STATUS.IN_PROGRESS:
+			return 'info';
+		case STATUS.SUCCESSFUL:
+			return 'success';
+		case STATUS.FAILED:
+			return 'danger';
+		case STATUS.CANCELED:
+			return 'muted';
+		default:
+			return '';
 	}
 }
 

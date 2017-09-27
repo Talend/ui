@@ -148,21 +148,21 @@ function mutateCollection(state, action) {
  */
 function collectionsReducers(state = defaultState, action) {
 	switch (action.type) {
-	case ACTIONS.collections.COLLECTION_ADD_OR_REPLACE:
-		return state.set(action.collectionId, fromJS(action.data));
-	case ACTIONS.collections.COLLECTION_REMOVE:
-		if (!state.get(action.collectionId)) {
-			invariant(
-				process.env.NODE_ENV === 'production',
-				`Can't remove collection ${action.collectionId} since it doesn't already exist.`,
-			);
-			return state;
-		}
-		return state.delete(action.collectionId);
-	case ACTIONS.collections.COLLECTION_MUTATE:
-		return mutateCollection(state, action);
-	default:
-		return state;
+	  case ACTIONS.collections.COLLECTION_ADD_OR_REPLACE:
+		  return state.set(action.collectionId, fromJS(action.data));
+  	case ACTIONS.collections.COLLECTION_REMOVE:
+	  	if (!state.get(action.collectionId)) {
+		  	invariant(
+			  	process.env.NODE_ENV === 'production',
+				  `Can't remove collection ${action.collectionId} since it doesn't already exist.`,
+			  );
+			  return state;
+		  }
+		  return state.delete(action.collectionId);
+	  case ACTIONS.collections.COLLECTION_MUTATE:
+		  return mutateCollection(state, action);
+  	default:
+	  	return state;
 	}
 }
 

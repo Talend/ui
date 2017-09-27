@@ -42,14 +42,14 @@ function Layout({ header, footer, mode, drawers, tabs, children, ...rest }) {
 	);
 	let Component;
 	switch (mode) {
-	case DISPLAY_MODE_ONE_COLUMN:
-		Component = OneColumn;
-		break;
-	case DISPLAY_MODE_TWO_COLUMNS:
-		Component = TwoColumns;
-		break;
-	default:
-		Component = OneColumn;
+		case DISPLAY_MODE_ONE_COLUMN:
+			Component = OneColumn;
+			break;
+		case DISPLAY_MODE_TWO_COLUMNS:
+			Component = TwoColumns;
+			break;
+		default:
+			Component = OneColumn;
 	}
 	return (
 		<div className={appCSS}>

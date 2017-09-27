@@ -64,36 +64,36 @@ export function errorIfMergingStateDoesntExist(state, action) {
  */
 export function componentsReducers(state = defaultState, action) {
 	switch (action.type) {
-	case ACTIONS.components.COMPONENT_ADD_STATE:
-		warnIfAnotherComponentBind(state, action);
-		if (action.initialComponentState) {
+		case ACTIONS.components.COMPONENT_ADD_STATE:
+			warnIfAnotherComponentBind(state, action);
+			if (action.initialComponentState) {
+				return state.setIn(
+					[action.componentName, action.key],
+					fromJS(action.initialComponentState)
+				);
+			}
 			return state.setIn(
 				[action.componentName, action.key],
-				fromJS(action.initialComponentState)
+				new Map()
 			);
 		}
+		case ACTIONS.components.COMPONENT_MERGE_STATE:
+			errorIfMergingStateDoesntExist(state, action);
 
-		return state.setIn(
-			[action.componentName, action.key],
-			new Map()
-		);
-	case ACTIONS.components.COMPONENT_MERGE_STATE:
-		errorIfMergingStateDoesntExist(state, action);
-
-		return state.mergeIn(
-			[action.componentName, action.key],
-			fromJS(action.componentState)
-		);
-	case ACTIONS.components.COMPONENT_REMOVE_STATE:
-		warnIfRemovingStateDoesntExist(state, action);
-		return state.deleteIn([action.componentName, action.key]);
-	default: {
-		const subAction = get(action, 'cmf.componentState');
-		if (subAction) {
-			return componentsReducers(state, subAction);
+			return state.mergeIn(
+				[action.componentName, action.key],
+				fromJS(action.componentState)
+			);
+		case ACTIONS.components.COMPONENT_REMOVE_STATE:
+			warnIfRemovingStateDoesntExist(state, action);
+			return state.deleteIn([action.componentName, action.key]);
+		default: {
+			const subAction = get(action, 'cmf.componentState');
+			if (subAction) {
+				return componentsReducers(state, subAction);
+			}
+			return state;
 		}
-		return state;
-	}
 	}
 }
 
