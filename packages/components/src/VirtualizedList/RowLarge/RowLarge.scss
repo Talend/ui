@@ -36,8 +36,8 @@ $tc-list-large-field-value-color: $dove-gray !default;
 		flex-wrap: wrap;
 
 		> li {
+			width: 400px;
 			list-style: none;
-			flex: 1 0 300px;
 			min-width: 0;
 			display: flex;
 			padding-right: 15px;
