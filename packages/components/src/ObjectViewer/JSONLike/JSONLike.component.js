@@ -44,20 +44,17 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath, selected
 	});
 
 	const buttonInnerDivClasses = classNames({
-		[theme['inner-button-text']]: true
+		[theme['inner-button-text']]: true,
 	});
 
 	return (
-			<button
-				className={lineValueClasses}
-				type="button"
-				onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
-			>
-				<div 
-					className={buttonInnerDivClasses}>
-					{display}
-				</div>
-			</button>
+		<button
+			className={lineValueClasses}
+			type="button"
+			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
+		>
+			<div className={buttonInnerDivClasses}>{display}</div>
+		</button>
 	);
 }
 
@@ -110,13 +107,13 @@ export function LineItem({
 	const isSelectedLine = selectedJsonpath && selectedJsonpath === jsonpath;
 
 	const classes = classNames({
-		[theme['full-width']] : true,
+		[theme['full-width']]: true,
 		[theme['selected-line']]: isSelectedLine,
 		[theme['unselected-line-hover']]: isHovered,
 	});
 
 	return (
-	// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<span
 			className={classes}
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
