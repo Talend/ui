@@ -173,7 +173,7 @@ const collection = [
 const collectionWithLotOfItems = [
 	{
 		id: 0,
-		name: 'Title with items',
+		name: 'Title with lot of items',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Simple row with lot of items',
@@ -477,10 +477,7 @@ storiesOf('Virtualized List', module)
 		<div>
 			<h1>Virtualized List</h1>
 			<p>
-				On Large rendering, the title is automatically placed at the top.<br />
-				The rest of the fields are displayed on the <b>VirtualizedList.Content</b> order.<br/>
-				The row height is by default <b>135px</b> but can be customized by passing a
-				<b>rowHeight</b> props.
+			When there are a lot of items per row, the items are added on a new line
 			</p>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
