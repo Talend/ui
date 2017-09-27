@@ -4,7 +4,7 @@ import changeDocumentTitle, {
 	buildMapFromRoutes,
 	getTitleFromRoutes,
 	assignDocTitle,
-} from '../../src/sagaRouter/documentTitle';
+} from '../../src/sagas/documentTitle';
 
 describe('changeDocumentTitle', () => {
 	it('sagas wich initiliaze after receiving events REACT_CMF.REQUEST_SETTINGS_OK and @@router/LOCATION_CHANGE', () => {

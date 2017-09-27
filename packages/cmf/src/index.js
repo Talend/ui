@@ -15,7 +15,8 @@ import actions from './actions/';
 import reducers from './reducers/';
 import getErrorMiddleware from './middlewares/error';
 import componentState from './componentState';
-import sagaRouter, { changeDocumentTitle } from './sagaRouter';
+import sagaRouter from './sagaRouter';
+import changeDocumentTitle from './sagas';
 
 const Dispatcher = ConnectedDispatcher;
 
