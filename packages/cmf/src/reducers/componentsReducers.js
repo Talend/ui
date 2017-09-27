@@ -76,7 +76,6 @@ export function componentsReducers(state = defaultState, action) {
 				[action.componentName, action.key],
 				new Map()
 			);
-		}
 		case ACTIONS.components.COMPONENT_MERGE_STATE:
 			errorIfMergingStateDoesntExist(state, action);
 
