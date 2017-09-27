@@ -93,7 +93,8 @@
 	}
 
 	.full-width {
-		max-width: 75%;
+		max-width: calc(100% - 100px);
+		/* max-width: 75%; */
 	}
 
 	.line-key {
