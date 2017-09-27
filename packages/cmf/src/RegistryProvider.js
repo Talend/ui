@@ -36,11 +36,9 @@ export default class RegistryProvider extends React.Component {
 }
 
 function Register(props, context) {
-	let id;
-	let item;
 	if (props.component) {
-		id = `${CONST.REGISTRY_COMPONENT_PREFIX}:${props.id}`;
-		item = props.component;
+		const id = `${CONST.REGISTRY_COMPONENT_PREFIX}:${props.id}`;
+		const item = props.component;
 		Registry.addToRegistry(id, item, context);
 		if (item.actions) {
 			Object.keys(item.actions).forEach((key) => {
@@ -62,6 +60,12 @@ function Register(props, context) {
 
 Register.contextTypes = {
 	registry: PropTypes.object,
+};
+Register.propTypes = {
+	id: PropTypes.string.required,
+	component: PropTypes.func,
+	actionCreator: PropTypes.func,
+	expression: PropTypes.func,
 };
 RegistryProvider.Register = Register;
 RegistryProvider.propTypes = {
