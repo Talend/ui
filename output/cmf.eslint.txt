@@ -13,11 +13,28 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   8:2  warning  Unexpected console statement  no-console
 
+/home/travis/build/Talend/ui/packages/cmf/src/reducers/collectionsReducers.js
+  151:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  152:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  153:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  154:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  155:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  156:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  157:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  158:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  159:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  160:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  161:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  162:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  163:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  164:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  165:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+
 /home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
   17:17  error  Expected 'this' to be used by class method 'getChildContext'  class-methods-use-this
 
 /home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
   45:2  warning  Unexpected constant condition  no-constant-condition
 
-✖ 5 problems (2 errors, 3 warnings)
+✖ 20 problems (17 errors, 3 warnings)
 
