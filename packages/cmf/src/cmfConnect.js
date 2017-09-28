@@ -166,7 +166,7 @@ export default function cmfConnect({
 				});
 
 				// remove all internal props already used by the container
-				CMF_PROPS.forEach(key => {
+				CMF_PROPS.forEach((key) => {
 					delete props[key];
 				});
 
