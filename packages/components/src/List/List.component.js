@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
+import omit from 'lodash/omit';
 
 import Toolbar from './Toolbar';
 import DisplayPropTypes from './Display/Display.propTypes';
@@ -37,7 +38,7 @@ function ListToolbar({ id, toolbar, displayMode, list, t }) {
 			onToggleAll: list.itemProps.onToggleAll,
 		};
 	}
-	return (<Toolbar {...toolbarProps} />);
+	return <Toolbar {...toolbarProps} />;
 }
 
 ListToolbar.propTypes = {
@@ -47,28 +48,18 @@ ListToolbar.propTypes = {
 		PropTypes.shape(DisplayPropTypes),
 		PropTypes.shape(Content.propTypes),
 	]),
-	toolbar: PropTypes.shape(Toolbar.propTypes),
+	toolbar: PropTypes.shape(omit(Toolbar.propTypes, ['t'])),
 	t: PropTypes.func.isRequired,
 };
 
 function DisplayModeComponent({ displayMode, id, list, useContent, virtualized }) {
 	if (useContent) {
-		return (
-			<Content
-				id={id && `${id}-content`}
-				displayMode={displayMode}
-				{...list}
-			/>
-		);
+		return <Content id={id && `${id}-content`} displayMode={displayMode} {...list} />;
 	}
 	if (virtualized) {
 		return (
 			<div className={'tc-list-display-virtualized'}>
-				<ListToVirtualizedList
-					id={id}
-					displayMode={displayMode}
-					{...list}
-				/>
+				<ListToVirtualizedList id={id} displayMode={displayMode} {...list} />
 			</div>
 		);
 	}
@@ -104,7 +95,6 @@ function ListDisplay({ displayMode, id, list, useContent, virtualized }) {
 	);
 }
 ListDisplay.propTypes = DisplayModeComponent.propTypes;
-
 
 /**
  * @param {object} props react props
@@ -142,20 +132,11 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
  <List {...props}></List>
  */
 function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
-	const classnames = classNames(
-		'tc-list',
-		theme.list,
-	);
+	const classnames = classNames('tc-list', theme.list);
 
 	return (
 		<div className={classnames}>
-			<ListToolbar
-				id={id}
-				toolbar={toolbar}
-				displayMode={displayMode}
-				list={list}
-				t={t}
-			/>
+			<ListToolbar id={id} toolbar={toolbar} displayMode={displayMode} list={list} t={t} />
 			<ListDisplay
 				displayMode={displayMode}
 				id={id}
@@ -168,7 +149,7 @@ function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
 }
 
 List.propTypes = {
-	...ListToolbar.propTypes,
+	...omit(ListToolbar.propTypes, ['t']),
 	...ListDisplay.propTypes,
 };
 
