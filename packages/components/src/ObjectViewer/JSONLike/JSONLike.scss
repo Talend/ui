@@ -100,11 +100,8 @@
 
 	.line-value {
 		max-width: 90%;
-		flex-grow: 1;
 		color: $brand-primary;
-		display: inline;
 		font-size: $object-viewer-value-font-size;
-		vertical-align: baseline;
 		border: none;
 		background: none;
 		padding: 0;
@@ -114,16 +111,30 @@
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		text-align: justify;
+
+		// FF alignment
+		vertical-align: baseline;
+
+		// Chome alignment
+		// vertical-align: bottom;
+	}
+
+	.line-value:hover {
+		background-color: red;
+		display: inline-block;
+		white-space: normal;
 	}
 
 	.inner-button-text {
+		display: contents;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 	}
 
 	.inner-button-text:hover {
-		white-space: normal;
+		// white-space: normal;
+		background-color: green;
 	}
 
 	.line-value-selected {
