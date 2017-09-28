@@ -101,7 +101,6 @@ export function LineItem({
 	const isSelectedLine = selectedJsonpath && selectedJsonpath === jsonpath;
 
 	const classes = classNames({
-		[theme['full-width']]: true,
 		[theme['selected-line']]: isSelectedLine,
 		[theme['unselected-line-hover']]: isHovered,
 	});
