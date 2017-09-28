@@ -62,15 +62,12 @@ function itemsContainerClickHandler() {
 	});
 }
 
-function renderSectionTitle(section) {
-	return (
-		<div className={theme.title}>{section.title}</div>
-	);
-}
+const renderSectionTitle = section => (
+	<div className={theme.title}>{section.title}</div>
+);
 
-function getSectionItems(section) {
-	return section.items;
-}
+
+const getSectionItems = section => section.items;
 
 /**
  * Render a typeahead for filtering among a list
@@ -105,11 +102,9 @@ class DatalistWidget extends React.Component {
 
 		this.itemProps = {
 			onMouseEnter: (event, { sectionIndex, itemIndex }) =>
-					this.focusOnItem(sectionIndex, itemIndex),
+				this.focusOnItem(sectionIndex, itemIndex),
 			onMouseLeave: () => this.focusOnItem(),
-			onMouseDown: (event, { sectionIndex, itemIndex }) => {
-				this.selectItem(sectionIndex, itemIndex);
-			},
+			onMouseDown: (event, { sectionIndex, itemIndex }) => this.selectItem(sectionIndex, itemIndex),
 		};
 
 		this.renderDatalistItem = this.renderDatalistItem.bind(this);
@@ -256,17 +251,15 @@ class DatalistWidget extends React.Component {
 		// options with categories
 		if (this.props.options && this.props.options.groupBy) {
 			const category = this.props.options.groupBy;
-			const categoryMap = {};
-			suggestions.forEach((suggestion) => {
-				if (!Object.prototype.hasOwnProperty.call(categoryMap, suggestion[category])) {
-					categoryMap[suggestion[category]] = [{ text: suggestion.label, value: suggestion.value }];
-				} else {
-					categoryMap[suggestion[category]].push({
-						text: suggestion.label,
-						value: suggestion.value,
-					});
-				}
-			});
+			const categoryMap = suggestions.reduce((acc, cur) => {
+				const obj = {};
+				obj[cur[category]] = acc[cur[category]] || [];
+				obj[cur[category]].push({
+					text: cur.label,
+					value: cur.value,
+				});
+				return { ...acc, ...obj };
+			}, {});
 			return Object.keys(categoryMap).map(key => ({ title: key, items: categoryMap[key] }));
 		} else if (this.props.options && this.props.options.enumOptions) {
 			return suggestions.map(s => s.value);
@@ -276,7 +269,7 @@ class DatalistWidget extends React.Component {
 
 	isPartOfItems(value) {
 		const { initialItems, itemsMap } = this.state;
-		return initialItems.includes(value) || Object.keys(itemsMap).some(k => itemsMap[k] === value);
+		return initialItems.includes(value) || Object.keys(itemsMap).some(k => k === value);
 	}
 
 	resetValue() {
@@ -332,9 +325,12 @@ class DatalistWidget extends React.Component {
 	}
 
 	selectItem(sectionIndex, itemIndex) {
-		const selectedItem = sectionIndex != null ?
-				this.state.items[sectionIndex].items[itemIndex].value :
-				this.state.items[itemIndex];
+		let selectedItem;
+		if (sectionIndex != null) {
+			selectedItem = this.state.items[sectionIndex].items[itemIndex].value;
+		} else {
+			selectedItem = this.state.items[itemIndex];
+		}
 
 		if (selectedItem && selectedItem !== this.state.value) {
 			this.setValue(selectedItem);

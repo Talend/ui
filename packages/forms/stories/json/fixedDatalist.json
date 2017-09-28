@@ -32,7 +32,7 @@
           "Wolverine"
         ]
       },
-      "categoriedList": {
+      "listWithCategory": {
         "type": "string",
         "enum": [
           "hero1",
@@ -97,7 +97,7 @@
       },
       "d": {
         "title": "Simple select with categories",
-        "$ref": "#/definitions/categoriedList"
+        "$ref": "#/definitions/listWithCategory"
       }
     },
     "required": [
@@ -107,7 +107,8 @@
   },
   "properties": {
     "a": "Spiderman",
-    "b": "hero2"
+    "b": "hero2",
+    "d": "hero9"
   },
   "uiSchema": {
     "a": {
