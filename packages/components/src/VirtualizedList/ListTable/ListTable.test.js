@@ -32,8 +32,8 @@ describe('ListGrid', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
-		expect(wrapper.node.props.rowRenderer.displayName).not.toBe('RowSelection(undefined)');
+		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.getElement().props.rowRenderer.displayName).not.toBe('RowSelection(undefined)');
 	});
 
 	it('should render table with sort props', () => {
@@ -64,7 +64,7 @@ describe('ListGrid', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should enhance the default rowRenderer with selection Higher Order renderer', () => {
@@ -92,7 +92,7 @@ describe('ListGrid', () => {
 		);
 
 		// then
-		expect(wrapper.node.props.rowRenderer.displayName).toBe('RowSelection(undefined)');
+		expect(wrapper.getElement().props.rowRenderer.displayName).toBe('RowSelection(undefined)');
 	});
 
 	it('should render no-rows component', () => {

@@ -52,7 +52,7 @@ describe('VirtualizedList', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render RendererSelector', () => {
@@ -75,7 +75,7 @@ describe('VirtualizedList', () => {
 				{contentFields}
 			</VirtualizedList>
 		);
-		const renderer = wrapper.node.props.children;
+		const renderer = wrapper.getElement().props.children;
 
 		// when
 		const rendererInstance = renderer({ height: 600, width: 300 });

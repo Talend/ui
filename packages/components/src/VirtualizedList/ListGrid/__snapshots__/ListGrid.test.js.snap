@@ -13,11 +13,13 @@ exports[`ListGrid should render no-rows component 1`] = `
 >
   <List
     autoHeight={false}
+    className={undefined}
     collection={Array []}
     estimatedRowSize={30}
     height={600}
     id="my-list"
     noRowsRenderer={[Function]}
+    onRowClick={undefined}
     onRowsRendered={[Function]}
     onScroll={[Function]}
     overscanIndicesGetter={[Function]}
@@ -52,6 +54,7 @@ exports[`ListGrid should render no-rows component 1`] = `
       id="my-list"
       noContentRenderer={[Function]}
       noRowsRenderer={[Function]}
+      onRowClick={undefined}
       onRowsRendered={[Function]}
       onScroll={[Function]}
       onScrollbarPresenceChange={[Function]}
@@ -95,7 +98,9 @@ exports[`ListGrid should render no-rows component 1`] = `
         }
         tabIndex={0}
       >
-        <p>
+        <p
+          className={undefined}
+        >
           No result found
         </p>
       </div>

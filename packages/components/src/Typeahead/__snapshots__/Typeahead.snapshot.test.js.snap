@@ -24,9 +24,9 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
       className="form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
@@ -37,10 +37,17 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
-      style={Object {}}
+      containerProps={
+        Object {
+          "id": "react-autowhatever-my-search",
+          "key": "react-autowhatever-my-search-items-container",
+          "ref": [Function],
+          "style": Object {},
+        }
+      }
     >
       <div
         style={Object {}}
@@ -263,9 +270,9 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
       className="form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
@@ -276,10 +283,17 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
-      style={Object {}}
+      containerProps={
+        Object {
+          "id": "react-autowhatever-my-search",
+          "key": "react-autowhatever-my-search-items-container",
+          "ref": [Function],
+          "style": Object {},
+        }
+      }
     >
       <div
         style={Object {}}
@@ -444,9 +458,9 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
       className="form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
@@ -457,10 +471,17 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
-      style={Object {}}
+      containerProps={
+        Object {
+          "id": "react-autowhatever-my-search",
+          "key": "react-autowhatever-my-search-items-container",
+          "ref": [Function],
+          "style": Object {},
+        }
+      }
     >
       <ul
         role="listbox"
@@ -534,9 +555,9 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       className="form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
@@ -547,11 +568,18 @@ exports[`Typeahead items should render typeahead without items 1`] = `
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
       className="undefined undefined"
-      style={Object {}}
+      containerProps={
+        Object {
+          "id": "react-autowhatever-my-search",
+          "key": "react-autowhatever-my-search-items-container",
+          "ref": [Function],
+          "style": Object {},
+        }
+      }
     >
       <span
         className="no-result"
@@ -587,9 +615,9 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       className="form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
@@ -600,10 +628,17 @@ exports[`Typeahead position should render search bar on the right 1`] = `
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
-      style={Object {}}
+      containerProps={
+        Object {
+          "id": "react-autowhatever-my-search",
+          "key": "react-autowhatever-my-search-items-container",
+          "ref": [Function],
+          "style": Object {},
+        }
+      }
     />
   </div>
 </div>

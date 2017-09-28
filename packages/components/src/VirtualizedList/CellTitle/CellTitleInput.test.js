@@ -21,7 +21,7 @@ describe('CellTitleInput', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should call submit callback on blur', () => {
@@ -41,7 +41,7 @@ describe('CellTitleInput', () => {
 		);
 
 		// when
-		wrapper.find('#my-cell-input').simulate('blur');
+		wrapper.find('#my-cell-input').last().simulate('blur');
 
 		// then
 		expect(onEditSubmit).toBeCalledWith(
@@ -100,7 +100,7 @@ describe('CellTitleInput', () => {
 		);
 
 		// when
-		wrapper.find('#my-cell-input').simulate('keyUp', event);
+		wrapper.find('#my-cell-input').last().simulate('keyUp', event);
 
 		// then
 		expect(onEditCancel).toBeCalledWith(expect.anything(), rowData);

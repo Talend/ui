@@ -31,16 +31,16 @@ describe('Dialog modal props', () => {
 		const wrapperNullDialogProps = shallow(
 			<Dialog {...modalPropsNullDialogProps} />
 		);
-		expect(wrapperNullDialogProps.root.node).toMatchSnapshot();
+		expect(wrapperNullDialogProps.getElement()).toMatchSnapshot();
 
 		const wrapperUndefinedDialogProps = shallow(
 			<Dialog {...modalUndefinedDialogProps} />
 		);
-		expect(wrapperUndefinedDialogProps.root.node).toMatchSnapshot();
+		expect(wrapperUndefinedDialogProps.getElement()).toMatchSnapshot();
 
 		const wrapperNoDialogPropsProps = shallow(
 			<Dialog {...modalNoDialogPropsProps} />
 		);
-		expect(wrapperNoDialogPropsProps.root.node).toMatchSnapshot();
+		expect(wrapperNoDialogPropsProps.getElement()).toMatchSnapshot();
 	});
 });

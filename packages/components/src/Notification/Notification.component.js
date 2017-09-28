@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import CSSTransitionGroup from 'react-transition-group';
 import classNames from 'classnames';
 
 import { Action } from '../Actions';
@@ -160,13 +160,13 @@ function NotificationsContainer({
 }) {
 	return (
 		<div className={classNames(theme['tc-notification-container'], 'tc-notification-container')}>
-			<ReactCSSTransitionGroup
+			<CSSTransitionGroup
 				transitionName="tc-notification"
 				transitionEnterTimeout={enterTimeout}
 				transitionLeaveTimeout={leaveTimeout}
 			>
 				{renderNotifications({ notifications, leaveFn, autoLeaveTimeout })}
-			</ReactCSSTransitionGroup>
+			</CSSTransitionGroup>
 		</div>
 	);
 }

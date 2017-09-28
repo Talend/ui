@@ -46,7 +46,7 @@
     "extract-text-webpack-plugin": "2.1.0",
     "fontgen-loader": "0.2.1",
     "mkdirp": "^0.5.1",
-    "react": "^15.6.1",
+    "react": "^16.0.0",
     "style-loader": "0.16.1",
     "svgo": "0.7.1",
     "webpack": "^2.5.1"

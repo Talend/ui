@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import Notification from './Notification.component';
 
@@ -36,9 +36,9 @@ describe('Notification', () => {
 				message: 'This is a feedback of your operation4',
 			},
 		];
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<Notification notifications={notifications} leaveFn={() => {}} />
-		).toJSON();
+		);
 		expect(wrapper).toMatchSnapshot();
 	});
 });

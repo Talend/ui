@@ -28,7 +28,7 @@ describe('ActionSplitDropdown', () => {
 		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render a button with icon and label', () => {
@@ -44,7 +44,7 @@ describe('ActionSplitDropdown', () => {
 		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 
@@ -72,7 +72,7 @@ describe('ActionSplitDropdown', () => {
 		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render "no option" item when items array is empty', () => {
@@ -89,6 +89,6 @@ describe('ActionSplitDropdown', () => {
 		const wrapper = shallow(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

@@ -14,7 +14,7 @@ program
 	.option('-f, --force')
 	.parse(process.argv);
 
-const REACT_VERSION = '^15.6.1';
+const REACT_VERSION = '^16.0.0';
 const JEST_VERSION = '20.0.3';
 
 const ADDONS = {
@@ -29,8 +29,8 @@ const ADDONS = {
 	'redux-undo': 'beta',
 	'redux-saga': '0.15.4',
 	'react-addons-perf': '15.4.2',
-	'react-autowhatever': '7.0.0',
-	'react-debounce-input': '2.4.2',
+	'react-autowhatever': '10.1.0',
+	'react-debounce-input': '3.0.1',
 	'react-immutable-proptypes': '2.1.0',
 	'react-jsonschema-form': '0.42.0',
 	'react-tap-event-plugin': '2.0.0',
@@ -52,7 +52,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	react: REACT_VERSION,
 	'react-ace': '5.2.0',
 	'react-addons-test-utils': '15.5.1',
-	'react-addons-css-transition-group': '15.5.2',
+	'react-transition-group': '^1.2.0',
 	'react-bootstrap': '0.31.0',
 	'react-dom': REACT_VERSION,
 	'i18next': '^9.0.0',
@@ -73,9 +73,8 @@ const VERSIONS = Object.assign({}, ADDONS, {
 
 	// dev deps
 	'@kadira/react-storybook-addon-info': '^3.3.0',
-	'@kadira/storybook': '^2.35.0',
-	'@storybook/react': '3.1.9',
-	'@storybook/addon-storyshots': '^3.2.0',
+	'@storybook/react': '3.2.11',
+	'@storybook/addon-storyshots': '^3.2.11',
 	'@storybook/addon-actions': '^3.2.0',
 	'@storybook/addon-info': '^3.2.0',
 	'@storybook/addon-knobs': '^3.2.0',
@@ -93,7 +92,9 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'babel-preset-es2015': '6.18.0',
 	'babel-preset-react': '6.16.0',
 	cpx: '1.5.0',
-	enzyme: '^2.7.1',
+	enzyme: '^3.0.0',
+	'enzyme-to-json': '^3.0.0',
+	'enzyme-adapter-react-16': '1.0.0',
 	eslint: '^3.6.1',
 	'eslint-config-airbnb': '^11.1.0',
 	'eslint-plugin-import': '^1.16.0',
@@ -125,6 +126,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 
 let files = [
 	'./packages/cmf/package.json',
+	'./packages/cmf-cqrs/package.json',
 	'./packages/components/package.json',
 	'./packages/containers/package.json',
 	'./packages/forms/package.json',
@@ -143,6 +145,7 @@ if (program.path) {
 	const STACK_VERSION = {
 		'bootstrap-talend-theme': stack_version,
 		'react-cmf': stack_version,
+		'react-cmf-cqrs': stack_version,
 		'react-talend-components': stack_version,
 		'react-talend-containers': stack_version,
 		'react-talend-forms': stack_version,

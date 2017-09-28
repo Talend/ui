@@ -53,7 +53,7 @@ describe('Drawer', () => {
 	});
 	it('should render cancelActionComponent', () => {
 		const wrapper = shallow(cancelActionComponent({}));
-		expect(wrapper.find('<button />')).toBeTruthy();
+		expect(wrapper.find('button')).toBeTruthy();
 	});
 	it('should not render cancelActionComponent', () => {
 		expect(cancelActionComponent()).toBe(null);

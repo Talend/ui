@@ -25,7 +25,7 @@ describe('CellTitleSelector', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render the button', () => {
@@ -45,7 +45,7 @@ describe('CellTitleSelector', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger callback on button click', () => {
@@ -83,6 +83,6 @@ describe('CellTitleSelector', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
