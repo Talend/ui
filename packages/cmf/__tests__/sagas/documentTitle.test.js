@@ -30,6 +30,7 @@ describe('changeDocumentTitle', () => {
 		const child2 = { documentTitle: 'child2', path: 'child2' };
 		const child1 = { documentTitle: 'child1', path: 'child1', childRoutes: [child2] };
 		const routes = { documentTitle: 'docTitleRoot', path: '/', childRoutes: [child1] };
+		// when
 		sagaTester.dispatch({
 			type: 'REACT_CMF.REQUEST_SETTINGS_OK',
 			settings: { routes },
