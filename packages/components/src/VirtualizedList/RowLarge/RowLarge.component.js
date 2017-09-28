@@ -27,7 +27,7 @@ function RowLarge({ className, index, key, parent, style }) {
 		const tooltip = typeof cellContent === 'string' ? cellContent : null;
 		const label = getLabel(field);
 		return (
-			<li key={fieldIndex}>
+			<li key={fieldIndex} className={`tc-list-cell-${field.props.dataKey}`}>
 				{label && (<span className={theme['field-label']}>{label}: </span>)}
 				<span className={theme['field-value']} title={tooltip}>{cellContent}</span>
 			</li>

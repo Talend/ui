@@ -73,7 +73,9 @@ exports[`RowLarge should render large row 1`] = `
     <ul
       className={undefined}
     >
-      <li>
+      <li
+        className="tc-list-cell-id"
+      >
         <span
           className={undefined}
         >
@@ -87,7 +89,9 @@ exports[`RowLarge should render large row 1`] = `
           1
         </span>
       </li>
-      <li>
+      <li
+        className="tc-list-cell-name"
+      >
         <span
           className={undefined}
         >

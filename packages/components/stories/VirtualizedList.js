@@ -176,7 +176,7 @@ const collectionWithLotOfItems = [
 		name: 'Title with lot of items',
 		created: '2016-09-22',
 		modified: '2016-09-22',
-		description: 'Simple row with lot of items',
+		description: 'Simple row with lot of items very looooooong looooooong looooooong looooooong description',
 		author: 'Jean-Pierre DUPONT',
 		rating: 'rating1',
 		field1: 'field',
@@ -474,11 +474,27 @@ storiesOf('Virtualized List', module)
 		</div>
 	))
 	.add('List > Large with lot of items', () => (
-		<div>
+		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
 			<p>
 			When there are a lot of items per row, the items are added on a new line
 			</p>
+			<p>
+			As the display in table mode, you can customize how the items are rendered, with <i>flex</i> and <i>order</i> properties;
+				<pre>
+					{
+
+`.virtualized-list li.tc-list-cell-id { flex: 0 0 50px, order: 7 }
+.virtualized-list div.tc-list-cell-rating { flex: 0 0 350px, order: 6; }
+.virtualized-list div.tc-list-cell-field1 { flex: 0 0 120px, order: 5; }
+.virtualized-list div.tc-list-cell-field2 { flex: 0 0 120px, order: 4; }
+.virtualized-list div.tc-list-cell-description { flex: 1 0 120px, order: 3; }
+.virtualized-list div.tc-list-cell-author { flex: 1 0 90px, order: 2; }
+.virtualized-list div.tc-list-cell-created  { flex: 1 0 90px, order: 1; }
+.virtualized-list div.tc-list-cell-modified { flex: 0 0 90px, order: 0;}`
+					}
+				</pre>
+				</p>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList
