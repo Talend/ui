@@ -107,22 +107,19 @@
 		padding: 0;
 		cursor: text;
 		margin-left: 4px;
+
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
-		text-align: justify;
-
-		// FF alignment
-		vertical-align: baseline;
-
-		// Chome alignment
-		// vertical-align: bottom;
 	}
 
 	.line-value:hover {
 		background-color: red;
 		display: inline-block;
-		white-space: normal;
+		white-space: initial;
+		word-break: break-all;
+		overflow: visible;
+		vertical-align: middle;
 	}
 
 	.inner-button-text {
@@ -133,7 +130,7 @@
 	}
 
 	.inner-button-text:hover {
-		// white-space: normal;
+		white-space: initial;
 		background-color: green;
 	}
 
