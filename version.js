@@ -14,16 +14,16 @@ program
 	.option('-f, --force')
 	.parse(process.argv);
 
-const REACT_VERSION = '15.5.4';
+const REACT_VERSION = '^15.6.1';
 const JEST_VERSION = '20.0.3';
 
 const ADDONS = {
-	'babel-polyfill': '6.20.0',
+	'babel-polyfill': '6.26.0',
 	'date-fns': '1.27.2',
 	'focus-outline-manager': '1.0.2',
 	'immutablediff': '0.4.4',
 	'normalize.css': '5.0.0',
-	'path-to-regexp': '1.7.0',
+	'path-to-regexp': '2.0.0',
 	'prettier': '1.6.1',
 	'redux-batched-subscribe': '0.1.6',
 	'redux-undo': 'beta',
@@ -34,7 +34,7 @@ const ADDONS = {
 	'react-immutable-proptypes': '2.1.0',
 	'react-jsonschema-form': '0.42.0',
 	'react-tap-event-plugin': '2.0.0',
-	'react-virtualized': '9.3.0',
+	'react-virtualized': '9.10.1',
 	'slugify': '1.1.0',
 	'whatwg-fetch': '2.0.3',
 };
@@ -61,7 +61,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-router': '3.0.5',
 	'react-router-redux': '4.0.8',
 	'react-test-renderer': REACT_VERSION,
-	'react-virtualized': '^9.7.0',
+	'react-virtualized': '9.10.1',
 	reselect: '^2.5.4',
 
 	redux: '3.6.0',

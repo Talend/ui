@@ -1,5 +1,5 @@
-import { cmfConnect } from 'react-cmf';
-import { AppHeaderBar } from 'react-talend-components';
+import { cmfConnect } from '@talend/react-cmf';
+import { AppHeaderBar } from '@talend/react-components';
 
 /**
  * bind the onClick to dispatch the router action

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
-import Typeahead from 'react-talend-components/lib/Typeahead';
-import Badge from 'react-talend-components/lib/Badge';
+import Typeahead from '@talend/react-components/lib/Typeahead';
+import Badge from '@talend/react-components/lib/Badge';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './MultiSelectTag.scss';
@@ -62,25 +62,25 @@ export default class MultiSelectTag extends React.Component {
 	 */
 	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
 		switch (event.which) {
-		case keycode.codes.enter:
-			event.preventDefault();
-			// suggestions are displayed and an item has the focus : we select it
-			if (Number.isInteger(focusedItemIndex)) {
-				this.onAddTag(event, { itemIndex: focusedItemIndex });
-			}
-			break;
-		case keycode.codes.down:
-		case keycode.codes.up:
-			event.preventDefault();
-			this.setState({ focusedItemIndex: newFocusedItemIndex });
-			break;
-		case keycode.codes.backspace:
-			if (!this.state.value && this.props.value.length) {
-				this.onRemoveTag(event, this.props.value.length - 1);
-			}
-			break;
-		default:
-			break;
+			case keycode.codes.enter:
+				event.preventDefault();
+				// suggestions are displayed and an item has the focus : we select it
+				if (Number.isInteger(focusedItemIndex)) {
+					this.onAddTag(event, { itemIndex: focusedItemIndex });
+				}
+				break;
+			case keycode.codes.down:
+			case keycode.codes.up:
+				event.preventDefault();
+				this.setState({ focusedItemIndex: newFocusedItemIndex });
+				break;
+			case keycode.codes.backspace:
+				if (!this.state.value && this.props.value.length) {
+					this.onRemoveTag(event, this.props.value.length - 1);
+				}
+				break;
+			default:
+				break;
 		}
 	}
 

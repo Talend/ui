@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Icon } from 'react-talend-components';
+import { Icon } from '@talend/react-components';
 import { orderProperties, retrieveSchema } from 'react-jsonschema-form/lib/utils';
 
 function createCollapsibleFieldset(title) {

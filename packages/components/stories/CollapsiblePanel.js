@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@storybook/react';
-import talendIcons from 'talend-icons/dist/react';
+import talendIcons from '@talend/icons/dist/react';
 
 import { CollapsiblePanel, IconsProvider } from '../src/index';
 

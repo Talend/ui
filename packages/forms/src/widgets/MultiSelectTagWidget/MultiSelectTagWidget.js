@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Badge from 'react-talend-components/lib/Badge';
+import Badge from '@talend/react-components/lib/Badge';
 import { MenuItem } from 'react-bootstrap';
 import classNames from 'classnames';
 import keycode from 'keycode';
@@ -111,12 +111,12 @@ class MultiSelectTagWidget extends React.Component {
 
 	onMouseEvent(event) {
 		switch (event) {
-		case ENTER: {
-			this.isMouseHoverOnOptions = true;
-			break;
-		}
-		default:
-			this.isMouseHoverOnOptions = false;
+			case ENTER: {
+				this.isMouseHoverOnOptions = true;
+				break;
+			}
+			default:
+				this.isMouseHoverOnOptions = false;
 		}
 	}
 
@@ -131,52 +131,52 @@ class MultiSelectTagWidget extends React.Component {
 	onKeyDown(event) {
 		const optionsToShow = this.getOptionsToShow();
 		switch (event.which) {
-		case keycode.codes.backspace: {
-			if (this.state.filterText === '' && this.props.value.length > 0) {
-				this.onRemoveTag(this.props.value[this.props.value.length - 1]);
+			case keycode.codes.backspace: {
+				if (this.state.filterText === '' && this.props.value.length > 0) {
+					this.onRemoveTag(this.props.value[this.props.value.length - 1]);
+				}
+				break;
 			}
-			break;
-		}
-		case keycode.codes.enter: {
-			if (optionsToShow.length > 0) {
-				this.onSelectTag(optionsToShow[this.state.selectedIndex]);
+			case keycode.codes.enter: {
+				if (optionsToShow.length > 0) {
+					this.onSelectTag(optionsToShow[this.state.selectedIndex]);
+					this.setState({
+						selectedIndex: 0,
+					});
+					this.scrollDropDownIfRequired(0, keycode.codes.up);
+				} else if (this.state.filterText.length > 0) {
+					const { schema } = this.props;
+					if (schema.createIfNoneMatch) {
+						this.onCreateNewTag();
+					}
+				}
+				event.preventDefault();
+				break;
+			}
+			case keycode.codes.up: {
+				if (this.state.selectedIndex > 0) {
+					this.setState({
+						selectedIndex: this.state.selectedIndex - 1,
+					});
+					this.scrollDropDownIfRequired(this.state.selectedIndex - 1, keycode.codes.up);
+				}
+				break;
+			}
+			case keycode.codes.down: {
+				if (this.state.selectedIndex < optionsToShow.length - 1) {
+					this.setState({
+						selectedIndex: this.state.selectedIndex + 1,
+					});
+					this.scrollDropDownIfRequired(this.state.selectedIndex + 1, keycode.codes.down);
+				}
+				break;
+			}
+			default: {
 				this.setState({
 					selectedIndex: 0,
 				});
-				this.scrollDropDownIfRequired(0, keycode.codes.up);
-			} else if (this.state.filterText.length > 0) {
-				const { schema } = this.props;
-				if (schema.createIfNoneMatch) {
-					this.onCreateNewTag();
-				}
+				break;
 			}
-			event.preventDefault();
-			break;
-		}
-		case keycode.codes.up: {
-			if (this.state.selectedIndex > 0) {
-				this.setState({
-					selectedIndex: this.state.selectedIndex - 1,
-				});
-				this.scrollDropDownIfRequired(this.state.selectedIndex - 1, keycode.codes.up);
-			}
-			break;
-		}
-		case keycode.codes.down: {
-			if (this.state.selectedIndex < optionsToShow.length - 1) {
-				this.setState({
-					selectedIndex: this.state.selectedIndex + 1,
-				});
-				this.scrollDropDownIfRequired(this.state.selectedIndex + 1, keycode.codes.down);
-			}
-			break;
-		}
-		default: {
-			this.setState({
-				selectedIndex: 0,
-			});
-			break;
-		}
 		}
 	}
 

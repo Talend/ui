@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
-import { api, componentState } from 'react-cmf';
+import { api, componentState } from '@talend/react-cmf';
 
 import { deleteACK } from '../../actions/ack';
 

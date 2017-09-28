@@ -1,10 +1,8 @@
 {
-  "name": "bootstrap-talend-theme",
+  "name": "@talend/bootstrap-theme",
   "description": "Bootstrap theme based on Talend styleguide",
   "main": "dist/bootstrap.js",
-  "engines": {
-    "npm": ">=2.7.1"
-  },
+  "license": "Apache-2.0",
   "scripts": {
     "prepublish": "webpack -p",
     "start": "webpack-dev-server --port 1337",
@@ -15,20 +13,24 @@
     "test:slimerjs": "slimerjs test/screenshots.slimerjs.js",
     "lint:style": "sass-lint -q -v"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Talend/ui.git"
-  },
   "keywords": [
+    "talend",
+    "theme",
     "bootstrap",
-    "theme"
+    "style"
   ],
-  "author": "Talend",
-  "license": "Apache-2.0",
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/theme#readme",
   "bugs": {
     "url": "https://github.com/Talend/ui/issues"
   },
-  "homepage": "https://github.com/Talend/ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {
+    "bootstrap-sass": "3.3.7"
+  },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
     "babel-cli": "6.24.1",
@@ -48,8 +50,8 @@
     "webpack": "^2.5.1",
     "webpack-dev-server": "2.4.5"
   },
-  "dependencies": {
-    "bootstrap-sass": "3.3.7"
+  "publishConfig": {
+    "access": "public"
   },
-  "version": "0.111.0"
+  "version": "0.114.0"
 }

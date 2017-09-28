@@ -1,6 +1,6 @@
-# react-talend-forms
+# @talend/react-forms
 
-[![Build Status](https://travis-ci.org/Talend/react-talend-forms.svg?branch=master)](https://travis-ci.org/Talend/react-talend-forms)
+[![Build Status](https://travis-ci.org/Talend/ui.svg?branch=master)](https://travis-ci.org/Talend/ui)
 
 ## Introduction
 
@@ -10,7 +10,7 @@ In addition of Mozilla lib, this wrapper uses [react-bootstrap](https://react-bo
 
 ## Installation
 
-Run `npm install --save react-talend-forms`.
+Run `npm install --save @talend/react-forms`.
 
 ## Usage
 
@@ -19,7 +19,7 @@ You'll have to pass it a JSONSchema and a onSubmit callback as a minimum to
 handle forms rendering and get the data back.
 
 ```javascript
-import Form from 'react-talend-forms';
+import Form from '@talend/react-forms';
 
 class MyForm extends React.Component {
 
@@ -106,7 +106,7 @@ If uiSchema has some triggers like
 Then `onChange` will be triggered when `propertyName` field value has changed.
 
 ```javascript
-import Form from 'react-talend-forms';
+import Form from '@talend/react-forms';
 
 class MyForm extends React.Component {
 
@@ -135,7 +135,7 @@ class MyForm extends React.Component {
 The data and actions PropTypes are exported for easy reuse.
 You can use them by importing the DataPropTypes and ActionsPropTypes functions.
 ```javascript
-import Form, { DataPropTypes, ActionsPropTypes } from 'react-talend-forms'
+import Form, { DataPropTypes, ActionsPropTypes } from '@talend/react-forms'
 ```
 
 ## LICENSE

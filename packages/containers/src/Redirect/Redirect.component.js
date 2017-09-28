@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { CircularProgress } from 'react-talend-components';
+import { CircularProgress } from '@talend/react-components';
 
 export const REDIRECT_ACTION_TYPE = 'REDIRECT';
 

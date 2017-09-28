@@ -41,14 +41,14 @@ TitleButton.propTypes = {
 function TitleInput({ id, value, onChange, onSubmit, onCancel }) {
 	const onKeyUp = (event) => {
 		switch (event.keyCode) {
-		case ESC_KEY:
-			onCancel(event);
-			break;
-		case ENTER_KEY:
-			onSubmit(event);
-			break;
-		default:
-			break;
+			case ESC_KEY:
+				onCancel(event);
+				break;
+			case ENTER_KEY:
+				onSubmit(event);
+				break;
+			default:
+				break;
 		}
 	};
 	return (
@@ -93,14 +93,14 @@ function ItemTitle(props) {
 	const { display, ...rest } = props;
 	const getTitleElement = () => {
 		switch (display) {
-		case TITLE_MODE_TEXT:
-			return <TitleText {...rest} />;
-		case TITLE_MODE_BUTTON:
-			return <TitleButton {...rest} />;
-		case TITLE_MODE_INPUT:
-			return <TitleInput {...rest} />;
-		default:
-			return null;
+			case TITLE_MODE_TEXT:
+				return <TitleText {...rest} />;
+			case TITLE_MODE_BUTTON:
+				return <TitleButton {...rest} />;
+			case TITLE_MODE_INPUT:
+				return <TitleInput {...rest} />;
+			default:
+				return null;
 		}
 	};
 

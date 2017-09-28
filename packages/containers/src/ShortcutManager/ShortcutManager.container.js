@@ -1,7 +1,8 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import keycode from 'keycode';
 import keys from 'lodash/keys';
-import { componentState } from 'react-cmf';
+import { componentState } from '@talend/react-cmf';
 
 /**
  * ShortcutManager matches shortcuts to the current route to redirect to a new

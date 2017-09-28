@@ -1,6 +1,6 @@
 import React from 'react';
-import { IconsProvider, Drawer } from 'react-talend-components';
-import talendIcons from 'talend-icons/dist/react';
+import { IconsProvider, Drawer } from '@talend/react-components';
+import talendIcons from '@talend/icons/dist/react';
 import { action } from '@storybook/react';
 import Immutable from 'immutable';
 
