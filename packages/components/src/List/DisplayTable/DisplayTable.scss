@@ -80,6 +80,7 @@ $tc-list-table-header-height: 36px !default;
 
 				.cell + .actions {
 					opacity: 1;
+					padding-left: $padding-large;
 					visibility: visible;
 				}
 			}
