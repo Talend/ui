@@ -107,7 +107,7 @@ class List extends React.Component {
 		};
 		props.list.titleProps = get(this.props, 'list.titleProps');
 
-		if (props.list.titleProps) {
+		if (props.list.titleProps && this.props.actions.title) {
 			props.list.titleProps.onClick = (event, data) => {
 				this.props.dispatchActionCreator(this.props.actions.title, event, data, this.context);
 			};
