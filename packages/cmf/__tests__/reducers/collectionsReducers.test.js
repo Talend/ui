@@ -35,7 +35,7 @@ describe('check collection management reducer', () => {
 				type: 'REACT_CMF.COLLECTION_REMOVE',
 				collectionId: 'unknown collection',
 			});
-		}).toThrowError('Can\'t remove collection unknown collection since it doesn\'t already exist.');
+		}).toThrowError('Can\'t remove collection unknown collection since it doesn\'t exist.');
 	});
 });
 

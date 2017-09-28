@@ -154,7 +154,7 @@ function collectionsReducers(state = defaultState, action) {
 			if (!state.get(action.collectionId)) {
 				invariant(
 					process.env.NODE_ENV === 'production',
-					`Can't remove collection ${action.collectionId} since it doesn't already exist.`,
+					`Can't remove collection ${action.collectionId} since it doesn't exist.`,
 				);
 				return state;
 			}

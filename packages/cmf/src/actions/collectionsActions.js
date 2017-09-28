@@ -35,7 +35,7 @@ export function remove(collectionId) {
 /**
  * mutateCollection let's you apply operations on a given collection
  *
- * @param {string} collectionId collection identifier
+ * @param {string} id collection identifier
  * @param {object} operations operations to be applied on the collection
  * {
  * 		add: [],
