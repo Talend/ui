@@ -32,6 +32,11 @@ export function getComponentId(componentId, props) {
 }
 
 function getCollection(id) {
+	console.warn(`This function will be deprecated,
+	since it permit store access outside cmfConnect mapStateToProps function
+	and maybe not executed if cmf connect do not detect ref change to props
+	given to the component using this function
+	Please bind your collection update to your component using mapStateToProps`);
 	return newState.cmf.collections.get(id);
 }
 
