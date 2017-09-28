@@ -29,6 +29,14 @@ describe('check collection management reducer', () => {
 			collectionId: 'collection1',
 		})).toEqual(new Map());
 	});
+	it('REACT_CMF.COLLECTION_REMOVE should throw when collection doesn\'t exist', () => {
+		expect(() => {
+			collectionsReducers(initialState, {
+				type: 'REACT_CMF.COLLECTION_REMOVE',
+				collectionId: 'unknown collection',
+			});
+		}).toThrowError('Can\'t remove collection unknown collection since it doesn\'t exist.');
+	});
 });
 
 describe('REACT_CMF.COLLECTION_MUTATE', () => {

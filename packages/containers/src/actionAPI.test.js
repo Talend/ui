@@ -86,8 +86,9 @@ describe('actionAPI.getActionsProps', () => {
 });
 
 describe('actionAPI.evalExpressions', () => {
-	it('should eval available', () => {
+	it('should eval props', () => {
 		const actionInfo = {
+			active: 'isActive',
 			available: 'isInTest',
 			disabled: 'isDisabled',
 			inProgress: 'isInProgress',
@@ -95,6 +96,9 @@ describe('actionAPI.evalExpressions', () => {
 			labelInProgress: 'Running',
 			labelExpression: 'getLabel',
 		};
+		function isActive({ payload }) {
+			return payload.model.value;
+		}
 		function isInTest({ context }) {
 			return context.router.location === '/test';
 		}
@@ -112,6 +116,7 @@ describe('actionAPI.evalExpressions', () => {
 		const modelFalsy = { value: false };
 		const context = {
 			registry: {
+				'expression:isActive': isActive,
 				'expression:isInTest': isInTest,
 				'expression:isDisabled': isDisabled,
 				'expression:isInProgress': isInProgress,
@@ -122,12 +127,14 @@ describe('actionAPI.evalExpressions', () => {
 			},
 		};
 		const truthyAction = action.evalExpressions(actionInfo, context, { model: modelTruthy });
+		expect(truthyAction.active).toBe(true);
 		expect(truthyAction.available).toBe(true);
 		expect(truthyAction.disabled).toBe(true);
 		expect(truthyAction.inProgress).toBe(true);
 		expect(truthyAction.label).toBe('Running');
 
 		const falsyAction = action.evalExpressions(actionInfo, context, { model: modelFalsy });
+		expect(falsyAction.active).toBe(false);
 		expect(falsyAction.available).toBe(true);
 		expect(falsyAction.disabled).toBe(false);
 		expect(falsyAction.inProgress).toBe(false);
