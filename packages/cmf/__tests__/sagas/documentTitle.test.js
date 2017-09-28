@@ -7,7 +7,7 @@ import changeDocumentTitle, {
 } from '../../src/sagas/documentTitle';
 
 describe('changeDocumentTitle', () => {
-	it('should change document title on REACT_CMF.REQUEST_SETTINGS_OK and @@router/LOCATION_CHANGE event', () => {
+	it('should change document title on REACT_CMF.REQUEST_SETTINGS_OK', () => {
 		// given
 		const sagaTester = new SagaTester({ initialState: {} });
 		sagaTester.start(() => changeDocumentTitle());
@@ -20,7 +20,21 @@ describe('changeDocumentTitle', () => {
 			type: 'REACT_CMF.REQUEST_SETTINGS_OK',
 			settings: { routes },
 		});
+		// then
 		expect(global.document.title).toBe('docTitleRoot');
+	});
+	it('should change document title on @@router/LOCATION_CHANGE event', () => {
+		// given
+		const sagaTester = new SagaTester({ initialState: {} });
+		sagaTester.start(() => changeDocumentTitle());
+		const child2 = { documentTitle: 'child2', path: 'child2' };
+		const child1 = { documentTitle: 'child1', path: 'child1', childRoutes: [child2] };
+		const routes = { documentTitle: 'docTitleRoot', path: '/', childRoutes: [child1] };
+		sagaTester.dispatch({
+			type: 'REACT_CMF.REQUEST_SETTINGS_OK',
+			settings: { routes },
+		});
+		// when
 		sagaTester.dispatch({
 			type: '@@router/LOCATION_CHANGE',
 			payload: { pathname: '/child1/child2' },
