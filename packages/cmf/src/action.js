@@ -1,11 +1,11 @@
 import get from 'lodash/get';
 import registry from './registry';
+import CONST from './constant';
 
 /**
  * @module react-cmf/lib/action
  */
 
-const ACTION_CREATOR_PREFIX = 'actionCreator';
 
 /**
  * get the global actions registered in the settings
@@ -40,7 +40,7 @@ function getContentTypeActions(context, contentType, category) {
  * @return {function}
  */
 function getActionCreatorFunction(context, id) {
-	const creator = context.registry[`${ACTION_CREATOR_PREFIX}:${id}`];
+	const creator = context.registry[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:${id}`];
 	if (!creator) {
 		throw new Error(`actionCreator not found in the registry: ${id}`);
 	}
@@ -132,8 +132,8 @@ function mapDispatchToProps(dispatch, props) {
  * @param  {String} id
  * @param  {Function} actionCreator (event, data, context)
  */
-function registerActionCreator(id, actionCreator) {
-	registry.addToRegistry(`${ACTION_CREATOR_PREFIX}:${id}`, actionCreator);
+function registerActionCreator(id, actionCreator, context) {
+	registry.addToRegistry(`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:${id}`, actionCreator, context);
 }
 
 export default {

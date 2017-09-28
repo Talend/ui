@@ -26,6 +26,8 @@ export default function App(props) {
 	);
 }
 
+App.Register = RegistryProvider.Register;
+App.Router = UIRouter;
 App.propTypes = {
 	store: PropTypes.object.isRequired,
 	children: PropTypes.node,

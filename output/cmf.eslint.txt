@@ -10,9 +10,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   8:2  warning  Unexpected console statement  no-console
 
-/home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
-  17:17  error  Expected 'this' to be used by class method 'getChildContext'  class-methods-use-this
-
 /home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
   45:2  warning  Unexpected constant condition  no-constant-condition
 
