@@ -62,12 +62,13 @@ function itemsContainerClickHandler() {
 	});
 }
 
-const renderSectionTitle = section => (
-	<div className={theme.title}>{section.title}</div>
-);
+function renderSectionTitle(section) {
+	return <div className={theme.title}>{section.title}</div>;
+}
 
-
-const getSectionItems = section => section.items;
+function getSectionItems(section) {
+	return section.items;
+}
 
 /**
  * Render a typeahead for filtering among a list
@@ -324,13 +325,15 @@ class DatalistWidget extends React.Component {
 		this.setState({ sectionIndex, itemIndex });
 	}
 
-	selectItem(sectionIndex, itemIndex) {
-		let selectedItem;
+	getSelectedItem(sectionIndex, itemIndex) {
 		if (sectionIndex != null) {
-			selectedItem = this.state.items[sectionIndex].items[itemIndex].value;
-		} else {
-			selectedItem = this.state.items[itemIndex];
+			return this.state.items[sectionIndex].items[itemIndex].value;
 		}
+		return this.state.items[itemIndex];
+	}
+
+	selectItem(sectionIndex, itemIndex) {
+		const selectedItem = this.getSelectedItem(sectionIndex, itemIndex);
 
 		if (selectedItem && selectedItem !== this.state.value) {
 			this.setValue(selectedItem);
