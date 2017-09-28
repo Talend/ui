@@ -3,9 +3,9 @@ import thunk from 'redux-thunk';
 import { Map } from 'immutable';
 
 import {
-	addOrReplaceCollection,
-	removeCollection,
-	mutateCollection,
+	addOrReplace,
+	remove,
+	mutate,
 } from '../../src/actions/collectionsActions';
 
 const middlewares = [thunk];
@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 
 describe('test collection management action creators', () => {
 	it('addOrReplaceCollection dispatch well formed action object', () => {
-		expect(addOrReplaceCollection('collectionId', 'data can be anything')).toEqual({
+		expect(addOrReplace('collectionId', 'data can be anything')).toEqual({
 			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
 			collectionId: 'collectionId',
 			data: 'data can be anything',
@@ -32,19 +32,8 @@ describe('test collection management action creators', () => {
 			},
 		});
 
-		store.dispatch(removeCollection('collectionId'));
+		store.dispatch(remove('collectionId'));
 		expect(store.getActions()).toEqual(expectedActions);
-	});
-
-	it('removeCollection throw when collection doesn\'t exist', () => {
-		const store = mockStore({
-			cmf: {
-				collections: new Map(),
-			},
-		});
-		expect(() => {
-			store.dispatch(removeCollection('unknown collection'));
-		}).toThrowError('Can\'t remove collection unknown collection since it doesn\'t already exist.');
 	});
 });
 
@@ -57,7 +46,7 @@ describe('mutateCollection', () => {
 				key: {},
 			},
 		};
-		expect(mutateCollection('collectionid', operations)).toEqual({
+		expect(mutate('collectionid', operations)).toEqual({
 			type: 'REACT_CMF.COLLECTION_MUTATE',
 			id: 'collectionid',
 			operations,

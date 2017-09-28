@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Action should render from name props 1`] = `
+exports[`Action should render from name props keeping extra props 1`] = `
 <Action
+  extra="foo"
   icon="icon-article"
   id="menu:article"
   model={undefined}
