@@ -7,11 +7,10 @@ import changeDocumentTitle, {
 } from '../../src/sagas/documentTitle';
 
 describe('changeDocumentTitle', () => {
-	it('sagas wich initiliaze after receiving events REACT_CMF.REQUEST_SETTINGS_OK and @@router/LOCATION_CHANGE', () => {
+	it('should change document title on REACT_CMF.REQUEST_SETTINGS_OK and @@router/LOCATION_CHANGE event', () => {
 		// given
 		const sagaTester = new SagaTester({ initialState: {} });
 		sagaTester.start(() => changeDocumentTitle());
-		const originalGlobalDoc = global.document;
 		const child2 = { documentTitle: 'child2', path: 'child2' };
 		const child1 = { documentTitle: 'child1', path: 'child1', childRoutes: [child2] };
 		const routes = { documentTitle: 'docTitleRoot', path: '/', childRoutes: [child1] };
@@ -29,7 +28,6 @@ describe('changeDocumentTitle', () => {
 
 		// then
 		expect(global.document.title).toBe('child2');
-		global.document = originalGlobalDoc;
 	});
 });
 
@@ -55,7 +53,7 @@ describe('formatPath', () => {
 });
 
 describe('getTitleFromRoutes', () => {
-	it('should return the string myTitle', () => {
+	it('should return route matching title', () => {
 		// Given
 		const location = '/hello/world';
 		const myTitle = 'myTitle';
@@ -66,21 +64,19 @@ describe('getTitleFromRoutes', () => {
 		// Then
 		expect(title).toBe(myTitle);
 	});
-	it('should return the string myDefaultTitle', () => {
-		// Given
-		const location = '/hello/world';
-		const myTitle = 'myTitle';
+	it('should return default title', () => {
+		// // Given
 		const myDefaultTitle = 'myDefaultTitle';
-		const routes = new Map([['/error', myTitle], ['/dumb', 'dumber']]);
+		const routes = new Map([['/error', 'myTitle'], ['/dumb', 'dumber']]);
 		// When
-		const title = getTitleFromRoutes(routes, location, myDefaultTitle);
+		const title = getTitleFromRoutes(routes, 'unknown', myDefaultTitle);
 		// Then
 		expect(title).toBe(myDefaultTitle);
 	});
 });
 
 describe('assignDocTitle', () => {
-	it('should change the document title to Hello World', () => {
+	it('should change the document title', () => {
 		// Given
 		const originalGlobalDoc = global.document;
 		const myTitle = 'myTitle';
@@ -92,14 +88,12 @@ describe('assignDocTitle', () => {
 	});
 	it('should stick with the current document title', () => {
 		// Given
-		const originalGlobalDoc = global.document;
 		const originalDocTitle = 'original';
 		global.document.title = originalDocTitle;
 		// When
 		assignDocTitle(undefined);
 		// Then
 		expect(global.document.title).toBe(originalDocTitle);
-		global.document = originalGlobalDoc;
 	});
 });
 
