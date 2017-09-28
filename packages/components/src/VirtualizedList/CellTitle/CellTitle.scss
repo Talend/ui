@@ -24,6 +24,9 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		flex-grow: 1;
+
+		padding: 0 $padding-normal;
 
 		color: $tc-list-title-color;
 		font-size: inherit;
@@ -100,6 +103,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 :global(.tc-list-title-cell) {
 	display: flex;
 	min-width: 0;
+	line-height: $btn-line-height;
 
 	> *:first-child {
 		min-width: 0;

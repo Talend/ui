@@ -33,7 +33,7 @@ const store = cmfstore.initialize(appReducer);
 /**
  * Fetch the CMF settings and configure the CMF app
  */
-store.dispatch(actions.settingsActions.fetchSettings('/settings.json'));
+store.dispatch(actions.settings.fetchSettings('/settings.json'));
 
 /**
  * Render the CMF App

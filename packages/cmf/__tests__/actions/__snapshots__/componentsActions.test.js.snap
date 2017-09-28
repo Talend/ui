@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test component state management action creators addComponentState dispatch well formed action object 1`] = `
+exports[`test component state management action creators addState dispatch well formed action object 1`] = `
 Object {
   "componentName": "componentName",
   "initialComponentState": Object {
@@ -11,7 +11,7 @@ Object {
 }
 `;
 
-exports[`test component state management action creators mergeComponentState dispatch well formed acton object 1`] = `
+exports[`test component state management action creators mergeState dispatch well formed acton object 1`] = `
 Object {
   "componentName": "componentName",
   "componentState": Object {
@@ -22,7 +22,7 @@ Object {
 }
 `;
 
-exports[`test component state management action creators removeComponentState dispatch well formed acton object 1`] = `
+exports[`test component state management action creators removeState dispatch well formed acton object 1`] = `
 Object {
   "componentName": "componentName",
   "key": "key",
