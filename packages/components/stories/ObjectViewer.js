@@ -225,9 +225,7 @@ const rootOpenedTypeHandler = {
 	edited: [],
 	opened: ['$', '$[0]'],
 	onClick: action('onClick'),
-	onSelect: (e, jsonpath) => {
-		selectedJsonpath = jsonpath;
-	},
+	onSelect: (e, jsonpath) => (selectedJsonpath = jsonpath),
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
 };

@@ -47,7 +47,7 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath, selected
 			type="button"
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 		>
-			<div className={theme['inner-button-text']}>{display}</div>
+			<span className={theme['inner-button-text']}>{display}</span>
 		</button>
 	);
 }
