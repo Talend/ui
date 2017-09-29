@@ -46,7 +46,9 @@
     }
 
     .virtualized-list-4-columns .tc-list-large-row [class*='tc-list-cell-'] {
-        flex: 0 0 calc(100% / 4);
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: calc(100%/4); 
     }
 
 </style>

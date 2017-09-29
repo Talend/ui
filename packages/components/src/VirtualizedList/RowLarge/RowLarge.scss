@@ -36,10 +36,11 @@ $tc-list-large-field-value-color: $dove-gray !default;
 		flex-wrap: wrap;
 
 		> li {
-			flex: 0 1 calc(100% / 3);
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: calc(100%/3); 
 			list-style: none;
 			display: flex;
-			padding-right: 15px;
 		}
 	}
 
