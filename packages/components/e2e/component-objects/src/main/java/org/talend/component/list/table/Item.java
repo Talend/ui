@@ -105,7 +105,10 @@ public class Item extends Component {
     public void clickOnAction(final String actionId) {
         final WebElement actionButton = this.getAction(actionId);
         final Actions action = new Actions(driver);
-        action.moveToElement(actionButton).perform();
+        action
+                .moveToElement(this.getElement())
+                .moveToElement(actionButton)
+                .perform();
         actionButton.click();
     }
 }
