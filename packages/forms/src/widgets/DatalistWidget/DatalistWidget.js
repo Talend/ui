@@ -411,13 +411,9 @@ class DatalistWidget extends React.Component {
 		});
 
 		if (this.props.options && this.props.options.groupBy) {
-			return (
-				<Autowhatever {...propsWithCategory} />
-			);
+			return <Autowhatever {...propsWithCategory} />;
 		}
-		return (
-			<Autowhatever {...props} />
-		);
+		return <Autowhatever {...props} />;
 	}
 }
 
