@@ -268,6 +268,13 @@ class DatalistWidget extends React.Component {
 		return suggestions;
 	}
 
+	getSelectedItem(sectionIndex, itemIndex) {
+		if (sectionIndex != null) {
+			return this.state.items[sectionIndex].items[itemIndex].value;
+		}
+		return this.state.items[itemIndex];
+	}
+
 	isPartOfItems(value) {
 		const { initialItems, itemsMap } = this.state;
 		return initialItems.includes(value) || Object.keys(itemsMap).some(k => k === value);
@@ -323,13 +330,6 @@ class DatalistWidget extends React.Component {
 
 	focusOnItem(sectionIndex, itemIndex) {
 		this.setState({ sectionIndex, itemIndex });
-	}
-
-	getSelectedItem(sectionIndex, itemIndex) {
-		if (sectionIndex != null) {
-			return this.state.items[sectionIndex].items[itemIndex].value;
-		}
-		return this.state.items[itemIndex];
 	}
 
 	selectItem(sectionIndex, itemIndex) {
