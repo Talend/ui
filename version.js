@@ -91,6 +91,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'babel-plugin-transform-object-assign': '6.22.0',
 	'babel-plugin-transform-object-rest-spread': '6.20.2',
 	'babel-preset-es2015': '6.18.0',
+	'babel-preset-env': '1.6.0',
 	'babel-preset-react': '6.16.0',
 	cpx: '1.5.0',
 	enzyme: '^2.7.1',
