@@ -45,38 +45,9 @@
      {
         flex: 0 0 90px;
     }
-    /* large display */
-    .virtualized-list .tc-list-large li.tc-list-cell-id {
-        flex: 0 0 150px;
-        order: 7;
-    }
-    .virtualized-list .tc-list-large  li.tc-list-cell-rating {
-        flex: 0 0 150px;
-        order: 6;
-    }
-    .virtualized-list .tc-list-large li.tc-list-cell-field1 {
-        flex: 0 0 150px;
-        order: 5;
-    }
-    .virtualized-list .tc-list-large  li.tc-list-cell-field2 {
-        flex: 0 0 150px;
-        order: 4;
-    }
-    .virtualized-list .tc-list-large  li.tc-list-cell-description {
-        flex: 0 0 350px;
-        order: 3;
-    }
-    .virtualized-list .tc-list-large  li.tc-list-cell-author {
-        flex: 0 0 200px;
-        order: 2;
-    }
-    .virtualized-list .tc-list-large  li.tc-list-cell-created {
-        flex: 0 0 150px;
-        order: 1;
-    }
-    .virtualized-list .tc-list-large  li.tc-list-cell-modified {
-        flex: 0 0 150px;
-        order: 0;
+
+    .virtualized-list-4-columns .tc-list-large-row [class*='tc-list-cell-'] {
+        flex: 0 0 calc(100% / 4);
     }
 
 </style>

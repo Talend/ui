@@ -34,9 +34,9 @@ $tc-list-large-field-value-color: $dove-gray !default;
 		padding: 0 $padding-large;
 		display: flex;
 		flex-wrap: wrap;
-
+		
 		> li {
-			flex: 1 0 200px;
+			flex: 0 1 calc(100% / 3);
 			list-style: none;
 			display: flex;
 			padding-right: 15px;
@@ -56,5 +56,6 @@ $tc-list-large-field-value-color: $dove-gray !default;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		max-width: 200px;
 	}
 }

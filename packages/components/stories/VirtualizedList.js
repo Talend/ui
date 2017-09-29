@@ -180,7 +180,8 @@ const collectionWithLotOfItems = [
 		author: 'Jean-Pierre DUPONT',
 		rating: 'rating1',
 		field1: 'field',
-		field2: 'field',
+		field2: 'field2',
+		field3: 'field3',
 		display: 'text',
 		className: 'item-0-class',
 	},
@@ -473,27 +474,15 @@ storiesOf('Virtualized List', module)
 			</section>
 		</div>
 	))
-	.add('List > Large with lot of items', () => (
+	.add('List > Large with lot of items on 3 columns', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
 			<p>
 			When there are a lot of items per row, the items are added on a new line
 			</p>
 			<p>
-			As the display in table mode, you can customize how the items are rendered, with <i>flex</i> and <i>order</i> properties;
-				<pre>
-					{
-
-`.virtualized-list li.tc-list-cell-id { flex: 0 0 50px, order: 7 }
-.virtualized-list div.tc-list-cell-rating { flex: 0 0 350px, order: 6; }
-.virtualized-list div.tc-list-cell-field1 { flex: 0 0 120px, order: 5; }
-.virtualized-list div.tc-list-cell-field2 { flex: 0 0 120px, order: 4; }
-.virtualized-list div.tc-list-cell-description { flex: 1 0 120px, order: 3; }
-.virtualized-list div.tc-list-cell-author { flex: 1 0 90px, order: 2; }
-.virtualized-list div.tc-list-cell-created  { flex: 1 0 90px, order: 1; }
-.virtualized-list div.tc-list-cell-modified { flex: 0 0 90px, order: 0;}`
-					}
-				</pre>
+			As the display in table mode, you can customize how the items are rendered, with <i>flex</i> or <i>order</i> properties;
+				In this example, we leave the default size calculation on three columns
 				</p>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
@@ -524,6 +513,81 @@ storiesOf('Virtualized List', module)
 					<VirtualizedList.Content
 						label="Field2"
 						dataKey="field2"
+					/>
+					<VirtualizedList.Content
+						label="Field3"
+						dataKey="field3"
+					/>
+					<VirtualizedList.Content
+						label="Description"
+						dataKey="description"
+					/>
+					<VirtualizedList.Content
+						label="Author"
+						dataKey="author"
+					/>
+					<VirtualizedList.Content
+						label="Created"
+						dataKey="created"
+					/>
+					<VirtualizedList.Content
+						label="Modified"
+						dataKey="modified"
+					/>
+				</VirtualizedList>
+			</section>
+		</div>
+	))
+	.add('List > Large with lot of items on 4 columns', () => (
+		<div className="virtualized-list-4-columns">
+			<h1>Virtualized List</h1>
+			<p>
+			When there are a lot of items per row, the items are added on a new line
+			</p>
+			<p>
+			As the display in table mode, you can customize how the items are rendered, with <i>flex</i> or <i>order</i> properties;
+				In this example, we set 4 columns :
+			<pre>
+				{
+`.virtualized-list-4-columns .tc-list-large-row [class*='tc-list-cell-'] {
+  flex: 0 0 calc(100% / 4);
+}`
+				}
+			</pre>
+			</p>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList
+					collection={collectionWithLotOfItems}
+					id={'my-list'}
+					rowHeight={135}
+					type={listTypes.LARGE}
+				>
+					<VirtualizedList.Content
+						label="Id"
+						dataKey="id"
+					/>
+					<VirtualizedList.Content
+						label="Name"
+						dataKey="name"
+						columnData={titleProps}
+						{...CellTitle}
+					/>
+					<VirtualizedList.Content
+						label="Rating"
+						dataKey="rating"
+					/>
+					<VirtualizedList.Content
+						label="Field1"
+						dataKey="field1"
+					/>
+					<VirtualizedList.Content
+						label="Field2"
+						dataKey="field2"
+					/>
+					<VirtualizedList.Content
+						label="Field3"
+						dataKey="field3"
 					/>
 					<VirtualizedList.Content
 						label="Description"
