@@ -296,6 +296,7 @@ class DatalistWidget extends React.Component {
 			value,
 			initialItems: items,
 			items: this.getDropdownItems(suggestions),
+			sectionIndex: null,
 			itemIndex: null,
 			noMatch: value && keys && !keys.length,
 			itemsMap,
@@ -314,6 +315,7 @@ class DatalistWidget extends React.Component {
 		this.setState({
 			value,
 			items: this.getDropdownItems(suggestions),
+			sectionIndex: null,
 			itemIndex: null,
 			noMatch: value && suggestions && !suggestions.length,
 		});
@@ -322,6 +324,7 @@ class DatalistWidget extends React.Component {
 	resetSuggestions() {
 		this.setState({
 			items: [],
+			sectionIndex: null,
 			itemIndex: null,
 			noMatch: false,
 		});
