@@ -103,12 +103,14 @@ public class Item extends Component {
      * @param actionId The item action id
      */
     public void clickOnAction(final String actionId) {
-        final WebElement actionButton = this.getAction(actionId);
         final Actions action = new Actions(driver);
         action
                 .moveToElement(this.getElement())
-                .moveToElement(actionButton)
+                .moveToElement(this.getAction(actionId))
+                .build()
                 .perform();
-        actionButton.click();
+
+        // we need to get the button element again because of TooltipTrigger that replace the element on hover ...
+        this.getAction(actionId).click();
     }
 }
