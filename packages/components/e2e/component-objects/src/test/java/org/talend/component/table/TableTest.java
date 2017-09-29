@@ -160,7 +160,7 @@ public class TableTest extends StorybookTest {
     public void should_scroll_and_click_on_item_action() {
         // given
         goToStory("Virtualized List", "List > Table");
-        assertThat(getActionLog(), not(startsWith("▶onTitleClick:")));
+        assertThat(getActionLog(), not(startsWith("▶onEdit:")));
 
         // when
         tableObject.getItem("Title with icon and actions 25").clickOnAction("edit");
