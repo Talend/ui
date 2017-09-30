@@ -223,10 +223,7 @@ class DatalistWidget extends React.Component {
 		const escapedValue = escapeRegexCharacters(this.getLabel(value).trim());
 		const regex = new RegExp(escapedValue, 'i');
 
-		if (this.props.options && this.props.options.enumOptions) {
-			return suggestions.filter(item => regex.test(item.label));
-		}
-		return suggestions.filter(item => regex.test(item));
+		return suggestions.filter(item => regex.test(item.label));
 	}
 
 	setValue(value) {
@@ -241,9 +238,11 @@ class DatalistWidget extends React.Component {
 		} else if (options && options.enumOptions) {
 			return options.enumOptions;
 		} else if (schema && schema.enum) {
-			return schema.enum;
+			return schema.enum.map(item => ({ label: item, value: item }));
 		} else if (formContext && formContext.fetchItems) {
-			return formContext.fetchItems(schema.title);
+			return formContext.fetchItems(schema.title).map(item =>
+				(typeof item === 'string' ? { value: item, label: item } : item)
+			);
 		}
 		return [];
 	}
@@ -263,6 +262,10 @@ class DatalistWidget extends React.Component {
 			}, {});
 			return Object.keys(categoryMap).map(key => ({ title: key, items: categoryMap[key] }));
 		} else if (this.props.options && this.props.options.enumOptions) {
+			return suggestions.map(s => s.value);
+		} else if (this.props.schema && this.props.schema.enum) {
+			return suggestions.map(s => s.value);
+		} else if (this.props.formContext && this.props.formContext.fetchItems) {
 			return suggestions.map(s => s.value);
 		}
 		return suggestions;

@@ -23,11 +23,11 @@ describe('getMatchingSuggestions', () => {
 		// given
 		const value = 'aze';
 		const suggestions = [
-			'aze',
-			'banane',
-			'bananAze',
-			'   AzErTy   ',
-			'Toto',
+			{ value: 'aze', label: 'aze' },
+			{ value: 'banane', label: 'banane' },
+			{ value: 'bananAze', label: 'bananAze' },
+			{ value: '   AzErTy   ', label: '   AzErTy   ' },
+			{ value: 'Toto', label: 'Toto' },
 		];
 		let widget;
 		renderer.create(<DatalistWidget ref={(ref) => { widget = ref; }} />);
@@ -37,9 +37,9 @@ describe('getMatchingSuggestions', () => {
 
 		// then
 		expect(filteredSuggestions).toEqual([
-			'aze',
-			'bananAze',
-			'   AzErTy   ',
+			{ value: 'aze', label: 'aze' },
+			{ value: 'bananAze', label: 'bananAze' },
+			{ value: '   AzErTy   ', label: '   AzErTy   ' },
 		]);
 	});
 
@@ -47,10 +47,10 @@ describe('getMatchingSuggestions', () => {
 		// given
 		const value = 'az[e';
 		const suggestions = [
-			'aze',
-			'banane',
-			'bananaz[e',
-			'   az[erty   ',
+			{ value: 'aze', label: 'aze' },
+			{ value: 'banane', label: 'banane' },
+			{ value: 'bananaz[e', label: 'bananaz[e' },
+			{ value: '   az[erty   ', label: '   az[erty   ' },
 		];
 		let widget;
 		renderer.create(<DatalistWidget ref={(ref) => { widget = ref; }} />);
@@ -61,8 +61,8 @@ describe('getMatchingSuggestions', () => {
 
 		// then
 		expect(filteredSuggestions).toEqual([
-			'bananaz[e',
-			'   az[erty   ',
+			{ value: 'bananaz[e', label: 'bananaz[e' },
+			{ value: '   az[erty   ', label: '   az[erty   ' },
 		]);
 	});
 });
