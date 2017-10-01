@@ -9,7 +9,9 @@ import matchPath from '../sagaRouter/matchPath';
  */
 export function formatPath(path, parentPath) {
 	let fPath = path;
-	if (parentPath) fPath = parentPath.endsWith('/') ? `${parentPath}${path}` : `${parentPath}/${path}`;
+	if (parentPath) {
+		fPath = parentPath.endsWith('/') ? `${parentPath}${path}` : `${parentPath}/${path}`;
+	}
 	// Convert optional url parameters to React Router V2 --> V4 (:param) --> :param?
 	return fPath.replace(/[(]/g, '').replace(/[)]/g, '?');
 }
@@ -46,7 +48,9 @@ export function getTitleFromRoutes(mapRoutes, location, defaultDocTitle) {
 	let title = defaultDocTitle;
 	mapRoutes.forEach((value, key) => {
 		const ret = matchPath(location, { path: key });
-		if (ret && ret.isExact) title = value;
+		if (ret && ret.isExact) {
+			title = value;
+		}
 	});
 	return title;
 }
@@ -72,7 +76,7 @@ export default function* changeDocumentTitle() {
 	const mapRoutes = buildMapFromRoutes(settings.routes, new Map());
 	const defaultDocTitle = mapRoutes.get('/');
 	assignDocTitle(defaultDocTitle);
-	while (1) { // eslint-disable-line no-constant-condition
+	while (true) { // eslint-disable-line no-constant-condition
 		const router = yield take('@@router/LOCATION_CHANGE');
 		const docTitle = getTitleFromRoutes(mapRoutes, router.payload.pathname, defaultDocTitle);
 		assignDocTitle(docTitle);
