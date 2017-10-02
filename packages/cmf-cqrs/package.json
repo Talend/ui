@@ -34,7 +34,7 @@
     "mock-socket": "^7.0.0"
   },
   "devDependencies": {
-    "@talend/react-cmf": "^0.114.0",
+    "@talend/react-cmf": "^0.115.0",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
@@ -81,7 +81,7 @@
     "rimraf": "^2.6.1"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^0.114.0",
+    "@talend/react-cmf": "^0.115.0",
     "classnames": "2.2.5",
     "immutable": "3.8.1",
     "invariant": "2.2.2",
@@ -116,5 +116,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.114.0"
+  "version": "0.115.0"
 }
