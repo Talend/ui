@@ -181,7 +181,6 @@ const collectionWithLotOfItems = [
 		rating: 'rating1',
 		field1: 'field',
 		field2: 'field2',
-		field3: 'field3',
 		display: 'text',
 		className: 'item-0-class',
 	},
@@ -477,13 +476,8 @@ storiesOf('Virtualized List', module)
 	.add('List > Large with lot of items on 4 columns', () => (
 		<div className="virtualized-list-4-columns">
 			<h1>Virtualized List</h1>
-			<p>
-			When there are a lot of items per row, the items are added on a new line
-			</p>
-			<p>
-			As the display in table mode, you can customize how the items are rendered, with <i>flex</i> or <i>order</i> properties;
-				In this example, we set 4 columns :
-			<pre>
+			<p>In this example, we set 4 columns:
+				<pre>
 				{
 `.virtualized-list-4-columns ul {
 	column-count: 4
@@ -520,10 +514,6 @@ storiesOf('Virtualized List', module)
 					<VirtualizedList.Content
 						label="Field2"
 						dataKey="field2"
-					/>
-					<VirtualizedList.Content
-						label="Field3"
-						dataKey="field3"
 					/>
 					<VirtualizedList.Content
 						label="Description"
