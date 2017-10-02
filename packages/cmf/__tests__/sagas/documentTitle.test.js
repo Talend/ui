@@ -80,7 +80,7 @@ describe('getTitleFromRoutes', () => {
 		expect(title).toBe(myTitle);
 	});
 	it('should return default title', () => {
-		// // Given
+		// Given
 		const myDefaultTitle = 'myDefaultTitle';
 		const routes = new Map([['/error', 'myTitle'], ['/dumb', 'dumber']]);
 		// When
@@ -93,13 +93,11 @@ describe('getTitleFromRoutes', () => {
 describe('assignDocTitle', () => {
 	it('should change the document title', () => {
 		// Given
-		const originalGlobalDoc = global.document;
 		const myTitle = 'myTitle';
 		// When
 		assignDocTitle(myTitle);
 		// Then
 		expect(global.document.title).toBe(myTitle);
-		global.document = originalGlobalDoc;
 	});
 	it('should stick with the current document title', () => {
 		// Given
