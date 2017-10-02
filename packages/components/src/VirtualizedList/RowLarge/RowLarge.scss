@@ -30,15 +30,12 @@ $tc-list-large-field-value-color: $dove-gray !default;
 	}
 
 	.content {
+		column-count: 3;
+		flex: 1;
 		min-height: 0;
 		padding: 0 $padding-large;
-		display: flex;
-		flex-wrap: wrap;
 
 		> li {
-			flex-grow: 0;
-			flex-shrink: 0;
-			flex-basis: calc(100%/3); 
 			list-style: none;
 			display: flex;
 		}
@@ -57,6 +54,5 @@ $tc-list-large-field-value-color: $dove-gray !default;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		max-width: 200px;
 	}
 }

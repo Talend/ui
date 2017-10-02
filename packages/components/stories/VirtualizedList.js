@@ -474,70 +474,6 @@ storiesOf('Virtualized List', module)
 			</section>
 		</div>
 	))
-	.add('List > Large with lot of items on 3 columns', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List</h1>
-			<p>
-			When there are a lot of items per row, the items are added on a new line
-			</p>
-			<p>
-			As the display in table mode, you can customize how the items are rendered, with <i>flex</i> or <i>order</i> properties;
-				In this example, we leave the default size calculation on three columns
-				</p>
-			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={collectionWithLotOfItems}
-					id={'my-list'}
-					rowHeight={135}
-					type={listTypes.LARGE}
-				>
-					<VirtualizedList.Content
-						label="Id"
-						dataKey="id"
-					/>
-					<VirtualizedList.Content
-						label="Name"
-						dataKey="name"
-						columnData={titleProps}
-						{...CellTitle}
-					/>
-					<VirtualizedList.Content
-						label="Rating"
-						dataKey="rating"
-					/>
-					<VirtualizedList.Content
-						label="Field1"
-						dataKey="field1"
-					/>
-					<VirtualizedList.Content
-						label="Field2"
-						dataKey="field2"
-					/>
-					<VirtualizedList.Content
-						label="Field3"
-						dataKey="field3"
-					/>
-					<VirtualizedList.Content
-						label="Description"
-						dataKey="description"
-					/>
-					<VirtualizedList.Content
-						label="Author"
-						dataKey="author"
-					/>
-					<VirtualizedList.Content
-						label="Created"
-						dataKey="created"
-					/>
-					<VirtualizedList.Content
-						label="Modified"
-						dataKey="modified"
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
 	.add('List > Large with lot of items on 4 columns', () => (
 		<div className="virtualized-list-4-columns">
 			<h1>Virtualized List</h1>
@@ -549,8 +485,8 @@ storiesOf('Virtualized List', module)
 				In this example, we set 4 columns :
 			<pre>
 				{
-`.virtualized-list-4-columns .tc-list-large-row [class*='tc-list-cell-'] {
-  flex: 0 0 calc(100% / 4);
+`.virtualized-list-4-columns ul {
+	column-count: 4
 }`
 				}
 			</pre>
