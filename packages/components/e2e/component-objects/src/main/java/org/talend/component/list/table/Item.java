@@ -88,12 +88,8 @@ public class Item extends Component {
         final WebElement title = getTitle();
         if (title == null) {
             throw new NotFoundException("Item title element not found. Not able to click on it.");
-
         }
-        final Actions actions = new Actions(driver)
-                .moveToElement(title)
-                .click(title);
-        actions.perform();
+        jsExec.executeScript("arguments[0].scrollIntoView(); arguments[0].click();", title);
     }
 
     /**
