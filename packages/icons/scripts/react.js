@@ -18,9 +18,7 @@ buff.push('export default icons');
 
 const dist = path.join(__dirname, '../dist/');
 mkdirp.sync(dist);
-const options = {
-	presets: ["es2015", "react"]
-};
+const options = JSON.parse(fs.readFileSync('.babelrc', 'utf8'));
 const code = require("babel-core").transform(buff.join('\n'), options);
 fs.writeFileSync(path.join(dist, 'react.js'), code.code);
 
