@@ -9,10 +9,16 @@ program
 	.version('0.0.1')
 	.option('-d, --debug', 'display more info')
 	.option('-q, --quiet', 'display nothing')
-	.option('-p, --path [value]', 'path of the package.json to update')
-	.option('-s, --stack [value]', 'stack version used in combination with -p')
-	.option('-f, --force')
-	.parse(process.argv);
+	.option('-p, --path [value]', '[required] path of the package.json to update >node version.js --path=../yourapp/package.json')
+	.option('-s, --stack [value]', '[optional] stack version to use, by default the last published one')
+	.option('-f, --force');
+
+program.on('--help', function(){
+	console.log('Don\'t forget to use yarn after the package json update');
+	console.log('so you lockfile is updated !');
+})
+
+	program.parse(process.argv);
 
 const REACT_VERSION = '^15.6.1';
 const JEST_VERSION = '20.0.3';
@@ -141,13 +147,14 @@ if (program.path) {
 		console.log(`use stack version ${stack_version}`);
 	}
 	const STACK_VERSION = {
-		'bootstrap-talend-theme': stack_version,
-		'react-cmf': stack_version,
-		'react-talend-components': stack_version,
-		'react-talend-containers': stack_version,
-		'react-talend-forms': stack_version,
-		'talend-icons': stack_version,
-		'talend-log': stack_version,
+		'@talend/bootstrap-theme': stack_version,
+		'@talend/react-cmf': stack_version,
+		'@talend/react-cmf-cqrs': stack_version,
+		'@talend/react-components': stack_version,
+		'@talend/react-containers': stack_version,
+		'@talend/react-forms': stack_version,
+		'@talend/icons': stack_version,
+		'@talend/log': stack_version,
 	};
 	Object.assign(
 		VERSIONS,
