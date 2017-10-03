@@ -256,16 +256,14 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	User.propTypes = {
-		ActionDropdown: PropTypes.func,
+		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
 		name: PropTypes.string.isRequired,
 		firstName: PropTypes.string,
 		lastName: PropTypes.string,
 	};
 
 	Products.propTypes = {
-		renderers: PropTypes.shape({
-			ActionDropdown: PropTypes.func,
-		}),
+		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
 		t: PropTypes.func.isRequired,
 	};
 
