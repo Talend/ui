@@ -89,6 +89,10 @@ public class Item extends Component {
         if (title == null) {
             throw new NotFoundException("Item title element not found. Not able to click on it.");
         }
+
+        // this is js execution because in some cases react-virtualized freeze a very (very) short time after scroll.
+        // this is a problem only for automated tests that click fast. So the click is programmatic.
+        // for common human, this is not noticeable.
         jsExec.executeScript("arguments[0].scrollIntoView(); arguments[0].click();", title);
     }
 
