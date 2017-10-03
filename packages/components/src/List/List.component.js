@@ -38,7 +38,7 @@ function ListToolbar({ id, toolbar, displayMode, list, t }) {
 			onToggleAll: list.itemProps.onToggleAll,
 		};
 	}
-	return <Toolbar {...toolbarProps} />;
+	return (<Toolbar {...toolbarProps} />);
 }
 
 ListToolbar.propTypes = {
@@ -48,18 +48,28 @@ ListToolbar.propTypes = {
 		PropTypes.shape(DisplayPropTypes),
 		PropTypes.shape(Content.propTypes),
 	]),
-	toolbar: PropTypes.shape(omit(Toolbar.propTypes, ['t'])),
+	toolbar: PropTypes.shape(omit(Toolbar.propTypes, 't')),
 	t: PropTypes.func.isRequired,
 };
 
 function DisplayModeComponent({ displayMode, id, list, useContent, virtualized }) {
 	if (useContent) {
-		return <Content id={id && `${id}-content`} displayMode={displayMode} {...list} />;
+		return (
+			<Content
+				id={id && `${id}-content`}
+				displayMode={displayMode}
+				{...list}
+			/>
+		);
 	}
 	if (virtualized) {
 		return (
 			<div className={'tc-list-display-virtualized'}>
-				<ListToVirtualizedList id={id} displayMode={displayMode} {...list} />
+				<ListToVirtualizedList
+					id={id}
+					displayMode={displayMode}
+					{...list}
+				/>
 			</div>
 		);
 	}
@@ -136,7 +146,13 @@ function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
 
 	return (
 		<div className={classnames}>
-			<ListToolbar id={id} toolbar={toolbar} displayMode={displayMode} list={list} t={t} />
+			<ListToolbar
+				id={id}
+				toolbar={toolbar}
+				displayMode={displayMode}
+				list={list}
+				t={t}
+			/>
 			<ListDisplay
 				displayMode={displayMode}
 				id={id}
@@ -149,7 +165,7 @@ function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
 }
 
 List.propTypes = {
-	...omit(ListToolbar.propTypes, ['t']),
+	...omit(ListToolbar.propTypes, 't'),
 	...ListDisplay.propTypes,
 };
 
