@@ -10,9 +10,10 @@ const SASS_DATA = `$brand-primary: #77828A;
 `;
 
 function getCommonStyleLoaders(enableModules) {
-	const cssOptions = enableModules ?
-		{ sourceMap: true, modules: true, importLoaders: 1, localIdentName: '[name]__[local]___[hash:base64:5]' } :
-		{};
+	let cssOptions = {};
+	if (enableModules) {
+		cssOptions = { sourceMap: true, modules: true, importLoaders: 1, localIdentName: '[name]__[local]___[hash:base64:5]' };
+	}
 	return [
 		{ loader: 'css-loader', options: cssOptions },
 		{ loader: 'postcss-loader', options: { sourceMap: true, plugins: () => [autoprefixer({ browsers: ['last 2 versions'] })] } },
@@ -57,7 +58,7 @@ module.exports = {
 			{
 				test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
 				loader: 'url-loader',
-				options: { name: './fonts/[name].[ext]', limit: 10000, mimetype: 'application/font-woff' },
+				options: { name: './fonts/[name].[ext]', limit: 50000, mimetype: 'application/font-woff' },
 			},
 		],
 	},
