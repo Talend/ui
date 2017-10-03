@@ -170,22 +170,6 @@ const collection = [
 	},
 ];
 
-const collectionWithLotOfItems = [
-	{
-		id: 0,
-		name: 'Title with lot of items',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		description: 'Simple row with lot of items very looooooong looooooong looooooong looooooong description',
-		author: 'Jean-Pierre DUPONT',
-		rating: 'rating1',
-		field1: 'field',
-		field2: 'field2',
-		display: 'text',
-		className: 'item-0-class',
-	},
-];
-
 for (let i = collection.length; i < 100; i += 1) {
 	collection.push({
 		id: i,
@@ -452,68 +436,6 @@ storiesOf('Virtualized List', module)
 						label=""
 						dataKey="actions"
 						{...CellActions}
-					/>
-					<VirtualizedList.Content
-						label="Description"
-						dataKey="description"
-					/>
-					<VirtualizedList.Content
-						label="Author"
-						dataKey="author"
-					/>
-					<VirtualizedList.Content
-						label="Created"
-						dataKey="created"
-					/>
-					<VirtualizedList.Content
-						label="Modified"
-						dataKey="modified"
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > Large with lot of items on 4 columns', () => (
-		<div className="virtualized-list-4-columns">
-			<h1>Virtualized List</h1>
-			<p>In this example, we set 4 columns:
-				<pre>
-				{
-`.virtualized-list-4-columns ul {
-	column-count: 4
-}`
-				}
-			</pre>
-			</p>
-			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={collectionWithLotOfItems}
-					id={'my-list'}
-					rowHeight={135}
-					type={listTypes.LARGE}
-				>
-					<VirtualizedList.Content
-						label="Id"
-						dataKey="id"
-					/>
-					<VirtualizedList.Content
-						label="Name"
-						dataKey="name"
-						columnData={titleProps}
-						{...CellTitle}
-					/>
-					<VirtualizedList.Content
-						label="Rating"
-						dataKey="rating"
-					/>
-					<VirtualizedList.Content
-						label="Field1"
-						dataKey="field1"
-					/>
-					<VirtualizedList.Content
-						label="Field2"
-						dataKey="field2"
 					/>
 					<VirtualizedList.Content
 						label="Description"
