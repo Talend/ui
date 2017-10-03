@@ -9,11 +9,15 @@ program
 	.version('0.0.1')
 	.option('-d, --debug', 'display more info')
 	.option('-q, --quiet', 'display nothing')
-	.option('-p, --path [value]', '[required] path of the package.json to update >node version.js --path=../yourapp/package.json')
+	.option('-p, --path [value]', '[optional] path of the package.json to update by default local package')
 	.option('-s, --stack [value]', '[optional] stack version to use, by default the last published one')
 	.option('-f, --force');
 
 program.on('--help', function(){
+	console.log('To update your project dependencies : ')
+	console.log('>node version.js --path ../yourapp/package.json');
+	console.log('To update your project dependencies to a specif stack version :')
+	console.log('>node version.js --path ../yourapp/package.json --stack=0.114.0')
 	console.log('Don\'t forget to use yarn after the package json update');
 	console.log('so you lockfile is updated !');
 })
