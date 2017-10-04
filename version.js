@@ -25,7 +25,7 @@ program.on('--help', function(){
 	program.parse(process.argv);
 
 const REACT_VERSION = '^15.6.1';
-const JEST_VERSION = '20.0.3';
+const JEST_VERSION = '20.0.4';
 
 const ADDONS = {
 	'babel-polyfill': '6.26.0',
