@@ -51,7 +51,12 @@ export function getStateToProps({
 
 	cmfProps.getCollection = getCollection;
 
-	const viewProps = mapStateToViewProps(state, ownProps);
+	const viewProps = mapStateToViewProps(
+		state,
+		ownProps,
+		getComponentName(WrappedComponent),
+		getComponentId(componentId, ownProps),
+	);
 
 	let userProps = {};
 	if (mapStateToProps) {
