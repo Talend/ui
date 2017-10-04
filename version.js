@@ -120,7 +120,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	webpack: '^2.5.1',
 	'webpack-bundle-analyzer': '2.8.2',
 	'webpack-dashboard': '0.4.0',
-	'webpack-dev-server': '2.4.5',
+	'webpack-dev-server': '2.4.6',
 });
 
 let files = [
