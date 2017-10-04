@@ -129,7 +129,7 @@ Existing commands:
 
 * cmf.routerReplace (string or function)
 * cmf.routerPush (string or function)
-* response + cmf.collectionId -> addOrReplaceCollection
+* response + cmf.collectionId -> addOrReplace
 
 ### HTTP
 

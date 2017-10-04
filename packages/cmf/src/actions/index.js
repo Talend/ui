@@ -24,4 +24,7 @@ export default {
 	componentsActions,
 	settingsActions,
 	http,
+	collections: collectionsActions,
+	components: componentsActions,
+	settings: settingsActions,
 };
