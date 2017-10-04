@@ -120,17 +120,17 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'copy-webpack-plugin': '4.0.1',
 	'css-loader': '0.28.2',
 	'extract-text-webpack-plugin': '2.1.0',
-	'file-loader': '^0.10.0',
+	'file-loader': '^0.11.1',
 	'fontgen-loader': '0.2.1',
 	'node-sass': '4.5.3',
 	'postcss-loader': '1.3.1',
 	'sass-loader': '6.0.5',
-	'style-loader': '0.16.1',
+	'style-loader': '0.18.2',
 	'url-loader': '0.5.8',
-	webpack: '^2.5.1',
-	'webpack-bundle-analyzer': '2.8.2',
-	'webpack-dashboard': '0.4.0',
-	'webpack-dev-server': '2.4.5',
+	webpack: '^3.6.0',
+	'webpack-bundle-analyzer': '2.9.0',
+	'webpack-dashboard': '1.0.0-5',
+	'webpack-dev-server': '2.9.1',
 });
 
 let files = [
