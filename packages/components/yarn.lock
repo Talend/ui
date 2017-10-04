@@ -168,15 +168,15 @@
     react-treebeard "^2.0.3"
     redux "^3.6.0"
 
-"@talend/bootstrap-theme@^0.114.0":
-  version "0.114.0"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.114.0.tgz#5fe4824874328dd9bfeec50f0cb0f7f7fbcc8849"
+"@talend/bootstrap-theme@^0.115.0":
+  version "0.115.0"
+  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.115.0.tgz#aabf8d175ca4ef36388e59f0fda56884cca59861"
   dependencies:
     bootstrap-sass "3.3.7"
 
-"@talend/icons@^0.114.0":
-  version "0.114.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.114.0.tgz#8e3fca1b0b833598a5c9c052bf096aa30e169a59"
+"@talend/icons@^0.115.0":
+  version "0.115.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.115.0.tgz#fe6d035cf557954215bd773429bddd475414571b"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -6897,11 +6897,12 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-style-loader@0.16.1:
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.16.1.tgz#50e325258d4e78421dd9680636b41e8661595d10"
+style-loader@0.18.2:
+  version "0.18.2"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.18.2.tgz#cc31459afbcd6d80b7220ee54b291a9fd66ff5eb"
   dependencies:
     loader-utils "^1.0.2"
+    schema-utils "^0.3.0"
 
 style-loader@^0.17.0:
   version "0.17.0"
