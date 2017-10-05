@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
+import { storiesOf, action } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 
 import { IconsProvider } from '../src/index';
@@ -71,7 +71,8 @@ const actions = [
 		icon: 'talend-star',
 		className: 'favorite',
 		onClick: action('onFavorite'),
-	}, {
+	},
+	{
 		label: 'certify',
 		icon: 'talend-badge',
 		className: 'certify',
@@ -136,7 +137,8 @@ const collection = [
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Row with a super super long author to show the ellipsis',
-		author: 'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
+		author:
+			'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
 		icon: 'talend-file-json-o',
 		className: 'item-2-class',
 		actions,
@@ -191,61 +193,36 @@ storiesOf('Virtualized List', module)
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
 			<p>
-				By default each columns have the same size.
-				The cells are placed using flexbox.
-				You can customize the flex properties of the cells using the generated classnames.
+				By default each columns have the same size. The cells are placed using flexbox. You can
+				customize the flex properties of the cells using the generated classnames.
 			</p>
 			<p>
 				Example here
 				<pre>
-					{
-`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
+					{`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
 .virtualized-list div.tc-list-cell-name { flex: 0 0 350px; }
 .virtualized-list div.tc-list-cell-actions { flex: 0 0 120px; }
 .virtualized-list div.tc-list-cell-description { flex: 1 0 120px; }
 .virtualized-list div.tc-list-cell-author { flex: 1 0 90px; }
 .virtualized-list div.tc-list-cell-created,
-.virtualized-list div.tc-list-cell-modified { flex: 0 0 90px;}`
-					}
+.virtualized-list div.tc-list-cell-modified { flex: 0 0 90px;}`}
 				</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={collection}
-					id={'my-list'}
-				>
-					<VirtualizedList.Content
-						label="Id"
-						dataKey="id"
-					/>
+				<VirtualizedList collection={collection} id={'my-list'}>
+					<VirtualizedList.Content label="Id" dataKey="id" />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content
-						label=""
-						dataKey="actions"
-						{...CellActions}
-					/>
-					<VirtualizedList.Content
-						label="Description (non sortable)"
-						dataKey="description"
-					/>
-					<VirtualizedList.Content
-						label="Author"
-						dataKey="author"
-					/>
-					<VirtualizedList.Content
-						label="Created"
-						dataKey="created"
-					/>
-					<VirtualizedList.Content
-						label="Modified"
-						dataKey="modified"
-					/>
+					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
+					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
+					<VirtualizedList.Content label="Author" dataKey="author" />
+					<VirtualizedList.Content label="Created" dataKey="created" />
+					<VirtualizedList.Content label="Modified" dataKey="modified" />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -254,7 +231,7 @@ storiesOf('Virtualized List', module)
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
 			<p>
-				You can enable sort by passing <b>sort</b>, <b>sortBy</b> and <b>sortDirection</b>.<br/>
+				You can enable sort by passing <b>sort</b>, <b>sortBy</b> and <b>sortDirection</b>.<br />
 				To disable sort on a column, add the <b>disableSort</b> props (see Description column).
 			</p>
 			<IconsProvider defaultIcons={icons} />
@@ -266,39 +243,22 @@ storiesOf('Virtualized List', module)
 					sortBy={'name'}
 					sortDirection={'ASC'}
 				>
-					<VirtualizedList.Content
-						label="Id"
-						dataKey="id"
-					/>
+					<VirtualizedList.Content label="Id" dataKey="id" />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content
-						label=""
-						dataKey="actions"
-						disableSort
-						{...CellActions}
-					/>
+					<VirtualizedList.Content label="" dataKey="actions" disableSort {...CellActions} />
 					<VirtualizedList.Content
 						label="Description (non sortable)"
 						dataKey="description"
 						disableSort
 					/>
-					<VirtualizedList.Content
-						label="Author"
-						dataKey="author"
-					/>
-					<VirtualizedList.Content
-						label="Created"
-						dataKey="created"
-					/>
-					<VirtualizedList.Content
-						label="Modified"
-						dataKey="modified"
-					/>
+					<VirtualizedList.Content label="Author" dataKey="author" />
+					<VirtualizedList.Content label="Created" dataKey="created" />
+					<VirtualizedList.Content label="Modified" dataKey="modified" />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -307,8 +267,8 @@ storiesOf('Virtualized List', module)
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
 			<p>
-				Selection can be enabled by passing <b>selectionToggle</b> callback
-				and <b>isSelected</b> function that returns if a row is selected.<br/>
+				Selection can be enabled by passing <b>selectionToggle</b> callback and <b>isSelected</b>{' '}
+				function that returns if a row is selected.<br />
 				Here <pre>{'isSelected={item => item.id === 6}'}</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
@@ -319,37 +279,18 @@ storiesOf('Virtualized List', module)
 					isSelected={item => item.id === 6}
 					selectionToggle={action('selectionToggle')}
 				>
-					<VirtualizedList.Content
-						label="Id"
-						dataKey="id"
-					/>
+					<VirtualizedList.Content label="Id" dataKey="id" />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content
-						label=""
-						dataKey="actions"
-						{...CellActions}
-					/>
-					<VirtualizedList.Content
-						label="Description (non sortable)"
-						dataKey="description"
-					/>
-					<VirtualizedList.Content
-						label="Author"
-						dataKey="author"
-					/>
-					<VirtualizedList.Content
-						label="Created"
-						dataKey="created"
-					/>
-					<VirtualizedList.Content
-						label="Modified"
-						dataKey="modified"
-					/>
+					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
+					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
+					<VirtualizedList.Content label="Author" dataKey="author" />
+					<VirtualizedList.Content label="Created" dataKey="created" />
+					<VirtualizedList.Content label="Modified" dataKey="modified" />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -358,8 +299,8 @@ storiesOf('Virtualized List', module)
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
 			<p>
-				Row click can be enabled by passing <b>onRowClick</b> callback
-				and <b>isActive</b> function that returns if a row is active.<br />
+				Row click can be enabled by passing <b>onRowClick</b> callback and <b>isActive</b> function
+				that returns if a row is active.<br />
 				Here example <pre>{'isActive={item => item.id === 6}'}</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
@@ -370,37 +311,18 @@ storiesOf('Virtualized List', module)
 					onRowClick={action('onRowClick')}
 					isActive={item => item.id === 6}
 				>
-					<VirtualizedList.Content
-						label="Id"
-						dataKey="id"
-					/>
+					<VirtualizedList.Content label="Id" dataKey="id" />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content
-						label=""
-						dataKey="actions"
-						{...CellActions}
-					/>
-					<VirtualizedList.Content
-						label="Description (non sortable)"
-						dataKey="description"
-					/>
-					<VirtualizedList.Content
-						label="Author"
-						dataKey="author"
-					/>
-					<VirtualizedList.Content
-						label="Created"
-						dataKey="created"
-					/>
-					<VirtualizedList.Content
-						label="Modified"
-						dataKey="modified"
-					/>
+					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
+					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
+					<VirtualizedList.Content label="Author" dataKey="author" />
+					<VirtualizedList.Content label="Created" dataKey="created" />
+					<VirtualizedList.Content label="Modified" dataKey="modified" />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -410,7 +332,7 @@ storiesOf('Virtualized List', module)
 			<h1>Virtualized List</h1>
 			<p>
 				On Large rendering, the title is automatically placed at the top.<br />
-				The rest of the fields are displayed on the <b>VirtualizedList.Content</b> order.<br/>
+				The rest of the fields are displayed on the <b>VirtualizedList.Content</b> order.<br />
 				The row height is by default <b>135px</b> but can be customized by passing a
 				<b>rowHeight</b> props.
 			</p>
@@ -422,37 +344,18 @@ storiesOf('Virtualized List', module)
 					rowHeight={135}
 					type={listTypes.LARGE}
 				>
-					<VirtualizedList.Content
-						label="Id"
-						dataKey="id"
-					/>
+					<VirtualizedList.Content label="Id" dataKey="id" />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content
-						label=""
-						dataKey="actions"
-						{...CellActions}
-					/>
-					<VirtualizedList.Content
-						label="Description"
-						dataKey="description"
-					/>
-					<VirtualizedList.Content
-						label="Author"
-						dataKey="author"
-					/>
-					<VirtualizedList.Content
-						label="Created"
-						dataKey="created"
-					/>
-					<VirtualizedList.Content
-						label="Modified"
-						dataKey="modified"
-					/>
+					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
+					<VirtualizedList.Content label="Description" dataKey="description" />
+					<VirtualizedList.Content label="Author" dataKey="author" />
+					<VirtualizedList.Content label="Created" dataKey="created" />
+					<VirtualizedList.Content label="Modified" dataKey="modified" />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -461,8 +364,8 @@ storiesOf('Virtualized List', module)
 		<div>
 			<h1>Virtualized List</h1>
 			<p>
-				Selection can be enabled by passing <b>selectionToggle</b> callback
-				and <b>isSelected</b> function that returns if a row is selected.<br/>
+				Selection can be enabled by passing <b>selectionToggle</b> callback and <b>isSelected</b>{' '}
+				function that returns if a row is selected.<br />
 				Here <pre>{'isSelected={item => item.id === 6}'}</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
@@ -475,37 +378,18 @@ storiesOf('Virtualized List', module)
 					rowHeight={135}
 					type={listTypes.LARGE}
 				>
-					<VirtualizedList.Content
-						label="Id"
-						dataKey="id"
-					/>
+					<VirtualizedList.Content label="Id" dataKey="id" />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content
-						label=""
-						dataKey="actions"
-						{...CellActions}
-					/>
-					<VirtualizedList.Content
-						label="Description"
-						dataKey="description"
-					/>
-					<VirtualizedList.Content
-						label="Author"
-						dataKey="author"
-					/>
-					<VirtualizedList.Content
-						label="Created"
-						dataKey="created"
-					/>
-					<VirtualizedList.Content
-						label="Modified"
-						dataKey="modified"
-					/>
+					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
+					<VirtualizedList.Content label="Description" dataKey="description" />
+					<VirtualizedList.Content label="Author" dataKey="author" />
+					<VirtualizedList.Content label="Created" dataKey="created" />
+					<VirtualizedList.Content label="Modified" dataKey="modified" />
 				</VirtualizedList>
 			</section>
 		</div>
@@ -514,8 +398,8 @@ storiesOf('Virtualized List', module)
 		<div>
 			<h1>Virtualized List</h1>
 			<p>
-				Row click can be enabled by passing <b>onRowClick</b> callback
-				and <b>isActive</b> function that returns if a row is active.<br />
+				Row click can be enabled by passing <b>onRowClick</b> callback and <b>isActive</b> function
+				that returns if a row is active.<br />
 				Here example <pre>{'isActive={item => item.id === 6}'}</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
@@ -528,37 +412,56 @@ storiesOf('Virtualized List', module)
 					rowHeight={135}
 					type={listTypes.LARGE}
 				>
-					<VirtualizedList.Content
-						label="Id"
-						dataKey="id"
-					/>
+					<VirtualizedList.Content label="Id" dataKey="id" />
 					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
 						{...CellTitle}
 					/>
+					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
+					<VirtualizedList.Content label="Description" dataKey="description" />
+					<VirtualizedList.Content label="Author" dataKey="author" />
+					<VirtualizedList.Content label="Created" dataKey="created" />
+					<VirtualizedList.Content label="Modified" dataKey="modified" />
+				</VirtualizedList>
+			</section>
+		</div>
+	))
+	.add('List > Table without header', () => (
+		<div className="virtualized-list">
+			<h1>Virtualized List</h1>
+			<p>
+				By default each columns have the same size. The cells are placed using flexbox. You can
+				customize the flex properties of the cells using the generated classnames.
+			</p>
+			<p>
+				Example here
+				<pre>
+					{`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
+.virtualized-list div.tc-list-cell-name { flex: 0 0 350px; }
+.virtualized-list div.tc-list-cell-actions { flex: 0 0 120px; }
+.virtualized-list div.tc-list-cell-description { flex: 1 0 120px; }
+.virtualized-list div.tc-list-cell-author { flex: 1 0 90px; }
+.virtualized-list div.tc-list-cell-created,
+.virtualized-list div.tc-list-cell-modified { flex: 0 0 90px;}`}
+				</pre>
+			</p>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={collection} id={'my-list'} disableHeader>
+					<VirtualizedList.Content label="Id" dataKey="id" />
 					<VirtualizedList.Content
-						label=""
-						dataKey="actions"
-						{...CellActions}
+						label="Name"
+						dataKey="name"
+						columnData={titleProps}
+						{...CellTitle}
 					/>
-					<VirtualizedList.Content
-						label="Description"
-						dataKey="description"
-					/>
-					<VirtualizedList.Content
-						label="Author"
-						dataKey="author"
-					/>
-					<VirtualizedList.Content
-						label="Created"
-						dataKey="created"
-					/>
-					<VirtualizedList.Content
-						label="Modified"
-						dataKey="modified"
-					/>
+					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
+					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
+					<VirtualizedList.Content label="Author" dataKey="author" />
+					<VirtualizedList.Content label="Created" dataKey="created" />
+					<VirtualizedList.Content label="Modified" dataKey="modified" />
 				</VirtualizedList>
 			</section>
 		</div>
