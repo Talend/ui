@@ -84,7 +84,7 @@ memoize.Cache = Map;
 	listview: {
 	  ...
 	}
-}
+  }
 
  *
  * @param  {Object} state     redux state
