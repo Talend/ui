@@ -5,6 +5,7 @@
 
 /* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
 import invariant from 'invariant';
+import memoize from 'lodash/memoize';
 
 /**
  * if an object try to find _ref property and resolve it
@@ -17,11 +18,7 @@ export function attachRef(state, obj) {
 	if (props._ref) {
 		const ref = state.cmf.settings.ref[props._ref];
 		invariant(ref, `CMF/Settings: Reference '${props._ref}' not found`);
-		props = Object.assign(
-			{},
-			state.cmf.settings.ref[props._ref],
-			obj
-		);
+		props = Object.assign({}, state.cmf.settings.ref[props._ref], obj);
 		delete props._ref;
 	}
 	return props;
@@ -29,16 +26,16 @@ export function attachRef(state, obj) {
 
 export function attachRefs(state, props) {
 	const attachedProps = attachRef(state, props);
-	Object.keys(attachedProps).forEach(
-		(key) => {
-			attachedProps[key] = attachRef(state, attachedProps[key]);
-		}
-	);
+	Object.keys(attachedProps).forEach(key => {
+		attachedProps[key] = attachRef(state, attachedProps[key]);
+	});
 	return attachedProps;
 }
 
 /**
  * return props for a given view with reference and override support
+ * this function is memoized and the map key is computed using
+ * `${ownProps.view}-${componentName}-${componentId}`
  *
  * @example
 
@@ -77,7 +74,12 @@ export function attachRefs(state, props) {
  * @param  {Object} ownProps   the props passed to the component. may have a view attribute
  * @return {Object}           React props for the component injected from the settings
  */
-export function mapStateToViewProps(state, ownProps, componentName, componentId) {
+export const mapStateToViewProps = memoize((
+	state,
+	ownProps,
+	componentName,
+	componentId,
+) => {
 	let viewProps = {};
 	let viewId = ownProps.view;
 	if (!ownProps.view && componentName && !componentId) {
@@ -86,14 +88,12 @@ export function mapStateToViewProps(state, ownProps, componentName, componentId)
 		viewId = `${componentName}:${componentId}`;
 	}
 	if (viewId && state.cmf.settings.views[viewId]) {
-		viewProps = Object.assign(
-			{},
-			state.cmf.settings.views[viewId],
-		);
+		viewProps = Object.assign({}, state.cmf.settings.views[viewId]);
 		viewProps = attachRefs(state, viewProps);
 	}
 	return viewProps;
-}
+},
+(state, ownProps, componentName, componentId) => `${ownProps.view}-${componentName}-${componentId}`);
 
 export default {
 	attachRef,
