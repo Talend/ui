@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`VirtualizedList should render CircularProgress 1`] = `
+<div
+  className="tc-list-progress"
+>
+  <CircularProgress
+    size="default"
+  />
+</div>
+`;
+
 exports[`VirtualizedList should render RendererSelector 1`] = `
 <VirtualizedList(RendererSelector)
   collection={

@@ -83,4 +83,28 @@ describe('VirtualizedList', () => {
 		// then
 		expect(rendererInstance).toMatchSnapshot();
 	});
+	it('should render CircularProgress', () => {
+		// given
+		const wrapper = shallow(
+			<VirtualizedList
+				collection={collection}
+				height={600}
+				id={'my-list-id'}
+				isActive={jest.fn()}
+				isSelected={jest.fn()}
+				inProgress
+				onRowClick={jest.fn()}
+				rowHeight={50}
+				selectionToggle={jest.fn()}
+				sort={jest.fn()}
+				sortBy={'name'}
+				sortDirection={'DESC'}
+				type={TABLE}
+			>
+				{contentFields}
+			</VirtualizedList>
+		);
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
 });

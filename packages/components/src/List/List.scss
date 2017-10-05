@@ -24,5 +24,14 @@
 		flex-grow: 1;
 		flex-shrink: 1;
 		box-shadow: $shadow-default;
+		height: 100%;
+	}
+
+	:global(.tc-list-progress) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		margin-bottom: 0px;
 	}
 }

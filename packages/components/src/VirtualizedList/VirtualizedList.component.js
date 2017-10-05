@@ -4,6 +4,7 @@ import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration } from './utils/tablerow';
 
+import CircularProgress from './../CircularProgress';
 /**
  * Composable List based on react-virtualized
  */
@@ -14,6 +15,7 @@ function VirtualizedList(props) {
 		id,
 		isActive,
 		isSelected,
+		inProgress,
 		onRowClick,
 		rowHeight,
 		selectionToggle,
@@ -29,6 +31,13 @@ function VirtualizedList(props) {
 		selectionToggle,
 	});
 
+	if (inProgress) {
+		return (
+			<div className="tc-list-progress">
+				<CircularProgress size={'default'} />
+			</div>
+		);
+	}
 	return (
 		<AutoSizer>
 			{({ height, width }) => (
