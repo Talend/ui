@@ -139,6 +139,7 @@ let files = [
 	'./packages/containers/package.json',
 	'./packages/forms/package.json',
 	'./packages/generator/package.json',
+	'./packages/generator/generators/react-cmf/templates/package.json',
 	'./packages/icons/package.json',
 	'./packages/logging/package.json',
 	'./packages/theme/package.json',
