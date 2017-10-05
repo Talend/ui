@@ -83,6 +83,7 @@ describe('VirtualizedList', () => {
 		// then
 		expect(rendererInstance).toMatchSnapshot();
 	});
+
 	it('should render CircularProgress', () => {
 		// given
 		const wrapper = shallow(
