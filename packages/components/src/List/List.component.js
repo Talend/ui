@@ -52,7 +52,7 @@ ListToolbar.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-function DisplayModeComponent({ displayMode, id, list, useContent, virtualized }) {
+function DisplayModeComponent({ displayMode, id, list, useContent, virtualized, t }) {
 	if (useContent) {
 		return (
 			<Content
@@ -68,6 +68,7 @@ function DisplayModeComponent({ displayMode, id, list, useContent, virtualized }
 				<ListToVirtualizedList
 					id={id}
 					displayMode={displayMode}
+					t={t}
 					{...list}
 				/>
 			</div>
@@ -91,9 +92,10 @@ DisplayModeComponent.propTypes = {
 	]),
 	useContent: PropTypes.bool,
 	virtualized: PropTypes.bool,
+	t: PropTypes.func,
 };
 
-function ListDisplay({ displayMode, id, list, useContent, virtualized }) {
+function ListDisplay({ displayMode, id, list, useContent, virtualized, t }) {
 	return (
 		<DisplayModeComponent
 			id={id}
@@ -101,6 +103,7 @@ function ListDisplay({ displayMode, id, list, useContent, virtualized }) {
 			displayMode={displayMode}
 			list={list}
 			virtualized={virtualized}
+			t={t}
 		/>
 	);
 }
@@ -159,6 +162,7 @@ function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
 				list={list}
 				useContent={useContent}
 				virtualized={virtualized}
+				t={t}
 			/>
 		</div>
 	);

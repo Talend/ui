@@ -47,6 +47,7 @@ function ListToVirtualizedList(props) {
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
 			type={props.displayMode.toUpperCase()}
+			t={props.t}
 		>
 			{props.columns.map((column, index) => {
 				const cProps = {
@@ -80,6 +81,7 @@ ListToVirtualizedList.propTypes = {
 		onToggle: PropTypes.func,
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
+	inProgress: PropTypes.bool,
 	sort: PropTypes.shape({
 		onChange: PropTypes.func,
 		field: PropTypes.string,
@@ -89,7 +91,7 @@ ListToVirtualizedList.propTypes = {
 		actionsKey: PropTypes.string,
 		key: PropTypes.string,
 	}),
-	inProgress: PropTypes.bool,
+	t: PropTypes.func,
 };
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',

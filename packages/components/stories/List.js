@@ -403,8 +403,6 @@ storiesOf('List', module)
 				<IconsProvider defaultIcons={icons} />
 				<h2>Table</h2>
 				<List {...loadingListProps} virtualized />
-				<h2>Large</h2>
-				<List {...loadingListProps} displayMode="large" virtualized />
 			</div>
 		);
 	})
