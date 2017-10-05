@@ -12,11 +12,5 @@ src/VirtualizedList/NoRows/NoRows.scss
 src/VirtualizedList/RowSelection/RowSelection.scss
   12:1  warning  Space expected between blocks  empty-line-between-blocks
 
-src/VirtualizedList/VirtualizedList.scss
-  2:3  warning  Mixed tabs and spaces  indentation
-  3:3  warning  Mixed tabs and spaces  indentation
-  4:3  warning  Mixed tabs and spaces  indentation
-  5:3  warning  Mixed tabs and spaces  indentation
-
-✖ 7 problems (0 errors, 7 warnings)
+✖ 3 problems (0 errors, 3 warnings)
 
