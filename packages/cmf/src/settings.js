@@ -47,8 +47,6 @@ export function nonMemoizedMapStateToViewProps(state, ownProps, componentName, c
 	return viewProps;
 }
 
-memoize.Cache = Map;
-
 /**
  * return props for a given view with reference and override support
  * this function is memoized and the map key is computed using
