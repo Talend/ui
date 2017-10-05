@@ -4,7 +4,9 @@ import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration } from './utils/tablerow';
 
-import Status from './../Status';
+import CircularProgress from './../CircularProgress';
+
+import theme from './VirtualizedList.scss';
 /**
  * Composable List based on react-virtualized
  */
@@ -23,7 +25,6 @@ function VirtualizedList(props) {
 		sortBy,
 		sortDirection,
 		type,
-		t,
 	} = props;
 
 	const contentsConfiguration = insertSelectionConfiguration({
@@ -34,11 +35,8 @@ function VirtualizedList(props) {
 
 	if (inProgress) {
 		return (
-			<div className="tc-list-progress">
-				<Status
-					status="inProgress"
-					label={t('LIST_LOADING_LABEL', { defaultValue: 'Loading...' })}
-				/>
+			<div className={theme['tc-list-progress']}>
+				<CircularProgress size={'default'} />
 			</div>
 		);
 	}

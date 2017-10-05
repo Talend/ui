@@ -47,7 +47,6 @@ function ListToVirtualizedList(props) {
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
 			type={props.displayMode.toUpperCase()}
-			t={props.t}
 		>
 			{props.columns.map((column, index) => {
 				const cProps = {
@@ -91,7 +90,6 @@ ListToVirtualizedList.propTypes = {
 		actionsKey: PropTypes.string,
 		key: PropTypes.string,
 	}),
-	t: PropTypes.func,
 };
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',

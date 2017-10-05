@@ -46,7 +46,6 @@ describe('VirtualizedList', () => {
 				sortBy={'name'}
 				sortDirection={'DESC'}
 				type={TABLE}
-				t={jest.fn()}
 			>
 				{contentFields}
 			</VirtualizedList>
@@ -72,7 +71,6 @@ describe('VirtualizedList', () => {
 				sortBy={'name'}
 				sortDirection={'DESC'}
 				type={TABLE}
-				t={jest.fn()}
 			>
 				{contentFields}
 			</VirtualizedList>
@@ -85,7 +83,7 @@ describe('VirtualizedList', () => {
 		// then
 		expect(rendererInstance).toMatchSnapshot();
 	});
-	it('should render Status', () => {
+	it('should render CircularProgress', () => {
 		// given
 		const wrapper = shallow(
 			<VirtualizedList
@@ -102,7 +100,6 @@ describe('VirtualizedList', () => {
 				sortBy={'name'}
 				sortDirection={'DESC'}
 				type={TABLE}
-				t={jest.fn()}
 			>
 				{contentFields}
 			</VirtualizedList>
