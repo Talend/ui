@@ -259,22 +259,19 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 					</TooltipTrigger>
 					{isOpened ? (
 						<ul className={theme['vertical-line']}>
-							{info.keys.map((key, i) => {
-								const jpath = getJSONPath(key, jsonpath, info.type);
-								return (
-									<li key={i}>
-										<Item
-											{...props}
-											data={data[key]}
-											name={key}
-											jsonpath={jpath}
-											opened={opened}
-											edited={edited}
-											onSelect={onSelect}
-										/>
-									</li>
-								);
-							})}
+							{info.keys.map((key, i) => (
+								<li key={i}>
+									<Item
+										{...props}
+										data={data[key]}
+										name={key}
+										jsonpath={getJSONPath(key, jsonpath, info.type)}
+										opened={opened}
+										edited={edited}
+										onSelect={onSelect}
+									/>
+								</li>
+							))}
 						</ul>
 					) : null}
 				</span>
