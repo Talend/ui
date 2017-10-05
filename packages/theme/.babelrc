@@ -1,5 +1,15 @@
 {
-    "presets": [
-        "es2015"
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "ie": 11,
+          "browsers": [
+            "last 2 versions"
+          ]
+        }
+      }
     ]
+  ]
 }

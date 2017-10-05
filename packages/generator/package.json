@@ -42,7 +42,7 @@
   "devDependencies": {
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
-    "babel-preset-es2015": "6.18.0",
+    "babel-preset-env": "1.6.0",
     "babel-register": "^6.14.0",
     "coveralls": "^2.11.12",
     "eslint": "^3.6.1",
@@ -51,5 +51,5 @@
     "yeoman-assert": "^2.0.0",
     "yeoman-test": "^1.0.0"
   },
-  "version": "0.114.0"
+  "version": "0.116.0"
 }
