@@ -5,6 +5,7 @@ Object {
   "deleteState": [Function],
   "dispatch": [Function],
   "dispatchActionCreator": [Function],
+  "foo": "from-displayName",
   "getCollection": [Function],
   "initState": [Function],
   "setState": [Function],

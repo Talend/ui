@@ -1,5 +1,6 @@
 import {
 	mapStateToViewProps,
+	nonMemoizedMapStateToViewProps,
 	attachRef,
 } from '../src/settings';
 import mock from '../src/mock';
@@ -27,7 +28,7 @@ describe('mapStateToViewProps', () => {
 		};
 		state.cmf.settings.ref = {};
 		const shouldThrow = () => {
-			mapStateToViewProps(state, { view: 'homepage' });
+			nonMemoizedMapStateToViewProps(state, { view: 'homepage' });
 		};
 		expect(shouldThrow).toThrow(new Error('CMF/Settings: Reference \'myref\' not found'));
 	});

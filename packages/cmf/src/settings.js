@@ -32,6 +32,21 @@ export function attachRefs(state, props) {
 	return attachedProps;
 }
 
+export function nonMemoizedMapStateToViewProps(state, ownProps, componentName, componentId) {
+	let viewProps = {};
+	let viewId = ownProps.view;
+	if (!ownProps.view && componentName && !componentId) {
+		viewId = componentName;
+	} else if (!ownProps.view && componentName && componentId) {
+		viewId = `${componentName}:${componentId}`;
+	}
+	if (viewId && state.cmf.settings.views[viewId]) {
+		viewProps = Object.assign({}, state.cmf.settings.views[viewId]);
+		viewProps = attachRefs(state, viewProps);
+	}
+	return viewProps;
+}
+
 /**
  * return props for a given view with reference and override support
  * this function is memoized and the map key is computed using
@@ -74,26 +89,11 @@ export function attachRefs(state, props) {
  * @param  {Object} ownProps   the props passed to the component. may have a view attribute
  * @return {Object}           React props for the component injected from the settings
  */
-export const mapStateToViewProps = memoize((
-	state,
-	ownProps,
-	componentName,
-	componentId,
-) => {
-	let viewProps = {};
-	let viewId = ownProps.view;
-	if (!ownProps.view && componentName && !componentId) {
-		viewId = componentName;
-	} else if (!ownProps.view && componentName && componentId) {
-		viewId = `${componentName}:${componentId}`;
-	}
-	if (viewId && state.cmf.settings.views[viewId]) {
-		viewProps = Object.assign({}, state.cmf.settings.views[viewId]);
-		viewProps = attachRefs(state, viewProps);
-	}
-	return viewProps;
-},
-(state, ownProps, componentName, componentId) => `${ownProps.view}-${componentName}-${componentId}`);
+export const mapStateToViewProps = memoize(
+	nonMemoizedMapStateToViewProps,
+	(state, ownProps, componentName, componentId) =>
+		`${ownProps.view}-${componentName}-${componentId}`,
+);
 
 export default {
 	attachRef,
