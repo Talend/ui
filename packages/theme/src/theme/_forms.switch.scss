@@ -12,6 +12,7 @@
 
 		+ * {
 			padding-left: 2rem;
+			color: tint($black, 50);
 		}
 
 		+ *:before,
@@ -24,8 +25,6 @@
 			left: 0;
 			transition: background 0.2s ease, transform 0.2s ease;
 			border-radius: 10rem;
-			border-color: transparent;
-			box-shadow: inset 0.1rem 0.1rem 0.5rem $silver;
 		}
 
 		+ *:before,
@@ -35,6 +34,7 @@
 			margin-top: 0.5rem;
 			background: $alto;
 			border: none;
+			box-shadow: inset 0.1rem 0.1rem 0.5rem $silver;
 			transform: rotate(0deg);
 		}
 
@@ -43,11 +43,16 @@
 			width: 1.5rem;
 			height: 1.5rem;
 			background-color: $wild-sand;
+			border-color: transparent;
 			box-shadow: 0 0.1rem 0.3rem 0.1rem rgba(150, 150, 150, 0.45);
 			z-index: 1;
 		}
 
 		&:checked {
+			+ * {
+				color: $text-color;
+			}
+
 			+ *:before {
 				background-color: $scooter;
 			}
@@ -64,19 +69,33 @@
 			}
 		}
 
+		&:hover,
 		&:focus {
 			+ *:after {
 				background-color: $white;
+				box-shadow: 0 0.1rem 0.3rem 0.1rem rgba(150, 150, 150, 0.45)
 			}
 		}
 
 		&:disabled {
 			+ *:before {
-				background-color: $gallery;
+				box-shadow: inset 0.1rem 0.1rem 0.5rem tint($silver, 20);
+				background-color: tint($gallery, 70);
 			}
 
 			+ *:after {
-				box-shadow: 0 0.1rem 0.3rem 0.1rem rgba(150, 150, 150, 0.15);
+				background-color: $wild-sand;
+				box-shadow: 0 0.1rem 0.3rem 0.1rem rgba(150, 150, 150, 0.25);
+			}
+
+			&:checked {
+				+ *:before {
+					background-color: tint($scooter, 70);
+				}
+
+				+ *:after {
+					background-color: $wild-sand;
+				}
 			}
 		}
 	}
