@@ -47,13 +47,12 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				use: extractCSS.extract(getSassLoaders()),
-				exclude: /@talend/,
+				include: /theme.scss/,
 			},
-			// css modules local scope
 			{
 				test: /\.scss$/,
 				use: extractCSS.extract(getSassLoaders(true)),
-				include: /@talend/,
+				exclude: /theme.scss/,
 			},
 			{
 				test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,

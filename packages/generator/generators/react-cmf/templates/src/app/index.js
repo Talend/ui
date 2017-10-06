@@ -1,4 +1,9 @@
-import './styles/main.scss';
+/**
+ * Import theme.
+ * Being the first import is important, so that it is the default style
+ * and other style can override it
+ */
+import '@talend/bootstrap-theme/src/theme/theme.scss';
 import React from 'react';
 import { render } from 'react-dom';
 import { App, store as cmfstore, actions } from '@talend/react-cmf';
