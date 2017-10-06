@@ -10,16 +10,19 @@ src/theme/_dropdowns.scss
   19:22  error  !important not allowed  no-important
 
 src/theme/_forms.scss
-   26:11  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   27:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   44:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   45:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   94:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  280:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  293:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  306:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  329:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  473:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+   28:11  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   29:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   46:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   47:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   96:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  282:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  295:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  308:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  331:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  411:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+
+src/theme/_forms.switch.scss
+  76:17  error  Trailing semicolons required  trailing-semicolon
 
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
@@ -27,5 +30,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 16 problems (14 errors, 2 warnings)
+✖ 17 problems (15 errors, 2 warnings)
 
