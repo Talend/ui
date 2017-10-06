@@ -4,23 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const program = require('commander');
 
-const stack_version = program.stack || require('./lerna.json').version;
-
-if (program.debug) {
-	console.log(`use stack version ${stack_version}`);
-}
-
-const STACK_VERSION = {
-	'@talend/bootstrap-theme': stack_version,
-	'@talend/react-cmf': stack_version,
-	'@talend/react-cmf-cqrs': stack_version,
-	'@talend/react-components': stack_version,
-	'@talend/react-containers': stack_version,
-	'@talend/react-forms': stack_version,
-	'@talend/icons': stack_version,
-	'@talend/log': stack_version,
-};
-
 program
 	.version('0.0.1')
 	.option('-d, --debug', 'display more info')
@@ -40,8 +23,25 @@ program.on('--help', () => {
 
 program.parse(process.argv);
 
+const stack_version = program.stack || require('./lerna.json').version;
+
+if (program.debug) {
+	console.log(`use stack version ${stack_version}`);
+}
+
 const REACT_VERSION = '^15.6.1';
 const JEST_VERSION = '20.0.3';
+
+const STACK_VERSION = {
+	'@talend/bootstrap-theme': stack_version,
+	'@talend/react-cmf': stack_version,
+	'@talend/react-cmf-cqrs': stack_version,
+	'@talend/react-components': stack_version,
+	'@talend/react-containers': stack_version,
+	'@talend/react-forms': stack_version,
+	'@talend/icons': stack_version,
+	'@talend/log': stack_version,
+};
 
 const ADDONS = {
 	'babel-polyfill': '6.26.0',
