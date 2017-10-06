@@ -3,6 +3,7 @@ import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import { connect } from 'react-redux';
 import api from './api';
+import deprecated from './deprecated';
 
 import { statePropTypes, initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
@@ -32,11 +33,6 @@ export function getComponentId(componentId, props) {
 }
 
 function getCollection(id) {
-	console.warn(`This function will be deprecated,
-	since it permit store access outside cmfConnect mapStateToProps function
-	and maybe not executed if cmf connect do not detect ref change to props
-	given to the component using this function
-	Please bind your collection update to your component using mapStateToProps`);
 	return newState.cmf.collections.get(id);
 }
 
@@ -54,7 +50,14 @@ export function getStateToProps({
 		getComponentId(componentId, ownProps),
 	);
 
-	cmfProps.getCollection = getCollection;
+	cmfProps.getCollection = deprecated(
+		getCollection,
+		`This function will be deprecated,
+		since it permit store access outside cmfConnect mapStateToProps function
+		and maybe not executed if cmf connect do not detect ref change to props
+		given to the component using this function
+		Please bind your collection update to your component using mapStateToProps`,
+	);
 
 	const viewProps = mapStateToViewProps(state, ownProps);
 
