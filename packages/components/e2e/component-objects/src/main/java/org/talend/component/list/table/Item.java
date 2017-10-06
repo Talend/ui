@@ -88,12 +88,12 @@ public class Item extends Component {
         final WebElement title = getTitle();
         if (title == null) {
             throw new NotFoundException("Item title element not found. Not able to click on it.");
-
         }
-        final Actions actions = new Actions(driver)
-                .moveToElement(title)
-                .click(title);
-        actions.perform();
+
+        // this is js execution because in some cases react-virtualized freeze a very (very) short time after scroll.
+        // this is a problem only for automated tests that click fast. So the click is programmatic.
+        // for common human, this is not noticeable.
+        jsExec.executeScript("arguments[0].scrollIntoView(); arguments[0].click();", title);
     }
 
     /**
@@ -103,9 +103,14 @@ public class Item extends Component {
      * @param actionId The item action id
      */
     public void clickOnAction(final String actionId) {
-        final WebElement actionButton = this.getAction(actionId);
         final Actions action = new Actions(driver);
-        action.moveToElement(actionButton).perform();
-        actionButton.click();
+        action
+                .moveToElement(this.getElement())
+                .moveToElement(this.getAction(actionId))
+                .build()
+                .perform();
+
+        // we need to get the button element again because of TooltipTrigger that replace the element on hover ...
+        this.getAction(actionId).click();
     }
 }
