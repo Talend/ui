@@ -35,7 +35,11 @@ function VirtualizedList(props) {
 
 	if (inProgress) {
 		return (
-			<div className={theme['tc-list-progress']}>
+			<div
+				aria-atomic="true"
+				aria-busy="true"
+				className={theme['tc-list-progress']}
+			>
 				<CircularProgress size={'default'} />
 			</div>
 		);
