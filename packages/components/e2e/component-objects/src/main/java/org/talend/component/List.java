@@ -1,5 +1,6 @@
 package org.talend.component;
 
+import org.talend.component.list.large.Large;
 import org.talend.component.list.table.Table;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +19,8 @@ public class List extends Component {
     static final String ACTIONBAR_SELECTOR = ".tc-actionbar-container";
 
     static final String BTN_SELECTOR = ACTIONBAR_SELECTOR + " .btn";
+
+    static final String ACTION_BAR_SELECTOR = ".tc-actionbar-container #%s.btn";
 
     /**
      * List constructor.
@@ -57,19 +60,37 @@ public class List extends Component {
     }
 
     /**
+     * Get add button of the list.
+     *
+     * @return WebElement button
+     */
+    public WebElement getActionBarButtonById(String id) {
+        return this.getElement().findElement(By.cssSelector(String.format(ACTION_BAR_SELECTOR, id)));
+    }
+
+    /**
      * Get the table display element manager.
      *
-     * @return Table the table element manager
+     * @return Large the table element manager
      */
     public Table getTable() {
         return new Table(driver);
     }
 
     /**
+     * Get the table display element manager.
+     *
+     * @return Large the table element manager
+     */
+    public Large getLarge() {
+        return new Large(driver);
+    }
+
+    /**
      * Get the table display element manager identified by id.
      *
      * @param id The table id
-     * @return Table the table element manager
+     * @return Large the table element manager
      */
     public Table getTable(final String id) {
         return new Table(driver, id);
