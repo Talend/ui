@@ -1,79 +1,68 @@
 const autoprefixer = require('autoprefixer');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const path = require('path');
+
+const extractCSS = new ExtractTextPlugin({ filename: '[name]-[hash].css' });
 
 const SASS_DATA = `$brand-primary: #77828A;
-@import '~bootstrap-talend-theme/src/theme/guidelines';
+@import '~@talend/bootstrap-theme/src/theme/guidelines';
 `;
+
+function getCommonStyleLoaders(enableModules) {
+	let cssOptions = {};
+	if (enableModules) {
+		cssOptions = { sourceMap: true, modules: true, importLoaders: 1, localIdentName: '[name]__[local]___[hash:base64:5]' };
+	}
+	return [
+		{ loader: 'css-loader', options: cssOptions },
+		{ loader: 'postcss-loader', options: { sourceMap: true, plugins: () => [autoprefixer({ browsers: ['last 2 versions'] })] } },
+		{ loader: 'resolve-url-loader' },
+	];
+}
+
+function getSassLoaders(enableModules) {
+	return getCommonStyleLoaders(enableModules).concat({ loader: 'sass-loader', options: { sourceMap: true, data: SASS_DATA } });
+}
 
 module.exports = {
 	entry: ['babel-polyfill', 'whatwg-fetch', './src/app/index.js'],
 	output: {
 		path: `${__dirname}/build`,
 		publicPath: '/',
-		filename: '[hash].app.js',
+		filename: '[name]-[hash].js',
 	},
-	resolve: ['', '.scss', '.css', 'js', 'jsx'],
 	module: {
 		loaders: [
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: 'babel-loader',
+				use: { loader: 'babel-loader' },
 			},
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract('style', 'css', {
-					publicPath: './',
-				}),
-			},
-			{
-				test: /theme.scss$/,
-				loader: ExtractTextPlugin.extract(
-					'css!postcss!sass', {
-						publicPath: './',
-					}
-				),
+				use: extractCSS.extract(getCommonStyleLoaders()),
+				exclude: /@talend/,
 			},
 			{
 				test: /\.scss$/,
-				exclude: /theme.scss/,
-				loader: ExtractTextPlugin.extract(
-					'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass', {
-						publicPath: './',
-					}
-				),
+				use: extractCSS.extract(getSassLoaders()),
+				include: /theme.scss/,
 			},
 			{
-				test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-				loader: 'url',
-				query: {
-					limit: 50000,
-					mimetype: 'application/font-woff',
-					name: './fonts/[name].[ext]',
-				},
-			}
+				test: /\.scss$/,
+				use: extractCSS.extract(getSassLoaders(true)),
+				exclude: /theme.scss/,
+			},
+			{
+				test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
+				loader: 'url-loader',
+				options: { name: './fonts/[name].[ext]', limit: 50000, mimetype: 'application/font-woff' },
+			},
 		],
-	},
-	sassLoader: {
-		includePaths: [
-			path.resolve(
-				__dirname,
-				'node_modules'
-			),
-		],
-		data: SASS_DATA,
-	},
-	postcss() {
-		return [autoprefixer({ browsers: ['last 2 versions'] })];
 	},
 	plugins: [
-		new ExtractTextPlugin('[hash].style.css', {
-			allChunks: true,
-		}),
+		extractCSS,
 		new HtmlWebpackPlugin({
 			filename: './index.html',
 			template: './src/app/index.html',
