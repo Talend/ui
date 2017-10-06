@@ -47,6 +47,7 @@ const props = {
 	toolbar,
 };
 
+
 const items = Immutable.fromJS([
 	{
 		id: 'id1',
@@ -95,6 +96,14 @@ const ExampleList = {
 		</div>
 	),
 	virtualized: () => (
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List {...props} items={items} virtualized />
+			</div>
+		</div>
+	),
+	virtualizedSort: () => (
 		<div>
 			<IconsProvider />
 			<div className="list-container">
