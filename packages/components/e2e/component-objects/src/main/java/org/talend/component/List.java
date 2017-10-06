@@ -20,7 +20,14 @@ public class List extends Component {
 
     static final String BTN_SELECTOR = ACTIONBAR_SELECTOR + " .btn";
 
-    static final String ACTION_BAR_SELECTOR = ".tc-actionbar-container #%s.btn";
+    static final String ACTION_BAR_SELECTOR = ".tc-list-toolbar #%s.btn";
+
+    static final String TOOL_BAR_SELECTOR_DISPLAY_MODE = ".dropdown #talend-display-mode";
+
+    static final String TOOL_BAR_SELECTOR_SORT_BY = ".dropdown #talend-sort-by";
+
+    static final String TOOL_BAR_SELECTOR_SORT_ORDER = ".dropdown #talend-sort-order";
+
 
     /**
      * List constructor.
@@ -42,7 +49,7 @@ public class List extends Component {
     }
 
     /**
-     * Get add button of the list.
+     * Get Action Bar button of the list.
      *
      * @return WebElement button
      */
@@ -66,6 +73,33 @@ public class List extends Component {
      */
     public WebElement getActionBarButtonById(String id) {
         return this.getElement().findElement(By.cssSelector(String.format(ACTION_BAR_SELECTOR, id)));
+    }
+
+    /**
+     * Get Display Mode in Tool Bar button of the list.
+     *
+     * @return WebElement button
+     */
+    public WebElement getToolBarButtonDisplayMode() {
+        return this.getElement().findElement(By.cssSelector(TOOL_BAR_SELECTOR_DISPLAY_MODE));
+    }
+
+    /**
+     * Get Sort BY in Tool Bar button of the list.
+     *
+     * @return WebElement button
+     */
+    public WebElement getToolBarButtonSortBy() {
+        return this.getElement().findElement(By.cssSelector(TOOL_BAR_SELECTOR_SORT_BY));
+    }
+
+    /**
+     * Get Sort Order in Tool Bar button of the list.
+     *
+     * @return WebElement button
+     */
+    public WebElement getToolBarButtonSortOrder() {
+        return this.getElement().findElement(By.id(TOOL_BAR_SELECTOR_SORT_ORDER));
     }
 
     /**
