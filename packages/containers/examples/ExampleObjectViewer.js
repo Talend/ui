@@ -212,7 +212,7 @@ const ExampleObjectViewer = {
 	'list default': () => (
 		<div>
 			<IconsProvider />
-			<ObjectViewer data={data} displayMode="list" />
+			<ObjectViewer data={data} displayMode="list" openFirst />
 		</div>
 	),
 	'table default': () => (
