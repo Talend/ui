@@ -2,8 +2,24 @@
 
 const fs = require('fs');
 const path = require('path');
-const cpx = require('cpx');
 const program = require('commander');
+
+const stack_version = program.stack || require('./lerna.json').version;
+
+if (program.debug) {
+	console.log(`use stack version ${stack_version}`);
+}
+
+const STACK_VERSION = {
+	'@talend/bootstrap-theme': stack_version,
+	'@talend/react-cmf': stack_version,
+	'@talend/react-cmf-cqrs': stack_version,
+	'@talend/react-components': stack_version,
+	'@talend/react-containers': stack_version,
+	'@talend/react-forms': stack_version,
+	'@talend/icons': stack_version,
+	'@talend/log': stack_version,
+};
 
 program
 	.version('0.0.1')
@@ -13,16 +29,16 @@ program
 	.option('-s, --stack [value]', '[optional] stack version to use, by default the last published one')
 	.option('-f, --force');
 
-program.on('--help', function(){
-	console.log('To update your project dependencies : ')
+program.on('--help', () => {
+	console.log('To update your project dependencies : ');
 	console.log('>node version.js --path ../yourapp/package.json');
-	console.log('To update your project dependencies to a specif stack version :')
-	console.log('>node version.js --path ../yourapp/package.json --stack=0.114.0')
+	console.log('To update your project dependencies to a specif stack version :');
+	console.log('>node version.js --path ../yourapp/package.json --stack=0.114.0');
 	console.log('Don\'t forget to use yarn after the package json update');
 	console.log('so you lockfile is updated !');
-})
+});
 
-	program.parse(process.argv);
+program.parse(process.argv);
 
 const REACT_VERSION = '^15.6.1';
 const JEST_VERSION = '20.0.3';
@@ -31,10 +47,10 @@ const ADDONS = {
 	'babel-polyfill': '6.26.0',
 	'date-fns': '1.27.2',
 	'focus-outline-manager': '1.0.2',
-	'immutablediff': '0.4.4',
+	immutablediff: '0.4.4',
 	'normalize.css': '5.0.0',
 	'path-to-regexp': '2.0.0',
-	'prettier': '1.6.1',
+	prettier: '1.6.1',
 	'redux-batched-subscribe': '0.1.6',
 	'redux-undo': 'beta',
 	'redux-saga': '0.15.4',
@@ -45,7 +61,7 @@ const ADDONS = {
 	'react-jsonschema-form': '0.42.0',
 	'react-tap-event-plugin': '2.0.0',
 	'react-virtualized': '9.10.1',
-	'slugify': '1.1.0',
+	slugify: '1.1.0',
 	'whatwg-fetch': '2.0.3',
 };
 
@@ -65,7 +81,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-addons-css-transition-group': '15.5.2',
 	'react-bootstrap': '0.31.0',
 	'react-dom': REACT_VERSION,
-	'i18next': '^9.0.0',
+	i18next: '^9.0.0',
 	'react-i18next': '^5.2.0',
 	'react-redux': '5.0.5',
 	'react-router': '3.0.5',
@@ -90,7 +106,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'@storybook/addon-info': '^3.2.0',
 	'@storybook/addon-knobs': '^3.2.0',
 	'@storybook/addons': '^3.2.0',
-	'autoprefixer': '^6.7.7',
+	autoprefixer: '^6.7.7',
 	'babel-cli': '6.24.1',
 	'babel-core': '6.24.1',
 	'babel-eslint': '7.2.3',
@@ -133,39 +149,20 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'webpack-dev-server': '2.9.1',
 });
 
-let files = [
+const files = [
 	'./packages/cmf/package.json',
 	'./packages/components/package.json',
 	'./packages/containers/package.json',
 	'./packages/forms/package.json',
 	'./packages/generator/package.json',
-	'./packages/generator/generators/react-cmf/templates/package.json',
 	'./packages/icons/package.json',
 	'./packages/logging/package.json',
 	'./packages/theme/package.json',
 ];
 
-if (program.path) {
-	files = [program.path];
-	const stack_version = program.stack || require('./lerna.json').version;
-	if (program.debug) {
-		console.log(`use stack version ${stack_version}`);
-	}
-	const STACK_VERSION = {
-		'@talend/bootstrap-theme': stack_version,
-		'@talend/react-cmf': stack_version,
-		'@talend/react-cmf-cqrs': stack_version,
-		'@talend/react-components': stack_version,
-		'@talend/react-containers': stack_version,
-		'@talend/react-forms': stack_version,
-		'@talend/icons': stack_version,
-		'@talend/log': stack_version,
-	};
-	Object.assign(
-		VERSIONS,
-		STACK_VERSION
-	);
-}
+const templates = [
+	'./packages/generator/generators/react-cmf/templates/package.json',
+];
 
 if (program.debug) {
 	console.log(`will update ${files}`);
@@ -183,8 +180,8 @@ function check(source, dep, version) {
 	return modified;
 }
 
-function checkAll(source, dep) {
-	const version = VERSIONS[dep];
+function checkAll(versions, source, dep) {
+	const version = versions[dep];
 	const devDeps = source.devDependencies;
 	const deps = source.dependencies;
 	const peer = source.peerDependencies;
@@ -200,41 +197,52 @@ function save(ppath, data) {
 	if (!program.quiet) {
 		console.log(`save ${ppath}`);
 	}
-	fs.open(ppath, 'w', function(err, fd) {
+	fs.open(ppath, 'w', (err, fd) => {
 		if (err) {
-			throw 'error opening file: ' + err;
+			throw `error opening file: ${err}`;
 		}
 
-		fs.write(fd, data, 0, data.length, null, function(err) {
+		fs.write(fd, data, 0, data.length, null, (err) => {
 			if (err) {
-				throw 'error writing file: ' + err;
+				throw `error writing file: ${err}`;
 			}
-			fs.close(fd, function() {
+			fs.close(fd, () => {
 				if (!program.quiet) {
 					console.log('file written');
 				}
-			})
+			});
 		});
 	});
 }
 
-files.forEach((ppath) => {
-	const packageJSON = require(ppath);
-	if (!program.quiet) {
-		console.log(`=== check ${packageJSON.name} ===`);
-	}
+function updateFiles(filesList, versions) {
+	filesList.forEach((ppath) => {
+		const packageJSON = require(ppath);
+		if (!program.quiet) {
+			console.log(`=== check ${packageJSON.name} ===`);
+		}
 
-	Object.keys(VERSIONS).forEach((dep) => {
-		checkAll(packageJSON, dep);
-	});
-	if (packageJSON.modified || program.force) {
-		delete packageJSON.modified;
-		save(ppath, JSON.stringify(packageJSON, null, 2) + '\n');
-		const yarnLock = path.join(path.dirname(ppath), 'yarn.lock');
-		if (fs.existsSync(yarnLock)) {
-			if (!program.quite) {
-				console.log(`you have to update ${yarnLock} yourself`);
+		Object.keys(versions).forEach((dep) => {
+			checkAll(versions, packageJSON, dep);
+		});
+		if (packageJSON.modified || program.force) {
+			delete packageJSON.modified;
+			save(ppath, `${JSON.stringify(packageJSON, null, 2)}\n`);
+			const yarnLock = path.join(path.dirname(ppath), 'yarn.lock');
+			if (fs.existsSync(yarnLock)) {
+				if (!program.quite) {
+					console.log(`you have to update ${yarnLock} yourself`);
+				}
 			}
 		}
-	}
-});
+	});
+}
+
+if (program.path) {
+	const filesList = [program.path];
+	updateFiles(filesList, Object.assign({}, VERSIONS, STACK_VERSION));
+} else {
+	updateFiles(files, Object.assign(VERSIONS));
+	updateFiles(templates, Object.assign({}, VERSIONS, STACK_VERSION));
+}
+
