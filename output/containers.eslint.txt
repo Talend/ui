@@ -4,6 +4,14 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
+  106:20  error  Multiple spaces found before '&&'     no-multi-spaces
+  106:24  error  Multiple spaces found before 'state'  no-multi-spaces
+  107:27  error  Multiple spaces found before '&&'     no-multi-spaces
+  107:31  error  Multiple spaces found before '!'      no-multi-spaces
+  110:7   error  Missing trailing comma                comma-dangle
+  111:6   error  Missing trailing comma                comma-dangle
+
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   12:90  error  'notifications' is missing in props validation  react/prop-types
 
@@ -13,5 +21,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/state.js
   3:1  warning  Unexpected console statement  no-console
 
-✖ 3 problems (2 errors, 1 warning)
+✖ 9 problems (8 errors, 1 warning)
 
