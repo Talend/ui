@@ -47,7 +47,6 @@ const props = {
 	toolbar,
 };
 
-
 const items = Immutable.fromJS([
 	{
 		id: 'id1',

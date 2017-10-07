@@ -47,10 +47,6 @@ function ListTable(props) {
 		onRowClickCallback = ({ event, rowData }) => onRowClick(event, rowData);
 	}
 
-	const onHeaderClick = ({ columnData, dataKey, event }) => {
-		console.log('header click')
-	}
-
 	return (
 		<VirtualizedTable
 			className={`tc-list-table ${theme['tc-list-table']}`}
@@ -59,7 +55,6 @@ function ListTable(props) {
 			height={height}
 			id={id}
 			onRowClick={onRowClickCallback}
-			onHeaderClick={onHeaderClick}
 			noRowsRenderer={NoRows}
 			rowClassName={classNames(rowThemes)}
 			rowCount={collection.length}

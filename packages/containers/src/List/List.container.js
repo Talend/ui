@@ -102,9 +102,13 @@ class List extends React.Component {
 			list: {
 				items,
 				columns: get(this.props, 'list.columns', []),
-				// if a sort has been selected, display arrow in header list
-				sortAsc:  state && state.sortAsc,
-				sortOn: state  &&  state.sortOn,
+				sort: {
+					field: state  &&  state.sortOn,
+					isDescending: state  &&  !state.sortAsc,
+					onChange: (event, data) => {
+						this.onSelectSortBy(event, data);
+					}
+				}
 			},
 			virtualized: this.props.virtualized,
 		};
