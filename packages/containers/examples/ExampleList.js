@@ -102,14 +102,6 @@ const ExampleList = {
 			</div>
 		</div>
 	),
-	virtualizedSort: () => (
-		<div>
-			<IconsProvider />
-			<div className="list-container">
-				<List {...props} items={items} virtualized />
-			</div>
-		</div>
-	),
 	i18n: () => (
 		<I18nextProvider i18n={i18n}>
 			<div>
