@@ -257,24 +257,23 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 					>
 						<sup className={badgeClasses}>{decoratedLength}</sup>
 					</TooltipTrigger>
-					<ul className={!isOpened ? 'hidden' : `${theme['vertical-line']} `}>
-						{info.keys.map((key, i) => {
-							const jpath = getJSONPath(key, jsonpath, info.type);
-							return (
+					{isOpened ? (
+						<ul className={theme['vertical-line']}>
+							{info.keys.map((key, i) => (
 								<li key={i}>
 									<Item
 										{...props}
 										data={data[key]}
 										name={key}
-										jsonpath={jpath}
+										jsonpath={getJSONPath(key, jsonpath, info.type)}
 										opened={opened}
 										edited={edited}
 										onSelect={onSelect}
 									/>
 								</li>
-							);
-						})}
-					</ul>
+							))}
+						</ul>
+					) : null}
 				</span>
 			</LineItem>
 		</div>
@@ -411,8 +410,6 @@ export function JSONLike({ onSubmit, ...props }) {
 	if (rootIsObject) {
 		if (props.rootLabel) {
 			rootComputedLabel = props.rootLabel;
-		} else {
-			rootComputedLabel = 'root';
 		}
 	}
 
@@ -425,9 +422,11 @@ export function JSONLike({ onSubmit, ...props }) {
 					event.preventDefault();
 				}}
 			>
-				<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
-					<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
-				</TooltipTrigger>
+				{rootComputedLabel ? (
+					<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
+						<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
+					</TooltipTrigger>
+				) : null}
 				<Item {...props} />
 			</form>
 		);
@@ -435,10 +434,11 @@ export function JSONLike({ onSubmit, ...props }) {
 
 	return (
 		<div className={`tc-object-viewer ${theme.container}`}>
-			<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
-				<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
-			</TooltipTrigger>
-
+			{rootComputedLabel ? (
+				<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
+					<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
+				</TooltipTrigger>
+				) : null}
 			<Item {...props} />
 		</div>
 	);
