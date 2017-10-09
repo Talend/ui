@@ -280,7 +280,7 @@ class DatalistWidget extends React.Component {
 
 	isPartOfItems(value) {
 		const { initialItems, itemsMap } = this.state;
-		return initialItems.includes(value) || Object.keys(itemsMap).some(k => k === value);
+		return initialItems.includes(value) || Object.keys(itemsMap).some(k => itemsMap[k] === value);
 	}
 
 	resetValue() {
