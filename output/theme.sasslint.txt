@@ -21,14 +21,11 @@ src/theme/_forms.scss
   331:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   411:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
-src/theme/_forms.switch.scss
-  76:17  error  Trailing semicolons required  trailing-semicolon
-
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
   23:29  error    !important not allowed              no-important
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 17 problems (15 errors, 2 warnings)
+✖ 16 problems (14 errors, 2 warnings)
 
