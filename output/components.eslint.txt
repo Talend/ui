@@ -17,8 +17,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
-  230:14  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-  420:15  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+   24:73  error  'selectedJsonpath' is defined but never used                                         no-unused-vars
+  224:14  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+  414:15  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
 
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -27,5 +28,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 11 problems (11 errors, 0 warnings)
+✖ 12 problems (12 errors, 0 warnings)
 
