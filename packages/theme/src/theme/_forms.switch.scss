@@ -73,7 +73,7 @@
 		&:focus {
 			+ *:after {
 				background-color: $white;
-				box-shadow: 0 0.1rem 0.3rem 0.1rem rgba(150, 150, 150, 0.45)
+				box-shadow: 0 0.1rem 0.3rem 0.1rem rgba(150, 150, 150, 0.45);
 			}
 		}
 
