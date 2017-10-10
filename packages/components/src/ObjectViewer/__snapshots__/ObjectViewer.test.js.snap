@@ -5799,7 +5799,6 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                     <span
                       className="undefined undefined"
                     >
-                       
                       business_id
                     </span>
                     <button
@@ -5819,7 +5818,6 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                     <span
                       className="undefined undefined"
                     >
-                       
                       name
                     </span>
                     <button
@@ -5839,7 +5837,6 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                     <span
                       className="undefined undefined"
                     >
-                       
                       category
                     </span>
                     <button
@@ -5859,7 +5856,6 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                     <span
                       className="undefined undefined"
                     >
-                       
                       rating
                     </span>
                     <button
@@ -5879,7 +5875,6 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                     <span
                       className="undefined undefined"
                     >
-                       
                       num_of_reviews
                     </span>
                     <button
@@ -5916,7 +5911,6 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                       <span
                         className="undefined undefined"
                       >
-                         
                         attributes
                       </span>
                       <span
@@ -5957,7 +5951,6 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                                 <span
                                   className="undefined undefined"
                                 >
-                                   
                                   good_for
                                 </span>
                                 <span
@@ -5999,7 +5992,6 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                                 <span
                                   className="undefined undefined"
                                 >
-                                   
                                   parking
                                 </span>
                                 <span
@@ -6024,7 +6016,6 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                               <span
                                 className="undefined undefined"
                               >
-                                 
                                 take_reservations
                               </span>
                               <button
@@ -6044,7 +6035,6 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                               <span
                                 className="undefined undefined"
                               >
-                                 
                                 noise_level
                               </span>
                               <button
@@ -6086,7 +6076,6 @@ exports[`Storyshots ObjectViewer list with handler 1`] = `
                       <span
                         className="undefined undefined"
                       >
-                         
                         location
                       </span>
                       <span
@@ -6360,7 +6349,6 @@ exports[`Storyshots ObjectViewer primitive array tree 1`] = `
                 <span
                   className="undefined undefined"
                 >
-                   
                   0
                 </span>
                 <button
@@ -6380,7 +6368,6 @@ exports[`Storyshots ObjectViewer primitive array tree 1`] = `
                 <span
                   className="undefined undefined"
                 >
-                   
                   1
                 </span>
                 <button
@@ -6400,7 +6387,6 @@ exports[`Storyshots ObjectViewer primitive array tree 1`] = `
                 <span
                   className="undefined undefined"
                 >
-                   
                   2
                 </span>
                 <button
@@ -7577,7 +7563,6 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             good_for
                           </span>
                           <span
@@ -7619,7 +7604,6 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             parking
                           </span>
                           <span
@@ -7644,7 +7628,6 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                         <span
                           className="undefined undefined"
                         >
-                           
                           take_reservations
                         </span>
                         <button
@@ -7664,7 +7647,6 @@ exports[`Storyshots ObjectViewer table with handler 1`] = `
                         <span
                           className="undefined undefined"
                         >
-                           
                           noise_level
                         </span>
                         <button
@@ -8545,7 +8527,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     0
                   </span>
                   <span
@@ -8569,7 +8550,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             business_id
                           </span>
                           <button
@@ -8589,7 +8569,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             name
                           </span>
                           <button
@@ -8609,7 +8588,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             category
                           </span>
                           <button
@@ -8629,7 +8607,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             rating
                           </span>
                           <button
@@ -8649,7 +8626,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             num_of_reviews
                           </span>
                           <button
@@ -8686,7 +8662,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                             <span
                               className="undefined undefined"
                             >
-                               
                               attributes
                             </span>
                             <span
@@ -8727,7 +8702,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                       <span
                                         className="undefined undefined"
                                       >
-                                         
                                         good_for
                                       </span>
                                       <span
@@ -8769,7 +8743,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                       <span
                                         className="undefined undefined"
                                       >
-                                         
                                         parking
                                       </span>
                                       <span
@@ -8794,7 +8767,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                     <span
                                       className="undefined undefined"
                                     >
-                                       
                                       take_reservations
                                     </span>
                                     <button
@@ -8814,7 +8786,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                                     <span
                                       className="undefined undefined"
                                     >
-                                       
                                       noise_level
                                     </span>
                                     <button
@@ -8856,7 +8827,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                             <span
                               className="undefined undefined"
                             >
-                               
                               location
                             </span>
                             <span
@@ -8903,7 +8873,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     1
                   </span>
                   <span
@@ -8945,7 +8914,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     2
                   </span>
                   <span
@@ -8987,7 +8955,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     3
                   </span>
                   <span
@@ -9029,7 +8996,6 @@ exports[`Storyshots ObjectViewer tree default 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     4
                   </span>
                   <span
@@ -9154,7 +9120,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     0
                   </span>
                   <span
@@ -9178,7 +9143,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             business_id
                           </span>
                           <button
@@ -9198,7 +9162,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             name
                           </span>
                           <button
@@ -9218,7 +9181,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             category
                           </span>
                           <button
@@ -9238,7 +9200,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             rating
                           </span>
                           <button
@@ -9258,7 +9219,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             num_of_reviews
                           </span>
                           <button
@@ -9295,7 +9255,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                             <span
                               className="undefined undefined"
                             >
-                               
                               attributes
                             </span>
                             <span
@@ -9336,7 +9295,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                       <span
                                         className="undefined undefined"
                                       >
-                                         
                                         good_for
                                       </span>
                                       <span
@@ -9378,7 +9336,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                       <span
                                         className="undefined undefined"
                                       >
-                                         
                                         parking
                                       </span>
                                       <span
@@ -9403,7 +9360,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                     <span
                                       className="undefined undefined"
                                     >
-                                       
                                       take_reservations
                                     </span>
                                     <button
@@ -9423,7 +9379,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                                     <span
                                       className="undefined undefined"
                                     >
-                                       
                                       noise_level
                                     </span>
                                     <button
@@ -9465,7 +9420,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                             <span
                               className="undefined undefined"
                             >
-                               
                               location
                             </span>
                             <span
@@ -9512,7 +9466,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     1
                   </span>
                   <span
@@ -9554,7 +9507,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     2
                   </span>
                   <span
@@ -9596,7 +9548,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     3
                   </span>
                   <span
@@ -9638,7 +9589,6 @@ exports[`Storyshots ObjectViewer tree with handler 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     4
                   </span>
                   <span
@@ -9763,7 +9713,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     0
                   </span>
                   <span
@@ -9787,7 +9736,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             business_id
                           </span>
                           <button
@@ -9807,7 +9755,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             name
                           </span>
                           <button
@@ -9827,7 +9774,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             category
                           </span>
                           <button
@@ -9847,7 +9793,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             rating
                           </span>
                           <button
@@ -9867,7 +9812,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             num_of_reviews
                           </span>
                           <button
@@ -9904,14 +9848,13 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                             <span
                               className="undefined undefined"
                             >
-                               
                               attributes
                             </span>
                             <span
                               className={undefined}
                             >
                               <sup
-                                className="badge undefined"
+                                className="badge"
                                 onFocus={[Function]}
                                 onMouseOver={[Function]}
                               >
@@ -9945,7 +9888,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                       <span
                                         className="undefined undefined"
                                       >
-                                         
                                         good_for
                                       </span>
                                       <span
@@ -9987,7 +9929,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                       <span
                                         className="undefined undefined"
                                       >
-                                         
                                         parking
                                       </span>
                                       <span
@@ -10012,7 +9953,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                     <span
                                       className="undefined undefined"
                                     >
-                                       
                                       take_reservations
                                     </span>
                                     <button
@@ -10032,7 +9972,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                                     <span
                                       className="undefined undefined"
                                     >
-                                       
                                       noise_level
                                     </span>
                                     <button
@@ -10074,7 +10013,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                             <span
                               className="undefined undefined"
                             >
-                               
                               location
                             </span>
                             <span
@@ -10121,7 +10059,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     1
                   </span>
                   <span
@@ -10163,7 +10100,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     2
                   </span>
                   <span
@@ -10205,7 +10141,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     3
                   </span>
                   <span
@@ -10247,7 +10182,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     4
                   </span>
                   <span
@@ -10381,7 +10315,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     0
                   </span>
                   <span
@@ -10414,7 +10347,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             business_id
                           </span>
                           <button
@@ -10441,7 +10373,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             name
                           </span>
                           <button
@@ -10468,7 +10399,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             category
                           </span>
                           <button
@@ -10495,7 +10425,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             rating
                           </span>
                           <button
@@ -10522,7 +10451,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             num_of_reviews
                           </span>
                           <button
@@ -10566,7 +10494,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                             <span
                               className="undefined undefined"
                             >
-                               
                               attributes
                             </span>
                             <span
@@ -10582,7 +10509,7 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                 )
                               </button>
                               <sup
-                                className="badge undefined"
+                                className="badge"
                                 onFocus={[Function]}
                                 onMouseOver={[Function]}
                               >
@@ -10616,7 +10543,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                       <span
                                         className="undefined undefined"
                                       >
-                                         
                                         good_for
                                       </span>
                                       <span
@@ -10667,7 +10593,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                       <span
                                         className="undefined undefined"
                                       >
-                                         
                                         parking
                                       </span>
                                       <span
@@ -10701,7 +10626,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                     <span
                                       className="undefined undefined"
                                     >
-                                       
                                       take_reservations
                                     </span>
                                     <button
@@ -10728,7 +10652,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                                     <span
                                       className="undefined undefined"
                                     >
-                                       
                                       noise_level
                                     </span>
                                     <button
@@ -10777,7 +10700,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                             <span
                               className="undefined undefined"
                             >
-                               
                               location
                             </span>
                             <span
@@ -10833,7 +10755,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     1
                   </span>
                   <span
@@ -10884,7 +10805,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     2
                   </span>
                   <span
@@ -10935,7 +10855,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     3
                   </span>
                   <span
@@ -10986,7 +10905,6 @@ exports[`Storyshots ObjectViewer tree with hightlighting and type 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     4
                   </span>
                   <span
@@ -11136,7 +11054,6 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     0
                   </span>
                   <span
@@ -11169,7 +11086,6 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             business_id
                           </span>
                           <button
@@ -11196,7 +11112,6 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             name
                           </span>
                           <button
@@ -11223,7 +11138,6 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             category
                           </span>
                           <button
@@ -11250,7 +11164,6 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             rating
                           </span>
                           <button
@@ -11277,7 +11190,6 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             num_of_reviews
                           </span>
                           <button
@@ -11321,7 +11233,6 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                             <span
                               className="undefined undefined"
                             >
-                               
                               attributes
                             </span>
                             <span
@@ -11372,7 +11283,6 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                             <span
                               className="undefined undefined"
                             >
-                               
                               location
                             </span>
                             <span
@@ -11428,7 +11338,6 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     1
                   </span>
                   <span
@@ -11479,7 +11388,6 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     2
                   </span>
                   <span
@@ -11530,7 +11438,6 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     3
                   </span>
                   <span
@@ -11581,7 +11488,6 @@ exports[`Storyshots ObjectViewer tree with labels 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     4
                   </span>
                   <span
@@ -11722,7 +11628,6 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     0
                   </span>
                   <span
@@ -11746,7 +11651,6 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             business_id
                           </span>
                           <button
@@ -11766,7 +11670,6 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             name
                           </span>
                           <button
@@ -11786,7 +11689,6 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             category
                           </span>
                           <button
@@ -11806,7 +11708,6 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             rating
                           </span>
                           <button
@@ -11826,7 +11727,6 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                           <span
                             className="undefined undefined"
                           >
-                             
                             num_of_reviews
                           </span>
                           <button
@@ -11863,7 +11763,6 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                             <span
                               className="undefined undefined"
                             >
-                               
                               attributes
                             </span>
                             <span
@@ -11905,7 +11804,6 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                             <span
                               className="undefined undefined"
                             >
-                               
                               location
                             </span>
                             <span
@@ -11952,7 +11850,6 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     1
                   </span>
                   <span
@@ -11994,7 +11891,6 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     2
                   </span>
                   <span
@@ -12036,7 +11932,6 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     3
                   </span>
                   <span
@@ -12078,7 +11973,6 @@ exports[`Storyshots ObjectViewer tree with very large root label 1`] = `
                   <span
                     className="undefined undefined"
                   >
-                     
                     4
                   </span>
                   <span
