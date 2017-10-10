@@ -90,7 +90,7 @@
     "redux-mock-store": "1.2.3",
     "rimraf": "^2.6.1",
     "sass-lint": "^1.10.2",
-    "sass-loader": "6.0.5",
+    "sass-loader": "6.0.6",
     "uuid": "3.0.1"
   },
   "peerDependencies": {
