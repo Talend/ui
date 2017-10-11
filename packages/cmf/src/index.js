@@ -16,6 +16,7 @@ import reducers from './reducers/';
 import getErrorMiddleware from './middlewares/error';
 import componentState from './componentState';
 import sagaRouter from './sagaRouter';
+import sagas from './sagas';
 
 const Dispatcher = ConnectedDispatcher;
 
@@ -46,4 +47,5 @@ export {
 	UIRouter,
 	getErrorMiddleware,
 	sagaRouter,
+	sagas,
 };

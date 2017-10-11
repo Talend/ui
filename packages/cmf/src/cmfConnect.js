@@ -61,7 +61,12 @@ export function getStateToProps({
 
 	cmfProps.getCollection = getCollection;
 
-	const viewProps = mapStateToViewProps(state, ownProps);
+	const viewProps = mapStateToViewProps(
+		state,
+		ownProps,
+		getComponentName(WrappedComponent),
+		getComponentId(componentId, ownProps),
+	);
 
 	let userProps = {};
 	if (mapStateToProps) {
@@ -176,7 +181,7 @@ export default function cmfConnect({
 				});
 
 				// remove all internal props already used by the container
-				CMF_PROPS.forEach(key => {
+				CMF_PROPS.forEach((key) => {
 					delete props[key];
 				});
 

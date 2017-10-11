@@ -131,7 +131,7 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 	}
 }
 
-:global(.tc-with-drawer-wrapper) > :global(.tc-drawer.stacked)::after {
+:global(.tc-with-drawer-wrapper) :global(.tc-drawer.stacked)::after {
 	background: rgba(0, 0, 0, 0.4);
 	content: ' ';
 	height: 100%;
@@ -140,6 +140,6 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 	top: 0;
 }
 
-:global(.tc-with-drawer-wrapper:last-child) > :global(.tc-drawer.stacked)::after {
+:global(.tc-with-drawer-wrapper:last-child) :global(.tc-drawer.stacked)::after {
 	content: none;
 }

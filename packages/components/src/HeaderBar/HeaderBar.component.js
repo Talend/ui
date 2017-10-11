@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import omit from 'lodash/omit';
 import { translate } from 'react-i18next';
 
 import Action from '../Actions/Action';
@@ -255,29 +256,25 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	User.propTypes = {
-		renderers: PropTypes.shape({
-			ActionDropdown: PropTypes.func,
-			name: PropTypes.string.isRequired,
-			firstName: PropTypes.string,
-			lastName: PropTypes.string,
-		}),
+		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
+		name: PropTypes.string.isRequired,
+		firstName: PropTypes.string,
+		lastName: PropTypes.string,
 	};
 
 	Products.propTypes = {
-		renderers: PropTypes.shape({
-			ActionDropdown: PropTypes.func,
-		}),
+		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
 		t: PropTypes.func.isRequired,
 	};
 
 	HeaderBar.propTypes = {
-		logo: PropTypes.shape(Logo.propTypes),
+		logo: PropTypes.shape(omit(Logo.propTypes, 't')),
 		brand: PropTypes.shape(Brand.propTypes),
 		env: PropTypes.shape(Environment.propTypes),
 		search: PropTypes.shape(Search.propTypes),
-		help: PropTypes.shape(Help.propTypes),
+		help: PropTypes.shape(omit(Help.propTypes, 't')),
 		user: PropTypes.shape(User.propTypes),
-		products: PropTypes.shape(Products.propTypes),
+		products: PropTypes.shape(omit(Products.propTypes, 't')),
 		renderers: PropTypes.shape({
 			Logo: PropTypes.func,
 			Brand: PropTypes.func,

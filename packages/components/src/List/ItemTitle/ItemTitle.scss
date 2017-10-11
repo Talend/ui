@@ -4,6 +4,14 @@ $tc-list-item-title-icon-size: $svg-lg-size !default;
 .item-title {
 	display: flex;
 	min-width: 0;
+	line-height: $btn-line-height;
+
+	& > span {
+		padding: 0 $padding-normal;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
 
 	.icon {
 		flex-shrink: 0;

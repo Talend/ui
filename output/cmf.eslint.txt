@@ -1,11 +1,8 @@
 
-> @talend/react-cmf@0.114.0 lint:es /home/travis/build/Talend/ui/packages/cmf
+> @talend/react-cmf@0.117.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config ../../.eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
-  169:23  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
 
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   67:3  warning  Unexpected console statement  no-console
@@ -19,5 +16,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
   45:2  warning  Unexpected constant condition  no-constant-condition
 
-✖ 5 problems (2 errors, 3 warnings)
+✖ 4 problems (1 error, 3 warnings)
 
