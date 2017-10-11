@@ -33,8 +33,7 @@ function ListTable(props) {
 
 	let RowTableRenderer = DefaultTableRowRenderer;
 	if (isActive || isSelected) {
-		RowTableRenderer = RowSelectionRenderer(
-			// eslint-disable-line new-cap
+		RowTableRenderer = RowSelectionRenderer( // eslint-disable-line new-cap
 			DefaultTableRowRenderer,
 			{
 				isSelected,
@@ -86,6 +85,7 @@ ListTable.propTypes = {
 	sortBy: PropTypes.string,
 	sortDirection: PropTypes.string,
 	width: PropTypes.number,
+	disableHeader: PropTypes.bool,
 };
 
 ListTable.defaultProps = {
