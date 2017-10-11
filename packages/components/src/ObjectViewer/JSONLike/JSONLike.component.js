@@ -21,7 +21,7 @@ function stopAndSelect(event, { onSelect, jsonpath }) {
 	onSelect(event, jsonpath);
 }
 
-export function NativeValue({ data, edit, onSelect, onChange, jsonpath, selectedJsonpath }) {
+export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
 	const type = typeof data;
 	let display = data;
 	let inputType = 'number';
