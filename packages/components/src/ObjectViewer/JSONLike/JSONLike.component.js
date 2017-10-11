@@ -58,7 +58,6 @@ NativeValue.propTypes = {
 	onSelect: PropTypes.func.isRequired,
 	onChange: PropTypes.func,
 	jsonpath: PropTypes.string,
-	selectedJsonpath: PropTypes.string,
 };
 
 /**
@@ -332,7 +331,6 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					onSelect={props.onSelect}
 					onEdit={props.onEdit}
 					onChange={props.onChange}
-					selectedJsonpath={props.selectedJsonpath}
 				/>
 				{props.showType && (
 					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>
