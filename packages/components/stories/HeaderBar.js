@@ -25,6 +25,7 @@ const icons = {
 	'talend-star': talendIcons['talend-star'],
 	'talend-user-circle': talendIcons['talend-user-circle'],
 	'talend-board': talendIcons['talend-board'],
+	'talend-world': talendIcons['talend-world'],
 };
 
 const typeaheadItems = [
@@ -180,6 +181,13 @@ decoratedStories
 		};
 		return <HeaderBar {...headerProps} />;
 	})
+	.addWithInfo('with unread notification', () => {
+		const headerProps = Immutable.fromJS(props).toJS();
+		headerProps.notification = {
+			hasUnread: true,
+		};
+		return <HeaderBar {...headerProps} />;
+	})
 	.addWithInfo('with help split dropdown', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.help.items = [
@@ -238,4 +246,5 @@ decoratedStories
 			onChange: action('onSearchChange'),
 		};
 		return <HeaderBar {...headerProps} />;
-	});
+	})
+	.addWithInfo('barebone', () => <HeaderBar />);

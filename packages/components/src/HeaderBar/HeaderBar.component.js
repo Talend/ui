@@ -26,18 +26,12 @@ function getRenderers(renderers) {
 
 function Logo({ isFull, renderers, t, ...props }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
-	const itemClassName = classNames(
-		theme['tc-header-bar-action'],
-		{
-			[theme.separated]: !isFull,
-		},
-	);
-	const actionClassName = classNames(
-		theme['tc-header-bar-logo'],
-		{
-			[theme.full]: isFull,
-		}
-	);
+	const itemClassName = classNames(theme['tc-header-bar-action'], {
+		[theme.separated]: !isFull,
+	});
+	const actionClassName = classNames(theme['tc-header-bar-logo'], {
+		[theme.full]: isFull,
+	});
 
 	return (
 		<li className={itemClassName}>
@@ -55,12 +49,9 @@ function Logo({ isFull, renderers, t, ...props }) {
 }
 
 function Brand({ name, isSeparated, renderers, ...props }) {
-	const className = classNames(
-		theme['tc-header-bar-action'],
-		{
-			[theme.separated]: isSeparated,
-		}
-	);
+	const className = classNames(theme['tc-header-bar-action'], {
+		[theme.separated]: isSeparated,
+	});
 
 	return (
 		<li className={className}>
@@ -116,10 +107,10 @@ function Help({ renderers, t, ...props }) {
 
 	return (
 		<li className={theme['tc-header-bar-action']}>
-			{ props.items && props.items.length ? (
-				<renderers.ActionSplitDropdown pullRight {...global} />
+			{props.items && props.items.length ? (
+				<renderers.ActionSplitDropdown pullRight {...global} {...props} />
 			) : (
-				<renderers.Action {...global} />
+				<renderers.Action {...global} {...props} />
 			)}
 		</li>
 	);
@@ -136,8 +127,12 @@ function User({ name, firstName, lastName, renderers, ...rest }) {
 		if (params.firstName && params.lastName) {
 			return (
 				<span className={classNames(theme['user-name'], 'user-name')}>
-					<span className={classNames(theme['user-firstname'], 'user-firstname')}>{params.firstName}</span>
-					<span className={classNames(theme['user-lastname'], 'user-lastname')}>{params.lastName}</span>
+					<span className={classNames(theme['user-firstname'], 'user-firstname')}>
+						{params.firstName}
+					</span>
+					<span className={classNames(theme['user-lastname'], 'user-lastname')}>
+						{params.lastName}
+					</span>
 				</span>
 			);
 		}
@@ -155,6 +150,23 @@ function User({ name, firstName, lastName, renderers, ...rest }) {
 				label={getDisplayName({ name, firstName, lastName })}
 				{...rest}
 			/>
+		</li>
+	);
+}
+
+function AppNotification({ renderers, hasUnread, t, ...props }) {
+	const className = classNames(theme['tc-header-bar-action'], theme.separated);
+	const global = {
+		bsStyle: 'link',
+		icon: hasUnread ? 'talend-world' : 'talend-world',
+		hideLabel: true,
+		label: t('HEADERBAR_NOTIFICATION', { defaultValue: 'Notifications' }),
+		tooltipPlacement: 'bottom',
+		...props,
+	};
+	return (
+		<li className={className}>
+			<renderers.Action {...global} {...props} />
 		</li>
 	);
 }
@@ -179,32 +191,39 @@ function Products({ renderers, t, ...props }) {
 
 function HeaderBar(props) {
 	const renderers = getRenderers(props.renderers);
-	const Components = Object.assign({
-		Logo,
-		Brand,
-		Environment,
-		Search,
-		User,
-		Help,
-		Products,
-	}, props.renderers || {});
+	const Components = Object.assign(
+		{
+			Logo,
+			Brand,
+			Environment,
+			Search,
+			User,
+			Help,
+			Products,
+			AppNotification,
+		},
+		props.renderers || {},
+	);
 
 	return (
-		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar')}>
+		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar', 'navbar')}>
 			<ul className={theme['tc-header-bar-actions']}>
-				{ props.logo && <Components.Logo renderers={renderers} {...props.logo} t={props.t} /> }
-				{ props.brand &&
-				<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} /> }
-				{ props.env && <Components.Environment renderers={renderers} {...props.env} /> }
+				{props.logo && <Components.Logo renderers={renderers} {...props.logo} t={props.t} />}
+				{props.brand && (
+					<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} />
+				)}
+				{props.env && <Components.Environment renderers={renderers} {...props.env} />}
 			</ul>
 			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
-				{ props.search && <Components.Search renderers={renderers} {...props.search} /> }
-				{ props.help && <Components.Help renderers={renderers} {...props.help} t={props.t} /> }
-				{ props.user && <Components.User renderers={renderers} {...props.user} /> }
-				{
-					props.products &&
+				{props.search && <Components.Search renderers={renderers} {...props.search} />}
+				{props.help && <Components.Help renderers={renderers} {...props.help} t={props.t} />}
+				{props.user && <Components.User renderers={renderers} {...props.user} />}
+				{props.notification && (
+					<Components.AppNotification renderers={renderers} {...props.notification} t={props.t} />
+				)}
+				{props.products && (
 					<Components.Products renderers={renderers} {...props.products} t={props.t} />
-				}
+				)}
 			</ul>
 		</nav>
 	);
@@ -262,6 +281,10 @@ if (process.env.NODE_ENV !== 'production') {
 		lastName: PropTypes.string,
 	};
 
+	AppNotification.propTypes = {
+		hasUnread: PropTypes.bool,
+	};
+
 	Products.propTypes = {
 		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
 		t: PropTypes.func.isRequired,
@@ -274,6 +297,7 @@ if (process.env.NODE_ENV !== 'production') {
 		search: PropTypes.shape(Search.propTypes),
 		help: PropTypes.shape(omit(Help.propTypes, 't')),
 		user: PropTypes.shape(User.propTypes),
+		notification: PropTypes.shape(AppNotification.propTypes),
 		products: PropTypes.shape(omit(Products.propTypes, 't')),
 		renderers: PropTypes.shape({
 			Logo: PropTypes.func,
