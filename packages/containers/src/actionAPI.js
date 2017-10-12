@@ -10,7 +10,7 @@ import { api } from '@talend/react-cmf';
  * * labelExpression
  */
 function evalExpressions(action, context, payload = {}) {
-	const newAction = api.expression.getProps(action, ['active', 'available', 'disabled', 'inProgress'], context, payload);
+	const newAction = api.expression.getProps(action, ['active', 'available', 'disabled', 'inProgress', 'iconExpression'], context, payload);
 	if (action.labelExpression) {
 		delete newAction.labelExpression;
 		newAction.label = api.expression.call(action.labelExpression, context, newAction);

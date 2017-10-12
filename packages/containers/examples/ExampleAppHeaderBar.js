@@ -4,7 +4,7 @@ import { AppHeaderBar } from '../src';
 export default function AppHeaderBarExample() {
 	return (
 		<div>
-			<AppHeaderBar />
+			<AppHeaderBar view="headerbar" />
 		</div>
 	);
 }
