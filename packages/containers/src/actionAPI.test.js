@@ -95,6 +95,7 @@ describe('actionAPI.evalExpressions', () => {
 			label: 'Run',
 			labelInProgress: 'Running',
 			labelExpression: 'getLabel',
+			iconExpression: 'getIcon',
 		};
 		function isActive({ payload }) {
 			return payload.model.value;
@@ -112,7 +113,7 @@ describe('actionAPI.evalExpressions', () => {
 			return payload.model.value ? payload.labelInProgress : payload.label;
 		}
 
-		function getIcon({ payload}){
+		function getIcon({ payload }) {
 			return payload.model.value ? 'talend-icon' : 'pas-talend-icon';
 		}
 

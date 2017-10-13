@@ -10,10 +10,19 @@ import { api } from '@talend/react-cmf';
  * * labelExpression
  */
 function evalExpressions(action, context, payload = {}) {
-	const newAction = api.expression.getProps(action, ['active', 'available', 'disabled', 'inProgress', 'iconExpression'], context, payload);
+	const newAction = api.expression.getProps(
+		action,
+		['active', 'available', 'disabled', 'inProgress'],
+		context,
+		payload,
+	);
 	if (action.labelExpression) {
 		delete newAction.labelExpression;
 		newAction.label = api.expression.call(action.labelExpression, context, newAction);
+	}
+	if (action.iconExpression) {
+		delete newAction.iconExpression;
+		newAction.icon = api.expression.call(action.iconExpression, context, newAction);
 	}
 	return newAction;
 }
@@ -28,26 +37,34 @@ export function getActionsProps(context, ids, model) {
 		tmpIds = [ids];
 	}
 
-	const infos = tmpIds.map((id) => {
+	const infos = tmpIds.map(id => {
 		if (typeof id === 'string') {
 			return api.action.getActionInfo(context, id);
 		}
 		return id;
 	});
 
-	const props = infos.map(info => Object.assign({
-		onClick(event, data) {
-			if (info.actionCreator) {
-				context.store.dispatch(
-					api.action.getActionObject(context, info.id, event, data)
-				);
-			} else {
-				context.store.dispatch(Object.assign({
-					model,
-				}, info.payload));
-			}
-		},
-	}, evalExpressions(info, context, { model })));
+	const props = infos.map(info =>
+		Object.assign(
+			{
+				onClick(event, data) {
+					if (info.actionCreator) {
+						context.store.dispatch(api.action.getActionObject(context, info.id, event, data));
+					} else {
+						context.store.dispatch(
+							Object.assign(
+								{
+									model,
+								},
+								info.payload,
+							),
+						);
+					}
+				},
+			},
+			evalExpressions(info, context, { model }),
+		),
+	);
 
 	if (onlyOne) {
 		return props[0];
