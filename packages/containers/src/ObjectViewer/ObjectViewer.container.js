@@ -61,7 +61,6 @@ class ObjectViewer extends React.Component {
 	static displayName = 'CMFContainer(ObjectViewer)';
 	static propTypes = {
 		id: PropTypes.string,
-		openFirst: PropTypes.bool,
 		data: get(Component, 'propTypes.data', PropTypes.any),
 		displayMode: get(Component, 'propTypes.displayMode', PropTypes.func),
 		onSubmit: get(Component, 'propTypes.onSubmit', PropTypes.func),
@@ -96,9 +95,6 @@ class ObjectViewer extends React.Component {
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
-		if (this.props.state === DEFAULT_STATE && this.props.openFirst) {
-			state.opened.push('$[0]');
-		}
 		// TODO: add support for mutate the data using modified state
 		// We need for that a better JSONPath support.
 		return (
