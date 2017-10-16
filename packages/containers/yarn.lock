@@ -150,21 +150,6 @@
     react-treebeard "^2.0.3"
     redux "^3.6.0"
 
-<<<<<<< HEAD
-"@talend/bootstrap-theme@^0.116.0":
-  version "0.116.0"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.116.0.tgz#0aace3f8d3475d863a54ce78323a8a949d39837c"
-  dependencies:
-    bootstrap-sass "3.3.7"
-
-"@talend/icons@^0.116.0":
-  version "0.116.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.116.0.tgz#c17aafa655b41967bc4e8b0a40de93742119b402"
-
-"@talend/react-cmf@^0.116.0":
-  version "0.116.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.116.0.tgz#3db90a8c3a476a882a544f76eca5443568f66ba4"
-=======
 "@talend/bootstrap-theme@^0.117.0":
   version "0.117.0"
   resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.117.0.tgz#507b54af027425cf7dac909f28043e81715aaf01"
@@ -178,35 +163,22 @@
 "@talend/react-cmf@^0.117.0":
   version "0.117.0"
   resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.117.0.tgz#0b225b8308b6533718396ead450047ff60a9c814"
->>>>>>> 0db3892057dc7e4fafcd58757ea47fcc525000f3
   dependencies:
     babel-polyfill "6.26.0"
     hoist-non-react-statics "^1.2.0"
 
-<<<<<<< HEAD
-"@talend/react-components@^0.116.0":
-  version "0.116.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.116.0.tgz#9e11d696897ac588931cf502acbc77ea0ef2dd06"
-=======
 "@talend/react-components@^0.117.0":
   version "0.117.0"
   resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.117.0.tgz#2d84028847784ef46f4f9e3c94d0ff30b20684f0"
->>>>>>> 0db3892057dc7e4fafcd58757ea47fcc525000f3
   dependencies:
     lodash "4.17.4"
     react-autowhatever "7.0.0"
     react-debounce-input "2.4.2"
     react-virtualized "9.10.1"
 
-<<<<<<< HEAD
-"@talend/react-forms@^0.116.0":
-  version "0.116.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-0.116.0.tgz#f04cfa8ffbb9785200f325b69e71835f06dc9ad0"
-=======
 "@talend/react-forms@^0.117.0":
   version "0.117.0"
   resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-0.117.0.tgz#744f797e0498692436ebdfce17bbebe9e32edc10"
->>>>>>> 0db3892057dc7e4fafcd58757ea47fcc525000f3
   dependencies:
     classnames "2.2.5"
     keycode "2.1.9"
