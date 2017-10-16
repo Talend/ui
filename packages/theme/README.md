@@ -1,6 +1,6 @@
 # Talend Bootstrap Theme
 
-[![npm version](https://badge.fury.io/js/bootstrap-talend-theme.svg)](https://badge.fury.io/js/bootstrap-talend-theme)
+[![npm version](https://badge.fury.io/js/@talend/bootstrap-theme.svg)](https://badge.fury.io/js/@talend/bootstrap-theme)
 [![Build Status](https://travis-ci.org/Talend/bootstrap-theme.svg?branch=travis)](https://travis-ci.org/Talend/bootstrap-theme)
 [![dependencies Status](https://david-dm.org/Talend/bootstrap-theme/status.svg)](https://david-dm.org/Talend/bootstrap-theme)
 
@@ -17,11 +17,11 @@ Note: The example has been taken from the excellent project [Bootstwatch](https:
 ## Install dependency
 
 ```bash
-npm install --save bootstrap-talend-theme
+npm install --save @talend/bootstrap-heme
 ```
 or
 ```bash
-yarn add --dev bootstrap-talend-theme
+yarn add --dev @talend/bootstrap-theme
 ```
 
 ## Configure your project
@@ -34,7 +34,7 @@ You should at least just change the `$brand-primary` first to get your own color
 ```javascript
 const SASS_DATA = `
   $brand-primary: #77828A;
-  @import '~bootstrap-talend-theme/src/theme/guidelines';
+  @import '~@talend/bootstrap-theme/src/theme/guidelines';
 `;
 
 module.exports = {
@@ -59,7 +59,7 @@ module.exports = {
 and in your app you can do the following
 
 ```javascript
-import '!style!css!sass!bootstrap-talend-theme/src/theme/theme.scss';
+import '!style!css!sass!@talend/bootstrap-theme/src/theme/theme.scss';
 ```
 
 sassLoader data is a sassLib params which inject the content on every @import directive.
