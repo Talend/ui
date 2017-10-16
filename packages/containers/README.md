@@ -13,7 +13,7 @@ This library provide a set of widgets to be ready to start with [react-cmf](http
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c7b3baa7ac56473aa18a34d585a3c861)](https://www.codacy.com/app/Talend/react-cmf-bootstrap)
 
 [npm-icon]: https://nodei.co/npm/react-talend-containers.png?downloads=true
-[npm-url]: https://npmjs.org/package/react-talend-containers
+[npm-url]: https://npmjs.org/package/@talend/react-containers
 [travis-ci-image]: https://travis-ci.org/Talend/react-talend-containers.svg?branch=master
 [travis-ci-url]: https://travis-ci.org/Talend/react-talend-containers
 
@@ -30,8 +30,8 @@ This library provide a set of widgets to be ready to start with [react-cmf](http
 ## Dependencies
 
 * react
-* react-cmf
-* react-talend-components
+* @talend/react-cmf
+* @talend/react-components
 * classnames
 
 ## Architecture
