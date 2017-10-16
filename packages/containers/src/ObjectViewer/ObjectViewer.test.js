@@ -102,16 +102,6 @@ describe('Container ObjectViewer', () => {
 		expect(setState.mock.calls.length).toBe(1);
 		expect(typeof setState.mock.calls[0][0]).toBe('function');
 	});
-	it('should pass opened props if openFirst is passed', () => {
-		const wrapper = shallow(
-			<Container data={data} state={DEFAULT_STATE} />,
-		);
-		let props = wrapper.props();
-		expect(props.opened).toEqual([]);
-
-		props = wrapper.setProps({ openFirst: true }).props();
-		expect(props.opened).toEqual(['$[0]']);
-	});
 });
 
 describe('Connected ObjectViewer', () => {
