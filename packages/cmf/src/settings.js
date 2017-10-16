@@ -83,7 +83,7 @@ export function mapStateToViewProps(state, ownProps, componentName, componentId)
 	if (!ownProps.view && componentName && !componentId) {
 		viewId = componentName;
 	} else if (!ownProps.view && componentName && componentId) {
-		viewId = `${componentName}:${componentId}`;
+		viewId = `${componentName}#${componentId}`;
 	}
 	if (viewId && state.cmf.settings.views[viewId]) {
 		viewProps = Object.assign(
