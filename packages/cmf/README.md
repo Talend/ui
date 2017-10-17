@@ -13,7 +13,7 @@ It provides a set of base components and patterns.
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1e353b0f69c4cf99a4cb3f68b70ea7d)](https://www.codacy.com/app/Talend/react-cmf)
 
 [npm-icon]: https://nodei.co/npm/react-cmf.png?downloads=true
-[npm-url]: https://npmjs.org/package/react-cmf
+[npm-url]: https://npmjs.org/package/@talend/react-cmf
 [travis-ci-image]: https://travis-ci.org/Talend/react-cmf.svg?branch=master
 [travis-ci-url]: https://travis-ci.org/Talend/react-cmf
 
@@ -138,7 +138,7 @@ CMF init a middleware which is able to handle http requests for you.
 It attach the response to the action object.
 
 ```javascript
-import { actions } from 'react-cmf';
+import { actions } from '@talend/react-cmf';
 
 const url = '/foo/bar';
 
@@ -183,7 +183,7 @@ We use them to handle dynamic configuration like disable buttons if a user doesn
 Given an existing `MyComponent` you may want to add disabled props expression support just by doing the following:
 
 ```javascript
-import { api } from 'react-cmf';
+import { api } from '@talend/react-cmf';
 import MyComponent from './MyComponent';
 
 const MySuperComponent = api.expressions.withExpression(MyComponent, ['disabled']);
@@ -201,7 +201,7 @@ We want testing experience to be easy so CMF provides some mocks for you.
 ```javascript
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Provider, store as mock } from 'react-cmf/lib/mock';
+import { Provider, store as mock } from '@talend/react-cmf/lib/mock';
 
 import MyComponent from './My.component';
 
