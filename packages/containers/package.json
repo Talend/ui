@@ -120,6 +120,10 @@
       "!**/node_modules/**",
       "!**/__snapshots__/**"
     ],
+    "roots": [
+      "src",
+      "__mocks__"
+    ],
     "setupFiles": [
       "./env__tests.js"
     ],

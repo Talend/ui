@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-cmf-cqrs",
-  "description": "A framework built on top of best react libraries",
+  "description": "@talend/react-cmf plugin for CQRS backend architecture",
   "main": "lib/index.js",
   "scripts": {
     "prepublish": "npm run build && npm run test",
@@ -105,6 +105,10 @@
       "!src/**/index.js",
       "!**/node_modules/**",
       "!**/__snapshots__/**"
+    ],
+    "roots": [
+      "src",
+      "__mocks__"
     ],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
