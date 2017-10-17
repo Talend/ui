@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
  */
 public class ConfirmDialog extends Component {
 
-    private static final String NAME = "ConfirmDialog";
+    private static final String CONFIRMDIALOG_NAME = "ConfirmDialog";
 
     private static final String CONFIRMDIALOG_SELECTOR = ".modal-content";
 
@@ -21,7 +21,7 @@ public class ConfirmDialog extends Component {
      * @param driver Selenium WebDriver
      */
     ConfirmDialog(WebDriver driver) {
-        super(driver, NAME, CONFIRMDIALOG_SELECTOR);
+        super(driver, CONFIRMDIALOG_NAME, CONFIRMDIALOG_SELECTOR);
     }
 
     /**
