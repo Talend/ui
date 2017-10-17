@@ -9,12 +9,12 @@ import {
 
 describe('cmf-cqrs', () => {
 	it('should export API', () => {
-		expect(actions).not.toBe(undefined);
-		expect(ACKDispatcher).not.toBe(undefined);
-		expect(constants).not.toBe(undefined);
-		expect(middlewares).not.toBe(undefined);
-		expect(reducers).not.toBe(undefined);
-		expect(ackProcessed).not.toBe(undefined);
+		expect(actions).toBeDefined();
+		expect(ACKDispatcher).toBeDefined();
+		expect(constants).toBeDefined();
+		expect(middlewares).toBeDefined();
+		expect(reducers).toBeDefined();
+		expect(ackProcessed).toBeDefined();
 	});
 	it('should export constant', () => {
 		expect(constants.ACK_ADD_CONTEXT).toBe('ACK_ADD_CONTEXT');
