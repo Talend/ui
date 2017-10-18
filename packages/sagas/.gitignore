@@ -40,3 +40,8 @@ hs_err_pid*
 
 # Talend web apps build directory
 build/
+
+# Dependency directories
+node_modules
+# Transpiled code directory
+lib
