@@ -39,10 +39,10 @@ function parseSagaState(routeFragments, sagas, currentLocation, index) {
 	};
 }
 
-export default function* routerSaga(history, routes) {
+export default function* sagaRouter(history, routes) {
 	const sagas = {};
 	const routeFragments = Object.keys(routes);
-	while (true) {
+	while (true) {  // eslint-disable-line no-constant-condition
 		yield take('@@router/LOCATION_CHANGE');
 		const shouldStart = [];
 		const currentLocation = history.getCurrentLocation();
