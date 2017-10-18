@@ -19,6 +19,7 @@ import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
 import ConfirmDialog from './ConfirmDialog';
 import Form from './Form';
+import HeaderBar from './HeaderBar';
 import HomeListView from './HomeListView';
 import List from './List';
 import Notification from './Notification';
@@ -40,6 +41,7 @@ export {
 	ConfirmDialog,
 	Drawer,
 	Form,
+	HeaderBar,
 	HomeListView,
 	Icon,
 	IconsProvider,
