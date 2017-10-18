@@ -1,8 +1,16 @@
 import { spawn, take, cancel } from 'redux-saga/effects';
 import { createMockTask } from 'redux-saga/utils';
-import routerSaga from '../../src/sagaRouter/router';
+import sagaRouter from '../../src/sagaRouter/router';
+import { sagaRouter as sagaRouterFromRoot } from '../../src';
 
-describe('routerSaga RouteChange', () => {
+describe('sagaRouter import', () => {
+	it('shouldBe defined', () => {
+		expect(sagaRouter).toBeDefined();
+		expect(sagaRouter).toBe(sagaRouterFromRoot);
+	});
+});
+
+describe('sagaRouter RouteChange', () => {
 	it('start the configured saga if route equals current location', () => {
 		const mockHistory = {
 			getCurrentLocation() {
@@ -16,7 +24,7 @@ describe('routerSaga RouteChange', () => {
 				yield take('SOMETHING');
 			},
 		};
-		const gen = routerSaga(mockHistory, routes);
+		const gen = sagaRouter(mockHistory, routes);
 		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
 			spawn(routes['/matchingroute'], {})
@@ -36,7 +44,7 @@ describe('routerSaga RouteChange', () => {
 				yield take('SOMETHING');
 			},
 		};
-		const gen = routerSaga(mockHistory, routes);
+		const gen = sagaRouter(mockHistory, routes);
 		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
 			spawn(routes['/matchingroute'], {})
@@ -66,7 +74,7 @@ describe('routerSaga RouteChange', () => {
 				yield take('SOMETHING');
 			},
 		};
-		const gen = routerSaga(getMockedHistory(), routes);
+		const gen = sagaRouter(getMockedHistory(), routes);
 		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
 			spawn(routes['/matchingroute'], {})
@@ -100,7 +108,7 @@ describe('routerSaga RouteChange', () => {
 				yield take('SOMETHING');
 			},
 		};
-		const gen = routerSaga(getMockedHistory(), routes);
+		const gen = sagaRouter(getMockedHistory(), routes);
 		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
 			spawn(routes['/matchingroute'], {})
@@ -136,7 +144,7 @@ describe('routerSaga RouteChange', () => {
 				yield take('SOMETHING');
 			},
 		};
-		const gen = routerSaga(getMockedHistory(), routes);
+		const gen = sagaRouter(getMockedHistory(), routes);
 		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
 			spawn(routes['/toCancelFirst'], {})
@@ -154,7 +162,7 @@ describe('routerSaga RouteChange', () => {
 			},
 		};
 
-		const anotherGen = routerSaga(getMockedHistory(), alternateRoutes);
+		const anotherGen = sagaRouter(getMockedHistory(), alternateRoutes);
 		expect(anotherGen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
 		expect(anotherGen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
 			spawn(alternateRoutes['/toCancelFirst'], {})
@@ -165,7 +173,7 @@ describe('routerSaga RouteChange', () => {
 	});
 });
 
-describe('routerSaga route and route params', () => {
+describe('sagaRouter route and route params', () => {
 	it('route params should be given to target saga as object', () => {
 		function getMockedHistory() {
 			let count = 0;
@@ -188,7 +196,7 @@ describe('routerSaga route and route params', () => {
 				yield take('SOMETHING');
 			},
 		};
-		const gen = routerSaga(getMockedHistory(), routes);
+		const gen = sagaRouter(getMockedHistory(), routes);
 		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
 			spawn(routes['/matchingroute/:id'], { id: 'anId' })
@@ -218,7 +226,7 @@ describe('routerSaga route and route params', () => {
 				yield take('SOMETHING');
 			},
 		};
-		const gen = routerSaga(getMockedHistory(), routes);
+		const gen = sagaRouter(getMockedHistory(), routes);
 		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
 			spawn(routes['/matchingroute/:id'], { id: 'anId' })
