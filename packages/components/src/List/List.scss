@@ -21,10 +21,10 @@
 	}
 
 	:global(.tc-list-display-virtualized) {
+		display: flex;
 		flex-grow: 1;
 		flex-shrink: 1;
 		box-shadow: $shadow-default;
-		height: 100%;
 	}
 
 }
