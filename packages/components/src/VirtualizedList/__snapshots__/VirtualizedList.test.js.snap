@@ -2,6 +2,8 @@
 
 exports[`VirtualizedList should render CircularProgress 1`] = `
 <div
+  aria-atomic="true"
+  aria-busy="true"
   className={undefined}
 >
   <CircularProgress
