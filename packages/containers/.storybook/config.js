@@ -60,7 +60,7 @@ function loadStories() {
 		state.cmf.settings.views.appheaderbar = {
 			app: 'Hello Test',
 		};
-		state.cmf.settings.views.headerbar = {
+		state.cmf.settings.views['HeaderBar:default'] = {
 			logo: { name: 'appheaderbar:logo', isFull: true },
 			brand: { name: 'DATA STREAMS'},
 			notification: { name: 'appheaderbar:notification'}

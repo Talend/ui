@@ -7,7 +7,7 @@ export default function HeaderBarExample() {
 	return (
 		<div>
 			<IconsProvider />
-			<HeaderBar view="headerbar" />
+			<HeaderBar />
 		</div>
 	);
 }

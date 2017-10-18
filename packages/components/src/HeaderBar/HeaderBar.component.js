@@ -108,9 +108,9 @@ function Help({ renderers, t, ...props }) {
 	return (
 		<li className={theme['tc-header-bar-action']}>
 			{props.items && props.items.length ? (
-				<renderers.ActionSplitDropdown pullRight {...global} {...props} />
+				<renderers.ActionSplitDropdown pullRight {...global} />
 			) : (
-				<renderers.Action {...global} {...props} />
+				<renderers.Action {...global} />
 			)}
 		</li>
 	);
@@ -166,7 +166,7 @@ function AppNotification({ renderers, hasUnread, t, ...props }) {
 	};
 	return (
 		<li className={className}>
-			<renderers.Action {...global} {...props} />
+			<renderers.Action {...global} />
 		</li>
 	);
 }
