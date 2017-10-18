@@ -1,4 +1,4 @@
-# react-talend-components
+# @talend/react-components
 
 A set of stateless components which follows the [Talend Guidelines](http://guidelines.talend.com)
 
@@ -12,7 +12,7 @@ A set of stateless components which follows the [Talend Guidelines](http://guide
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2dd69f1168bb43f781fee182a67a00f2)](https://www.codacy.com/app/Talend/react-talend-components)
 
 [npm-icon]: https://nodei.co/npm/react-talend-components.svg?downloads=true
-[npm-url]: https://npmjs.org/package/react-talend-components
+[npm-url]: https://npmjs.org/package/@talend/react-components
 [travis-ci-image]: https://travis-ci.org/Talend/react-talend-components.svg?branch=master
 [travis-ci-url]: https://travis-ci.org/Talend/react-talend-components
 
@@ -28,7 +28,7 @@ A set of stateless components which follows the [Talend Guidelines](http://guide
 
 ## Conventions
 
-Please look at our [CONTRIBUTING](https://github.com/Talend/react-talend-components/blob/master/CONTRIBUTING.md) first.
+Please look at our [CONTRIBUTING](https://github.com/Talend/tools/blob/master/tools-root-github/CONTRIBUTING.md) first.
 
 Please read our [style guidelines](http://guidelines.talend.com) first.
 
