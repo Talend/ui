@@ -57,6 +57,9 @@ function prepareSettings(originalSettings) {
 		});
 	}
 	delete settings.ref;
+	if (typeof settings.freeze === 'function') {
+		settings.freeze();
+	}
 	return settings;
 }
 
