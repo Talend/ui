@@ -2,7 +2,7 @@
   "name": "@talend/sagas",
   "version": "0.119.0",
   "description": "Transverses redux sagas ",
-  "main": "index.js",
+  "main": "lib/index.js",
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "rimraf lib && babel -d lib ./src/ && cpx \"./src/**/*.scss\" lib",
@@ -116,10 +116,7 @@
       "src",
       "__mocks__"
     ],
-    "testRegex": "&*\\.test\\.js$",
-    "moduleNameMapper": {
-      "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
-    }
+    "testRegex": "&*\\.test\\.js$"
   },
   "publishConfig": {
     "access": "public"
