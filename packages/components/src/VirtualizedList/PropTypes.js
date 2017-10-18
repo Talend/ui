@@ -18,6 +18,8 @@ export default {
 	 *  This is called to determine if the element is selected.
 	 *  Note that this is not used/displayed if the selectionToggle props is not passed */
 	isSelected: PropTypes.func,
+	// Show spinner during loading
+	inProgress: PropTypes.bool,
 	// The row click
 	onRowClick: PropTypes.func,
 	// The row height in ListGrid rendering
