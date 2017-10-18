@@ -158,7 +158,7 @@ function AppNotification({ renderers, hasUnread, t, ...props }) {
 	const className = classNames(theme['tc-header-bar-action'], theme.separated);
 	const global = {
 		bsStyle: 'link',
-		icon: hasUnread ? 'talend-world' : 'talend-world',
+		icon: hasUnread ? 'talend-bell-notification' : 'talend-bell',
 		hideLabel: true,
 		label: t('HEADERBAR_NOTIFICATION', { defaultValue: 'Notifications' }),
 		tooltipPlacement: 'bottom',
@@ -283,6 +283,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 	AppNotification.propTypes = {
 		hasUnread: PropTypes.bool,
+		renderers: PropTypes.shape({ Action: PropTypes.func }),
+		t: PropTypes.func.isRequired,
 	};
 
 	Products.propTypes = {
@@ -297,7 +299,7 @@ if (process.env.NODE_ENV !== 'production') {
 		search: PropTypes.shape(Search.propTypes),
 		help: PropTypes.shape(omit(Help.propTypes, 't')),
 		user: PropTypes.shape(User.propTypes),
-		notification: PropTypes.shape(AppNotification.propTypes),
+		notification: PropTypes.shape(AppNotification.propTypes, 't'),
 		products: PropTypes.shape(omit(Products.propTypes, 't')),
 		renderers: PropTypes.shape({
 			Logo: PropTypes.func,
