@@ -15,8 +15,15 @@ import deprecated from './deprecated';
 import CONST from './constant';
 import component from './component';
 
-const getComponentFromRegistry = component.get;
-const registerComponent = component.register;
+const getComponentFromRegistry = deprecated(
+	(context, id) => component.get(id, context),
+	'stop use api.route.getComponentFromRegistry. Please use api.component.get',
+);
+
+const registerComponent = deprecated(
+	component.register,
+	'stop use api.route.registerComponent. please use api.component.register',
+);
 
 /**
  * register a function for the router configuration
@@ -67,7 +74,7 @@ export const connectView = deprecated(
 function loadComponents(context, item) {
 	/* eslint no-param-reassign: ["error", { "props": false }] */
 	if (item.component) {
-		item.component = getComponentFromRegistry(item.component, context);
+		item.component = component.get(item.component, context);
 		if (item.view && !item.component.CMFContainer) {
 			item.component = connectView(context, item.component, item.view);
 		} else if (item.view && item.component.CMFContainer) {
