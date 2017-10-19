@@ -1,5 +1,5 @@
 {
-  "name": "@talend/sagas",
+  "name": "@talend/react-sagas",
   "version": "0.119.0",
   "description": "Transverses redux sagas ",
   "main": "lib/index.js",

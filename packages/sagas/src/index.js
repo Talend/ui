@@ -1,3 +1,3 @@
 import pendingMaybeNeeded from './pending';
 
-export { pendingMaybeNeeded };
+export default pendingMaybeNeeded;
