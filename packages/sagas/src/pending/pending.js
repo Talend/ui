@@ -3,21 +3,21 @@ import { call, put, select, take } from 'redux-saga/effects';
 import { api } from '@talend/react-cmf';
 import { Map } from 'immutable';
 
-import { PENDING_DELAY_TO_SHOW, SHOW_PENDING } from '../constants';
+import { PENDING_DELAY_TO_SHOW, PENDING_COLLECTION_NAME, SHOW_PENDING } from '../constants';
 
 const addOrReplace = api.actions.collections.addOrReplace;
 
 /**
  * find a datastore by its id
  * @param {*} state the application state
- * @param {*} id the datastoreId
+ * @param {string} asyncActionId the unique contextualized actionId
  */
 export function findPenderById(state, asyncActionId) {
-	return state.cmf.collections.getIn(['penders', asyncActionId]);
+	return state.cmf.collections.getIn([PENDING_COLLECTION_NAME, asyncActionId]);
 }
 
 export function findPenders(state) {
-	return state.cmf.collections.get('penders');
+	return state.cmf.collections.get(PENDING_COLLECTION_NAME);
 }
 
 /**
@@ -26,7 +26,7 @@ export function findPenders(state) {
 export function* ensurePendersCollectionExists() {
 	const collection = yield select(findPenders);
 	if (!collection) {
-		yield put(addOrReplace('penders', new Map()));
+		yield put(addOrReplace(PENDING_COLLECTION_NAME, new Map()));
 	}
 }
 
@@ -45,7 +45,7 @@ export default function* pendingMaybeNeeded(asyncCallerId, actionId) {
 		yield call(ensurePendersCollectionExists);
 		let pendersCollection = yield select(findPenders);
 		pendersCollection = pendersCollection.set(asyncActionId, SHOW_PENDING);
-		yield put(addOrReplace('penders', pendersCollection));
+		yield put(addOrReplace(PENDING_COLLECTION_NAME, pendersCollection));
 		yield take('DO_NOT_QUIT');
 	} finally {
 		if (pending) {
@@ -55,7 +55,7 @@ export default function* pendingMaybeNeeded(asyncCallerId, actionId) {
 			if (penderStatus) {
 				let pendersCollection = yield select(findPenders);
 				pendersCollection = pendersCollection.delete(asyncActionId);
-				yield put(addOrReplace('penders', pendersCollection));
+				yield put(addOrReplace(PENDING_COLLECTION_NAME, pendersCollection));
 			}
 		}
 	}

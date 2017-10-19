@@ -8,7 +8,7 @@ import pendingMaybeNeeded, {
 	findPenderById,
 } from './pending';
 
-import { PENDING_DELAY_TO_SHOW, SHOW_PENDING } from '../constants';
+import { PENDING_DELAY_TO_SHOW, SHOW_PENDING, PENDING_COLLECTION_NAME } from '../constants';
 
 const addOrReplace = api.actions.collections.addOrReplace;
 
@@ -18,7 +18,9 @@ describe('test pending status', () => {
 		expect(gen.next().value).toEqual(select(findPenders));
 
 		// if penders collection has been create
-		expect(gen.next(undefined).value).toEqual(put(addOrReplace('penders', new Map())));
+		expect(gen.next(undefined).value).toEqual(
+			put(addOrReplace(PENDING_COLLECTION_NAME, new Map())),
+		);
 		// the saga is finished
 		expect(gen.next()).toEqual({ done: true, value: undefined });
 	});
@@ -38,7 +40,7 @@ describe('test pending status', () => {
 
 		pendersCollection = pendersCollection.set('#streams:create', SHOW_PENDING);
 		expect(gen.next(pendersCollection).value).toEqual(
-			put(addOrReplace('penders', pendersCollection)),
+			put(addOrReplace(PENDING_COLLECTION_NAME, pendersCollection)),
 		);
 		expect(gen.next().value).toEqual(take('DO_NOT_QUIT'));
 		expect(gen.next().value).toEqual(call(ensurePendersCollectionExists));
@@ -47,7 +49,7 @@ describe('test pending status', () => {
 
 		pendersCollection = pendersCollection.delete('#streams:create');
 		expect(gen.next(pendersCollection).value).toEqual(
-			put(addOrReplace('penders', pendersCollection)),
+			put(addOrReplace(PENDING_COLLECTION_NAME, pendersCollection)),
 		);
 		// the saga is finished
 		expect(gen.next()).toEqual({ done: true, value: undefined });
