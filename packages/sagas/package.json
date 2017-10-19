@@ -1,7 +1,7 @@
 {
   "name": "@talend/react-sagas",
   "version": "0.119.0",
-  "description": "Transverses redux sagas ",
+  "description": "App wide redux sagas",
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "scripts": {
@@ -19,9 +19,8 @@
   "keywords": [
     "react",
     "talend",
-    "forms",
-    "json",
-    "schema"
+    "sagas",
+    "pending"
   ],
   "author": "Talend Frontend <frontend@talend.com>",
   "homepage": "https://github.com/Talend/ui/tree/master/packages/forms#readme",
@@ -96,11 +95,6 @@
     "redux-mock-store": "1.2.3",
     "redux-saga": "0.15.4",
     "redux-saga-tester": "^1.0.345",
-    "redux-storage": "^4.1.2",
-    "redux-storage-decorator-filter": "^1.1.8",
-    "redux-storage-decorator-immutablejs": "^1.0.4",
-    "redux-storage-engine-localstorage": "^1.1.4",
-    "redux-thunk": "2.2.0",
     "rimraf": "^2.6.1"
   },
   "jest": {
