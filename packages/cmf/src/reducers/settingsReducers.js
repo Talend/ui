@@ -23,8 +23,7 @@ export function attachRef(refs, obj) {
 	}
 	let props = Object.assign({}, obj);
 	if (props._ref) {
-		const ref = refs[props._ref];
-		invariant(ref, `CMF/Settings: Reference '${props._ref}' not found`);
+		invariant(refs[props._ref], `CMF/Settings: Reference '${props._ref}' not found`);
 		props = Object.assign(
 			{},
 			refs[props._ref],
@@ -46,8 +45,9 @@ export function attachRefs(refs, props) {
 }
 
 /**
- * attache reference to produce a ready to use freezed object
- *
+ * attach reference to produce a ready to use freezed object
+ * @param {object} originalSettings the full settings with `views` and `ref` attribute
+ * @return {object} frozen settings with ref computed
  */
 function prepareSettings(originalSettings) {
 	const settings = Object.assign({}, originalSettings);
