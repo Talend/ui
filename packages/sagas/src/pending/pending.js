@@ -12,18 +12,18 @@ const addOrReplace = api.actions.collections.addOrReplace;
  * @param {*} state the application state
  * @param {*} id the datastoreId
  */
-function findPenderById(state, asyncActionId) {
+export function findPenderById(state, asyncActionId) {
 	return state.cmf.collections.getIn(['penders', asyncActionId]);
 }
 
-function findPenders(state) {
+export function findPenders(state) {
 	return state.cmf.collections.get('penders');
 }
 
 /**
  * Create the penders map in cmf.collections if it doesn't already exists
  */
-function* ensurePendersCollectionExists() {
+export function* ensurePendersCollectionExists() {
 	const collection = yield select(findPenders);
 	if (!collection) {
 		yield put(addOrReplace('penders', new Map()));
