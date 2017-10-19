@@ -10,13 +10,13 @@ jest.mock(
 );
 
 describe('Action', () => {
-	it('should render from name props', () => {
+	it('should render from name props keeping extra props', () => {
 		const context = mock.context();
 		const wrapper = shallow(
-			<Action name="menu:article" />,
+			<Action name="menu:article" extra="foo" />,
 			{ context }
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render null if not available', () => {
 		const context = mock.context();
@@ -24,6 +24,6 @@ describe('Action', () => {
 			<Action available={false} />,
 			{ context }
 		);
-		expect(wrapper.root.node).toBe(null);
+		expect(wrapper.getNode()).toBe(null);
 	});
 });

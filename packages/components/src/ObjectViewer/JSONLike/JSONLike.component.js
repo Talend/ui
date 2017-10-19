@@ -21,7 +21,7 @@ function stopAndSelect(event, { onSelect, jsonpath }) {
 	onSelect(event, jsonpath);
 }
 
-export function NativeValue({ data, edit, onSelect, onChange, jsonpath, selectedJsonpath }) {
+export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
 	const type = typeof data;
 	let display = data;
 	let inputType = 'number';
@@ -35,17 +35,16 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath, selected
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 
-	const isSelectedLine = selectedJsonpath && selectedJsonpath === jsonpath;
-	const lineValueClasses = classNames({
-		[theme.native]: true,
-		[theme[type]]: true,
-		[theme['line-value']]: true,
-		[theme['line-value-selected']]: isSelectedLine,
-	});
+	const lineValueClasses = classNames(
+		theme.native,
+		theme[type],
+		theme['line-value'],
+	);
 
 	return (
 		<button
 			className={lineValueClasses}
+			type="button"
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 		>
 			{display}
@@ -59,7 +58,6 @@ NativeValue.propTypes = {
 	onSelect: PropTypes.func.isRequired,
 	onChange: PropTypes.func,
 	jsonpath: PropTypes.string,
-	selectedJsonpath: PropTypes.string,
 };
 
 /**
@@ -80,7 +78,7 @@ function getName(name) {
 	if (!name) {
 		return null;
 	}
-	return <span className={`${theme.name} ${theme['line-key']}`}> {name}</span>;
+	return <span className={`${theme.name} ${theme['line-key']}`}>{name}</span>;
 }
 
 export function LineItem({
@@ -101,7 +99,7 @@ export function LineItem({
 	const isHovered = false && mouseOverData.data.jsonpath === jsonpath;
 	const isSelectedLine = selectedJsonpath && selectedJsonpath === jsonpath;
 
-	const classes = classNames({
+	const classes = classNames(theme.line, {
 		[theme['selected-line']]: isSelectedLine,
 		[theme['unselected-line-hover']]: isHovered,
 	});
@@ -215,10 +213,6 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 	const iconName = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
 	const iconTransform = isOpened ? null : 'rotate-180';
 	const decoratedLength = info.type === 'array' ? `[${info.length}]` : `(${info.length})`;
-	const badgeClasses = classNames({
-		badge: true,
-		[theme['selected-badge']]: props.selectedJsonpath === jsonpath,
-	});
 
 	return (
 		<div>
@@ -243,6 +237,7 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 					{props.showType ? (
 						<button
 							className={`tc-object-viewer-line-type ${theme['line-type']} `}
+							type="button"
 							onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 						>
 							({info.type})
@@ -253,26 +248,25 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 						label={getDataAbstract(data)}
 						tooltipPlacement="right"
 					>
-						<sup className={badgeClasses}>{decoratedLength}</sup>
+						<sup className="badge">{decoratedLength}</sup>
 					</TooltipTrigger>
-					<ul className={!isOpened ? 'hidden' : `${theme['vertical-line']} `}>
-						{info.keys.map((key, i) => {
-							const jpath = getJSONPath(key, jsonpath, info.type);
-							return (
+					{isOpened ? (
+						<ul className={theme['vertical-line']}>
+							{info.keys.map((key, i) => (
 								<li key={i}>
 									<Item
 										{...props}
 										data={data[key]}
 										name={key}
-										jsonpath={jpath}
+										jsonpath={getJSONPath(key, jsonpath, info.type)}
 										opened={opened}
 										edited={edited}
 										onSelect={onSelect}
 									/>
 								</li>
-							);
-						})}
-					</ul>
+							))}
+						</ul>
+					) : null}
 				</span>
 			</LineItem>
 		</div>
@@ -337,7 +331,6 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					onSelect={props.onSelect}
 					onEdit={props.onEdit}
 					onChange={props.onChange}
-					selectedJsonpath={props.selectedJsonpath}
 				/>
 				{props.showType && (
 					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>
@@ -409,8 +402,6 @@ export function JSONLike({ onSubmit, ...props }) {
 	if (rootIsObject) {
 		if (props.rootLabel) {
 			rootComputedLabel = props.rootLabel;
-		} else {
-			rootComputedLabel = 'root';
 		}
 	}
 
@@ -423,9 +414,11 @@ export function JSONLike({ onSubmit, ...props }) {
 					event.preventDefault();
 				}}
 			>
-				<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
-					<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
-				</TooltipTrigger>
+				{rootComputedLabel ? (
+					<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
+						<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
+					</TooltipTrigger>
+				) : null}
 				<Item {...props} />
 			</form>
 		);
@@ -433,10 +426,11 @@ export function JSONLike({ onSubmit, ...props }) {
 
 	return (
 		<div className={`tc-object-viewer ${theme.container}`}>
-			<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
-				<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
-			</TooltipTrigger>
-
+			{rootComputedLabel ? (
+				<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
+					<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
+				</TooltipTrigger>
+				) : null}
 			<Item {...props} />
 		</div>
 	);

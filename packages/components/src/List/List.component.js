@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
+import omit from 'lodash/omit';
 
 import Toolbar from './Toolbar';
 import DisplayPropTypes from './Display/Display.propTypes';
@@ -47,7 +48,7 @@ ListToolbar.propTypes = {
 		PropTypes.shape(DisplayPropTypes),
 		PropTypes.shape(Content.propTypes),
 	]),
-	toolbar: PropTypes.shape(Toolbar.propTypes),
+	toolbar: PropTypes.shape(omit(Toolbar.propTypes, 't')),
 	t: PropTypes.func.isRequired,
 };
 
@@ -73,9 +74,12 @@ function DisplayModeComponent({ displayMode, id, list, useContent, virtualized }
 		);
 	}
 	switch (displayMode) {
-	case 'tile': return <DisplayTile id={id} {...list} />;
-	case 'large': return <DisplayLarge id={id} {...list} />;
-	default: return <DisplayTable id={id} {...list} />;
+		case 'tile':
+			return <DisplayTile id={id} {...list} />;
+		case 'large':
+			return <DisplayLarge id={id} {...list} />;
+		default:
+			return <DisplayTable id={id} {...list} />;
 	}
 }
 DisplayModeComponent.propTypes = {
@@ -101,7 +105,6 @@ function ListDisplay({ displayMode, id, list, useContent, virtualized }) {
 	);
 }
 ListDisplay.propTypes = DisplayModeComponent.propTypes;
-
 
 /**
  * @param {object} props react props
@@ -139,10 +142,7 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
  <List {...props}></List>
  */
 function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
-	const classnames = classNames(
-		'tc-list',
-		theme.list,
-	);
+	const classnames = classNames('tc-list', theme.list);
 
 	return (
 		<div className={classnames}>
@@ -165,7 +165,7 @@ function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
 }
 
 List.propTypes = {
-	...ListToolbar.propTypes,
+	...omit(ListToolbar.propTypes, 't'),
 	...ListDisplay.propTypes,
 };
 

@@ -1,4 +1,16 @@
 {
-  "presets": ["es2015", "react"],
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "ie": 11,
+          "browsers": [
+            "last 2 versions"
+          ]
+        }
+      }
+    ],
+    "react"],
   "plugins": ["transform-object-rest-spread", "transform-class-properties"]
 }

@@ -45,20 +45,20 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 				if (typeof newState === 'function') {
 					newState = state(getStateProps(getState(), name, id));
 				}
-				const componentState = actions.componentsActions.mergeComponentState(name, id, newState);
+				const componentState = actions.components.mergeState(name, id, newState);
 				dispatchAction('setState', componentState);
 			});
 		},
 		initState(initialState) {
 			if (DEFAULT_STATE) {
 				const state = DEFAULT_STATE.merge(initialState);
-				const componentState = actions.componentsActions.addComponentState(name, id, state);
+				const componentState = actions.components.addState(name, id, state);
 				dispatchAction('initState', componentState);
 			}
 		},
 		deleteState() {
 			if (DEFAULT_STATE) {
-				const componentState = actions.componentsActions.removeComponentState(name, id);
+				const componentState = actions.components.removeState(name, id);
 				dispatchAction('deleteState', componentState);
 			}
 		},

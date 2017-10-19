@@ -210,7 +210,7 @@ const handlerHighlight = {
 
 const openedNativeTypeHandler = {
 	edited: [],
-	opened: [],
+	opened: ['$', '$[0]'],
 	onClick: action('onClick'),
 	onSelect: (e, jsonpath) => {
 		selectedJsonpath = jsonpath;
@@ -257,7 +257,13 @@ stories
 	.addWithInfo('tree with labels', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer data={data} rootLabel="cafesDataset" tupleLabel="Record" />
+			<ObjectViewer
+				data={data}
+				rootLabel="cafesDataset"
+				tupleLabel="Record"
+				showType={showType}
+				{...openedNativeTypeHandler}
+			/>
 		</div>
 	))
 	.addWithInfo('tree without rootLabel', () => (
@@ -269,7 +275,12 @@ stories
 	.addWithInfo('tree with very large root label', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer data={data} rootLabel={veryLongDatasetLabel} tupleLabel="Record" />
+			<ObjectViewer
+				data={data}
+				rootLabel={veryLongDatasetLabel}
+				tupleLabel="Record"
+				{...openedNativeTypeHandler}
+			/>
 		</div>
 	))
 	.addWithInfo('tree with handler', () => (
