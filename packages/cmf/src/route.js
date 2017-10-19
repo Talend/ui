@@ -67,7 +67,7 @@ export const connectView = deprecated(
 function loadComponents(context, item) {
 	/* eslint no-param-reassign: ["error", { "props": false }] */
 	if (item.component) {
-		item.component = getComponentFromRegistry(context, item.component);
+		item.component = getComponentFromRegistry(item.component, context);
 		if (item.view && !item.component.CMFContainer) {
 			item.component = connectView(context, item.component, item.view);
 		} else if (item.view && item.component.CMFContainer) {

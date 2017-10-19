@@ -11,18 +11,11 @@ import CONST from './constant';
 
 /**
  * return a component from the registry
- * @param  {object} context
- * @param  {string} id
+ * @param  {string} id the component id you want
+ * @param  {object} context optional context to get the registry
  * @return {function} the react component
  */
-function get(contextOrId, idOrUndefined) {
-	// backward compatibility can be called with or without context
-	let id = idOrUndefined;
-	let context = contextOrId;
-	if (!id && typeof contextOrId === 'string') {
-		id = contextOrId;
-		context = undefined;
-	}
+function get(id, context) {
 	const component = registry.getFromRegistry(`${CONST.REGISTRY_COMPONENT_PREFIX}:${id}`, context);
 	if (!component) {
 		throw new Error(`component not found in the registry: ${id}`);
@@ -32,8 +25,9 @@ function get(contextOrId, idOrUndefined) {
 
 /**
  * register a component for the router configuration
- * @param  {string} id
- * @param  {any} component
+ * @param  {string} id the component id you want to register
+ * @param  {any} component the component you want to register
+ * @param  {object} context optional context to get the registry
  */
 function register(id, component, context) {
 	if (!component) {
