@@ -42,13 +42,13 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
 	);
 
 	return (
-		<button
+		<span
 			className={lineValueClasses}
 			type="button"
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 		>
 			{display}
-		</button>
+		</span>
 	);
 }
 
