@@ -49,18 +49,29 @@ api.expression.register('isTrueExpression', (context, first) => {
 });
 
 const modelHasLabelAction = action('modelHasLabel');
-api.expression.register('modelHasLabel', (context) => {
+api.expression.register('modelHasLabel', context => {
 	modelHasLabelAction(context);
 	return !!context.payload.model.label;
 });
 
 function loadStories() {
-	Object.keys(examples).forEach((example) => {
+	Object.keys(examples).forEach(example => {
 		const state = mock.state();
 		state.cmf.settings.views.appheaderbar = {
 			app: 'Hello Test',
 		};
+		state.cmf.settings.views['HeaderBar#default'] = {
+			logo: { name: 'appheaderbar:logo', isFull: true },
+			brand: { name: 'DATA STREAMS'},
+			notification: { name: 'appheaderbar:notification'}
+		};
 		const actions = state.cmf.settings.actions;
+		actions['appheaderbar:logo'] = {
+			icon: 'talend-logo',
+		};
+		actions['appheaderbar:notification'] = {
+			icon: 'talend-world',
+		};
 		actions['menu:first'] = {
 			label: 'First',
 			icon: 'talend-streams',
@@ -124,7 +135,7 @@ function loadStories() {
 				reducer,
 			});
 		} else {
-			Object.keys(examples[example]).forEach((usecase) => {
+			Object.keys(examples[example]).forEach(usecase => {
 				story.addWithCMF(usecase, examples[example][usecase], {
 					state,
 					reducer,

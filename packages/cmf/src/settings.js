@@ -77,12 +77,18 @@ export function attachRefs(state, props) {
  * @param  {Object} ownProps   the props passed to the component. may have a view attribute
  * @return {Object}           React props for the component injected from the settings
  */
-export function mapStateToViewProps(state, ownProps) {
+export function mapStateToViewProps(state, ownProps, componentName, componentId) {
 	let viewProps = {};
-	if (ownProps.view) {
+	let viewId = ownProps.view;
+	if (!ownProps.view && componentName && !componentId) {
+		viewId = componentName;
+	} else if (!ownProps.view && componentName && componentId) {
+		viewId = `${componentName}#${componentId}`;
+	}
+	if (viewId && state.cmf.settings.views[viewId]) {
 		viewProps = Object.assign(
 			{},
-			state.cmf.settings.views[ownProps.view],
+			state.cmf.settings.views[viewId],
 		);
 		viewProps = attachRefs(state, viewProps);
 	}

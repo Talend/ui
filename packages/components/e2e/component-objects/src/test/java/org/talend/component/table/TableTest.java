@@ -155,4 +155,17 @@ public class TableTest extends StorybookTest {
         assertThat(item.getAction("edit").isDisplayed(), is(true));
         assertThat(getActionLog(), startsWith("▶onEdit:"));
     }
+
+    @Test
+    public void should_scroll_and_click_on_item_action() {
+        // given
+        goToStory("Virtualized List", "List > Table");
+        assertThat(getActionLog(), not(startsWith("▶onEdit:")));
+
+        // when
+        tableObject.getItem("Title with icon and actions 25").clickOnAction("edit");
+
+        // then
+        assertThat(getActionLog(), startsWith("▶onEdit:"));
+    }
 }
