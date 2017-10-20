@@ -7,6 +7,7 @@ import CONST from './constant';
 /**
  * All stuff related to the routing in CMF
  * @module react-cmf/lib/component
+ * @see module:react-cmf/lib/component
  */
 
 /**
