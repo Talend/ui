@@ -1,5 +1,5 @@
 /**
- * All stuff related to the routing in CMF
+ * Internal. Provide low level function to configure CMF to drive react-router.
  * @module react-cmf/lib/route
  */
 
@@ -46,10 +46,12 @@ function getFunction(id) {
 }
 
 /**
- * return
- * @param  {[type]} state [description]
- * @param  {[type]} view  [description]
- * @return {[type]}       [description]
+ * DEPRECATED connection to support old component which are registred but
+ * not CMF connected.
+ * @param  {object} context React context with at least the stostore
+ * @param  {any} component  React component to connect
+ * @param  {string} view  the viewId to search for in settings
+ * @return {any}       the connected component with it's view props injected
  */
 function oldConnectView(context, Component, view) {
 	return connect(
@@ -66,8 +68,8 @@ export const connectView = deprecated(
 );
 
 /**
- * internal. Is here to replace all 'component' from an object by their
- * value in the registry
+ * Internal. Is here to replace all 'component' from an object by their
+ * value in the registry. It configures react-router
  * @param  {object} context
  * @param  {object} item
  */
