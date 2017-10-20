@@ -12,33 +12,18 @@ import { connect } from 'react-redux';
 import registry from './registry';
 import { mapStateToViewProps } from './settings';
 import deprecated from './deprecated';
+import CONST from './constant';
+import component from './component';
 
-const COMPONENT_PREFIX = '_.route.component';
-const HOOK_PREFIX = '_.route.hook';
+const getComponentFromRegistry = deprecated(
+	(context, id) => component.get(id, context),
+	'stop use api.route.getComponentFromRegistry. Please use api.component.get',
+);
 
-/**
- * return a component from the registry
- * @param  {object} context
- * @param  {string} id
- * @return {function} the react component
- */
-function getComponentFromRegistry(context, id) {
-	const component = context.registry[`${COMPONENT_PREFIX}:${id}`];
-	if (!component) {
-		throw new Error(`component not found in the registry: ${id}`);
-	}
-	return component;
-}
-
-
-/**
- * register a component for the router configuration
- * @param  {string} id
- * @param  {any} component
- */
-function registerComponent(id, component) {
-	registry.addToRegistry(`${COMPONENT_PREFIX}:${id}`, component);
-}
+const registerComponent = deprecated(
+	component.register,
+	'stop use api.route.registerComponent. please use api.component.register',
+);
 
 /**
  * register a function for the router configuration
@@ -49,7 +34,7 @@ function registerFunction(id, func) {
 	if ((typeof func) !== 'function') {
 		throw new Error('registerFunction wait for a function');
 	}
-	registry.addToRegistry(`${HOOK_PREFIX}:${id}`, func);
+	registry.addToRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, func);
 }
 
 /**
@@ -57,7 +42,7 @@ function registerFunction(id, func) {
  * @param  {string} id
  */
 function getFunction(id) {
-	return registry.getFromRegistry(`${HOOK_PREFIX}:${id}`);
+	return registry.getFromRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`);
 }
 
 /**
@@ -66,10 +51,10 @@ function getFunction(id) {
  * @param  {[type]} view  [description]
  * @return {[type]}       [description]
  */
-function oldConnectView(context, component, view) {
+function oldConnectView(context, Component, view) {
 	return connect(
 		state => mapStateToViewProps(state, { view })
-	)(component);
+	)(Component);
 }
 
 export const connectView = deprecated(
@@ -89,7 +74,7 @@ export const connectView = deprecated(
 function loadComponents(context, item) {
 	/* eslint no-param-reassign: ["error", { "props": false }] */
 	if (item.component) {
-		item.component = getComponentFromRegistry(context, item.component);
+		item.component = component.get(item.component, context);
 		if (item.view && !item.component.CMFContainer) {
 			item.component = connectView(context, item.component, item.view);
 		} else if (item.view && item.component.CMFContainer) {

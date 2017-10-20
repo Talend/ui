@@ -393,6 +393,19 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('Virtualized - list with progress', () => {
+		const loadingListProps = cloneDeep(props);
+		loadingListProps.list.inProgress = true;
+		return (
+			<div style={{ height: '60vh' }}>
+				<h1>List</h1>
+				<p>When the list is loading, a CircularProgress is displayed instead of the rows.</p>
+				<IconsProvider defaultIcons={icons} />
+				<h2>Table</h2>
+				<List {...loadingListProps} virtualized />
+			</div>
+		);
+	})
 	.add('Virtualized - column actions', () => {
 		const columnActionsProps = getActionsProps();
 		return (
