@@ -1,8 +1,8 @@
 # Content Management Framework (aka CMF)
 
-This is a library to help you to build configurable React App.
+This is a framework to help you to build configurable React App.
 
-It provides a set of base components and patterns.
+It provides a set of base APIs and patterns.
 
 [![Travis CI][travis-ci-image] ][travis-ci-url]
 [![NPM][npm-icon] ][npm-url]
