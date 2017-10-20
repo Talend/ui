@@ -1,5 +1,5 @@
 /**
- * @module react-cmf/lib/SagaRouter
+ * @module react-cmf/lib/sagaRouter
  */
 import { spawn, take, cancel } from 'redux-saga/effects';
 import isEqual from 'lodash/isEqual';
