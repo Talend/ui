@@ -18,8 +18,8 @@ const HOOK_PREFIX = '_.route.hook';
 
 /**
  * return a component from the registry
- * @param  {object} context
- * @param  {string} id
+ * @param  {object} context React CMF context with at least the registry
+ * @param  {string} id the component id you want to get
  * @return {function} the react component
  */
 function getComponentFromRegistry(context, id) {
@@ -61,10 +61,12 @@ function getFunction(id) {
 }
 
 /**
- * return
- * @param  {[type]} state [description]
- * @param  {[type]} view  [description]
- * @return {[type]}       [description]
+ * DEPRECATED connection to support old component which are registred but
+ * not CMF connected.
+ * @param  {object} context React context with at least the stostore
+ * @param  {any} component  React component to connect
+ * @param  {string} view  the viewId to search for in settings
+ * @return {any}       the connected component with it's view props injected
  */
 function oldConnectView(context, component, view) {
 	return connect(

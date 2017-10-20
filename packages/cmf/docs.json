@@ -18,7 +18,6 @@
           "src/api.js",
           "src/App.js",
           "src/Dispatcher.js",
-          "src/Icon.js",
           "src/index.js",
           "src/registry.js",
           "src/RegistryProvider.js",

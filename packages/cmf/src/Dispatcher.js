@@ -14,7 +14,7 @@ import api from './api';
  * @param {object} props component props
  * @param {object} context app context, containing redux store ref
  *
- * @throws
+ * @throws invariant
  */
 export function checkIfActionInfoExist(props, context) {
 	api.action.getOnProps(props).forEach((name) => {
