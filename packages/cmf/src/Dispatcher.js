@@ -1,7 +1,7 @@
 /**
- *
+ * This module expose Dispatcher component.
  * @module react-cmf/lib/Dispatcher
- *
+ * @see module:react-cmf/lib/action
  */
 import PropTypes from 'prop-types';
 
@@ -118,7 +118,7 @@ const ConnectedDispatcher = cmfConnect({})(Dispatcher);
  * This component purpose is to decorate any component and map an user event
  * to an action to be dispatched
  * @example
-<Dispatcher onClick='actionCreator:identifier' onDrag='actionCreator:anotherid'>
+<Dispatcher onClick="actionCreator:identifier" onDrag="actionCreator:anotherid">
 	<ChildrenElement />
 </Dispatcher>
  */

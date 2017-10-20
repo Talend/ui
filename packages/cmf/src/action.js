@@ -2,7 +2,9 @@ import get from 'lodash/get';
 import registry from './registry';
 
 /**
+ * This module provide low level api to register and handle action in a CMF App.
  * @module react-cmf/lib/action
+ * @see module:react-cmf/lib/Dispatcher
  */
 
 const ACTION_CREATOR_PREFIX = 'actionCreator';

@@ -1,6 +1,11 @@
 /**
- * All stuff related to the routing in CMF
+ * Configure CMF to drive react-router.
  * @module react-cmf/lib/route
+ * @see module:react-cmf/lib/api
+ * @example
+import { api } from '@talend/react-cmf';
+
+api.route  // is an access to this module
  */
 
 /* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
@@ -83,8 +88,8 @@ export const connectView = deprecated(
 );
 
 /**
- * internal. Is here to replace all 'component' from an object by their
- * value in the registry
+ * Internal. Is here to replace all 'component' from an object by their
+ * value in the registry. It configures react-router
  * @param  {object} context
  * @param  {object} item
  */
