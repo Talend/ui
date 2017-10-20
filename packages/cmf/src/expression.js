@@ -2,15 +2,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import invariant from 'invariant';
 import Registry from './registry';
-
-const EXPRESSION_PREFIX = 'expression';
+import CONST from './constant';
 
 function register(id, func, context) {
-	Registry.addToRegistry(`${EXPRESSION_PREFIX}:${id}`, func, context);
+	Registry.addToRegistry(`${CONST.REGISTRY_EXPRESSION_PREFIX}:${id}`, func, context);
 }
 
 function get(id, context) {
-	return Registry.getFromRegistry(`${EXPRESSION_PREFIX}:${id}`, context);
+	return Registry.getFromRegistry(`${CONST.REGISTRY_EXPRESSION_PREFIX}:${id}`, context);
 }
 
 /**
