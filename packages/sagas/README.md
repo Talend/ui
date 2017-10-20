@@ -45,9 +45,9 @@ This saga will trigger a state change after 400ms that consists in adding the co
 Based on that, any cmf-expression will be evaluated and pure component will be re-rendered.
 
 #### Signature
-First argument is about identifying your context : parent entity id or page id or any other way to provide a context id in a unique way
+First argument is about identifying your context: parent entity id or page id or any other way to provide a context id in a unique way.
 
-Second argument is the identifier of the action or component
+Second argument is the identifier of the action or component.
 
 => Following this nomenclature, you will be able to get unique identifier through all your app and sibling entities.
 
