@@ -228,9 +228,7 @@ you may change the following using simple props:
 For 1.0
 
 - [x] embedable apps
-- [ ] higher order configuration (RegistryProvider)
 - [ ] react-router v4
 - [ ] i18n
 - [x] generator
-- [ ] content types
-- [ ] actionCreator should become first class
+- [x] actionCreator should become first class
