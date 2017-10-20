@@ -23,7 +23,7 @@
 
 .tc-with-drawer-container > div {
 	@for $i from 1 through 10 {
-		&:nth-child(#{$i}) > :global(.stacked) {
+		&:nth-child(#{$i}) :global(.stacked) {
 			$width: 100% - (($i * 2) - 2);
 			width: $width;
 		}
