@@ -3,7 +3,9 @@ import registry from './registry';
 import CONST from './constant';
 
 /**
+ * This module provide low level api to register and handle action in a CMF App.
  * @module react-cmf/lib/action
+ * @see module:react-cmf/lib/Dispatcher
  */
 
 /**
