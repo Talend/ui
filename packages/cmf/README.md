@@ -4,9 +4,8 @@ This is a library to help you to build configurable React App.
 
 It provides a set of base components and patterns.
 
-[![NPM][npm-icon] ][npm-url]
-
 [![Travis CI][travis-ci-image] ][travis-ci-url]
+[![NPM][npm-icon] ][npm-url]
 [![dependencies][dependencies-image] ][dependencies-url]
 [![devdependencies][devdependencies-image] ][devdependencies-url]
 
