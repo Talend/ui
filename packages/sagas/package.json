@@ -56,6 +56,16 @@
     "redux-saga": "0.15.4"
   },
   "devDependencies": {
+    "babel-cli": "6.24.1",
+    "babel-core": "6.24.1",
+    "babel-eslint": "7.2.3",
+    "babel-jest": "20.0.3",
+    "babel-loader": "6.4.1",
+    "babel-plugin-transform-class-properties": "6.23.0",
+    "babel-plugin-transform-object-assign": "6.22.0",
+    "babel-plugin-transform-object-rest-spread": "6.20.2",
+    "babel-preset-env": "1.6.0",
+    "babel-preset-react": "6.16.0",
     "classnames": "2.2.5",
     "immutable": "3.8.1",
     "invariant": "2.2.2",
@@ -73,7 +83,8 @@
     "redux-storage-decorator-filter": "^1.1.8",
     "redux-storage-decorator-immutablejs": "^1.0.4",
     "redux-storage-engine-localstorage": "^1.1.4",
-    "redux-thunk": "2.2.0"
+    "redux-thunk": "2.2.0",
+    "rimraf": "^2.6.1"
   },
   "jest": {
     "collectCoverageFrom": [
