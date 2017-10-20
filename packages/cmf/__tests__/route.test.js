@@ -6,7 +6,7 @@ import registry from '../src/registry';
 import mock from '../src/mock';
 
 describe('CMF route', () => {
-	it('registerComponent', () => {
+	it('registerComponent should be an alias to component.get', () => {
 		function C1() { }
 		const emptyRegistry = {};
 		registry.Registry._registry = emptyRegistry;

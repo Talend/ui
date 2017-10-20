@@ -2,15 +2,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import invariant from 'invariant';
+import CONST from './constant';
 import Registry from './registry';
 
 /**
  * This module define expression which are just function
  * used to be called in the way you want in your APP with a context and a payload as params
  * @module react-cmf/lib/expression
+ * @see module:react-cmf/lib/api
  */
 
-const EXPRESSION_PREFIX = 'expression';
 
 /**
  * register an expression
@@ -19,7 +20,7 @@ const EXPRESSION_PREFIX = 'expression';
  * @param {object} context React context is optional
  */
 function register(id, func, context) {
-	Registry.addToRegistry(`${EXPRESSION_PREFIX}:${id}`, func, context);
+	Registry.addToRegistry(`${CONST.REGISTRY_EXPRESSION_PREFIX}:${id}`, func, context);
 }
 
 
@@ -29,7 +30,7 @@ function register(id, func, context) {
  * @param {object} context React context is optional
  */
 function get(id, context) {
-	return Registry.getFromRegistry(`${EXPRESSION_PREFIX}:${id}`, context);
+	return Registry.getFromRegistry(`${CONST.REGISTRY_EXPRESSION_PREFIX}:${id}`, context);
 }
 
 /**
@@ -84,9 +85,9 @@ function getProps(props, attrs, context, payload = {}) {
 }
 
 /**
- * 
- * @param {any} Component 
- * @param {*} attrs 
+ *
+ * @param {any} Component
+ * @param {*} attrs
  */
 function withExpression(Component, attrs) {
 	function WithExpression(props, context) {

@@ -19,8 +19,6 @@ function MyComponent(props) {
 }
  */
 
-const getComponentFrom = api.route.getComponentFromRegistry;
-
 function NotFoundComponent({ error }) {
 	console.error(error.message);
 	return (<div className="alert alert-danger">{error.message}</div>);
@@ -31,7 +29,7 @@ NotFoundComponent.propTypes = {
 
 function Inject({ component, ...props }, context) {
 	try {
-		const Component = getComponentFrom(context, component);
+		const Component = api.component.get(component, context);
 		return (<Component {...props} />);
 	} catch (error) {
 		return (<NotFoundComponent error={error.message} />);

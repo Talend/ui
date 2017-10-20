@@ -27,10 +27,12 @@ import action from './action';
 import actions from './actions';
 import expression from './expression';
 import saga from './saga';
+import component from './component';
 
 export default {
 	action,
 	actions,
+	component,
 	expression,
 	route,
 	registry,
