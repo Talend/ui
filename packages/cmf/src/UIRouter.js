@@ -1,5 +1,9 @@
 /**
+ * Internal. It contains the wrapper to make react-router run with the CMF
+ * settings
  * @module react-cmf/lib/UIRouter
+ * @see react-cmf/lib/route
+ * @see react-cmf/lib/settings
  */
 import PropTypes from 'prop-types';
 import React from 'react';

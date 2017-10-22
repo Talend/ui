@@ -1,6 +1,6 @@
 /**
- * All stuff related to the routing in CMF
- * @module react-cmf/lib/route
+ * Internal. All stuff related to the settings handling in CMF.
+ * @module react-cmf/lib/settings
  */
 
 /* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
