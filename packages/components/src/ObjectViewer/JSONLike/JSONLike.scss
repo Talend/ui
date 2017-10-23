@@ -91,13 +91,13 @@
 	.line-value {
 		max-width: 90%;
 		color: $brand-primary;
-		display: inline;
-		vertical-align: baseline;
+		vertical-align: bottom;
 		border: none;
 		background: none;
 		padding: 0;
 		cursor: text;
 		margin-left: 4px;
+		display: inline-block;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
@@ -108,18 +108,7 @@
 		white-space: initial;
 		word-break: break-all;
 		overflow: visible;
-		vertical-align: middle;
-	}
-
-	.inner-button-text {
-		display: contents;
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-	}
-
-	.inner-button-text:hover {
-		white-space: initial;
+		vertical-align: top;
 	}
 
 	.line-type {
