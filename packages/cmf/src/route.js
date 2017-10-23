@@ -1,5 +1,5 @@
 /**
- * All stuff related to the routing in CMF
+ * Internal. Provide low level function to configure CMF to drive react-router.
  * @module react-cmf/lib/route
  */
 
@@ -12,33 +12,18 @@ import { connect } from 'react-redux';
 import registry from './registry';
 import { mapStateToViewProps } from './settings';
 import deprecated from './deprecated';
+import CONST from './constant';
+import component from './component';
 
-const COMPONENT_PREFIX = '_.route.component';
-const HOOK_PREFIX = '_.route.hook';
+const getComponentFromRegistry = deprecated(
+	(context, id) => component.get(id, context),
+	'stop use api.route.getComponentFromRegistry. Please use api.component.get',
+);
 
-/**
- * return a component from the registry
- * @param  {object} context
- * @param  {string} id
- * @return {function} the react component
- */
-function getComponentFromRegistry(context, id) {
-	const component = context.registry[`${COMPONENT_PREFIX}:${id}`];
-	if (!component) {
-		throw new Error(`component not found in the registry: ${id}`);
-	}
-	return component;
-}
-
-
-/**
- * register a component for the router configuration
- * @param  {string} id
- * @param  {any} component
- */
-function registerComponent(id, component) {
-	registry.addToRegistry(`${COMPONENT_PREFIX}:${id}`, component);
-}
+const registerComponent = deprecated(
+	component.register,
+	'stop use api.route.registerComponent. please use api.component.register',
+);
 
 /**
  * register a function for the router configuration
@@ -49,7 +34,7 @@ function registerFunction(id, func) {
 	if ((typeof func) !== 'function') {
 		throw new Error('registerFunction wait for a function');
 	}
-	registry.addToRegistry(`${HOOK_PREFIX}:${id}`, func);
+	registry.addToRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, func);
 }
 
 /**
@@ -57,19 +42,21 @@ function registerFunction(id, func) {
  * @param  {string} id
  */
 function getFunction(id) {
-	return registry.getFromRegistry(`${HOOK_PREFIX}:${id}`);
+	return registry.getFromRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`);
 }
 
 /**
- * return
- * @param  {[type]} state [description]
- * @param  {[type]} view  [description]
- * @return {[type]}       [description]
+ * DEPRECATED connection to support old component which are registred but
+ * not CMF connected.
+ * @param  {object} context React context with at least the stostore
+ * @param  {any} component  React component to connect
+ * @param  {string} view  the viewId to search for in settings
+ * @return {any}       the connected component with it's view props injected
  */
-function oldConnectView(context, component, view) {
+function oldConnectView(context, Component, view) {
 	return connect(
 		state => mapStateToViewProps(state, { view })
-	)(component);
+	)(Component);
 }
 
 export const connectView = deprecated(
@@ -81,15 +68,15 @@ export const connectView = deprecated(
 );
 
 /**
- * internal. Is here to replace all 'component' from an object by their
- * value in the registry
+ * Internal. Is here to replace all 'component' from an object by their
+ * value in the registry. It configures react-router
  * @param  {object} context
  * @param  {object} item
  */
 function loadComponents(context, item) {
 	/* eslint no-param-reassign: ["error", { "props": false }] */
 	if (item.component) {
-		item.component = getComponentFromRegistry(context, item.component);
+		item.component = component.get(item.component, context);
 		if (item.view && !item.component.CMFContainer) {
 			item.component = connectView(context, item.component, item.view);
 		} else if (item.view && item.component.CMFContainer) {

@@ -1,37 +1,8 @@
 /**
- * All stuff related to the routing in CMF
- * @module react-cmf/lib/route
+ * Internal. All stuff related to the settings handling in CMF.
+ * @module react-cmf/lib/settings
  */
-
-/* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
-import invariant from 'invariant';
 import memoize from 'lodash/memoize';
-
-/**
- * if an object try to find _ref property and resolve it
- */
-export function attachRef(state, obj) {
-	if (obj === null || typeof obj !== 'object' || Array.isArray(obj)) {
-		return obj;
-	}
-	let props = Object.assign({}, obj);
-	if (props._ref) {
-		const ref = state.cmf.settings.ref[props._ref];
-		invariant(ref, `CMF/Settings: Reference '${props._ref}' not found`);
-		props = Object.assign({}, state.cmf.settings.ref[props._ref], obj);
-		delete props._ref;
-	}
-	return props;
-}
-
-export function attachRefs(state, props) {
-	const attachedProps = attachRef(state, props);
-	Object.keys(attachedProps).forEach(key => {
-		attachedProps[key] = attachRef(state, attachedProps[key]);
-	});
-	return attachedProps;
-}
-
 /**
  * if viewId is undefined, try to generate a meaningfull one
  * else return given viewId
@@ -39,10 +10,10 @@ export function attachRefs(state, props) {
  * @param {strign} componentName
  * @param {string} componentId
  */
-function generateDefaultViewId(viewId, componentName, componentId) {
+export function generateDefaultViewId(viewId, componentName, componentId) {
 	if (!viewId) {
 		if (componentName && componentId) {
-			return `${componentName}:${componentId}`;
+			return `${componentName}#${componentId}`;
 		} else if (componentName) {
 			return componentName;
 		}
@@ -64,8 +35,7 @@ export function nonMemoizedMapStateToViewProps(state, ownProps, componentName, c
 	viewId = generateDefaultViewId(viewId, componentName, componentId);
 
 	if (viewId && state.cmf.settings.views[viewId]) {
-		viewProps = Object.assign({}, state.cmf.settings.views[viewId]);
-		viewProps = attachRefs(state, viewProps);
+		viewProps = state.cmf.settings.views[viewId] || {};
 	}
 	return viewProps;
 }
@@ -119,7 +89,5 @@ export const mapStateToViewProps = memoize(
 );
 
 export default {
-	attachRef,
-	attachRefs,
 	mapStateToViewProps,
 };
