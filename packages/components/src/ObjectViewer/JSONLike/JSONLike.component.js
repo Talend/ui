@@ -35,11 +35,7 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 
-	const lineValueClasses = classNames(
-		theme.native,
-		theme[type],
-		theme['line-value'],
-	);
+	const lineValueClasses = classNames(theme.native, theme[type], theme['line-value']);
 
 	return (
 		<button
@@ -105,12 +101,8 @@ export function LineItem({
 	});
 
 	return (
-	// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-		<span
-			className={classes}
-			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
-			{...props}
-		>
+		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+		<span className={classes} onClick={e => stopAndSelect(e, { onSelect, jsonpath })} {...props}>
 			{getName(name)}
 			{children}
 		</span>
@@ -220,7 +212,7 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 				name={iconName}
 				transform={iconTransform}
 				className={theme['wider-icon-selection']}
-				onClick={e => {
+				onClick={(e) => {
 					e.stopPropagation();
 					props.onToggle(e, { data, isOpened, jsonpath });
 				}}
@@ -243,11 +235,7 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 							({info.type})
 						</button>
 					) : null}
-					<TooltipTrigger
-						className="offset"
-						label={getDataAbstract(data)}
-						tooltipPlacement="right"
-					>
+					<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
 						<sup className="badge">{decoratedLength}</sup>
 					</TooltipTrigger>
 					{isOpened ? (
@@ -306,7 +294,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 		COMPLEX_TYPES.push(props.tupleLabel);
 	}
 
-	if (data === undefined) {
+	if (data === undefined || data === null) {
 		return null;
 	}
 	const info = getDataInfo(data, props.tupleLabel);
@@ -333,9 +321,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					onChange={props.onChange}
 				/>
 				{props.showType && (
-					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>
-						({info.type})
-					</div>
+					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>({info.type})</div>
 				)}
 			</LineItem>
 		);
@@ -409,7 +395,7 @@ export function JSONLike({ onSubmit, ...props }) {
 		return (
 			<form
 				className={`tc-object-viewer ${theme.container} `}
-				onSubmit={event => {
+				onSubmit={(event) => {
 					onSubmit(event);
 					event.preventDefault();
 				}}
@@ -430,7 +416,7 @@ export function JSONLike({ onSubmit, ...props }) {
 				<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
 					<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
 				</TooltipTrigger>
-				) : null}
+			) : null}
 			<Item {...props} />
 		</div>
 	);

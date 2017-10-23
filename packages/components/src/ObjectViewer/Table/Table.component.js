@@ -23,12 +23,13 @@ export function getAbsolutePath(index, key, flat) {
 export function getHeaders(keys, isFlat) {
 	if (isFlat) {
 		// $['id'][0]['foo'] -> id[0].foo
-		return keys.map(str => str
-			.replace('$[\'', '')
-			.replace('\'][\'', '.')
-			.replace('][\'', '].')
-			.replace('\'][', '[')
-			.replace('\']', '')
+		return keys.map(str =>
+			str
+				.replace("$['", '')
+				.replace("']['", '.')
+				.replace("]['", '].')
+				.replace("'][", '[')
+				.replace("']", ''),
 		);
 	}
 	return keys;
@@ -49,9 +50,7 @@ function Table({ flat, data, ...props }) {
 	return (
 		<table className={tableClassName}>
 			<thead>
-				<tr>
-					{headers.map((key, index) => (<td key={index}>{key}</td>))}
-				</tr>
+				<tr>{headers.map((key, index) => <td key={index}>{key}</td>)}</tr>
 			</thead>
 			<tbody>
 				{data.map((row, index) => {
@@ -62,11 +61,7 @@ function Table({ flat, data, ...props }) {
 								const path = getAbsolutePath(index, key, flat);
 								return (
 									<td key={j}>
-										<JSONLike
-											data={flattenRow[key]}
-											{...props}
-											jsonpath={path}
-										/>
+										<JSONLike data={flattenRow[key]} {...props} jsonpath={path} />
 									</td>
 								);
 							})}

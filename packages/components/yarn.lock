@@ -168,15 +168,15 @@
     react-treebeard "^2.0.3"
     redux "^3.6.0"
 
-"@talend/bootstrap-theme@^0.117.0":
-  version "0.117.0"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.117.0.tgz#507b54af027425cf7dac909f28043e81715aaf01"
+"@talend/bootstrap-theme@^0.118.0":
+  version "0.118.0"
+  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.118.0.tgz#8b0f6ff07b1b9b6e458cabe4e0852dc9b35ca4b9"
   dependencies:
     bootstrap-sass "3.3.7"
 
-"@talend/icons@^0.117.0":
-  version "0.117.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.117.0.tgz#4ba37884cbedac6ecd3fad12c545d2922b437032"
+"@talend/icons@^0.118.0":
+  version "0.118.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.118.0.tgz#6d468312bc6ce477812f772882966f74b1346482"
 
 abab@^1.0.3:
   version "1.0.4"
