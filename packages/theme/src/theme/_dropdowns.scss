@@ -2,6 +2,9 @@
 /// Bootstrap dropdowns customization
 /// @group Dropdowns
 ////
+.btn-group.dropup > .dropdown-menu {
+	transform: translateY(15px);
+}
 
 .dropdown {
 	&-toggle {
@@ -22,6 +25,11 @@
 			border-left-color: transparent;
 			transform: rotate(135deg);
 			transition: 0.1s transform ease-out;
+		}
+
+		.dropup & .caret {
+			margin-bottom: 0;
+			transform: rotate(-45deg);
 		}
 	}
 
@@ -49,6 +57,15 @@
 		.caret {
 			margin-bottom: 0;
 			transform: rotate(-45deg);
+		}
+	}
+}
+
+.dropup.open {
+	.dropdown-toggle {
+		.caret {
+			margin-bottom: $dropdown-caret-size;
+			transform: rotate(135deg);
 		}
 	}
 }
