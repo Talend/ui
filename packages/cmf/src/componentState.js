@@ -2,6 +2,25 @@ import PropTypes from 'prop-types';
 import invariant from 'invariant';
 import actions from './actions';
 
+/**
+ * This module provide props.setState and props.state into
+ * cmfConnected component. It exposes CMF propTypes
+ * @module react-cmf/lib/componentState
+ * @see module:react-cmf/lib/cmfConnect
+ * @example
+import { cmfConnect, componentState } from '@talend/react-cmf';
+
+class MyComponent extends React.Component {
+	static propTypes = {
+		...componentState.propTypes,
+	};
+	render() {
+		// ...
+	}
+}
+export default cmfConnect({})(MyComponent);
+ */
+
 export function getStateProps(state, name, id) {
 	return {
 		state: state.cmf.components.getIn([name, id]),
@@ -45,20 +64,20 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 				if (typeof newState === 'function') {
 					newState = state(getStateProps(getState(), name, id));
 				}
-				const componentState = actions.componentsActions.mergeComponentState(name, id, newState);
+				const componentState = actions.components.mergeState(name, id, newState);
 				dispatchAction('setState', componentState);
 			});
 		},
 		initState(initialState) {
 			if (DEFAULT_STATE) {
 				const state = DEFAULT_STATE.merge(initialState);
-				const componentState = actions.componentsActions.addComponentState(name, id, state);
+				const componentState = actions.components.addState(name, id, state);
 				dispatchAction('initState', componentState);
 			}
 		},
 		deleteState() {
 			if (DEFAULT_STATE) {
-				const componentState = actions.componentsActions.removeComponentState(name, id);
+				const componentState = actions.components.removeState(name, id);
 				dispatchAction('deleteState', componentState);
 			}
 		},

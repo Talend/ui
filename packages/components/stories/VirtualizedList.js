@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
-import talendIcons from 'talend-icons/dist/react';
+import talendIcons from '@talend/icons/dist/react';
 
 import { IconsProvider } from '../src/index';
 import VirtualizedList, { listTypes } from '../src/VirtualizedList';
@@ -28,7 +28,7 @@ const icons = {
 };
 
 const titleProps = {
-	onClick: action('click'),
+	onClick: action('onTitleClick'),
 	actionsKey: 'titleActions',
 	displayModeKey: 'display',
 	iconKey: 'icon',
@@ -38,16 +38,19 @@ const titleProps = {
 
 const titleActions = [
 	{
+		id: 'edit',
 		label: 'edit',
 		icon: 'talend-pencil',
 		onClick: action('onEdit'),
 	},
 	{
+		id: 'delete',
 		label: 'delete',
 		icon: 'talend-trash',
 		onClick: action('onDelete'),
 	},
 	{
+		id: 'related',
 		displayMode: 'dropdown',
 		label: 'related items',
 		icon: 'talend-folder',
@@ -173,7 +176,7 @@ const collection = [
 for (let i = collection.length; i < 100; i += 1) {
 	collection.push({
 		id: i,
-		name: 'Title with icon and actions',
+		name: `Title with icon and actions ${i}`,
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Simple row with icon and actions',

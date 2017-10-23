@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
+<FieldTemplate
+  description="This is the MultiSelectTag field"
+  errorMessage="This is wrong"
+  id="my-select-tag"
+  isValid={true}
+  label="Tags"
+>
+  <div
+    className="undefined form-control"
+  >
+    <Translate(Badge)
+      label="aze"
+      onDelete={[Function]}
+    />
+    <Translate(Badge)
+      label="tata"
+      onDelete={[Function]}
+    />
+    <Typeahead
+      autoFocus={true}
+      disabled={false}
+      focusedItemIndex={undefined}
+      id="my-select-tag"
+      items={null}
+      multiSection={false}
+      noResultText="No result."
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onSelect={[Function]}
+      placeholder="Type here"
+      position="left"
+      readOnly={false}
+      searching={false}
+      searchingText="Searching for matches…"
+      theme={
+        Object {
+          "container": undefined,
+          "itemsContainer": undefined,
+          "itemsList": undefined,
+        }
+      }
+      value=""
+    />
+    <div
+      className={undefined}
+    >
+      <span
+        className="caret"
+      />
+    </div>
+  </div>
+</FieldTemplate>
+`;

@@ -1,16 +1,44 @@
+/**
+ * This module connect your component in the CMF environment.
+ * @module react-cmf/lib/cmfConnect
+ * @example
+import { cmfConnect } from '@talend/react-cmf';
+
+class MyComponent extends React.Component {
+	static displayName = 'MyComponent';
+	constructor(props) {
+		super(props);
+		this.onClick = this.onClick.bind(this);
+	}
+	onClick(event) {
+		return this.props.dispatchActionCreator('myaction', event, { props: this.props });
+	}
+	render() {
+		return <button onClick={this.onClick}>Edit {this.props.foo.name}</button>;
+	}
+}
+
+function mapStateToProps(state) {
+	return {
+		foo: state.cmf.collection.get('foo', { name: 'world' }),
+	};
+}
+
+export default cmfConnect({
+	mapStateToProps,
+});
+ */
 import PropTypes from 'prop-types';
 import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import { connect } from 'react-redux';
 import api from './api';
+import deprecated from './deprecated';
 
-import {
-	statePropTypes,
-	initState,
-	getStateAccessors,
-	getStateProps,
-} from './componentState';
+import { statePropTypes, initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
+
+let newState;
 
 const CMF_PROPS = [
 	'didMountActionCreator', // componentDidMount action creator id in registry
@@ -34,6 +62,19 @@ export function getComponentId(componentId, props) {
 	return 'default';
 }
 
+function oldGetCollection(id) {
+	return newState.cmf.collections.get(id);
+}
+
+const getCollection = deprecated(
+	oldGetCollection,
+	`This function will be deprecated,
+	since it permit store access outside cmfConnect mapStateToProps function
+	and maybe not executed if cmf connect do not detect ref change to props
+	given to the component using this function
+	Please bind your collection update to your component using mapStateToProps`,
+);
+
 export function getStateToProps({
 	componentId,
 	ownProps,
@@ -41,16 +82,21 @@ export function getStateToProps({
 	mapStateToProps,
 	WrappedComponent,
 }) {
+	newState = state;
 	const cmfProps = getStateProps(
 		state,
 		getComponentName(WrappedComponent),
 		getComponentId(componentId, ownProps),
 	);
-	cmfProps.getCollection = function getCollection(id) {
-		return state.cmf.collections.get(id);
-	};
 
-	const viewProps = mapStateToViewProps(state, ownProps);
+	cmfProps.getCollection = getCollection;
+
+	const viewProps = mapStateToViewProps(
+		state,
+		ownProps,
+		getComponentName(WrappedComponent),
+		getComponentId(componentId, ownProps),
+	);
 
 	let userProps = {};
 	if (mapStateToProps) {
@@ -76,12 +122,7 @@ export function getDispatchToProps({
 	);
 	cmfProps.dispatch = dispatch;
 	cmfProps.dispatchActionCreator = (actionId, event, data, context) => {
-		dispatch(
-			api.action.getActionCreatorFunction(
-				context,
-				actionId,
-			)(event, data, context)
-		);
+		dispatch(api.action.getActionCreatorFunction(context, actionId)(event, data, context));
 	};
 
 	let userProps = {};
@@ -93,7 +134,9 @@ export function getDispatchToProps({
 }
 
 /**
- * this function wrap your component to inject the following:
+ * this function wrap your component to inject CMF props
+ * @example
+ * The following props are injected:
  * - props.state
  * - props.setState
  * - props.initState (you should never have to call it your self)
@@ -109,6 +152,17 @@ export function getDispatchToProps({
  * - keepComponentState (boolean, overrides the keepComponentState defined in container)
  * - didMountActionCreator (string called as action creator in didMount)
  * - view (string to inject the settings as props with ref support)
+ * @example
+ * options has the following shape:
+{
+	componentId,  // string or function(props) to compute the id in the store
+	defaultState,  // the default state when the component is mount
+	keepComponent,  // boolean, when the component is unmount, to keep it's state in redux store
+	mapStateToProps,  // function(state, ownProps) that should return the props (same as redux)
+	mapDispatchToProps,  // same as redux connect arg, you should use dispatchActionCreator instead
+	mergeProps,  // same as redux connect
+}
+ * @param {object} options Option objects to configure the redux connect
  * @return {ReactComponent}
  */
 export default function cmfConnect({
@@ -142,25 +196,19 @@ export default function cmfConnect({
 			componentDidMount() {
 				initState(this.props);
 				if (this.props.didMountActionCreator) {
-					this.dispatchActionCreator(
-						this.props.didMountActionCreator,
-						null,
-						this.props,
-					);
+					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
 				}
 			}
 
 			componentWillUnmount() {
 				if (this.props.willUnmountActionCreator) {
-					this.dispatchActionCreator(
-						this.props.willUnmountActionCreator,
-						null,
-						this.props,
-					);
+					this.dispatchActionCreator(this.props.willUnmountActionCreator, null, this.props);
 				}
 				// if the props.keepComponentState is present we have to stick to it
-				if (this.props.keepComponentState === false ||
-					(this.props.keepComponentState === undefined && !keepComponentState)) {
+				if (
+					this.props.keepComponentState === false ||
+					(this.props.keepComponentState === undefined && !keepComponentState)
+				) {
 					this.props.deleteState();
 				}
 			}
@@ -171,38 +219,37 @@ export default function cmfConnect({
 			}
 
 			render() {
-				const props = Object.assign(
-					{ state: defaultState },
-					this.props,
-					{ dispatchActionCreator: this.dispatchActionCreator },
-				);
+				const props = Object.assign({ state: defaultState }, this.props, {
+					dispatchActionCreator: this.dispatchActionCreator,
+				});
 
 				// remove all internal props already used by the container
-				CMF_PROPS.forEach((key) => { delete props[key]; });
+				CMF_PROPS.forEach((key) => {
+					delete props[key];
+				});
 
-				return createElement(
-					WrappedComponent,
-					props,
-				);
+				return createElement(WrappedComponent, props);
 			}
 		}
 		const Connected = connect(
-			(state, ownProps) => getStateToProps({
-				componentId,
-				defaultState,
-				ownProps,
-				state,
-				mapStateToProps,
-				WrappedComponent,
-			}),
-			(dispatch, ownProps) => getDispatchToProps({
-				defaultState,
-				dispatch,
-				componentId,
-				mapDispatchToProps,
-				ownProps,
-				WrappedComponent,
-			}),
+			(state, ownProps) =>
+				getStateToProps({
+					componentId,
+					defaultState,
+					ownProps,
+					state,
+					mapStateToProps,
+					WrappedComponent,
+				}),
+			(dispatch, ownProps) =>
+				getDispatchToProps({
+					defaultState,
+					dispatch,
+					componentId,
+					mapDispatchToProps,
+					ownProps,
+					WrappedComponent,
+				}),
 			mergeProps,
 			{ ...rest },
 		)(hoistStatics(CMFContainer, WrappedComponent));

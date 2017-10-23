@@ -14,7 +14,7 @@ function getValues(value = [], itemValue, checked) {
 }
 
 export default function CheckBoxes(props) {
-	const { id, isValid, errorMessage, onChange, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
 	const { description, title, titleMap } = schema;
 
 	return (
@@ -39,6 +39,7 @@ export default function CheckBoxes(props) {
 								}
 							)
 						}
+						onFinish={onFinish}
 						schema={schema}
 						value={value && value.includes(item.value)}
 					/>
@@ -55,6 +56,7 @@ if (process.env.NODE_ENV !== 'production') {
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			description: PropTypes.string,
 			title: PropTypes.string,

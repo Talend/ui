@@ -16,12 +16,20 @@ describe('Emphasis', () => {
 		expect(wrapper.html()).toBe('<span>The lazy quick <em>brown</em> fox jumps over the lazy dog</span>');
 	});
 
-	it('should be case insensitive ', () => {
+	it('should be case insensitive', () => {
 		// given
 		const wrapper = shallow(<Emphasis {...props} value="bRoWn" />);
 
 		// then
 		expect(wrapper.find('em').text()).toBe('brown');
+	});
+
+	it('should support special chars', () => {
+		// given
+		const wrapper = shallow(<Emphasis text="aze.*+?^${}()|[]\wxc" value=".*+?^${}()|[]\" />);
+
+		// then
+		expect(wrapper.find('em').text()).toBe('.*+?^${}()|[]\\');
 	});
 
 	it('should wrap the original text in a span if no value is provided', () => {

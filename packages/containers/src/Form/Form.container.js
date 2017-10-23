@@ -1,8 +1,9 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Map } from 'immutable';
-import { componentState } from 'react-cmf';
-import ComponentForm from 'react-talend-forms';
-import ArrayFieldTemplate from 'react-talend-forms/lib/templates/ArrayFieldTemplate';
+import { componentState } from '@talend/react-cmf';
+import ComponentForm from '@talend/react-forms';
+import ArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
 import classnames from 'classnames';
 
 export const DEFAULT_STATE = new Map({});
@@ -79,7 +80,6 @@ class Form extends React.Component {
 				formData,
 			});
 		}
-		this.props.setState({ data: undefined, dirty: false });
 	}
 
 	formActions() {
@@ -121,7 +121,7 @@ class Form extends React.Component {
 			uiSchema: this.uiSchema(),
 			properties: this.data(),
 		};
-		const className = classnames('tc-form', 'rjsf', {
+		const className = classnames('tc-form', 'rjsf', this.props.className, {
 			dirty: state.dirty,
 			pristine: !state.dirty,
 		});

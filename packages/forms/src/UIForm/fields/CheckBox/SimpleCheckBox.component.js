@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export default function SimpleCheckBox({ id, label, onChange, schema, value }) {
+export default function SimpleCheckBox({ id, label, onChange, onFinish, schema, value }) {
+	const { autoFocus, disabled = false } = schema;
 	return (
 		<div className="checkbox">
 			<label>
 				<input
 					id={id}
-					autoFocus={schema.autoFocus}
-					disabled={schema.disabled}
+					autoFocus={autoFocus}
+					disabled={disabled}
 					label={label}
+					onBlur={event => onFinish(event, { schema })}
 					onChange={event => onChange(event, { schema, value: event.target.checked })}
 					type="checkbox"
 					checked={value}
@@ -25,6 +27,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		label: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			disabled: PropTypes.bool,

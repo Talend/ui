@@ -13,7 +13,7 @@ your configStore.js file:
     import promise from 'redux-promise-middleware';
     import createLogger from 'redux-logger';
     import LOGGING_SERVER_URL from 'somewhere';
-    import initErrorTransformer, { TraceKit } from 'talend-log';
+    import initErrorTransformer, { TraceKit } from '@talend/log';
 
     // important part:
     const logger = createLogger({ errorTransformer: initErrorTransformer(LOGGING_SERVER_URL) });
@@ -28,10 +28,10 @@ your configStore.js file:
     }
 
 #### Advanced config
-Look in ./src/errorTransformer.js for jsDoc on each parameter 
+Look in ./src/errorTransformer.js for jsDoc on each parameter
 
     import LOGGING_SERVER_URL from 'somewhere';
-    import initErrorTransformer from 'talend-log';
+    import initErrorTransformer from '@talend/log';
 
     const logger = createLogger({
         errorTransformer: initErrorTransformer(
@@ -79,7 +79,7 @@ Look in ./src/errorTransformer.js for jsDoc on each parameter
 
 Notable details:
  - Once initErrorTransformer is called, listener function is created and registered in TraceKit, then returned.
- - Depending on the parameters you provide, TraceKit.report function may be patched to rethrow no error. 
+ - Depending on the parameters you provide, TraceKit.report function may be patched to rethrow no error.
  - transport.send is called with fetchOptions defined on transport.fetchOptions
  - TraceKit.store should be defined in your configStore.js file if you want to attach state to report
  - fetchOptions are merged with Object.assign to default options, so don't expect deepMerge
@@ -92,7 +92,7 @@ If you have some non-critical exceptions that should be reported, but should not
 in your config file:
 
     import LOGGING_SERVER_URL from 'somewhere';
-    import initErrorTransformer from 'talend-log';
+    import initErrorTransformer from '@talend/log';
     import transportConfig from 'somewhere';
 
     // this:
@@ -102,8 +102,8 @@ in your config file:
 
 somewhere in your application:
 
-    import { TraceKit } from 'talend-log';
-    
+    import { TraceKit } from '@talend/log';
+
     fetch('google.com').catch(errorResponse => TraceKit.report(new Error(errorResponse)));
 
 ### Under the hood

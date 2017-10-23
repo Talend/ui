@@ -1,11 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Map, fromJS } from 'immutable';
+import cloneDeep from 'lodash/cloneDeep';
 
 import Container, { DEFAULT_STATE } from './List.container';
 import Connected, {
 	mapStateToProps,
 } from './List.connect';
+
+jest.mock(
+	'@talend/react-components',
+	() => ({ List: props => (<div className="tc-list" {...props} />) })
+);
 
 const list = {
 	columns: [
@@ -86,7 +92,7 @@ const items = [
 describe('Container List', () => {
 	it('should put default props', () => {
 		const wrapper = shallow(
-			<Container {...settings} items={items} />
+			<Container {...cloneDeep(settings)} items={items} />
 		, { lifecycleExperimental: true });
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('table');
@@ -94,7 +100,7 @@ describe('Container List', () => {
 		expect(props.list.items[0].id).toBe(1);
 		expect(props.list.items[1].id).toBe(2);
 		expect(props.list.items[2].id).toBe(3);
-		expect(props.list.columns).toBe(list.columns);
+		expect(props.list.columns).toEqual(list.columns);
 		expect(props.list.titleProps.key).toBe('label');
 		expect(typeof props.list.titleProps.onClick).toBe('function');
 		expect(props.toolbar.filter.placeholder).toBe('find an object');
@@ -130,7 +136,11 @@ describe('Container List', () => {
 			},
 		};
 		const wrapper = shallow(
-			<Container {...settings} items={items} dispatchActionCreator={dispatchActionCreator} />
+			<Container
+				{...cloneDeep(settings)}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+			/>
 		, {
 			lifecycleExperimental: true,
 			context,
@@ -149,6 +159,32 @@ describe('Container List', () => {
 		expect(calls[0][3].registry).toBe(context.registry);
 	});
 
+	it('should not set onclick if no action on title', () => {
+		const dispatchActionCreator = jest.fn();
+		const actionCreator = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:object:open': actionCreator,
+			},
+		};
+		const settingsWithoutActions = {
+			...cloneDeep(settings),
+			actions: {},
+		};
+		const wrapper = shallow(
+			<Container
+				{...settingsWithoutActions}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+			/>
+		, {
+			lifecycleExperimental: true,
+			context,
+		});
+		const props = wrapper.props();
+		expect(props.list.titleProps.onClick).toBeUndefined();
+	});
+
 	it('should call action creator on pagination change', () => {
 		// given
 		const dispatchActionCreator = jest.fn();
@@ -160,7 +196,7 @@ describe('Container List', () => {
 		};
 		const wrapper = shallow(
 			<Container
-				{...settings}
+				{...cloneDeep(settings)}
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
 			/>,

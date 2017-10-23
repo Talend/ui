@@ -3,7 +3,7 @@ import React from 'react';
 
 import RJSForm from 'react-jsonschema-form/lib/index';
 
-import { Action } from 'react-talend-components';
+import { Action } from '@talend/react-components';
 
 import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';
@@ -19,6 +19,7 @@ import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 import CodeWidget from './widgets/CodeWidget';
 import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
+import I18N_DOMAIN_FORMS from './constants';
 
 /**
  * @type {string} After trigger name for field value has changed
@@ -211,4 +212,5 @@ Form.defaultProps = {
 
 Form.displayName = 'TalendForm';
 
+export { I18N_DOMAIN_FORMS };
 export default Form;

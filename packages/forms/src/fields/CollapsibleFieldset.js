@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Icon } from 'react-talend-components';
+import { Icon } from '@talend/react-components';
 import { orderProperties, retrieveSchema } from 'react-jsonschema-form/lib/utils';
 
 function createCollapsibleFieldset(title) {
@@ -99,6 +99,7 @@ function createCollapsibleFieldset(title) {
 							onClick={this.toggle}
 							id={`${idSchema.$id}__collapse`}
 							title="Collapse"
+							type="button"
 							className="toggle"
 						>
 							<Icon name="talend-caret-down" transform={iconTransform} />
@@ -110,29 +111,28 @@ function createCollapsibleFieldset(title) {
 							description={uiSchema['ui:description'] || schema.description}
 							formContext={formContext}
 						/>}
-					{!formData.isClosed &&
-						orderedProperties.map((fieldName, index) => {
-							if (fieldName !== 'isClosed') {
-								return (
-									<SchemaField
-										key={index}
-										name={fieldName}
-										required={this.isRequired(fieldName)}
-										schema={schema.properties[fieldName]}
-										uiSchema={uiSchema[fieldName]}
-										errorSchema={errorSchema[fieldName]}
-										idSchema={idSchema[fieldName]}
-										formData={formData[fieldName]}
-										onChange={this.onPropertyChange(fieldName)}
-										onBlur={onBlur}
-										registry={registry}
-										disabled={disabled}
-										readonly={readonly}
-									/>
-								);
-							}
-							return null;
-						})}
+					{orderedProperties.map((fieldName, index) => {
+						if (fieldName !== 'isClosed') {
+							return (
+								<SchemaField
+									key={index}
+									name={fieldName}
+									required={this.isRequired(fieldName)}
+									schema={schema.properties[fieldName]}
+									uiSchema={uiSchema[fieldName]}
+									errorSchema={errorSchema[fieldName]}
+									idSchema={idSchema[fieldName]}
+									formData={formData[fieldName]}
+									onChange={this.onPropertyChange(fieldName)}
+									onBlur={onBlur}
+									registry={registry}
+									disabled={disabled}
+									readonly={readonly}
+								/>
+							);
+						}
+						return null;
+					})}
 				</fieldset>
 			);
 		}

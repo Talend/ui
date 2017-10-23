@@ -3,37 +3,38 @@ import React from 'react';
 import { Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
+import { getDefaultTranslate } from '../../../translate';
 import Icon from '../../../Icon';
 
 function getIcon(selected) {
 	switch (selected) {
-	case 'table':
-		return 'talend-table';
-	case 'large':
-		return 'talend-expanded';
-	case 'tile':
-		return 'talend-tiles';
-	default:
-		return 'talend-table';
+		case 'table':
+			return 'talend-table';
+		case 'large':
+			return 'talend-expanded';
+		case 'tile':
+			return 'talend-tiles';
+		default:
+			return 'talend-table';
 	}
 }
 
-function getLabel(selected) {
+function getLabel(selected, t) {
 	switch (selected) {
-	case 'table':
-		return 'Table';
-	case 'large':
-		return 'Expanded';
-	case 'tile':
-		return 'Tile';
-	default:
-		return 'Table';
+		case 'table':
+			return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
+		case 'large':
+			return t('LIST_SELECT_DISPLAY_MODE_LARGE', { defaultValue: 'Expanded' });
+		case 'tile':
+			return t('LIST_SELECT_DISPLAY_MODE_TILE', { defaultValue: 'Tile' });
+		default:
+			return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
 	}
 }
 
 const options = ['table', 'large', 'tile'];
 
-function SelectDisplayMode({ id, mode, displayModes, onChange }) {
+function SelectDisplayMode({ id, mode, displayModes, onChange, t }) {
 	const selected = mode || 'table';
 	const modes = displayModes || options;
 	const displayIcon = (<Icon name={getIcon(selected)} />);
@@ -50,7 +51,7 @@ function SelectDisplayMode({ id, mode, displayModes, onChange }) {
 				eventKey={option}
 			>
 				<Icon name={getIcon(option)} />
-				{getLabel(option)}
+				{getLabel(option, t)}
 			</MenuItem>
 		);
 	}
@@ -73,6 +74,11 @@ SelectDisplayMode.propTypes = {
 	mode: PropTypes.string,
 	displayModes: PropTypes.arrayOf(PropTypes.string),
 	onChange: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
+};
+
+SelectDisplayMode.defaultProps = {
+	t: getDefaultTranslate,
 };
 
 export default SelectDisplayMode;

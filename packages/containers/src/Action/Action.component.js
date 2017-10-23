@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Action as PureAction } from 'react-talend-components';
+import { Action as PureAction } from '@talend/react-components';
 import actions from '../actionAPI';
 
 /**
@@ -12,7 +12,11 @@ function Action({ name, ...rest }, context) {
 	let action;
 
 	if (name) {
-		action = actions.getProps(context, name, rest.model);
+		action = Object.assign(
+			{},
+			rest,
+			actions.getProps(context, name, rest.model),
+		);
 	} else {
 		action = actions.getProps(context, rest, rest.model);
 	}

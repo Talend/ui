@@ -1,10 +1,12 @@
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';  // eslint-disable-line import/no-extraneous-dependencies
-import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
-import talendIcons from 'talend-icons/dist/react';
+import { storiesOf, action } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
+import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
+import talendIcons from '@talend/icons/dist/react';
+import { I18nextProvider } from 'react-i18next';
 import { cloneDeep } from 'lodash';
 
 import { List, IconsProvider } from '../src/index';
+import i18n from './config/i18n';
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -36,7 +38,8 @@ const selected = [
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
 		icon: 'talend-file-json-o',
-	}];
+	},
+];
 
 const actions = [
 	{
@@ -108,7 +111,8 @@ const props = {
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
 				modified: '2016-09-22',
-				author: 'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
+				author:
+					'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
 				className: 'item-2-class',
 			},
 			{
@@ -172,10 +176,7 @@ const props = {
 		sort: {
 			field: 'name',
 			onChange: action('sort.onChange'),
-			options: [
-				{ id: 'id', name: 'Id' },
-				{ id: 'name', name: 'Name' },
-			],
+			options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 		},
 		pagination: {
 			itemsPerPage: 5,
@@ -209,18 +210,21 @@ const actionsForItems = [
 		icon: 'talend-star',
 		className: 'favorite',
 		onClick: action('onFavoriteActionClick'),
-	}, {
+	},
+	{
 		key: 'certify',
 		label: 'Certify',
 		icon: 'talend-badge',
 		className: 'certify',
 		onClick: action('onCertifyActionClick'),
-	}, {
+	},
+	{
 		key: 'edit',
 		label: 'Edit',
 		icon: 'talend-pencil',
 		onClick: action('onEdit'),
-	}, {
+	},
+	{
 		key: 'delete',
 		label: 'Delete',
 		icon: 'talend-trash',
@@ -297,8 +301,8 @@ function getActionsProps() {
 	const columnActionsProps = cloneDeep(props);
 	const actionsColumn = {
 		key: 'columnActions',
-		label: 'Actions',	// label should be set for screen readers
-		hideHeader: true,	// header will created with a sr-only class, so it will be hidden
+		label: 'Actions', // label should be set for screen readers
+		hideHeader: true, // header will created with a sr-only class, so it will be hidden
 	};
 
 	columnActionsProps.list.columns.splice(2, 0, actionsColumn);
@@ -309,7 +313,8 @@ function getActionsProps() {
 				icon: 'talend-star',
 				className: 'favorite',
 				onClick: action('onFavorite'),
-			}, {
+			},
+			{
 				label: 'certify',
 				icon: 'talend-badge',
 				className: 'certify',
@@ -326,7 +331,6 @@ storiesOf('List', module)
 		const tprops = {
 			...props,
 			displayMode: 'tile',
-
 		};
 		return (
 			<div>
@@ -351,7 +355,6 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-
 	.add('Virtualized - table display', () => (
 		<div style={{ height: '60vh' }} className="virtualized-list">
 			<h1>List</h1>
@@ -390,6 +393,19 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('Virtualized - list with progress', () => {
+		const loadingListProps = cloneDeep(props);
+		loadingListProps.list.inProgress = true;
+		return (
+			<div style={{ height: '60vh' }}>
+				<h1>List</h1>
+				<p>When the list is loading, a CircularProgress is displayed instead of the rows.</p>
+				<IconsProvider defaultIcons={icons} />
+				<h2>Table</h2>
+				<List {...loadingListProps} virtualized />
+			</div>
+		);
+	})
 	.add('Virtualized - column actions', () => {
 		const columnActionsProps = getActionsProps();
 		return (
@@ -415,7 +431,7 @@ storiesOf('List', module)
 		};
 		selectedItemsProps.list.itemProps = itemPropsForItems;
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list" >
+			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
 					You can manage selection by passing 2 props : onSelect and isSelected.<br />
@@ -437,7 +453,7 @@ storiesOf('List', module)
 		selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
 		selectedItemsProps.list.itemProps.onRowClick = action('onRowClick');
 		return (
-			<div style={{ height: '60vh' }} className="virtualized-list" >
+			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
 					You can manage selection by passing 2 props : onRowClick and isActive.<br />
@@ -468,8 +484,8 @@ storiesOf('List', module)
 					<pre>
 						listProps.sort.field = 'name';<br />
 						listProps.sort.isDescending = false;<br />
-						listProps.sort.onChange =
-							(event, &#123;field, isDescending&#125;) => sort(field, isDescending);<br />
+						listProps.sort.onChange = (event, &#123;field, isDescending&#125;) => sort(field,
+						isDescending);<br />
 						&lt;List ... list=&#123;listProps&#125; &gt;<br />
 					</pre>
 				</p>
@@ -504,32 +520,34 @@ storiesOf('List', module)
 		const inputDebounceProps = Immutable.fromJS(inputProps).toJS();
 		inputDebounceProps.toolbar.filter.debounceTimeout = 300;
 
-		return (<div style={{ height: '60vh' }} className="virtualized-list">
-			<IconsProvider />
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<IconsProvider />
 
-			<h1>List</h1>
-			<h2>Definition</h2>
-			<p>
-				Filter in toolbar can have multiple states.<br />
-				Its state, input, and callbacks are customizable.
-			</p>
-			<h2>Docked</h2>
-			<div style={{ height: '15vh' }}>
-				<List {...dockedProps} virtualized />
+				<h1>List</h1>
+				<h2>Definition</h2>
+				<p>
+					Filter in toolbar can have multiple states.<br />
+					Its state, input, and callbacks are customizable.
+				</p>
+				<h2>Docked</h2>
+				<div style={{ height: '15vh' }}>
+					<List {...dockedProps} virtualized />
+				</div>
+				<h2>Input</h2>
+				<div style={{ height: '15vh' }}>
+					<List {...inputProps} virtualized />
+				</div>
+				<h2>Highlighted</h2>
+				<div style={{ height: '15vh' }}>
+					<List {...highlightedProps} virtualized />
+				</div>
+				<h2>Input with 300ms debounce</h2>
+				<div style={{ height: '15vh' }}>
+					<List {...inputDebounceProps} virtualized />
+				</div>
 			</div>
-			<h2>Input</h2>
-			<div style={{ height: '15vh' }}>
-				<List {...inputProps} virtualized />
-			</div>
-			<h2>Highlighted</h2>
-			<div style={{ height: '15vh' }}>
-				<List {...highlightedProps} virtualized />
-			</div>
-			<h2>Input with 300ms debounce</h2>
-			<div style={{ height: '15vh' }}>
-				<List {...inputDebounceProps} virtualized />
-			</div>
-		</div>);
+		);
 	})
 	.add('Virtualized - toolbar with filtered DisplayMode', () => {
 		const tprops = {
@@ -556,7 +574,37 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('Virtualized - list with i18n', () => (
+		<div>
+			<h1>List with i18n</h1>
+			<p>Change language in the toolbar</p>
+			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+			<button onClick={() => i18n.changeLanguage('it')}>it</button>
+			<IconsProvider defaultIcons={icons} />
+			<I18nextProvider i18n={i18n}>
+				<List {...props} virtualized />
+			</I18nextProvider>
+		</div>
+	))
+	.add('Virtualized - title without click', () => {
+		const tprops = {
+			...props,
+		};
 
+		tprops.list.titleProps.onClick = null;
+
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					Display the list in table mode.<br />
+					This is the default mode.
+				</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...props} virtualized />
+			</div>
+		);
+	})
 	.add('DEPRECATED - Table (migrated to virtualized)', () => (
 		<div className="display-table tc-list-fixed-name-column">
 			<h1>List</h1>
@@ -565,12 +613,26 @@ storiesOf('List', module)
 			<List {...props} />
 		</div>
 	))
+	.add('DEPRECATED - Table without action on title', () => {
+		const tprops = {
+			...props,
+		};
+
+		tprops.list.titleProps.onClick = null;
+
+		return (
+			<div className="display-table tc-list-fixed-name-column">
+				<h1>List</h1>
+				<p>Display a list by defining your.</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...props} />
+			</div>
+		);
+	})
 	.add('DEPRECATED - Large (migrated to virtualized)', () => {
 		const tprops = cloneDeep(props);
 		tprops.displayMode = 'large';
-		tprops.toolbar.sort.options = [
-			{ id: 'name', name: 'Name' },
-		];
+		tprops.toolbar.sort.options = [{ id: 'name', name: 'Name' }];
 		return (
 			<div>
 				<h1>List</h1>
@@ -657,30 +719,34 @@ storiesOf('List', module)
 		const inputDebounceProps = Immutable.fromJS(inputProps).toJS();
 		inputDebounceProps.toolbar.filter.debounceTimeout = 300;
 
-		return (<div>
-			<IconsProvider />
+		return (
+			<div>
+				<IconsProvider />
 
-			<h1>List</h1>
-			<h2>Definition</h2>
-			<p>Toolbar Filter</p>
-			<h2>Docked</h2>
-			<List {...dockedProps} />
-			<h2>Input</h2>
-			<List {...inputProps} />
-			<h2>Highlighted</h2>
-			<List {...highlightedProps} />
-			<h2>Input with 300ms debounce</h2>
-			<List {...inputDebounceProps} />
-		</div>);
+				<h1>List</h1>
+				<h2>Definition</h2>
+				<p>Toolbar Filter</p>
+				<h2>Docked</h2>
+				<List {...dockedProps} />
+				<h2>Input</h2>
+				<List {...inputProps} />
+				<h2>Highlighted</h2>
+				<List {...highlightedProps} />
+				<h2>Input with 300ms debounce</h2>
+				<List {...inputDebounceProps} />
+			</div>
+		);
 	})
 	.add('DEPRECATED - Table with column actions (migrated to virtualized)', () => {
 		const columnActionsProps = getActionsProps();
-		return (<div>
-			<h1>List</h1>
-			<p>Display a list with columns containing actions.</p>
-			<IconsProvider defaultIcons={icons} />
-			<List {...columnActionsProps} />
-		</div>);
+		return (
+			<div>
+				<h1>List</h1>
+				<p>Display a list with columns containing actions.</p>
+				<IconsProvider defaultIcons={icons} />
+				<List {...columnActionsProps} />
+			</div>
+		);
 	})
 	.add('DEPRECATED - Table with scroll (not migrated - natively supported)', () => {
 		const tprops = {
@@ -707,8 +773,7 @@ storiesOf('List', module)
 			<div className="tc-list-fixed-name-column">
 				<h1>List</h1>
 				<p>
-					Display a list with NAME content ellipsis.
-					The NAME column is limited to 400px in css.
+					Display a list with NAME content ellipsis. The NAME column is limited to 400px in css.
 				</p>
 				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
@@ -754,7 +819,8 @@ storiesOf('List', module)
 	.add('DEPRECATED - Table with custom selected class (not migrated - not used)', () => {
 		const selectedClassProps = cloneDeep(props);
 		selectedClassProps.list.itemProps.selectedClass = 'tc-list-custom-style';
-		selectedClassProps.list.itemProps.isSelected = item => selected.find(next => next.id === item.id);
+		selectedClassProps.list.itemProps.isSelected = item =>
+			selected.find(next => next.id === item.id);
 		selectedClassProps.toolbar = undefined;
 		return (
 			<div>
@@ -791,4 +857,3 @@ storiesOf('List', module)
 			<List {...getPropsFor('tile')} />
 		</div>
 	));
-

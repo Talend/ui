@@ -1,41 +1,7 @@
 /**
- * All stuff related to the routing in CMF
- * @module react-cmf/lib/route
+ * Internal. All stuff related to the settings handling in CMF.
+ * @module react-cmf/lib/settings
  */
-
-/* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
-import invariant from 'invariant';
-
-/**
- * if an object try to find _ref property and resolve it
- */
-export function attachRef(state, obj) {
-	if (obj === null || typeof obj !== 'object' || Array.isArray(obj)) {
-		return obj;
-	}
-	let props = Object.assign({}, obj);
-	if (props._ref) {
-		const ref = state.cmf.settings.ref[props._ref];
-		invariant(ref, `CMF/Settings: Reference '${props._ref}' not found`);
-		props = Object.assign(
-			{},
-			state.cmf.settings.ref[props._ref],
-			obj
-		);
-		delete props._ref;
-	}
-	return props;
-}
-
-export function attachRefs(state, props) {
-	const attachedProps = attachRef(state, props);
-	Object.keys(attachedProps).forEach(
-		(key) => {
-			attachedProps[key] = attachRef(state, attachedProps[key]);
-		}
-	);
-	return attachedProps;
-}
 
 /**
  * return props for a given view with reference and override support
@@ -77,20 +43,20 @@ export function attachRefs(state, props) {
  * @param  {Object} ownProps   the props passed to the component. may have a view attribute
  * @return {Object}           React props for the component injected from the settings
  */
-export function mapStateToViewProps(state, ownProps) {
+export function mapStateToViewProps(state, ownProps, componentName, componentId) {
 	let viewProps = {};
-	if (ownProps.view) {
-		viewProps = Object.assign(
-			{},
-			state.cmf.settings.views[ownProps.view],
-		);
-		viewProps = attachRefs(state, viewProps);
+	let viewId = ownProps.view;
+	if (!ownProps.view && componentName && !componentId) {
+		viewId = componentName;
+	} else if (!ownProps.view && componentName && componentId) {
+		viewId = `${componentName}#${componentId}`;
+	}
+	if (viewId && state.cmf.settings.views[viewId]) {
+		viewProps = state.cmf.settings.views[viewId] || {};
 	}
 	return viewProps;
 }
 
 export default {
-	attachRef,
-	attachRefs,
 	mapStateToViewProps,
 };

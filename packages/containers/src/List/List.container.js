@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Map } from 'immutable';
-import { List as Component } from 'react-talend-components';
+import { List as Component } from '@talend/react-components';
 import get from 'lodash/get';
-import { componentState } from 'react-cmf';
+import { componentState } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
 
@@ -107,7 +107,7 @@ class List extends React.Component {
 		};
 		props.list.titleProps = get(this.props, 'list.titleProps');
 
-		if (props.list.titleProps) {
+		if (props.list.titleProps && this.props.actions.title) {
 			props.list.titleProps.onClick = (event, data) => {
 				this.props.dispatchActionCreator(this.props.actions.title, event, data, this.context);
 			};

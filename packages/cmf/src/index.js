@@ -15,6 +15,8 @@ import actions from './actions/';
 import reducers from './reducers/';
 import getErrorMiddleware from './middlewares/error';
 import componentState from './componentState';
+import sagaRouter from './sagaRouter';
+import sagas from './sagas';
 
 const Dispatcher = ConnectedDispatcher;
 
@@ -43,5 +45,7 @@ export {
 	componentState,
 	RegistryProvider,
 	UIRouter,
-	getErrorMiddleware, // (slug) => middleware to post error
+	getErrorMiddleware,
+	sagaRouter,
+	sagas,
 };

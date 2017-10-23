@@ -25,11 +25,17 @@ import theme from './SidePanel.scss';
  />
  *
  */
-function SidePanel(props) {
-	const { selected, onSelect } = props;
-	const actions = props.actions || [];
-
-	const dockedCSS = { [theme.docked]: props.docked };
+function SidePanel({
+	id,
+	selected,
+	onSelect,
+	actions = [],
+	docked,
+	onToggleDock,
+	expandTitle = 'Expand',
+	collapseTitle = 'Collapse',
+}) {
+	const dockedCSS = { [theme.docked]: docked };
 	const navCSS = classNames(
 		theme['tc-side-panel'],
 		dockedCSS,
@@ -47,23 +53,24 @@ function SidePanel(props) {
 		return action.active;
 	};
 
+	const toggleButtonTitle = docked ? expandTitle : collapseTitle;
+
 	return (
 		<nav className={navCSS}>
 			<ul className={listCSS}>
-				<li className={theme['toggle-btn']}>
+				<li className={theme['toggle-btn']} title={toggleButtonTitle}>
 					<Action
-						id={props.id && `${props.id}-toggle-dock`}
+						id={id && `${id}-toggle-dock`}
 						className={theme.link}
 						bsStyle="link"
-						onClick={props.onToggleDock}
-						label="Toggle side panel"
-						icon="talend-arrow-left"
-						hideLabel
-						tooltipPlacement={props.tooltipPlacement}
+						onClick={onToggleDock}
+						icon="talend-opener"
+						label=""
 					/>
 				</li>
 				{actions.map(action => (
 					<li
+						title={action.label}
 						key={action.key || action.label}
 						className={classNames(
 							'tc-side-panel-list-item',
@@ -71,7 +78,7 @@ function SidePanel(props) {
 						)}
 					>
 						<Action
-							id={props.id && `${props.id}-nav-${action.label.toLowerCase().split(' ').join('-')}`}
+							id={id && `${id}-nav-${action.label.toLowerCase().split(' ').join('-')}`}
 							bsStyle="link"
 							role="link"
 							className={theme.link}
@@ -85,8 +92,6 @@ function SidePanel(props) {
 							}}
 							label={action.label}
 							icon={action.icon}
-							hideLabel={props.docked}
-							tooltipPlacement={props.tooltipPlacement}
 						/>
 					</li>
 				))}
@@ -110,10 +115,8 @@ SidePanel.propTypes = {
 	onToggleDock: PropTypes.func,
 	docked: PropTypes.bool,
 	selected: actionPropType,
-	tooltipPlacement: PropTypes.string,
+	expandTitle: PropTypes.string,
+	collapseTitle: PropTypes.string,
 };
 
-SidePanel.defaultProps = {
-	tooltipPlacement: 'right',
-};
 export default SidePanel;

@@ -23,7 +23,7 @@ function ListToVirtualizedList(props) {
 		titleProps,
 	} = props;
 
-	if (!titleProps.actionsKey) {
+	if (titleProps && !titleProps.actionsKey) {
 		titleProps.actionsKey = 'actions';
 	}
 	// Backward compatibility: find array in object attr:
@@ -40,6 +40,7 @@ function ListToVirtualizedList(props) {
 			collection={props.items}
 			isActive={itemProps && itemProps.isActive}
 			isSelected={itemProps && itemProps.isSelected}
+			inProgress={props.inProgress}
 			onRowClick={itemProps && itemProps.onRowClick}
 			selectionToggle={itemProps && itemProps.onToggle}
 			sort={adaptOnSort(sort && sort.onChange)}
@@ -52,7 +53,7 @@ function ListToVirtualizedList(props) {
 					label: column.label,
 					dataKey: column.key,
 				};
-				if (column.key === titleProps.key) {
+				if (titleProps && column.key === titleProps.key) {
 					Object.assign(cProps, CellTitle, {
 						columnData: titleProps,
 					});
@@ -79,6 +80,7 @@ ListToVirtualizedList.propTypes = {
 		onToggle: PropTypes.func,
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
+	inProgress: PropTypes.bool,
 	sort: PropTypes.shape({
 		onChange: PropTypes.func,
 		field: PropTypes.string,

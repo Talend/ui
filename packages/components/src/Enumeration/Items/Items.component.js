@@ -52,43 +52,44 @@ class Items extends React.PureComponent {
 		};
 
 		switch (item.displayMode) {
-		case DISPLAY_MODE_EDIT: {
-			const itemPropsEdit = {
-				key: this.props.itemsProp.key,
-				actions: this.props.itemsProp.actionsEdit,
-				onSubmitItem: this.props.itemsProp.onSubmitItem,
-				onAbortItem: this.props.itemsProp.onAbortItem,
-				onChangeItem: this.props.itemsProp.onChangeItem,
-			};
-			itemWithIndex.itemProps = itemPropsEdit;
+			case DISPLAY_MODE_EDIT: {
+				const itemPropsEdit = {
+					key: this.props.itemsProp.key,
+					actions: this.props.itemsProp.actionsEdit,
+					onSubmitItem: this.props.itemsProp.onSubmitItem,
+					onAbortItem: this.props.itemsProp.onAbortItem,
+					onChangeItem: this.props.itemsProp.onChangeItem,
+				};
+				itemWithIndex.itemProps = itemPropsEdit;
 
-			return (
-				<ItemEdit
-					key={`${index}-item`}
-					id={`${index}-item`}
-					item={itemWithIndex}
-					currentEdit={this.props.currentEdit}
-				/>
-			);
-		}
-		default: {
-			const itemPropDefault = {
-				key: this.props.itemsProp.key,
-				actions: this.props.itemsProp.actionsDefault,
-				onSelectItem: this.props.itemsProp.onSelectItem,
-			};
-			itemWithIndex.itemProps = itemPropDefault;
+				return (
+					<ItemEdit
+						key={`${index}-item`}
+						id={`${index}-item`}
+						item={itemWithIndex}
+						currentEdit={this.props.currentEdit}
+					/>
+				);
+			}
+			default: {
+				const itemPropDefault = {
+					key: this.props.itemsProp.key,
+					actions: this.props.itemsProp.actionsDefault,
+					onSelectItem: this.props.itemsProp.onSelectItem,
+				};
+				itemWithIndex.itemProps = itemPropDefault;
 
-			return (
-				<Item
-					key={`${index}-item`}
-					id={`${index}-item`}
-					item={itemWithIndex}
-					itemProps={itemPropDefault}
-					searchCriteria={this.props.searchCriteria}
-				/>
-			);
-		}
+				return (
+					<Item
+						key={`${index}-item`}
+						id={`${index}-item`}
+						item={itemWithIndex}
+						itemProps={itemPropDefault}
+						searchCriteria={this.props.searchCriteria}
+						showCheckboxes={this.props.showCheckboxes}
+					/>
+				);
+			}
 		}
 	}
 
@@ -176,4 +177,3 @@ Items.propTypes = {
 };
 
 export default Items;
-

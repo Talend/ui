@@ -1,16 +1,22 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
-import Enumeration from 'react-talend-components/lib/Enumeration';
+import Enumeration from '@talend/react-components/lib/Enumeration';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
+
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
+import I18N_DOMAIN_FORMS from '../../constants';
+import {
+	DEFAULT_I18N,
+	getDefaultTranslate,
+} from '../../translate';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
-const DUPLICATION_ERROR = 'This term is already in the list';
 
 const ENUMERATION_SEARCH_ACTION = 'ENUMERATION_SEARCH_ACTION';
 const ENUMERATION_ADD_ACTION = 'ENUMERATION_ADD_ACTION';
@@ -24,7 +30,7 @@ const ENUMERATION_IMPORT_FILE_CLICK = 'ENUMERATION_IMPORT_FILE_CLICK';
 const ENUMERATION_IMPORT_FILE_OVERWRITE_MODE = 'ENUMERATION_IMPORT_FILE_OVERWRITE_MODE';
 const ENUMERATION_IMPORT_FILE_APPEND_MODE = 'ENUMERATION_IMPORT_FILE_APPEND_MODE';
 
-class EnumerationWidget extends React.Component {
+class EnumerationForm extends React.Component {
 
 	static getItemHeight() {
 		return ITEMS_DEFAULT_HEIGHT;
@@ -46,6 +52,8 @@ class EnumerationWidget extends React.Component {
 
 	constructor(props) {
 		super(props);
+		const t = props.t;
+
 		this.timerSearch = null;
 		this.allowDuplicate = false;
 		this.allowImport = false;
@@ -58,66 +66,66 @@ class EnumerationWidget extends React.Component {
 
 		this.addInputs = [{
 			disabled: true,
-			label: 'Validate and Add',
+			label: t('ENUMERATION_WIDGET_VALIDATE_AND_ADD', { defaultValue: 'Validate and Add' }),
 			icon: 'talend-check-plus',
 			id: 'validate-and-add',
 			key: 'validateAdd',
 			onClick: this.onValidateAndAddHandler.bind(this),
 		}, {
 			disabled: true,
-			label: 'Validate',
+			label: t('ENUMERATION_WIDGET_VALIDATE', { defaultValue: 'Validate' }),
 			icon: 'talend-check',
 			id: 'validate',
 			key: 'validate',
 			onClick: this.onAddHandler.bind(this),
 		}, {
-			label: 'Abort',
+			label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
 			icon: 'talend-cross',
 			id: 'abort',
 			key: 'abort',
 			onClick: this.onAbortHandler.bind(this),
 		}];
 		this.searchInputsActions = [{
-			label: 'Abort',
+			label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
 			icon: 'talend-cross',
 			id: 'abort',
 			key: 'abort',
 			onClick: this.onAbortHandler.bind(this),
 		}];
 		this.loadingInputsActions = [{
-			label: 'Loading',
+			label: t('ENUMERATION_WIDGET_LOADING', { defaultValue: 'Loading' }),
 			icon: 'talend-cross',
 			inProgress: true,
 			id: 'loading',
 		}];
 		this.itemEditActions = [{
 			disabled: true,
-			label: 'Validate',
+			label: t('ENUMERATION_WIDGET_LOADING', { defaultValue: 'Validate' }),
 			icon: 'talend-check',
 			id: 'validate',
 			onClick: this.onSubmitItem.bind(this),
 		}, {
 			disabled: false,
-			label: 'Abort',
+			label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
 			icon: 'talend-cross',
 			id: 'abort',
 			onClick: this.onAbortItem.bind(this),
 		}];
 		this.defaultActions = [{
 			disabled: false,
-			label: 'Edit',
+			label: t('ENUMERATION_WIDGET_EDIT', { defaultValue: 'Edit' }),
 			icon: 'talend-pencil',
 			id: 'edit',
 			onClick: this.onEnterEditModeItem.bind(this),
 		}, {
-			label: 'Remove value',
+			label: t('ENUMERATION_WIDGET_REMOVE_VALUE', { defaultValue: 'Remove value' }),
 			icon: 'talend-trash',
 			id: 'delete',
 			onClick: this.onDeleteItem.bind(this),
 		}];
 		this.defaultHeaderActions = [{
 			disabled: false,
-			label: 'Search for specific values',
+			label: t('ENUMERATION_WIDGET_SEARCH_VALUES', { defaultValue: 'Search for specific values' }),
 			icon: 'talend-search',
 			id: 'search',
 			onClick: this.changeDisplayToSearchMode.bind(this),
@@ -125,17 +133,17 @@ class EnumerationWidget extends React.Component {
 
 		if (this.allowImport) {
 			this.defaultHeaderActions.push({
-				label: 'Import values from a file',
+				label: t('ENUMERATION_WIDGET_IMPORT_FROM_FILE', { defaultValue: 'Import values from a file' }),
 				icon: 'talend-download',
 				id: 'upload',
 				onClick: this.onImportButtonClick.bind(this),
 				displayMode: 'dropdown',
 				items: [{
-					label: 'Add values from a file',
+					label: t('ENUMERATION_WIDGET_ADD_FROM_FILE', { defaultValue: 'Add values from a file' }),
 					id: 'append-uploding',
 					onClick: this.onImportAppendClick.bind(this),
 				}, {
-					label: 'Overwrite existing values',
+					label: t('ENUMERATION_WIDGET_OVERWRITE_VALUES', { defaultValue: 'Overwrite existing values' }),
 					id: 'append-uploding',
 					onClick: this.onImportOverwriteClick.bind(this),
 				}],
@@ -143,14 +151,14 @@ class EnumerationWidget extends React.Component {
 		}
 
 		this.defaultHeaderActions.push({
-			label: 'Add item',
+			label: t('ENUMERATION_WIDGET_ADD_ITEM', { defaultValue: 'Add item' }),
 			icon: 'talend-plus',
 			id: 'add',
 			onClick: this.changeDisplayToAddMode.bind(this),
 		});
 
 		this.selectedHeaderActions = [{
-			label: 'Remove selected values',
+			label: t('ENUMERATION_WIDGET_REMOVE_SELECTED_VALUES', { defaultValue: 'Remove selected values' }),
 			icon: 'talend-trash',
 			id: 'delete',
 			onClick: this.onDeleteItems.bind(this),
@@ -300,17 +308,23 @@ class EnumerationWidget extends React.Component {
 	}
 
 	onChangeItem(event, value) {
+		const t = this.props.t;
+
 		// if the value exist add an error
 		this.setState((prevState) => {
 			const valueExist = this.valueAlreadyExist(value.value, prevState);
 			const items = [...prevState.items];
-			items[value.index].error = valueExist ? DUPLICATION_ERROR : '';
+			items[value.index].error = valueExist ?
+				t('ENUMERATION_WIDGET_DUPLICATION_ERROR', { defaultValue: 'This term is already in the list' }) :
+				'';
 			const validation = this.constructor.updateItemValidateDisabled(value, valueExist);
 			return { items, ...validation };
 		});
 	}
 
 	onSubmitItem(event, value) {
+		const t = this.props.t;
+
 		// dont want to fire select item on icon click
 		event.preventDefault();
 		event.stopPropagation();
@@ -338,7 +352,7 @@ class EnumerationWidget extends React.Component {
 						this.constructor.parseStringValueToArray(value.value);
 				}
 				if (valueExist) {
-					items[value.index].error = DUPLICATION_ERROR;
+					items[value.index].error = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', { defaultValue: 'This term is already in the list' });
 				}
 				return { items };
 			});
@@ -727,6 +741,8 @@ class EnumerationWidget extends React.Component {
 	}
 
 	updateHeaderInputDisabled(value) {
+		const t = this.props.t;
+
 		this.setState((prevState) => {
 			// checking if the value already exist
 			const valueExist = this.valueAlreadyExist(value, prevState);
@@ -736,7 +752,9 @@ class EnumerationWidget extends React.Component {
 
 			return {
 				headerInput: [validateAndAddAction, validateAction, abortAction],
-				headerError: valueExist ? DUPLICATION_ERROR : '',
+				headerError: valueExist ?
+					t('ENUMERATION_WIDGET_DUPLICATION_ERROR', { defaultValue: 'This term is already in the list' }) :
+					'',
 				inputValue: value,
 			};
 		});
@@ -760,6 +778,7 @@ class EnumerationWidget extends React.Component {
 	render() {
 		const items = this.searchItems(this.state.searchCriteria);
 		const stateToShow = { ...this.state, items };
+
 		return (
 			<div>
 				{ this.allowImport && this.renderImportFile() }
@@ -772,14 +791,22 @@ class EnumerationWidget extends React.Component {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-	EnumerationWidget.propTypes = {
+	EnumerationForm.propTypes = {
 		id: PropTypes.string,
 		registry: PropTypes.object, // eslint-disable-line
 		formData: PropTypes.array, // eslint-disable-line
 		schema: PropTypes.object, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
+		t: PropTypes.func.isRequired,
 	};
 }
 
-export default EnumerationWidget;
+EnumerationForm.defaultProps = {
+	t: getDefaultTranslate,
+};
+
+export { EnumerationForm };
+export default translate(I18N_DOMAIN_FORMS, {
+	i18n: DEFAULT_I18N,
+})(EnumerationForm);

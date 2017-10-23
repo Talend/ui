@@ -6,7 +6,7 @@ Object {
   "actions": Array [],
   "buttonBlockClass": "form-actions",
   "children": undefined,
-  "className": "tc-form rjsf pristine",
+  "className": "tc-form rjsf foo pristine",
   "data": Object {
     "jsonSchema": Object {
       "schema": true,
@@ -62,35 +62,6 @@ Array [
   Object {
     "data": undefined,
     "dirty": true,
-  },
-]
-`;
-
-exports[`Container(Form) should use props.onSubmit 1`] = `
-Object {
-  "foo": "bar",
-}
-`;
-
-exports[`Container(Form) should use props.onSubmit 2`] = `
-Array [
-  "myaction",
-  null,
-  Object {
-    "formData": Object {
-      "foo": "bar",
-    },
-    "props": Object {
-      "dispatchActionCreator": [Function],
-      "onSubmit": [Function],
-      "onSubmitActionCreator": "myaction",
-      "setState": [Function],
-      "state": Immutable.Map {
-        data: Immutable.Map {
-                schema: true,
-        },
-},
-    },
   },
 ]
 `;

@@ -1,10 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { store, Provider } from 'react-cmf/lib/mock';
+import { store, Provider } from '@talend/react-cmf/lib/mock';
 import SidePanel, { getActions } from './SidePanel.container';
 
-jest.mock('react-talend-components');
-jest.mock('react-dom');
+jest.mock(
+	'@talend/react-components',
+	() => ({ SidePanel: props => (<div className="tc-side-panel" {...props} />) })
+);
 
 describe('SidePanel', () => {
 	it('should render', () => {

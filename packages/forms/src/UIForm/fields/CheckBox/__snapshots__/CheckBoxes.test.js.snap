@@ -11,6 +11,7 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
     id="myForm"
     label="My foo title"
     onChange={[Function]}
+    onFinish={[Function]}
     schema={
       Object {
         "description": "my checkbox input hint",
@@ -38,6 +39,7 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
     id="myForm"
     label="My bar title"
     onChange={[Function]}
+    onFinish={[Function]}
     schema={
       Object {
         "description": "my checkbox input hint",
@@ -65,6 +67,7 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
     id="myForm"
     label="My lol title"
     onChange={[Function]}
+    onFinish={[Function]}
     schema={
       Object {
         "description": "my checkbox input hint",
@@ -102,6 +105,7 @@ exports[`CheckBoxes field should render checkboxes with no values 1`] = `
     id="myForm"
     label="My foo title"
     onChange={[Function]}
+    onFinish={[Function]}
     schema={
       Object {
         "description": "my checkbox input hint",
@@ -129,6 +133,7 @@ exports[`CheckBoxes field should render checkboxes with no values 1`] = `
     id="myForm"
     label="My bar title"
     onChange={[Function]}
+    onFinish={[Function]}
     schema={
       Object {
         "description": "my checkbox input hint",
@@ -156,6 +161,7 @@ exports[`CheckBoxes field should render checkboxes with no values 1`] = `
     id="myForm"
     label="My lol title"
     onChange={[Function]}
+    onFinish={[Function]}
     schema={
       Object {
         "description": "my checkbox input hint",
@@ -193,6 +199,7 @@ exports[`CheckBoxes field should render disabled checkboxes 1`] = `
     id="myForm"
     label="My foo title"
     onChange={[Function]}
+    onFinish={[Function]}
     schema={
       Object {
         "description": "my checkbox input hint",
@@ -221,6 +228,7 @@ exports[`CheckBoxes field should render disabled checkboxes 1`] = `
     id="myForm"
     label="My bar title"
     onChange={[Function]}
+    onFinish={[Function]}
     schema={
       Object {
         "description": "my checkbox input hint",
@@ -249,6 +257,7 @@ exports[`CheckBoxes field should render disabled checkboxes 1`] = `
     id="myForm"
     label="My lol title"
     onChange={[Function]}
+    onFinish={[Function]}
     schema={
       Object {
         "description": "my checkbox input hint",

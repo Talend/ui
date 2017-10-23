@@ -1,11 +1,13 @@
 package org.talend.component.list.table;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
 import org.talend.component.Component;
+
+import java.util.List;
 
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Table - Item.
@@ -42,7 +44,11 @@ public class Item extends Component {
      * @return The title button WebElement
      */
     public WebElement getTitle() {
-        return this.getElement().findElement(By.cssSelector(TABLE_ITEM_TITLE_SELECTOR));
+        final List<WebElement> titleButtons = this.getElement().findElements(By.cssSelector(TABLE_ITEM_TITLE_SELECTOR));
+        if (titleButtons.size() == 1) {
+            return titleButtons.get(0);
+        }
+        return null;
     }
 
     /**
@@ -79,7 +85,15 @@ public class Item extends Component {
      * Click on item title.
      */
     public void clickOnTitle() {
-        getTitle().click();
+        final WebElement title = getTitle();
+        if (title == null) {
+            throw new NotFoundException("Item title element not found. Not able to click on it.");
+        }
+
+        // this is js execution because in some cases react-virtualized freeze a very (very) short time after scroll.
+        // this is a problem only for automated tests that click fast. So the click is programmatic.
+        // for common human, this is not noticeable.
+        jsExec.executeScript("arguments[0].scrollIntoView(); arguments[0].click();", title);
     }
 
     /**
@@ -89,9 +103,14 @@ public class Item extends Component {
      * @param actionId The item action id
      */
     public void clickOnAction(final String actionId) {
-        final WebElement actionButton = this.getAction(actionId);
         final Actions action = new Actions(driver);
-        action.moveToElement(actionButton).perform();
-        actionButton.click();
+        action
+                .moveToElement(this.getElement())
+                .moveToElement(this.getAction(actionId))
+                .build()
+                .perform();
+
+        // we need to get the button element again because of TooltipTrigger that replace the element on hover ...
+        this.getAction(actionId).click();
     }
 }

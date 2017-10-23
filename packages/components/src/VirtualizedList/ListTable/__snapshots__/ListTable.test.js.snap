@@ -91,12 +91,17 @@ exports[`ListGrid should render no-rows component 1`] = `
       </div>
       <Grid
         aria-label="grid"
+        aria-readonly={true}
         autoContainerWidth={true}
+        autoHeight={false}
+        autoWidth={false}
         cellRangeRenderer={[Function]}
         cellRenderer={[Function]}
         className="ReactVirtualized__Table__Grid"
         columnCount={1}
         columnWidth={1024}
+        containerRole="rowgroup"
+        containerStyle={Object {}}
         disableHeader={false}
         estimatedColumnSize={100}
         estimatedRowSize={30}
@@ -109,6 +114,7 @@ exports[`ListGrid should render no-rows component 1`] = `
         noRowsRenderer={[Function]}
         onRowsRendered={[Function]}
         onScroll={[Function]}
+        onScrollbarPresenceChange={[Function]}
         onSectionRendered={[Function]}
         overscanColumnCount={0}
         overscanIndicesGetter={[Function]}
@@ -136,6 +142,7 @@ exports[`ListGrid should render no-rows component 1`] = `
       >
         <div
           aria-label="grid"
+          aria-readonly={true}
           className="ReactVirtualized__Grid ReactVirtualized__Table__Grid"
           onScroll={[Function]}
           role="rowgroup"

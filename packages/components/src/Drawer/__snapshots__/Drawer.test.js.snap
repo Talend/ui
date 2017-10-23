@@ -27,9 +27,13 @@ exports[`Drawer should render 1`] = `
           Hello world
         </h1>
       </div>
-      <nav
-        className="tc-actionbar-container nav"
-      />
+      <div
+        className={undefined}
+      >
+        <nav
+          className="tc-actionbar-container nav"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -60,9 +64,13 @@ exports[`Drawer should render stacked 1`] = `
           Hello world
         </h1>
       </div>
-      <nav
-        className="tc-actionbar-container nav"
-      />
+      <div
+        className={undefined}
+      >
+        <nav
+          className="tc-actionbar-container nav"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -93,9 +101,13 @@ exports[`Drawer should render using custom className 1`] = `
           Hello world
         </h1>
       </div>
-      <nav
-        className="tc-actionbar-container nav"
-      />
+      <div
+        className={undefined}
+      >
+        <nav
+          className="tc-actionbar-container nav"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -130,9 +142,13 @@ exports[`Drawer should render using custom styles 1`] = `
           Hello world
         </h1>
       </div>
-      <nav
-        className="tc-actionbar-container nav"
-      />
+      <div
+        className={undefined}
+      >
+        <nav
+          className="tc-actionbar-container nav"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -146,46 +162,50 @@ exports[`Drawer should render with tabs 1`] = `
   <div
     className={undefined}
   >
-    <nav
-      className="nav tc-tab-bar"
+    <div
+      className={undefined}
     >
-      <ul
-        className="nav nav-tabs tc-tab-bar-actions"
+      <nav
+        className="nav tc-tab-bar"
       >
-        <li
-          className="tc-tab-bar-action"
+        <ul
+          className="nav nav-tabs tc-tab-bar-actions"
         >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <li
+            className="tc-tab-bar-action"
           >
-            <span>
-              Tab 1
-            </span>
-          </button>
-        </li>
-        <li
-          className="tc-tab-bar-action active"
-        >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+            <button
+              className="btn btn-link"
+              disabled={false}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <span>
+                Tab 1
+              </span>
+            </button>
+          </li>
+          <li
+            className="tc-tab-bar-action active"
           >
-            <span>
-              Tab 2
-            </span>
-          </button>
-        </li>
-      </ul>
-    </nav>
+            <button
+              className="btn btn-link"
+              disabled={false}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <span>
+                Tab 2
+              </span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
     <div
       style={
         Object {
@@ -203,9 +223,13 @@ exports[`Drawer should render with tabs 1`] = `
           Hello world
         </h1>
       </div>
-      <nav
-        className="tc-actionbar-container nav"
-      />
+      <div
+        className={undefined}
+      >
+        <nav
+          className="tc-actionbar-container nav"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -236,9 +260,13 @@ exports[`Drawer should render without tc-drawer-transition class 1`] = `
           Hello world
         </h1>
       </div>
-      <nav
-        className="tc-actionbar-container nav"
-      />
+      <div
+        className={undefined}
+      >
+        <nav
+          className="tc-actionbar-container nav"
+        />
+      </div>
     </div>
   </div>
 </div>

@@ -1,63 +1,69 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import { DEFAULT_I18N } from '../translate';
 import Action from '../Actions/Action';
 import theme from './Badge.scss';
 
-function badgeClasses(tcStyle, onDelete) {
-	return classNames({
-		[theme['tc-badge']]: true,
-		'tc-badge': true,
-		[theme['tc-badge-outline']]: tcStyle === 'outline',
-		'tc-badge-outline': tcStyle === 'outline',
-		[theme['tc-badge-solid']]: tcStyle === 'solid',
-		'tc-badge-solid': tcStyle === 'solid',
-		[theme['tc-badge-with-icon']]: onDelete,
-		'tc-badge-with-icon': onDelete,
-	});
+function renderDeleteIcon(onClick, disabled, t) {
+	if (onClick) {
+		return (
+			<Action
+				label={t('BADGE_DELETE', { defaultValue: 'delete' })}
+				hideLabel
+				onClick={onClick}
+				disabled={disabled}
+				icon="talend-cross"
+				className={classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon'])}
+			/>
+		);
+	}
+	return null;
 }
 
-function badgeLabelClasses(onDelete) {
-	return classNames({
-		[theme['tc-badge-label']]: true,
-		'tc-badge-label': true,
-		[theme['tc-badge-label-with-icon']]: onDelete,
-		'tc-badge-label-with-icon': onDelete,
-	});
-}
-
-function renderDeleteIcon(onDelete) {
-	return (
-		<Action
-			label="delete"
-			hideLabel
-			onClick={onDelete}
-			icon="talend-cross"
-			className={`${theme['tc-badge-delete-icon']} tc-badge-delete-icon`}
-		/>
+function Badge({ label, category, onDelete, onSelect, selected, disabled, t, style }) {
+	const containerClasses = classNames(
+		'tc-badge', theme['tc-badge'],
+		selected && ['tc-badge-selected', theme['tc-badge-selected']],
+		disabled && ['tc-badge-disabled', theme['tc-badge-disabled']],
+		!onDelete && ['tc-badge-readonly', theme['tc-badge-readonly']],
 	);
-}
+	const badgeClasses = classNames('tc-badge-button', theme['tc-badge-button']);
+	const labelClasses = classNames('tc-badge-label', theme['tc-badge-label']);
+	const categoryClasses = classNames('tc-badge-category', theme['tc-badge-category']);
 
-function Badge({ label, tcStyle, onDelete }) {
 	return (
-		<div className={badgeClasses(tcStyle, onDelete)}>
-			<span className={badgeLabelClasses(onDelete)}>
-				{label}
-			</span>
-			{onDelete && renderDeleteIcon(onDelete)}
+		<div className={containerClasses} style={style}>
+			<button className={badgeClasses} onClick={onSelect} disabled={disabled}>
+				{category && <span className={categoryClasses}>
+					{category}
+				</span>}
+				<span className={labelClasses}>
+					{label}
+				</span>
+			</button>
+			{renderDeleteIcon(onDelete, disabled, t)}
 		</div>
 	);
 }
 
 Badge.propTypes = {
 	label: PropTypes.string,
-	tcStyle: PropTypes.string,
+	category: PropTypes.string,
 	onDelete: PropTypes.func,
+	onSelect: PropTypes.func,
+	selected: PropTypes.bool,
+	disabled: PropTypes.bool,
+	t: PropTypes.func.isRequired,
+	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 Badge.defaultProps = {
-	tcStyle: 'solid',
+	selected: false,
+	disabled: false,
 };
 
-export default Badge;
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Badge);

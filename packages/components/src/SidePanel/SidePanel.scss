@@ -3,24 +3,29 @@
 /// @group Custom widgets
 ////
 
-/// Side panel toggle button color
-/// @type Color
-$tc-side-panel-toggle-color: tint($brand-primary, 75);
+$list-item-hover-color: rgba($white, 0.12) !default;
+$list-item-active-color: rgba($white, 0.25) !default;
+$toggle-button-opacity: 0.75;
+$tc-side-panel-width: 200px !default;
+$tc-side-panel-docked-width: 50px !default;
+$tc-side-panel-labels-width: 135px !default;
+$tc-side-panel-icons-size: 20px !default;
+$toggle-button-padding: $padding-small - 1;
 
 .tc-side-panel {
 	overflow-x: hidden;
 	padding: 0;
-	transition: 0.2s padding ease-out;
+	transition: 0.2s width ease-out;
+	width: $tc-side-panel-width;
 
-	:global(.btn) svg:global(.tc-svg-icon) {
-		width: $svg-lg-size;
-		height: $svg-lg-size;
-		margin: 0;
+	&>ul {
+		width: $tc-side-panel-width;
 	}
 
-	.action-list {
+	:global(.btn) svg:global(.tc-svg-icon) {
+		width: $tc-side-panel-icons-size;
+		height: $tc-side-panel-icons-size;
 		margin: 0;
-		transition: 0.2s margin ease-out;
 	}
 
 	.link {
@@ -32,23 +37,35 @@ $tc-side-panel-toggle-color: tint($brand-primary, 75);
 			margin-left: $padding-normal;
 			vertical-align: text-bottom;
 		}
-
-		span {
-			transition: 0.2s opacity linear;
-		}
 	}
 
 	//override nav-pill a bit
 	:global(.nav-pills .btn.btn-link) {
 		padding: $padding-normal $padding-large;
+		text-overflow: inherit;
+	}
+
+	:global(.nav-pills .btn.btn-link) > span {
+		vertical-align: middle;
+		text-overflow: ellipsis;
+		width: $tc-side-panel-labels-width;
+		overflow: hidden;
 	}
 
 	:global(.tc-side-panel-list-item):hover {
-		background-color: darken($brand-primary, 2%);
+		background-color: $list-item-hover-color;
+	}
+
+	:global(.tc-side-panel-list-item.active) {
+		background-color: $list-item-active-color;
 	}
 
 	&.docked {
-		padding: 0;
+		width: $tc-side-panel-docked-width;
+
+		:global(.tc-side-panel-list-item) {
+			width: $tc-side-panel-docked-width;
+		}
 
 		:global(.nav-pills) {
 			//override nav-pill a bit
@@ -61,32 +78,42 @@ $tc-side-panel-toggle-color: tint($brand-primary, 75);
 					transform: rotate(-180deg);
 				}
 			}
+		}
 
-			.link span {
-				opacity: 0;
+		.toggle-btn {
+			:global(.btn.btn-link) {
+				padding: $padding-small;
 			}
 		}
 	}
 
 	.toggle-btn {
 		margin-bottom: $padding-normal + $padding-large;
+		text-align: left;
+		padding-left: $toggle-button-padding;
 
 		:global(.btn.btn-link) {
 			outline: none;
+			padding: $padding-small;
+			display: inline-block;
+			width: auto;
+			opacity: $toggle-button-opacity;
+			margin: 0 auto;
+
+			&:hover {
+				opacity: 1;
+				background-color: $list-item-hover-color;
+			}
 
 			:global(.tc-svg-icon) {
-				fill: $tc-side-panel-toggle-color;
-				width: $svg-md-size;
-				height: $svg-md-size;
+				width: $svg-sm-size;
+				height: $svg-sm-size;
 				transition: 0.2s transform ease-out;
 			}
+		}
 
-			&:before {
-				color: $tc-side-panel-toggle-color;
-				content: '|';
-				font-size: $font-size-base;
-				font-weight: bold;
-			}
+		:global(.btn.btn-link) > span {
+			display: none;
 		}
 
 		&:hover {

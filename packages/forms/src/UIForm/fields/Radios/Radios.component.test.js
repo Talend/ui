@@ -24,6 +24,7 @@ describe('Radios field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'toto'}
 			/>
@@ -47,6 +48,7 @@ describe('Radios field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={inlineSchema}
 				value={'toto'}
 			/>
@@ -70,6 +72,7 @@ describe('Radios field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value={'toto'}
 			/>
@@ -88,6 +91,7 @@ describe('Radios field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={onChange}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'toto'}
 			/>
@@ -99,5 +103,28 @@ describe('Radios field', () => {
 
 		// then
 		expect(onChange).toBeCalledWith(event, { schema, value: 'foo' });
+	});
+
+	it('should trigger onFinish on blur', () => {
+		// given
+		const onFinish = jest.fn();
+		const wrapper = shallow(
+			<Radios
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				onFinish={onFinish}
+				schema={schema}
+				value={'toto'}
+			/>
+		);
+		const event = { target: { value: 'foo' } };
+
+		// when
+		wrapper.find('input[type="radio"]').at(0).simulate('blur', event);
+
+		// then
+		expect(onFinish).toBeCalledWith(event, { schema });
 	});
 });

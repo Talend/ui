@@ -15,8 +15,9 @@ exports[`Select field should render disabled input 1`] = `
     disabled={true}
     id="mySelect"
     multiple={false}
+    onBlur={[Function]}
     onChange={[Function]}
-    readOnly={undefined}
+    readOnly={false}
     value="lol"
   >
     <option
@@ -55,9 +56,10 @@ exports[`Select field should render readOnly input 1`] = `
   <select
     autoFocus={true}
     className="form-control"
-    disabled={undefined}
+    disabled={false}
     id="mySelect"
     multiple={false}
+    onBlur={[Function]}
     onChange={[Function]}
     readOnly={true}
     value="lol"
@@ -98,11 +100,12 @@ exports[`Select field should render select multiple 1`] = `
   <select
     autoFocus={true}
     className="form-control"
-    disabled={undefined}
+    disabled={false}
     id="mySelect"
     multiple={true}
+    onBlur={[Function]}
     onChange={[Function]}
-    readOnly={undefined}
+    readOnly={false}
     value={
       Array [
         "foo",
@@ -146,11 +149,12 @@ exports[`Select field should render simple select 1`] = `
   <select
     autoFocus={true}
     className="form-control"
-    disabled={undefined}
+    disabled={false}
     id="mySelect"
     multiple={false}
+    onBlur={[Function]}
     onChange={[Function]}
-    readOnly={undefined}
+    readOnly={false}
     value="lol"
   >
     <option

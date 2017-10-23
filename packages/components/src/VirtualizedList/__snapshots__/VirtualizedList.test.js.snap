@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`VirtualizedList should render CircularProgress 1`] = `
+<div
+  aria-atomic="true"
+  aria-busy="true"
+  className={undefined}
+>
+  <CircularProgress
+    size="default"
+  />
+</div>
+`;
+
 exports[`VirtualizedList should render RendererSelector 1`] = `
 <VirtualizedList(RendererSelector)
   collection={
@@ -86,6 +98,8 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
 
 exports[`VirtualizedList should use AutoSizer 1`] = `
 <AutoSizer
+  disableHeight={false}
+  disableWidth={false}
   onResize={[Function]}
 >
   [Function]

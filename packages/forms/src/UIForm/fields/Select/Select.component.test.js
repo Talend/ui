@@ -29,6 +29,7 @@ describe('Select field', () => {
 				isValid
 				errorMessage={'My Error Message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'lol'}
 			/>
@@ -57,6 +58,7 @@ describe('Select field', () => {
 				isValid
 				errorMessage={'My Error Message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={multipleSchema}
 				value={['foo', 'lol']}
 			/>
@@ -80,6 +82,7 @@ describe('Select field', () => {
 				isValid
 				errorMessage={'My Error Message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value={'lol'}
 			/>
@@ -103,6 +106,7 @@ describe('Select field', () => {
 				isValid
 				errorMessage={'My Error Message'}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={readOnlySchema}
 				value={'lol'}
 			/>
@@ -121,6 +125,7 @@ describe('Select field', () => {
 				isValid
 				errorMessage={'My Error Message'}
 				onChange={onChange}
+				onFinish={jest.fn()}
 				schema={schema}
 				value={'lol'}
 			/>
@@ -162,6 +167,7 @@ describe('Select field', () => {
 				isValid
 				errorMessage={'My Error Message'}
 				onChange={onChange}
+				onFinish={jest.fn()}
 				schema={multipleSchema}
 				value={['foo', 'lol']}
 			/>
@@ -175,5 +181,29 @@ describe('Select field', () => {
 			event,
 			{ schema: multipleSchema, value: ['foo', 'lol'] }
 		);
+	});
+
+
+	it('should trigger onFinish on select blur', () => {
+		// given
+		const onFinish = jest.fn();
+		const wrapper = shallow(
+			<Select
+				id={'mySelect'}
+				isValid
+				errorMessage={'My Error Message'}
+				onChange={jest.fn()}
+				onFinish={onFinish}
+				schema={schema}
+				value={'lol'}
+			/>
+		);
+		const event = { target: { value: 'bar' } };
+
+		// when
+		wrapper.find('select').simulate('blur', event);
+
+		// then
+		expect(onFinish).toBeCalledWith(event, { schema });
 	});
 });

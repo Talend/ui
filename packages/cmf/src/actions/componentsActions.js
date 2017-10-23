@@ -14,7 +14,7 @@ export const COMPONENT_REMOVE_STATE = 'REACT_CMF.COMPONENT_REMOVE_STATE';
  *
  * @throw if a component with this componentName associated to this key already exist
  */
-export function addComponentState(componentName, key, initialComponentState) {
+export function addState(componentName, key, initialComponentState) {
 	return {
 		type: COMPONENT_ADD_STATE,
 		componentName,
@@ -32,7 +32,7 @@ export function addComponentState(componentName, key, initialComponentState) {
  *
  * @throw if no componentName associated with this collectionId exist
  */
-export function mergeComponentState(componentName, key, componentState) {
+export function mergeState(componentName, key, componentState) {
 	return {
 		type: COMPONENT_MERGE_STATE,
 		componentName,
@@ -49,10 +49,15 @@ export function mergeComponentState(componentName, key, componentState) {
  *
  * @throw if no componentName associated with this collectionId exist
  */
-export function removeComponentState(componentName, key) {
+export function removeState(componentName, key) {
 	return {
 		type: COMPONENT_REMOVE_STATE,
 		componentName,
 		key,
 	};
 }
+
+// backward compatbility
+export const addComponentState = addState;
+export const removeComponentState = removeState;
+export const mergeComponentState = mergeState;

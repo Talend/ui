@@ -2,14 +2,18 @@ import { Map } from 'immutable';
 
 import reducer, {
 	defaultState,
-	componentAlreadyExists,
-	componentDoesntExists,
 } from '../../src/reducers/componentsReducers';
+
+global.console = { warn: jest.fn() };
 
 describe('check component management reducer', () => {
 	const initialState = defaultState
 			.set('component1', new Map()
 			.set('key1', new Map().set('searchQuery', '')));
+
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
 
 	it(`REACT_CMF.COMPONENT_ADD_STATE should properly add component/collection
 		state tracking to the store if nor the component/key exist`,
@@ -79,7 +83,10 @@ describe('check component management reducer', () => {
 			key: 'key1',
 			initialComponentState: 'initialState',
 		};
-		expect(() => reducer(initialState, action)).toThrow(componentAlreadyExists(action));
+		reducer(initialState, action);
+		expect(console.warn).toBeCalled(); // eslint no-console: ["error", { allow: ["warn"] }]
+		expect(console.warn.mock.calls[0][0]).toEqual(`Beware component component1 try to recreate an existing
+ State namespace key1, meaning that the original one will be overloaded`); // eslint no-console: ["error", { allow: ["warn"] }]
 	});
 	it(`REACT_CMF.COMPONENT_MERGE_STATE should properly merge
 		component/key state into the store`,
@@ -107,7 +114,8 @@ describe('check component management reducer', () => {
 				key: 'key',
 				componentState: { searchQuery: 'data' },
 			};
-			expect(() => reducer(initialState, action)).toThrow(componentDoesntExists(action));
+			expect(() => reducer(initialState, action)).toThrow(`Error, the component component try to mutate a non existing
+ State namespace key, this namespace may be not yet created or already removed.`);
 		}
 	);
 
@@ -131,7 +139,11 @@ describe('check component management reducer', () => {
 			componentName: 'component',
 			key: 'key',
 		};
-		expect(() => reducer(initialState, action)).toThrow(componentDoesntExists(action));
+		reducer(initialState, action);
+		expect(console.warn).toBeCalled();
+		expect(console.warn.mock.calls[0][0]).toEqual(`Beware the component component try to remove a non existing
+ State namespace key, it isn't a normal behavior execpt if two component are binded
+ to this specific namespace`);
 	});
 	it('should recall itself on action.cmf.componentState', () => {
 		const action = {

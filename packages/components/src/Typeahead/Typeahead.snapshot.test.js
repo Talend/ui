@@ -4,7 +4,7 @@ import Typeahead from './Typeahead.component';
 
 jest.mock('react-dom');
 
-const items = [
+const itemsObject = [
 	{
 		title: 'category 1',
 		icon: {
@@ -36,6 +36,8 @@ const items = [
 		],
 	},
 ];
+
+const itemsString = ['category 1', 'category 2'];
 
 describe('Typeahead', () => {
 	describe('with toggle', () => {
@@ -80,11 +82,12 @@ describe('Typeahead', () => {
 	});
 
 	describe('items', () => {
-		it('should render typeahead with results', () => {
+		it('should render typeahead with string items', () => {
 			// given
 			const props = {
 				id: 'my-search',
-				items,
+				items: itemsString,
+				multiSection: false,
 			};
 			// when
 			const wrapper = renderer
@@ -95,7 +98,22 @@ describe('Typeahead', () => {
 			expect(wrapper).toMatchSnapshot();
 		});
 
-		it('should render typeahead without results', () => {
+		it('should render typeahead with object items', () => {
+			// given
+			const props = {
+				id: 'my-search',
+				items: itemsObject,
+			};
+			// when
+			const wrapper = renderer
+				.create(<Typeahead {...props} />)
+				.toJSON();
+
+			// then
+			expect(wrapper).toMatchSnapshot();
+		});
+
+		it('should render typeahead without items', () => {
 			// given
 			const props = {
 				id: 'my-search',
@@ -111,12 +129,12 @@ describe('Typeahead', () => {
 			expect(wrapper).toMatchSnapshot();
 		});
 
-		it('should render typeahead results with match', () => {
+		it('should render typeahead items with match', () => {
 			// given
 			const props = {
 				id: 'my-search',
 				value: 'le',
-				items,
+				items: itemsObject,
 			};
 
 			// when

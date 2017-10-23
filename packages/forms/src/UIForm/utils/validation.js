@@ -2,6 +2,40 @@ import { validate } from 'talend-json-schema-form-core';
 import { getValue, omitAll } from '../utils/properties';
 
 /**
+ * Adapt merged schema from jsfc with additional rules
+ * @param mergedSchema The jsfc merged schema
+ * @returns The adapted merged schema
+ */
+export function adaptAdditionalRules(mergedSchema) {
+	// skip enum validation if explicitly not restricted
+	const { schema } = mergedSchema;
+	if (mergedSchema.restricted === false) {
+		if (schema.type === 'array' && (schema.items && schema.items.enum)) {
+			return {
+				...mergedSchema,
+				schema: {
+					...schema,
+					items: {
+						...schema.items,
+						enum: undefined,
+					},
+				},
+			};
+		} else if (schema.enum) {
+			return {
+				...mergedSchema,
+				schema: {
+					...schema,
+					enum: undefined,
+				},
+			};
+		}
+	}
+
+	return mergedSchema;
+}
+
+/**
  * Validate a value.
  * @param schema The merged schema
  * @param value The value
@@ -11,7 +45,8 @@ import { getValue, omitAll } from '../utils/properties';
  * @returns {object} The validation result.
  */
 export function validateValue(schema, value, properties, customValidationFn) {
-	const staticResult = validate(schema, value);
+	const validationSchema = adaptAdditionalRules(schema);
+	const staticResult = validate(validationSchema, value);
 	if (staticResult.valid && schema.customValidation && customValidationFn) {
 		return customValidationFn(schema, value, properties);
 	}

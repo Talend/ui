@@ -1,4 +1,4 @@
-import { actions } from 'react-cmf';
+import { actions } from '@talend/react-cmf';
 import { GETTING_DATASTORES, ERROR_GETTING_DATASTORES } from '../constants';
 
 export function fetchDataStores() {
