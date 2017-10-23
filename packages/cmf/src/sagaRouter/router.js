@@ -1,5 +1,35 @@
 /**
  * @module react-cmf/lib/sagaRouter
+ * @example
+ *	import { sagaRouter } from '@talend/react-cmf';
+ *	import { browserHistory as history } from 'react-router';
+
+ *	const CANCEL_ACTION = 'CANCEL_ACTION';
+ *	// route configuration, a url fragment match with a generator
+ *	const routes = {
+ *		"/datasets/add": function* addDataset() {
+ *			yield take(CANCEL_ACTION);
+ *			yield put({
+ *				type: REDIRECT_ADD_DATASET_CANCEL,
+ *				cmf: {
+ *					routerReplace: "/datasets"
+ *				}
+ *			});
+ *		},
+ *		"/connections/:datastoreId/edit/add-dataset": function* addDataset({
+ *			datastoreId
+ *		}) {
+ *			yield take(CANCEL_ACTION);
+ *			yield put({
+ *				type: REDIRECT_CONNECTION_ADD_DATASET_CANCEL,
+ *				cmf: {
+ *					routerReplace: `/connections/${datastoreId}/edit`
+ *				}
+ *			});
+ *		}
+ *	};
+ *	// router saga is forked and given router history, and route configuration
+ *	yield fork(routerSaga, history, routes);
  */
 import { spawn, take, cancel } from 'redux-saga/effects';
 import isEqual from 'lodash/isEqual';
