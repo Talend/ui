@@ -11,7 +11,7 @@ This is a library to help you to build configurable React App with CQRS pattern.
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1e353b0f69c4cf99a4cb3f68b70ea7d)](https://www.codacy.com/app/Talend/ui/packages/cmf-cqrs)
 
 [npm-icon]: https://nodei.co/npm/react-cmf-cqrs.png?downloads=true
-[npm-url]: https://npmjs.org/package/react-cmf-cqrs
+[npm-url]: https://npmjs.org/package/@talend/react-cmf-cqrs
 [travis-ci-image]: https://travis-ci.org/Talend/react-cmf-cqrs.svg?branch=master
 [travis-ci-url]: https://travis-ci.org/Talend/react-cmf-cqrs
 

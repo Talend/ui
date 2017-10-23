@@ -205,6 +205,7 @@ const handlerHighlight = {
 	onClick: action('onClick'),
 	onSelect: (e, jsonpath) => {
 		selectedJsonpath = jsonpath;
+		action('onSelect');
 	},
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
@@ -216,6 +217,7 @@ const openedNativeTypeHandler = {
 	onClick: action('onClick'),
 	onSelect: (e, jsonpath) => {
 		selectedJsonpath = jsonpath;
+		action('onSelect');
 	},
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),

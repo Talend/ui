@@ -53,18 +53,13 @@
 		top: $object-viewer-badge-offset;
 		height: 9px;
 		width: 9px;
-		border-width: 1px;
 		background-color: rgba($brand-primary, 0.3);
 		color: $brand-primary;
 		font-size: 10px;
 		padding: 2px 5px;
 		display: inline-table;
 		margin-left: 10px;
-		border: solid 1px #dce4eb;
-	}
-
-	sup selected {
-		background-color: rgba($brand-primary, 1);
+		vertical-align: text-bottom;
 	}
 
 	sup::before {
@@ -78,30 +73,26 @@
 		text-overflow: ellipsis;
 	}
 
-	.selected-badge {
-		background-color: rgba(93, 136, 170, 0.75);
-		color: $black;
-	}
-
 	.selected-line {
 		background-color: rgba(93, 136, 170, 0.1);
-		opacity: 0.75;
-		font-size: 15px;
-		color: $black;
+		color: $dove-gray;
+	}
+
+	.line {
+		font-size: 14px;
 	}
 
 	.line-key {
-		font-size: 14px;
-		opacity: 0.75;
 		padding-left: 5px;
 		display: inline;
-		color: $black;
+		color: $dove-gray;
 	}
 
 	.line-value {
 		max-width: 90%;
 		color: $brand-primary;
-		font-size: $object-viewer-value-font-size;
+		display: inline;
+		vertical-align: baseline;
 		border: none;
 		background: none;
 		padding: 0;
@@ -129,10 +120,6 @@
 
 	.inner-button-text:hover {
 		white-space: initial;
-	}
-
-	.line-value-selected {
-		color: $black;
 	}
 
 	.line-type {
