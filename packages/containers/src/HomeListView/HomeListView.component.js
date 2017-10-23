@@ -1,16 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Layout } from '@talend/react-components';
+import { Inject } from '@talend/react-cmf';
 
-import AppHeaderBar from '../AppHeaderBar';
-import List from '../List';
-import SidePanel from '../SidePanel';
-
-function getContent(Component, props) {
+function getContent(component, props) {
 	if (React.isValidElement(props)) {
 		return props;
 	}
-	return (<Component {...props} />);
+	return (<Inject component={component} {...props} />);
 }
 
 function wrapChildren(children) {
@@ -35,11 +32,11 @@ function HomeListView({ sidepanel, list, header, children }) {
 	return (
 		<Layout
 			mode="TwoColumns"
-			header={getContent(AppHeaderBar, header)}
-			one={getContent(SidePanel, sidepanel)}
+			header={getContent('AppHeaderBar', header)}
+			one={getContent('SidePanel', sidepanel)}
 			drawers={drawers}
 		>
-			{getContent(List, list)}
+			{getContent('List', list)}
 		</Layout>
 	);
 }
