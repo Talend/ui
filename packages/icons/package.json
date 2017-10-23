@@ -13,7 +13,7 @@
     "test:cov": "echo no test",
     "start": "echo nothing to start",
     "svgo": "svgo -f src/svg --config=.svgo.yml",
-    "maven": "webpack --config webpack.maven.js --progress"
+    "maven": "webpack --config webpack.maven.js --progress --bail"
   },
   "files": [
     "index.js",

@@ -108,6 +108,8 @@ const onDone = file => {
 };
 
 module.exports = {
+  context: path.resolve(__dirname),
+	entry: './package.json',
   output: {
     filename: "maven.js",
     path: path.join(__dirname, "dist/maven")
