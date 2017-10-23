@@ -32,14 +32,37 @@ export function attachRefs(state, props) {
 	return attachedProps;
 }
 
+/**
+ * if viewId is undefined, try to generate a meaningfull one
+ * else return given viewId
+ * @param {string} viewId
+ * @param {strign} componentName
+ * @param {string} componentId
+ */
+function generateDefaultViewId(viewId, componentName, componentId) {
+	if (!viewId) {
+		if (componentName && componentId) {
+			return `${componentName}:${componentId}`;
+		} else if (componentName) {
+			return componentName;
+		}
+	}
+	return viewId;
+}
+
+/**
+ * try to retrieve view settings for a cmfconnected component
+ * @param {Object} state the application state
+ * @param {*} ownProps props given to the cmfConnected component
+ * @param {*} componentName name of the cmfConnect component
+ * @param {*} componentId componentId, can be undefined
+ */
 export function nonMemoizedMapStateToViewProps(state, ownProps, componentName, componentId) {
 	let viewProps = {};
 	let viewId = ownProps.view;
-	if (!ownProps.view && componentName && !componentId) {
-		viewId = componentName;
-	} else if (!ownProps.view && componentName && componentId) {
-		viewId = `${componentName}:${componentId}`;
-	}
+
+	viewId = generateDefaultViewId(viewId, componentName, componentId);
+
 	if (viewId && state.cmf.settings.views[viewId]) {
 		viewProps = Object.assign({}, state.cmf.settings.views[viewId]);
 		viewProps = attachRefs(state, viewProps);
