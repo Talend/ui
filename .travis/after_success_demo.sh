@@ -3,6 +3,10 @@
 echo "STORYBOOK"
 cd "$TRAVIS_BUILD_DIR"
 
+lerna exec --scope=@talend/react-cmf -- jsdoc -c docs.json
+cp -R packages/cmf/docs/jsdoc .static/cmf
+echo "✓ Copy cmf jsdoc to .static"
+
 lerna exec --scope=@talend/react-components -- yarn run build-storybook
 cp -R packages/components/storybook-static/* .static/components
 echo "✓ Copy components showcase to .static"

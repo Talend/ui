@@ -83,9 +83,9 @@ describe('cmfConnect', () => {
 		it('should inject view settings using displayName and componentId', () => {
 			const state = mock.state();
 			state.cmf.components = fromJS({});
-			state.cmf.settings.views['TestComponent:default'] = { foo: 'from-displayName' };
-			state.cmf.settings.views['TestComponent:props-id'] = { foo: 'from-props-componentId' };
-			state.cmf.settings.views['TestComponent:connect-id'] = { foo: 'from-connect-componentId' };
+			state.cmf.settings.views['TestComponent#default'] = { foo: 'from-displayName' };
+			state.cmf.settings.views['TestComponent#props-id'] = { foo: 'from-props-componentId' };
+			state.cmf.settings.views['TestComponent#connect-id'] = { foo: 'from-connect-componentId' };
 			let props = getStateToProps({
 				componentId: 'connect-id',
 				ownProps: {},
@@ -107,9 +107,9 @@ describe('cmfConnect', () => {
 				WrappedComponent: { displayName: 'TestComponent' },
 			});
 			expect(props.foo).toBe('from-displayName');
-			delete state.cmf.settings.views['TestComponent:default'];
-			delete state.cmf.settings.views['TestComponent:props-id'];
-			delete state.cmf.settings.views['TestComponent:connect-id'];
+			delete state.cmf.settings.views['TestComponent#default'];
+			delete state.cmf.settings.views['TestComponent#props-id'];
+			delete state.cmf.settings.views['TestComponent#connect-id'];
 		});
 	});
 

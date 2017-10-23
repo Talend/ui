@@ -1,5 +1,8 @@
 /**
+ * Internal. This is the component which inject the registry as child context.
+ * It is called by the App component
  * @module react-cmf/lib/RegistryProvider
+ * @see module:react-cmf/lib/App
  */
 import PropTypes from 'prop-types';
 import React, { Children } from 'react';
@@ -11,11 +14,15 @@ import Registry from './registry';
  */
 export default class RegistryProvider extends React.Component {
 
+	constructor(props) {
+		super(props);
+		this.registry = Registry.getRegistry();
+	}
 	/**
 	 * @return {object} child with registry as only key
 	 */
 	getChildContext() {
-		return { registry: Registry.getRegistry() };
+		return { registry: this.registry };
 	}
 
 	/**

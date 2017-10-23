@@ -1,6 +1,11 @@
 /**
+ * Used to deprecate what ever you want
  * @module react-cmf/lib/deprecated
  */
+
+
+/* eslint-disable prefer-rest-params */
+/* eslint-disable no-console*/
 
 /**
  * display a deprecated message on the first call of a function.
@@ -9,9 +14,6 @@
  * @param  {function}   log [description]
  * @return {any}       the content of fn;
  */
-
-/* eslint-disable prefer-rest-params */
-/* eslint-disable no-console*/
 export default function deprecated(fn, msg, log) {
 	let called = false;
 	return function wrapper() {
