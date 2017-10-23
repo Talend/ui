@@ -35,16 +35,13 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 
-	const lineValueClasses = classNames(
-		theme.native,
-		theme[type],
-		theme['line-value'],
-	);
+	const lineValueClasses = classNames(theme.native, theme[type], theme['line-value']);
 
 	return (
 		<span
 			className={lineValueClasses}
-			type="button"
+			role="button"
+			tabIndex="0"
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 		>
 			{display}
@@ -105,12 +102,8 @@ export function LineItem({
 	});
 
 	return (
-	// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-		<span
-			className={classes}
-			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
-			{...props}
-		>
+		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+		<span className={classes} onClick={e => stopAndSelect(e, { onSelect, jsonpath })} {...props}>
 			{getName(name)}
 			{children}
 		</span>
@@ -243,11 +236,7 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 							({info.type})
 						</button>
 					) : null}
-					<TooltipTrigger
-						className="offset"
-						label={getDataAbstract(data)}
-						tooltipPlacement="right"
-					>
+					<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
 						<sup className="badge">{decoratedLength}</sup>
 					</TooltipTrigger>
 					{isOpened ? (
@@ -333,9 +322,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					onChange={props.onChange}
 				/>
 				{props.showType && (
-					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>
-						({info.type})
-					</div>
+					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>({info.type})</div>
 				)}
 			</LineItem>
 		);
@@ -430,7 +417,7 @@ export function JSONLike({ onSubmit, ...props }) {
 				<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
 					<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
 				</TooltipTrigger>
-				) : null}
+			) : null}
 			<Item {...props} />
 		</div>
 	);
