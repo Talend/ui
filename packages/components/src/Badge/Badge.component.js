@@ -8,7 +8,7 @@ import { DEFAULT_I18N } from '../translate';
 import Action from '../Actions/Action';
 import theme from './Badge.scss';
 
-function renderDeleteIcon(onClick, disabled, t) {
+function renderDeleteIcon(onClick, deleteId, disabled, t) {
 	if (onClick) {
 		return (
 			<Action
@@ -17,6 +17,7 @@ function renderDeleteIcon(onClick, disabled, t) {
 				onClick={onClick}
 				disabled={disabled}
 				icon="talend-cross"
+				id={deleteId}
 				className={classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon'])}
 			/>
 		);
@@ -24,7 +25,18 @@ function renderDeleteIcon(onClick, disabled, t) {
 	return null;
 }
 
-function Badge({ label, category, onDelete, onSelect, selected, disabled, t, style }) {
+function Badge({
+	label,
+	category,
+	onDelete,
+	deleteId,
+	onSelect,
+	selectId,
+	selected,
+	disabled,
+	t,
+	style,
+}) {
 	const containerClasses = classNames(
 		'tc-badge', theme['tc-badge'],
 		selected && ['tc-badge-selected', theme['tc-badge-selected']],
@@ -37,7 +49,7 @@ function Badge({ label, category, onDelete, onSelect, selected, disabled, t, sty
 
 	return (
 		<div className={containerClasses} style={style}>
-			<button className={badgeClasses} onClick={onSelect} disabled={disabled}>
+			<button className={badgeClasses} onClick={onSelect} disabled={disabled} id={selectId}>
 				{category && <span className={categoryClasses}>
 					{category}
 				</span>}
@@ -45,7 +57,7 @@ function Badge({ label, category, onDelete, onSelect, selected, disabled, t, sty
 					{label}
 				</span>
 			</button>
-			{renderDeleteIcon(onDelete, disabled, t)}
+			{renderDeleteIcon(onDelete, deleteId, disabled, t)}
 		</div>
 	);
 }
@@ -54,7 +66,9 @@ Badge.propTypes = {
 	label: PropTypes.string,
 	category: PropTypes.string,
 	onDelete: PropTypes.func,
+	deleteId: PropTypes.string,
 	onSelect: PropTypes.func,
+	selectId: PropTypes.string,
 	selected: PropTypes.bool,
 	disabled: PropTypes.bool,
 	t: PropTypes.func.isRequired,
