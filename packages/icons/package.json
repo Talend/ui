@@ -48,7 +48,7 @@
     "webpack": "^1.14.0",
     "zip-webpack-plugin": "2.0.0",
     "copy-webpack-plugin": "4.0.1",
-    "request": "2.81.0"
+    "node-fetch": "1.7.3"
   },
   "keywords": [
     "Talend",
