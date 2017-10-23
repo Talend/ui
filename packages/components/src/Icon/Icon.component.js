@@ -101,7 +101,7 @@ Icon.propTypes = {
 	name: PropTypes.string.isRequired,
 	title: PropTypes.string,
 	transform: PropTypes.oneOf(TRANSFORMS),
-	onClick: PropTypes.func.isRequired,
+	onClick: PropTypes.func,
 };
 
 export default Icon;
