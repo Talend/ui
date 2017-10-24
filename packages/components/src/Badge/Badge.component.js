@@ -8,8 +8,9 @@ import { DEFAULT_I18N } from '../translate';
 import Action from '../Actions/Action';
 import theme from './Badge.scss';
 
-function renderDeleteIcon(onClick, deleteId, disabled, t) {
+function renderDeleteIcon(onClick, id, disabled, t) {
 	if (onClick) {
+		const deleteId = `tc-badge-delete-${id}`;
 		return (
 			<Action
 				label={t('BADGE_DELETE', { defaultValue: 'delete' })}
@@ -25,18 +26,8 @@ function renderDeleteIcon(onClick, deleteId, disabled, t) {
 	return null;
 }
 
-function Badge({
-	label,
-	category,
-	onDelete,
-	deleteId,
-	onSelect,
-	selectId,
-	selected,
-	disabled,
-	t,
-	style,
-}) {
+function Badge({ id, label, category, onDelete, onSelect, selected, disabled, t, style }) {
+	const selectId = `tc-badge-select-${id}`;
 	const containerClasses = classNames(
 		'tc-badge', theme['tc-badge'],
 		selected && ['tc-badge-selected', theme['tc-badge-selected']],
@@ -57,18 +48,17 @@ function Badge({
 					{label}
 				</span>
 			</button>
-			{renderDeleteIcon(onDelete, deleteId, disabled, t)}
+			{renderDeleteIcon(onDelete, id, disabled, t)}
 		</div>
 	);
 }
 
 Badge.propTypes = {
+	id: PropTypes.string,
 	label: PropTypes.string,
 	category: PropTypes.string,
 	onDelete: PropTypes.func,
-	deleteId: PropTypes.string,
 	onSelect: PropTypes.func,
-	selectId: PropTypes.string,
 	selected: PropTypes.bool,
 	disabled: PropTypes.bool,
 	t: PropTypes.func.isRequired,
