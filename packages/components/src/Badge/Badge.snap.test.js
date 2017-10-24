@@ -52,7 +52,7 @@ describe('BadgeSpec', () => {
 			label: 'Label',
 			disabled: true,
 			onDelete: () => {},
-			deleteId: 'delete',
+			id: 'delete',
 		};
 		// when
 		const wrapper = renderer.create(
@@ -67,7 +67,7 @@ describe('BadgeSpec', () => {
 		const props = {
 			label: 'Label',
 			onSelect: () => {},
-			selectId: 'select',
+			id: 'select',
 		};
 		// when
 		const wrapper = renderer.create(
