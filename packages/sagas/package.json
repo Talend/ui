@@ -52,7 +52,7 @@
     "redux-thunk": "2.2.0"
   },
   "dependencies": {
-    "@talend/react-cmf": "^0.118.0",
+    "@talend/react-cmf": "^0.119.0",
     "redux-saga": "0.15.4"
   },
   "devDependencies": {

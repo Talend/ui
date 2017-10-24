@@ -3,6 +3,7 @@ import React from 'react';
 import invariant from 'invariant';
 import { isObject } from 'lodash';
 import classNames from 'classnames';
+import keycode from 'keycode';
 
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -19,6 +20,12 @@ export const OBJECT_ABSTRACT = '{...}';
 function stopAndSelect(event, { onSelect, jsonpath }) {
 	event.stopPropagation();
 	onSelect(event, jsonpath);
+}
+
+function stopAndSelectWithEnterOrSpace(event, { onSelect, jsonpath }) {
+	if (keycode(event) === 'enter' || keycode(event) === 'space') {
+		stopAndSelect(event, { onSelect, jsonpath });
+	}
 }
 
 export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
@@ -38,13 +45,15 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
 	const lineValueClasses = classNames(theme.native, theme[type], theme['line-value']);
 
 	return (
-		<button
+		<span
 			className={lineValueClasses}
-			type="button"
+			role="button"
+			tabIndex="0"
+			onKeyUp={e => stopAndSelectWithEnterOrSpace(e, { onSelect, jsonpath })}
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 		>
 			{display}
-		</button>
+		</span>
 	);
 }
 
@@ -102,7 +111,12 @@ export function LineItem({
 
 	return (
 		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-		<span className={classes} onClick={e => stopAndSelect(e, { onSelect, jsonpath })} {...props}>
+		<span
+			className={classes}
+			onKeyUp={e => stopAndSelectWithEnterOrSpace(e, { onSelect, jsonpath })}
+			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
+			{...props}
+		>
 			{getName(name)}
 			{children}
 		</span>
