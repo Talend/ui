@@ -46,12 +46,28 @@ describe('BadgeSpec', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render disabled Badge with delete icon', () => {
+	it('should render disabled Badge with delete icon and delete id', () => {
 		// given
 		const props = {
 			label: 'Label',
 			disabled: true,
 			onDelete: () => {},
+			deleteId: 'delete',
+		};
+		// when
+		const wrapper = renderer.create(
+			<Badge {...props} />
+		).toJSON();
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render Badge with selection handler and select id', () => {
+		// given
+		const props = {
+			label: 'Label',
+			onSelect: () => {},
+			selectId: 'select',
 		};
 		// when
 		const wrapper = renderer.create(
