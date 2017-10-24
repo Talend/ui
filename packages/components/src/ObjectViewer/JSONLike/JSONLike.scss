@@ -89,7 +89,7 @@
 	}
 
 	.line-value {
-		max-width: 90%;
+		max-width: calc(100% - 6em);
 		color: $brand-primary;
 		vertical-align: bottom;
 		border: none;
