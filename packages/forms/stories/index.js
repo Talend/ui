@@ -515,12 +515,13 @@ decoratedStories.add('Form with live validation', () => {
 					type: 'string',
 					pattern: '^\\S+@\\S+$',
 					minLength: 5,
+					required: true,
 				},
 			},
 		},
 		uiSchema: {
 			email: {
-				'ui:help': 'List of errors will be displayed, if email is empty',
+				'ui:help': 'Please enter a valid email address, e.g. user@email.com',
 			},
 		},
 		properties: {
