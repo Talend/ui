@@ -1,222 +1,541 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Notification should render 1`] = `
-<div
-  className="tc-notification-container"
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <NotificationsContainer
+    autoLeaveTimeout={4000}
+    enterTimeout={300}
+    leaveFn={[Function]}
+    leaveTimeout={280}
+    notifications={
+        Array [
+            Object {
+              "action": Object {
+                "icon": "talend-undo",
+                "label": "Haha",
+                "onClick": [Function],
+              },
+              "id": "story-1",
+              "message": "This is a feedback of your operation1, This is a feedback of your operation1",
+            },
+            Object {
+              "action": Object {
+                "icon": "talend-undo",
+                "label": "undo",
+                "onClick": [Function],
+              },
+              "id": "story-2",
+              "message": Array [
+                "This is a feedback of your operation2",
+                "This is a feedback of your operation1, This is a feedback of your operation1",
+              ],
+              "type": "error",
+            },
+            Object {
+              "id": "story-3",
+              "message": Array [
+                "This is a feedback of your operation3",
+                "details",
+              ],
+              "type": "warning",
+            },
+            Object {
+              "id": "story-4",
+              "message": "This is a feedback of your operation4",
+              "type": "warning",
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": null,
+    "nodeType": "host",
+    "props": Object {
+      "children": <Unknown
+        transitionEnterTimeout={300}
+        transitionLeaveTimeout={280}
+        transitionName="tc-notification"
 >
-  <div
-    className="react-addons-css-transition-group"
-    transitionEnterTimeout={300}
-    transitionLeaveTimeout={280}
-    transitionName="tc-notification"
-  >
-    <div
-      className="tc-notification tc-notification-info"
-      onClick={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="status"
-    >
-      <button
-        className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          className="tc-svg-icon"
-          focusable="false"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-cross"
+        <Notification
+                autoLeaveTimeout={4000}
+                leaveFn={[Function]}
+                notification={
+                        Object {
+                                "action": Object {
+                                  "icon": "talend-undo",
+                                  "label": "Haha",
+                                  "onClick": [Function],
+                                },
+                                "id": "story-1",
+                                "message": "This is a feedback of your operation1, This is a feedback of your operation1",
+                              }
+                }
+        />
+        <Notification
+                autoLeaveTimeout={4000}
+                leaveFn={[Function]}
+                notification={
+                        Object {
+                                "action": Object {
+                                  "icon": "talend-undo",
+                                  "label": "undo",
+                                  "onClick": [Function],
+                                },
+                                "id": "story-2",
+                                "message": Array [
+                                  "This is a feedback of your operation2",
+                                  "This is a feedback of your operation1, This is a feedback of your operation1",
+                                ],
+                                "type": "error",
+                              }
+                }
+        />
+        <Notification
+                autoLeaveTimeout={4000}
+                leaveFn={[Function]}
+                notification={
+                        Object {
+                                "id": "story-3",
+                                "message": Array [
+                                  "This is a feedback of your operation3",
+                                  "details",
+                                ],
+                                "type": "warning",
+                              }
+                }
+        />
+        <Notification
+                autoLeaveTimeout={4000}
+                leaveFn={[Function]}
+                notification={
+                        Object {
+                                "id": "story-4",
+                                "message": "This is a feedback of your operation4",
+                                "type": "warning",
+                              }
+                }
+        />
+</Unknown>,
+      "className": "tc-notification-container",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <Notification
+            autoLeaveTimeout={4000}
+            leaveFn={[Function]}
+            notification={
+                        Object {
+                                    "action": Object {
+                                      "icon": "talend-undo",
+                                      "label": "Haha",
+                                      "onClick": [Function],
+                                    },
+                                    "id": "story-1",
+                                    "message": "This is a feedback of your operation1, This is a feedback of your operation1",
+                                  }
+            }
+/>,
+          <Notification
+            autoLeaveTimeout={4000}
+            leaveFn={[Function]}
+            notification={
+                        Object {
+                                    "action": Object {
+                                      "icon": "talend-undo",
+                                      "label": "undo",
+                                      "onClick": [Function],
+                                    },
+                                    "id": "story-2",
+                                    "message": Array [
+                                      "This is a feedback of your operation2",
+                                      "This is a feedback of your operation1, This is a feedback of your operation1",
+                                    ],
+                                    "type": "error",
+                                  }
+            }
+/>,
+          <Notification
+            autoLeaveTimeout={4000}
+            leaveFn={[Function]}
+            notification={
+                        Object {
+                                    "id": "story-3",
+                                    "message": Array [
+                                      "This is a feedback of your operation3",
+                                      "details",
+                                    ],
+                                    "type": "warning",
+                                  }
+            }
+/>,
+          <Notification
+            autoLeaveTimeout={4000}
+            leaveFn={[Function]}
+            notification={
+                        Object {
+                                    "id": "story-4",
+                                    "message": "This is a feedback of your operation4",
+                                    "type": "warning",
+                                  }
+            }
+/>,
+        ],
+        "transitionEnterTimeout": 300,
+        "transitionLeaveTimeout": 280,
+        "transitionName": "tc-notification",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "story-1",
+          "nodeType": "function",
+          "props": Object {
+            "autoLeaveTimeout": 4000,
+            "leaveFn": [Function],
+            "notification": Object {
+              "action": Object {
+                "icon": "talend-undo",
+                "label": "Haha",
+                "onClick": [Function],
+              },
+              "id": "story-1",
+              "message": "This is a feedback of your operation1, This is a feedback of your operation1",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "story-2",
+          "nodeType": "function",
+          "props": Object {
+            "autoLeaveTimeout": 4000,
+            "leaveFn": [Function],
+            "notification": Object {
+              "action": Object {
+                "icon": "talend-undo",
+                "label": "undo",
+                "onClick": [Function],
+              },
+              "id": "story-2",
+              "message": Array [
+                "This is a feedback of your operation2",
+                "This is a feedback of your operation1, This is a feedback of your operation1",
+              ],
+              "type": "error",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "story-3",
+          "nodeType": "function",
+          "props": Object {
+            "autoLeaveTimeout": 4000,
+            "leaveFn": [Function],
+            "notification": Object {
+              "id": "story-3",
+              "message": Array [
+                "This is a feedback of your operation3",
+                "details",
+              ],
+              "type": "warning",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "story-4",
+          "nodeType": "function",
+          "props": Object {
+            "autoLeaveTimeout": 4000,
+            "leaveFn": [Function],
+            "notification": Object {
+              "id": "story-4",
+              "message": "This is a feedback of your operation4",
+              "type": "warning",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": Object {
+        "CSSTransitionGroup": [Function],
+        "TransitionGroup": [Function],
+      },
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "host",
+      "props": Object {
+        "children": <Unknown
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={280}
+          transitionName="tc-notification"
+>
+          <Notification
+                    autoLeaveTimeout={4000}
+                    leaveFn={[Function]}
+                    notification={
+                              Object {
+                                        "action": Object {
+                                          "icon": "talend-undo",
+                                          "label": "Haha",
+                                          "onClick": [Function],
+                                        },
+                                        "id": "story-1",
+                                        "message": "This is a feedback of your operation1, This is a feedback of your operation1",
+                                      }
+                    }
           />
-        </svg>
-        <span>
-          
-        </span>
-      </button>
-      <p
-        className="tc-notification-message"
-      >
-        This is a feedback of your operation1, This is a feedback of your operation1
-        <button
-          className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
-          disabled={false}
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            focusable="false"
-            title={null}
-          >
-            <use
-              xlinkHref="#talend-undo"
-            />
-          </svg>
-          <span>
-            Haha
-          </span>
-        </button>
-      </p>
-      <div
-        className="tc-notification-timer-bar"
-      />
-    </div>
-    <div
-      className="undefined tc-notification tc-notification-error"
-      onClick={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="status"
-    >
-      <button
-        className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          className="tc-svg-icon"
-          focusable="false"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-cross"
+          <Notification
+                    autoLeaveTimeout={4000}
+                    leaveFn={[Function]}
+                    notification={
+                              Object {
+                                        "action": Object {
+                                          "icon": "talend-undo",
+                                          "label": "undo",
+                                          "onClick": [Function],
+                                        },
+                                        "id": "story-2",
+                                        "message": Array [
+                                          "This is a feedback of your operation2",
+                                          "This is a feedback of your operation1, This is a feedback of your operation1",
+                                        ],
+                                        "type": "error",
+                                      }
+                    }
           />
-        </svg>
-        <span>
-          
-        </span>
-      </button>
-      <article>
-        <p
-          className="tc-notification-message"
-        >
-          This is a feedback of your operation2
-        </p>
-        <p
-          className="tc-notification-message"
-        >
-          This is a feedback of your operation1, This is a feedback of your operation1
-          <button
-            className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
-            disabled={false}
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              className="tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-undo"
-              />
-            </svg>
-            <span>
-              undo
-            </span>
-          </button>
-        </p>
-      </article>
-    </div>
-    <div
-      className="tc-notification tc-notification-warning"
-      onClick={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="status"
-    >
-      <button
-        className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          className="tc-svg-icon"
-          focusable="false"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-cross"
+          <Notification
+                    autoLeaveTimeout={4000}
+                    leaveFn={[Function]}
+                    notification={
+                              Object {
+                                        "id": "story-3",
+                                        "message": Array [
+                                          "This is a feedback of your operation3",
+                                          "details",
+                                        ],
+                                        "type": "warning",
+                                      }
+                    }
           />
-        </svg>
-        <span>
-          
-        </span>
-      </button>
-      <article>
-        <p
-          className="tc-notification-message"
-        >
-          This is a feedback of your operation3
-        </p>
-        <p
-          className="tc-notification-message"
-        >
-          details
-        </p>
-      </article>
-      <div
-        className="tc-notification-timer-bar"
-      />
-    </div>
-    <div
-      className="tc-notification tc-notification-warning"
-      onClick={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="status"
-    >
-      <button
-        className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          className="tc-svg-icon"
-          focusable="false"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-cross"
+          <Notification
+                    autoLeaveTimeout={4000}
+                    leaveFn={[Function]}
+                    notification={
+                              Object {
+                                        "id": "story-4",
+                                        "message": "This is a feedback of your operation4",
+                                        "type": "warning",
+                                      }
+                    }
           />
-        </svg>
-        <span>
-          
-        </span>
-      </button>
-      <p
-        className="tc-notification-message"
-      >
-        This is a feedback of your operation4
-      </p>
-      <div
-        className="tc-notification-timer-bar"
-      />
-    </div>
-  </div>
-</div>
+</Unknown>,
+        "className": "tc-notification-container",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <Notification
+              autoLeaveTimeout={4000}
+              leaveFn={[Function]}
+              notification={
+                            Object {
+                                          "action": Object {
+                                            "icon": "talend-undo",
+                                            "label": "Haha",
+                                            "onClick": [Function],
+                                          },
+                                          "id": "story-1",
+                                          "message": "This is a feedback of your operation1, This is a feedback of your operation1",
+                                        }
+              }
+/>,
+            <Notification
+              autoLeaveTimeout={4000}
+              leaveFn={[Function]}
+              notification={
+                            Object {
+                                          "action": Object {
+                                            "icon": "talend-undo",
+                                            "label": "undo",
+                                            "onClick": [Function],
+                                          },
+                                          "id": "story-2",
+                                          "message": Array [
+                                            "This is a feedback of your operation2",
+                                            "This is a feedback of your operation1, This is a feedback of your operation1",
+                                          ],
+                                          "type": "error",
+                                        }
+              }
+/>,
+            <Notification
+              autoLeaveTimeout={4000}
+              leaveFn={[Function]}
+              notification={
+                            Object {
+                                          "id": "story-3",
+                                          "message": Array [
+                                            "This is a feedback of your operation3",
+                                            "details",
+                                          ],
+                                          "type": "warning",
+                                        }
+              }
+/>,
+            <Notification
+              autoLeaveTimeout={4000}
+              leaveFn={[Function]}
+              notification={
+                            Object {
+                                          "id": "story-4",
+                                          "message": "This is a feedback of your operation4",
+                                          "type": "warning",
+                                        }
+              }
+/>,
+          ],
+          "transitionEnterTimeout": 300,
+          "transitionLeaveTimeout": 280,
+          "transitionName": "tc-notification",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "story-1",
+            "nodeType": "function",
+            "props": Object {
+              "autoLeaveTimeout": 4000,
+              "leaveFn": [Function],
+              "notification": Object {
+                "action": Object {
+                  "icon": "talend-undo",
+                  "label": "Haha",
+                  "onClick": [Function],
+                },
+                "id": "story-1",
+                "message": "This is a feedback of your operation1, This is a feedback of your operation1",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "story-2",
+            "nodeType": "function",
+            "props": Object {
+              "autoLeaveTimeout": 4000,
+              "leaveFn": [Function],
+              "notification": Object {
+                "action": Object {
+                  "icon": "talend-undo",
+                  "label": "undo",
+                  "onClick": [Function],
+                },
+                "id": "story-2",
+                "message": Array [
+                  "This is a feedback of your operation2",
+                  "This is a feedback of your operation1, This is a feedback of your operation1",
+                ],
+                "type": "error",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "story-3",
+            "nodeType": "function",
+            "props": Object {
+              "autoLeaveTimeout": 4000,
+              "leaveFn": [Function],
+              "notification": Object {
+                "id": "story-3",
+                "message": Array [
+                  "This is a feedback of your operation3",
+                  "details",
+                ],
+                "type": "warning",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "story-4",
+            "nodeType": "function",
+            "props": Object {
+              "autoLeaveTimeout": 4000,
+              "leaveFn": [Function],
+              "notification": Object {
+                "id": "story-4",
+                "message": "This is a feedback of your operation4",
+                "type": "warning",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": Object {
+          "CSSTransitionGroup": [Function],
+          "TransitionGroup": [Function],
+        },
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
 `;
