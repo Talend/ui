@@ -298,6 +298,14 @@ form {
 			@include box-shadow(inset 0 -2px 0 $brand-danger);
 			border-bottom: none;
 		}
+
+		.error-detail {
+			padding-left: 0;
+			.text-danger {
+				list-style-type: none;
+				font-size: $font-size-small;
+			}
+		}
 	}
 
 	.has-success {

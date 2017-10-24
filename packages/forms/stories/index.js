@@ -496,3 +496,44 @@ decoratedStories.add('Form Children', () => {
 		</Form>
 	);
 });
+
+
+decoratedStories.add('Form with live validation', () => {
+	const schema = {
+		jsonSchema: {
+			title: 'Form with live validation',
+			type: 'object',
+			properties: {
+				name: {
+					title: 'Name',
+					type: 'string',
+					required: true,
+					minLength: 3,
+				},
+				email: {
+					title: 'Email',
+					type: 'string',
+					pattern: '^\\S+@\\S+$',
+					minLength: 5,
+				},
+			},
+		},
+		uiSchema: {
+			email: {
+				'ui:help': 'List of errors will be displayed, if email is empty',
+			},
+		},
+		properties: {
+			name: 'Rey',
+			email: 'lastJedi@sw.com',
+		},
+	};
+	return (
+		<Form
+			liveValidate
+			data={schema}
+			showErrorList={false}
+			onSubmit={action('SUBMIT')}
+		/>
+	);
+});
