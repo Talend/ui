@@ -18,6 +18,7 @@ const data = [
 		name: veryLongCafeName,
 		category: 'Club',
 		rating: 4,
+		null_value: null,
 		num_of_reviews: 2647,
 		attributes: {
 			good_for: {
@@ -52,6 +53,7 @@ const data = [
 		name: `${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName}`,
 		category: 'Club',
 		rating: 4,
+		null_value: null,
 		num_of_reviews: 2647,
 		attributes: {
 			good_for: {
@@ -86,6 +88,7 @@ const data = [
 		name: "Nancy's Club",
 		category: 'Club',
 		rating: 2,
+		null_value: null,
 		num_of_reviews: 3779,
 		attributes: {
 			good_for: {
@@ -120,6 +123,7 @@ const data = [
 		name: "Cecelia's Club",
 		category: 'Cafe',
 		rating: 4,
+		null_value: null,
 		num_of_reviews: 16547,
 		attributes: {
 			good_for: {
@@ -154,6 +158,7 @@ const data = [
 		name: "Gordon's Bar",
 		category: 'Cafe',
 		rating: 1,
+		null_value: null,
 		num_of_reviews: 152,
 		attributes: {
 			good_for: {
