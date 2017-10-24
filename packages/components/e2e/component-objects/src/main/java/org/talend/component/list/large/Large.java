@@ -17,13 +17,7 @@ public class Large extends Component {
 
     private static final String NAME = "Large";
 
-    private static final String TABLE_SELECTOR = ".ReactVirtualized__List";
-
-    // private static final String TABLE_COLUMN_HEADER_SELECTOR = ".ReactVirtualized__Table__headerColumn";
-
-    // private static final String TABLE_COLUMN_HEADER_KEY_CLASS = TABLE_COLUMN_HEADER_SELECTOR + ".tc-list-cell-%s";
-
-    private static final String TABLE_GRID_SELECTOR = ".ReactVirtualized__Grid__innerScrollContainer";
+    private static final String LIST_LARGE_SELECTOR = ".ReactVirtualized__List";
 
     private static final String TABLE_ITEM_SELECTOR = ".tc-list-large";
 
@@ -42,7 +36,7 @@ public class Large extends Component {
      * @param driver Selenium WebDriver
      */
     public Large(final WebDriver driver, final String id) {
-        super(driver, NAME, String.format(TABLE_SELECTOR, id != null ? "#" + id : ""));
+        super(driver, NAME, String.format(LIST_LARGE_SELECTOR, id != null ? "#" + id : ""));
     }
 
     /**
@@ -62,18 +56,18 @@ public class Large extends Component {
      * Scroll to top
      */
     public void scrollToTop() {
-        final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
-        jsExec.executeScript("arguments[0].scrollTop = 0", grid);
+        final WebElement listLarge = this.getElement();
+        jsExec.executeScript("arguments[0].scrollTop = 0", listLarge);
     }
 
     /**
      * Test if grid can scroll down
      */
     public boolean canScrollDown() {
-        final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
+        final WebElement listLarge = this.getElement();
         return (boolean) jsExec.executeScript(
                 "return arguments[0].scrollHeight > (arguments[0].scrollTop + arguments[0].offsetHeight);",
-                grid
+                listLarge
         );
     }
 
@@ -82,12 +76,12 @@ public class Large extends Component {
      * @return true if the element has been scrolled, false otherwise.
      */
     public boolean scrollDown() {
-        if (! canScrollDown()) {
+        if (!canScrollDown()) {
             return false;
         }
 
-        final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
-        jsExec.executeScript("arguments[0].scrollTop += arguments[0].offsetHeight;", grid);
+        final WebElement listLarge = this.getElement();
+        jsExec.executeScript("arguments[0].scrollTop += arguments[0].offsetHeight;", listLarge);
         return true;
     }
 
