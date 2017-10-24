@@ -36,6 +36,7 @@ const STACK_VERSION = {
 	'@talend/bootstrap-theme': stack_version,
 	'@talend/react-cmf': stack_version,
 	'@talend/react-cmf-cqrs': stack_version,
+	'@talend/react-sagas': stack_version,
 	'@talend/react-components': stack_version,
 	'@talend/react-containers': stack_version,
 	'@talend/react-forms': stack_version,
@@ -151,6 +152,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 
 const files = [
 	'./packages/cmf/package.json',
+	'./packages/sagas/package.json',
 	'./packages/components/package.json',
 	'./packages/containers/package.json',
 	'./packages/forms/package.json',
