@@ -17,6 +17,8 @@ public class Application {
 
     public AppHeaderBar AppHeaderBar;
 
+    public HeaderBar HeaderBar;
+
     public List List;
 
     public Drawer Drawer;
@@ -34,6 +36,7 @@ public class Application {
         this.driver = driver;
         this.SidePanel = new SidePanel(driver);
         this.AppHeaderBar = new AppHeaderBar(driver);
+        this.HeaderBar = new HeaderBar(driver);
         this.List = new List(driver);
         this.Drawer = new Drawer(driver);
         this.ConfirmDialog = new ConfirmDialog(driver);
