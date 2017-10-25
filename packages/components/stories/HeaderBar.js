@@ -86,7 +86,7 @@ const typeaheadItems = [
 const props = {
 	brand: {
 		id: 'header-brand',
-		name: 'Example App Name',
+		label: 'Example App Name',
 		onClick: action('onApplicationNameClick'),
 	},
 	logo: {
