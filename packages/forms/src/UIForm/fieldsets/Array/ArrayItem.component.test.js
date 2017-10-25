@@ -20,7 +20,7 @@ describe('Array Item component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should NOT render control panel when value.isClosed is true', () => {
@@ -40,7 +40,7 @@ describe('Array Item component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should NOT render moveUp/moveDown', () => {
@@ -59,7 +59,7 @@ describe('Array Item component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should disable moveDown', () => {
@@ -79,7 +79,7 @@ describe('Array Item component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should disable moveUp', () => {
@@ -99,7 +99,7 @@ describe('Array Item component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should trigger onRemove when remove button is clicked', () => {
