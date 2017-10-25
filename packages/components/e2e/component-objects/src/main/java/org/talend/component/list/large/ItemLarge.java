@@ -1,7 +1,7 @@
 package org.talend.component.list.large;
 
+import java.time.Duration;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
@@ -83,6 +83,7 @@ public class ItemLarge extends Component {
         final Actions action = new Actions(driver);
         action
                 .moveToElement(this.getElement())
+                .pause(Duration.ofSeconds(1))
                 .moveToElement(this.getAction(actionId))
                 .build()
                 .perform();
