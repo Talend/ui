@@ -25,7 +25,7 @@ describe('KeyValue field', () => {
 		const wrapper = shallow(<KeyValue {...props} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should render disabled KeyValue', () => {
@@ -42,7 +42,7 @@ describe('KeyValue field', () => {
 		const wrapper = shallow(<KeyValue {...disabledProps} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should render readOnly KeyValue', () => {
@@ -59,7 +59,7 @@ describe('KeyValue field', () => {
 		const wrapper = shallow(<KeyValue {...readOnlyProps} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should render autoFocused KeyValue', () => {
@@ -76,7 +76,7 @@ describe('KeyValue field', () => {
 		const wrapper = shallow(<KeyValue {...autoFocusProps} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should render customized KeyValue', () => {
@@ -102,6 +102,6 @@ describe('KeyValue field', () => {
 		const wrapper = shallow(<KeyValue {...autoFocusProps} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
