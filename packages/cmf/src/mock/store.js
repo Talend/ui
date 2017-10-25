@@ -1,9 +1,11 @@
 import React from 'react';
 import settings from './settings';
+import collections from './collections';
 
 const state = {
 	cmf: {
 		settings,
+		collections,
 	},
 };
 const notInitializedState = {
@@ -24,12 +26,11 @@ const store = {
 	dispatch() {
 		return 'dispatch';
 	},
-	subscribe() {
-	},
+	subscribe() {},
 };
 
 const registry = {
-	'_.route.component:component': () => (<div>mock</div>),
+	'_.route.component:component': () => <div>mock</div>,
 	'actionCreator:myactionCreator': () => {},
 };
 

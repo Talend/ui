@@ -2,8 +2,8 @@ import 'babel-polyfill';
 import { action, storiesOf, configure, setAddon } from '@storybook/react';
 import cmf from 'react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
-import { api } from '@talend/react-cmf';
-
+import { api, actions } from '@talend/react-cmf';
+import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 
 import examples from '../examples';
@@ -57,13 +57,19 @@ api.expression.register('modelHasLabel', context => {
 function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
+		const value = new Map({ id: 'myID', label: 'myLabel' });
+		const collections = new Map({
+			myResourceType: new List([ value ]),
+		});
+		api.actions.collectionsActions.addOrReplace('myResourceType', );
+		state.cmf.collections = collections;
 		state.cmf.settings.views.appheaderbar = {
 			app: 'Hello Test',
 		};
 		state.cmf.settings.views['HeaderBar#default'] = {
 			logo: { name: 'appheaderbar:logo', isFull: true },
-			brand: { name: 'DATA STREAMS'},
-			notification: { name: 'appheaderbar:notification'}
+			brand: { name: 'DATA STREAMS' },
+			notification: { name: 'appheaderbar:notification' },
 		};
 		const actions = state.cmf.settings.actions;
 		actions['appheaderbar:logo'] = {
