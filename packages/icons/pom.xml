@@ -20,10 +20,6 @@
         </resources>
     </build>
     <distributionManagement>
-        <snapshotRepository>
-            <id>talend_nexus_deployment</id>
-            <url>https://artifacts-oss.talend.com/nexus/content/repositories/TalendOpenSourceSnapshot/</url>
-        </snapshotRepository>
         <repository>
             <id>talend_nexus_deployment</id>
             <url>https://artifacts-oss.talend.com/nexus/content/repositories/TalendOpenSourceRelease/</url>
