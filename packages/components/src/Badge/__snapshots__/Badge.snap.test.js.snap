@@ -104,7 +104,27 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
 </div>
 `;
 
-exports[`BadgeSpec should render disabled Badge with delete icon 1`] = `
+exports[`BadgeSpec should render Badge with selection handler and select id 1`] = `
+<div
+  className="tc-badge tc-badge-readonly"
+  style={undefined}
+>
+  <button
+    className="tc-badge-button"
+    disabled={false}
+    id="tc-badge-select-select"
+    onClick={[Function]}
+  >
+    <span
+      className="tc-badge-label"
+    >
+      Label
+    </span>
+  </button>
+</div>
+`;
+
+exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1`] = `
 <div
   className="tc-badge tc-badge-disabled"
   style={undefined}
@@ -112,6 +132,7 @@ exports[`BadgeSpec should render disabled Badge with delete icon 1`] = `
   <button
     className="tc-badge-button"
     disabled={true}
+    id="tc-badge-select-delete"
     onClick={undefined}
   >
     <span
@@ -123,6 +144,7 @@ exports[`BadgeSpec should render disabled Badge with delete icon 1`] = `
   <button
     className="tc-badge-delete-icon btn btn-default"
     disabled={true}
+    id="tc-badge-delete-delete"
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
