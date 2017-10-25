@@ -33,6 +33,10 @@
       "name": "buttons-dropdowns-icons",
       "selector": "#btn-dropdown-icons"
     },
+		{
+			"name": "btn-dropup-icons",
+			"selector": "#btn-dropup-icons"
+		},
     {
       "name": "buttons-no-icons",
       "selector": "#buttons-no-icons"

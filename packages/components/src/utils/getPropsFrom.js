@@ -4,6 +4,7 @@ const NATIVE_PROPS = [
 	'className',
 	'id',
 	'name',
+	'target',
 ];
 
 function extractComponentProps(Component, props) {
