@@ -14,6 +14,11 @@ export default class DeleteResource extends React.Component {
 	static propTypes = {
 		...componentState.propTypes,
 		'form-actions': PropTypes.arrayOf(PropTypes.string).isRequired,
+		header: PropTypes.string,
+		resourceInfo: PropTypes.shape({
+			uri: PropTypes.string,
+			resourceType: PropTypes.string,
+		}).isRequired,
 	};
 	static contextTypes = {
 		registry: PropTypes.object.isRequired,
