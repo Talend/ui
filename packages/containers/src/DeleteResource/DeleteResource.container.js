@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { componentState } from '@talend/react-cmf';
 import { ConfirmDialog } from '@talend/react-components';
-import { actionAPI } from '@talend/react-containers';
+import { getActionsProps } from '../actionAPI';
 
 /**
  * DeleteResource is used to delete a specific resource.
@@ -15,7 +15,6 @@ export default class DeleteResource extends React.Component {
 		...componentState.propTypes,
 	};
 	static contextTypes = {
-		// router: PropTypes.object.isRequired,
 		registry: PropTypes.object.isRequired,
 		store: PropTypes.object.isRequired,
 	};
@@ -59,7 +58,7 @@ export default class DeleteResource extends React.Component {
 	getActions(resourceInfo) {
 		let validateAction = {};
 		let cancelAction = {};
-		const actions = actionAPI.getProps(this.context, this.props['form-actions'], {
+		const actions = getActionsProps(this.context, this.props['form-actions'], {
 			props: this.props,
 			resourceInfo,
 		});
