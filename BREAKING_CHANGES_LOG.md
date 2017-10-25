@@ -13,6 +13,14 @@ This document aims to ease the WIP migration from a version to another by provid
 * $mine-shaft : replace by $dove-gray
 * $smalt-blue : not used
 
+## v0.120.0
+
+* PR 807 [enhancement(component/Headerbar): small change]
+The brand of the header bar used `name` to be rendered as the application title.
+Using containers and cmf, `name` is used to resolve `CMFAction` from the registry.
+To be able to use name to describe the CMFAction associated to the Brand section of the header bar,
+`label` has to be used for application title rendering and `name` to resolve `CMFAction`
+
 ## v0.71.0
 
 * PR #364 [feat: onTrigger !== onChange]
