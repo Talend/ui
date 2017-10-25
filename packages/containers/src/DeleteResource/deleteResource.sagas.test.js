@@ -1,11 +1,6 @@
 import SagaTester from 'redux-saga-tester';
-import {
-	DIALOG_BOX_DELETE_RESOURCE,
-	DIALOG_BOX_DELETE_RESOURCE_OK,
-	DIALOG_BOX_DELETE_RESOURCE_CANCEL,
-	DIALOG_BOX_DELETE_RESOURCE_CLOSE,
-	DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
-} from './deleteResource.constants';
+import deleteResourceConst from './deleteResource.constants';
+
 import deleteResourceSaga, { buildHttpDelete } from './deleteResource.sagas';
 
 describe('buildHttpDelete', () => {
@@ -14,7 +9,7 @@ describe('buildHttpDelete', () => {
 		const ret = buildHttpDelete(
 			'/myEndpoint',
 			'labelResource',
-			DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
+			deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
 		);
 		// Then
 		expect(ret.type).toEqual('DELETE');
@@ -27,10 +22,13 @@ describe('buildHttpDelete', () => {
 		const ret = buildHttpDelete(
 			'/myEndpoint',
 			'labelResource',
-			DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
+			deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
 		);
 		const retResponse = ret.onResponse();
-		expect(retResponse).toEqual({ type: DIALOG_BOX_DELETE_RESOURCE_SUCCESS, model });
+		expect(retResponse).toEqual({
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
+			model,
+		});
 	});
 });
 
@@ -47,7 +45,7 @@ describe('deleteConfirmationSaga datastore', () => {
 			},
 		});
 		sagaTester.dispatch({
-			type: DIALOG_BOX_DELETE_RESOURCE,
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE,
 			model: { id: 'modelId' },
 			redirectUrl: '/connections',
 		});
@@ -67,7 +65,7 @@ describe('deleteConfirmationSaga datastore', () => {
 		const actions = sagaTester.getCalledActions();
 		// Then
 		expect(actions[1]).toEqual({
-			type: DIALOG_BOX_DELETE_RESOURCE,
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE,
 			model: { id: 'modelId' },
 			redirectUrl: '/connections',
 		});
@@ -76,12 +74,12 @@ describe('deleteConfirmationSaga datastore', () => {
 		// When
 		sagaTester.reset(true);
 		sagaTester.dispatch({
-			type: DIALOG_BOX_DELETE_RESOURCE_CANCEL,
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL,
 		});
 		const actions = sagaTester.getCalledActions();
 		// Then
 		expect(actions[actions.length - 1]).toEqual({
-			type: DIALOG_BOX_DELETE_RESOURCE_CLOSE,
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
 			cmf: {
 				routerReplace: '/connections',
 			},
@@ -90,7 +88,7 @@ describe('deleteConfirmationSaga datastore', () => {
 	it('sould call deleteResourceValidate with found = false, then finally received DIALOG_BOX_DLETE_RESOURCE_CLOSE', () => {
 		sagaTester.reset(true);
 		sagaTester.dispatch({
-			type: DIALOG_BOX_DELETE_RESOURCE_OK,
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK,
 			resourceInfo: {
 				id: 'modelId',
 				resourceType: 'datastore',
@@ -101,7 +99,7 @@ describe('deleteConfirmationSaga datastore', () => {
 		});
 		const actions = sagaTester.getCalledActions();
 		expect(actions[actions.length - 1]).toEqual({
-			type: DIALOG_BOX_DELETE_RESOURCE_CLOSE,
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
 			cmf: {
 				routerReplace: '/connections',
 			},
@@ -110,7 +108,7 @@ describe('deleteConfirmationSaga datastore', () => {
 	it('sould call deleteResourceValidate with modelId different from requestId then finally received DIALOG_BOX_DLETE_RESOURCE_CLOSE', () => {
 		sagaTester.reset(true);
 		sagaTester.dispatch({
-			type: DIALOG_BOX_DELETE_RESOURCE_OK,
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK,
 			resourceInfo: {
 				id: 'anotherId',
 				resourceType: 'datastore',
@@ -121,7 +119,7 @@ describe('deleteConfirmationSaga datastore', () => {
 		});
 		const actions = sagaTester.getCalledActions();
 		expect(actions[actions.length - 1]).toEqual({
-			type: DIALOG_BOX_DELETE_RESOURCE_CLOSE,
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
 			cmf: {
 				routerReplace: '/connections',
 			},
@@ -130,7 +128,7 @@ describe('deleteConfirmationSaga datastore', () => {
 	it('sould call deleteResourceValidate then finally received DIALOG_BOX_DELETE_RESOURCE_SUCCESS', () => {
 		sagaTester.reset(true);
 		sagaTester.dispatch({
-			type: DIALOG_BOX_DELETE_RESOURCE_OK,
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK,
 			resourceInfo: {
 				id: 'modelId',
 				resourceType: 'datastore',

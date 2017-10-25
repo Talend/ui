@@ -1,9 +1,6 @@
 import { deleteResource, validate, cancel } from './deleteResource.actions';
-import {
-	DIALOG_BOX_DELETE_RESOURCE,
-	DIALOG_BOX_DELETE_RESOURCE_OK,
-	DIALOG_BOX_DELETE_RESOURCE_CANCEL,
-} from './deleteResource.constants';
+import deleteResourceConst from './deleteResource.constants';
+
 
 describe('deleteResource actions', () => {
 	describe('deleteResource:open', () => {
@@ -16,7 +13,7 @@ describe('deleteResource actions', () => {
 			const result = deleteResource({}, data, context);
 			// Then
 			expect(result).toEqual({
-				type: DIALOG_BOX_DELETE_RESOURCE,
+				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE,
 				cmf: {
 					routerReplace: 'currentUrl/modelId/delete',
 				},
@@ -33,7 +30,7 @@ describe('deleteResource actions', () => {
 			const result = validate({}, data);
 			// Then
 			expect(result).toEqual({
-				type: DIALOG_BOX_DELETE_RESOURCE_OK,
+				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK,
 				resourceInfo: data.model.resourceInfo,
 			});
 		});
@@ -43,7 +40,7 @@ describe('deleteResource actions', () => {
 			// When
 			const result = cancel();
 			// Then
-			expect(result).toEqual({ type: DIALOG_BOX_DELETE_RESOURCE_CANCEL });
+			expect(result).toEqual({ type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL });
 		});
 	});
 });

@@ -1,12 +1,6 @@
 import { take, put, race, call } from 'redux-saga/effects';
 import { actions } from '@talend/react-cmf';
-import {
-	DIALOG_BOX_DELETE_RESOURCE,
-	DIALOG_BOX_DELETE_RESOURCE_OK,
-	DIALOG_BOX_DELETE_RESOURCE_CANCEL,
-	DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
-	DIALOG_BOX_DELETE_RESOURCE_CLOSE,
-} from './deleteResource.constants';
+import deleteResourceConst from './deleteResource.constants';
 
 /**
  * Wil be deprecated with the new http saga api.
@@ -36,13 +30,13 @@ export function buildHttpDelete(uri, labelResource, responseType) {
  * @param {string} redirectUrl
  */
 export function* deleteResourceValidate(requestId) {
-	const { resourceInfo } = yield take(DIALOG_BOX_DELETE_RESOURCE_OK);
+	const { resourceInfo } = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK);
 	const { id, found, resourceType, label, uri } = resourceInfo;
 	if (found && requestId === id) {
 		const http = buildHttpDelete(
 			`${uri}/${resourceType}/${id}`,
 			label,
-			DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
+			deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
 		);
 		yield put(http);
 	}
@@ -53,21 +47,21 @@ export function* deleteResourceValidate(requestId) {
  * Race between cancel and confirm deleting the resource.
  */
 export default function* deleteResourceSaga() {
-	const data = yield take(DIALOG_BOX_DELETE_RESOURCE);
+	const data = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE);
 	const { redirectUrl } = data;
 	const { id } = data.model;
 	try {
 		yield race({
 			deleteConfirmationValidate: call(deleteResourceValidate, id),
 			deleteConfirmationCancel: call(function* deleteResourceCancel() {
-				yield take(DIALOG_BOX_DELETE_RESOURCE_CANCEL);
+				yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL);
 			}),
 		});
 	} catch (error) {
 		console.error(error);
 	} finally {
 		yield put({
-			type: DIALOG_BOX_DELETE_RESOURCE_CLOSE,
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
 			cmf: {
 				routerReplace: redirectUrl,
 			},

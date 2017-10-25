@@ -21,6 +21,7 @@ export default class DeleteResource extends React.Component {
 
 	constructor(props, context) {
 		super(props, context);
+		console.log('props', props);
 		this.getActions = this.getActions.bind(this);
 		this.getLabel = this.getLabel.bind(this);
 	}

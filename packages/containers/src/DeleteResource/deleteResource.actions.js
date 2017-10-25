@@ -1,8 +1,4 @@
-import {
-	DIALOG_BOX_DELETE_RESOURCE,
-	DIALOG_BOX_DELETE_RESOURCE_OK,
-	DIALOG_BOX_DELETE_RESOURCE_CANCEL,
-} from './deleteResource.constants';
+import deleteResourceConst from './deleteResource.constants';
 
 /**
  * Action called at the dialog opening|mounting.
@@ -13,7 +9,7 @@ export function deleteResource(event, data, context) {
 	const { model } = data;
 	const path = context.router ? context.router.location.pathname : '/';
 	return {
-		type: DIALOG_BOX_DELETE_RESOURCE,
+		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE,
 		cmf: {
 			routerReplace: `${path}/${model.id}/delete`,
 		},
@@ -27,7 +23,7 @@ export function deleteResource(event, data, context) {
  */
 export function validate(event, data) {
 	return {
-		type: DIALOG_BOX_DELETE_RESOURCE_OK,
+		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK,
 		resourceInfo: data.model.resourceInfo,
 	};
 }
@@ -37,7 +33,7 @@ export function validate(event, data) {
  */
 export function cancel() {
 	return {
-		type: DIALOG_BOX_DELETE_RESOURCE_CANCEL,
+		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL,
 	};
 }
 
