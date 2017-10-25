@@ -62,7 +62,7 @@ function loadStories() {
 		};
 		state.cmf.settings.views['HeaderBar#default'] = {
 			logo: { name: 'appheaderbar:logo', isFull: true },
-			brand: { name: 'DATA STREAMS'},
+			brand: { label: 'DATA STREAMS'},
 			notification: { name: 'appheaderbar:notification'}
 		};
 		const actions = state.cmf.settings.actions;
