@@ -2,6 +2,25 @@ import PropTypes from 'prop-types';
 import invariant from 'invariant';
 import actions from './actions';
 
+/**
+ * This module provide props.setState and props.state into
+ * cmfConnected component. It exposes CMF propTypes
+ * @module react-cmf/lib/componentState
+ * @see module:react-cmf/lib/cmfConnect
+ * @example
+import { cmfConnect, componentState } from '@talend/react-cmf';
+
+class MyComponent extends React.Component {
+	static propTypes = {
+		...componentState.propTypes,
+	};
+	render() {
+		// ...
+	}
+}
+export default cmfConnect({})(MyComponent);
+ */
+
 export function getStateProps(state, name, id) {
 	return {
 		state: state.cmf.components.getIn([name, id]),
