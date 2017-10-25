@@ -13,6 +13,7 @@ export default class DeleteResource extends React.Component {
 	static displayName = 'Container(DeleteResource)';
 	static propTypes = {
 		...componentState.propTypes,
+		'form-actions': PropTypes.arrayOf(PropTypes.string).isRequired,
 	};
 	static contextTypes = {
 		registry: PropTypes.object.isRequired,
@@ -56,25 +57,22 @@ export default class DeleteResource extends React.Component {
 	 * @return {object} the fetched actions.
 	 */
 	getActions(resourceInfo) {
-		let validateAction = {};
-		let cancelAction = {};
 		const actions = getActionsProps(this.context, this.props['form-actions'], {
 			props: this.props,
 			resourceInfo,
 		});
 		if (actions) {
-			cancelAction = actions.find(it => it.id === 'dialog:delete:cancel');
-			validateAction = actions.find(it => it.id === 'dialog:delete:validate');
+			return {
+				cancelAction: actions.find(it => it.id === 'dialog:delete:cancel'),
+				validateAction: actions.find(it => it.id === 'dialog:delete:validate'),
+			};
 		}
-		return { validateAction, cancelAction };
+		return { validateAction: {}, cancelAction: {} };
 	}
 
 	render() {
-		let actions = { validateAction: {}, cancelAction: {} };
 		const resourceInfo = this.getResourceInfo();
-		if (this.props['form-actions']) {
-			actions = this.getActions(resourceInfo);
-		}
+		const actions = this.getActions(resourceInfo);
 		return (
 			<ConfirmDialog
 				show

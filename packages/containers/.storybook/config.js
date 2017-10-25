@@ -126,6 +126,17 @@ function loadStories() {
 			id: 'object:hide:dialog',
 			actionCreator: 'cancel:hide:dialog',
 		};
+		actions['dialog:delete:validate'] = {
+			id: 'dialog:delete:validate',
+			label: 'Yes',
+			bsStyle: 'danger',
+			actionCreator: 'confirm:dialog',
+		};
+		actions['dialog:delete:cancel'] = {
+			id: 'dialog:delete:cancel',
+			label: 'No',
+			actionCreator: 'cancel:hide:dialog',
+		};
 
 		const story = storiesOf(example);
 
