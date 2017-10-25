@@ -6045,6 +6045,10 @@ redux-batched-actions@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/redux-batched-actions/-/redux-batched-actions-0.2.0.tgz#da0000c882b0e6c861a96d5823bd36adf5d9c0dd"
 
+redux-saga-tester@^1.0.373:
+  version "1.0.373"
+  resolved "https://registry.yarnpkg.com/redux-saga-tester/-/redux-saga-tester-1.0.373.tgz#2eb0f592cb8b0b1a2886b5147065b13de5a6391d"
+
 redux-saga@0.15.4:
   version "0.15.4"
   resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-0.15.4.tgz#27982a947280053b7ecbb5d3170c837a5fe6b261"
