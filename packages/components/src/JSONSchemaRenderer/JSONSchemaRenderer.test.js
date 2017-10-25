@@ -1,9 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
+import faker from 'faker';
 
-import JSONSchemaRenderer, { InvalidSchemaException, UnkownTypeException } from './JSONSchemaRenderer.component';
+import JSONSchemaRenderer, {
+	InvalidSchemaException,
+	UnkownTypeException,
+} from './JSONSchemaRenderer.component';
 
+faker.seed(42);
 describe('JSONSchemaRenderer', () => {
 	it('should render', () => {
 		const schema = { jsonSchema: {}, properties: {} };
@@ -16,18 +21,18 @@ describe('JSONSchemaRenderer', () => {
 			jsonSchema: {
 				properties: {
 					a: {
-						title: 'test string',
+						title: faker.random.words(),
 						type: 'string',
 					},
 					b: {
-						title: 'test integer',
+						title: faker.random.words(),
 						type: 'integer',
 					},
 				},
 			},
 			properties: {
-				a: 'A big a',
-				b: 42,
+				a: faker.random.words(),
+				b: faker.random.number(),
 			},
 		};
 		const wrapper = renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();
@@ -39,7 +44,7 @@ describe('JSONSchemaRenderer', () => {
 			jsonSchema: {
 				properties: {
 					a: {
-						title: 'test string',
+						title: faker.random.words(),
 						type: 'array',
 						items: {
 							enum: ['a', 'b', 'c', 'd', 'e', 'f'],
@@ -71,7 +76,7 @@ describe('JSONSchemaRenderer', () => {
 			},
 			properties: {
 				a: {
-					b: 'test',
+					b: faker.random.words(),
 				},
 			},
 		};
@@ -93,15 +98,25 @@ describe('JSONSchemaRenderer', () => {
 				'ui:order': ['a', 'e', 'b', 'c'],
 			},
 			properties: {
-				c: 'test c',
-				d: 'test d',
-				b: 'test b',
-				a: 'test a',
+				c: faker.random.words(),
+				d: faker.random.words(),
+				b: faker.random.words(),
+				a: faker.random.words(),
 			},
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper.find('dt').first().text()).toEqual('a');
-		expect(wrapper.find('dt').last().text()).toEqual('d');
+		expect(
+			wrapper
+				.find('dt')
+				.first()
+				.text(),
+		).toEqual('a');
+		expect(
+			wrapper
+				.find('dt')
+				.last()
+				.text(),
+		).toEqual('d');
 	});
 
 	it("shouldn't render hidden fields", () => {
@@ -119,33 +134,48 @@ describe('JSONSchemaRenderer', () => {
 				c: { 'ui:widget': 'hidden' },
 			},
 			properties: {
-				a: 'test a',
-				b: 'test b',
-				c: 'test c',
-				d: 'test d',
+				a: faker.random.words(),
+				b: faker.random.words(),
+				c: faker.random.words(),
+				d: faker.random.words(),
 			},
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
 		expect(wrapper.find('dt')).toHaveLength(2);
-		expect(wrapper.find('dt').first().text()).toEqual('b');
-		expect(wrapper.find('dt').last().text()).toEqual('d');
+		expect(
+			wrapper
+				.find('dt')
+				.first()
+				.text(),
+		).toEqual('b');
+		expect(
+			wrapper
+				.find('dt')
+				.last()
+				.text(),
+		).toEqual('d');
 	});
 
-	it("shouldn't render properties without a schema", () 	=> {
-		const schema = 	{
+	it("shouldn't render properties without a schema", () => {
+		const schema = {
 			jsonSchema: {
 				properties: {
 					a: { type: 'string' },
 				},
 			},
 			properties: {
-				a: 'test a',
-				b: 'test b',
+				a: faker.random.words(),
+				b: faker.random.words(),
 			},
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
 		expect(wrapper.find('dt')).toHaveLength(1);
-		expect(wrapper.find('dt').first().text()).toEqual('a');
+		expect(
+			wrapper
+				.find('dt')
+				.first()
+				.text(),
+		).toEqual('a');
 	});
 
 	// TODO: Add $ref handling
@@ -162,12 +192,12 @@ describe('JSONSchemaRenderer', () => {
 			jsonSchema: {
 				properties: {
 					a: {
-						type: 'test',
+						type: faker.random.word(),
 					},
 				},
 			},
 			properties: {
-				a: 'test',
+				a: faker.random.words(),
 			},
 		};
 		const wrapper = () => renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();

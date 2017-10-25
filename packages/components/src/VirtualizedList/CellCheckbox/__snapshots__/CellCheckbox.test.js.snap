@@ -8,11 +8,11 @@ exports[`CellActions should render checked checkbox 1`] = `
     className="checkbox"
   >
     <label
-      htmlFor="my-checkbox-25-check"
+      htmlFor="extend-25-check"
     >
       <input
         checked={true}
-        id="my-checkbox-25-check"
+        id="extend-25-check"
         onChange={[Function]}
         type="checkbox"
       />
@@ -20,7 +20,7 @@ exports[`CellActions should render checked checkbox 1`] = `
         <span
           className="sr-only"
         >
-          My Test Check
+          Fish multi-byte Savings Account
         </span>
       </span>
     </label>
@@ -36,11 +36,11 @@ exports[`CellActions should render unchecked checkbox 1`] = `
     className="checkbox"
   >
     <label
-      htmlFor="my-checkbox-25-check"
+      htmlFor="extend-25-check"
     >
       <input
         checked={false}
-        id="my-checkbox-25-check"
+        id="extend-25-check"
         onChange={[Function]}
         type="checkbox"
       />
@@ -48,7 +48,7 @@ exports[`CellActions should render unchecked checkbox 1`] = `
         <span
           className="sr-only"
         >
-          My Test Check
+          Fish multi-byte Savings Account
         </span>
       </span>
     </label>

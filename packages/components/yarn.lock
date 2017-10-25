@@ -168,15 +168,15 @@
     react-treebeard "^2.0.3"
     redux "^3.6.0"
 
-"@talend/bootstrap-theme@^0.117.0":
-  version "0.117.0"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.117.0.tgz#507b54af027425cf7dac909f28043e81715aaf01"
+"@talend/bootstrap-theme@^0.119.0":
+  version "0.119.0"
+  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.119.0.tgz#a03618e7309544155a76630c663736e9ccec96fc"
   dependencies:
     bootstrap-sass "3.3.7"
 
-"@talend/icons@^0.117.0":
-  version "0.117.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.117.0.tgz#4ba37884cbedac6ecd3fad12c545d2922b437032"
+"@talend/icons@^0.119.0":
+  version "0.119.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.119.0.tgz#c7a0ff7361748cdb322e097465071e4609cf3420"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -2929,6 +2929,10 @@ extglob@^0.3.1:
 extsprintf@1.3.0, extsprintf@^1.2.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
+
+faker@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/faker/-/faker-4.1.0.tgz#1e45bbbecc6774b3c195fad2835109c6d748cc3f"
 
 fast-deep-equal@^1.0.0:
   version "1.0.0"

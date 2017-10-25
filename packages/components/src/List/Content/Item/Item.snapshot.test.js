@@ -1,10 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import faker from 'faker';
 
 import Item from './Item.component';
 
 jest.mock('react-dom');
 
+faker.seed(42);
 const columns = [
 	{ key: 'name', label: 'Name', type: 'title' },
 	{ key: 'author', label: 'Author' },
@@ -12,11 +14,11 @@ const columns = [
 	{ key: 'modified', label: 'Modified' },
 ];
 const item = {
-	id: 2,
-	name: 'Bar',
+	id: faker.random.number(),
+	name: faker.random.words(),
 	created: '2016-09-22',
 	modified: '2016-09-22',
-	author: 'Jean-Pierre DUPONT',
+	author: faker.fake('{name.firstName} {name.lastName}'),
 	icon: 'fa fa-file-excel-o',
 };
 const actions = [

@@ -1,33 +1,43 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import faker from 'faker';
 
 import TreeView from './TreeView.component';
 
+faker.seed(42);
 const defaultProps = {
-	id: 'id',
-	structure: [{
-		name: 'grandpa',
-		actions: [{
-			action: () => ('itemRemoveCallback'),
-			icon: 'talend-trash',
-			label: 'remove element',
-		}],
-		children: [
-			{
-				name: 'mami',
-				toggled: true,
-				children: [
-					{ name: 'me', selected: true },
-					{ name: 'bro' },
-				],
-			},
-			{ name: 'aunt', toggled: false, children: [{ name: 'cousin' }] },
-		],
-		toggled: true,
-		counter: 101,
-		showCounter: true,
-	}],
-	headerText: 'some elements',
+	id: faker.random.word(),
+	structure: [
+		{
+			name: faker.name.firstName(),
+			actions: [
+				{
+					action: () => 'itemRemoveCallback',
+					icon: 'talend-trash',
+					label: 'remove element',
+				},
+			],
+			children: [
+				{
+					name: faker.name.firstName(),
+					toggled: true,
+					children: [
+						{ name: faker.name.firstName(), selected: true },
+						{ name: faker.name.firstName() },
+					],
+				},
+				{
+					name: faker.name.firstName(),
+					toggled: false,
+					children: [{ name: faker.name.firstName() }],
+				},
+			],
+			toggled: true,
+			counter: 101,
+			showCounter: true,
+		},
+	],
+	headerText: faker.random.words(),
 	addAction: () => null,
 	addActionLabel: 'add element',
 	itemSelectCallback: () => null,

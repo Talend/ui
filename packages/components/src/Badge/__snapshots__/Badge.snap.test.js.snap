@@ -13,7 +13,7 @@ exports[`BadgeSpec should render Badge 1`] = `
     <span
       className="tc-badge-label"
     >
-      Label
+      extend
     </span>
   </button>
 </div>
@@ -32,12 +32,12 @@ exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
     <span
       className="tc-badge-category"
     >
-      Category
+      Computer
     </span>
     <span
       className="tc-badge-label"
     >
-      Label
+      Table
     </span>
   </button>
   <button
@@ -77,7 +77,7 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
     <span
       className="tc-badge-label"
     >
-      Label
+      Directives
     </span>
   </button>
   <button
@@ -117,7 +117,7 @@ exports[`BadgeSpec should render disabled Badge with delete icon 1`] = `
     <span
       className="tc-badge-label"
     >
-      Label
+      Home Loan Account
     </span>
   </button>
   <button
@@ -157,7 +157,7 @@ exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
     <span
       className="tc-badge-label"
     >
-      Label
+      application
     </span>
   </button>
   <button

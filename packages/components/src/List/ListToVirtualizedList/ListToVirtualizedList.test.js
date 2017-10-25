@@ -1,13 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import faker from 'faker';
 
 import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import ListToVirtualizedList from './ListToVirtualizedList.component';
 import CellActions from '../../VirtualizedList/CellActions';
 
+faker.seed(42);
 const props = {
-	id: 'mylistid',
-	items: [{ id: 3, label: 'my item', myactions: [{ foo: 'bar' }] }],
+	id: faker.random.word(),
+	items: [{ id: faker.random.number(), label: faker.random.words(), myactions: [{ foo: 'bar' }] }],
 	columns: [
 		{ key: 'id', label: 'Id' },
 		{ key: 'label', label: 'Label' },
@@ -21,14 +23,12 @@ const props = {
 
 describe('ListToVirtualizedList', () => {
 	it('should map props', () => {
-		const wrapper = shallow(
-			<ListToVirtualizedList {...props} />
-		);
+		const wrapper = shallow(<ListToVirtualizedList {...props} />);
 		expect(wrapper.props().collection).toBe(props.items);
 		expect(wrapper.props().type).toBe('TABLE');
 		const columns = wrapper.find(VirtualizedList.Content);
 		expect(columns.length).toBe(3);
-		columns.forEach((element) => {
+		columns.forEach(element => {
 			const eProps = element.props();
 			if (eProps.label === 'Id') {
 				expect(eProps.dataKey).toBe('id');
@@ -44,14 +44,10 @@ describe('ListToVirtualizedList', () => {
 	});
 
 	it('should support displayMode', () => {
-		const table = shallow(
-			<ListToVirtualizedList {...props} displayMode="table" />
-		).props();
+		const table = shallow(<ListToVirtualizedList {...props} displayMode="table" />).props();
 		expect(table.type).toBe('TABLE');
 
-		const large = shallow(
-			<ListToVirtualizedList {...props} displayMode="large" />
-		).props();
+		const large = shallow(<ListToVirtualizedList {...props} displayMode="large" />).props();
 		expect(large.type).toBe('LARGE');
 	});
 
@@ -60,7 +56,7 @@ describe('ListToVirtualizedList', () => {
 		const wrapper = shallow(<ListToVirtualizedList {...props} />);
 
 		// then
-		wrapper.find(VirtualizedList.Content).forEach((element) => {
+		wrapper.find(VirtualizedList.Content).forEach(element => {
 			const eProps = element.props();
 			if (eProps.columnData) {
 				expect(eProps.columnData.actionsKey).toBe('actions');
@@ -73,7 +69,7 @@ describe('ListToVirtualizedList', () => {
 		const wrapper = shallow(<ListToVirtualizedList {...props} titleProps={undefined} />);
 
 		// then
-		wrapper.find(VirtualizedList.Content).forEach((element) => {
+		wrapper.find(VirtualizedList.Content).forEach(element => {
 			const eProps = element.props();
 			if (eProps.columnData) {
 				expect(eProps.columnData.actionsKey).toBe('actions');
@@ -86,7 +82,7 @@ describe('ListToVirtualizedList', () => {
 		const wrapper = shallow(<ListToVirtualizedList {...props} />);
 
 		// then
-		wrapper.find(VirtualizedList.Content).forEach((element) => {
+		wrapper.find(VirtualizedList.Content).forEach(element => {
 			const eProps = element.props();
 			if (eProps.label === 'Actions') {
 				expect(eProps.cellRenderer).toBe(CellActions.cellRenderer);
@@ -97,16 +93,10 @@ describe('ListToVirtualizedList', () => {
 	it('should adapt sort info', () => {
 		// when
 		const ascVirtualizedProps = shallow(
-			<ListToVirtualizedList
-				{...props}
-				sort={{ field: 'name', isDescending: false }}
-			/>
+			<ListToVirtualizedList {...props} sort={{ field: 'name', isDescending: false }} />,
 		).props();
 		const descVirtualizedProps = shallow(
-			<ListToVirtualizedList
-				{...props}
-				sort={{ field: 'name', isDescending: true }}
-			/>
+			<ListToVirtualizedList {...props} sort={{ field: 'name', isDescending: true }} />,
 		).props();
 
 		// then
@@ -119,10 +109,7 @@ describe('ListToVirtualizedList', () => {
 		// given
 		const onChange = jest.fn();
 		const virtualizedProps = shallow(
-			<ListToVirtualizedList
-				{...props}
-				sort={{ field: 'name', isDescending: false, onChange }}
-			/>
+			<ListToVirtualizedList {...props} sort={{ field: 'name', isDescending: false, onChange }} />,
 		).props();
 
 		// when
@@ -136,10 +123,7 @@ describe('ListToVirtualizedList', () => {
 		// given
 		const isSelected = jest.fn();
 		const virtualizedProps = shallow(
-			<ListToVirtualizedList
-				{...props}
-				itemProps={{ isSelected }}
-			/>
+			<ListToVirtualizedList {...props} itemProps={{ isSelected }} />,
 		).props();
 
 		// when
@@ -154,10 +138,7 @@ describe('ListToVirtualizedList', () => {
 		const onToggle = jest.fn();
 		const event = { target: {} };
 		const virtualizedProps = shallow(
-			<ListToVirtualizedList
-				{...props}
-				itemProps={{ onToggle }}
-			/>
+			<ListToVirtualizedList {...props} itemProps={{ onToggle }} />,
 		).props();
 
 		// when
@@ -172,10 +153,7 @@ describe('ListToVirtualizedList', () => {
 		const onRowClick = jest.fn();
 		const event = { target: {} };
 		const virtualizedProps = shallow(
-			<ListToVirtualizedList
-				{...props}
-				itemProps={{ onRowClick }}
-			/>
+			<ListToVirtualizedList {...props} itemProps={{ onRowClick }} />,
 		).props();
 
 		// when
@@ -189,10 +167,7 @@ describe('ListToVirtualizedList', () => {
 		// given
 		const isActive = jest.fn();
 		const virtualizedProps = shallow(
-			<ListToVirtualizedList
-				{...props}
-				itemProps={{ isActive }}
-			/>
+			<ListToVirtualizedList {...props} itemProps={{ isActive }} />,
 		).props();
 
 		// when

@@ -3,13 +3,13 @@
 exports[`CellTitle actions should NOT render the actions when no actions key is provided 1`] = `
 <div
   className="tc-list-title"
-  id="my-title-1-title-cell"
+  id="24/7-1-title-cell"
 >
   <CellTitleSelector
-    cellData="my awesome title"
+    cellData="Licensed Savings Account"
     className={undefined}
     displayMode="text"
-    id="my-title-1-title-cell"
+    id="24/7-1-title-cell"
     onClick={undefined}
     onEditCancel={undefined}
     onEditSubmit={undefined}
@@ -28,7 +28,7 @@ exports[`CellTitle actions should NOT render the actions when no actions key is 
           },
         ],
         "id": 1,
-        "title": "my awesome title",
+        "title": "Home Loan Account Table Computer",
       }
     }
   />
@@ -38,13 +38,13 @@ exports[`CellTitle actions should NOT render the actions when no actions key is 
 exports[`CellTitle actions should NOT render the actions when rowData has no actions 1`] = `
 <div
   className="tc-list-title"
-  id="my-title-1-title-cell"
+  id="syndicate-1-title-cell"
 >
   <CellTitleSelector
-    cellData="my awesome title"
+    cellData="Mississippi Refined Rubber Chicken Table"
     className={undefined}
     displayMode="text"
-    id="my-title-1-title-cell"
+    id="syndicate-1-title-cell"
     onClick={undefined}
     onEditCancel={undefined}
     onEditSubmit={undefined}
@@ -52,7 +52,7 @@ exports[`CellTitle actions should NOT render the actions when rowData has no act
       Object {
         "actions": undefined,
         "id": 1,
-        "title": "my awesome title",
+        "title": "Home Loan Account Table Computer",
       }
     }
   />
@@ -62,13 +62,13 @@ exports[`CellTitle actions should NOT render the actions when rowData has no act
 exports[`CellTitle actions should render the actions 1`] = `
 <div
   className="tc-list-title"
-  id="my-title-1-title-cell"
+  id="enable-1-title-cell"
 >
   <CellTitleSelector
-    cellData="my awesome title"
+    cellData="zero administration"
     className={undefined}
     displayMode="text"
-    id="my-title-1-title-cell"
+    id="enable-1-title-cell"
     onClick={undefined}
     onEditCancel={undefined}
     onEditSubmit={undefined}
@@ -87,7 +87,7 @@ exports[`CellTitle actions should render the actions 1`] = `
           },
         ],
         "id": 1,
-        "title": "my awesome title",
+        "title": "Home Loan Account Table Computer",
       }
     }
   />
@@ -115,13 +115,13 @@ exports[`CellTitle actions should render the actions 1`] = `
 exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1`] = `
 <div
   className="tc-list-title"
-  id="my-title-1-title-cell"
+  id="Officer-1-title-cell"
 >
   <CellTitleSelector
-    cellData="my awesome title"
+    cellData="methodology Albania"
     className={undefined}
     displayMode="text"
-    id="my-title-1-title-cell"
+    id="Officer-1-title-cell"
     onClick={undefined}
     onEditCancel={undefined}
     onEditSubmit={undefined}
@@ -129,7 +129,7 @@ exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1
       Object {
         "icon": "talend-file-o",
         "id": 1,
-        "title": "my awesome title",
+        "title": "mobile Fish",
       }
     }
   />
@@ -139,13 +139,13 @@ exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1
 exports[`CellTitle icon should NOT render the icon when the rowData has no icon value 1`] = `
 <div
   className="tc-list-title"
-  id="my-title-1-title-cell"
+  id="web-readiness-1-title-cell"
 >
   <CellTitleSelector
-    cellData="my awesome title"
+    cellData="Namibia"
     className={undefined}
     displayMode="text"
-    id="my-title-1-title-cell"
+    id="web-readiness-1-title-cell"
     onClick={undefined}
     onEditCancel={undefined}
     onEditSubmit={undefined}
@@ -153,7 +153,7 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
       Object {
         "icon": undefined,
         "id": 1,
-        "title": "my awesome title",
+        "title": "mobile Fish",
       }
     }
   />
@@ -163,17 +163,17 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
 exports[`CellTitle icon should render the icon 1`] = `
 <div
   className="tc-list-title"
-  id="my-title-1-title-cell"
+  id="parsing-1-title-cell"
 >
   <Icon
     className={undefined}
     name="talend-file-o"
   />
   <CellTitleSelector
-    cellData="my awesome title"
+    cellData="Electronics"
     className={undefined}
     displayMode="text"
-    id="my-title-1-title-cell"
+    id="parsing-1-title-cell"
     onClick={undefined}
     onEditCancel={undefined}
     onEditSubmit={undefined}
@@ -181,7 +181,7 @@ exports[`CellTitle icon should render the icon 1`] = `
       Object {
         "icon": "talend-file-o",
         "id": 1,
-        "title": "my awesome title",
+        "title": "mobile Fish",
       }
     }
   />
@@ -191,13 +191,13 @@ exports[`CellTitle icon should render the icon 1`] = `
 exports[`CellTitle should render title selector component 1`] = `
 <div
   className="tc-list-title"
-  id="my-title-1-title-cell"
+  id="Practical Fresh Pants-1-title-cell"
 >
   <CellTitleSelector
-    cellData="my awesome title"
+    cellData="Producer"
     className={undefined}
     displayMode="text"
-    id="my-title-1-title-cell"
+    id="Practical Fresh Pants-1-title-cell"
     onClick={[Function]}
     onEditCancel={[Function]}
     onEditSubmit={[Function]}
@@ -206,7 +206,7 @@ exports[`CellTitle should render title selector component 1`] = `
         "displayMode": "text",
         "icon": "talend-file-o",
         "id": 1,
-        "title": "my awesome title",
+        "title": "Metal deposit",
       }
     }
   />

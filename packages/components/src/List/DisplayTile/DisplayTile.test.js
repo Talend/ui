@@ -1,17 +1,19 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import faker from 'faker';
 
 import DisplayTile from './DisplayTile.component';
 
 jest.mock('react-dom');
 
+faker.seed(42);
 const items = [
 	{
-		id: 1,
-		name: 'Hello world',
+		id: faker.random.number(),
+		name: faker.random.words(),
 		created: '2016-09-22',
 		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT',
+		author: faker.fake('{{name.firstName}} {{name.lastName}}'),
 		actions: [
 			{
 				label: 'edit',
@@ -28,20 +30,20 @@ const items = [
 		className: 'item-0-class',
 	},
 	{
-		id: 2,
-		name: 'Foo',
+		id: faker.random.number(),
+		name: faker.random.words(),
 		created: '2016-09-22',
 		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT',
+		author: faker.fake('{{name.firstName}} {{name.lastName}}'),
 		icon: 'fa fa-file-pdf-o',
 		className: 'item-1-class',
 	},
 	{
-		id: 2,
-		name: 'Bar',
+		id: faker.random.number(),
+		name: faker.random.words(),
 		created: '2016-09-22',
 		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT',
+		author: faker.fake('{{name.firstName}} {{name.lastName}}'),
 	},
 ];
 
@@ -136,7 +138,7 @@ describe('DisplayTile', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('shoudl render selected list element with defaut \'active\' class', () => {
+	it("shoudl render selected list element with defaut 'active' class", () => {
 		// given
 		const props = {
 			id: 'tile-list',

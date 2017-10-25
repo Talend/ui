@@ -1,9 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import faker from 'faker';
 
 import RowLarge from './RowLarge.component';
 import VirtualizedList from '../VirtualizedList.component';
 import CellTitle from '../CellTitle';
+
+faker.seed(42);
 
 const titleProps = {
 	actionsKey: 'titleActions',
@@ -27,14 +30,14 @@ const titleActions = [
 const collection = [
 	{
 		id: 0,
-		name: 'Title from first item',
-		description: 'This comes from first element in collection',
+		name: faker.random.words(),
+		description: faker.lorem.sentence(10),
 		titleActions,
 	},
 	{
 		id: 1,
-		name: 'Title from second item',
-		description: 'This comes from second element in collection',
+		name: faker.random.words(),
+		description: faker.lorem.sentence(10),
 		titleActions,
 	},
 ];
@@ -45,13 +48,7 @@ const parent = {
 		collection,
 		rowGetter: index => collection[index],
 		children: [
-			<VirtualizedList.Content
-				label="Id"
-				dataKey="id"
-				width={50}
-				flexShrink={0}
-				flexGrow={0}
-			/>,
+			<VirtualizedList.Content label="Id" dataKey="id" width={50} flexShrink={0} flexGrow={0} />,
 			<VirtualizedList.Content
 				label="Name"
 				dataKey="name"
@@ -82,7 +79,7 @@ describe('RowLarge', () => {
 				key={18}
 				parent={parent}
 				style={{ background: 'red' }}
-			/>
+			/>,
 		);
 
 		// then

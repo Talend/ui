@@ -1,9 +1,11 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import keycode from 'keycode';
+import faker from 'faker';
 
 import CellTitleInput from './CellTitleInput.component';
 
+faker.seed(42);
 describe('CellTitleInput', () => {
 	it('should render the input', () => {
 		// given
@@ -12,12 +14,12 @@ describe('CellTitleInput', () => {
 		// when
 		const wrapper = shallow(
 			<CellTitleInput
-				id={'my-cell'}
-				cellData={'my value'}
+				id={faker.random.word()}
+				cellData={faker.random.words()}
 				onEditCancel={jest.fn()}
 				onEditSubmit={jest.fn()}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// then
@@ -30,27 +32,27 @@ describe('CellTitleInput', () => {
 		const onEditCancel = jest.fn();
 		const onEditSubmit = jest.fn();
 
+		const id = faker.random.word();
+		const expectedValue = faker.random.words();
+
 		const wrapper = mount(
 			<CellTitleInput
-				id={'my-cell-input'}
-				cellData={'my value'}
+				id={id}
+				cellData={expectedValue}
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// when
-		wrapper.find('#my-cell-input').simulate('blur');
+		wrapper.find(`#${id}`).simulate('blur');
 
 		// then
-		expect(onEditSubmit).toBeCalledWith(
-			expect.anything(),
-			{
-				value: 'my value',
-				model: rowData,
-			}
-		);
+		expect(onEditSubmit).toBeCalledWith(expect.anything(), {
+			value: expectedValue,
+			model: rowData,
+		});
 	});
 
 	it('should call submit callback on form submit', () => {
@@ -59,27 +61,27 @@ describe('CellTitleInput', () => {
 		const onEditCancel = jest.fn();
 		const onEditSubmit = jest.fn();
 
+		const id = faker.random.word();
+		const expectedValue = faker.random.words();
+
 		const wrapper = mount(
 			<CellTitleInput
-				id={'my-cell-input'}
-				cellData={'my value'}
+				id={id}
+				cellData={expectedValue}
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// when
 		wrapper.simulate('submit');
 
 		// then
-		expect(onEditSubmit).toBeCalledWith(
-			expect.anything(),
-			{
-				value: 'my value',
-				model: rowData,
-			}
-		);
+		expect(onEditSubmit).toBeCalledWith(expect.anything(), {
+			value: expectedValue,
+			model: rowData,
+		});
 	});
 
 	it('should call cancel callback on ESC keyup', () => {
@@ -89,18 +91,20 @@ describe('CellTitleInput', () => {
 		const onEditSubmit = jest.fn();
 		const event = { keyCode: keycode('escape') };
 
+		const id = faker.random.word();
+
 		const wrapper = mount(
 			<CellTitleInput
-				id={'my-cell-input'}
-				cellData={'my value'}
+				id={id}
+				cellData={faker.random.words()}
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// when
-		wrapper.find('#my-cell-input').simulate('keyUp', event);
+		wrapper.find(`#${id}`).simulate('keyUp', event);
 
 		// then
 		expect(onEditCancel).toBeCalledWith(expect.anything(), rowData);

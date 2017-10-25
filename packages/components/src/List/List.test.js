@@ -1,16 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import List from './List.component';
+import faker from 'faker';
 
+faker.seed(42);
 const listProps = {
-	columns: [
-		{ key: 'id', label: 'Id' },
-		{ key: 'name', label: 'Name' },
-	],
+	columns: [{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }],
 	items: [
-		{ id: 1, name: 'Hello world' },
-		{ id: 2, name: 'Foo' },
-		{ id: 3, name: 'Bar' },
+		{ id: 1, name: faker.random.words() },
+		{ id: 2, name: faker.random.words() },
+		{ id: 3, name: faker.random.words() },
 	],
 	itemProps: {
 		isSelected: () => false,
@@ -29,10 +28,7 @@ const toolbarProps = {
 	sort: {
 		field: 'name',
 		onChange: jest.fn(),
-		options: [
-			{ id: 'id', name: 'Id' },
-			{ id: 'name', name: 'Name' },
-		],
+		options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 	},
 	pagination: {
 		startIndex: 6,

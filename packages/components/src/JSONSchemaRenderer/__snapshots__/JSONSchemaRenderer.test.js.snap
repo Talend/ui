@@ -18,7 +18,7 @@ exports[`JSONSchemaRenderer should handle nested objects 1`] = `
           b
         </dt>
         <dd>
-          test
+          Producer
         </dd>
       </div>
     </div>
@@ -40,7 +40,7 @@ exports[`JSONSchemaRenderer should render arrays 1`] = `
     className="array-renderer-a"
   >
     <dt>
-      test string
+      Metal deposit
     </dt>
     <dd>
       b
@@ -63,20 +63,20 @@ exports[`JSONSchemaRenderer should render strings and integers 1`] = `
     className="text-renderer text-renderer-a"
   >
     <dt>
-      test string
+      mobile Fish
     </dt>
     <dd>
-      A big a
+      Trace
     </dd>
   </div>
   <div
     className="text-renderer text-renderer-b"
   >
     <dt>
-      test integer
+      Home Loan Account Table Computer
     </dt>
     <dd>
-      42
+      33370
     </dd>
   </div>
 </dl>

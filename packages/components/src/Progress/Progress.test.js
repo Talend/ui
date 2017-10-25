@@ -1,8 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import faker from 'faker';
 
 import Progress from './Progress.component';
 
+faker.seed(42);
 describe('Progress', () => {
 	it('should render hidden progress at 0%', () => {
 		// given
@@ -22,7 +24,7 @@ describe('Progress', () => {
 		// given
 		const props = {
 			id: 'my-progress',
-			percent: 60,
+			percent: faker.random.number({ max: 100 }),
 		};
 
 		// when
@@ -64,8 +66,8 @@ describe('Progress', () => {
 		// given
 		const props = {
 			id: 'my-progress',
-			percent: 60,
-			tooltip: 'Hey dude ! Progress: 60% !',
+			percent: faker.random.number({ max: 100 }),
+			tooltip: faker.random.words(),
 		};
 
 		// when
@@ -80,7 +82,7 @@ describe('Progress', () => {
 		const props = {
 			id: 'my-progress',
 			infinite: true,
-			tooltip: 'Hey dude !',
+			tooltip: faker.random.words(),
 		};
 
 		// when
@@ -95,7 +97,7 @@ describe('Progress', () => {
 		const props = {
 			id: 'my-progress',
 			contained: true,
-			percent: 60,
+			percent: faker.random.number({ max: 100 }),
 		};
 
 		// when

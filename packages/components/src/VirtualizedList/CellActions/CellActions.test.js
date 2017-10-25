@@ -1,43 +1,45 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import faker from 'faker';
 
 import CellActions from './CellActions.component';
 
+faker.seed(42);
 const actions = [
 	{
-		id: 'action-1',
-		label: 'Simple action',
+		id: faker.random.word(),
+		label: faker.random.words(),
 		icon: 'talend-pencil',
 		onClick: jest.fn(),
 	},
 	{
-		id: 'action-2',
+		id: faker.random.word(),
 		displayMode: 'dropdown',
-		label: 'Dropdown action',
+		label: faker.random.words(),
 		icon: 'talend-file-o',
 		items: [
 			{
-				label: 'Document 1',
+				label: faker.random.words(),
 				onClick: jest.fn(),
 			},
 			{
-				label: 'Document 2',
+				label: faker.random.words(),
 				onClick: jest.fn(),
 			},
 		],
 	},
 	{
-		id: 'action-3',
+		id: faker.random.word(),
 		displayMode: 'splitDropdown',
-		label: 'Split dropdown action',
+		label: faker.random.words(),
 		onClick: jest.fn(),
 		items: [
 			{
-				label: 'File 1',
+				label: faker.random.words(),
 				onClick: jest.fn(),
 			},
 			{
-				label: 'File 2',
+				label: faker.random.words(),
 				onClick: jest.fn(),
 			},
 		],

@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Button } from 'react-bootstrap';
+import faker from 'faker';
+
 import Breadcrumbs from './Breadcrumbs.component';
 
+faker.seed(42);
 describe('Breadcrumbs', () => {
 	it('should trigger action callback on item click', () => {
 		// given
@@ -10,9 +13,9 @@ describe('Breadcrumbs', () => {
 		const onTextBClick = jest.fn();
 		const onTextCClick = jest.fn();
 		const actions = [
-			{ text: 'Text A', onClick: onTextAClick },
-			{ text: 'Text B', onClick: onTextBClick },
-			{ text: 'Text C', onClick: onTextCClick },
+			{ text: faker.random.word(), onClick: onTextAClick },
+			{ text: faker.random.word(), onClick: onTextBClick },
+			{ text: faker.random.word(), onClick: onTextCClick },
 		];
 		const clickedElementIndex = 1;
 

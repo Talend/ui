@@ -27,7 +27,7 @@ ShallowWrapper {
             id={42}
             placement="right"
         >
-            toto
+            Directives
         </Tooltip>
     }
     placement="right"
@@ -53,7 +53,7 @@ ShallowWrapper {
                   id={42}
                   placement="right"
             >
-                  toto
+                  Directives
             </Tooltip>
       }
       placement="right"
@@ -76,7 +76,7 @@ ShallowWrapper {
       "_compositeType": 0,
       "_context": Object {},
       "_currentElement": <TooltipTrigger
-        label="toto"
+        label="Directives"
         tooltipPlacement="right"
 >
         <div>
@@ -94,7 +94,7 @@ ShallowWrapper {
           "children": <div>
             Action
 </div>,
-          "label": "toto",
+          "label": "Directives",
           "tooltipPlacement": "right",
         },
         "refs": Object {},
@@ -130,7 +130,7 @@ ShallowWrapper {
                               id={42}
                               placement="right"
                     >
-                              toto
+                              Directives
                     </Tooltip>
           }
           placement="right"
@@ -156,7 +156,7 @@ ShallowWrapper {
                               id={42}
                               placement="right"
                     >
-                              toto
+                              Directives
                     </Tooltip>
           }
           placement="right"
@@ -183,7 +183,7 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <TooltipTrigger
-    label="toto"
+    label="Directives"
     tooltipPlacement="right"
 >
     <div>
@@ -211,7 +211,7 @@ ShallowWrapper {
             id={42}
             placement="right"
         >
-            toto
+            application
         </Tooltip>
     }
     placement="right"
@@ -237,7 +237,7 @@ ShallowWrapper {
                   id={42}
                   placement="right"
             >
-                  toto
+                  application
             </Tooltip>
       }
       placement="right"
@@ -260,7 +260,7 @@ ShallowWrapper {
       "_compositeType": 0,
       "_context": Object {},
       "_currentElement": <TooltipTrigger
-        label="toto"
+        label="application"
         tooltipPlacement="right"
 >
         <div>
@@ -278,7 +278,7 @@ ShallowWrapper {
           "children": <div>
             Action
 </div>,
-          "label": "toto",
+          "label": "application",
           "tooltipPlacement": "right",
         },
         "refs": Object {},
@@ -314,7 +314,7 @@ ShallowWrapper {
                               id={42}
                               placement="right"
                     >
-                              toto
+                              application
                     </Tooltip>
           }
           placement="right"
@@ -340,7 +340,7 @@ ShallowWrapper {
                               id={42}
                               placement="right"
                     >
-                              toto
+                              application
                     </Tooltip>
           }
           placement="right"
@@ -367,7 +367,7 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <TooltipTrigger
-    label="toto"
+    label="application"
     tooltipPlacement="right"
 >
     <div>
