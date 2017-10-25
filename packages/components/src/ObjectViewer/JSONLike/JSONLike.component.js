@@ -249,7 +249,11 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 							({info.type})
 						</button>
 					) : null}
-					<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
+					<TooltipTrigger
+						className="offset"
+						label={getDataAbstract(data)}
+						tooltipPlacement="right"
+					>
 						<sup className="badge">{decoratedLength}</sup>
 					</TooltipTrigger>
 					{isOpened ? (
@@ -335,7 +339,9 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					onChange={props.onChange}
 				/>
 				{props.showType && (
-					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>({info.type})</div>
+					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>
+						({info.type})
+					</div>
 				)}
 			</LineItem>
 		);
