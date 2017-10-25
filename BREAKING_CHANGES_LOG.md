@@ -2,17 +2,6 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
-## NEXT VERSION
-
-* PR #629 [feat(theme): update colors]
-
-4 colors are gone :
-
-* $limeade : replace by $rio-grande
-* $pirate-gold : not used
-* $mine-shaft : replace by $dove-gray
-* $smalt-blue : not used
-
 ## v0.120.0
 
 * PR 807 [enhancement(component/Headerbar): small change]
@@ -23,6 +12,17 @@ Using containers and cmf, `name` is used to resolve `CMFAction` from the registr
 
 To be able to use name to describe the CMFAction associated to the Brand section of the header bar,
 `label` has to be used for application title rendering and `name` to resolve `CMFAction`
+
+## v0.96.0
+
+* PR #629 [feat(theme): update colors]
+
+4 colors are gone :
+
+* $limeade : replace by $rio-grande
+* $pirate-gold : not used
+* $mine-shaft : replace by $dove-gray
+* $smalt-blue : not used
 
 ## v0.71.0
 
