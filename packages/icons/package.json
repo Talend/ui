@@ -8,12 +8,11 @@
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack --progress",
     "docs": "node ./scripts/docs.js",
-    "prepublish": "npm run build-react && npm run build-webfont && npm run maven",
+    "prepublish": "npm run build-react && npm run build-webfont",
     "test": "echo no test",
     "test:cov": "echo no test",
     "start": "echo nothing to start",
-    "svgo": "svgo -f src/svg --config=.svgo.yml",
-    "maven": "webpack --config webpack.maven.js --progress --bail"
+    "svgo": "svgo -f src/svg --config=.svgo.yml"
   },
   "files": [
     "index.js",
@@ -50,10 +49,7 @@
     "react": "^15.6.1",
     "style-loader": "0.19.0",
     "svgo": "0.7.1",
-    "webpack": "3.6.0",
-    "zip-webpack-plugin": "2.0.0",
-    "copy-webpack-plugin": "4.0.1",
-    "node-fetch": "1.7.3"
+    "webpack": "3.6.0"
   },
   "publishConfig": {
     "access": "public"
