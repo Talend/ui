@@ -76,7 +76,7 @@ describe('ListView field', () => {
 			const wrapper = shallow(<ListView {...props} />);
 
 			// then
-			expect(wrapper.node).toMatchSnapshot();
+			expect(wrapper.getNode()).toMatchSnapshot();
 		});
 
 		it('should render no items message', () => {
@@ -93,8 +93,12 @@ describe('ListView field', () => {
 			// given
 			const node = document.createElement('div');
 			// eslint-disable-next-line react/no-render-return-value
-			const instance = ReactDOM.render(<ListView {...props} />, node);
-			expect(instance.state).toMatchSnapshot();
+			const instance = ReactDOM.render(<ListView {...props} value={[]} />, node);
+			const previousItems = instance.state.displayedItems;
+			expect(previousItems.length).toBe(4);
+			for (const item of previousItems) {
+				expect(item.checked).toBe(false);
+			}
 
 			const allValues = props.schema.titleMap.map(option => option.value);
 
@@ -102,7 +106,11 @@ describe('ListView field', () => {
 			ReactDOM.render(<ListView {...props} value={allValues} />, node);
 
 			// then
-			expect(instance.state).toMatchSnapshot();
+			const nextItems = instance.state.displayedItems;
+			expect(nextItems.length).toBe(4);
+			for (const item of nextItems) {
+				expect(item.checked).toBe(true);
+			}
 		});
 
 		it('should update items on props.schema change', () => {
@@ -110,7 +118,8 @@ describe('ListView field', () => {
 			const node = document.createElement('div');
 			// eslint-disable-next-line react/no-render-return-value
 			const instance = ReactDOM.render(<ListView {...props} />, node);
-			expect(instance.state).toMatchSnapshot();
+			const previousItems = instance.state.displayedItems;
+			expect(previousItems.length).toBe(4);
 
 			const allValues = alternativeSchema.titleMap.map(option => option.value);
 
@@ -122,7 +131,8 @@ describe('ListView field', () => {
 			/>, node);
 
 			// then
-			expect(instance.state).toMatchSnapshot();
+			const nextItems = instance.state.displayedItems;
+			expect(nextItems.length).toBe(6);
 		});
 	});
 
@@ -131,13 +141,17 @@ describe('ListView field', () => {
 			// given
 			const wrapper = mount(<ListView {...props} />);
 			const initialHeader = wrapper.find('.tc-listview-header').at(0);
-			expect(initialHeader.node).toMatchSnapshot();
+			expect(initialHeader.find('input').length).toBe(0);
+			expect(initialHeader.text()).toBe('Countries*(2/4 selected)');
 
 			// when
 			initialHeader.find('button').at(0).simulate('click');
 
 			// then
-			expect(wrapper.find('.tc-listview-header').at(0).node).toMatchSnapshot();
+			// expect(wrapper.find('.tc-listview-header').at(0).node).toMatchSnapshot();
+			const nextHeader = wrapper.find('.tc-listview-header').at(0);
+			expect(nextHeader.find('input').length).toBe(1);
+			expect(nextHeader.text()).toBe('');
 		});
 
 		it('should filter items on input change', () => {
@@ -148,7 +162,10 @@ describe('ListView field', () => {
 			filter(wrapper, 'ia');
 
 			// then
-			expect(wrapper.find('.tc-listview-items').at(0).node).toMatchSnapshot();
+			expect(wrapper.find('.tc-listview-item-label').length).toBe(2);
+			expect(wrapper.find('.tc-listview-item-label').at(0).text()).toBe('Albania');
+			expect(wrapper.find('.tc-listview-item-label').at(1).text()).toBe('Algeria');
+
 		});
 
 		it('should show no result message', () => {
@@ -159,7 +176,7 @@ describe('ListView field', () => {
 			filter(wrapper, 'lol');
 
 			// then
-			expect(wrapper.find('.tc-listview').at(0).node).toMatchSnapshot();
+			expect(wrapper.find('.tc-listview > span').at(0).text()).toBe('No element matching your filter');
 		});
 
 		it('should switch back to default mode on abort button click', () => {
