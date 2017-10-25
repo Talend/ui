@@ -2,7 +2,7 @@ import {
 	DIALOG_BOX_DELETE_RESOURCE,
 	DIALOG_BOX_DELETE_RESOURCE_OK,
 	DIALOG_BOX_DELETE_RESOURCE_CANCEL,
-} from '../constants';
+} from './deleteResource.constants';
 
 /**
  * Action called at the dialog opening|mounting.

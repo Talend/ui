@@ -5,8 +5,8 @@ import {
 	DIALOG_BOX_DELETE_RESOURCE_CANCEL,
 	DIALOG_BOX_DELETE_RESOURCE_CLOSE,
 	DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
-} from '../constants';
-import deleteResourceSaga, { buildHttpDelete } from './deleteResource';
+} from './deleteResource.constants';
+import deleteResourceSaga, { buildHttpDelete } from './deleteResource.sagas';
 
 describe('buildHttpDelete', () => {
 	it('should return an http object with delete method ', () => {

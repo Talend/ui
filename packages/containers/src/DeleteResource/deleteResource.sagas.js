@@ -6,7 +6,7 @@ import {
 	DIALOG_BOX_DELETE_RESOURCE_CANCEL,
 	DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
 	DIALOG_BOX_DELETE_RESOURCE_CLOSE,
-} from '../constants';
+} from './deleteResource.constants';
 
 /**
  * Wil be deprecated with the new http saga api.

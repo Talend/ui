@@ -1,9 +1,9 @@
-import { deleteResource, validate, cancel } from './deleteResource';
+import { deleteResource, validate, cancel } from './deleteResource.actions';
 import {
 	DIALOG_BOX_DELETE_RESOURCE,
 	DIALOG_BOX_DELETE_RESOURCE_OK,
 	DIALOG_BOX_DELETE_RESOURCE_CANCEL,
-} from '../constants';
+} from './deleteResource.constants';
 
 describe('deleteResource actions', () => {
 	describe('deleteResource:open', () => {
