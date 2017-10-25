@@ -108,7 +108,6 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
               <button
                 className="tc-badge-button"
                 disabled={false}
-                id="tc-badge-select-undefined"
                 onClick={undefined}
               >
                 <span

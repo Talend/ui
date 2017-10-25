@@ -8,7 +8,6 @@ exports[`BadgeSpec should render Badge 1`] = `
   <button
     className="tc-badge-button"
     disabled={false}
-    id="tc-badge-select-undefined"
     onClick={undefined}
   >
     <span
@@ -28,7 +27,6 @@ exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
   <button
     className="tc-badge-button"
     disabled={false}
-    id="tc-badge-select-undefined"
     onClick={undefined}
   >
     <span
@@ -45,7 +43,6 @@ exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
   <button
     className="tc-badge-delete-icon btn btn-default"
     disabled={false}
-    id="tc-badge-delete-undefined"
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
@@ -75,7 +72,6 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
   <button
     className="tc-badge-button"
     disabled={false}
-    id="tc-badge-select-undefined"
     onClick={undefined}
   >
     <span
@@ -87,7 +83,6 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
   <button
     className="tc-badge-delete-icon btn btn-default"
     disabled={false}
-    id="tc-badge-delete-undefined"
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
@@ -179,7 +174,6 @@ exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
   <button
     className="tc-badge-button"
     disabled={false}
-    id="tc-badge-select-undefined"
     onClick={undefined}
   >
     <span
@@ -191,7 +185,6 @@ exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
   <button
     className="tc-badge-delete-icon btn btn-default"
     disabled={false}
-    id="tc-badge-delete-undefined"
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}

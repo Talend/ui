@@ -10,24 +10,25 @@ import theme from './Badge.scss';
 
 function renderDeleteIcon(onClick, id, disabled, t) {
 	if (onClick) {
-		const deleteId = `tc-badge-delete-${id}`;
-		return (
-			<Action
-				label={t('BADGE_DELETE', { defaultValue: 'delete' })}
-				hideLabel
-				onClick={onClick}
-				disabled={disabled}
-				icon="talend-cross"
-				id={deleteId}
-				className={classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon'])}
-			/>
-		);
+		const actionProps = {
+			label: t('BADGE_DELETE', { defaultValue: 'delete' }),
+			hideLabel: true,
+			onClick: onClick,
+			disabled: disabled,
+			icon: "talend-cross",
+			className: classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon']),
+		};
+
+		if (id) {
+			actionProps.id = `tc-badge-delete-${id}`;
+		}
+
+		return <Action {...actionProps} />;
 	}
 	return null;
 }
 
 function Badge({ id, label, category, onDelete, onSelect, selected, disabled, t, style }) {
-	const selectId = `tc-badge-select-${id}`;
 	const containerClasses = classNames(
 		'tc-badge', theme['tc-badge'],
 		selected && ['tc-badge-selected', theme['tc-badge-selected']],
@@ -38,9 +39,19 @@ function Badge({ id, label, category, onDelete, onSelect, selected, disabled, t,
 	const labelClasses = classNames('tc-badge-label', theme['tc-badge-label']);
 	const categoryClasses = classNames('tc-badge-category', theme['tc-badge-category']);
 
+	const badgeProps = {
+		className: badgeClasses,
+		onClick: onSelect,
+		disabled: disabled,
+	};
+
+	if (id) {
+		badgeProps.id = `tc-badge-select-${id}`;
+	}
+
 	return (
 		<div className={containerClasses} style={style}>
-			<button className={badgeClasses} onClick={onSelect} disabled={disabled} id={selectId}>
+			<button {...badgeProps} >
 				{category && <span className={categoryClasses}>
 					{category}
 				</span>}
