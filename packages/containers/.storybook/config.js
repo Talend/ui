@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import { action, storiesOf, configure, setAddon } from '@storybook/react';
 import cmf from 'react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
-import { api, actions } from '@talend/react-cmf';
+import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 
@@ -61,7 +61,6 @@ function loadStories() {
 		const collections = new Map({
 			myResourceType: new List([value]),
 		});
-		api.actions.collectionsActions.addOrReplace('myResourceType');
 		state.cmf.collections = collections;
 		state.cmf.settings.views.appheaderbar = {
 			app: 'Hello Test',
