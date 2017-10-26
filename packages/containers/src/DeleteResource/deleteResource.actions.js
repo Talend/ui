@@ -5,7 +5,7 @@ import deleteResourceConst from './deleteResource.constants';
  * @param {object} event
  * @param {object} data
  */
-export function deleteResource(event, data, context) {
+function deleteResource(event, data, context) {
 	const { model } = data;
 	const path = context.router ? context.router.location.pathname : '/';
 	return {
@@ -21,7 +21,7 @@ export function deleteResource(event, data, context) {
 /**
  * Action to delete a resource and close the confirm dialog.
  */
-export function validate(event, data) {
+function validate(event, data) {
 	return {
 		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK,
 		resourceInfo: data.model.resourceInfo,
@@ -31,7 +31,7 @@ export function validate(event, data) {
 /**
  * Action to cancel and close the confirm dialog.
  */
-export function cancel() {
+function cancel() {
 	return {
 		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL,
 	};
