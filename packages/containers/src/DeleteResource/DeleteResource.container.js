@@ -65,7 +65,6 @@ export default class DeleteResource extends React.Component {
 	 */
 	getActions(resourceInfo) {
 		const actions = getActionsProps(this.context, this.props['form-actions'], {
-			props: this.props,
 			resourceInfo,
 		});
 		return {
