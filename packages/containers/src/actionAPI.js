@@ -1,4 +1,7 @@
 import { api } from '@talend/react-cmf';
+import forIn from 'lodash/forIn';
+
+const regexExpression = /(.*)Expression/g;
 
 /**
  * add support for expression in actions.
@@ -16,14 +19,13 @@ function evalExpressions(action, context, payload = {}) {
 		context,
 		payload,
 	);
-	if (action.labelExpression) {
-		delete newAction.labelExpression;
-		newAction.label = api.expression.call(action.labelExpression, context, newAction);
-	}
-	if (action.iconExpression) {
-		delete newAction.iconExpression;
-		newAction.icon = api.expression.call(action.iconExpression, context, newAction);
-	}
+	forIn(action, (value, key) => {
+		if (key.match(regexExpression)) {
+			const newKey = key.slice(0, -10);
+			newAction[newKey] = api.expression.call(action[key], context, newAction);
+			delete newAction[key];
+		}
+	});
 	return newAction;
 }
 

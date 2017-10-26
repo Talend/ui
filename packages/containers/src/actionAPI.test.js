@@ -148,4 +148,76 @@ describe('actionAPI.evalExpressions', () => {
 		expect(falsyAction.label).toBe('Run');
 		expect(falsyAction.icon).toBe('pas-talend-icon');
 	});
+
+	it('try to evaluate any action properties ending with `Expression`', () => {
+		const actionInfo = {
+			active: 'isActive',
+			available: 'isInTest',
+			disabled: 'isDisabled',
+			inProgress: 'isInProgress',
+			label: 'Run',
+			labelInProgress: 'Running',
+			labelExpression: 'getLabel',
+			iconExpression: 'getIcon',
+			hrefExpression: 'getHref',
+		};
+
+		function isActive({ payload }) {
+			return payload.model.value;
+		}
+		function isInTest({ context }) {
+			return context.router.location === '/test';
+		}
+		function isDisabled({ payload }) {
+			return payload.model.value;
+		}
+		function isInProgress({ payload }) {
+			return payload.model.value;
+		}
+		function getLabel({ payload }) {
+			return payload.model.value ? payload.labelInProgress : payload.label;
+		}
+
+		function getIcon({ payload }) {
+			return payload.model.value ? 'talend-icon' : 'pas-talend-icon';
+		}
+
+		function getHref({ payload }) {
+			return payload.model.value ? 'link1' : 'link2';
+		}
+
+		const modelTruthy = { value: true };
+		const modelFalsy = { value: false };
+		const context = {
+			registry: {
+				'expression:isActive': isActive,
+				'expression:isInTest': isInTest,
+				'expression:isDisabled': isDisabled,
+				'expression:isInProgress': isInProgress,
+				'expression:getLabel': getLabel,
+				'expression:getIcon': getIcon,
+				'expression:getHref': getHref,
+			},
+			router: {
+				location: '/test',
+			},
+		};
+		const truthyAction = action.evalExpressions(actionInfo, context, { model: modelTruthy });
+		expect(truthyAction.active).toBe(true);
+		expect(truthyAction.available).toBe(true);
+		expect(truthyAction.disabled).toBe(true);
+		expect(truthyAction.inProgress).toBe(true);
+		expect(truthyAction.label).toBe('Running');
+		expect(truthyAction.icon).toBe('talend-icon');
+		expect(truthyAction.href).toBe('link1');
+
+		const falsyAction = action.evalExpressions(actionInfo, context, { model: modelFalsy });
+		expect(falsyAction.active).toBe(false);
+		expect(falsyAction.available).toBe(true);
+		expect(falsyAction.disabled).toBe(false);
+		expect(falsyAction.inProgress).toBe(false);
+		expect(falsyAction.label).toBe('Run');
+		expect(falsyAction.icon).toBe('pas-talend-icon');
+		expect(falsyAction.href).toBe('link2');
+	});
 });
