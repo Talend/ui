@@ -7,14 +7,14 @@ The components needs two actions, respectively 'cancel-action' and 'validate-act
 Also require a resourceInfo object, which contains the uri to call and the resourceType.
 ---------------------------------------
 "actions": {
-	"myValidateAction": {
-		"id": "myValidateAction",
+	"my:validate:action": {
+		"id": "my:validate:action",
 		"label": "Yes",
 		"bsStyle": "danger",
 		"actionCreator": "deleteResource:validate"
 	},
-	"myCancelAction": {
-		"id": "myCancelAction",
+	"my:cancel:action": {
+		"id": "my:cancel:action",
 		"label": "No",
 		"actionCreator": "deleteResource:cancel"
 	}
@@ -23,8 +23,8 @@ Also require a resourceInfo object, which contains the uri to call and the resou
 	"Container(DeleteResource)#resourceType": {
 		"resourceInfo": { "uri": "/myEndpoint", "resourceType": "myResourceType" },
 		"header": "My header title",
-		"cancel-action": "myCancelAction",
-		"validate-action": "myValidateAction"
+		"cancel-action": "my:cancel:action",
+		"validate-action": "my:validate:action"
 	}
 }
 */
