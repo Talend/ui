@@ -81,7 +81,7 @@ function SidePanel({
 							id={id && `${id}-nav-${action.label.toLowerCase().split(' ').join('-')}`}
 							bsStyle="link"
 							role="link"
-							className={theme.link}
+							className={classNames(theme.link, action.className)}
 							onClick={(event) => {
 								if (onSelect) {
 									onSelect(event, action);
