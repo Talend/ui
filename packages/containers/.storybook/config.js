@@ -93,6 +93,11 @@ function loadStories() {
 				type: 'MENU_',
 			},
 		};
+		actions['menu:fourth'] = {
+			label: 'Upload',
+			icon: 'talend-upload',
+			displayMode: 'file'
+		}
 		actions['object:add'] = {
 			label: 'Add',
 			icon: 'talend-plus-circle',

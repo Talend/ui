@@ -55,9 +55,10 @@ const actions = {
 	],
 	right: [
 		{
+			displayMode: ActionBar.DISPLAY_MODES.FILE,
 			label: 'Secondary4',
-			icon: 'talend-cog',
-			onClick: action('You clicked me'),
+			icon: 'talend-upload',
+			onChange: action('You changed my value'),
 		},
 		{
 			label: 'Secondary5',
@@ -187,6 +188,7 @@ const icons = {
 	'talend-star': talendIcons['talend-star'],
 	'talend-table': talendIcons['talend-table'],
 	'talend-trash': talendIcons['talend-trash'],
+	'talend-upload': talendIcons['talend-upload'],
 };
 
 storiesOf('ActionBar', module)

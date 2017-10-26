@@ -42,7 +42,7 @@ export default function ExampleActions() {
 		<div>
 			<IconsProvider />
 			<p>using action ids</p>
-			<ActionBar actionIds={{ left: ['menu:first', 'menu:second', 'menu:third'] }} />
+			<ActionBar actionIds={{ left: ['menu:first', 'menu:second', 'menu:third', 'menu:fourth'] }} />
 			<p>using btn groups</p>
 			<ActionBar
 				actionIds={{
