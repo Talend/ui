@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Container DeleteResource should render 1`] = `
+exports[`Container DeleteResource should render with proper resourceInfo params 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -22,7 +22,7 @@ ShallowWrapper {
                 ],
                 "header": "My header title",
                 "params": Object {
-                  "id": "myIdResource",
+                  "id": "myResourceID",
                 },
                 "resourceInfo": Object {
                   "resourceType": "myResourceType",
@@ -30,7 +30,9 @@ ShallowWrapper {
                 },
               },
               "resourceInfo": Object {
-                "id": "myIdResource",
+                "found": true,
+                "id": "myResourceID",
+                "label": "myLabel",
                 "resourceType": "myResourceType",
                 "uri": "/myEndpoint",
               },
@@ -54,7 +56,7 @@ ShallowWrapper {
                 ],
                 "header": "My header title",
                 "params": Object {
-                  "id": "myIdResource",
+                  "id": "myResourceID",
                 },
                 "resourceInfo": Object {
                   "resourceType": "myResourceType",
@@ -62,7 +64,9 @@ ShallowWrapper {
                 },
               },
               "resourceInfo": Object {
-                "id": "myIdResource",
+                "found": true,
+                "id": "myResourceID",
+                "label": "myLabel",
                 "resourceType": "myResourceType",
                 "uri": "/myEndpoint",
               },
@@ -71,7 +75,9 @@ ShallowWrapper {
           }
     }
 >
-    <div />
+    <div>
+        myLabel
+    </div>
 </ConfirmDialog>,
   "nodes": Array [
     <ConfirmDialog
@@ -88,7 +94,7 @@ ShallowWrapper {
                       ],
                       "header": "My header title",
                       "params": Object {
-                        "id": "myIdResource",
+                        "id": "myResourceID",
                       },
                       "resourceInfo": Object {
                         "resourceType": "myResourceType",
@@ -96,7 +102,9 @@ ShallowWrapper {
                       },
                     },
                     "resourceInfo": Object {
-                      "id": "myIdResource",
+                      "found": true,
+                      "id": "myResourceID",
+                      "label": "myLabel",
                       "resourceType": "myResourceType",
                       "uri": "/myEndpoint",
                     },
@@ -120,7 +128,7 @@ ShallowWrapper {
                       ],
                       "header": "My header title",
                       "params": Object {
-                        "id": "myIdResource",
+                        "id": "myResourceID",
                       },
                       "resourceInfo": Object {
                         "resourceType": "myResourceType",
@@ -128,7 +136,9 @@ ShallowWrapper {
                       },
                     },
                     "resourceInfo": Object {
-                      "id": "myIdResource",
+                      "found": true,
+                      "id": "myResourceID",
+                      "label": "myLabel",
                       "resourceType": "myResourceType",
                       "uri": "/myEndpoint",
                     },
@@ -137,7 +147,9 @@ ShallowWrapper {
                 }
       }
 >
-      <div />
+      <div>
+            myLabel
+      </div>
 </ConfirmDialog>,
   ],
   "options": Object {
@@ -166,7 +178,7 @@ ShallowWrapper {
         header="My header title"
         params={
                 Object {
-                        "id": "myIdResource",
+                        "id": "myResourceID",
                       }
         }
         resourceInfo={
@@ -196,7 +208,7 @@ ShallowWrapper {
           ],
           "header": "My header title",
           "params": Object {
-            "id": "myIdResource",
+            "id": "myResourceID",
           },
           "resourceInfo": Object {
             "resourceType": "myResourceType",
@@ -237,7 +249,7 @@ ShallowWrapper {
                                   ],
                                   "header": "My header title",
                                   "params": Object {
-                                    "id": "myIdResource",
+                                    "id": "myResourceID",
                                   },
                                   "resourceInfo": Object {
                                     "resourceType": "myResourceType",
@@ -245,7 +257,9 @@ ShallowWrapper {
                                   },
                                 },
                                 "resourceInfo": Object {
-                                  "id": "myIdResource",
+                                  "found": true,
+                                  "id": "myResourceID",
+                                  "label": "myLabel",
                                   "resourceType": "myResourceType",
                                   "uri": "/myEndpoint",
                                 },
@@ -269,7 +283,7 @@ ShallowWrapper {
                                   ],
                                   "header": "My header title",
                                   "params": Object {
-                                    "id": "myIdResource",
+                                    "id": "myResourceID",
                                   },
                                   "resourceInfo": Object {
                                     "resourceType": "myResourceType",
@@ -277,7 +291,9 @@ ShallowWrapper {
                                   },
                                 },
                                 "resourceInfo": Object {
-                                  "id": "myIdResource",
+                                  "found": true,
+                                  "id": "myResourceID",
+                                  "label": "myLabel",
                                   "resourceType": "myResourceType",
                                   "uri": "/myEndpoint",
                                 },
@@ -286,7 +302,9 @@ ShallowWrapper {
                             }
           }
 >
-          <div />
+          <div>
+                    myLabel
+          </div>
 </ConfirmDialog>,
         "_debugID": 2,
         "_renderedOutput": <ConfirmDialog
@@ -303,7 +321,7 @@ ShallowWrapper {
                                   ],
                                   "header": "My header title",
                                   "params": Object {
-                                    "id": "myIdResource",
+                                    "id": "myResourceID",
                                   },
                                   "resourceInfo": Object {
                                     "resourceType": "myResourceType",
@@ -311,7 +329,9 @@ ShallowWrapper {
                                   },
                                 },
                                 "resourceInfo": Object {
-                                  "id": "myIdResource",
+                                  "found": true,
+                                  "id": "myResourceID",
+                                  "label": "myLabel",
                                   "resourceType": "myResourceType",
                                   "uri": "/myEndpoint",
                                 },
@@ -335,7 +355,7 @@ ShallowWrapper {
                                   ],
                                   "header": "My header title",
                                   "params": Object {
-                                    "id": "myIdResource",
+                                    "id": "myResourceID",
                                   },
                                   "resourceInfo": Object {
                                     "resourceType": "myResourceType",
@@ -343,8 +363,416 @@ ShallowWrapper {
                                   },
                                 },
                                 "resourceInfo": Object {
-                                  "id": "myIdResource",
+                                  "found": true,
+                                  "id": "myResourceID",
+                                  "label": "myLabel",
                                   "resourceType": "myResourceType",
+                                  "uri": "/myEndpoint",
+                                },
+                              },
+                              "onClick": [Function],
+                            }
+          }
+>
+          <div>
+                    myLabel
+          </div>
+</ConfirmDialog>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Container(DeleteResource)
+    form-actions={
+        Array [
+            "dialog:delete:cancel",
+            "dialog:delete:validate",
+          ]
+    }
+    header="My header title"
+    params={
+        Object {
+            "id": "myResourceID",
+          }
+    }
+    resourceInfo={
+        Object {
+            "resourceType": "myResourceType",
+            "uri": "/myEndpoint",
+          }
+    }
+/>,
+}
+`;
+
+exports[`Container DeleteResource should render with wrong resourceInfo params 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <ConfirmDialog
+    cancelAction={
+        Object {
+            "actionCreator": "deleteResource:cancel",
+            "id": "dialog:delete:cancel",
+            "label": "No",
+            "model": Object {
+              "props": Object {
+                "form-actions": Array [
+                  "dialog:delete:cancel",
+                  "dialog:delete:validate",
+                ],
+                "header": "My header title",
+                "params": Object {
+                  "id": "myResourceID",
+                },
+                "resourceInfo": Object {
+                  "resourceType": "unknownResourceType",
+                  "uri": "/myEndpoint",
+                },
+              },
+              "resourceInfo": Object {
+                "found": false,
+                "id": "myResourceID",
+                "label": "",
+                "resourceType": "unknownResourceType",
+                "uri": "/myEndpoint",
+              },
+            },
+            "onClick": [Function],
+          }
+    }
+    header="My header title"
+    show={true}
+    validateAction={
+        Object {
+            "actionCreator": "deleteResource:validate",
+            "bsStyle": "danger",
+            "id": "dialog:delete:validate",
+            "label": "Yes",
+            "model": Object {
+              "props": Object {
+                "form-actions": Array [
+                  "dialog:delete:cancel",
+                  "dialog:delete:validate",
+                ],
+                "header": "My header title",
+                "params": Object {
+                  "id": "myResourceID",
+                },
+                "resourceInfo": Object {
+                  "resourceType": "unknownResourceType",
+                  "uri": "/myEndpoint",
+                },
+              },
+              "resourceInfo": Object {
+                "found": false,
+                "id": "myResourceID",
+                "label": "",
+                "resourceType": "unknownResourceType",
+                "uri": "/myEndpoint",
+              },
+            },
+            "onClick": [Function],
+          }
+    }
+>
+    <div />
+</ConfirmDialog>,
+  "nodes": Array [
+    <ConfirmDialog
+      cancelAction={
+            Object {
+                  "actionCreator": "deleteResource:cancel",
+                  "id": "dialog:delete:cancel",
+                  "label": "No",
+                  "model": Object {
+                    "props": Object {
+                      "form-actions": Array [
+                        "dialog:delete:cancel",
+                        "dialog:delete:validate",
+                      ],
+                      "header": "My header title",
+                      "params": Object {
+                        "id": "myResourceID",
+                      },
+                      "resourceInfo": Object {
+                        "resourceType": "unknownResourceType",
+                        "uri": "/myEndpoint",
+                      },
+                    },
+                    "resourceInfo": Object {
+                      "found": false,
+                      "id": "myResourceID",
+                      "label": "",
+                      "resourceType": "unknownResourceType",
+                      "uri": "/myEndpoint",
+                    },
+                  },
+                  "onClick": [Function],
+                }
+      }
+      header="My header title"
+      show={true}
+      validateAction={
+            Object {
+                  "actionCreator": "deleteResource:validate",
+                  "bsStyle": "danger",
+                  "id": "dialog:delete:validate",
+                  "label": "Yes",
+                  "model": Object {
+                    "props": Object {
+                      "form-actions": Array [
+                        "dialog:delete:cancel",
+                        "dialog:delete:validate",
+                      ],
+                      "header": "My header title",
+                      "params": Object {
+                        "id": "myResourceID",
+                      },
+                      "resourceInfo": Object {
+                        "resourceType": "unknownResourceType",
+                        "uri": "/myEndpoint",
+                      },
+                    },
+                    "resourceInfo": Object {
+                      "found": false,
+                      "id": "myResourceID",
+                      "label": "",
+                      "resourceType": "unknownResourceType",
+                      "uri": "/myEndpoint",
+                    },
+                  },
+                  "onClick": [Function],
+                }
+      }
+>
+      <div />
+</ConfirmDialog>,
+  ],
+  "options": Object {
+    "context": Object {
+      "store": Object {
+        "getState": [Function],
+      },
+    },
+  },
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {
+        "store": Object {
+          "getState": [Function],
+        },
+      },
+      "_currentElement": <Container(DeleteResource)
+        form-actions={
+                Array [
+                        "dialog:delete:cancel",
+                        "dialog:delete:validate",
+                      ]
+        }
+        header="My header title"
+        params={
+                Object {
+                        "id": "myResourceID",
+                      }
+        }
+        resourceInfo={
+                Object {
+                        "resourceType": "unknownResourceType",
+                        "uri": "/myEndpoint",
+                      }
+        }
+/>,
+      "_debugID": 3,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": DeleteResource {
+        "_reactInternalInstance": [Circular],
+        "context": Object {
+          "registry": undefined,
+          "store": Object {
+            "getState": [Function],
+          },
+        },
+        "getActions": [Function],
+        "getLabel": [Function],
+        "props": Object {
+          "form-actions": Array [
+            "dialog:delete:cancel",
+            "dialog:delete:validate",
+          ],
+          "header": "My header title",
+          "params": Object {
+            "id": "myResourceID",
+          },
+          "resourceInfo": Object {
+            "resourceType": "unknownResourceType",
+            "uri": "/myEndpoint",
+          },
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 2,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <ConfirmDialog
+          cancelAction={
+                    Object {
+                              "actionCreator": "deleteResource:cancel",
+                              "id": "dialog:delete:cancel",
+                              "label": "No",
+                              "model": Object {
+                                "props": Object {
+                                  "form-actions": Array [
+                                    "dialog:delete:cancel",
+                                    "dialog:delete:validate",
+                                  ],
+                                  "header": "My header title",
+                                  "params": Object {
+                                    "id": "myResourceID",
+                                  },
+                                  "resourceInfo": Object {
+                                    "resourceType": "unknownResourceType",
+                                    "uri": "/myEndpoint",
+                                  },
+                                },
+                                "resourceInfo": Object {
+                                  "found": false,
+                                  "id": "myResourceID",
+                                  "label": "",
+                                  "resourceType": "unknownResourceType",
+                                  "uri": "/myEndpoint",
+                                },
+                              },
+                              "onClick": [Function],
+                            }
+          }
+          header="My header title"
+          show={true}
+          validateAction={
+                    Object {
+                              "actionCreator": "deleteResource:validate",
+                              "bsStyle": "danger",
+                              "id": "dialog:delete:validate",
+                              "label": "Yes",
+                              "model": Object {
+                                "props": Object {
+                                  "form-actions": Array [
+                                    "dialog:delete:cancel",
+                                    "dialog:delete:validate",
+                                  ],
+                                  "header": "My header title",
+                                  "params": Object {
+                                    "id": "myResourceID",
+                                  },
+                                  "resourceInfo": Object {
+                                    "resourceType": "unknownResourceType",
+                                    "uri": "/myEndpoint",
+                                  },
+                                },
+                                "resourceInfo": Object {
+                                  "found": false,
+                                  "id": "myResourceID",
+                                  "label": "",
+                                  "resourceType": "unknownResourceType",
+                                  "uri": "/myEndpoint",
+                                },
+                              },
+                              "onClick": [Function],
+                            }
+          }
+>
+          <div />
+</ConfirmDialog>,
+        "_debugID": 4,
+        "_renderedOutput": <ConfirmDialog
+          cancelAction={
+                    Object {
+                              "actionCreator": "deleteResource:cancel",
+                              "id": "dialog:delete:cancel",
+                              "label": "No",
+                              "model": Object {
+                                "props": Object {
+                                  "form-actions": Array [
+                                    "dialog:delete:cancel",
+                                    "dialog:delete:validate",
+                                  ],
+                                  "header": "My header title",
+                                  "params": Object {
+                                    "id": "myResourceID",
+                                  },
+                                  "resourceInfo": Object {
+                                    "resourceType": "unknownResourceType",
+                                    "uri": "/myEndpoint",
+                                  },
+                                },
+                                "resourceInfo": Object {
+                                  "found": false,
+                                  "id": "myResourceID",
+                                  "label": "",
+                                  "resourceType": "unknownResourceType",
+                                  "uri": "/myEndpoint",
+                                },
+                              },
+                              "onClick": [Function],
+                            }
+          }
+          header="My header title"
+          show={true}
+          validateAction={
+                    Object {
+                              "actionCreator": "deleteResource:validate",
+                              "bsStyle": "danger",
+                              "id": "dialog:delete:validate",
+                              "label": "Yes",
+                              "model": Object {
+                                "props": Object {
+                                  "form-actions": Array [
+                                    "dialog:delete:cancel",
+                                    "dialog:delete:validate",
+                                  ],
+                                  "header": "My header title",
+                                  "params": Object {
+                                    "id": "myResourceID",
+                                  },
+                                  "resourceInfo": Object {
+                                    "resourceType": "unknownResourceType",
+                                    "uri": "/myEndpoint",
+                                  },
+                                },
+                                "resourceInfo": Object {
+                                  "found": false,
+                                  "id": "myResourceID",
+                                  "label": "",
+                                  "resourceType": "unknownResourceType",
                                   "uri": "/myEndpoint",
                                 },
                               },
@@ -375,12 +803,12 @@ ShallowWrapper {
     header="My header title"
     params={
         Object {
-            "id": "myIdResource",
+            "id": "myResourceID",
           }
     }
     resourceInfo={
         Object {
-            "resourceType": "myResourceType",
+            "resourceType": "unknownResourceType",
             "uri": "/myEndpoint",
           }
     }

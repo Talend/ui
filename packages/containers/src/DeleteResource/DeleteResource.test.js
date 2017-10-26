@@ -7,7 +7,7 @@ import Container from './DeleteResource.container';
 import Connected from './DeleteResource.connect';
 
 const state = store.state();
-const value = new Map({ id: 'myID', label: 'myLabel' });
+const value = new Map({ id: 'myResourceID', label: 'myLabel' });
 const collections = new Map({
 	myResourceType: new List([value]),
 });
@@ -38,18 +38,26 @@ const context = {
 };
 
 describe('Container DeleteResource', () => {
-	const props = {
-		resourceInfo: { uri: '/myEndpoint', resourceType: 'myResourceType' },
-		header: 'My header title',
-		params: { id: 'myIdResource' },
-		'form-actions': ['dialog:delete:cancel', 'dialog:delete:validate'],
-	};
-	it('should render', () => {
+	it('should render with proper resourceInfo params', () => {
+		const props = {
+			resourceInfo: { uri: '/myEndpoint', resourceType: 'myResourceType' },
+			header: 'My header title',
+			params: { id: 'myResourceID' },
+			'form-actions': ['dialog:delete:cancel', 'dialog:delete:validate'],
+		};
 		const wrapper = shallow(<Container {...props} />, { context });
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('get the resource and return an object', () => {});
-	it('build a data object and return it', () => {});
+	it('should render with wrong resourceInfo params', () => {
+		const props = {
+			resourceInfo: { uri: '/myEndpoint', resourceType: 'unknownResourceType' },
+			header: 'My header title',
+			params: { id: 'myResourceID' },
+			'form-actions': ['dialog:delete:cancel', 'dialog:delete:validate'],
+		};
+		const wrapper = shallow(<Container {...props} />, { context });
+		expect(wrapper).toMatchSnapshot();
+	});
 });
 
 describe('Connected DeleteResource', () => {

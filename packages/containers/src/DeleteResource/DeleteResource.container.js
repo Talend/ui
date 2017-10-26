@@ -66,13 +66,10 @@ export default class DeleteResource extends React.Component {
 			props: this.props,
 			resourceInfo,
 		});
-		if (actions) {
-			return {
-				cancelAction: actions.find(it => it.id === 'dialog:delete:cancel'),
-				validateAction: actions.find(it => it.id === 'dialog:delete:validate'),
-			};
-		}
-		return { validateAction: {}, cancelAction: {} };
+		return {
+			cancelAction: actions.find(it => it.id === 'dialog:delete:cancel'),
+			validateAction: actions.find(it => it.id === 'dialog:delete:validate'),
+		};
 	}
 
 	render() {
