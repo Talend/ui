@@ -1,8 +1,6 @@
 import React from 'react';
-import { // eslint-disable-line import/no-extraneous-dependencies
-	storiesOf,
-	action,
-} from '@storybook/react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { storiesOf, action } from '@storybook/react';
 
 import { ActionDropdown, IconsProvider } from '../src/index';
 
@@ -31,39 +29,32 @@ const myAction = {
 const oneEventAction = {
 	id: 'context-dropdown-events',
 	label: 'Dropdown',
-	items: [
-		{ id: 'item-1', label: 'Item 1' },
-		{ id: 'item-2', label: 'Item 2' },
-	],
+	items: [{ id: 'item-1', label: 'Item 1' }, { id: 'item-2', label: 'Item 2' }],
 	onSelect: action('onItemSelect'),
 };
 
-storiesOf('ActionDropdown', module)
-	.addWithInfo('default', () => (
-		<div>
-			<p>By default :</p>
-			<div id="default">
-				<ActionDropdown {...myAction} />
-			</div>
-			<p>With one event handler:</p>
-			<div id="oneEvent">
-				<ActionDropdown {...oneEventAction} />
-			</div>
-			<p>With hideLabel option</p>
-			<div id="hidelabel">
-				<ActionDropdown
-					{...myAction}
-					hideLabel
-				/>
-			</div>
-			<p>Empty option</p>
-			<div id="empty">
-				<ActionDropdown
-					{...myAction}
-					items={[]}
-					hideLabel
-				/>
-			</div>
-			<IconsProvider />
+storiesOf('ActionDropdown', module).addWithInfo('default', () => (
+	<div>
+		<p>By default :</p>
+		<div id="default">
+			<ActionDropdown {...myAction} />
 		</div>
-	));
+		<p>With one event handler:</p>
+		<div id="oneEvent">
+			<ActionDropdown {...oneEventAction} />
+		</div>
+		<p>With hideLabel option</p>
+		<div id="hidelabel">
+			<ActionDropdown {...myAction} hideLabel />
+		</div>
+		<p>Empty option</p>
+		<div id="empty">
+			<ActionDropdown {...myAction} items={[]} hideLabel />
+		</div>
+		<p>Dropup</p>
+		<div id="dropup">
+			<ActionDropdown {...myAction} dropup />
+		</div>
+		<IconsProvider />
+	</div>
+));

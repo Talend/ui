@@ -20,6 +20,10 @@ function evalExpressions(action, context, payload = {}) {
 		delete newAction.labelExpression;
 		newAction.label = api.expression.call(action.labelExpression, context, newAction);
 	}
+	if (action.iconExpression) {
+		delete newAction.iconExpression;
+		newAction.icon = api.expression.call(action.iconExpression, context, newAction);
+	}
 	return newAction;
 }
 
@@ -89,7 +93,9 @@ export function getActionsProps(context, ids, model) {
 	if (onlyOne) {
 		tmpIds = [ids];
 	}
-	const actionsProps = getActionsPropsRecursive(context, tmpIds, model);
+
+  const actionsProps = getActionsPropsRecursive(context, tmpIds, model);
+
 	if (onlyOne) {
 		return actionsProps[0];
 	}
