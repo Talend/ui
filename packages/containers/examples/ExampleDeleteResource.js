@@ -3,28 +3,37 @@ import { DeleteResource } from '../src';
 
 /*
 Actions example
-The form actions need to be named 'dialog:delete:cancel' and 'dialog:delete:validate'.
-Respectively to cancel and validate the action.
+The components needs two actions, respectively 'cancel-action' and 'validate-action'.
+Also require a resourceInfo object, which contains the uri to call and the resourceType.
 ---------------------------------------
 "actions": {
-	"dialog:delete:validate": {
-		"id": "dialog:delete:validate",
+	"myValidateAction": {
+		"id": "myValidateAction",
 		"label": "Yes",
 		"bsStyle": "danger",
-			"actionCreator": "deleteResource:validate"
-		},
-	"dialog:delete:cancel": {
-		"id": "dialog:delete:cancel",
+		"actionCreator": "deleteResource:validate"
+	},
+	"myCancelAction": {
+		"id": "myCancelAction",
 		"label": "No",
 		"actionCreator": "deleteResource:cancel"
 	}
 },
+"views": {
+	"Container(DeleteResource)#resourceType": {
+		"resourceInfo": { "uri": "/myEndpoint", "resourceType": "myResourceType" },
+		"header": "My header title",
+		"cancel-action": "myCancelAction",
+		"validate-action": "myValidateAction"
+	}
+}
 */
 
 const views = {
 	resourceInfo: { uri: '/myEndpoint', resourceType: 'myResourceType' },
 	header: 'My header title',
-	'form-actions': ['dialog:delete:cancel', 'dialog:delete:validate'],
+	'cancel-action': 'dialog:delete:cancel',
+	'validate-action': 'dialog:delete:validate',
 };
 
 const params = {
