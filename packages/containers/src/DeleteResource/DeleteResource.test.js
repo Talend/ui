@@ -1,21 +1,34 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { store } from '@talend/react-cmf/lib/mock';
-import { Map } from 'immutable';
+import { Map, List } from 'immutable';
 
 import Container from './DeleteResource.container';
 import Connected from './DeleteResource.connect';
 
 const state = store.state();
-state.cmf = {
-	collections: new Map({ resource: new Map({ myId: 'myResourceId' }) }),
-	settings: {
-		views: [],
-		actions: new Map({
-			'dialog:delete:validate': { id: 'dialog:delete:validate' },
-			'dialog:delete:cancel': { id: 'dialog:delete:cancel' },
-		}),
+const value = new Map({ id: 'myID', label: 'myLabel' });
+const collections = new Map({
+	myResourceType: new List([value]),
+});
+const settings = {
+	actions: {
+		'dialog:delete:validate': {
+			id: 'dialog:delete:validate',
+			label: 'Yes',
+			bsStyle: 'danger',
+			actionCreator: 'deleteResource:validate',
+		},
+		'dialog:delete:cancel': {
+			id: 'dialog:delete:cancel',
+			label: 'No',
+			actionCreator: 'deleteResource:cancel',
+		},
 	},
+};
+state.cmf = {
+	collections,
+	settings,
 };
 
 const context = {
@@ -29,6 +42,7 @@ describe('Container DeleteResource', () => {
 		resourceInfo: { uri: '/myEndpoint', resourceType: 'myResourceType' },
 		header: 'My header title',
 		params: { id: 'myIdResource' },
+		'form-actions': ['dialog:delete:cancel', 'dialog:delete:validate'],
 	};
 	it('should render', () => {
 		const wrapper = shallow(<Container {...props} />, { context });
