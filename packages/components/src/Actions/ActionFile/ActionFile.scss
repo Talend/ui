@@ -1,0 +1,14 @@
+input[type='file'] {
+	&.action-file-label {
+		display: none;
+	}
+}
+
+.btn-file {
+	color: #333;
+	background-color: #dedede;
+}
+
+.btn-file-disabled {
+	cursor: not-allowed;
+}
