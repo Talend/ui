@@ -94,8 +94,8 @@ describe('actionAPI.evalExpressions', () => {
 			inProgress: 'isInProgress',
 			label: 'Run',
 			labelInProgress: 'Running',
-			labelExpression: 'getLabel',
 			iconExpression: 'getIcon',
+			labelExpression: 'getLabel',
 		};
 		function isActive({ payload }) {
 			return payload.model.value;
