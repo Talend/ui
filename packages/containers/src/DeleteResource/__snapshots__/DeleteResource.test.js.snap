@@ -9,71 +9,10 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <ConfirmDialog
-    cancelAction={
-        Object {
-            "actionCreator": "deleteResource:cancel",
-            "id": "dialog:delete:cancel",
-            "label": "No",
-            "model": Object {
-              "props": Object {
-                "form-actions": Array [
-                  "dialog:delete:cancel",
-                  "dialog:delete:validate",
-                ],
-                "header": "My header title",
-                "params": Object {
-                  "id": "myResourceID",
-                },
-                "resourceInfo": Object {
-                  "resourceType": "myResourceType",
-                  "uri": "/myEndpoint",
-                },
-              },
-              "resourceInfo": Object {
-                "found": true,
-                "id": "myResourceID",
-                "label": "myLabel",
-                "resourceType": "myResourceType",
-                "uri": "/myEndpoint",
-              },
-            },
-            "onClick": [Function],
-          }
-    }
+    cancelAction={Array []}
     header="My header title"
     show={true}
-    validateAction={
-        Object {
-            "actionCreator": "deleteResource:validate",
-            "bsStyle": "danger",
-            "id": "dialog:delete:validate",
-            "label": "Yes",
-            "model": Object {
-              "props": Object {
-                "form-actions": Array [
-                  "dialog:delete:cancel",
-                  "dialog:delete:validate",
-                ],
-                "header": "My header title",
-                "params": Object {
-                  "id": "myResourceID",
-                },
-                "resourceInfo": Object {
-                  "resourceType": "myResourceType",
-                  "uri": "/myEndpoint",
-                },
-              },
-              "resourceInfo": Object {
-                "found": true,
-                "id": "myResourceID",
-                "label": "myLabel",
-                "resourceType": "myResourceType",
-                "uri": "/myEndpoint",
-              },
-            },
-            "onClick": [Function],
-          }
-    }
+    validateAction={Array []}
 >
     <div>
         myLabel
@@ -81,71 +20,10 @@ ShallowWrapper {
 </ConfirmDialog>,
   "nodes": Array [
     <ConfirmDialog
-      cancelAction={
-            Object {
-                  "actionCreator": "deleteResource:cancel",
-                  "id": "dialog:delete:cancel",
-                  "label": "No",
-                  "model": Object {
-                    "props": Object {
-                      "form-actions": Array [
-                        "dialog:delete:cancel",
-                        "dialog:delete:validate",
-                      ],
-                      "header": "My header title",
-                      "params": Object {
-                        "id": "myResourceID",
-                      },
-                      "resourceInfo": Object {
-                        "resourceType": "myResourceType",
-                        "uri": "/myEndpoint",
-                      },
-                    },
-                    "resourceInfo": Object {
-                      "found": true,
-                      "id": "myResourceID",
-                      "label": "myLabel",
-                      "resourceType": "myResourceType",
-                      "uri": "/myEndpoint",
-                    },
-                  },
-                  "onClick": [Function],
-                }
-      }
+      cancelAction={Array []}
       header="My header title"
       show={true}
-      validateAction={
-            Object {
-                  "actionCreator": "deleteResource:validate",
-                  "bsStyle": "danger",
-                  "id": "dialog:delete:validate",
-                  "label": "Yes",
-                  "model": Object {
-                    "props": Object {
-                      "form-actions": Array [
-                        "dialog:delete:cancel",
-                        "dialog:delete:validate",
-                      ],
-                      "header": "My header title",
-                      "params": Object {
-                        "id": "myResourceID",
-                      },
-                      "resourceInfo": Object {
-                        "resourceType": "myResourceType",
-                        "uri": "/myEndpoint",
-                      },
-                    },
-                    "resourceInfo": Object {
-                      "found": true,
-                      "id": "myResourceID",
-                      "label": "myLabel",
-                      "resourceType": "myResourceType",
-                      "uri": "/myEndpoint",
-                    },
-                  },
-                  "onClick": [Function],
-                }
-      }
+      validateAction={Array []}
 >
       <div>
             myLabel
@@ -236,71 +114,10 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <ConfirmDialog
-          cancelAction={
-                    Object {
-                              "actionCreator": "deleteResource:cancel",
-                              "id": "dialog:delete:cancel",
-                              "label": "No",
-                              "model": Object {
-                                "props": Object {
-                                  "form-actions": Array [
-                                    "dialog:delete:cancel",
-                                    "dialog:delete:validate",
-                                  ],
-                                  "header": "My header title",
-                                  "params": Object {
-                                    "id": "myResourceID",
-                                  },
-                                  "resourceInfo": Object {
-                                    "resourceType": "myResourceType",
-                                    "uri": "/myEndpoint",
-                                  },
-                                },
-                                "resourceInfo": Object {
-                                  "found": true,
-                                  "id": "myResourceID",
-                                  "label": "myLabel",
-                                  "resourceType": "myResourceType",
-                                  "uri": "/myEndpoint",
-                                },
-                              },
-                              "onClick": [Function],
-                            }
-          }
+          cancelAction={Array []}
           header="My header title"
           show={true}
-          validateAction={
-                    Object {
-                              "actionCreator": "deleteResource:validate",
-                              "bsStyle": "danger",
-                              "id": "dialog:delete:validate",
-                              "label": "Yes",
-                              "model": Object {
-                                "props": Object {
-                                  "form-actions": Array [
-                                    "dialog:delete:cancel",
-                                    "dialog:delete:validate",
-                                  ],
-                                  "header": "My header title",
-                                  "params": Object {
-                                    "id": "myResourceID",
-                                  },
-                                  "resourceInfo": Object {
-                                    "resourceType": "myResourceType",
-                                    "uri": "/myEndpoint",
-                                  },
-                                },
-                                "resourceInfo": Object {
-                                  "found": true,
-                                  "id": "myResourceID",
-                                  "label": "myLabel",
-                                  "resourceType": "myResourceType",
-                                  "uri": "/myEndpoint",
-                                },
-                              },
-                              "onClick": [Function],
-                            }
-          }
+          validateAction={Array []}
 >
           <div>
                     myLabel
@@ -308,71 +125,10 @@ ShallowWrapper {
 </ConfirmDialog>,
         "_debugID": 2,
         "_renderedOutput": <ConfirmDialog
-          cancelAction={
-                    Object {
-                              "actionCreator": "deleteResource:cancel",
-                              "id": "dialog:delete:cancel",
-                              "label": "No",
-                              "model": Object {
-                                "props": Object {
-                                  "form-actions": Array [
-                                    "dialog:delete:cancel",
-                                    "dialog:delete:validate",
-                                  ],
-                                  "header": "My header title",
-                                  "params": Object {
-                                    "id": "myResourceID",
-                                  },
-                                  "resourceInfo": Object {
-                                    "resourceType": "myResourceType",
-                                    "uri": "/myEndpoint",
-                                  },
-                                },
-                                "resourceInfo": Object {
-                                  "found": true,
-                                  "id": "myResourceID",
-                                  "label": "myLabel",
-                                  "resourceType": "myResourceType",
-                                  "uri": "/myEndpoint",
-                                },
-                              },
-                              "onClick": [Function],
-                            }
-          }
+          cancelAction={Array []}
           header="My header title"
           show={true}
-          validateAction={
-                    Object {
-                              "actionCreator": "deleteResource:validate",
-                              "bsStyle": "danger",
-                              "id": "dialog:delete:validate",
-                              "label": "Yes",
-                              "model": Object {
-                                "props": Object {
-                                  "form-actions": Array [
-                                    "dialog:delete:cancel",
-                                    "dialog:delete:validate",
-                                  ],
-                                  "header": "My header title",
-                                  "params": Object {
-                                    "id": "myResourceID",
-                                  },
-                                  "resourceInfo": Object {
-                                    "resourceType": "myResourceType",
-                                    "uri": "/myEndpoint",
-                                  },
-                                },
-                                "resourceInfo": Object {
-                                  "found": true,
-                                  "id": "myResourceID",
-                                  "label": "myLabel",
-                                  "resourceType": "myResourceType",
-                                  "uri": "/myEndpoint",
-                                },
-                              },
-                              "onClick": [Function],
-                            }
-          }
+          validateAction={Array []}
 >
           <div>
                     myLabel
@@ -421,141 +177,19 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <ConfirmDialog
-    cancelAction={
-        Object {
-            "actionCreator": "deleteResource:cancel",
-            "id": "dialog:delete:cancel",
-            "label": "No",
-            "model": Object {
-              "props": Object {
-                "form-actions": Array [
-                  "dialog:delete:cancel",
-                  "dialog:delete:validate",
-                ],
-                "header": "My header title",
-                "params": Object {
-                  "id": "myResourceID",
-                },
-                "resourceInfo": Object {
-                  "resourceType": "unknownResourceType",
-                  "uri": "/myEndpoint",
-                },
-              },
-              "resourceInfo": Object {
-                "found": false,
-                "id": "myResourceID",
-                "label": "",
-                "resourceType": "unknownResourceType",
-                "uri": "/myEndpoint",
-              },
-            },
-            "onClick": [Function],
-          }
-    }
+    cancelAction={Array []}
     header="My header title"
     show={true}
-    validateAction={
-        Object {
-            "actionCreator": "deleteResource:validate",
-            "bsStyle": "danger",
-            "id": "dialog:delete:validate",
-            "label": "Yes",
-            "model": Object {
-              "props": Object {
-                "form-actions": Array [
-                  "dialog:delete:cancel",
-                  "dialog:delete:validate",
-                ],
-                "header": "My header title",
-                "params": Object {
-                  "id": "myResourceID",
-                },
-                "resourceInfo": Object {
-                  "resourceType": "unknownResourceType",
-                  "uri": "/myEndpoint",
-                },
-              },
-              "resourceInfo": Object {
-                "found": false,
-                "id": "myResourceID",
-                "label": "",
-                "resourceType": "unknownResourceType",
-                "uri": "/myEndpoint",
-              },
-            },
-            "onClick": [Function],
-          }
-    }
+    validateAction={Array []}
 >
     <div />
 </ConfirmDialog>,
   "nodes": Array [
     <ConfirmDialog
-      cancelAction={
-            Object {
-                  "actionCreator": "deleteResource:cancel",
-                  "id": "dialog:delete:cancel",
-                  "label": "No",
-                  "model": Object {
-                    "props": Object {
-                      "form-actions": Array [
-                        "dialog:delete:cancel",
-                        "dialog:delete:validate",
-                      ],
-                      "header": "My header title",
-                      "params": Object {
-                        "id": "myResourceID",
-                      },
-                      "resourceInfo": Object {
-                        "resourceType": "unknownResourceType",
-                        "uri": "/myEndpoint",
-                      },
-                    },
-                    "resourceInfo": Object {
-                      "found": false,
-                      "id": "myResourceID",
-                      "label": "",
-                      "resourceType": "unknownResourceType",
-                      "uri": "/myEndpoint",
-                    },
-                  },
-                  "onClick": [Function],
-                }
-      }
+      cancelAction={Array []}
       header="My header title"
       show={true}
-      validateAction={
-            Object {
-                  "actionCreator": "deleteResource:validate",
-                  "bsStyle": "danger",
-                  "id": "dialog:delete:validate",
-                  "label": "Yes",
-                  "model": Object {
-                    "props": Object {
-                      "form-actions": Array [
-                        "dialog:delete:cancel",
-                        "dialog:delete:validate",
-                      ],
-                      "header": "My header title",
-                      "params": Object {
-                        "id": "myResourceID",
-                      },
-                      "resourceInfo": Object {
-                        "resourceType": "unknownResourceType",
-                        "uri": "/myEndpoint",
-                      },
-                    },
-                    "resourceInfo": Object {
-                      "found": false,
-                      "id": "myResourceID",
-                      "label": "",
-                      "resourceType": "unknownResourceType",
-                      "uri": "/myEndpoint",
-                    },
-                  },
-                  "onClick": [Function],
-                }
-      }
+      validateAction={Array []}
 >
       <div />
 </ConfirmDialog>,
@@ -644,141 +278,19 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <ConfirmDialog
-          cancelAction={
-                    Object {
-                              "actionCreator": "deleteResource:cancel",
-                              "id": "dialog:delete:cancel",
-                              "label": "No",
-                              "model": Object {
-                                "props": Object {
-                                  "form-actions": Array [
-                                    "dialog:delete:cancel",
-                                    "dialog:delete:validate",
-                                  ],
-                                  "header": "My header title",
-                                  "params": Object {
-                                    "id": "myResourceID",
-                                  },
-                                  "resourceInfo": Object {
-                                    "resourceType": "unknownResourceType",
-                                    "uri": "/myEndpoint",
-                                  },
-                                },
-                                "resourceInfo": Object {
-                                  "found": false,
-                                  "id": "myResourceID",
-                                  "label": "",
-                                  "resourceType": "unknownResourceType",
-                                  "uri": "/myEndpoint",
-                                },
-                              },
-                              "onClick": [Function],
-                            }
-          }
+          cancelAction={Array []}
           header="My header title"
           show={true}
-          validateAction={
-                    Object {
-                              "actionCreator": "deleteResource:validate",
-                              "bsStyle": "danger",
-                              "id": "dialog:delete:validate",
-                              "label": "Yes",
-                              "model": Object {
-                                "props": Object {
-                                  "form-actions": Array [
-                                    "dialog:delete:cancel",
-                                    "dialog:delete:validate",
-                                  ],
-                                  "header": "My header title",
-                                  "params": Object {
-                                    "id": "myResourceID",
-                                  },
-                                  "resourceInfo": Object {
-                                    "resourceType": "unknownResourceType",
-                                    "uri": "/myEndpoint",
-                                  },
-                                },
-                                "resourceInfo": Object {
-                                  "found": false,
-                                  "id": "myResourceID",
-                                  "label": "",
-                                  "resourceType": "unknownResourceType",
-                                  "uri": "/myEndpoint",
-                                },
-                              },
-                              "onClick": [Function],
-                            }
-          }
+          validateAction={Array []}
 >
           <div />
 </ConfirmDialog>,
         "_debugID": 4,
         "_renderedOutput": <ConfirmDialog
-          cancelAction={
-                    Object {
-                              "actionCreator": "deleteResource:cancel",
-                              "id": "dialog:delete:cancel",
-                              "label": "No",
-                              "model": Object {
-                                "props": Object {
-                                  "form-actions": Array [
-                                    "dialog:delete:cancel",
-                                    "dialog:delete:validate",
-                                  ],
-                                  "header": "My header title",
-                                  "params": Object {
-                                    "id": "myResourceID",
-                                  },
-                                  "resourceInfo": Object {
-                                    "resourceType": "unknownResourceType",
-                                    "uri": "/myEndpoint",
-                                  },
-                                },
-                                "resourceInfo": Object {
-                                  "found": false,
-                                  "id": "myResourceID",
-                                  "label": "",
-                                  "resourceType": "unknownResourceType",
-                                  "uri": "/myEndpoint",
-                                },
-                              },
-                              "onClick": [Function],
-                            }
-          }
+          cancelAction={Array []}
           header="My header title"
           show={true}
-          validateAction={
-                    Object {
-                              "actionCreator": "deleteResource:validate",
-                              "bsStyle": "danger",
-                              "id": "dialog:delete:validate",
-                              "label": "Yes",
-                              "model": Object {
-                                "props": Object {
-                                  "form-actions": Array [
-                                    "dialog:delete:cancel",
-                                    "dialog:delete:validate",
-                                  ],
-                                  "header": "My header title",
-                                  "params": Object {
-                                    "id": "myResourceID",
-                                  },
-                                  "resourceInfo": Object {
-                                    "resourceType": "unknownResourceType",
-                                    "uri": "/myEndpoint",
-                                  },
-                                },
-                                "resourceInfo": Object {
-                                  "found": false,
-                                  "id": "myResourceID",
-                                  "label": "",
-                                  "resourceType": "unknownResourceType",
-                                  "uri": "/myEndpoint",
-                                },
-                              },
-                              "onClick": [Function],
-                            }
-          }
+          validateAction={Array []}
 >
           <div />
 </ConfirmDialog>,

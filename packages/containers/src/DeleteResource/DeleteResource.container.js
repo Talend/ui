@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { componentState } from '@talend/react-cmf';
 import { ConfirmDialog } from '@talend/react-components';
 import { getActionsProps } from '../actionAPI';
+import deleteResourceConst from './deleteResource.constants';
 
 /**
  * DeleteResource is used to delete a specific resource.
@@ -13,7 +14,8 @@ export default class DeleteResource extends React.Component {
 	static displayName = 'Container(DeleteResource)';
 	static propTypes = {
 		...componentState.propTypes,
-		'form-actions': PropTypes.arrayOf(PropTypes.string).isRequired,
+		'cancel-action': PropTypes.string,
+		'validate-action': PropTypes.string,
 		header: PropTypes.string,
 		resourceInfo: PropTypes.shape({
 			uri: PropTypes.string,
@@ -63,25 +65,22 @@ export default class DeleteResource extends React.Component {
 	 * @param {object} resourceInfo data add to the model.
 	 * @return {object} the fetched actions.
 	 */
-	getActions(resourceInfo) {
-		const actions = getActionsProps(this.context, this.props['form-actions'], {
+	getActions(key, resourceInfo) {
+		return getActionsProps(this.context, this.props[key], {
 			resourceInfo,
 		});
-		return {
-			cancelAction: actions.find(action => action.id === 'dialog:delete:cancel'),
-			validateAction: actions.find(action => action.id === 'dialog:delete:validate'),
-		};
 	}
 
 	render() {
 		const resourceInfo = this.getResourceInfo();
-		const actions = this.getActions(resourceInfo);
+		const validateAction = this.getActions(deleteResourceConst.VALIDATE_ACTION, resourceInfo);
+		const cancelAction = this.getActions(deleteResourceConst.CANCEL_ACTION, resourceInfo);
 		return (
 			<ConfirmDialog
 				show
 				header={this.props.header}
-				cancelAction={actions.cancelAction}
-				validateAction={actions.validateAction}
+				cancelAction={cancelAction}
+				validateAction={validateAction}
 			>
 				<div>{resourceInfo.label}</div>
 			</ConfirmDialog>
