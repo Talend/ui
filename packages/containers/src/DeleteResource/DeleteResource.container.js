@@ -39,7 +39,9 @@ export default class DeleteResource extends React.Component {
 	getLabel(resourceType, id) {
 		const resourcesCollection = this.context.store.getState().cmf.collections.get(resourceType);
 		if (resourcesCollection) {
-			const resource = resourcesCollection.find(r => r.get('id') === id);
+			const resource = resourcesCollection.find(
+				resoureCollection => resoureCollection.get('id') === id,
+			);
 			return resource ? { label: resource.get('label'), found: true } : {};
 		}
 		return { label: '', found: false };
@@ -67,8 +69,8 @@ export default class DeleteResource extends React.Component {
 			resourceInfo,
 		});
 		return {
-			cancelAction: actions.find(it => it.id === 'dialog:delete:cancel'),
-			validateAction: actions.find(it => it.id === 'dialog:delete:validate'),
+			cancelAction: actions.find(action => action.id === 'dialog:delete:cancel'),
+			validateAction: actions.find(action => action.id === 'dialog:delete:validate'),
 		};
 	}
 
