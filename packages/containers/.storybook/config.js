@@ -59,22 +59,17 @@ function loadStories() {
 		const state = mock.state();
 		const value = new Map({ id: 'myID', label: 'myLabel' });
 		const collections = new Map({
-			myResourceType: new List([ value ]),
+			myResourceType: new List([value]),
 		});
-		api.actions.collectionsActions.addOrReplace('myResourceType', );
+		api.actions.collectionsActions.addOrReplace('myResourceType');
 		state.cmf.collections = collections;
 		state.cmf.settings.views.appheaderbar = {
 			app: 'Hello Test',
 		};
 		state.cmf.settings.views['HeaderBar#default'] = {
 			logo: { name: 'appheaderbar:logo', isFull: true },
-<<<<<<< HEAD
-			brand: { name: 'DATA STREAMS' },
+			brand: { label: 'DATA STREAMS' },
 			notification: { name: 'appheaderbar:notification' },
-=======
-			brand: { label: 'DATA STREAMS'},
-			notification: { name: 'appheaderbar:notification'}
->>>>>>> master
 		};
 		const actions = state.cmf.settings.actions;
 		actions['appheaderbar:logo'] = {
