@@ -1,4 +1,4 @@
-import { deleteResource, validate, cancel } from './deleteResource.actions';
+import actions from './deleteResource.actions';
 import deleteResourceConst from './deleteResource.constants';
 
 
@@ -10,7 +10,7 @@ describe('deleteResource actions', () => {
 			const model = { id: 'modelId' };
 			const data = { model };
 			// When
-			const result = deleteResource({}, data, context);
+			const result = actions.open({}, data, context);
 			// Then
 			expect(result).toEqual({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE,
@@ -27,7 +27,7 @@ describe('deleteResource actions', () => {
 			// Given
 			const data = { model: { resourceInfo: { id: 'modelId' } } };
 			// When
-			const result = validate({}, data);
+			const result = actions.validate({}, data);
 			// Then
 			expect(result).toEqual({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK,
@@ -38,7 +38,7 @@ describe('deleteResource actions', () => {
 	describe('cancel', () => {
 		it('should return an action object', () => {
 			// When
-			const result = cancel();
+			const result = actions.cancel();
 			// Then
 			expect(result).toEqual({ type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL });
 		});
