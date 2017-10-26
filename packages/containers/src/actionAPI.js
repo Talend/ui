@@ -1,7 +1,7 @@
 import { api } from '@talend/react-cmf';
 import forIn from 'lodash/forIn';
 
-const regexExpression = /(.*)Expression/g;
+const regexExpression = new RegExp('(.*)Expression');
 
 /**
  * add support for expression in actions.
@@ -20,10 +20,10 @@ function evalExpressions(action, context, payload = {}) {
 		payload,
 	);
 	forIn(action, (value, key) => {
-		if (key.match(regexExpression)) {
-			const newKey = key.slice(0, -10);
-			newAction[newKey] = api.expression.call(action[key], context, newAction);
-			delete newAction[key];
+		const match = regexExpression.exec(key);
+		if (match) {
+			newAction[match[1]] = api.expression.call(action[match[0]], context, newAction);
+			delete newAction[match[0]];
 		}
 	});
 	return newAction;
