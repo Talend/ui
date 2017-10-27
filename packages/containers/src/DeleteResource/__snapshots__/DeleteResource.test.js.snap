@@ -9,10 +9,39 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <ConfirmDialog
-    cancelAction={Array []}
+    cancelAction={
+        Object {
+            "actionCreator": "deleteResource:cancel",
+            "id": "dialog:delete:cancel",
+            "label": "No",
+            "model": Object {
+              "resourceInfo": Object {
+                "found": true,
+                "id": "myResourceID",
+                "label": "myLabel",
+              },
+            },
+            "onClick": [Function],
+          }
+    }
     header="My header title"
     show={true}
-    validateAction={Array []}
+    validateAction={
+        Object {
+            "actionCreator": "deleteResource:validate",
+            "bsStyle": "danger",
+            "id": "dialog:delete:validate",
+            "label": "Yes",
+            "model": Object {
+              "resourceInfo": Object {
+                "found": true,
+                "id": "myResourceID",
+                "label": "myLabel",
+              },
+            },
+            "onClick": [Function],
+          }
+    }
 >
     <div>
         myLabel
@@ -20,10 +49,39 @@ ShallowWrapper {
 </ConfirmDialog>,
   "nodes": Array [
     <ConfirmDialog
-      cancelAction={Array []}
+      cancelAction={
+            Object {
+                  "actionCreator": "deleteResource:cancel",
+                  "id": "dialog:delete:cancel",
+                  "label": "No",
+                  "model": Object {
+                    "resourceInfo": Object {
+                      "found": true,
+                      "id": "myResourceID",
+                      "label": "myLabel",
+                    },
+                  },
+                  "onClick": [Function],
+                }
+      }
       header="My header title"
       show={true}
-      validateAction={Array []}
+      validateAction={
+            Object {
+                  "actionCreator": "deleteResource:validate",
+                  "bsStyle": "danger",
+                  "id": "dialog:delete:validate",
+                  "label": "Yes",
+                  "model": Object {
+                    "resourceInfo": Object {
+                      "found": true,
+                      "id": "myResourceID",
+                      "label": "myLabel",
+                    },
+                  },
+                  "onClick": [Function],
+                }
+      }
 >
       <div>
             myLabel
@@ -47,24 +105,16 @@ ShallowWrapper {
         },
       },
       "_currentElement": <Container(DeleteResource)
-        form-actions={
-                Array [
-                        "dialog:delete:cancel",
-                        "dialog:delete:validate",
-                      ]
-        }
+        cancel-action="dialog:delete:cancel"
         header="My header title"
         params={
                 Object {
                         "id": "myResourceID",
                       }
         }
-        resourceInfo={
-                Object {
-                        "resourceType": "myResourceType",
-                        "uri": "/myEndpoint",
-                      }
-        }
+        resourceType="myResourceType"
+        uri="/myEndpoint"
+        validate-action="dialog:delete:validate"
 />,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -80,18 +130,14 @@ ShallowWrapper {
         "getActions": [Function],
         "getLabel": [Function],
         "props": Object {
-          "form-actions": Array [
-            "dialog:delete:cancel",
-            "dialog:delete:validate",
-          ],
+          "cancel-action": "dialog:delete:cancel",
           "header": "My header title",
           "params": Object {
             "id": "myResourceID",
           },
-          "resourceInfo": Object {
-            "resourceType": "myResourceType",
-            "uri": "/myEndpoint",
-          },
+          "resourceType": "myResourceType",
+          "uri": "/myEndpoint",
+          "validate-action": "dialog:delete:validate",
         },
         "refs": Object {},
         "state": null,
@@ -114,10 +160,39 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <ConfirmDialog
-          cancelAction={Array []}
+          cancelAction={
+                    Object {
+                              "actionCreator": "deleteResource:cancel",
+                              "id": "dialog:delete:cancel",
+                              "label": "No",
+                              "model": Object {
+                                "resourceInfo": Object {
+                                  "found": true,
+                                  "id": "myResourceID",
+                                  "label": "myLabel",
+                                },
+                              },
+                              "onClick": [Function],
+                            }
+          }
           header="My header title"
           show={true}
-          validateAction={Array []}
+          validateAction={
+                    Object {
+                              "actionCreator": "deleteResource:validate",
+                              "bsStyle": "danger",
+                              "id": "dialog:delete:validate",
+                              "label": "Yes",
+                              "model": Object {
+                                "resourceInfo": Object {
+                                  "found": true,
+                                  "id": "myResourceID",
+                                  "label": "myLabel",
+                                },
+                              },
+                              "onClick": [Function],
+                            }
+          }
 >
           <div>
                     myLabel
@@ -125,10 +200,39 @@ ShallowWrapper {
 </ConfirmDialog>,
         "_debugID": 2,
         "_renderedOutput": <ConfirmDialog
-          cancelAction={Array []}
+          cancelAction={
+                    Object {
+                              "actionCreator": "deleteResource:cancel",
+                              "id": "dialog:delete:cancel",
+                              "label": "No",
+                              "model": Object {
+                                "resourceInfo": Object {
+                                  "found": true,
+                                  "id": "myResourceID",
+                                  "label": "myLabel",
+                                },
+                              },
+                              "onClick": [Function],
+                            }
+          }
           header="My header title"
           show={true}
-          validateAction={Array []}
+          validateAction={
+                    Object {
+                              "actionCreator": "deleteResource:validate",
+                              "bsStyle": "danger",
+                              "id": "dialog:delete:validate",
+                              "label": "Yes",
+                              "model": Object {
+                                "resourceInfo": Object {
+                                  "found": true,
+                                  "id": "myResourceID",
+                                  "label": "myLabel",
+                                },
+                              },
+                              "onClick": [Function],
+                            }
+          }
 >
           <div>
                     myLabel
@@ -146,24 +250,16 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <Container(DeleteResource)
-    form-actions={
-        Array [
-            "dialog:delete:cancel",
-            "dialog:delete:validate",
-          ]
-    }
+    cancel-action="dialog:delete:cancel"
     header="My header title"
     params={
         Object {
             "id": "myResourceID",
           }
     }
-    resourceInfo={
-        Object {
-            "resourceType": "myResourceType",
-            "uri": "/myEndpoint",
-          }
-    }
+    resourceType="myResourceType"
+    uri="/myEndpoint"
+    validate-action="dialog:delete:validate"
 />,
 }
 `;
@@ -177,19 +273,77 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <ConfirmDialog
-    cancelAction={Array []}
+    cancelAction={
+        Object {
+            "actionCreator": "deleteResource:cancel",
+            "id": "dialog:delete:cancel",
+            "label": "No",
+            "model": Object {
+              "resourceInfo": Object {
+                "found": false,
+                "id": "myResourceID",
+                "label": "",
+              },
+            },
+            "onClick": [Function],
+          }
+    }
     header="My header title"
     show={true}
-    validateAction={Array []}
+    validateAction={
+        Object {
+            "actionCreator": "deleteResource:validate",
+            "bsStyle": "danger",
+            "id": "dialog:delete:validate",
+            "label": "Yes",
+            "model": Object {
+              "resourceInfo": Object {
+                "found": false,
+                "id": "myResourceID",
+                "label": "",
+              },
+            },
+            "onClick": [Function],
+          }
+    }
 >
     <div />
 </ConfirmDialog>,
   "nodes": Array [
     <ConfirmDialog
-      cancelAction={Array []}
+      cancelAction={
+            Object {
+                  "actionCreator": "deleteResource:cancel",
+                  "id": "dialog:delete:cancel",
+                  "label": "No",
+                  "model": Object {
+                    "resourceInfo": Object {
+                      "found": false,
+                      "id": "myResourceID",
+                      "label": "",
+                    },
+                  },
+                  "onClick": [Function],
+                }
+      }
       header="My header title"
       show={true}
-      validateAction={Array []}
+      validateAction={
+            Object {
+                  "actionCreator": "deleteResource:validate",
+                  "bsStyle": "danger",
+                  "id": "dialog:delete:validate",
+                  "label": "Yes",
+                  "model": Object {
+                    "resourceInfo": Object {
+                      "found": false,
+                      "id": "myResourceID",
+                      "label": "",
+                    },
+                  },
+                  "onClick": [Function],
+                }
+      }
 >
       <div />
 </ConfirmDialog>,
@@ -211,24 +365,16 @@ ShallowWrapper {
         },
       },
       "_currentElement": <Container(DeleteResource)
-        form-actions={
-                Array [
-                        "dialog:delete:cancel",
-                        "dialog:delete:validate",
-                      ]
-        }
+        cancel-action="dialog:delete:cancel"
         header="My header title"
         params={
                 Object {
                         "id": "myResourceID",
                       }
         }
-        resourceInfo={
-                Object {
-                        "resourceType": "unknownResourceType",
-                        "uri": "/myEndpoint",
-                      }
-        }
+        resourceType="unknownResourceType"
+        uri="/myEndpoint"
+        validate-action="dialog:delete:validate"
 />,
       "_debugID": 3,
       "_hostContainerInfo": null,
@@ -244,18 +390,14 @@ ShallowWrapper {
         "getActions": [Function],
         "getLabel": [Function],
         "props": Object {
-          "form-actions": Array [
-            "dialog:delete:cancel",
-            "dialog:delete:validate",
-          ],
+          "cancel-action": "dialog:delete:cancel",
           "header": "My header title",
           "params": Object {
             "id": "myResourceID",
           },
-          "resourceInfo": Object {
-            "resourceType": "unknownResourceType",
-            "uri": "/myEndpoint",
-          },
+          "resourceType": "unknownResourceType",
+          "uri": "/myEndpoint",
+          "validate-action": "dialog:delete:validate",
         },
         "refs": Object {},
         "state": null,
@@ -278,19 +420,77 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <ConfirmDialog
-          cancelAction={Array []}
+          cancelAction={
+                    Object {
+                              "actionCreator": "deleteResource:cancel",
+                              "id": "dialog:delete:cancel",
+                              "label": "No",
+                              "model": Object {
+                                "resourceInfo": Object {
+                                  "found": false,
+                                  "id": "myResourceID",
+                                  "label": "",
+                                },
+                              },
+                              "onClick": [Function],
+                            }
+          }
           header="My header title"
           show={true}
-          validateAction={Array []}
+          validateAction={
+                    Object {
+                              "actionCreator": "deleteResource:validate",
+                              "bsStyle": "danger",
+                              "id": "dialog:delete:validate",
+                              "label": "Yes",
+                              "model": Object {
+                                "resourceInfo": Object {
+                                  "found": false,
+                                  "id": "myResourceID",
+                                  "label": "",
+                                },
+                              },
+                              "onClick": [Function],
+                            }
+          }
 >
           <div />
 </ConfirmDialog>,
         "_debugID": 4,
         "_renderedOutput": <ConfirmDialog
-          cancelAction={Array []}
+          cancelAction={
+                    Object {
+                              "actionCreator": "deleteResource:cancel",
+                              "id": "dialog:delete:cancel",
+                              "label": "No",
+                              "model": Object {
+                                "resourceInfo": Object {
+                                  "found": false,
+                                  "id": "myResourceID",
+                                  "label": "",
+                                },
+                              },
+                              "onClick": [Function],
+                            }
+          }
           header="My header title"
           show={true}
-          validateAction={Array []}
+          validateAction={
+                    Object {
+                              "actionCreator": "deleteResource:validate",
+                              "bsStyle": "danger",
+                              "id": "dialog:delete:validate",
+                              "label": "Yes",
+                              "model": Object {
+                                "resourceInfo": Object {
+                                  "found": false,
+                                  "id": "myResourceID",
+                                  "label": "",
+                                },
+                              },
+                              "onClick": [Function],
+                            }
+          }
 >
           <div />
 </ConfirmDialog>,
@@ -306,24 +506,16 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <Container(DeleteResource)
-    form-actions={
-        Array [
-            "dialog:delete:cancel",
-            "dialog:delete:validate",
-          ]
-    }
+    cancel-action="dialog:delete:cancel"
     header="My header title"
     params={
         Object {
             "id": "myResourceID",
           }
     }
-    resourceInfo={
-        Object {
-            "resourceType": "unknownResourceType",
-            "uri": "/myEndpoint",
-          }
-    }
+    resourceType="unknownResourceType"
+    uri="/myEndpoint"
+    validate-action="dialog:delete:validate"
 />,
 }
 `;

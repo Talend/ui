@@ -40,20 +40,24 @@ const context = {
 describe('Container DeleteResource', () => {
 	it('should render with proper resourceInfo params', () => {
 		const props = {
-			resourceInfo: { uri: '/myEndpoint', resourceType: 'myResourceType' },
+			uri: '/myEndpoint',
+			resourceType: 'myResourceType',
 			header: 'My header title',
 			params: { id: 'myResourceID' },
-			'form-actions': ['dialog:delete:cancel', 'dialog:delete:validate'],
+			'validate-action': 'dialog:delete:validate',
+			'cancel-action': 'dialog:delete:cancel',
 		};
 		const wrapper = shallow(<Container {...props} />, { context });
 		expect(wrapper).toMatchSnapshot();
 	});
 	it('should render with wrong resourceInfo params', () => {
 		const props = {
-			resourceInfo: { uri: '/myEndpoint', resourceType: 'unknownResourceType' },
+			uri: '/myEndpoint',
+			resourceType: 'unknownResourceType',
 			header: 'My header title',
 			params: { id: 'myResourceID' },
-			'form-actions': ['dialog:delete:cancel', 'dialog:delete:validate'],
+			'validate-action': 'dialog:delete:validate',
+			'cancel-action': 'dialog:delete:cancel',
 		};
 		const wrapper = shallow(<Container {...props} />, { context });
 		expect(wrapper).toMatchSnapshot();

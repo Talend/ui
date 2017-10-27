@@ -17,10 +17,12 @@ export default class DeleteResource extends React.Component {
 		'cancel-action': PropTypes.string.isRequired,
 		'validate-action': PropTypes.string.isRequired,
 		header: PropTypes.string,
-		resourceInfo: PropTypes.shape({
-			uri: PropTypes.string,
-			resourceType: PropTypes.string,
-		}).isRequired,
+		uri: PropTypes.string.isRequired,
+		resourceType: PropTypes.string.isRequired,
+		// resourceInfo: PropTypes.shape({
+		// 	uri: PropTypes.string,
+		// 	resourceType: PropTypes.string,
+		// }).isRequired,
 	};
 	static contextTypes = {
 		registry: PropTypes.object.isRequired,
@@ -54,8 +56,9 @@ export default class DeleteResource extends React.Component {
 	 */
 	getResourceInfo() {
 		return {
-			...this.props.resourceInfo,
-			...this.getLabel(this.props.resourceInfo.resourceType, this.props.params.id),
+			resourceType: this.props.resourceType,
+			uri: this.props.uri,
+			...this.getLabel(this.props.resourceType, this.props.params.id),
 			id: this.props.params.id,
 		};
 	}
