@@ -4,7 +4,7 @@ import { DeleteResource } from '../src';
 /*
 Actions example
 The components needs two actions, respectively 'cancel-action' and 'validate-action'.
-Also require two fields uri which contains the uri to call and resourceType, the type of resource.
+Also require two fields, uri it contains the uri to call and resourceType, the type of resource.
 ---------------------------------------
 "actions": {
 	"my:validate:action": {
@@ -30,7 +30,8 @@ Also require two fields uri which contains the uri to call and resourceType, the
 */
 
 const views = {
-	resourceInfo: { uri: '/myEndpoint', resourceType: 'myResourceType' },
+	uri: '/myEndpoint',
+	resourceType: 'myResourceType',
 	header: 'My header title',
 	'cancel-action': 'dialog:delete:cancel',
 	'validate-action': 'dialog:delete:validate',
