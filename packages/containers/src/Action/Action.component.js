@@ -12,18 +12,15 @@ function Action({ name, ...rest }, context) {
 	let action;
 
 	if (name) {
-		action = Object.assign(
-			{},
-			rest,
-			actions.getProps(context, name, rest.model),
-		);
+		action = Object.assign({}, rest, actions.getProps(context, name, rest.model));
 	} else {
 		action = actions.getProps(context, rest, rest.model);
 	}
+
 	if (action.available === false) {
 		return null;
 	}
-	return (<PureAction {...action} />);
+	return <PureAction {...action} />;
 }
 
 Action.propTypes = {

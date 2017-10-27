@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`actionAPI.getActionsProps should return an action with sub elements 1`] = `
+Array [
+  Object {
+    "icon": "fa-bars",
+    "id": "menu",
+    "model": Object {
+      "model": Object {},
+    },
+    "name": "Menu",
+    "onClick": [Function],
+    "payload": Object {
+      "type": "TEST_MENU",
+    },
+  },
+  Object {
+    "icon": "icon-article",
+    "id": "menu:article:items",
+    "items": Array [
+      Object {
+        "icon": "fa-bars",
+        "id": "menu",
+        "model": undefined,
+        "name": "Menu",
+        "onClick": [Function],
+        "payload": Object {
+          "type": "TEST_MENU",
+        },
+      },
+      Object {
+        "actionCreator": "action-creator",
+        "icon": "fa-bars",
+        "id": "menu:actionCreator",
+        "model": undefined,
+        "name": "Action creator",
+        "onClick": [Function],
+        "payload": Object {
+          "type": "TEST_ACTION_CREATOR",
+        },
+      },
+    ],
+    "model": Object {
+      "model": Object {},
+    },
+    "name": "My article",
+    "onClick": [Function],
+    "payload": Object {
+      "args": Array [
+        "/myarticle",
+      ],
+      "method": "push",
+      "type": "@@router/CALL_HISTORY_METHOD",
+    },
+  },
+]
+`;
+
+exports[`actionAPI.getActionsProps should return an action with sub elements evaled before 1`] = `
+Array [
+  Object {
+    "icon": "fa-bars",
+    "id": "menu",
+    "model": Object {
+      "model": Object {},
+    },
+    "name": "Menu",
+    "onClick": [Function],
+    "payload": Object {
+      "type": "TEST_MENU",
+    },
+  },
+  Object {
+    "id": "menu:items",
+    "items": Array [
+      Object {
+        "actionCreator": "item1:action",
+        "id": Object {
+          "actionCreator": "item1:action",
+          "property": "item1",
+        },
+        "label": "label1",
+        "model": undefined,
+        "onClick": [Function],
+      },
+      Object {
+        "actionCreator": "item2:action",
+        "id": Object {
+          "actionCreator": "item2:action",
+          "property": "item2",
+        },
+        "label": "label2",
+        "model": undefined,
+        "onClick": [Function],
+      },
+    ],
+    "model": Object {
+      "model": Object {},
+    },
+    "name": "my items",
+    "onClick": [Function],
+  },
+]
+`;
