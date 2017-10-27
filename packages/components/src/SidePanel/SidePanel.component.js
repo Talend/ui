@@ -37,7 +37,7 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 		'tc-side-panel-list',
 		theme['action-list'],
 	);
-	const isActionSelected = action => {
+	const isActionSelected = (action) => {
 		if (selected) {
 			return action === selected;
 		}
@@ -61,7 +61,7 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 						label=""
 					/>
 				</li>
-				{actions.map(action => {
+				{actions.map((action) => {
 					const isSelected = isActionSelected(action);
 					const a11y = {};
 					if (isSelected) {
@@ -71,7 +71,9 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 						<li
 							title={action.label}
 							key={action.key || action.label}
-							className={classNames('tc-side-panel-list-item', { active: isSelected })}
+							className={classNames('tc-side-panel-list-item', {
+								active: isSelected,
+							})}
 							{...a11y}
 						>
 							<Action
@@ -85,7 +87,7 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 								bsStyle="link"
 								role="link"
 								className={theme.link}
-								onClick={event => {
+								onClick={(event) => {
 									if (onSelect) {
 										onSelect(event, action);
 									}
