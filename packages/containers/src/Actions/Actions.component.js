@@ -3,6 +3,8 @@ import React from 'react';
 import { Actions as PureActions } from '@talend/react-components';
 import actionAPI from '../actionAPI';
 import cloneDeep from 'lodash/cloneDeep';
+
+const TYPE_DROPDOWN = 'dropdown';
 /**
  * @param {Object} props react props
  * @example
@@ -12,17 +14,20 @@ function Actions({ names, ...rest }, context) {
 	const onClick = (event, payload) => {
 		context.store.dispatch(payload.action.payload);
 	};
-	let actions = names ? names.map(name => actionAPI.getProps(context, name)) : null;
 
-	actions = actions
-		? actions.map((action) => {
-			if (action.displayMode === 'dropdown') {
+	let actions = null;
+
+	if (names) {
+		actions = names.map((name) => {
+			const action = actionAPI.getProps(context, name);
+
+			if (action.displayMode === TYPE_DROPDOWN) {
 				delete action.onClick;
 			}
 
 			return action;
-		})
-		: null;
+		});
+	}
 
 	return <PureActions actions={actions} {...rest} onClick={onClick} />;
 }
