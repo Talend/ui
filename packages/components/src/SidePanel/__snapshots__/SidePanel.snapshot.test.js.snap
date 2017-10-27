@@ -9,6 +9,7 @@ exports[`Storyshots SidePanel With layout (toggle interactive) 1`] = `
         "position": "fixed",
         "textAlign": "center",
         "width": "100vw",
+        "zIndex": 1,
       }
     }
   >
@@ -691,6 +692,7 @@ exports[`Storyshots SidePanel default 1`] = `
         "position": "fixed",
         "textAlign": "center",
         "width": "100vw",
+        "zIndex": 1,
       }
     }
   >
@@ -930,6 +932,7 @@ exports[`Storyshots SidePanel docked 1`] = `
         "position": "fixed",
         "textAlign": "center",
         "width": "100vw",
+        "zIndex": 1,
       }
     }
   >
@@ -1165,6 +1168,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
         "position": "fixed",
         "textAlign": "center",
         "width": "100vw",
+        "zIndex": 1,
       }
     }
   >

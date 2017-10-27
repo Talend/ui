@@ -54,6 +54,7 @@ export const LanguageSwitcher = () => {
 		bottom: 0,
 		width: '100vw',
 		textAlign: 'center',
+		zIndex: 1,
 	};
 	return (
 		<nav style={style}>
