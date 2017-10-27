@@ -33,19 +33,23 @@ const actions = [
 	},
 ];
 
-const items = [{
-	key: 'preparations',
-	label: 'Preparations',
-	icon: 'talend-dataprep',
-}, {
-	key: 'datasets',
-	label: 'Datasets',
-	icon: 'talend-download',
-}, {
-	key: 'favorites',
-	label: 'Favorites',
-	icon: 'talend-star',
-}];
+const items = [
+	{
+		key: 'preparations',
+		label: 'Preparations',
+		icon: 'talend-dataprep',
+	},
+	{
+		key: 'datasets',
+		label: 'Datasets',
+		icon: 'talend-download',
+	},
+	{
+		key: 'favorites',
+		label: 'Favorites',
+		icon: 'talend-star',
+	},
+];
 
 const stories = storiesOf('SidePanel', module);
 if (!stories.addWithInfo) {
@@ -55,11 +59,9 @@ if (!stories.addWithInfo) {
 stories
 	.addDecorator(story => (
 		<div>
-			<LanguageSwitcher/>
-			<IconsProvider defaultIcons={icons}/>
-			<I18nextProvider i18n={i18n}>
-				{story()}
-			</I18nextProvider>
+			<LanguageSwitcher />
+			<IconsProvider defaultIcons={icons} />
+			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
 		</div>
 	))
 	.addWithInfo('default', () => (
@@ -115,20 +117,15 @@ stories
 				return (
 					<Layout mode="TwoColumns" one={panel}>
 						<ol>
-							{
-								new Array(100)
-									.fill('This is some random content')
-									.map((item, num) => <li key={num}>{item}</li>)
-							}
+							{new Array(100)
+								.fill('This is some random content')
+								.map((item, num) => <li key={num}>{item}</li>)}
 						</ol>
-						<IconsProvider defaultIcons={icons}/>
+						<IconsProvider defaultIcons={icons} />
 					</Layout>
 				);
 			}
 		}
 
-		return (
-			<WithLayout/>
-		);
+		return <WithLayout />;
 	});
-
