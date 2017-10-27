@@ -58,7 +58,7 @@ function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
 		const value = new Map({ id: 'myID', label: 'myLabel' });
-		state.cmf.collections.set('myResourceType', new List([value]));
+		state.cmf.collections = state.cmf.collections.set('myResourceType', new List([value]));
 		state.cmf.settings.views.appheaderbar = {
 			app: 'Hello Test',
 		};
