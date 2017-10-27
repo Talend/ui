@@ -65,7 +65,8 @@ function SidePanel({
 					/>
 				</li>
 				{actions.map(action => {
-					const actionProps = Object.assign({}, action, {
+					const { active, ...actionModel } = { ...action };
+					const actionProps = Object.assign({}, actionModel, {
 						id:
 							id &&
 							`${id}-nav-${action.label
