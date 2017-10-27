@@ -4,7 +4,7 @@ import { DeleteResource } from '../src';
 /*
 Actions example
 The components needs two actions, respectively 'cancel-action' and 'validate-action'.
-Also require a resourceInfo object, which contains the uri to call and the resourceType.
+Also require two fields uri which contains the uri to call and resourceType, the type of resource.
 ---------------------------------------
 "actions": {
 	"my:validate:action": {

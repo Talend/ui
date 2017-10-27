@@ -19,10 +19,6 @@ export default class DeleteResource extends React.Component {
 		header: PropTypes.string,
 		uri: PropTypes.string.isRequired,
 		resourceType: PropTypes.string.isRequired,
-		// resourceInfo: PropTypes.shape({
-		// 	uri: PropTypes.string,
-		// 	resourceType: PropTypes.string,
-		// }).isRequired,
 	};
 	static contextTypes = {
 		registry: PropTypes.object.isRequired,
@@ -41,14 +37,14 @@ export default class DeleteResource extends React.Component {
 	 * @param {object} resourceInfo
 	 */
 	getLabel(resourceType, id) {
+		let resource;
 		const resourcesCollection = this.context.store.getState().cmf.collections.get(resourceType);
 		if (resourcesCollection) {
-			const resource = resourcesCollection.find(
+			resource = resourcesCollection.find(
 				resoureCollection => resoureCollection.get('id') === id,
 			);
-			return resource ? { label: resource.get('label'), found: true } : {};
 		}
-		return { label: '', found: false };
+		return resource ? { label: resource.get('label'), found: true } : { label: '', found: false };
 	}
 
 	/**
