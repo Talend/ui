@@ -29,27 +29,15 @@ import theme from './SidePanel.scss';
  />
  *
  */
-function SidePanel({
-	id,
-	selected,
-	onSelect,
-	actions = [],
-	docked,
-	onToggleDock,
-	t,
-}) {
+function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock, t }) {
 	const dockedCSS = { [theme.docked]: docked };
-	const navCSS = classNames(
-		theme['tc-side-panel'],
-		dockedCSS,
-		'tc-side-panel',
-	);
+	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
 	const listCSS = classNames(
 		'nav nav-pills nav-inverse nav-stacked',
 		'tc-side-panel-list',
 		theme['action-list'],
 	);
-	const isActionSelected = (action) => {
+	const isActionSelected = action => {
 		if (selected) {
 			return action === selected;
 		}
@@ -61,8 +49,7 @@ function SidePanel({
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 
 	return (
-		<nav className={navCSS}
-		     role="navigation">
+		<nav className={navCSS} role="navigation">
 			<ul className={listCSS}>
 				<li className={theme['toggle-btn']} title={toggleButtonTitle}>
 					<Action
@@ -84,18 +71,21 @@ function SidePanel({
 						<li
 							title={action.label}
 							key={action.key || action.label}
-							className={classNames(
-								'tc-side-panel-list-item',
-								{ active: isSelected },
-							)}
+							className={classNames('tc-side-panel-list-item', { active: isSelected })}
 							{...a11y}
 						>
 							<Action
-								id={id && `${id}-nav-${action.label.toLowerCase().split(' ').join('-')}`}
+								id={
+									id &&
+									`${id}-nav-${action.label
+										.toLowerCase()
+										.split(' ')
+										.join('-')}`
+								}
 								bsStyle="link"
 								role="link"
 								className={theme.link}
-								onClick={(event) => {
+								onClick={event => {
 									if (onSelect) {
 										onSelect(event, action);
 									}
