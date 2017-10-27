@@ -1,9 +1,12 @@
-
 import PropTypes from 'prop-types';
 import React from 'react';
 import invariant from 'invariant';
+import forIn from 'lodash/forIn';
+
 import CONST from './constant';
 import Registry from './registry';
+
+const regexExpression = new RegExp('(.*)Expression');
 
 /**
  * This module define expression which are just function
@@ -11,7 +14,6 @@ import Registry from './registry';
  * @module react-cmf/lib/expression
  * @see module:react-cmf/lib/api
  */
-
 
 /**
  * register an expression
@@ -22,7 +24,6 @@ import Registry from './registry';
 function register(id, func, context) {
 	Registry.addToRegistry(`${CONST.REGISTRY_EXPRESSION_PREFIX}:${id}`, func, context);
 }
-
 
 /**
  * get an expression from it's id
@@ -51,17 +52,11 @@ function call(expression, context, payload) {
 		args = [];
 	}
 	if (!id) {
-		invariant(
-			process.env.NODE_ENV === 'production',
-			'you must provide an expression id'
-		);
+		invariant(process.env.NODE_ENV === 'production', 'you must provide an expression id');
 	}
 	const check = get(id, context);
 	if (!check) {
-		invariant(
-			process.env.NODE_ENV === 'production',
-			`you must register expression ${id} first`
-		);
+		invariant(process.env.NODE_ENV === 'production', `you must register expression ${id} first`);
 	}
 	return check({ context, payload }, ...args);
 }
@@ -72,13 +67,28 @@ function call(expression, context, payload) {
  * @param {array} attrs of attribute to get
  * @param {object} context React context
  * @param {payload} payload optional payload to pass
+ * @deprecated the array param will be deprecated and replaced with context
+ * @deprecated the context will be replaced by the payload
  */
 function getProps(props, attrs, context, payload = {}) {
 	const newProps = Object.assign({}, props, payload);
-	attrs.forEach((attr) => {
+	attrs.forEach(attr => {
+		console.warn(
+			`beware this is present just for the sake of backward compatibility,
+			you should use properties ending with Expression to see them evaluated
+			example: instead of using ${attr}, ${attr}Expression will be evaluated
+			and result put in ${attr}`,
+		);// eslint no-console: ["error", { allow: ["warn"] }]
 		const value = props[attr];
 		if (typeof value === 'string' || typeof value === 'object') {
 			newProps[attr] = call(value, context, newProps);
+		}
+	});
+	forIn(props, (value, key) => {
+		const match = regexExpression.exec(key);
+		if (match) {
+			newProps[match[1]] = call(props[match[0]], context, newProps);
+			delete newProps[match[0]];
 		}
 	});
 	return newProps;
