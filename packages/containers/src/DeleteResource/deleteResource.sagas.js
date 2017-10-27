@@ -33,12 +33,13 @@ export function* deleteResourceValidate(requestId) {
 	const { resourceInfo } = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK);
 	const { id, found, resourceType, label, uri } = resourceInfo;
 	if (found && requestId === id) {
-		const http = buildHttpDelete(
-			`${uri}/${resourceType}/${id}`,
-			label,
-			deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
+		yield put(
+			buildHttpDelete(
+				`${uri}/${resourceType}/${id}`,
+				label,
+				deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
+			),
 		);
-		yield put(http);
 	}
 }
 
@@ -47,9 +48,8 @@ export function* deleteResourceValidate(requestId) {
  * Race between cancel and confirm deleting the resource.
  */
 export default function* deleteResourceSaga() {
-	const data = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE);
-	const { redirectUrl } = data;
-	const { id } = data.model;
+	const { redirectUrl, model } = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE);
+	const { id } = model;
 	try {
 		yield race({
 			deleteConfirmationValidate: call(deleteResourceValidate, id),
@@ -58,7 +58,7 @@ export default function* deleteResourceSaga() {
 			}),
 		});
 	} catch (error) {
-		console.error(error);
+		yield put(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_ERROR);
 	} finally {
 		yield put({
 			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
