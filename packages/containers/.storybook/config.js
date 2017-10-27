@@ -37,16 +37,49 @@ function confirmDialog(event, data) {
 	};
 }
 
+function chooceItem1() {
+	return {
+		type: 'CHOOSE_ITEM1',
+	};
+}
+
+function chooceItem2() {
+	return {
+		type: 'CHOOSE_ITEM2',
+	};
+}
+
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
 registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
+registerActionCreator('item1:action', chooceItem1);
+registerActionCreator('item2:action', chooceItem2);
 
 const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
 	isTrueExpressionAction(context, first);
 	return !!first;
 });
+
+api.expression.register('getItems', () => [
+	{
+		id: {
+			actionCreator: 'item1:action',
+			property: 'item1',
+		},
+		label: 'label1',
+		actionCreator: 'item1:action',
+	},
+	{
+		id: {
+			actionCreator: 'item2:action',
+			property: 'item2',
+		},
+		label: 'label2',
+		actionCreator: 'item2:action',
+	},
+]);
 
 const modelHasLabelAction = action('modelHasLabel');
 api.expression.register('modelHasLabel', context => {
@@ -62,8 +95,8 @@ function loadStories() {
 		};
 		state.cmf.settings.views['HeaderBar#default'] = {
 			logo: { name: 'appheaderbar:logo', isFull: true },
-			brand: { label: 'DATA STREAMS'},
-			notification: { name: 'appheaderbar:notification'}
+			brand: { label: 'DATA STREAMS' },
+			notification: { name: 'appheaderbar:notification' },
 		};
 		const actions = state.cmf.settings.actions;
 		actions['appheaderbar:logo'] = {
@@ -125,6 +158,18 @@ function loadStories() {
 			label: 'Cancel',
 			id: 'object:hide:dialog',
 			actionCreator: 'cancel:hide:dialog',
+		};
+		actions['menu:items'] = {
+			id: 'menu:items',
+			displayMode: 'dropdown',
+			label: 'my items',
+			itemsExpression: 'getItems',
+		};
+		actions['menu:items-id'] = {
+			id: 'menu:items',
+			displayMode: 'dropdown',
+			label: 'my items',
+			items: ['menu:first', 'menu:second'],
 		};
 
 		const story = storiesOf(example);

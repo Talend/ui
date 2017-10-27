@@ -46,6 +46,10 @@ export default function ExampleActions() {
 			<Actions names={['menu:first', 'menu:second', 'menu:third']} />
 			<p>Using pure component props</p>
 			<Actions actions={infos} />
+			<p>Using with items defined by id</p>
+			<Actions names={['menu:items-id']} />
+			<p>Using with dynamics items by an expression</p>
+			<Actions names={['menu:items']} />
 		</div>
 	);
 }

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Actions as PureActions } from '@talend/react-components';
 import actionAPI from '../actionAPI';
+import cloneDeep from 'lodash/cloneDeep';
 /**
  * @param {Object} props react props
  * @example
@@ -13,13 +14,15 @@ function Actions({ names, ...rest }, context) {
 	};
 	let actions = names ? names.map(name => actionAPI.getProps(context, name)) : null;
 
-	actions = actions.map((action) => {
-		if (action.displayMode === 'dropdown') {
-			delete action.onClick;
-		}
+	actions = actions
+		? actions.map((action) => {
+			if (action.displayMode === 'dropdown') {
+				delete action.onClick;
+			}
 
-		return action;
-	});
+			return action;
+		})
+		: null;
 
 	return <PureActions actions={actions} {...rest} onClick={onClick} />;
 }

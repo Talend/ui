@@ -44,22 +44,29 @@ function getOnClick(action, context, model) {
 		onClick(event, data) {
 			if (action.actionCreator) {
 				context.store.dispatch(api.action.getActionObject(context, action.id, event, data));
+			} else {
+				context.store.dispatch(
+					Object.assign(
+						{
+							model,
+						},
+						action.payload,
+					),
+				);
 			}
-			context.store.dispatch(
-				Object.assign(
-					{
-						model,
-					},
-					action.payload,
-				),
-			);
 		},
 	};
 }
 
-function extendAction(action, context, model) {
+function buidAction(action, context, model) {
+	// prettier-ignore
 	return getItems(
-		getOnClick(evalExpressions(getActionById(action, context), context, { model }), context, model),
+		getOnClick(
+			evalExpressions(
+				getActionById(action, context),
+				context, { model }
+			),
+			context, model),
 		context,
 	);
 }
@@ -68,7 +75,7 @@ function getItems(action, context) {
 	if (action.items) {
 		return {
 			...action,
-			items: action.items.map(info => extendAction(info, context)),
+			items: action.items.map(info => buidAction(info, context)),
 		};
 	}
 	return action;
@@ -84,7 +91,7 @@ export function getActionsProps(context, ids, model) {
 		tmpIds = [ids];
 	}
 
-	const props = tmpIds.map(id => extendAction(id, context, model));
+	const props = tmpIds.map(id => buidAction(id, context, model));
 
 	if (onlyOne) {
 		return props[0];
