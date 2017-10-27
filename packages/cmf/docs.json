@@ -28,6 +28,7 @@
           "src/RegistryProvider.js",
           "src/route.js",
           "src/saga.js",
+          "src/sagaRouter/router.js",
           "src/store.js",
           "src/UIRouter.js"
         ],
