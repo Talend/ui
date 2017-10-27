@@ -36,17 +36,13 @@ function SidePanel({
 	collapseTitle = 'Collapse',
 }) {
 	const dockedCSS = { [theme.docked]: docked };
-	const navCSS = classNames(
-		theme['tc-side-panel'],
-		dockedCSS,
-		'tc-side-panel',
-	);
+	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
 	const listCSS = classNames(
 		'nav nav-pills nav-inverse nav-stacked',
 		'tc-side-panel-list',
 		theme['action-list'],
 	);
-	const isActionSelected = (action) => {
+	const isActionSelected = action => {
 		if (selected) {
 			return action === selected;
 		}
@@ -68,33 +64,39 @@ function SidePanel({
 						label=""
 					/>
 				</li>
-				{actions.map(action => (
-					<li
-						title={action.label}
-						key={action.key || action.label}
-						className={classNames(
-							'tc-side-panel-list-item',
-							{ active: isActionSelected(action) },
-						)}
-					>
-						<Action
-							id={id && `${id}-nav-${action.label.toLowerCase().split(' ').join('-')}`}
-							bsStyle="link"
-							role="link"
-							className={classNames(theme.link, action.className)}
-							onClick={(event) => {
-								if (onSelect) {
-									onSelect(event, action);
-								}
-								if (action.onClick) {
-									action.onClick(event);
-								}
-							}}
-							label={action.label}
-							icon={action.icon}
-						/>
-					</li>
-				))}
+				{actions.map(action => {
+					const actionProps = Object.assign({}, action, {
+						id:
+							id &&
+							`${id}-nav-${action.label
+								.toLowerCase()
+								.split(' ')
+								.join('-')}`,
+						bsStyle: 'link',
+						role: 'link',
+						className: classNames(theme.link, action.className),
+						onClick: event => {
+							if (onSelect) {
+								onSelect(event, action);
+							}
+							if (action.onClick) {
+								action.onClick(event);
+							}
+						},
+					});
+
+					return (
+						<li
+							title={action.label}
+							key={action.key || action.label}
+							className={classNames('tc-side-panel-list-item', {
+								active: isActionSelected(action),
+							})}
+						>
+							<Action {...actionProps} />
+						</li>
+					);
+				})}
 			</ul>
 		</nav>
 	);
