@@ -1,11 +1,13 @@
 import React from 'react';
 import settings from './settings';
 import collections from './collections';
+import components from './components';
 
 const state = {
 	cmf: {
 		settings,
 		collections,
+		components,
 	},
 };
 const notInitializedState = {
