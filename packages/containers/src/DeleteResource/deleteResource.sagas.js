@@ -1,6 +1,8 @@
+import invariant from 'invariant';
 import { take, put, race, call } from 'redux-saga/effects';
 import { actions } from '@talend/react-cmf';
 import deleteResourceConst from './deleteResource.constants';
+
 
 /**
  * Wil be deprecated with the new http saga api.
@@ -58,7 +60,7 @@ export default function* deleteResourceSaga() {
 			}),
 		});
 	} catch (error) {
-		yield put(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_ERROR);
+		invariant(true, `DeleteResource race failed :${error}`);
 	} finally {
 		yield put({
 			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
