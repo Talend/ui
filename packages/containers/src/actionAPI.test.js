@@ -83,6 +83,51 @@ describe('actionAPI.getActionsProps', () => {
 		expect(props[1].actionCreator).toBe('my');
 		expect(props[1].model).toBe(model);
 	});
+
+	it('should return an action with sub elements', () => {
+		const context = mock.context();
+		const model = { model: {} };
+		const props = action.getProps(context, ['menu:demo', 'menu:article:items'], model);
+
+		expect(props).toMatchSnapshot();
+	});
+
+	it('should return an action with sub elements evaled before', () => {
+		const getItems = () => [
+			{
+				id: {
+					actionCreator: 'item1:action',
+					property: 'item1',
+				},
+				label: 'label1',
+				actionCreator: 'item1:action',
+			},
+			{
+				id: {
+					actionCreator: 'item2:action',
+					property: 'item2',
+				},
+				label: 'label2',
+				actionCreator: 'item2:action',
+			},
+		];
+
+		const context = mock.context();
+		context.store.dispatch = jest.fn();
+		context.registry['actionCreator:action-creator'] = jest.fn();
+		context.registry = {
+			'expression:getItems': getItems,
+			'actionCreator:item1:action': jest.fn(),
+			'actionCreator:item2:action': jest.fn(),
+		};
+		const model = { model: {} };
+		context.store.dispatch = jest.fn();
+		const props = action.getProps(context, ['menu:demo', 'menu:items'], model);
+
+		expect(props).toMatchSnapshot();
+		props[1].items[0].onClick();
+		expect(context.registry['actionCreator:item1:action']).toHaveBeenCalledWith();
+	});
 });
 
 describe('actionAPI.evalExpressions', () => {

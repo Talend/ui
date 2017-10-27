@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { api } from '@talend/react-cmf';
 import { Actions as PureActions } from '@talend/react-components';
+import actionAPI from '../actionAPI';
+import cloneDeep from 'lodash/cloneDeep';
 
+const TYPE_DROPDOWN = 'dropdown';
 /**
  * @param {Object} props react props
  * @example
@@ -12,17 +14,22 @@ function Actions({ names, ...rest }, context) {
 	const onClick = (event, payload) => {
 		context.store.dispatch(payload.action.payload);
 	};
-	const actions = names ? names.map(
-		name => api.action.getActionInfo(context, name),
-	) : null;
 
-	return (
-		<PureActions
-			actions={actions}
-			{...rest}
-			onClick={onClick}
-		/>
-	);
+	let actions = null;
+
+	if (names) {
+		actions = names.map((name) => {
+			const action = actionAPI.getProps(context, name);
+
+			if (action.displayMode === TYPE_DROPDOWN) {
+				delete action.onClick;
+			}
+
+			return action;
+		});
+	}
+
+	return <PureActions actions={actions} {...rest} onClick={onClick} />;
 }
 
 Actions.propTypes = {
@@ -31,6 +38,7 @@ Actions.propTypes = {
 
 Actions.contextTypes = {
 	store: PropTypes.object,
+	registry: PropTypes.object,
 };
 
 Actions.displayName = 'CMF(Actions)';
