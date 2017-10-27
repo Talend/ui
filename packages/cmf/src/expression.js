@@ -9,6 +9,13 @@ import Registry from './registry';
 const regexExpression = new RegExp('(.*)Expression');
 
 /**
+ * @typedef {Object} Context
+ * @property {string} store
+ * @property {string} registry
+ * @property {string} router
+ */
+
+/**
  * This module define expression which are just function
  * used to be called in the way you want in your APP with a context and a payload as params
  * @module react-cmf/lib/expression
@@ -19,7 +26,7 @@ const regexExpression = new RegExp('(.*)Expression');
  * register an expression
  * @param {string} id the id of the expression to call it later
  * @param {function} func the function you want to register under this id
- * @param {object} context React context is optional
+ * @param {Context} context React context is optional
  */
 function register(id, func, context) {
 	Registry.addToRegistry(`${CONST.REGISTRY_EXPRESSION_PREFIX}:${id}`, func, context);
@@ -28,7 +35,7 @@ function register(id, func, context) {
 /**
  * get an expression from it's id
  * @param {string} id of the expression you want to get
- * @param {object} context React context is optional
+ * @param {Context} context React context is optional
  */
 function get(id, context) {
 	return Registry.getFromRegistry(`${CONST.REGISTRY_EXPRESSION_PREFIX}:${id}`, context);
@@ -62,10 +69,15 @@ function call(expression, context, payload) {
 }
 
 /**
+ * this function will try to find all props.properties that should be evaluated agains
+ * a registered function, the attrs parameter will be deprecated.
+ * Each parameter name ending with Expression will be automaticaly evaluated
+ * against their registered Expression and the result put inside a properties with name
+ * matching the original expression attributes minus the 'Expression' part
  *
- * @param {object} props React props
- * @param {array} attrs of attribute to get
- * @param {object} context React context
+ * @param {Object.<string, *>} props React props
+ * @param {Array.<string>} attrs of attribute to get
+ * @param {Context} context React context
  * @param {payload} payload optional payload to pass
  * @deprecated the array param will be deprecated and replaced with context
  * @deprecated the context will be replaced by the payload
