@@ -14,6 +14,7 @@ describe('Action', () => {
 			block: false,
 			onClick,
 			href: faker.internet.url(),
+			target: '_blank',
 			type: 'button',
 
 			// native props should be kept
@@ -35,6 +36,7 @@ describe('Action', () => {
 			href: props.href,
 			type: props.type,
 			className: props.className,
+			target: '_blank',
 		});
 	});
 });

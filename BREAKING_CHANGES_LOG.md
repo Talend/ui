@@ -2,7 +2,18 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
-## NEXT VERSION
+## v0.120.0
+
+* PR 807 [enhancement(component/Headerbar): small change]
+
+The brand of the header bar used `name` to be rendered as the application title.
+
+Using containers and cmf, `name` is used to resolve `CMFAction` from the registry.
+
+To be able to use name to describe the CMFAction associated to the Brand section of the header bar,
+`label` has to be used for application title rendering and `name` to resolve `CMFAction`
+
+## v0.96.0
 
 * PR #629 [feat(theme): update colors]
 
