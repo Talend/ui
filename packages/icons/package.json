@@ -34,7 +34,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
-    "autoprefixer": "^6.7.7",
+    "autoprefixer": "^7.1.4",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
     "babel-plugin-transform-class-properties": "6.23.0",
@@ -43,13 +43,13 @@
     "babel-preset-react": "6.16.0",
     "babel-register": "^6.14.0",
     "css-loader": "0.28.7",
-    "extract-text-webpack-plugin": "3.0.1",
+    "extract-text-webpack-plugin": "3.0.2",
     "fontgen-loader": "0.2.1",
     "mkdirp": "^0.5.1",
     "react": "^15.6.1",
     "style-loader": "0.19.0",
     "svgo": "0.7.1",
-    "webpack": "3.6.0"
+    "webpack": "3.8.1"
   },
   "publishConfig": {
     "access": "public"

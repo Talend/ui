@@ -103,7 +103,7 @@ export function getStateToProps({
 		userProps = mapStateToProps(state, ownProps, cmfProps);
 	}
 
-	return { ...cmfProps, ...viewProps, ...userProps };
+	return api.expression.getProps{ ...cmfProps, ...viewProps, ...userProps };
 }
 
 export function getDispatchToProps({
