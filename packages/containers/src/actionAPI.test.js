@@ -95,6 +95,7 @@ describe('actionAPI.evalExpressions', () => {
 			label: 'Run',
 			labelInProgress: 'Running',
 			labelExpression: 'getLabel',
+			iconExpression: 'getIcon',
 		};
 		function isActive({ payload }) {
 			return payload.model.value;
@@ -112,6 +113,10 @@ describe('actionAPI.evalExpressions', () => {
 			return payload.model.value ? payload.labelInProgress : payload.label;
 		}
 
+		function getIcon({ payload }) {
+			return payload.model.value ? 'talend-icon' : 'pas-talend-icon';
+		}
+
 		const modelTruthy = { value: true };
 		const modelFalsy = { value: false };
 		const context = {
@@ -121,6 +126,7 @@ describe('actionAPI.evalExpressions', () => {
 				'expression:isDisabled': isDisabled,
 				'expression:isInProgress': isInProgress,
 				'expression:getLabel': getLabel,
+				'expression:getIcon': getIcon,
 			},
 			router: {
 				location: '/test',
@@ -132,6 +138,7 @@ describe('actionAPI.evalExpressions', () => {
 		expect(truthyAction.disabled).toBe(true);
 		expect(truthyAction.inProgress).toBe(true);
 		expect(truthyAction.label).toBe('Running');
+		expect(truthyAction.icon).toBe('talend-icon');
 
 		const falsyAction = action.evalExpressions(actionInfo, context, { model: modelFalsy });
 		expect(falsyAction.active).toBe(false);
@@ -139,5 +146,6 @@ describe('actionAPI.evalExpressions', () => {
 		expect(falsyAction.disabled).toBe(false);
 		expect(falsyAction.inProgress).toBe(false);
 		expect(falsyAction.label).toBe('Run');
+		expect(falsyAction.icon).toBe('pas-talend-icon');
 	});
 });

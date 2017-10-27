@@ -2,6 +2,9 @@
 /// Bootstrap dropdowns customization
 /// @group Dropdowns
 ////
+$dropdown-animation-offset-y: 1.5rem !default;
+$dropdown-caret-down-axis: 135deg !default;
+$dropdown-caret-up-axis: -45deg !default;
 
 .dropdown {
 	&-toggle {
@@ -20,7 +23,7 @@
 			border-style: solid;
 			border-bottom-color: transparent;
 			border-left-color: transparent;
-			transform: rotate(135deg);
+			transform: rotate($dropdown-caret-down-axis);
 			transition: 0.1s transform ease-out;
 		}
 	}
@@ -48,7 +51,30 @@
 	.dropdown-toggle {
 		.caret {
 			margin-bottom: 0;
-			transform: rotate(-45deg);
+			transform: rotate($dropdown-caret-up-axis);
+		}
+	}
+}
+
+.dropup {
+	&.btn-group > .dropdown-menu {
+		margin-bottom: 0;
+		transform: translateY($dropdown-animation-offset-y);
+	}
+
+	.dropdown-toggle .caret {
+		margin-bottom: 0;
+		transform: rotate($dropdown-caret-up-axis);
+	}
+
+	&.open {
+		&.btn-group > .dropdown-menu {
+			transform: translateY(0);
+		}
+
+		.dropdown-toggle .caret {
+			margin-bottom: $dropdown-caret-size;
+			transform: rotate($dropdown-caret-down-axis);
 		}
 	}
 }
