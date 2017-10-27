@@ -1,3 +1,4 @@
+import React from 'react';
 import i18n from 'i18next';
 import I18N_DOMAIN_COMPONENTS from '../../src/constants';
 
@@ -19,6 +20,8 @@ i18n
 					LIST_FILTER_REMOVE: 'Supprimer le filtre',
 					ENUMERATION_EMPTY_LIST: 'La liste est vide',
 					ENUMERATION_HEADER_LABEL: 'Valeurs',
+					SIDEPANEL_EXPAND: 'Développer',
+					SIDEPANEL_COLLAPSE: 'Réduire',
 				},
 			},
 			it: {
@@ -36,6 +39,8 @@ i18n
 					LIST_FILTER_REMOVE: 'Rimuova il filtro',
 					ENUMERATION_EMPTY_LIST: 'L\'elenco è vuoto',
 					ENUMERATION_HEADER_LABEL: 'Valori',
+					SIDEPANEL_EXPAND: 'Espandere',
+					SIDEPANEL_COLLAPSE: 'Collassare',
 				},
 			},
 		},
@@ -43,5 +48,21 @@ i18n
 		wait: true, // globally set to wait for loaded translations in translate hoc
 	});
 
+export const LanguageSwitcher = () => {
+	const style = {
+		position: 'fixed',
+		bottom: 0,
+		width: '100vw',
+		textAlign: 'center',
+	};
+	return (
+		<nav style={style}>
+			<div className="btn-group">
+				<button className="btn" onClick={() => i18n.changeLanguage('fr')}>fr</button>
+				<button className="btn" onClick={() => i18n.changeLanguage('it')}>it</button>
+			</div>
+		</nav>
+	);
+};
 
 export default i18n;
