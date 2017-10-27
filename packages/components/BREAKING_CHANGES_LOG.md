@@ -1,15 +1,5 @@
 # Breaking changes log
 
-## vLAST
-* Component: SidePanel
-* PR: [feat(SidePanel): i18n
-* Changes :
-
-| Old Props | New props |
-|---|---|
-| expandTitle | i18next `t()` fn will do the magic trick by providing `SIDEPANEL_EXPAND` |
-| collapseTitle | i18next `t()` fn will do the magic trick by providing `SIDEPANEL_COLLAPSE` |
-
 ## v0.63.0
 * Component: Layout
 * PR: [fix(Containers): header instanciation via HomeListView](https://github.com/Talend/ui/pull/155)
