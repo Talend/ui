@@ -14,8 +14,8 @@ export default class DeleteResource extends React.Component {
 	static displayName = 'Container(DeleteResource)';
 	static propTypes = {
 		...componentState.propTypes,
-		'cancel-action': PropTypes.string,
-		'validate-action': PropTypes.string,
+		'cancel-action': PropTypes.string.isRequired,
+		'validate-action': PropTypes.string.isRequired,
 		header: PropTypes.string,
 		resourceInfo: PropTypes.shape({
 			uri: PropTypes.string,
