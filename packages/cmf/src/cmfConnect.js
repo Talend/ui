@@ -103,7 +103,14 @@ export function getStateToProps({
 		userProps = mapStateToProps(state, ownProps, cmfProps);
 	}
 
-	return { ...cmfProps, ...viewProps, ...userProps };
+	return {
+		...cmfProps,
+		...viewProps,
+		...api.expression.mapStateToProps(state, ownProps),
+		...api.expression.mapStateToProps(state, viewProps),
+		...userProps,
+		...api.expression.mapStateToProps(state, userProps),
+	};
 }
 
 export function getDispatchToProps({
@@ -134,6 +141,32 @@ export function getDispatchToProps({
 }
 
 /**
+ * Interal: you should not have to use this
+ * return the merged props which cleanup expression props
+ * call mergeProps if exists after the cleanup
+ * @param {object} options { mergeProps, stateProps, dispatchProps, ownProps }
+ */
+export function getMergeProps({
+	mergeProps,
+	stateProps,
+	dispatchProps,
+	ownProps,
+}) {
+	if (mergeProps) {
+		return mergeProps(
+			api.expression.mergeProps(stateProps),
+			api.expression.mergeProps(dispatchProps),
+			api.expression.mergeProps(ownProps),
+		);
+	}
+	return {
+		...api.expression.mergeProps(stateProps),
+		...api.expression.mergeProps(dispatchProps),
+		...api.expression.mergeProps(ownProps),
+	};
+}
+
+/**
  * this function wrap your component to inject CMF props
  * @example
  * The following props are injected:
@@ -152,6 +185,7 @@ export function getDispatchToProps({
  * - keepComponentState (boolean, overrides the keepComponentState defined in container)
  * - didMountActionCreator (string called as action creator in didMount)
  * - view (string to inject the settings as props with ref support)
+ * - whateverExpression (will inject `whatever` props and will remove it)
  * @example
  * options has the following shape:
 {
@@ -250,7 +284,13 @@ export default function cmfConnect({
 					ownProps,
 					WrappedComponent,
 				}),
-			mergeProps,
+			(stateProps, dispatchProps, ownProps) =>
+				getMergeProps({
+					mergeProps,
+					stateProps,
+					dispatchProps,
+					ownProps,
+				}),
 			{ ...rest },
 		)(hoistStatics(CMFContainer, WrappedComponent));
 		Connected.CMFContainer = CMFContainer;

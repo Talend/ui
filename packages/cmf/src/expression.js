@@ -85,6 +85,46 @@ function getProps(props, attrs, context, payload = {}) {
 }
 
 /**
+ * Internal: you should not have to use it
+ * This function will compute a new props object with extra props
+ * using the convention `fooExpression` will return { foo };
+ * @param {object} state redux state
+ * @param {object} ownProps any props you want to process with expression
+ */
+function mapStateToProps(state, ownProps) {
+	const props = {};
+	const context = {
+		store: {
+			getState: () => state,
+		},
+		registry: Registry.getRegistry(),
+	};
+	forIn(ownProps, (value, key) => {
+		const match = regexExpression.exec(key);
+		if (match) {
+			props[match[1]] = call(props[match[0]], context, props);
+		}
+	});
+	return props;
+}
+
+/**
+ * Internal: you should not have to use it
+ * this function cleanup the object by returning a new one by removing
+ * all key that finish with Expression (ie `fooExpression`);
+ * @param {object} props any props object
+ */
+function mergeProps(props) {
+	const newProps = Object.assign({}, props);
+	forIn(newProps, (value, key) => {
+		const match = regexExpression.exec(key);
+		if (match) {
+			delete newProps[match[0]];
+		}
+	});
+	return props;
+}
+/**
  *
  * @param {any} Component
  * @param {*} attrs
@@ -108,4 +148,6 @@ export default {
 	call,
 	getProps,
 	withExpression,
+	mapStateToProps,
+	mergeProps,
 };
