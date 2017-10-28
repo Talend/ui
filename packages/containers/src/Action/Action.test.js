@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import mock from '@talend/react-cmf/lib/mock';
 
-import Action from './Action.component';
+import Action from './Action.connect';
 
 jest.mock(
 	'@talend/react-components',

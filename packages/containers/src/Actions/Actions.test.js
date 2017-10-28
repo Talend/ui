@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { Provider } from '@talend/react-cmf/lib/mock';
 
-import Actions from './Actions.component';
+import Actions from './Actions.connect';
 
 jest.mock(
 	'@talend/react-components',

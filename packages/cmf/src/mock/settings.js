@@ -41,6 +41,22 @@ const settings = {
 				args: ['/myarticle'],
 			},
 		},
+		'menu:article:items': {
+			id: 'menu:article:items',
+			name: 'My article',
+			icon: 'icon-article',
+			payload: {
+				type: '@@router/CALL_HISTORY_METHOD',
+				method: 'push',
+				args: ['/myarticle'],
+			},
+			items: ['menu:demo', 'menu:actionCreator'],
+		},
+		'menu:items': {
+			id: 'menu:items',
+			name: 'my items',
+			itemsExpression: 'getItems',
+		},
 		'menu:demo': {
 			id: 'menu',
 			name: 'Menu',

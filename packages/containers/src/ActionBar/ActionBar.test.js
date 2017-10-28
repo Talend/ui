@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import mock from '@talend/react-cmf/lib/mock';
 
-import Container from './ActionBar.container';
+import Container from './ActionBar.connect';
 
 const action = jest.fn();
 
