@@ -100,6 +100,8 @@ function ActionDropdown(props) {
 	return dropdown;
 }
 
+ActionDropdown.displayName = 'ActionDropdown';
+
 ActionDropdown.propTypes = {
 	bsStyle: PropTypes.string,
 	hideLabel: PropTypes.bool,

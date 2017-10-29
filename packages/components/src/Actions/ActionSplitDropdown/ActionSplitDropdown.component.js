@@ -75,6 +75,8 @@ function ActionSplitDropdown(props) {
 	);
 }
 
+ActionSplitDropdown.displayName = 'ActionSplitDropdown';
+
 ActionSplitDropdown.propTypes = {
 	icon: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.shape({

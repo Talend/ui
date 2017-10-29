@@ -130,6 +130,8 @@ function Action(props) {
 	return btn;
 }
 
+Action.displayName = 'Action';
+
 Action.propTypes = {
 	...getIcon.propTypes,
 	id: PropTypes.string,

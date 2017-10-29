@@ -12,7 +12,6 @@ import {
 } from '@talend/react-components';
 
 import actionAPI from './actionAPI';
-import componentState from './state';
 import Action from './Action';
 import ActionBar from './ActionBar';
 import Actions from './Actions';
@@ -30,7 +29,6 @@ import SidePanel from './SidePanel';
 
 export {
 	actionAPI,
-	componentState,
 	Action,
 	ActionBar,
 	Actions,

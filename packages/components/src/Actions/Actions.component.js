@@ -21,14 +21,14 @@ function getButtonGroupProps(props) {
 	return buttonGroupProps;
 }
 
-function getActionComponent(displayMode) {
+function getActionComponent(displayMode, { renderers = {} }) {
 	switch (displayMode) {
 		case TYPE_DROPDOWN:
-			return ActionDropdown;
+			return renderers.ActionDropdown || ActionDropdown;
 		case TYPE_SPLIT_DROPDOWN:
-			return ActionSplitDropdown;
+			return renderers.ActionSplitDropdown || ActionSplitDropdown;
 		default:
-			return Action;
+			return renderers.Action || Action;
 	}
 }
 
@@ -90,7 +90,7 @@ function Actions(props) {
 		>
 			{props.actions.map((action, index) => {
 				const { displayMode, ...rest } = action;
-				const ActionComponent = getActionComponent(displayMode);
+				const ActionComponent = getActionComponent(displayMode, props);
 				const params = {
 					key: index,
 					hideLabel: props.hideLabel,
