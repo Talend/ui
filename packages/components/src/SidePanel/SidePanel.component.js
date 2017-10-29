@@ -29,7 +29,16 @@ import theme from './SidePanel.scss';
  />
  *
  */
-function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock, t }) {
+function SidePanel({
+	id,
+	selected,
+	onSelect,
+	actions = [],
+	docked,
+	onToggleDock,
+	t,
+	renderers = { Action },
+}) {
 	const dockedCSS = { [theme.docked]: docked };
 	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
 	const listCSS = classNames(
@@ -76,7 +85,7 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 							})}
 							{...a11y}
 						>
-							<Action
+							<renderers.Action
 								id={
 									id &&
 									`${id}-nav-${action.label
@@ -123,6 +132,9 @@ if (process.env.NODE_ENV !== 'production') {
 		docked: PropTypes.bool,
 		selected: actionPropType,
 		t: PropTypes.func,
+		renderers: PropTypes.shape({
+			Action: PropTypes.node,
+		}),
 	};
 }
 
