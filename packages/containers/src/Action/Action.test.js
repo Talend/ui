@@ -18,12 +18,4 @@ describe('Action', () => {
 		);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
-	it('should render null if not available', () => {
-		const context = mock.context();
-		const wrapper = shallow(
-			<Action available={false} />,
-			{ context }
-		);
-		expect(wrapper.getNode()).toBe(null);
-	});
 });

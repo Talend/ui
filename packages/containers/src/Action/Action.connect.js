@@ -16,6 +16,7 @@ export function mapStateToProps(state, ownProps) {
 export function mergeProps(stateProps, dispatchProps, ownProps) {
 	const props = Object.assign({}, stateProps, dispatchProps, ownProps);
 	delete props.actionId;
+	props.name = stateProps.name;
 	props.onClick = (event, data) => {
 		if (props.actionCreator) {
 			dispatchProps.dispatchActionCreator(props.actionCreator, event, data);

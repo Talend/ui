@@ -1,11 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Action should render from name props keeping extra props 1`] = `
-<Action
+<CMF(Action)
+  deleteState={[Function]}
+  dispatch={[Function]}
+  dispatchActionCreator={[Function]}
   extra="foo"
+  getCollection={[Function]}
   icon="icon-article"
   id="menu:article"
-  model={undefined}
+  initState={[Function]}
   name="My article"
   onClick={[Function]}
   payload={
@@ -17,5 +21,8 @@ exports[`Action should render from name props keeping extra props 1`] = `
       "type": "@@router/CALL_HISTORY_METHOD",
     }
   }
+  setState={[Function]}
+  state={undefined}
+  updateState={[Function]}
 />
 `;
