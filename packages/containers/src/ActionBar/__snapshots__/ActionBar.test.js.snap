@@ -5,93 +5,48 @@ Object {
   "actions": Object {
     "left": Array [
       Object {
-        "icon": "fa-bars",
-        "id": "menu",
-        "model": undefined,
-        "name": "Menu",
-        "onClick": [Function],
-        "payload": Object {
-          "type": "TEST_MENU",
-        },
+        "actionId": "menu:demo",
       },
       Object {
-        "icon": "icon-article",
-        "id": "menu:article",
-        "model": undefined,
-        "name": "My article",
-        "onClick": [Function],
-        "payload": Object {
-          "args": Array [
-            "/myarticle",
+        "actionId": "menu:article",
+      },
+      Object {
+        "actionId": Object {
+          "actions": Array [
+            "menu:demo",
+            "menu:article",
           ],
-          "method": "push",
-          "type": "@@router/CALL_HISTORY_METHOD",
+          "displayMode": "btnGroup",
         },
-      },
-      Object {
-        "actions": Array [
-          Object {
-            "icon": "fa-bars",
-            "id": "menu",
-            "model": undefined,
-            "name": "Menu",
-            "onClick": [Function],
-            "payload": Object {
-              "type": "TEST_MENU",
-            },
-          },
-          Object {
-            "icon": "icon-article",
-            "id": "menu:article",
-            "model": undefined,
-            "name": "My article",
-            "onClick": [Function],
-            "payload": Object {
-              "args": Array [
-                "/myarticle",
-              ],
-              "method": "push",
-              "type": "@@router/CALL_HISTORY_METHOD",
-            },
-          },
-        ],
-        "displayMode": "btnGroup",
       },
     ],
     "right": Array [
       Object {
-        "displayMode": "splitDropdown",
-        "icon": "fa-bars",
-        "id": "menu",
-        "items": Array [
-          Object {
-            "icon": "icon-article",
-            "id": "menu:article",
-            "model": undefined,
-            "name": "My article",
-            "onClick": [Function],
-            "payload": Object {
-              "args": Array [
-                "/myarticle",
-              ],
-              "method": "push",
-              "type": "@@router/CALL_HISTORY_METHOD",
-            },
-          },
-        ],
-        "model": undefined,
-        "name": "Menu",
-        "onClick": [Function],
-        "payload": Object {
-          "type": "TEST_MENU",
+        "actionId": Object {
+          "displayMode": "splitDropdown",
+          "items": Array [
+            "menu:article",
+          ],
+          "name": "menu:demo",
         },
       },
     ],
   },
+  "deleteState": [Function],
+  "dispatch": [Function],
+  "dispatchActionCreator": [Function],
+  "getCollection": [Function],
+  "initState": [Function],
   "renderers": Object {
     "Action": [Function],
+    "ActionBar": undefined,
+    "ActionDropdown": [Function],
+    "ActionSplitDropdown": [Function],
     "Actions": [Function],
   },
+  "setState": [Function],
+  "state": undefined,
+  "updateState": [Function],
 }
 `;
 
@@ -147,9 +102,20 @@ Object {
       },
     ],
   },
+  "deleteState": [Function],
+  "dispatch": [Function],
+  "dispatchActionCreator": [Function],
+  "getCollection": [Function],
+  "initState": [Function],
   "renderers": Object {
     "Action": [Function],
+    "ActionBar": undefined,
+    "ActionDropdown": [Function],
+    "ActionSplitDropdown": [Function],
     "Actions": [Function],
   },
+  "setState": [Function],
+  "state": undefined,
+  "updateState": [Function],
 }
 `;

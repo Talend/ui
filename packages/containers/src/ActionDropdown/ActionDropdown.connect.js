@@ -1,7 +1,7 @@
 import { api, cmfConnect } from '@talend/react-cmf';
 import { ActionDropdown } from '@talend/react-components';
 
-export function mapStateToProps(state, { actionId }) {
+export function mapStateToProps(state, { actionId } = {}) {
 	let props = {};
 	const context = {
 		registry: api.registry.getRegistry(),

@@ -27,4 +27,5 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 
 export default cmfConnect({
 	mapStateToProps,
+	mergeProps,
 })(ActionBar);
