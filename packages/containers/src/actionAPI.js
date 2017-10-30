@@ -16,14 +16,6 @@ function evalExpressions(action, context, payload = {}) {
 		context,
 		payload,
 	);
-	if (action.labelExpression) {
-		delete newAction.labelExpression;
-		newAction.label = api.expression.call(action.labelExpression, context, newAction);
-	}
-	if (action.iconExpression) {
-		delete newAction.iconExpression;
-		newAction.icon = api.expression.call(action.iconExpression, context, newAction);
-	}
 	return newAction;
 }
 

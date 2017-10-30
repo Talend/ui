@@ -80,6 +80,22 @@ describe('expression', () => {
 		expect(toThrowObject).toThrow(msg);
 	});
 
+	it('should withExpression create a wrapper', () => {
+		const MyComponent = props => <button {...props} />;
+		const WithExpr = expression.withExpression(MyComponent, ['disabled']);
+		const isTrue = () => true;
+		const context = {
+			registry: {
+				'expression:test': isTrue,
+			},
+		};
+		const wrapper = shallow(<WithExpr disabled="test" />, { context });
+		expect(wrapper.props().disabled).toBe(true);
+		expect(wrapper.props().disabled).not.toBe('test');
+	});
+});
+
+describe('getProps', () => {
 	it('should getProps eval requested props', () => {
 		const isTrue = () => true;
 		const context = {
@@ -94,18 +110,18 @@ describe('expression', () => {
 		expect(newProps.disabled).toBe(true);
 		expect(newProps.disabled).not.toBe('test');
 	});
-
-	it('should withExpression create a wrapper', () => {
-		const MyComponent = props => <button {...props} />;
-		const WithExpr = expression.withExpression(MyComponent, ['disabled']);
-		const isTrue = () => true;
+	it('should eval all properties ending with `Expression`', () => {
+		const isDisabled = () => true;
 		const context = {
 			registry: {
-				'expression:test': isTrue,
+				'expression:isDisabled': isDisabled,
 			},
 		};
-		const wrapper = shallow(<WithExpr disabled="test" />, { context });
-		expect(wrapper.props().disabled).toBe(true);
-		expect(wrapper.props().disabled).not.toBe('test');
+		const props = {
+			disabledExpression: 'isDisabled',
+		};
+		const newProps = expression.getProps(props, [], context);
+		expect(newProps.disabled).toBe(true);
+		expect(newProps.disabledExpression).toBe(undefined);
 	});
 });
