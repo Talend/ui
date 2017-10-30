@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Actions as PureActions } from '@talend/react-components';
 import actionAPI from '../actionAPI';
-import cloneDeep from 'lodash/cloneDeep';
 
 const TYPE_DROPDOWN = 'dropdown';
 /**
