@@ -150,35 +150,35 @@
     react-treebeard "^2.0.3"
     redux "^3.6.0"
 
-"@talend/bootstrap-theme@^0.117.0":
-  version "0.117.0"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.117.0.tgz#507b54af027425cf7dac909f28043e81715aaf01"
+"@talend/bootstrap-theme@^0.120.0":
+  version "0.120.0"
+  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.120.0.tgz#9d771f032076221efc0e3d81824776bf17222863"
   dependencies:
     bootstrap-sass "3.3.7"
 
-"@talend/icons@^0.117.0":
-  version "0.117.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.117.0.tgz#4ba37884cbedac6ecd3fad12c545d2922b437032"
+"@talend/icons@^0.120.0":
+  version "0.120.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.120.0.tgz#920df1db218fdd76072c4ed91749beda6a5bf369"
 
-"@talend/react-cmf@^0.117.0":
-  version "0.117.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.117.0.tgz#0b225b8308b6533718396ead450047ff60a9c814"
+"@talend/react-cmf@^0.120.0":
+  version "0.120.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.120.0.tgz#c6529ce32cd2cf5d706275bcbb717507dd85d5fe"
   dependencies:
     babel-polyfill "6.26.0"
     hoist-non-react-statics "^1.2.0"
 
-"@talend/react-components@^0.117.0":
-  version "0.117.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.117.0.tgz#2d84028847784ef46f4f9e3c94d0ff30b20684f0"
+"@talend/react-components@^0.120.0":
+  version "0.120.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.120.0.tgz#cd83b8019bdbd23861491a1bd49bf172abb1f923"
   dependencies:
     lodash "4.17.4"
     react-autowhatever "7.0.0"
     react-debounce-input "2.4.2"
     react-virtualized "9.10.1"
 
-"@talend/react-forms@^0.117.0":
-  version "0.117.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-0.117.0.tgz#744f797e0498692436ebdfce17bbebe9e32edc10"
+"@talend/react-forms@^0.120.0":
+  version "0.120.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-0.120.0.tgz#f35ab424309adaeb6fd20328a155053953505a90"
   dependencies:
     classnames "2.2.5"
     keycode "2.1.9"
@@ -6044,6 +6044,10 @@ reduce-function-call@^1.0.1:
 redux-batched-actions@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/redux-batched-actions/-/redux-batched-actions-0.2.0.tgz#da0000c882b0e6c861a96d5823bd36adf5d9c0dd"
+
+redux-saga-tester@^1.0.373:
+  version "1.0.373"
+  resolved "https://registry.yarnpkg.com/redux-saga-tester/-/redux-saga-tester-1.0.373.tgz#2eb0f592cb8b0b1a2886b5147065b13de5a6391d"
 
 redux-saga@0.15.4:
   version "0.15.4"
