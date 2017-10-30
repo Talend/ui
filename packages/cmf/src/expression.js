@@ -124,7 +124,7 @@ function mapStateToProps(state, ownProps) {
 	forIn(ownProps, (value, key) => {
 		const match = regexExpression.exec(key);
 		if (match) {
-			props[match[1]] = call(props[match[0]], context, props);
+			props[match[1]] = call(ownProps[match[0]], context, ownProps);
 		}
 	});
 	return props;
@@ -144,7 +144,7 @@ function mergeProps(props) {
 			delete newProps[match[0]];
 		}
 	});
-	return props;
+	return newProps;
 }
 /**
  *
