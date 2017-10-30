@@ -18,7 +18,7 @@ CellBadge.propTypes = {
 	// Column data
 	columnData: PropTypes.shape({
 		selected: PropTypes.bool,
-	}),
+	}).isRequired,
 };
 
 export default CellBadge;
