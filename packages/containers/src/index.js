@@ -27,6 +27,7 @@ import ObjectViewer from './ObjectViewer';
 import Redirect from './Redirect';
 import ShortcutManager from './ShortcutManager';
 import SidePanel from './SidePanel';
+import DeleteResource from './DeleteResource';
 
 export {
 	actionAPI,
@@ -40,6 +41,7 @@ export {
 	CircularProgress,
 	ConfirmDialog,
 	Drawer,
+	DeleteResource,
 	Form,
 	HeaderBar,
 	HomeListView,
