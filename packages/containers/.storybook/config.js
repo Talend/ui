@@ -3,7 +3,7 @@ import { action, storiesOf, configure, setAddon } from '@storybook/react';
 import cmf from 'react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
-
+import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 
 import examples from '../examples';
@@ -90,6 +90,8 @@ api.expression.register('modelHasLabel', context => {
 function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
+		const value = new Map({ id: 'myID', label: 'myLabel' });
+		state.cmf.collections = state.cmf.collections.set('myResourceType', new List([value]));
 		state.cmf.settings.views.appheaderbar = {
 			app: 'Hello Test',
 		};
@@ -170,6 +172,17 @@ function loadStories() {
 			displayMode: 'dropdown',
 			label: 'my items',
 			items: ['menu:first', 'menu:second'],
+    },
+		actions['dialog:delete:validate'] = {
+			id: 'dialog:delete:validate',
+			label: 'Yes',
+			bsStyle: 'danger',
+			actionCreator: 'confirm:dialog',
+		};
+		actions['dialog:delete:cancel'] = {
+			id: 'dialog:delete:cancel',
+			label: 'No',
+			actionCreator: 'cancel:hide:dialog',
 		};
 
 		const story = storiesOf(example);
