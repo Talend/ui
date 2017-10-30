@@ -9,7 +9,6 @@
 	li {
 		list-style-type: none;
 		font-size: 1rem;
-		display: flex;
 	}
 
 	button {
@@ -90,14 +89,25 @@
 	}
 
 	.line-value {
+		max-width: calc(100% - 6em);
 		color: $brand-primary;
-		display: inline;
-		vertical-align: baseline;
+		vertical-align: bottom;
 		border: none;
 		background: none;
 		padding: 0;
 		cursor: text;
 		margin-left: 4px;
+		display: inline-block;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.line-value:hover {
+		white-space: normal;
+		word-break: break-all;
+		overflow: visible;
+		vertical-align: top;
 	}
 
 	.line-type {

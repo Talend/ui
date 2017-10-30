@@ -9,6 +9,7 @@
         background-color: #000;
         color: White;
     }
+
     .tc-list-custom-style {
         background: #ff69b4;
     }
@@ -19,7 +20,7 @@
 
     .tabFullHeight,
     .tab-content,
-    .tab-content > .tab-pane.active {
+    .tab-content>.tab-pane.active {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
@@ -28,18 +29,27 @@
     .virtualized-list div.tc-list-cell-id {
         flex: 0 0 50px;
     }
+
     .virtualized-list div.tc-list-cell-name {
         flex: 0 0 350px;
     }
+
     .virtualized-list div.tc-list-cell-actions {
         flex: 0 0 120px;
     }
+
+    .virtualized-list div.tc-list-cell-tag {
+        flex: 0 0 120px;
+    }
+
     .virtualized-list div.tc-list-cell-description {
         flex: 1 0 120px;
     }
+
     .virtualized-list div.tc-list-cell-author {
         flex: 1 0 90px;
     }
+
     .virtualized-list div.tc-list-cell-created,
     .virtualized-list div.tc-list-cell-modified {
         flex: 0 0 90px;
