@@ -43,7 +43,7 @@ export default function ArrayItem(props) {
 							title="Move Up"
 							type="button"
 						>
-							<Icon name="talend-caret-down" transform="flip-vertical"/>
+							<Icon name="talend-caret-down" transform="flip-vertical" />
 						</button>
 					}
 					{
