@@ -235,7 +235,7 @@ storiesOf('Virtualized List', module)
 					<VirtualizedList.Content
 						label="Tag"
 						dataKey="tag"
-						columnData={titleProps}
+						columnData={{ selected: true }}
 						{...CellBadge}
 					/>
 					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />

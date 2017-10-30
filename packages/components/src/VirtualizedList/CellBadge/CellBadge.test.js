@@ -9,6 +9,6 @@ describe('CellActions', () => {
 		const wrapper = shallow(<CellBadge cellData={{ label: 'streaming' }} rowIndex={25} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
