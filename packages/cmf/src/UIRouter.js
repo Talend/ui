@@ -12,6 +12,11 @@ import { connect } from 'react-redux';
 
 import api from './api';
 
+
+ /**
+ * @typedef {Object} Router
+ */
+
 /**
  * pure arrow function that render the router component.
  * You should never need to use this, it's an internal component

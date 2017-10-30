@@ -1,7 +1,8 @@
 import React from 'react';
+import { I18nextProvider } from 'react-i18next';
 import { storiesOf, action } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
-
+import i18n, { LanguageSwitcher } from './config/i18n';
 import { SidePanel, IconsProvider, Layout } from '../src/index';
 
 const icons = {
@@ -32,19 +33,23 @@ const actions = [
 	},
 ];
 
-const items = [{
-	key: 'preparations',
-	label: 'Preparations',
-	icon: 'talend-dataprep',
-}, {
-	key: 'datasets',
-	label: 'Datasets',
-	icon: 'talend-download',
-}, {
-	key: 'favorites',
-	label: 'Favorites',
-	icon: 'talend-star',
-}];
+const items = [
+	{
+		key: 'preparations',
+		label: 'Preparations',
+		icon: 'talend-dataprep',
+	},
+	{
+		key: 'datasets',
+		label: 'Datasets',
+		icon: 'talend-download',
+	},
+	{
+		key: 'favorites',
+		label: 'Favorites',
+		icon: 'talend-star',
+	},
+];
 
 const stories = storiesOf('SidePanel', module);
 if (!stories.addWithInfo) {
@@ -52,40 +57,38 @@ if (!stories.addWithInfo) {
 }
 
 stories
-	.addWithInfo('default', () => (
+	.addDecorator(story => (
 		<div>
+			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
-			<SidePanel
-				id="context"
-				actions={actions}
-				onToggleDock={action('Toggle dock clicked')}
-				docked={false}
-				tooltipPlacement="top"
-			/>
+			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
 		</div>
+	))
+	.addWithInfo('default', () => (
+		<SidePanel
+			id="context"
+			actions={actions}
+			onToggleDock={action('Toggle dock clicked')}
+			docked={false}
+			tooltipPlacement="top"
+		/>
 	))
 	.addWithInfo('docked', () => (
-		<div>
-			<IconsProvider defaultIcons={icons} />
-			<SidePanel
-				actions={actions}
-				onToggleDock={action('Toggle dock clicked')}
-				docked
-				tooltipPlacement="top"
-			/>
-		</div>
+		<SidePanel
+			actions={actions}
+			onToggleDock={action('Toggle dock clicked')}
+			docked
+			tooltipPlacement="top"
+		/>
 	))
 	.addWithInfo('with onSelect function', () => (
-		<div>
-			<IconsProvider defaultIcons={icons} />
-			<SidePanel
-				actions={items}
-				onSelect={action('onItemSelect')}
-				onToggleDock={action('onToggleDock')}
-				selected={items[1]}
-				tooltipPlacement="top"
-			/>
-		</div>
+		<SidePanel
+			actions={items}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			selected={items[1]}
+			tooltipPlacement="top"
+		/>
 	))
 	.addWithInfo('With layout (toggle interactive)', () => {
 		class WithLayout extends React.Component {
@@ -93,6 +96,7 @@ stories
 				super();
 				this.state = { docked: false };
 			}
+
 			render() {
 				const panelItems = items.concat([
 					{
@@ -111,13 +115,11 @@ stories
 					/>
 				);
 				return (
-					<Layout	mode="TwoColumns" one={panel}>
+					<Layout mode="TwoColumns" one={panel}>
 						<ol>
-							{
-								new Array(100)
-									.fill('This is some random content')
-									.map((item, num) => <li key={num}>{item}</li>)
-							}
+							{new Array(100)
+								.fill('This is some random content')
+								.map((item, num) => <li key={num}>{item}</li>)}
 						</ol>
 						<IconsProvider defaultIcons={icons} />
 					</Layout>
@@ -125,8 +127,5 @@ stories
 			}
 		}
 
-		return (
-			<WithLayout />
-		);
+		return <WithLayout />;
 	});
-

@@ -288,6 +288,9 @@ form {
 	}
 
 	.has-error {
+		font-size: $font-size-small;
+		color: $chestnut-rose;
+
 		input:not([type=checkbox]),
 		.form-control,
 		input.form-control[readonly],
@@ -297,6 +300,14 @@ form {
 		.form-control:focus {
 			@include box-shadow(inset 0 -2px 0 $brand-danger);
 			border-bottom: none;
+		}
+
+		.error-detail {
+			padding-left: 0;
+
+			.text-danger {
+				list-style-type: none;
+			}
 		}
 	}
 
