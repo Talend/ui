@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import Action from './Action.component';
+import ActionButton from './ActionButton.component';
 
 jest.mock('react-dom');
 
@@ -20,7 +20,7 @@ const mouseDownAction = {
 describe('Action', () => {
 	it('should render a button', () => {
 		// when
-		const wrapper = renderer.create(<Action {...myAction} />).toJSON();
+		const wrapper = renderer.create(<ActionButton {...myAction} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -28,7 +28,7 @@ describe('Action', () => {
 
 	it('should click on the button trigger the onclick props', () => {
 		// given
-		const wrapper = renderer.create(<Action extra="extra" {...myAction} />).toJSON();
+		const wrapper = renderer.create(<ActionButton extra="extra" {...myAction} />).toJSON();
 
 		// when
 		wrapper.props.onClick();
@@ -44,12 +44,9 @@ describe('Action', () => {
 
 	it('should pass all props to the Button', () => {
 		// when
-		const wrapper = renderer.create(
-			<Action
-				className="navbar-btn"
-				notExisting
-				{...myAction}
-			/>).toJSON();
+		const wrapper = renderer
+			.create(<ActionButton className="navbar-btn" notExisting {...myAction} />)
+			.toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -57,12 +54,9 @@ describe('Action', () => {
 
 	it('should display a Progress indicator if set', () => {
 		// when
-		const wrapper = renderer.create(
-			<Action
-				className="navbar-btn"
-				inProgress
-				{...myAction}
-			/>).toJSON();
+		const wrapper = renderer
+			.create(<ActionButton className="navbar-btn" inProgress {...myAction} />)
+			.toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -70,12 +64,9 @@ describe('Action', () => {
 
 	it('should display a disabled Icon', () => {
 		// when
-		const wrapper = renderer.create(
-			<Action
-				className="navbar-btn"
-				disabled
-				{...myAction}
-			/>).toJSON();
+		const wrapper = renderer
+			.create(<ActionButton className="navbar-btn" disabled {...myAction} />)
+			.toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -83,11 +74,7 @@ describe('Action', () => {
 
 	it('should reverse icon/label', () => {
 		// when
-		const wrapper = renderer.create(
-			<Action
-				iconPosition="right"
-				{...myAction}
-			/>).toJSON();
+		const wrapper = renderer.create(<ActionButton iconPosition="right" {...myAction} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -95,11 +82,9 @@ describe('Action', () => {
 
 	it('should apply transformation on icon', () => {
 		// when
-		const wrapper = renderer.create(
-			<Action
-				iconTransform={'rotate-180'}
-				{...myAction}
-			/>).toJSON();
+		const wrapper = renderer
+			.create(<ActionButton iconTransform={'rotate-180'} {...myAction} />)
+			.toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -107,11 +92,7 @@ describe('Action', () => {
 
 	it('should render action with html property name = props.name if set', () => {
 		// when
-		const wrapper = renderer.create(
-			<Action
-				name="custom_name"
-				{...myAction}
-			/>).toJSON();
+		const wrapper = renderer.create(<ActionButton name="custom_name" {...myAction} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -119,7 +100,7 @@ describe('Action', () => {
 
 	it('should trigger action if set up onMouseDown event', () => {
 		// given
-		const wrapper = renderer.create(<Action extra="extra" {...mouseDownAction} />).toJSON();
+		const wrapper = renderer.create(<ActionButton extra="extra" {...mouseDownAction} />).toJSON();
 
 		// when
 		wrapper.props.onMouseDown();
@@ -134,9 +115,7 @@ describe('Action', () => {
 	});
 
 	it('should not render action if props.available=false', () => {
-		const wrapper = shallow(
-			<Action available={false} />
-		);
+		const wrapper = shallow(<ActionButton available={false} />);
 		expect(wrapper.type()).toBe(null);
 	});
 });
