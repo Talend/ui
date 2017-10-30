@@ -141,7 +141,7 @@ export function getDispatchToProps({
 }
 
 /**
- * Interal: you should not have to use this
+ * Internal: you should not have to use this
  * return the merged props which cleanup expression props
  * call mergeProps if exists after the cleanup
  * @param {object} options { mergeProps, stateProps, dispatchProps, ownProps }
