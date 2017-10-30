@@ -157,5 +157,5 @@ describe('mergeProps', () => {
 		expect(newProps.foo).toBe('bar');
 		expect(newProps['what-everExpression']).toBeUndefined();
 		expect(newProps.totoExpression).toBeUndefined();
-	})
+	});
 });
