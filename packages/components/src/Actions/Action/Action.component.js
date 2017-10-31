@@ -9,6 +9,10 @@ const TYPE_DROPDOWN = 'dropdown';
 const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
 
 /**
+ * @typedef {(Object|Function)} Component
+ */
+
+/**
  * @typedef {Object} ActionProps
  * @property {TYPE_DROPDOWN | TYPE_SPLIT_DROPDOWN | false} displayMode
  * @property {Object.<String, Component>} renderers
@@ -19,8 +23,8 @@ const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
  * This function decide which component should be used to display the action
  * based on a displayMode.
  * Component can be override by the renderers
- * @param {ActionProps} props should contains displayMode and renderers
- * @return {object|function} the component to be used
+ * @param {ActionProps} - props should contains displayMode and renderers
+ * @return {Component} the component to be used
  */
 export function getActionComponent({ displayMode, renderers = {} }) {
 	switch (displayMode) {
