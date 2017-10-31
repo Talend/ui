@@ -18,6 +18,14 @@ describe('Table', () => {
 		// Then
 		expect(wrapper).toMatchSnapshot();
 	});
+	it('should render if data is empty', () => {
+		// Given
+		const data = [];
+		// When
+		const wrapper = shallow(<Table data={data} flat />);
+		// Then
+		expect(wrapper).toMatchSnapshot();
+	});
 	it('should render Table with props data as an object', () => {
 		// Given
 		const schema = new Map();
