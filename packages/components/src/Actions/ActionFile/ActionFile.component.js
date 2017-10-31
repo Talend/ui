@@ -6,7 +6,6 @@ import uuid from 'uuid';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
-
 import Icon from '../../Icon';
 import theme from './ActionFile.scss';
 
@@ -55,23 +54,21 @@ function getContent(props) {
 
 function noOp() {}
 
-function ActionFile(props) {
-	const {
-		id,
-		bsStyle,
-		inProgress,
-		disabled,
-		hideLabel,
-		label,
-		name,
-		onChange = noOp,
-		tooltipPlacement,
-		tooltip,
-		tooltipLabel,
-		available,
-		...rest
-	} = props;
-
+function ActionFile({
+	id,
+	bsStyle,
+	inProgress,
+	disabled,
+	hideLabel,
+	label,
+	name,
+	onChange = noOp,
+	tooltipPlacement,
+	tooltip,
+	tooltipLabel,
+	available,
+	...rest
+}) {
 	if (!available) {
 		return null;
 	}

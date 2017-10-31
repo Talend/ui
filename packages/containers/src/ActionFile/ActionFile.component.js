@@ -9,21 +9,15 @@ import actions from '../actionAPI';
 <Action name="menu:demo"></Action>
  */
 function Action({ name, ...rest }, context) {
-	let action;
+	let action = actions.getProps(context, rest, rest.model);
 
 	if (name) {
-		action = Object.assign(
-			{},
-			rest,
-			actions.getProps(context, name, rest.model),
-		);
-	} else {
-		action = actions.getProps(context, rest, rest.model);
+		action = Object.assign({}, rest, actions.getProps(context, name, rest.model));
 	}
 	if (action.available === false) {
 		return null;
 	}
-	return (<PureActionFile {...action} />);
+	return <PureActionFile {...action} />;
 }
 
 Action.propTypes = {

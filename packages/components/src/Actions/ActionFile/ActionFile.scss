@@ -5,8 +5,8 @@ input[type='file'] {
 }
 
 .btn-file {
-	color: #333;
-	background-color: #dedede;
+	color: $btn-default-color;
+	background-color: $btn-default-bg;
 }
 
 .btn-file-disabled {

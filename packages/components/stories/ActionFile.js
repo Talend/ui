@@ -8,7 +8,6 @@ const icons = {
 	'talend-upload': talendIcons['talend-upload'],
 };
 
-
 const myActionFile = {
 	label: 'upload',
 	icon: 'talend-upload',
