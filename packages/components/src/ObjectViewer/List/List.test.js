@@ -18,7 +18,7 @@ describe('ObjectViewer.List', () => {
 			schema,
 		};
 		// When
-		const wrapper = shallow(<List data={data} flat />); // eslint-disable
+		const wrapper = shallow(<List data={data} flat />);
 		// Then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -26,7 +26,7 @@ describe('ObjectViewer.List', () => {
 		// Given
 		const data = [{ field0: 'header1' }, { field1: 'header2' }];
 		// When
-		const wrapper = shallow(<List data={data} flat />); // eslint-disable
+		const wrapper = shallow(<List data={data} flat />);
 		// Then
 		expect(wrapper).toMatchSnapshot();
 	});

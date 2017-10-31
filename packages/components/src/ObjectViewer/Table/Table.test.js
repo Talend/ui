@@ -18,7 +18,7 @@ describe('Table', () => {
 			datas: 'toto',
 		};
 		// When
-		const wrapper = shallow(<Table data={data} flat />); // eslint-disable
+		const wrapper = shallow(<Table data={data} flat />);
 		// Then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -31,7 +31,7 @@ describe('Table', () => {
 			schema,
 		};
 		// When
-		const wrapper = shallow(<Table data={data} flat />); // eslint-disable
+		const wrapper = shallow(<Table data={data} flat />);
 		// Then
 		expect(wrapper).toMatchSnapshot();
 	});
@@ -39,7 +39,7 @@ describe('Table', () => {
 		// Given
 		const data = [{ field0: 'header1' }, { field1: 'header2' }];
 		// When
-		const wrapper = shallow(<Table data={data} flat />); // eslint-disable
+		const wrapper = shallow(<Table data={data} flat />);
 		// Then
 		expect(wrapper).toMatchSnapshot();
 	});
