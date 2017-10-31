@@ -125,3 +125,37 @@ describe('getProps', () => {
 		expect(newProps.disabledExpression).toBe(undefined);
 	});
 });
+
+describe('mapStateToProps', () => {
+	it('should check first level props keys and call expression on it', () => {
+		const isCalled = jest.fn(() => true);
+		const registry = api.registry.getRegistry();
+		registry['expression:isCalled'] = isCalled;
+		const props = {
+			myExpression: 'isCalled',
+		};
+		const state = { foo: 'bar' };
+		const newProps = expression.mapStateToProps(state, props);
+		expect(newProps.my).toBe(true);
+		expect(newProps.myExpression).toBeUndefined();
+		expect(isCalled).toHaveBeenCalled();
+		const args = isCalled.mock.calls[0];
+		expect(args[0].context.registry).toBe(registry);
+		expect(args[0].context.store.getState()).toBe(state);
+		expect(args[0].payload).toBe(props);
+	});
+});
+
+describe('mergeProps', () => {
+	it('should remove all xxExpression from props', () => {
+		const props = {
+			foo: 'bar',
+			'what-everExpression': {},
+			totoExpression: {},
+		};
+		const newProps = expression.mergeProps(props);
+		expect(newProps.foo).toBe('bar');
+		expect(newProps['what-everExpression']).toBeUndefined();
+		expect(newProps.totoExpression).toBeUndefined();
+	});
+});
