@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ButtonGroup } from 'react-bootstrap';
+import { ButtonGroup, OverlayTrigger } from 'react-bootstrap';
 import classNames from 'classnames';
 import Action from './Action';
-import ActionButton from './ActionButton';
 
 function getButtonGroupProps(props) {
 	const buttonGroupProps = {};
@@ -86,12 +85,12 @@ function Actions(props) {
 Actions.propTypes = {
 	actions: PropTypes.arrayOf(
 		PropTypes.oneOfType([
-			PropTypes.shape(ActionButton.propTypes),
+			PropTypes.shape(Action.propTypes),
 		]),
 	),
 	className: PropTypes.string,
 	hideLabel: PropTypes.bool,
-	tooltipPlacement: ActionButton.propTypes.tooltipPlacement,
+	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	link: PropTypes.bool,
 	...ButtonGroup.propTypes,
 };
