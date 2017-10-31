@@ -46,25 +46,26 @@ export function buildContentHeaders(headers, schema) {
 		if (schema) {
 			type = schema.get(key);
 		}
-		return type ? (
+		if (!type) {
+			return <td key={index}>{key}</td>;
+		}
+		return (
 			<td key={index}>
 				<div>{key}</div>
 				<div className={classNames('text-right')}>{type}</div>
 			</td>
-		) : (
-			<td key={index}>{key}</td>
 		);
 	});
 }
 
 function Table({ flat, data, ...props }) {
-	if (!data || (!Array.isArray(data) && !Array.isArray(data.datas))) {
+	if (!Array.isArray(data) && !Array.isArray(data.dataset)) {
 		return null;
 	}
 
 	// The datas can be an array or an array in an object. We assign the value correctly here.
-	const datas = Array.isArray(data) ? data : data.datas;
-	const keys = getKeys(datas[0], flat);
+	const dataset = Array.isArray(data) ? data : data.dataset;
+	const keys = getKeys(dataset[0], flat);
 	const headers = getHeaders(keys, flat, data.schema);
 	const tableClassName = classNames(
 		theme.table,
@@ -78,7 +79,7 @@ function Table({ flat, data, ...props }) {
 				<tr>{buildContentHeaders(headers, data.schema)}</tr>
 			</thead>
 			<tbody>
-				{datas.map((row, index) => {
+				{dataset.map((row, index) => {
 					const flattenRow = flat ? toFlat(row) : row;
 					return (
 						<tr key={index}>
@@ -106,7 +107,7 @@ Table.propTypes = {
 		PropTypes.string,
 		PropTypes.object,
 		PropTypes.array,
-	]),
+	]).isRequired,
 };
 
 export default Table;

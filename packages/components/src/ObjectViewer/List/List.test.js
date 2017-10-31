@@ -3,18 +3,12 @@ import { shallow } from 'enzyme';
 import List from './List.component';
 
 describe('ObjectViewer.List', () => {
-	it('should render null if no data', () => {
-		const wrapper = shallow(
-			<List />
-		);
-		expect(wrapper.getNode()).toBe(null);
-	});
 	it('should render List with props data as an object', () => {
 		// Given
 		const schema = new Map();
 		schema.set('field0', 'type1').set('field1', 'type2');
 		const data = {
-			datas: [{ field0: 'header1' }, { field1: 'header2' }],
+			dataset: [{ field0: 'header1' }, { field1: 'header2' }],
 			schema,
 		};
 		// When

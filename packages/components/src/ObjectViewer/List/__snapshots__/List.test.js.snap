@@ -81,7 +81,7 @@ ShallowWrapper {
         }
         flat={true}
 />,
-      "_debugID": 5,
+      "_debugID": 3,
       "_hostContainerInfo": null,
       "_hostParent": null,
       "_instance": StatelessComponent {
@@ -111,7 +111,7 @@ ShallowWrapper {
           "validateCallback": [Function],
         },
       },
-      "_mountOrder": 3,
+      "_mountOrder": 2,
       "_pendingCallbacks": null,
       "_pendingElement": null,
       "_pendingForceUpdate": false,
@@ -144,7 +144,7 @@ ShallowWrapper {
                     />
           </li>
 </ul>,
-        "_debugID": 6,
+        "_debugID": 4,
         "_renderedOutput": <ul
           className="undefined tc-object-viewer list-unstyled"
 >
@@ -269,7 +269,7 @@ ShallowWrapper {
       "_currentElement": <List
         data={
                 Object {
-                        "datas": Array [
+                        "dataset": Array [
                           Object {
                             "field0": "header1",
                           },
@@ -285,7 +285,7 @@ ShallowWrapper {
         }
         flat={true}
 />,
-      "_debugID": 3,
+      "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
       "_instance": StatelessComponent {
@@ -293,7 +293,7 @@ ShallowWrapper {
         "context": Object {},
         "props": Object {
           "data": Object {
-            "datas": Array [
+            "dataset": Array [
               Object {
                 "field0": "header1",
               },
@@ -321,7 +321,7 @@ ShallowWrapper {
           "validateCallback": [Function],
         },
       },
-      "_mountOrder": 2,
+      "_mountOrder": 1,
       "_pendingCallbacks": null,
       "_pendingElement": null,
       "_pendingForceUpdate": false,
@@ -354,7 +354,7 @@ ShallowWrapper {
                     />
           </li>
 </ul>,
-        "_debugID": 4,
+        "_debugID": 2,
         "_renderedOutput": <ul
           className="undefined tc-object-viewer list-unstyled"
 >
@@ -395,7 +395,7 @@ ShallowWrapper {
   "unrendered": <List
     data={
         Object {
-            "datas": Array [
+            "dataset": Array [
               Object {
                 "field0": "header1",
               },

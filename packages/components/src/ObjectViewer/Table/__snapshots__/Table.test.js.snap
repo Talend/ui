@@ -87,7 +87,7 @@ ShallowWrapper {
         }
         flat={true}
 />,
-      "_debugID": 7,
+      "_debugID": 5,
       "_hostContainerInfo": null,
       "_hostParent": null,
       "_instance": StatelessComponent {
@@ -117,7 +117,7 @@ ShallowWrapper {
           "validateCallback": [Function],
         },
       },
-      "_mountOrder": 4,
+      "_mountOrder": 3,
       "_pendingCallbacks": null,
       "_pendingElement": null,
       "_pendingForceUpdate": false,
@@ -153,7 +153,7 @@ ShallowWrapper {
                     </tr>
           </tbody>
 </table>,
-        "_debugID": 8,
+        "_debugID": 6,
         "_renderedOutput": <table
           className="tc-object-viewer table table-bordered table-striped table-hover"
 >
@@ -301,7 +301,7 @@ ShallowWrapper {
       "_currentElement": <Table
         data={
                 Object {
-                        "datas": Array [
+                        "dataset": Array [
                           Object {
                             "field0": "header1",
                           },
@@ -317,7 +317,7 @@ ShallowWrapper {
         }
         flat={true}
 />,
-      "_debugID": 5,
+      "_debugID": 3,
       "_hostContainerInfo": null,
       "_hostParent": null,
       "_instance": StatelessComponent {
@@ -325,7 +325,7 @@ ShallowWrapper {
         "context": Object {},
         "props": Object {
           "data": Object {
-            "datas": Array [
+            "dataset": Array [
               Object {
                 "field0": "header1",
               },
@@ -353,7 +353,7 @@ ShallowWrapper {
           "validateCallback": [Function],
         },
       },
-      "_mountOrder": 3,
+      "_mountOrder": 2,
       "_pendingCallbacks": null,
       "_pendingElement": null,
       "_pendingForceUpdate": false,
@@ -396,7 +396,7 @@ ShallowWrapper {
                     </tr>
           </tbody>
 </table>,
-        "_debugID": 6,
+        "_debugID": 4,
         "_renderedOutput": <table
           className="tc-object-viewer table table-bordered table-striped table-hover"
 >
@@ -447,7 +447,7 @@ ShallowWrapper {
   "unrendered": <Table
     data={
         Object {
-            "datas": Array [
+            "dataset": Array [
               Object {
                 "field0": "header1",
               },
@@ -487,12 +487,12 @@ ShallowWrapper {
       "_currentElement": <Table
         data={
                 Object {
-                        "datas": "toto",
+                        "dataset": "toto",
                       }
         }
         flat={true}
 />,
-      "_debugID": 3,
+      "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
       "_instance": StatelessComponent {
@@ -500,7 +500,7 @@ ShallowWrapper {
         "context": Object {},
         "props": Object {
           "data": Object {
-            "datas": "toto",
+            "dataset": "toto",
           },
           "flat": true,
         },
@@ -517,7 +517,7 @@ ShallowWrapper {
           "validateCallback": [Function],
         },
       },
-      "_mountOrder": 2,
+      "_mountOrder": 1,
       "_pendingCallbacks": null,
       "_pendingElement": null,
       "_pendingForceUpdate": false,
@@ -525,7 +525,7 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": null,
-        "_debugID": 4,
+        "_debugID": 2,
         "_renderedOutput": null,
       },
       "_renderedNodeType": 2,
@@ -541,7 +541,7 @@ ShallowWrapper {
   "unrendered": <Table
     data={
         Object {
-            "datas": "toto",
+            "dataset": "toto",
           }
     }
     flat={true}

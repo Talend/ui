@@ -8,14 +8,10 @@ import Table, {
 } from './Table.component';
 
 describe('Table', () => {
-	it('should render null if no data', () => {
-		const wrapper = shallow(<Table />);
-		expect(wrapper.getNode()).toBe(null);
-	});
 	it('should render null if data.datas is not an array', () => {
 		// Given
 		const data = {
-			datas: 'toto',
+			dataset: 'toto',
 		};
 		// When
 		const wrapper = shallow(<Table data={data} flat />);
@@ -27,7 +23,7 @@ describe('Table', () => {
 		const schema = new Map();
 		schema.set('field0', 'type1').set('field1', 'type2');
 		const data = {
-			datas: [{ field0: 'header1' }, { field1: 'header2' }],
+			dataset: [{ field0: 'header1' }, { field1: 'header2' }],
 			schema,
 		};
 		// When
