@@ -9,6 +9,11 @@ const icons = {
 	'talend-chevron-left': talendIcons['talend-chevron-left'],
 };
 
+const schema = new Map();
+schema
+	.set('business_id', 'integer')
+	.set('name', 'CAFE_NAME')
+	.set('rating', 'integer');
 const veryLongDatasetLabel =
 	"Dataset of something that I cant't imagine; Dataset of something that I cant't imagine; Dataset of something that I cant't imagine";
 const veryLongCafeName = "Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name";
@@ -324,6 +329,12 @@ stories
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} displayMode="flat" />
+		</div>
+	))
+	.addWithInfo('flat default with schema', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer data={{ dataset: data, schema }} displayMode="flat" />
 		</div>
 	))
 	.addWithInfo('flat with handler', () => (
