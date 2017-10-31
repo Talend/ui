@@ -5,12 +5,16 @@ import ActionButton from '../ActionButton';
 import ActionDropdown from '../ActionDropdown';
 import ActionSplitDropdown from '../ActionSplitDropdown';
 
-const My = jest.fn();
-My.displayName = 'My';
+const MyActionButton = jest.fn();
+MyActionButton.displayName = 'MyActionButton';
+const MyActionSplitDropdown = jest.fn();
+MyActionSplitDropdown.displayName = 'MyActionSplitDropdown';
+const MyActionDropdown = jest.fn();
+MyActionDropdown.displayName = 'MyActionDropdown';
 const renderers = {
-	ActionButton: My,
-	ActionSplitDropdown: My,
-	ActionDropdown: My,
+	ActionButton: MyActionButton,
+	ActionSplitDropdown: MyActionSplitDropdown,
+	ActionDropdown: MyActionDropdown,
 };
 
 describe('getActionComponent', () => {
@@ -28,15 +32,15 @@ describe('getActionComponent', () => {
 	});
 	it('should return MyActionButton without displayMode', () => {
 		const component = getActionComponent({ renderers });
-		expect(component.displayName).toBe('My');
+		expect(component.displayName).toBe('MyActionButton');
 	});
 	it('should return MyActionSplitDropdown if displayMode = splitDropdown', () => {
 		const component = getActionComponent({ renderers, displayMode: 'splitDropdown' });
-		expect(component.displayName).toBe('My');
+		expect(component.displayName).toBe('MyActionSplitDropdown');
 	});
 	it('should return MyActionDropdown if displayMode = dropdown', () => {
 		const component = getActionComponent({ renderers, displayMode: 'dropdown' });
-		expect(component.displayName).toBe('My');
+		expect(component.displayName).toBe('MyActionDropdown');
 	});
 });
 
