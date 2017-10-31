@@ -1,3 +1,3 @@
-import ActionFile from './ActionFile.component';
+import ActionFile from './ActionFile.connect';
 
 export default ActionFile;

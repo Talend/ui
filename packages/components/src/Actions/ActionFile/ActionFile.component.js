@@ -54,21 +54,22 @@ function getContent(props) {
 
 function noOp() {}
 
-function ActionFile({
-	id,
-	bsStyle,
-	inProgress,
-	disabled,
-	hideLabel,
-	label,
-	name,
-	onChange = noOp,
-	tooltipPlacement,
-	tooltip,
-	tooltipLabel,
-	available,
-	...rest
-}) {
+function ActionFile(props) {
+	const {
+		id,
+		bsStyle,
+		inProgress,
+		disabled,
+		hideLabel,
+		label,
+		name,
+		onChange = noOp,
+		tooltipPlacement,
+		tooltip,
+		tooltipLabel,
+		available,
+		...rest
+	} = props;
 	if (!available) {
 		return null;
 	}

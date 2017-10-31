@@ -98,7 +98,10 @@ function loadStories() {
 		actions['menu:fourth'] = {
 			label: 'Upload',
 			icon: 'talend-upload',
-			displayMode: 'file'
+			displayMode: 'file',
+			payload: {
+				type: 'UPLOAD'
+			}
 		}
 		actions['object:add'] = {
 			label: 'Add',
