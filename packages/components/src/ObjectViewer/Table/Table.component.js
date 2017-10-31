@@ -35,12 +35,37 @@ export function getHeaders(keys, isFlat) {
 	return keys;
 }
 
+/**
+ * We construct the jsx dispayed for the header.
+ * If there is a type we add it.
+ * @param {array} headers
+ */
+export function buildContentHeaders(headers, schema) {
+	return headers.map((key, index) => {
+		let type;
+		if (schema) {
+			type = schema.get(key);
+		}
+		return type ? (
+			<td key={index}>
+				<div>{key}</div>
+				<div className={classNames('text-right')}>{type}</div>
+			</td>
+		) : (
+			<td key={index}>{key}</td>
+		);
+	});
+}
+
 function Table({ flat, data, ...props }) {
-	if (!Array.isArray(data)) {
+	if (!data || (!Array.isArray(data) && !Array.isArray(data.datas))) {
 		return null;
 	}
-	const keys = getKeys(data[0], flat);
-	const headers = getHeaders(keys, flat);
+
+	// The datas can be an array or an array in an object. We assign the value correctly here.
+	const datas = Array.isArray(data) ? data : data.datas;
+	const keys = getKeys(datas[0], flat);
+	const headers = getHeaders(keys, flat, data.schema);
 	const tableClassName = classNames(
 		theme.table,
 		'tc-object-viewer',
@@ -50,10 +75,10 @@ function Table({ flat, data, ...props }) {
 	return (
 		<table className={tableClassName}>
 			<thead>
-				<tr>{headers.map((key, index) => <td key={index}>{key}</td>)}</tr>
+				<tr>{buildContentHeaders(headers, data.schema)}</tr>
 			</thead>
 			<tbody>
-				{data.map((row, index) => {
+				{datas.map((row, index) => {
 					const flattenRow = flat ? toFlat(row) : row;
 					return (
 						<tr key={index}>

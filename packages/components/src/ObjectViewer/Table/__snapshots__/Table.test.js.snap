@@ -1,0 +1,586 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table should render Table with props data as an array 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <table
+    className="tc-object-viewer table table-bordered table-striped table-hover"
+>
+    <thead>
+        <tr>
+            <td>
+                field0
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <JSONLike
+                    data="header1"
+                    jsonpath="$[0]['field0']"
+                />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <JSONLike
+                    data={undefined}
+                    jsonpath="$[1]['field0']"
+                />
+            </td>
+        </tr>
+    </tbody>
+</table>,
+  "nodes": Array [
+    <table
+      className="tc-object-viewer table table-bordered table-striped table-hover"
+>
+      <thead>
+            <tr>
+                  <td>
+                        field0
+                  </td>
+            </tr>
+      </thead>
+      <tbody>
+            <tr>
+                  <td>
+                        <JSONLike
+                              data="header1"
+                              jsonpath="$[0]['field0']"
+                        />
+                  </td>
+            </tr>
+            <tr>
+                  <td>
+                        <JSONLike
+                              data={undefined}
+                              jsonpath="$[1]['field0']"
+                        />
+                  </td>
+            </tr>
+      </tbody>
+</table>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <Table
+        data={
+                Array [
+                        Object {
+                          "field0": "header1",
+                        },
+                        Object {
+                          "field1": "header2",
+                        },
+                      ]
+        }
+        flat={true}
+/>,
+      "_debugID": 7,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "data": Array [
+            Object {
+              "field0": "header1",
+            },
+            Object {
+              "field1": "header2",
+            },
+          ],
+          "flat": true,
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 4,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <table
+          className="tc-object-viewer table table-bordered table-striped table-hover"
+>
+          <thead>
+                    <tr>
+                              <td>
+                                        field0
+                              </td>
+                    </tr>
+          </thead>
+          <tbody>
+                    <tr>
+                              <td>
+                                        <JSONLike
+                                                  data="header1"
+                                                  jsonpath="$[0]['field0']"
+                                        />
+                              </td>
+                    </tr>
+                    <tr>
+                              <td>
+                                        <JSONLike
+                                                  data={undefined}
+                                                  jsonpath="$[1]['field0']"
+                                        />
+                              </td>
+                    </tr>
+          </tbody>
+</table>,
+        "_debugID": 8,
+        "_renderedOutput": <table
+          className="tc-object-viewer table table-bordered table-striped table-hover"
+>
+          <thead>
+                    <tr>
+                              <td>
+                                        field0
+                              </td>
+                    </tr>
+          </thead>
+          <tbody>
+                    <tr>
+                              <td>
+                                        <JSONLike
+                                                  data="header1"
+                                                  jsonpath="$[0]['field0']"
+                                        />
+                              </td>
+                    </tr>
+                    <tr>
+                              <td>
+                                        <JSONLike
+                                                  data={undefined}
+                                                  jsonpath="$[1]['field0']"
+                                        />
+                              </td>
+                    </tr>
+          </tbody>
+</table>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Table
+    data={
+        Array [
+            Object {
+              "field0": "header1",
+            },
+            Object {
+              "field1": "header2",
+            },
+          ]
+    }
+    flat={true}
+/>,
+}
+`;
+
+exports[`Table should render Table with props data as an object 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <table
+    className="tc-object-viewer table table-bordered table-striped table-hover"
+>
+    <thead>
+        <tr>
+            <td>
+                <div>
+                    field0
+                </div>
+                <div
+                    className="text-right"
+                >
+                    type1
+                </div>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <JSONLike
+                    data="header1"
+                    jsonpath="$[0]['field0']"
+                />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <JSONLike
+                    data={undefined}
+                    jsonpath="$[1]['field0']"
+                />
+            </td>
+        </tr>
+    </tbody>
+</table>,
+  "nodes": Array [
+    <table
+      className="tc-object-viewer table table-bordered table-striped table-hover"
+>
+      <thead>
+            <tr>
+                  <td>
+                        <div>
+                              field0
+                        </div>
+                        <div
+                              className="text-right"
+                        >
+                              type1
+                        </div>
+                  </td>
+            </tr>
+      </thead>
+      <tbody>
+            <tr>
+                  <td>
+                        <JSONLike
+                              data="header1"
+                              jsonpath="$[0]['field0']"
+                        />
+                  </td>
+            </tr>
+            <tr>
+                  <td>
+                        <JSONLike
+                              data={undefined}
+                              jsonpath="$[1]['field0']"
+                        />
+                  </td>
+            </tr>
+      </tbody>
+</table>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <Table
+        data={
+                Object {
+                        "datas": Array [
+                          Object {
+                            "field0": "header1",
+                          },
+                          Object {
+                            "field1": "header2",
+                          },
+                        ],
+                        "schema": Map {
+                          "field0" => "type1",
+                          "field1" => "type2",
+                        },
+                      }
+        }
+        flat={true}
+/>,
+      "_debugID": 5,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "data": Object {
+            "datas": Array [
+              Object {
+                "field0": "header1",
+              },
+              Object {
+                "field1": "header2",
+              },
+            ],
+            "schema": Map {
+              "field0" => "type1",
+              "field1" => "type2",
+            },
+          },
+          "flat": true,
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 3,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <table
+          className="tc-object-viewer table table-bordered table-striped table-hover"
+>
+          <thead>
+                    <tr>
+                              <td>
+                                        <div>
+                                                  field0
+                                        </div>
+                                        <div
+                                                  className="text-right"
+                                        >
+                                                  type1
+                                        </div>
+                              </td>
+                    </tr>
+          </thead>
+          <tbody>
+                    <tr>
+                              <td>
+                                        <JSONLike
+                                                  data="header1"
+                                                  jsonpath="$[0]['field0']"
+                                        />
+                              </td>
+                    </tr>
+                    <tr>
+                              <td>
+                                        <JSONLike
+                                                  data={undefined}
+                                                  jsonpath="$[1]['field0']"
+                                        />
+                              </td>
+                    </tr>
+          </tbody>
+</table>,
+        "_debugID": 6,
+        "_renderedOutput": <table
+          className="tc-object-viewer table table-bordered table-striped table-hover"
+>
+          <thead>
+                    <tr>
+                              <td>
+                                        <div>
+                                                  field0
+                                        </div>
+                                        <div
+                                                  className="text-right"
+                                        >
+                                                  type1
+                                        </div>
+                              </td>
+                    </tr>
+          </thead>
+          <tbody>
+                    <tr>
+                              <td>
+                                        <JSONLike
+                                                  data="header1"
+                                                  jsonpath="$[0]['field0']"
+                                        />
+                              </td>
+                    </tr>
+                    <tr>
+                              <td>
+                                        <JSONLike
+                                                  data={undefined}
+                                                  jsonpath="$[1]['field0']"
+                                        />
+                              </td>
+                    </tr>
+          </tbody>
+</table>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Table
+    data={
+        Object {
+            "datas": Array [
+              Object {
+                "field0": "header1",
+              },
+              Object {
+                "field1": "header2",
+              },
+            ],
+            "schema": Map {
+              "field0" => "type1",
+              "field1" => "type2",
+            },
+          }
+    }
+    flat={true}
+/>,
+}
+`;
+
+exports[`Table should render null if data.datas is not an array 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": null,
+  "nodes": Array [
+    null,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <Table
+        data={
+                Object {
+                        "datas": "toto",
+                      }
+        }
+        flat={true}
+/>,
+      "_debugID": 3,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "data": Object {
+            "datas": "toto",
+          },
+          "flat": true,
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 2,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": null,
+        "_debugID": 4,
+        "_renderedOutput": null,
+      },
+      "_renderedNodeType": 2,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Table
+    data={
+        Object {
+            "datas": "toto",
+          }
+    }
+    flat={true}
+/>,
+}
+`;
+
+exports[`buildContentHeaders should return a jsx array with a type 1`] = `
+Array [
+  <td>
+    <div>
+        myHeader1
+    </div>
+    <div
+        className="text-right"
+    >
+        type1
+    </div>
+</td>,
+  <td>
+    <div>
+        myHeader2
+    </div>
+    <div
+        className="text-right"
+    >
+        type2
+    </div>
+</td>,
+]
+`;
+
+exports[`buildContentHeaders should return a jsx array with no type 1`] = `
+Array [
+  <td>
+    myHeader1
+</td>,
+  <td>
+    myHeader2
+</td>,
+]
+`;

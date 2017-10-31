@@ -9,6 +9,27 @@ describe('ObjectViewer.List', () => {
 		);
 		expect(wrapper.getNode()).toBe(null);
 	});
+	it('should render List with props data as an object', () => {
+		// Given
+		const schema = new Map();
+		schema.set('field0', 'type1').set('field1', 'type2');
+		const data = {
+			datas: [{ field0: 'header1' }, { field1: 'header2' }],
+			schema,
+		};
+		// When
+		const wrapper = shallow(<List data={data} flat />); // eslint-disable
+		// Then
+		expect(wrapper).toMatchSnapshot();
+	});
+	it('should render List with props data as an array', () => {
+		// Given
+		const data = [{ field0: 'header1' }, { field1: 'header2' }];
+		// When
+		const wrapper = shallow(<List data={data} flat />); // eslint-disable
+		// Then
+		expect(wrapper).toMatchSnapshot();
+	});
 	it('should render null if no data', () => {
 		const data = [{ foo: 'bar' }, {}];
 		const wrapper = shallow(
