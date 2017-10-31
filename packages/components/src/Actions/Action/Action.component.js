@@ -27,6 +27,12 @@ export function getActionComponent({ displayMode, renderers = {} }) {
 	}
 }
 
+/**
+ * This component is a component selector which to discover which kind of
+ * action you want to display to the user.
+ * The choice is fully based on the props displayMode
+ * You can override the component using props renderer
+ */
 function Action({ displayMode, renderers, ...props }) {
 	const ActionComponent = getActionComponent({
 		displayMode,
@@ -38,6 +44,11 @@ function Action({ displayMode, renderers, ...props }) {
 
 Action.propTypes = {
 	displayMode: PropTypes.string,
+	renderers: PropTypes.shape({
+		ActionButton: PropTypes.node,
+		ActionSplitDropdown: PropTypes.node,
+		ActionDropdown: PropTypes.node,
+	}),
 };
 
 export default Action;
