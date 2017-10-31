@@ -5,12 +5,6 @@ import classNames from 'classnames';
 import Action from './Action';
 import ActionButton from './ActionButton';
 
-console.dir(Action);
-console.dir(ActionButton);
-
-const TYPE_DROPDOWN = 'dropdown';
-const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
-
 function getButtonGroupProps(props) {
 	const buttonGroupProps = {};
 	Object.keys(ButtonGroup.propTypes).forEach((id) => {
@@ -93,9 +87,6 @@ Actions.propTypes = {
 	actions: PropTypes.arrayOf(
 		PropTypes.oneOfType([
 			PropTypes.shape(ActionButton.propTypes),
-			PropTypes.shape({
-				displayMode: PropTypes.oneOf([TYPE_DROPDOWN, TYPE_SPLIT_DROPDOWN]),
-			}),
 		]),
 	),
 	className: PropTypes.string,
