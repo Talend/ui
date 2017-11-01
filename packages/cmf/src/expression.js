@@ -85,14 +85,14 @@ function call(expression, context, payload) {
 function getProps(props, attrs, context, payload = {}) {
 	const newProps = Object.assign({}, props, payload);
 	attrs.forEach(attr => {
-		console.warn(
-			`beware this is present just for the sake of backward compatibility,
-			you should use properties ending with Expression to see them evaluated
-			example: instead of using ${attr}, ${attr}Expression will be evaluated
-			and result put in ${attr}`,
-		);// eslint no-console: ["error", { allow: ["warn"] }]
 		const value = props[attr];
 		if (typeof value === 'string' || typeof value === 'object') {
+			console.warn(  // eslint-disable-line no-console
+				`beware this is present just for the sake of backward compatibility,
+				you should use properties ending with Expression to see them evaluated
+				example: instead of using ${attr}, ${attr}Expression will be evaluated
+				and result put in ${attr}`,
+			);
 			newProps[attr] = call(value, context, newProps);
 		}
 	});

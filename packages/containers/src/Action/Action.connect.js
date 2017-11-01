@@ -1,40 +1,43 @@
 import { api, cmfConnect } from '@talend/react-cmf';
 import { Action } from '@talend/react-components';
 
+const OLD_EXPRESSION = ['active', 'available', 'disabled', 'inProgress'];
+
+function updateExpression(props) {
+	const newProps = Object.assign({}, props);
+	OLD_EXPRESSION.forEach((key) => {
+		if (typeof props[key] === 'string' || typeof props[key] === 'object') {
+			newProps[`${key}Expression`] = props[key];
+		}
+	});
+	return newProps;
+}
+
 export function mapStateToProps(state, ownProps) {
 	if (!ownProps.actionId && !ownProps.name) {
 		return {};
 	}
-	return api.action.getActionInfo({
+	let props = api.action.getActionInfo({
 		registry: api.registry.getRegistry(),
 		store: {
 			getState: () => state,
 		},
 	}, ownProps.actionId || ownProps.name);
+	props = updateExpression(props);
+	return props;
 }
 
-// export function mergeProps(stateProps, dispatchProps, ownProps) {
-// 	const props = Object.assign({}, stateProps, dispatchProps, ownProps);
-// 	delete props.actionId;
-// 	props.name = stateProps.name;
-// 	props.onClick = (event, data) => {
-// 		if (props.actionCreator) {
-// 			dispatchProps.dispatchActionCreator(props.actionCreator, event, data);
-// 		} else {
-// 			dispatchProps.dispatch(
-// 				Object.assign(
-// 					{
-// 						model: props.model,
-// 					},
-// 					props.payload,
-// 				),
-// 			);
-// 		}
-// 	};
-// 	return props;
-// }
+export function mergeProps(stateProps, dispatchProps, ownProps) {
+	const props = Object.assign({}, stateProps, dispatchProps, ownProps);
+	OLD_EXPRESSION.forEach((key) => {
+		if (typeof props[key] === 'string' || typeof props[key] === 'object') {
+			delete props[key];
+		}
+	});
+	return props;
+}
 
 export default cmfConnect({
 	mapStateToProps,
-	// mergeProps,
+	mergeProps,
 })(Action);
