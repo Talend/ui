@@ -1,30 +1,23 @@
 # Content Management Framework (aka CMF)
 
-This is a library to help you to build configurable React App.
+This is a framework to help you to build configurable React App.
 
-It provides a set of base components and patterns.
-
-[![NPM][npm-icon] ][npm-url]
+It provides a set of base APIs and patterns.
 
 [![Travis CI][travis-ci-image] ][travis-ci-url]
-[![Quality][quality-badge] ][quality-url]
+[![NPM][npm-icon] ][npm-url]
 [![dependencies][dependencies-image] ][dependencies-url]
 [![devdependencies][devdependencies-image] ][devdependencies-url]
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1e353b0f69c4cf99a4cb3f68b70ea7d)](https://www.codacy.com/app/Talend/react-cmf)
 
-[npm-icon]: https://nodei.co/npm/react-cmf.png?downloads=true
+[npm-icon]: https://img.shields.io/npm/v/@talend/react-cmf.svg
 [npm-url]: https://npmjs.org/package/@talend/react-cmf
-[travis-ci-image]: https://travis-ci.org/Talend/react-cmf.svg?branch=master
-[travis-ci-url]: https://travis-ci.org/Talend/react-cmf
+[travis-ci-image]: https://travis-ci.org/Talend/ui.svg?branch=master
+[travis-ci-url]: https://travis-ci.org/Talend/ui
 
-[dependencies-image]: https://david-dm.org/Talend/react-cmf/status.svg
-[dependencies-url]: https://david-dm.org/Talend/react-cmf
-[devdependencies-image]: https://david-dm.org/Talend/react-cmf/dev-status.svg
-[devdependencies-url]: https://david-dm.org/Talend/react-cmf#info=devDependencies
-
-[quality-badge]: http://npm.packagequality.com/shield/react-cmf.svg
-[quality-url]: http://packagequality.com/#?package=react-cmf
-
+[dependencies-image]: https://david-dm.org/Talend/ui/status.svg?path=packages/cmf
+[dependencies-url]: https://david-dm.org/Talend/ui?path=packages/cmf
+[devdependencies-image]: https://david-dm.org/Talend/ui/dev-status.svg?path=packages/cmf
+[devdependencies-url]: https://david-dm.org/Talend/ui?path=packages/cmf&type=dev
 
 ## Breaking changes log
 
@@ -235,9 +228,7 @@ you may change the following using simple props:
 For 1.0
 
 - [x] embedable apps
-- [ ] higher order configuration (RegistryProvider)
 - [ ] react-router v4
 - [ ] i18n
 - [x] generator
-- [ ] content types
-- [ ] actionCreator should become first class
+- [x] actionCreator should become first class
