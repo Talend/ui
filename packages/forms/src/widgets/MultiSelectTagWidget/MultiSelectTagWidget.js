@@ -9,29 +9,43 @@ const DROP_DOWN_ITEM_HEIGHT = 49;
 
 const escapeRegexCharacters = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-const mapValue2Label = enumOptions => enumOptions.reduce((map, option) => {
-	map[option.value] = option; // eslint-disable-line no-param-reassign
-	return map;
-}, {});
+function mapValue2Label(enumOptions) {
+	return enumOptions.reduce((map, option) => {
+		map[option.value] = option.label; // eslint-disable-line no-param-reassign
+		return map;
+	}, {});
+}
 
-const getAllOptions = (options) => {
+/**
+ * transform enumOptions - to handle object type enumName
+ * @param options
+ * @returns {Array}
+ */
+function transformOptions(options) {
 	if (options && options.groupBy) {
 		return options.enumOptions.map(opt => ({ ...opt.label, value: opt.value }));
 	}
 	return options.enumOptions;
-};
+}
 
-const filterOptions = props => getAllOptions(props.options).filter(
+/**
+ * filter options - to filter out options which already included in value
+ * @param props
+ * @returns {Array.<*>}
+ */
+function filterOptions(props) {
+	return transformOptions(props.options).filter(
 			option => props.value.indexOf(option.value) < 0
 	);
+}
 
 class MultiSelectTagWidget extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.withCategory = typeof props.options.groupBy !== 'undefined';
 		this.state = {
 			filterText: '',
-			withCategory: typeof props.options.groupBy !== 'undefined',
 		};
 		this.theme = {
 			container: theme.typeahead,
@@ -56,34 +70,32 @@ class MultiSelectTagWidget extends React.Component {
 		}
 	}
 
-	onComponentMount(component) {
+	setComponentRef(component) {
 		this.component = component;
 	}
 
 	onSelect(event, { itemIndex, sectionIndex }) {
-		if (itemIndex !== null) {
-			const { onChange, value } = this.props;
+		const { onChange, value } = this.props;
 
-			let currentItem;
-			if (sectionIndex !== null) {
-				currentItem = this.state.items[sectionIndex].suggestions[itemIndex];
-			} else {
-				currentItem = this.state.items[itemIndex];
-			}
-
-			let currentValue;
-			const currentLabel = currentItem.label || currentItem;
-			if (currentLabel === `${this.state.filterText} (new)`) {
-				currentValue = this.state.filterText;
-			} else {
-				currentValue = currentItem.value || currentItem;
-			}
-
-			const nextValue = value.concat(currentValue);
-			onChange(nextValue);
-
-			this.setState({ filterText: '' });
+		let currentItem;
+		if (sectionIndex !== null) {
+			currentItem = this.state.items[sectionIndex].suggestions[itemIndex];
+		} else {
+			currentItem = this.state.items[itemIndex];
 		}
+
+		let currentValue;
+		const currentLabel = currentItem.label || currentItem;
+		if (currentLabel === `${this.state.filterText} (new)`) {
+			currentValue = this.state.filterText;
+		} else {
+			currentValue = currentItem.value || currentItem;
+		}
+
+		const nextValue = value.concat(currentValue);
+		onChange(nextValue);
+
+		this.setState({ filterText: '' });
 	}
 
 	onRemoveTag(tagValue) {
@@ -151,7 +163,7 @@ class MultiSelectTagWidget extends React.Component {
 
 	getDropdownItems(suggestions) {
 		let items = [];
-		if (this.state.withCategory) {
+		if (this.withCategory) {
 			const itemsMap = {};
 			const groupBy = this.props.options.groupBy;
 
@@ -190,7 +202,7 @@ class MultiSelectTagWidget extends React.Component {
 			items: this.getDropdownItems(suggestions),
 			suggestions,
 			focusedItemIndex: suggestions.length ? 0 : undefined,
-			focusedSectionIndex: this.state.withCategory && suggestions.length ? 0 : undefined,
+			focusedSectionIndex: this.withCategory && suggestions.length ? 0 : undefined,
 			filterText,
 		});
 	}
@@ -243,10 +255,10 @@ class MultiSelectTagWidget extends React.Component {
 
 	render() {
 		const { value, readonly, options, id, noAvailableMessage } = this.props;
-		const value2Label = mapValue2Label(getAllOptions(options));
+		const value2Label = mapValue2Label(transformOptions(options));
 
 		return (
-			<div className="dropdown" ref={component => this.onComponentMount(component)}>
+			<div className="dropdown" ref={component => this.setComponentRef(component)}>
 				<div className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}>
 					<span className="caret" />
 				</div>
@@ -280,7 +292,7 @@ class MultiSelectTagWidget extends React.Component {
 						onBlur={this.resetSuggestions}
 						onChange={this.onChange}
 						onSelect={this.onSelect}
-						multiSection={this.state.withCategory}
+						multiSection={this.withCategory}
 						theme={this.theme}
 						noResultText={noAvailableMessage}
 						readOnly={readonly}
