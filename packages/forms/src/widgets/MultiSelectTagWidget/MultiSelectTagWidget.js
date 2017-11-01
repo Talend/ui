@@ -70,10 +70,6 @@ class MultiSelectTagWidget extends React.Component {
 		}
 	}
 
-	setComponentRef(component) {
-		this.component = component;
-	}
-
 	onSelect(event, { itemIndex, sectionIndex }) {
 		const { onChange, value } = this.props;
 
@@ -150,6 +146,10 @@ class MultiSelectTagWidget extends React.Component {
 
 	onChange(event, { value }) {
 		this.updateSuggestions(value);
+	}
+
+	setComponentRef(component) {
+		this.component = component;
 	}
 
 	getOptionsToShow() {
