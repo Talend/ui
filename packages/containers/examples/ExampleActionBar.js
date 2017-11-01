@@ -44,7 +44,7 @@ export default function ExampleActions() {
 			<p>using action ids</p>
 			<ActionBar actionIds={{ left: ['menu:first', 'menu:second', 'menu:third'] }} />
 			<p>using btn groups</p>
-			<ActionBar
+			{/* <ActionBar
 				actionIds={{
 					left: [
 						{
@@ -65,7 +65,7 @@ export default function ExampleActions() {
 						},
 					],
 				}}
-			/>
+			/> */}
 			<p>Using pure component props</p>
 			<ActionBar actions={{ left: infos }} />
 		</div>
