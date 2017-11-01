@@ -3630,61 +3630,70 @@ exports[`MultiSelectTagWidget - with category should render section title when i
               </span>
             </button>
             <Action
-              available={true}
-              bsStyle="default"
               className="tc-badge-delete-icon"
               disabled={false}
               hideLabel={true}
               icon="talend-cross"
-              inProgress={false}
               label="delete"
               onClick={[Function]}
-              tooltipPlacement="top"
             >
-              <TooltipTrigger
+              <ActionButton
+                available={true}
+                bsStyle="default"
+                className="tc-badge-delete-icon"
+                disabled={false}
+                hideLabel={true}
+                icon="talend-cross"
+                inProgress={false}
                 label="delete"
+                onClick={[Function]}
                 tooltipPlacement="top"
               >
-                <Button
-                  active={false}
-                  block={false}
-                  bsClass="btn"
-                  bsStyle="default"
-                  className="tc-badge-delete-icon"
-                  disabled={false}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseOver={[Function]}
-                  role={null}
+                <TooltipTrigger
+                  label="delete"
+                  tooltipPlacement="top"
                 >
-                  <button
-                    className="tc-badge-delete-icon btn btn-default"
+                  <Button
+                    active={false}
+                    block={false}
+                    bsClass="btn"
+                    bsStyle="default"
+                    className="tc-badge-delete-icon"
                     disabled={false}
                     onClick={[Function]}
                     onFocus={[Function]}
                     onMouseDown={[Function]}
                     onMouseOver={[Function]}
                     role={null}
-                    type="button"
                   >
-                    <Icon
-                      name="talend-cross"
+                    <button
+                      className="tc-badge-delete-icon btn btn-default"
+                      disabled={false}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseOver={[Function]}
+                      role={null}
+                      type="button"
                     >
-                      <svg
-                        aria-hidden="true"
-                        className="tc-svg-icon"
-                        focusable="false"
-                        title={null}
+                      <Icon
+                        name="talend-cross"
                       >
-                        <use
-                          xlinkHref="#talend-cross"
-                        />
-                      </svg>
-                    </Icon>
-                  </button>
-                </Button>
-              </TooltipTrigger>
+                        <svg
+                          aria-hidden="true"
+                          className="tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-cross"
+                          />
+                        </svg>
+                      </Icon>
+                    </button>
+                  </Button>
+                </TooltipTrigger>
+              </ActionButton>
             </Action>
           </div>
         </Badge>
