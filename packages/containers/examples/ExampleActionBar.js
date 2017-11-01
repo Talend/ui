@@ -44,12 +44,12 @@ export default function ExampleActions() {
 			<p>using action ids</p>
 			<ActionBar actionIds={{ left: ['menu:first', 'menu:second', 'menu:third'] }} />
 			<p>using btn groups</p>
-			{/* <ActionBar
+			<ActionBar
 				actionIds={{
 					left: [
 						{
 							displayMode: 'btnGroup',
-							actions: ['menu:first', 'menu:second', 'menu:third'],
+							actionIds: ['menu:first', 'menu:second', 'menu:third'],
 						},
 					],
 				}}
@@ -60,12 +60,12 @@ export default function ExampleActions() {
 					left: [
 						{
 							displayMode: 'splitDropdown',
-							name: 'menu:first',
-							items: ['menu:second', 'menu:third'],
+							actionId: 'menu:first',
+							actionIds: ['menu:second', 'menu:third'],
 						},
 					],
 				}}
-			/> */}
+			/>
 			<p>Using pure component props</p>
 			<ActionBar actions={{ left: infos }} />
 		</div>

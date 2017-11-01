@@ -50,7 +50,8 @@ const settings = {
 				method: 'push',
 				args: ['/myarticle'],
 			},
-			items: ['menu:demo', 'menu:actionCreator'],
+			displayMode: 'splitDropdown',
+			actionIds: ['menu:demo', 'menu:actionCreator'],
 		},
 		'menu:items': {
 			id: 'menu:items',

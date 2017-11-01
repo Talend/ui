@@ -38,7 +38,7 @@ function rClick(event, onClick, action, model) {
 function ActionSplitDropdown(props) {
 	const {
 		icon,
-		items,
+		items = [],
 		label,
 		model,
 		onClick,

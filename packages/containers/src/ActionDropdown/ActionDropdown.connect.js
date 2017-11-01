@@ -13,7 +13,7 @@ export function mapStateToProps(state, { actionId } = {}) {
 		props = api.action.getActionInfo(context, actionId);
 	}
 	if (props.actionIds) {
-		props.items = props.actionIds.map(itemId => api.actiongetActionInfo(context, itemId));
+		props.items = props.actionIds.map(itemId => api.action.getActionInfo(context, itemId));
 	}
 	return props;
 }

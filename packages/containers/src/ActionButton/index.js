@@ -1,3 +1,3 @@
-import ActionButton from './ActionButton.component';
+import ActionButton from './ActionButton.connect';
 
 export default ActionButton;

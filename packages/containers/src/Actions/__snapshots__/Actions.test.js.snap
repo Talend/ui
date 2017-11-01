@@ -17,6 +17,11 @@ exports[`Actions should render 1`] = `
   renderers={
     Object {
       "Action": [Function],
+      "ActionBar": [Function],
+      "ActionButton": [Function],
+      "ActionDropdown": [Function],
+      "ActionSplitDropdown": [Function],
+      "Actions": undefined,
     }
   }
   setState={[Function]}

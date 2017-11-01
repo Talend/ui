@@ -10,7 +10,12 @@ export function mapStateToProps(state, { actionIds }) {
 		props.actions = {};
 		const { left, right } = actionIds;
 		if (left) {
-			props.actions.left = left.map(actionId => ({ actionId }));
+			props.actions.left = left.map((actionId) => {
+				if (typeof actionId === 'string') {
+					return { actionId };
+				}
+				return actionId;
+			});
 		}
 		if (right) {
 			props.actions.right = right.map(actionId => ({ actionId }));

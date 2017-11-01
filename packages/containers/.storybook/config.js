@@ -171,8 +171,8 @@ function loadStories() {
 			id: 'menu:items',
 			displayMode: 'dropdown',
 			label: 'my items',
-			items: ['menu:first', 'menu:second'],
-    },
+			actionIds: ['menu:first', 'menu:second'],
+		},
 		actions['dialog:delete:validate'] = {
 			id: 'dialog:delete:validate',
 			label: 'Yes',

@@ -54,7 +54,7 @@ function ActionDropdown(props) {
 		bsStyle,
 		hideLabel,
 		icon,
-		items,
+		items = [],
 		label,
 		link,
 		onSelect,

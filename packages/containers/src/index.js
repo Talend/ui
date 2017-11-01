@@ -1,5 +1,4 @@
 import {
-	ActionDropdown,
 	Breadcrumbs,
 	CircularProgress,
 	Drawer,
@@ -14,7 +13,10 @@ import {
 import actionAPI from './actionAPI';
 import Action from './Action';
 import ActionBar from './ActionBar';
+import ActionButton from './ActionButton';
+import ActionDropdown from './ActionDropdown';
 import Actions from './Actions';
+import ActionSplitDropdown from './ActionSplitDropdown';
 import AppHeaderBar from './AppHeaderBar';
 import ConfirmDialog from './ConfirmDialog';
 import Form from './Form';
@@ -32,8 +34,10 @@ export {
 	actionAPI,
 	Action,
 	ActionBar,
-	Actions,
+	ActionButton,
 	ActionDropdown,
+	Actions,
+	ActionSplitDropdown,
 	AppHeaderBar,
 	Breadcrumbs,
 	CircularProgress,
