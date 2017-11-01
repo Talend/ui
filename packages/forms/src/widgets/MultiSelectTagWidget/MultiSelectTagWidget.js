@@ -7,9 +7,11 @@ import theme from './MultiSelectTagWidget.scss';
 
 const DROP_DOWN_ITEM_HEIGHT = 49;
 
-const escapeRegexCharacters = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+function escapeRegexCharacters(str) {
+	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
-function mapValue2Label(enumOptions) {
+function mapValueToLabel(enumOptions) {
 	return enumOptions.reduce((map, option) => {
 		map[option.value] = option; // eslint-disable-line no-param-reassign
 		return map;
@@ -162,8 +164,8 @@ class MultiSelectTagWidget extends React.Component {
 	}
 
 	getDropdownItems(suggestions) {
-		let items = [];
 		if (this.withCategory) {
+			const items = [];
 			const itemsMap = {};
 			const groupBy = this.props.options.groupBy;
 
@@ -175,12 +177,11 @@ class MultiSelectTagWidget extends React.Component {
 			Object.keys(itemsMap).forEach((category) => {
 				items.push({ title: category, suggestions: itemsMap[category] });
 			});
+			return items;
 		} else if (suggestions && suggestions.length > 0) {
-			items = suggestions.map(item => ({ ...item, title: item.label }));
-		} else {
-			items = suggestions;
+			return suggestions.map(item => ({ ...item, title: item.label }));
 		}
-		return items;
+		return suggestions;
 	}
 
 	updateSuggestions(value, props) {
@@ -189,7 +190,7 @@ class MultiSelectTagWidget extends React.Component {
 
 		let suggestions = filterOptions(currentProps);
 
-		if (filterText) { // filter with user's input
+		if (filterText) {
 			const escapedValue = escapeRegexCharacters(filterText.trim());
 			const regex = new RegExp(escapedValue, 'i');
 			suggestions = suggestions.filter(item => regex.test(item.label));
@@ -255,7 +256,7 @@ class MultiSelectTagWidget extends React.Component {
 
 	render() {
 		const { value, readonly, options, id, noAvailableMessage } = this.props;
-		const value2Label = mapValue2Label(transformOptions(options));
+		const valueToLabel = mapValueToLabel(transformOptions(options));
 
 		return (
 			<div className="dropdown" ref={component => this.setComponentRef(component)}>
@@ -265,7 +266,7 @@ class MultiSelectTagWidget extends React.Component {
 				<div className={`${theme.wrapper} form-control`}>
 					{
 						value.map((val, index) => {
-							const badgeValue = value2Label[val] || val;
+							const badgeValue = valueToLabel[val] || val;
 							let badgeProps;
 							if (typeof badgeValue === 'string') {
 								badgeProps = { label: badgeValue, key: index };
