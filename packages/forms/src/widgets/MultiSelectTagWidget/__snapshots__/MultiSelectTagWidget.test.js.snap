@@ -48,11 +48,15 @@ exports[`MultiSelectTagWidget - with category should render section title when i
       className="undefined form-control"
     >
       <Translate(Badge)
+        group="fruit"
         label="Apple"
         onDelete={[Function]}
+        selected={true}
+        value="apple"
       >
         <Badge
           disabled={false}
+          group="fruit"
           i18n={
             I18n {
               "addResource": [Function],
@@ -3608,11 +3612,12 @@ exports[`MultiSelectTagWidget - with category should render section title when i
           i18nLoadedAt={null}
           label="Apple"
           onDelete={[Function]}
-          selected={false}
+          selected={true}
           t={[Function]}
+          value="apple"
         >
           <div
-            className="tc-badge"
+            className="tc-badge tc-badge-selected"
           >
             <button
               className="tc-badge-button"
@@ -4028,6 +4033,8 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
     <Translate(Badge)
       label="Foo"
       onDelete={[Function]}
+      selected={false}
+      value="foo-1"
     />
     <Typeahead
       autoFocus={false}
@@ -4074,6 +4081,8 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget without dropdow
     <Translate(Badge)
       label="Foo"
       onDelete={[Function]}
+      selected={false}
+      value="foo-1"
     />
     <Typeahead
       autoFocus={false}
@@ -4120,6 +4129,8 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
     <Translate(Badge)
       label="Foo"
       onDelete={[Function]}
+      selected={false}
+      value="foo-1"
     />
     <Typeahead
       autoFocus={false}

@@ -11,7 +11,7 @@ const escapeRegexCharacters = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 function mapValue2Label(enumOptions) {
 	return enumOptions.reduce((map, option) => {
-		map[option.value] = option.label; // eslint-disable-line no-param-reassign
+		map[option.value] = option; // eslint-disable-line no-param-reassign
 		return map;
 	}, {});
 }
