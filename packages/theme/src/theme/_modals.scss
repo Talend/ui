@@ -54,17 +54,19 @@ $modal-width: 65rem !default;
 			}
 
 			+ div {
-				margin-left: $padding-larger;
+				margin-left: $padding-large;
 			}
 		}
 
 		.close {
+			width: 1.2rem;
+			height: 1.2rem;
 			position: absolute;
 			top: $padding-large;
 			right: $padding-large;
+			margin-top: 0;
 			opacity: 1;
-			width: 1.2rem;
-			height: 1.2rem;
+			color: $dove-gray;
 		}
 	}
 
