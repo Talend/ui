@@ -3,7 +3,6 @@
 exports[`ActionBar should support custom renderers 1`] = `
 Object {
   "className": "my-custom-action",
-  "displayMode": undefined,
   "icon": "talend-preparation",
   "label": "Preparations",
 }
