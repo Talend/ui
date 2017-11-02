@@ -1,9 +1,5 @@
 // ConfirmDialog styles
 $tc-dialog-progress-bg: #c3d600 !default;
-$tc-dialog-header-color: #607d8b !default;
-$tc-dialog-medium-padding: 20px !default;
-$tc-dialog-body-padding: 30px !default;
-$tc-dialog-buttons-margin: 15px !default;
 
 .tc-confirm-dialog {
 	/** IE-FIX */
@@ -18,36 +14,6 @@ $tc-dialog-buttons-margin: 15px !default;
 			flex-shrink: 0;
 		}
 	}
-	/** END IE-FIX */
-
-	// &.modal-body-overflow {
-	// 	:global(.modal-body) {
-	// 		overflow: auto;
-	// 	}
-	// }
-
-	// :global(.modal-content) {
-	// 	background-color: tint($tc-dialog-header-color, 90%);
-	// 	display: flex;
-	// 	flex-wrap: nowrap;
-	// 	flex-direction: column;
-	// 	max-height: 80vh;
-	// }
-
-	// :global(.modal-header) {
-	// 	padding: $tc-dialog-medium-padding;
-	// 	background-color: $tc-dialog-header-color;
-	// 	flex-basis: auto;
-	// 	flex-grow: 0;
-	// 	flex-shrink: 0;
-	//
-	// 	:global(.modal-title) {
-	// 		text-transform: uppercase;
-	// 		text-align: center;
-	// 		color: white;
-	// 		line-height: $tc-dialog-medium-padding;
-	// 	}
-	// }
 
 	:global(.progress) {
 		flex-grow: 0;
@@ -65,31 +31,4 @@ $tc-dialog-buttons-margin: 15px !default;
 			box-shadow: none;
 		}
 	}
-
-	// :global(.modal-body) {
-	// 	flex-basis: auto;
-	// 	flex-grow: 1;
-	// 	flex-shrink: 1;
-	// 	height: 100%;
-	// 	overflow: hidden;
-	// 	padding: $tc-dialog-body-padding $tc-dialog-body-padding $tc-dialog-medium-padding
-	// 		$tc-dialog-body-padding;
-	// }
-
-	// :global(.modal-footer) {
-	// 	padding: 0 $tc-dialog-body-padding $tc-dialog-medium-padding $tc-dialog-body-padding;
-	// 	flex-basis: auto;
-	// 	flex-grow: 0;
-	// 	flex-shrink: 0;
-	// 	display: flex;
-	// 	justify-content: flex-start;
-	//
-	// 	> .tc-confirm-actions {
-	// 		margin-left: auto;
-	//
-	// 		button {
-	// 			margin-left: $tc-dialog-buttons-margin;
-	// 		}
-	// 	}
-	// }
 }
