@@ -1,6 +1,16 @@
 import { api, cmfConnect } from '@talend/react-cmf';
 import { Action } from '@talend/react-components';
+
+import ActionButton from '../ActionButton';
+import ActionSplitDropdown from '../ActionSplitDropdown';
+import ActionDropdown from '../ActionDropdown';
 import getRenderers from '../renderers';
+
+const renderers = {
+	ActionButton,
+	ActionSplitDropdown,
+	ActionDropdown,
+};
 
 const DEPRECATED_EXPRESSION = ['active', 'available', 'disabled', 'inProgress'];
 
@@ -32,7 +42,7 @@ export function mapStateToProps(state, ownProps) {
 		},
 	}, ownProps.actionId || ownProps.name);
 	props = updateExpression(props);
-	props.renderers = getRenderers();
+	props.renderers = getRenderers(renderers);
 	return props;
 }
 

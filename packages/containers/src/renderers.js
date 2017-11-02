@@ -1,21 +1,7 @@
 import { api } from '@talend/react-cmf';
-import Action from './Action';
-import ActionBar from './ActionBar';
-import ActionButton from './ActionButton';
-import ActionDropdown from './ActionDropdown';
-import Actions from './Actions';
-import ActionSplitDropdown from './ActionSplitDropdown';
 
-const renderers = {
-	Action,
-	ActionBar,
-	ActionButton,
-	ActionDropdown,
-	Actions,
-	ActionSplitDropdown,
-};
-
-export default function getRenderers() {
+export default function getRenderers(fromImports) {
+	const renderers = Object.assign({}, fromImports);
 	Object.keys(renderers).forEach((key) => {
 		if (api.component.has(key)) {
 			const component = api.component.get(key);

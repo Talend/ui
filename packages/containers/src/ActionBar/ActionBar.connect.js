@@ -1,6 +1,17 @@
 import { cmfConnect } from '@talend/react-cmf';
 import { ActionBar } from '@talend/react-components';
+import Action from '../Action';
+import Actions from '../Actions';
+import ActionDropdown from '../ActionDropdown';
+import ActionSplitDropdown from '../ActionSplitDropdown';
 import getRenderers from '../renderers';
+
+const renderers = {
+	Action,
+	Actions,
+	ActionDropdown,
+	ActionSplitDropdown,
+};
 
 function getAction(actionId) {
 	if (typeof actionId === 'string') {
@@ -11,7 +22,7 @@ function getAction(actionId) {
 
 export function mapStateToProps(state, { actionIds }) {
 	const props = {
-		renderers: getRenderers(),
+		renderers: getRenderers(renderers),
 	};
 	if (actionIds) {
 		props.actions = {};

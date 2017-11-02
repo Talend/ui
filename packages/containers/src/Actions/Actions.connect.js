@@ -1,10 +1,15 @@
 import { cmfConnect } from '@talend/react-cmf';
 import { Actions } from '@talend/react-components';
 
+import Action from '../Action';
 import getRenderers from '../renderers';
 
+const renderers = {
+	Action,
+};
+
 function mapStateToProps(state, { actionIds, names, actions }) {
-	const props = { renderers: getRenderers() };
+	const props = { renderers: getRenderers(renderers) };
 	const ids = actionIds || names;
 	if (!actions && ids) {
 		props.actions = ids.map(actionId => ({ actionId }));
