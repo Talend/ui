@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Badge, Typeahead } from '@talend/react-components/lib';
+import { Badge, Typeahead } from '@talend/react-components';
 import classNames from 'classnames';
 import keycode from 'keycode';
 import theme from './MultiSelectTagWidget.scss';
@@ -257,6 +257,8 @@ class MultiSelectTagWidget extends React.Component {
 	render() {
 		const { value, readonly, options, id, noAvailableMessage } = this.props;
 		const valueToLabel = mapValueToLabel(transformOptions(options));
+		let badgeValue;
+		let badgeProps;
 
 		return (
 			<div className="dropdown" ref={component => this.setComponentRef(component)}>
@@ -266,8 +268,7 @@ class MultiSelectTagWidget extends React.Component {
 				<div className={`${theme.wrapper} form-control`}>
 					{
 						value.map((val, index) => {
-							const badgeValue = valueToLabel[val] || val;
-							let badgeProps;
+							badgeValue = valueToLabel[val] || val;
 							if (typeof badgeValue === 'string') {
 								badgeProps = { label: badgeValue, key: index };
 							} else {
