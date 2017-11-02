@@ -48,7 +48,7 @@ function adjustContentPlacement(icon, label, iconPosition) {
 	return [icon, label];
 }
 
-function getContent(props) {
+function getButtonContent(props) {
 	return adjustContentPlacement(getIcon(props), getLabel(props), props.iconPosition);
 }
 
@@ -57,24 +57,22 @@ function noOp() {}
 function ActionFile(props) {
 	const {
 		id,
-		bsStyle,
 		inProgress,
 		disabled,
 		hideLabel,
 		label,
 		name,
-		onChange = noOp,
+		onChange,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
 		available,
-		...rest
 	} = props;
 	if (!available) {
 		return null;
 	}
 	const localId = id || uuid.v4();
-	const buttonContent = getContent(props);
+	const buttonContent = getButtonContent(props);
 	const labelClasses = classNames('btn', theme['btn-file'], (disabled || inProgress) && 'disabled');
 	const localOnChange = event => {
 		event.preventDefault();
@@ -116,7 +114,7 @@ ActionFile.propTypes = {
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
-	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	model: PropTypes.object,
 	name: PropTypes.string,
 	onClick: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
@@ -130,6 +128,7 @@ ActionFile.defaultProps = {
 	tooltipPlacement: 'top',
 	inProgress: false,
 	disabled: false,
+	onChange: noOp,
 };
 
 export default ActionFile;

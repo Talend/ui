@@ -33,11 +33,11 @@ function SidePanel({
 	id,
 	selected,
 	onSelect,
-	actions = [],
+	actions,
 	docked,
 	onToggleDock,
 	t,
-	renderers = { Action },
+	renderers,
 }) {
 	const dockedCSS = { [theme.docked]: docked };
 	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
@@ -114,6 +114,11 @@ function SidePanel({
 		</nav>
 	);
 }
+
+SidePanel.defaultProps = {
+	actions: [],
+	renderers: { Action },
+};
 
 if (process.env.NODE_ENV !== 'production') {
 	const actionPropType = PropTypes.shape({
