@@ -29,8 +29,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.component.js
+  40:27  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+  64:18  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+  81:16  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 14 problems (14 errors, 0 warnings)
+✖ 17 problems (17 errors, 0 warnings)
 
