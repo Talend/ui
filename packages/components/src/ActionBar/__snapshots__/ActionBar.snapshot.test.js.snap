@@ -342,6 +342,7 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-left 1`] = `
   right={undefined}
 >
   <Action
+    displayMode={undefined}
     label="action"
   />
 </Content>
@@ -356,6 +357,7 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-left with se
     selected={3}
   />
   <Action
+    displayMode={undefined}
     label="action"
   />
 </Content>
@@ -367,6 +369,7 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-right 1`] = 
   right={true}
 >
   <Action
+    displayMode={undefined}
     label="action"
   />
 </Content>

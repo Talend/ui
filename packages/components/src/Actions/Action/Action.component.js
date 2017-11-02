@@ -2,9 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import ActionButton from '../ActionButton';
+import ActionFile from '../ActionFile';
 import ActionSplitDropdown from '../ActionSplitDropdown';
 import ActionDropdown from '../ActionDropdown';
 
+const TYPE_FILE = 'file';
 const TYPE_DROPDOWN = 'dropdown';
 const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
 
@@ -28,6 +30,8 @@ const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
  */
 export function getActionComponent({ displayMode, renderers = {} }) {
 	switch (displayMode) {
+		case TYPE_FILE:
+			return renderers.ActionFile || ActionFile;
 		case TYPE_DROPDOWN:
 			return renderers.ActionDropdown || ActionDropdown;
 		case TYPE_SPLIT_DROPDOWN:
@@ -59,6 +63,7 @@ Action.propTypes = {
 	displayMode: PropTypes.string,
 	renderers: PropTypes.shape({
 		ActionButton: PropTypes.node,
+		ActionFile: PropTypes.node,
 		ActionSplitDropdown: PropTypes.node,
 		ActionDropdown: PropTypes.node,
 	}),
