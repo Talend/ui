@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DescriptionModal should render a description & a text highlight 1`] = `
+<p>
+  hello
+   
+  <mark>
+    world
+  </mark>
+</p>
+`;
+
+exports[`DescriptionModal should render a description 1`] = `
+<p>
+  hello
+   
+</p>
+`;
+
+exports[`DescriptionModal should render nothing 1`] = `null`;
