@@ -25,9 +25,9 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 	return props;
 }
 
-export function ContainerActionButton({ onClick, ...props }) {
+export function ContainerActionButton(props) {
 	const newProps = Object.assign({}, props);
-	if (!onClick) {
+	if (!newProps.onClick) {
 		newProps.onClick = (event, data) => {
 			if (props.actionCreator) {
 				props.dispatchActionCreator(props.actionCreator, event, data);

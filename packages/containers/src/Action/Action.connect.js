@@ -49,7 +49,7 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({}, stateProps, dispatchProps, ownProps);
+	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
 	DEPRECATED_EXPRESSION.forEach((key) => {
 		if (typeof props[key] === 'string' || typeof props[key] === 'object') {
 			delete props[key];

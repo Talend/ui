@@ -10,7 +10,7 @@ exports[`Action should render from name props keeping extra props 1`] = `
   icon="icon-article"
   id="menu:article"
   initState={[Function]}
-  name="menu:article"
+  name="My article"
   payload={
     Object {
       "args": Array [
