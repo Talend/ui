@@ -47,6 +47,11 @@
               </ul>
             </li>
           </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="sassdoc/" target="_blank">SassDoc</a></li>
+          </ul>
+
         </div>
       </div>
     </div>
@@ -1640,20 +1645,17 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
     (function(){
-        function setVisibilyDropDownMenu(){
+        function setDropDownMenuVisibility(){
           var top = $(document).scrollTop();
-          var elementTop = $("#banner").offset().top;
-          var elementBottom = elementTop + $("#banner").height();
+          var $banner = $("#banner");
+          var elementTop = $banner.offset().top;
+          var elementBottom = elementTop + $banner.height();
 
-          if ((top < elementTop) || (top < elementBottom)) {
-            $('#menu_dropdown').hide();
-          } else {
-            $('#menu_dropdown').show();
-          }
+          $('#menu_dropdown').toggle(top >= elementBottom);
         }
 
-        $(document).ready(function(){
-          setVisibilyDropDownMenu();
+        $(function(){
+          setDropDownMenuVisibility();
         });
 
         $(window).scroll(function () {
@@ -1666,7 +1668,7 @@
           else
             $('#home > .navbar').addClass('navbar-transparent');
 
-          setVisibilyDropDownMenu();
+          setDropDownMenuVisibility();
         });
 
         $("a[href='#']").click(function(e) {
