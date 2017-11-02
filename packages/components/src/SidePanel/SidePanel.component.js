@@ -86,6 +86,7 @@ function SidePanel({
 							{...a11y}
 						>
 							<renderers.Action
+								{...action}
 								id={
 									id &&
 									`${id}-nav-${action.label
@@ -104,8 +105,6 @@ function SidePanel({
 										action.onClick(event);
 									}
 								}}
-								label={action.label}
-								icon={action.icon}
 							/>
 						</li>
 					);
