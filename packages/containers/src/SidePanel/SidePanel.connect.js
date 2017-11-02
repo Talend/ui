@@ -3,7 +3,7 @@ import { api, cmfConnect } from '@talend/react-cmf';
 import { withRouter } from 'react-router';
 import Container, { DEFAULT_STATE } from './SidePanel.container';
 
-function mapStateToProps(state, ownProps) {
+export function mapStateToProps(state, ownProps) {
 	const props = {};
 	if (ownProps.actionIds) {
 		props.actions = ownProps.actionIds.map((id) => {
@@ -32,7 +32,7 @@ function mapStateToProps(state, ownProps) {
 	return props;
 }
 
-function mergeProps(stateProps, dispatchProps, ownProps) {
+export function mergeProps(stateProps, dispatchProps, ownProps) {
 	const props = Object.assign({ stateProps, dispatchProps, ownProps });
 	if (props.actionIds) {
 		delete props.actionIds;

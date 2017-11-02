@@ -4,6 +4,13 @@ import { SidePanel as Component } from '@talend/react-components';
 import { componentState } from '@talend/react-cmf';
 import { Map } from 'immutable';
 
+import Action from '../Action';
+import getRenderers from '../renderers';
+
+const renderers = {
+	Action,
+};
+
 export const DEFAULT_STATE = new Map({
 	docked: false,
 });
@@ -40,7 +47,7 @@ class SidePanel extends React.Component {
 			onToggleDock: this.onToggleDock,
 		});
 
-		return (<Component {...rest} {...props} />);
+		return (<Component renderers={getRenderers(renderers)} {...rest} {...props} />);
 	}
 }
 
