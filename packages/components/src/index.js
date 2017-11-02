@@ -68,7 +68,7 @@ import {
 
 import I18N_DOMAIN_COMPONENTS from './constants';
 
-import { Action, ActionDropdown, ActionSplitDropdown, Actions } from './Actions';
+import { Action, ActionDropdown, ActionButton, ActionSplitDropdown, Actions } from './Actions';
 import ActionBar from './ActionBar';
 import Notification from './Notification';
 import AppHeaderBar from './AppHeaderBar';
@@ -106,6 +106,7 @@ import Filter from './Filter';
 export {
 	Action,
 	ActionBar,
+	ActionButton,
 	ActionDropdown,
 	ActionSplitDropdown,
 	Actions,

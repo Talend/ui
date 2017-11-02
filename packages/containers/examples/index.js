@@ -10,6 +10,7 @@ import NotificationExample from './ExampleNotification';
 import ObjectViewerExample from './ExampleObjectViewer';
 import SidePanelExample from './ExampleSidePanel';
 import FilterBarExample from './ExampleFilterBar';
+import DeleteResource from './ExampleDeleteResource';
 
 export default {
 	ActionExample,
@@ -24,4 +25,5 @@ export default {
 	ObjectViewerExample,
 	SidePanelExample,
 	FilterBarExample,
+	DeleteResource,
 };

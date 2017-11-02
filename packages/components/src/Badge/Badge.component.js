@@ -13,9 +13,9 @@ function renderDeleteIcon(onClick, id, disabled, t) {
 		const actionProps = {
 			label: t('BADGE_DELETE', { defaultValue: 'delete' }),
 			hideLabel: true,
-			onClick: onClick,
-			disabled: disabled,
-			icon: "talend-cross",
+			onClick,
+			disabled,
+			icon: 'talend-cross',
 			className: classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon']),
 		};
 
@@ -28,12 +28,25 @@ function renderDeleteIcon(onClick, id, disabled, t) {
 	return null;
 }
 
-function Badge({ id, label, category, onDelete, onSelect, selected, disabled, t, style }) {
+function Badge({
+	id,
+	label,
+	category,
+	onDelete,
+	onSelect,
+	selected,
+	disabled,
+	t,
+	style,
+	className,
+}) {
 	const containerClasses = classNames(
-		'tc-badge', theme['tc-badge'],
+		'tc-badge',
+		theme['tc-badge'],
 		selected && ['tc-badge-selected', theme['tc-badge-selected']],
 		disabled && ['tc-badge-disabled', theme['tc-badge-disabled']],
 		!onDelete && ['tc-badge-readonly', theme['tc-badge-readonly']],
+		className,
 	);
 	const badgeClasses = classNames('tc-badge-button', theme['tc-badge-button']);
 	const labelClasses = classNames('tc-badge-label', theme['tc-badge-label']);
@@ -42,7 +55,7 @@ function Badge({ id, label, category, onDelete, onSelect, selected, disabled, t,
 	const badgeProps = {
 		className: badgeClasses,
 		onClick: onSelect,
-		disabled: disabled,
+		disabled,
 	};
 
 	if (id) {
@@ -51,13 +64,9 @@ function Badge({ id, label, category, onDelete, onSelect, selected, disabled, t,
 
 	return (
 		<div className={containerClasses} style={style}>
-			<button {...badgeProps} >
-				{category && <span className={categoryClasses}>
-					{category}
-				</span>}
-				<span className={labelClasses}>
-					{label}
-				</span>
+			<button {...badgeProps}>
+				{category && <span className={categoryClasses}>{category}</span>}
+				<span className={labelClasses}>{label}</span>
 			</button>
 			{renderDeleteIcon(onDelete, id, disabled, t)}
 		</div>
@@ -74,6 +83,7 @@ Badge.propTypes = {
 	disabled: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	className: PropTypes.string,
 };
 
 Badge.defaultProps = {
