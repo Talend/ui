@@ -165,7 +165,6 @@ describe('ListView field', () => {
 			expect(wrapper.find('.tc-listview-item-label').length).toBe(2);
 			expect(wrapper.find('.tc-listview-item-label').at(0).text()).toBe('Albania');
 			expect(wrapper.find('.tc-listview-item-label').at(1).text()).toBe('Algeria');
-
 		});
 
 		it('should show no result message', () => {
