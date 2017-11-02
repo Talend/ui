@@ -12,6 +12,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.component.js
+  28:13  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.test.js
+  31:19  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+  61:49  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+  74:49  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+  87:49  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+  99:49  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
   48:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
@@ -22,5 +32,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 8 problems (8 errors, 0 warnings)
+✖ 14 problems (14 errors, 0 warnings)
 
