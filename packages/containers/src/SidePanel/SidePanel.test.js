@@ -1,31 +1,25 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { store, Provider } from '@talend/react-cmf/lib/mock';
+import { shallow } from 'enzyme';
+import mock, { store } from '@talend/react-cmf/lib/mock';
 import SidePanel, { getActions } from './SidePanel.container';
-
-jest.mock(
-	'@talend/react-components',
-	() => ({ SidePanel: props => (<div className="tc-side-panel" {...props} />) })
-);
 
 describe('SidePanel', () => {
 	it('should render', () => {
-		const sidepanel = renderer.create(
-			<Provider>
-				<SidePanel />
-			</Provider>,
-		).toJSON();
-		expect(sidepanel).toMatchSnapshot();
+		const context = mock.context();
+		const sidepanel = shallow(
+			<SidePanel />,
+			{ context }
+		);
+		expect(sidepanel.getNode()).toMatchSnapshot();
 	});
 	it('should render provided actions as string', () => {
 		const actions = ['menu:article', 'menu:demo'];
-
-		const sidepanel = renderer.create(
-			<Provider>
-				<SidePanel actions={actions} />
-			</Provider>,
-		).toJSON();
-		expect(sidepanel).toMatchSnapshot();
+		const context = mock.context();
+		const sidepanel = shallow(
+			<SidePanel actions={actions} />,
+			{ context }
+		);
+		expect(sidepanel.getNode()).toMatchSnapshot();
 	});
 });
 

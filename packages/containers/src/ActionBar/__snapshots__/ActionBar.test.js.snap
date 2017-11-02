@@ -20,13 +20,11 @@ Object {
     ],
     "right": Array [
       Object {
-        "actionId": Object {
-          "displayMode": "splitDropdown",
-          "items": Array [
-            "menu:article",
-          ],
-          "name": "menu:demo",
-        },
+        "displayMode": "splitDropdown",
+        "items": Array [
+          "menu:article",
+        ],
+        "name": "menu:demo",
       },
     ],
   },
@@ -37,8 +35,6 @@ Object {
   "initState": [Function],
   "renderers": Object {
     "Action": [Function],
-    "ActionBar": undefined,
-    "ActionButton": [Function],
     "ActionDropdown": [Function],
     "ActionSplitDropdown": [Function],
     "Actions": [Function],
@@ -108,8 +104,6 @@ Object {
   "initState": [Function],
   "renderers": Object {
     "Action": [Function],
-    "ActionBar": undefined,
-    "ActionButton": [Function],
     "ActionDropdown": [Function],
     "ActionSplitDropdown": [Function],
     "Actions": [Function],

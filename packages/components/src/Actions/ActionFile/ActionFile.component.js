@@ -131,4 +131,6 @@ ActionFile.defaultProps = {
 	onChange: noOp,
 };
 
+ActionFile.displayName = 'ActionFile';
+
 export default ActionFile;
