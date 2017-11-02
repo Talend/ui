@@ -2,35 +2,21 @@
 > @talend/react-components@0.121.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config ../../.eslintrc src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+/home/travis/build/Talend/ui/.eslintrc:
+	Configuration for rule "arrow-parens" is invalid:
+	Severity should be one of the following: 0 = off, 1 = warn, 2 = error (you passed '"as-needed"').
 
-/home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/__snapshots__/config.js
-  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  4:2  error  Unexpected require()                                                                    global-require
+Error: /home/travis/build/Talend/ui/.eslintrc:
+	Configuration for rule "arrow-parens" is invalid:
+	Severity should be one of the following: 0 = off, 1 = warn, 2 = error (you passed '"as-needed"').
 
-/home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
-  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  4:2  error  Unexpected require()                                                                    global-require
-
-/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.component.js
-  28:13  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-
-/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.test.js
-  31:19  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-  61:49  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-  74:49  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-  87:49  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-  99:49  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-
-/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
-  48:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
-
-/home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
-  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  4:2  error  Unexpected require()                                                                    global-require
-
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
-  42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
-
-✖ 14 problems (14 errors, 0 warnings)
-
+    at validateRuleOptions (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/config/config-validator.js:109:15)
+    at Object.keys.forEach.id (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/config/config-validator.js:156:13)
+    at Array.forEach (native)
+    at Object.validate (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/config/config-validator.js:155:35)
+    at Object.load (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/config/config-file.js:559:19)
+    at loadConfig (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/config.js:63:33)
+    at new Config (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/config.js:231:42)
+    at CLIEngine.executeOnFiles (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/cli-engine.js:590:28)
+    at Object.execute (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/cli.js:171:107)
+    at Object.<anonymous> (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/bin/eslint.js:74:28)
