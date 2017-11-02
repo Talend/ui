@@ -17,11 +17,13 @@ schema
 const veryLongDatasetLabel =
 	"Dataset of something that I cant't imagine; Dataset of something that I cant't imagine; Dataset of something that I cant't imagine";
 const veryLongCafeName = "Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name";
+const clubCategory = 'Club category mixology hipster';
+
 const data = [
 	{
 		business_id: 0,
-		name: veryLongCafeName,
-		category: 'Club',
+		name: `${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName}  ${veryLongCafeName} ${veryLongCafeName}   ${veryLongCafeName} ${veryLongCafeName} `,
+		category: `${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory}`,
 		rating: 4,
 		null_value: null,
 		num_of_reviews: 2647,
@@ -231,6 +233,15 @@ const openedNativeTypeHandler = {
 	onChange: action('onChange'),
 };
 
+const rootOpenedTypeHandler = {
+	edited: [],
+	opened: ['$', '$[0]'],
+	onClick: action('onClick'),
+	onSelect: (e, jsonpath) => (selectedJsonpath = jsonpath),
+	onSubmit: action('onSubmit'),
+	onChange: action('onChange'),
+};
+
 const stories = storiesOf('ObjectViewer', module);
 if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
@@ -246,7 +257,7 @@ stories
 	.addWithInfo('primitive array tree', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer data={primitiveArray} {...openedNativeTypeHandler} />
+			<ObjectViewer data={primitiveArray} {...rootOpenedTypeHandler} />
 		</div>
 	))
 	.addWithInfo('tree with hightlighting', () => (

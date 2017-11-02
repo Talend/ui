@@ -11,6 +11,7 @@ describe('Action', () => {
 			block: false,
 			onClick,
 			href: 'www.google.de',
+			target: '_blank',
 			type: 'button',
 
 			// native props should be kept
@@ -32,6 +33,7 @@ describe('Action', () => {
 			href: 'www.google.de',
 			type: 'button',
 			className: 'my class',
+			target: '_blank',
 		});
 	});
 });
