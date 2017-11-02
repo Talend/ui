@@ -7,6 +7,7 @@ export function mapStateToProps(state, ownProps) {
 	const props = {};
 	if (ownProps.actionIds) {
 		props.actions = ownProps.actionIds.map((id) => {
+			const action = { actionId: id };
 			const info = api.action.getActionInfo({
 				registry: api.registry.getRegistry(),
 				store: {
@@ -23,17 +24,17 @@ export function mapStateToProps(state, ownProps) {
 			if (route) {
 				const currentRoute = ownProps.location.pathname;
 				if (currentRoute.indexOf(route) !== -1) {
-					info.active = true;
+					action.active = true;
 				}
 			}
-			return info;
+			return action;
 		});
 	}
 	return props;
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({ stateProps, dispatchProps, ownProps });
+	const props = Object.assign({}, stateProps, dispatchProps, ownProps);
 	if (props.actionIds) {
 		delete props.actionIds;
 	}

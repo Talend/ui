@@ -76,4 +76,10 @@ describe('SidePanel.mergeProps', () => {
 		const props = mergeProps({}, {}, { actionIds: [] });
 		expect(props.actionIds).toBeUndefined();
 	});
+	it('should merge', () => {
+		const props = mergeProps({ foo: 'foo' }, { bar: 'bar' }, { baz: 'baz' });
+		expect(props.bar).toBe('bar');
+		expect(props.baz).toBe('baz');
+		expect(props.foo).toBe('foo');
+	});
 });
