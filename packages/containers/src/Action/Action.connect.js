@@ -2,12 +2,14 @@ import { api, cmfConnect } from '@talend/react-cmf';
 import { Action } from '@talend/react-components';
 
 import ActionButton from '../ActionButton';
+import ActionFile from '../ActionFile';
 import ActionSplitDropdown from '../ActionSplitDropdown';
 import ActionDropdown from '../ActionDropdown';
 import getRenderers from '../renderers';
 
 const renderers = {
 	ActionButton,
+	ActionFile,
 	ActionSplitDropdown,
 	ActionDropdown,
 };

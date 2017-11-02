@@ -14,6 +14,7 @@ import actionAPI from './actionAPI';
 import Action from './Action';
 import ActionBar from './ActionBar';
 import ActionButton from './ActionButton';
+import ActionFile from './ActionFile';
 import ActionDropdown from './ActionDropdown';
 import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
@@ -35,6 +36,7 @@ export {
 	Action,
 	ActionBar,
 	ActionButton,
+	ActionFile,
 	ActionDropdown,
 	Actions,
 	ActionSplitDropdown,
