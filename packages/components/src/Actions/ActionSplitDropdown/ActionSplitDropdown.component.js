@@ -38,7 +38,7 @@ function rClick(event, onClick, action, model) {
 function ActionSplitDropdown(props) {
 	const {
 		icon,
-		items = [],
+		items,
 		label,
 		model,
 		onClick,
@@ -89,6 +89,10 @@ ActionSplitDropdown.propTypes = {
 	onClick: PropTypes.func.isRequired,
 	emptyDropdownLabel: PropTypes.string,
 	className: PropTypes.string,
+};
+
+ActionSplitDropdown.defaultProps = {
+	items: [],
 };
 
 export default ActionSplitDropdown;

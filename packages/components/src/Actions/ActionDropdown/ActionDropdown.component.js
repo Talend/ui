@@ -54,7 +54,7 @@ function ActionDropdown(props) {
 		bsStyle,
 		hideLabel,
 		icon,
-		items = [],
+		items,
 		label,
 		link,
 		onSelect,
@@ -121,6 +121,7 @@ ActionDropdown.propTypes = {
 ActionDropdown.defaultProps = {
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
+	items: [],
 };
 
 export default ActionDropdown;

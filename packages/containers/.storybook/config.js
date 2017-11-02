@@ -37,13 +37,13 @@ function confirmDialog(event, data) {
 	};
 }
 
-function chooceItem1() {
+function chooseItem1() {
 	return {
 		type: 'CHOOSE_ITEM1',
 	};
 }
 
-function chooceItem2() {
+function chooseItem2() {
 	return {
 		type: 'CHOOSE_ITEM2',
 	};
@@ -53,8 +53,8 @@ const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
 registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
-registerActionCreator('item1:action', chooceItem1);
-registerActionCreator('item2:action', chooceItem2);
+registerActionCreator('item1:action', chooseItem1);
+registerActionCreator('item2:action', chooseItem2);
 
 const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
