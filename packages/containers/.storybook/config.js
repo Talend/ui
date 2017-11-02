@@ -144,6 +144,14 @@ function loadStories() {
 				type: 'APP_OBJECT_ADD',
 			},
 		};
+		actions['object:upload'] = {
+			label: 'Upload',
+			icon: 'talend-upload',
+			displayMode: 'file',
+			payload: {
+				type: 'UPLOAD',
+			},
+		};
 		actions['object:edit'] = {
 			label: 'Edit',
 			icon: 'talend-pencil',

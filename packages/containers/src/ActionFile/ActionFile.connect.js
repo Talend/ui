@@ -27,6 +27,7 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 						model: props.model,
 					},
 					props.payload,
+					{ file: data },
 				),
 			);
 		}
