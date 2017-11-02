@@ -2,16 +2,21 @@
 > @talend/react-forms@0.121.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config ../../.eslintrc src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+/home/travis/build/Talend/ui/.eslintrc:
+	Configuration for rule "arrow-parens" is invalid:
+	Severity should be one of the following: 0 = off, 1 = warn, 2 = error (you passed '"as-needed"').
 
-/home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
-  86:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+Error: /home/travis/build/Talend/ui/.eslintrc:
+	Configuration for rule "arrow-parens" is invalid:
+	Severity should be one of the following: 0 = off, 1 = warn, 2 = error (you passed '"as-needed"').
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
-  8:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
-  23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
-
-✖ 3 problems (3 errors, 0 warnings)
-
+    at validateRuleOptions (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/config/config-validator.js:109:15)
+    at Object.keys.forEach.id (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/config/config-validator.js:156:13)
+    at Array.forEach (native)
+    at Object.validate (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/config/config-validator.js:155:35)
+    at Object.load (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/config/config-file.js:559:19)
+    at loadConfig (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/config.js:63:33)
+    at new Config (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/config.js:231:42)
+    at CLIEngine.executeOnFiles (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/cli-engine.js:590:28)
+    at Object.execute (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/cli.js:171:107)
+    at Object.<anonymous> (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/bin/eslint.js:74:28)
