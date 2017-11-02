@@ -10,6 +10,7 @@
             "capIsNewExceptions": ["List", "Map"]
         }
     ],
+    "arrow-parens": ["as-needed", { "requireForBlockBody": true }],
     "no-tabs": "off",
     "react/forbid-prop-types": [0],
     "react/prefer-es6-class": 0,
