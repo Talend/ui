@@ -37,7 +37,7 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 		'tc-side-panel-list',
 		theme['action-list'],
 	);
-	const isActionSelected = (action) => {
+	const isActionSelected = action => {
 		if (selected) {
 			return action === selected;
 		}
@@ -61,20 +61,20 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 						label=""
 					/>
 				</li>
-				{actions.map((action) => {
+				{actions.map(action => {
 					const isSelected = isActionSelected(action);
 					const a11y = {};
 					if (isSelected) {
 						a11y['aria-current'] = true;
 					}
-					const { active, ...actionModel } = { ...action };
-					const actionProps = Object.assign({}, actionModel, {
+					delete action.active;
+					const actionProps = Object.assign({}, action, {
 						id:
-						id &&
-						`${id}-nav-${action.label
-							.toLowerCase()
-							.split(' ')
-							.join('-')}`,
+							id &&
+							`${id}-nav-${action.label
+								.toLowerCase()
+								.split(' ')
+								.join('-')}`,
 						bsStyle: 'link',
 						role: 'link',
 						className: classNames(theme.link, action.className),
