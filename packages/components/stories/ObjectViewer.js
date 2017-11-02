@@ -9,6 +9,11 @@ const icons = {
 	'talend-chevron-left': talendIcons['talend-chevron-left'],
 };
 
+const schema = new Map();
+schema
+	.set('business_id', 'integer')
+	.set('name', 'CAFE_NAME')
+	.set('rating', 'integer');
 const veryLongDatasetLabel =
 	"Dataset of something that I cant't imagine; Dataset of something that I cant't imagine; Dataset of something that I cant't imagine";
 const veryLongCafeName = "Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name";
@@ -20,6 +25,7 @@ const data = [
 		name: `${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName}  ${veryLongCafeName} ${veryLongCafeName}   ${veryLongCafeName} ${veryLongCafeName} `,
 		category: `${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory}`,
 		rating: 4,
+		null_value: null,
 		num_of_reviews: 2647,
 		attributes: {
 			good_for: {
@@ -54,6 +60,7 @@ const data = [
 		name: `${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName}`,
 		category: 'Club',
 		rating: 4,
+		null_value: null,
 		num_of_reviews: 2647,
 		attributes: {
 			good_for: {
@@ -88,6 +95,7 @@ const data = [
 		name: "Nancy's Club",
 		category: 'Club',
 		rating: 2,
+		null_value: null,
 		num_of_reviews: 3779,
 		attributes: {
 			good_for: {
@@ -122,6 +130,7 @@ const data = [
 		name: "Cecelia's Club",
 		category: 'Cafe',
 		rating: 4,
+		null_value: null,
 		num_of_reviews: 16547,
 		attributes: {
 			good_for: {
@@ -156,6 +165,7 @@ const data = [
 		name: "Gordon's Bar",
 		category: 'Cafe',
 		rating: 1,
+		null_value: null,
 		num_of_reviews: 152,
 		attributes: {
 			good_for: {
@@ -330,6 +340,12 @@ stories
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} displayMode="flat" />
+		</div>
+	))
+	.addWithInfo('flat default with schema', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer data={{ dataset: data, schema }} displayMode="flat" />
 		</div>
 	))
 	.addWithInfo('flat with handler', () => (
