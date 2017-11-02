@@ -7,7 +7,7 @@ import SelectAll from './SelectAll';
 import SelectDisplayMode from './SelectDisplayMode';
 import SelectSortBy from './SelectSortBy';
 import Pagination from './Pagination';
-import Filter from './Filter';
+import Filter from '../../Filter';
 import Label from './Label';
 import ActionBar from '../../ActionBar';
 

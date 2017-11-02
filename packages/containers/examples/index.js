@@ -9,6 +9,7 @@ import ListExample from './ExampleList';
 import NotificationExample from './ExampleNotification';
 import ObjectViewerExample from './ExampleObjectViewer';
 import SidePanelExample from './ExampleSidePanel';
+import FilterBarExample from './ExampleFilterBar';
 
 export default {
 	ActionExample,
@@ -22,4 +23,5 @@ export default {
 	NotificationExample,
 	ObjectViewerExample,
 	SidePanelExample,
+	FilterBarExample,
 };

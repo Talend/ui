@@ -101,6 +101,7 @@ import getTranslated from './TranslateWrapper';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
+import Filter from './Filter';
 
 export {
 	Action,
@@ -139,6 +140,7 @@ export {
 	Typeahead,
 	VirtualizedList,
 	WithDrawer,
+	Filter,
 
 	Alert,
 	Badge as BootstrapBadge,

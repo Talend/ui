@@ -27,6 +27,7 @@ import ObjectViewer from './ObjectViewer';
 import Redirect from './Redirect';
 import ShortcutManager from './ShortcutManager';
 import SidePanel from './SidePanel';
+import FilterBar from './FilterBar';
 
 export {
 	actionAPI,
@@ -55,4 +56,5 @@ export {
 	TooltipTrigger,
 	TreeView,
 	Typeahead,
+	FilterBar,
 };

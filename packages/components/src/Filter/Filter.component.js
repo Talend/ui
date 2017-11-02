@@ -6,9 +6,9 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import get from 'lodash/get';
 import keycode from 'keycode';
 
-import { getDefaultTranslate } from '../../../translate';
-import { Action } from '../../../Actions';
-import Icon from '../../../Icon';
+import { getDefaultTranslate } from '../translate';
+import { Action } from '../Actions';
+import Icon from '../Icon';
 import theme from './Filter.scss';
 
 function onKeyDown(event, escAction, enterAction) {
@@ -57,14 +57,16 @@ function FilterInput(props) {
 	};
 
 	if (debounceMinLength || debounceTimeout) {
-		return (<DebounceInput
-			{...inputProps}
-			element={FormControl}
-			minLength={debounceMinLength}
-			debounceTimeout={debounceTimeout}
-		/>);
+		return (
+			<DebounceInput
+				{...inputProps}
+				element={FormControl}
+				minLength={debounceMinLength}
+				debounceTimeout={debounceTimeout}
+			/>
+		);
 	}
-	return (<FormControl {...inputProps} />);
+	return <FormControl {...inputProps} />;
 }
 
 FilterInput.propTypes = {
@@ -90,6 +92,7 @@ function Filter(props) {
 		debounceMinLength,
 		debounceTimeout,
 		docked,
+		undockable,
 		highlight,
 		onBlur,
 		onFocus,
@@ -99,7 +102,7 @@ function Filter(props) {
 		value,
 		t,
 	} = props;
-	if (docked) {
+	if (!undockable && docked) {
 		return (
 			<Action
 				id={id}
@@ -118,19 +121,16 @@ function Filter(props) {
 		return onFilter(event, get(event, 'target.search.value'));
 	}
 
-	const classes = classNames(
-		'navbar-form',
-		'navbar-right',
-		theme.filter,
-		{ [theme.highlight]: highlight },
-	);
+	// TODO if navbar className = navbar-right OR plain filter
+	let classes = classNames(theme.filter, { [theme.highlight]: highlight });
+	if (!undockable) {
+		classes = classNames('navbar-form', 'navbar-right', theme.filter, {
+			[theme.highlight]: highlight,
+		});
+	}
 
 	return (
-		<form
-			className={classes}
-			role="search"
-			onSubmit={onSubmit}
-		>
+		<form className={classes} role="search" onSubmit={onSubmit}>
 			<Icon name="talend-search" className={theme['search-icon']} />
 			<div className="form-group">
 				<FilterInput
