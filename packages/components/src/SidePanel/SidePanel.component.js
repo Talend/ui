@@ -67,6 +67,26 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 					if (isSelected) {
 						a11y['aria-current'] = true;
 					}
+					const { active, ...actionModel } = { ...action };
+					const actionProps = Object.assign({}, actionModel, {
+						id:
+						id &&
+						`${id}-nav-${action.label
+							.toLowerCase()
+							.split(' ')
+							.join('-')}`,
+						bsStyle: 'link',
+						role: 'link',
+						className: classNames(theme.link, action.className),
+						onClick: event => {
+							if (onSelect) {
+								onSelect(event, action);
+							}
+							if (action.onClick) {
+								action.onClick(event);
+							}
+						},
+					});
 					return (
 						<li
 							title={action.label}
@@ -76,28 +96,7 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 							})}
 							{...a11y}
 						>
-							<Action
-								id={
-									id &&
-									`${id}-nav-${action.label
-										.toLowerCase()
-										.split(' ')
-										.join('-')}`
-								}
-								bsStyle="link"
-								role="link"
-								className={theme.link}
-								onClick={(event) => {
-									if (onSelect) {
-										onSelect(event, action);
-									}
-									if (action.onClick) {
-										action.onClick(event);
-									}
-								}}
-								label={action.label}
-								icon={action.icon}
-							/>
+							<Action {...actionProps} />
 						</li>
 					);
 				})}
