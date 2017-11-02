@@ -68,7 +68,7 @@ class MultiSelectTagWidget extends React.Component {
 			return;
 		}
 		if (this.state.suggestions) {
-			this.updateSuggestions('', nextProps);
+			this.resetSuggestions();
 		}
 	}
 
@@ -185,26 +185,28 @@ class MultiSelectTagWidget extends React.Component {
 	}
 
 	updateSuggestions(value, props) {
-		const filterText = value === undefined ? this.state.filterText : value;
-		const currentProps = props || this.props;
+		this.setState((prevState) => {
+			const filterText = value === undefined ? prevState.filterText : value;
+			const currentProps = props || this.props;
 
-		let suggestions = filterOptions(currentProps);
+			let suggestions = filterOptions(currentProps);
 
-		if (filterText) {
-			const escapedValue = escapeRegexCharacters(filterText.trim());
-			const regex = new RegExp(escapedValue, 'i');
-			suggestions = suggestions.filter(item => regex.test(item.label));
-			if (suggestions.length === 0 && currentProps.schema.createIfNoneMatch) {
-				suggestions.push({ label: `${filterText} (new)`, value: filterText });
+			if (filterText) {
+				const escapedValue = escapeRegexCharacters(filterText.trim());
+				const regex = new RegExp(escapedValue, 'i');
+				suggestions = suggestions.filter(item => regex.test(item.label));
+				if (suggestions.length === 0 && currentProps.schema.createIfNoneMatch) {
+					suggestions.push({ label: `${filterText} (new)`, value: filterText });
+				}
 			}
-		}
 
-		this.setState({
-			items: this.getDropdownItems(suggestions),
-			suggestions,
-			focusedItemIndex: suggestions.length ? 0 : undefined,
-			focusedSectionIndex: this.withCategory && suggestions.length ? 0 : undefined,
-			filterText,
+			return {
+				items: this.getDropdownItems(suggestions),
+				suggestions,
+				focusedItemIndex: suggestions.length ? 0 : undefined,
+				focusedSectionIndex: this.withCategory && suggestions.length ? 0 : undefined,
+				filterText,
+			};
 		});
 	}
 
