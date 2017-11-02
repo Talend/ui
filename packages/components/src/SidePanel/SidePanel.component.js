@@ -67,8 +67,8 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 					if (isSelected) {
 						a11y['aria-current'] = true;
 					}
-					delete action.active;
 					const actionProps = Object.assign({}, action, {
+						active: undefined, // active scope is only the list item
 						id:
 							id &&
 							`${id}-nav-${action.label
@@ -78,7 +78,7 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 						bsStyle: 'link',
 						role: 'link',
 						className: classNames(theme.link, action.className),
-						onClick: (event) => {
+						onClick: event => {
 							if (onSelect) {
 								onSelect(event, action);
 							}
