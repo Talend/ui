@@ -148,16 +148,10 @@ class List extends React.Component {
 			const actions = this.props.actions;
 			if (actions) {
 				if (actions.left) {
-					props.toolbar.actionBar.actions.left = getActionsProps(
-						this.context,
-						actions.left,
-					);
+					props.toolbar.actionBar.actions.left = actions.left;
 				}
 				if (actions.right) {
-					props.toolbar.actionBar.actions.right = getActionsProps(
-						this.context,
-						actions.right,
-					);
+					props.toolbar.actionBar.actions.right = actions.right;
 				}
 			}
 

@@ -32,8 +32,17 @@ function mapStateToProps(state, ownProps) {
 	return props;
 }
 
+function mergeProps(stateProps, dispatchProps, ownProps) {
+	const props = Object.assign({ stateProps, dispatchProps, ownProps });
+	if (props.actionIds) {
+		delete props.actionIds;
+	}
+	return props;
+}
+
 export default withRouter(cmfConnect({
 	defaultState: DEFAULT_STATE,
 	keepComponentState: true,
 	mapStateToProps,
+	mergeProps,
 })(Container));
