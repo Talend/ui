@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import ListToVirtualizedList from './ListToVirtualizedList.component';
 import CellActions from '../../VirtualizedList/CellActions';
+import CellBadge from '../../VirtualizedList/CellBadge';
 
 const props = {
 	id: 'mylistid',
@@ -98,7 +99,7 @@ describe('ListToVirtualizedList', () => {
 		wrapper.find(VirtualizedList.Content).forEach(element => {
 			const eProps = element.props();
 			if (eProps.label === 'Tag') {
-				expect(eProps.cellRenderer).toBeDefined();
+				expect(eProps.cellRenderer).toBe(CellBadge.cellRenderer);
 			}
 		});
 	});
