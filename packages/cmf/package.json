@@ -36,7 +36,7 @@
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
-    "babel-loader": "6.4.1",
+    "babel-loader": "7.1.2",
     "babel-plugin-transform-class-properties": "6.23.0",
     "babel-plugin-transform-object-rest-spread": "6.20.2",
     "babel-preset-env": "1.6.0",
@@ -108,8 +108,7 @@
     ],
     "roots": [
       "src",
-      "__tests__",
-      "__mocks__"
+      "__tests__"
     ],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
@@ -121,5 +120,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.120.0"
+  "version": "0.121.0"
 }

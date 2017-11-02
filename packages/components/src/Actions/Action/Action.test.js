@@ -1,142 +1,63 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import Action from './Action.component';
+import Action, { getActionComponent } from './Action.component';
+import ActionButton from '../ActionButton';
+import ActionDropdown from '../ActionDropdown';
+import ActionSplitDropdown from '../ActionSplitDropdown';
 
-jest.mock('react-dom');
-
-const myAction = {
-	label: 'Click me',
-	icon: 'talend-caret-down',
-	onClick: jest.fn(),
+const MyActionButton = jest.fn();
+MyActionButton.displayName = 'MyActionButton';
+const MyActionSplitDropdown = jest.fn();
+MyActionSplitDropdown.displayName = 'MyActionSplitDropdown';
+const MyActionDropdown = jest.fn();
+MyActionDropdown.displayName = 'MyActionDropdown';
+const renderers = {
+	ActionButton: MyActionButton,
+	ActionSplitDropdown: MyActionSplitDropdown,
+	ActionDropdown: MyActionDropdown,
 };
 
-const mouseDownAction = {
-	label: 'Click me',
-	icon: 'talend-caret-down',
-	onMouseDown: jest.fn(),
-};
+describe('getActionComponent', () => {
+	it('should return ActionButton without displayMode', () => {
+		const component = getActionComponent({});
+		expect(component).toBe(ActionButton);
+	});
+	it('should return ActionSplitDropdown if displayMode = splitDropdown', () => {
+		const component = getActionComponent({ displayMode: 'splitDropdown' });
+		expect(component).toBe(ActionSplitDropdown);
+	});
+	it('should return ActionDropdown if displayMode = dropdown', () => {
+		const component = getActionComponent({ displayMode: 'dropdown' });
+		expect(component).toBe(ActionDropdown);
+	});
+	it('should return MyActionButton without displayMode', () => {
+		const component = getActionComponent({ renderers });
+		expect(component.displayName).toBe('MyActionButton');
+	});
+	it('should return MyActionSplitDropdown if displayMode = splitDropdown', () => {
+		const component = getActionComponent({ renderers, displayMode: 'splitDropdown' });
+		expect(component.displayName).toBe('MyActionSplitDropdown');
+	});
+	it('should return MyActionDropdown if displayMode = dropdown', () => {
+		const component = getActionComponent({ renderers, displayMode: 'dropdown' });
+		expect(component.displayName).toBe('MyActionDropdown');
+	});
+});
 
 describe('Action', () => {
-	it('should render a button', () => {
-		// when
-		const wrapper = renderer.create(<Action {...myAction} />).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
+	it('should render ActionButton', () => {
+		const wrapper = shallow(<Action label="hello world" />);
+		expect(wrapper.getNode().type).toBe(ActionButton);
+		expect(wrapper.getNode().props.label).toBe('hello world');
 	});
-
-	it('should click on the button trigger the onclick props', () => {
-		// given
-		const wrapper = renderer.create(<Action extra="extra" {...myAction} />).toJSON();
-
-		// when
-		wrapper.props.onClick();
-
-		// then
-		expect(myAction.onClick).toHaveBeenCalled();
-		expect(myAction.onClick.mock.calls.length).toBe(1);
-		const args = myAction.onClick.mock.calls[0];
-		expect(args.length).toBe(2);
-		expect(args[0]).toBe();
-		expect(args[1].action.extra).toBe('extra');
+	it('should render ActionSplitDropdown', () => {
+		const wrapper = shallow(<Action label="hello world" displayMode="splitDropdown" />);
+		expect(wrapper.getNode().type).toBe(ActionSplitDropdown);
+		expect(wrapper.getNode().props.label).toBe('hello world');
 	});
-
-	it('should pass all props to the Button', () => {
-		// when
-		const wrapper = renderer.create(
-			<Action
-				className="navbar-btn"
-				notExisting
-				{...myAction}
-			/>).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should display a Progress indicator if set', () => {
-		// when
-		const wrapper = renderer.create(
-			<Action
-				className="navbar-btn"
-				inProgress
-				{...myAction}
-			/>).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should display a disabled Icon', () => {
-		// when
-		const wrapper = renderer.create(
-			<Action
-				className="navbar-btn"
-				disabled
-				{...myAction}
-			/>).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should reverse icon/label', () => {
-		// when
-		const wrapper = renderer.create(
-			<Action
-				iconPosition="right"
-				{...myAction}
-			/>).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should apply transformation on icon', () => {
-		// when
-		const wrapper = renderer.create(
-			<Action
-				iconTransform={'rotate-180'}
-				{...myAction}
-			/>).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render action with html property name = props.name if set', () => {
-		// when
-		const wrapper = renderer.create(
-			<Action
-				name="custom_name"
-				{...myAction}
-			/>).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should trigger action if set up onMouseDown event', () => {
-		// given
-		const wrapper = renderer.create(<Action extra="extra" {...mouseDownAction} />).toJSON();
-
-		// when
-		wrapper.props.onMouseDown();
-
-		// then
-		expect(mouseDownAction.onMouseDown).toHaveBeenCalled();
-		expect(mouseDownAction.onMouseDown.mock.calls.length).toBe(1);
-		const args = mouseDownAction.onMouseDown.mock.calls[0];
-		expect(args.length).toBe(2);
-		expect(args[0]).toBe();
-		expect(args[1].action.extra).toBe('extra');
-	});
-
-	it('should not render action if props.available=false', () => {
-		const wrapper = shallow(
-			<Action available={false} />
-		);
-		expect(wrapper.type()).toBe(null);
+	it('should render ActionDropdown', () => {
+		const wrapper = shallow(<Action label="hello world" displayMode="dropdown" />);
+		expect(wrapper.getNode().type).toBe(ActionDropdown);
+		expect(wrapper.getNode().props.label).toBe('hello world');
 	});
 });

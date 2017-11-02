@@ -31,15 +31,8 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 	const titleId = id && `${id}-${rowIndex}-title-cell`;
 
 	return (
-		<div
-			id={titleId}
-			className={classNames('tc-list-title', theme['tc-list-title'])}
-		>
-			{
-				iconKey &&
-				rowData[iconKey] &&
-				(<Icon name={rowData[iconKey]} className={theme.icon} />)
-			}
+		<div id={titleId} className={classNames('tc-list-title', theme['tc-list-title'])}>
+			{iconKey && rowData[iconKey] && <Icon name={rowData[iconKey]} className={theme.icon} />}
 
 			<CellTitleSelector
 				id={titleId}
@@ -52,18 +45,9 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 				rowData={rowData}
 			/>
 
-			{
-				actionsKey &&
+			{actionsKey &&
 				rowData[actionsKey] &&
-				displayMode === TITLE_MODE_TEXT &&
-				(
-					<Actions
-						actions={rowData[actionsKey]}
-						hideLabel
-						link
-					/>
-				)
-			}
+				displayMode === TITLE_MODE_TEXT && <Actions actions={rowData[actionsKey]} hideLabel link />}
 		</div>
 	);
 }
