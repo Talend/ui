@@ -108,8 +108,7 @@
     ],
     "roots": [
       "src",
-      "__tests__",
-      "__mocks__"
+      "__tests__"
     ],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
