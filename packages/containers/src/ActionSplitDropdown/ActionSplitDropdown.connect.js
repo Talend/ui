@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { api, cmfConnect } from '@talend/react-cmf';
 import { ActionSplitDropdown } from '@talend/react-components';
 
@@ -18,15 +20,19 @@ export function mapStateToProps(state, { actionId, actionIds } = {}) {
 	return props;
 }
 
-
 export function mergeProps(stateProps, dispatchProps, ownProps) {
 	const props = Object.assign({}, stateProps, dispatchProps, ownProps);
+	return props;
+}
+
+export function ContainerActionSplitDropdown(props) {
+	const newProps = Object.assign({}, props);
 	if (props.actionId) {
-		props.onClick = (event, data) => {
+		newProps.onClick = (event, data) => {
 			if (props.actionCreator) {
-				dispatchProps.dispatchActionCreator(props.actionCreator, event, data);
+				props.dispatchActionCreator(props.actionCreator, event, data);
 			} else {
-				dispatchProps.dispatch(
+				props.dispatch(
 					Object.assign(
 						{
 							model: props.model,
@@ -36,31 +42,44 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 				);
 			}
 		};
-		delete props.actionId;
+		delete newProps.actionId;
 	}
 	if (props.actionIds) {
-		props.items = props.items.map(item => Object.assign({
-			onClick: (event, data) => {
-				if (item.actionCreator) {
-					props.dispatchActionCreator(item.actionCreator, event, data);
-				} else {
-					props.dispatch(
-						Object.assign(
-							{
-								model: props.model,
-							},
-							item.payload,
-						),
-					);
-				}
-			},
-		}, item));
+		newProps.items = props.items.map(item =>
+			Object.assign(
+				{
+					onClick: (event, data) => {
+						if (item.actionCreator) {
+							props.dispatchActionCreator(item.actionCreator, event, data);
+						} else {
+							props.dispatch(
+								Object.assign(
+									{
+										model: props.model,
+									},
+									item.payload,
+								),
+							);
+						}
+					},
+				},
+				item,
+			),
+		);
 	}
-	delete props.actionIds;
-	return props;
+	delete newProps.actionIds;
+	return <ActionSplitDropdown {...newProps} />;
 }
+
+ContainerActionSplitDropdown.displayName = 'ContainerActionSplitDropdown';
+
+ContainerActionSplitDropdown.propTypes = {
+	actionId: PropTypes.string,
+	actionIds: PropTypes.arrayOf(PropTypes.string),
+	items: PropTypes.arrayOf(PropTypes.object),
+};
 
 export default cmfConnect({
 	mapStateToProps,
 	mergeProps,
-})(ActionSplitDropdown);
+})(ContainerActionSplitDropdown);

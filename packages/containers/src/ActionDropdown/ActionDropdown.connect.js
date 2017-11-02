@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { api, cmfConnect } from '@talend/react-cmf';
 import { ActionDropdown } from '@talend/react-components';
 
@@ -23,8 +25,13 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 	if (ownProps.actionId) {
 		delete props.actionId;
 	}
-	if (ownProps.actionIds) {
-		props.items = props.items.map(item => Object.assign({
+	return props;
+}
+
+export function ContainerActionDropdown(props) {
+	const newProps = Object.assign({}, props);
+	if (props.actionIds) {
+		newProps.items = props.items.map(item => Object.assign({
 			onClick: (event, data) => {
 				if (item.actionCreator) {
 					props.dispatchActionCreator(item.actionCreator, event, data);
@@ -41,10 +48,17 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 			},
 		}, item));
 	}
-	return props;
+	return <ActionDropdown {...newProps} />;
 }
+
+ContainerActionDropdown.displayName = 'ContainerActionDropdown';
+
+ContainerActionDropdown.propTypes = {
+	actionIds: PropTypes.arrayOf(PropTypes.string),
+	items: PropTypes.arrayOf(PropTypes.object),
+};
 
 export default cmfConnect({
 	mapStateToProps,
 	mergeProps,
-})(ActionDropdown);
+})(ContainerActionDropdown);

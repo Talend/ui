@@ -3,12 +3,12 @@ import { shallow } from 'enzyme';
 import { ActionButton } from '@talend/react-components';
 import mock from '@talend/react-cmf/lib/mock';
 
-import Connected, { mapStateToProps } from './ActionButton.connect';
+import Connected, { mapStateToProps, ContainerActionButton } from './ActionButton.connect';
 
 describe('Connected ActionButton', () => {
 	it('should connect ActionButton', () => {
-		expect(Connected.displayName).toBe(`Connect(CMF(${ActionButton.displayName}))`);
-		expect(Connected.WrappedComponent).toBe(ActionButton);
+		expect(Connected.displayName).toBe(`Connect(CMF(${ContainerActionButton.displayName}))`);
+		expect(Connected.WrappedComponent).toBe(ContainerActionButton);
 	});
 	it('should map state to props', () => {
 		const state = {};
@@ -22,5 +22,5 @@ describe('Connected ActionButton', () => {
 			{ context }
 		);
 		expect(wrapper.getNode()).toMatchSnapshot();
-	})
+	});
 });
