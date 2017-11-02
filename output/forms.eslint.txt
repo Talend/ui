@@ -1,16 +1,16 @@
 
-> @talend/react-forms@0.121.0 lint:es /Users/Jimmy/Documents/dev/workspace/travail/ui/packages/forms
+> @talend/react-forms@0.117.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/Users/Jimmy/Documents/dev/workspace/travail/ui/packages/forms/src/fields/CollapsibleFieldset.js
+/home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   86:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-/Users/Jimmy/Documents/dev/workspace/travail/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
   8:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-/Users/Jimmy/Documents/dev/workspace/travail/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
 ✖ 3 problems (3 errors, 0 warnings)
