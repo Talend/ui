@@ -7,15 +7,28 @@ export function mapStateToProps(state, ownProps) {
 	if (!ownProps.actionId && !ownProps.name) {
 		return {};
 	}
-	return api.action.getActionInfo(
-		{
-			registry: api.registry.getRegistry(),
-			store: {
-				getState: () => state,
+	if (ownProps.actionId) {
+		api.action.getActionInfo(
+			{
+				registry: api.registry.getRegistry(),
+				store: {
+					getState: () => state,
+				},
 			},
-		},
-		ownProps.actionId || ownProps.name,
-	);
+			ownProps.actionId,
+		);
+	} else if (ownProps.name) {
+		api.action.getActionInfo(
+			{
+				registry: api.registry.getRegistry(),
+				store: {
+					getState: () => state,
+				},
+			},
+			ownProps.name,
+		);
+	}
+	return {};
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
@@ -41,6 +54,8 @@ export function ContainerActionButton(props) {
 				);
 			}
 		};
+	} else {
+		debugger;
 	}
 	return <ActionButton {...newProps} />;
 }

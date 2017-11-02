@@ -76,6 +76,10 @@ function SidePanel({
 					if (isSelected) {
 						a11y['aria-current'] = true;
 					}
+					const extra = {};
+					if (onSelect) {
+						extra.onClick = event => onSelect(event, action);
+					}
 					return (
 						<li
 							title={action.label}
@@ -97,14 +101,7 @@ function SidePanel({
 								bsStyle="link"
 								role="link"
 								className={theme.link}
-								onClick={(event) => {
-									if (onSelect) {
-										onSelect(event, action);
-									}
-									if (action.onClick) {
-										action.onClick(event);
-									}
-								}}
+								{...extra}
 							/>
 						</li>
 					);
