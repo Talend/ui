@@ -25,6 +25,8 @@ export default function ExampleAction() {
 			<IconsProvider />
 			<p>Using actionId</p>
 			<Action actionId="menu:first" />
+			<Action actionId="menu:items" />
+			<Action actionId="menu:items-id" />
 			<p>Using pure action props</p>
 			<Action {...myAction} />
 			<p>Using availableExpression (4 Actions 2 hidden)</p>

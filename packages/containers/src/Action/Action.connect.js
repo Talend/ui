@@ -1,5 +1,6 @@
 import { api, cmfConnect } from '@talend/react-cmf';
 import { Action } from '@talend/react-components';
+import getRenderers from '../renderers';
 
 const OLD_EXPRESSION = ['active', 'available', 'disabled', 'inProgress'];
 
@@ -24,6 +25,7 @@ export function mapStateToProps(state, ownProps) {
 		},
 	}, ownProps.actionId || ownProps.name);
 	props = updateExpression(props);
+	props.renderers = getRenderers();
 	return props;
 }
 
