@@ -39,7 +39,11 @@ const deps = [
 	},
 	{
 		src: 'cmf/lib',
-		dest: 'cmf-cqrs/node_modules/react-cmf/lib',
+		dest: 'cmf-cqrs/node_modules/@talend/react-cmf/lib',
+	},
+	{
+		src: 'cmf/lib',
+		dest: 'storybook-cmf/node_modules/@talend/react-cmf/lib',
 	},
 	{
 		src: 'forms/lib',

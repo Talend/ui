@@ -42,6 +42,7 @@ const STACK_VERSION = {
 	'@talend/react-forms': stack_version,
 	'@talend/icons': stack_version,
 	'@talend/log': stack_version,
+	'react-storybook-cmf': stack_version,
 };
 
 const ADDONS = {
@@ -160,6 +161,7 @@ const files = [
 	'./packages/icons/package.json',
 	'./packages/logging/package.json',
 	'./packages/theme/package.json',
+	'./packages/storybook-cmf/package.json',
 ];
 
 const templates = [
