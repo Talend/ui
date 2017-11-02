@@ -78,7 +78,7 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 						bsStyle: 'link',
 						role: 'link',
 						className: classNames(theme.link, action.className),
-						onClick: event => {
+						onClick: (event) => {
 							if (onSelect) {
 								onSelect(event, action);
 							}
