@@ -2,21 +2,102 @@
 > @talend/react-forms@0.121.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config ../../.eslintrc src
 
-/home/travis/build/Talend/ui/.eslintrc:
-	Configuration for rule "arrow-parens" is invalid:
-	Severity should be one of the following: 0 = off, 1 = warn, 2 = error (you passed '"as-needed"').
+The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-Error: /home/travis/build/Talend/ui/.eslintrc:
-	Configuration for rule "arrow-parens" is invalid:
-	Severity should be one of the following: 0 = off, 1 = warn, 2 = error (you passed '"as-needed"').
+/home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
+  209:10  error  Unexpected parentheses around single function argument  arrow-parens
+  221:10  error  Unexpected parentheses around single function argument  arrow-parens
+  239:10  error  Unexpected parentheses around single function argument  arrow-parens
+  286:28  error  Unexpected parentheses around single function argument  arrow-parens
 
-    at validateRuleOptions (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/config/config-validator.js:109:15)
-    at Object.keys.forEach.id (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/config/config-validator.js:156:13)
-    at Array.forEach (native)
-    at Object.validate (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/config/config-validator.js:155:35)
-    at Object.load (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/config/config-file.js:559:19)
-    at loadConfig (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/config.js:63:33)
-    at new Config (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/config.js:231:42)
-    at CLIEngine.executeOnFiles (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/cli-engine.js:590:28)
-    at Object.execute (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/lib/cli.js:171:107)
-    at Object.<anonymous> (/home/travis/build/Talend/ui/packages/forms/node_modules/eslint/bin/eslint.js:74:28)
+/home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
+  86:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
+/home/travis/build/Talend/ui/packages/forms/src/fields/ObjectField.js
+  66:28  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/fields/StringField.js
+  34:26  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/Form.js
+  162:10  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/Form.test.js
+  202:31  error  Unexpected parentheses around single function argument  arrow-parens
+  219:75  error  Unexpected parentheses around single function argument  arrow-parens
+  236:82  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/templates/LabelTemplate.js
+  6:15  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
+  8:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/MultiSelectTag/MultiSelectTag.component.js
+  154:17  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
+  23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.test.js
+  142:46  error  Unexpected parentheses around single function argument  arrow-parens
+  178:47  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/properties.js
+  29:12  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/propTypes.js
+  44:12  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/validation.js
+   87:35  error  Unexpected parentheses around single function argument  arrow-parens
+  171:23  error  Unexpected parentheses around single function argument  arrow-parens
+  256:11  error  Unexpected parentheses around single function argument  arrow-parens
+  264:8   error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
+  408:9  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.test.js
+  33:40  error  Unexpected parentheses around single function argument  arrow-parens
+  56:40  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
+  224:17  error  Unexpected parentheses around single function argument  arrow-parens
+  243:17  error  Unexpected parentheses around single function argument  arrow-parens
+  271:18  error  Unexpected parentheses around single function argument  arrow-parens
+  287:17  error  Unexpected parentheses around single function argument  arrow-parens
+  301:17  error  Unexpected parentheses around single function argument  arrow-parens
+  314:17  error  Unexpected parentheses around single function argument  arrow-parens
+  345:18  error  Unexpected parentheses around single function argument  arrow-parens
+  454:17  error  Unexpected parentheses around single function argument  arrow-parens
+  488:28  error  Unexpected parentheses around single function argument  arrow-parens
+  502:18  error  Unexpected parentheses around single function argument  arrow-parens
+  538:18  error  Unexpected parentheses around single function argument  arrow-parens
+  711:28  error  Unexpected parentheses around single function argument  arrow-parens
+  746:17  error  Unexpected parentheses around single function argument  arrow-parens
+  767:10  error  Unexpected parentheses around single function argument  arrow-parens
+  770:15  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.handlers.js
+  49:29  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.test.js
+   42:21  error  Unexpected parentheses around single function argument  arrow-parens
+  107:41  error  Unexpected parentheses around single function argument  arrow-parens
+  165:39  error  Unexpected parentheses around single function argument  arrow-parens
+  188:60  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
+  172:24  error  Unexpected parentheses around single function argument  arrow-parens
+  177:34  error  Unexpected parentheses around single function argument  arrow-parens
+  188:17  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/TabsWidget.js
+  29:29  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/ToggleWidget.js
+  12:22  error  Unexpected parentheses around single function argument  arrow-parens
+
+✖ 51 problems (51 errors, 0 warnings)
+
