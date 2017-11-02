@@ -1,5 +1,7 @@
-&.action-file-label {
-	display: none;
+input[type='file'] {
+	&.action-file-label {
+		display: none;
+	}
 }
 
 .btn-file {
