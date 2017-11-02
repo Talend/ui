@@ -2,12 +2,19 @@ import { api, cmfConnect } from '@talend/react-cmf';
 import { Action } from '@talend/react-components';
 import getRenderers from '../renderers';
 
-const OLD_EXPRESSION = ['active', 'available', 'disabled', 'inProgress'];
+const DEPRECATED_EXPRESSION = ['active', 'available', 'disabled', 'inProgress'];
+
+const warned = {};
 
 function updateExpression(props) {
 	const newProps = Object.assign({}, props);
-	OLD_EXPRESSION.forEach((key) => {
+	DEPRECATED_EXPRESSION.forEach((key) => {
 		if (typeof props[key] === 'string' || typeof props[key] === 'object') {
+			if (!warned[key]) {
+				warned[key] = true;
+				console.warn(`Warning: please use ${key}Expression props instead
+				to compute ${props.actionId} expression`);
+			}
 			newProps[`${key}Expression`] = props[key];
 		}
 	});
@@ -31,7 +38,7 @@ export function mapStateToProps(state, ownProps) {
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
 	const props = Object.assign({}, stateProps, dispatchProps, ownProps);
-	OLD_EXPRESSION.forEach((key) => {
+	DEPRECATED_EXPRESSION.forEach((key) => {
 		if (typeof props[key] === 'string' || typeof props[key] === 'object') {
 			delete props[key];
 		}
