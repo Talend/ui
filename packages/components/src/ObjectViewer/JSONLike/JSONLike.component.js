@@ -226,7 +226,7 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 				name={iconName}
 				transform={iconTransform}
 				className={theme['wider-icon-selection']}
-				onClick={e => {
+				onClick={(e) => {
 					e.stopPropagation();
 					props.onToggle(e, { data, isOpened, jsonpath });
 				}}
@@ -249,7 +249,11 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 							({info.type})
 						</button>
 					) : null}
-					<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
+					<TooltipTrigger
+						className="offset"
+						label={getDataAbstract(data)}
+						tooltipPlacement="right"
+					>
 						<sup className="badge">{decoratedLength}</sup>
 					</TooltipTrigger>
 					{isOpened ? (
@@ -307,14 +311,24 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 	if (props.tupleLabel) {
 		COMPLEX_TYPES.push(props.tupleLabel);
 	}
-
-	if (data === undefined) {
-		return null;
-	}
-	const info = getDataInfo(data, props.tupleLabel);
-	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
 	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
 	const isOpened = opened.indexOf(jsonpath) !== -1;
+
+	if (data === undefined || data === null) {
+		return (
+			<LineItem
+				name={name}
+				onMouseOver={props.onMouseOver}
+				mouseOverData={{ data, isOpened, isEdited }}
+				onSelect={props.onSelect}
+				jsonpath={jsonpath}
+				selectedJsonpath={props.selectedJsonpath}
+			/>
+		);
+	}
+
+	const info = getDataInfo(data, props.tupleLabel);
+	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
 
 	if (isNativeType) {
 		return (
@@ -335,7 +349,9 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					onChange={props.onChange}
 				/>
 				{props.showType && (
-					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>({info.type})</div>
+					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>
+						({info.type})
+					</div>
 				)}
 			</LineItem>
 		);
@@ -409,7 +425,7 @@ export function JSONLike({ onSubmit, ...props }) {
 		return (
 			<form
 				className={`tc-object-viewer ${theme.container} `}
-				onSubmit={event => {
+				onSubmit={(event) => {
 					onSubmit(event);
 					event.preventDefault();
 				}}

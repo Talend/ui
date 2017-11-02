@@ -13,6 +13,10 @@ import cmfReducers from './reducers';
 import httpMiddleware from './middlewares/http';
 import cmfMiddleware from './middlewares/cmf';
 
+/**
+ * @typedef {Object} Store
+ */
+
 const preReducers = [];
 const enhancers = [];
 const middlewares = [thunk, httpMiddleware, cmfMiddleware];

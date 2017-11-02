@@ -1,4 +1,3 @@
-
 /**
  * take an object and create a new FLAT object
  * { foo: { bar: 'baz' } } -> { "$['foo']['bar']": 'baz' }
@@ -12,12 +11,12 @@ export default function toFlat(data, buffer = {}, path = '$') {
 		data.forEach((value, index) => {
 			toFlat(value, buffer, `${path}[${index}]`);
 		});
-	} else if (typeof data === 'object') {
+	} else if (!!data && typeof data === 'object') {
 		Object.keys(data).forEach((key) => {
 			toFlat(data[key], buffer, `${path}['${key}']`);
 		});
 	} else {
-		buffer[path] = data;  // eslint-disable-line no-param-reassign
+		buffer[path] = data; // eslint-disable-line no-param-reassign
 	}
 	return buffer;
 }
