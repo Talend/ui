@@ -17,14 +17,11 @@ const renderers = {
 
 export default function getRenderers() {
 	Object.keys(renderers).forEach((key) => {
-		try {
+		if (api.component.has(key)) {
 			const component = api.component.get(key);
 			if (component && renderers[key] && renderers[key] !== component) {
 				renderers[key] = component;
 			}
-		} catch (error) {
-			/* empty catch because this just means this component
-			has not been registred */
 		}
 	});
 	return renderers;
