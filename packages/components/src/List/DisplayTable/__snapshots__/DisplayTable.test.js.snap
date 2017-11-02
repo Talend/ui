@@ -83,18 +83,13 @@ exports[`ColumnHeader should render with sort 1`] = `
 <th>
   <Action
     aria-label="Sort on Test field"
-    available={true}
-    bsStyle="default"
     className={undefined}
-    disabled={false}
     icon="talend-caret-down"
     iconPosition="right"
     iconTransform={null}
-    inProgress={false}
     label="Test"
     link={true}
     onClick={[Function]}
-    tooltipPlacement="top"
   />
   <div
     aria-hidden="true"
