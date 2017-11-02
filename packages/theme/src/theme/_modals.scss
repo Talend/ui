@@ -76,10 +76,13 @@ $modal-width: 65rem !default;
 		overflow: auto;
 		border-top: 1px solid $gallery;
 		background-color: $wild-sand;
-		box-shadow: inset 0 -0.4rem 0.7rem 0 rgba(0, 0, 0, 0.3);
+		z-index: 1;
 	}
 
 	&-footer {
+		z-index: 2;
+		box-shadow: 0.2rem -0.2rem 0.7rem 0.1rem rgba(0, 0, 0, 0.3);
+		position: inherit;
 		display: flex;
 		box-sizing: border-box;
 		height: $modal-footer-height;
