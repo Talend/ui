@@ -2,6 +2,13 @@ import { cmfConnect } from '@talend/react-cmf';
 import { ActionBar } from '@talend/react-components';
 import getRenderers from '../renderers';
 
+function getAction(actionId) {
+	if (typeof actionId === 'string') {
+		return { actionId };
+	}
+	return actionId;
+}
+
 export function mapStateToProps(state, { actionIds }) {
 	const props = {
 		renderers: getRenderers(),
@@ -10,15 +17,10 @@ export function mapStateToProps(state, { actionIds }) {
 		props.actions = {};
 		const { left, right } = actionIds;
 		if (left) {
-			props.actions.left = left.map((actionId) => {
-				if (typeof actionId === 'string') {
-					return { actionId };
-				}
-				return actionId;
-			});
+			props.actions.left = left.map(getAction);
 		}
 		if (right) {
-			props.actions.right = right.map(actionId => ({ actionId }));
+			props.actions.right = right.map(getAction);
 		}
 	}
 	return props;
