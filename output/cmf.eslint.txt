@@ -1,22 +1,66 @@
 
-> @talend/react-cmf@0.121.0 lint:es /home/travis/build/Talend/ui/packages/cmf
+> @talend/react-cmf@0.122.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config ../../.eslintrc --ext .js src
 
-/home/travis/build/Talend/ui/.eslintrc:
-	Configuration for rule "arrow-parens" is invalid:
-	Severity should be one of the following: 0 = off, 1 = warn, 2 = error (you passed '"as-needed"').
+The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-Error: /home/travis/build/Talend/ui/.eslintrc:
-	Configuration for rule "arrow-parens" is invalid:
-	Severity should be one of the following: 0 = off, 1 = warn, 2 = error (you passed '"as-needed"').
+/home/travis/build/Talend/ui/packages/cmf/src/action.js
+  115:28  error  Unexpected parentheses around single function argument  arrow-parens
 
-    at validateRuleOptions (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-validator.js:109:15)
-    at Object.keys.forEach.id (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-validator.js:156:13)
-    at Array.forEach (native)
-    at Object.validate (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-validator.js:155:35)
-    at Object.load (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config/config-file.js:559:19)
-    at loadConfig (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config.js:63:33)
-    at new Config (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/config.js:231:42)
-    at CLIEngine.executeOnFiles (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/cli-engine.js:590:28)
-    at Object.execute (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/lib/cli.js:171:107)
-    at Object.<anonymous> (/home/travis/build/Talend/ui/packages/cmf/node_modules/eslint/bin/eslint.js:74:28)
+/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
+  261:23  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/cmf/src/component.js
+  43:42  error  Unexpected parentheses around single function argument  arrow-parens
+  48:46  error  Unexpected parentheses around single function argument  arrow-parens
+  55:34  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/cmf/src/componentState.js
+  86:3  warning  Unexpected console statement  no-console
+
+/home/travis/build/Talend/ui/packages/cmf/src/Dispatcher.js
+   20:39  error  Unexpected parentheses around single function argument  arrow-parens
+   98:4   error  Unexpected parentheses around single function argument  arrow-parens
+  100:21  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/cmf/src/expression.js
+  88:3  warning  Unexpected console statement  no-console
+
+/home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
+  23:2  warning  Unexpected console statement  no-console
+
+/home/travis/build/Talend/ui/packages/cmf/src/middlewares/cmf/index.js
+  3:40  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/cmf/src/middlewares/error/index.js
+  13:26  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/cmf/src/middlewares/http/middleware.js
+  122:57  error  Unexpected parentheses around single function argument  arrow-parens
+  135:22  error  Unexpected parentheses around single function argument  arrow-parens
+  152:45  error  Unexpected parentheses around single function argument  arrow-parens
+  169:9   error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/cmf/src/reducers/settingsReducers.js
+  40:3   error  Unexpected parentheses around single function argument  arrow-parens
+  55:39  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/cmf/src/reduxstorage/redux-storage-decorator-immutablejs.js
+  8:29  error  Unexpected parentheses around single function argument  arrow-parens
+  9:22  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/cmf/src/route.js
+  64:2  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
+  153:54  error  There should be no spaces inside this paren  space-in-parens
+  166:51  error  There should be no spaces inside this paren  space-in-parens
+
+/home/travis/build/Talend/ui/packages/cmf/src/sagas/documentTitle.js
+  32:23  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/cmf/src/store.js
+  106:22  error  Unexpected parentheses around single function argument  arrow-parens
+
+✖ 26 problems (23 errors, 3 warnings)
+

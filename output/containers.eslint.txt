@@ -1,22 +1,24 @@
 
-> @talend/react-containers@0.121.0 lint:es /home/travis/build/Talend/ui/packages/containers
+> @talend/react-containers@0.122.0 lint:es /home/travis/build/Talend/ui/packages/containers
 > eslint --config ../../.eslintrc src
 
-/home/travis/build/Talend/ui/.eslintrc:
-	Configuration for rule "arrow-parens" is invalid:
-	Severity should be one of the following: 0 = off, 1 = warn, 2 = error (you passed '"as-needed"').
+The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-Error: /home/travis/build/Talend/ui/.eslintrc:
-	Configuration for rule "arrow-parens" is invalid:
-	Severity should be one of the following: 0 = off, 1 = warn, 2 = error (you passed '"as-needed"').
+/home/travis/build/Talend/ui/packages/containers/src/ActionBar/ActionBar.container.js
+  58:32  error  Unexpected parentheses around single function argument  arrow-parens
 
-    at validateRuleOptions (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/config/config-validator.js:109:15)
-    at Object.keys.forEach.id (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/config/config-validator.js:156:13)
-    at Array.forEach (native)
-    at Object.validate (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/config/config-validator.js:155:35)
-    at Object.load (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/config/config-file.js:559:19)
-    at loadConfig (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/config.js:63:33)
-    at new Config (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/config.js:231:42)
-    at CLIEngine.executeOnFiles (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/cli-engine.js:590:28)
-    at Object.execute (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/lib/cli.js:171:107)
-    at Object.<anonymous> (/home/travis/build/Talend/ui/packages/containers/node_modules/eslint/bin/eslint.js:74:28)
+/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
+  12:90  error  'notifications' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.test.js
+  12:18  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+
+/home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.container.js
+  15:23  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/containers/src/state.js
+   3:1   warning  Unexpected console statement                            no-console
+  11:31  error    Unexpected parentheses around single function argument  arrow-parens
+
+✖ 6 problems (5 errors, 1 warning)
+

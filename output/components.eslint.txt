@@ -1,22 +1,92 @@
 
-> @talend/react-components@0.121.0 lint:es /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.122.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config ../../.eslintrc src
 
-/home/travis/build/Talend/ui/.eslintrc:
-	Configuration for rule "arrow-parens" is invalid:
-	Severity should be one of the following: 0 = off, 1 = warn, 2 = error (you passed '"as-needed"').
+The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-Error: /home/travis/build/Talend/ui/.eslintrc:
-	Configuration for rule "arrow-parens" is invalid:
-	Severity should be one of the following: 0 = off, 1 = warn, 2 = error (you passed '"as-needed"').
+/home/travis/build/Talend/ui/packages/components/src/Actions/Actions.component.js
+  9:45  error  Unexpected parentheses around single function argument  arrow-parens
 
-    at validateRuleOptions (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/config/config-validator.js:109:15)
-    at Object.keys.forEach.id (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/config/config-validator.js:156:13)
-    at Array.forEach (native)
-    at Object.validate (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/config/config-validator.js:155:35)
-    at Object.load (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/config/config-file.js:559:19)
-    at loadConfig (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/config.js:63:33)
-    at new Config (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/config.js:231:42)
-    at CLIEngine.executeOnFiles (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/cli-engine.js:590:28)
-    at Object.execute (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/lib/cli.js:171:107)
-    at Object.<anonymous> (/home/travis/build/Talend/ui/packages/components/node_modules/eslint/bin/eslint.js:74:28)
+/home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/__snapshots__/config.js
+  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  4:2  error  Unexpected require()                                                                    global-require
+
+/home/travis/build/Talend/ui/packages/components/src/Enumeration/Header/HeaderInput.component.js
+  75:10  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/ItemEdit.component.js
+  138:11  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/utils.js
+  24:18  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
+  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  4:2  error  Unexpected require()                                                                    global-require
+
+/home/travis/build/Talend/ui/packages/components/src/List/Content/Item/Item.component.js
+   25:32  error  Unexpected parentheses around single function argument  arrow-parens
+   30:37  error  Unexpected parentheses around single function argument  arrow-parens
+   36:37  error  Unexpected parentheses around single function argument  arrow-parens
+   42:37  error  Unexpected parentheses around single function argument  arrow-parens
+  100:13  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/List/Content/ItemTitle/ItemTitle.component.js
+  42:18  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/List/DisplayLarge/DisplayLarge.component.js
+  14:8   error  Unexpected parentheses around single function argument  arrow-parens
+  29:8   error  Unexpected parentheses around single function argument  arrow-parens
+  56:16  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/List/DisplayTable/DisplayTable.component.js
+  64:17  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/List/ItemTitle/ItemTitle.component.js
+  99:9  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectAll/SelectAll.component.js
+  18:17  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Toolbar.component.js
+  20:15  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/ListView/Header/HeaderInput.component.js
+  56:10  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/Notification/Notification.component.js
+  137:3  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
+   48:3   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  229:14  error  Unexpected parentheses around single function argument                               arrow-parens
+  428:15  error  Unexpected parentheses around single function argument                               arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/toflat.js
+  15:29  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
+  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  4:2  error  Unexpected require()                                                                    global-require
+
+/home/travis/build/Talend/ui/packages/components/src/TabBar/TabBar.component.js
+  9:19  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.renderers.js
+  102:40  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/utils/getPropsFrom.js
+  15:49  error  Unexpected parentheses around single function argument  arrow-parens
+  25:23  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellCheckbox/CellCheckbox.component.js
+  18:17  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleInput.component.js
+  51:11  error  Unexpected parentheses around single function argument  arrow-parens
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
+  42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
+✖ 36 problems (36 errors, 0 warnings)
+
