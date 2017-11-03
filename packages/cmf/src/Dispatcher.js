@@ -17,7 +17,7 @@ import api from './api';
  * @throws invariant
  */
 export function checkIfActionInfoExist(props, context) {
-	api.action.getOnProps(props).forEach((name) => {
+	api.action.getOnProps(props).forEach(name => {
 		if (typeof props[name] === 'string') {
 			api.action.getActionCreatorFunction(context, props[name]);
 		}
@@ -93,18 +93,15 @@ export class Dispatcher extends React.Component {
 	 */
 	render() {
 		const onProps = api.action.getOnProps(this.props);
-		const childrenWithProps = React.Children.map(
-			this.props.children,
-			(child) => {
-				const props = {};
-				onProps.forEach((name) => {
-					props[name] = event => this.onEvent(event, name);
-				});
-				return React.cloneElement(child, props);
-			}
-		);
+		const childrenWithProps = React.Children.map(this.props.children, child => {
+			const props = {};
+			onProps.forEach(name => {
+				props[name] = event => this.onEvent(event, name);
+			});
+			return React.cloneElement(child, props);
+		});
 		const child = React.Children.only(childrenWithProps[0]);
-		return (child);
+		return child;
 	}
 }
 

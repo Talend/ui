@@ -24,11 +24,7 @@ export function attachRef(refs, obj) {
 	let props = Object.assign({}, obj);
 	if (props._ref) {
 		invariant(refs[props._ref], `CMF/Settings: Reference '${props._ref}' not found`);
-		props = Object.assign(
-			{},
-			refs[props._ref],
-			obj
-		);
+		props = Object.assign({}, refs[props._ref], obj);
 		delete props._ref;
 	}
 	return props;
@@ -36,11 +32,9 @@ export function attachRef(refs, obj) {
 
 export function attachRefs(refs, props) {
 	const attachedProps = attachRef(refs, props);
-	Object.keys(attachedProps).forEach(
-		(key) => {
-			attachedProps[key] = attachRef(refs, attachedProps[key]);
-		}
-	);
+	Object.keys(attachedProps).forEach(key => {
+		attachedProps[key] = attachRef(refs, attachedProps[key]);
+	});
 	return attachedProps;
 }
 
@@ -52,7 +46,7 @@ export function attachRefs(refs, props) {
 function prepareSettings(originalSettings) {
 	const settings = Object.assign({}, originalSettings);
 	if (settings.views) {
-		Object.keys(settings.views).forEach((id) => {
+		Object.keys(settings.views).forEach(id => {
 			settings.views[id] = attachRefs(originalSettings.ref, settings.views[id]);
 		});
 	}
@@ -72,15 +66,25 @@ function prepareSettings(originalSettings) {
 export function settingsReducers(state = defaultState, action) {
 	switch (action.type) {
 		case ACTIONS.REQUEST_OK:
-			return Object.assign({}, state, {
-				initialized: true,
-			}, prepareSettings(action.settings));
+			return Object.assign(
+				{},
+				state,
+				{
+					initialized: true,
+				},
+				prepareSettings(action.settings),
+			);
 		case ACTIONS.REQUEST_KO:
-			alert(`Settings can't be loaded ${get(action, 'error.message')}`);  // eslint-disable-line
-			console.error(action.error);  // eslint-disable-line
-			return Object.assign({}, state, {
-				initialized: true,
-			}, action.settings);
+			alert(`Settings can't be loaded ${get(action, 'error.message')}`); // eslint-disable-line
+			console.error(action.error); // eslint-disable-line
+			return Object.assign(
+				{},
+				state,
+				{
+					initialized: true,
+				},
+				action.settings,
+			);
 		default:
 			return state;
 	}
