@@ -9,10 +9,13 @@ function getActions(context, idOrInfo, model) {
 	if (typeof idOrInfo === 'string') {
 		return getActionsProps(context, idOrInfo, model);
 	} else if (idOrInfo.displayMode === 'splitDropdown') {
-		return Object.assign({
-			displayMode: idOrInfo.displayMode,
-			items: getActionsProps(context, idOrInfo.items, model),
-		}, getActionsProps(context, idOrInfo.name, model));
+		return Object.assign(
+			{
+				displayMode: idOrInfo.displayMode,
+				items: getActionsProps(context, idOrInfo.items, model),
+			},
+			getActionsProps(context, idOrInfo.name, model),
+		);
 	} else if (idOrInfo.displayMode === 'btnGroup') {
 		return {
 			displayMode: idOrInfo.displayMode,
@@ -55,7 +58,7 @@ const actionPropTypes = PropTypes.oneOfType([
 	}),
 ]);
 
-Object.keys(Component).forEach((key) => {
+Object.keys(Component).forEach(key => {
 	ActionBar[key] = Component[key];
 });
 ActionBar.displayName = 'CMFContainer(ActionBar)';

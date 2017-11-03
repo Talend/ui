@@ -12,7 +12,7 @@ export const DEFAULT_STATE = new Map({
 });
 
 export function getActions(actionIds, context) {
-	return actionIds.map((id) => {
+	return actionIds.map(id => {
 		const info = getActionsProps(context, id);
 		let route = get(info, 'payload.cmf.routerReplace');
 		if (!route) {
@@ -38,12 +38,7 @@ export function getActions(actionIds, context) {
 class SidePanel extends React.Component {
 	static displayName = 'Container(SidePanel)';
 	static propTypes = {
-		actionIds: PropTypes.arrayOf(
-			PropTypes.oneOfType([
-				PropTypes.string,
-				PropTypes.object,
-			]),
-		),
+		actionIds: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object])),
 		...componentState.propTypes,
 	};
 	static contextTypes = {
@@ -71,7 +66,7 @@ class SidePanel extends React.Component {
 			onToggleDock: this.onToggleDock,
 		});
 
-		return (<Component {...rest} {...props} />);
+		return <Component {...rest} {...props} />;
 	}
 }
 
