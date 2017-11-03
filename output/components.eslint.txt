@@ -1,5 +1,5 @@
 
-> @talend/react-components@0.121.0 lint:es /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.122.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -33,7 +33,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   40:27  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
   64:18  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
   81:16  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
