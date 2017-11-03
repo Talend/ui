@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
+
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import { DEFAULT_I18N } from '../translate';
 
 import Action from '../Actions/Action';
 
@@ -25,16 +29,7 @@ import theme from './SidePanel.scss';
  />
  *
  */
-function SidePanel({
-	id,
-	selected,
-	onSelect,
-	actions = [],
-	docked,
-	onToggleDock,
-	expandTitle = 'Expand',
-	collapseTitle = 'Collapse',
-}) {
+function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock, t }) {
 	const dockedCSS = { [theme.docked]: docked };
 	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
 	const listCSS = classNames(
@@ -49,10 +44,12 @@ function SidePanel({
 		return action.active;
 	};
 
-	const toggleButtonTitle = docked ? expandTitle : collapseTitle;
+	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand' });
+	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse' });
+	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 
 	return (
-		<nav className={navCSS}>
+		<nav className={navCSS} role="navigation">
 			<ul className={listCSS}>
 				<li className={theme['toggle-btn']} title={toggleButtonTitle}>
 					<Action
@@ -65,8 +62,13 @@ function SidePanel({
 					/>
 				</li>
 				{actions.map(action => {
-					const { active, ...actionModel } = { ...action };
-					const actionProps = Object.assign({}, actionModel, {
+					const isSelected = isActionSelected(action);
+					const a11y = {};
+					if (isSelected) {
+						a11y['aria-current'] = true;
+					}
+					const actionProps = Object.assign({}, action, {
+						active: undefined, // active scope is only the list item
 						id:
 							id &&
 							`${id}-nav-${action.label
@@ -85,14 +87,14 @@ function SidePanel({
 							}
 						},
 					});
-
 					return (
 						<li
 							title={action.label}
 							key={action.key || action.label}
 							className={classNames('tc-side-panel-list-item', {
-								active: isActionSelected(action),
+								active: isSelected,
 							})}
+							{...a11y}
 						>
 							<Action {...actionProps} />
 						</li>
@@ -103,23 +105,24 @@ function SidePanel({
 	);
 }
 
-const actionPropType = PropTypes.shape({
-	active: PropTypes.bool,
-	icon: PropTypes.string,
-	key: PropTypes.string,
-	label: PropTypes.string,
-	onClick: PropTypes.func,
-});
+if (process.env.NODE_ENV !== 'production') {
+	const actionPropType = PropTypes.shape({
+		active: PropTypes.bool,
+		icon: PropTypes.string,
+		key: PropTypes.string,
+		label: PropTypes.string,
+		onClick: PropTypes.func,
+	});
 
-SidePanel.propTypes = {
-	id: PropTypes.string,
-	actions: PropTypes.arrayOf(actionPropType),
-	onSelect: PropTypes.func,
-	onToggleDock: PropTypes.func,
-	docked: PropTypes.bool,
-	selected: actionPropType,
-	expandTitle: PropTypes.string,
-	collapseTitle: PropTypes.string,
-};
+	SidePanel.propTypes = {
+		id: PropTypes.string,
+		actions: PropTypes.arrayOf(actionPropType),
+		onSelect: PropTypes.func,
+		onToggleDock: PropTypes.func,
+		docked: PropTypes.bool,
+		selected: actionPropType,
+		t: PropTypes.func,
+	};
+}
 
-export default SidePanel;
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(SidePanel);

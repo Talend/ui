@@ -36,16 +36,16 @@
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@storybook/react": "3.1.9",
-    "@talend/bootstrap-theme": "^0.120.0",
-    "@talend/icons": "^0.120.0",
-    "@talend/react-cmf": "^0.120.0",
-    "@talend/react-components": "^0.120.0",
-    "@talend/react-forms": "^0.120.0",
+    "@talend/bootstrap-theme": "^0.122.0",
+    "@talend/icons": "^0.122.0",
+    "@talend/react-cmf": "^0.122.0",
+    "@talend/react-components": "^0.122.0",
+    "@talend/react-forms": "^0.122.0",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
-    "babel-loader": "6.4.1",
+    "babel-loader": "7.1.2",
     "babel-plugin-transform-class-properties": "6.23.0",
     "babel-plugin-transform-object-rest-spread": "6.20.2",
     "babel-polyfill": "6.26.0",
@@ -90,6 +90,7 @@
     "redux": "3.6.0",
     "redux-batched-actions": "0.2.0",
     "redux-saga": "0.15.4",
+    "redux-saga-tester": "^1.0.373",
     "redux-thunk": "2.2.0",
     "reselect": "^2.5.4",
     "rimraf": "^2.6.1",
@@ -98,10 +99,10 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/icons": "^0.120.0",
-    "@talend/react-cmf": "^0.120.0",
-    "@talend/react-components": "^0.120.0",
-    "@talend/react-forms": "^0.120.0",
+    "@talend/icons": "^0.122.0",
+    "@talend/react-cmf": "^0.122.0",
+    "@talend/react-components": "^0.122.0",
+    "@talend/react-forms": "^0.122.0",
     "bson-objectid": "1.1.5",
     "classnames": "2.2.5",
     "immutable": "3.8.1",
@@ -138,5 +139,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.120.0"
+  "version": "0.122.0"
 }

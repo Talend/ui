@@ -5,6 +5,7 @@ import faker from 'faker';
 import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import ListToVirtualizedList from './ListToVirtualizedList.component';
 import CellActions from '../../VirtualizedList/CellActions';
+import CellBadge from '../../VirtualizedList/CellBadge';
 
 faker.seed(42);
 const props = {
@@ -13,6 +14,7 @@ const props = {
 	columns: [
 		{ key: 'id', label: 'Id' },
 		{ key: 'label', label: 'Label' },
+		{ key: 'tag', label: 'Tag', type: 'badge' },
 		{ key: 'myactions', label: 'Actions' },
 	],
 	titleProps: {
@@ -27,7 +29,7 @@ describe('ListToVirtualizedList', () => {
 		expect(wrapper.props().collection).toBe(props.items);
 		expect(wrapper.props().type).toBe('TABLE');
 		const columns = wrapper.find(VirtualizedList.Content);
-		expect(columns.length).toBe(3);
+		expect(columns.length).toBe(4);
 		columns.forEach(element => {
 			const eProps = element.props();
 			if (eProps.label === 'Id') {
@@ -37,6 +39,8 @@ describe('ListToVirtualizedList', () => {
 				expect(eProps.columnData.extra).toBe('Extra');
 			} else if (eProps.label === 'Actions') {
 				expect(eProps.dataKey).toBe('myactions');
+			} else if (eProps.label === 'Tag') {
+				expect(eProps.dataKey).toBe('tag');
 			} else {
 				expect(false).toBe(true);
 			}
@@ -86,6 +90,18 @@ describe('ListToVirtualizedList', () => {
 			const eProps = element.props();
 			if (eProps.label === 'Actions') {
 				expect(eProps.cellRenderer).toBe(CellActions.cellRenderer);
+			}
+		});
+	});
+
+	it('should support multiple cell renderers through column type', () => {
+		const wrapper = shallow(<ListToVirtualizedList {...props} />);
+
+		// then
+		wrapper.find(VirtualizedList.Content).forEach(element => {
+			const eProps = element.props();
+			if (eProps.label === 'Tag') {
+				expect(eProps.cellRenderer).toBe(CellBadge.cellRenderer);
 			}
 		});
 	});
