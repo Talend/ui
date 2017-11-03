@@ -87,7 +87,7 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 						bsStyle: 'link',
 						role: 'link',
 						className: classNames(theme.link, action.className),
-					});
+					}, extra);
 					return (
 						<li
 							title={action.label}
