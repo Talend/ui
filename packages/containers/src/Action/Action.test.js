@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { api } from '@talend/react-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 
-import Action, { mapStateToProps } from './Action.connect';
+import Action, { mapStateToProps, renderers } from './Action.connect';
 
 describe('Action', () => {
 	it('should render from name props keeping extra props', () => {
@@ -17,9 +17,9 @@ describe('Action', () => {
 });
 
 describe('Action.mapStateToProps', () => {
-	it('should do nothing if no actionId and no name', () => {
+	it('should just export renderers if no actionId and no name', () => {
 		const props = mapStateToProps({}, {});
-		expect(props).toEqual({});
+		expect(props).toEqual({ renderers });
 	});
 	xit('should resolve action info', () => {
 		const registry = api.registry.getRegistry();
