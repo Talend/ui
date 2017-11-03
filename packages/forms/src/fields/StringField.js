@@ -31,7 +31,7 @@ function StringField(props) {
 	const { widget = defaultWidget, placeholder = '', ...options } = getUiOptions(uiSchema);
 	const Widget = getWidget(schema, widget, widgets);
 
-	const onChangeHandler = (value) => {
+	const onChangeHandler = value => {
 		onChange(value, options);
 	};
 
@@ -62,15 +62,10 @@ if (process.env.NODE_ENV !== 'production') {
 		idSchema: PropTypes.object,
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func.isRequired,
-		formData: PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.number,
-		]),
+		formData: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		registry: PropTypes.shape({
-			widgets: PropTypes.objectOf(PropTypes.oneOfType([
-				PropTypes.func,
-				PropTypes.object,
-			])).isRequired,
+			widgets: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object]))
+				.isRequired,
 			fields: PropTypes.objectOf(PropTypes.func).isRequired,
 			definitions: PropTypes.object.isRequired,
 			formContext: PropTypes.object.isRequired,
