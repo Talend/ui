@@ -30,24 +30,28 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 
 export function ContainerActionDropdown(props) {
 	const newProps = Object.assign({}, props);
-	if (props.actionIds) {
-		newProps.items = props.items.map(item => Object.assign({
-			onClick: (event, data) => {
-				if (item.actionCreator) {
-					props.dispatchActionCreator(item.actionCreator, event, data);
-				} else {
-					props.dispatch(
-						Object.assign(
-							{
-								model: props.model,
-							},
-							item.payload,
-						),
-					);
-				}
+
+	newProps.items = props.items.map(item =>
+		Object.assign(
+			{
+				onClick: (event, data) => {
+					if (item.actionCreator) {
+						props.dispatchActionCreator(item.actionCreator, event, data);
+					} else {
+						props.dispatch(
+							Object.assign(
+								{
+									model: props.model,
+								},
+								item.payload,
+							),
+						);
+					}
+				},
 			},
-		}, item));
-	}
+			item,
+		),
+	);
 	return <ActionDropdown {...newProps} />;
 }
 
