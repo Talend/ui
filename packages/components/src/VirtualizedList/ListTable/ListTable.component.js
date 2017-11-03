@@ -5,7 +5,7 @@ import {
 	Table as VirtualizedTable,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
-import RowSelectionRenderer from '../RowSelection';
+import getRowSelectionRenderer from '../RowSelection';
 import NoRows from '../NoRows';
 import { toColumns } from '../utils/tablerow';
 
@@ -28,18 +28,16 @@ function ListTable(props) {
 		sortBy,
 		sortDirection,
 		width,
+		disableHeader,
 	} = props;
 
 	let RowTableRenderer = DefaultTableRowRenderer;
 	if (isActive || isSelected) {
-		RowTableRenderer = RowSelectionRenderer( // eslint-disable-line new-cap
-			DefaultTableRowRenderer,
-			{
-				isSelected,
-				isActive,
-				getRowData: rowProps => rowProps.rowData,
-			}
-		);
+		RowTableRenderer = getRowSelectionRenderer(DefaultTableRowRenderer, {
+			isSelected,
+			isActive,
+			getRowData: rowProps => rowProps.rowData,
+		});
 	}
 
 	let onRowClickCallback;
@@ -65,6 +63,7 @@ function ListTable(props) {
 			sortBy={sortBy}
 			sortDirection={sortDirection}
 			width={width}
+			disableHeader={disableHeader}
 		>
 			{toColumns(id, theme, children)}
 		</VirtualizedTable>
@@ -74,6 +73,7 @@ ListTable.displayName = 'VirtualizedList(ListTable)';
 ListTable.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.element),
 	collection: PropTypes.arrayOf(PropTypes.object),
+	disableHeader: PropTypes.bool,
 	height: PropTypes.number,
 	id: PropTypes.string,
 	isActive: PropTypes.func,
@@ -83,6 +83,10 @@ ListTable.propTypes = {
 	sortBy: PropTypes.string,
 	sortDirection: PropTypes.string,
 	width: PropTypes.number,
+};
+
+ListTable.defaultProps = {
+	disableHeader: false,
 };
 
 export default ListTable;
