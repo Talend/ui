@@ -4,17 +4,10 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/logging/src/errorTransformer.test.js
-  25:32  error  Unexpected parentheses around single function argument  arrow-parens
-  52:18  error  Unexpected parentheses around single function argument  arrow-parens
-
 /home/travis/build/Talend/ui/packages/logging/src/transport.js
-  15:10  error    Unexpected parentheses around single function argument  arrow-parens
-  33:11  error    Unexpected parentheses around single function argument  arrow-parens
-  33:27  warning  Unexpected console statement                            no-console
-  38:3   warning  Unexpected console statement                            no-console
-  41:16  error    Unexpected parentheses around single function argument  arrow-parens
-  41:29  warning  Unexpected console statement                            no-console
+  34:3  warning  Unexpected console statement  no-console
+  40:3  warning  Unexpected console statement  no-console
+  46:3  warning  Unexpected console statement  no-console
 
-✖ 8 problems (5 errors, 3 warnings)
+✖ 3 problems (0 errors, 3 warnings)
 
