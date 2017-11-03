@@ -150,7 +150,12 @@ const decoratedStories = storiesOf('HeaderBar', module)
 				{story()}
 				<div className="container" style={{ paddingTop: 40 }} />
 				<IconsProvider defaultIcons={icons} />
-				<Branding primaryColor="red" />
+				<Branding
+					primaryColor="green"
+					primaryComplementaryColor="red"
+					primaryHoverColor="blue"
+					primaryHoverComplementaryColor="orange"
+				/>
 			</div>
 		</I18nextProvider>
 	));
