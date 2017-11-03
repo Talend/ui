@@ -1,4 +1,5 @@
 /**
+ * This module is here to help app to create the redux store
  * @module react-cmf/lib/store
  */
 import { hashHistory } from 'react-router';
@@ -11,6 +12,10 @@ import invariant from 'invariant';
 import cmfReducers from './reducers';
 import httpMiddleware from './middlewares/http';
 import cmfMiddleware from './middlewares/cmf';
+
+/**
+ * @typedef {Object} Store
+ */
 
 const preReducers = [];
 const enhancers = [];
@@ -91,6 +96,11 @@ function getReducer(appReducer) {
 	);
 }
 
+/**
+ * return the array of all middleware needed for CMF to run
+ * @param {array|function} middleware
+ * @returns {array} of middlewares
+ */
 function getMiddlewares(middleware) {
 	if (Array.isArray(middleware)) {
 		middleware.forEach((mid) => {

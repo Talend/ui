@@ -6,6 +6,7 @@ import { IconsProvider } from '../src/index';
 import VirtualizedList, { listTypes } from '../src/VirtualizedList';
 import CellActions from '../src/VirtualizedList/CellActions';
 import CellTitle from '../src/VirtualizedList/CellTitle';
+import CellBadge from '../src/VirtualizedList/CellBadge';
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -87,6 +88,7 @@ const collection = [
 	{
 		id: 0,
 		name: 'Title with icon and actions',
+		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Simple row with icon and actions',
@@ -100,6 +102,7 @@ const collection = [
 	{
 		id: 1,
 		name: 'Title without actions',
+		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Simple row without actions',
@@ -112,6 +115,7 @@ const collection = [
 	{
 		id: 2,
 		name: 'Title without icon',
+		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Simple row without icon',
@@ -124,6 +128,7 @@ const collection = [
 	{
 		id: 3,
 		name: 'Title in input mode',
+		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Simple row with title in edit mode, displaying an input instead of button',
@@ -137,6 +142,7 @@ const collection = [
 	{
 		id: 4,
 		name: 'Super long author',
+		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Row with a super super long author to show the ellipsis',
@@ -150,6 +156,7 @@ const collection = [
 	{
 		id: 5,
 		name: 'Title with long long long long long long long long long long long text',
+		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Row with a super super long title to show the ellipsis',
@@ -163,6 +170,7 @@ const collection = [
 	{
 		id: 6,
 		name: 'Selected row',
+		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Selected row with highlighted background',
@@ -179,6 +187,7 @@ for (let i = collection.length; i < 100; i += 1) {
 	collection.push({
 		id: i,
 		name: `Title with icon and actions ${i}`,
+		tag: 'test',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Simple row with icon and actions',
@@ -205,6 +214,7 @@ storiesOf('Virtualized List', module)
 					{`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
 .virtualized-list div.tc-list-cell-name { flex: 0 0 350px; }
 .virtualized-list div.tc-list-cell-actions { flex: 0 0 120px; }
+.virtualized-list div.tc-list-cell-tag { flex: 0 0 120px; }
 .virtualized-list div.tc-list-cell-description { flex: 1 0 120px; }
 .virtualized-list div.tc-list-cell-author { flex: 1 0 90px; }
 .virtualized-list div.tc-list-cell-created,
@@ -222,6 +232,12 @@ storiesOf('Virtualized List', module)
 						{...CellTitle}
 					/>
 					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
+					<VirtualizedList.Content
+						label="Tag"
+						dataKey="tag"
+						columnData={{ selected: true }}
+						{...CellBadge}
+					/>
 					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Content label="Author" dataKey="author" />
 					<VirtualizedList.Content label="Created" dataKey="created" />

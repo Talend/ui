@@ -3,6 +3,7 @@ import React from 'react';
 import invariant from 'invariant';
 import { isObject } from 'lodash';
 import classNames from 'classnames';
+import keycode from 'keycode';
 
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -21,6 +22,12 @@ function stopAndSelect(event, { onSelect, jsonpath }) {
 	onSelect(event, jsonpath);
 }
 
+function stopAndSelectWithEnterOrSpace(event, { onSelect, jsonpath }) {
+	if (keycode(event) === 'enter' || keycode(event) === 'space') {
+		stopAndSelect(event, { onSelect, jsonpath });
+	}
+}
+
 export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
 	const type = typeof data;
 	let display = data;
@@ -35,20 +42,18 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 
-	const lineValueClasses = classNames(
-		theme.native,
-		theme[type],
-		theme['line-value'],
-	);
+	const lineValueClasses = classNames(theme.native, theme[type], theme['line-value']);
 
 	return (
-		<button
+		<span
 			className={lineValueClasses}
-			type="button"
+			role="button"
+			tabIndex="0"
+			onKeyUp={e => stopAndSelectWithEnterOrSpace(e, { onSelect, jsonpath })}
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 		>
 			{display}
-		</button>
+		</span>
 	);
 }
 
@@ -105,9 +110,10 @@ export function LineItem({
 	});
 
 	return (
-	// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<span
 			className={classes}
+			onKeyUp={e => stopAndSelectWithEnterOrSpace(e, { onSelect, jsonpath })}
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 			{...props}
 		>
@@ -220,7 +226,7 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 				name={iconName}
 				transform={iconTransform}
 				className={theme['wider-icon-selection']}
-				onClick={e => {
+				onClick={(e) => {
 					e.stopPropagation();
 					props.onToggle(e, { data, isOpened, jsonpath });
 				}}
@@ -305,14 +311,24 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 	if (props.tupleLabel) {
 		COMPLEX_TYPES.push(props.tupleLabel);
 	}
-
-	if (data === undefined) {
-		return null;
-	}
-	const info = getDataInfo(data, props.tupleLabel);
-	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
 	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
 	const isOpened = opened.indexOf(jsonpath) !== -1;
+
+	if (data === undefined || data === null) {
+		return (
+			<LineItem
+				name={name}
+				onMouseOver={props.onMouseOver}
+				mouseOverData={{ data, isOpened, isEdited }}
+				onSelect={props.onSelect}
+				jsonpath={jsonpath}
+				selectedJsonpath={props.selectedJsonpath}
+			/>
+		);
+	}
+
+	const info = getDataInfo(data, props.tupleLabel);
+	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
 
 	if (isNativeType) {
 		return (
@@ -409,7 +425,7 @@ export function JSONLike({ onSubmit, ...props }) {
 		return (
 			<form
 				className={`tc-object-viewer ${theme.container} `}
-				onSubmit={event => {
+				onSubmit={(event) => {
 					onSubmit(event);
 					event.preventDefault();
 				}}
@@ -430,7 +446,7 @@ export function JSONLike({ onSubmit, ...props }) {
 				<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
 					<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
 				</TooltipTrigger>
-				) : null}
+			) : null}
 			<Item {...props} />
 		</div>
 	);

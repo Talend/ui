@@ -48,7 +48,7 @@ function Logo({ isFull, renderers, t, ...props }) {
 	);
 }
 
-function Brand({ name, isSeparated, renderers, ...props }) {
+function Brand({ label, isSeparated, renderers, ...props }) {
 	const className = classNames(theme['tc-header-bar-action'], {
 		[theme.separated]: isSeparated,
 	});
@@ -59,7 +59,7 @@ function Brand({ name, isSeparated, renderers, ...props }) {
 				bsStyle="link"
 				className={theme['tc-header-bar-brand']}
 				tooltipPlacement="bottom"
-				label={name}
+				label={label}
 				{...props}
 			/>
 		</li>
