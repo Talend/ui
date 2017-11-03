@@ -13,10 +13,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.test.js
-  142:46  error  Unexpected parentheses around single function argument  arrow-parens
-  178:47  error  Unexpected parentheses around single function argument  arrow-parens
-
 /home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
   348:7  error  Expected indentation of 5 tabs but found 6  indent
   349:6  error  Expected indentation of 4 tabs but found 5  indent
@@ -29,5 +25,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   234:17  error  Unexpected mix of '+' and '*'  no-mixed-operators
   234:35  error  Unexpected mix of '+' and '*'  no-mixed-operators
 
-✖ 13 problems (13 errors, 0 warnings)
+✖ 11 problems (11 errors, 0 warnings)
 
