@@ -44,8 +44,12 @@ export function ContainerActionSplitDropdown(props) {
 		};
 		delete newProps.actionId;
 	}
-	newProps.items = props.items.map(item =>
-		Object.assign(
+	newProps.items = props.items.map((item) => {
+		if (item.onClick) {
+			return item;
+		}
+
+		return Object.assign(
 			{
 				onClick: (event, data) => {
 					if (item.actionCreator) {
@@ -63,8 +67,8 @@ export function ContainerActionSplitDropdown(props) {
 				},
 			},
 			item,
-		),
-	);
+		);
+	});
 
 	delete newProps.actionIds;
 	return <ActionSplitDropdown {...newProps} />;

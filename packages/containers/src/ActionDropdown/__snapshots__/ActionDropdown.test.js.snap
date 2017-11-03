@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Connected ActionDropdown should render dropdown and items from settings 1`] = `
+<CMF(ContainerActionDropdown)
+  actionIds={
+    Array [
+      "menu:demo",
+      "menu:actionCreator",
+    ]
+  }
+  deleteState={[Function]}
+  dispatch={[Function]}
+  dispatchActionCreator={[Function]}
+  displayMode="splitDropdown"
+  getCollection={[Function]}
+  icon="icon-article"
+  id="menu:article:items"
+  initState={[Function]}
+  items={
+    Array [
+      Object {
+        "icon": "fa-bars",
+        "id": "menu",
+        "name": "Menu",
+        "payload": Object {
+          "type": "TEST_MENU",
+        },
+      },
+      Object {
+        "actionCreator": "action-creator",
+        "icon": "fa-bars",
+        "id": "menu:actionCreator",
+        "name": "Action creator",
+        "payload": Object {
+          "type": "TEST_ACTION_CREATOR",
+        },
+      },
+    ]
+  }
+  name="My article"
+  payload={
+    Object {
+      "args": Array [
+        "/myarticle",
+      ],
+      "method": "push",
+      "type": "@@router/CALL_HISTORY_METHOD",
+    }
+  }
+  setState={[Function]}
+  state={undefined}
+  updateState={[Function]}
+/>
+`;
+
+exports[`Connected ActionDropdown should render dropdown from settings and items from expression 1`] = `
+<CMF(ContainerActionDropdown)
+  deleteState={[Function]}
+  dispatch={[Function]}
+  dispatchActionCreator={[Function]}
+  getCollection={[Function]}
+  id="menu:items"
+  initState={[Function]}
+  items={
+    Array [
+      Object {
+        "actionCreator": "item1:action",
+        "label": "label 1",
+      },
+    ]
+  }
+  name="my items"
+  setState={[Function]}
+  state={undefined}
+  updateState={[Function]}
+/>
+`;

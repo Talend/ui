@@ -11,6 +11,7 @@ export function mapStateToProps(state, { actionId } = {}) {
 			getState: () => state,
 		},
 	};
+
 	if (actionId) {
 		props = api.action.getActionInfo(context, actionId);
 	}
@@ -30,9 +31,11 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 
 export function ContainerActionDropdown(props) {
 	const newProps = Object.assign({}, props);
-
-	newProps.items = props.items.map(item =>
-		Object.assign(
+	newProps.items = props.items.map((item) => {
+		if (item.onClick) {
+			return item;
+		}
+		return Object.assign(
 			{
 				onClick: (event, data) => {
 					if (item.actionCreator) {
@@ -50,8 +53,8 @@ export function ContainerActionDropdown(props) {
 				},
 			},
 			item,
-		),
-	);
+		);
+	});
 	return <ActionDropdown {...newProps} />;
 }
 
