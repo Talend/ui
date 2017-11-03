@@ -19,6 +19,7 @@ function ListTable(props) {
 	const {
 		children,
 		collection,
+		disableHeader,
 		height,
 		id,
 		isActive,
@@ -28,7 +29,7 @@ function ListTable(props) {
 		sortBy,
 		sortDirection,
 		width,
-		disableHeader,
+		rowHeight,
 	} = props;
 
 	let RowTableRenderer = DefaultTableRowRenderer;
@@ -57,7 +58,7 @@ function ListTable(props) {
 			rowClassName={classNames(rowThemes)}
 			rowCount={collection.length}
 			rowGetter={({ index }) => collection[index]}
-			rowHeight={50}
+			rowHeight={rowHeight}
 			rowRenderer={RowTableRenderer}
 			sort={sort}
 			sortBy={sortBy}
@@ -87,6 +88,7 @@ ListTable.propTypes = {
 
 ListTable.defaultProps = {
 	disableHeader: false,
+	rowHeight: 50,
 };
 
 export default ListTable;

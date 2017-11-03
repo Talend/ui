@@ -50,6 +50,7 @@ function RendererSelector(props) {
 		return (
 			<ListTable
 				collection={collection}
+				disableHeader={disableHeader}
 				height={height}
 				id={id}
 				isActive={isActive}
@@ -59,7 +60,7 @@ function RendererSelector(props) {
 				sort={sort}
 				sortBy={sortBy}
 				sortDirection={sortDirection}
-				disableHeader={disableHeader}
+				rowHeight={rowHeight}
 				width={width}
 			>
 				{children}
