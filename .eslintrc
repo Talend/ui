@@ -2,7 +2,7 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
-    "arrow-parens": [ 2, "as-needed"],
+    "arrow-parens": [2, "as-needed"],
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
     "indent": ["error", "tab", { "SwitchCase": 1 }],
     "new-cap": [
