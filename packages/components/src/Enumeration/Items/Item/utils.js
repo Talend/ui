@@ -21,7 +21,7 @@ export function allIndexOf(str, toSearch) {
 export function removeDuplicates(indexes, search) {
 	const array = [];
 
-	indexes.forEach((matchingIndex) => {
+	indexes.forEach(matchingIndex => {
 		if (array.length === 0) {
 			array.push(matchingIndex);
 		} else if (matchingIndex >= array[array.length - 1] + search.length) {

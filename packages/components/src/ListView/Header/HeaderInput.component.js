@@ -53,7 +53,9 @@ function HeaderInput({ headerInput, onInputChange, inputPlaceholder, onAddKeyDow
 			<input
 				type="text"
 				placeholder={inputPlaceholder}
-				ref={(input) => { inputRef = input; }}
+				ref={input => {
+					inputRef = input;
+				}}
 				onChange={onInputChangeHandler}
 				onKeyDown={onAddKeyDownHandler}
 				aria-label={inputPlaceholder}

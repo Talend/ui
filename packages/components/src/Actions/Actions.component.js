@@ -6,7 +6,7 @@ import Action from './Action';
 
 function getButtonGroupProps(props) {
 	const buttonGroupProps = {};
-	Object.keys(ButtonGroup.propTypes).forEach((id) => {
+	Object.keys(ButtonGroup.propTypes).forEach(id => {
 		if (props[id] !== undefined) {
 			buttonGroupProps[id] = props[id];
 		}
@@ -83,11 +83,7 @@ function Actions(props) {
 }
 
 Actions.propTypes = {
-	actions: PropTypes.arrayOf(
-		PropTypes.oneOfType([
-			PropTypes.shape(Action.propTypes),
-		]),
-	),
+	actions: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.shape(Action.propTypes)])),
 	className: PropTypes.string,
 	hideLabel: PropTypes.bool,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
