@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { api } from '@talend/react-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 
-import Action, { mapStateToProps, mergeProps } from './Action.connect';
+import Action, { mapStateToProps } from './Action.connect';
 
 describe('Action', () => {
 	it('should render from name props keeping extra props', () => {
@@ -26,14 +26,5 @@ describe('Action.mapStateToProps', () => {
 		registry['actionCreator:menu:article'] = { label: 'hello' };
 		const props = mapStateToProps({}, { actionId: 'menu:article' });
 		expect(props).toEqual({ label: 'hello' });
-	});
-});
-
-describe('Action.mergeProps', () => {
-	it('should merge props', () => {
-		const props = mergeProps({ foo: 'foo' }, { bar: 'bar' }, { baz: 'baz', foo: 'boo' });
-		expect(props.foo).toBe('foo');
-		expect(props.bar).toBe('bar');
-		expect(props.baz).toBe('baz');
 	});
 });

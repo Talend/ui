@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { ActionButton } from '@talend/react-components';
 import mock from '@talend/react-cmf/lib/mock';
 
-import Connected, { mapStateToProps, ContainerActionButton } from './ActionButton.connect';
+import Connected, { mapStateToProps, mergeProps, ContainerActionButton } from './ActionButton.connect';
 
 describe('Connected ActionButton', () => {
 	it('should connect ActionButton', () => {
@@ -22,5 +22,14 @@ describe('Connected ActionButton', () => {
 			{ context }
 		);
 		expect(wrapper.getNode()).toMatchSnapshot();
+	});
+});
+
+describe('ActionButton.mergeProps', () => {
+	it('should merge props', () => {
+		const props = mergeProps({ foo: 'foo' }, { bar: 'bar' }, { baz: 'baz', foo: 'boo' });
+		expect(props.foo).toBe('foo');
+		expect(props.bar).toBe('bar');
+		expect(props.baz).toBe('baz');
 	});
 });

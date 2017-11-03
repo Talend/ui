@@ -71,7 +71,7 @@ export function ContainerActionButton(props) {
 	return <ActionButton {...newProps} />;
 }
 
-ContainerActionButton.displayName = 'ContainerActionButton';
+ContainerActionButton.displayName = 'Container(ActionButton)';
 
 ContainerActionButton.propTypes = {
 	actionCreator: PropTypes.string,
