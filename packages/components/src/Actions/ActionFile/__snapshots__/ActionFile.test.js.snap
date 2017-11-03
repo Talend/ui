@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionFile should apply transformation on icon 1`] = `
+<span>
+  <input
+    className={undefined}
+    disabled={false}
+    id={42}
+    name={undefined}
+    onChange={[Function]}
+    type="file"
+  />
+  <label
+    className="btn"
+    htmlFor={42}
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-caret-down"
+      />
+    </svg>
+    <span>
+      Click me
+    </span>
+  </label>
+</span>
+`;
+
+exports[`ActionFile should display a Progress indicator if set 1`] = `
+<span>
+  <input
+    className={undefined}
+    disabled={true}
+    id={42}
+    name={undefined}
+    onChange={[Function]}
+    type="file"
+  />
+  <label
+    className="btn disabled"
+    htmlFor={42}
+  >
+    <svg
+      className=""
+      focusable="false"
+      viewBox="0 0 50 50"
+    >
+      <circle
+        className={undefined}
+        cx={25}
+        cy={25}
+        fill="none"
+        r={20}
+        style={
+          Object {
+            "strokeDasharray": 12.566370614359172,
+            "strokeDashoffset": 0,
+          }
+        }
+      />
+    </svg>
+    <span>
+      Click me
+    </span>
+  </label>
+</span>
+`;
+
+exports[`ActionFile should display a disabled Icon 1`] = `
+<span>
+  <input
+    className={undefined}
+    disabled={true}
+    id={42}
+    name={undefined}
+    onChange={[Function]}
+    type="file"
+  />
+  <label
+    className="btn disabled"
+    htmlFor={42}
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-caret-down"
+      />
+    </svg>
+    <span>
+      Click me
+    </span>
+  </label>
+</span>
+`;
+
+exports[`ActionFile should pass all props to the Button 1`] = `
+<span>
+  <input
+    className={undefined}
+    disabled={false}
+    id={42}
+    name={undefined}
+    onChange={[Function]}
+    type="file"
+  />
+  <label
+    className="btn"
+    htmlFor={42}
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-caret-down"
+      />
+    </svg>
+    <span>
+      Click me
+    </span>
+  </label>
+</span>
+`;
+
+exports[`ActionFile should render a div with a input[type="file"] and a label to mimic a button 1`] = `
+<span>
+  <input
+    className={undefined}
+    disabled={false}
+    id={42}
+    name={undefined}
+    onChange={[Function]}
+    type="file"
+  />
+  <label
+    className="btn"
+    htmlFor={42}
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-caret-down"
+      />
+    </svg>
+    <span>
+      Click me
+    </span>
+  </label>
+</span>
+`;
+
+exports[`ActionFile should render action with html property name = props.name if set 1`] = `
+<span>
+  <input
+    className={undefined}
+    disabled={false}
+    id={42}
+    name="custom_name"
+    onChange={[Function]}
+    type="file"
+  />
+  <label
+    className="btn"
+    htmlFor={42}
+  >
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-caret-down"
+      />
+    </svg>
+    <span>
+      Click me
+    </span>
+  </label>
+</span>
+`;
+
+exports[`ActionFile should reverse icon/label 1`] = `
+<span>
+  <input
+    className={undefined}
+    disabled={false}
+    id={42}
+    name={undefined}
+    onChange={[Function]}
+    type="file"
+  />
+  <label
+    className="btn"
+    htmlFor={42}
+  >
+    <span>
+      Click me
+    </span>
+    <svg
+      aria-hidden="true"
+      className="tc-svg-icon"
+      focusable="false"
+      title={null}
+    >
+      <use
+        xlinkHref="#talend-caret-down"
+      />
+    </svg>
+  </label>
+</span>
+`;
