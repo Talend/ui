@@ -6,7 +6,7 @@ import talendIcons from '@talend/icons/dist/react';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './config/i18n';
 
-import { HeaderBar, IconsProvider } from '../src';
+import { Branding, HeaderBar, IconsProvider } from '../src';
 
 const icons = {
 	'talend-burger': talendIcons['talend-burger'],
@@ -150,6 +150,7 @@ const decoratedStories = storiesOf('HeaderBar', module)
 				{story()}
 				<div className="container" style={{ paddingTop: 40 }} />
 				<IconsProvider defaultIcons={icons} />
+				<Branding primaryColor="red" />
 			</div>
 		</I18nextProvider>
 	));
