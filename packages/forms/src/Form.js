@@ -20,6 +20,7 @@ import CodeWidget from './widgets/CodeWidget';
 import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
 import I18N_DOMAIN_FORMS from './constants';
+import TogglePasswordWidget from './widgets/TogglePasswordWidget';
 
 /**
  * @type {string} After trigger name for field value has changed
@@ -36,6 +37,7 @@ export const customWidgets = {
 	code: CodeWidget,
 	columns: ColumnsWidget,
 	listview: ListViewWidget,
+	password: TogglePasswordWidget,
 };
 
 const customFields = {
