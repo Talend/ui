@@ -10,7 +10,7 @@ export default class TogglePasswordWidget extends React.Component {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
 		this.state = {
-			type: 'password',
+			type: props.type?props.type:'password',
 		};
 	}
 
