@@ -10,9 +10,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.test.js
   12:18  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
-/home/travis/build/Talend/ui/packages/containers/src/state.js
-   3:1  warning  Unexpected console statement  no-console
-  12:2  warning  Unexpected console statement  no-console
-
-✖ 4 problems (2 errors, 2 warnings)
+✖ 2 problems (2 errors, 0 warnings)
 
