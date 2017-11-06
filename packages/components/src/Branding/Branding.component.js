@@ -35,11 +35,51 @@ function getHeaderBarBranding({ headerBar, profiles }) {
 	`;
 }
 
+function getSidePanelBranding({ sidePanel, profiles }) {
+	const { profile, reverse = true } = sidePanel;
+	const colors = profiles[profile];
+	if (!colors) {
+		return null;
+	}
+
+	let {
+		color,
+		reverseColor,
+		hoverColor,
+		hoverReverseColor,
+		selectedColor,
+		selectedReverseColor
+	} = colors;
+	if (reverse) {
+		[color, reverseColor] = [reverseColor, color];
+		[hoverColor, hoverReverseColor] = [hoverReverseColor, hoverColor];
+		[selectedColor, selectedReverseColor] = [selectedReverseColor, selectedColor];
+	}
+
+	return `
+		.branding-sidePanel ul {
+			color: ${color};
+			background-color: ${reverseColor};
+		}
+		.branding-sidePanel li:hover {
+			color: ${hoverColor};
+			background-color: ${hoverReverseColor};
+		}
+		.branding-sidePanel li.active {
+			color: ${selectedColor};
+			background-color: ${selectedReverseColor};
+		}
+	`;
+}
+
 function Branding(props) {
 	return (
 		<Helmet>
 			<style>
-				{getHeaderBarBranding(props)}
+				{
+					getHeaderBarBranding(props)
+						.concat(getSidePanelBranding(props))
+				}
 			</style>
 		</Helmet>
 	);
@@ -50,10 +90,18 @@ Branding.propTypes = {
 		reverse: PropTypes.bool,
 		profile: PropTypes.string,
 	}),
+	sidePanel: PropTypes.shape({
+		reverse: PropTypes.bool,
+		profile: PropTypes.string,
+	}),
 	profiles: PropTypes.object,
 };
 Branding.defaultProps = {
 	headerBar: {
+		reverse: true,
+		profile: 'primaryDarker',
+	},
+	sidePanel: {
 		reverse: true,
 		profile: 'primary',
 	},

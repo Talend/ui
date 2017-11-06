@@ -31,7 +31,7 @@ import theme from './SidePanel.scss';
  */
 function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, renderers }) {
 	const dockedCSS = { [theme.docked]: docked };
-	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
+	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel', 'branding-sidePanel');
 	const listCSS = classNames(
 		'nav nav-pills nav-inverse nav-stacked',
 		'tc-side-panel-list',

@@ -3,7 +3,8 @@ import { I18nextProvider } from 'react-i18next';
 import { storiesOf, action } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
 import i18n, { LanguageSwitcher } from './config/i18n';
-import { SidePanel, IconsProvider, Layout } from '../src/index';
+import { branding, profiles } from './config/branding';
+import { Branding, SidePanel, IconsProvider, Layout } from '../src/index';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -62,6 +63,10 @@ stories
 			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
 			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
+			<Branding
+				profiles={profiles}
+				{...branding}
+			/>
 		</div>
 	))
 	.addWithInfo('default', () => (
