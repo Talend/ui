@@ -122,8 +122,7 @@
       "!**/__snapshots__/**"
     ],
     "roots": [
-      "src",
-      "__mocks__"
+      "src"
     ],
     "setupFiles": [
       "./env__tests.js"

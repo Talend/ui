@@ -29,7 +29,7 @@ import theme from './SidePanel.scss';
  />
  *
  */
-function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock, t }) {
+function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, renderers }) {
 	const dockedCSS = { [theme.docked]: docked };
 	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
 	const listCSS = classNames(
@@ -67,6 +67,15 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 					if (isSelected) {
 						a11y['aria-current'] = true;
 					}
+					const extra = {};
+					if (onSelect) {
+						extra.onClick = event => {
+							onSelect(event, action);
+							if (action.onClick) {
+								action.onClick(event);
+							}
+						};
+					}
 					const actionProps = Object.assign({}, action, {
 						active: undefined, // active scope is only the list item
 						id:
@@ -78,15 +87,7 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 						bsStyle: 'link',
 						role: 'link',
 						className: classNames(theme.link, action.className),
-						onClick: event => {
-							if (onSelect) {
-								onSelect(event, action);
-							}
-							if (action.onClick) {
-								action.onClick(event);
-							}
-						},
-					});
+					}, extra);
 					return (
 						<li
 							title={action.label}
@@ -96,7 +97,7 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 							})}
 							{...a11y}
 						>
-							<Action {...actionProps} />
+							<renderers.Action {...actionProps} />
 						</li>
 					);
 				})}
@@ -104,6 +105,11 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 		</nav>
 	);
 }
+
+SidePanel.defaultProps = {
+	actions: [],
+	renderers: { Action },
+};
 
 if (process.env.NODE_ENV !== 'production') {
 	const actionPropType = PropTypes.shape({
@@ -122,6 +128,9 @@ if (process.env.NODE_ENV !== 'production') {
 		docked: PropTypes.bool,
 		selected: actionPropType,
 		t: PropTypes.func,
+		renderers: PropTypes.shape({
+			Action: PropTypes.node,
+		}),
 	};
 }
 

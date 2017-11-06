@@ -2,12 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import mock from '@talend/react-cmf/lib/mock';
 
-import Action from './Action.component';
-
-jest.mock(
-	'@talend/react-components',
-	() => ({ Action: props => (<button className="tc-action" {...props} />) })
-);
+import Action, { mapStateToProps, renderers } from './Action.connect';
 
 describe('Action', () => {
 	it('should render from name props keeping extra props', () => {
@@ -18,12 +13,24 @@ describe('Action', () => {
 		);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
-	it('should render null if not available', () => {
-		const context = mock.context();
-		const wrapper = shallow(
-			<Action available={false} />,
-			{ context }
-		);
-		expect(wrapper.getNode()).toBe(null);
+});
+
+describe('Action.mapStateToProps', () => {
+	it('should just export renderers if no actionId and no name', () => {
+		const props = mapStateToProps({}, {});
+		expect(props).toEqual({ renderers });
+	});
+	it('should resolve action displayMode', () => {
+		const state = mock.state();
+		state.cmf.settings.actions = {
+			'menu:article': {
+				name: 'foo',
+				displayMode: 'dropdown',
+			},
+		};
+		const props = mapStateToProps(state, { actionId: 'menu:article' });
+		expect(props.actionId).toBe('menu:article');
+		expect(props.displayMode).toBe('dropdown');
+		expect(props.name).toBeUndefined();
 	});
 });
