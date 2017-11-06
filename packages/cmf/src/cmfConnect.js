@@ -110,7 +110,7 @@ export function getStateToProps({
 	};
 	return {
 		...props,
-		...api.expression.mapStateToProps(state, { ...props, ...ownProps }),
+		...api.expression.mapStateToProps(state, { ...ownProps, ...props }),
 	};
 }
 
@@ -161,9 +161,9 @@ export function getMergeProps({
 		);
 	}
 	return {
-		...api.expression.mergeProps(stateProps),
-		...api.expression.mergeProps(dispatchProps),
 		...api.expression.mergeProps(ownProps),
+		...api.expression.mergeProps(dispatchProps),
+		...api.expression.mergeProps(stateProps),
 	};
 }
 
