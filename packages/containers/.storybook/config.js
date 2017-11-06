@@ -95,6 +95,14 @@ function loadStories() {
 				type: 'MENU_',
 			},
 		};
+		actions['menu:fourth'] = {
+			label: 'Upload',
+			icon: 'talend-upload',
+			displayMode: 'file',
+			payload: {
+				type: 'UPLOAD'
+			}
+		}
 		actions['object:add'] = {
 			label: 'Add',
 			icon: 'talend-plus-circle',

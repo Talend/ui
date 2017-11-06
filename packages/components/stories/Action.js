@@ -2,16 +2,23 @@ import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
 
-import { Action, IconsProvider } from '../src/index';
+import { Action, ActionFile, IconsProvider } from '../src/index';
 
 const icons = {
 	'talend-dataprep': talendIcons['talend-dataprep'],
+	'talend-upload': talendIcons['talend-upload'],
 };
 
 const myAction = {
 	label: 'Click me',
 	icon: 'talend-dataprep',
 	onClick: action('You clicked me'),
+};
+
+const myActionFile = {
+	label: 'upload',
+	icon: 'talend-upload',
+	onChange: action('You change my value'),
 };
 
 const mouseDownAction = {
@@ -32,47 +39,21 @@ storiesOf('Action', module)
 			<p>By default :</p>
 			<Action id="default" {...myAction} />
 			<p>With hideLabel option</p>
-			<Action
-				id="hidelabel"
-				{...myAction}
-				hideLabel
-			/>
+			<Action id="hidelabel" {...myAction} hideLabel />
 			<p>In progress</p>
-			<Action
-				id="inprogress"
-				{...myAction}
-				inProgress
-			/>
+			<Action id="inprogress" {...myAction} inProgress />
 			<p>Disabled</p>
-			<Action
-				id="disabled"
-				{...myAction}
-				disabled
-			/>
+			<Action id="disabled" {...myAction} disabled />
 			<p>Reverse display</p>
-			<Action
-				id="reverseDisplay"
-				{...myAction}
-				iconPosition="right"
-			/>
+			<Action id="reverseDisplay" {...myAction} iconPosition="right" />
 			<p>Transform icon</p>
-			<Action
-				id="reverseDisplay"
-				{...myAction}
-				iconTransform={'rotate-180'}
-			/>
+			<Action id="reverseDisplay" {...myAction} iconTransform={'rotate-180'} />
 			<p>Custom tooltip</p>
-			<Action
-				id="default"
-				{...myAction}
-				tooltipLabel={'Custom label here'}
-			/>
+			<Action id="default" {...myAction} tooltipLabel={'Custom label here'} />
 			<p>onMouse down handler</p>
-			<Action
-				id="hidelabel"
-				{...mouseDownAction}
-				hideLabel
-			/>
+			<Action id="hidelabel" {...mouseDownAction} hideLabel />
+			<p>File handling action</p>
+			<ActionFile {...myActionFile} tooltipLabel={'Custom label here'} />
 		</div>
 	))
 	.addWithPropsCombinations('combinations', Action, {

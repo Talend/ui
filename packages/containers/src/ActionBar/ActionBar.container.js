@@ -3,6 +3,7 @@ import React from 'react';
 import { ActionBar as Component } from '@talend/react-components';
 import { getActionsProps } from '../actionAPI';
 import Action from '../Action';
+import ActionFile from '../ActionFile';
 import Actions from '../Actions';
 
 function getActions(context, idOrInfo, model) {
@@ -39,6 +40,7 @@ function ActionBar({ actions, actionIds, ...props }, context) {
 			actions={actionsProps}
 			renderers={{
 				Action,
+				ActionFile,
 				Actions,
 			}}
 			{...props}

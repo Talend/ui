@@ -14,6 +14,7 @@ import {
 import actionAPI from './actionAPI';
 import componentState from './state';
 import Action from './Action';
+import ActionFile from './ActionFile';
 import ActionBar from './ActionBar';
 import Actions from './Actions';
 import AppHeaderBar from './AppHeaderBar';
@@ -33,6 +34,7 @@ export {
 	actionAPI,
 	componentState,
 	Action,
+	ActionFile,
 	ActionBar,
 	Actions,
 	ActionDropdown,
