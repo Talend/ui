@@ -20,18 +20,18 @@ const mouseDownAction = {
 describe('Action', () => {
 	it('should render a button', () => {
 		// when
-		const wrapper = renderer.create(<ActionButton {...myAction} />).toJSON();
+		const wrapper = shallow(<ActionButton {...myAction} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should click on the button trigger the onclick props', () => {
 		// given
-		const wrapper = renderer.create(<ActionButton extra="extra" {...myAction} />).toJSON();
+		const wrapper = shallow(<ActionButton extra="extra" {...myAction} />);
 
 		// when
-		wrapper.props.onClick();
+		wrapper.simulate('click');
 
 		// then
 		expect(myAction.onClick).toHaveBeenCalled();
@@ -44,66 +44,58 @@ describe('Action', () => {
 
 	it('should pass all props to the Button', () => {
 		// when
-		const wrapper = renderer
-			.create(<ActionButton className="navbar-btn" notExisting {...myAction} />)
-			.toJSON();
+		const wrapper = shallow(<ActionButton className="navbar-btn" notExisting {...myAction} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should display a Progress indicator if set', () => {
 		// when
-		const wrapper = renderer
-			.create(<ActionButton className="navbar-btn" inProgress {...myAction} />)
-			.toJSON();
+		const wrapper = shallow(<ActionButton className="navbar-btn" inProgress {...myAction} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should display a disabled Icon', () => {
 		// when
-		const wrapper = renderer
-			.create(<ActionButton className="navbar-btn" disabled {...myAction} />)
-			.toJSON();
+		const wrapper = shallow(<ActionButton className="navbar-btn" disabled {...myAction} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should reverse icon/label', () => {
 		// when
-		const wrapper = renderer.create(<ActionButton iconPosition="right" {...myAction} />).toJSON();
+		const wrapper = shallow(<ActionButton iconPosition="right" {...myAction} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should apply transformation on icon', () => {
 		// when
-		const wrapper = renderer
-			.create(<ActionButton iconTransform={'rotate-180'} {...myAction} />)
-			.toJSON();
+		const wrapper = shallow(<ActionButton iconTransform={'rotate-180'} {...myAction} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should render action with html property name = props.name if set', () => {
 		// when
-		const wrapper = renderer.create(<ActionButton name="custom_name" {...myAction} />).toJSON();
+		const wrapper = shallow(<ActionButton name="custom_name" {...myAction} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should trigger action if set up onMouseDown event', () => {
 		// given
-		const wrapper = renderer.create(<ActionButton extra="extra" {...mouseDownAction} />).toJSON();
+		const wrapper = shallow(<ActionButton extra="extra" {...mouseDownAction} />);
 
 		// when
-		wrapper.props.onMouseDown();
+		wrapper.simulate('mouseDown');
 
 		// then
 		expect(mouseDownAction.onMouseDown).toHaveBeenCalled();
