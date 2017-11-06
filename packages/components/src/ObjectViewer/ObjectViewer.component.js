@@ -36,7 +36,7 @@ ObjectViewer.propTypes = {
 	tupleLabel: PropTypes.string,
 	rootLabel: PropTypes.string,
 	showTypes: PropTypes.bool,
-	data: PropTypes.arrayOf(PropTypes.object).isRequired,
+	data: PropTypes.arrayOf(PropTypes.object),
 };
 
 ObjectViewer.Table = Table;
