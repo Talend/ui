@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import last from 'lodash/last';
 
 import Widget from '../../Widget';
 import FieldTemplate from '../FieldTemplate';
@@ -15,13 +16,6 @@ const defaultPartSchema = {
 };
 
 /**
- * Get last item in array
- */
-function getLast(array = []) {
-	return array[array.length - 1];
-}
-
-/**
  * Adapt part (key or value) schema
  * @param parentSchema The KeyValue schema
  * @param part 'key' or 'value'
@@ -29,7 +23,7 @@ function getLast(array = []) {
 function getPartSchema(parentSchema, part) {
 	const childKey = parentSchema.key.concat(part);
 	const childrenSchemas = parentSchema.items || [];
-	let childSchema = childrenSchemas.find(item => getLast(item.key) === part);
+	let childSchema = childrenSchemas.find(item => last(item.key) === part);
 	if (!childSchema) {
 		childSchema = {};
 	}
