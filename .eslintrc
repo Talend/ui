@@ -11,6 +11,7 @@
             "capIsNewExceptions": ["List", "Map"]
         }
     ],
+    "no-mixed-operators": "off",
     "no-tabs": "off",
     "react/forbid-prop-types": [0],
     "react/prefer-es6-class": 0,
