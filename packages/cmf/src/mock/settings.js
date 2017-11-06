@@ -56,10 +56,13 @@ const settings = {
 		'menu:raw-items': {
 			id: 'menu:items',
 			name: 'my items',
-			items: {
-				actionCreator: 'action-creator',
-				label: 'label #1',
-			},
+			label: 'my items',
+			items: [
+				{
+					actionCreator: 'item1:action',
+					label: 'label #1',
+				},
+			],
 		},
 		'menu:items': {
 			id: 'menu:items',

@@ -62,11 +62,14 @@ exports[`Connect(CMF(Container(ActionDropdown))) should render dropdown from set
   id="menu:items"
   initState={[Function]}
   items={
-    Object {
-      "actionCreator": "action-creator",
-      "label": "label #1",
-    }
+    Array [
+      Object {
+        "actionCreator": "item1:action",
+        "label": "label #1",
+      },
+    ]
   }
+  label="my items"
   name="my items"
   setState={[Function]}
   state={undefined}
