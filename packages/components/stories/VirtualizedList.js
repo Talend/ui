@@ -446,4 +446,42 @@ storiesOf('Virtualized List', module)
 				</VirtualizedList>
 			</section>
 		</div>
+	))
+	.add('List > Table without header', () => (
+		<div className="virtualized-list">
+			<h1>Virtualized List</h1>
+			<p>
+				By default each columns have the same size. The cells are placed using flexbox. You can
+				customize the flex properties of the cells using the generated classnames.
+			</p>
+			<p>
+				Example here
+				<pre>
+					{`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
+.virtualized-list div.tc-list-cell-name { flex: 0 0 350px; }
+.virtualized-list div.tc-list-cell-actions { flex: 0 0 120px; }
+.virtualized-list div.tc-list-cell-description { flex: 1 0 120px; }
+.virtualized-list div.tc-list-cell-author { flex: 1 0 90px; }
+.virtualized-list div.tc-list-cell-created,
+.virtualized-list div.tc-list-cell-modified { flex: 0 0 90px;}`}
+				</pre>
+			</p>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={collection} id={'my-list'} disableHeader>
+					<VirtualizedList.Content label="Id" dataKey="id" />
+					<VirtualizedList.Content
+						label="Name"
+						dataKey="name"
+						columnData={titleProps}
+						{...CellTitle}
+					/>
+					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
+					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
+					<VirtualizedList.Content label="Author" dataKey="author" />
+					<VirtualizedList.Content label="Created" dataKey="created" />
+					<VirtualizedList.Content label="Modified" dataKey="modified" />
+				</VirtualizedList>
+			</section>
+		</div>
 	));

@@ -68,7 +68,7 @@ import {
 
 import I18N_DOMAIN_COMPONENTS from './constants';
 
-import { Action, ActionDropdown, ActionSplitDropdown, Actions } from './Actions';
+import { Action, ActionFile, ActionDropdown, ActionButton, ActionSplitDropdown, Actions } from './Actions';
 import ActionBar from './ActionBar';
 import Notification from './Notification';
 import AppHeaderBar from './AppHeaderBar';
@@ -105,6 +105,8 @@ import WithDrawer from './WithDrawer';
 export {
 	Action,
 	ActionBar,
+	ActionButton,
+	ActionFile,
 	ActionDropdown,
 	ActionSplitDropdown,
 	Actions,
@@ -139,7 +141,6 @@ export {
 	Typeahead,
 	VirtualizedList,
 	WithDrawer,
-
 	Alert,
 	Badge as BootstrapBadge,
 	Breadcrumb,

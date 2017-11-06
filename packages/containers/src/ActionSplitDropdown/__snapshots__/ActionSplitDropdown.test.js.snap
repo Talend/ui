@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container(ActionSplitDropdown) should render 1`] = `
+<ActionSplitDropdown
+  foo="extra"
+  items={
+    Array [
+      Object {
+        "foo": "bar",
+        "onClick": [Function],
+      },
+    ]
+  }
+  onClick={[Function]}
+/>
+`;

@@ -31,24 +31,36 @@ export default function ArrayItem(props) {
 					>
 						<Icon name="talend-trash" />
 					</button>
-					<button
-						disabled={!hasMoveUp}
-						id={id && `${id}-moveUp`}
-						onClick={event => onReorder(event, { previousIndex: index, nextIndex: index - 1 })}
-						title="Move Up"
-						type="button"
-					>
-						<Icon name="talend-caret-down" transform="flip-vertical" />
-					</button>
-					<button
-						disabled={!hasMoveDown}
-						id={id && `${id}-moveDown`}
-						onClick={event => onReorder(event, { previousIndex: index, nextIndex: index + 1 })}
-						type="button"
-						title="Move Down"
-					>
-						<Icon name="talend-caret-down" />
-					</button>
+					{
+						onReorder &&
+						<button
+							disabled={!hasMoveUp}
+							id={id && `${id}-moveUp`}
+							onClick={event => onReorder(event, {
+								previousIndex: index,
+								nextIndex: index - 1,
+							})}
+							title="Move Up"
+							type="button"
+						>
+							<Icon name="talend-caret-down" transform="flip-vertical" />
+						</button>
+					}
+					{
+						onReorder &&
+						<button
+							disabled={!hasMoveDown}
+							id={id && `${id}-moveDown`}
+							onClick={event => onReorder(event, {
+								previousIndex: index,
+								nextIndex: index + 1,
+							})}
+							type="button"
+							title="Move Down"
+						>
+							<Icon name="talend-caret-down" />
+						</button>
+					}
 				</div>
 			}
 			{children}

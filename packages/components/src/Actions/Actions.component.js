@@ -1,15 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ButtonGroup } from 'react-bootstrap';
+import { ButtonGroup, OverlayTrigger } from 'react-bootstrap';
 import classNames from 'classnames';
 import Action from './Action';
-import ActionDropdown from './ActionDropdown';
-import ActionSplitDropdown from './ActionSplitDropdown';
-
-
-const TYPE_DROPDOWN = 'dropdown';
-const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
-
 
 function getButtonGroupProps(props) {
 	const buttonGroupProps = {};
@@ -19,17 +12,6 @@ function getButtonGroupProps(props) {
 		}
 	});
 	return buttonGroupProps;
-}
-
-function getActionComponent(displayMode) {
-	switch (displayMode) {
-		case TYPE_DROPDOWN:
-			return ActionDropdown;
-		case TYPE_SPLIT_DROPDOWN:
-			return ActionSplitDropdown;
-		default:
-			return Action;
-	}
 }
 
 /**
@@ -84,22 +66,17 @@ function Actions(props) {
 	const buttonGroupProps = getButtonGroupProps(props);
 
 	return (
-		<ButtonGroup
-			className={classNames('tc-actions', props.className)}
-			{...buttonGroupProps}
-		>
+		<ButtonGroup className={classNames('tc-actions', props.className)} {...buttonGroupProps}>
 			{props.actions.map((action, index) => {
-				const { displayMode, ...rest } = action;
-				const ActionComponent = getActionComponent(displayMode);
 				const params = {
 					key: index,
 					hideLabel: props.hideLabel,
 					link: props.link,
 					tooltipPlacement: props.tooltipPlacement,
-					...rest,
+					...action,
 				};
 
-				return <ActionComponent {...params} />;
+				return <props.renderers.Action {...params} />;
 			})}
 		</ButtonGroup>
 	);
@@ -109,20 +86,20 @@ Actions.propTypes = {
 	actions: PropTypes.arrayOf(
 		PropTypes.oneOfType([
 			PropTypes.shape(Action.propTypes),
-			PropTypes.shape({
-				displayMode: PropTypes.oneOf([TYPE_DROPDOWN, TYPE_SPLIT_DROPDOWN]),
-			}),
 		]),
 	),
 	className: PropTypes.string,
 	hideLabel: PropTypes.bool,
-	tooltipPlacement: Action.propTypes.tooltipPlacement,
+	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	link: PropTypes.bool,
 	...ButtonGroup.propTypes,
 };
 
 Actions.defaultProps = {
 	actions: [],
+	renderers: {
+		Action,
+	},
 };
 
 export default Actions;
