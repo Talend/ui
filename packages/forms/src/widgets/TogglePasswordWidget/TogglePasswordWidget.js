@@ -9,7 +9,6 @@ export default class TogglePasswordWidget extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
-		this.handleActionClick = this.handleActionClick.bind(this);
 		this.state = {
 			type: 'password',
 		};
@@ -19,8 +18,7 @@ export default class TogglePasswordWidget extends React.Component {
 		this.setState({ type: this.state.type === 'text' ? 'password' : 'text' });
 	}
 
-	handleActionClick(onClick) {
-		debugger;
+	handleActionClick(onClick) { // eslint-disable-line class-methods-use-this
 		if (onClick) {
 			return () => onClick();
 		}
@@ -31,7 +29,7 @@ export default class TogglePasswordWidget extends React.Component {
 	render() {
 		const propsWithToggleType = {
 			...this.props,
-			type: this.state.type
+			type: this.state.type,
 		};
 		return (
 			<div className={classNames(theme['btn-group'], 'btn-group')}>
