@@ -1,7 +1,7 @@
 {
   "jsonSchema": {
     "type": "object",
-    "title": "Arrays",
+    "title": "Select",
     "properties": {
       "simpleChoiceList": {
         "type": "string",

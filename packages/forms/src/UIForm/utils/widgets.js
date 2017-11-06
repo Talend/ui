@@ -6,6 +6,7 @@ import Tabs from '../fieldsets/Tabs';
 import { Button, Buttons } from '../fields/Button';
 import { CheckBox, CheckBoxes } from '../fields/CheckBox';
 import Datalist from '../fields/Datalist';
+import KeyValue from '../fields/KeyValue';
 import MultiSelectTag from '../fields/MultiSelectTag';
 import Radios from '../fields/Radios';
 import RadioOrSelect from '../fields/RadioOrSelect';
@@ -27,6 +28,7 @@ const widgets = {
 	checkbox: CheckBox,
 	checkboxes: CheckBoxes,
 	datalist: Datalist,
+	keyValue: KeyValue,
 	multiSelectTag: MultiSelectTag,
 	number: Text,
 	password: Text,
