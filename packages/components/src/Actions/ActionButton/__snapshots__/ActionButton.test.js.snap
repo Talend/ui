@@ -1,186 +1,151 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Action should apply transformation on icon 1`] = `
-<button
-  className="btn btn-default"
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
-  type="button"
 >
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-caret-down"
-    />
-  </svg>
+  <Icon
+    name="talend-caret-down"
+    transform="rotate-180"
+  />
   <span>
     Click me
   </span>
-</button>
+</Button>
 `;
 
 exports[`Action should display a Progress indicator if set 1`] = `
-<button
-  className="navbar-btn btn btn-default"
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="navbar-btn"
   disabled={true}
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
-  type="button"
 >
-  <svg
-    className=""
-    focusable="false"
-    viewBox="0 0 50 50"
-  >
-    <circle
-      className={undefined}
-      cx={25}
-      cy={25}
-      fill="none"
-      r={20}
-      style={
-        Object {
-          "strokeDasharray": 12.566370614359172,
-          "strokeDashoffset": 0,
-        }
-      }
-    />
-  </svg>
+  <CircularProgress
+    size="small"
+  />
   <span>
     Click me
   </span>
-</button>
+</Button>
 `;
 
 exports[`Action should display a disabled Icon 1`] = `
-<button
-  className="navbar-btn btn btn-default"
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="navbar-btn"
   disabled={true}
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
-  type="button"
 >
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-caret-down"
-    />
-  </svg>
+  <Icon
+    name="talend-caret-down"
+    transform={undefined}
+  />
   <span>
     Click me
   </span>
-</button>
+</Button>
 `;
 
 exports[`Action should pass all props to the Button 1`] = `
-<button
-  className="navbar-btn btn btn-default"
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="navbar-btn"
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
-  type="button"
 >
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-caret-down"
-    />
-  </svg>
+  <Icon
+    name="talend-caret-down"
+    transform={undefined}
+  />
   <span>
     Click me
   </span>
-</button>
+</Button>
 `;
 
 exports[`Action should render a button 1`] = `
-<button
-  className="btn btn-default"
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
-  type="button"
 >
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-caret-down"
-    />
-  </svg>
+  <Icon
+    name="talend-caret-down"
+    transform={undefined}
+  />
   <span>
     Click me
   </span>
-</button>
+</Button>
 `;
 
 exports[`Action should render action with html property name = props.name if set 1`] = `
-<button
-  className="btn btn-default"
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
   disabled={false}
   name="custom_name"
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
-  type="button"
 >
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-caret-down"
-    />
-  </svg>
+  <Icon
+    name="talend-caret-down"
+    transform={undefined}
+  />
   <span>
     Click me
   </span>
-</button>
+</Button>
 `;
 
 exports[`Action should reverse icon/label 1`] = `
-<button
-  className="btn btn-default"
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
   role={null}
-  type="button"
 >
   <span>
     Click me
   </span>
-  <svg
-    aria-hidden="true"
-    className="tc-svg-icon"
-    focusable="false"
-    title={null}
-  >
-    <use
-      xlinkHref="#talend-caret-down"
-    />
-  </svg>
-</button>
+  <Icon
+    name="talend-caret-down"
+    transform={undefined}
+  />
+</Button>
 `;

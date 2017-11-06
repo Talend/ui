@@ -8,11 +8,6 @@ import Connected, {
 	mapStateToProps,
 } from './List.connect';
 
-jest.mock(
-	'@talend/react-components',
-	() => ({ List: props => (<div className="tc-list" {...props} />) })
-);
-
 const list = {
 	columns: [
 		{ key: 'id', label: 'Id' },

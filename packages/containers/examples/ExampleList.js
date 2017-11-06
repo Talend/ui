@@ -21,7 +21,7 @@ const list = {
 
 const actions = {
 	title: 'object:view',
-	left: ['object:add'],
+	left: ['object:add', 'object:upload'],
 	items: ['object:delete'],
 };
 
