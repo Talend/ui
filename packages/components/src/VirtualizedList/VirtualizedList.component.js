@@ -25,6 +25,7 @@ function VirtualizedList(props) {
 		sortBy,
 		sortDirection,
 		type,
+		disableHeader,
 	} = props;
 
 	const contentsConfiguration = insertSelectionConfiguration({
@@ -61,6 +62,7 @@ function VirtualizedList(props) {
 					sortDirection={sortDirection}
 					type={type}
 					width={width}
+					disableHeader={disableHeader}
 				>
 					{contentsConfiguration}
 				</RendererSelector>

@@ -29,16 +29,7 @@ import theme from './SidePanel.scss';
  />
  *
  */
-function SidePanel({
-	id,
-	selected,
-	onSelect,
-	actions,
-	docked,
-	onToggleDock,
-	t,
-	renderers,
-}) {
+function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, renderers }) {
 	const dockedCSS = { [theme.docked]: docked };
 	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
 	const listCSS = classNames(
@@ -46,7 +37,7 @@ function SidePanel({
 		'tc-side-panel-list',
 		theme['action-list'],
 	);
-	const isActionSelected = (action) => {
+	const isActionSelected = action => {
 		if (selected) {
 			return action === selected;
 		}
@@ -70,7 +61,7 @@ function SidePanel({
 						label=""
 					/>
 				</li>
-				{actions.map((action) => {
+				{actions.map(action => {
 					const isSelected = isActionSelected(action);
 					const a11y = {};
 					if (isSelected) {
@@ -78,8 +69,25 @@ function SidePanel({
 					}
 					const extra = {};
 					if (onSelect) {
-						extra.onClick = event => onSelect(event, action);
+						extra.onClick = event => {
+							onSelect(event, action);
+							if (action.onClick) {
+								action.onClick(event);
+							}
+						};
 					}
+					const actionProps = Object.assign({}, action, {
+						active: undefined, // active scope is only the list item
+						id:
+							id &&
+							`${id}-nav-${action.label
+								.toLowerCase()
+								.split(' ')
+								.join('-')}`,
+						bsStyle: 'link',
+						role: 'link',
+						className: classNames(theme.link, action.className),
+					}, extra);
 					return (
 						<li
 							title={action.label}
@@ -89,20 +97,7 @@ function SidePanel({
 							})}
 							{...a11y}
 						>
-							<renderers.Action
-								{...action}
-								id={
-									id &&
-									`${id}-nav-${action.label
-										.toLowerCase()
-										.split(' ')
-										.join('-')}`
-								}
-								bsStyle="link"
-								role="link"
-								className={theme.link}
-								{...extra}
-							/>
+							<renderers.Action {...actionProps} />
 						</li>
 					);
 				})}

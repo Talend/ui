@@ -839,7 +839,7 @@ exports[`Storyshots SidePanel default 1`] = `
         title="Preparations"
       >
         <button
-          className="btn btn-link active"
+          className="btn btn-link"
           disabled={false}
           id="context-nav-preparations"
           onClick={[Function]}
@@ -1078,7 +1078,7 @@ exports[`Storyshots SidePanel docked 1`] = `
         title="Preparations"
       >
         <button
-          className="btn btn-link active"
+          className="btn btn-link"
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}

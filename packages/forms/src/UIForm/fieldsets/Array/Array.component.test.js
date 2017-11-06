@@ -101,6 +101,31 @@ describe('Array component', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
+	it('should render array that can\'t be reordered', () => {
+		// given
+		const nonReorderSchema = {
+			...schema,
+			reorder: false,
+		};
+
+		// when
+		const wrapper = shallow(
+			<ArrayWidget
+				description={'My array description'}
+				errorMessage={'This array is not correct'}
+				id={'talend-array'}
+				isValid
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={nonReorderSchema}
+				value={value}
+			/>
+		);
+
+		// then
+		expect(wrapper.node).toMatchSnapshot();
+	});
+
 	describe('#onAdd', () => {
 		it('should trigger onChange and validation with additional empty item', () => {
 			// given

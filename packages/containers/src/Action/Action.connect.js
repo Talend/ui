@@ -7,7 +7,7 @@ import ActionSplitDropdown from '../ActionSplitDropdown';
 import ActionDropdown from '../ActionDropdown';
 import getRenderers from '../renderers';
 
-const renderers = {
+export const renderers = {
 	ActionButton,
 	ActionFile,
 	ActionSplitDropdown,
@@ -15,8 +15,11 @@ const renderers = {
 };
 
 export function mapStateToProps(state, ownProps) {
+	const props = {
+		renderers: getRenderers(renderers),
+	};
 	if (!ownProps.actionId && !ownProps.name) {
-		return {};
+		return props;
 	}
 	const info = api.action.getActionInfo({
 		registry: api.registry.getRegistry(),
@@ -24,11 +27,8 @@ export function mapStateToProps(state, ownProps) {
 			getState: () => state,
 		},
 	}, ownProps.actionId || ownProps.name);
-	const props = {
-		actionId: ownProps.actionId || ownProps.name,
-		displayMode: info.displayMode,
-		renderers: getRenderers(renderers),
-	};
+	props.actionId = ownProps.actionId || ownProps.name;
+	props.displayMode = info.displayMode;
 	return props;
 }
 

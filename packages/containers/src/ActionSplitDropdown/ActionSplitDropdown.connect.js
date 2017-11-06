@@ -74,7 +74,7 @@ export function ContainerActionSplitDropdown(props) {
 	return <ActionSplitDropdown {...newProps} />;
 }
 
-ContainerActionSplitDropdown.displayName = 'ContainerActionSplitDropdown';
+ContainerActionSplitDropdown.displayName = 'Container(ActionSplitDropdown)';
 
 ContainerActionSplitDropdown.propTypes = {
 	actionId: PropTypes.string,

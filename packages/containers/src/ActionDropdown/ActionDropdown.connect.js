@@ -58,7 +58,7 @@ export function ContainerActionDropdown(props) {
 	return <ActionDropdown {...newProps} />;
 }
 
-ContainerActionDropdown.displayName = 'ContainerActionDropdown';
+ContainerActionDropdown.displayName = 'Container(ActionDropdown)';
 
 ContainerActionDropdown.propTypes = {
 	actionIds: PropTypes.arrayOf(PropTypes.string),

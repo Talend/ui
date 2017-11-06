@@ -1,8 +1,11 @@
 
-> @talend/react-containers@0.117.0 lint:es /home/travis/build/Talend/ui/packages/containers
+> @talend/react-containers@0.122.0 lint:es /home/travis/build/Talend/ui/packages/containers
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/containers/src/actionAPI.js
+  32:27  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   12:90  error  'notifications' is missing in props validation  react/prop-types
@@ -13,5 +16,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/state.js
   3:1  warning  Unexpected console statement  no-console
 
-✖ 3 problems (2 errors, 1 warning)
+✖ 4 problems (3 errors, 1 warning)
 
