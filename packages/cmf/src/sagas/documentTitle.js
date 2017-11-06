@@ -76,8 +76,8 @@ export default function* changeDocumentTitle() {
 	const mapRoutes = buildMapFromRoutes(settings.routes, new Map());
 	const defaultDocTitle = mapRoutes.get('/');
 	assignDocTitle(defaultDocTitle);
-	while (true) {
-		// eslint-disable-line no-constant-condition
+
+	for (;;) {
 		const router = yield take('@@router/LOCATION_CHANGE');
 		const docTitle = getTitleFromRoutes(mapRoutes, router.payload.pathname, defaultDocTitle);
 		assignDocTitle(docTitle);

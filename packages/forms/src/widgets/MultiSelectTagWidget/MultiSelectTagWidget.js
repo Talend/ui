@@ -112,7 +112,10 @@ class MultiSelectTagWidget extends React.Component {
 			}
 			case keycode.codes.enter: {
 				if (this.state.suggestions.length > 0) {
-					this.onSelect(event, { itemIndex: focusedItemIndex, sectionIndex: focusedSectionIndex });
+					this.onSelect(event, {
+						itemIndex: focusedItemIndex,
+						sectionIndex: focusedSectionIndex,
+					});
 				} else if (this.state.filterText.length > 0) {
 					const { schema } = this.props;
 					if (schema.createIfNoneMatch) {
@@ -159,7 +162,9 @@ class MultiSelectTagWidget extends React.Component {
 		const { value, options } = this.props;
 		return options.enumOptions
 			.filter(option => value.indexOf(option.value) < 0)
-			.filter(item => item.label.toUpperCase().indexOf(this.state.filterText.toUpperCase()) > -1);
+			.filter(
+				item => item.label.toUpperCase().indexOf(this.state.filterText.toUpperCase()) > -1,
+			);
 	}
 
 	getDropdownItems(suggestions) {
@@ -272,7 +277,11 @@ class MultiSelectTagWidget extends React.Component {
 						if (typeof badgeValue === 'string') {
 							badgeProps = { label: badgeValue, key: index };
 						} else {
-							badgeProps = { ...badgeValue, key: index, selected: !!badgeValue[options.groupBy] };
+							badgeProps = {
+								...badgeValue,
+								key: index,
+								selected: !!badgeValue[options.groupBy],
+							};
 						}
 						if (!readonly) {
 							badgeProps.onDelete = () => this.onRemoveTag(val);

@@ -63,7 +63,9 @@ class EnumerationForm extends React.Component {
 		this.addInputs = [
 			{
 				disabled: true,
-				label: t('ENUMERATION_WIDGET_VALIDATE_AND_ADD', { defaultValue: 'Validate and Add' }),
+				label: t('ENUMERATION_WIDGET_VALIDATE_AND_ADD', {
+					defaultValue: 'Validate and Add',
+				}),
 				icon: 'talend-check-plus',
 				id: 'validate-and-add',
 				key: 'validateAdd',
@@ -345,8 +347,8 @@ class EnumerationForm extends React.Component {
 			const items = [...prevState.items];
 			items[value.index].error = valueExist
 				? t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
-						defaultValue: 'This term is already in the list',
-					})
+					defaultValue: 'This term is already in the list',
+				})
 				: '';
 			const validation = this.constructor.updateItemValidateDisabled(value, valueExist);
 			return { items, ...validation };
@@ -383,7 +385,9 @@ class EnumerationForm extends React.Component {
 				const valueExist = this.valueAlreadyExist(value.value, prevState);
 				// if the value is empty, no value update is done
 				if (value.value && !valueExist) {
-					items[value.index].values = this.constructor.parseStringValueToArray(value.value);
+					items[value.index].values = this.constructor.parseStringValueToArray(
+						value.value,
+					);
 				}
 				if (valueExist) {
 					items[value.index].error = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
@@ -452,7 +456,11 @@ class EnumerationForm extends React.Component {
 			this.updateHeaderInputDisabled('');
 		}
 		if (
-			this.callActionHandler(ENUMERATION_RESET_LIST, null, this.onConnectedAbortHandler.bind(this))
+			this.callActionHandler(
+				ENUMERATION_RESET_LIST,
+				null,
+				this.onConnectedAbortHandler.bind(this),
+			)
 		) {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
@@ -493,7 +501,10 @@ class EnumerationForm extends React.Component {
 			} else if (event.shiftKey) {
 				itemsSelected = manageShiftKey(item.index, itemsSelected);
 			} else if (!itemsSelected[item.index].isSelected) {
-				itemsSelected = itemsSelected.map(currentItem => ({ ...currentItem, isSelected: false }));
+				itemsSelected = itemsSelected.map(currentItem => ({
+					...currentItem,
+					isSelected: false,
+				}));
 				itemsSelected[item.index].isSelected = true;
 			} else {
 				// deselect the given items
@@ -623,7 +634,11 @@ class EnumerationForm extends React.Component {
 	// lazy loading
 	onLoadData() {
 		if (
-			this.callActionHandler(ENUMERATION_LOAD_DATA_ACTION, undefined, this.onLazyHandler.bind(this))
+			this.callActionHandler(
+				ENUMERATION_LOAD_DATA_ACTION,
+				undefined,
+				this.onLazyHandler.bind(this),
+			)
 		) {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
@@ -804,8 +819,8 @@ class EnumerationForm extends React.Component {
 				headerInput: [validateAndAddAction, validateAction, abortAction],
 				headerError: valueExist
 					? t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
-							defaultValue: 'This term is already in the list',
-						})
+						defaultValue: 'This term is already in the list',
+					})
 					: '',
 				inputValue: value,
 			};
