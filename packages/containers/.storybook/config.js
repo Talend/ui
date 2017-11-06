@@ -64,18 +64,10 @@ api.expression.register('isTrueExpression', (context, first) => {
 
 api.expression.register('getItems', () => [
 	{
-		id: {
-			actionCreator: 'item1:action',
-			property: 'item1',
-		},
 		label: 'label1',
 		actionCreator: 'item1:action',
 	},
 	{
-		id: {
-			actionCreator: 'item2:action',
-			property: 'item2',
-		},
 		label: 'label2',
 		actionCreator: 'item2:action',
 	},
@@ -183,18 +175,18 @@ function loadStories() {
 			label: 'my items',
 			itemsExpression: 'getItems',
 		};
-		actions['menu:items-id'] = {
+		(actions['menu:items-id'] = {
 			id: 'menu:items',
 			displayMode: 'dropdown',
 			label: 'my items',
 			actionIds: ['menu:first', 'menu:second'],
-		},
-		actions['dialog:delete:validate'] = {
-			id: 'dialog:delete:validate',
-			label: 'Yes',
-			bsStyle: 'danger',
-			actionCreator: 'confirm:dialog',
-		};
+		}),
+			(actions['dialog:delete:validate'] = {
+				id: 'dialog:delete:validate',
+				label: 'Yes',
+				bsStyle: 'danger',
+				actionCreator: 'confirm:dialog',
+			});
 		actions['dialog:delete:cancel'] = {
 			id: 'dialog:delete:cancel',
 			label: 'No',

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Connected ActionDropdown should render dropdown and items from settings 1`] = `
-<CMF(ContainerActionDropdown)
+exports[`Connect(CMF(Container(ActionDropdown))) should render dropdown and items from settings 1`] = `
+<CMF(Container(ActionDropdown))
   actionIds={
     Array [
       "menu:demo",
@@ -53,8 +53,29 @@ exports[`Connected ActionDropdown should render dropdown and items from settings
 />
 `;
 
-exports[`Connected ActionDropdown should render dropdown from settings and items from expression 1`] = `
-<CMF(ContainerActionDropdown)
+exports[`Connect(CMF(Container(ActionDropdown))) should render dropdown from settings 1`] = `
+<CMF(Container(ActionDropdown))
+  deleteState={[Function]}
+  dispatch={[Function]}
+  dispatchActionCreator={[Function]}
+  getCollection={[Function]}
+  id="menu:items"
+  initState={[Function]}
+  items={
+    Object {
+      "actionCreator": "action-creator",
+      "label": "label #1",
+    }
+  }
+  name="my items"
+  setState={[Function]}
+  state={undefined}
+  updateState={[Function]}
+/>
+`;
+
+exports[`Connect(CMF(Container(ActionDropdown))) should render dropdown from settings and items from expression 1`] = `
+<CMF(Container(ActionDropdown))
   deleteState={[Function]}
   dispatch={[Function]}
   dispatchActionCreator={[Function]}
@@ -73,5 +94,26 @@ exports[`Connected ActionDropdown should render dropdown from settings and items
   setState={[Function]}
   state={undefined}
   updateState={[Function]}
+/>
+`;
+
+exports[`Container(ActionDropdown) should render 1`] = `
+<ActionDropdown
+  actionIds={
+    Array [
+      "menu:article",
+    ]
+  }
+  bsStyle="default"
+  foo="extra"
+  items={
+    Array [
+      Object {
+        "label": "Foo",
+        "onClick": [Function],
+      },
+    ]
+  }
+  tooltipPlacement="top"
 />
 `;
