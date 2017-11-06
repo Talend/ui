@@ -9,9 +9,7 @@ export default class TogglePasswordWidget extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
-		this.state = {
-			type: props.type?props.type:'password',
-		};
+		this.state = { type: 'password' };
 	}
 
 	onToggle() {
@@ -22,24 +20,21 @@ export default class TogglePasswordWidget extends React.Component {
 		if (onClick) {
 			return () => onClick();
 		}
-		return () => {
-		};
+		return () => {};
 	}
 
 	render() {
-		const propsWithToggleType = {
-			...this.props,
-			type: this.state.type,
-		};
+		const toggleAction = renderActions([{
+			label: '',
+			icon: this.state.type === 'password' ? 'talend-locked' : 'talend-unlocked',
+			onClick: this.onToggle,
+		},
+		], this.handleActionClick);
+
 		return (
-			<div className={classNames(theme['btn-group'], 'btn-group')}>
-				<Password {...propsWithToggleType} />
-				{renderActions([{
-					label: '',
-					icon: propsWithToggleType.type === 'password' ? 'talend-locked' : 'talend-unlocked',
-					onClick: this.onToggle,
-				},
-				], this.handleActionClick)}
+			<div className={classNames(theme['password-group'], 'btn-group')}>
+				<Password {...this.props} type={this.state.type} />
+				{toggleAction}
 			</div>
 		);
 	}
