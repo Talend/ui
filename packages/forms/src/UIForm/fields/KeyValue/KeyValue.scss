@@ -1,0 +1,32 @@
+.key-value {
+	display: flex;
+	margin-bottom: 0;
+
+	dt,
+	dd {
+		flex: 1;
+
+		> :global(.form-group) {
+			margin-bottom: 0;
+		}
+	}
+
+	dt {
+		font-weight: normal;
+		padding-right: 1.5rem;
+		position: relative;
+
+		&:after {
+			content: '=';
+			padding: 0 1rem;
+			position: absolute;
+			right: -1.25rem;
+			top: 30px;
+		}
+	}
+
+	dd {
+		padding-left: 1.5rem;
+	}
+}
+
