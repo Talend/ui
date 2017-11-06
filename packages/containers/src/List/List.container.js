@@ -101,11 +101,9 @@ class List extends React.Component {
 				items,
 				columns: get(this.props, 'list.columns', []),
 				sort: {
-					field: state && state.sortOn,
-					isDescending: state && !state.sortAsc,
-					onChange: (event, data) => {
-						this.onSelectSortBy(event, data);
-					},
+					field: state.sortOn,
+					isDescending: !state.sortAsc,
+					onChange: this.onSelectSortBy
 				},
 			},
 			virtualized: this.props.virtualized,
