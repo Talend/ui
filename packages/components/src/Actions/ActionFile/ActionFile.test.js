@@ -22,18 +22,20 @@ describe('ActionFile', () => {
 
 	it('change file value on the button trigger the onChange props', () => {
 		// given
-		const wrapper = renderer.create(<ActionFile extra="extra" {...myAction} />).toJSON();
+		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
+		const mockEvent = { preventDefault: jest.fn(), target: { files: [] } }
 
 		// when
-		wrapper.props.onChange();
+		wrapper
+			.find('input')
+			.first()
+			.simulate('change', mockEvent);
 
 		// then
 		expect(myAction.onChange).toHaveBeenCalled();
 		expect(myAction.onChange.mock.calls.length).toBe(1);
 		const args = myAction.onChange.mock.calls[0];
-		expect(args.length).toBe(2);
-		expect(args[0]).toBe();
-		expect(args[1].action.extra).toBe('extra');
+		expect(args[0]).toBe(mockEvent);
 	});
 
 	it('should pass all props to the Button', () => {
