@@ -75,6 +75,8 @@ function ActionSplitDropdown(props) {
 	);
 }
 
+ActionSplitDropdown.displayName = 'ActionSplitDropdown';
+
 ActionSplitDropdown.propTypes = {
 	icon: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.shape({
@@ -87,6 +89,10 @@ ActionSplitDropdown.propTypes = {
 	onClick: PropTypes.func.isRequired,
 	emptyDropdownLabel: PropTypes.string,
 	className: PropTypes.string,
+};
+
+ActionSplitDropdown.defaultProps = {
+	items: [],
 };
 
 export default ActionSplitDropdown;

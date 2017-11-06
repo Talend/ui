@@ -1,3 +1,3 @@
-import Action from './Action.component';
+import Action from './Action.connect';
 
 export default Action;

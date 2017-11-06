@@ -37,16 +37,49 @@ function confirmDialog(event, data) {
 	};
 }
 
+function chooseItem1() {
+	return {
+		type: 'CHOOSE_ITEM1',
+	};
+}
+
+function chooseItem2() {
+	return {
+		type: 'CHOOSE_ITEM2',
+	};
+}
+
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
 registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
+registerActionCreator('item1:action', chooseItem1);
+registerActionCreator('item2:action', chooseItem2);
 
 const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
 	isTrueExpressionAction(context, first);
 	return !!first;
 });
+
+api.expression.register('getItems', () => [
+	{
+		id: {
+			actionCreator: 'item1:action',
+			property: 'item1',
+		},
+		label: 'label1',
+		actionCreator: 'item1:action',
+	},
+	{
+		id: {
+			actionCreator: 'item2:action',
+			property: 'item2',
+		},
+		label: 'label2',
+		actionCreator: 'item2:action',
+	},
+]);
 
 const modelHasLabelAction = action('modelHasLabel');
 api.expression.register('modelHasLabel', context => {
@@ -95,12 +128,28 @@ function loadStories() {
 				type: 'MENU_',
 			},
 		};
+		actions['menu:fourth'] = {
+			label: 'Upload',
+			icon: 'talend-upload',
+			displayMode: 'file',
+			payload: {
+				type: 'UPLOAD',
+			},
+		};
 		actions['object:add'] = {
 			label: 'Add',
 			icon: 'talend-plus-circle',
 			bsStyle: 'primary',
 			payload: {
 				type: 'APP_OBJECT_ADD',
+			},
+		};
+		actions['object:upload'] = {
+			label: 'Upload',
+			icon: 'talend-upload',
+			displayMode: 'file',
+			payload: {
+				type: 'UPLOAD',
 			},
 		};
 		actions['object:edit'] = {
@@ -128,6 +177,18 @@ function loadStories() {
 			id: 'object:hide:dialog',
 			actionCreator: 'cancel:hide:dialog',
 		};
+		actions['menu:items'] = {
+			id: 'menu:items',
+			displayMode: 'dropdown',
+			label: 'my items',
+			itemsExpression: 'getItems',
+		};
+		actions['menu:items-id'] = {
+			id: 'menu:items',
+			displayMode: 'dropdown',
+			label: 'my items',
+			actionIds: ['menu:first', 'menu:second'],
+		},
 		actions['dialog:delete:validate'] = {
 			id: 'dialog:delete:validate',
 			label: 'Yes',
