@@ -13,5 +13,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-✖ 3 problems (3 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/widgets.js
+  42:3  error  Expected indentation of 1 tab but found 2 spaces  indent
+
+✖ 4 problems (4 errors, 0 warnings)
 
