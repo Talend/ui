@@ -168,19 +168,19 @@
     react-treebeard "^2.0.3"
     redux "^3.6.0"
 
-"@talend/bootstrap-theme@^0.120.0":
-  version "0.120.0"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.120.0.tgz#9d771f032076221efc0e3d81824776bf17222863"
+"@talend/bootstrap-theme@^0.121.0":
+  version "0.121.0"
+  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.121.0.tgz#e7d15c37d0dd171c00e6bc9a2dbb8e8f971956d5"
   dependencies:
     bootstrap-sass "3.3.7"
 
-"@talend/icons@^0.120.0":
-  version "0.120.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.120.0.tgz#920df1db218fdd76072c4ed91749beda6a5bf369"
+"@talend/icons@^0.121.0":
+  version "0.121.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.121.0.tgz#61e1e3f80b44a4eb79c626392624326d5624f567"
 
-"@talend/react-components@^0.120.0":
-  version "0.120.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.120.0.tgz#cd83b8019bdbd23861491a1bd49bf172abb1f923"
+"@talend/react-components@^0.121.0":
+  version "0.121.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.121.0.tgz#3b34e8fd512d3c8d69c3466947cfe6d2bfd9ec8a"
   dependencies:
     lodash "4.17.4"
     react-autowhatever "7.0.0"

@@ -123,6 +123,7 @@ export default class ArrayWidget extends React.Component {
 
 	render() {
 		const { errorMessage, id, isValid, schema, value, ...restProps } = this.props;
+		const canReorder = schema.reorder !== false;
 
 		return (
 			<div>
@@ -139,7 +140,7 @@ export default class ArrayWidget extends React.Component {
 									id={id && `${id}-control-${index}`}
 									index={index}
 									onRemove={this.onRemove}
-									onReorder={this.onReorder}
+									onReorder={canReorder && this.onReorder}
 									value={itemValue}
 								>
 									<Widget
