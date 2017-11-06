@@ -14,16 +14,10 @@ exports[`ActionFile should apply transformation on icon 1`] = `
     className="btn"
     htmlFor={42}
   >
-    <svg
-      aria-hidden="true"
-      className="tc-svg-icon"
-      focusable="false"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-caret-down"
-      />
-    </svg>
+    <Icon
+      name="talend-caret-down"
+      transform="rotate-180"
+    />
     <span>
       Click me
     </span>
@@ -45,25 +39,9 @@ exports[`ActionFile should display a Progress indicator if set 1`] = `
     className="btn disabled"
     htmlFor={42}
   >
-    <svg
-      className=""
-      focusable="false"
-      viewBox="0 0 50 50"
-    >
-      <circle
-        className={undefined}
-        cx={25}
-        cy={25}
-        fill="none"
-        r={20}
-        style={
-          Object {
-            "strokeDasharray": 12.566370614359172,
-            "strokeDashoffset": 0,
-          }
-        }
-      />
-    </svg>
+    <CircularProgress
+      size="small"
+    />
     <span>
       Click me
     </span>
@@ -85,16 +63,10 @@ exports[`ActionFile should display a disabled Icon 1`] = `
     className="btn disabled"
     htmlFor={42}
   >
-    <svg
-      aria-hidden="true"
-      className="tc-svg-icon"
-      focusable="false"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-caret-down"
-      />
-    </svg>
+    <Icon
+      name="talend-caret-down"
+      transform={undefined}
+    />
     <span>
       Click me
     </span>
@@ -116,16 +88,10 @@ exports[`ActionFile should pass all props to the Button 1`] = `
     className="btn"
     htmlFor={42}
   >
-    <svg
-      aria-hidden="true"
-      className="tc-svg-icon"
-      focusable="false"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-caret-down"
-      />
-    </svg>
+    <Icon
+      name="talend-caret-down"
+      transform={undefined}
+    />
     <span>
       Click me
     </span>
@@ -147,16 +113,10 @@ exports[`ActionFile should render a div with a input[type="file"] and a label to
     className="btn"
     htmlFor={42}
   >
-    <svg
-      aria-hidden="true"
-      className="tc-svg-icon"
-      focusable="false"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-caret-down"
-      />
-    </svg>
+    <Icon
+      name="talend-caret-down"
+      transform={undefined}
+    />
     <span>
       Click me
     </span>
@@ -178,16 +138,10 @@ exports[`ActionFile should render action with html property name = props.name if
     className="btn"
     htmlFor={42}
   >
-    <svg
-      aria-hidden="true"
-      className="tc-svg-icon"
-      focusable="false"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-caret-down"
-      />
-    </svg>
+    <Icon
+      name="talend-caret-down"
+      transform={undefined}
+    />
     <span>
       Click me
     </span>
@@ -212,16 +166,10 @@ exports[`ActionFile should reverse icon/label 1`] = `
     <span>
       Click me
     </span>
-    <svg
-      aria-hidden="true"
-      className="tc-svg-icon"
-      focusable="false"
-      title={null}
-    >
-      <use
-        xlinkHref="#talend-caret-down"
-      />
-    </svg>
+    <Icon
+      name="talend-caret-down"
+      transform={undefined}
+    />
   </label>
 </span>
 `;

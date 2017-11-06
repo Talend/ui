@@ -1,13 +1,9 @@
 import React from 'react';
-import { api } from '@talend/react-cmf';
 import { shallow } from 'enzyme';
+import { api } from '@talend/react-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import { ActionDropdown } from '@talend/react-components';
-import Connected, {
-	mapStateToProps,
-	ContainerActionDropdown,
-	mergeProps,
-} from './ActionDropdown.connect';
+import Connected, { mapStateToProps, ContainerActionDropdown, mergeProps } from './ActionDropdown.connect';
 
 describe('Connect(CMF(Container(ActionDropdown)))', () => {
 	it('should connect ActionDropdown', () => {
