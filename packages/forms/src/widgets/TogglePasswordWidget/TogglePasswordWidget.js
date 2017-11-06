@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { renderActions } from '../../Form';
 import theme from './TogglePasswordWidget.scss';
 
-export default class MixedPasswordWidget extends React.Component {
+export default class TogglePasswordWidget extends React.Component {
 
 	constructor(props) {
 		super(props);
