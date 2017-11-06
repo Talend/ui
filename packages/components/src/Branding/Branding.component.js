@@ -2,48 +2,61 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
+function getHeaderBarBranding({ headerBar, profiles }) {
+	const { profile, reverse = true } = headerBar;
+	const colors = profiles[profile];
+	if (!colors) {
+		return null;
+	}
+
+	let { color, reverseColor, hoverColor, hoverReverseColor } = colors;
+	if (reverse) {
+		[color, reverseColor] = [reverseColor, color];
+		[hoverColor, hoverReverseColor] = [hoverReverseColor, hoverColor];
+	}
+
+	return `
+		.branding-headerBar {
+			color: ${color};
+			background-color: ${reverseColor};
+		}
+		.branding-headerBar .btn.btn-link {
+			color: ${color};
+		}
+		.branding-headerBar .btn.btn-link:hover,
+		.branding-headerBar .dropdown.open .btn.btn-link{
+			color: ${hoverColor};
+			background-color: ${hoverReverseColor};
+		}
+		.branding-headerBar .dropdown .caret {
+			border-top-color: ${color};
+            border-right-color: ${color};
+		}
+	`;
+}
+
 function Branding(props) {
 	return (
 		<Helmet>
 			<style>
-				{`
-					.branding-primary {
-						color: ${props.primaryColor};
-						background-color: ${props.primaryComplementaryColor};
-					}
-					.branding-primary .btn-link {
-						color: ${props.primaryColor};
-					}
-					.branding-primary .btn-link:hover {
-						color: ${props.primaryHoverColor};
-						background-color: ${props.primaryHoverComplementaryColor};
-					}
-
-					.branding-primary.branding-reverse {
-						color: ${props.primaryComplementaryColor};
-						background-color: ${props.primaryColor};
-					}
-					.branding-primary.branding-reverse .btn-link {
-						color: ${props.primaryComplementaryColor};
-					}
-					.branding-primary.branding-reverse .btn-link:hover {
-						color: ${props.primaryHoverComplementaryColor};
-						background-color: ${props.primaryHoverColor};
-					}
-				`}
+				{getHeaderBarBranding(props)}
 			</style>
 		</Helmet>
 	);
 }
 
 Branding.propTypes = {
-	primaryColor: PropTypes.string.isRequired,
-	primaryComplementaryColor: PropTypes.string,
-	primaryHoverColor: PropTypes.string.isRequired,
-	primaryHoverComplementaryColor: PropTypes.string,
+	headerBar: PropTypes.shape({
+		reverse: PropTypes.bool,
+		profile: PropTypes.string,
+	}),
+	profiles: PropTypes.object,
 };
 Branding.defaultProps = {
-	primaryComplementaryColor: 'white',
+	headerBar: {
+		reverse: true,
+		profile: 'primary',
+	},
 };
 
 export default Branding;

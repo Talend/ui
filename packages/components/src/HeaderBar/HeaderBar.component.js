@@ -206,7 +206,7 @@ function HeaderBar(props) {
 	);
 
 	return (
-		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar', 'navbar', 'branding-primary', 'branding-reverse')}>
+		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar', 'navbar', 'branding-headerBar')}>
 			<ul className={theme['tc-header-bar-actions']}>
 				{props.logo && <Components.Logo renderers={renderers} {...props.logo} t={props.t} />}
 				{props.brand && (

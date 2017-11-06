@@ -143,6 +143,30 @@ const props = {
 	},
 };
 
+const branding = {
+	headerBar: {
+		reverse: false,
+		profile: 'primaryDarker',
+	},
+	sidePanel: {
+		profile: 'primaryDarker',
+	},
+};
+
+const primary = {
+	color: 'green',
+	reverseColor: 'white',
+	hoverColor: 'lightGreen',
+	hoverReverseColor: 'darkGrey',
+};
+
+const primaryDarker = {
+	color: 'darkGreen',
+	reverseColor: 'white',
+	hoverColor: 'green',
+	hoverReverseColor: 'darkGrey',
+};
+
 const decoratedStories = storiesOf('HeaderBar', module)
 	.addDecorator(story => (
 		<I18nextProvider i18n={i18n}>
@@ -151,10 +175,11 @@ const decoratedStories = storiesOf('HeaderBar', module)
 				<div className="container" style={{ paddingTop: 40 }} />
 				<IconsProvider defaultIcons={icons} />
 				<Branding
-					primaryColor="green"
-					primaryComplementaryColor="red"
-					primaryHoverColor="blue"
-					primaryHoverComplementaryColor="orange"
+					profiles={{
+						primary,
+						primaryDarker,
+					}}
+					{...branding}
 				/>
 			</div>
 		</I18nextProvider>
