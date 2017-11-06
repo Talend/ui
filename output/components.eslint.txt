@@ -34,8 +34,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   64:18  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
   81:16  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
 
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListTable/ListTable.component.js
+  32:3  error  'rowHeight' is missing in props validation  react/prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 17 problems (17 errors, 0 warnings)
+✖ 18 problems (18 errors, 0 warnings)
 
