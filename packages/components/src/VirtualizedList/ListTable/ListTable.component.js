@@ -80,6 +80,7 @@ ListTable.propTypes = {
 	isActive: PropTypes.func,
 	isSelected: PropTypes.func,
 	onRowClick: PropTypes.func,
+	rowHeight: PropTypes.number,
 	sort: PropTypes.func,
 	sortBy: PropTypes.string,
 	sortDirection: PropTypes.string,
