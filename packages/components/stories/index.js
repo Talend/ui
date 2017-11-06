@@ -1,4 +1,5 @@
 import './Action';
+import './ActionFile';
 import './ActionBar';
 import './Badge';
 import './ActionDropdown';

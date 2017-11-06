@@ -4,6 +4,12 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionButton/ActionButton.test.js
+  2:8  error  'renderer' is defined but never used  no-unused-vars
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionFile/ActionFile.component.js
+  77:24  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+
 /home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
@@ -32,7 +38,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.component.js
   40:27  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
   64:18  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-  81:16  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
+  72:23  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListTable/ListTable.component.js
   32:3  error  'rowHeight' is missing in props validation  react/prop-types
@@ -41,5 +47,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 18 problems (18 errors, 0 warnings)
+✖ 19 problems (19 errors, 0 warnings)
 

@@ -24,11 +24,9 @@ export const DEFAULT_STATE = new Map({
  * @return {Array}          [description]
  */
 export function getItems(context, props) {
-	return props.items.map(
-		item => Object.assign({}, item, {
-			actions: getActionsProps(
-				context, get(props, 'actions.items', []), item,
-			),
+	return props.items.map(item =>
+		Object.assign({}, item, {
+			actions: getActionsProps(context, get(props, 'actions.items', []), item),
 		}),
 	);
 }
@@ -104,6 +102,7 @@ class List extends React.Component {
 				columns: get(this.props, 'list.columns', []),
 			},
 			virtualized: this.props.virtualized,
+			renderers: this.props.renderers,
 		};
 		props.list.titleProps = get(this.props, 'list.titleProps');
 
@@ -148,16 +147,10 @@ class List extends React.Component {
 			const actions = this.props.actions;
 			if (actions) {
 				if (actions.left) {
-					props.toolbar.actionBar.actions.left = getActionsProps(
-						this.context,
-						actions.left,
-					);
+					props.toolbar.actionBar.actions.left = actions.left.map((action) => ({ name: action }));
 				}
 				if (actions.right) {
-					props.toolbar.actionBar.actions.right = getActionsProps(
-						this.context,
-						actions.right,
-					);
+					props.toolbar.actionBar.actions.right = actions.right.map((action) => ({ name: action }));
 				}
 			}
 
@@ -172,7 +165,7 @@ class List extends React.Component {
 			}
 		}
 
-		return (<Component {...props} />);
+		return <Component {...props} />;
 	}
 }
 

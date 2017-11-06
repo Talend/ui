@@ -8,8 +8,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   86:3  warning  Unexpected console statement  no-console
 
 /home/travis/build/Talend/ui/packages/cmf/src/expression.js
-  87:16  error    Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
-  88:3   warning  Unexpected console statement                                                         no-console
+  87:16  error  Expected parentheses around arrow function argument having a body with curly braces  arrow-parens
 
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   23:2  warning  Unexpected console statement  no-console
@@ -18,5 +17,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   153:54  error  There should be no spaces inside this paren  space-in-parens
   166:51  error  There should be no spaces inside this paren  space-in-parens
 
-✖ 6 problems (3 errors, 3 warnings)
+✖ 5 problems (3 errors, 2 warnings)
 
