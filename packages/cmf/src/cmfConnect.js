@@ -160,9 +160,9 @@ export function getMergeProps({
 		);
 	}
 	return {
-		...api.expression.mergeProps(stateProps),
 		...api.expression.mergeProps(dispatchProps),
 		...api.expression.mergeProps(ownProps),
+		...api.expression.mergeProps(stateProps),
 	};
 }
 
