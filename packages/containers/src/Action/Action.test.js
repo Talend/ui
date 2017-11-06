@@ -21,10 +21,17 @@ describe('Action.mapStateToProps', () => {
 		const props = mapStateToProps({}, {});
 		expect(props).toEqual({ renderers });
 	});
-	xit('should resolve action info', () => {
-		const registry = api.registry.getRegistry();
-		registry['actionCreator:menu:article'] = { label: 'hello' };
-		const props = mapStateToProps({}, { actionId: 'menu:article' });
-		expect(props).toEqual({ label: 'hello' });
+	it('should resolve action displayMode', () => {
+		const state = mock.state();
+		state.cmf.settings.actions = {
+			'menu:article': {
+				name: 'foo',
+				displayMode: 'dropdown',
+			},
+		};
+		const props = mapStateToProps(state, { actionId: 'menu:article' });
+		expect(props.actionId).toBe('menu:article');
+		expect(props.displayMode).toBe('dropdown');
+		expect(props.name).toBeUndefined();
 	});
 });
