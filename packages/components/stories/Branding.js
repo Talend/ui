@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { storiesOf, action } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
-import { branding, profiles } from './config/branding';
+import { branding, themes } from './config/branding';
 import { Branding, HeaderBar, SidePanel, IconsProvider, Layout } from '../src/index';
 
 const icons = {
@@ -107,7 +107,7 @@ const sidePanelProps = {
 	tooltipPlacement: 'top',
 };
 
-function ProfileForm({ key, name, profile, onChange }) {
+function ThemeForm({ key, name, theme, onChange }) {
 	function onValueChange(event, property) {
 		return onChange(name, property, event.target.value);
 	}
@@ -123,11 +123,11 @@ function ProfileForm({ key, name, profile, onChange }) {
 			<div className="form-group inline-group">
 				<div>
 					<label htmlFor={`color-${key}`} className="control-label">Color</label>
-					<input id={`color-${key}`} className="form-control" type="color" value={profile.color} onChange={event => onValueChange(event, 'color')} />
+					<input id={`color-${key}`} className="form-control" type="color" value={theme.color} onChange={event => onValueChange(event, 'color')} />
 				</div>
 				<div>
 					<label htmlFor={`reverseColor-${key}`} className="control-label">Reverse Color</label>
-					<input id={`reverseColor-${key}`} className="form-control" type="color" value={profile.reverseColor} onChange={event => onValueChange(event, 'reverseColor')} />
+					<input id={`reverseColor-${key}`} className="form-control" type="color" value={theme.reverseColor} onChange={event => onValueChange(event, 'reverseColor')} />
 				</div>
 			</div>
 
@@ -135,11 +135,11 @@ function ProfileForm({ key, name, profile, onChange }) {
 			<div className="form-group inline-group">
 				<div>
 					<label htmlFor={`color-${key}`} className="control-label">Color</label>
-					<input id={`color-${key}`} className="form-control" type="color" value={profile.hoverColor} onChange={event => onValueChange(event, 'hoverColor')} />
+					<input id={`color-${key}`} className="form-control" type="color" value={theme.hoverColor} onChange={event => onValueChange(event, 'hoverColor')} />
 				</div>
 				<div>
 					<label htmlFor={`reverseColor-${key}`} className="control-label">Reverse Color</label>
-					<input id={`reverseColor-${key}`} className="form-control" type="color" value={profile.hoverReverseColor} onChange={event => onValueChange(event, 'hoverReverseColor')} />
+					<input id={`reverseColor-${key}`} className="form-control" type="color" value={theme.hoverReverseColor} onChange={event => onValueChange(event, 'hoverReverseColor')} />
 				</div>
 			</div>
 
@@ -147,11 +147,11 @@ function ProfileForm({ key, name, profile, onChange }) {
 			<div className="form-group inline-group">
 				<div>
 					<label htmlFor={`color-${key}`} className="control-label">Color</label>
-					<input id={`color-${key}`} className="form-control" type="color" value={profile.selectedColor} onChange={event => onValueChange(event, 'selectedColor')} />
+					<input id={`color-${key}`} className="form-control" type="color" value={theme.selectedColor} onChange={event => onValueChange(event, 'selectedColor')} />
 				</div>
 				<div>
 					<label htmlFor={`reverseColor-${key}`} className="control-label">Reverse Color</label>
-					<input id={`reverseColor-${key}`} className="form-control" type="color" value={profile.selectedReverseColor} onChange={event => onValueChange(event, 'selectedReverseColor')} />
+					<input id={`reverseColor-${key}`} className="form-control" type="color" value={theme.selectedReverseColor} onChange={event => onValueChange(event, 'selectedReverseColor')} />
 				</div>
 			</div>
 		</form>
@@ -159,8 +159,8 @@ function ProfileForm({ key, name, profile, onChange }) {
 }
 
 function ComponentForm({ key, name, component, onChange }) {
-	function onProfileChange(event) {
-		return onChange(name, 'profile', event.target.value);
+	function onThemeChange(event) {
+		return onChange(name, 'theme', event.target.value);
 	}
 	function onReverseChange() {
 		return onChange(name, 'reverse', !component.reverse);
@@ -171,8 +171,8 @@ function ComponentForm({ key, name, component, onChange }) {
 			<legend>{name}</legend>
 			<div className="form-group">
 				<div>
-					<input id={`comp-profile-${key}`} className="form-control" value={component.profile} onChange={onProfileChange} />
-					<label htmlFor={`comp-profile-${key}`} className="control-label">Profile</label>
+					<input id={`comp-theme-${key}`} className="form-control" value={component.theme} onChange={onThemeChange} />
+					<label htmlFor={`comp-theme-${key}`} className="control-label">Theme</label>
 				</div>
 				<div className="checkbox">
 					<label>
@@ -189,33 +189,33 @@ class BrandingConfigurer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			profiles,
+			themes,
 			branding,
 		};
 		this.onComponentChange = this.onComponentChange.bind(this);
-		this.onProfileChange = this.onProfileChange.bind(this);
+		this.onThemeChange = this.onThemeChange.bind(this);
 	}
 
-	onProfileChange(name, property, value) {
+	onThemeChange(name, property, value) {
 		if (property === 'name') {
 			this.setState((oldState) => {
-				const newProfiles = {
-					...oldState.profiles,
-					[value]: oldState.profiles[name],
+				const newThemes = {
+					...oldState.themes,
+					[value]: oldState.themes[name],
 				};
-				delete newProfiles[name];
-				return { profiles: newProfiles };
+				delete newThemes[name];
+				return { themes: newThemes };
 			});
 		} else {
 			this.setState((oldState) => {
-				const newProfiles = {
-					...oldState.profiles,
+				const newThemes = {
+					...oldState.themes,
 					[name]: {
-						...oldState.profiles[name],
+						...oldState.themes[name],
 						[property]: value,
 					},
 				};
-				return { profiles: newProfiles };
+				return { themes: newThemes };
 			});
 		}
 	}
@@ -237,19 +237,19 @@ class BrandingConfigurer extends React.Component {
 		return (
 			<section className="branding-configurer">
 				<Branding
-					profiles={this.state.profiles}
+					themes={this.state.themes}
 					{...this.state.branding}
 				/>
 				<section>
-					<h1>Profiles</h1>
-					<div className="branding-profiles">
+					<h1>Themes</h1>
+					<div className="branding-themes">
 						{
-							Object.keys(this.state.profiles)
-								.map((name, index) => <ProfileForm
+							Object.keys(this.state.themes)
+								.map((name, index) => <ThemeForm
 									key={index}
 									name={name}
-									profile={this.state.profiles[name]}
-									onChange={this.onProfileChange}
+									theme={this.state.themes[name]}
+									onChange={this.onThemeChange}
 								/>)
 						}
 					</div>

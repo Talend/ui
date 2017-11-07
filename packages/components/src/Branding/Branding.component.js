@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-function getHeaderBarBranding({ headerBar, profiles }) {
-	const { profile, reverse = true } = headerBar;
-	const colors = profiles[profile];
+function getHeaderBarBranding({ headerBar, themes }) {
+	const { theme, reverse = true } = headerBar;
+	const colors = themes[theme];
 	if (!colors) {
 		return '';
 	}
@@ -35,9 +35,9 @@ function getHeaderBarBranding({ headerBar, profiles }) {
 	`;
 }
 
-function getSidePanelBranding({ sidePanel, profiles }) {
-	const { profile, reverse = true } = sidePanel;
-	const colors = profiles[profile];
+function getSidePanelBranding({ sidePanel, themes }) {
+	const { theme, reverse = true } = sidePanel;
+	const colors = themes[theme];
 	if (!colors) {
 		return '';
 	}
@@ -95,22 +95,22 @@ function Branding(props) {
 Branding.propTypes = {
 	headerBar: PropTypes.shape({
 		reverse: PropTypes.bool,
-		profile: PropTypes.string,
+		theme: PropTypes.string,
 	}),
 	sidePanel: PropTypes.shape({
 		reverse: PropTypes.bool,
-		profile: PropTypes.string,
+		theme: PropTypes.string,
 	}),
-	profiles: PropTypes.object,
+	themes: PropTypes.object,
 };
 Branding.defaultProps = {
 	headerBar: {
 		reverse: true,
-		profile: 'primaryDarker',
+		theme: 'primaryDarker',
 	},
 	sidePanel: {
 		reverse: true,
-		profile: 'primary',
+		theme: 'primary',
 	},
 };
 

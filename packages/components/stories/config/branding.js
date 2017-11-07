@@ -1,33 +1,33 @@
 export const branding = {
 	headerBar: {
 		reverse: true,
-		profile: 'primaryDarker',
+		theme: 'primaryDarker',
 	},
 	sidePanel: {
 		reverse: true,
-		profile: 'primary',
+		theme: 'primary',
 	},
 };
 
 const primary = {
-	color: '#008000',
+	color: '#9c0909',
 	reverseColor: '#FFFFFF',
-	hoverColor: '#006400',
-	hoverReverseColor: '#d3d3d3',
-	selectedColor: '#90ee90',
-	selectedReverseColor: '#a9a9a9',
+	hoverColor: '#f3ecec',
+	hoverReverseColor: '#9c0909',
+	selectedColor: '#d94949',
+	selectedReverseColor: '#0f0f0f',
 };
 
 const primaryDarker = {
-	color: '#006400',
+	color: '#7e2f4e',
 	reverseColor: '#FFFFFF',
-	hoverColor: '#008000',
-	hoverReverseColor: '#a9a9a9',
-	selectedColor: '#008000',
-	selectedReverseColor: '#a9a9a9',
+	hoverColor: '#401727',
+	hoverReverseColor: '#ffffff',
+	selectedColor: '#b26d88',
+	selectedReverseColor: '#000000',
 };
 
-export const profiles = {
+export const themes = {
 	primary,
 	primaryDarker,
 };
