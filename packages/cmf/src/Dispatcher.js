@@ -100,8 +100,7 @@ export class Dispatcher extends React.Component {
 			});
 			return React.cloneElement(child, props);
 		});
-		const child = React.Children.only(childrenWithProps[0]);
-		return child;
+		return React.Children.only(childrenWithProps[0]);
 	}
 }
 

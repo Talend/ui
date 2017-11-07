@@ -76,7 +76,7 @@ function Actions(props) {
 					...action,
 				};
 
-				return <Action {...params} />;
+				return <props.renderers.Action {...params} />;
 			})}
 		</ButtonGroup>
 	);
@@ -93,6 +93,9 @@ Actions.propTypes = {
 
 Actions.defaultProps = {
 	actions: [],
+	renderers: {
+		Action,
+	},
 };
 
 export default Actions;

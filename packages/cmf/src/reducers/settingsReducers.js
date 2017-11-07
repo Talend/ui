@@ -69,9 +69,7 @@ export function settingsReducers(state = defaultState, action) {
 			return Object.assign(
 				{},
 				state,
-				{
-					initialized: true,
-				},
+				{ initialized: true },
 				prepareSettings(action.settings),
 			);
 		case ACTIONS.REQUEST_KO:
@@ -80,9 +78,7 @@ export function settingsReducers(state = defaultState, action) {
 			return Object.assign(
 				{},
 				state,
-				{
-					initialized: true,
-				},
+				{ initialized: true },
 				action.settings,
 			);
 		default:

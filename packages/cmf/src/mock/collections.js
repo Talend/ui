@@ -1,5 +1,3 @@
 import { Map } from 'immutable';
 
-const collections = new Map();
-
-export default collections;
+export default new Map();

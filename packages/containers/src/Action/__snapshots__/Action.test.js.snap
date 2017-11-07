@@ -1,21 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Action should render from name props keeping extra props 1`] = `
-<Action
+<CMF(Action)
+  actionId="menu:article"
+  deleteState={[Function]}
+  dispatch={[Function]}
+  dispatchActionCreator={[Function]}
+  displayMode={undefined}
   extra="foo"
-  icon="icon-article"
-  id="menu:article"
-  model={undefined}
-  name="My article"
-  onClick={[Function]}
-  payload={
+  getCollection={[Function]}
+  initState={[Function]}
+  name="menu:article"
+  renderers={
     Object {
-      "args": Array [
-        "/myarticle",
-      ],
-      "method": "push",
-      "type": "@@router/CALL_HISTORY_METHOD",
+      "ActionButton": [Function],
+      "ActionDropdown": [Function],
+      "ActionFile": [Function],
+      "ActionSplitDropdown": [Function],
     }
   }
+  setState={[Function]}
+  state={undefined}
+  updateState={[Function]}
 />
 `;

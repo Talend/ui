@@ -152,4 +152,5 @@ ActionButton.defaultProps = {
 	disabled: false,
 };
 
+ActionButton.displayName = 'ActionButton';
 export default ActionButton;

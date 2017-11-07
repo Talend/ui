@@ -50,7 +50,17 @@ function adaptLeftAndRightActions(actions, parentId) {
  * @example
  <Toolbar id="my-toolbar"></Toolbar>
  */
-function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, filter, t }) {
+function Toolbar({
+	id,
+	actionBar,
+	selectAllCheckbox,
+	display,
+	sort,
+	pagination,
+	filter,
+	t,
+	renderers,
+}) {
 	let actionBarProps = actionBar;
 	if (id && actionBar) {
 		const { actions, multiSelectActions } = actionBar;
@@ -65,7 +75,7 @@ function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, 
 
 	return (
 		<div className="tc-list-toolbar">
-			{actionBar && <ActionBar {...actionBarProps} />}
+			{actionBar && <renderers.ActionBar {...actionBarProps} />}
 			{hasToolbarItem && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
 					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
@@ -106,10 +116,16 @@ Toolbar.propTypes = {
 	pagination: PropTypes.shape(Pagination.propTypes),
 	filter: PropTypes.shape(omit(Filter.propTypes, 't')),
 	t: PropTypes.func.isRequired,
+	renderers: PropTypes.shape({
+		ActionBar: PropTypes.element,
+	}),
 };
 
 Toolbar.defaultProps = {
 	t: getDefaultTranslate,
+	renderers: {
+		ActionBar,
+	},
 };
 
 export default Toolbar;

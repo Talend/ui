@@ -49,6 +49,11 @@ exports[`CellActions should render actions 1`] = `
     }
     hideLabel={true}
     link={true}
+    renderers={
+      Object {
+        "Action": [Function],
+      }
+    }
   />
 </div>
 `;
