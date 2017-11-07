@@ -169,6 +169,11 @@ Object {
         "name": "Super long title to trigger overflow on tile rendering",
       },
     ],
+    "sort": Object {
+      "field": "name",
+      "isDescending": false,
+      "onChange": [Function],
+    },
     "titleProps": Object {
       "key": "label",
       "onClick": [Function],
