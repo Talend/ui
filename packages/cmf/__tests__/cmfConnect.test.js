@@ -126,7 +126,7 @@ describe('cmfConnect', () => {
 				mapStateToProps: () => ({ availableExpression: 'hasModel' }),
 			});
 			expect(props.available).toBe(true);
-			expect(props.model).toBe();
+			expect(props.model).toBeUndefined();
 		});
 	});
 	describe('#getMergeProps', () => {
