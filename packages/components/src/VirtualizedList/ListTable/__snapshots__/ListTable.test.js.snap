@@ -164,11 +164,15 @@ exports[`ListGrid should render no-rows component 1`] = `
           }
           tabIndex={0}
         >
-          <span
-            aria-live="polite"
-            className="no-result"
-            role="status"
-          />
+          <NoRows
+            t={[Function]}
+          >
+            <span
+              aria-live="polite"
+              className="no-result"
+              role="status"
+            />
+          </NoRows>
         </div>
       </Grid>
     </div>

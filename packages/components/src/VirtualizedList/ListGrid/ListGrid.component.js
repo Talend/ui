@@ -48,7 +48,7 @@ function ListGrid(props) {
 			height={height}
 			overscanRowCount={10}
 			onRowClick={onRowClick}
-			noRowsRenderer={() => NoRows({ t })}
+			noRowsRenderer={() => <NoRows t={t} />}
 			rowCount={collection.length}
 			rowHeight={rowHeight}
 			rowRenderer={enhancedRowRenderer}
