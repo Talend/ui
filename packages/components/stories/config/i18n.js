@@ -59,12 +59,11 @@ export const LanguageSwitcher = () => {
 	};
 
 	function renderBtn(locale, isDefault) {
-		return <button
-			className="btn"
-			onClick={() => i18n.changeLanguage(locale)}
-		>
-			{locale} {isDefault && '(default)'}
-		</button>;
+		return (
+			<button className="btn" onClick={() => i18n.changeLanguage(locale)}>
+				{locale} {isDefault && '(default)'}
+			</button>
+		);
 	}
 
 	return (

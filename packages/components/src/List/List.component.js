@@ -39,7 +39,7 @@ function ListToolbar({ id, toolbar, displayMode, list, t, renderers }) {
 			onToggleAll: list.itemProps.onToggleAll,
 		};
 	}
-	return (<Toolbar {...toolbarProps} />);
+	return <Toolbar {...toolbarProps} />;
 }
 
 ListToolbar.propTypes = {
@@ -55,36 +55,27 @@ ListToolbar.propTypes = {
 };
 
 function DisplayModeComponent({ displayMode, id, list, useContent, virtualized, t }) {
-	Object.assign(list, { t });
+	const translatedList = Object.assign({}, list, { t });
 	if (useContent) {
-		return (
-			<Content
-				id={id && `${id}-content`}
-				displayMode={displayMode}
-				{...list}
-			/>
-		);
+		return <Content id={id && `${id}-content`} displayMode={displayMode} {...translatedList} />;
 	}
 	if (virtualized) {
 		return (
 			<div className={'tc-list-display-virtualized'}>
-				<ListToVirtualizedList
-					id={id}
-					displayMode={displayMode}
-					{...list}
-				/>
+				<ListToVirtualizedList id={id} displayMode={displayMode} {...translatedList} />
 			</div>
 		);
 	}
 	switch (displayMode) {
 		case 'tile':
-			return <DisplayTile id={id} {...list} />;
+			return <DisplayTile id={id} {...translatedList} />;
 		case 'large':
-			return <DisplayLarge id={id} {...list} />;
+			return <DisplayLarge id={id} {...translatedList} />;
 		default:
-			return <DisplayTable id={id} {...list} />;
+			return <DisplayTable id={id} {...translatedList} />;
 	}
 }
+
 DisplayModeComponent.propTypes = {
 	displayMode: PropTypes.string,
 	id: PropTypes.string,
@@ -109,6 +100,7 @@ function ListDisplay({ displayMode, id, list, useContent, virtualized, t }) {
 		/>
 	);
 }
+
 ListDisplay.propTypes = DisplayModeComponent.propTypes;
 
 /**
