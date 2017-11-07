@@ -48,51 +48,47 @@ function DefaultArrayItem(props) {
 	const btnStyle = { flex: 1, paddingLeft: 6, paddingRight: 6, fontWeight: 'bold' };
 	return (
 		<div key={props.index} className={props.className}>
+			<div className={props.hasToolbar ? 'col-xs-9' : 'col-xs-12'}>{props.children}</div>
 
-			<div className={props.hasToolbar ? 'col-xs-9' : 'col-xs-12'}>
-				{props.children}
-			</div>
-
-			{props.hasToolbar ?
+			{props.hasToolbar ? (
 				<div className="col-xs-3 array-item-toolbox">
-					<div
-						className="btn-group"
-						style={{ display: 'flex', justifyContent: 'space-around' }}
-					>
-
-						{props.hasMoveUp || props.hasMoveDown ?
+					<div className="btn-group" style={{ display: 'flex', justifyContent: 'space-around' }}>
+						{props.hasMoveUp || props.hasMoveDown ? (
 							<IconBtn
-								icon="arrow-up" className="array-item-move-up"
+								icon="arrow-up"
+								className="array-item-move-up"
 								tabIndex="-1"
 								style={btnStyle}
 								disabled={props.disabled || props.readonly || !props.hasMoveUp}
 								onClick={props.onReorderClick(props.index, props.index - 1)}
 							/>
-							: null}
+						) : null}
 
-						{props.hasMoveUp || props.hasMoveDown ?
+						{props.hasMoveUp || props.hasMoveDown ? (
 							<IconBtn
-								icon="arrow-down" className="array-item-move-down"
+								icon="arrow-down"
+								className="array-item-move-down"
 								tabIndex="-1"
 								style={btnStyle}
 								disabled={props.disabled || props.readonly || !props.hasMoveDown}
 								onClick={props.onReorderClick(props.index, props.index + 1)}
 							/>
-							: null}
+						) : null}
 
-						{props.hasRemove ?
+						{props.hasRemove ? (
 							<IconBtn
-								type="danger" icon="remove" className="array-item-remove"
+								type="danger"
+								icon="remove"
+								className="array-item-remove"
 								tabIndex="-1"
 								style={btnStyle}
 								disabled={props.disabled || props.readonly}
 								onClick={props.onDropIndexClick(props.index)}
 							/>
-							: null}
+						) : null}
 					</div>
 				</div>
-				: null}
-
+			) : null}
 		</div>
 	);
 }
@@ -100,7 +96,6 @@ function DefaultArrayItem(props) {
 function DefaultFixedArrayFieldTemplate(props) {
 	return (
 		<fieldset className={props.className}>
-
 			<ArrayFieldTitle
 				key={`array-field-title-${props.idSchema.$id}`}
 				TitleField={props.TitleField}
@@ -115,17 +110,13 @@ function DefaultFixedArrayFieldTemplate(props) {
 				</div>
 			) : null}
 
-			<div
-				className="row array-item-list"
-				key={`array-item-list-${props.idSchema.$id}`}
-			>
+			<div className="row array-item-list" key={`array-item-list-${props.idSchema.$id}`}>
 				{props.items && props.items.map(DefaultArrayItem)}
 			</div>
 
-			{props.canAdd ? <AddButton
-				onClick={props.onAddClick}
-				disabled={props.disabled || props.readonly}
-			/> : null}
+			{props.canAdd ? (
+				<AddButton onClick={props.onAddClick} disabled={props.disabled || props.readonly} />
+			) : null}
 		</fieldset>
 	);
 }
@@ -133,7 +124,6 @@ function DefaultFixedArrayFieldTemplate(props) {
 function DefaultNormalArrayFieldTemplate(props) {
 	return (
 		<fieldset className={props.className}>
-
 			<ArrayFieldTitle
 				key={`array-field-title-${props.idSchema.$id}`}
 				TitleField={props.TitleField}
@@ -150,17 +140,13 @@ function DefaultNormalArrayFieldTemplate(props) {
 					description={props.schema.description}
 				/>
 			) : null}
-			<div
-				className="row array-item-list"
-				key={`array-item-list-${props.idSchema.$id}`}
-			>
+			<div className="row array-item-list" key={`array-item-list-${props.idSchema.$id}`}>
 				{props.items && props.items.map(p => <DefaultArrayItem {...p} />)}
 			</div>
 
-			{props.canAdd ? <AddButton
-				onClick={props.onAddClick}
-				disabled={props.disabled || props.readonly}
-			/> : null}
+			{props.canAdd ? (
+				<AddButton onClick={props.onAddClick} disabled={props.disabled || props.readonly} />
+			) : null}
 		</fieldset>
 	);
 }
@@ -199,51 +185,56 @@ class ArrayField extends Component {
 			itemSchema = schema.additionalItems;
 		}
 		formData.forEach(item => Object.assign(item, { isClosed: true }));
-		this.props.onChange([
-			...formData,
-			getDefaultFormState(itemSchema, undefined, definitions),
-		], { validate: false });
+		this.props.onChange([...formData, getDefaultFormState(itemSchema, undefined, definitions)], {
+			validate: false,
+		});
 	}
 
 	onDropIndexClick(index) {
-		return (event) => {
+		return event => {
 			if (event) {
 				event.preventDefault();
 			}
 			this.props.onChange(
 				this.props.formData.filter((_, i) => i !== index),
-				{ validate: true } // refs #195
+				{ validate: true }, // refs #195
 			);
 		};
 	}
 
 	onReorderClick(index, newIndex) {
-		return (event) => {
+		return event => {
 			if (event) {
 				event.preventDefault();
 				event.target.blur();
 			}
 			const { formData, onChange } = this.props;
-			onChange(formData.map((item, i) => {
-				if (i === newIndex) {
-					return formData[index];
-				} else if (i === index) {
-					return formData[newIndex];
-				}
-				return item;
-			}), { validate: true });
+			onChange(
+				formData.map((item, i) => {
+					if (i === newIndex) {
+						return formData[index];
+					} else if (i === index) {
+						return formData[newIndex];
+					}
+					return item;
+				}),
+				{ validate: true },
+			);
 		};
 	}
 
 	onChangeForIndex(index) {
-		return (value) => {
+		return value => {
 			const { formData, onChange } = this.props;
-			onChange(formData.map((item, i) => {
-				// We need to treat undefined items as nulls to have validation.
-				// See https://github.com/tdegrunt/jsonschema/issues/206
-				const jsonValue = typeof value === 'undefined' ? null : value;
-				return index === i ? jsonValue : item;
-			}), { validate: false });
+			onChange(
+				formData.map((item, i) => {
+					// We need to treat undefined items as nulls to have validation.
+					// See https://github.com/tdegrunt/jsonschema/issues/206
+					const jsonValue = typeof value === 'undefined' ? null : value;
+					return index === i ? jsonValue : item;
+				}),
+				{ validate: false },
+			);
 		};
 	}
 
@@ -273,7 +264,7 @@ class ArrayField extends Component {
 			onChange,
 			onBlur,
 		} = this.props;
-		const title = (schema.title === undefined) ? name : schema.title;
+		const title = schema.title === undefined ? name : schema.title;
 		const { ArrayFieldTemplate, definitions, fields, widgets } = registry;
 		const { TitleField, DescriptionField } = fields;
 		const itemsSchema = retrieveSchema(schema.items, definitions);
@@ -283,19 +274,21 @@ class ArrayField extends Component {
 				return null;
 			}
 			const Widget = getWidget(schema, widget, widgets);
-			const onChangeHandler = (value) => {
+			const onChangeHandler = value => {
 				onChange(value, options);
 			};
-			return (<Widget
-				id={idSchema && idSchema.$id}
-				onChange={onChangeHandler}
-				onBlur={onBlur}
-				schema={schema}
-				formData={formData}
-				uiSchema={uiSchema}
-				registry={this.props.registry}
-				definitions={definitions}
-			/>);
+			return (
+				<Widget
+					id={idSchema && idSchema.$id}
+					onChange={onChangeHandler}
+					onBlur={onBlur}
+					schema={schema}
+					formData={formData}
+					uiSchema={uiSchema}
+					registry={this.props.registry}
+					definitions={definitions}
+				/>
+			);
 		}
 
 		const arrayProps = {
@@ -407,10 +400,10 @@ class ArrayField extends Component {
 		let items = this.props.formData;
 		const { ArrayFieldTemplate, definitions, fields } = registry;
 		const { TitleField } = fields;
-		const itemSchemas = schema.items.map(item =>
-			retrieveSchema(item, definitions));
-		const additionalSchema = allowAdditionalItems(schema) ?
-			retrieveSchema(schema.additionalItems, definitions) : null;
+		const itemSchemas = schema.items.map(item => retrieveSchema(item, definitions));
+		const additionalSchema = allowAdditionalItems(schema)
+			? retrieveSchema(schema.additionalItems, definitions)
+			: null;
 		const { addable = true } = getUiOptions(uiSchema);
 		const canAdd = addable && additionalSchema;
 		if (!items || items.length < itemSchemas.length) {
@@ -546,8 +539,11 @@ function AddButton({ onClick, disabled }) {
 		<div className="row">
 			<p className="col-xs-3 col-xs-offset-9 array-item-add text-right">
 				<IconBtn
-					type="info" icon="plus" className="btn-add col-xs-12"
-					tabIndex="0" onClick={onClick}
+					type="info"
+					icon="plus"
+					className="btn-add col-xs-12"
+					tabIndex="0"
+					onClick={onClick}
 					disabled={disabled}
 				/>
 			</p>
@@ -577,10 +573,8 @@ if (process.env.NODE_ENV !== 'production') {
 		name: PropTypes.string,
 		formContext: PropTypes.object,
 		registry: PropTypes.shape({
-			widgets: PropTypes.objectOf(PropTypes.oneOfType([
-				PropTypes.func,
-				PropTypes.object,
-			])).isRequired,
+			widgets: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object]))
+				.isRequired,
 			fields: PropTypes.objectOf(PropTypes.func).isRequired,
 			definitions: PropTypes.object.isRequired,
 			formContext: PropTypes.object.isRequired,

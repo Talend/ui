@@ -1,11 +1,6 @@
 import has from 'lodash/has';
 import get from 'lodash/get';
-import {
-	HTTP_METHODS,
-	HTTP_REQUEST,
-	HTTP_RESPONSE,
-	HTTP_ERRORS,
-} from './constants';
+import { HTTP_METHODS, HTTP_REQUEST, HTTP_RESPONSE, HTTP_ERRORS } from './constants';
 
 export const DEFAULT_HTTP_HEADERS = {
 	Accept: 'application/json',
@@ -47,11 +42,14 @@ export function httpResponse(response) {
 }
 
 export function mergeOptions(action) {
-	const options = Object.assign({
-		method: getMethod(action),
-		headers: DEFAULT_HTTP_HEADERS,
-		credentials: 'same-origin',
-	}, action);
+	const options = Object.assign(
+		{
+			method: getMethod(action),
+			headers: DEFAULT_HTTP_HEADERS,
+			credentials: 'same-origin',
+		},
+		action,
+	);
 
 	if (typeof options.body === 'object' && !(options.body instanceof FormData)) {
 		options.body = JSON.stringify(options.body);
@@ -95,7 +93,7 @@ export function HTTPError(response) {
 		statusText: response.statusText,
 		ok: response.ok,
 		redirected: response.redirected,
-		type: response.type,  // basic, cors
+		type: response.type, // basic, cors
 		url: response.url,
 	};
 }
@@ -119,7 +117,7 @@ export function handleResponse(response) {
 	return Promise.reject(new HTTPError(response));
 }
 
-export const httpMiddleware = ({ dispatch }) => next => (action) => {
+export const httpMiddleware = ({ dispatch }) => next => action => {
 	if (!isHTTPRequest(action)) {
 		return next(action);
 	}
@@ -132,7 +130,7 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 			httpAction,
 		});
 	}
-	const onHTTPError = (error) => {
+	const onHTTPError = error => {
 		const errorObject = {
 			name: error.name,
 			message: error.description || error.message,
@@ -149,24 +147,27 @@ export const httpMiddleware = ({ dispatch }) => next => (action) => {
 		} else {
 			// clone the response object else the next call to text or json
 			// triggers an exception Already use
-			error.stack.response.clone().text().then((response) => {
-				try {
-					errorObject.stack.response = response;
-					errorObject.stack.messageObject = JSON.parse(response);
-				} finally {
-					if (httpAction.onError) {
-						dispatch(onError(httpAction, errorObject));
-					} else {
-						dispatch(httpError(errorObject));
+			error.stack.response
+				.clone()
+				.text()
+				.then(response => {
+					try {
+						errorObject.stack.response = response;
+						errorObject.stack.messageObject = JSON.parse(response);
+					} finally {
+						if (httpAction.onError) {
+							dispatch(onError(httpAction, errorObject));
+						} else {
+							dispatch(httpError(errorObject));
+						}
 					}
-				}
-			});
+				});
 		}
 	};
 	return fetch(httpAction.url, config)
 		.then(status)
 		.then(handleResponse)
-		.then((response) => {
+		.then(response => {
 			const newAction = Object.assign({}, action);
 			dispatch(httpResponse(response));
 			if (newAction.transform) {

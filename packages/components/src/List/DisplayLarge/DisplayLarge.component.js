@@ -9,30 +9,26 @@ import NoRows from '../../VirtualizedList/NoRows';
 import theme from './DisplayLarge.scss';
 
 function getColumnsData({ columns, item, titleKey }) {
-	return columns
-		.filter(column => column.key !== titleKey)
-		.map((column) => {
-			const data = {
-				label: column.label,
-				value: item[column.key],
-			};
-			if (column.formater && data.value) {
-				data.value = column.formater(data.value);
-			}
-			return data;
-		});
+	return columns.filter(column => column.key !== titleKey).map(column => {
+		const data = {
+			label: column.label,
+			value: item[column.key],
+		};
+		if (column.formater && data.value) {
+			data.value = column.formater(data.value);
+		}
+		return data;
+	});
 }
 
 function getTwoDim(columnsData) {
-	return columnsData
-		.filter((column, i) => i % 2 === 0)
-		.map((column) => {
-			const i = columnsData.indexOf(column);
-			if (columnsData.length > i + 1) {
-				return [column, columnsData[i + 1]];
-			}
-			return [column];
-		});
+	return columnsData.filter((column, i) => i % 2 === 0).map(column => {
+		const i = columnsData.indexOf(column);
+		if (columnsData.length > i + 1) {
+			return [column, columnsData[i + 1]];
+		}
+		return [column];
+	});
 }
 
 function rowRenderer({ id, index, columns, item, itemProps, titleProps }) {
@@ -47,32 +43,27 @@ function rowRenderer({ id, index, columns, item, itemProps, titleProps }) {
 		isSelected && isSelected(item) && (selectedClass || 'active'),
 	);
 
-	const checkboxColumn = onToggle && isSelected ?
-		(<div className="checkbox">
-			<label htmlFor={id && `${id}-check`}>
-				<input
-					id={id && `${id}-check`}
-					type="checkbox"
-					onChange={(e) => {
-						onToggle(e, item);
-					}}
-					checked={isSelected(item)}
-				/>
-				<span><span className="sr-only">Select {item.name}</span></span>
-			</label>
-		</div>) :
-		null;
+	const checkboxColumn =
+		onToggle && isSelected ? (
+			<div className="checkbox">
+				<label htmlFor={id && `${id}-check`}>
+					<input
+						id={id && `${id}-check`}
+						type="checkbox"
+						onChange={e => {
+							onToggle(e, item);
+						}}
+						checked={isSelected(item)}
+					/>
+					<span>
+						<span className="sr-only">Select {item.name}</span>
+					</span>
+				</label>
+			</div>
+		) : null;
 
-	const displayActions =
-		!titleProps.displayModeKey ||
-		item[titleProps.displayModeKey] === 'text';
-	const actions = displayActions ?
-		(<Actions
-			actions={item.actions || []}
-			hideLabel
-			link
-		/>) :
-		null;
+	const displayActions = !titleProps.displayModeKey || item[titleProps.displayModeKey] === 'text';
+	const actions = displayActions ? <Actions actions={item.actions || []} hideLabel link /> : null;
 
 	return (
 		<div id={id} className={panel} key={index}>
@@ -92,7 +83,9 @@ function rowRenderer({ id, index, columns, item, itemProps, titleProps }) {
 						{group.map((obj, j) => (
 							<li key={j}>
 								<span className={theme.label}>{obj.label}</span>
-								<span className={theme.value} title={obj.value}>{obj.value}</span>
+								<span className={theme.value} title={obj.value}>
+									{obj.value}
+								</span>
 							</li>
 						))}
 					</ul>
@@ -161,29 +154,22 @@ rowRenderer.propTypes = {
  <DisplayLarge {...props} />
  */
 function DisplayLarge(props) {
-	const {
-		id,
-		columns,
-		items,
-		itemProps,
-		titleProps,
-	} = props;
-	const classnames = classNames(
-		theme.container,
-		'tc-list-display',
-	);
+	const { id, columns, items, itemProps, titleProps } = props;
+	const classnames = classNames(theme.container, 'tc-list-display');
 
 	return (
 		<div className={classnames}>
-			{ !items.length && <NoRows /> }
-			{items.map((item, index) => rowRenderer({
-				index,
-				id: id && `${id}-${index}`,
-				columns,
-				item,
-				itemProps,
-				titleProps,
-			}))}
+			{!items.length && <NoRows />}
+			{items.map((item, index) =>
+				rowRenderer({
+					index,
+					id: id && `${id}-${index}`,
+					columns,
+					item,
+					itemProps,
+					titleProps,
+				}),
+			)}
 		</div>
 	);
 }
