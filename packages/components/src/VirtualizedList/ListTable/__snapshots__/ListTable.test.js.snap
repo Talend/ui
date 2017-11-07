@@ -7,6 +7,7 @@ exports[`ListGrid should render no-rows component 1`] = `
   height={600}
   id="my-list"
   isSelected={[Function]}
+  rowHeight={50}
   selectionToggle={[Function]}
   width={1024}
 >
