@@ -78,11 +78,13 @@ exports[`RendererSelector should render table list by default 1`] = `
       },
     ]
   }
+  disableHeader={false}
   height={600}
   id="my-list-id"
   isActive={[Function]}
   isSelected={[Function]}
   onRowClick={[Function]}
+  rowHeight={50}
   selectionToggle={[Function]}
   sort={[Function]}
   sortBy="name"
@@ -141,11 +143,13 @@ exports[`RendererSelector should render table list when requested 1`] = `
       },
     ]
   }
+  disableHeader={false}
   height={600}
   id="my-list-id"
   isActive={[Function]}
   isSelected={[Function]}
   onRowClick={[Function]}
+  rowHeight={50}
   selectionToggle={[Function]}
   sort={[Function]}
   sortBy="name"

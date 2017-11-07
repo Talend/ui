@@ -30,6 +30,22 @@
                 <li class="divider"></li>
               </ul>
             </li>
+            <li class="dropdown" id="menu_dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="menu">
+                <li><a href="#navbar">Navbar</a></li>
+                <li><a href="#buttons">Buttons</a></li>
+                <li><a href="#typography">Typography</a></li>
+                <li><a href="#tables">Tables</a></li>
+                <li><a href="#forms">Forms</a></li>
+                <li><a href="#navs">Navs</a></li>
+                <li><a href="#breadcrumbs">Breadcrumbs</a></li>
+                <li><a href="#indicators">Indicators</a></li>
+                <li><a href="#progress-bars">Progress bars</a></li>
+                <li><a href="#containers">Containers</a></li>
+                <li><a href="#dialogs">Dialogs</a></li>
+              </ul>
+            </li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -1730,73 +1746,77 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
     (function() {
-	$(window).scroll(function() {
-		var top = $(document).scrollTop();
-		$('.splash').css({
-			'background-position': '0px -' + (top / 3).toFixed(2) + 'px',
-		});
-		if (top > 50) $('#home > .navbar').removeClass('navbar-transparent');
-		else $('#home > .navbar').addClass('navbar-transparent');
-	});
 
-	$("a[href='#']").click(function(e) {
-		e.preventDefault();
-	});
+        function setDropDownMenuVisibility(){
+            var top = $(document).scrollTop();
+            var $banner = $("#banner");
+            var elementTop = $banner.offset().top;
+            var elementBottom = elementTop + $banner.height();
 
-	var $button = $(
-		"<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>",
-	).click(function() {
-		var html = $(this)
-			.parent()
-			.html();
-		html = cleanSource(html);
-		$('#source-modal pre').text(html);
-		$('#source-modal').modal();
-	});
+            $('#menu_dropdown').toggle(top >= elementBottom);
+        }
 
-	$('.bs-component [data-toggle="popover"]').popover();
-	$('.bs-component [data-toggle="tooltip"]').tooltip();
+        $(function(){
+              setDropDownMenuVisibility();
+        });
 
-	$('.bs-component').hover(
-		function() {
-			$(this).append($button);
-			$button.show();
-		},
-		function() {
-			$button.hide();
-		},
-	);
+      $(window).scroll(function() {
+        var top = $(document).scrollTop();
+        $('.splash').css({
+          'background-position': '0px -' + (top / 3).toFixed(2) + 'px',
+        });
+        if (top > 50) $('#home > .navbar').removeClass('navbar-transparent');
+        else $('#home > .navbar').addClass('navbar-transparent');
 
-	function cleanSource(html) {
-		html = html
-			.replace(/×/g, '&times;')
-			.replace(/«/g, '&laquo;')
-			.replace(/»/g, '&raquo;')
-			.replace(/←/g, '&larr;')
-			.replace(/→/g, '&rarr;');
-
-		var lines = html.split(/\n/);
-
-		lines.shift();
-		lines.splice(-1, 1);
-
-		var indentSize = lines[0].length - lines[0].trim().length,
-			re = new RegExp(' {' + indentSize + '}');
-
-		lines = lines.map(function(line) {
-			if (line.match(re)) {
-				line = line.substring(indentSize);
-			}
-
-			return line;
-		});
-
-		lines = lines.join('\n');
-
-		return lines;
-	}
-})();
-</script>
+            setDropDownMenuVisibility();
+      });
+      $("a[href='#']").click(function(e) {
+        e.preventDefault();
+      });
+      var $button = $(
+        "<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>",
+      ).click(function() {
+        var html = $(this)
+          .parent()
+          .html();
+        html = cleanSource(html);
+        $('#source-modal pre').text(html);
+        $('#source-modal').modal();
+      });
+      $('.bs-component [data-toggle="popover"]').popover();
+      $('.bs-component [data-toggle="tooltip"]').tooltip();
+      $('.bs-component').hover(
+        function() {
+          $(this).append($button);
+          $button.show();
+        },
+        function() {
+          $button.hide();
+        },
+      );
+      function cleanSource(html) {
+        html = html
+          .replace(/×/g, '&times;')
+          .replace(/«/g, '&laquo;')
+          .replace(/»/g, '&raquo;')
+          .replace(/←/g, '&larr;')
+          .replace(/→/g, '&rarr;');
+        var lines = html.split(/\n/);
+        lines.shift();
+        lines.splice(-1, 1);
+        var indentSize = lines[0].length - lines[0].trim().length,
+          re = new RegExp(' {' + indentSize + '}');
+        lines = lines.map(function(line) {
+          if (line.match(re)) {
+            line = line.substring(indentSize);
+          }
+          return line;
+        });
+        lines = lines.join('\n');
+        return lines;
+      }
+    })();
+    </script>
     <script src="dist/bootstrap.js"></script>
   </body>
 </html>

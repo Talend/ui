@@ -29,7 +29,7 @@ import theme from './SidePanel.scss';
  />
  *
  */
-function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock, t }) {
+function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, renderers }) {
 	const dockedCSS = { [theme.docked]: docked };
 	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
 	const listCSS = classNames(
@@ -37,7 +37,7 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 		'tc-side-panel-list',
 		theme['action-list'],
 	);
-	const isActionSelected = (action) => {
+	const isActionSelected = action => {
 		if (selected) {
 			return action === selected;
 		}
@@ -61,12 +61,33 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 						label=""
 					/>
 				</li>
-				{actions.map((action) => {
+				{actions.map(action => {
 					const isSelected = isActionSelected(action);
 					const a11y = {};
 					if (isSelected) {
 						a11y['aria-current'] = true;
 					}
+					const extra = {};
+					if (onSelect) {
+						extra.onClick = event => {
+							onSelect(event, action);
+							if (action.onClick) {
+								action.onClick(event);
+							}
+						};
+					}
+					const actionProps = Object.assign({}, action, {
+						active: undefined, // active scope is only the list item
+						id:
+							id &&
+							`${id}-nav-${action.label
+								.toLowerCase()
+								.split(' ')
+								.join('-')}`,
+						bsStyle: 'link',
+						role: 'link',
+						className: classNames(theme.link, action.className),
+					}, extra);
 					return (
 						<li
 							title={action.label}
@@ -76,28 +97,7 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 							})}
 							{...a11y}
 						>
-							<Action
-								id={
-									id &&
-									`${id}-nav-${action.label
-										.toLowerCase()
-										.split(' ')
-										.join('-')}`
-								}
-								bsStyle="link"
-								role="link"
-								className={theme.link}
-								onClick={(event) => {
-									if (onSelect) {
-										onSelect(event, action);
-									}
-									if (action.onClick) {
-										action.onClick(event);
-									}
-								}}
-								label={action.label}
-								icon={action.icon}
-							/>
+							<renderers.Action {...actionProps} />
 						</li>
 					);
 				})}
@@ -105,6 +105,11 @@ function SidePanel({ id, selected, onSelect, actions = [], docked, onToggleDock,
 		</nav>
 	);
 }
+
+SidePanel.defaultProps = {
+	actions: [],
+	renderers: { Action },
+};
 
 if (process.env.NODE_ENV !== 'production') {
 	const actionPropType = PropTypes.shape({
@@ -123,6 +128,9 @@ if (process.env.NODE_ENV !== 'production') {
 		docked: PropTypes.bool,
 		selected: actionPropType,
 		t: PropTypes.func,
+		renderers: PropTypes.shape({
+			Action: PropTypes.node,
+		}),
 	};
 }
 

@@ -1,3 +1,3 @@
-import Actions from './Actions.component';
+import Actions from './Actions.connect';
 
 export default Actions;

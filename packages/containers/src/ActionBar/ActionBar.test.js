@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import mock from '@talend/react-cmf/lib/mock';
 
-import Container from './ActionBar.container';
+import Container from './ActionBar.connect';
 
 const action = jest.fn();
 
@@ -79,7 +79,8 @@ describe('Container ActionBar', () => {
 	it('should pass the props', () => {
 		const props = { actions };
 		const wrapper = shallow(
-			<Container {...props} />
+			<Container {...props} />,
+			{ context: mock.context() }
 		);
 		expect(wrapper.props()).toMatchSnapshot();
 	});

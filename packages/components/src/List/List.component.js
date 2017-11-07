@@ -15,7 +15,7 @@ import theme from './List.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import { DEFAULT_I18N } from '../translate';
 
-function ListToolbar({ id, toolbar, displayMode, list, t }) {
+function ListToolbar({ id, toolbar, displayMode, list, t, renderers }) {
 	if (!toolbar) {
 		return null;
 	}
@@ -23,6 +23,7 @@ function ListToolbar({ id, toolbar, displayMode, list, t }) {
 	const toolbarProps = {
 		...toolbar,
 		id,
+		renderers,
 		t,
 	};
 
@@ -50,6 +51,7 @@ ListToolbar.propTypes = {
 	]),
 	toolbar: PropTypes.shape(omit(Toolbar.propTypes, 't')),
 	t: PropTypes.func.isRequired,
+	renderers: PropTypes.object,
 };
 
 function DisplayModeComponent({ displayMode, id, list, useContent, virtualized }) {
@@ -141,7 +143,7 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
 }
  <List {...props}></List>
  */
-function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
+function List({ displayMode, id, list, toolbar, useContent, virtualized, t, renderers }) {
 	const classnames = classNames('tc-list', theme.list);
 
 	return (
@@ -152,6 +154,7 @@ function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
 				displayMode={displayMode}
 				list={list}
 				t={t}
+				renderers={renderers}
 			/>
 			<ListDisplay
 				displayMode={displayMode}
@@ -159,6 +162,7 @@ function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
 				list={list}
 				useContent={useContent}
 				virtualized={virtualized}
+				renderers={renderers}
 			/>
 		</div>
 	);
@@ -167,6 +171,7 @@ function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
 List.propTypes = {
 	...omit(ListToolbar.propTypes, 't'),
 	...ListDisplay.propTypes,
+	renderers: PropTypes.object,
 };
 
 List.defaultProps = {

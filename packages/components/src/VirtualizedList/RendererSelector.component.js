@@ -18,7 +18,7 @@ function getRowRenderer(type) {
 		const rowRendererTypes = [TABLE].concat(Object.keys(rowDictionary));
 		throw new Error(
 			`Unknown row renderer in Virtualized List : ${type}. ` +
-			`Possible values are [${rowRendererTypes}].`
+				`Possible values are [${rowRendererTypes}].`,
 		);
 	}
 	return rowRenderer;
@@ -43,12 +43,14 @@ function RendererSelector(props) {
 		sortDirection,
 		type,
 		width,
+		disableHeader,
 	} = props;
 
 	if (type === TABLE) {
 		return (
 			<ListTable
 				collection={collection}
+				disableHeader={disableHeader}
 				height={height}
 				id={id}
 				isActive={isActive}
@@ -58,6 +60,7 @@ function RendererSelector(props) {
 				sort={sort}
 				sortBy={sortBy}
 				sortDirection={sortDirection}
+				rowHeight={rowHeight}
 				width={width}
 			>
 				{children}

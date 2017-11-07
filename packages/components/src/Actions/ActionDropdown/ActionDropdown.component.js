@@ -100,6 +100,8 @@ function ActionDropdown(props) {
 	return dropdown;
 }
 
+ActionDropdown.displayName = 'ActionDropdown';
+
 ActionDropdown.propTypes = {
 	bsStyle: PropTypes.string,
 	hideLabel: PropTypes.bool,
@@ -119,6 +121,7 @@ ActionDropdown.propTypes = {
 ActionDropdown.defaultProps = {
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
+	items: [],
 };
 
 export default ActionDropdown;

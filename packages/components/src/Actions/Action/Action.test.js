@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Action, { getActionComponent } from './Action.component';
 import ActionButton from '../ActionButton';
+import ActionFile from '../ActionFile';
 import ActionDropdown from '../ActionDropdown';
 import ActionSplitDropdown from '../ActionSplitDropdown';
 
@@ -11,8 +12,11 @@ const MyActionSplitDropdown = jest.fn();
 MyActionSplitDropdown.displayName = 'MyActionSplitDropdown';
 const MyActionDropdown = jest.fn();
 MyActionDropdown.displayName = 'MyActionDropdown';
+const MyActionFile = jest.fn();
+MyActionFile.displayName = 'MyActionFile';
 const renderers = {
 	ActionButton: MyActionButton,
+	ActionFile: MyActionFile,
 	ActionSplitDropdown: MyActionSplitDropdown,
 	ActionDropdown: MyActionDropdown,
 };
@@ -34,6 +38,10 @@ describe('getActionComponent', () => {
 		const component = getActionComponent({ renderers });
 		expect(component.displayName).toBe('MyActionButton');
 	});
+	it('should return MyActionFile if displayMode = file', () => {
+		const component = getActionComponent({ renderers, displayMode: 'file' });
+		expect(component.displayName).toBe('MyActionFile');
+	});
 	it('should return MyActionSplitDropdown if displayMode = splitDropdown', () => {
 		const component = getActionComponent({ renderers, displayMode: 'splitDropdown' });
 		expect(component.displayName).toBe('MyActionSplitDropdown');
@@ -48,6 +56,11 @@ describe('Action', () => {
 	it('should render ActionButton', () => {
 		const wrapper = shallow(<Action label="hello world" />);
 		expect(wrapper.getNode().type).toBe(ActionButton);
+		expect(wrapper.getNode().props.label).toBe('hello world');
+	});
+	it('should render ActionButton', () => {
+		const wrapper = shallow(<Action label="hello world" displayMode="file" />);
+		expect(wrapper.getNode().type).toBe(ActionFile);
 		expect(wrapper.getNode().props.label).toBe('hello world');
 	});
 	it('should render ActionSplitDropdown', () => {

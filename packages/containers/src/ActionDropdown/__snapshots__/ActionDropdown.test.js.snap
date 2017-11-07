@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container(ActionDropdown) should render 1`] = `
+<ActionDropdown
+  actionIds={
+    Array [
+      "menu:article",
+    ]
+  }
+  bsStyle="default"
+  foo="extra"
+  items={
+    Array [
+      Object {
+        "label": "Foo",
+        "onClick": [Function],
+      },
+    ]
+  }
+  tooltipPlacement="top"
+/>
+`;
