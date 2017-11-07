@@ -1,9 +1,7 @@
 import React from 'react';
 import { AutoSizer, Column } from 'react-virtualized';
-import { translate } from 'react-i18next';
 
-import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../translate';
+import { getDefaultTranslate } from '../translate';
 import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration } from './utils/tablerow';
@@ -41,11 +39,7 @@ function VirtualizedList(props) {
 
 	if (inProgress) {
 		return (
-			<div
-				aria-atomic="true"
-				aria-busy="true"
-				className={theme['tc-list-progress']}
-			>
+			<div aria-atomic="true" aria-busy="true" className={theme['tc-list-progress']}>
 				<CircularProgress size={'default'} />
 			</div>
 		);
