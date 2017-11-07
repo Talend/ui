@@ -154,12 +154,12 @@ rowRenderer.propTypes = {
  <DisplayLarge {...props} />
  */
 function DisplayLarge(props) {
-	const { id, columns, items, itemProps, titleProps } = props;
+	const { id, columns, items, itemProps, titleProps, t } = props;
 	const classnames = classNames(theme.container, 'tc-list-display');
 
 	return (
 		<div className={classnames}>
-			{!items.length && <NoRows />}
+			{!items.length && <NoRows t={t} />}
 			{items.map((item, index) =>
 				rowRenderer({
 					index,
