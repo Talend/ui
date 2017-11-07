@@ -8,6 +8,7 @@
     "surge": "^0.18.0"
   },
   "scripts": {
+    "jso-surge": "cd ./packages/components && yarn build-storybook && cd ./storybook-static && surge -d jso.surge.sh",
     "postinstall": "lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress --mutex network && node copylibs.js",
     "update-versions": "node version.js && lerna exec -- yarn && node copylibs.js",
     "build": "lerna exec --ignore=generator-talend -- yarn run prepublish && node copylibs.js",
