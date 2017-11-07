@@ -176,7 +176,7 @@ function DisplayTile(props) {
 					))}
 				</ul>
 			)}
-			{!items.length && <NoRows t={t}/>}
+			{!items.length && <NoRows t={t} />}
 		</div>
 	);
 }
