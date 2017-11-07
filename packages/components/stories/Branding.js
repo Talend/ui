@@ -176,7 +176,7 @@ function ComponentForm({ key, name, component, onChange }) {
 				</div>
 				<div className="checkbox">
 					<label>
-						<input id={`reverseColor-${key}`} type="checkbox" value={component.reverse} onChange={onReverseChange} />
+						<input id={`reverseColor-${key}`} type="checkbox" checked={component.reverse} onChange={onReverseChange} />
 						<span>Reverse Color</span>
 					</label>
 				</div>
@@ -268,6 +268,12 @@ class BrandingConfigurer extends React.Component {
 						}
 					</div>
 				</section>
+				<section>
+					<h1>Configuration payload</h1>
+					<pre>
+						{JSON.stringify(this.state, null, 2)}
+					</pre>
+				</section>
 			</section>
 		);
 	}
@@ -278,7 +284,7 @@ BrandingConfigurer.propTypes = {
 
 storiesOf('Branding')
 	.addDecorator(story => (
-		<div className="branding">
+		<div>
 			<IconsProvider defaultIcons={icons} />
 			{story()}
 		</div>
