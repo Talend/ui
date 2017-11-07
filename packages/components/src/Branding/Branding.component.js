@@ -6,7 +6,7 @@ function getHeaderBarBranding({ headerBar, profiles }) {
 	const { profile, reverse = true } = headerBar;
 	const colors = profiles[profile];
 	if (!colors) {
-		return null;
+		return '';
 	}
 
 	let { color, reverseColor, hoverColor, hoverReverseColor } = colors;
@@ -39,7 +39,7 @@ function getSidePanelBranding({ sidePanel, profiles }) {
 	const { profile, reverse = true } = sidePanel;
 	const colors = profiles[profile];
 	if (!colors) {
-		return null;
+		return '';
 	}
 
 	let {
@@ -48,7 +48,7 @@ function getSidePanelBranding({ sidePanel, profiles }) {
 		hoverColor,
 		hoverReverseColor,
 		selectedColor,
-		selectedReverseColor
+		selectedReverseColor,
 	} = colors;
 	if (reverse) {
 		[color, reverseColor] = [reverseColor, color];
@@ -57,17 +57,24 @@ function getSidePanelBranding({ sidePanel, profiles }) {
 	}
 
 	return `
-		.branding-sidePanel ul {
+		.branding-sidePanel ul,
+		.tc-layout-two-columns-left {
 			color: ${color};
 			background-color: ${reverseColor};
 		}
-		.branding-sidePanel li:hover {
+		.branding-sidePanel .tc-side-panel-list-item:hover {
 			color: ${hoverColor};
 			background-color: ${hoverReverseColor};
 		}
-		.branding-sidePanel li.active {
+		.branding-sidePanel .tc-side-panel-list-item.active {
 			color: ${selectedColor};
 			background-color: ${selectedReverseColor};
+		}
+		.branding-sidePanel .toggle-btn .btn.btn-link:hover {
+			color: ${hoverColor};
+		}
+		.branding-sidePanel .toggle-btn:hover {
+			color: ${color};
 		}
 	`;
 }

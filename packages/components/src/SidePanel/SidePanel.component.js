@@ -51,7 +51,10 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 	return (
 		<nav className={navCSS} role="navigation">
 			<ul className={listCSS}>
-				<li className={theme['toggle-btn']} title={toggleButtonTitle}>
+				<li
+					className={classNames('toggle-btn', theme['toggle-btn'])}
+					title={toggleButtonTitle}
+				>
 					<Action
 						id={id && `${id}-toggle-dock`}
 						className={theme.link}

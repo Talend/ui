@@ -1,6 +1,6 @@
 export const branding = {
 	headerBar: {
-		reverse: false,
+		reverse: true,
 		profile: 'primaryDarker',
 	},
 	sidePanel: {
@@ -10,21 +10,21 @@ export const branding = {
 };
 
 const primary = {
-	color: 'green',
-	reverseColor: 'white',
-	hoverColor: 'darkGreen',
-	hoverReverseColor: 'lightGrey',
-	selectedColor: 'lightGreen',
-	selectedReverseColor: 'darkGrey',
+	color: '#008000',
+	reverseColor: '#FFFFFF',
+	hoverColor: '#006400',
+	hoverReverseColor: '#d3d3d3',
+	selectedColor: '#90ee90',
+	selectedReverseColor: '#a9a9a9',
 };
 
 const primaryDarker = {
-	color: 'darkGreen',
-	reverseColor: 'white',
-	hoverColor: 'green',
-	hoverReverseColor: 'darkGrey',
-	selectedColor: 'green',
-	selectedReverseColor: 'darkGrey',
+	color: '#006400',
+	reverseColor: '#FFFFFF',
+	hoverColor: '#008000',
+	hoverReverseColor: '#a9a9a9',
+	selectedColor: '#008000',
+	selectedReverseColor: '#a9a9a9',
 };
 
 export const profiles = {
