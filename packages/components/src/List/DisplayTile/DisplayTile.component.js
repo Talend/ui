@@ -155,6 +155,7 @@ function DisplayTile(props) {
 		items,
 		itemProps,
 		titleProps,
+		t,
 	} = props;
 	const { width = '250px' } = itemProps || {};
 	return (
@@ -175,7 +176,7 @@ function DisplayTile(props) {
 					))}
 				</ul>
 			)}
-			{!items.length && <NoRows />}
+			{!items.length && <NoRows t={t}/>}
 		</div>
 	);
 }

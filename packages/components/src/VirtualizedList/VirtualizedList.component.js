@@ -1,5 +1,9 @@
 import React from 'react';
 import { AutoSizer, Column } from 'react-virtualized';
+import { translate } from 'react-i18next';
+
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import { DEFAULT_I18N, getDefaultTranslate } from '../translate';
 import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration } from './utils/tablerow';
@@ -26,6 +30,7 @@ function VirtualizedList(props) {
 		sortDirection,
 		type,
 		disableHeader,
+		t,
 	} = props;
 
 	const contentsConfiguration = insertSelectionConfiguration({
@@ -63,6 +68,7 @@ function VirtualizedList(props) {
 					type={type}
 					width={width}
 					disableHeader={disableHeader}
+					t={t}
 				>
 					{contentsConfiguration}
 				</RendererSelector>
@@ -72,6 +78,9 @@ function VirtualizedList(props) {
 }
 VirtualizedList.displayName = 'VirtualizedList';
 VirtualizedList.propTypes = propTypes;
+VirtualizedList.defaultProps = {
+	t: getDefaultTranslate,
+};
 
 VirtualizedList.Content = Column;
 

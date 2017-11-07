@@ -77,6 +77,8 @@ describe('VirtualizedList', () => {
 		);
 		const renderer = wrapper.node.props.children;
 
+		console.log(renderer);
+
 		// when
 		const rendererInstance = renderer({ height: 600, width: 300 });
 

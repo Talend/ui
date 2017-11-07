@@ -258,7 +258,7 @@ ListHeaders.propTypes = {
  <DisplayTable {...props} />
  */
 function DisplayTable(props) {
-	const { id, columns, items, itemProps, sort, titleProps } = props;
+	const { id, columns, items, itemProps, sort, titleProps, t } = props;
 	const { isSelected, onToggleAll } = itemProps || {};
 	const containerClassName = classnames('tc-list-display', theme.container);
 	const tableClassName = classnames('table', 'tc-list-display-table', theme.table);
@@ -290,7 +290,7 @@ function DisplayTable(props) {
 						))}
 					</tbody>
 				</table>
-				{!items.length && <NoRows />}
+				{!items.length && <NoRows t={t} />}
 			</div>
 		</div>
 	);

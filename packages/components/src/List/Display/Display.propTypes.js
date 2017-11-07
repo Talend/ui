@@ -21,4 +21,5 @@ export default {
 		isDescending: PropTypes.bool,
 		onChange: PropTypes.func.isRequired,
 	}),
+	t: PropTypes.func,
 };
