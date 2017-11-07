@@ -111,12 +111,23 @@ function ThemeForm({ key, name, theme, onChange }) {
 	function onValueChange(event, property) {
 		return onChange(name, property, event.target.value);
 	}
+	function onDefaultChange() {
+		return onChange(name, 'isDefault', !theme.isDefault);
+	}
 
 	return (
 		<form>
 			<div className="form-group">
-				<input id={`name-${key}`} className="form-control" value={name} onChange={event => onValueChange(event, 'name')} />
-				<label htmlFor={`name-${key}`} className="control-label">Name</label>
+				<div>
+					<input id={`name-${key}`} className="form-control" value={name} onChange={event => onValueChange(event, 'name')} />
+					<label htmlFor={`name-${key}`} className="control-label">Name</label>
+				</div>
+				<div className="checkbox">
+					<label>
+						<input id={`is-default-${key}`} type="checkbox" checked={theme.isDefault} onChange={onDefaultChange} />
+						<span>Default theme</span>
+					</label>
+				</div>
 			</div>
 
 			<legend style={{ margin: 0 }}>Simple</legend>
@@ -157,6 +168,20 @@ function ThemeForm({ key, name, theme, onChange }) {
 		</form>
 	);
 }
+ThemeForm.propTypes = {
+	key: PropTypes.any,
+	name: PropTypes.string.isRequired,
+	theme: PropTypes.shape({
+		color: PropTypes.string,
+		reverseColor: PropTypes.string,
+		hoverColor: PropTypes.string,
+		hoverReverseColor: PropTypes.string,
+		selectedColor: PropTypes.string,
+		selectedReverseColor: PropTypes.string,
+		isDefault: PropTypes.bool,
+	}),
+	onChange: PropTypes.func.isRequired,
+};
 
 function ComponentForm({ key, name, component, onChange }) {
 	function onThemeChange(event) {
@@ -184,6 +209,15 @@ function ComponentForm({ key, name, component, onChange }) {
 		</form>
 	);
 }
+ComponentForm.propTypes = {
+	key: PropTypes.any,
+	name: PropTypes.string.isRequired,
+	component: PropTypes.shape({
+		theme: PropTypes.string,
+		reverse: PropTypes.bool,
+	}),
+	onChange: PropTypes.func.isRequired,
+};
 
 class BrandingConfigurer extends React.Component {
 	constructor(props) {
@@ -197,26 +231,51 @@ class BrandingConfigurer extends React.Component {
 	}
 
 	onThemeChange(name, property, value) {
-		if (property === 'name') {
-			this.setState((oldState) => {
-				const newThemes = {
-					...oldState.themes,
-					[value]: oldState.themes[name],
-				};
-				delete newThemes[name];
-				return { themes: newThemes };
-			});
-		} else {
-			this.setState((oldState) => {
-				const newThemes = {
-					...oldState.themes,
-					[name]: {
-						...oldState.themes[name],
-						[property]: value,
-					},
-				};
-				return { themes: newThemes };
-			});
+		switch (property) {
+			case 'name':
+				this.setState((oldState) => {
+					const newThemes = {
+						...oldState.themes,
+						[value]: oldState.themes[name],
+					};
+					delete newThemes[name];
+					return { themes: newThemes };
+				});
+				break;
+			case 'isDefault':
+				this.setState((oldState) => {
+					const newThemes = {};
+					Object.keys(oldState.themes).forEach((themeName) => {
+						const nextTheme = oldState.themes[themeName];
+						if (themeName === name) {
+							newThemes[themeName] = {
+								...nextTheme,
+								isDefault: value,
+							};
+						} else if (value && nextTheme.isDefault) {
+							newThemes[themeName] = {
+								...nextTheme,
+								isDefault: false,
+							};
+						} else {
+							newThemes[themeName] = nextTheme;
+						}
+					});
+					return { themes: newThemes };
+				});
+				break;
+			default:
+				this.setState((oldState) => {
+					const newThemes = {
+						...oldState.themes,
+						[name]: {
+							...oldState.themes[name],
+							[property]: value,
+						},
+					};
+					return { themes: newThemes };
+				});
+				break;
 		}
 	}
 

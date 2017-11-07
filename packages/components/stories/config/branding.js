@@ -16,6 +16,7 @@ const primary = {
 	hoverReverseColor: '#9c0909',
 	selectedColor: '#d94949',
 	selectedReverseColor: '#0f0f0f',
+	isDefault: true,
 };
 
 const primaryDarker = {

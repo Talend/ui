@@ -2,19 +2,52 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
+function getColors(themes, name, reverse) {
+	const theme = themes[name] || Object.values(themes).find(t => t.isDefault);
+
+	if (!theme) {
+		return null;
+	} else if (!reverse) {
+		return theme;
+	}
+
+	let {
+		color,
+		reverseColor,
+		hoverColor,
+		hoverReverseColor,
+		selectedColor,
+		selectedReverseColor,
+	} = theme;
+
+	// reverse the colors
+	[color, reverseColor] = [reverseColor, color];
+	[hoverColor, hoverReverseColor] = [hoverReverseColor, hoverColor];
+	[selectedColor, selectedReverseColor] = [selectedReverseColor, selectedColor];
+
+	return {
+		color,
+		reverseColor,
+		hoverColor,
+		hoverReverseColor,
+		selectedColor,
+		selectedReverseColor,
+	};
+}
+
 function getHeaderBarBranding({ headerBar, themes }) {
 	const { theme, reverse = true } = headerBar;
-	const colors = themes[theme];
+	const colors = getColors(themes, theme, reverse);
 	if (!colors) {
 		return '';
 	}
 
-	let { color, reverseColor, hoverColor, hoverReverseColor } = colors;
-	if (reverse) {
-		[color, reverseColor] = [reverseColor, color];
-		[hoverColor, hoverReverseColor] = [hoverReverseColor, hoverColor];
-	}
-
+	const {
+		color,
+		reverseColor,
+		hoverColor,
+		hoverReverseColor,
+	} = colors;
 	return `
 		.branding-headerBar {
 			color: ${color};
@@ -37,12 +70,12 @@ function getHeaderBarBranding({ headerBar, themes }) {
 
 function getSidePanelBranding({ sidePanel, themes }) {
 	const { theme, reverse = true } = sidePanel;
-	const colors = themes[theme];
+	const colors = getColors(themes, theme, reverse);
 	if (!colors) {
 		return '';
 	}
 
-	let {
+	const {
 		color,
 		reverseColor,
 		hoverColor,
@@ -50,12 +83,6 @@ function getSidePanelBranding({ sidePanel, themes }) {
 		selectedColor,
 		selectedReverseColor,
 	} = colors;
-	if (reverse) {
-		[color, reverseColor] = [reverseColor, color];
-		[hoverColor, hoverReverseColor] = [hoverReverseColor, hoverColor];
-		[selectedColor, selectedReverseColor] = [selectedReverseColor, selectedColor];
-	}
-
 	return `
 		.branding-sidePanel ul,
 		.tc-layout-two-columns-left {
@@ -106,11 +133,9 @@ Branding.propTypes = {
 Branding.defaultProps = {
 	headerBar: {
 		reverse: true,
-		theme: 'primaryDarker',
 	},
 	sidePanel: {
 		reverse: true,
-		theme: 'primary',
 	},
 };
 
