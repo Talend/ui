@@ -103,13 +103,14 @@ export function getStateToProps({
 		userProps = mapStateToProps(state, ownProps, cmfProps);
 	}
 
-	return {
+	const props = {
 		...cmfProps,
 		...viewProps,
-		...api.expression.mapStateToProps(state, ownProps),
-		...api.expression.mapStateToProps(state, viewProps),
 		...userProps,
-		...api.expression.mapStateToProps(state, userProps),
+	};
+	return {
+		...props,
+		...api.expression.mapStateToProps(state, { ...ownProps, ...props }),
 	};
 }
 
@@ -160,9 +161,9 @@ export function getMergeProps({
 		);
 	}
 	return {
-		...api.expression.mergeProps(stateProps),
-		...api.expression.mergeProps(dispatchProps),
 		...api.expression.mergeProps(ownProps),
+		...api.expression.mergeProps(dispatchProps),
+		...api.expression.mergeProps(stateProps),
 	};
 }
 
