@@ -13,16 +13,18 @@ $notification-width: 450px;
 $icon-size: $svg-md-size;
 
 .tc-notification-container {
-	position: fixed;
-	top: 0;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 11000;
+	position: absolute;
+	top: 48px;
+	right: $padding-normal;
+	z-index: 10;
+	left: auto;
 
 	.tc-notification {
 		position: relative;
+		cursor: pointer;
 		width: $notification-width;
-		margin-top: $padding-larger;
+		margin-top: 0;
+		margin-bottom: $padding-normal;
 		padding: $padding-normal $padding-normal $padding-large;
 		border-radius: $border-radius-base;
 		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
@@ -94,26 +96,27 @@ $icon-size: $svg-md-size;
 		}
 
 		&:hover > .tc-notification-timer-bar {
-			transform: translateX(0%);
+			transform: translateX(100%);
 			animation: none;
 		}
 	}
 
 	.tc-notification[pin='true'] {
+
 		.tc-notification-timer-bar {
 			animation: none;
-			transform: translateX(0%);
+			transform: translateX(100%);
 		}
 	}
 }
 
 @keyframes  timer-bar {
 	from {
-		transform: translateX(0%);
+		transform: translateX(0);
 	}
 
 	to {
-		transform: translateX(-100%);
+		transform: translateX(100%);
 	}
 }
 
