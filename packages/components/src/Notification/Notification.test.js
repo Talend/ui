@@ -1,7 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Notification, { timerRegistry, Registry, onMouseEnter, onMouseOut, onClick, onManuallyClose }
-	from './Notification.component';
+import NotificationsContainer, {
+	Notification,
+	TimerBar,
+	CloseButton,
+	Message,
+	MessageAction,
+} from './Notification.component';
 
 jest.useFakeTimers();
 
@@ -12,11 +17,11 @@ describe('Notification', () => {
 				id: 'test-1',
 			};
 			const mockTimer = 1;
-
-			Registry.register(notification, mockTimer);
-			expect(timerRegistry[notification.id]).toEqual(mockTimer);
-			expect(Registry.isRegistered(notification)).toEqual(true);
-			Registry.cancel(notification);
+			const instance = new NotificationsContainer({ notifications: [] });
+			instance.registry.register(notification, mockTimer);
+			expect(instance.timerRegistry[notification.id]).toEqual(mockTimer);
+			expect(instance.registry.isRegistered(notification)).toEqual(true);
+			instance.registry.cancel(notification);
 			expect(clearTimeout).toHaveBeenCalledWith(mockTimer);
 		});
 	});
@@ -43,36 +48,50 @@ describe('Notification', () => {
 				},
 				stopPropagation: mockStopPropagation,
 			};
-			Registry.cancel = jest.fn();
-			Registry.register = jest.fn();
+			// Registry.cancel = jest.fn();
+			// Registry.register = jest.fn();
 		});
 
 		it('onMouseEnter', () => {
-			onMouseEnter(mockNotification);
-			expect(Registry.cancel).toHaveBeenCalledWith(mockNotification);
+			const instance = new NotificationsContainer({ notifications: [] });
+			instance.registry.cancel = jest.fn();
+			instance.onMouseEnter({}, mockNotification);
+			expect(instance.registry.cancel).toHaveBeenCalledWith(mockNotification);
 		});
 
 		it('onMouseOut', () => {
-			onMouseOut(mockEvent, mockNotification, mockLeaveFn, 4000);
+			const props = {
+				leaveFn: jest.fn(),
+				autoLeaveTimeout: 4000,
+				notifications: [],
+			};
+			const instance = new NotificationsContainer(props);
+			instance.registry.register = jest.fn();
+			instance.onMouseOut(mockEvent, mockNotification);
 			expect(mockEvent.currentTarget.getAttribute).toHaveBeenCalledWith('pin');
-			expect(setTimeout).toHaveBeenCalled();
-			expect(Registry.register).toHaveBeenCalled();
+			expect(props.leaveFn).toHaveBeenCalledWith(mockNotification);
 		});
 
 		it('onClick', () => {
-			onClick(mockEvent, mockNotification);
+			const instance = new NotificationsContainer({ notifications: [] });
+			instance.onClick(mockEvent, mockNotification);
 			expect(mockGetAttribute).toHaveBeenCalledWith('pin');
 			expect(mockSetAttribute).toHaveBeenCalledWith('pin', 'true');
 			mockEvent.currentTarget.getAttribute = jest.fn(() => 'true');
-			onClick(mockEvent, mockNotification);
+			instance.onClick(mockEvent, mockNotification);
 			expect(mockSetAttribute.mock.calls[1]).toEqual(['pin', 'false']);
 		});
 
-		it('onManuallyClose', () => {
-			Registry.cancel = jest.fn();
-			onManuallyClose(mockEvent, mockNotification, mockLeaveFn);
+		it('onClose', () => {
+			const props = {
+				leaveFn: mockLeaveFn,
+				notifications: [],
+			};
+			const instance = new NotificationsContainer(props);
+			instance.registry.cancel = jest.fn();
+			instance.onClose(mockEvent, mockNotification);
 			expect(mockStopPropagation).toHaveBeenCalled();
-			expect(Registry.cancel).toHaveBeenCalledWith(mockNotification);
+			expect(instance.registry.cancel).toHaveBeenCalledWith(mockNotification);
 			expect(mockLeaveFn).toHaveBeenCalled();
 		});
 	});
@@ -82,7 +101,7 @@ describe('Notification', () => {
 		const mockLeaveFn = jest.fn();
 
 		beforeEach(() => {
-			Registry.register = jest.fn();
+			// Registry.register = jest.fn();
 			notifications = [
 				{
 					id: 0,
@@ -109,13 +128,17 @@ describe('Notification', () => {
 					message: 'This is a feedback of your operation3, This is a feedback of your operation3',
 				},
 			];
-			mount(<Notification notifications={notifications} leaveFn={mockLeaveFn} />);
 		});
 
 		it('should register autoLeave only for notification of type info or warning ' +
 			'should trigger leaveFn after timeout', () => {
-			expect(Registry.register.mock.calls.length).toEqual(3);
+			const props = {
+				notifications,
+				leaveFn: mockLeaveFn,
+			};
+			const instance = new NotificationsContainer(props);
 			expect(mockLeaveFn).not.toHaveBeenCalled();
+			expect(Object.keys(instance.timerRegistry).length).toBe(3);
 			jest.runAllTimers();
 			expect(mockLeaveFn.mock.calls.length).toEqual(3);
 		});

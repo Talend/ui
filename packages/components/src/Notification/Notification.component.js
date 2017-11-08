@@ -1,57 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { CSSTransition, transit } from 'react-css-transition';
 import classNames from 'classnames';
 
 import { Action } from '../Actions';
-import Progress from '../Progress';
 import theme from './Notification.scss';
 
-export const timerRegistry = {};
 
-export const Registry = {
-	register: (notification, timer) => {
-		timerRegistry[notification.id] = timer;
-	},
-	cancel(notification) {
-		if (this.isRegistered(notification)) {
-			clearTimeout(timerRegistry[notification.id]);
-		}
-	},
-	isRegistered: notification => !!timerRegistry[notification.id],
-};
-
-export function onMouseEnter(notification) {
-	if (notification.type !== 'error') {
-		Registry.cancel(notification);
-	}
-}
-
-export function onMouseOut(event, notification, leaveFn) {
-	if (notification.type === 'error' || event.currentTarget.getAttribute('pin') === 'true') {
-		return;
-	}
-	leaveFn(notification);
-}
-
-export function onClick(event, notification) {
-	if (notification.type !== 'error') {
-		if (event.currentTarget.getAttribute('pin') !== 'true') {
-			event.currentTarget.setAttribute('pin', 'true');
-		} else {
-			event.currentTarget.setAttribute('pin', 'false');
-		}
-	}
-}
-
-export function onManuallyClose(event, notification, leaveFn) {
-	event.stopPropagation();
-	Registry.cancel(notification);
-	leaveFn(notification);
-}
-
-function CloseButton({ notification, leaveFn }) {
+export function CloseButton({ notification, leaveFn }) {
 	return (
 		<Action
 			onClick={() => leaveFn(notification)}
@@ -67,7 +23,7 @@ function CloseButton({ notification, leaveFn }) {
 	);
 }
 
-function MessageAction({ action }) {
+export function MessageAction({ action }) {
 	return (
 		!!action && (
 			<Action
@@ -83,11 +39,11 @@ function MessageAction({ action }) {
 	);
 }
 
-function Message({ notification }) {
+export function Message({ notification }) {
 	const { message, action } = notification;
 	const messageClass = classNames(theme['tc-notification-message'], 'tc-notification-message');
 	return Array.isArray(message) ? (
-		<article>
+		<article className={theme.article}>
 			{message.map((paragraph, index) => (
 				<p key={index} className={messageClass}>
 					{paragraph}
@@ -96,14 +52,16 @@ function Message({ notification }) {
 			))}
 		</article>
 	) : (
-		<p className={messageClass}>
-			{message}
-			<MessageAction action={action} />
-		</p>
+		<article className={theme.article}>
+			<p className={messageClass}>
+				{message}
+				<MessageAction action={action} />
+			</p>
+		</article>
 	);
 }
 
-function TimerBar({ type, autoLeaveError }) {
+export function TimerBar({ type, autoLeaveError }) {
 	if (type === 'error' && !autoLeaveError) {
 		return null;
 	}
@@ -114,7 +72,7 @@ function TimerBar({ type, autoLeaveError }) {
 	);
 }
 
-function Notification({ notification, leaveFn, ...props }) {
+export function Notification({ notification, leaveFn, ...props }) {
 	const notificationClasses = {
 		[theme['tc-notification']]: true,
 		'tc-notification': true,
@@ -154,7 +112,21 @@ class NotificationsContainer extends React.Component {
 		this.onClick = this.onClick.bind(this);
 		this.onClose = this.onClose.bind(this);
 		this.register = this.register.bind(this);
-		this.registry = Registry;
+		this.timerRegistry = {};
+		const self = this;
+		const registry = {
+			register: (notification, timer) => {
+				self.timerRegistry[notification.id] = timer;
+			},
+			isRegistered: notification => !!self.timerRegistry[notification.id],
+			cancel(notification) {
+				if (this.isRegistered(notification)) {
+					clearTimeout(self.timerRegistry[notification.id]);
+				}
+			},
+		};
+		this.registry = registry;
+		this.register(props);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -254,6 +226,7 @@ Message.propTypes = {
 
 TimerBar.propTypes = {
 	type: PropTypes.oneOf(['info', 'warning', 'error']),
+	autoLeaveError: PropTypes.bool,
 };
 
 Notification.propTypes = {
