@@ -2,6 +2,16 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.121.0
+* Component: SidePanel
+* PR: [feat(SidePanel): i18n](https://github.com/Talend/ui/pull/818)
+* Changes :
+
+| Before | After |
+|---|---|
+| expandTitle | i18next `t()` fn will do the magic trick by providing `SIDEPANEL_EXPAND` |
+| collapseTitle | i18next `t()` fn will do the magic trick by providing `SIDEPANEL_COLLAPSE` |
+
 ## v0.120.0
 
 * PR 807 [enhancement(component/Headerbar): small change]

@@ -6,9 +6,13 @@
 /* eslint no-underscore-dangle: ["error", {"allow": ["_registry", "_isLocked"] }]*/
 
 /**
+ * @typedef {Object<string, *>} Registry
+ */
+
+/**
  * The registry that will have the singleton
  * - getRegistry() -> the registry which is a simple key/value POJO
- * @type {Object}
+ * @type {Registry}
  */
 const Registry = {
 	_registry: {},
@@ -28,7 +32,7 @@ const Registry = {
  * Returns the global registry if no context found. If count is found it returns
  * the context.registry
  * @param {object} context React context
- * @return {object} the registry singleton instance
+ * @return {Registry} the registry singleton instance
  */
 function getRegistry(context) {
 	if (context && context.registry) {

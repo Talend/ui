@@ -31,7 +31,7 @@ const registerComponent = deprecated(
  * @param  {function} func
  */
 function registerFunction(id, func) {
-	if ((typeof func) !== 'function') {
+	if (typeof func !== 'function') {
 		throw new Error('registerFunction wait for a function');
 	}
 	registry.addToRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, func);
@@ -54,18 +54,13 @@ function getFunction(id) {
  * @return {any}       the connected component with it's view props injected
  */
 function oldConnectView(context, Component, view) {
-	return connect(
-		state => mapStateToViewProps(state, { view })
-	)(Component);
+	return connect(state => mapStateToViewProps(state, { view }))(Component);
 }
 
-export const connectView = deprecated(
-	oldConnectView,
-	(args) => {
-		const cName = args[1].displayName || args[1].name || 'Unknown';
-		return `The component ${cName} must be connected using cmfConnect`;
-	},
-);
+export const connectView = deprecated(oldConnectView, args => {
+	const cName = args[1].displayName || args[1].name || 'Unknown';
+	return `The component ${cName} must be connected using cmfConnect`;
+});
 
 /**
  * Internal. Is here to replace all 'component' from an object by their

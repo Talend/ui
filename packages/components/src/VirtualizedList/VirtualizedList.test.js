@@ -8,20 +8,8 @@ import collection from './collection';
 const { TABLE } = listTypes;
 
 const contentFields = [
-	<VirtualizedList.Content
-		label="Id"
-		dataKey="id"
-		width={50}
-		flexShrink={0}
-		flexGrow={0}
-	/>,
-	<VirtualizedList.Content
-		label="Name"
-		dataKey="name"
-		width={350}
-		flexShrink={0}
-		flexGrow={0}
-	/>,
+	<VirtualizedList.Content label="Id" dataKey="id" width={50} flexShrink={0} flexGrow={0} />,
+	<VirtualizedList.Content label="Name" dataKey="name" width={350} flexShrink={0} flexGrow={0} />,
 	<VirtualizedList.Content
 		label="Description"
 		dataKey="name"
@@ -48,7 +36,7 @@ describe('VirtualizedList', () => {
 				type={TABLE}
 			>
 				{contentFields}
-			</VirtualizedList>
+			</VirtualizedList>,
 		);
 
 		// then
@@ -73,7 +61,7 @@ describe('VirtualizedList', () => {
 				type={TABLE}
 			>
 				{contentFields}
-			</VirtualizedList>
+			</VirtualizedList>,
 		);
 		const renderer = wrapper.node.props.children;
 
@@ -103,7 +91,7 @@ describe('VirtualizedList', () => {
 				type={TABLE}
 			>
 				{contentFields}
-			</VirtualizedList>
+			</VirtualizedList>,
 		);
 		// then
 		expect(wrapper.node).toMatchSnapshot();

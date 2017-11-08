@@ -1,6 +1,7 @@
 import React from 'react';
 import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
+import expression from '../src/expression';
 import mock from '../src/mock';
 
 import cmfConnect, {
@@ -8,6 +9,7 @@ import cmfConnect, {
 	getComponentId,
 	getStateToProps,
 	getDispatchToProps,
+	getMergeProps,
 } from '../src/cmfConnect';
 
 describe('cmfConnect', () => {
@@ -110,6 +112,47 @@ describe('cmfConnect', () => {
 			delete state.cmf.settings.views['TestComponent#default'];
 			delete state.cmf.settings.views['TestComponent#props-id'];
 			delete state.cmf.settings.views['TestComponent#connect-id'];
+		});
+		it('should evaluate expression using all props', () => {
+			const state = mock.state();
+			state.cmf.components = fromJS({});
+			expression.register('hasModel', ({ payload }) => payload.model !== undefined);
+			const props = getStateToProps({
+				ownProps: {
+					model: { foo: 'bar' },
+				},
+				state,
+				WrappedComponent: { displayName: 'TestComponent' },
+				mapStateToProps: () => ({ availableExpression: 'hasModel' }),
+			});
+			expect(props.available).toBe(true);
+			expect(props.model).toBeUndefined();
+		});
+	});
+	describe('#getMergeProps', () => {
+		it('should mergeProps in order', () => {
+			const props = getMergeProps({
+				stateProps: { id: 'stateProps', stateProps: true },
+				dispatchProps: { id: 'dispatchProps', dispatchProps: true },
+				ownProps: { id: 'ownProps', ownProps: true },
+			});
+			expect(props.id).toBe('stateProps');
+			expect(props.ownProps).toBe(true);
+			expect(props.dispatchProps).toBe(true);
+			expect(props.stateProps).toBe(true);
+		});
+		it('should mergeProps called', () => {
+			const stateProps = { id: 'stateProps', stateProps: true };
+			const dispatchProps = { id: 'dispatchProps', dispatchProps: true };
+			const ownProps = { id: 'ownProps', ownProps: true };
+			const mergeProps = jest.fn();
+			getMergeProps({
+				mergeProps,
+				stateProps,
+				dispatchProps,
+				ownProps,
+			});
+			expect(mergeProps).toHaveBeenCalledWith(stateProps, dispatchProps, ownProps);
 		});
 	});
 

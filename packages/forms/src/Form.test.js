@@ -53,14 +53,7 @@ const dataListData = {
 			datalist: {
 				type: 'string',
 				default: 'App',
-				enum: [
-					'Apple',
-					'Pine[apple]',
-					'Banana',
-					'Cher[ry',
-					'Lemo}n',
-					'Grapefruit',
-				],
+				enum: ['Apple', 'Pine[apple]', 'Banana', 'Cher[ry', 'Lemo}n', 'Grapefruit'],
 			},
 		},
 	},
@@ -85,28 +78,27 @@ describe('renderActionIcon', () => {
 describe('renderActions', () => {
 	// given
 	it('should render actions', () => {
-		function noop() {
-		}
+		function noop() {}
 
 		const actions = [
 			{
 				type: 'button',
 				style: 'link',
 				label: 'CANCEL',
-				onClick: () => { },
+				onClick: () => {},
 			},
 			{
 				type: 'button',
 				style: 'primary',
 				label: 'VALIDATE',
-				onClick: () => { },
+				onClick: () => {},
 			},
 			{
 				type: 'submit',
 				style: 'primary',
 				label: 'SUBMIT',
 				disabled: true,
-				onClick: () => { },
+				onClick: () => {},
 			},
 		];
 
@@ -115,13 +107,28 @@ describe('renderActions', () => {
 
 		// then
 		expect(wrapper.find(Action)).toHaveLength(3);
-		expect(wrapper.find(Action).first().props().disabled).toBeFalsy();
-		expect(wrapper.find(Action).last().props().disabled).toBeTruthy();
+		expect(
+			wrapper
+				.find(Action)
+				.first()
+				.props().disabled,
+		).toBeFalsy();
+		expect(
+			wrapper
+				.find(Action)
+				.last()
+				.props().disabled,
+		).toBeTruthy();
 	});
 
 	it('should render a single submit button', () => {
 		const wrapper = shallow(<div>{renderActions()}</div>);
-		expect(wrapper.find(Action).first().props().label).toEqual('Submit');
+		expect(
+			wrapper
+				.find(Action)
+				.first()
+				.props().label,
+		).toEqual('Submit');
 	});
 });
 
@@ -160,12 +167,9 @@ describe('<Form/>', () => {
 
 	describe('render datalist', () => {
 		beforeEach(() => {
-			wrapper = mount(<Form
-				noHtml5Validate
-				data={dataListData}
-				onChange={onChange}
-				onSubmit={onSubmit}
-			/>);
+			wrapper = mount(
+				<Form noHtml5Validate data={dataListData} onChange={onChange} onSubmit={onSubmit} />,
+			);
 		});
 
 		it('should Render the <DatalistWidget /> component', () => {
@@ -187,19 +191,16 @@ describe('<Form/>', () => {
 	describe('events', () => {
 		beforeEach(() => {
 			jest.resetAllMocks();
-			wrapper = mount(<Form
-				data={data}
-				onChange={onChange}
-				onTrigger={onTrigger}
-				onSubmit={onSubmit}
-			/>);
+			wrapper = mount(
+				<Form data={data} onChange={onChange} onTrigger={onTrigger} onSubmit={onSubmit} />,
+			);
 		});
 
 		// TODO: Follow what's happening on https://github.com/airbnb/enzyme/issues/364
 		// and update accordingly.
 		// So far it's not possible to get the onChange method to be bubbled up to the
 		// form
-		it('should handles change', (done) => {
+		it('should handles change', done => {
 			// given
 			const input = wrapper.find('input').first();
 
@@ -216,7 +217,7 @@ describe('<Form/>', () => {
 			}, 100);
 		});
 
-		it('should handles triggers and change if fied as ui:trigger property', (done) => {
+		it('should handles triggers and change if fied as ui:trigger property', done => {
 			// given
 			const input = wrapper.find('input').at(1);
 
@@ -233,7 +234,7 @@ describe('<Form/>', () => {
 			}, 100);
 		});
 
-		it('should not trigger onTrigger if updated field has no ui:trigger property', (done) => {
+		it('should not trigger onTrigger if updated field has no ui:trigger property', done => {
 			// given
 			const input = wrapper.find('input').first();
 
@@ -261,7 +262,7 @@ describe('<Form/>', () => {
 			wrapper = shallow(
 				<Form data={data} onSubmit={onSubmit}>
 					<h1>test</h1>
-				</Form>
+				</Form>,
 			);
 			expect(wrapper.find('h1')).toBeDefined();
 		});
@@ -270,10 +271,7 @@ describe('<Form/>', () => {
 	describe('actions', () => {
 		it('should render default actions when no actions specified', () => {
 			// when
-			wrapper = mount(<Form
-				data={data}
-				onSubmit={onSubmit}
-			/>);
+			wrapper = mount(<Form data={data} onSubmit={onSubmit} />);
 
 			// then
 			const actions = wrapper.find('button');
@@ -300,12 +298,9 @@ describe('<Form/>', () => {
 			];
 
 			// when
-			wrapper = mount(<Form
-				data={data}
-				onSubmit={onSubmit}
-				onChange={onChange}
-				actions={formActions}
-			/>);
+			wrapper = mount(
+				<Form data={data} onSubmit={onSubmit} onChange={onChange} actions={formActions} />,
+			);
 
 			// then
 			const actions = wrapper.find('button');
@@ -360,14 +355,18 @@ describe('<Form/>', () => {
 			];
 
 			// when
-			const form = renderer.create(<Form
-				className="form"
-				buttonBlockClass="buttons"
-				data={customData}
-				onSubmit={onSubmit}
-				onChange={onChange}
-				actions={formActions}
-			/>).toJSON();
+			const form = renderer
+				.create(
+					<Form
+						className="form"
+						buttonBlockClass="buttons"
+						data={customData}
+						onSubmit={onSubmit}
+						onChange={onChange}
+						actions={formActions}
+					/>,
+				)
+				.toJSON();
 
 			// then
 			expect(form).toMatchSnapshot();

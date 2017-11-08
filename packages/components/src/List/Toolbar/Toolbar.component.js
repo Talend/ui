@@ -17,7 +17,7 @@ import { getDefaultTranslate } from '../../translate';
 function adaptActionsIds(actions, parentId) {
 	return (
 		actions &&
-		actions.map((action) => {
+		actions.map(action => {
 			if (action.id) {
 				return {
 					...action,
@@ -50,7 +50,17 @@ function adaptLeftAndRightActions(actions, parentId) {
  * @example
  <Toolbar id="my-toolbar"></Toolbar>
  */
-function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, filter, t }) {
+function Toolbar({
+	id,
+	actionBar,
+	selectAllCheckbox,
+	display,
+	sort,
+	pagination,
+	filter,
+	t,
+	renderers,
+}) {
 	let actionBarProps = actionBar;
 	if (id && actionBar) {
 		const { actions, multiSelectActions } = actionBar;
@@ -65,64 +75,32 @@ function Toolbar({ id, actionBar, selectAllCheckbox, display, sort, pagination, 
 
 	return (
 		<div className="tc-list-toolbar">
-			{actionBar && <ActionBar {...actionBarProps} />}
+			{actionBar && <renderers.ActionBar {...actionBarProps} />}
 			{hasToolbarItem && (
-				<Navbar
-					componentClass="div"
-					className={theme['tc-list-toolbar']}
-					role="toolbar" fluid
-				>
-					{selectAllCheckbox &&
-						<SelectAll
-							{...selectAllCheckbox}
-							t={t}
-						/>
-					}
-					{display &&
+				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
+					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
+					{display && (
 						<Label
 							text={t('LIST_TOOLBAR_DISPLAY', { defaultValue: 'Display:' })}
 							htmlFor={displayModeId}
 						/>
-					}
-					{display &&
-						<SelectDisplayMode
-							id={displayModeId}
-							{...display}
-							t={t}
-						/>
-					}
-					{sort &&
+					)}
+					{display && <SelectDisplayMode id={displayModeId} {...display} t={t} />}
+					{sort && (
 						<Label
 							text={t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
 							htmlFor={id && `${id}-sort-by`}
 						/>
-					}
-					{sort &&
-						<SelectSortBy
-							id={id && `${id}-sort`}
-							{...sort}
-							t={t}
-						/>
-					}
-					{pagination &&
+					)}
+					{sort && <SelectSortBy id={id && `${id}-sort`} {...sort} t={t} />}
+					{pagination && (
 						<Label
 							text={t('LIST_TOOLBAR_PAGINATION_SHOW', { defaultValue: 'Show:' })}
 							htmlFor={id && `${id}-pagination-size`}
 						/>
-					}
-					{pagination &&
-						<Pagination
-							id={id && `${id}-pagination`}
-							{...pagination}
-						/>
-					}
-					{filter &&
-						<Filter
-							id={id && `${id}-filter`}
-							{...filter}
-							t={t}
-						/>
-					}
+					)}
+					{pagination && <Pagination id={id && `${id}-pagination`} {...pagination} />}
+					{filter && <Filter id={id && `${id}-filter`} {...filter} t={t} />}
 				</Navbar>
 			)}
 		</div>
@@ -138,10 +116,16 @@ Toolbar.propTypes = {
 	pagination: PropTypes.shape(Pagination.propTypes),
 	filter: PropTypes.shape(omit(Filter.propTypes, 't')),
 	t: PropTypes.func.isRequired,
+	renderers: PropTypes.shape({
+		ActionBar: PropTypes.element,
+	}),
 };
 
 Toolbar.defaultProps = {
 	t: getDefaultTranslate,
+	renderers: {
+		ActionBar,
+	},
 };
 
 export default Toolbar;

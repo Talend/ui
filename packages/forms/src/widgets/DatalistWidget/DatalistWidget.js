@@ -116,7 +116,7 @@ class DatalistWidget extends React.Component {
 			container: classnames(
 				'form-control',
 				theme['tf-typeahead-container'],
-				'tf-typeahead-container'
+				'tf-typeahead-container',
 			),
 			containerOpen: theme['container-open'],
 			highlight: theme['highlight-match'],
@@ -159,12 +159,10 @@ class DatalistWidget extends React.Component {
 		}
 	}
 
-	onKeyDown(event, {
-		newFocusedSectionIndex,
-		newFocusedItemIndex,
-		focusedSectionIndex,
-		focusedItemIndex,
-	}) {
+	onKeyDown(
+		event,
+		{ newFocusedSectionIndex, newFocusedItemIndex, focusedSectionIndex, focusedItemIndex },
+	) {
 		switch (event.which) {
 			case keycode.codes.esc:
 				this.resetValue();
@@ -240,9 +238,9 @@ class DatalistWidget extends React.Component {
 		} else if (schema && schema.enum) {
 			return schema.enum.map(item => ({ label: item, value: item }));
 		} else if (formContext && formContext.fetchItems) {
-			return formContext.fetchItems(schema.title).map(item =>
-				(typeof item === 'string' ? { value: item, label: item } : item)
-			);
+			return formContext
+				.fetchItems(schema.title)
+				.map(item => (typeof item === 'string' ? { value: item, label: item } : item));
 		}
 		return [];
 	}
@@ -307,10 +305,7 @@ class DatalistWidget extends React.Component {
 	}
 
 	updateSuggestions(value) {
-		let suggestions = this.getMatchingSuggestions(
-			this.state.initialItems,
-			value,
-		);
+		let suggestions = this.getMatchingSuggestions(this.state.initialItems, value);
 		if (!value && suggestions && suggestions.length === 0) {
 			suggestions = this.state.initialItems;
 		}
@@ -332,7 +327,6 @@ class DatalistWidget extends React.Component {
 			noMatch: false,
 		});
 	}
-
 
 	focusOnItem(sectionIndex, itemIndex) {
 		this.setState({ sectionIndex, itemIndex });
@@ -368,16 +362,13 @@ class DatalistWidget extends React.Component {
 	renderDatalistInput(props) {
 		return (
 			<div className={theme['typeahead-input-icon']}>
-				<FormControl
-					{...props}
-					value={this.getLabel(props.value)}
-				/>
+				<FormControl {...props} value={this.getLabel(props.value)} />
 				<div className={theme['dropdown-toggle']}>
 					<span className="caret" />
 				</div>
-			</div>);
+			</div>
+		);
 	}
-
 
 	render() {
 		let renderItemsContainer;
@@ -405,7 +396,9 @@ class DatalistWidget extends React.Component {
 			renderItemsContainer,
 			itemProps: this.itemProps,
 			focusedItemIndex: this.state.itemIndex,
-			ref: (ref) => { this.reference = ref; },
+			ref: ref => {
+				this.reference = ref;
+			},
 		};
 
 		const propsWithCategory = Object.assign({}, props, {
@@ -422,7 +415,6 @@ class DatalistWidget extends React.Component {
 		return <Autowhatever {...props} />;
 	}
 }
-
 
 DatalistWidget.defaultProps = {
 	options: {},
