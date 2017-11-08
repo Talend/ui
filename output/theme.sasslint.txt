@@ -21,11 +21,30 @@ src/theme/_forms.scss
   342:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   422:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
+src/theme/_forms.switch.scss
+  1:23  warning  No unit allowed for values of 0       zero-unit
+  1:35  warning  No unit allowed for values of 0       zero-unit
+  1:47  warning  Commas should be followed by a space  space-after-comma
+  1:51  warning  Commas should be followed by a space  space-after-comma
+  1:55  warning  Commas should be followed by a space  space-after-comma
+  2:31  warning  No unit allowed for values of 0       zero-unit
+  2:55  warning  Commas should be followed by a space  space-after-comma
+  2:57  warning  Commas should be followed by a space  space-after-comma
+  2:59  warning  Commas should be followed by a space  space-after-comma
+  4:41  warning  No unit allowed for values of 0       zero-unit
+  4:51  warning  Commas should be followed by a space  space-after-comma
+  4:53  warning  Commas should be followed by a space  space-after-comma
+  4:55  warning  Commas should be followed by a space  space-after-comma
+  5:50  warning  No unit allowed for values of 0       zero-unit
+  5:60  warning  Commas should be followed by a space  space-after-comma
+  5:62  warning  Commas should be followed by a space  space-after-comma
+  5:64  warning  Commas should be followed by a space  space-after-comma
+
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
   23:29  error    !important not allowed              no-important
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 16 problems (14 errors, 2 warnings)
+✖ 33 problems (14 errors, 19 warnings)
 
