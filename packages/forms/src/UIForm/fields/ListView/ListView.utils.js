@@ -56,7 +56,7 @@ export function initItems(schema, value, searchCriteria, onChange) {
  */
 export function updateItems(items, value, searchCriteria) {
 	function updateChecked(item) {
-		const checked = value.indexOf(item.value) !== -1;
+		const checked = value.includes(item.value);
 		if (item.checked !== checked) {
 			return {
 				...item,

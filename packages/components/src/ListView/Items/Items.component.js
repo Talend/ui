@@ -99,16 +99,16 @@ class Items extends React.PureComponent {
 	}
 
 	renderItem(item, index) {
-		let computedIndex = this.hasToggleAll ? index + 1 : index;
+		let computedId;
 		if (this.props.id) {
-			computedIndex = `${this.props.id}-${computedIndex}`;
+			const computedIndex = this.hasToggleAll ? index + 1 : index;
+			computedId = `${this.props.id}-${computedIndex}-item`;
 		}
-		// affecting index to the item
 
 		return (
 			<Item
-				key={`${computedIndex}-item`}
-				id={`${computedIndex}-item`}
+				key={computedId}
+				id={computedId}
 				item={item}
 				searchCriteria={this.props.searchCriteria}
 			/>

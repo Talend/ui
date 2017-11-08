@@ -22,7 +22,7 @@ function Item(props) {
 		});
 	}
 
-	const itemId = `checkbox-${id}`;
+	const itemId = id && `checkbox-${id}`;
 
 	return (
 		<div id={id}>

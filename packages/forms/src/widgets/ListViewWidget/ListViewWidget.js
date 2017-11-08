@@ -97,6 +97,7 @@ class ListViewWidget extends React.Component {
 		const listViewProps = {
 			...this.state,
 			items: this.state.displayedItems,
+			id: this.props.id,
 		};
 		return (
 			<div>

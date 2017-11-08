@@ -22,7 +22,7 @@ class ListViewWidget extends React.Component {
 				onClick: this.switchToSearchMode.bind(this),
 			},
 		];
-		this.searchHeaderActions = [
+		this.defaultSearchHeaderActions = [
 			{
 				label: 'Abort',
 				icon: 'talend-cross',
@@ -77,12 +77,9 @@ class ListViewWidget extends React.Component {
 	 * @param { Array } value
 	 */
 	onInputChange(event, { value }) {
-		if (this.timerSearch) {
-			clearTimeout(this.timerSearch);
-		}
+		clearTimeout(this.timerSearch);
 		this.timerSearch = setTimeout(() => {
 			this.setState(getItemsProps(this.state.items, value));
-			this.timerSearch = null;
 		}, 400);
 	}
 
@@ -95,7 +92,7 @@ class ListViewWidget extends React.Component {
 			event.stopPropagation();
 			event.preventDefault();
 		}
-		if (event.keyCode === keycode('escape')) {
+		else if (event.keyCode === keycode('escape')) {
 			event.stopPropagation();
 			event.preventDefault();
 			this.switchToDefaultMode();
@@ -145,8 +142,7 @@ class ListViewWidget extends React.Component {
 			checkedItems = this.state.items;
 		}
 
-		const value = checkedItems.map(item => item.value);
-		this.onChange(event, value);
+		this.onChange(event, checkedItems.map(item => item.value));
 	}
 
 	/**
@@ -154,7 +150,7 @@ class ListViewWidget extends React.Component {
 	 */
 	switchToSearchMode() {
 		this.setState({
-			headerInput: this.searchHeaderActions,
+			headerInput: this.defaultSearchHeaderActions,
 			displayMode: DISPLAY_MODE_SEARCH,
 		});
 	}

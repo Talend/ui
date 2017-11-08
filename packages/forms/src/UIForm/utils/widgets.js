@@ -39,7 +39,7 @@ const widgets = {
 	buttons: Buttons,
 	checkboxes: CheckBoxes,
 	datalist: Datalist,
-  keyValue: KeyValue,
+	keyValue: KeyValue,
 	listView: ListView,
 	multiSelectTag: MultiSelectTag,
 	radioOrSelect: RadioOrSelect,

@@ -186,27 +186,21 @@ exports[`Items should render 1`] = `
                   }
                 >
                   <Item
-                    id="1-item"
                     item={
                       Object {
                         "label": "Lorem ipsum dolor sit amet 0",
                       }
                     }
                   >
-                    <div
-                      id="1-item"
-                    >
+                    <div>
                       <div
                         className="checkbox-container"
                       >
                         <div
                           className="checkbox"
                         >
-                          <label
-                            htmlFor="checkbox-1-item"
-                          >
+                          <label>
                             <input
-                              id="checkbox-1-item"
                               onChange={[Function]}
                               type="checkbox"
                             />
@@ -234,7 +228,6 @@ exports[`Items should render 1`] = `
                   }
                 >
                   <Item
-                    id="2-item"
                     item={
                       Object {
                         "checked": true,
@@ -242,21 +235,16 @@ exports[`Items should render 1`] = `
                       }
                     }
                   >
-                    <div
-                      id="2-item"
-                    >
+                    <div>
                       <div
                         className="checkbox-container"
                       >
                         <div
                           className="checkbox"
                         >
-                          <label
-                            htmlFor="checkbox-2-item"
-                          >
+                          <label>
                             <input
                               checked={true}
-                              id="checkbox-2-item"
                               onChange={[Function]}
                               type="checkbox"
                             />
@@ -284,27 +272,21 @@ exports[`Items should render 1`] = `
                   }
                 >
                   <Item
-                    id="3-item"
                     item={
                       Object {
                         "label": "Lorem ipsum dolor sit amet 2",
                       }
                     }
                   >
-                    <div
-                      id="3-item"
-                    >
+                    <div>
                       <div
                         className="checkbox-container"
                       >
                         <div
                           className="checkbox"
                         >
-                          <label
-                            htmlFor="checkbox-3-item"
-                          >
+                          <label>
                             <input
-                              id="checkbox-3-item"
                               onChange={[Function]}
                               type="checkbox"
                             />
