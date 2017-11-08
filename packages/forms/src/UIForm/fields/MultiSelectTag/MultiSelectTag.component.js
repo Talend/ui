@@ -151,7 +151,7 @@ export default class MultiSelectTag extends React.Component {
 	 * @param { object } props The props to use. If not provided, it uses this.props.
 	 */
 	updateSuggestions(value, props) {
-		this.setState((oldState) => {
+		this.setState(oldState => {
 			const currentValue = value === undefined ? oldState.value : value;
 			const currentProps = props === undefined ? this.props : props;
 			let suggestions = currentProps.schema.titleMap
@@ -188,18 +188,14 @@ export default class MultiSelectTag extends React.Component {
 				label={schema.title}
 			>
 				<div className={`${theme.wrapper} form-control`}>
-					{
-						this.props.value.map((val, index) => {
-							const label = getLabel(schema.titleMap, val);
-							const badgeProps = { label, key: index };
-							if (!schema.readOnly && !schema.disabled) {
-								badgeProps.onDelete = event => this.onRemoveTag(event, index);
-							}
-							return (
-								<Badge {...badgeProps} />
-							);
-						})
-					}
+					{this.props.value.map((val, index) => {
+						const label = getLabel(schema.titleMap, val);
+						const badgeProps = { label, key: index };
+						if (!schema.readOnly && !schema.disabled) {
+							badgeProps.onDelete = event => this.onRemoveTag(event, index);
+						}
+						return <Badge {...badgeProps} />;
+					})}
 
 					<Typeahead
 						id={id}
@@ -242,10 +238,12 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			restricted: PropTypes.bool,
 			title: PropTypes.string,
-			titleMap: PropTypes.arrayOf(PropTypes.shape({
-				name: PropTypes.string.isRequired,
-				value: PropTypes.string.isRequired,
-			})),
+			titleMap: PropTypes.arrayOf(
+				PropTypes.shape({
+					name: PropTypes.string.isRequired,
+					value: PropTypes.string.isRequired,
+				}),
+			),
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
 	};

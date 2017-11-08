@@ -1,5 +1,7 @@
 import React from 'react';
 import { AutoSizer, Column } from 'react-virtualized';
+
+import { getDefaultTranslate } from '../translate';
 import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration } from './utils/tablerow';
@@ -26,6 +28,7 @@ function VirtualizedList(props) {
 		sortDirection,
 		type,
 		disableHeader,
+		t,
 	} = props;
 
 	const contentsConfiguration = insertSelectionConfiguration({
@@ -36,11 +39,7 @@ function VirtualizedList(props) {
 
 	if (inProgress) {
 		return (
-			<div
-				aria-atomic="true"
-				aria-busy="true"
-				className={theme['tc-list-progress']}
-			>
+			<div aria-atomic="true" aria-busy="true" className={theme['tc-list-progress']}>
 				<CircularProgress size={'default'} />
 			</div>
 		);
@@ -63,6 +62,7 @@ function VirtualizedList(props) {
 					type={type}
 					width={width}
 					disableHeader={disableHeader}
+					t={t}
 				>
 					{contentsConfiguration}
 				</RendererSelector>
@@ -72,6 +72,9 @@ function VirtualizedList(props) {
 }
 VirtualizedList.displayName = 'VirtualizedList';
 VirtualizedList.propTypes = propTypes;
+VirtualizedList.defaultProps = {
+	t: getDefaultTranslate,
+};
 
 VirtualizedList.Content = Column;
 

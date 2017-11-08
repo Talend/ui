@@ -34,7 +34,14 @@ export function RenderButton({ id, value, className, item, onClick }) {
 	}
 
 	return (
-		<Button id={id} className={className} onMouseDown={mouseDown} onClick={click} role="link" bsStyle="link">
+		<Button
+			id={id}
+			className={className}
+			onMouseDown={mouseDown}
+			onClick={click}
+			role="link"
+			bsStyle="link"
+		>
 			{value}
 		</Button>
 	);
@@ -49,7 +56,11 @@ RenderButton.propTypes = {
 };
 
 function renderText({ id, value, className }) {
-	return <span id={id} className={className}>{value}</span>;
+	return (
+		<span id={id} className={className}>
+			{value}
+		</span>
+	);
 }
 
 renderText.propTypes = {
@@ -94,13 +105,17 @@ export class TitleInput extends React.Component {
 	}
 
 	render() {
-		return (<input
-			id={this.props.id}
-			ref={(input) => { this.titleInput = input; }}
-			onKeyUp={this.onKeyUp}
-			onBlur={this.submit}
-			autoFocus
-		/>);
+		return (
+			<input
+				id={this.props.id}
+				ref={input => {
+					this.titleInput = input;
+				}}
+				onKeyUp={this.onKeyUp}
+				onBlur={this.submit}
+				autoFocus
+			/>
+		);
 	}
 }
 
@@ -133,29 +148,20 @@ const props = {
 <ItemTitle {...props} />
  */
 function ItemTitle({ id, className, item, titleProps }) {
-	const {
-		key,
-		iconKey,
-		displayModeKey,
-		onClick,
-		onEditSubmit,
-		onEditCancel,
-	} = titleProps;
+	const { key, iconKey, displayModeKey, onClick, onEditSubmit, onEditCancel } = titleProps;
 	const value = item[key];
 	const displayMode = (displayModeKey && item[displayModeKey]) || TITLE_MODE_TEXT;
 	const iconName = iconKey && item[iconKey];
-	const icon = iconName && <Icon className={classNames('tc-list-icon', theme.icon)} name={iconName} />;
+	const icon = iconName && (
+		<Icon className={classNames('tc-list-icon', theme.icon)} name={iconName} />
+	);
 
 	let titleElement = null;
 	if (displayMode === TITLE_MODE_TEXT) {
 		if (onClick) {
-			titleElement = (<RenderButton
-				id={id}
-				value={value}
-				className={className}
-				item={item}
-				onClick={onClick}
-			/>);
+			titleElement = (
+				<RenderButton id={id} value={value} className={className} item={item} onClick={onClick} />
+			);
 		} else {
 			titleElement = renderText({ id, value, className });
 		}
@@ -167,10 +173,7 @@ function ItemTitle({ id, className, item, titleProps }) {
 	return (
 		<div className={theme['item-title']}>
 			{icon}
-			<TooltipTrigger
-				label={value && value.toString()}
-				tooltipPlacement="top"
-			>
+			<TooltipTrigger label={value && value.toString()} tooltipPlacement="top">
 				{titleElement}
 			</TooltipTrigger>
 		</div>

@@ -9,14 +9,12 @@ import Toggle from '@talend/react-components/lib/Toggle';
  * @returns {*} Radio inputs if choices length is gte to 2 or Select
  * @constructor
  */
-const ToggleWidget = (props) => {
+const ToggleWidget = props => {
 	const propsWithHiddenLabel = { ...props, displayLabel: false, value: props.checked };
 
 	return (
 		<div className="switch">
-			<Toggle
-				{...propsWithHiddenLabel}
-			/>
+			<Toggle {...propsWithHiddenLabel} />
 		</div>
 	);
 };

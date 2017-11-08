@@ -10,16 +10,18 @@ export const URL_REQUIRED_MESSAGE = 'url to post the error is required';
  */
 export default function getErrorMiddleware(url) {
 	invariant(url, URL_REQUIRED_MESSAGE);
-	return store => next => (action) => {
+	return store => next => action => {
 		try {
 			return next(action);
 		} catch (error) {
-			return next(http.post(url, {
-				userAgent: navigator ? navigator.userAgent : 'unknown',
-				reduxState: store.state,
-				action,
-				error,
-			}));
+			return next(
+				http.post(url, {
+					userAgent: navigator ? navigator.userAgent : 'unknown',
+					reduxState: store.state,
+					action,
+					error,
+				}),
+			);
 		}
 	};
 }

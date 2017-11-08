@@ -63,15 +63,10 @@ export function renderActions(actions, handleActionClick) {
 			>
 				{renderActionIcon(action.icon)}
 				{action.label}
-			</Action>),
-		);
+			</Action>
+		));
 	}
-	return (<Action
-		bsStyle="primary"
-		onClick={() => {}}
-		type="submit"
-		label="Submit"
-	/>);
+	return <Action bsStyle="primary" onClick={() => {}} type="submit" label="Submit" />;
 }
 
 class Form extends React.Component {
@@ -159,7 +154,7 @@ class Form extends React.Component {
 				widgets={widgets}
 				onChange={this.handleChange}
 				onSubmit={this.handleSchemaSubmit}
-				ref={(c) => {
+				ref={c => {
 					this.form = c;
 				}}
 			>
@@ -175,20 +170,19 @@ class Form extends React.Component {
 export const DataPropTypes = PropTypes.shape({
 	jsonSchema: PropTypes.object.isRequired,
 	uiSchema: PropTypes.object,
-	properties: PropTypes.oneOfType([
-		PropTypes.object,
-		PropTypes.string,
-	]),
+	properties: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 });
 
-export const ActionsPropTypes = PropTypes.arrayOf(PropTypes.shape({
-	style: PropTypes.string,
-	type: PropTypes.oneOf(['submit', 'reset', 'button']),
-	onClick: PropTypes.func,
-	label: PropTypes.string,
-	icon: PropTypes.string,
-	title: PropTypes.string,
-}));
+export const ActionsPropTypes = PropTypes.arrayOf(
+	PropTypes.shape({
+		style: PropTypes.string,
+		type: PropTypes.oneOf(['submit', 'reset', 'button']),
+		onClick: PropTypes.func,
+		label: PropTypes.string,
+		icon: PropTypes.string,
+		title: PropTypes.string,
+	}),
+);
 
 if (process.env.NODE_ENV !== 'production') {
 	Form.propTypes = {

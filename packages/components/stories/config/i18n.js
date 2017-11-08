@@ -21,6 +21,7 @@ i18n.init({
 				ENUMERATION_HEADER_LABEL: 'Valeurs',
 				SIDEPANEL_EXPAND: 'Développer',
 				SIDEPANEL_COLLAPSE: 'Réduire',
+				VIRTUALIZEDLIST_NO_RESULT: 'Aucun résultat',
 			},
 		},
 		it: {
@@ -40,6 +41,7 @@ i18n.init({
 				ENUMERATION_HEADER_LABEL: 'Valori',
 				SIDEPANEL_EXPAND: 'Espandere',
 				SIDEPANEL_COLLAPSE: 'Collassare',
+				VIRTUALIZEDLIST_NO_RESULT: 'Nessun risultato',
 			},
 		},
 	},
@@ -55,15 +57,21 @@ export const LanguageSwitcher = () => {
 		textAlign: 'center',
 		zIndex: 1,
 	};
+
+	function renderBtn(locale, isDefault) {
+		return (
+			<button className="btn" onClick={() => i18n.changeLanguage(locale)}>
+				{locale} {isDefault && '(default)'}
+			</button>
+		);
+	}
+
 	return (
 		<nav style={style}>
 			<div className="btn-group">
-				<button className="btn" onClick={() => i18n.changeLanguage('fr')}>
-					fr
-				</button>
-				<button className="btn" onClick={() => i18n.changeLanguage('it')}>
-					it
-				</button>
+				{renderBtn('en', true)}
+				{renderBtn('fr')}
+				{renderBtn('it')}
 			</div>
 		</nav>
 	);

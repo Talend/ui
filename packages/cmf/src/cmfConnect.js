@@ -147,12 +147,7 @@ export function getDispatchToProps({
  * call mergeProps if exists after the cleanup
  * @param {object} options { mergeProps, stateProps, dispatchProps, ownProps }
  */
-export function getMergeProps({
-	mergeProps,
-	stateProps,
-	dispatchProps,
-	ownProps,
-}) {
+export function getMergeProps({ mergeProps, stateProps, dispatchProps, ownProps }) {
 	if (mergeProps) {
 		return mergeProps(
 			api.expression.mergeProps(stateProps),
@@ -259,7 +254,7 @@ export default function cmfConnect({
 				});
 
 				// remove all internal props already used by the container
-				CMF_PROPS.forEach((key) => {
+				CMF_PROPS.forEach(key => {
 					delete props[key];
 				});
 

@@ -32,27 +32,24 @@ function get(id, context) {
  */
 function register(id, component, context) {
 	if (!component) {
-		invariant(
-			process.env.NODE_ENV !== 'production',
-			'You can register undefined as a component'
-		);
+		invariant(process.env.NODE_ENV !== 'production', 'You can register undefined as a component');
 		return;
 	}
 	registry.addToRegistry(`${CONST.REGISTRY_COMPONENT_PREFIX}:${id}`, component, context);
 	if (component.actions) {
-		Object.keys(component.actions).forEach((key) => {
+		Object.keys(component.actions).forEach(key => {
 			action.registerActionCreator(key, component.actions[key], context);
 		});
 	}
 	if (component.expressions) {
-		Object.keys(component.expressions).forEach((key) => {
+		Object.keys(component.expressions).forEach(key => {
 			expression.register(key, component.expressions[key], context);
 		});
 	}
 }
 
 function registerMany(components, context) {
-	Object.keys(components).forEach((key) => {
+	Object.keys(components).forEach(key => {
 		register(key, components[key], context);
 	});
 }

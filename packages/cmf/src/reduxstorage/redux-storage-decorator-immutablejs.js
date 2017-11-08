@@ -5,8 +5,8 @@ export default (engine, whitelist = []) => ({
 	...engine,
 
 	load() {
-		return engine.load().then((result) => {
-			whitelist.forEach((keys) => {
+		return engine.load().then(result => {
+			whitelist.forEach(keys => {
 				if (typeof keys === 'string') {
 					keys = [keys]; // eslint-disable-line no-param-reassign
 				}

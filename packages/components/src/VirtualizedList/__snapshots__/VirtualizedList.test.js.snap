@@ -39,6 +39,7 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
   sort={[Function]}
   sortBy="name"
   sortDirection="DESC"
+  t={[Function]}
   type="TABLE"
   width={300}
 >

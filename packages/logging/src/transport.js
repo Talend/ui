@@ -12,7 +12,7 @@ export function sendReport(payload, transportOpts, attempt = 0) {
 
 	send(transformedPayload, fetchOptions)
 		.then(successHandler)
-		.catch((errorResponse) => {
+		.catch(errorResponse => {
 			if (attempt < retryCount) {
 				failedTryHandler(errorResponse, sendReport, payload, transportOpts, attempt);
 			} else {
@@ -30,25 +30,34 @@ function defaultPayloadMiddleware(payload) {
 }
 
 const defaultHandlers = {
-	success: (response) => { console.info('Logging: reported', response); },
+	success: response => {
+		console.info('Logging: reported', response);
+	},
 	failedTry: function failedTry(error, report, payload, transportOpts, attempt) {
 		setTimeout(() => {
 			report(payload, transportOpts, attempt + 1);
 		}, transportOpts.retryTimeout);
-		console.warn('Logging: Looks like logging host is unreachable, ' +
-			`retrying in ${transportOpts.retryTimeout / 1000} seconds`);
+		console.warn(
+			'Logging: Looks like logging host is unreachable, ' +
+				`retrying in ${transportOpts.retryTimeout / 1000} seconds`,
+		);
 	},
-	failedReport: (error) => { console.error('Logging: unable to send reports', error); },
+	failedReport: error => {
+		console.error('Logging: unable to send reports', error);
+	},
 };
 
 function getFetchPayload(payload, otherFetchOptions = {}) {
-	return Object.assign({
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-	}, {
-		body: JSON.stringify({ '@message': payload }),
-		...otherFetchOptions,
-	});
+	return Object.assign(
+		{
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+		},
+		{
+			body: JSON.stringify({ '@message': payload }),
+			...otherFetchOptions,
+		},
+	);
 }
 
 function shouldBeOk(response) {
@@ -59,9 +68,10 @@ function shouldBeOk(response) {
 }
 
 function getDefault(url) {
-	return (payload, fetchOptions = {}) => fetch(url, getFetchPayload(payload, fetchOptions))
-		.then(shouldBeOk)
-		.then(response => response.text());
+	return (payload, fetchOptions = {}) =>
+		fetch(url, getFetchPayload(payload, fetchOptions))
+			.then(shouldBeOk)
+			.then(response => response.text());
 }
 
 export const getDefaultTransport = url => ({

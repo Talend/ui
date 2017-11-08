@@ -30,10 +30,7 @@ export function onMouseOut(event, notification, leaveFn, autoLeaveTimeout) {
 	if (notification.type === 'error' || event.currentTarget.getAttribute('pin') === 'true') {
 		return;
 	}
-	Registry.register(
-		notification,
-		setTimeout(() => leaveFn(notification), autoLeaveTimeout),
-	);
+	Registry.register(notification, setTimeout(() => leaveFn(notification), autoLeaveTimeout));
 }
 
 export function onClick(event, notification) {
@@ -59,47 +56,59 @@ function CloseButton({ notification, leaveFn }) {
 			label={''}
 			icon={'talend-cross'}
 			bsClass={classNames(
-				theme['tc-notification-action'], 'tc-notification-action',
-				theme['tc-notification-close'], '.tc-notification-close',
+				theme['tc-notification-action'],
+				'tc-notification-action',
+				theme['tc-notification-close'],
+				'.tc-notification-close',
 			)}
 		/>
 	);
 }
 
 function MessageAction({ action }) {
-	return !!action &&
-		<Action
-			{...action}
-			bsClass={classNames(
-				theme['tc-notification-action'], 'tc-notification-action',
-				theme['tc-notification-message-action'], 'tc-notification-message-action',
-			)}
-		/>;
+	return (
+		!!action && (
+			<Action
+				{...action}
+				bsClass={classNames(
+					theme['tc-notification-action'],
+					'tc-notification-action',
+					theme['tc-notification-message-action'],
+					'tc-notification-message-action',
+				)}
+			/>
+		)
+	);
 }
 
 function Message({ notification }) {
 	const { message, action } = notification;
 	const messageClass = classNames(theme['tc-notification-message'], 'tc-notification-message');
-	return Array.isArray(message) ?
+	return Array.isArray(message) ? (
 		<article>
 			{message.map((paragraph, index) => (
 				<p key={index} className={messageClass}>
 					{paragraph}
-					{ index === (message.length - 1) && <MessageAction action={action} /> }
+					{index === message.length - 1 && <MessageAction action={action} />}
 				</p>
 			))}
-		</article> : <p className={messageClass}>
+		</article>
+	) : (
+		<p className={messageClass}>
 			{message}
 			<MessageAction action={action} />
-		</p>;
+		</p>
+	);
 }
 
 function TimerBar({ type }) {
-	return type !== 'error' && <div
-		className={classNames(
-			theme['tc-notification-timer-bar'], 'tc-notification-timer-bar',
-		)}
-	/>;
+	return (
+		type !== 'error' && (
+			<div
+				className={classNames(theme['tc-notification-timer-bar'], 'tc-notification-timer-bar')}
+			/>
+		)
+	);
 }
 
 function Notification({ notification, leaveFn, autoLeaveTimeout }) {
@@ -133,22 +142,12 @@ function Notification({ notification, leaveFn, autoLeaveTimeout }) {
 }
 
 function renderNotifications({ notifications, leaveFn, autoLeaveTimeout }) {
-	return notifications.map(
-		(notification) => {
-			if (!Registry.isRegistered(notification) && notification.type !== 'error') {
-				Registry.register(
-					notification,
-					setTimeout(() => leaveFn(notification), autoLeaveTimeout),
-				);
-			}
-			return (
-				<Notification
-					key={notification.id}
-					{...{ notification, leaveFn, autoLeaveTimeout }}
-				/>
-			);
-		},
-	);
+	return notifications.map(notification => {
+		if (!Registry.isRegistered(notification) && notification.type !== 'error') {
+			Registry.register(notification, setTimeout(() => leaveFn(notification), autoLeaveTimeout));
+		}
+		return <Notification key={notification.id} {...{ notification, leaveFn, autoLeaveTimeout }} />;
+	});
 }
 
 function NotificationsContainer({
@@ -174,10 +173,7 @@ function NotificationsContainer({
 const notificationShape = {
 	id: PropTypes.any.isRequired,
 	type: PropTypes.oneOf(['info', 'warning', 'error']),
-	message: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.arrayOf(PropTypes.string),
-	]).isRequired,
+	message: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
 	action: PropTypes.shape(Action.propTypes),
 };
 

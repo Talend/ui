@@ -47,7 +47,7 @@ class SidePanel extends React.Component {
 			onToggleDock: this.onToggleDock,
 		});
 
-		return (<Component renderers={getRenderers(renderers)} {...rest} {...props} />);
+		return <Component renderers={getRenderers(renderers)} {...rest} {...props} />;
 	}
 }
 
