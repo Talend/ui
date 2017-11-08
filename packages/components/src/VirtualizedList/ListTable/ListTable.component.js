@@ -5,6 +5,7 @@ import {
 	Table as VirtualizedTable,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
+import { getDefaultTranslate } from '../../translate';
 import getRowSelectionRenderer from '../RowSelection';
 import NoRows from '../NoRows';
 import { toColumns } from '../utils/tablerow';
@@ -30,6 +31,7 @@ function ListTable(props) {
 		sortDirection,
 		width,
 		rowHeight,
+		t,
 	} = props;
 
 	let RowTableRenderer = DefaultTableRowRenderer;
@@ -54,7 +56,7 @@ function ListTable(props) {
 			height={height}
 			id={id}
 			onRowClick={onRowClickCallback}
-			noRowsRenderer={NoRows}
+			noRowsRenderer={() => <NoRows t={t} />}
 			rowClassName={classNames(rowThemes)}
 			rowCount={collection.length}
 			rowGetter={({ index }) => collection[index]}
@@ -85,11 +87,13 @@ ListTable.propTypes = {
 	sortBy: PropTypes.string,
 	sortDirection: PropTypes.string,
 	width: PropTypes.number,
+	t: PropTypes.func,
 };
 
 ListTable.defaultProps = {
 	disableHeader: false,
 	rowHeight: 50,
+	t: getDefaultTranslate,
 };
 
 export default ListTable;

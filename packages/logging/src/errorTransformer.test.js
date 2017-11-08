@@ -15,41 +15,59 @@ describe('ErrorTransformer', () => {
 
 		it('should call successHandler internally', () => {
 			const successHandler = t => expect(t).toBe(someString);
-			et('', {
-				successHandler,
-				fetchOptions: { response: { text: () => someString, ok: true } },
-			}, { rethrowErrorHandler })();
+			et(
+				'',
+				{
+					successHandler,
+					fetchOptions: { response: { text: () => someString, ok: true } },
+				},
+				{ rethrowErrorHandler },
+			)();
 		});
 
 		it('should call failedReportHandler internally', () => {
-			const failedReportHandler = (e) => { expect(e.message).toBe(someString); };
-			et('', {
-				failedReportHandler,
-				fetchOptions: { response: someString },
-			}, { rethrowErrorHandler })();
+			const failedReportHandler = e => {
+				expect(e.message).toBe(someString);
+			};
+			et(
+				'',
+				{
+					failedReportHandler,
+					fetchOptions: { response: someString },
+				},
+				{ rethrowErrorHandler },
+			)();
 		});
 
 		it('should return payload', () => {
-			const returnedData = et('', {
-				fetchOptions: { response: { text: () => someString, ok: true } },
-			}, { rethrowErrorHandler })({ some: someString });
+			const returnedData = et(
+				'',
+				{
+					fetchOptions: { response: { text: () => someString, ok: true } },
+				},
+				{ rethrowErrorHandler },
+			)({ some: someString });
 
 			expect(returnedData).toMatchObject({ some: someString });
 		});
 
 		it('should transform payload', () => {
 			const expected = { a: 'b' };
-			const returnedData = et('', {
-				payloadMiddleware: () => expected,
-				fetchOptions: { response: { text: () => null, ok: true } },
-			}, { rethrowErrorHandler })();
+			const returnedData = et(
+				'',
+				{
+					payloadMiddleware: () => expected,
+					fetchOptions: { response: { text: () => null, ok: true } },
+				},
+				{ rethrowErrorHandler },
+			)();
 			expect(returnedData).toMatchObject(expected);
 		});
 	});
 
 	it('should patch TraceKit_ so it calls rethrowErrorHandler internally', () => {
 		// given:
-		const report = (error) => {
+		const report = error => {
 			let message;
 			try {
 				TraceKit.report(error);
@@ -73,10 +91,14 @@ describe('ErrorTransformer', () => {
 			expect(p).toBe(someString);
 			sr(p, to, c + 1);
 		};
-		et('', {
-			failedTryHandler,
-			retryCount: 5,
-			fetchOptions: { response: { ok: false } },
-		}, { rethrowErrorHandler })(someString);
+		et(
+			'',
+			{
+				failedTryHandler,
+				retryCount: 5,
+				fetchOptions: { response: { ok: false } },
+			},
+			{ rethrowErrorHandler },
+		)(someString);
 	});
 });

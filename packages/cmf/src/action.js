@@ -27,11 +27,7 @@ function getActionsById(context) {
  */
 function getContentTypeActions(context, contentType, category) {
 	const state = context.store.getState();
-	return get(
-		state,
-		`cmf.settings.contentTypes[${contentType}.actions[${category}]`,
-		[],
-	);
+	return get(state, `cmf.settings.contentTypes[${contentType}.actions[${category}]`, []);
 }
 
 /**
@@ -95,10 +91,9 @@ function getActionObject(context, action, event, data) {
  * @return {Array}       of string
  */
 function getOnProps(props) {
-	return Object.keys(props).filter(name => (
-		{}.hasOwnProperty.call(props, name) &&
-		/^on.+/.test(name)
-	));
+	return Object.keys(props).filter(
+		name => ({}.hasOwnProperty.call(props, name) && /^on.+/.test(name)),
+	);
 }
 
 /**
@@ -112,7 +107,7 @@ function getOnProps(props) {
  */
 function mapDispatchToProps(dispatch, props) {
 	const resolvedActions = {};
-	getOnProps(props).forEach((name) => {
+	getOnProps(props).forEach(name => {
 		resolvedActions[name] = (event, data, context) => {
 			let action = props[name];
 			if (typeof action === 'string') {

@@ -46,9 +46,14 @@ function getAction(action, index, getInternalInputRef) {
 }
 
 function HeaderInput({
-		headerInput, headerError, onInputChange, inputPlaceholder,
-		onAddKeyDown, value, inputRef,
-	}) {
+	headerInput,
+	headerError,
+	onInputChange,
+	inputPlaceholder,
+	onAddKeyDown,
+	value,
+	inputRef,
+}) {
 	let internalInputRef = null;
 
 	function onInputChangeHandler(event) {
@@ -72,7 +77,7 @@ function HeaderInput({
 			<input
 				type="text"
 				placeholder={inputPlaceholder}
-				ref={(input) => {
+				ref={input => {
 					internalInputRef = input;
 					if (inputRef) {
 						inputRef(input);
@@ -83,9 +88,8 @@ function HeaderInput({
 				value={value}
 				autoFocus
 			/>
-			{ headerError && <div className={headerErrorClasses()}>{headerError}</div> }
-			{ headerInput.map((action, index) =>
-				getAction(action, index, getInternalInputRef.bind(this))) }
+			{headerError && <div className={headerErrorClasses()}>{headerError}</div>}
+			{headerInput.map((action, index) => getAction(action, index, getInternalInputRef.bind(this)))}
 		</header>
 	);
 }

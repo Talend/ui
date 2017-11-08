@@ -10,7 +10,11 @@ const ESC_KEY = 27;
 const ENTER_KEY = 13;
 
 function TitleText({ id, value }) {
-	return (<div id={id} className="tc-list-item-title-text">{value}</div>);
+	return (
+		<div id={id} className="tc-list-item-title-text">
+			{value}
+		</div>
+	);
 }
 
 TitleText.propTypes = {
@@ -20,13 +24,7 @@ TitleText.propTypes = {
 
 function TitleButton({ id, value, onClick }) {
 	return (
-		<Button
-			id={id}
-			title={value}
-			onClick={onClick}
-			role="link"
-			bsStyle="link"
-		>
+		<Button id={id} title={value} onClick={onClick} role="link" bsStyle="link">
 			{value}
 		</Button>
 	);
@@ -39,7 +37,7 @@ TitleButton.propTypes = {
 };
 
 function TitleInput({ id, value, onChange, onSubmit, onCancel }) {
-	const onKeyUp = (event) => {
+	const onKeyUp = event => {
 		switch (event.keyCode) {
 			case ESC_KEY:
 				onCancel(event);
@@ -104,21 +102,13 @@ function ItemTitle(props) {
 		}
 	};
 
-	return (
-		<div className="tc-list-item-title">
-			{getTitleElement()}
-		</div>
-	);
+	return <div className="tc-list-item-title">{getTitleElement()}</div>;
 }
 
 ItemTitle.propTypes = {
 	id: PropTypes.string,
 	value: PropTypes.string.isRequired,
-	display: PropTypes.oneOf([
-		TITLE_MODE_TEXT,
-		TITLE_MODE_BUTTON,
-		TITLE_MODE_INPUT,
-	]),
+	display: PropTypes.oneOf([TITLE_MODE_TEXT, TITLE_MODE_BUTTON, TITLE_MODE_INPUT]),
 	onClick: PropTypes.func,
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func,

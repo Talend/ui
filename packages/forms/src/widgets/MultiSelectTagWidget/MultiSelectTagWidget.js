@@ -36,13 +36,10 @@ function transformOptions(options) {
  * @returns {Array.<*>}
  */
 function filterOptions(props) {
-	return transformOptions(props.options).filter(
-			option => props.value.indexOf(option.value) < 0
-	);
+	return transformOptions(props.options).filter(option => props.value.indexOf(option.value) < 0);
 }
 
 class MultiSelectTagWidget extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.withCategory = typeof props.options.groupBy !== 'undefined';
@@ -102,8 +99,10 @@ class MultiSelectTagWidget extends React.Component {
 		onChange(nextValue);
 	}
 
-	onKeyDown(event,
-			{ focusedItemIndex, newFocusedItemIndex, focusedSectionIndex, newFocusedSectionIndex }) {
+	onKeyDown(
+		event,
+		{ focusedItemIndex, newFocusedItemIndex, focusedSectionIndex, newFocusedSectionIndex },
+	) {
 		switch (event.which) {
 			case keycode.codes.backspace: {
 				if (this.state.filterText === '' && this.props.value.length > 0) {
@@ -113,7 +112,10 @@ class MultiSelectTagWidget extends React.Component {
 			}
 			case keycode.codes.enter: {
 				if (this.state.suggestions.length > 0) {
-					this.onSelect(event, { itemIndex: focusedItemIndex, sectionIndex: focusedSectionIndex });
+					this.onSelect(event, {
+						itemIndex: focusedItemIndex,
+						sectionIndex: focusedSectionIndex,
+					});
 				} else if (this.state.filterText.length > 0) {
 					const { schema } = this.props;
 					if (schema.createIfNoneMatch) {
@@ -130,7 +132,9 @@ class MultiSelectTagWidget extends React.Component {
 					{
 						itemIndex: newFocusedItemIndex,
 						sectionIndex: newFocusedSectionIndex,
-					}, event.which);
+					},
+					event.which,
+				);
 				this.setState({
 					focusedItemIndex: newFocusedItemIndex,
 					focusedSectionIndex: newFocusedSectionIndex,
@@ -156,11 +160,11 @@ class MultiSelectTagWidget extends React.Component {
 
 	getOptionsToShow() {
 		const { value, options } = this.props;
-		return options.enumOptions.filter(
-			option => value.indexOf(option.value) < 0,
-		).filter(
-			item => item.label.toUpperCase().indexOf(this.state.filterText.toUpperCase()) > -1,
-		);
+		return options.enumOptions
+			.filter(option => value.indexOf(option.value) < 0)
+			.filter(
+				item => item.label.toUpperCase().indexOf(this.state.filterText.toUpperCase()) > -1,
+			);
 	}
 
 	getDropdownItems(suggestions) {
@@ -169,12 +173,12 @@ class MultiSelectTagWidget extends React.Component {
 			const itemsMap = {};
 			const groupBy = this.props.options.groupBy;
 
-			suggestions.forEach((item) => {
+			suggestions.forEach(item => {
 				itemsMap[item[groupBy]] = itemsMap[item[groupBy]] || [];
 				itemsMap[item[groupBy]].push({ ...item, title: item.label });
 			});
 
-			Object.keys(itemsMap).forEach((category) => {
+			Object.keys(itemsMap).forEach(category => {
 				items.push({ title: category, suggestions: itemsMap[category] });
 			});
 			return items;
@@ -185,7 +189,7 @@ class MultiSelectTagWidget extends React.Component {
 	}
 
 	updateSuggestions(value, props) {
-		this.setState((prevState) => {
+		this.setState(prevState => {
 			const filterText = value === undefined ? prevState.filterText : value;
 			const currentProps = props || this.props;
 
@@ -230,9 +234,9 @@ class MultiSelectTagWidget extends React.Component {
 		} else {
 			itemStart = this.state.items.reduce((acc, item, index) => {
 				if (index < sectionIndex) {
-					return acc + ((item.suggestions.length + 1) * DROP_DOWN_ITEM_HEIGHT);
+					return acc + (item.suggestions.length + 1) * DROP_DOWN_ITEM_HEIGHT;
 				} else if (index === sectionIndex) {
-					return acc + ((itemIndex + 1) * DROP_DOWN_ITEM_HEIGHT);
+					return acc + (itemIndex + 1) * DROP_DOWN_ITEM_HEIGHT;
 				}
 				return acc;
 			}, 0);
@@ -242,7 +246,7 @@ class MultiSelectTagWidget extends React.Component {
 			if (itemStart < scrollPosition) {
 				itemsContainer.scrollTop = itemStart;
 			}
-			if (itemEnd > (scrollPosition + itemsContainerHeight)) {
+			if (itemEnd > scrollPosition + itemsContainerHeight) {
 				itemsContainer.scrollTop = itemEnd - itemsContainerHeight;
 			}
 		}
@@ -268,22 +272,22 @@ class MultiSelectTagWidget extends React.Component {
 					<span className="caret" />
 				</div>
 				<div className={`${theme.wrapper} form-control`}>
-					{
-						value.map((val, index) => {
-							badgeValue = valueToLabel[val] || val;
-							if (typeof badgeValue === 'string') {
-								badgeProps = { label: badgeValue, key: index };
-							} else {
-								badgeProps = { ...badgeValue, key: index, selected: !!badgeValue[options.groupBy] };
-							}
-							if (!readonly) {
-								badgeProps.onDelete = () => this.onRemoveTag(val);
-							}
-							return (
-								<Badge {...badgeProps} />
-							);
-						})
-					}
+					{value.map((val, index) => {
+						badgeValue = valueToLabel[val] || val;
+						if (typeof badgeValue === 'string') {
+							badgeProps = { label: badgeValue, key: index };
+						} else {
+							badgeProps = {
+								...badgeValue,
+								key: index,
+								selected: !!badgeValue[options.groupBy],
+							};
+						}
+						if (!readonly) {
+							badgeProps.onDelete = () => this.onRemoveTag(val);
+						}
+						return <Badge {...badgeProps} />;
+					})}
 					<Typeahead
 						id={id}
 						autoFocus={false}
