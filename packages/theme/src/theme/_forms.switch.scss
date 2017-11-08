@@ -1,5 +1,5 @@
 $switch-thumb-shadow: 0 1px 2px 0 rgba(117, 132, 149, 0.5); //$slate-gray;
-$switch-thumb-shadow-focuses: 0 3px 4px 0.5px rgba(0, 0, 0, 0.25);
+$switch-thumb-shadow-focused: 0 3px 4px 0.5px rgba(0, 0, 0, 0.25);
 $switch-thumb-border-disabled: 1px solid rgba(198, 198, 198, 0.3);
 $switch-track-shadow: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.3);
 $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
@@ -72,7 +72,7 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 		&:focus {
 			+ *:after {
 				background-color: $white;
-				box-shadow: $switch-thumb-shadow-focuses;
+				box-shadow: $switch-thumb-shadow-focused;
 			}
 		}
 
