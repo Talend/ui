@@ -42,7 +42,7 @@ exports[`Notification should render 1`] = `
       <p
         className="tc-notification-message"
       >
-        This is a feedback of your operation1, This is a feedback of your operation1
+        Directives application Home Loan Account Table Computer Practical Fresh Pants Savings Account alarm Movies Producer parsing red Chips Soap methodology
         <button
           className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
           disabled={false}
@@ -62,7 +62,7 @@ exports[`Notification should render 1`] = `
             />
           </svg>
           <span>
-            Haha
+            Albania
           </span>
         </button>
       </p>
@@ -103,12 +103,12 @@ exports[`Notification should render 1`] = `
         <p
           className="tc-notification-message"
         >
-          This is a feedback of your operation2
+          Namibia
         </p>
         <p
           className="tc-notification-message"
         >
-          This is a feedback of your operation1, This is a feedback of your operation1
+          enable Gorgeous Frozen Pants Multi-channelled Licensed Savings Account syndicate Planner Canyon HDD Yuan Renminbi Centers Automotive Usability South Dakota envisioneer Music Public-key Monitored Bahamian Dollar Investment Account
           <button
             className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
             disabled={false}
@@ -128,7 +128,7 @@ exports[`Notification should render 1`] = `
               />
             </svg>
             <span>
-              undo
+              backing up
             </span>
           </button>
         </p>
@@ -167,12 +167,12 @@ exports[`Notification should render 1`] = `
         <p
           className="tc-notification-message"
         >
-          This is a feedback of your operation3
+          incentivize Tuna copy convergence sky blue
         </p>
         <p
           className="tc-notification-message"
         >
-          details
+          Georgia
         </p>
       </article>
       <div
@@ -211,7 +211,7 @@ exports[`Notification should render 1`] = `
       <p
         className="tc-notification-message"
       >
-        This is a feedback of your operation4
+        connect Markets Chief
       </p>
       <div
         className="tc-notification-timer-bar"

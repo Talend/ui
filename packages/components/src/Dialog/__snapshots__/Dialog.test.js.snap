@@ -29,7 +29,7 @@ exports[`Dialog should render action 1`] = `
     <div
       className="Title"
     >
-      Hello world
+      Home Loan Account Table Computer
     </div>
   </div>
   <div
@@ -51,7 +51,7 @@ exports[`Dialog should render action 1`] = `
       type="button"
     >
       <span>
-        OK
+        Practical Fresh Pants
       </span>
     </button>
   </div>
@@ -71,7 +71,7 @@ exports[`Dialog should render header 1`] = `
     <div
       className="Title"
     >
-      Hello world
+      mobile Fish
     </div>
   </div>
   <div
@@ -101,7 +101,7 @@ exports[`Dialog should render large 1`] = `
     <div
       className="Title"
     >
-      Hello world
+      red Chips Soap
     </div>
   </div>
   <div
@@ -123,7 +123,7 @@ exports[`Dialog should render large 1`] = `
       type="button"
     >
       <span>
-        OK
+        methodology
       </span>
     </button>
   </div>
@@ -147,7 +147,7 @@ exports[`Dialog should render small 1`] = `
     <div
       className="Title"
     >
-      Hello world
+      Metal deposit
     </div>
   </div>
   <div
@@ -169,7 +169,7 @@ exports[`Dialog should render small 1`] = `
       type="button"
     >
       <span>
-        OK
+        Tasty Metal Bacon
       </span>
     </button>
   </div>

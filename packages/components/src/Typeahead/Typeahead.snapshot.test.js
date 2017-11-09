@@ -1,37 +1,40 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import faker from 'faker';
+
 import Typeahead from './Typeahead.component';
 
 jest.mock('react-dom');
 
+faker.seed(42);
 const itemsObject = [
 	{
-		title: 'category 1',
+		title: faker.random.words(),
 		icon: {
 			name: 'fa fa-filter',
 			title: 'icon',
 		},
 		suggestions: [
 			{
-				title: 'le title 1',
-				description: 'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
+				title: faker.random.words(),
+				description: faker.lorem.sentence(10),
 			},
 			{
-				title: 'title 2 les elephants elementaires ont des aile ',
-				description: 'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
+				title: faker.random.words(),
+				description: faker.lorem.sentence(10),
 			},
 		],
 	},
 	{
-		title: 'category 2',
+		title: faker.random.words(),
 		icon: {
 			name: 'fa fa-asterisk',
 			title: 'icon',
 		},
 		suggestions: [
 			{
-				title: 'title 3',
-				description: 'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
+				title: faker.random.words(),
+				description: faker.lorem.sentence(10),
 			},
 		],
 	},
@@ -54,9 +57,7 @@ describe('Typeahead', () => {
 			};
 
 			// when
-			const wrapper = renderer
-				.create(<Typeahead {...props} />)
-				.toJSON();
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
@@ -72,9 +73,7 @@ describe('Typeahead', () => {
 			};
 
 			// when
-			const wrapper = renderer
-				.create(<Typeahead {...props} />)
-				.toJSON();
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
@@ -90,9 +89,7 @@ describe('Typeahead', () => {
 				multiSection: false,
 			};
 			// when
-			const wrapper = renderer
-				.create(<Typeahead {...props} />)
-				.toJSON();
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
@@ -105,9 +102,7 @@ describe('Typeahead', () => {
 				items: itemsObject,
 			};
 			// when
-			const wrapper = renderer
-				.create(<Typeahead {...props} />)
-				.toJSON();
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
@@ -121,9 +116,7 @@ describe('Typeahead', () => {
 			};
 
 			// when
-			const wrapper = renderer
-				.create(<Typeahead {...props} />)
-				.toJSON();
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
@@ -138,9 +131,7 @@ describe('Typeahead', () => {
 			};
 
 			// when
-			const wrapper = renderer
-				.create(<Typeahead {...props} />)
-				.toJSON();
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();

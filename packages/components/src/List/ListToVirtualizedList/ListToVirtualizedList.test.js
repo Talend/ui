@@ -1,14 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import faker from 'faker';
 
 import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 import ListToVirtualizedList from './ListToVirtualizedList.component';
 import CellActions from '../../VirtualizedList/CellActions';
 import CellBadge from '../../VirtualizedList/CellBadge';
 
+faker.seed(42);
 const props = {
-	id: 'mylistid',
-	items: [{ id: 3, label: 'my item', myactions: [{ foo: 'bar' }] }],
+	id: faker.random.word(),
+	items: [{ id: faker.random.number(), label: faker.random.words(), myactions: [{ foo: 'bar' }] }],
 	columns: [
 		{ key: 'id', label: 'Id' },
 		{ key: 'label', label: 'Label' },

@@ -36,7 +36,7 @@ exports[`Dialog modal props should render dialog without bsDialogProps 1`] = `
       bsClass="modal-title"
       componentClass="h4"
     >
-      Hello world
+      mobile Fish
     </ModalTitle>
   </ModalHeader>
   <ModalBody
@@ -82,7 +82,7 @@ exports[`Dialog modal props should render dialog without bsDialogProps 2`] = `
       bsClass="modal-title"
       componentClass="h4"
     >
-      Hello world
+      Home Loan Account Table Computer
     </ModalTitle>
   </ModalHeader>
   <ModalBody
@@ -128,7 +128,7 @@ exports[`Dialog modal props should render dialog without bsDialogProps 3`] = `
       bsClass="modal-title"
       componentClass="h4"
     >
-      Hello world
+      Trace
     </ModalTitle>
   </ModalHeader>
   <ModalBody

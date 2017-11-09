@@ -19,7 +19,7 @@ exports[`Actions should render actions 1`] = `
       title={null}
     />
     <span>
-      Preparations
+      extend
     </span>
   </button>
   <button
@@ -37,7 +37,7 @@ exports[`Actions should render actions 1`] = `
       title={null}
     />
     <span>
-      Datasets
+      Directives
     </span>
   </button>
   <button
@@ -55,7 +55,7 @@ exports[`Actions should render actions 1`] = `
       title={null}
     />
     <span>
-      Favorites
+      application
     </span>
   </button>
   <div
@@ -80,7 +80,7 @@ exports[`Actions should render actions 1`] = `
           title={null}
         />
         <span>
-          related items
+          Home Loan Account
         </span>
       </span>
        
@@ -100,13 +100,13 @@ exports[`Actions should render actions 1`] = `
       >
         <a
           href="#"
-          label="document 1"
+          label="Table"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          document 1
+          Table
         </a>
       </li>
       <li
@@ -116,13 +116,13 @@ exports[`Actions should render actions 1`] = `
       >
         <a
           href="#"
-          label="document 2"
+          label="Computer"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          document 2
+          Computer
         </a>
       </li>
     </ul>
@@ -141,7 +141,7 @@ exports[`Actions should render actions 1`] = `
     >
       <span>
         <span>
-          add file
+          Practical Fresh Pants
         </span>
       </span>
     </button>
@@ -151,7 +151,7 @@ exports[`Actions should render actions 1`] = `
       aria-label={
         <span>
           <span>
-            add file
+            Practical Fresh Pants
           </span>
         </span>
       }
@@ -180,13 +180,13 @@ exports[`Actions should render actions 1`] = `
       >
         <a
           href="#"
-          label="file 1"
+          label="Savings Account"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          file 1
+          Savings Account
         </a>
       </li>
       <li
@@ -196,13 +196,13 @@ exports[`Actions should render actions 1`] = `
       >
         <a
           href="#"
-          label="file 2"
+          label="alarm"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          file 2
+          alarm
         </a>
       </li>
     </ul>
@@ -229,7 +229,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
       title={null}
     />
     <span>
-      Preparations
+      extend
     </span>
   </button>
   <button
@@ -247,7 +247,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
       title={null}
     />
     <span>
-      Datasets
+      Directives
     </span>
   </button>
   <button
@@ -265,7 +265,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
       title={null}
     />
     <span>
-      Favorites
+      application
     </span>
   </button>
   <div
@@ -290,7 +290,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
           title={null}
         />
         <span>
-          related items
+          Home Loan Account
         </span>
       </span>
        
@@ -310,13 +310,13 @@ exports[`Actions should render actions with "link" theme 1`] = `
       >
         <a
           href="#"
-          label="document 1"
+          label="Table"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          document 1
+          Table
         </a>
       </li>
       <li
@@ -326,13 +326,13 @@ exports[`Actions should render actions with "link" theme 1`] = `
       >
         <a
           href="#"
-          label="document 2"
+          label="Computer"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          document 2
+          Computer
         </a>
       </li>
     </ul>
@@ -351,7 +351,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
     >
       <span>
         <span>
-          add file
+          Practical Fresh Pants
         </span>
       </span>
     </button>
@@ -361,7 +361,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
       aria-label={
         <span>
           <span>
-            add file
+            Practical Fresh Pants
           </span>
         </span>
       }
@@ -390,13 +390,13 @@ exports[`Actions should render actions with "link" theme 1`] = `
       >
         <a
           href="#"
-          label="file 1"
+          label="Savings Account"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          file 1
+          Savings Account
         </a>
       </li>
       <li
@@ -406,13 +406,13 @@ exports[`Actions should render actions with "link" theme 1`] = `
       >
         <a
           href="#"
-          label="file 2"
+          label="alarm"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          file 2
+          alarm
         </a>
       </li>
     </ul>
@@ -516,13 +516,13 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
       >
         <a
           href="#"
-          label="document 1"
+          label="Table"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          document 1
+          Table
         </a>
       </li>
       <li
@@ -532,13 +532,13 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
       >
         <a
           href="#"
-          label="document 2"
+          label="Computer"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          document 2
+          Computer
         </a>
       </li>
     </ul>
@@ -557,7 +557,7 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     >
       <span>
         <span>
-          add file
+          Practical Fresh Pants
         </span>
       </span>
     </button>
@@ -567,7 +567,7 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
       aria-label={
         <span>
           <span>
-            add file
+            Practical Fresh Pants
           </span>
         </span>
       }
@@ -596,13 +596,13 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
       >
         <a
           href="#"
-          label="file 1"
+          label="Savings Account"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          file 1
+          Savings Account
         </a>
       </li>
       <li
@@ -612,13 +612,13 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
       >
         <a
           href="#"
-          label="file 2"
+          label="alarm"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          file 2
+          alarm
         </a>
       </li>
     </ul>
@@ -722,13 +722,13 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
       >
         <a
           href="#"
-          label="document 1"
+          label="Table"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          document 1
+          Table
         </a>
       </li>
       <li
@@ -738,13 +738,13 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
       >
         <a
           href="#"
-          label="document 2"
+          label="Computer"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          document 2
+          Computer
         </a>
       </li>
     </ul>
@@ -763,7 +763,7 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     >
       <span>
         <span>
-          add file
+          Practical Fresh Pants
         </span>
       </span>
     </button>
@@ -773,7 +773,7 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
       aria-label={
         <span>
           <span>
-            add file
+            Practical Fresh Pants
           </span>
         </span>
       }
@@ -802,13 +802,13 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
       >
         <a
           href="#"
-          label="file 1"
+          label="Savings Account"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          file 1
+          Savings Account
         </a>
       </li>
       <li
@@ -818,13 +818,13 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
       >
         <a
           href="#"
-          label="file 2"
+          label="alarm"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
           tabIndex="-1"
         >
-          file 2
+          alarm
         </a>
       </li>
     </ul>

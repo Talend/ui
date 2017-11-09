@@ -11,7 +11,7 @@ exports[`Item should render 1`] = `
       className="tc-list-item-title-text"
       id={undefined}
     >
-      Bar
+      Directives application Home Loan Account
     </div>
   </div>
   <div
@@ -27,9 +27,9 @@ exports[`Item should render 1`] = `
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT"
+        title="{name.firstName} {name.lastName}"
       >
-        Jean-Pierre DUPONT
+        {name.firstName} {name.lastName}
       </div>
     </div>
     <div
@@ -77,7 +77,7 @@ exports[`Item should render with actions 1`] = `
       className="tc-list-item-title-text"
       id={undefined}
     >
-      Bar
+      Directives application Home Loan Account
     </div>
   </div>
   <div
@@ -145,9 +145,9 @@ exports[`Item should render with actions 1`] = `
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT"
+        title="{name.firstName} {name.lastName}"
       >
-        Jean-Pierre DUPONT
+        {name.firstName} {name.lastName}
       </div>
     </div>
     <div
@@ -195,7 +195,7 @@ exports[`Item should render with custom selected class 1`] = `
       className="tc-list-item-title-text"
       id={undefined}
     >
-      Bar
+      Directives application Home Loan Account
     </div>
   </div>
   <div
@@ -211,9 +211,9 @@ exports[`Item should render with custom selected class 1`] = `
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT"
+        title="{name.firstName} {name.lastName}"
       >
-        Jean-Pierre DUPONT
+        {name.firstName} {name.lastName}
       </div>
     </div>
     <div
@@ -271,7 +271,7 @@ exports[`Item should render with icon 1`] = `
       className="tc-list-item-title-text"
       id={undefined}
     >
-      Bar
+      Directives application Home Loan Account
     </div>
   </div>
   <div
@@ -287,9 +287,9 @@ exports[`Item should render with icon 1`] = `
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT"
+        title="{name.firstName} {name.lastName}"
       >
-        Jean-Pierre DUPONT
+        {name.firstName} {name.lastName}
       </div>
     </div>
     <div
@@ -337,7 +337,7 @@ exports[`Item should render with id if provided 1`] = `
       className="tc-list-item-title-text"
       id="list-item-title"
     >
-      Bar
+      Directives application Home Loan Account
     </div>
   </div>
   <div
@@ -353,9 +353,9 @@ exports[`Item should render with id if provided 1`] = `
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT"
+        title="{name.firstName} {name.lastName}"
       >
-        Jean-Pierre DUPONT
+        {name.firstName} {name.lastName}
       </div>
     </div>
     <div
@@ -403,7 +403,7 @@ exports[`Item should render with item custom className 1`] = `
       className="tc-list-item-title-text"
       id={undefined}
     >
-      Bar
+      Directives application Home Loan Account
     </div>
   </div>
   <div
@@ -419,9 +419,9 @@ exports[`Item should render with item custom className 1`] = `
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT"
+        title="{name.firstName} {name.lastName}"
       >
-        Jean-Pierre DUPONT
+        {name.firstName} {name.lastName}
       </div>
     </div>
     <div
@@ -469,7 +469,7 @@ exports[`Item should render with selected item 1`] = `
       className="tc-list-item-title-text"
       id={undefined}
     >
-      Bar
+      Directives application Home Loan Account
     </div>
   </div>
   <div
@@ -485,9 +485,9 @@ exports[`Item should render with selected item 1`] = `
       </div>
       <div
         className="tc-list-item-definition-description"
-        title="Jean-Pierre DUPONT"
+        title="{name.firstName} {name.lastName}"
       >
-        Jean-Pierre DUPONT
+        {name.firstName} {name.lastName}
       </div>
     </div>
     <div

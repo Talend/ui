@@ -14,7 +14,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
     <div
       className="Title"
     >
-      Hello world
+      animi mollitia sequi
     </div>
   </div>
   <div
@@ -73,12 +73,12 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
     <div
       className="Title"
     >
-      Hello world
+      ducimus sequi aspernatur
     </div>
   </div>
   <div
     className="ProgressBar"
-    now={25}
+    now={5}
   />
   <div
     className="Body"
@@ -136,7 +136,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
     <div
       className="Title"
     >
-      Hello world
+      sit minus dolor
     </div>
   </div>
   <div
@@ -195,7 +195,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
     <div
       className="Title"
     >
-      Hello world
+      animi qui impedit
     </div>
   </div>
   <div
@@ -232,7 +232,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
         type="button"
       >
         <span>
-          Keep on Github
+          et voluptatem inventore
         </span>
       </button>
       <button
@@ -266,7 +266,7 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
     <div
       className="Title"
     >
-      Hello world
+      autem quibusdam hic
     </div>
   </div>
   <div

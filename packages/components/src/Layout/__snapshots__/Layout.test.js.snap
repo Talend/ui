@@ -158,10 +158,10 @@ exports[`Layout should render layout with Drawer component 1`] = `
               transitioned={false}
             >
               <h1>
-                Hello drawers
+                Savings Account Dam
               </h1>
               <p>
-                You should not being able to read this because I'm first
+                Small Trace seamless Metal deposit Tasty Metal Bacon Implementation Electronics Officer Money Market Account
               </p>
             </div>
           </div>
@@ -190,10 +190,10 @@ exports[`Layout should render layout with Drawer component 1`] = `
               transitioned={false}
             >
               <h1>
-                Hello drawers
+                Albania web-readiness
               </h1>
               <p>
-                The content dictate the width
+                intangible Investment Account Steel zero administration 24/7 Common bluetooth grey Cambridgeshire Mississippi
               </p>
             </div>
           </div>
@@ -250,7 +250,7 @@ exports[`Layout should render layout with TabBar component 1`] = `
                 type="button"
               >
                 <span>
-                  Tab1
+                  extend
                 </span>
               </button>
             </li>
@@ -267,7 +267,7 @@ exports[`Layout should render layout with TabBar component 1`] = `
                 type="button"
               >
                 <span>
-                  Tab2
+                  Directives
                 </span>
               </button>
             </li>
@@ -284,7 +284,7 @@ exports[`Layout should render layout with TabBar component 1`] = `
                 type="button"
               >
                 <span>
-                  Tab3
+                  application
                 </span>
               </button>
             </li>

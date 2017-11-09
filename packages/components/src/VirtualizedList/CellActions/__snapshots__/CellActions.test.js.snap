@@ -9,40 +9,40 @@ exports[`CellActions should render actions 1`] = `
       Array [
         Object {
           "icon": "talend-pencil",
-          "id": "action-1",
-          "label": "Simple action",
+          "id": "extend",
+          "label": "Fish multi-byte Savings Account",
           "onClick": [Function],
         },
         Object {
           "displayMode": "dropdown",
           "icon": "talend-file-o",
-          "id": "action-2",
+          "id": "Dam",
           "items": Array [
             Object {
-              "label": "Document 1",
+              "label": "Metal deposit",
               "onClick": [Function],
             },
             Object {
-              "label": "Document 2",
+              "label": "Producer",
               "onClick": [Function],
             },
           ],
-          "label": "Dropdown action",
+          "label": "Practical Fresh Pants",
         },
         Object {
           "displayMode": "splitDropdown",
-          "id": "action-3",
+          "id": "parsing",
           "items": Array [
             Object {
-              "label": "File 1",
+              "label": "Soap methodology Albania",
               "onClick": [Function],
             },
             Object {
-              "label": "File 2",
+              "label": "Home Namibia",
               "onClick": [Function],
             },
           ],
-          "label": "Split dropdown action",
+          "label": "Electronics",
           "onClick": [Function],
         },
       ]

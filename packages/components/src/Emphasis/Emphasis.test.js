@@ -1,11 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import faker from 'faker';
+
 import Emphasis from './Emphasis.component';
 
-
+faker.seed(42);
 describe('Emphasis', () => {
+	const prefix = faker.random.words(5);
+	const suffix = faker.random.words(5);
 	const props = {
-		text: 'The lazy quick brown fox jumps over the lazy dog',
+		text: `${prefix} lazy brown lazy ${suffix}`,
 	};
 
 	it('should return a span containing the emphatised text', () => {
@@ -13,7 +17,7 @@ describe('Emphasis', () => {
 		const wrapper = shallow(<Emphasis {...props} value="brown" />);
 
 		// then
-		expect(wrapper.html()).toBe('<span>The lazy quick <em>brown</em> fox jumps over the lazy dog</span>');
+		expect(wrapper.html()).toBe(`<span>${prefix} lazy <em>brown</em> lazy ${suffix}</span>`);
 	});
 
 	it('should be case insensitive', () => {

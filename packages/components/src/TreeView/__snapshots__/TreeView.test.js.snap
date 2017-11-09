@@ -8,12 +8,12 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
     className={undefined}
   >
     <span>
-      some elements
+      Dam
     </span>
     <button
       className="btn btn-link"
       disabled={false}
-      id="id-add"
+      id="extend-add"
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
@@ -46,7 +46,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
         <div
           className={undefined}
           data-selected={undefined}
-          id="id-0"
+          id="extend-0"
           onClick={[Function]}
           style={
             Object {
@@ -61,7 +61,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
             <button
               className="btn btn-link"
               disabled={false}
-              id="id-0-toggle"
+              id="extend-0-toggle"
               onClick={[Function]}
               onFocus={[Function]}
               onMouseDown={[Function]}
@@ -96,7 +96,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
             </svg>
           </span>
           <span>
-            grandpa
+            Valentine
           </span>
           <div
             className={undefined}
@@ -120,7 +120,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
             <button
               className="btn btn-link"
               disabled={false}
-              id="id-0-talend-trash"
+              id="extend-0-talend-trash"
               onClick={[Function]}
               onFocus={[Function]}
               onMouseDown={[Function]}
@@ -151,7 +151,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
             <div
               className={undefined}
               data-selected={undefined}
-              id="id-0-0"
+              id="extend-0-0"
               onClick={[Function]}
               style={
                 Object {
@@ -166,7 +166,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  id="id-0-0-toggle"
+                  id="extend-0-0-toggle"
                   onClick={[Function]}
                   onFocus={[Function]}
                   onMouseDown={[Function]}
@@ -201,7 +201,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 </svg>
               </span>
               <span>
-                mami
+                Christelle
               </span>
               <div
                 className={undefined}
@@ -217,7 +217,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 <div
                   className={undefined}
                   data-selected={true}
-                  id="id-0-0-0"
+                  id="extend-0-0-0"
                   onClick={[Function]}
                   style={
                     Object {
@@ -240,7 +240,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                     </svg>
                   </span>
                   <span>
-                    me
+                    Moses
                   </span>
                   <div
                     className={undefined}
@@ -254,7 +254,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 <div
                   className={undefined}
                   data-selected={undefined}
-                  id="id-0-0-1"
+                  id="extend-0-0-1"
                   onClick={[Function]}
                   style={
                     Object {
@@ -277,7 +277,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                     </svg>
                   </span>
                   <span>
-                    bro
+                    Orval
                   </span>
                   <div
                     className={undefined}
@@ -293,7 +293,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
             <div
               className={undefined}
               data-selected={undefined}
-              id="id-0-1"
+              id="extend-0-1"
               onClick={[Function]}
               style={
                 Object {
@@ -308,7 +308,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 <button
                   className="btn btn-link"
                   disabled={false}
-                  id="id-0-1-toggle"
+                  id="extend-0-1-toggle"
                   onClick={[Function]}
                   onFocus={[Function]}
                   onMouseDown={[Function]}
@@ -343,7 +343,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
                 </svg>
               </span>
               <span>
-                aunt
+                Lavinia
               </span>
               <div
                 className={undefined}

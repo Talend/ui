@@ -1,15 +1,17 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { Button } from 'react-bootstrap';
+import faker from 'faker';
 
 import ItemTitle from './ItemTitle.component';
 
+faker.seed(42);
 const item = {
-	id: 1,
-	name: 'Hello world',
+	id: faker.random.number(),
+	name: faker.random.words(),
 	created: '2016-09-22',
 	modified: '2016-09-22',
-	author: 'Jean-Pierre DUPONT',
+	author: faker.fake('{{name.firstName}} {{name.lastName}}'),
 	icon: 'fa fa-file-excel-o',
 	displayMode: 'input',
 };
@@ -18,7 +20,7 @@ describe('ItemTitle', () => {
 	it('should render text title', () => {
 		// given
 		const props = {
-			id: 'title',
+			id: faker.random.word(),
 			className: 'my-title',
 			item,
 			titleProps: {
@@ -38,7 +40,7 @@ describe('ItemTitle', () => {
 	it('should render button title', () => {
 		// given
 		const props = {
-			id: 'title',
+			id: faker.random.word(),
 			className: 'my-title',
 			item,
 			titleProps: {
@@ -58,7 +60,7 @@ describe('ItemTitle', () => {
 	it('should render input title', () => {
 		// given
 		const props = {
-			id: 'title',
+			id: faker.random.word(),
 			className: 'my-title',
 			item,
 			titleProps: {
@@ -94,7 +96,7 @@ describe('ItemTitle', () => {
 
 	it('should render text with undefined', () => {
 		const props = {
-			id: 'title',
+			id: faker.random.word(),
 			className: 'my-title',
 			item: {},
 			titleProps: {

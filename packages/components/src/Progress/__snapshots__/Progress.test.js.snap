@@ -95,7 +95,7 @@ exports[`Progress should render progress with given percentage 1`] = `
     className={undefined}
     style={
       Object {
-        "width": "60%",
+        "width": "37%",
       }
     }
   />
@@ -113,7 +113,7 @@ exports[`Progress should render progress with tooltip 1`] = `
     onMouseOver={[Function]}
     style={
       Object {
-        "width": "60%",
+        "width": "80%",
       }
     }
   />

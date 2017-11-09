@@ -1,6 +1,9 @@
 import { Button } from 'react-bootstrap';
+import faker from 'faker';
+
 import getPropsFrom from './getPropsFrom';
 
+faker.seed(42);
 describe('Action', () => {
 	it('should extract Button props', () => {
 		// given
@@ -10,15 +13,15 @@ describe('Action', () => {
 			disabled: false,
 			block: false,
 			onClick,
-			href: 'www.google.de',
+			href: faker.internet.url(),
 			target: '_blank',
 			type: 'button',
 
 			// native props should be kept
-			className: 'my class',
+			className: faker.random.words(),
 
 			// unknown props should be removed
-			waattt: 'the hell',
+			waattt: faker.random.words(),
 		};
 
 		// when
@@ -26,13 +29,13 @@ describe('Action', () => {
 
 		// then
 		expect(buttonProps).toEqual({
-			active: true,
-			disabled: false,
-			block: false,
+			active: props.active,
+			disabled: props.disabled,
+			block: props.block,
 			onClick,
-			href: 'www.google.de',
-			type: 'button',
-			className: 'my class',
+			href: props.href,
+			type: props.type,
+			className: props.className,
 			target: '_blank',
 		});
 	});

@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import faker from 'faker';
+
 import ActionBar from './ActionBar.component';
 import { Action } from '../Actions';
 
+faker.seed(42);
 describe('ActionBar', () => {
 	it('should trigger onClick callback on Action click', () => {
 		// given
@@ -11,7 +14,7 @@ describe('ActionBar', () => {
 			selected: 0,
 			actions: {
 				left: [
-					{ label: 'Preparations', icon: 'fa fa-asterisk', onClick: onClickMock },
+					{ label: faker.random.word(), icon: 'fa fa-asterisk', onClick: onClickMock },
 				],
 			},
 		};
@@ -36,7 +39,7 @@ describe('ActionBar', () => {
 			selected: 0,
 			actions: {
 				left: [
-					{ label: 'Preparations', icon: 'talend-preparation' },
+					{ label: faker.random.word(), icon: 'talend-preparation' },
 				],
 			},
 			renderers: {

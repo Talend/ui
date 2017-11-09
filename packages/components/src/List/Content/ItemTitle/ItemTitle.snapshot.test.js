@@ -1,14 +1,16 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import faker from 'faker';
 
 import ItemTitle from './ItemTitle.component';
 
+faker.seed(42);
 describe('ItemTitle', () => {
 	it('should render text title', () => {
 		// given
 		const props = {
-			id: 'title',
-			value: 'Hello world',
+			id: faker.random.word(),
+			value: faker.random.words(),
 		};
 
 		// when
@@ -21,8 +23,8 @@ describe('ItemTitle', () => {
 	it('should render button title', () => {
 		// given
 		const props = {
-			id: 'title',
-			value: 'Hello world',
+			id: faker.random.word(),
+			value: faker.random.words(),
 			display: 'button',
 			onClick: jest.fn(),
 		};
@@ -37,8 +39,8 @@ describe('ItemTitle', () => {
 	it('should render input title', () => {
 		// given
 		const props = {
-			id: 'title',
-			value: 'Hello world',
+			id: faker.random.word(),
+			value: faker.random.word(),
 			display: 'input',
 			onChange: jest.fn(),
 			onSubmit: jest.fn(),

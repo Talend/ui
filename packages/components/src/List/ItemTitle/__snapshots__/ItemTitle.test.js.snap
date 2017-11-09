@@ -5,25 +5,25 @@ exports[`ItemTitle should render button title 1`] = `
   className={undefined}
 >
   <TooltipTrigger
-    label="Hello world"
+    label="Directives application Home Loan Account"
     tooltipPlacement="top"
   >
     <RenderButton
       className="my-title"
-      id="title"
+      id="Practical Fresh Pants"
       item={
         Object {
-          "author": "Jean-Pierre DUPONT",
+          "author": "Carli Kilback",
           "created": "2016-09-22",
           "displayMode": "input",
           "icon": "fa fa-file-excel-o",
-          "id": 1,
+          "id": 37454,
           "modified": "2016-09-22",
-          "name": "Hello world",
+          "name": "Directives application Home Loan Account",
         }
       }
       onClick={[Function]}
-      value="Hello world"
+      value="Directives application Home Loan Account"
     />
   </TooltipTrigger>
 </div>
@@ -38,14 +38,14 @@ exports[`ItemTitle should render icon 1`] = `
     name="fa fa-file-excel-o"
   />
   <TooltipTrigger
-    label="Hello world"
+    label="Directives application Home Loan Account"
     tooltipPlacement="top"
   >
     <span
       className="my-title"
       id={undefined}
     >
-      Hello world
+      Directives application Home Loan Account
     </span>
   </TooltipTrigger>
 </div>
@@ -56,25 +56,25 @@ exports[`ItemTitle should render input title 1`] = `
   className={undefined}
 >
   <TooltipTrigger
-    label="Hello world"
+    label="Directives application Home Loan Account"
     tooltipPlacement="top"
   >
     <TitleInput
-      id="title"
+      id="Savings Account"
       item={
         Object {
-          "author": "Jean-Pierre DUPONT",
+          "author": "Carli Kilback",
           "created": "2016-09-22",
           "displayMode": "input",
           "icon": "fa fa-file-excel-o",
-          "id": 1,
+          "id": 37454,
           "modified": "2016-09-22",
-          "name": "Hello world",
+          "name": "Directives application Home Loan Account",
         }
       }
       onEditCancel={undefined}
       onEditSubmit={undefined}
-      value="Hello world"
+      value="Directives application Home Loan Account"
     />
   </TooltipTrigger>
 </div>
@@ -85,14 +85,14 @@ exports[`ItemTitle should render text title 1`] = `
   className={undefined}
 >
   <TooltipTrigger
-    label="Hello world"
+    label="Directives application Home Loan Account"
     tooltipPlacement="top"
   >
     <span
       className="my-title"
-      id="title"
+      id="Computer"
     >
-      Hello world
+      Directives application Home Loan Account
     </span>
   </TooltipTrigger>
 </div>
@@ -108,7 +108,7 @@ exports[`ItemTitle should render text with undefined 1`] = `
   >
     <span
       className="my-title"
-      id="title"
+      id="alarm"
     />
   </TooltipTrigger>
 </div>

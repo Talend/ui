@@ -8,13 +8,13 @@ exports[`CellTitleInput should render the input 1`] = `
     aria-hidden="true"
     className="sr-only"
     hidden={true}
-    htmlFor="my-cell"
+    htmlFor="extend"
   >
     title
   </label>
   <input
     autoFocus={true}
-    id="my-cell"
+    id="extend"
     onBlur={[Function]}
     onKeyUp={[Function]}
   />

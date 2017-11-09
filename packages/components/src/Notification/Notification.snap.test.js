@@ -1,44 +1,46 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import faker from 'faker';
 
 import Notification from './Notification.component';
 
+faker.seed(42);
 describe('Notification', () => {
 	it('should render', () => {
 		const notifications = [
 			{
-				id: 'story-1',
-				message: 'This is a feedback of your operation1, This is a feedback of your operation1',
+				id: faker.random.word(),
+				message: faker.random.words(15),
 				action: {
-					label: 'Haha',
+					label: faker.random.word(),
 					icon: 'talend-undo',
 					onClick: () => {},
 				},
 			},
 			{
-				id: 'story-2',
+				id: faker.random.word(),
 				type: 'error',
-				message: ['This is a feedback of your operation2', 'This is a feedback of your operation1, This is a feedback of your operation1'],
+				message: [faker.random.words(), faker.random.words(20)],
 				action: {
-					label: 'undo',
+					label: faker.random.word(),
 					icon: 'talend-undo',
 					onClick: () => {},
 				},
 			},
 			{
-				id: 'story-3',
+				id: faker.random.word(),
 				type: 'warning',
-				message: ['This is a feedback of your operation3', 'details'],
+				message: [faker.random.words(5), faker.random.word()],
 			},
 			{
-				id: 'story-4',
+				id: faker.random.word(),
 				type: 'warning',
-				message: 'This is a feedback of your operation4',
+				message: faker.random.words(),
 			},
 		];
-		const wrapper = renderer.create(
-			<Notification notifications={notifications} leaveFn={() => {}} />
-		).toJSON();
+		const wrapper = renderer
+			.create(<Notification notifications={notifications} leaveFn={() => {}} />)
+			.toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
 });

@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import faker from 'faker';
 
 import DisplayTable, {
 	CellContent,
@@ -8,40 +9,44 @@ import DisplayTable, {
 	ListHeaders,
 } from './DisplayTable.component';
 
+faker.seed(42);
 const items = [
 	{
-		id: 1,
-		name: 'Hello world',
+		id: faker.random.number(),
+		name: faker.random.words(),
 		created: '2016-09-22',
 		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT',
-		actions: [{
-			label: 'edit',
-			icon: 'fa fa-edit',
-			onClick: jest.fn(),
-		}, {
-			label: 'delete',
-			icon: 'fa fa-trash-o',
-			onClick: jest.fn(),
-		}],
+		author: faker.fake('{{name.firstName}} {{name.lastName}}'),
+		actions: [
+			{
+				label: 'edit',
+				icon: 'fa fa-edit',
+				onClick: jest.fn(),
+			},
+			{
+				label: 'delete',
+				icon: 'fa fa-trash-o',
+				onClick: jest.fn(),
+			},
+		],
 		icon: 'fa fa-file-excel-o',
 		className: 'item-0-class',
 	},
 	{
-		id: 2,
-		name: 'Foo',
+		id: faker.random.number(),
+		name: faker.random.words(),
 		created: '2016-09-22',
 		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT',
+		author: faker.fake('{{name.firstName}} {{name.lastName}}'),
 		icon: 'fa fa-file-pdf-o',
 		className: 'item-1-class',
 	},
 	{
-		id: 2,
-		name: 'Bar',
+		id: faker.random.number(),
+		name: faker.random.words(),
 		created: '2016-09-22',
 		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT',
+		author: faker.fake('{{name.firstName}} {{name.lastName}}'),
 	},
 ];
 
@@ -68,9 +73,13 @@ describe('DisplayTable', () => {
 		};
 
 		// when
-		const list = (<DisplayTable {...props} />);
+		const list = <DisplayTable {...props} />;
 		const wrapper = mount(list);
-		wrapper.find('th').at(2).find('button').simulate('click');
+		wrapper
+			.find('th')
+			.at(2)
+			.find('button')
+			.simulate('click');
 
 		// then
 		expect(sort.onChange).toBeCalled();
@@ -94,9 +103,13 @@ describe('DisplayTable', () => {
 		};
 
 		// when
-		const list = (<DisplayTable {...props} />);
+		const list = <DisplayTable {...props} />;
 		const wrapper = mount(list);
-		wrapper.find('th').at(1).find('button').simulate('click');
+		wrapper
+			.find('th')
+			.at(1)
+			.find('button')
+			.simulate('click');
 
 		// then
 		expect(sort.onChange).toBeCalled();
@@ -109,77 +122,71 @@ describe('DisplayTable', () => {
 
 describe('CellContent', () => {
 	it('should render', () => {
-		const wrapper = shallow(<CellContent
-			column={{ key: 'test' }}
-			item={{ test: 'hello' }}
-		/>);
+		const wrapper = shallow(<CellContent column={{ key: 'test' }} item={{ test: 'hello' }} />);
 		expect(wrapper.node).toMatchSnapshot();
 	});
 	it('should render undefined', () => {
-		const wrapper = shallow(<CellContent
-			column={{ key: 'test' }}
-			item={{}}
-		/>);
+		const wrapper = shallow(<CellContent column={{ key: 'test' }} item={{}} />);
 		expect(wrapper.node).toMatchSnapshot();
 	});
 	it('should render array', () => {
-		const wrapper = shallow(<CellContent
-			column={{ key: 'test' }}
-			item={{ test: [{ label: 'action' }] }}
-		/>);
+		const wrapper = shallow(
+			<CellContent column={{ key: 'test' }} item={{ test: [{ label: 'action' }] }} />,
+		);
 		expect(wrapper.node).toMatchSnapshot();
 	});
 	it('should render title', () => {
-		const wrapper = shallow(<CellContent
-			column={{ key: 'test' }}
-			item={{ test: 'hello' }}
-			isTitle
-			id="my-id"
-			titleProps={{ foo: 'bar' }}
-		/>);
+		const wrapper = shallow(
+			<CellContent
+				column={{ key: 'test' }}
+				item={{ test: 'hello' }}
+				isTitle
+				id="my-id"
+				titleProps={{ foo: 'bar' }}
+			/>,
+		);
 		expect(wrapper.node).toMatchSnapshot();
 	});
 });
 
 describe('RowRenderer', () => {
 	it('should render', () => {
-		const wrapper = shallow(<RowRenderer
-			columns={[{ key: 'foo' }, { key: 'baz' }]}
-			item={{ foo: 'bar', baz: 'hello' }}
-			titleProps={{ key: 'foo' }}
-		/>);
+		const wrapper = shallow(
+			<RowRenderer
+				columns={[{ key: 'foo' }, { key: 'baz' }]}
+				item={{ foo: 'bar', baz: 'hello' }}
+				titleProps={{ key: 'foo' }}
+			/>,
+		);
 		expect(wrapper.node).toMatchSnapshot();
 	});
 });
 
 describe('ColumnHeader', () => {
 	it('should render', () => {
-		const wrapper = shallow(<ColumnHeader
-			column={{ key: 'test', label: 'Test' }}
-		/>);
+		const wrapper = shallow(<ColumnHeader column={{ key: 'test', label: 'Test' }} />);
 		expect(wrapper.node).toMatchSnapshot();
 	});
 	it('should render an invisible screen reader compatible column header', () => {
-		const wrapper = shallow(<ColumnHeader
-			column={{ key: 'test', label: 'Test', hideHeader: true }}
-		/>);
+		const wrapper = shallow(
+			<ColumnHeader column={{ key: 'test', label: 'Test', hideHeader: true }} />,
+		);
 		expect(wrapper.node).toMatchSnapshot();
 	});
 	it('should render with sort', () => {
-		const wrapper = shallow(<ColumnHeader
-			column={{ key: 'test', label: 'Test' }}
-			sort={{ field: 'test', onChange: jest.fn() }}
-		/>);
+		const wrapper = shallow(
+			<ColumnHeader
+				column={{ key: 'test', label: 'Test' }}
+				sort={{ field: 'test', onChange: jest.fn() }}
+			/>,
+		);
 		expect(wrapper.node).toMatchSnapshot();
 	});
 });
 
 describe('ListHeaders', () => {
 	it('should render', () => {
-		const wrapper = shallow(<ListHeaders
-			columns={[{ item: 'value' }]}
-			sort={{ foo: 'bar' }}
-		/>);
+		const wrapper = shallow(<ListHeaders columns={[{ item: 'value' }]} sort={{ foo: 'bar' }} />);
 		expect(wrapper.node).toMatchSnapshot();
 	});
 });

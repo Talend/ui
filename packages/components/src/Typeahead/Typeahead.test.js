@@ -1,12 +1,15 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import faker from 'faker';
+
 import Typeahead from './Typeahead.component';
 
 jest.useFakeTimers();
 
+faker.seed(42);
 describe('Typeahead', () => {
 	const initialProps = {
-		id: 'my-search',
+		id: faker.random.word(),
 		icon: {
 			name: 'fa fa-search',
 			title: 'icon',
@@ -16,34 +19,37 @@ describe('Typeahead', () => {
 
 	const items = [
 		{
-			title: 'category 1',
+			title: faker.random.words(),
 			icon: {
 				name: 'fa fa-filter',
 				title: 'icon',
 			},
-			suggestions: [{
-				title: 'le title 1',
-				description: 'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
-			},
-			{
-				title: 'title 2 les elephants elementaires ont des aile ',
-				description: 'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
-			}],
+			suggestions: [
+				{
+					title: faker.random.words(),
+					description: faker.lorem.sentence(10),
+				},
+				{
+					title: faker.random.words(),
+					description: faker.lorem.sentence(10),
+				},
+			],
 		},
 
 		{
-			title: 'category 2',
+			title: faker.random.words(),
 			icon: {
 				name: 'fa fa-asterisk',
 				title: 'icon',
 			},
 			suggestions: [
 				{
-					title: 'title 3',
-					description: 'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
+					title: faker.random.words(),
+					description: faker.lorem.sentence(10),
 				},
 			],
-		}];
+		},
+	];
 
 	describe('toggle button', () => {
 		it('should call onToggle', () => {
@@ -56,7 +62,10 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Action').at(0).simulate('click');
+			typeaheadInstance
+				.find('Action')
+				.at(0)
+				.simulate('click');
 
 			// then
 			expect(props.onToggle).toBeCalled();
@@ -93,7 +102,7 @@ describe('Typeahead', () => {
 				debounceTimeout,
 			};
 			const typeahead = <Typeahead {...props} />;
-			const event = { target: { value: 'toto' } };
+			const event = { target: { value: faker.random.word() } };
 
 			// when
 			const typeaheadInstance = mount(typeahead);
@@ -117,7 +126,7 @@ describe('Typeahead', () => {
 			};
 			const typeahead = <Typeahead {...props} />;
 			const underMinLengthEvent = { target: { value: '2' } };
-			const overMinLengthEvent = { target: { value: 'toto' } };
+			const overMinLengthEvent = { target: { value: faker.random.word() } };
 
 			// when
 			const typeaheadInstance = mount(typeahead);
@@ -165,7 +174,10 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Item').at(0).simulate('mouseDown');
+			typeaheadInstance
+				.find('Item')
+				.at(0)
+				.simulate('mouseDown');
 
 			// then
 			expect(onSelect).toBeCalled();

@@ -3,13 +3,18 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import classNames from 'classnames';
 import { mount } from 'enzyme';
+import faker from 'faker';
 
 import ConfirmDialog from './ConfirmDialog.component';
 
 function mockFakeComponent(name) {
 	const fakeComponent = ({ children, className, ...rest }) => {
 		const mergedClassName = classNames(className, name);
-		return <div {...rest} className={mergedClassName}>{children}</div>;
+		return (
+			<div {...rest} className={mergedClassName}>
+				{children}
+			</div>
+		);
 	};
 	fakeComponent.propTypes = {
 		children: PropTypes.oneOfType([PropTypes.any]),
@@ -28,9 +33,7 @@ jest.mock('react-bootstrap/lib/Modal', () => {
 
 	return Modal;
 });
-jest.mock('react-bootstrap/lib/ProgressBar', () =>
-	mockFakeComponent('ProgressBar'),
-);
+jest.mock('react-bootstrap/lib/ProgressBar', () => mockFakeComponent('ProgressBar'));
 
 const children = <div>BODY</div>;
 
@@ -46,11 +49,12 @@ const validateAction = {
 	tooltipPlacement: 'top',
 };
 
+faker.seed(42);
 describe('ConfirmDialog', () => {
 	it('should render with defaults values', () => {
 		// given
 		const properties = {
-			header: 'Hello world',
+			header: faker.lorem.words(),
 			show: true,
 			validateAction,
 			cancelAction,
@@ -86,7 +90,7 @@ describe('ConfirmDialog', () => {
 		// given
 		const properties = {
 			show: true,
-			header: 'Hello world',
+			header: faker.lorem.words(),
 			size: 'small',
 			validateAction,
 			cancelAction,
@@ -105,7 +109,7 @@ describe('ConfirmDialog', () => {
 		// given
 		const properties = {
 			show: true,
-			header: 'Hello world',
+			header: faker.lorem.words(),
 			size: 'large',
 			validateAction,
 			cancelAction,
@@ -124,11 +128,11 @@ describe('ConfirmDialog', () => {
 		// given
 		const properties = {
 			show: true,
-			header: 'Hello world',
+			header: faker.lorem.words(),
 			size: 'large',
 			validateAction,
 			cancelAction,
-			progressValue: 25,
+			progressValue: faker.random.number({ max: 100 }),
 		};
 
 		// when
@@ -143,7 +147,7 @@ describe('ConfirmDialog', () => {
 	it('should render the body with overflow hidden if bodyOverflow is set to false', () => {
 		// given
 		const properties = {
-			header: 'Hello world',
+			header: faker.lorem.words(),
 			show: true,
 			validateAction,
 			cancelAction,
@@ -164,13 +168,13 @@ describe('ConfirmDialog', () => {
 	it('should render with additional actions', () => {
 		// given
 		const properties = {
-			header: 'Hello world',
+			header: faker.lorem.words(),
 			show: true,
 			validateAction,
 			cancelAction,
 			secondaryActions: [
 				{
-					label: 'Keep on Github',
+					label: faker.lorem.words(),
 					onClick: jest.fn(),
 					bsStyle: 'info',
 				},

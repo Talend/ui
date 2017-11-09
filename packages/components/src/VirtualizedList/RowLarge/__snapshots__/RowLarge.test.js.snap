@@ -23,7 +23,7 @@ exports[`RowLarge should render large row 1`] = `
         id="my-list-1-title-cell"
       >
         <CellTitleSelector
-          cellData="Title from second item"
+          cellData="Savings Account alarm"
           className={undefined}
           displayMode="text"
           id="my-list-1-title-cell"
@@ -32,9 +32,9 @@ exports[`RowLarge should render large row 1`] = `
           onEditSubmit={undefined}
           rowData={
             Object {
-              "description": "This comes from second element in collection",
+              "description": "Voluptatem inventore ut quisquam fugiat itaque non alias sit asperiores.",
               "id": 1,
-              "name": "Title from second item",
+              "name": "Savings Account alarm",
               "titleActions": Array [
                 Object {
                   "icon": "talend-pencil",
@@ -101,9 +101,9 @@ exports[`RowLarge should render large row 1`] = `
         </span>
         <span
           className={undefined}
-          title="Title from second item"
+          title="Savings Account alarm"
         >
-          Title from second item
+          Savings Account alarm
         </span>
       </li>
     </ul>

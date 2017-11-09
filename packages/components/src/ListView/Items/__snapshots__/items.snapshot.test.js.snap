@@ -105,7 +105,7 @@ exports[`Items should display a checked item between the two others 1`] = `
                   <span
                     className="tc-listview-item-label"
                   >
-                    Lorem ipsum dolor sit amet 0
+                    extend Directives application Home Loan Account Table 0
                   </span>
                 </label>
               </div>
@@ -145,7 +145,7 @@ exports[`Items should display a checked item between the two others 1`] = `
                   <span
                     className="tc-listview-item-label"
                   >
-                    Lorem ipsum dolor sit amet 1
+                    Computer Practical Fresh Pants Savings Account alarm Movies 1
                   </span>
                 </label>
               </div>
@@ -185,7 +185,7 @@ exports[`Items should display a checked item between the two others 1`] = `
                   <span
                     className="tc-listview-item-label"
                   >
-                    Lorem ipsum dolor sit amet 2
+                    Producer parsing red Chips Soap 2
                   </span>
                 </label>
               </div>

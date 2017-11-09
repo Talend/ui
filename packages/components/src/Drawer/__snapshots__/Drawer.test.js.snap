@@ -24,7 +24,7 @@ exports[`Drawer should render 1`] = `
         className={undefined}
       >
         <h1>
-          Hello world
+          mobile Fish
         </h1>
       </div>
       <div
@@ -61,7 +61,7 @@ exports[`Drawer should render stacked 1`] = `
         className={undefined}
       >
         <h1>
-          Hello world
+          Tasty Metal Bacon
         </h1>
       </div>
       <div
@@ -98,7 +98,7 @@ exports[`Drawer should render using custom className 1`] = `
         className={undefined}
       >
         <h1>
-          Hello world
+          Savings Account alarm
         </h1>
       </div>
       <div
@@ -139,7 +139,7 @@ exports[`Drawer should render using custom styles 1`] = `
         className={undefined}
       >
         <h1>
-          Hello world
+          Trace
         </h1>
       </div>
       <div
@@ -183,7 +183,7 @@ exports[`Drawer should render with tabs 1`] = `
               type="button"
             >
               <span>
-                Tab 1
+                Implementation
               </span>
             </button>
           </li>
@@ -199,7 +199,7 @@ exports[`Drawer should render with tabs 1`] = `
               type="button"
             >
               <span>
-                Tab 2
+                Electronics
               </span>
             </button>
           </li>
@@ -220,7 +220,7 @@ exports[`Drawer should render with tabs 1`] = `
         className={undefined}
       >
         <h1>
-          Hello world
+          Soap methodology Albania
         </h1>
       </div>
       <div
@@ -257,7 +257,7 @@ exports[`Drawer should render without tc-drawer-transition class 1`] = `
         className={undefined}
       >
         <h1>
-          Hello world
+          Home Loan Account Table Computer
         </h1>
       </div>
       <div

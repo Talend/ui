@@ -1,39 +1,41 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import faker from 'faker';
 
 import Actions from './Actions.component';
 
 jest.mock('react-dom');
 
+faker.seed(42);
 const actions = [
 	{
-		label: 'Preparations',
+		label: faker.random.word(),
 		icon: 'fa fa-asterisk',
 		onClick: jest.fn(),
 		bsStyle: 'primary',
 	},
 	{
-		label: 'Datasets',
+		label: faker.random.word(),
 		icon: 'fa fa-file-excel-o',
 		onClick: jest.fn(),
 	},
 	{
-		label: 'Favorites',
+		label: faker.random.word(),
 		icon: 'fa fa-star',
 		onClick: jest.fn(),
 	},
 	{
 		id: 'dropdown-id',
 		displayMode: 'dropdown',
-		label: 'related items',
+		label: faker.random.word(),
 		icon: 'fa fa-file-excel-o',
 		items: [
 			{
-				label: 'document 1',
+				label: faker.random.word(),
 				onClick: jest.fn(),
 			},
 			{
-				label: 'document 2',
+				label: faker.random.word(),
 				onClick: jest.fn(),
 			},
 		],
@@ -41,15 +43,15 @@ const actions = [
 	{
 		id: 'split-dropdown-id',
 		displayMode: 'splitDropdown',
-		label: 'add file',
+		label: faker.random.word(),
 		onClick: jest.fn(),
 		items: [
 			{
-				label: 'file 1',
+				label: faker.random.word(),
 				onClick: jest.fn(),
 			},
 			{
-				label: 'file 2',
+				label: faker.random.word(),
 				onClick: jest.fn(),
 			},
 		],

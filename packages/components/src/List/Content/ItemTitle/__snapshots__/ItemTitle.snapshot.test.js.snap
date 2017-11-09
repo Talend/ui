@@ -7,13 +7,13 @@ exports[`ItemTitle should render button title 1`] = `
   <button
     className="btn btn-link"
     disabled={false}
-    id="title"
+    id="Dam"
     onClick={[Function]}
     role="link"
-    title="Hello world"
+    title="Practical Fresh Pants"
     type="button"
   >
-    Hello world
+    Practical Fresh Pants
   </button>
 </div>
 `;
@@ -25,12 +25,12 @@ exports[`ItemTitle should render input title 1`] = `
   <input
     autoFocus={true}
     className="tc-list-item-title-input"
-    id="title"
+    id="Savings Account"
     onBlur={[Function]}
     onChange={[Function]}
     onKeyUp={[Function]}
     type="text"
-    value="Hello world"
+    value="alarm"
   />
 </div>
 `;
@@ -41,9 +41,9 @@ exports[`ItemTitle should render text title 1`] = `
 >
   <div
     className="tc-list-item-title-text"
-    id="title"
+    id="extend"
   >
-    Hello world
+    Fish multi-byte Savings Account
   </div>
 </div>
 `;

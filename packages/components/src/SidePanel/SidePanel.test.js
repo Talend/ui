@@ -1,17 +1,20 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { mount } from 'enzyme';
+import faker from 'faker';
+
 import SidePanel from './SidePanel.component';
 
+faker.seed(42);
 describe('SidePanel', () => {
 	it('should trigger toggleDock callback on toggle click', () => {
 		// given
 		const onClick = jest.fn();
 		const onToggleDock = jest.fn();
 		const actions = [
-			{ label: 'Preparations', icon: 'fa fa-asterisk', onClick },
-			{ label: 'Datasets', icon: 'fa fa-file-excel-o', onClick },
-			{ label: 'Favorites', icon: 'fa fa-star', onClick },
+			{ label: faker.random.word(), icon: 'fa fa-asterisk', onClick },
+			{ label: faker.random.word(), icon: 'fa fa-file-excel-o', onClick },
+			{ label: faker.random.word(), icon: 'fa fa-star', onClick },
 		];
 		const docked = false;
 
@@ -40,9 +43,9 @@ describe('SidePanel', () => {
 		const onDatasetsClick = jest.fn();
 		const onFavoritesClick = jest.fn();
 		const actions = [
-			{ label: 'Preparations', icon: 'fa fa-asterisk', onClick: onPreparationsClick },
-			{ label: 'Datasets', icon: 'fa fa-file-excel-o', onClick: onDatasetsClick },
-			{ label: 'Favorites', icon: 'fa fa-star', onClick: onFavoritesClick },
+			{ label: faker.random.word(), icon: 'fa fa-asterisk', onClick: onPreparationsClick },
+			{ label: faker.random.word(), icon: 'fa fa-file-excel-o', onClick: onDatasetsClick },
+			{ label: faker.random.word(), icon: 'fa fa-star', onClick: onFavoritesClick },
 		];
 		const docked = false;
 

@@ -1,15 +1,24 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Notification, { timerRegistry, Registry, onMouseEnter, onMouseOut, onClick, onManuallyClose }
-	from './Notification.component';
+import faker from 'faker';
+
+import Notification, {
+	timerRegistry,
+	Registry,
+	onMouseEnter,
+	onMouseOut,
+	onClick,
+	onManuallyClose,
+} from './Notification.component';
 
 jest.useFakeTimers();
 
+faker.seed(42);
 describe('Notification', () => {
 	describe('Timer Registry Utility', () => {
 		it('register, cancel, isRegistered', () => {
 			const notification = {
-				id: 'test-1',
+				id: faker.random.word(),
 			};
 			const mockTimer = 1;
 
@@ -86,7 +95,7 @@ describe('Notification', () => {
 			notifications = [
 				{
 					id: 0,
-					message: 'This is a feedback of your operation1, This is a feedback of your operation1',
+					message: faker.random.words(),
 					action: {
 						label: 'UNDO',
 						icon: 'talend-undo',
@@ -96,28 +105,31 @@ describe('Notification', () => {
 				{
 					id: 1,
 					type: 'info',
-					message: 'This is a feedback of your operation1, This is a feedback of your operation1',
+					message: faker.random.words(),
 				},
 				{
 					id: 2,
 					type: 'warning',
-					message: 'This is a feedback of your operation2, This is a feedback of your operation2',
+					message: faker.random.words(),
 				},
 				{
 					id: 3,
 					type: 'error',
-					message: 'This is a feedback of your operation3, This is a feedback of your operation3',
+					message: faker.random.words(),
 				},
 			];
 			mount(<Notification notifications={notifications} leaveFn={mockLeaveFn} />);
 		});
 
-		it('should register autoLeave only for notification of type info or warning ' +
-			'should trigger leaveFn after timeout', () => {
-			expect(Registry.register.mock.calls.length).toEqual(3);
-			expect(mockLeaveFn).not.toHaveBeenCalled();
-			jest.runAllTimers();
-			expect(mockLeaveFn.mock.calls.length).toEqual(3);
-		});
+		it(
+			'should register autoLeave only for notification of type info or warning ' +
+				'should trigger leaveFn after timeout',
+			() => {
+				expect(Registry.register.mock.calls.length).toEqual(3);
+				expect(mockLeaveFn).not.toHaveBeenCalled();
+				jest.runAllTimers();
+				expect(mockLeaveFn.mock.calls.length).toEqual(3);
+			},
+		);
 	});
 });
