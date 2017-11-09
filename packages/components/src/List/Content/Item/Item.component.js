@@ -11,7 +11,9 @@ function getDefinitionItem(column, value, index) {
 	return (
 		<div key={index} className="tc-list-item-definition-item">
 			<div className="tc-list-item-definition-term">{column.label}</div>
-			<div title={value} className="tc-list-item-definition-description">{value}</div>
+			<div title={value} className="tc-list-item-definition-description">
+				{value}
+			</div>
 		</div>
 	);
 }
@@ -22,26 +24,34 @@ function Item({ id, columns, actions, item, itemProps }) {
 	function increaseTopIndent() {
 		top += 30;
 	}
-	const onItemOpen = onOpen && ((event) => {
-		event.stopPropagation();
-		onOpen(event, item);
-	});
+	const onItemOpen =
+		onOpen &&
+		(event => {
+			event.stopPropagation();
+			onOpen(event, item);
+		});
 	const onItemSelect = onSelect && (event => onSelect(event, item));
-	const onTitleChange = onChange && ((event) => {
-		onChange(event, {
-			value: event.target.value,
-			model: item,
+	const onTitleChange =
+		onChange &&
+		(event => {
+			onChange(event, {
+				value: event.target.value,
+				model: item,
+			});
 		});
-	});
-	const onTitleSubmit = onSubmit && ((event) => {
-		onSubmit(event, {
-			value: event.target.value,
-			model: item,
+	const onTitleSubmit =
+		onSubmit &&
+		(event => {
+			onSubmit(event, {
+				value: event.target.value,
+				model: item,
+			});
 		});
-	});
-	const onTitleCancel = onCancel && ((event) => {
-		onCancel(event, item);
-	});
+	const onTitleCancel =
+		onCancel &&
+		(event => {
+			onCancel(event, item);
+		});
 
 	function getIcon(column, index) {
 		if (item[column.key]) {
@@ -80,7 +90,9 @@ function Item({ id, columns, actions, item, itemProps }) {
 						onChange={onItemSelect}
 						checked={isSelected(item)}
 					/>
-					<span><span className="sr-only">Select {item.name}</span></span>
+					<span>
+						<span className="sr-only">Select {item.name}</span>
+					</span>
 				</label>
 			</div>
 		);
@@ -97,7 +109,7 @@ function Item({ id, columns, actions, item, itemProps }) {
 			label: action.label,
 			icon: action.icon,
 			className: action.className,
-			onClick: (event) => {
+			onClick: event => {
 				action.onClick(event, item);
 			},
 			hideLabel: true,
@@ -116,8 +128,8 @@ function Item({ id, columns, actions, item, itemProps }) {
 		return getAction(action, className, index);
 	}
 
-	const actionsOnHover = actions.filter(action =>
-		columns.findIndex(column => action.key === column.key) < 0,
+	const actionsOnHover = actions.filter(
+		action => columns.findIndex(column => action.key === column.key) < 0,
 	);
 	const getActionOnHover = (action, index) => getAction(action, 'tc-actions', index);
 
@@ -142,7 +154,7 @@ function Item({ id, columns, actions, item, itemProps }) {
 
 	return (
 		<div className={itemClasses}>
-			{(onSelect && isSelected) && getCheckbox()}
+			{onSelect && isSelected && getCheckbox()}
 			{columns.map((column, index) => getCellFor(column, index))}
 			{actionsOnHover && actionsOnHover.map((action, index) => getActionOnHover(action, index))}
 			<div className="tc-list-item-definition-list">
@@ -155,13 +167,15 @@ function Item({ id, columns, actions, item, itemProps }) {
 Item.propTypes = {
 	id: PropTypes.string,
 	columns: PropTypes.arrayOf(Column.propTypes).isRequired,
-	actions: PropTypes.arrayOf(PropTypes.shape({
-		key: PropTypes.string.isRequired,
-		label: PropTypes.string.isRequired,
-		icon: PropTypes.string.isRequired,
-		className: PropTypes.string,
-		onClick: PropTypes.func.isRequired,
-	})),
+	actions: PropTypes.arrayOf(
+		PropTypes.shape({
+			key: PropTypes.string.isRequired,
+			label: PropTypes.string.isRequired,
+			icon: PropTypes.string.isRequired,
+			className: PropTypes.string,
+			onClick: PropTypes.func.isRequired,
+		}),
+	),
 	item: PropTypes.shape({
 		display: PropTypes.string,
 	}).isRequired,

@@ -6,7 +6,7 @@ import { I18nextProvider } from 'react-i18next';
 import { cloneDeep } from 'lodash';
 
 import { List, IconsProvider } from '../src/index';
-import i18n from './config/i18n';
+import i18n, { LanguageSwitcher } from './config/i18n';
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -327,6 +327,13 @@ function getActionsProps() {
 }
 
 storiesOf('List', module)
+	.addDecorator(story => (
+		<div>
+			<LanguageSwitcher />
+			<IconsProvider defaultIcons={icons} />
+			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
+		</div>
+	))
 	.add('Tile', () => {
 		const tprops = {
 			...props,
@@ -336,7 +343,6 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display the list in tile mode</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
 			</div>
 		);
@@ -348,7 +354,6 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display an empty list</p>
-				<IconsProvider defaultIcons={icons} />
 				<div className="tc-list-small-container">
 					<List {...emptyListProps} displayMode="tile" />
 				</div>
@@ -362,7 +367,6 @@ storiesOf('List', module)
 				Display the list in table mode.<br />
 				This is the default mode.
 			</p>
-			<IconsProvider defaultIcons={icons} />
 			<List {...props} virtualized />
 		</div>
 	))
@@ -374,7 +378,6 @@ storiesOf('List', module)
 				You just need to pass the props displayMode.
 				<pre>&lt;List displayMode="large" ... &gt;</pre>
 			</p>
-			<IconsProvider defaultIcons={icons} />
 			<List {...props} displayMode="large" virtualized />
 		</div>
 	))
@@ -385,7 +388,6 @@ storiesOf('List', module)
 			<div style={{ height: '60vh' }}>
 				<h1>List</h1>
 				<p>When the list is empty, a message is displayed instead of the rows.</p>
-				<IconsProvider defaultIcons={icons} />
 				<h2>Table</h2>
 				<List {...emptyListProps} virtualized />
 				<h2>Large</h2>
@@ -400,7 +402,6 @@ storiesOf('List', module)
 			<div style={{ height: '60vh' }}>
 				<h1>List</h1>
 				<p>When the list is loading, a CircularProgress is displayed instead of the rows.</p>
-				<IconsProvider defaultIcons={icons} />
 				<h2>Table</h2>
 				<List {...loadingListProps} virtualized />
 			</div>
@@ -412,7 +413,6 @@ storiesOf('List', module)
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>A column can contains only actions that appear on mouseover.</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...columnActionsProps} virtualized />
 			</div>
 		);
@@ -443,7 +443,6 @@ storiesOf('List', module)
 						&lt;List ... list=&#123;listProps&#125; &gt;<br />
 					</pre>
 				</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...selectedItemsProps} virtualized />
 			</div>
 		);
@@ -465,7 +464,6 @@ storiesOf('List', module)
 						&lt;List ... list=&#123;listProps&#125; &gt;<br />
 					</pre>
 				</p>
-				<IconsProvider defaultIcons={icons} />
 				<h2>Table</h2>
 				<List {...selectedItemsProps} virtualized />
 				<h2>Large</h2>
@@ -489,7 +487,6 @@ storiesOf('List', module)
 						&lt;List ... list=&#123;listProps&#125; &gt;<br />
 					</pre>
 				</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} virtualized />
 			</div>
 		);
@@ -501,7 +498,6 @@ storiesOf('List', module)
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>Table without toolbar</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} virtualized />
 			</div>
 		);
@@ -522,7 +518,6 @@ storiesOf('List', module)
 
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
-				<IconsProvider />
 
 				<h1>List</h1>
 				<h2>Definition</h2>
@@ -569,7 +564,6 @@ storiesOf('List', module)
 						&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;<br />
 					</pre>
 				</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} virtualized />
 			</div>
 		);
@@ -578,12 +572,7 @@ storiesOf('List', module)
 		<div>
 			<h1>List with i18n</h1>
 			<p>Change language in the toolbar</p>
-			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
-			<button onClick={() => i18n.changeLanguage('it')}>it</button>
-			<IconsProvider defaultIcons={icons} />
-			<I18nextProvider i18n={i18n}>
-				<List {...props} virtualized />
-			</I18nextProvider>
+			<List {...props} virtualized />
 		</div>
 	))
 	.add('Virtualized - title without click', () => {
@@ -600,7 +589,6 @@ storiesOf('List', module)
 					Display the list in table mode.<br />
 					This is the default mode.
 				</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...props} virtualized />
 			</div>
 		);
@@ -609,7 +597,6 @@ storiesOf('List', module)
 		<div className="display-table tc-list-fixed-name-column">
 			<h1>List</h1>
 			<p>Display a list by defining your.</p>
-			<IconsProvider defaultIcons={icons} />
 			<List {...props} />
 		</div>
 	))
@@ -624,7 +611,6 @@ storiesOf('List', module)
 			<div className="display-table tc-list-fixed-name-column">
 				<h1>List</h1>
 				<p>Display a list by defining your.</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...props} />
 			</div>
 		);
@@ -637,7 +623,6 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display the list in large mode</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
 			</div>
 		);
@@ -656,7 +641,6 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Get limited options for displayMode</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
 			</div>
 		);
@@ -668,7 +652,6 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display an empty list</p>
-				<IconsProvider defaultIcons={icons} />
 				<div className="tc-list-small-container">
 					<List {...emptyListProps} />
 				</div>
@@ -682,7 +665,6 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display an empty list</p>
-				<IconsProvider defaultIcons={icons} />
 				<div className="tc-list-small-container">
 					<List {...emptyListProps} displayMode="large" />
 				</div>
@@ -698,7 +680,6 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display a list without toolbar</p>
-				<IconsProvider />
 				<div className="list-container">
 					<List {...tprops} />
 				</div>
@@ -721,8 +702,6 @@ storiesOf('List', module)
 
 		return (
 			<div>
-				<IconsProvider />
-
 				<h1>List</h1>
 				<h2>Definition</h2>
 				<p>Toolbar Filter</p>
@@ -743,7 +722,6 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display a list with columns containing actions.</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...columnActionsProps} />
 			</div>
 		);
@@ -757,7 +735,6 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display a list in a limited container. To enable content scroll.</p>
-				<IconsProvider defaultIcons={icons} />
 				<div className="tc-list-small-container">
 					<List {...tprops} />
 				</div>
@@ -775,7 +752,6 @@ storiesOf('List', module)
 				<p>
 					Display a list with NAME content ellipsis. The NAME column is limited to 400px in css.
 				</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
 			</div>
 		);
@@ -788,7 +764,6 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Table with sort header click</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...tprops} />
 			</div>
 		);
@@ -811,7 +786,6 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display a list with selected items.</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...selectedItemsProps} />
 			</div>
 		);
@@ -826,7 +800,6 @@ storiesOf('List', module)
 			<div>
 				<h1>List</h1>
 				<p>Display a list with custom selected class.</p>
-				<IconsProvider defaultIcons={icons} />
 				<List {...selectedClassProps} />
 			</div>
 		);
@@ -837,7 +810,6 @@ storiesOf('List', module)
 			<h2>Definition</h2>
 			<p>Display a table from Items component.</p>
 			<h2>Examples</h2>
-			<IconsProvider defaultIcons={icons} />
 			<List {...getPropsFor('table')} />
 		</div>
 	))
@@ -845,7 +817,6 @@ storiesOf('List', module)
 		<div>
 			<h1>List</h1>
 			<p>Display the list in large mode</p>
-			<IconsProvider defaultIcons={icons} />
 			<List {...getPropsFor('large')} />
 		</div>
 	))
@@ -853,7 +824,6 @@ storiesOf('List', module)
 		<div>
 			<h1>List</h1>
 			<p>Display the list in tile mode</p>
-			<IconsProvider defaultIcons={icons} />
 			<List {...getPropsFor('tile')} />
 		</div>
 	));

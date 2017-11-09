@@ -13,6 +13,10 @@ import cmfReducers from './reducers';
 import httpMiddleware from './middlewares/http';
 import cmfMiddleware from './middlewares/cmf';
 
+/**
+ * @typedef {Object} Store
+ */
+
 const preReducers = [];
 const enhancers = [];
 const middlewares = [thunk, httpMiddleware, cmfMiddleware];
@@ -50,11 +54,8 @@ function preApplyReducer(reducer) {
 	}
 	const newReducer = (state, action) => {
 		const newState = preReducers.reduce(
-			(accumulatedState, r) => r(
-				accumulatedState,
-				action
-			),
-			state
+			(accumulatedState, r) => r(accumulatedState, action),
+			state,
 		);
 		return reducer(newState, action);
 	};
@@ -83,13 +84,7 @@ function getReducer(appReducer) {
 	if (!reducerObject.routing) {
 		reducerObject.routing = routerReducer;
 	}
-	return enableBatching(
-		preApplyReducer(
-			combineReducers(
-				reducerObject
-			)
-		)
-	);
+	return enableBatching(preApplyReducer(combineReducers(reducerObject)));
 }
 
 /**
@@ -99,7 +94,7 @@ function getReducer(appReducer) {
  */
 function getMiddlewares(middleware) {
 	if (Array.isArray(middleware)) {
-		middleware.forEach((mid) => {
+		middleware.forEach(mid => {
 			if (middlewares.indexOf(mid) === -1) {
 				middlewares.push(mid);
 			}
@@ -134,10 +129,10 @@ function initialize(appReducer, preloadedState, enhancer, middleware) {
 		enhancers.push(enhancer);
 	}
 	const middles = getMiddlewares(middleware);
-	const store = compose(
-		applyMiddleware(...middles),
-		...enhancers
-	)(createStore)(reducer, preloadedState);
+	const store = compose(applyMiddleware(...middles), ...enhancers)(createStore)(
+		reducer,
+		preloadedState,
+	);
 
 	return store;
 }

@@ -19,58 +19,51 @@ function getItemString(item) {
 
 export function CellContent({ isTitle, item, column, titleProps, id }) {
 	if (isTitle) {
-		return (<ItemTitle
-			id={id && `${id}-title`}
-			item={item}
-			titleProps={titleProps}
-		/>);
+		return <ItemTitle id={id && `${id}-title`} item={item} titleProps={titleProps} />;
 	}
 	if (item[column.key] instanceof Array) {
-		return (<Actions
-			actions={item[column.key]}
-			link
-			hideLabel
-		/>);
+		return <Actions actions={item[column.key]} link hideLabel />;
 	}
 	const str = getItemString(item[column.key]);
 	return (
 		<TooltipTrigger label={str} tooltipPlacement="top">
-			<span className={classnames(theme['item-text'], 'item-text')}>
-				{str}
-			</span>
+			<span className={classnames(theme['item-text'], 'item-text')}>{str}</span>
 		</TooltipTrigger>
 	);
 }
 CellContent.propTypes = {
 	isTitle: PropTypes.bool,
-	item: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
+	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	column: PropTypes.shape({
 		key: PropTypes.string,
 	}).isRequired,
-	titleProps: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
+	titleProps: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	id: PropTypes.string,
 };
 
 export function RowRenderer(props) {
 	const { id, item, itemProps, titleProps } = props;
 	const { classNameKey, onToggle, isSelected, selectedClass } = itemProps || {};
-	const checkboxColumn = onToggle && isSelected ? (
-		<td>
-			<div className="checkbox">
-				<label htmlFor={id && `${id}-check`}>
-					<input
-						id={id && `${id}-check`}
-						type="checkbox"
-						onChange={(e) => {
-							onToggle(e, item);
-						}}
-						checked={isSelected(item)}
-					/>
-					<span><span className="sr-only">Select {item.name}</span></span>
-				</label>
-			</div>
-		</td>
-	) : null;
+	const checkboxColumn =
+		onToggle && isSelected ? (
+			<td>
+				<div className="checkbox">
+					<label htmlFor={id && `${id}-check`}>
+						<input
+							id={id && `${id}-check`}
+							type="checkbox"
+							onChange={e => {
+								onToggle(e, item);
+							}}
+							checked={isSelected(item)}
+						/>
+						<span>
+							<span className="sr-only">Select {item.name}</span>
+						</span>
+					</label>
+				</div>
+			</td>
+		) : null;
 	const classes = classnames(
 		classNameKey && item[classNameKey],
 		isSelected && isSelected(item) && (selectedClass || 'active'),
@@ -80,42 +73,33 @@ export function RowRenderer(props) {
 			{checkboxColumn}
 			{props.columns.map((column, index) => {
 				const isTitle = column.key === titleProps.key;
-				const cell = (<CellContent
-					isTitle={isTitle}
-					item={item}
-					column={column}
-					titleProps={titleProps}
-					id={id}
-				/>);
+				const cell = (
+					<CellContent
+						isTitle={isTitle}
+						item={item}
+						column={column}
+						titleProps={titleProps}
+						id={id}
+					/>
+				);
 
 				// actions are only on title and on 'text' display mode
 				const { displayModeKey } = titleProps;
 				const displayActions =
-					isTitle &&
-					(!displayModeKey || !item[displayModeKey] || item[displayModeKey] === 'text');
+					isTitle && (!displayModeKey || !item[displayModeKey] || item[displayModeKey] === 'text');
 
 				return (
 					<td key={index}>
 						<div
-							className={classnames(
-								'tc-list-display-table-td',
-								theme['tc-list-display-table-td'],
-							)}
+							className={classnames('tc-list-display-table-td', theme['tc-list-display-table-td'])}
 						>
 							<div className={classnames('cell', theme.cell)}>{cell}</div>
-							{
-								displayActions &&
-								item.actions &&
-								(
+							{displayActions &&
+								item.actions && (
 									<div className={classnames('actions', theme.actions)}>
-										<Actions
-											actions={item.actions}
-											hideLabel
-											link
-										/>
+										<Actions actions={item.actions} hideLabel link />
 									</div>
-								)
-							}
+								)}
 						</div>
 					</td>
 				);
@@ -126,9 +110,7 @@ export function RowRenderer(props) {
 RowRenderer.propTypes = {
 	id: PropTypes.string,
 	item: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	columns: PropTypes.arrayOf(
-		PropTypes.shape({ key: PropTypes.string.isRequired }),
-	).isRequired,
+	columns: PropTypes.arrayOf(PropTypes.shape({ key: PropTypes.string.isRequired })).isRequired,
 	itemProps: DisplayPropTypes.itemProps,
 	titleProps: PropTypes.shape(ItemTitle.propTypes.titleProps).isRequired,
 };
@@ -159,16 +141,14 @@ export function ColumnHeader({ index, column, sort }) {
 	let header;
 
 	if (column.hideHeader) {
-		header = (<span className="sr-only">{column.label}</span>);
-	} else	if (sort) {
+		header = <span className="sr-only">{column.label}</span>;
+	} else if (sort) {
 		const isCurrentSortField = sort.field === column.key;
-		const onChange = event => sort.onChange(
-			event,
-			{
+		const onChange = event =>
+			sort.onChange(event, {
 				field: column.key,
 				isDescending: getNextDirection(isCurrentSortField, sort.isDescending),
-			},
-		);
+			});
 		const actionProps = {
 			'aria-label': `Sort on ${column.label} field`,
 			className: theme.header,
@@ -179,15 +159,15 @@ export function ColumnHeader({ index, column, sort }) {
 			link: true,
 			onClick: onChange,
 		};
-		header = (<Action {...actionProps} />);
+		header = <Action {...actionProps} />;
 	} else {
-		header = (<span className={theme.header}>{column.label}</span>);
+		header = <span className={theme.header}>{column.label}</span>;
 	}
 
 	return (
 		<th key={index}>
 			{header}
-			{ !column.hideHeader && (<div aria-hidden="true">{column.label}</div>)}
+			{!column.hideHeader && <div aria-hidden="true">{column.label}</div>}
 		</th>
 	);
 }
@@ -206,29 +186,19 @@ ColumnHeader.propTypes = {
 };
 
 export function ListHeaders(props) {
-	const {
-		columns,
-		isSelected,
-		onToggleAll,
-		sort,
-	} = props;
+	const { columns, isSelected, onToggleAll, sort } = props;
 	return (
 		<tr>
-			{(isSelected && onToggleAll) && (<th />)}
-			{columns.map((column, index) => (<ColumnHeader
-				key={index}
-				index={index}
-				column={column}
-				sort={sort}
-			/>))}
+			{isSelected && onToggleAll && <th />}
+			{columns.map((column, index) => (
+				<ColumnHeader key={index} index={index} column={column} sort={sort} />
+			))}
 		</tr>
 	);
 }
 
 ListHeaders.propTypes = {
-	columns: PropTypes.arrayOf(
-		PropTypes.shape({ label: PropTypes.string }),
-	).isRequired,
+	columns: PropTypes.arrayOf(PropTypes.shape({ label: PropTypes.string })).isRequired,
 	isSelected: PropTypes.func,
 	onToggleAll: PropTypes.func,
 	sort: PropTypes.shape({
@@ -288,24 +258,10 @@ ListHeaders.propTypes = {
  <DisplayTable {...props} />
  */
 function DisplayTable(props) {
-	const {
-		id,
-		columns,
-		items,
-		itemProps,
-		sort,
-		titleProps,
-	} = props;
+	const { id, columns, items, itemProps, sort, titleProps, t } = props;
 	const { isSelected, onToggleAll } = itemProps || {};
-	const containerClassName = classnames(
-		'tc-list-display',
-		theme.container,
-	);
-	const tableClassName = classnames(
-		'table',
-		'tc-list-display-table',
-		theme.table,
-	);
+	const containerClassName = classnames('tc-list-display', theme.container);
+	const tableClassName = classnames('table', 'tc-list-display-table', theme.table);
 
 	return (
 		<div className={containerClassName}>
@@ -322,21 +278,19 @@ function DisplayTable(props) {
 						/>
 					</thead>
 					<tbody>
-						{items.map(
-							(item, index) => (
-								<RowRenderer
-									id={id && `${id}-${index}`}
-									key={index}
-									columns={columns}
-									item={item}
-									itemProps={itemProps}
-									titleProps={titleProps}
-								/>
-							),
-						)}
+						{items.map((item, index) => (
+							<RowRenderer
+								id={id && `${id}-${index}`}
+								key={index}
+								columns={columns}
+								item={item}
+								itemProps={itemProps}
+								titleProps={titleProps}
+							/>
+						))}
 					</tbody>
 				</table>
-				{ !items.length && <NoRows /> }
+				{!items.length && <NoRows t={t} />}
 			</div>
 		</div>
 	);

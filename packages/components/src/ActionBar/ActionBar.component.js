@@ -88,6 +88,9 @@ function SwitchActions({ actions, left, right, selected, renderers }) {
 					case DISPLAY_MODES.BTN_GROUP:
 						return <Renderers.Actions key={index} {...rest} />;
 					default:
+						if (displayMode) {
+							return <Renderers.Action key={index} displayMode={displayMode} {...rest} />;
+						}
 						return <Renderers.Action key={index} {...rest} />;
 				}
 			}) }

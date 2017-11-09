@@ -11,39 +11,30 @@ class TabsField extends Component {
 	}
 
 	render() {
-		const {
-		schema,
-		uiSchema,
-		formData,
-		registry,
-		definitions,
-		id,
-		onChange,
-		} = this.props;
+		const { schema, uiSchema, formData, registry, definitions, id, onChange } = this.props;
 
 		return (
 			<Tabs defaultActiveKey={0} id={id}>
 				{Object.keys(schema.properties).map((tabKey, index) => {
 					const tabSchema = schema.properties[tabKey];
 					const itemIdSchema = toIdSchema(tabSchema, tabKey, definitions);
-					const saveToFormData = (state) => {
+					const saveToFormData = state => {
 						const formDataCopy = Object.assign({}, formData);
 						formDataCopy[tabKey] = state;
 						onChange(formDataCopy);
 					};
-					return (<Tab
-						eventKey={index}
-						title={tabSchema.title ? tabSchema.title : tabKey} key={index}
-					>
-						<ObjectField
-							idSchema={itemIdSchema}
-							formData={formData[tabKey]}
-							onChange={(newState => saveToFormData(newState))}
-							registry={registry}
-							schema={Object.assign({}, tabSchema, { title: '' })}
-							uiSchema={uiSchema[tabKey]}
-						/>
-					</Tab>);
+					return (
+						<Tab eventKey={index} title={tabSchema.title ? tabSchema.title : tabKey} key={index}>
+							<ObjectField
+								idSchema={itemIdSchema}
+								formData={formData[tabKey]}
+								onChange={newState => saveToFormData(newState)}
+								registry={registry}
+								schema={Object.assign({}, tabSchema, { title: '' })}
+								uiSchema={uiSchema[tabKey]}
+							/>
+						</Tab>
+					);
 				})}
 			</Tabs>
 		);
@@ -56,10 +47,8 @@ if (process.env.NODE_ENV !== 'production') {
 		formData: PropTypes.object,
 		onChange: PropTypes.func.isRequired,
 		registry: PropTypes.shape({
-			widgets: PropTypes.objectOf(PropTypes.oneOfType([
-				PropTypes.func,
-				PropTypes.object,
-			])).isRequired,
+			widgets: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object]))
+				.isRequired,
 			fields: PropTypes.objectOf(PropTypes.func).isRequired,
 			definitions: PropTypes.object.isRequired,
 			formContext: PropTypes.object.isRequired,

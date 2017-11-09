@@ -20,7 +20,7 @@ describe('Array Item component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should NOT render control panel when value.isClosed is true', () => {
@@ -40,7 +40,26 @@ describe('Array Item component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
+	});
+
+	it('should NOT render moveUp/moveDown', () => {
+		// when
+		const wrapper = shallow(
+			<ArrayItem
+				hasMoveDown={false}
+				hasMoveUp
+				id={'talend-control-3'}
+				index={3}
+				onRemove={jest.fn()}
+				value={{ }}
+			>
+				<span>This is the item content</span>
+			</ArrayItem>
+		);
+
+		// then
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should disable moveDown', () => {
@@ -60,7 +79,7 @@ describe('Array Item component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should disable moveUp', () => {
@@ -80,7 +99,7 @@ describe('Array Item component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should trigger onRemove when remove button is clicked', () => {

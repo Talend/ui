@@ -23,23 +23,50 @@ export function getAbsolutePath(index, key, flat) {
 export function getHeaders(keys, isFlat) {
 	if (isFlat) {
 		// $['id'][0]['foo'] -> id[0].foo
-		return keys.map(str => str
-			.replace('$[\'', '')
-			.replace('\'][\'', '.')
-			.replace('][\'', '].')
-			.replace('\'][', '[')
-			.replace('\']', '')
+		return keys.map(str =>
+			str
+				.replace("$['", '')
+				.replace("']['", '.')
+				.replace("]['", '].')
+				.replace("'][", '[')
+				.replace("']", ''),
 		);
 	}
 	return keys;
 }
 
+/**
+ * We construct the jsx dispayed for the header.
+ * If there is a type we add it.
+ * @param {array} headers
+ */
+export function buildContentHeaders(headers, schema) {
+	return headers.map((key, index) => {
+		let type;
+		if (schema) {
+			type = schema.get(key);
+		}
+		if (!type) {
+			return <td key={index}>{key}</td>;
+		}
+		return (
+			<td key={index}>
+				<div>{key}</div>
+				<div className={classNames('text-right')}>{type}</div>
+			</td>
+		);
+	});
+}
+
 function Table({ flat, data, ...props }) {
-	if (!Array.isArray(data)) {
+	if (!Array.isArray(data) && !Array.isArray(data.dataset)) {
 		return null;
 	}
-	const keys = getKeys(data[0], flat);
-	const headers = getHeaders(keys, flat);
+
+	// The datas can be an array or an array in an object. We assign the value correctly here.
+	const dataset = Array.isArray(data) ? data : data.dataset;
+	const keys = getKeys(dataset[0], flat);
+	const headers = getHeaders(keys, flat, data.schema);
 	const tableClassName = classNames(
 		theme.table,
 		'tc-object-viewer',
@@ -49,12 +76,10 @@ function Table({ flat, data, ...props }) {
 	return (
 		<table className={tableClassName}>
 			<thead>
-				<tr>
-					{headers.map((key, index) => (<td key={index}>{key}</td>))}
-				</tr>
+				<tr>{buildContentHeaders(headers, data.schema)}</tr>
 			</thead>
 			<tbody>
-				{data.map((row, index) => {
+				{dataset.map((row, index) => {
 					const flattenRow = flat ? toFlat(row) : row;
 					return (
 						<tr key={index}>
@@ -62,11 +87,7 @@ function Table({ flat, data, ...props }) {
 								const path = getAbsolutePath(index, key, flat);
 								return (
 									<td key={j}>
-										<JSONLike
-											data={flattenRow[key]}
-											{...props}
-											jsonpath={path}
-										/>
+										<JSONLike data={flattenRow[key]} {...props} jsonpath={path} />
 									</td>
 								);
 							})}
@@ -86,7 +107,7 @@ Table.propTypes = {
 		PropTypes.string,
 		PropTypes.object,
 		PropTypes.array,
-	]),
+	]).isRequired,
 };
 
 export default Table;
