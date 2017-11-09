@@ -12,6 +12,7 @@ import {
 	HTTPError,
 	status,
 	handleResponse,
+	mergeCSRFToken,
 } from '../../src/middlewares/http/middleware';
 import http from '../../src/middlewares/http';
 import {
@@ -149,7 +150,7 @@ describe('CMF http middleware', () => {
 		expect(typeof middleware).toBe('function');
 	});
 
-	it('should httpMiddleware handle response promise', (done) => {
+	it('should httpMiddleware handle response promise', done => {
 		function json() {
 			return new Promise(resolve => resolve({ foo: 'bar' }));
 		}
@@ -190,10 +191,7 @@ describe('CMF http middleware', () => {
 			url: 'foo',
 		};
 
-		expect(global.fetch.mock.calls[0]).toEqual([
-			'foo',
-			config,
-		]);
+		expect(global.fetch.mock.calls[0]).toEqual(['foo', config]);
 
 		newState.then(() => {
 			expect(next.mock.calls.length).toBe(1);
@@ -203,7 +201,7 @@ describe('CMF http middleware', () => {
 		});
 	});
 
-	it('should httpMiddleware with formData', (done) => {
+	it('should httpMiddleware with formData', done => {
 		function json() {
 			return new Promise(resolve => resolve({ foo: 'bar' }));
 		}
@@ -245,10 +243,7 @@ describe('CMF http middleware', () => {
 			url: 'foo',
 		};
 
-		expect(global.fetch.mock.calls[1]).toEqual([
-			'foo',
-			config,
-		]);
+		expect(global.fetch.mock.calls[1]).toEqual(['foo', config]);
 
 		newState.then(() => {
 			expect(next.mock.calls.length).toBe(1);
@@ -258,7 +253,7 @@ describe('CMF http middleware', () => {
 		});
 	});
 
-	it('should httpMiddleware handle response promise with error', (done) => {
+	it('should httpMiddleware handle response promise with error', done => {
 		const store = {
 			dispatch: jest.fn(),
 		};
@@ -296,7 +291,7 @@ describe('CMF http middleware', () => {
 		});
 	});
 
-	it('should httpMiddleware handle response promise with error same if the body is not a JSON', (done) => {
+	it('should httpMiddleware handle response promise with error same if the body is not a JSON', done => {
 		const store = {
 			dispatch: jest.fn(),
 		};
@@ -320,19 +315,21 @@ describe('CMF http middleware', () => {
 		const middleware = httpMiddleware(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
-		newState.then(() => {
-			expect(store.dispatch.mock.calls.length).toBe(3);
-			const errorHTTPAction = store.dispatch.mock.calls[2][0];
-			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
-			expect(errorHTTPAction.error.stack.status).toBe(500);
-			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
-			expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
-			expect(errorHTTPAction.error.stack.response).toBe('invalid json');
-			done();
-		}).catch(error => console.error(error));
+		newState
+			.then(() => {
+				expect(store.dispatch.mock.calls.length).toBe(3);
+				const errorHTTPAction = store.dispatch.mock.calls[2][0];
+				expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
+				expect(errorHTTPAction.error.stack.status).toBe(500);
+				expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
+				expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
+				expect(errorHTTPAction.error.stack.response).toBe('invalid json');
+				done();
+			})
+			.catch(error => console.error(error));
 	});
 
-	it('should httpMiddleware handle callback onError', (done) => {
+	it('should httpMiddleware handle callback onError', done => {
 		const store = {
 			dispatch: jest.fn(),
 		};
@@ -385,7 +382,7 @@ describe('status function', () => {
 		const response = {
 			status: 500,
 		};
-		return status(response).catch((err) => {
+		return status(response).catch(err => {
 			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
 		});
 	});
@@ -393,7 +390,7 @@ describe('status function', () => {
 		const response = {
 			status: 204,
 		};
-		return status(response).then((r) => {
+		return status(response).then(r => {
 			expect(r).toBe(response);
 		});
 	});
@@ -404,7 +401,7 @@ describe('json function', () => {
 		const response = {
 			status: 502,
 		};
-		return handleResponse(response).catch((err) => {
+		return handleResponse(response).catch(err => {
 			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
 		});
 	});
@@ -413,7 +410,7 @@ describe('json function', () => {
 			status: 200,
 			json: () => new Promise(resolve => resolve({ foo: 'bar' })),
 		};
-		return handleResponse(response).then((r) => {
+		return handleResponse(response).then(r => {
 			expect(r).toMatchSnapshot();
 		});
 	});
@@ -421,8 +418,34 @@ describe('json function', () => {
 		const response = {
 			status: 204,
 		};
-		return handleResponse(response).then((r) => {
+		return handleResponse(response).then(r => {
 			expect(r).toMatchSnapshot();
 		});
+	});
+});
+
+describe('csrf token injection', () => {
+	beforeEach(() => {
+		delete document.cookie;
+	});
+
+	it('if a csrf token is availble on a cookie, inject it as HTTP_X_CSRFTOKEN headers', () => {
+		document.cookie =
+			'csrfToken=hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x; dwf_section_edit=True; dwf_sg_task_completion=False; _ga=GA1.2.973892348.1500561092; _gid=GA1.2.95155632.1510232958';
+		expect(
+			mergeCSRFToken({
+				headers: { stuff: 'stuff' },
+			}),
+		).toEqual({
+			headers: { 'X-CSRF-Token': 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x', stuff: 'stuff' },
+		});
+	});
+
+	it('if a csrf token is not available on a cookie, do not touch headers', () => {
+		expect(
+			mergeCSRFToken({
+				headers: { stuff: 'stuff' },
+			}),
+		).toEqual({ headers: { stuff: 'stuff' } });
 	});
 });
