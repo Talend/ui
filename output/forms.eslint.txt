@@ -4,14 +4,126 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
+  200:23  error  Unexpected trailing comma  comma-dangle
+  221:23  error  Unexpected trailing comma  comma-dangle
+  236:24  error  Unexpected trailing comma  comma-dangle
+
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   86:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
+/home/travis/build/Talend/ui/packages/forms/src/Form.js
+  184:4  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/Form.test.js
+  114:22  error  Unexpected trailing comma  comma-dangle
+  120:22  error  Unexpected trailing comma  comma-dangle
+  130:19  error  Unexpected trailing comma  comma-dangle
+  171:89  error  Unexpected trailing comma  comma-dangle
+  195:87  error  Unexpected trailing comma  comma-dangle
+  265:12  error  Unexpected trailing comma  comma-dangle
+  302:87  error  Unexpected trailing comma  comma-dangle
+  367:8   error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/CheckBoxes.test.js
+  182:33  error  Unexpected trailing comma  comma-dangle
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
   8:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/MultiSelectTag/MultiSelectTag.component.js
+  245:7  error  Unexpected trailing comma  comma-dangle
+
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-✖ 3 problems (3 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/Array.component.js
+   84:6  error  Unexpected trailing comma  comma-dangle
+  115:6  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.test.js
+  111:6   error  Unexpected trailing comma  comma-dangle
+  167:21  error  Unexpected trailing comma  comma-dangle
+  272:27  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.connect.js
+  31:30  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.js
+  17:30  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.test.js
+  38:6  error  Unexpected trailing comma  comma-dangle
+  58:6  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/validation.js
+  119:16  error  Unexpected trailing comma  comma-dangle
+  152:16  error  Unexpected trailing comma  comma-dangle
+  179:8   error  Unexpected trailing comma  comma-dangle
+  228:54  error  Unexpected trailing comma  comma-dangle
+  245:67  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
+  119:29  error  Unexpected trailing comma  comma-dangle
+  164:89  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.test.js
+   38:6   error  Unexpected trailing comma  comma-dangle
+   67:6   error  Unexpected trailing comma  comma-dangle
+   99:82  error  Unexpected trailing comma  comma-dangle
+  115:82  error  Unexpected trailing comma  comma-dangle
+  131:82  error  Unexpected trailing comma  comma-dangle
+  148:81  error  Unexpected trailing comma  comma-dangle
+  167:81  error  Unexpected trailing comma  comma-dangle
+  181:95  error  Unexpected trailing comma  comma-dangle
+  205:6   error  Unexpected trailing comma  comma-dangle
+  226:6   error  Unexpected trailing comma  comma-dangle
+  251:6   error  Unexpected trailing comma  comma-dangle
+  288:12  error  Unexpected trailing comma  comma-dangle
+  294:12  error  Unexpected trailing comma  comma-dangle
+  309:83  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
+  238:26  error  Unexpected trailing comma  comma-dangle
+  247:26  error  Unexpected trailing comma  comma-dangle
+  291:40  error  Unexpected trailing comma  comma-dangle
+  372:38  error  Unexpected trailing comma  comma-dangle
+  389:18  error  Unexpected trailing comma  comma-dangle
+  416:38  error  Unexpected trailing comma  comma-dangle
+  462:44  error  Unexpected trailing comma  comma-dangle
+  544:41  error  Unexpected trailing comma  comma-dangle
+  581:35  error  Unexpected trailing comma  comma-dangle
+  615:35  error  Unexpected trailing comma  comma-dangle
+  640:34  error  Unexpected trailing comma  comma-dangle
+  657:26  error  Unexpected trailing comma  comma-dangle
+  712:17  error  Unexpected trailing comma  comma-dangle
+  745:27  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.test.js
+  231:26  error  Unexpected trailing comma  comma-dangle
+  262:26  error  Unexpected trailing comma  comma-dangle
+  293:26  error  Unexpected trailing comma  comma-dangle
+  324:26  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.handlers.js
+   28:68  error  Unexpected trailing comma  comma-dangle
+   66:30  error  Unexpected trailing comma  comma-dangle
+   89:30  error  Unexpected trailing comma  comma-dangle
+  102:30  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/ListViewWidget/ListViewWidget.test.js
+   59:7   error  Unexpected trailing comma  comma-dangle
+   74:85  error  Unexpected trailing comma  comma-dangle
+  107:77  error  Unexpected trailing comma  comma-dangle
+  160:77  error  Unexpected trailing comma  comma-dangle
+  182:77  error  Unexpected trailing comma  comma-dangle
+  199:14  error  Unexpected trailing comma  comma-dangle
+  239:12  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
+  104:89  error  Unexpected trailing comma  comma-dangle
+  136:17  error  Unexpected trailing comma  comma-dangle
+  166:87  error  Unexpected trailing comma  comma-dangle
+
+✖ 79 problems (79 errors, 0 warnings)
 

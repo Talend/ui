@@ -4,21 +4,79 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/containers/src/actionAPI.js
+  17:10  error  Unexpected trailing comma  comma-dangle
+  51:21  error  Unexpected trailing comma  comma-dangle
+  52:9   error  Unexpected trailing comma  comma-dangle
+  57:45  error  Unexpected trailing comma  comma-dangle
+  58:4   error  Unexpected trailing comma  comma-dangle
+
 /home/travis/build/Talend/ui/packages/containers/src/ActionButton/ActionButton.connect.js
   12:32  error    Unexpected parentheses around single function argument  arrow-parens
   16:5   warning  Unexpected console statement                            no-console
+  35:21  error    Unexpected trailing comma                               comma-dangle
   45:32  error    Unexpected parentheses around single function argument  arrow-parens
+  65:20  error    Unexpected trailing comma                               comma-dangle
+  66:7   error    Unexpected trailing comma                               comma-dangle
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionDropdown/ActionDropdown.connect.js
+  44:20  error  Unexpected trailing comma  comma-dangle
+  45:8   error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionFile/ActionFile.connect.js
+  38:21  error  Unexpected trailing comma  comma-dangle
+  39:7   error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/containers/src/ActionSplitDropdown/ActionSplitDropdown.connect.js
+  40:20  error  Unexpected trailing comma  comma-dangle
+  41:7   error  Unexpected trailing comma  comma-dangle
+  60:22  error  Unexpected trailing comma  comma-dangle
+  61:10  error  Unexpected trailing comma  comma-dangle
+  66:9   error  Unexpected trailing comma  comma-dangle
+  67:5   error  Unexpected trailing comma  comma-dangle
 
 /home/travis/build/Talend/ui/packages/containers/src/ActionSplitDropdown/ActionSplitDropdown.test.js
-  4:10  error  'ActionSplitDropdown' is defined but never used  no-unused-vars
+   4:10  error  'ActionSplitDropdown' is defined but never used  no-unused-vars
+  39:15  error  Unexpected trailing comma                        comma-dangle
+
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/DeleteResource.container.js
+  44:60  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/deleteResource.sagas.js
+  42:59  error  Unexpected trailing comma  comma-dangle
+  43:5   error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/deleteResource.sagas.test.js
+  12:58  error  Unexpected trailing comma  comma-dangle
+  25:58  error  Unexpected trailing comma  comma-dangle
 
 /home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
+   30:5   error  Unexpected trailing comma                               comma-dangle
   106:35  error  Missing trailing comma                                  comma-dangle
   155:62  error  Unexpected parentheses around single function argument  arrow-parens
   158:64  error  Unexpected parentheses around single function argument  arrow-parens
 
+/home/travis/build/Talend/ui/packages/containers/src/List/selector.js
+   63:4   error  Unexpected trailing comma  comma-dangle
+  102:4   error  Unexpected trailing comma  comma-dangle
+  107:17  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.connect.js
+  31:16  error  Unexpected trailing comma  comma-dangle
+
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   12:90  error  'notifications' is missing in props validation  react/prop-types
+  21:16  error  Unexpected trailing comma                       comma-dangle
+
+/home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.container.js
+  88:62  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.test.js
+  42:71  error  Unexpected trailing comma  comma-dangle
+  67:71  error  Unexpected trailing comma  comma-dangle
+  75:88  error  Unexpected trailing comma  comma-dangle
+  84:91  error  Unexpected trailing comma  comma-dangle
+  99:5   error  Unexpected trailing comma  comma-dangle
 
 /home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.test.js
   12:18  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
@@ -26,9 +84,15 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/renderers.js
   5:33  error  Unexpected parentheses around single function argument  arrow-parens
 
+/home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.test.js
+  35:15  error  Unexpected trailing comma  comma-dangle
+
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1   error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   9:42  error  Unexpected parentheses around single function argument                              arrow-parens
 
-✖ 12 problems (11 errors, 1 warning)
+/home/travis/build/Talend/ui/packages/containers/src/state.js
+  18:49  error  Unexpected trailing comma  comma-dangle
+
+✖ 50 problems (49 errors, 1 warning)
 

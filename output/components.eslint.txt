@@ -4,6 +4,11 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/components/src/ActionBar/ActionBar.component.js
+   33:31  error  Unexpected trailing comma  comma-dangle
+   56:4   error  Unexpected trailing comma  comma-dangle
+  137:18  error  Unexpected trailing comma  comma-dangle
+
 /home/travis/build/Talend/ui/packages/components/src/Actions/ActionButton/ActionButton.test.js
   2:8  error  'renderer' is defined but never used  no-unused-vars
 
@@ -11,19 +16,164 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/AppHeaderBar.component.js
+   82:48  error  Unexpected trailing comma  comma-dangle
+  112:5   error  Unexpected trailing comma  comma-dangle
+  142:45  error  Unexpected trailing comma  comma-dangle
+  171:39  error  Unexpected trailing comma  comma-dangle
+  174:40  error  Unexpected trailing comma  comma-dangle
+  227:43  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/Badge/Badge.component.js
+  49:12  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/Breadcrumbs/Breadcrumbs.component.js
+   39:6  error  Unexpected trailing comma  comma-dangle
+  111:5  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/CircularProgress/CircularProgress.component.js
+  45:4  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/ConfirmDialog/ConfirmDialog.component.js
+  55:49  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/ConfirmDialog/ConfirmDialog.test.js
+   32:34  error  Unexpected trailing comma  comma-dangle
+  157:20  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/Enumeration/Items/Item/ItemEdit.component.js
+  130:56  error  Unexpected trailing comma  comma-dangle
+
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
+   23:18  error  Unexpected trailing comma  comma-dangle
+   87:13  error  Unexpected trailing comma  comma-dangle
+  123:18  error  Unexpected trailing comma  comma-dangle
+  205:24  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/Icon/Icon.component.js
+  58:29  error  Unexpected trailing comma  comma-dangle
+  75:29  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/IconsProvider/IconsProvider.component.js
+  18:8  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/Layout/Layout.component.js
+  33:15  error  Unexpected trailing comma  comma-dangle
+  37:15  error  Unexpected trailing comma  comma-dangle
+  41:15  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/Layout/OneColumn/OneColumn.component.js
+  17:13  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/Layout/TwoColumns/TwoColumns.component.js
+  17:18  error  Unexpected trailing comma  comma-dangle
+  21:17  error  Unexpected trailing comma  comma-dangle
+  25:13  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/List/Content/Item/Item.component.js
+  132:71  error  Unexpected trailing comma  comma-dangle
+  177:5   error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/List/DisplayLarge/DisplayLarge.component.js
+   43:64  error  Unexpected trailing comma  comma-dangle
+  171:7   error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/List/DisplayTable/DisplayTable.component.js
+  69:64  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/List/DisplayTile/DisplayTile.component.js
+  63:64  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/List/ListToVirtualizedList/ListToVirtualizedList.test.js
+  110:86  error  Unexpected trailing comma  comma-dangle
+  113:85  error  Unexpected trailing comma  comma-dangle
+  126:96  error  Unexpected trailing comma  comma-dangle
+  140:67  error  Unexpected trailing comma  comma-dangle
+  155:65  error  Unexpected trailing comma  comma-dangle
+  170:67  error  Unexpected trailing comma  comma-dangle
+  184:65  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Filter/Filter.component.js
+  125:35  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/SelectSortBy/SelectSortBy.component.js
+  84:5  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/ListView/Items/Items.component.js
+  12:18  error  Unexpected trailing comma  comma-dangle
+  19:22  error  Unexpected trailing comma  comma-dangle
+  28:22  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/Notification/Notification.component.js
+  62:29  error  Unexpected trailing comma  comma-dangle
+  77:38  error  Unexpected trailing comma  comma-dangle
+
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
   48:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/List/List.component.js
+  30:19  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/ObjectViewer/Table/Table.component.js
+  32:23  error  Unexpected trailing comma  comma-dangle
+  73:51  error  Unexpected trailing comma  comma-dangle
 
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.component.js
+  38:23  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/Status/Status.component.js
+  78:46  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/TabBar/TabBar.component.js
+  47:5  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.js
+   56:19  error  Unexpected trailing comma  comma-dangle
+  167:8   error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/Typeahead/Typeahead.component.renderers.js
+  84:8  error  Unexpected trailing comma  comma-dangle
+  87:5  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellActions/CellActions.component.js
+  20:39  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellBadge/CellBadge.test.js
+  16:6  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListTable/ListTable.test.js
+  17:16  error  Unexpected trailing comma  comma-dangle
+  32:16  error  Unexpected trailing comma  comma-dangle
+  54:16  error  Unexpected trailing comma  comma-dangle
+  76:16  error  Unexpected trailing comma  comma-dangle
+  96:16  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RendererSelector.component.js
+  21:49  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RendererSelector.test.js
+  41:23  error  Unexpected trailing comma  comma-dangle
+  66:23  error  Unexpected trailing comma  comma-dangle
+  89:23  error  Unexpected trailing comma  comma-dangle
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 9 problems (9 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowSelection/RowSelection.component.js
+  23:16  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/VirtualizedList.test.js
+  39:22  error  Unexpected trailing comma  comma-dangle
+  64:22  error  Unexpected trailing comma  comma-dangle
+  94:22  error  Unexpected trailing comma  comma-dangle
+
+✖ 85 problems (85 errors, 0 warnings)
 
