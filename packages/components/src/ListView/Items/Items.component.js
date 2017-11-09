@@ -81,8 +81,8 @@ class Items extends React.PureComponent {
 	}
 
 	renderToggleAll() {
-		const { toggleAllLabel, toggleAllChecked, onToggleAll } = this.props;
-		const toggleAllId = 'tc-listview-toggle-all';
+		const { id, toggleAllLabel, toggleAllChecked, onToggleAll } = this.props;
+		const toggleAllId = `${id || 'tc-listview'}-toggle-all`;
 		return (
 			<div className="checkbox">
 				<label htmlFor={toggleAllId}>
@@ -99,13 +99,16 @@ class Items extends React.PureComponent {
 	}
 
 	renderItem(item, index) {
-		const computedIndex = this.hasToggleAll ? index + 1 : index;
-		// affecting index to the item
+		let computedId;
+		if (this.props.id) {
+			const computedIndex = this.hasToggleAll ? index + 1 : index;
+			computedId = `${this.props.id}-${computedIndex}-item`;
+		}
 
 		return (
 			<Item
-				key={`${computedIndex}-item`}
-				id={`${computedIndex}-item`}
+				key={computedId}
+				id={computedId}
 				item={item}
 				searchCriteria={this.props.searchCriteria}
 			/>
@@ -139,16 +142,14 @@ class Items extends React.PureComponent {
 }
 
 Items.propTypes = {
+	id: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.shape({
 		label: PropTypes.string,
 		onChange: PropTypes.func,
 		checked: PropTypes.bool,
 		index: PropTypes.number,
 	})),
-	getItemHeight: PropTypes.oneOfType([
-		PropTypes.func,
-		PropTypes.number,
-	]),
+	getItemHeight: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,
 	toggleAllLabel: PropTypes.string,
