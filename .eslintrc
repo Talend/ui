@@ -18,7 +18,14 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "react/jsx-indent": ["error", "tab"],
     "react/jsx-indent-props": ["error", "tab"],
-    "react/no-unused-prop-types": [2, { "skipShapeProps": true }]
+    "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "never"
+    }]
   },
   "env": {
     "es6": true,

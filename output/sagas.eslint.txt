@@ -3,3 +3,11 @@
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/sagas/src/pending/pending.test.js
+  22:57  error  Unexpected trailing comma  comma-dangle
+  43:65  error  Unexpected trailing comma  comma-dangle
+  52:65  error  Unexpected trailing comma  comma-dangle
+
+✖ 3 problems (3 errors, 0 warnings)
+

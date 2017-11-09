@@ -4,15 +4,51 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/cmf/src/action.js
+  95:70  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
+   75:77  error  Unexpected trailing comma  comma-dangle
+   89:40  error  Unexpected trailing comma  comma-dangle
+   98:40  error  Unexpected trailing comma  comma-dangle
+  129:15  error  Unexpected trailing comma  comma-dangle
+  155:39  error  Unexpected trailing comma  comma-dangle
+  290:15  error  Unexpected trailing comma  comma-dangle
+
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
-  86:3  warning  Unexpected console statement  no-console
+  59:55  error    Unexpected trailing comma     comma-dangle
+  86:3   warning  Unexpected console statement  no-console
+
+/home/travis/build/Talend/ui/packages/cmf/src/expression.js
+  95:31  error  Unexpected trailing comma  comma-dangle
 
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   23:2  warning  Unexpected console statement  no-console
+
+/home/travis/build/Talend/ui/packages/cmf/src/middlewares/error/index.js
+  23:7  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/cmf/src/middlewares/http/middleware.js
+  51:9  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/cmf/src/reducers/collectionsReducers.js
+  157:78  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/cmf/src/reducers/settingsReducers.js
+  73:37  error  Unexpected trailing comma  comma-dangle
+  82:20  error  Unexpected trailing comma  comma-dangle
+
+/home/travis/build/Talend/ui/packages/cmf/src/route.js
+  20:77  error  Unexpected trailing comma  comma-dangle
+  25:75  error  Unexpected trailing comma  comma-dangle
 
 /home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
   153:54  error  There should be no spaces inside this paren  space-in-parens
   166:51  error  There should be no spaces inside this paren  space-in-parens
 
-✖ 4 problems (2 errors, 2 warnings)
+/home/travis/build/Talend/ui/packages/cmf/src/store.js
+   58:9   error  Unexpected trailing comma  comma-dangle
+  134:17  error  Unexpected trailing comma  comma-dangle
+
+✖ 22 problems (20 errors, 2 warnings)
 

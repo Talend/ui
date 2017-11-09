@@ -4,10 +4,19 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/logging/src/transport.js
-  34:3  warning  Unexpected console statement  no-console
-  40:3  warning  Unexpected console statement  no-console
-  46:3  warning  Unexpected console statement  no-console
+/home/travis/build/Talend/ui/packages/logging/src/errorTransformer.test.js
+   24:28  error  Unexpected trailing comma  comma-dangle
+   38:28  error  Unexpected trailing comma  comma-dangle
+   48:28  error  Unexpected trailing comma  comma-dangle
+   62:28  error  Unexpected trailing comma  comma-dangle
+  101:27  error  Unexpected trailing comma  comma-dangle
 
-✖ 3 problems (0 errors, 3 warnings)
+/home/travis/build/Talend/ui/packages/logging/src/transport.js
+  34:3   warning  Unexpected console statement  no-console
+  40:3   warning  Unexpected console statement  no-console
+  42:63  error    Unexpected trailing comma     comma-dangle
+  46:3   warning  Unexpected console statement  no-console
+  59:4   error    Unexpected trailing comma     comma-dangle
+
+✖ 10 problems (7 errors, 3 warnings)
 
