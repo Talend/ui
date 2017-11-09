@@ -15,7 +15,7 @@ function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function createCommonProps() {
+function createCommonProps(tab) {
 	return {
 		autocomplete: 'off',
 		// onBlur: action('Blur'),
@@ -24,7 +24,7 @@ function createCommonProps() {
 			return value.length >= 5 &&
 				'Custom validation : The value should be less than 5 chars';
 		},
-		formName: 'my-form',
+		formName: `my-form-${tab}`,
 		onChange: action('Change'),
 		onTrigger(event, payload) {
 			action('Trigger')(event, payload);
@@ -43,7 +43,6 @@ function createStory(category, sampleFilenames, filename) {
 	const sampleNameMatches = filename.match(sampleFilenameRegex);
 	const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 	const name = capitalizeFirstLetter(sampleName);
-	const props = createCommonProps();
 
 	return {
 		category,
@@ -60,7 +59,7 @@ function createStory(category, sampleFilenames, filename) {
 							title={'State'}
 						>
 							<UIForm
-								{...props}
+								{...createCommonProps('state')}
 								data={object(name, sampleFilenames(filename))}
 							/>
 						</Tab>
@@ -70,7 +69,7 @@ function createStory(category, sampleFilenames, filename) {
 							title={'Redux'}
 						>
 							<ConnectedUIForm
-								{...props}
+								{...createCommonProps('redux')}
 								data={object(name, sampleFilenames(filename))}
 							/>
 						</Tab>

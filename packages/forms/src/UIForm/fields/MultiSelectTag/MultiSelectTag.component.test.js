@@ -70,7 +70,7 @@ describe('MultiSelectTag field', () => {
 		expect(wrapper.find(Typeahead).props().items).toEqual(['az (new)']);
 	});
 
-	it('should NOT suggestion new item creation when widget is restricted', () => {
+	it('should NOT suggest new item creation when widget is restricted', () => {
 		// given
 		const restrictedSchema = { ...props.schema, restricted: true };
 		const wrapper = mount(<MultiSelectTag {...props} schema={restrictedSchema} />);
