@@ -2,6 +2,7 @@ import has from 'lodash/has';
 import get from 'lodash/get';
 import merge from 'lodash/merge';
 import flow from 'lodash/flow';
+import curry from 'lodash/curry';
 import { HTTP_METHODS, HTTP_REQUEST, HTTP_RESPONSE, HTTP_ERRORS } from './constants';
 
 /**
@@ -146,6 +147,10 @@ export function getCookie() {
 
 const cookieElementRegexp = /(.*)=(.*)/gi;
 
+/**
+ * @param {string} cookie
+ * @returns {Map.<string, string>}
+ */
 export function parseCookie(cookie) {
 	const cookieValue = cookie.split(';').reduce((map, line) => {
 		const match = cookieElementRegexp.exec(line.trim());
@@ -157,6 +162,9 @@ export function parseCookie(cookie) {
 	return cookieValue;
 }
 
+/**
+ * @param {Map.<string, string>} cookieValues
+ */
 export function getCSRFTokenValue(cookieValues) {
 	if (cookieValues instanceof Map) {
 		return cookieValues.get('csrfToken');
@@ -164,14 +172,17 @@ export function getCSRFTokenValue(cookieValues) {
 	return undefined;
 }
 
-export function mergeConfig(config) {
-	return csrfToken => {
-		if (csrfToken) {
-			return merge({}, config, { headers: { 'X-CSRF-Token': csrfToken } });
-		}
-		return config;
-	};
-}
+/**
+ * @param {Object} config
+ * @param {string} csrfToken
+ * @return {function}
+ */
+export const mergeConfig = curry((config, csrfToken) => {
+	if (csrfToken) {
+		return merge({}, config, { headers: { 'X-CSRF-Token': csrfToken } });
+	}
+	return config;
+});
 
 /**
  * if a CSRF token is found in csrfToken cookie, merge it in the headers
@@ -290,7 +301,7 @@ export const httpMiddleware = ({ dispatch }) => next => action => {
 		return next(action);
 	}
 	const httpAction = get(action, 'cmf.http', action);
-	const config = mergeOptions(httpAction);
+	const config = mergeCSRFToken(mergeOptions(httpAction));
 	dispatch(httpRequest(httpAction.url, config));
 	if (httpAction.onSend) {
 		dispatch({
