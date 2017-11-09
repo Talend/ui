@@ -44,12 +44,14 @@ function RendererSelector(props) {
 		type,
 		width,
 		disableHeader,
+		t,
 	} = props;
 
 	if (type === TABLE) {
 		return (
 			<ListTable
 				collection={collection}
+				disableHeader={disableHeader}
 				height={height}
 				id={id}
 				isActive={isActive}
@@ -59,8 +61,9 @@ function RendererSelector(props) {
 				sort={sort}
 				sortBy={sortBy}
 				sortDirection={sortDirection}
-				disableHeader={disableHeader}
+				rowHeight={rowHeight}
 				width={width}
+				t={t}
 			>
 				{children}
 			</ListTable>
@@ -78,6 +81,7 @@ function RendererSelector(props) {
 			rowRenderer={getRowRenderer(type)}
 			selectionToggle={selectionToggle}
 			width={width}
+			t={t}
 		>
 			{children}
 		</ListGrid>

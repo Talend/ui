@@ -7,7 +7,9 @@ exports[`ListGrid should render no-rows component 1`] = `
   height={600}
   id="my-list"
   isSelected={[Function]}
+  rowHeight={50}
   selectionToggle={[Function]}
+  t={[Function]}
   width={1024}
 >
   <Table
@@ -162,9 +164,15 @@ exports[`ListGrid should render no-rows component 1`] = `
           }
           tabIndex={0}
         >
-          <p>
-            No result found
-          </p>
+          <NoRows
+            t={[Function]}
+          >
+            <span
+              aria-live="polite"
+              className="no-result"
+              role="status"
+            />
+          </NoRows>
         </div>
       </Grid>
     </div>

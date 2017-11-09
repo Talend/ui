@@ -3,7 +3,7 @@ import React from 'react';
 
 const REQUIRED_FIELD_SYMBOL = '*';
 
-const Label = (props) => {
+const Label = props => {
 	const { label, required, id, ...rest } = props;
 	if (!label) {
 		// Ensure compatibility with old versions of React.
