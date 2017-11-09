@@ -1,7 +1,7 @@
 /**
- *
+ * This module expose Dispatcher component.
  * @module react-cmf/lib/Dispatcher
- *
+ * @see module:react-cmf/lib/action
  */
 import PropTypes from 'prop-types';
 
@@ -14,10 +14,10 @@ import api from './api';
  * @param {object} props component props
  * @param {object} context app context, containing redux store ref
  *
- * @throws
+ * @throws invariant
  */
 export function checkIfActionInfoExist(props, context) {
-	api.action.getOnProps(props).forEach((name) => {
+	api.action.getOnProps(props).forEach(name => {
 		if (typeof props[name] === 'string') {
 			api.action.getActionCreatorFunction(context, props[name]);
 		}
@@ -93,18 +93,14 @@ export class Dispatcher extends React.Component {
 	 */
 	render() {
 		const onProps = api.action.getOnProps(this.props);
-		const childrenWithProps = React.Children.map(
-			this.props.children,
-			(child) => {
-				const props = {};
-				onProps.forEach((name) => {
-					props[name] = event => this.onEvent(event, name);
-				});
-				return React.cloneElement(child, props);
-			}
-		);
-		const child = React.Children.only(childrenWithProps[0]);
-		return (child);
+		const childrenWithProps = React.Children.map(this.props.children, child => {
+			const props = {};
+			onProps.forEach(name => {
+				props[name] = event => this.onEvent(event, name);
+			});
+			return React.cloneElement(child, props);
+		});
+		return React.Children.only(childrenWithProps[0]);
 	}
 }
 
@@ -118,7 +114,7 @@ const ConnectedDispatcher = cmfConnect({})(Dispatcher);
  * This component purpose is to decorate any component and map an user event
  * to an action to be dispatched
  * @example
-<Dispatcher onClick='actionCreator:identifier' onDrag='actionCreator:anotherid'>
+<Dispatcher onClick="actionCreator:identifier" onDrag="actionCreator:anotherid">
 	<ChildrenElement />
 </Dispatcher>
  */

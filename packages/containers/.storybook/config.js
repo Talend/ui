@@ -3,7 +3,7 @@ import { action, storiesOf, configure, setAddon } from '@storybook/react';
 import cmf from 'react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
-
+import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 
 import examples from '../examples';
@@ -37,16 +37,49 @@ function confirmDialog(event, data) {
 	};
 }
 
+function chooseItem1() {
+	return {
+		type: 'CHOOSE_ITEM1',
+	};
+}
+
+function chooseItem2() {
+	return {
+		type: 'CHOOSE_ITEM2',
+	};
+}
+
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
 registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
+registerActionCreator('item1:action', chooseItem1);
+registerActionCreator('item2:action', chooseItem2);
 
 const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
 	isTrueExpressionAction(context, first);
 	return !!first;
 });
+
+api.expression.register('getItems', () => [
+	{
+		id: {
+			actionCreator: 'item1:action',
+			property: 'item1',
+		},
+		label: 'label1',
+		actionCreator: 'item1:action',
+	},
+	{
+		id: {
+			actionCreator: 'item2:action',
+			property: 'item2',
+		},
+		label: 'label2',
+		actionCreator: 'item2:action',
+	},
+]);
 
 const modelHasLabelAction = action('modelHasLabel');
 api.expression.register('modelHasLabel', context => {
@@ -57,13 +90,15 @@ api.expression.register('modelHasLabel', context => {
 function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
+		const value = new Map({ id: 'myID', label: 'myLabel' });
+		state.cmf.collections = state.cmf.collections.set('myResourceType', new List([value]));
 		state.cmf.settings.views.appheaderbar = {
 			app: 'Hello Test',
 		};
 		state.cmf.settings.views['HeaderBar#default'] = {
 			logo: { name: 'appheaderbar:logo', isFull: true },
-			brand: { name: 'DATA STREAMS'},
-			notification: { name: 'appheaderbar:notification'}
+			brand: { label: 'DATA STREAMS' },
+			notification: { name: 'appheaderbar:notification' },
 		};
 		const actions = state.cmf.settings.actions;
 		actions['appheaderbar:logo'] = {
@@ -93,12 +128,28 @@ function loadStories() {
 				type: 'MENU_',
 			},
 		};
+		actions['menu:fourth'] = {
+			label: 'Upload',
+			icon: 'talend-upload',
+			displayMode: 'file',
+			payload: {
+				type: 'UPLOAD',
+			},
+		};
 		actions['object:add'] = {
 			label: 'Add',
 			icon: 'talend-plus-circle',
 			bsStyle: 'primary',
 			payload: {
 				type: 'APP_OBJECT_ADD',
+			},
+		};
+		actions['object:upload'] = {
+			label: 'Upload',
+			icon: 'talend-upload',
+			displayMode: 'file',
+			payload: {
+				type: 'UPLOAD',
 			},
 		};
 		actions['object:edit'] = {
@@ -124,6 +175,29 @@ function loadStories() {
 		actions['object:hide:dialog'] = {
 			label: 'Cancel',
 			id: 'object:hide:dialog',
+			actionCreator: 'cancel:hide:dialog',
+		};
+		actions['menu:items'] = {
+			id: 'menu:items',
+			displayMode: 'dropdown',
+			label: 'my items',
+			itemsExpression: 'getItems',
+		};
+		actions['menu:items-id'] = {
+			id: 'menu:items',
+			displayMode: 'dropdown',
+			label: 'my items',
+			actionIds: ['menu:first', 'menu:second'],
+		},
+		actions['dialog:delete:validate'] = {
+			id: 'dialog:delete:validate',
+			label: 'Yes',
+			bsStyle: 'danger',
+			actionCreator: 'confirm:dialog',
+		};
+		actions['dialog:delete:cancel'] = {
+			id: 'dialog:delete:cancel',
+			label: 'No',
 			actionCreator: 'cancel:hide:dialog',
 		};
 

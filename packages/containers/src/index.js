@@ -1,5 +1,4 @@
 import {
-	ActionDropdown,
 	Breadcrumbs,
 	CircularProgress,
 	Drawer,
@@ -12,10 +11,13 @@ import {
 } from '@talend/react-components';
 
 import actionAPI from './actionAPI';
-import componentState from './state';
 import Action from './Action';
 import ActionBar from './ActionBar';
+import ActionButton from './ActionButton';
+import ActionFile from './ActionFile';
+import ActionDropdown from './ActionDropdown';
 import Actions from './Actions';
+import ActionSplitDropdown from './ActionSplitDropdown';
 import AppHeaderBar from './AppHeaderBar';
 import ConfirmDialog from './ConfirmDialog';
 import Form from './Form';
@@ -27,19 +29,23 @@ import ObjectViewer from './ObjectViewer';
 import Redirect from './Redirect';
 import ShortcutManager from './ShortcutManager';
 import SidePanel from './SidePanel';
+import DeleteResource from './DeleteResource';
 
 export {
 	actionAPI,
-	componentState,
 	Action,
 	ActionBar,
-	Actions,
+	ActionButton,
+	ActionFile,
 	ActionDropdown,
+	Actions,
+	ActionSplitDropdown,
 	AppHeaderBar,
 	Breadcrumbs,
 	CircularProgress,
 	ConfirmDialog,
 	Drawer,
+	DeleteResource,
 	Form,
 	HeaderBar,
 	HomeListView,
