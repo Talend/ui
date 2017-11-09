@@ -20,7 +20,7 @@ before_install:
   - .travis/before_install.sh
 before_script:
   - sh -e /etc/init.d/xvfb start
-  - yarn global add sassdoc http-server surge
+  - yarn global add sassdoc http-server surge prettier
 script:
   - yarn test:cov
 after_success:
@@ -29,6 +29,7 @@ after_success:
   - .travis/after_success_demo.sh
   - .travis/after_success_coverage.sh
   - .travis/after_success_deploy.sh
+  - .travis/after_success_prettier.sh
   - .travis/after_success_lint.sh
   - .travis/after_success_screenshots.sh
   - .travis/after_success_git.sh
