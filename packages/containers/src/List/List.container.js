@@ -100,6 +100,11 @@ class List extends React.Component {
 			list: {
 				items,
 				columns: get(this.props, 'list.columns', []),
+				sort: {
+					field: state.sortOn,
+					isDescending: !state.sortAsc,
+					onChange: this.onSelectSortBy
+				},
 			},
 			virtualized: this.props.virtualized,
 			renderers: this.props.renderers,
