@@ -84,6 +84,7 @@ function getActions(settings) {
 }
 
 function save(ppath, data) {
+	const withLineEnd = data + '\n';
 	if (!program.quiet) {
 		console.log(`save ${ppath}`);
 	}
@@ -92,7 +93,7 @@ function save(ppath, data) {
 			throw new Error(`error opening file: ${err}`);
 		}
 
-		fs.write(fd, data, 0, data.length, null, (err) => {
+		fs.write(fd, withLineEnd, 0, data.length, null, (err) => {
 			if (err) {
 				throw new Error(`error writing file: ${err}`);
 			}
