@@ -8,4 +8,5 @@ export default {
 	required: PropTypes.bool,
 	nbItems: PropTypes.number,
 	nbItemsSelected: PropTypes.number,
+	t: PropTypes.func,
 };
