@@ -4,7 +4,7 @@ This document aims to ease the WIP migration from a version to another by provid
 
 ## v0.125.0
 * Component: ListView
-* PR: [feat(ListView): i18n](https://github.com/Talend/ui/pull/847)
+* PR: [feat(ListView): i18n](https://github.com/Talend/ui/pull/848)
 * Changes :
 
 | Before | After |
