@@ -2,6 +2,11 @@
 
 exports[`Container(ActionSplitDropdown) should render 1`] = `
 <ActionSplitDropdown
+  actionIds={
+    Array [
+      "menu:items",
+    ]
+  }
   foo="extra"
   items={
     Array [

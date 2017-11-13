@@ -182,13 +182,15 @@ function loadStories() {
 			displayMode: 'dropdown',
 			label: 'my items',
 			itemsExpression: 'getItems',
+			actionCreator: 'object:view',
 		};
 		actions['menu:items-id'] = {
-			id: 'menu:items',
+			id: 'menu:items-id',
 			displayMode: 'dropdown',
 			label: 'my items',
 			actionIds: ['menu:first', 'menu:second'],
-		},
+			actionCreator: 'object:view',
+		};
 		actions['dialog:delete:validate'] = {
 			id: 'dialog:delete:validate',
 			label: 'Yes',

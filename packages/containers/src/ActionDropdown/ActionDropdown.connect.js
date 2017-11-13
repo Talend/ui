@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { api, cmfConnect } from '@talend/react-cmf';
 import { ActionDropdown } from '@talend/react-components';
 
-export function mapStateToProps(state, { actionId } = {}) {
+export function mapStateToProps(state, { actionId, actionIds } = {}) {
 	let props = {};
 	const context = {
 		registry: api.registry.getRegistry(),
@@ -13,6 +13,9 @@ export function mapStateToProps(state, { actionId } = {}) {
 	};
 	if (actionId) {
 		props = api.action.getActionInfo(context, actionId);
+	}
+	if (actionIds) {
+		props.actionIds = actionIds;
 	}
 	if (props.actionIds) {
 		props.items = props.actionIds.map(itemId => api.action.getActionInfo(context, itemId));
@@ -30,8 +33,9 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 
 export function ContainerActionDropdown(props) {
 	const newProps = Object.assign({}, props);
-	if (props.actionIds) {
-		newProps.items = props.items.map(item => Object.assign({
+
+	if (newProps.items) {
+		newProps.items = props.items.map(item => ({
 			onClick: (event, data) => {
 				if (item.actionCreator) {
 					props.dispatchActionCreator(item.actionCreator, event, data);
@@ -46,8 +50,10 @@ export function ContainerActionDropdown(props) {
 					);
 				}
 			},
-		}, item));
+			...item,
+		}));
 	}
+
 	return <ActionDropdown {...newProps} />;
 }
 

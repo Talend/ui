@@ -15,7 +15,10 @@ export function mapStateToProps(state, { actionId, actionIds } = {}) {
 		props = api.action.getActionInfo(context, actionId);
 	}
 	if (actionIds) {
-		props.items = actionIds.map(itemId => api.action.getActionInfo(context, itemId));
+		props.actionIds = actionIds;
+	}
+	if (props.actionIds) {
+		props.items = props.actionIds.map(itemId => api.action.getActionInfo(context, itemId));
 	}
 	return props;
 }
@@ -44,30 +47,27 @@ export function ContainerActionSplitDropdown(props) {
 		};
 		delete newProps.actionId;
 	}
-	if (props.actionIds) {
-		newProps.items = props.items.map(item =>
-			Object.assign(
-				{
-					onClick: (event, data) => {
-						if (item.actionCreator) {
-							props.dispatchActionCreator(item.actionCreator, event, data);
-						} else {
-							props.dispatch(
-								Object.assign(
-									{
-										model: props.model,
-									},
-									item.payload,
-								),
-							);
-						}
-					},
-				},
-				item,
-			),
-		);
+
+	if (newProps.items) {
+		newProps.items = props.items.map(item => ({
+			onClick: (event, data) => {
+				if (item.actionCreator) {
+					props.dispatchActionCreator(item.actionCreator, event, data);
+				} else {
+					props.dispatch(
+						Object.assign(
+							{
+								model: props.model,
+							},
+							item.payload,
+						),
+					);
+				}
+			},
+			...item,
+		}));
 	}
-	delete newProps.actionIds;
+
 	return <ActionSplitDropdown {...newProps} />;
 }
 
