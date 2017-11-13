@@ -41,8 +41,6 @@ export function ContainerActionDropdown(props) {
 			...getOnClick(item, props),
 			...item,
 		}));
-
-		delete newProps.actionIds;
 	}
 
 	return <ActionDropdown {...newProps} />;

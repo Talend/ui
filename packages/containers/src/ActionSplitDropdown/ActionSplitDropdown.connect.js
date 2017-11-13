@@ -37,7 +37,6 @@ export function ContainerActionSplitDropdown(props) {
 			...getOnClick(newProps, props),
 			...newProps,
 		};
-		delete newProps.actionId;
 	}
 
 	if (newProps.items) {
@@ -45,8 +44,6 @@ export function ContainerActionSplitDropdown(props) {
 			...getOnClick(item, props),
 			...item,
 		}));
-
-		delete newProps.actionIds;
 	}
 
 	return <ActionSplitDropdown {...newProps} />;

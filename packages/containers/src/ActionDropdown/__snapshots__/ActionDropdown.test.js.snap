@@ -2,6 +2,11 @@
 
 exports[`Container(ActionDropdown) should render 1`] = `
 <ActionDropdown
+  actionIds={
+    Array [
+      "menu:article",
+    ]
+  }
   bsStyle="default"
   foo="extra"
   items={
