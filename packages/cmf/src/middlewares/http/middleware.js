@@ -1,7 +1,7 @@
 import has from 'lodash/has';
 import get from 'lodash/get';
 import { mergeCSRFToken } from './csrfHandling';
-import { HTTP_METHODS, HTTP_REQUEST, HTTP_RESPONSE, HTTP_ERRORS } from './constants';
+import { HTTP_METHODS, ACTION_TYPE_HTTP_REQUEST, ACTION_TYPE_HTTP_RESPONSE, ACTION_TYPE_HTTP_ERRORS, HTTP_STATUS, testHTTPCode } from './constants';
 
 /**
  * @typedef {Object} Action
@@ -99,7 +99,7 @@ export function getMethod(action) {
 
 export function httpRequest(url, config) {
 	return {
-		type: HTTP_REQUEST,
+		type: ACTION_TYPE_HTTP_REQUEST,
 		url,
 		config,
 	};
@@ -112,14 +112,14 @@ export function httpRequest(url, config) {
  */
 export function httpError(error) {
 	return {
-		type: HTTP_ERRORS,
+		type: ACTION_TYPE_HTTP_ERRORS,
 		error,
 	};
 }
 
 export function httpResponse(response) {
 	return {
-		type: HTTP_RESPONSE,
+		type: ACTION_TYPE_HTTP_RESPONSE,
 		data: response,
 	};
 }
@@ -233,14 +233,14 @@ function configureHttpErrorCallBack(dispatch, httpAction) {
 }
 
 export function status(response) {
-	if (response.status >= 200 && response.status < 300) {
+	if (testHTTPCode.isSuccess(response.status)) {
 		return Promise.resolve(response);
 	}
 	return Promise.reject(new HTTPError(response));
 }
 
 export function handleResponse(response) {
-	if (response.status === 204) {
+	if (response.status === HTTP_STATUS.NO_CONTENT) {
 		return Promise.resolve({});
 	}
 	if (response.json) {
@@ -250,7 +250,7 @@ export function handleResponse(response) {
 }
 
 /**
- * @param {Config} middlewareDefaultConfig 
+ * @param {Config} middlewareDefaultConfig
  */
 export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
 	dispatch,
