@@ -62,12 +62,19 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 					/>
 				</li>
 				{actions.map(action => {
-					const isSelected = isActionSelected(action);
 					const a11y = {};
+					const extra = {};
+					const isSelected = isActionSelected(action);
+					const actionId =
+						action.id ||
+						action.label
+							.toLowerCase()
+							.split(' ')
+							.join('-');
+
 					if (isSelected) {
 						a11y['aria-current'] = true;
 					}
-					const extra = {};
 					if (onSelect) {
 						extra.onClick = event => {
 							onSelect(event, action);
@@ -76,18 +83,19 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 							}
 						};
 					}
-					const actionProps = Object.assign({}, action, {
-						active: undefined, // active scope is only the list item
-						id:
-							id &&
-							`${id}-nav-${action.label
-								.toLowerCase()
-								.split(' ')
-								.join('-')}`,
-						bsStyle: 'link',
-						role: 'link',
-						className: classNames(theme.link, action.className),
-					}, extra);
+
+					const actionProps = Object.assign(
+						{},
+						action,
+						{
+							active: undefined, // active scope is only the list item
+							id: id && `${id}-nav-${actionId}`,
+							bsStyle: 'link',
+							role: 'link',
+							className: classNames(theme.link, action.className),
+						},
+						extra,
+					);
 					return (
 						<li
 							title={action.label}
@@ -113,6 +121,7 @@ SidePanel.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	const actionPropType = PropTypes.shape({
+		id: PropTypes.string,
 		active: PropTypes.bool,
 		icon: PropTypes.string,
 		key: PropTypes.string,
