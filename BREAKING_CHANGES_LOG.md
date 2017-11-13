@@ -2,6 +2,19 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.125.0
+* CMF: HTTP middleware
+* PR [feat(cmf/http): CSRFToken support](https://github.com/Talend/ui/pull/843)
+* Changes:
+
+Some constant from CMF/middlewares/http/constants are renamed
+
+| Before | After |
+|---|---|
+| HTTP_REQUEST | ACTION_TYPE_HTTP_REQUEST |
+| HTTP_RESPONSE | ACTION_TYPE_HTTP_RESPONSE |
+| HTTP_ERRORS | ACTION_TYPE_HTTP_ERRORS |
+
 ## v0.121.0
 * Component: SidePanel
 * PR: [feat(SidePanel): i18n](https://github.com/Talend/ui/pull/818)
