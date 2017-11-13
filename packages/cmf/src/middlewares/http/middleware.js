@@ -1,8 +1,6 @@
 import has from 'lodash/has';
 import get from 'lodash/get';
-import merge from 'lodash/merge';
-import flow from 'lodash/flow';
-import curry from 'lodash/curry';
+import { mergeCSRFToken } from './csrfHandling';
 import { HTTP_METHODS, HTTP_REQUEST, HTTP_RESPONSE, HTTP_ERRORS } from './constants';
 
 /**
@@ -62,6 +60,17 @@ import { HTTP_METHODS, HTTP_REQUEST, HTTP_RESPONSE, HTTP_ERRORS } from './consta
  * @property {onResponse | string} onResponse
  * @property {string} onSend - a redux action type
  */
+
+/**
+ * @typedef {Object} Security
+ * @property {String} CSRFTokenCookieKey - on wich value the token should be found in the cookie
+ * @property {String} CSRFTokenHeaderKey - on wich header key the token should be sent
+ */
+
+ /**
+  * @typedef {Object} Config
+  * @property {Security} security
+  */
 
 export const DEFAULT_HTTP_HEADERS = {
 	Accept: 'application/json',
@@ -136,62 +145,6 @@ export function mergeOptions(action) {
 
 	delete options.type;
 	return options;
-}
-
-export function getCookie() {
-	if (document.cookie) {
-		return document.cookie;
-	}
-	return '';
-}
-
-const cookieElementRegexp = /(.*)=(.*)/gi;
-
-/**
- * @param {string} cookie
- * @returns {Map.<string, string>}
- */
-export function parseCookie(cookie) {
-	const cookieValue = cookie.split(';').reduce((map, line) => {
-		const match = cookieElementRegexp.exec(line.trim());
-		if (match && match[1] && match[2]) {
-			return map.set(match[1], match[2]);
-		}
-		return map;
-	}, new Map());
-	return cookieValue;
-}
-
-/**
- * @param {Map.<string, string>} cookieValues
- */
-export function getCSRFTokenValue(cookieValues) {
-	if (cookieValues instanceof Map) {
-		return cookieValues.get('csrfToken');
-	}
-	return undefined;
-}
-
-/**
- * @param {Object} config
- * @param {string} csrfToken
- * @return {function}
- */
-export const mergeConfig = curry((config, csrfToken) => {
-	if (csrfToken) {
-		return merge({}, config, { headers: { 'X-CSRF-Token': csrfToken } });
-	}
-	return config;
-});
-
-/**
- * if a CSRF token is found in csrfToken cookie, merge it in the headers
- * under key X-CSRF-Token
- * @param {HTTPConfig} config
- * @return {HTTPConfig}
- */
-export function mergeCSRFToken(config) {
-	return flow([getCookie, parseCookie, getCSRFTokenValue, mergeConfig(config)])();
 }
 
 /**
@@ -296,12 +249,17 @@ export function handleResponse(response) {
 	return Promise.reject(new HTTPError(response));
 }
 
-export const httpMiddleware = ({ dispatch }) => next => action => {
+/**
+ * @param {Config} middlewareDefaultConfig 
+ */
+export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
+	dispatch,
+}) => next => action => {
 	if (!isHTTPRequest(action)) {
 		return next(action);
 	}
 	const httpAction = get(action, 'cmf.http', action);
-	const config = mergeCSRFToken(mergeOptions(httpAction));
+	const config = mergeCSRFToken(middlewareDefaultConfig, mergeOptions(httpAction));
 	dispatch(httpRequest(httpAction.url, config));
 	if (httpAction.onSend) {
 		dispatch({

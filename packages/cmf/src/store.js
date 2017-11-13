@@ -19,7 +19,7 @@ import cmfMiddleware from './middlewares/cmf';
 
 const preReducers = [];
 const enhancers = [];
-const middlewares = [thunk, httpMiddleware, cmfMiddleware];
+const middlewares = [thunk, cmfMiddleware];
 
 if (window) {
 	if (window.devToolsExtension) {
@@ -29,6 +29,7 @@ if (window) {
 
 // Indicated wether or not the default router was overwritten
 let defaultRouterOverwrite = false;
+let defaultHttpMiddlewareOverwrite = false;
 
 /**
  * setRouterMiddleware overwrites the default router middleware
@@ -38,6 +39,16 @@ let defaultRouterOverwrite = false;
 function setRouterMiddleware(middleware) {
 	middlewares.push(middleware);
 	defaultRouterOverwrite = true;
+}
+
+/**
+ * setHttpMiddleware overwrites the default router middleware
+ *
+ * @param middleware a router middleware
+ */
+function setHttpMiddleware(middleware) {
+	middlewares.push(middleware);
+	defaultHttpMiddlewareOverwrite = true;
 }
 
 function addPreReducer(reducers) {
@@ -104,6 +115,9 @@ function getMiddlewares(middleware) {
 	}
 	if (!defaultRouterOverwrite) {
 		setRouterMiddleware(routerMiddleware(hashHistory));
+	}
+	if (!defaultHttpMiddlewareOverwrite) {
+		setHttpMiddleware(httpMiddleware());
 	}
 	return middlewares;
 }

@@ -12,7 +12,6 @@ import {
 	HTTPError,
 	status,
 	handleResponse,
-	mergeCSRFToken,
 } from '../../src/middlewares/http/middleware';
 import http from '../../src/middlewares/http';
 import {
@@ -23,6 +22,10 @@ import {
 } from '../../src/middlewares/http/constants';
 
 describe('CMF http middleware', () => {
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
+
 	it('should be available from middlewares/http', () => {
 		expect(http).toBe(httpMiddleware);
 	});
@@ -172,7 +175,7 @@ describe('CMF http middleware', () => {
 				json,
 			},
 		};
-		const middleware = httpMiddleware(store)(next);
+		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
 		const config = {
@@ -224,7 +227,7 @@ describe('CMF http middleware', () => {
 				json,
 			},
 		};
-		const middleware = httpMiddleware(store)(next);
+		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
 		const config = {
@@ -243,7 +246,7 @@ describe('CMF http middleware', () => {
 			url: 'foo',
 		};
 
-		expect(global.fetch.mock.calls[1]).toEqual(['foo', config]);
+		expect(global.fetch.mock.calls[0]).toEqual(['foo', config]);
 
 		newState.then(() => {
 			expect(next.mock.calls.length).toBe(1);
@@ -274,7 +277,7 @@ describe('CMF http middleware', () => {
 				}),
 			},
 		};
-		const middleware = httpMiddleware(store)(next);
+		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
 		newState.then(() => {
@@ -312,7 +315,7 @@ describe('CMF http middleware', () => {
 				}),
 			},
 		};
-		const middleware = httpMiddleware(store)(next);
+		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
 		newState
@@ -353,7 +356,7 @@ describe('CMF http middleware', () => {
 				}),
 			},
 		};
-		const middleware = httpMiddleware(store)(next);
+		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
 		newState.then(() => {
@@ -424,28 +427,158 @@ describe('json function', () => {
 	});
 });
 
-describe('csrf token injection', () => {
+describe('httpMiddleware configuration', () => {
 	beforeEach(() => {
 		delete document.cookie;
+		jest.clearAllMocks();
 	});
 
-	it('if a csrf token is availble on a cookie, inject it as HTTP_X_CSRFTOKEN headers', () => {
-		document.cookie =
-			'csrfToken=hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x; dwf_section_edit=True; dwf_sg_task_completion=False; _ga=GA1.2.973892348.1500561092; _gid=GA1.2.95155632.1510232958';
-		expect(
-			mergeCSRFToken({
-				headers: { stuff: 'stuff' },
-			}),
-		).toEqual({
-			headers: { 'X-CSRF-Token': 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x', stuff: 'stuff' },
+	it('if a security configuration is given, should use its parameter for CSRF handling', done => {
+		// given
+		function json() {
+			return new Promise(resolve => resolve({ foo: 'bar' }));
+		}
+		const httpDefaultConfig = {
+			security: {
+				CSRFTokenCookieKey: 'cookieKey',
+				CSRFTokenHeaderKey: 'headerKey',
+			},
+		};
+
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			url: 'foo',
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			onError: 'CALL_ME_BACK on error',
+			response: {
+				ok: true,
+				status: 200,
+				json,
+			},
+		};
+
+		const expectedBody = '{"label":"great test"}';
+		const expectedCredentials = 'same-origin';
+		const expectedMethod = 'POST';
+		const expectedOnError = 'CALL_ME_BACK on error';
+		const expectedOnResponse = 'CALL_ME_BACK on response';
+		const expectedOnSend = 'CALL_ME_BACK on send';
+		const expectedurl = 'foo';
+		const expectedAccept = 'application/json';
+		const expectedContentType = 'application/json';
+		const expectedCSRFKeyValue = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
+
+		document.cookie = `cookieKey=${expectedCSRFKeyValue}; dwf_section_edit=True;`;
+
+		// when
+		const middleware = httpMiddleware(httpDefaultConfig)(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+
+		// then
+
+		expect(global.fetch.mock.calls[0][0]).toEqual('foo');
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('body', expectedBody);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('credentials', expectedCredentials);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('headers.Accept', expectedAccept);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty(
+			'headers.Content-Type',
+			expectedContentType,
+		);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('headers.headerKey', expectedCSRFKeyValue);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('method', expectedMethod);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('onError', expectedOnError);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('onResponse', expectedOnResponse);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('onSend', expectedOnSend);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('url', expectedurl);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('response.ok', true);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('response.status', 200);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('response.json', json);
+
+		newState.then(() => {
+			expect(next.mock.calls.length).toBe(1);
+			const newAction = next.mock.calls[0][0];
+			expect(newAction.response.foo).toBe('bar');
+			done();
 		});
 	});
 
-	it('if a csrf token is not available on a cookie, do not touch headers', () => {
-		expect(
-			mergeCSRFToken({
-				headers: { stuff: 'stuff' },
-			}),
-		).toEqual({ headers: { stuff: 'stuff' } });
+	it('if no security configuration is given, should use defaults CSRF handling parameter', done => {
+		// given
+		function json() {
+			return new Promise(resolve => resolve({ foo: 'bar' }));
+		}
+
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			url: 'foo',
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			onError: 'CALL_ME_BACK on error',
+			response: {
+				ok: true,
+				status: 200,
+				json,
+			},
+		};
+
+		const expectedBody = '{"label":"great test"}';
+		const expectedCredentials = 'same-origin';
+		const expectedMethod = 'POST';
+		const expectedOnError = 'CALL_ME_BACK on error';
+		const expectedOnResponse = 'CALL_ME_BACK on response';
+		const expectedOnSend = 'CALL_ME_BACK on send';
+		const expectedurl = 'foo';
+		const expectedAccept = 'application/json';
+		const expectedContentType = 'application/json';
+		const expectedCSRFKeyValue = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
+
+		document.cookie = `csrfToken=${expectedCSRFKeyValue}; dwf_section_edit=True;`;
+
+		// when
+		const middleware = httpMiddleware()(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+
+		// then
+
+		expect(global.fetch.mock.calls[0][0]).toEqual('foo');
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('body', expectedBody);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('credentials', expectedCredentials);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('headers.Accept', expectedAccept);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty(
+			'headers.Content-Type',
+			expectedContentType,
+		);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty(
+			'headers.X-CSRF-Token',
+			expectedCSRFKeyValue,
+		);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('method', expectedMethod);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('onError', expectedOnError);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('onResponse', expectedOnResponse);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('onSend', expectedOnSend);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('url', expectedurl);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('response.ok', true);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('response.status', 200);
+		expect(global.fetch.mock.calls[0][1]).toHaveProperty('response.json', json);
+
+		newState.then(() => {
+			expect(next.mock.calls.length).toBe(1);
+			const newAction = next.mock.calls[0][0];
+			expect(newAction.response.foo).toBe('bar');
+			done();
+		});
 	});
 });
