@@ -67,7 +67,7 @@ export function onToggleAll() {
 	);
 }
 
-export function onItemChange(item, event) {
+export function onItemChange(event, item) {
 	function itemUpdater(current) {
 		if (current.index === item.index) {
 			return {
