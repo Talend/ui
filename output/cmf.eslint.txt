@@ -10,9 +10,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   23:2  warning  Unexpected console statement  no-console
 
+/home/travis/build/Talend/ui/packages/cmf/src/middlewares/http/middleware.js
+  253:43  error  Trailing spaces not allowed  no-trailing-spaces
+
 /home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
   153:54  error  There should be no spaces inside this paren  space-in-parens
   166:51  error  There should be no spaces inside this paren  space-in-parens
 
-✖ 4 problems (2 errors, 2 warnings)
+✖ 5 problems (3 errors, 2 warnings)
 
