@@ -53,7 +53,7 @@ function parseCookie(cookie) {
  * @param {Object.CSRFTokenCookieKey} CSRFTokenCookieKey - default `csrfToken`
  * @param {Map.<string, string>} cookieValues
  */
-const getCSRFTokenValue = curry(({ CSRFTokenCookieKey = 'csrfToken' }, cookieValues) => {
+const findCSRFToken = curry(({ CSRFTokenCookieKey = 'csrfToken' }, cookieValues) => {
 	if (cookieValues instanceof Map) {
 		return cookieValues.get(CSRFTokenCookieKey);
 	}
@@ -67,7 +67,7 @@ const getCSRFTokenValue = curry(({ CSRFTokenCookieKey = 'csrfToken' }, cookieVal
  * @param {string} csrfToken
  * @return {function}
  */
-const mergeConfig = curry(({ CSRFTokenHeaderKey = 'X-CSRF-Token' }, httpConfig, csrfToken) => {
+const mergeCSRFTokenConfig = curry(({ CSRFTokenHeaderKey = 'X-CSRF-Token' }, httpConfig, csrfToken) => {
 	if (csrfToken) {
 		return merge({}, httpConfig, { headers: { [CSRFTokenHeaderKey]: csrfToken } });
 	}
@@ -85,7 +85,7 @@ export function mergeCSRFToken({ security = {} }, httpConfig) {
 	return flow([
 		getCookie,
 		parseCookie,
-		getCSRFTokenValue(security),
-		mergeConfig(security, httpConfig),
+		findCSRFToken(security),
+		mergeCSRFTokenConfig(security, httpConfig),
 	])();
 }

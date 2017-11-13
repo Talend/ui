@@ -433,7 +433,7 @@ describe('httpMiddleware configuration', () => {
 		jest.clearAllMocks();
 	});
 
-	it('if a security configuration is given, should use its parameter for CSRF handling', done => {
+	it('should use its parameter for CSRF handling if a security configuration is given', done => {
 		// given
 		function json() {
 			return new Promise(resolve => resolve({ foo: 'bar' }));
@@ -509,7 +509,7 @@ describe('httpMiddleware configuration', () => {
 		});
 	});
 
-	it('if no security configuration is given, should use defaults CSRF handling parameter', done => {
+	it('should use defaults CSRF handling parameter if no security configuration is given', done => {
 		// given
 		function json() {
 			return new Promise(resolve => resolve({ foo: 'bar' }));
