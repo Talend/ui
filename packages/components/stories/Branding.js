@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { storiesOf, action } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
-import { branding, iconBranding, themes } from './config/branding';
+import { branding, logo as logoBranding, themes } from './config/branding';
 import { Branding, HeaderBar, SidePanel, IconsProvider, Layout } from '../src/index';
 
 const icons = {
@@ -219,24 +219,26 @@ ComponentForm.propTypes = {
 	onChange: PropTypes.func.isRequired,
 };
 
-function IconForm({ icon, onChange }) {
+function LogoForm({ logo, onChange }) {
 	return (
 		<form>
 			<div className="form-group">
 				<div className="form-group">
-					<input id={'icon-src'} className="form-control" value={icon.source} onChange={event => onChange('source', event.target.value)} />
-					<label htmlFor={'icon-src'} className="control-label">Icon source</label>
+					<textarea id={'logo-src'} className="form-control" onChange={event => onChange('source', event.target.value)}>
+						{logo.source}
+					</textarea>
+					<label htmlFor={'logo-src'} className="control-label">Source</label>
 				</div>
 				<div className="form-group">
-					<label htmlFor={'icon-width'} className="control-label">Width: {icon.width}px</label>
-					<input id={'icon-width'} type="range" min="10" max="300" value={icon.width} onChange={event => onChange('width', event.target.value)} />
+					<label htmlFor={'logo-width'} className="control-label">Width: {logo.width}px</label>
+					<input id={'logo-width'} type="range" min="10" max="300" value={logo.width} onChange={event => onChange('width', event.target.value)} />
 				</div>
 			</div>
 		</form>
 	);
 }
-IconForm.propTypes = {
-	icon: PropTypes.shape({
+LogoForm.propTypes = {
+	logo: PropTypes.shape({
 		source: PropTypes.string,
 		width: PropTypes.number,
 	}),
@@ -249,11 +251,11 @@ class BrandingConfigurer extends React.Component {
 		this.state = {
 			themes,
 			branding,
-			icon: iconBranding,
+			logo: logoBranding,
 		};
 		this.onComponentChange = this.onComponentChange.bind(this);
 		this.onThemeChange = this.onThemeChange.bind(this);
-		this.onIconChange = this.onIconChange.bind(this);
+		this.onLogoChange = this.onLogoChange.bind(this);
 	}
 
 	onThemeChange(name, property, value) {
@@ -269,7 +271,7 @@ class BrandingConfigurer extends React.Component {
 				});
 				break;
 			case 'isDefault':
-				this.setState((oldState) => {
+				this.setState(oldState => {
 					const newThemes = {};
 					Object.keys(oldState.themes).forEach((themeName) => {
 						const nextTheme = oldState.themes[themeName];
@@ -318,10 +320,10 @@ class BrandingConfigurer extends React.Component {
 		});
 	}
 
-	onIconChange(name, value) {
+	onLogoChange(name, value) {
 		this.setState(oldState => ({
-			icon: {
-				...oldState.icon,
+			logo: {
+				...oldState.logo,
 				[name]: value,
 			},
 		}));
@@ -332,7 +334,7 @@ class BrandingConfigurer extends React.Component {
 			<section className="branding-configurer">
 				<Branding
 					themes={this.state.themes}
-					icon={this.state.icon}
+					logo={this.state.logo}
 					{...this.state.branding}
 				/>
 				<section>
@@ -364,8 +366,8 @@ class BrandingConfigurer extends React.Component {
 					</div>
 				</section>
 				<section>
-					<h1>Icon</h1>
-					<IconForm icon={this.state.icon} onChange={this.onIconChange} />
+					<h1>Logo</h1>
+					<LogoForm logo={this.state.logo} onChange={this.onLogoChange} />
 				</section>
 				<section>
 					<h1>Configuration payload</h1>

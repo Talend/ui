@@ -35,7 +35,7 @@ function getColors(themes, name, reverse) {
 	};
 }
 
-function getHeaderBarBranding({ icon, headerBar, themes }) {
+function getHeaderBarBranding({ logo, headerBar, themes }) {
 	const { theme, reverse = true } = headerBar;
 	const colors = getColors(themes, theme, reverse);
 	if (!colors) {
@@ -49,11 +49,11 @@ function getHeaderBarBranding({ icon, headerBar, themes }) {
 		hoverReverseColor,
 	} = colors;
 
-	const iconWidth = icon.width ? `${icon.width}px` : '2.2rem';
-	const iconStyle = icon.source ?
+	const iconWidth = logo.width ? `${logo.width}px` : '2.2rem';
+	const iconStyle = logo.source ?
 		`.branding-headerBar .tc-header-bar-logo {
 		    width: ${iconWidth};
-		    background: url(${icon.source});
+		    background: url(${logo.source});
 		    background-size: cover;
 		    background-repeat: no-repeat;
 		    margin: 0 10px;
@@ -137,7 +137,7 @@ function Branding(props) {
 }
 
 Branding.propTypes = {
-	icon: PropTypes.shape({
+	logo: PropTypes.shape({
 		source: PropTypes.string,
 		width: PropTypes.string,
 	}),
@@ -152,7 +152,7 @@ Branding.propTypes = {
 	themes: PropTypes.object,
 };
 Branding.defaultProps = {
-	icon: {},
+	logo: {},
 	headerBar: {
 		reverse: true,
 	},

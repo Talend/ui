@@ -9,7 +9,7 @@ export const branding = {
 	},
 };
 
-export const iconBranding = {
+export const logo = {
 	// source: 'https://tctechcrunch2011.files.wordpress.com/2010/07/github-logo.png',
 	// width: 45,
 
