@@ -78,6 +78,7 @@ function HeaderListView(props) {
 		headerLabel,
 		items,
 		required,
+		searchPlaceholder,
 		t,
 	} = props;
 
@@ -87,6 +88,7 @@ function HeaderListView(props) {
 				headerInput,
 				onInputChange,
 				onAddKeyDown,
+				inputPlaceholder: searchPlaceholder,
 				t,
 			};
 			return <HeaderInput {...propsInput} />;
@@ -119,6 +121,7 @@ HeaderListView.propTypes = {
 	onInputChange: PropTypes.func,
 	onAddKeyDown: PropTypes.func,
 	required: PropTypes.bool,
+	searchPlaceholder: PropTypes.string,
 	t: PropTypes.func,
 };
 

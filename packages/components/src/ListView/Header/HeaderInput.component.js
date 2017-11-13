@@ -38,8 +38,8 @@ function getAction(action, index) {
 	);
 }
 
-function HeaderInput({ headerInput, onInputChange, onAddKeyDown, t }) {
-	const inputPlaceholder = t('LISTVIEW_HEADERINPUT_SEARCH_PLACEHOLDER', 'Search');
+function HeaderInput({ headerInput, onInputChange, inputPlaceholder, onAddKeyDown, t }) {
+	const computedInputPlaceholder = inputPlaceholder || t('LISTVIEW_HEADERINPUT_SEARCH_PLACEHOLDER', 'Search');
 
 	function onInputChangeHandler(event) {
 		onInputChange(event, {
@@ -57,13 +57,13 @@ function HeaderInput({ headerInput, onInputChange, onAddKeyDown, t }) {
 		<header className={headerClasses()}>
 			<input
 				type="text"
-				placeholder={inputPlaceholder}
+				placeholder={computedInputPlaceholder}
 				ref={input => {
 					inputRef = input;
 				}}
 				onChange={onInputChangeHandler}
 				onKeyDown={onAddKeyDownHandler}
-				aria-label={inputPlaceholder}
+				aria-label={computedInputPlaceholder}
 				autoFocus
 			/>
 			{headerInput.map(getAction)}
@@ -74,6 +74,7 @@ function HeaderInput({ headerInput, onInputChange, onAddKeyDown, t }) {
 HeaderInput.propTypes = {
 	headerInput: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
 	onInputChange: PropTypes.func,
+	inputPlaceholder: PropTypes.string,
 	onAddKeyDown: PropTypes.func,
 	t: PropTypes.func,
 };

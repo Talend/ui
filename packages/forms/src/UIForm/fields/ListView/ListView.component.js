@@ -199,8 +199,6 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.shape({
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
-			emptyLabel: PropTypes.string,
-			noResultLabel: PropTypes.string,
 			placeholder: PropTypes.string,
 			required: PropTypes.bool,
 			title: PropTypes.string,

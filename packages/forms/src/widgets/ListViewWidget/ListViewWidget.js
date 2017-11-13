@@ -50,8 +50,6 @@ class ListViewWidget extends React.Component {
 		this.state = {
 			displayMode: defaultDisplayMode,
 			required: !!(props.schema && props.schema.required),
-			emptyLabel: props.schema && props.schema.emptyLabel,
-			noResultLabel: props.schema && props.schema.noResultLabel,
 			headerLabel: props.schema && props.schema.title,
 			headerDefault: this.defaultHeaderActions,
 			headerSelected: this.selectedHeaderActions,
