@@ -19,7 +19,7 @@ Object {
       "value": "country3",
     },
   ],
-  "emptyLabel": undefined,
+  "emptyLabel": "No element",
   "getItemHeight": [Function],
   "headerDefault": Array [
     Object {
@@ -68,13 +68,13 @@ Object {
       "value": "country4",
     },
   ],
-  "noResultLabel": undefined,
+  "noResultLabel": "No element matching your filter",
   "onAddKeyDown": [Function],
   "onInputChange": [Function],
   "onToggleAll": [Function],
   "required": true,
   "searchCriteria": "ia",
-  "searchPlaceholder": undefined,
+  "searchPlaceholder": "Search filter",
   "toggleAllChecked": true,
 }
 `;
@@ -112,7 +112,7 @@ Object {
       "value": "country4",
     },
   ],
-  "emptyLabel": undefined,
+  "emptyLabel": "No element",
   "getItemHeight": [Function],
   "headerDefault": Array [
     Object {
@@ -161,13 +161,13 @@ Object {
       "value": "country4",
     },
   ],
-  "noResultLabel": undefined,
+  "noResultLabel": "No element matching your filter",
   "onAddKeyDown": [Function],
   "onInputChange": [Function],
   "onToggleAll": [Function],
   "required": true,
   "searchCriteria": undefined,
-  "searchPlaceholder": undefined,
+  "searchPlaceholder": "Search filter",
   "toggleAllChecked": false,
 }
 `;
@@ -191,7 +191,7 @@ Object {
       "value": "country3",
     },
   ],
-  "emptyLabel": undefined,
+  "emptyLabel": "No element",
   "getItemHeight": [Function],
   "headerDefault": Array [
     Object {
@@ -240,13 +240,13 @@ Object {
       "value": "country4",
     },
   ],
-  "noResultLabel": undefined,
+  "noResultLabel": "No element matching your filter",
   "onAddKeyDown": [Function],
   "onInputChange": [Function],
   "onToggleAll": [Function],
   "required": true,
   "searchCriteria": "ia",
-  "searchPlaceholder": undefined,
+  "searchPlaceholder": "Search filter",
   "toggleAllChecked": true,
 }
 `;
@@ -284,7 +284,7 @@ Object {
       "value": "country4",
     },
   ],
-  "emptyLabel": undefined,
+  "emptyLabel": "No element",
   "getItemHeight": [Function],
   "headerDefault": Array [
     Object {
@@ -333,13 +333,13 @@ Object {
       "value": "country4",
     },
   ],
-  "noResultLabel": undefined,
+  "noResultLabel": "No element matching your filter",
   "onAddKeyDown": [Function],
   "onInputChange": [Function],
   "onToggleAll": [Function],
   "required": true,
   "searchCriteria": undefined,
-  "searchPlaceholder": undefined,
+  "searchPlaceholder": "Search filter",
   "toggleAllChecked": false,
 }
 `;
@@ -351,7 +351,7 @@ exports[`ListView field render should render ListView 1`] = `
   id="my-list-view"
   isValid={true}
 >
-  <Translate(ListView)
+  <ListView
     displayedItems={
       Array [
         Object {
@@ -384,7 +384,7 @@ exports[`ListView field render should render ListView 1`] = `
         },
       ]
     }
-    emptyLabel={undefined}
+    emptyLabel="No element"
     getItemHeight={[Function]}
     headerDefault={
       Array [
@@ -430,13 +430,13 @@ exports[`ListView field render should render ListView 1`] = `
         },
       ]
     }
-    noResultLabel={undefined}
+    noResultLabel="No element matching your filter"
     onAddKeyDown={[Function]}
     onInputChange={[Function]}
     onToggleAll={[Function]}
     required={true}
     searchCriteria={null}
-    searchPlaceholder={undefined}
+    searchPlaceholder="Search filter"
     toggleAllChecked={false}
   />
 </FieldTemplate>
@@ -478,7 +478,7 @@ exports[`ListView field render should render no items message 1`] = `
     </div>
   </header>
   <span>
-    This list is empty.
+    No element
   </span>
 </div>
 `;

@@ -18,6 +18,9 @@ describe('ListView field', () => {
 	const schema = {
 		description: 'This is the ListView field',
 		disabled: false,
+		emptyLabel: 'No element',
+		noResultLabel: 'No element matching your filter',
+		placeholder: 'Search filter',
 		required: true,
 		title: 'Countries',
 		titleMap: [
@@ -30,6 +33,9 @@ describe('ListView field', () => {
 	const alternativeSchema = {
 		description: 'This is the ListView field',
 		disabled: true,
+		emptyLabel: 'Zero items !',
+		noResultLabel: 'Zero item for your filter !',
+		placeholder: 'Search this',
 		required: true,
 		title: 'Some countries',
 		titleMap: [
@@ -44,6 +50,9 @@ describe('ListView field', () => {
 	const noItemsSchema = {
 		description: 'This is the ListView field',
 		disabled: false,
+		emptyLabel: 'No element',
+		noResultLabel: 'No element matching your filter',
+		placeholder: 'Search filter',
 		required: true,
 		title: 'Countries',
 		titleMap: [],
@@ -166,7 +175,7 @@ describe('ListView field', () => {
 			filter(wrapper, 'lol');
 
 			// then
-			expect(wrapper.find('.tc-listview > span').at(0).text()).toBe('No result found.');
+			expect(wrapper.find('.tc-listview > span').at(0).text()).toBe('No element matching your filter');
 		});
 
 		it('should switch back to default mode on abort button click', () => {

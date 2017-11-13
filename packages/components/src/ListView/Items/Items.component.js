@@ -2,10 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { AutoSizer, List } from 'react-virtualized';
-import { translate } from 'react-i18next';
 
-import I18N_DOMAIN_COMPONENTS from '../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
 import Item from './Item/Item.component';
 import theme from './Items.scss';
 
@@ -84,7 +81,7 @@ class Items extends React.PureComponent {
 	}
 
 	renderToggleAll() {
-		const { id, toggleAllChecked, onToggleAll, t } = this.props;
+		const { id, toggleAllLabel, toggleAllChecked, onToggleAll } = this.props;
 		const toggleAllId = `${id || 'tc-listview'}-toggle-all`;
 		return (
 			<div className="checkbox">
@@ -95,7 +92,7 @@ class Items extends React.PureComponent {
 						onChange={onToggleAll}
 						checked={!!toggleAllChecked}
 					/>
-					<strong>{t('LISTVIEW_ITEMS_TOGGLE_ALL', 'Toggle all')}</strong>
+					<strong>{toggleAllLabel}</strong>
 				</label>
 			</div>
 		);
@@ -155,12 +152,8 @@ Items.propTypes = {
 	getItemHeight: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,
+	toggleAllLabel: PropTypes.string,
 	onToggleAll: PropTypes.func,
-	t: PropTypes.func,
 };
 
-Items.defaultProps = {
-	t: getDefaultTranslate,
-};
-
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Items);
+export default Items;

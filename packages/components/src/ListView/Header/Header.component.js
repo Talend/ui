@@ -1,14 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
-
-import I18N_DOMAIN_COMPONENTS from '../../constants';
-import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
 
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
 
 import headerPropTypes from './Header.propTypes';
+import headerDefaultProps from './Header.defaultProps';
 
 export function headerClasses() {
 	return classNames(theme['tc-listview-header'], 'tc-listview-header');
@@ -47,15 +44,17 @@ export function renderActions(headerDefault = []) {
 	return null;
 }
 
-function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required, t }) {
+function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required }) {
 	function renderTitle() {
-		const computedHeaderLabel = headerLabel || t('LISTVIEW_HEADER_TITLE', 'Values');
-		return <strong>{computedHeaderLabel}{required && '*'}</strong>;
+		if (headerLabel) {
+			return <strong>{headerLabel}{required && '*'}</strong>;
+		}
+		return null;
 	}
 
 	function renderCount() {
 		if (nbItems >= 1 && nbItemsSelected >= 1) {
-			return <small>{`(${nbItemsSelected}/${nbItems} ${t('LISTVIEW_HEADER_SELECTED', 'selected')})`}</small>;
+			return <small>{`(${nbItemsSelected}/${nbItems} selected)`}</small>;
 		}
 		return null;
 	}
@@ -71,8 +70,6 @@ function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required
 
 Header.propTypes = headerPropTypes;
 
-Header.defaultProps = {
-	t: getDefaultTranslate,
-};
+Header.defaultProps = headerDefaultProps;
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Header);
+export default Header;
