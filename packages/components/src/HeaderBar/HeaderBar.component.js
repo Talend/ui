@@ -29,9 +29,11 @@ function Logo({ isFull, renderers, t, ...props }) {
 	const itemClassName = classNames(theme['tc-header-bar-action'], {
 		[theme.separated]: !isFull,
 	});
-	const actionClassName = classNames(theme['tc-header-bar-logo'], {
-		[theme.full]: isFull,
-	});
+	const actionClassName = classNames(
+		theme['tc-header-bar-logo'],
+		'tc-header-bar-logo',
+		{ [theme.full]: isFull }
+	);
 
 	return (
 		<li className={itemClassName}>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { storiesOf, action } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
-import { branding, themes } from './config/branding';
+import { branding, iconBranding, themes } from './config/branding';
 import { Branding, HeaderBar, SidePanel, IconsProvider, Layout } from '../src/index';
 
 const icons = {
@@ -219,21 +219,47 @@ ComponentForm.propTypes = {
 	onChange: PropTypes.func.isRequired,
 };
 
+function IconForm({ icon, onChange }) {
+	return (
+		<form>
+			<div className="form-group">
+				<div className="form-group">
+					<input id={'icon-src'} className="form-control" value={icon.source} onChange={event => onChange('source', event.target.value)} />
+					<label htmlFor={'icon-src'} className="control-label">Icon source</label>
+				</div>
+				<div className="form-group">
+					<label htmlFor={'icon-width'} className="control-label">Width: {icon.width}px</label>
+					<input id={'icon-width'} type="range" min="10" max="300" value={icon.width} onChange={event => onChange('width', event.target.value)} />
+				</div>
+			</div>
+		</form>
+	);
+}
+IconForm.propTypes = {
+	icon: PropTypes.shape({
+		source: PropTypes.string,
+		width: PropTypes.number,
+	}),
+	onChange: PropTypes.func.isRequired,
+};
+
 class BrandingConfigurer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			themes,
 			branding,
+			icon: iconBranding,
 		};
 		this.onComponentChange = this.onComponentChange.bind(this);
 		this.onThemeChange = this.onThemeChange.bind(this);
+		this.onIconChange = this.onIconChange.bind(this);
 	}
 
 	onThemeChange(name, property, value) {
 		switch (property) {
 			case 'name':
-				this.setState((oldState) => {
+				this.setState(oldState => {
 					const newThemes = {
 						...oldState.themes,
 						[value]: oldState.themes[name],
@@ -265,7 +291,7 @@ class BrandingConfigurer extends React.Component {
 				});
 				break;
 			default:
-				this.setState((oldState) => {
+				this.setState(oldState => {
 					const newThemes = {
 						...oldState.themes,
 						[name]: {
@@ -280,7 +306,7 @@ class BrandingConfigurer extends React.Component {
 	}
 
 	onComponentChange(name, property, value) {
-		this.setState((oldState) => {
+		this.setState(oldState => {
 			const newBranding = {
 				...oldState.branding,
 				[name]: {
@@ -292,11 +318,21 @@ class BrandingConfigurer extends React.Component {
 		});
 	}
 
+	onIconChange(name, value) {
+		this.setState(oldState => ({
+			icon: {
+				...oldState.icon,
+				[name]: value,
+			},
+		}));
+	}
+
 	render() {
 		return (
 			<section className="branding-configurer">
 				<Branding
 					themes={this.state.themes}
+					icon={this.state.icon}
 					{...this.state.branding}
 				/>
 				<section>
@@ -326,6 +362,10 @@ class BrandingConfigurer extends React.Component {
 								/>)
 						}
 					</div>
+				</section>
+				<section>
+					<h1>Icon</h1>
+					<IconForm icon={this.state.icon} onChange={this.onIconChange} />
 				</section>
 				<section>
 					<h1>Configuration payload</h1>
