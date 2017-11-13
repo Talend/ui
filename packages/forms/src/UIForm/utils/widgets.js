@@ -7,6 +7,7 @@ import { Button, Buttons } from '../fields/Button';
 import { CheckBox, CheckBoxes } from '../fields/CheckBox';
 import Datalist from '../fields/Datalist';
 import KeyValue from '../fields/KeyValue';
+import ListView from '../fields/ListView';
 import MultiSelectTag from '../fields/MultiSelectTag';
 import Radios from '../fields/Radios';
 import RadioOrSelect from '../fields/RadioOrSelect';
@@ -24,21 +25,24 @@ const widgets = {
 
 	// fields
 	button: Button,
-	buttons: Buttons,
 	checkbox: CheckBox,
-	checkboxes: CheckBoxes,
-	datalist: Datalist,
-	keyValue: KeyValue,
-	multiSelectTag: MultiSelectTag,
 	number: Text,
 	password: Text,
 	radios: Radios,
-	radioOrSelect: RadioOrSelect,
 	reset: Button,
 	select: Select,
 	submit: Button,
 	text: Text,
 	textarea: TextArea,
+
+	// widgets
+	buttons: Buttons,
+	checkboxes: CheckBoxes,
+	datalist: Datalist,
+	keyValue: KeyValue,
+	listView: ListView,
+	multiSelectTag: MultiSelectTag,
+	radioOrSelect: RadioOrSelect,
 	toggle: Toggle,
 };
 
