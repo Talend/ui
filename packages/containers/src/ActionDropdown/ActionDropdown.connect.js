@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { api, cmfConnect } from '@talend/react-cmf';
 import { ActionDropdown } from '@talend/react-components';
 
+import getOnClick from '../actionOnClick';
+
 export function mapStateToProps(state, { actionId, actionIds } = {}) {
 	let props = {};
 	const context = {
@@ -36,20 +38,7 @@ export function ContainerActionDropdown(props) {
 
 	if (newProps.items) {
 		newProps.items = props.items.map(item => ({
-			onClick: (event, data) => {
-				if (item.actionCreator) {
-					props.dispatchActionCreator(item.actionCreator, event, data);
-				} else {
-					props.dispatch(
-						Object.assign(
-							{
-								model: props.model,
-							},
-							item.payload,
-						),
-					);
-				}
-			},
+			...getOnClick(item, props),
 			...item,
 		}));
 	}

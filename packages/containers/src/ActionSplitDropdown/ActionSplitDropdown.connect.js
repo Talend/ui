@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { api, cmfConnect } from '@talend/react-cmf';
 import { ActionSplitDropdown } from '@talend/react-components';
 
+import getOnClick from '../actionOnClick';
+
 export function mapStateToProps(state, { actionId, actionIds } = {}) {
 	let props = {};
 	const context = {
@@ -29,41 +31,18 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 }
 
 export function ContainerActionSplitDropdown(props) {
-	const newProps = Object.assign({}, props);
+	let newProps = Object.assign({}, props);
 	if (props.actionId) {
-		newProps.onClick = (event, data) => {
-			if (props.actionCreator) {
-				props.dispatchActionCreator(props.actionCreator, event, data);
-			} else {
-				props.dispatch(
-					Object.assign(
-						{
-							model: props.model,
-						},
-						props.payload,
-					),
-				);
-			}
+		newProps = {
+			...getOnClick(props, props),
+			...newProps,
 		};
 		delete newProps.actionId;
 	}
 
 	if (newProps.items) {
 		newProps.items = props.items.map(item => ({
-			onClick: (event, data) => {
-				if (item.actionCreator) {
-					props.dispatchActionCreator(item.actionCreator, event, data);
-				} else {
-					props.dispatch(
-						Object.assign(
-							{
-								model: props.model,
-							},
-							item.payload,
-						),
-					);
-				}
-			},
+			...getOnClick(item, props),
 			...item,
 		}));
 	}

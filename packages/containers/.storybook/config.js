@@ -191,6 +191,19 @@ function loadStories() {
 			actionIds: ['menu:first', 'menu:second'],
 			actionCreator: 'object:view',
 		};
+		actions['menu:href'] = {
+			id: 'menu:href',
+			label: 'Talend',
+			target: '_blank',
+			href: '//www.talend.com',
+		};
+		actions['menu:dropdown-href'] = {
+			id: 'menu:dropdown-href',
+			displayMode: 'dropdown',
+			label: 'my items',
+			actionIds: ['menu:href'],
+			actionCreator: 'object:view',
+		};
 		actions['dialog:delete:validate'] = {
 			id: 'dialog:delete:validate',
 			label: 'Yes',

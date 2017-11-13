@@ -12,6 +12,8 @@ export default function ExampleAction() {
 			<ActionDropdown actionId="menu:items" />
 			<p>ActionDropdown from setting and items from props</p>
 			<ActionDropdown actionId="menu:first" actionIds={['menu:first', 'menu:second']} />
+			<p>ActionDropdown from setting and a link into the items</p>
+			<ActionDropdown actionId="menu:dropdown-href" />
 		</div>
 	);
 }
