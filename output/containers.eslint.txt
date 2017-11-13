@@ -9,12 +9,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   16:5   warning  Unexpected console statement                            no-console
   45:32  error    Unexpected parentheses around single function argument  arrow-parens
 
-/home/travis/build/Talend/ui/packages/containers/src/ActionDropdown/ActionDropdown.connect.js
-  63:13  error  'actionIds' PropType is defined but prop is never used  react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/containers/src/ActionSplitDropdown/ActionSplitDropdown.connect.js
-  78:13  error  'actionIds' PropType is defined but prop is never used  react/no-unused-prop-types
-
 /home/travis/build/Talend/ui/packages/containers/src/ActionSplitDropdown/ActionSplitDropdown.test.js
   4:10  error  'ActionSplitDropdown' is defined but never used  no-unused-vars
 
@@ -36,5 +30,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   3:1   error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   9:42  error  Unexpected parentheses around single function argument                              arrow-parens
 
-✖ 14 problems (13 errors, 1 warning)
+✖ 12 problems (11 errors, 1 warning)
 
