@@ -53,7 +53,7 @@ function getHeaderBarBranding({ logo, headerBar, themes }) {
 	const iconStyle = logo.source ?
 		`.branding-headerBar .tc-header-bar-logo {
 		    width: ${iconWidth};
-		    background: url(${logo.source});
+		    background: url('${logo.source}');
 		    background-size: cover;
 		    background-repeat: no-repeat;
 		    margin: 0 10px;
