@@ -9,11 +9,7 @@ import org.talend.component.list.table.Item;
 import org.talend.component.list.table.Table;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalToIgnoringCase;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.startsWith;
+import static org.hamcrest.Matchers.*;
 
 public class TableTest extends StorybookTest {
 
@@ -166,6 +162,6 @@ public class TableTest extends StorybookTest {
         tableObject.getItem("Title with icon and actions 25").clickOnAction("edit");
 
         // then
-        assertThat(getActionLog(), startsWith("▶onEdit:"));
+        assertThat(getActionLog(), containsString("▶onEdit:"));
     }
 }

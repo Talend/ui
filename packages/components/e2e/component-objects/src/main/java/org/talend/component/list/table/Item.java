@@ -58,7 +58,8 @@ public class Item extends Component {
      * @return The action WebElement
      */
     public WebElement getAction(final String actionId) {
-        return this.getElement().findElement(By.cssSelector(String.format(TABLE_ITEM_ACTION_SELECTOR, actionId)));
+        String cellID = this.getElement().findElement(By.cssSelector(".tc-list-title")).getAttribute("id");
+        return this.driver.findElement(By.cssSelector(String.format("#%s #%s", cellID, actionId)));
     }
 
     /**
@@ -104,6 +105,7 @@ public class Item extends Component {
      */
     public void clickOnAction(final String actionId) {
         final Actions action = new Actions(driver);
+
         action
                 .moveToElement(this.getElement())
                 .moveToElement(this.getAction(actionId))
