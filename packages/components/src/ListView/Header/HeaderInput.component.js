@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 
+import I18N_DOMAIN_COMPONENTS from '../../constants';
+import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
 import Action from '../../Actions/Action';
 import theme from './Header.scss';
 
@@ -35,7 +38,9 @@ function getAction(action, index) {
 	);
 }
 
-function HeaderInput({ headerInput, onInputChange, inputPlaceholder, onAddKeyDown }) {
+function HeaderInput({ headerInput, onInputChange, onAddKeyDown, t }) {
+	const inputPlaceholder = t('LISTVIEW_HEADERINPUT_SEARCH_PLACEHOLDER', 'Search');
+
 	function onInputChangeHandler(event) {
 		onInputChange(event, {
 			value: event.target.value,
@@ -69,8 +74,12 @@ function HeaderInput({ headerInput, onInputChange, inputPlaceholder, onAddKeyDow
 HeaderInput.propTypes = {
 	headerInput: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)).isRequired,
 	onInputChange: PropTypes.func,
-	inputPlaceholder: PropTypes.string,
 	onAddKeyDown: PropTypes.func,
+	t: PropTypes.func,
 };
 
-export default HeaderInput;
+HeaderInput.defaultProps = {
+	t: getDefaultTranslate,
+};
+
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(HeaderInput);
