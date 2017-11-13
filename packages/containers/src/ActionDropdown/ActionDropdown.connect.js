@@ -60,7 +60,6 @@ export function ContainerActionDropdown(props) {
 ContainerActionDropdown.displayName = 'Container(ActionDropdown)';
 
 ContainerActionDropdown.propTypes = {
-	actionIds: PropTypes.arrayOf(PropTypes.string),
 	items: PropTypes.arrayOf(PropTypes.object),
 };
 

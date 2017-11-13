@@ -75,7 +75,6 @@ ContainerActionSplitDropdown.displayName = 'Container(ActionSplitDropdown)';
 
 ContainerActionSplitDropdown.propTypes = {
 	actionId: PropTypes.string,
-	actionIds: PropTypes.arrayOf(PropTypes.string),
 	items: PropTypes.arrayOf(PropTypes.object),
 };
 
