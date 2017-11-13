@@ -65,6 +65,7 @@ ItemsListView.propTypes = {
 	onToggleAll: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,
+	t: PropTypes.func,
 };
 
 function HeaderListView(props) {
@@ -81,26 +82,26 @@ function HeaderListView(props) {
 	} = props;
 
 	switch (displayMode) {
-	case DISPLAY_MODE_SEARCH: {
-		const propsInput = {
-			headerInput,
-			onInputChange,
-			onAddKeyDown,
-			t,
-		};
-		return <HeaderInput {...propsInput} />;
-	}
-	default: {
-		const propsDefault = {
-			headerDefault,
-			headerLabel,
-			required,
-			nbItems: items.length,
-			nbItemsSelected: items.filter(item => !!item.checked).length,
-			t,
-		};
-		return <Header {...propsDefault} />;
-	}
+		case DISPLAY_MODE_SEARCH: {
+			const propsInput = {
+				headerInput,
+				onInputChange,
+				onAddKeyDown,
+				t,
+			};
+			return <HeaderInput {...propsInput} />;
+		}
+		default: {
+			const propsDefault = {
+				headerDefault,
+				headerLabel,
+				required,
+				nbItems: items.length,
+				nbItemsSelected: items.filter(item => !!item.checked).length,
+				t,
+			};
+			return <Header {...propsDefault} />;
+		}
 	}
 }
 
