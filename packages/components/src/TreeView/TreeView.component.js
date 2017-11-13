@@ -52,21 +52,24 @@ const TreeView = ({
 	addActionLabel,
 	itemSelectCallback,
 	itemToggleCallback,
+	noHeader,
 }) => (
 	<div className={theme['tc-treeview']}>
-		<header className={theme['tc-treeview-header']}>
-			<span>{headerText}</span>
-			{ addAction && <Action
-				label={addActionLabel}
-				icon="talend-plus"
-				onClick={addAction}
-				tooltipPlacement="right"
-				hideLabel
-				link
-				id={`${id}-add`}
-				key={addActionLabel}
-			/>}
-		</header>
+		{!noHeader && (
+			<header className={theme['tc-treeview-header']}>
+				<span>{headerText}</span>
+				{ addAction && <Action
+					label={addActionLabel}
+					icon="talend-plus"
+					onClick={addAction}
+					tooltipPlacement="right"
+					hideLabel
+					link
+					id={`${id}-add`}
+					key={addActionLabel}
+				/>}
+			</header>
+		)}
 		<nav className={theme['tc-treeview-nav']}>
 			<ul className={theme['tc-treeview-ul']}>
 				{structure.map((item, i) => <TreeViewItem
@@ -89,6 +92,7 @@ TreeView.propTypes = {
 	addActionLabel: PropTypes.string,
 	itemSelectCallback: PropTypes.func.isRequired,
 	itemToggleCallback: PropTypes.func.isRequired,
+	noHeader: PropTypes.bool,
 };
 
 TreeView.defaultProps = {

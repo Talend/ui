@@ -2,7 +2,6 @@ import {
 	Breadcrumbs,
 	CircularProgress,
 	Drawer,
-	TreeView,
 	Icon,
 	IconsProvider,
 	Layout,
@@ -28,7 +27,9 @@ import Notification from './Notification';
 import ObjectViewer from './ObjectViewer';
 import Redirect from './Redirect';
 import ShortcutManager from './ShortcutManager';
+import SelectObject from './SelectObject';
 import SidePanel from './SidePanel';
+import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 
 export {
@@ -57,6 +58,7 @@ export {
 	ObjectViewer,
 	Redirect,
 	ShortcutManager,
+	SelectObject,
 	SidePanel,
 	TooltipTrigger,
 	TreeView,

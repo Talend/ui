@@ -7,6 +7,7 @@ import css from './TreeViewItem.scss';
 
 const PADDING_NORMAL = 15;
 const PADDING_LARGE = 20;
+
 function getActionHandler(func, item) {
 	return function actionHandler(event) {
 		event.stopPropagation();
