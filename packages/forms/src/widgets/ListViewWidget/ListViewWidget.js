@@ -5,9 +5,15 @@ import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_FORMS from '../../constants';
 import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
-import { abort, search, } from './ListViewWidget.actions';
+import { abort, search } from './ListViewWidget.actions';
 
-import { onAbortHandler, onAddKeyDown, onInputChange, onItemChange, onToggleAll, } from './ListViewWidget.handlers';
+import {
+	onAbortHandler,
+	onAddKeyDown,
+	onInputChange,
+	onItemChange,
+	onToggleAll,
+} from './ListViewWidget.handlers';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
@@ -25,14 +31,14 @@ class ListViewWidget extends React.Component {
 			{
 				...search,
 				label: t('LISTVIEW_WIDGET_SEARCH', 'Search for specific values'),
-				onClick: this.changeDisplayToSearchMode.bind(this)
+				onClick: this.changeDisplayToSearchMode.bind(this),
 			},
 		];
 		this.searchInputsActions = [
 			{
 				...abort,
 				label: t('LISTVIEW_WIDGET_ABORT', 'Abort'),
-				onClick: onAbortHandler.bind(this)
+				onClick: onAbortHandler.bind(this),
 			},
 		];
 
@@ -69,17 +75,22 @@ class ListViewWidget extends React.Component {
 
 	setFormData() {
 		this.props.onChange(
-			this.state.items.filter(item => item.checked)
-				.map(itemChecked => itemChecked.value)
+			this.state.items.filter(item => item.checked).map(itemChecked => itemChecked.value),
 		);
 	}
 
 	callActionHandler(actionName, value, successHandler, errorHandler) {
-		if (this.props.registry &&
+		if (
+			this.props.registry &&
 			this.props.registry.formContext &&
-			this.props.registry.formContext.handleAction !== undefined) {
+			this.props.registry.formContext.handleAction !== undefined
+		) {
 			this.props.registry.formContext.handleAction(
-				this.props.id, actionName, value, successHandler, errorHandler
+				this.props.id,
+				actionName,
+				value,
+				successHandler,
+				errorHandler,
 			);
 			return true;
 		}
@@ -107,7 +118,6 @@ class ListViewWidget extends React.Component {
 		);
 	}
 }
-
 
 ListViewWidget.defaultProps = {
 	options: {
