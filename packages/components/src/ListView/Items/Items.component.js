@@ -10,17 +10,11 @@ import Item from './Item/Item.component';
 import theme from './Items.scss';
 
 function listClasses() {
-	return classNames(
-		theme['tc-list-items'],
-		'tc-list-items',
-	);
+	return classNames(theme['tc-list-items'], 'tc-list-items');
 }
 
 function itemsClasses() {
-	return classNames(
-		theme['tc-listview-items'],
-		'tc-listview-items',
-	);
+	return classNames(theme['tc-listview-items'], 'tc-listview-items');
 }
 
 function itemContainer(additionalClassName) {
@@ -31,7 +25,6 @@ function itemContainer(additionalClassName) {
 		additionalClassName,
 	);
 }
-
 
 class Items extends React.PureComponent {
 	constructor(props) {
@@ -146,12 +139,14 @@ class Items extends React.PureComponent {
 
 Items.propTypes = {
 	id: PropTypes.string,
-	items: PropTypes.arrayOf(PropTypes.shape({
-		label: PropTypes.string,
-		onChange: PropTypes.func,
-		checked: PropTypes.bool,
-		index: PropTypes.number,
-	})),
+	items: PropTypes.arrayOf(
+		PropTypes.shape({
+			label: PropTypes.string,
+			onChange: PropTypes.func,
+			checked: PropTypes.bool,
+			index: PropTypes.number,
+		}),
+	),
 	getItemHeight: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,

@@ -38,11 +38,7 @@ function getAction(action, index) {
 
 export function renderActions(headerDefault = []) {
 	if (headerDefault.length) {
-		return (
-			<div className="actions">
-				{headerDefault.map(getAction)}
-			</div>
-		);
+		return <div className="actions">{headerDefault.map(getAction)}</div>;
 	}
 	return null;
 }
@@ -50,12 +46,22 @@ export function renderActions(headerDefault = []) {
 function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required, t }) {
 	function renderTitle() {
 		const computedHeaderLabel = headerLabel || t('LISTVIEW_HEADER_TITLE', 'Values');
-		return <strong>{computedHeaderLabel}{required && '*'}</strong>;
+		return (
+			<strong>
+				{computedHeaderLabel}
+				{required && '*'}
+			</strong>
+		);
 	}
 
 	function renderCount() {
 		if (nbItems >= 1 && nbItemsSelected >= 1) {
-			return <small>{`(${nbItemsSelected}/${nbItems} ${t('LISTVIEW_HEADER_SELECTED', 'selected')})`}</small>;
+			return (
+				<small>{`(${nbItemsSelected}/${nbItems} ${t(
+					'LISTVIEW_HEADER_SELECTED',
+					'selected',
+				)})`}</small>
+			);
 		}
 		return null;
 	}

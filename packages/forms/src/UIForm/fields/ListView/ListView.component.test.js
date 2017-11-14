@@ -7,9 +7,15 @@ import ListView from './ListView.component';
 jest.useFakeTimers();
 
 function filter(wrapper, searchCriteria) {
-	wrapper.find('.tc-listview-header button').at(0).simulate('click');
+	wrapper
+		.find('.tc-listview-header button')
+		.at(0)
+		.simulate('click');
 	const event = { target: { value: searchCriteria } };
-	wrapper.find('.tc-listview-header input').at(0).simulate('change', event);
+	wrapper
+		.find('.tc-listview-header input')
+		.at(0)
+		.simulate('change', event);
 	jest.runAllTimers();
 }
 
@@ -115,11 +121,7 @@ describe('ListView field', () => {
 			const allValues = alternativeSchema.titleMap.map(option => option.value);
 
 			// when : trigger a props update
-			ReactDOM.render(<ListView
-				{...props}
-				schema={alternativeSchema}
-				value={allValues}
-			/>, node);
+			ReactDOM.render(<ListView {...props} schema={alternativeSchema} value={allValues} />, node);
 
 			// then
 			const nextItems = instance.state.displayedItems;
@@ -136,7 +138,10 @@ describe('ListView field', () => {
 			expect(initialHeader.text()).toBe('Countries*(2/4 selected)');
 
 			// when
-			initialHeader.find('button').at(0).simulate('click');
+			initialHeader
+				.find('button')
+				.at(0)
+				.simulate('click');
 
 			// then
 			// expect(wrapper.find('.tc-listview-header').at(0).node).toMatchSnapshot();
@@ -154,8 +159,18 @@ describe('ListView field', () => {
 
 			// then
 			expect(wrapper.find('.tc-listview-item-label').length).toBe(2);
-			expect(wrapper.find('.tc-listview-item-label').at(0).text()).toBe('Albania');
-			expect(wrapper.find('.tc-listview-item-label').at(1).text()).toBe('Algeria');
+			expect(
+				wrapper
+					.find('.tc-listview-item-label')
+					.at(0)
+					.text(),
+			).toBe('Albania');
+			expect(
+				wrapper
+					.find('.tc-listview-item-label')
+					.at(1)
+					.text(),
+			).toBe('Algeria');
 		});
 
 		it('should show no result message', () => {
@@ -166,7 +181,12 @@ describe('ListView field', () => {
 			filter(wrapper, 'lol');
 
 			// then
-			expect(wrapper.find('.tc-listview > span').at(0).text()).toBe('No result found.');
+			expect(
+				wrapper
+					.find('.tc-listview > span')
+					.at(0)
+					.text(),
+			).toBe('No result found.');
 		});
 
 		it('should switch back to default mode on abort button click', () => {
@@ -177,7 +197,10 @@ describe('ListView field', () => {
 			expect(wrapper.state()).toMatchSnapshot();
 
 			// when
-			wrapper.find('.tc-listview-header button').at(0).simulate('click');
+			wrapper
+				.find('.tc-listview-header button')
+				.at(0)
+				.simulate('click');
 
 			// then
 			expect(wrapper.state()).toMatchSnapshot();
@@ -191,7 +214,10 @@ describe('ListView field', () => {
 			expect(wrapper.state()).toMatchSnapshot();
 
 			// when
-			wrapper.find('.tc-listview-header input').at(0).simulate('keydown', { keyCode: keycode('escape') });
+			wrapper
+				.find('.tc-listview-header input')
+				.at(0)
+				.simulate('keydown', { keyCode: keycode('escape') });
 
 			// then
 			expect(wrapper.state()).toMatchSnapshot();
@@ -206,7 +232,9 @@ describe('ListView field', () => {
 			expect(props.onFinish).not.toBeCalled();
 
 			// when
-			wrapper.find('#checkbox-my-list-view-1-item').simulate('change', { target: { checked: true } });
+			wrapper
+				.find('#checkbox-my-list-view-1-item')
+				.simulate('change', { target: { checked: true } });
 
 			// then
 			const payload = {
