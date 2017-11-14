@@ -8,6 +8,8 @@ import '@talend/bootstrap-theme/src/theme/theme.scss';
 
 import examples from '../examples';
 
+import Filter from '../src/Filter';
+
 setAddon({ addWithCMF: cmf.addWithCMF });
 
 const actionLogger = action('dispatch');
@@ -55,6 +57,9 @@ registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
 registerActionCreator('item1:action', chooseItem1);
 registerActionCreator('item2:action', chooseItem2);
+// filterExample actions
+registerActionCreator('filter:save', Filter.actions['filter:save']);
+registerActionCreator('filter:update', Filter.actions['filter:update']);
 
 const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
@@ -82,16 +87,49 @@ api.expression.register('getItems', () => [
 ]);
 
 const modelHasLabelAction = action('modelHasLabel');
-api.expression.register('modelHasLabel', context => {
+api.expression.register('modelHasLabel', context => {	
 	modelHasLabelAction(context);
 	return !!context.payload.model.label;
 });
 
+// Expression for filterExample
+api.expression.register('filterByName', (event, collection) => {
+	if (event.target.value.length <= 0) {
+		return List();
+	}
+	return collection.filter(item =>
+		item
+			.get('name')
+			.toLowerCase()
+			.includes(event.target.value.toLowerCase()),
+	);
+})
+
+function createMockCollectionFilter() {
+	const filterJack = Map({ name: 'Jack' });
+	const filterJackie = Map({ name: 'Jackie' });
+	const filterJacques = Map({ name: 'Jacques' });
+	const filterToto = Map({ name: 'Toto' });
+	return List([filterJack, filterJackie, filterJacques, filterToto]);
+}
+
+function createMockCollectionDeleteResource() {
+	const value = new Map({ id: 'myID', label: 'myLabel' });
+	return List([value]);
+}
+
 function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
-		const value = new Map({ id: 'myID', label: 'myLabel' });
-		state.cmf.collections = state.cmf.collections.set('myResourceType', new List([value]));
+		state.cmf.collections = state.cmf.collections.set(
+			'myResourceType',
+			createMockCollectionDeleteResource(),
+		);
+
+		state.cmf.collections = state.cmf.collections.set(
+			'List#filterExample',
+			createMockCollectionFilter(),
+		);
 		state.cmf.settings.views.appheaderbar = {
 			app: 'Hello Test',
 		};
@@ -183,22 +221,46 @@ function loadStories() {
 			label: 'my items',
 			itemsExpression: 'getItems',
 		};
-		actions['menu:items-id'] = {
+		(actions['menu:items-id'] = {
 			id: 'menu:items',
 			displayMode: 'dropdown',
 			label: 'my items',
 			actionIds: ['menu:first', 'menu:second'],
-		},
-		actions['dialog:delete:validate'] = {
-			id: 'dialog:delete:validate',
-			label: 'Yes',
-			bsStyle: 'danger',
-			actionCreator: 'confirm:dialog',
-		};
+		}),
+			(actions['dialog:delete:validate'] = {
+				id: 'dialog:delete:validate',
+				label: 'Yes',
+				bsStyle: 'danger',
+				actionCreator: 'confirm:dialog',
+			});
 		actions['dialog:delete:cancel'] = {
 			id: 'dialog:delete:cancel',
 			label: 'No',
 			actionCreator: 'cancel:hide:dialog',
+		};
+		actions['example-filter:undock-and-untoggle'] = {
+			id: 'example-filter:undock-and-untoggle',
+			'collection-to-filter': 'List#filterExample',
+			filterExpression: 'filterByName',
+			docked: false,
+			dockable: false,
+			toggeable: false,
+			debounceMinLength: 2,
+			debounceTimeout: 300,
+			highlight: false,
+			placeholder: 'My placeholder',
+		};
+		actions['example-filter:dock-and-toggle'] = {
+			id: 'example-filter:dock-and-toggle',
+			'collection-to-filter': 'List#filterExample',
+			filterExpression: 'filterByName',
+			docked: true,
+			dockable: true,
+			toggeable: true,
+			debounceMinLength: 2,
+			debounceTimeout: 300,
+			highlight: false,
+			placeholder: 'My placeholder',
 		};
 
 		const story = storiesOf(example);

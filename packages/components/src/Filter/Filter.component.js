@@ -5,7 +5,7 @@ import DebounceInput from 'react-debounce-input';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import get from 'lodash/get';
 import keycode from 'keycode';
-import Action from '../Actions';
+import { Action } from '../Actions';
 import Icon from '../Icon';
 import { getDefaultTranslate } from '../translate';
 import theme from './Filter.scss';
@@ -177,6 +177,7 @@ Filter.propTypes = {
 Filter.defaultProps = {
 	docked: true,
 	dockable: true,
+	toggeable: true,
 	placeholder: 'Filter',
 	t: getDefaultTranslate,
 };
