@@ -10,6 +10,19 @@ import Action from '../Actions/Action';
 
 import theme from './SidePanel.scss';
 
+
+/**
+ * return the formatted action id
+ * if there is no action id, it is generated from the action label
+ * @param  {string} id		sidepanel id
+ * @param  {string} action 	current action
+ * @return {string}        	formatted id
+ */
+function getActionId(id, action) {
+	const actionId = action.id || action.label.toLowerCase().split(' ').join('-');
+	return id && `${id}-nav-${actionId}`;
+}
+
 /**
  * This component aims to display links as a menu.
  * @param {object} props react props
@@ -65,12 +78,6 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 					const a11y = {};
 					const extra = {};
 					const isSelected = isActionSelected(action);
-					const actionId =
-						action.id ||
-						action.label
-							.toLowerCase()
-							.split(' ')
-							.join('-');
 
 					if (isSelected) {
 						a11y['aria-current'] = true;
@@ -89,7 +96,7 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 						action,
 						{
 							active: undefined, // active scope is only the list item
-							id: id && `${id}-nav-${actionId}`,
+							id: getActionId(id, action),
 							bsStyle: 'link',
 							role: 'link',
 							className: classNames(theme.link, action.className),
