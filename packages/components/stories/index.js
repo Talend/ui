@@ -33,3 +33,4 @@ import './TreeView';
 import './Toggle';
 import './Typeahead';
 import './VirtualizedList';
+import './Filter';
