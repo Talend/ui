@@ -54,14 +54,14 @@ const noResultsSearch = {
 
 storiesOf('ListView', module)
 	.addDecorator(story => (
-		<div>
-			<LanguageSwitcher />
-			<IconsProvider />
-			<h1>ListView</h1>
-			<form>
-				<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
-			</form>
-		</div>
+		<I18nextProvider i18n={i18n}>
+			<div>
+				<LanguageSwitcher/>
+				<IconsProvider/>
+				<h1>ListView</h1>
+				<form>{story()}</form>
+			</div>
+		</I18nextProvider>
 	))
 	.addWithInfo('empty', () => {
 		const emptyProps = { ...props };
