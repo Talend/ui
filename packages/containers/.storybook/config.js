@@ -94,10 +94,18 @@ function loadStories() {
 		state.cmf.collections = state.cmf.collections.set('myResourceType', new List([value]));
 		state.cmf.collections = state.cmf.collections.set('with', new Map({
 			data: List([
-				new Map({id: 1, label: 'foo'}),
-				new Map({id: 2, label: 'bar'}),
-				new Map({id: 3, label: 'baz'}),
-				new Map({id: 4, label: 'extra'}),
+				new Map({id: 1, label: 'foo', children: new List([
+					new Map({id: 11, label: 'sub foo'}),
+				])}),
+				new Map({id: 2, label: 'bar', children: new List([
+					new Map({id: 21, label: 'sub bar'}),
+				])}),
+				new Map({id: 3, label: 'baz', children: new List([
+					new Map({id: 31, label: 'sub baz'}),
+				])}),
+				new Map({id: 4, label: 'extra', children: new List([
+					new Map({id: 41, label: 'sub extra'}),
+				])}),
 				new Map({id: 5, label: 'hello world'}),
 			]),
 		}));

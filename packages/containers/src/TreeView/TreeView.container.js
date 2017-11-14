@@ -7,46 +7,48 @@ import Immutable from 'immutable';
 
 export const DEFAULT_STATE = new Immutable.Map({
 	opened: new Immutable.List(), // Array of JSONPath
-	selectedJsonpath: '', // Selected JSONPath
+	selectedId: undefined, // Selected id
 });
 
-export function open(path, state) {
-	return state.set('opened', state.get('opened').push(path));
+export function open(id, state) {
+	return state.set('opened', state.get('opened').push(id));
 }
 
-export function close(path, state) {
+export function close(id, state) {
 	const opened = state.get('opened');
-	return state.set('opened', opened.delete(opened.indexOf(path)));
+	return state.set('opened', opened.delete(opened.indexOf(id)));
 }
 
-export function select(path, state) {
-	return state.set('selectedJsonpath', path);
+export function select(id, state) {
+	return state.set('selectedId', id);
 }
 
 export function toggleState(prevState, data) {
-	if (data.isOpened) {
-		return close(data.jsonpath, prevState.state);
-	} else if (data.isOpened === false) {
-		// we don't want to match on undefined as false
-		return open(data.jsonpath, prevState.state);
+	const opened = prevState.state.get('opened');
+	if (opened.indexOf(data.id) !== -1) {
+		return close(data.id, prevState.state);
 	}
-
-	return prevState;
+	return open(data.id, prevState.state);
 }
 
 export function selectWrapper(prevState, data) {
-	return select(data, prevState.state);
+	return select(data.id, prevState.state);
 }
 
 function transform(items, props) {
 	if (!items) {
 		return undefined;
 	}
+	const state = props.state || DEFAULT_STATE;
+	const selectedId = state && state.get('selectedId');
+	const opened = state && state.get('opened').toJS();
 	return items.map(item => ({
 		...item,
-		name: this.props.nameAttr ? item[this.props.nameAttr] : item.name,
-		children: this.props.childrenAttr ?
-			transform(item[this.props.childrenAttr], props) : transform(item.children),
+		id: item[props.idAttr],
+		selected: item[props.idAttr] === selectedId,
+		toggled: opened.indexOf(item[props.idAttr]) !== -1,
+		name: item[props.nameAttr],
+		children: transform(item[props.childrenAttr], props),
 	}));
 }
 
@@ -54,10 +56,15 @@ class TreeView extends React.Component {
 	static displayName = 'Container(TreeView)';
 	static propTypes = {
 		data: ImmutablePropTypes.List,
+		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
 		...componentState.propTypes,
 	};
-
+	static defaultProps = {
+		idAttr: 'id',
+		nameAttr: 'name',
+		childrenAttr: 'children',
+	};
 	constructor(props) {
 		super(props);
 		this.itemSelectCallback = this.itemSelectCallback.bind(this);
@@ -65,6 +72,9 @@ class TreeView extends React.Component {
 	}
 
 	itemSelectCallback(data) {
+		this.props.setState(prevState => selectWrapper(prevState, {
+			id: data[this.props.idAttr],
+		}));
 		if (this.props.onSelectActionCreator) {
 			this.props.dispatchActionCreator(
 				this.props.onSelectActionCreator,
@@ -79,10 +89,12 @@ class TreeView extends React.Component {
 		if (this.props.itemSelectCallback) {
 			this.props.itemSelectCallback(data);
 		}
-		this.props.setState(prevState => selectWrapper(prevState, data));
 	}
 
 	itemToggleCallback(data) {
+		this.props.setState(prevState => toggleState(prevState, {
+			id: data[this.props.idAttr],
+		}));
 		if (this.props.onToggleActionCreator) {
 			this.props.dispatchActionCreator(
 				this.props.onToggleActionCreator,
