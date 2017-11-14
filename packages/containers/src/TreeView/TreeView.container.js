@@ -7,38 +7,48 @@ import Immutable from 'immutable';
 
 const OPENED_ATTR = 'opened';
 const SELECTED_ATTR = 'selectedId';
-
-export const DEFAULT_STATE = new Immutable.Map({
-	[OPENED_ATTR]: new Immutable.List(), // Array of JSONPath
-	[SELECTED_ATTR]: undefined, // Selected id
+export const DEFAULT_PROPS = {
+	idAttr: 'id',
+	nameAttr: 'name',
+	childrenAttr: 'children',
+};
+const DEFAULT_STATE = new Immutable.Map({
+	[OPENED_ATTR]: new Immutable.List(),
+	[SELECTED_ATTR]: undefined,
 });
 
-export function open(id, state) {
+function open(id, state) {
 	return state.set(OPENED_ATTR, state.get(OPENED_ATTR).push(id));
 }
 
-export function close(id, state) {
+function close(id, state) {
 	const opened = state.get(OPENED_ATTR);
 	return state.set(OPENED_ATTR, opened.delete(opened.indexOf(id)));
 }
 
-export function select(id, state) {
+function select(id, state) {
 	return state.set('selectedId', id);
 }
 
-export function toggleState(prevState, data) {
-	const opened = prevState.state.get(OPENED_ATTR);
-	if (opened.indexOf(data.id) !== -1) {
-		return close(data.id, prevState.state);
+function toggleState(prevProps, id) {
+	const opened = prevProps.state.get(OPENED_ATTR);
+	if (opened.indexOf(id) !== -1) {
+		return close(id, prevProps.state);
 	}
-	return open(data.id, prevState.state);
+	return open(id, prevProps.state);
 }
 
-export function selectWrapper(prevState, data) {
-	return select(data.id, prevState.state);
+function selectWrapper(prevProps, id) {
+	return select(id, prevProps.state);
 }
 
-function transform(items, props) {
+/**
+ * recursive function to apply change on all data and support attr mapping
+ * @param {Array<Object>} items is the list of pure items, your data
+ * @param {Object} props the configuration of the Tree container
+ * @return {Array} of items ready to be put as the structure of TreeView component
+ */
+export function transform(items, props) {
 	if (!items) {
 		return undefined;
 	}
@@ -55,6 +65,9 @@ function transform(items, props) {
 	}));
 }
 
+/**
+ * The TreeView React container
+ */
 class TreeView extends React.Component {
 	static displayName = 'Container(TreeView)';
 	static propTypes = {
@@ -63,21 +76,16 @@ class TreeView extends React.Component {
 		nameAttr: PropTypes.string,
 		...componentState.propTypes,
 	};
-	static defaultProps = {
-		idAttr: 'id',
-		nameAttr: 'name',
-		childrenAttr: 'children',
-	};
+	static defaultProps = DEFAULT_PROPS;
+
 	constructor(props) {
 		super(props);
-		this.itemSelectCallback = this.itemSelectCallback.bind(this);
-		this.itemToggleCallback = this.itemToggleCallback.bind(this);
+		this.onSelect = this.onSelect.bind(this);
+		this.onClick = this.onClick.bind(this);
 	}
 
-	itemSelectCallback(data) {
-		this.props.setState(prevState => selectWrapper(prevState, {
-			id: data[this.props.idAttr],
-		}));
+	onSelect(data) {
+		this.props.setState(prevState => selectWrapper(prevState, data[this.props.idAttr]));
 		if (this.props.onSelectActionCreator) {
 			this.props.dispatchActionCreator(
 				this.props.onSelectActionCreator,
@@ -94,10 +102,8 @@ class TreeView extends React.Component {
 		}
 	}
 
-	itemToggleCallback(data) {
-		this.props.setState(prevState => toggleState(prevState, {
-			id: data[this.props.idAttr],
-		}));
+	onClick(data) {
+		this.props.setState(prevState => toggleState(prevState, data[this.props.idAttr]));
 		if (this.props.onToggleActionCreator) {
 			this.props.dispatchActionCreator(
 				this.props.onToggleActionCreator,
@@ -120,14 +126,14 @@ class TreeView extends React.Component {
 			<Component
 				{...this.props}
 				structure={structure}
-				itemSelectCallback={this.itemSelectCallback}
-				itemToggleCallback={this.itemToggleCallback}
+				itemSelectCallback={this.onSelect}
+				itemToggleCallback={this.onClick}
 			/>
 		);
 	}
 }
 
-function mapStateToProps(state, ownProps) {
+export function mapStateToProps(state, ownProps) {
 	const props = {};
 	if (ownProps.collection) {
 		props.data = state.cmf.collections.getIn(ownProps.collection.split('.'));
