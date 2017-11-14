@@ -6,10 +6,12 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import get from 'lodash/get';
 import keycode from 'keycode';
 
-import { getDefaultTranslate } from '../translate';
-import { Action } from '../Actions';
-import Icon from '../Icon';
+// import { getDefaultTranslate } from '../translate';
+import { Action, Icon } from '@talend/react-components';
 import theme from './Filter.scss';
+
+// Just to avoid import for translate
+const getDefaultTranslate = () => console.log('toto translate');
 
 function onKeyDown(event, escAction, enterAction) {
 	switch (event.keyCode) {
@@ -47,6 +49,7 @@ function FilterInput(props) {
 		type: 'search',
 		value,
 		placeholder,
+		autoComplete: 'off',
 		className: theme.search,
 		'aria-label': 'Filter',
 		onBlur: onBlur && (event => onBlur(event, event.target.value)),
@@ -121,7 +124,6 @@ function Filter(props) {
 		return onFilter(event, get(event, 'target.search.value'));
 	}
 
-	// TODO if navbar className = navbar-right OR plain filter
 	let classes = classNames(theme.filter, { [theme.highlight]: highlight });
 	if (!undockable) {
 		classes = classNames('navbar-form', 'navbar-right', theme.filter, {
@@ -162,10 +164,11 @@ Filter.propTypes = {
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
 	docked: PropTypes.bool,
+	undockable: PropTypes.bool,
 	onBlur: PropTypes.func,
 	onFocus: PropTypes.func,
 	onFilter: PropTypes.func.isRequired,
-	onToggle: PropTypes.func.isRequired,
+	onToggle: PropTypes.func,
 	highlight: PropTypes.bool,
 	placeholder: PropTypes.string,
 	value: PropTypes.string,

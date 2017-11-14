@@ -10,7 +10,7 @@ exports[`Filter should render 1`] = `
   icon="talend-search"
   id={undefined}
   inProgress={false}
-  label="Toggle filter"
+  label={undefined}
   onClick={[Function]}
   tooltipPlacement="top"
 />
@@ -48,7 +48,7 @@ exports[`Filter should render filter input with default placeholder 1`] = `
       icon="talend-cross"
       id={undefined}
       inProgress={false}
-      label="Remove filter"
+      label={undefined}
       onClick={undefined}
       tooltipPlacement="top"
     />
@@ -88,7 +88,7 @@ exports[`Filter should render filter input with given placeholder 1`] = `
       icon="talend-cross"
       id={undefined}
       inProgress={false}
-      label="Remove filter"
+      label={undefined}
       onClick={undefined}
       tooltipPlacement="top"
     />
@@ -106,7 +106,7 @@ exports[`Filter should render highlighted filter 1`] = `
   icon="talend-search"
   id={undefined}
   inProgress={false}
-  label="Toggle filter"
+  label={undefined}
   onClick={[Function]}
   tooltipPlacement="top"
 />
@@ -122,7 +122,7 @@ exports[`Filter should render id if provided 1`] = `
   icon="talend-search"
   id="toolbar-filter"
   inProgress={false}
-  label="Toggle filter"
+  label={undefined}
   onClick={[Function]}
   tooltipPlacement="top"
 />
@@ -138,7 +138,7 @@ exports[`Filter should render only toggle icon 1`] = `
   icon="talend-search"
   id={undefined}
   inProgress={false}
-  label="Toggle filter"
+  label={undefined}
   onClick={[Function]}
   tooltipPlacement="top"
 />

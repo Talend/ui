@@ -1,10 +1,10 @@
 // Filter styles
 $tc-list-filter-input-size: 200px !default;
-$tc-list-filter-highlight-color: #F6E5BB !default;
+$tc-list-filter-highlight-color: #f6e5bb !default;
 
 .filter {
 	display: flex;
-	align-items: center;
+	align-items: top;
 	padding: 0;
 	background: $white;
 
@@ -21,7 +21,8 @@ $tc-list-filter-highlight-color: #F6E5BB !default;
 		width: $tc-list-filter-input-size;
 		animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1);
 
-		&::-ms-clear { // sass-lint:disable-line no-vendor-prefixes
+		&::-ms-clear {
+			// sass-lint:disable-line no-vendor-prefixes
 			display: none;
 		}
 	}
