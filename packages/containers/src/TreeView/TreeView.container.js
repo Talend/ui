@@ -4,6 +4,7 @@ import { cmfConnect, componentState } from '@talend/react-cmf';
 import { TreeView as Component } from '@talend/react-components';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import Immutable from 'immutable';
+import omit from 'lodash/omit';
 
 const OPENED_ATTR = 'opened';
 const SELECTED_ATTR = 'selectedId';
@@ -122,9 +123,10 @@ class TreeView extends React.Component {
 
 	render() {
 		const structure = transform(this.props.data.toJS(), this.props);
+		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
 		return (
 			<Component
-				{...this.props}
+				{...props}
 				structure={structure}
 				itemSelectCallback={this.onSelect}
 				itemToggleCallback={this.onClick}
