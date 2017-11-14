@@ -4,6 +4,7 @@ import middlewares from './middleware';
 import reducers from './reducers';
 import { ackProcessed } from './reducers/ack';
 import * as constants from './constants';
+import sagas from './sagas';
 
 export {
 	actions,
@@ -11,5 +12,6 @@ export {
 	constants,
 	middlewares,
 	reducers,
+	sagas,
 	ackProcessed,
 };
