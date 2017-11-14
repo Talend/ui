@@ -1,19 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import ListView from '@talend/react-components/lib/ListView';
+import { translate } from 'react-i18next';
 
-import {
-	search,
-	abort,
-} from './ListViewWidget.actions';
+import I18N_DOMAIN_FORMS from '../../constants';
+import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
+import { abort, search, } from './ListViewWidget.actions';
 
-import {
-	onInputChange,
-	onToggleAll,
-	onAbortHandler,
-	onItemChange,
-	onAddKeyDown,
-} from './ListViewWidget.handlers';
+import { onAbortHandler, onAddKeyDown, onInputChange, onItemChange, onToggleAll, } from './ListViewWidget.handlers';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
@@ -22,16 +16,24 @@ const DEFAULT_ITEM_HEIGHT = 33;
 class ListViewWidget extends React.Component {
 	constructor(props) {
 		super(props);
-		const { options, value } = props;
+		const { options, value, t } = props;
 
 		this.timerSearch = null;
 		this.value = value;
 
 		this.defaultHeaderActions = [
-			{ ...search, onClick: this.changeDisplayToSearchMode.bind(this) },
+			{
+				...search,
+				label: t('LISTVIEW_WIDGET_SEARCH', 'Search for specific values'),
+				onClick: this.changeDisplayToSearchMode.bind(this)
+			},
 		];
 		this.searchInputsActions = [
-			{ ...abort, onClick: onAbortHandler.bind(this) },
+			{
+				...abort,
+				label: t('LISTVIEW_WIDGET_ABORT', 'Abort'),
+				onClick: onAbortHandler.bind(this)
+			},
 		];
 
 		let defaultDisplayMode = DISPLAY_MODE_DEFAULT;
@@ -96,6 +98,7 @@ class ListViewWidget extends React.Component {
 			...this.state,
 			items: this.state.displayedItems,
 			id: this.props.id,
+			t: this.props.t,
 		};
 		return (
 			<div>
@@ -123,7 +126,12 @@ if (process.env.NODE_ENV !== 'production') {
 		options: PropTypes.shape({
 			enumOptions: PropTypes.array,
 		}).isRequired,
+		t: PropTypes.func,
 	};
 }
 
-export default ListViewWidget;
+ListViewWidget.defaultProps = {
+	t: getDefaultTranslate,
+};
+
+export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ListViewWidget);
