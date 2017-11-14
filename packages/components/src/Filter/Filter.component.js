@@ -92,7 +92,7 @@ function Filter(props) {
 		debounceMinLength,
 		debounceTimeout,
 		docked,
-		dockable,
+		navbar,
 		toggeable,
 		highlight,
 		onBlur,
@@ -123,7 +123,7 @@ function Filter(props) {
 	}
 
 	let classes = classNames(theme.filter, { [theme.highlight]: highlight });
-	if (dockable) {
+	if (navbar) {
 		classes = classNames('navbar-form', 'navbar-right', theme.filter, {
 			[theme.highlight]: highlight,
 		});
@@ -132,7 +132,7 @@ function Filter(props) {
 	return (
 		<form className={classes} role="search" onSubmit={onSubmit}>
 			<Icon name="talend-search" className={theme['search-icon']} />
-			<div className="form-group">
+			<div className="form-inline">
 				<FilterInput
 					id={id && `${id}-input`}
 					debounceMinLength={debounceMinLength}
@@ -162,7 +162,7 @@ Filter.propTypes = {
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
 	docked: PropTypes.bool,
-	dockable: PropTypes.bool,
+	navbar: PropTypes.bool,
 	toggeable: PropTypes.bool,
 	onBlur: PropTypes.func,
 	onFocus: PropTypes.func,
@@ -176,7 +176,7 @@ Filter.propTypes = {
 
 Filter.defaultProps = {
 	docked: true,
-	dockable: true,
+	navbar: true,
 	toggeable: true,
 	placeholder: 'Filter',
 	t: getDefaultTranslate,

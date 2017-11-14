@@ -38,10 +38,14 @@ if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
 }
 
+const divStyle = {
+	width: '10rem',
+};
+
 stories
 	.addWithInfo('default-dock and toggle', () => (
 		<nav>
-			<div>
+			<div style={divStyle}>
 				<IconsProvider />
 				<Filter {...propsDockToggle} />
 			</div>
