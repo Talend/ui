@@ -2,8 +2,7 @@ import { api, componentState } from '@talend/react-cmf';
 import React from 'react';
 import PropTypes from 'prop-types';
 import invariant from 'invariant';
-// import { Filter as Component } from '@talend/react-components';
-import Component from '../Filter';
+import { Filter as Component } from '@talend/react-components';
 
 class FilterBar extends React.Component {
 	static displayName = 'Container(FilterBar)';
@@ -15,9 +14,9 @@ class FilterBar extends React.Component {
 
 	static propTypes = {
 		...componentState.propTypes,
-		placeholder: PropTypes.string,
 		id: PropTypes.string.isRequired,
 		collectionToFilter: PropTypes.object.isRequired,
+		placeholder: PropTypes.string,
 		filterInputValue: PropTypes.string,
 		actionInfo: PropTypes.shape({
 			id: PropTypes.string.isRequired,
@@ -44,7 +43,7 @@ class FilterBar extends React.Component {
 	}
 
 	// If they are differences between the collection we have to filter in our props,
-	// Then we apply the expression filter to be sure to be comform to the collection.
+	// we apply the expression filter to be sure to be comform to the collection.
 	componentWillReceiveProps(nextProps) {
 		if (
 			(this.props.collectionToFilter && this.props.collectionToFilter.size) !==

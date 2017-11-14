@@ -5,13 +5,10 @@ import DebounceInput from 'react-debounce-input';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import get from 'lodash/get';
 import keycode from 'keycode';
-
-// import { getDefaultTranslate } from '../translate';
-import { Action, Icon } from '@talend/react-components';
+import Action from '../Actions';
+import Icon from '../Icon';
+import { getDefaultTranslate } from '../translate';
 import theme from './Filter.scss';
-
-// Just to avoid import for translate
-const getDefaultTranslate = () => console.log('toto translate');
 
 function onKeyDown(event, escAction, enterAction) {
 	switch (event.keyCode) {
