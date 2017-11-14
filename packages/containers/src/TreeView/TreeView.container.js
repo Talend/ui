@@ -5,18 +5,21 @@ import { TreeView as Component } from '@talend/react-components';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import Immutable from 'immutable';
 
+const OPENED_ATTR = 'opened';
+const SELECTED_ATTR = 'selectedId';
+
 export const DEFAULT_STATE = new Immutable.Map({
-	opened: new Immutable.List(), // Array of JSONPath
-	selectedId: undefined, // Selected id
+	[OPENED_ATTR]: new Immutable.List(), // Array of JSONPath
+	[SELECTED_ATTR]: undefined, // Selected id
 });
 
 export function open(id, state) {
-	return state.set('opened', state.get('opened').push(id));
+	return state.set(OPENED_ATTR, state.get(OPENED_ATTR).push(id));
 }
 
 export function close(id, state) {
-	const opened = state.get('opened');
-	return state.set('opened', opened.delete(opened.indexOf(id)));
+	const opened = state.get(OPENED_ATTR);
+	return state.set(OPENED_ATTR, opened.delete(opened.indexOf(id)));
 }
 
 export function select(id, state) {
@@ -24,7 +27,7 @@ export function select(id, state) {
 }
 
 export function toggleState(prevState, data) {
-	const opened = prevState.state.get('opened');
+	const opened = prevState.state.get(OPENED_ATTR);
 	if (opened.indexOf(data.id) !== -1) {
 		return close(data.id, prevState.state);
 	}
@@ -40,8 +43,8 @@ function transform(items, props) {
 		return undefined;
 	}
 	const state = props.state || DEFAULT_STATE;
-	const selectedId = state && state.get('selectedId');
-	const opened = state && state.get('opened').toJS();
+	const selectedId = state && state.get(SELECTED_ATTR);
+	const opened = state && state.get(OPENED_ATTR).toJS();
 	return items.map(item => ({
 		...item,
 		id: item[props.idAttr],
