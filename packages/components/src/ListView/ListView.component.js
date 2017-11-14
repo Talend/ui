@@ -24,13 +24,11 @@ function ListView(props) {
 	return (
 		<div className={listviewClasses()}>
 			<HeaderListView {...props} />
-			{
-				props.items && props.items.length ? (
-					<ItemsListView {...props} />
-				) : (
-					<span className={theme['empty-message']}>{label}</span>
-				)
-			}
+			{props.items && props.items.length ? (
+				<ItemsListView {...props} />
+			) : (
+				<span className={theme['empty-message']}>{label}</span>
+			)}
 		</div>
 	);
 }

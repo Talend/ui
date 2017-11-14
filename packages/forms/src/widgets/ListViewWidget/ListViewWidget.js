@@ -2,10 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ListView from '@talend/react-components/lib/ListView';
 
-import {
-	search,
-	abort,
-} from './ListViewWidget.actions';
+import { search, abort } from './ListViewWidget.actions';
 
 import {
 	onInputChange,
@@ -27,12 +24,8 @@ class ListViewWidget extends React.Component {
 		this.timerSearch = null;
 		this.value = value;
 
-		this.defaultHeaderActions = [
-			{ ...search, onClick: this.changeDisplayToSearchMode.bind(this) },
-		];
-		this.searchInputsActions = [
-			{ ...abort, onClick: onAbortHandler.bind(this) },
-		];
+		this.defaultHeaderActions = [{ ...search, onClick: this.changeDisplayToSearchMode.bind(this) }];
+		this.searchInputsActions = [{ ...abort, onClick: onAbortHandler.bind(this) }];
 
 		let defaultDisplayMode = DISPLAY_MODE_DEFAULT;
 		if (props.schema && props.schema.displayMode) {
@@ -67,17 +60,22 @@ class ListViewWidget extends React.Component {
 
 	setFormData() {
 		this.props.onChange(
-			this.state.items.filter(item => item.checked)
-				.map(itemChecked => itemChecked.value)
+			this.state.items.filter(item => item.checked).map(itemChecked => itemChecked.value),
 		);
 	}
 
 	callActionHandler(actionName, value, successHandler, errorHandler) {
-		if (this.props.registry &&
+		if (
+			this.props.registry &&
 			this.props.registry.formContext &&
-			this.props.registry.formContext.handleAction !== undefined) {
+			this.props.registry.formContext.handleAction !== undefined
+		) {
 			this.props.registry.formContext.handleAction(
-				this.props.id, actionName, value, successHandler, errorHandler
+				this.props.id,
+				actionName,
+				value,
+				successHandler,
+				errorHandler,
 			);
 			return true;
 		}
@@ -104,7 +102,6 @@ class ListViewWidget extends React.Component {
 		);
 	}
 }
-
 
 ListViewWidget.defaultProps = {
 	options: {

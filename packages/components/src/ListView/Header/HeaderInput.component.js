@@ -39,7 +39,8 @@ function getAction(action, index) {
 }
 
 function HeaderInput({ headerInput, onInputChange, inputPlaceholder, onAddKeyDown, t }) {
-	const computedInputPlaceholder = inputPlaceholder || t('LISTVIEW_HEADERINPUT_SEARCH_PLACEHOLDER', 'Search');
+	const computedInputPlaceholder =
+		inputPlaceholder || t('LISTVIEW_HEADERINPUT_SEARCH_PLACEHOLDER', 'Search');
 
 	function onInputChangeHandler(event) {
 		onInputChange(event, {

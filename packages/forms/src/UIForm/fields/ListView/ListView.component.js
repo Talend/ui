@@ -53,9 +53,7 @@ class ListViewWidget extends React.Component {
 				initItems(schema, value, oldState.searchCriteria, this.onToggleItem.bind(this)),
 			);
 		} else if (value !== this.props.value) {
-			this.setState(oldState =>
-				updateItems(oldState.items, value, oldState.searchCriteria)
-			);
+			this.setState(oldState => updateItems(oldState.items, value, oldState.searchCriteria));
 		}
 	}
 
@@ -91,8 +89,7 @@ class ListViewWidget extends React.Component {
 		if (event.keyCode === keycode('enter')) {
 			event.stopPropagation();
 			event.preventDefault();
-		}
-		else if (event.keyCode === keycode('escape')) {
+		} else if (event.keyCode === keycode('escape')) {
 			event.stopPropagation();
 			event.preventDefault();
 			this.switchToDefaultMode();
@@ -106,7 +103,7 @@ class ListViewWidget extends React.Component {
 	 */
 	onToggleItem(event, changedItem) {
 		const value = this.state.items
-			.filter((item) => {
+			.filter(item => {
 				if (changedItem === item) {
 					return !item.checked;
 				}
@@ -175,11 +172,7 @@ class ListViewWidget extends React.Component {
 				id={this.props.id}
 				isValid={this.props.isValid}
 			>
-				<ListView
-					{...this.state}
-					id={this.props.id}
-					items={this.state.displayedItems}
-				/>
+				<ListView {...this.state} id={this.props.id} items={this.state.displayedItems} />
 			</FieldTemplate>
 		);
 	}
