@@ -1,9 +1,6 @@
 package org.talend.component.list.table;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NotFoundException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.talend.component.Component;
@@ -114,7 +111,11 @@ public class Table extends Component {
         final WebElement firstElement = this.getElement().findElement(By.cssSelector(TABLE_ITEM_SELECTOR)) ;
         final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
         jsExec.executeScript("arguments[0].scrollTop += arguments[0].offsetHeight;", grid);
-        wait.until(ExpectedConditions.stalenessOf(firstElement));
+        try {
+            wait.until(ExpectedConditions.stalenessOf(firstElement));
+        } catch (TimeoutException e) {
+            return false;
+        }
 
         return true;
     }
