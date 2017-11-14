@@ -195,6 +195,18 @@ function loadStories() {
 			bsStyle: 'danger',
 			actionCreator: 'confirm:dialog',
 		};
+		(actions['menu:items-id'] = {
+			id: 'menu:items',
+			displayMode: 'dropdown',
+			label: 'my items',
+			actionIds: ['menu:first', 'menu:second'],
+		}),
+			(actions['dialog:delete:validate'] = {
+				id: 'dialog:delete:validate',
+				label: 'Yes',
+				bsStyle: 'danger',
+				actionCreator: 'confirm:dialog',
+			});
 		actions['dialog:delete:cancel'] = {
 			id: 'dialog:delete:cancel',
 			label: 'No',

@@ -48,6 +48,30 @@ export function ContainerActionDropdown(props) {
 			},
 		}, item));
 	}
+	newProps.items = props.items.map((item) => {
+		if (item.onClick) {
+			return item;
+		}
+		return Object.assign(
+			{
+				onClick: (event, data) => {
+					if (item.actionCreator) {
+						props.dispatchActionCreator(item.actionCreator, event, data);
+					} else {
+						props.dispatch(
+							Object.assign(
+								{
+									model: props.model,
+								},
+								item.payload,
+							),
+						);
+					}
+				},
+			},
+			item,
+		);
+	});
 	return <ActionDropdown {...newProps} />;
 }
 

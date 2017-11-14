@@ -9,10 +9,12 @@ import ListExample from './ExampleList';
 import NotificationExample from './ExampleNotification';
 import ObjectViewerExample from './ExampleObjectViewer';
 import SidePanelExample from './ExampleSidePanel';
+import ActionDropDown from './ExampleActionDropDown';
 import DeleteResource from './ExampleDeleteResource';
 
 export default {
 	ActionExample,
+	ActionDropDown,
 	ActionBarExample,
 	ActionsExample,
 	AppHeaderBarExample,

@@ -1,5 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Connect(CMF(Container(ActionSplitDropdown))) should render splitDropdown and items from settings 1`] = `
+<CMF(Container(ActionSplitDropdown))
+  actionId="menu:article:items"
+  actionIds={
+    Array [
+      "menu:demo",
+      "menu:actionCreator",
+    ]
+  }
+  deleteState={[Function]}
+  dispatch={[Function]}
+  dispatchActionCreator={[Function]}
+  displayMode="splitDropdown"
+  getCollection={[Function]}
+  icon="icon-article"
+  id="menu:article:items"
+  initState={[Function]}
+  name="My article"
+  payload={
+    Object {
+      "args": Array [
+        "/myarticle",
+      ],
+      "method": "push",
+      "type": "@@router/CALL_HISTORY_METHOD",
+    }
+  }
+  setState={[Function]}
+  state={undefined}
+  updateState={[Function]}
+/>
+`;
+
+exports[`Connect(CMF(Container(ActionSplitDropdown))) should render splitDropdown from settings 1`] = `
+<CMF(Container(ActionSplitDropdown))
+  actionId="menu:raw-items"
+  deleteState={[Function]}
+  dispatch={[Function]}
+  dispatchActionCreator={[Function]}
+  getCollection={[Function]}
+  id="menu:items"
+  initState={[Function]}
+  items={
+    Array [
+      Object {
+        "actionCreator": "item1:action",
+        "label": "label #1",
+      },
+    ]
+  }
+  label="my items"
+  name="my items"
+  setState={[Function]}
+  state={undefined}
+  updateState={[Function]}
+/>
+`;
+
+exports[`Connect(CMF(Container(ActionSplitDropdown))) should render splitDropdown from settings and items from expression 1`] = `
+<CMF(Container(ActionSplitDropdown))
+  actionId="menu:items"
+  deleteState={[Function]}
+  dispatch={[Function]}
+  dispatchActionCreator={[Function]}
+  getCollection={[Function]}
+  id="menu:items"
+  initState={[Function]}
+  items={
+    Array [
+      Object {
+        "actionCreator": "item1:action",
+        "label": "label 1",
+      },
+    ]
+  }
+  name="my items"
+  setState={[Function]}
+  state={undefined}
+  updateState={[Function]}
+/>
+`;
+
 exports[`Container(ActionSplitDropdown) should render 1`] = `
 <ActionSplitDropdown
   foo="extra"

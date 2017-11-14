@@ -53,6 +53,17 @@ const settings = {
 			displayMode: 'splitDropdown',
 			actionIds: ['menu:demo', 'menu:actionCreator'],
 		},
+		'menu:raw-items': {
+			id: 'menu:items',
+			name: 'my items',
+			label: 'my items',
+			items: [
+				{
+					actionCreator: 'item1:action',
+					label: 'label #1',
+				},
+			],
+		},
 		'menu:items': {
 			id: 'menu:items',
 			name: 'my items',
@@ -135,9 +146,7 @@ const settings = {
 		path: '/',
 		component: 'App',
 		indexRoute: { component: 'SortableListWithSideMenu', view: 'homepage' },
-		childRoutes: [
-			{ path: 'myarticle', component: 'SortableListWithSideMenu', view: 'homepage' },
-		],
+		childRoutes: [{ path: 'myarticle', component: 'SortableListWithSideMenu', view: 'homepage' }],
 	},
 };
 export default settings;

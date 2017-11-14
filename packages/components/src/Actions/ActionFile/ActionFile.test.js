@@ -34,6 +34,9 @@ describe('ActionFile', () => {
 		expect(myAction.onChange).toHaveBeenCalled();
 		expect(myAction.onChange.mock.calls.length).toBe(1);
 		const args = myAction.onChange.mock.calls[0];
+		expect(args.length).toBe(2);
+		expect(args[0]).toBe();
+		expect(args[1].action.extra).toBe('extra');
 		expect(args[0]).toBe(mockEvent);
 	});
 

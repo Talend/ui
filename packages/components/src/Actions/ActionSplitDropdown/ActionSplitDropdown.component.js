@@ -1,14 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import {
-	SplitButton,
-	MenuItem,
-} from 'react-bootstrap';
+import { SplitButton, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 import Icon from '../../Icon';
 import theme from './ActionSplitDropdown.scss';
-
+import getRClick from '../utils';
 
 /**
  * @param {object} props react props
@@ -36,16 +33,7 @@ function rClick(event, onClick, action, model) {
 }
 
 function ActionSplitDropdown(props) {
-	const {
-		icon,
-		items,
-		label,
-		model,
-		onClick,
-		emptyDropdownLabel,
-		className,
-		...rest
-	} = props;
+	const { icon, items, label, model, onClick, emptyDropdownLabel, className, ...rest } = props;
 
 	const Title = (
 		<span>
@@ -62,15 +50,16 @@ function ActionSplitDropdown(props) {
 			className={classNames(className, theme['tc-split-dropdown'])}
 			{...rest}
 		>
-			{
-				items.length ?
-					items.map((item, index) => (
-						<MenuItem {...item} key={index}>
-							{ item.icon && <Icon name={item.icon} /> }
-							{ item.label }
-						</MenuItem>
-					)) : <MenuItem disabled>{emptyDropdownLabel}</MenuItem>
-			}
+			{items.length ? (
+				items.map((item, index) => (
+					<MenuItem {...item} key={index} onClick={getRClick(item)}>
+						{item.icon && <Icon name={item.icon} />}
+						{item.label}
+					</MenuItem>
+				))
+			) : (
+				<MenuItem disabled>{emptyDropdownLabel}</MenuItem>
+			)}
 		</SplitButton>
 	);
 }
@@ -79,11 +68,13 @@ ActionSplitDropdown.displayName = 'ActionSplitDropdown';
 
 ActionSplitDropdown.propTypes = {
 	icon: PropTypes.string,
-	items: PropTypes.arrayOf(PropTypes.shape({
-		icon: PropTypes.string,
-		label: PropTypes.string,
-		...MenuItem.propTypes,
-	})).isRequired,
+	items: PropTypes.arrayOf(
+		PropTypes.shape({
+			icon: PropTypes.string,
+			label: PropTypes.string,
+			...MenuItem.propTypes,
+		}),
+	).isRequired,
 	label: PropTypes.string.isRequired,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	onClick: PropTypes.func.isRequired,
