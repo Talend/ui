@@ -7,7 +7,7 @@ const CONTAINER_FILTER = 'Container(FilterBar)';
  * @param {object} state
  * @param {string} idComponent
  */
-export function selectorFilterBar(state, idComponent) {
+export function selectorFilter(state, idComponent) {
 	if (
 		state.cmf.components.has(CONTAINER_FILTER) &&
 		state.cmf.components.get(CONTAINER_FILTER).has(idComponent)
@@ -23,7 +23,7 @@ export function selectorFilterBar(state, idComponent) {
  * @param {string} idComponent
  */
 export function getCollectionFiltered(state, idComponent) {
-	return selectorFilterBar(state, idComponent).get('collectionFiltered', List());
+	return selectorFilter(state, idComponent).get('collectionFiltered', List());
 }
 /**
  * Return the filterInputValue attr from the state of filter id given.
@@ -31,7 +31,7 @@ export function getCollectionFiltered(state, idComponent) {
  * @param {string} idComponent
  */
 export function getFilterInputValue(state, idComponent) {
-	return selectorFilterBar(state, idComponent).get('filterInputValue', '');
+	return selectorFilter(state, idComponent).get('filterInputValue', '');
 }
 
 /**

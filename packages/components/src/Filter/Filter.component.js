@@ -92,7 +92,8 @@ function Filter(props) {
 		debounceMinLength,
 		debounceTimeout,
 		docked,
-		undockable,
+		dockable,
+		toggeable,
 		highlight,
 		onBlur,
 		onFocus,
@@ -102,7 +103,7 @@ function Filter(props) {
 		value,
 		t,
 	} = props;
-	if (!undockable && docked) {
+	if (toggeable && docked) {
 		return (
 			<Action
 				id={id}
@@ -122,7 +123,7 @@ function Filter(props) {
 	}
 
 	let classes = classNames(theme.filter, { [theme.highlight]: highlight });
-	if (!undockable) {
+	if (dockable) {
 		classes = classNames('navbar-form', 'navbar-right', theme.filter, {
 			[theme.highlight]: highlight,
 		});
@@ -161,7 +162,8 @@ Filter.propTypes = {
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
 	docked: PropTypes.bool,
-	undockable: PropTypes.bool,
+	dockable: PropTypes.bool,
+	toggeable: PropTypes.bool,
 	onBlur: PropTypes.func,
 	onFocus: PropTypes.func,
 	onFilter: PropTypes.func.isRequired,
@@ -174,6 +176,7 @@ Filter.propTypes = {
 
 Filter.defaultProps = {
 	docked: true,
+	dockable: true,
 	placeholder: 'Filter',
 	t: getDefaultTranslate,
 };

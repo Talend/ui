@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import invariant from 'invariant';
 import { Filter as Component } from '@talend/react-components';
 
-class FilterBar extends React.Component {
-	static displayName = 'Container(FilterBar)';
+class Filter extends React.Component {
+	static displayName = 'Container(Filter)';
 
 	static contextTypes = {
 		registry: PropTypes.object,
@@ -42,8 +42,9 @@ class FilterBar extends React.Component {
 		this.getToggle = this.getToggle.bind(this);
 	}
 
-	// If they are differences between the collection we have to filter in our props,
-	// we apply the expression filter to be sure to be comform to the collection.
+	// If they are differences between the next props collection we have to filter
+	// our current collection.
+	// We apply the expression filter to be sure to be comform to the new collection.
 	componentWillReceiveProps(nextProps) {
 		if (
 			(this.props.collectionToFilter && this.props.collectionToFilter.size) !==
@@ -51,7 +52,7 @@ class FilterBar extends React.Component {
 		) {
 			const event = { target: { value: this.props.filterInputValue } };
 			this.props.dispatchActionCreator('filter:update', event, {
-				componentName: 'Container(FilterBar)',
+				componentName: 'Container(Filter)',
 				key: this.props.id,
 				collectionFiltered: this.getFilter(event, nextProps.collectionToFilter),
 			});
@@ -60,7 +61,7 @@ class FilterBar extends React.Component {
 
 	onFilter(event) {
 		this.props.dispatchActionCreator('filter:save', event, {
-			componentName: 'Container(FilterBar)',
+			componentName: 'Container(Filter)',
 			key: this.props.id,
 			collectionFiltered: this.getFilter(event, this.props.collectionToFilter),
 		});
@@ -143,4 +144,4 @@ class FilterBar extends React.Component {
 	}
 }
 
-export default FilterBar;
+export default Filter;

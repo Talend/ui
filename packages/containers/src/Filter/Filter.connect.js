@@ -1,7 +1,7 @@
 import { Map, List } from 'immutable';
 import { api, cmfConnect } from '@talend/react-cmf';
-import Container from './FilterBar.container';
-import { getFilterInputValue } from './FilterBar.selectors';
+import Container from './Filter.container';
+import { getFilterInputValue } from './Filter.selectors';
 
 const DEFAULT_STATE = Map({ filterInputValue: '', collectionFiltered: List() });
 
@@ -26,7 +26,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 export default cmfConnect({
-	componentId: ownProps => (ownProps && ownProps.id) || 'FilterBar',
+	componentId: ownProps => (ownProps && ownProps.id) || 'Filter',
 	defaultState: DEFAULT_STATE,
 	mapStateToProps,
 })(Container);
