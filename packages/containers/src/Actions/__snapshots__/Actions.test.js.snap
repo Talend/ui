@@ -1,17 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Actions should render 1`] = `
-<div
-  className="mock-provider"
->
-  <div
-    actions={
-      Array [
-        "menu:demo",
-      ]
+<CMF(Actions)
+  actions={
+    Array [
+      Object {
+        "actionId": "menu:demo",
+      },
+    ]
+  }
+  deleteState={[Function]}
+  dispatch={[Function]}
+  dispatchActionCreator={[Function]}
+  getCollection={[Function]}
+  initState={[Function]}
+  renderers={
+    Object {
+      "Action": [Function],
     }
-    className="tc-actions"
-    onClick={[Function]}
-  />
-</div>
+  }
+  setState={[Function]}
+  state={undefined}
+  updateState={[Function]}
+/>
 `;

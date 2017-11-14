@@ -24,6 +24,7 @@ exports[`RendererSelector should render grid list 1`] = `
   rowHeight={50}
   rowRenderer={[Function]}
   selectionToggle={[Function]}
+  t={[Function]}
   width={1024}
 >
   <Column
@@ -78,15 +79,18 @@ exports[`RendererSelector should render table list by default 1`] = `
       },
     ]
   }
+  disableHeader={false}
   height={600}
   id="my-list-id"
   isActive={[Function]}
   isSelected={[Function]}
   onRowClick={[Function]}
+  rowHeight={50}
   selectionToggle={[Function]}
   sort={[Function]}
   sortBy="name"
   sortDirection="DESC"
+  t={[Function]}
   width={1024}
 >
   <Column
@@ -141,15 +145,18 @@ exports[`RendererSelector should render table list when requested 1`] = `
       },
     ]
   }
+  disableHeader={false}
   height={600}
   id="my-list-id"
   isActive={[Function]}
   isSelected={[Function]}
   onRowClick={[Function]}
+  rowHeight={50}
   selectionToggle={[Function]}
   sort={[Function]}
   sortBy="name"
   sortDirection="DESC"
+  t={[Function]}
   width={1024}
 >
   <Column

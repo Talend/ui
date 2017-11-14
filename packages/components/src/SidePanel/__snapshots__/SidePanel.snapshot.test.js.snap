@@ -20,13 +20,23 @@ exports[`Storyshots SidePanel With layout (toggle interactive) 1`] = `
         className="btn"
         onClick={[Function]}
       >
+        en
+         
+        (default)
+      </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
         fr
+         
       </button>
       <button
         className="btn"
         onClick={[Function]}
       >
         it
+         
       </button>
     </div>
   </nav>
@@ -703,13 +713,23 @@ exports[`Storyshots SidePanel default 1`] = `
         className="btn"
         onClick={[Function]}
       >
+        en
+         
+        (default)
+      </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
         fr
+         
       </button>
       <button
         className="btn"
         onClick={[Function]}
       >
         it
+         
       </button>
     </div>
   </nav>
@@ -943,13 +963,23 @@ exports[`Storyshots SidePanel docked 1`] = `
         className="btn"
         onClick={[Function]}
       >
+        en
+         
+        (default)
+      </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
         fr
+         
       </button>
       <button
         className="btn"
         onClick={[Function]}
       >
         it
+         
       </button>
     </div>
   </nav>
@@ -1179,13 +1209,23 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
         className="btn"
         onClick={[Function]}
       >
+        en
+         
+        (default)
+      </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
         fr
+         
       </button>
       <button
         className="btn"
         onClick={[Function]}
       >
         it
+         
       </button>
     </div>
   </nav>

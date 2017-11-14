@@ -24,6 +24,11 @@ exports[`CellContent should render array 1`] = `
   }
   hideLabel={true}
   link={true}
+  renderers={
+    Object {
+      "Action": [Function],
+    }
+  }
 />
 `;
 
