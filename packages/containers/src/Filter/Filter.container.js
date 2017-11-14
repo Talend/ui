@@ -120,7 +120,8 @@ class Filter extends React.Component {
 	render() {
 		const {
 			docked,
-			undockable,
+			dockable,
+			toggeable,
 			debounceMinLength,
 			debounceTimeout,
 			highlight,
@@ -130,7 +131,8 @@ class Filter extends React.Component {
 		const filter = {
 			id: this.props.id ? `${this.props.id}-filter` : 'FILTER',
 			docked,
-			undockable,
+			dockable,
+			toggeable,
 			debounceMinLength,
 			debounceTimeout,
 			onFilter: event => this.onFilter(event),

@@ -1,10 +1,10 @@
 import React from 'react';
-import { FilterBar } from '../src';
+import { Filter } from '../src';
 
 export default function FilterExample() {
 	return (
 		<div>
-			<FilterBar />
+			<Filter />
 		</div>
 	);
 }

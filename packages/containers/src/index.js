@@ -27,7 +27,7 @@ import ObjectViewer from './ObjectViewer';
 import Redirect from './Redirect';
 import ShortcutManager from './ShortcutManager';
 import SidePanel from './SidePanel';
-import FilterBar from './FilterBar';
+import Filter from './Filter';
 import DeleteResource from './DeleteResource';
 
 export {
@@ -58,5 +58,5 @@ export {
 	TooltipTrigger,
 	TreeView,
 	Typeahead,
-	FilterBar,
+	Filter,
 };

@@ -9,7 +9,7 @@ import ListExample from './ExampleList';
 import NotificationExample from './ExampleNotification';
 import ObjectViewerExample from './ExampleObjectViewer';
 import SidePanelExample from './ExampleSidePanel';
-import FilterBarExample from './ExampleFilterBar';
+import FilterExample from './ExampleFilter';
 import DeleteResource from './ExampleDeleteResource';
 
 export default {
@@ -24,6 +24,6 @@ export default {
 	NotificationExample,
 	ObjectViewerExample,
 	SidePanelExample,
-	FilterBarExample,
+	FilterExample,
 	DeleteResource,
 };
