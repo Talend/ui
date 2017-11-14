@@ -10,7 +10,6 @@ import Action from '../Actions/Action';
 
 import theme from './SidePanel.scss';
 
-
 /**
  * return the formatted action id
  * if there is no action id, it is generated from the action label
@@ -19,7 +18,12 @@ import theme from './SidePanel.scss';
  * @return {string}        	formatted id
  */
 function getActionId(id, action) {
-	const actionId = action.id || action.label.toLowerCase().split(' ').join('-');
+	const actionId =
+		action.id ||
+		action.label
+			.toLowerCase()
+			.split(' ')
+			.join('-');
 	return id && `${id}-nav-${actionId}`;
 }
 
