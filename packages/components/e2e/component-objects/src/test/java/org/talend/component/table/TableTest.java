@@ -162,6 +162,6 @@ public class TableTest extends StorybookTest {
         tableObject.getItem("Title with icon and actions 25").clickOnAction("edit");
 
         // then
-        assertThat(getActionLog(), containsString("▶onEdit:"));
+        assertThat(getActionLog(), startsWith("▶onEdit:"));
     }
 }
