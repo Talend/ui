@@ -10,7 +10,9 @@ import TreeView, {
 } from './TreeView.container';
 
 describe('TreeView', () => {
-	let context, state, data;
+	let context;
+	let state;
+	let data;
 	beforeEach(() => {
 		context = mock.context();
 		state = mock.state();
