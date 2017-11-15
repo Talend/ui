@@ -79,7 +79,7 @@ $tf-filterwidget-shadow-color: $shadow !default;
 		.element {
 			flex-grow: 1;
 			padding: 0;
-			overflow: hidden;
+			overflow: visible;
 
 			> div {
 				padding: 0;
