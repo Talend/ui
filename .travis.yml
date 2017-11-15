@@ -20,7 +20,7 @@ before_install:
   - .travis/before_install.sh
 before_script:
   - sh -e /etc/init.d/xvfb start
-  - yarn global add sassdoc http-server surge prettier i18next-parser
+  - yarn global add sassdoc http-server surge prettier
 script:
   - yarn test:cov
 after_success:
