@@ -2,6 +2,13 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.125.0
+* Component: SidePanel
+* PR: [feat(components/sidepanel): accept custom action ids](https://github.com/Talend/ui/pull/846)
+* Changes :
+
+Before this, action ids were ignored. Now, if an id is provided per action, it will be used instead of the label ; so it could break some QA tests.
+
 ## v0.121.0
 * Component: SidePanel
 * PR: [feat(SidePanel): i18n](https://github.com/Talend/ui/pull/818)
