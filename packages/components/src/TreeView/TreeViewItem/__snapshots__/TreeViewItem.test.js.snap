@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeView should render normally with all buttons and custom labels 1`] = `
+<li
+  className={undefined}
+  data-hidden={undefined}
+>
+  <div
+    className={undefined}
+    data-selected={undefined}
+    id={undefined}
+    onClick={[Function]}
+    style={
+      Object {
+        "paddingLeft": "20px",
+      }
+    }
+  >
+    <div
+      className={undefined}
+      data-toggled={true}
+    >
+      <Action
+        hideLabel={true}
+        icon="talend-caret-down"
+        id="undefined-toggle"
+        label="Collapse"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="right"
+      />
+    </div>
+    <span
+      className={undefined}
+    >
+      <Icon
+        name="talend-folder"
+      />
+    </span>
+    <span>
+      grandpa
+    </span>
+    <div
+      className={undefined}
+    >
+      <Translate(Badge)
+        label="101"
+      />
+      <Action
+        hideLabel={true}
+        icon="talend-trash"
+        id="undefined-talend-trash"
+        label="remove element"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="right"
+      />
+    </div>
+  </div>
+  <ul
+    className={undefined}
+  >
+    <TreeViewItem
+      depth={1}
+      id={undefined}
+      item={
+        Object {
+          "children": Array [
+            Object {
+              "name": "me",
+              "selected": true,
+            },
+            Object {
+              "name": "bro",
+            },
+          ],
+          "name": "mami",
+          "toggled": true,
+        }
+      }
+      onClick={[Function]}
+      onSelect={[Function]}
+    />
+    <TreeViewItem
+      depth={1}
+      id={undefined}
+      item={
+        Object {
+          "children": Array [
+            Object {
+              "name": "cousin",
+            },
+          ],
+          "name": "aunt",
+          "toggled": false,
+        }
+      }
+      onClick={[Function]}
+      onSelect={[Function]}
+    />
+  </ul>
+</li>
+`;
