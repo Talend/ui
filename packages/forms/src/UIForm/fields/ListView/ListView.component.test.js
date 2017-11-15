@@ -78,7 +78,7 @@ describe('ListView field', () => {
 
 		it('should render no items message', () => {
 			// when
-			const wrapper = mount(<ListView {...props} schema={noItemsSchema}/>);
+			const wrapper = mount(<ListView {...props} schema={noItemsSchema} />);
 
 			// then
 			expect(wrapper.find('.tc-listview').at(0).node).toMatchSnapshot();
@@ -90,7 +90,7 @@ describe('ListView field', () => {
 			// given
 			const node = document.createElement('div');
 			// eslint-disable-next-line react/no-render-return-value
-			const instance = ReactDOM.render(<ListViewWidget {...props} value={[]}/>, node);
+			const instance = ReactDOM.render(<ListViewWidget {...props} value={[]} />, node);
 			const previousItems = instance.state.displayedItems;
 			expect(previousItems.length).toBe(4);
 			for (const item of previousItems) {
@@ -100,7 +100,7 @@ describe('ListView field', () => {
 			const allValues = props.schema.titleMap.map(option => option.value);
 
 			// when : trigger a props update
-			ReactDOM.render(<ListViewWidget {...props} value={allValues}/>, node);
+			ReactDOM.render(<ListViewWidget {...props} value={allValues} />, node);
 
 			// then
 			const nextItems = instance.state.displayedItems;
@@ -121,7 +121,10 @@ describe('ListView field', () => {
 			const allValues = alternativeSchema.titleMap.map(option => option.value);
 
 			// when : trigger a props update
-			ReactDOM.render(<ListViewWidget {...props} schema={alternativeSchema} value={allValues}/>, node);
+			ReactDOM.render(
+				<ListViewWidget {...props} schema={alternativeSchema} value={allValues} />,
+				node,
+			);
 
 			// then
 			const nextItems = instance.state.displayedItems;
@@ -266,7 +269,7 @@ describe('ListView field', () => {
 		it('should deselect all item', () => {
 			// given
 			const allValues = props.schema.titleMap.map(option => option.value);
-			const wrapper = mount(<ListView {...props} value={allValues}/>);
+			const wrapper = mount(<ListView {...props} value={allValues} />);
 			expect(props.onChange).not.toBeCalled();
 			expect(props.onFinish).not.toBeCalled();
 
@@ -302,7 +305,7 @@ describe('ListView field', () => {
 		it('should deselect all filtered item', () => {
 			// given
 			const allValues = props.schema.titleMap.map(option => option.value);
-			const wrapper = mount(<ListView {...props} value={allValues}/>);
+			const wrapper = mount(<ListView {...props} value={allValues} />);
 			filter(wrapper, 'ia');
 
 			// when

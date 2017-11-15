@@ -176,7 +176,12 @@ class ListViewWidget extends React.Component {
 				id={this.props.id}
 				isValid={this.props.isValid}
 			>
-				<ListView {...this.state} id={this.props.id} items={this.state.displayedItems} t={this.props.t}/>
+				<ListView
+					{...this.state}
+					id={this.props.id}
+					items={this.state.displayedItems}
+					t={this.props.t}
+				/>
 			</FieldTemplate>
 		);
 	}
@@ -184,7 +189,7 @@ class ListViewWidget extends React.Component {
 
 ListViewWidget.defaultProps = {
 	value: [],
-	t: getDefaultTranslate
+	t: getDefaultTranslate,
 };
 if (process.env.NODE_ENV !== 'production') {
 	ListViewWidget.propTypes = {
@@ -210,7 +215,6 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func,
 	};
 }
-
 
 export { ListViewWidget };
 
