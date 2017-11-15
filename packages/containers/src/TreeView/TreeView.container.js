@@ -18,29 +18,21 @@ export const DEFAULT_STATE = new Immutable.Map({
 	[SELECTED_ATTR]: undefined,
 });
 
-function open(id, state) {
-	return state.set(OPENED_ATTR, state.get(OPENED_ATTR).push(id));
-}
-
-function close(id, state) {
-	const opened = state.get(OPENED_ATTR);
-	return state.set(OPENED_ATTR, opened.delete(opened.indexOf(id)));
-}
-
-function select(id, state) {
-	return state.set('selectedId', id);
-}
-
 function toggleState(prevProps, id) {
 	const opened = prevProps.state.get(OPENED_ATTR);
-	if (opened.indexOf(id) !== -1) {
-		return close(id, prevProps.state);
+	const index = opened.indexOf(id);
+	if (index !== -1) {
+		return prevProps.state.set(OPENED_ATTR, opened.delete(index));
 	}
-	return open(id, prevProps.state);
+	return prevProps.state.set(OPENED_ATTR, prevProps.state.get(OPENED_ATTR).push(id));
 }
 
 function selectWrapper(prevProps, id) {
-	return select(id, prevProps.state);
+	const selected = prevProps.state.get(SELECTED_ATTR);
+	if (id === selected) {
+		return prevProps.state.set(SELECTED_ATTR, undefined);
+	}
+	return prevProps.state.set(SELECTED_ATTR, id);
 }
 
 /**

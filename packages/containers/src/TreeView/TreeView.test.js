@@ -60,27 +60,18 @@ describe('TreeView', () => {
 		const setState = jest.fn(fn => {
 			prevState.state = fn(prevState);
 		});
-		const dispatchActionCreator = jest.fn();
-		const onClick = jest.fn();
-		const onClickActionCreator = 'my:action';
-		const props = {
-			setState, dispatchActionCreator, data, onClick, onClickActionCreator,
-		};
+		const props = { setState, data };
 		const wrapper = shallow(
-			<TreeView.WrappedComponent
-				{...props}
-			/>,
+			<TreeView.WrappedComponent {...props} />,
 			{ context },
 		);
 		wrapper.simulate('click', data.get(0).toJS());
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
 		expect(prevState.state.get('opened').toJS()).toEqual([1]);
-		expect(onClick).toHaveBeenCalledWith(data.get(0).toJS());
-		expect(dispatchActionCreator).toHaveBeenCalled();
-		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onClickActionCreator);
-		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
-		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
+		wrapper.simulate('click', data.get(0).toJS());
+		expect(setState.mock.calls.length).toBe(2);
+		expect(prevState.state.get('opened').toJS()).toEqual([]);
 	});
 
 	it('should setState onSelect', () => {
@@ -111,6 +102,27 @@ describe('TreeView', () => {
 		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onSelectActionCreator);
 		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
 		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
+	});
+	it('should unselect onSelect twice', () => {
+		const prevState = {
+			state: DEFAULT_STATE,
+		};
+		const setState = jest.fn(fn => {
+			prevState.state = fn(prevState);
+		});
+		const onSelect = jest.fn();
+		const props = { setState, data, onSelect };
+		const wrapper = shallow(
+			<TreeView.WrappedComponent {...props} />,
+			{ context },
+		);
+		wrapper.simulate('select', data.get(0).toJS());
+		expect(setState).toHaveBeenCalled();
+		expect(prevState.state).not.toBe(DEFAULT_STATE);
+		expect(prevState.state.get('selectedId')).toEqual(1);
+		expect(onSelect).toHaveBeenCalledWith(data.get(0).toJS());
+		wrapper.simulate('select', data.get(0).toJS());
+		expect(prevState.state.get('selectedId')).toBe();
 	});
 });
 
