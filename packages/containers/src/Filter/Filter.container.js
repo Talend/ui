@@ -82,6 +82,7 @@ class Filter extends React.Component {
 		this.getToggle(event);
 	}
 
+	// Give the possibility to edit this event handler ?
 	getBlur(event) {
 		if (api.expression.get(this.props.actionInfo.blurExpression, this.context)) {
 			api.expression.get(this.props.actionInfo.blurExpression, this.context)(event);
@@ -89,6 +90,7 @@ class Filter extends React.Component {
 		invariant(true, `No blur expression defined in settings ${this.props.actionInfo}`);
 	}
 
+	// Give the possibility to edit this event handler ?
 	getFocus(event) {
 		if (api.expression.get(this.props.actionInfo.focusExpression, this.context)) {
 			api.expression.get(this.props.actionInfo.focusExpression, this.context)(event);
@@ -96,6 +98,7 @@ class Filter extends React.Component {
 		invariant(true, `No focus expression defined in settings ${this.props.actionInfo}`);
 	}
 
+	// TODO Add a toggle for undocked/docker the navbar or to delete the content of filter.
 	getToggle(event) {
 		if (api.expression.get(this.props.actionInfo.toggleExpression, this.context)) {
 			api.expression.get(this.props.actionInfo.toggleExpression, this.context)(event);
