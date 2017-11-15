@@ -21,7 +21,7 @@
     "build-sagas": "lerna exec --scope=*sagas -- yarn run prepublish && node copylibs.js --scope=sagas",
     "build-i18n": "lerna exec --scope=*i18n",
     "test": "lerna exec --concurrency 1 -- yarn test",
-    "test:cov": "lerna exec --concurrency 1 -- yarn test:cov",
+    "test:cov": "lerna exec --ignore react-i18n --concurrency 1 -- yarn test:cov",
     "start": "lerna exec -- yarn start",
     "watch": "npm-watch",
     "publish": "lerna publish --force-publish=*",
