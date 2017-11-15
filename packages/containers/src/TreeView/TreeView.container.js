@@ -13,7 +13,7 @@ export const DEFAULT_PROPS = {
 	nameAttr: 'name',
 	childrenAttr: 'children',
 };
-const DEFAULT_STATE = new Immutable.Map({
+export const DEFAULT_STATE = new Immutable.Map({
 	[OPENED_ATTR]: new Immutable.List(),
 	[SELECTED_ATTR]: undefined,
 });
@@ -75,6 +75,11 @@ class TreeView extends React.Component {
 		data: ImmutablePropTypes.List,
 		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
+		onClick: PropTypes.func,
+		onSelect: PropTypes.func,
+		onClickActionCreator: PropTypes.string,
+		onSelectActionCreator: PropTypes.string,
+
 		...componentState.propTypes,
 	};
 	static defaultProps = DEFAULT_PROPS;
@@ -98,16 +103,16 @@ class TreeView extends React.Component {
 				data,
 			);
 		}
-		if (this.props.itemSelectCallback) {
-			this.props.itemSelectCallback(data);
+		if (this.props.onSelect) {
+			this.props.onSelect(data);
 		}
 	}
 
 	onClick(data) {
 		this.props.setState(prevState => toggleState(prevState, data[this.props.idAttr]));
-		if (this.props.onToggleActionCreator) {
+		if (this.props.onClickActionCreator) {
 			this.props.dispatchActionCreator(
-				this.props.onToggleActionCreator,
+				this.props.onClickActionCreator,
 				{
 					type: 'toggle',
 					source: 'TreeView',
@@ -116,8 +121,8 @@ class TreeView extends React.Component {
 				data,
 			);
 		}
-		if (this.props.itemToggleCallback) {
-			this.props.itemToggleCallback(data);
+		if (this.props.onClick) {
+			this.props.onClick(data);
 		}
 	}
 
@@ -128,8 +133,8 @@ class TreeView extends React.Component {
 			<Component
 				{...props}
 				structure={structure}
-				itemSelectCallback={this.onSelect}
-				itemToggleCallback={this.onClick}
+				onSelect={this.onSelect}
+				onClick={this.onClick}
 			/>
 		);
 	}

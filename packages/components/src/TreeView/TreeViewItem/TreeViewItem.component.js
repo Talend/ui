@@ -22,14 +22,14 @@ function getActionHandler(func, item) {
  * @param id, for qa purposes
  * @param item required, item to display
  * 		  item.actions optional, array with actions' to be displayed meta-info
- * @param itemSelectCallback required, callback function to trigger once item was clicked
- * @param itemToggleCallback required, callback function to trigger once item was clicked
+ * @param onSelect required, callback function to trigger once item was clicked
+ * @param onClick required, callback function to trigger once item was clicked
  * @param depth optional, depth of an item in a tree
  *
  * @returns XML, jsx to display
  */
 
-function TreeViewItem({ id, item, depth = 0, itemSelectCallback, itemToggleCallback }) {
+function TreeViewItem({ id, item, depth = 0, onClick, onSelect }) {
 	const {
 		toggled = false,
 		selected,
@@ -44,7 +44,7 @@ function TreeViewItem({ id, item, depth = 0, itemSelectCallback, itemToggleCallb
 	const toggleIconLabel = toggled ? 'Collapse' : 'Expand';
 
 	function selectHandler() {
-		return itemSelectCallback(item);
+		return onSelect(item);
 	}
 
 	function getTreeViewItem(child, i) {
@@ -53,8 +53,8 @@ function TreeViewItem({ id, item, depth = 0, itemSelectCallback, itemToggleCallb
 				{...{
 					id: id && `${id}-${i}`,
 					item: child,
-					itemSelectCallback,
-					itemToggleCallback,
+					onSelect,
+					onClick,
 					depth: depth + 1,
 					key: i,
 				}}
@@ -92,7 +92,7 @@ function TreeViewItem({ id, item, depth = 0, itemSelectCallback, itemToggleCallb
 						{getIconAction(
 							toggleIconLabel,
 							'talend-caret-down',
-							itemToggleCallback,
+							onClick,
 							`${id}-toggle`,
 						)}
 					</div>
@@ -130,8 +130,8 @@ TreeViewItem.propTypes = {
 		counter: PropTypes.number,
 		showCounter: PropTypes.bool,
 	}).isRequired,
-	itemSelectCallback: PropTypes.func.isRequired,
-	itemToggleCallback: PropTypes.func.isRequired,
+	onClick: PropTypes.func.isRequired,
+	onSelect: PropTypes.func.isRequired,
 	depth: PropTypes.number,
 };
 

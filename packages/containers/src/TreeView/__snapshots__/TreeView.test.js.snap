@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TreeView should use mapStateToProps 1`] = `
+exports[`TreeView should render the data 1`] = `
 <TreeView
   addActionLabel="Add folder"
   childrenAttr="children"
@@ -20,9 +20,9 @@ exports[`TreeView should use mapStateToProps 1`] = `
   }
   headerText="Folders"
   idAttr="id"
-  itemSelectCallback={[Function]}
-  itemToggleCallback={[Function]}
   nameAttr="name"
+  onClick={[Function]}
+  onSelect={[Function]}
   structure={
     Array [
       Object {

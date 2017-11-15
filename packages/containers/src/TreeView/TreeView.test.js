@@ -2,19 +2,115 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import mock from '@talend/react-cmf/lib/mock';
 import Immutable from 'immutable';
-import TreeView, { DEFAULT_PROPS, transform, mapStateToProps } from './TreeView.container';
+import TreeView, {
+	DEFAULT_STATE,
+	DEFAULT_PROPS,
+	transform,
+	mapStateToProps,
+} from './TreeView.container';
 
 describe('TreeView', () => {
-	it('should use mapStateToProps', () => {
-		const context = mock.context();
-		const state = mock.state();
-		const data = new Immutable.List([
+	let context, state, data;
+	beforeEach(() => {
+		context = mock.context();
+		state = mock.state();
+		data = new Immutable.List([
 			new Immutable.Map({ id: 1, name: 'foo', children: [] }),
 			new Immutable.Map({ id: 2, name: 'bar', children: [] }),
 		]);
 		context.store.getState = () => state;
+	});
+	it('should render the data', () => {
 		const wrapper = shallow(<TreeView.WrappedComponent data={data} />, { context });
 		expect(wrapper.getNode()).toMatchSnapshot();
+	});
+	it('should setState onClick', () => {
+		const prevState = {
+			state: DEFAULT_STATE,
+		};
+		const setState = jest.fn(fn => {
+			prevState.state = fn(prevState);
+		});
+		const dispatchActionCreator = jest.fn();
+		const onClick = jest.fn();
+		const onClickActionCreator = 'my:action';
+		const props = {
+			setState, dispatchActionCreator, data, onClick, onClickActionCreator,
+		};
+		const wrapper = shallow(
+			<TreeView.WrappedComponent
+				{...props}
+			/>,
+			{ context },
+		);
+		wrapper.simulate('click', data.get(0).toJS());
+		expect(setState).toHaveBeenCalled();
+		expect(prevState.state).not.toBe(DEFAULT_STATE);
+		expect(prevState.state.get('opened').toJS()).toEqual([1]);
+		expect(onClick).toHaveBeenCalledWith(data.get(0).toJS());
+		expect(dispatchActionCreator).toHaveBeenCalled();
+		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onClickActionCreator);
+		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
+		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
+	});
+	it('should close if re onClick', () => {
+		const prevState = {
+			state: DEFAULT_STATE,
+		};
+		const setState = jest.fn(fn => {
+			prevState.state = fn(prevState);
+		});
+		const dispatchActionCreator = jest.fn();
+		const onClick = jest.fn();
+		const onClickActionCreator = 'my:action';
+		const props = {
+			setState, dispatchActionCreator, data, onClick, onClickActionCreator,
+		};
+		const wrapper = shallow(
+			<TreeView.WrappedComponent
+				{...props}
+			/>,
+			{ context },
+		);
+		wrapper.simulate('click', data.get(0).toJS());
+		expect(setState).toHaveBeenCalled();
+		expect(prevState.state).not.toBe(DEFAULT_STATE);
+		expect(prevState.state.get('opened').toJS()).toEqual([1]);
+		expect(onClick).toHaveBeenCalledWith(data.get(0).toJS());
+		expect(dispatchActionCreator).toHaveBeenCalled();
+		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onClickActionCreator);
+		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
+		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
+	});
+
+	it('should setState onSelect', () => {
+		const prevState = {
+			state: DEFAULT_STATE,
+		};
+		const setState = jest.fn(fn => {
+			prevState.state = fn(prevState);
+		});
+		const dispatchActionCreator = jest.fn();
+		const onSelect = jest.fn();
+		const onSelectActionCreator = 'my:action';
+		const props = {
+			setState, dispatchActionCreator, data, onSelect, onSelectActionCreator,
+		};
+		const wrapper = shallow(
+			<TreeView.WrappedComponent
+				{...props}
+			/>,
+			{ context },
+		);
+		wrapper.simulate('select', data.get(0).toJS());
+		expect(setState).toHaveBeenCalled();
+		expect(prevState.state).not.toBe(DEFAULT_STATE);
+		expect(prevState.state.get('selectedId')).toEqual(1);
+		expect(onSelect).toHaveBeenCalledWith(data.get(0).toJS());
+		expect(dispatchActionCreator).toHaveBeenCalled();
+		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onSelectActionCreator);
+		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
+		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
 	});
 });
 
