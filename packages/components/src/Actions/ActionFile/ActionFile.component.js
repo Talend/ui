@@ -52,7 +52,6 @@ function getButtonContent(props) {
 	return adjustContentPlacement(getIcon(props), getLabel(props), props.iconPosition);
 }
 
-function noOp() {}
 /**
  * Purpose of this component is to provide a simple direct upload button.
  * When the user click on this component a file picker is open,
@@ -84,10 +83,9 @@ function ActionFile(props) {
 	const labelClasses = classNames('btn', theme['btn-file'], (disabled || inProgress) && 'disabled');
 	const localOnChange = event => {
 		event.preventDefault();
-		if (onChange) {
-			onChange(event, event.target.files[0]);
-			event.target.value = null; /* eslint no-param-reassign: ["error", { "props": false }] */
-		}
+		onChange(event, event.target.files[0]);
+		// clear input value
+		event.target.value = null; /* eslint no-param-reassign: ["error", { "props": false }] */
 	};
 	const btn = (
 		<span>
@@ -125,7 +123,7 @@ ActionFile.propTypes = {
 	link: PropTypes.bool,
 	model: PropTypes.object,
 	name: PropTypes.string,
-	onClick: PropTypes.func,
+	onChange: PropTypes.func.isRequired,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
@@ -137,7 +135,6 @@ ActionFile.defaultProps = {
 	tooltipPlacement: 'top',
 	inProgress: false,
 	disabled: false,
-	onChange: noOp,
 };
 
 ActionFile.displayName = 'ActionFile';
