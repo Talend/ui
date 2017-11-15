@@ -45,7 +45,7 @@ function TreeViewItem({ id, item, depth = 0, onClick, onSelect }) {
 	} = item;
 	const toggleIconLabel = toggled ? 'Collapse' : 'Expand';
 
-	function selectHandler() {
+	function onSelectWrapper() {
 		return onSelect(item);
 	}
 
@@ -85,7 +85,7 @@ function TreeViewItem({ id, item, depth = 0, onClick, onSelect }) {
 			<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 				className={css['tc-treeview-item']}
 				data-selected={selected}
-				onClick={selectHandler}
+				onClick={onSelectWrapper}
 				id={id}
 				style={{ paddingLeft }}
 			>
