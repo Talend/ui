@@ -11,7 +11,7 @@ import curry from 'lodash/curry';
 import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import { HTTP_METHODS, HTTP_STATUS } from '../middlewares/http/constants';
 
-function httpPostOrPut(url, method, payload = {}, config) {
+export function httpPostOrPut(url, method, payload = {}, config) {
 	let body;
 	const defaultHeaders = {
 		Accept: 'application/json',
@@ -53,7 +53,7 @@ function handleHttpGetResponse(response) {
 	return response.json().then(json => ({ json, response }));
 }
 
-function httpGet(url, config) {
+export function httpGet(url, config) {
 	return fetch(
 		url,
 		merge(
@@ -70,36 +70,36 @@ function httpGet(url, config) {
 	).then(handleHttpGetResponse);
 }
 
-function* post(url, payload, config) {
-	return yield call(httpPostOrPut, url, HTTP_METHODS.POST, payload, config);
-}
-
-function* put(url, payload, config) {
-	return yield call(httpPostOrPut, url, HTTP_METHODS.PUT, payload, config);
-}
-
-function* get(url, config) {
+export function* get(url, config = {}) {
 	return yield call(httpGet, url, config);
 }
 
-const handleDefaultConfiguration = curry((defaultConfig, config) =>
+export function* post(url, payload, config = {}) {
+	return yield call(httpPostOrPut, url, HTTP_METHODS.POST, payload, config);
+}
+
+export function* put(url, payload, config = {}) {
+	return yield call(httpPostOrPut, url, HTTP_METHODS.PUT, payload, config);
+}
+
+export const handleDefaultConfiguration = curry((defaultConfig, config) =>
 	mergeCSRFToken(defaultConfig, config),
 );
 
 export default {
+	get,
 	post,
 	put,
-	get,
-	create(defaultConfig) {
+	create(defaultConfig = {}) {
 		const configEnhancer = handleDefaultConfiguration(defaultConfig);
 		return {
-			get: function* configuredGet(url, payload, config) {
+			get: function* configuredGet(url, config = {}) {
 				return yield call(httpGet, url, configEnhancer(config));
 			},
-			post: function* configuredPost(url, payload, config) {
+			post: function* configuredPost(url, payload, config = {}) {
 				return yield call(httpPostOrPut, url, HTTP_METHODS.POST, payload, configEnhancer(config));
 			},
-			put: function* configuredPut(url, payload, config) {
+			put: function* configuredPut(url, payload, config = {}) {
 				return yield call(httpPostOrPut, url, HTTP_METHODS.PUT, payload, configEnhancer(config));
 			},
 		};
