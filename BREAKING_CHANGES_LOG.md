@@ -14,6 +14,12 @@ This document aims to ease the WIP migration from a version to another by provid
 | toggleAllLabel | i18next `t()` fn will do the magic trick by providing `LISTVIEW_ITEMS_TOGGLE_ALL` |
 | searchPlaceholder | i18next `t()` fn will do the magic trick by providing `LISTVIEW_HEADERINPUT_SEARCH_PLACEHOLDER` |
 
+* Component: SidePanel
+* PR: [feat(components/sidepanel): accept custom action ids](https://github.com/Talend/ui/pull/846)
+* Changes :
+
+Before this, action ids were ignored. Now, if an id is provided per action, it will be used instead of the label ; so it could break some QA tests.
+
 ## v0.121.0
 * Component: SidePanel
 * PR: [feat(SidePanel): i18n](https://github.com/Talend/ui/pull/818)
