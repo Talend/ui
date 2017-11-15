@@ -57,10 +57,14 @@ function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required
 	function renderCount() {
 		if (nbItems >= 1 && nbItemsSelected >= 1) {
 			return (
-				<small>{`(${nbItemsSelected}/${nbItems} ${t(
+				<small>({t(
 					'LISTVIEW_HEADER_SELECTED',
-					'selected',
-				)})`}</small>
+					{
+						count: nbItemsSelected,
+						total: nbItems,
+						defaultValue: '{{count}}/{{total}} selected',
+					},
+				)})</small>
 			);
 		}
 		return null;

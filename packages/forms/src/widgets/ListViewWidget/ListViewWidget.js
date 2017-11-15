@@ -123,6 +123,7 @@ ListViewWidget.defaultProps = {
 	options: {
 		enumOptions: [],
 	},
+	t: getDefaultTranslate,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -139,9 +140,5 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func,
 	};
 }
-
-ListViewWidget.defaultProps = {
-	t: getDefaultTranslate,
-};
 
 export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ListViewWidget);
