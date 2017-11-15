@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Action, Icon, Badge } from '../../';
+import { Action } from '../../Actions';
+import Icon from '../../Icon';
+import Badge from '../../Badge';
 
 import css from './TreeViewItem.scss';
 
