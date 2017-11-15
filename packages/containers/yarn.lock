@@ -150,38 +150,39 @@
     react-treebeard "^2.0.3"
     redux "^3.6.0"
 
-"@talend/bootstrap-theme@^0.120.0":
-  version "0.120.0"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.120.0.tgz#9d771f032076221efc0e3d81824776bf17222863"
+"@talend/bootstrap-theme@^0.124.0":
+  version "0.124.0"
+  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.124.0.tgz#9c145870884636035358fb7bb514ac8e31d3dc6f"
   dependencies:
     bootstrap-sass "3.3.7"
 
-"@talend/icons@^0.120.0":
-  version "0.120.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.120.0.tgz#920df1db218fdd76072c4ed91749beda6a5bf369"
+"@talend/icons@^0.124.0":
+  version "0.124.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.124.0.tgz#54c50a33ff56dfc908f284da75816719a348dde6"
 
-"@talend/react-cmf@^0.120.0":
-  version "0.120.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.120.0.tgz#c6529ce32cd2cf5d706275bcbb717507dd85d5fe"
+"@talend/react-cmf@^0.124.0":
+  version "0.124.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.124.0.tgz#e6f3743ff9bb90642b28768f878862a8bbe37933"
   dependencies:
     babel-polyfill "6.26.0"
     hoist-non-react-statics "^1.2.0"
 
-"@talend/react-components@^0.120.0":
-  version "0.120.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.120.0.tgz#cd83b8019bdbd23861491a1bd49bf172abb1f923"
+"@talend/react-components@^0.124.0":
+  version "0.124.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.124.0.tgz#a0151563a4286976915793b23054a68184b9dc70"
   dependencies:
     lodash "4.17.4"
     react-autowhatever "7.0.0"
     react-debounce-input "2.4.2"
     react-virtualized "9.10.1"
 
-"@talend/react-forms@^0.120.0":
-  version "0.120.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-0.120.0.tgz#f35ab424309adaeb6fd20328a155053953505a90"
+"@talend/react-forms@^0.124.0":
+  version "0.124.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-0.124.0.tgz#8e0f649043848652b74812909e951dff74ab2d4d"
   dependencies:
     classnames "2.2.5"
     keycode "2.1.9"
+    lodash "4.17.4"
     prop-types "15.5.10"
     react-autowhatever "7.0.0"
     react-jsonschema-form "0.42.0"
