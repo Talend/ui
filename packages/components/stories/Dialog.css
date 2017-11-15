@@ -1,3 +1,7 @@
-div[role="dialog"] {
-    pointer-events: none;
+.modal,
+.modal-backdrop {
+  pointer-events: none;
+}
+.modal-dialog {
+  pointer-events: auto;
 }
