@@ -91,12 +91,7 @@ function TreeViewItem({ id, item, depth = 0, onClick, onSelect }) {
 			>
 				{!children.length || (
 					<div className={css['tc-treeview-toggle']} data-toggled={toggled}>
-						{getIconAction(
-							toggleIconLabel,
-							'talend-caret-down',
-							onClick,
-							`${id}-toggle`,
-						)}
+						{getIconAction(toggleIconLabel, 'talend-caret-down', onClick, `${id}-toggle`)}
 					</div>
 				)}
 				<span className={css['tc-treeview-folder']}>

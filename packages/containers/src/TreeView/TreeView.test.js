@@ -37,14 +37,13 @@ describe('TreeView', () => {
 		const onClick = jest.fn();
 		const onClickActionCreator = 'my:action';
 		const props = {
-			setState, dispatchActionCreator, data, onClick, onClickActionCreator,
+			setState,
+			dispatchActionCreator,
+			data,
+			onClick,
+			onClickActionCreator,
 		};
-		const wrapper = shallow(
-			<TreeView.WrappedComponent
-				{...props}
-			/>,
-			{ context },
-		);
+		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
 		wrapper.simulate('click', data.get(0).toJS());
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
@@ -63,10 +62,7 @@ describe('TreeView', () => {
 			prevState.state = fn(prevState);
 		});
 		const props = { setState, data };
-		const wrapper = shallow(
-			<TreeView.WrappedComponent {...props} />,
-			{ context },
-		);
+		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
 		wrapper.simulate('click', data.get(0).toJS());
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
@@ -87,14 +83,13 @@ describe('TreeView', () => {
 		const onSelect = jest.fn();
 		const onSelectActionCreator = 'my:action';
 		const props = {
-			setState, dispatchActionCreator, data, onSelect, onSelectActionCreator,
+			setState,
+			dispatchActionCreator,
+			data,
+			onSelect,
+			onSelectActionCreator,
 		};
-		const wrapper = shallow(
-			<TreeView.WrappedComponent
-				{...props}
-			/>,
-			{ context },
-		);
+		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
 		wrapper.simulate('select', data.get(0).toJS());
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
@@ -114,10 +109,7 @@ describe('TreeView', () => {
 		});
 		const onSelect = jest.fn();
 		const props = { setState, data, onSelect };
-		const wrapper = shallow(
-			<TreeView.WrappedComponent {...props} />,
-			{ context },
-		);
+		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
 		wrapper.simulate('select', data.get(0).toJS());
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);

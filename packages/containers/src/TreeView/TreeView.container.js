@@ -122,12 +122,7 @@ class TreeView extends React.Component {
 		const structure = transform(this.props.data.toJS(), this.props);
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
 		return (
-			<Component
-				{...props}
-				structure={structure}
-				onSelect={this.onSelect}
-				onClick={this.onClick}
-			/>
+			<Component {...props} structure={structure} onSelect={this.onSelect} onClick={this.onClick} />
 		);
 	}
 }

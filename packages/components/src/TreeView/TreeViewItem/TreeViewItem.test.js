@@ -6,19 +6,18 @@ import TreeViewItem from './TreeViewItem.component';
 const defaultProps = {
 	item: {
 		name: 'grandpa',
-		actions: [{
-			action: () => ('itemRemoveCallback'),
-			icon: 'talend-trash',
-			label: 'remove element',
-		}],
+		actions: [
+			{
+				action: () => 'itemRemoveCallback',
+				icon: 'talend-trash',
+				label: 'remove element',
+			},
+		],
 		children: [
 			{
 				name: 'mami',
 				toggled: true,
-				children: [
-					{ name: 'me', selected: true },
-					{ name: 'bro' },
-				],
+				children: [{ name: 'me', selected: true }, { name: 'bro' }],
 			},
 			{ name: 'aunt', toggled: false, children: [{ name: 'cousin' }] },
 		],
