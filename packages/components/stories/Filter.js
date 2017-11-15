@@ -9,8 +9,8 @@ import { Filter, IconsProvider } from '../src/';
 
 const propsDockToggle = {
 	id: 'FILTER-dockAndToggle',
-	docked: true,
-	dockable: true,
+	docked: false,
+	navbar: true,
 	toggeable: true,
 	onFilter: action('onFilter'),
 	onBlur: action('onBlur'),
@@ -23,7 +23,7 @@ const propsDockToggle = {
 const propsNoDockToggle = {
 	id: 'FILTER-noDockAndNoToggle',
 	docked: false,
-	dockable: false,
+	navbar: false,
 	toggeable: false,
 	onFilter: action('onFilter'),
 	onBlur: action('onBlur'),
@@ -39,7 +39,7 @@ if (!stories.addWithInfo) {
 }
 
 const divStyle = {
-	width: '10rem',
+	width: '30rem',
 };
 
 stories

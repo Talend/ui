@@ -132,7 +132,7 @@ function Filter(props) {
 	return (
 		<form className={classes} role="search" onSubmit={onSubmit}>
 			<Icon name="talend-search" className={theme['search-icon']} />
-			<div className="form-inline">
+			<div className="form-group">
 				<FilterInput
 					id={id && `${id}-input`}
 					debounceMinLength={debounceMinLength}
