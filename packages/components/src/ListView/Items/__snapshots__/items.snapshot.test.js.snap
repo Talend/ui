@@ -1,199 +1,642 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Items should display a checked item between the two others 1`] = `
-<div
-  className="tc-listview-items"
+exports[`Items should render 1`] = `
+<Items
+  getItemHeight={[Function]}
+  items={
+    Array [
+      Object {
+        "label": "Lorem ipsum dolor sit amet 0",
+      },
+      Object {
+        "checked": true,
+        "label": "Lorem ipsum dolor sit amet 1",
+      },
+      Object {
+        "label": "Lorem ipsum dolor sit amet 2",
+      },
+    ]
+  }
 >
   <div
-    id="autoSizer"
+    className="tc-listview-items"
   >
-    <div
-      aria-label="grid"
-      aria-readonly={true}
-      className="ReactVirtualized__Grid ReactVirtualized__List tc-list-items"
-      id={undefined}
-      onScroll={[Function]}
-      role="grid"
-      style={
-        Object {
-          "WebkitOverflowScrolling": "touch",
-          "boxSizing": "border-box",
-          "direction": "ltr",
-          "height": 30,
-          "overflowX": "hidden",
-          "overflowY": "auto",
-          "position": "relative",
-          "width": 30,
-          "willChange": "transform",
-        }
-      }
-      tabIndex={0}
-    >
+    <Component>
       <div
-        className="ReactVirtualized__Grid__innerScrollContainer"
-        role="rowgroup"
-        style={
-          Object {
-            "height": 166,
-            "maxHeight": 166,
-            "maxWidth": 30,
-            "overflow": "hidden",
-            "pointerEvents": "",
-            "position": "relative",
-            "width": "auto",
-          }
-        }
+        id="autoSizer"
       >
-        <div
-          className="tc-item-container toggle"
-          style={
-            Object {
-              "height": 40,
-              "left": 0,
-              "position": "absolute",
-              "top": 0,
-              "width": "100%",
-            }
+        <List
+          autoHeight={false}
+          className="tc-list-items"
+          estimatedRowSize={30}
+          height={30}
+          items={
+            Array [
+              Object {
+                "label": "Lorem ipsum dolor sit amet 0",
+              },
+              Object {
+                "checked": true,
+                "label": "Lorem ipsum dolor sit amet 1",
+              },
+              Object {
+                "label": "Lorem ipsum dolor sit amet 2",
+              },
+            ]
           }
+          noRowsRenderer={[Function]}
+          onRowsRendered={[Function]}
+          onScroll={[Function]}
+          overscanIndicesGetter={[Function]}
+          overscanRowCount={10}
+          rowCount={4}
+          rowHeight={[Function]}
+          rowRenderer={[Function]}
+          scrollToAlignment="auto"
+          scrollToIndex={-1}
+          style={Object {}}
+          width={30}
         >
-          <div
-            className="checkbox"
-          >
-            <label
-              htmlFor="tc-listview-toggle-all"
-            >
-              <input
-                checked={false}
-                id="tc-listview-toggle-all"
-                onChange={undefined}
-                type="checkbox"
-              />
-              <strong />
-            </label>
-          </div>
-        </div>
-        <div
-          className="tc-item-container"
-          style={
-            Object {
-              "height": 42,
-              "left": 0,
-              "position": "absolute",
-              "top": 40,
-              "width": "100%",
+          <Grid
+            aria-label="grid"
+            aria-readonly={true}
+            autoContainerWidth={true}
+            autoHeight={false}
+            autoWidth={false}
+            cellRangeRenderer={[Function]}
+            cellRenderer={[Function]}
+            className="ReactVirtualized__List tc-list-items"
+            columnCount={1}
+            columnWidth={30}
+            containerRole="rowgroup"
+            containerStyle={Object {}}
+            estimatedColumnSize={100}
+            estimatedRowSize={30}
+            getScrollbarSize={[Function]}
+            height={30}
+            items={
+              Array [
+                Object {
+                  "label": "Lorem ipsum dolor sit amet 0",
+                },
+                Object {
+                  "checked": true,
+                  "label": "Lorem ipsum dolor sit amet 1",
+                },
+                Object {
+                  "label": "Lorem ipsum dolor sit amet 2",
+                },
+              ]
             }
-          }
-        >
-          <div
-            id="1-item"
-          >
-            <div
-              className="checkbox-container"
-            >
-              <div
-                className="checkbox"
-              >
-                <label
-                  htmlFor="checkbox-1-item"
-                >
-                  <input
-                    checked={undefined}
-                    id="checkbox-1-item"
-                    onChange={[Function]}
-                    type="checkbox"
-                  />
-                  <span
-                    className="tc-listview-item-label"
-                  >
-                    Lorem ipsum dolor sit amet 0
-                  </span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="tc-item-container"
-          style={
-            Object {
-              "height": 42,
-              "left": 0,
-              "position": "absolute",
-              "top": 82,
-              "width": "100%",
-            }
-          }
-        >
-          <div
-            id="2-item"
-          >
-            <div
-              className="checkbox-container"
-            >
-              <div
-                className="checkbox"
-              >
-                <label
-                  htmlFor="checkbox-2-item"
-                >
-                  <input
-                    checked={true}
-                    id="checkbox-2-item"
-                    onChange={[Function]}
-                    type="checkbox"
-                  />
-                  <span
-                    className="tc-listview-item-label"
-                  >
-                    Lorem ipsum dolor sit amet 1
-                  </span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="tc-item-container"
-          style={
-            Object {
-              "height": 42,
-              "left": 0,
-              "position": "absolute",
-              "top": 124,
-              "width": "100%",
-            }
-          }
-        >
-          <div
-            id="3-item"
+            noContentRenderer={[Function]}
+            noRowsRenderer={[Function]}
+            onRowsRendered={[Function]}
+            onScroll={[Function]}
+            onScrollbarPresenceChange={[Function]}
+            onSectionRendered={[Function]}
+            overscanColumnCount={0}
+            overscanIndicesGetter={[Function]}
+            overscanRowCount={10}
+            role="grid"
+            rowCount={4}
+            rowHeight={[Function]}
+            rowRenderer={[Function]}
+            scrollToAlignment="auto"
+            scrollToColumn={-1}
+            scrollToIndex={-1}
+            scrollToRow={-1}
+            scrollingResetTimeInterval={150}
+            style={Object {}}
+            tabIndex={0}
+            width={30}
           >
             <div
-              className="checkbox-container"
+              aria-label="grid"
+              aria-readonly={true}
+              className="ReactVirtualized__Grid ReactVirtualized__List tc-list-items"
+              onScroll={[Function]}
+              role="grid"
+              style={
+                Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "boxSizing": "border-box",
+                  "direction": "ltr",
+                  "height": 30,
+                  "overflowX": "hidden",
+                  "overflowY": "auto",
+                  "position": "relative",
+                  "width": 30,
+                  "willChange": "transform",
+                }
+              }
+              tabIndex={0}
             >
               <div
-                className="checkbox"
+                className="ReactVirtualized__Grid__innerScrollContainer"
+                role="rowgroup"
+                style={
+                  Object {
+                    "height": 166,
+                    "maxHeight": 166,
+                    "maxWidth": 30,
+                    "overflow": "hidden",
+                    "pointerEvents": "",
+                    "position": "relative",
+                    "width": "auto",
+                  }
+                }
               >
-                <label
-                  htmlFor="checkbox-3-item"
+                <div
+                  className="tc-item-container toggle"
+                  style={
+                    Object {
+                      "height": 40,
+                      "left": 0,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": "100%",
+                    }
+                  }
                 >
-                  <input
-                    checked={undefined}
-                    id="checkbox-3-item"
-                    onChange={[Function]}
-                    type="checkbox"
-                  />
-                  <span
-                    className="tc-listview-item-label"
+                  <div
+                    className="checkbox"
                   >
-                    Lorem ipsum dolor sit amet 2
-                  </span>
-                </label>
+                    <label
+                      htmlFor="tc-listview-toggle-all"
+                    >
+                      <input
+                        checked={false}
+                        id="tc-listview-toggle-all"
+                        type="checkbox"
+                      />
+                      <strong />
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="tc-item-container"
+                  style={
+                    Object {
+                      "height": 42,
+                      "left": 0,
+                      "position": "absolute",
+                      "top": 40,
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <Item
+                    item={
+                      Object {
+                        "label": "Lorem ipsum dolor sit amet 0",
+                      }
+                    }
+                  >
+                    <div>
+                      <div
+                        className="checkbox-container"
+                      >
+                        <div
+                          className="checkbox"
+                        >
+                          <label>
+                            <input
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="tc-listview-item-label"
+                            >
+                              Lorem ipsum dolor sit amet 0
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </Item>
+                </div>
+                <div
+                  className="tc-item-container"
+                  style={
+                    Object {
+                      "height": 42,
+                      "left": 0,
+                      "position": "absolute",
+                      "top": 82,
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <Item
+                    item={
+                      Object {
+                        "checked": true,
+                        "label": "Lorem ipsum dolor sit amet 1",
+                      }
+                    }
+                  >
+                    <div>
+                      <div
+                        className="checkbox-container"
+                      >
+                        <div
+                          className="checkbox"
+                        >
+                          <label>
+                            <input
+                              checked={true}
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="tc-listview-item-label"
+                            >
+                              Lorem ipsum dolor sit amet 1
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </Item>
+                </div>
+                <div
+                  className="tc-item-container"
+                  style={
+                    Object {
+                      "height": 42,
+                      "left": 0,
+                      "position": "absolute",
+                      "top": 124,
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <Item
+                    item={
+                      Object {
+                        "label": "Lorem ipsum dolor sit amet 2",
+                      }
+                    }
+                  >
+                    <div>
+                      <div
+                        className="checkbox-container"
+                      >
+                        <div
+                          className="checkbox"
+                        >
+                          <label>
+                            <input
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="tc-listview-item-label"
+                            >
+                              Lorem ipsum dolor sit amet 2
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </Item>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </Grid>
+        </List>
       </div>
-    </div>
+    </Component>
   </div>
-</div>
+</Items>
+`;
+
+exports[`Items should render with provided id 1`] = `
+<Items
+  getItemHeight={[Function]}
+  id="my-widget"
+  items={
+    Array [
+      Object {
+        "label": "Lorem ipsum dolor sit amet 0",
+      },
+      Object {
+        "checked": true,
+        "label": "Lorem ipsum dolor sit amet 1",
+      },
+      Object {
+        "label": "Lorem ipsum dolor sit amet 2",
+      },
+    ]
+  }
+>
+  <div
+    className="tc-listview-items"
+  >
+    <Component>
+      <div
+        id="autoSizer"
+      >
+        <List
+          autoHeight={false}
+          className="tc-list-items"
+          estimatedRowSize={30}
+          height={30}
+          items={
+            Array [
+              Object {
+                "label": "Lorem ipsum dolor sit amet 0",
+              },
+              Object {
+                "checked": true,
+                "label": "Lorem ipsum dolor sit amet 1",
+              },
+              Object {
+                "label": "Lorem ipsum dolor sit amet 2",
+              },
+            ]
+          }
+          noRowsRenderer={[Function]}
+          onRowsRendered={[Function]}
+          onScroll={[Function]}
+          overscanIndicesGetter={[Function]}
+          overscanRowCount={10}
+          rowCount={4}
+          rowHeight={[Function]}
+          rowRenderer={[Function]}
+          scrollToAlignment="auto"
+          scrollToIndex={-1}
+          style={Object {}}
+          width={30}
+        >
+          <Grid
+            aria-label="grid"
+            aria-readonly={true}
+            autoContainerWidth={true}
+            autoHeight={false}
+            autoWidth={false}
+            cellRangeRenderer={[Function]}
+            cellRenderer={[Function]}
+            className="ReactVirtualized__List tc-list-items"
+            columnCount={1}
+            columnWidth={30}
+            containerRole="rowgroup"
+            containerStyle={Object {}}
+            estimatedColumnSize={100}
+            estimatedRowSize={30}
+            getScrollbarSize={[Function]}
+            height={30}
+            items={
+              Array [
+                Object {
+                  "label": "Lorem ipsum dolor sit amet 0",
+                },
+                Object {
+                  "checked": true,
+                  "label": "Lorem ipsum dolor sit amet 1",
+                },
+                Object {
+                  "label": "Lorem ipsum dolor sit amet 2",
+                },
+              ]
+            }
+            noContentRenderer={[Function]}
+            noRowsRenderer={[Function]}
+            onRowsRendered={[Function]}
+            onScroll={[Function]}
+            onScrollbarPresenceChange={[Function]}
+            onSectionRendered={[Function]}
+            overscanColumnCount={0}
+            overscanIndicesGetter={[Function]}
+            overscanRowCount={10}
+            role="grid"
+            rowCount={4}
+            rowHeight={[Function]}
+            rowRenderer={[Function]}
+            scrollToAlignment="auto"
+            scrollToColumn={-1}
+            scrollToIndex={-1}
+            scrollToRow={-1}
+            scrollingResetTimeInterval={150}
+            style={Object {}}
+            tabIndex={0}
+            width={30}
+          >
+            <div
+              aria-label="grid"
+              aria-readonly={true}
+              className="ReactVirtualized__Grid ReactVirtualized__List tc-list-items"
+              onScroll={[Function]}
+              role="grid"
+              style={
+                Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "boxSizing": "border-box",
+                  "direction": "ltr",
+                  "height": 30,
+                  "overflowX": "hidden",
+                  "overflowY": "auto",
+                  "position": "relative",
+                  "width": 30,
+                  "willChange": "transform",
+                }
+              }
+              tabIndex={0}
+            >
+              <div
+                className="ReactVirtualized__Grid__innerScrollContainer"
+                role="rowgroup"
+                style={
+                  Object {
+                    "height": 166,
+                    "maxHeight": 166,
+                    "maxWidth": 30,
+                    "overflow": "hidden",
+                    "pointerEvents": "",
+                    "position": "relative",
+                    "width": "auto",
+                  }
+                }
+              >
+                <div
+                  className="tc-item-container toggle"
+                  style={
+                    Object {
+                      "height": 40,
+                      "left": 0,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <div
+                    className="checkbox"
+                  >
+                    <label
+                      htmlFor="my-widget-toggle-all"
+                    >
+                      <input
+                        checked={false}
+                        id="my-widget-toggle-all"
+                        type="checkbox"
+                      />
+                      <strong />
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="tc-item-container"
+                  style={
+                    Object {
+                      "height": 42,
+                      "left": 0,
+                      "position": "absolute",
+                      "top": 40,
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <Item
+                    id="my-widget-1-item"
+                    item={
+                      Object {
+                        "label": "Lorem ipsum dolor sit amet 0",
+                      }
+                    }
+                  >
+                    <div
+                      id="my-widget-1-item"
+                    >
+                      <div
+                        className="checkbox-container"
+                      >
+                        <div
+                          className="checkbox"
+                        >
+                          <label
+                            htmlFor="checkbox-my-widget-1-item"
+                          >
+                            <input
+                              id="checkbox-my-widget-1-item"
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="tc-listview-item-label"
+                            >
+                              Lorem ipsum dolor sit amet 0
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </Item>
+                </div>
+                <div
+                  className="tc-item-container"
+                  style={
+                    Object {
+                      "height": 42,
+                      "left": 0,
+                      "position": "absolute",
+                      "top": 82,
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <Item
+                    id="my-widget-2-item"
+                    item={
+                      Object {
+                        "checked": true,
+                        "label": "Lorem ipsum dolor sit amet 1",
+                      }
+                    }
+                  >
+                    <div
+                      id="my-widget-2-item"
+                    >
+                      <div
+                        className="checkbox-container"
+                      >
+                        <div
+                          className="checkbox"
+                        >
+                          <label
+                            htmlFor="checkbox-my-widget-2-item"
+                          >
+                            <input
+                              checked={true}
+                              id="checkbox-my-widget-2-item"
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="tc-listview-item-label"
+                            >
+                              Lorem ipsum dolor sit amet 1
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </Item>
+                </div>
+                <div
+                  className="tc-item-container"
+                  style={
+                    Object {
+                      "height": 42,
+                      "left": 0,
+                      "position": "absolute",
+                      "top": 124,
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <Item
+                    id="my-widget-3-item"
+                    item={
+                      Object {
+                        "label": "Lorem ipsum dolor sit amet 2",
+                      }
+                    }
+                  >
+                    <div
+                      id="my-widget-3-item"
+                    >
+                      <div
+                        className="checkbox-container"
+                      >
+                        <div
+                          className="checkbox"
+                        >
+                          <label
+                            htmlFor="checkbox-my-widget-3-item"
+                          >
+                            <input
+                              id="checkbox-my-widget-3-item"
+                              onChange={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="tc-listview-item-label"
+                            >
+                              Lorem ipsum dolor sit amet 2
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </Item>
+                </div>
+              </div>
+            </div>
+          </Grid>
+        </List>
+      </div>
+    </Component>
+  </div>
+</Items>
 `;

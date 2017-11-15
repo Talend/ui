@@ -103,7 +103,15 @@ export function getStateToProps({
 		userProps = mapStateToProps(state, ownProps, cmfProps);
 	}
 
-	return { ...cmfProps, ...viewProps, ...userProps };
+	const props = {
+		...cmfProps,
+		...viewProps,
+		...userProps,
+	};
+	return {
+		...props,
+		...api.expression.mapStateToProps(state, { ...ownProps, ...props }),
+	};
 }
 
 export function getDispatchToProps({
@@ -134,6 +142,27 @@ export function getDispatchToProps({
 }
 
 /**
+ * Internal: you should not have to use this
+ * return the merged props which cleanup expression props
+ * call mergeProps if exists after the cleanup
+ * @param {object} options { mergeProps, stateProps, dispatchProps, ownProps }
+ */
+export function getMergeProps({ mergeProps, stateProps, dispatchProps, ownProps }) {
+	if (mergeProps) {
+		return mergeProps(
+			api.expression.mergeProps(stateProps),
+			api.expression.mergeProps(dispatchProps),
+			api.expression.mergeProps(ownProps),
+		);
+	}
+	return {
+		...api.expression.mergeProps(ownProps),
+		...api.expression.mergeProps(dispatchProps),
+		...api.expression.mergeProps(stateProps),
+	};
+}
+
+/**
  * this function wrap your component to inject CMF props
  * @example
  * The following props are injected:
@@ -152,6 +181,7 @@ export function getDispatchToProps({
  * - keepComponentState (boolean, overrides the keepComponentState defined in container)
  * - didMountActionCreator (string called as action creator in didMount)
  * - view (string to inject the settings as props with ref support)
+ * - whateverExpression (will inject `whatever` props and will remove it)
  * @example
  * options has the following shape:
 {
@@ -224,7 +254,7 @@ export default function cmfConnect({
 				});
 
 				// remove all internal props already used by the container
-				CMF_PROPS.forEach((key) => {
+				CMF_PROPS.forEach(key => {
 					delete props[key];
 				});
 
@@ -250,7 +280,13 @@ export default function cmfConnect({
 					ownProps,
 					WrappedComponent,
 				}),
-			mergeProps,
+			(stateProps, dispatchProps, ownProps) =>
+				getMergeProps({
+					mergeProps,
+					stateProps,
+					dispatchProps,
+					ownProps,
+				}),
 			{ ...rest },
 		)(hoistStatics(CMFContainer, WrappedComponent));
 		Connected.CMFContainer = CMFContainer;

@@ -40,7 +40,8 @@ export const formPropTypes = {
 
 export function extractFormProps(props) {
 	const formProps = {};
-	Object.keys(formPropTypes)
-		.forEach((key) => { formProps[key] = props[key]; });
+	Object.keys(formPropTypes).forEach(key => {
+		formProps[key] = props[key];
+	});
 	return formProps;
 }

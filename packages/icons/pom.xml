@@ -6,7 +6,7 @@
 
     <groupId>org.talend.ui</groupId>
     <artifactId>talend-icon</artifactId>
-    <version>0.119.0</version>
+    <version>0.123.0</version>
 
     <build>
         <resources>

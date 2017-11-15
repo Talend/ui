@@ -80,6 +80,22 @@ describe('expression', () => {
 		expect(toThrowObject).toThrow(msg);
 	});
 
+	it('should withExpression create a wrapper', () => {
+		const MyComponent = props => <button {...props} />;
+		const WithExpr = expression.withExpression(MyComponent, ['disabled']);
+		const isTrue = () => true;
+		const context = {
+			registry: {
+				'expression:test': isTrue,
+			},
+		};
+		const wrapper = shallow(<WithExpr disabled="test" />, { context });
+		expect(wrapper.props().disabled).toBe(true);
+		expect(wrapper.props().disabled).not.toBe('test');
+	});
+});
+
+describe('getProps', () => {
 	it('should getProps eval requested props', () => {
 		const isTrue = () => true;
 		const context = {
@@ -94,18 +110,52 @@ describe('expression', () => {
 		expect(newProps.disabled).toBe(true);
 		expect(newProps.disabled).not.toBe('test');
 	});
-
-	it('should withExpression create a wrapper', () => {
-		const MyComponent = props => <button {...props} />;
-		const WithExpr = expression.withExpression(MyComponent, ['disabled']);
-		const isTrue = () => true;
+	it('should eval all properties ending with `Expression`', () => {
+		const isDisabled = () => true;
 		const context = {
 			registry: {
-				'expression:test': isTrue,
+				'expression:isDisabled': isDisabled,
 			},
 		};
-		const wrapper = shallow(<WithExpr disabled="test" />, { context });
-		expect(wrapper.props().disabled).toBe(true);
-		expect(wrapper.props().disabled).not.toBe('test');
+		const props = {
+			disabledExpression: 'isDisabled',
+		};
+		const newProps = expression.getProps(props, [], context);
+		expect(newProps.disabled).toBe(true);
+		expect(newProps.disabledExpression).toBe(undefined);
+	});
+});
+
+describe('mapStateToProps', () => {
+	it('should check first level props keys and call expression on it', () => {
+		const isCalled = jest.fn(() => true);
+		const registry = api.registry.getRegistry();
+		registry['expression:isCalled'] = isCalled;
+		const props = {
+			myExpression: 'isCalled',
+		};
+		const state = { foo: 'bar' };
+		const newProps = expression.mapStateToProps(state, props);
+		expect(newProps.my).toBe(true);
+		expect(newProps.myExpression).toBeUndefined();
+		expect(isCalled).toHaveBeenCalled();
+		const args = isCalled.mock.calls[0];
+		expect(args[0].context.registry).toBe(registry);
+		expect(args[0].context.store.getState()).toBe(state);
+		expect(args[0].payload).toBe(props);
+	});
+});
+
+describe('mergeProps', () => {
+	it('should remove all xxExpression from props', () => {
+		const props = {
+			foo: 'bar',
+			'what-everExpression': {},
+			totoExpression: {},
+		};
+		const newProps = expression.mergeProps(props);
+		expect(newProps.foo).toBe('bar');
+		expect(newProps['what-everExpression']).toBeUndefined();
+		expect(newProps.totoExpression).toBeUndefined();
 	});
 });
