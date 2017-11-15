@@ -84,26 +84,23 @@ class Filter extends React.Component {
 
 	getBlur(event) {
 		if (api.expression.get(this.props.actionInfo.blurExpression, this.context)) {
-			return api.expression.get(this.props.actionInfo.blurExpression, this.context);
+			api.expression.get(this.props.actionInfo.blurExpression, this.context)(event);
 		}
 		invariant(true, `No blur expression defined in settings ${this.props.actionInfo}`);
-		return event;
 	}
 
 	getFocus(event) {
 		if (api.expression.get(this.props.actionInfo.focusExpression, this.context)) {
-			return api.expression.get(this.props.actionInfo.focusExpression, this.context);
+			api.expression.get(this.props.actionInfo.focusExpression, this.context)(event);
 		}
 		invariant(true, `No focus expression defined in settings ${this.props.actionInfo}`);
-		return event;
 	}
 
 	getToggle(event) {
 		if (api.expression.get(this.props.actionInfo.toggleExpression, this.context)) {
-			return api.expression.get(this.props.actionInfo.toggleExpression, this.context);
+			api.expression.get(this.props.actionInfo.toggleExpression, this.context)(event);
 		}
 		invariant(true, `No toggle expression defined in settings ${this.props.actionInfo}`);
-		return event;
 	}
 
 	getFilter(event, collectionToFilter) {
@@ -114,7 +111,7 @@ class Filter extends React.Component {
 			);
 		}
 		invariant(true, `No filter expression defined in settings ${this.props.actionInfo}`);
-		return event;
+		return undefined;
 	}
 
 	render() {
