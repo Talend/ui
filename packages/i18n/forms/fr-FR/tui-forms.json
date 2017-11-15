@@ -1,0 +1,15 @@
+{
+  "ENUMERATION_WIDGET_ABORT": "Arrêter",
+  "ENUMERATION_WIDGET_ADD_FROM_FILE": "Ajouter des valeurs depuis un fichier",
+  "ENUMERATION_WIDGET_ADD_ITEM": "Ajouter un élément",
+  "ENUMERATION_WIDGET_DUPLICATION_ERROR": "Ce terme est déjà dans la liste",
+  "ENUMERATION_WIDGET_EDIT": "Modifier",
+  "ENUMERATION_WIDGET_IMPORT_FROM_FILE": "Importer des valeurs depuis un fichier",
+  "ENUMERATION_WIDGET_LOADING": "Chargement",
+  "ENUMERATION_WIDGET_OVERWRITE_VALUES": "Écraser les valeurs existantes",
+  "ENUMERATION_WIDGET_REMOVE_SELECTED_VALUES": "Supprimer les valeurs sélectionnées",
+  "ENUMERATION_WIDGET_REMOVE_VALUE": "Supprimer la valeur",
+  "ENUMERATION_WIDGET_SEARCH_VALUES": "Rechercher des valeurs spécifiques",
+  "ENUMERATION_WIDGET_VALIDATE": "Valider",
+  "ENUMERATION_WIDGET_VALIDATE_AND_ADD": "Valider et ajouter"
+}
