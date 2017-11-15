@@ -11,6 +11,10 @@ const myAction = {
 };
 
 describe('ActionFile', () => {
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
+
 	it('should render a div with a input[type="file"] and a label to mimic a button', () => {
 		// when
 		const wrapper = shallow(<ActionFile {...myAction} />);
@@ -35,6 +39,19 @@ describe('ActionFile', () => {
 		expect(myAction.onChange.mock.calls.length).toBe(1);
 		const args = myAction.onChange.mock.calls[0];
 		expect(args[0]).toBe(mockEvent);
+	});
+
+	it('after change props being trigered, clear the input value', () => {
+		// given
+		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
+		const mockEvent = { preventDefault: jest.fn(), target: { files: [] } };
+
+		// when
+		const input = wrapper.find('input').first();
+		input.simulate('change', mockEvent);
+
+		// then
+		expect(input.value).toEqual();
 	});
 
 	it('should pass all props to the Button', () => {

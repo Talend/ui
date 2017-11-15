@@ -53,7 +53,15 @@ function getButtonContent(props) {
 }
 
 function noOp() {}
-
+/**
+ * Purpose of this component is to provide a simple direct upload button.
+ * When the user click on this component a file picker is open,
+ * letting the user to choose the file he wich to upload.
+ * When the user select a file, the onChange props is executed and get
+ * passed the react syntetic event and the selected file.
+ * subsequently the field get emptied.
+ * @param {Object} props
+ */
 function ActionFile(props) {
 	const {
 		id,
@@ -78,6 +86,7 @@ function ActionFile(props) {
 		event.preventDefault();
 		if (onChange) {
 			onChange(event, event.target.files[0]);
+			event.target.value = null; /* eslint no-param-reassign: ["error", { "props": false }] */
 		}
 	};
 	const btn = (
