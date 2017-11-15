@@ -1,0 +1,4 @@
+div[role="dialog"] {
+    pointer-events: none;
+}
+
