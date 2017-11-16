@@ -28,7 +28,7 @@ if [ -n "$GH_TOKEN" ]; then
 		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): prettier"
 		echo "✓ Commit prettified files to $TRAVIS_PULL_REQUEST_BRANCH"
 
-		git add i18n/
+		git add packages/i18n/
 		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update i18n"
 		echo "✓ Commit i18n files to $TRAVIS_PULL_REQUEST_BRANCH"
 
