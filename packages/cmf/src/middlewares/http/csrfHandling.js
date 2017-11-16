@@ -19,8 +19,12 @@ import curry from 'lodash/curry';
  * @property {string} onSend - a redux action type
  */
 
-/* regext to extract key value elements from a cookie */
-const cookieElementRegexp = /(.*)=(.*)/gi;
+/**
+ * regexp to extract key value elements from a cookie
+ * be carefull when touching this regexp shape could break
+ * regexp matching on test unexpectedly
+ */
+const cookieElementRegexp = new RegExp(/(.*)=(.*)/);
 
 /**
   * retrieve the cookie from the document

@@ -1,13 +1,15 @@
 import { call } from 'redux-saga/effects';
 
-import http, { httpGet, httpPostOrPut, handleDefaultConfiguration } from '../../src/sagas/http';
+import http, { httpGet, httpPostOrPut } from '../../src/sagas/http';
 import { HTTP_METHODS } from '../../src/middlewares/http/constants';
 
-describe('http module direct accessed methods', () => {
-	beforeEach(() => {
-		jest.clearAllMocks();
-	});
+const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
 
+beforeEach(() => {
+	jest.clearAllMocks();
+});
+
+describe('http module direct accessed methods', () => {
 	describe('http.get', () => {
 		it(`check that httpGet is called with only an url and empty config object literal
         when http.get is called only with an url`, () => {
@@ -342,16 +344,13 @@ describe('http module with instance created', () => {
 });
 
 describe('http module with instance created with no CSRF handling configuration', () => {
-	const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
-
-	beforeEach(() => {
+	beforeAll(() => {
 		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True;`;
 	});
 
-	afterEach(() => {
-		delete document.cookie;
+	afterAll(() => {
+		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
 	});
-
 	it(`check that httpGet is called with only an url and empty config object literal
     when http.get is called only with an url`, () => {
 		// given
@@ -392,7 +391,6 @@ describe('http module with instance created with no CSRF handling configuration'
 		const gen = httpInstance.get(url, config);
 		// then
 		const value = gen.next().value;
-		handleDefaultConfiguration({}, config);
 		expect(value).toEqual(call(httpGet, url, expectedConfig));
 	});
 
@@ -494,7 +492,6 @@ describe('http module with instance created with no CSRF handling configuration'
 });
 
 describe('http module with instance created with CSRF handling configuration', () => {
-	const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
 	const defaultHttpConfiguration = {
 		security: {
 			CSRFTokenCookieKey: 'customCookieKey',
@@ -502,17 +499,18 @@ describe('http module with instance created with CSRF handling configuration', (
 		},
 	};
 
-	beforeEach(() => {
-		document.cookie = `customCookieKey=${CSRFToken}; dwf_section_edit=True;`;
+	beforeAll(() => {
+		document.cookie = `${defaultHttpConfiguration.security.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True;`;
 	});
 
-	afterEach(() => {
-		delete document.cookie;
+	afterAll(() => {
+		document.cookie = `${defaultHttpConfiguration.security.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
 	});
 
 	it(`check that httpGet is called with only an url and empty config object literal
     when http.get is called only with an url`, () => {
 		// given
+		document.cookie = `customCookieKey=${CSRFToken}; dwf_section_edit=True;`;
 		const url = '/url';
 		const expectedConfig = {
 			headers: {
@@ -552,7 +550,7 @@ describe('http module with instance created with CSRF handling configuration', (
 		expect(gen.next().value).toEqual(call(httpGet, url, expectedConfig));
 	});
 
-	it(`check that httpPostOrPut is called with an url, POST method, payload and empty config object 
+	it(`check that httpPostOrPut is called with an url, POST method, payload and empty config object
     when http.post is called only with an url and a payload`, () => {
 		// given
 		const url = '/url';
@@ -571,7 +569,7 @@ describe('http module with instance created with CSRF handling configuration', (
 		);
 	});
 
-	it(`check that httpPostOrPut is called with an url, POST method, payload and config object 
+	it(`check that httpPostOrPut is called with an url, POST method, payload and config object
         when http.post is called with an url and a payload and a config object`, () => {
 		// given
 		const url = '/url';
@@ -600,7 +598,7 @@ describe('http module with instance created with CSRF handling configuration', (
 		);
 	});
 
-	it(`check that httpPostOrPut is called with an url, PUT method, payload and empty config object 
+	it(`check that httpPostOrPut is called with an url, PUT method, payload and empty config object
         when http.put is called only with an url and a payload`, () => {
 		// given
 		const url = '/url';
@@ -619,7 +617,7 @@ describe('http module with instance created with CSRF handling configuration', (
 		);
 	});
 
-	it(`check that httpPostOrPut is called with an url, PUT method, payload and config object 
+	it(`check that httpPostOrPut is called with an url, PUT method, payload and config object
         when http.put is called with an url and a payload and a config object`, () => {
 		// given
 		const url = '/url';

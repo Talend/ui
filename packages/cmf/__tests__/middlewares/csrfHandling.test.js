@@ -1,13 +1,9 @@
 import { mergeCSRFToken } from '../../src/middlewares/http/csrfHandling';
 
 describe('csrf token injection', () => {
-	beforeEach(() => {
-		delete document.cookie;
-	});
-
 	it('inject a HTTP_X_CSRFTOKEN headers if a csrf token is availble on a cookie', () => {
 		// given
-		const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
+		const CSRFToken = 'csrfHandling';
 		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True;`;
 
 		// when
@@ -17,6 +13,7 @@ describe('csrf token injection', () => {
 				headers: { stuff: 'stuff' },
 			},
 		);
+		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
 		// then
 		expect(httpConfiguration).toEqual({
 			headers: { 'X-CSRF-Token': CSRFToken, stuff: 'stuff' },

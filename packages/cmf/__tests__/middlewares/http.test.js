@@ -430,7 +430,6 @@ describe('json function', () => {
 
 describe('httpMiddleware configuration', () => {
 	beforeEach(() => {
-		delete document.cookie;
 		jest.clearAllMocks();
 	});
 
@@ -508,6 +507,7 @@ describe('httpMiddleware configuration', () => {
 			expect(newAction.response.foo).toBe('bar');
 			done();
 		});
+		document.cookie = `cookieKey=${expectedCSRFKeyValue}; dwf_section_edit=True; Max-Age=0`;
 	});
 
 	it('should use defaults CSRF handling parameter if no security configuration is given', done => {
