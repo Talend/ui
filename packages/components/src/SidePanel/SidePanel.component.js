@@ -11,6 +11,23 @@ import Action from '../Actions/Action';
 import theme from './SidePanel.scss';
 
 /**
+ * return the formatted action id
+ * if there is no action id, it is generated from the action label
+ * @param  {string} id		sidepanel id
+ * @param  {string} action 	current action
+ * @return {string}        	formatted id
+ */
+function getActionId(id, action) {
+	const actionId =
+		action.id ||
+		action.label
+			.toLowerCase()
+			.split(' ')
+			.join('-');
+	return id && `${id}-nav-${actionId}`;
+}
+
+/**
  * This component aims to display links as a menu.
  * @param {object} props react props
  *
@@ -62,12 +79,13 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 					/>
 				</li>
 				{actions.map(action => {
-					const isSelected = isActionSelected(action);
 					const a11y = {};
+					const extra = {};
+					const isSelected = isActionSelected(action);
+
 					if (isSelected) {
 						a11y['aria-current'] = true;
 					}
-					const extra = {};
 					if (onSelect) {
 						extra.onClick = event => {
 							onSelect(event, action);
@@ -76,18 +94,19 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 							}
 						};
 					}
-					const actionProps = Object.assign({}, action, {
-						active: undefined, // active scope is only the list item
-						id:
-							id &&
-							`${id}-nav-${action.label
-								.toLowerCase()
-								.split(' ')
-								.join('-')}`,
-						bsStyle: 'link',
-						role: 'link',
-						className: classNames(theme.link, action.className),
-					}, extra);
+
+					const actionProps = Object.assign(
+						{},
+						action,
+						{
+							active: undefined, // active scope is only the list item
+							id: getActionId(id, action),
+							bsStyle: 'link',
+							role: 'link',
+							className: classNames(theme.link, action.className),
+						},
+						extra,
+					);
 					return (
 						<li
 							title={action.label}
@@ -113,6 +132,7 @@ SidePanel.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	const actionPropType = PropTypes.shape({
+		id: PropTypes.string,
 		active: PropTypes.bool,
 		icon: PropTypes.string,
 		key: PropTypes.string,

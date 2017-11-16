@@ -24,6 +24,10 @@ if [ -n "$GH_TOKEN" ]; then
 		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update code style outputs"
 		echo "✓ Commit updated lint output to $TRAVIS_PULL_REQUEST_BRANCH"
 
+		find packages/*/src -name "*.scss" -o -name "*.js" | xargs git add
+		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): prettier"
+		echo "✓ Commit prettified files to $TRAVIS_PULL_REQUEST_BRANCH"
+
 		git push -q https://build-travis-ci:$GH_TOKEN@github.com/Talend/ui $TRAVIS_PULL_REQUEST_BRANCH
 		echo "✓ Push to $TRAVIS_PULL_REQUEST_BRANCH"
 	fi
