@@ -22,16 +22,23 @@ a11y(ReactDOM);
 const decoratedStories = storiesOf('Form', module)
 .addDecorator(withKnobs)
 .addDecorator(story =>
-	<div className="container-fluid">
-		<div
-			className="col-md-offset-1 col-md-10"
-			style={{ marginTop: '20px', marginBottom: '20px' }}
-		>
-			<Well>
-				{story()}
-			</Well>
-		</div>
-	</div>,
+	<I18nextProvider i18n={i18n}>
+		<section>
+			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+			<button onClick={() => i18n.changeLanguage('it')}>it</button>
+			<IconsProvider/>
+			<div className="container-fluid">
+				<div
+					className="col-md-offset-1 col-md-10"
+					style={{ marginTop: '20px', marginBottom: '20px' }}
+				>
+					<Well>
+						{story()}
+					</Well>
+				</div>
+			</div>
+		</section>
+	</I18nextProvider>
 );
 
 const capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.slice(1);
@@ -43,8 +50,6 @@ sampleFilenames.keys().forEach((filename) => {
 	const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 	const capitalizedSampleName = capitalizeFirstLetter(sampleName);
 	decoratedStories.add(capitalizedSampleName, () =>
-		<section>
-			<IconsProvider />
 			<Form
 				autocomplete="off"
 				data={object(capitalizedSampleName, sampleFilenames(filename))}
@@ -52,26 +57,8 @@ sampleFilenames.keys().forEach((filename) => {
 				onBlur={action('Blur')}
 				onSubmit={action('Submit')}
 			/>
-		</section>,
 	);
 });
-
-decoratedStories.add('enumeration i18n', () =>
-	<I18nextProvider i18n={i18n}>
-		<section>
-			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
-			<button onClick={() => i18n.changeLanguage('it')}>it</button>
-			<IconsProvider />
-			<Form
-				autocomplete="off"
-				data={object('Enumeration', sampleFilenames('./enumeration.json'))}
-				onChange={action('Change')}
-				onBlur={action('Blur')}
-				onSubmit={action('Submit')}
-			/>
-		</section>
-	</I18nextProvider>
-);
 
 decoratedStories.add('Multiple actions', () => {
 	const actions = [

@@ -92,6 +92,23 @@ function loadStories() {
 		const state = mock.state();
 		const value = new Map({ id: 'myID', label: 'myLabel' });
 		state.cmf.collections = state.cmf.collections.set('myResourceType', new List([value]));
+		state.cmf.collections = state.cmf.collections.set('with', new Map({
+			data: List([
+				new Map({id: 1, label: 'foo', children: new List([
+					new Map({id: 11, label: 'sub foo'}),
+				])}),
+				new Map({id: 2, label: 'bar', children: new List([
+					new Map({id: 21, label: 'sub bar'}),
+				])}),
+				new Map({id: 3, label: 'baz', children: new List([
+					new Map({id: 31, label: 'sub baz'}),
+				])}),
+				new Map({id: 4, label: 'extra', children: new List([
+					new Map({id: 41, label: 'sub extra'}),
+				])}),
+				new Map({id: 5, label: 'hello world'}),
+			]),
+		}));
 		state.cmf.settings.views.appheaderbar = {
 			app: 'Hello Test',
 		};
@@ -182,13 +199,28 @@ function loadStories() {
 			displayMode: 'dropdown',
 			label: 'my items',
 			itemsExpression: 'getItems',
+			actionCreator: 'object:view',
 		};
 		actions['menu:items-id'] = {
-			id: 'menu:items',
+			id: 'menu:items-id',
 			displayMode: 'dropdown',
 			label: 'my items',
 			actionIds: ['menu:first', 'menu:second'],
-		},
+			actionCreator: 'object:view',
+		};
+		actions['menu:href'] = {
+			id: 'menu:href',
+			label: 'Talend',
+			target: '_blank',
+			href: '//www.talend.com',
+		};
+		actions['menu:dropdown-href'] = {
+			id: 'menu:dropdown-href',
+			displayMode: 'dropdown',
+			label: 'my items',
+			actionIds: ['menu:href'],
+			actionCreator: 'object:view',
+		};
 		actions['dialog:delete:validate'] = {
 			id: 'dialog:delete:validate',
 			label: 'Yes',

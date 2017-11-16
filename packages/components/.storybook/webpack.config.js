@@ -16,6 +16,10 @@ module.exports = (storybookBaseConfig) => {
 		include: /node_modules\/(react-storybook-addon-props-combinations)/,
 		loader: 'babel-loader',
 	});
+	storybookConfig.module.rules.push({
+		test: /\.css$/,
+		loader: 'style-loader!css-loader',
+	});
 
 	return storybookConfig;
 };

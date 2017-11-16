@@ -47,6 +47,15 @@ const CMF_PROPS = [
 	'willUnMountActionCreator', // componentWillUnmount action creator id in registry
 ];
 
+export const INJECTED_PROPS = [
+	'setState',
+	'state',
+	'initState',
+	'getCollection',
+	'dispatch',
+	'dispatchActionCreator',
+];
+
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }
@@ -293,3 +302,5 @@ export default function cmfConnect({
 		return Connected;
 	};
 }
+
+cmfConnect.INJECTED_PROPS = INJECTED_PROPS;

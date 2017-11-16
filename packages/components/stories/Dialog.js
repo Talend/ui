@@ -3,6 +3,8 @@ import { storiesOf, action } from '@storybook/react';
 
 import { Dialog } from '../src/index';
 
+import './Dialog.css';
+
 const defaultProps = {
 	show: true,
 };

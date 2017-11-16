@@ -21,17 +21,14 @@ const list = {
 
 const actions = {
 	title: 'object:view',
-	left: ['object:add', 'object:upload'],
+	left: ['object:add', 'object:upload', 'menu:items'],
 	items: ['object:delete'],
 };
 
 const toolbar = {
 	sort: {
 		field: 'id',
-		options: [
-			{ id: 'id', name: 'Id' },
-			{ id: 'label', name: 'Name' },
-		],
+		options: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
 	},
 	display: {
 		displayModes: ['large', 'table'],
