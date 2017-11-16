@@ -100,7 +100,9 @@ function Toolbar({
 						/>
 					)}
 					{pagination && <Pagination id={id && `${id}-pagination`} {...pagination} />}
-					{filter && <Filter id={id && `${id}-filter`} {...filter} t={t} navbar className="navbar-right" />}
+					{filter && (
+						<Filter id={id && `${id}-filter`} {...filter} t={t} navbar className="navbar-right" />
+					)}
 				</Navbar>
 			)}
 		</div>

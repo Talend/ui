@@ -56,14 +56,14 @@ class Filter extends React.Component {
 	}
 
 	onToggle(event) {
-		this.props.setState((prevState => {
+		this.props.setState(prevState => {
 			let state = prevState.state;
 			if (this.props.dockable) {
 				state = state.set('docked', !this.props.state.get('docked'));
 			}
 			state = state.set('query', '');
 			return state;
-		}));
+		});
 		if (this.props.onToggleActionCreator) {
 			this.props.dispatchActionCreator(this.props.onToggleActionCreator);
 		}
@@ -74,16 +74,12 @@ class Filter extends React.Component {
 
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
-		const props = Object.assign(
-			{},
-			omit(this.props, cmfConnect.INJECTED_PROPS),
-			{
-				docked: state.get('docked'),
-				value: state.get('query'),
-				onToggle: this.onToggle,
-				onFilter: this.onFilter,
-			},
-		);
+		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), {
+			docked: state.get('docked'),
+			value: state.get('query'),
+			onToggle: this.onToggle,
+			onFilter: this.onFilter,
+		});
 		return <Component {...props} />;
 	}
 }
