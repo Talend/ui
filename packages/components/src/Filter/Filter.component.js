@@ -112,7 +112,7 @@ function Filter(props) {
 		return (
 			<Action
 				id={id}
-				className="navbar-right"
+				className={className}
 				onClick={onToggle}
 				label={t('LIST_FILTER_TOGGLE', { defaultValue: 'Toggle filter' })}
 				hideLabel
@@ -165,6 +165,7 @@ function Filter(props) {
 
 Filter.propTypes = {
 	id: PropTypes.string,
+	className: PropTypes.string,
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
 	docked: PropTypes.bool,

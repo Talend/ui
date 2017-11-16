@@ -19,19 +19,18 @@ const actions = {
 */
 
 const ExampleFilter = {
-	undockAndUntoggle: () => (
+	toggeable: () => (
 		<div>
 			<IconsProvider />
 			<Filter
 				id="exampleFilterNavbar"
-				docked={false}
 				placeholder="filter nav bar"
 				toggeable
 				navbar
 			/>
 		</div>
 	),
-	dockAndToggle: () => (
+	'not toggeable': () => (
 		<div>
 			<IconsProvider />
 			<Filter

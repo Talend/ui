@@ -9,7 +9,7 @@ import ListExample from './ExampleList';
 import NotificationExample from './ExampleNotification';
 import ObjectViewerExample from './ExampleObjectViewer';
 import SidePanelExample from './ExampleSidePanel';
-import ExampleFilter from './ExampleFilter';
+import FilterExample from './ExampleFilter';
 import DeleteResource from './ExampleDeleteResource';
 
 export default {
@@ -18,12 +18,12 @@ export default {
 	ActionsExample,
 	AppHeaderBarExample,
 	ConfirmDialogExample,
+	DeleteResource,
+	FilterExample,
 	HeaderBarExample,
 	HomeListViewExample,
 	ListExample,
 	NotificationExample,
 	ObjectViewerExample,
 	SidePanelExample,
-	DeleteResource,
-	ExampleFilter,
 };
