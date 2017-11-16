@@ -25,6 +25,11 @@ class Filter extends React.Component {
 		id: PropTypes.string,
 		placeholder: PropTypes.string,
 		filterInputValue: PropTypes.string,
+		toggeable: PropTypes.bool,
+	};
+
+	static defaultProps = {
+		toggeable: true,
 	};
 
 	constructor(props) {
@@ -70,13 +75,14 @@ class Filter extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const props = Object.assign(
+			{},
+			omit(this.props, cmfConnect.INJECTED_PROPS),
 			{
 				docked: state.get('docked'),
 				value: state.get('query'),
 				onToggle: this.onToggle,
 				onFilter: this.onFilter,
 			},
-			omit(this.props, cmfConnect.INJECTED_PROPS),
 		);
 		return <Component {...props} />;
 	}

@@ -19,8 +19,8 @@ describe('Filter container', () => {
 			navbar: true,
 			toggeable: true,
 			collectionToFilter: 'myCollectionToFilter',
-			onFilter: () => console.log('onFilter'),
-			t: () => console.log('get Translate'),
+			onFilter: () => jest.fn(),
+			t: () => jest.fn(),
 		};
 		const wrapper = shallow(<Container {...props} />);
 		expect(wrapper).toMatchSnapshot();
@@ -44,7 +44,10 @@ describe('Filter container', () => {
 		wrapper.simulate('filter', event, query);
 		expect(props.onFilter).toHaveBeenCalledWith(event, {
 			query,
-			props: { ...props },
+			props: {
+				toggeable: true,
+				...props,
+			},
 		});
 	});
 	it('should call onFilterActionCreator when onFilter event trigger', () => {
@@ -58,7 +61,10 @@ describe('Filter container', () => {
 		const wrapper = shallow(<Container {...props} />);
 		wrapper.simulate('filter', event, query);
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.onFilterActionCreator, event, {
-			props: { ...props },
+			props: {
+				toggeable: true,
+				...props,
+			},
 		});
 	});
 	it('should call onBlur when onBlur event trigger', () => {
@@ -76,13 +82,21 @@ describe('Filter container', () => {
 		expect(onFocus).toHaveBeenCalledWith(event);
 	});
 	it('should call setState when onToggle event trigger', () => {
+		const state = Map({ docked: false });
+		const prevState = { state };
+		const setState = jest.fn(fn => {
+			prevState.state = fn(prevState);
+		});
 		const props = {
-			setState: jest.fn(),
-			state: Map({ docked: false }),
+			setState,
+			state,
+			toggeable: true,
 		};
 		const wrapper = shallow(<Container {...props} />);
 		wrapper.simulate('toggle');
-		expect(props.setState).toHaveBeenCalledWith({ docked: !props.state.get('docked') });
+		expect(props.setState).toHaveBeenCalled();
+		expect(prevState.state).not.toBe(state);
+		expect(prevState.state.get('docked')).toBe(true);
 	});
 	it('should call onToggleActionCreator when onToggle event trigger', () => {
 		const props = {
