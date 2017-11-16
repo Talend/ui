@@ -12,9 +12,7 @@ ShallowWrapper {
     collectionToFilter="myCollectionToFilter"
     docked={false}
     navbar={true}
-    onBlur={[Function]}
     onFilter={[Function]}
-    onFocus={[Function]}
     onToggle={[Function]}
     placeholder="Filter"
     t={[Function]}
@@ -26,9 +24,7 @@ ShallowWrapper {
       collectionToFilter="myCollectionToFilter"
       docked={false}
       navbar={true}
-      onBlur={[Function]}
       onFilter={[Function]}
-      onFocus={[Function]}
       onToggle={[Function]}
       placeholder="Filter"
       t={[Function]}
@@ -59,9 +55,7 @@ ShallowWrapper {
           "registry": undefined,
           "store": undefined,
         },
-        "onBlur": [Function],
         "onFilter": [Function],
-        "onFocus": [Function],
         "onToggle": [Function],
         "props": Object {
           "collectionToFilter": "myCollectionToFilter",
@@ -95,9 +89,7 @@ ShallowWrapper {
           collectionToFilter="myCollectionToFilter"
           docked={false}
           navbar={true}
-          onBlur={[Function]}
           onFilter={[Function]}
-          onFocus={[Function]}
           onToggle={[Function]}
           placeholder="Filter"
           t={[Function]}
@@ -109,9 +101,7 @@ ShallowWrapper {
           collectionToFilter="myCollectionToFilter"
           docked={false}
           navbar={true}
-          onBlur={[Function]}
           onFilter={[Function]}
-          onFocus={[Function]}
           onToggle={[Function]}
           placeholder="Filter"
           t={[Function]}
