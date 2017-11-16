@@ -34,7 +34,12 @@ const ExampleFilter = {
 	dockAndToggle: () => (
 		<div>
 			<IconsProvider />
-			<Filter id="exampleFilterNoNavbar" toggeable={false} navbar={false} placeholder="filter no nav bar" />
+			<Filter
+				id="exampleFilterNoNavbar"
+				toggeable={false}
+				navbar={false}
+				placeholder="filter no nav bar"
+			/>
 		</div>
 	),
 };
