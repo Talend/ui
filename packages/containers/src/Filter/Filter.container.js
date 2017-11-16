@@ -79,17 +79,14 @@ class Filter extends React.Component {
 
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
-		const props = Object.assign(
-			omit(this.props, cmfConnect.INJECTED_PROPS),
-			{
-				docked: state.get('docked'),
-				value: state.get('query'),
-				onBlur: this.onBlur,
-				onFocus: this.onFocus,
-				onToggle: this.onToggle,
-				onFilter: this.onFilter,
-			},
-		);
+		const props = Object.assign(omit(this.props, cmfConnect.INJECTED_PROPS), {
+			docked: state.get('docked'),
+			value: state.get('query'),
+			onBlur: this.onBlur,
+			onFocus: this.onFocus,
+			onToggle: this.onToggle,
+			onFilter: this.onFilter,
+		});
 		return <Component {...props} />;
 	}
 }
