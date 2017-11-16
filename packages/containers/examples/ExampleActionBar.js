@@ -54,14 +54,24 @@ export default function ExampleActions() {
 					],
 				}}
 			/>
+			<p>using dropdown</p>
+			<ActionBar
+				actionIds={{
+					left: [
+						{
+							displayMode: 'dropdown',
+							actionId: 'menu:items',
+						},
+					],
+				}}
+			/>
 			<p>using split dropdown</p>
 			<ActionBar
 				actionIds={{
 					left: [
 						{
 							displayMode: 'splitDropdown',
-							actionId: 'menu:first',
-							actionIds: ['menu:second', 'menu:third'],
+							actionId: 'menu:items',
 						},
 					],
 				}}
