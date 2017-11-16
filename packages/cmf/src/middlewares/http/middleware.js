@@ -1,7 +1,14 @@
 import has from 'lodash/has';
 import get from 'lodash/get';
 import { mergeCSRFToken } from './csrfHandling';
-import { HTTP_METHODS, ACTION_TYPE_HTTP_REQUEST, ACTION_TYPE_HTTP_RESPONSE, ACTION_TYPE_HTTP_ERRORS, HTTP_STATUS, testHTTPCode } from './constants';
+import {
+	HTTP_METHODS,
+	ACTION_TYPE_HTTP_REQUEST,
+	ACTION_TYPE_HTTP_RESPONSE,
+	ACTION_TYPE_HTTP_ERRORS,
+	HTTP_STATUS,
+	testHTTPCode,
+} from './constants';
 
 /**
  * @typedef {Object} Action
@@ -30,7 +37,7 @@ import { HTTP_METHODS, ACTION_TYPE_HTTP_REQUEST, ACTION_TYPE_HTTP_RESPONSE, ACTI
  * @property {string} message
  * @property {string} number
  * @property {Stack} stack
-*/
+ */
 
 /**
  * @typedef {Object.<string, string>} Headers
@@ -67,10 +74,10 @@ import { HTTP_METHODS, ACTION_TYPE_HTTP_REQUEST, ACTION_TYPE_HTTP_RESPONSE, ACTI
  * @property {String} CSRFTokenHeaderKey - on wich header key the token should be sent
  */
 
- /**
-  * @typedef {Object} Config
-  * @property {Security} security
-  */
+/**
+ * @typedef {Object} Config
+ * @property {Security} security
+ */
 
 export const DEFAULT_HTTP_HEADERS = {
 	Accept: 'application/json',

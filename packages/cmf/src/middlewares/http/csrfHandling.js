@@ -27,8 +27,8 @@ import curry from 'lodash/curry';
 const cookieElementRegexp = new RegExp(/(.*)=(.*)/);
 
 /**
-  * retrieve the cookie from the document
-  */
+ * retrieve the cookie from the document
+ */
 export function getCookie() {
 	if (document.cookie) {
 		return document.cookie;
@@ -71,12 +71,14 @@ const findCSRFToken = curry(({ CSRFTokenCookieKey = 'csrfToken' }, cookieValues)
  * @param {string} csrfToken
  * @return {function}
  */
-const mergeCSRFTokenConfig = curry(({ CSRFTokenHeaderKey = 'X-CSRF-Token' }, httpConfig, csrfToken) => {
-	if (csrfToken) {
-		return merge({}, httpConfig, { headers: { [CSRFTokenHeaderKey]: csrfToken } });
-	}
-	return httpConfig;
-});
+const mergeCSRFTokenConfig = curry(
+	({ CSRFTokenHeaderKey = 'X-CSRF-Token' }, httpConfig, csrfToken) => {
+		if (csrfToken) {
+			return merge({}, httpConfig, { headers: { [CSRFTokenHeaderKey]: csrfToken } });
+		}
+		return httpConfig;
+	},
+);
 
 /**
  * if a CSRF token is found in csrfToken cookie, merge it in the headers

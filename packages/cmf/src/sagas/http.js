@@ -18,10 +18,10 @@ export function httpPostOrPut(url, method, payload = {}, config) {
 		'Content-Type': 'application/json',
 	};
 	/**
-		 * If the playload is an instance of FormData the body should be set to this object
-		 * and the Content-type header should be stripped since the browser
-		 * have to build a special headers with file boundary in if said FormData is used to upload file
-		 */
+	 * If the playload is an instance of FormData the body should be set to this object
+	 * and the Content-type header should be stripped since the browser
+	 * have to build a special headers with file boundary in if said FormData is used to upload file
+	 */
 	if (payload instanceof FormData) {
 		body = payload;
 		delete defaultHeaders['Content-Type'];
