@@ -7,10 +7,8 @@ import { Filter } from '../src';
 const actions = {
 	exampleFilter: {
 		id: 'exampleFilter',
-		'collection-to-filter': 'List#filterExample',
-		filterExpression: 'filterByName',
 		docked: false,
-		dockable: false,
+		navbar: false,
 		toggeable: false,
 		debounceMinLength: 2,
 		debounceTimeout: 300,
@@ -18,18 +16,6 @@ const actions = {
 		placeholder: 'My placeholder',
 	},
 };
-
-function filterByName(event, collection) {
-		if (event.target.value.length <= 0) {
-		return List();
-	}
-	return collection.filter(item =>
-		item
-			.get('name')
-			.toLowerCase()
-			.includes(event.target.value.toLowerCase()),
-	);
-}
 */
 
 const ExampleFilter = {
@@ -37,16 +23,18 @@ const ExampleFilter = {
 		<div>
 			<IconsProvider />
 			<Filter
-				id="exampleFilterUndock"
-				actionId="example-filter:undock-and-untoggle"
-				navbar={false}
+				id="exampleFilterNavbar"
+				docked={false}
+				placeholder="filter nav bar"
+				toggeable
+				navbar
 			/>
 		</div>
 	),
 	dockAndToggle: () => (
 		<div>
 			<IconsProvider />
-			<Filter id="exampleFilterDock" actionId="example-filter:dock-and-toggle" navbar={false} />
+			<Filter id="exampleFilterNoNavbar" toggeable={false} navbar={false} placeholder="filter no nav bar" />
 		</div>
 	),
 };

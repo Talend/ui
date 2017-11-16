@@ -10,7 +10,7 @@ export const DEFAULT_STATE = new Immutable.Map({
 	docked: false,
 });
 
-const DISPLAY_NAME = 'Container(Filter)';
+export const DISPLAY_NAME = 'Container(Filter)';
 
 class Filter extends React.Component {
 	static displayName = DISPLAY_NAME;
@@ -23,8 +23,7 @@ class Filter extends React.Component {
 	static propTypes = {
 		...componentState.propTypes,
 		...Component.propTypes,
-		id: PropTypes.string.isRequired,
-		collectionToFilter: PropTypes.object.isRequired,
+		id: PropTypes.string,
 		placeholder: PropTypes.string,
 		filterInputValue: PropTypes.string,
 	};
@@ -37,31 +36,13 @@ class Filter extends React.Component {
 		this.onToggle = this.onToggle.bind(this);
 	}
 
-	// // If they are differences between the next props collection we have to filter
-	// // our current collection.
-	// // We apply the expression filter to be sure to be comform to the new collection.
-	// componentWillReceiveProps(nextProps) {
-	// 	if (
-	// 		(this.props.collectionToFilter && this.props.collectionToFilter.size) !==
-	// 		(nextProps.collectionToFilter && nextProps.collectionToFilter.size)
-	// 	) {
-	// 		const event = { target: { value: this.props.filterInputValue } };
-	// 		this.props.dispatchActionCreator('filter:update', event, {
-	// 			componentName: 'Container(Filter)',
-	// 			key: this.props.id,
-	// 			collectionFiltered: this.getFilter(event, nextProps.collectionToFilter),
-	// 		});
-	// 	}
-	// }
-
 	onFilter(event, value) {
 		this.props.setState({
 			query: value,
 		});
 		if (this.props.onFilter) {
 			this.props.onFilter(event, {
-				value,
-				collection: this.props.collectionToFilter,
+				query: value,
 				props: this.props,
 			});
 		}

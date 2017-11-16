@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter container should render 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Filter
+    collectionToFilter="myCollectionToFilter"
+    docked={false}
+    navbar={true}
+    onBlur={[Function]}
+    onFilter={[Function]}
+    onFocus={[Function]}
+    onToggle={[Function]}
+    placeholder="Filter"
+    t={[Function]}
+    toggeable={true}
+    value=""
+/>,
+  "nodes": Array [
+    <Filter
+      collectionToFilter="myCollectionToFilter"
+      docked={false}
+      navbar={true}
+      onBlur={[Function]}
+      onFilter={[Function]}
+      onFocus={[Function]}
+      onToggle={[Function]}
+      placeholder="Filter"
+      t={[Function]}
+      toggeable={true}
+      value=""
+/>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <Container(Filter)
+        collectionToFilter="myCollectionToFilter"
+        docked={false}
+        navbar={true}
+        onFilter={[Function]}
+        t={[Function]}
+        toggeable={true}
+/>,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": Filter {
+        "_reactInternalInstance": [Circular],
+        "context": Object {
+          "registry": undefined,
+          "store": undefined,
+        },
+        "onBlur": [Function],
+        "onFilter": [Function],
+        "onFocus": [Function],
+        "onToggle": [Function],
+        "props": Object {
+          "collectionToFilter": "myCollectionToFilter",
+          "docked": false,
+          "navbar": true,
+          "onFilter": [Function],
+          "t": [Function],
+          "toggeable": true,
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Filter
+          collectionToFilter="myCollectionToFilter"
+          docked={false}
+          navbar={true}
+          onBlur={[Function]}
+          onFilter={[Function]}
+          onFocus={[Function]}
+          onToggle={[Function]}
+          placeholder="Filter"
+          t={[Function]}
+          toggeable={true}
+          value=""
+/>,
+        "_debugID": 2,
+        "_renderedOutput": <Filter
+          collectionToFilter="myCollectionToFilter"
+          docked={false}
+          navbar={true}
+          onBlur={[Function]}
+          onFilter={[Function]}
+          onFocus={[Function]}
+          onToggle={[Function]}
+          placeholder="Filter"
+          t={[Function]}
+          toggeable={true}
+          value=""
+/>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Container(Filter)
+    collectionToFilter="myCollectionToFilter"
+    docked={false}
+    navbar={true}
+    onFilter={[Function]}
+    t={[Function]}
+    toggeable={true}
+/>,
+}
+`;
