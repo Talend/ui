@@ -2,17 +2,13 @@
 
 exports[`Filter should render 1`] = `
 <Action
-  available={true}
   bsStyle="link"
   className="navbar-right"
-  disabled={false}
   hideLabel={true}
   icon="talend-search"
   id={undefined}
-  inProgress={false}
-  label={undefined}
+  label="Toggle filter"
   onClick={[Function]}
-  tooltipPlacement="top"
 />
 `;
 
@@ -38,19 +34,16 @@ exports[`Filter should render filter input with default placeholder 1`] = `
       onFocus={undefined}
       onToggle={undefined}
       placeholder="Filter"
+      toggeable={true}
       value={undefined}
     />
     <Action
-      available={true}
       bsStyle="link"
-      disabled={false}
       hideLabel={true}
       icon="talend-cross"
       id={undefined}
-      inProgress={false}
-      label={undefined}
+      label="Remove filter"
       onClick={undefined}
-      tooltipPlacement="top"
     />
   </div>
 </form>
@@ -78,19 +71,16 @@ exports[`Filter should render filter input with given placeholder 1`] = `
       onFocus={undefined}
       onToggle={undefined}
       placeholder="find something"
+      toggeable={true}
       value={undefined}
     />
     <Action
-      available={true}
       bsStyle="link"
-      disabled={false}
       hideLabel={true}
       icon="talend-cross"
       id={undefined}
-      inProgress={false}
-      label={undefined}
+      label="Remove filter"
       onClick={undefined}
-      tooltipPlacement="top"
     />
   </div>
 </form>
@@ -98,48 +88,36 @@ exports[`Filter should render filter input with given placeholder 1`] = `
 
 exports[`Filter should render highlighted filter 1`] = `
 <Action
-  available={true}
   bsStyle="link"
   className="navbar-right"
-  disabled={false}
   hideLabel={true}
   icon="talend-search"
   id={undefined}
-  inProgress={false}
-  label={undefined}
+  label="Toggle filter"
   onClick={[Function]}
-  tooltipPlacement="top"
 />
 `;
 
 exports[`Filter should render id if provided 1`] = `
 <Action
-  available={true}
   bsStyle="link"
   className="navbar-right"
-  disabled={false}
   hideLabel={true}
   icon="talend-search"
   id="toolbar-filter"
-  inProgress={false}
-  label={undefined}
+  label="Toggle filter"
   onClick={[Function]}
-  tooltipPlacement="top"
 />
 `;
 
 exports[`Filter should render only toggle icon 1`] = `
 <Action
-  available={true}
   bsStyle="link"
   className="navbar-right"
-  disabled={false}
   hideLabel={true}
   icon="talend-search"
   id={undefined}
-  inProgress={false}
-  label={undefined}
+  label="Toggle filter"
   onClick={[Function]}
-  tooltipPlacement="top"
 />
 `;

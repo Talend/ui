@@ -17,10 +17,12 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 		background: none;
 	}
 
+	.animate {
+		animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
 	.search {
 		width: $tc-list-filter-input-size;
-		animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1);
-
 		&::-ms-clear {
 			// sass-lint:disable-line no-vendor-prefixes
 			display: none;

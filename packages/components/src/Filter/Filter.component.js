@@ -38,6 +38,7 @@ function FilterInput(props) {
 		onToggle,
 		placeholder,
 		value,
+		toggeable,
 	} = props;
 
 	const inputProps = {
@@ -47,7 +48,9 @@ function FilterInput(props) {
 		value,
 		placeholder,
 		autoComplete: 'off',
-		className: theme.search,
+		className: classNames(theme.search, {
+			[theme.animate]: toggeable,
+		}),
 		'aria-label': 'Filter',
 		onBlur: onBlur && (event => onBlur(event, event.target.value)),
 		onFocus: onFocus && (event => onFocus(event, event.target.value)),
@@ -79,6 +82,7 @@ FilterInput.propTypes = {
 	onToggle: PropTypes.func,
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
+	toggeable: PropTypes.bool,
 };
 
 /**
@@ -143,6 +147,7 @@ function Filter(props) {
 					onToggle={onToggle}
 					placeholder={placeholder}
 					value={value}
+					toggeable={toggeable}
 				/>
 				<Action
 					id={id && `${id}-cross-icon`}
