@@ -36,13 +36,11 @@ function* listen(chan) {
  * @param {string} requestId the requestId to check in the channel
  */
 function* check(chan, requestId) {
-	// eslint-disable-next-line no-constant-condition
-	while (true) {
-		const ackRequestId = yield take(chan);
-		if (ackRequestId === requestId) {
-			break;
-		}
-	}
+	let ackRequestId;
+	do {
+		ackRequestId = yield take(chan);
+	} while (ackRequestId !== requestId);
+
 	return true;
 }
 
