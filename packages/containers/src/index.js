@@ -2,7 +2,6 @@ import {
 	Breadcrumbs,
 	CircularProgress,
 	Drawer,
-	TreeView,
 	Icon,
 	IconsProvider,
 	Layout,
@@ -30,6 +29,7 @@ import Redirect from './Redirect';
 import ShortcutManager from './ShortcutManager';
 import SidePanel from './SidePanel';
 import Filter from './Filter';
+import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 
 export {
