@@ -38,7 +38,7 @@ function FilterInput(props) {
 		onToggle,
 		placeholder,
 		value,
-		toggeable,
+		dockable,
 	} = props;
 
 	const inputProps = {
@@ -49,7 +49,7 @@ function FilterInput(props) {
 		placeholder,
 		autoComplete: 'off',
 		className: classNames(theme.search, {
-			[theme.animate]: toggeable,
+			[theme.animate]: dockable,
 		}),
 		'aria-label': 'Filter',
 		onBlur: onBlur && (event => onBlur(event, event.target.value)),
@@ -82,7 +82,7 @@ FilterInput.propTypes = {
 	onToggle: PropTypes.func,
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
-	toggeable: PropTypes.bool,
+	dockable: PropTypes.bool,
 };
 
 /**
@@ -98,7 +98,7 @@ function Filter(props) {
 		debounceTimeout,
 		docked,
 		navbar,
-		toggeable,
+		dockable,
 		highlight,
 		onBlur,
 		onFocus,
@@ -108,7 +108,7 @@ function Filter(props) {
 		value,
 		t,
 	} = props;
-	if (toggeable && docked) {
+	if (dockable && docked) {
 		return (
 			<Action
 				id={id}
@@ -147,7 +147,7 @@ function Filter(props) {
 					onToggle={onToggle}
 					placeholder={placeholder}
 					value={value}
-					toggeable={toggeable}
+					dockable={dockable}
 				/>
 				<Action
 					className={theme.remove}
@@ -170,7 +170,7 @@ Filter.propTypes = {
 	debounceTimeout: PropTypes.number,
 	docked: PropTypes.bool,
 	navbar: PropTypes.bool,
-	toggeable: PropTypes.bool,
+	dockable: PropTypes.bool,
 	onBlur: PropTypes.func,
 	onFocus: PropTypes.func,
 	onFilter: PropTypes.func.isRequired,
@@ -182,9 +182,9 @@ Filter.propTypes = {
 };
 
 Filter.defaultProps = {
+	dockable: true,
 	docked: true,
 	navbar: true,
-	toggeable: true,
 	placeholder: 'Filter',
 	t: getDefaultTranslate,
 };

@@ -17,7 +17,7 @@ describe('Filter container', () => {
 		const props = {
 			docked: false,
 			navbar: true,
-			toggeable: true,
+			dockable: true,
 			collectionToFilter: 'myCollectionToFilter',
 			onFilter: () => jest.fn(),
 			t: () => jest.fn(),
@@ -45,7 +45,7 @@ describe('Filter container', () => {
 		expect(props.onFilter).toHaveBeenCalledWith(event, {
 			query,
 			props: {
-				toggeable: true,
+				dockable: true,
 				...props,
 			},
 		});
@@ -62,7 +62,7 @@ describe('Filter container', () => {
 		wrapper.simulate('filter', event, query);
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.onFilterActionCreator, event, {
 			props: {
-				toggeable: true,
+				dockable: true,
 				...props,
 			},
 		});
@@ -90,7 +90,7 @@ describe('Filter container', () => {
 		const props = {
 			setState,
 			state,
-			toggeable: true,
+			dockable: true,
 		};
 		const wrapper = shallow(<Container {...props} />);
 		wrapper.simulate('toggle');

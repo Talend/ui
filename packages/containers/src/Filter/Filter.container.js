@@ -7,7 +7,7 @@ import { Filter as Component } from '@talend/react-components';
 
 export const DEFAULT_STATE = new Immutable.Map({
 	query: '',
-	docked: false,
+	docked: true,
 });
 
 export const DISPLAY_NAME = 'Container(Filter)';
@@ -25,11 +25,11 @@ class Filter extends React.Component {
 		id: PropTypes.string,
 		placeholder: PropTypes.string,
 		filterInputValue: PropTypes.string,
-		toggeable: PropTypes.bool,
+		dockable: PropTypes.bool,
 	};
 
 	static defaultProps = {
-		toggeable: true,
+		dockable: true,
 	};
 
 	constructor(props) {
@@ -58,7 +58,7 @@ class Filter extends React.Component {
 	onToggle(event) {
 		this.props.setState((prevState => {
 			let state = prevState.state;
-			if (this.props.toggeable) {
+			if (this.props.dockable) {
 				state = state.set('docked', !this.props.state.get('docked'));
 			}
 			state = state.set('query', '');

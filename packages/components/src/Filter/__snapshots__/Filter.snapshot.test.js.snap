@@ -28,13 +28,13 @@ exports[`Filter should render filter input with default placeholder 1`] = `
     <FilterInput
       debounceMinLength={undefined}
       debounceTimeout={undefined}
+      dockable={true}
       id={undefined}
       onBlur={undefined}
       onFilter={undefined}
       onFocus={undefined}
       onToggle={undefined}
       placeholder="Filter"
-      toggeable={true}
       value={undefined}
     />
     <Action
@@ -66,13 +66,13 @@ exports[`Filter should render filter input with given placeholder 1`] = `
     <FilterInput
       debounceMinLength={undefined}
       debounceTimeout={undefined}
+      dockable={true}
       id={undefined}
       onBlur={undefined}
       onFilter={undefined}
       onFocus={undefined}
       onToggle={undefined}
       placeholder="find something"
-      toggeable={true}
       value={undefined}
     />
     <Action

@@ -10,25 +10,25 @@ ShallowWrapper {
   "length": 1,
   "node": <Filter
     collectionToFilter="myCollectionToFilter"
-    docked={false}
+    dockable={true}
+    docked={true}
     navbar={true}
     onFilter={[Function]}
     onToggle={[Function]}
     placeholder="Filter"
     t={[Function]}
-    toggeable={true}
     value=""
 />,
   "nodes": Array [
     <Filter
       collectionToFilter="myCollectionToFilter"
-      docked={false}
+      dockable={true}
+      docked={true}
       navbar={true}
       onFilter={[Function]}
       onToggle={[Function]}
       placeholder="Filter"
       t={[Function]}
-      toggeable={true}
       value=""
 />,
   ],
@@ -40,11 +40,11 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <Container(Filter)
         collectionToFilter="myCollectionToFilter"
+        dockable={true}
         docked={false}
         navbar={true}
         onFilter={[Function]}
         t={[Function]}
-        toggeable={true}
 />,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -59,11 +59,11 @@ ShallowWrapper {
         "onToggle": [Function],
         "props": Object {
           "collectionToFilter": "myCollectionToFilter",
+          "dockable": true,
           "docked": false,
           "navbar": true,
           "onFilter": [Function],
           "t": [Function],
-          "toggeable": true,
         },
         "refs": Object {},
         "state": null,
@@ -87,25 +87,25 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Filter
           collectionToFilter="myCollectionToFilter"
-          docked={false}
+          dockable={true}
+          docked={true}
           navbar={true}
           onFilter={[Function]}
           onToggle={[Function]}
           placeholder="Filter"
           t={[Function]}
-          toggeable={true}
           value=""
 />,
         "_debugID": 2,
         "_renderedOutput": <Filter
           collectionToFilter="myCollectionToFilter"
-          docked={false}
+          dockable={true}
+          docked={true}
           navbar={true}
           onFilter={[Function]}
           onToggle={[Function]}
           placeholder="Filter"
           t={[Function]}
-          toggeable={true}
           value=""
 />,
       },
@@ -121,11 +121,11 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <Container(Filter)
     collectionToFilter="myCollectionToFilter"
+    dockable={true}
     docked={false}
     navbar={true}
     onFilter={[Function]}
     t={[Function]}
-    toggeable={true}
 />,
 }
 `;
