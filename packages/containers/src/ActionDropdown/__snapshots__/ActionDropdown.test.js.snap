@@ -12,6 +12,7 @@ exports[`Container(ActionDropdown) should render 1`] = `
   items={
     Array [
       Object {
+        "actionCreator": "menu:item",
         "label": "Foo",
         "onClick": [Function],
       },

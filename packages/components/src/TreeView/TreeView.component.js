@@ -6,6 +6,10 @@ import TreeViewItem from './TreeViewItem/';
 
 import theme from './TreeView.scss';
 
+const cache = {
+	called: false,
+};
+
 /**
  * A view component to display any tree structure, like folders or categories.
  *
@@ -44,7 +48,7 @@ import theme from './TreeView.scss';
  * <TreeView {...defaultProps} />
  *
  */
-const TreeView = ({
+function TreeView({
 	id,
 	headerText,
 	structure,
@@ -52,34 +56,52 @@ const TreeView = ({
 	addActionLabel,
 	itemSelectCallback,
 	itemToggleCallback,
-}) => (
-	<div className={theme['tc-treeview']}>
-		<header className={theme['tc-treeview-header']}>
-			<span>{headerText}</span>
-			{ addAction && <Action
-				label={addActionLabel}
-				icon="talend-plus"
-				onClick={addAction}
-				tooltipPlacement="right"
-				hideLabel
-				link
-				id={`${id}-add`}
-				key={addActionLabel}
-			/>}
-		</header>
-		<nav className={theme['tc-treeview-nav']}>
-			<ul className={theme['tc-treeview-ul']}>
-				{structure.map((item, i) => <TreeViewItem
-					id={id && `${id}-${i}`}
-					item={item}
-					itemSelectCallback={itemSelectCallback}
-					itemToggleCallback={itemToggleCallback}
-					key={i}
-				/>)}
-			</ul>
-		</nav>
-	</div>
-);
+	onClick,
+	onSelect,
+	noHeader,
+}) {
+	if (!cache.called && (itemSelectCallback || itemToggleCallback)) {
+		// eslint-disable-next-line
+		console.warn(`DEPRECATION WARNING: TreeView props migration:
+		itemToggleCallback -> onClick
+		itemSelectCallback -> onSelect`);
+		cache.called = true;
+	}
+	return (
+		<div className={theme['tc-treeview']}>
+			{!noHeader && (
+				<header className={theme['tc-treeview-header']}>
+					<span>{headerText}</span>
+					{addAction && (
+						<Action
+							label={addActionLabel}
+							icon="talend-plus"
+							onClick={addAction}
+							tooltipPlacement="right"
+							hideLabel
+							link
+							id={`${id}-add`}
+							key={addActionLabel}
+						/>
+					)}
+				</header>
+			)}
+			<nav className={theme['tc-treeview-nav']}>
+				<ul className={theme['tc-treeview-ul']}>
+					{structure.map((item, i) => (
+						<TreeViewItem
+							id={id && `${id}-${i}`}
+							item={item}
+							onSelect={onSelect || itemSelectCallback}
+							onClick={onClick || itemToggleCallback}
+							key={i}
+						/>
+					))}
+				</ul>
+			</nav>
+		</div>
+	);
+}
 
 TreeView.propTypes = {
 	id: PropTypes.string,
@@ -87,8 +109,11 @@ TreeView.propTypes = {
 	structure: PropTypes.arrayOf(TreeViewItem.propTypes.item),
 	addAction: PropTypes.func,
 	addActionLabel: PropTypes.string,
-	itemSelectCallback: PropTypes.func.isRequired,
-	itemToggleCallback: PropTypes.func.isRequired,
+	itemSelectCallback: PropTypes.func,
+	itemToggleCallback: PropTypes.func,
+	onClick: PropTypes.func.isRequired,
+	onSelect: PropTypes.func.isRequired,
+	noHeader: PropTypes.bool,
 };
 
 TreeView.defaultProps = {
