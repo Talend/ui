@@ -104,10 +104,7 @@ function Help({ renderers, t, ...props }) {
 		tooltipPlacement: 'bottom',
 		...props,
 	};
-	const className = classNames(
-		theme['tc-header-bar-action'],
-		theme.separated
-	);
+	const className = classNames(theme['tc-header-bar-action'], theme.separated);
 
 	return (
 		<li className={className}>
