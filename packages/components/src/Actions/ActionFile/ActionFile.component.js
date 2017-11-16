@@ -61,82 +61,95 @@ function getButtonContent(props) {
  * subsequently the field get emptied.
  * @param {Object} props
  */
-function ActionFile(props) {
-	const {
-		id,
-		inProgress,
-		disabled,
-		hideLabel,
-		label,
-		name,
-		onChange,
-		tooltipPlacement,
-		tooltip,
-		tooltipLabel,
-		available,
-	} = props;
-	if (!available) {
-		return null;
-	}
-	const localId = id || uuid.v4();
-	const buttonContent = getButtonContent(props);
-	const labelClasses = classNames('btn', theme['btn-file'], (disabled || inProgress) && 'disabled');
-	const localOnChange = event => {
-		event.preventDefault();
-		onChange(event, event.target.files[0]);
-		// clear input value
-		event.target.value = null; /* eslint no-param-reassign: ["error", { "props": false }] */
+class ActionFile extends React.Component {
+	static displayName = 'ActionFile';
+
+	static propTypes = {
+		...getIcon.propTypes,
+		id: PropTypes.string,
+		bsStyle: PropTypes.string,
+		disabled: PropTypes.bool,
+		hideLabel: PropTypes.bool,
+		iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
+		label: PropTypes.string.isRequired,
+		link: PropTypes.bool,
+		model: PropTypes.object,
+		name: PropTypes.string,
+		onChange: PropTypes.func.isRequired,
+		tooltipPlacement: OverlayTrigger.propTypes.placement,
+		tooltip: PropTypes.bool,
+		tooltipLabel: PropTypes.string,
 	};
-	const btn = (
-		<span>
-			<input
-				onChange={localOnChange}
-				type="file"
-				name={name}
-				id={localId}
-				disabled={inProgress || disabled}
-				className={theme['action-file-label']}
-			/>
-			<label htmlFor={localId} className={labelClasses}>
-				{buttonContent}
-			</label>
-		</span>
-	);
-	if (hideLabel || tooltip || tooltipLabel) {
-		return (
-			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-				{btn}
-			</TooltipTrigger>
-		);
+
+	static defaultProps = {
+		available: true,
+		bsStyle: 'default',
+		tooltipPlacement: 'top',
+		inProgress: false,
+		disabled: false,
+	};
+
+	constructor(props) {
+		super(props);
+		this.handleChange = this.handleChange.bind(this);
 	}
-	return btn;
+	handleChange(event) {
+		event.preventDefault();
+		this.props.onChange(event, event.target.files[0]);
+		this.form.reset();
+	}
+
+	render() {
+		const {
+			id,
+			name,
+			available,
+			disabled,
+			inProgress,
+			hideLabel,
+			tooltip,
+			tooltipLabel,
+			label,
+			tooltipPlacement,
+		} = this.props;
+		if (!available) {
+			return null;
+		}
+		const localId = id || uuid.v4();
+		const buttonContent = getButtonContent(this.props);
+		const labelClasses = classNames(
+			'btn',
+			theme['btn-file'],
+			(disabled || inProgress) && 'disabled',
+		);
+		const btn = (
+			<form
+				ref={form => {
+					this.form = form;
+				}}
+			>
+				<input
+					onChange={this.handleChange}
+					type="file"
+					name={name}
+					id={localId}
+					disabled={inProgress || disabled}
+					className={theme['action-file-label']}
+				/>
+				<label htmlFor={localId} className={labelClasses}>
+					{buttonContent}
+				</label>
+			</form>
+		);
+		if (hideLabel || tooltip || tooltipLabel) {
+			return (
+				<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+					{btn}
+				</TooltipTrigger>
+			);
+		}
+		return btn;
+	}
 }
-
-ActionFile.propTypes = {
-	...getIcon.propTypes,
-	id: PropTypes.string,
-	bsStyle: PropTypes.string,
-	disabled: PropTypes.bool,
-	hideLabel: PropTypes.bool,
-	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
-	label: PropTypes.string.isRequired,
-	link: PropTypes.bool,
-	model: PropTypes.object,
-	name: PropTypes.string,
-	onChange: PropTypes.func.isRequired,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
-	tooltip: PropTypes.bool,
-	tooltipLabel: PropTypes.string,
-};
-
-ActionFile.defaultProps = {
-	available: true,
-	bsStyle: 'default',
-	tooltipPlacement: 'top',
-	inProgress: false,
-	disabled: false,
-};
-
-ActionFile.displayName = 'ActionFile';
 
 export default ActionFile;

@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import ActionFile from './ActionFile.component';
 
-jest.mock('react-dom');
+// jest.mock('react-dom');
 
 const myAction = {
 	label: 'Click me',
@@ -25,9 +25,10 @@ describe('ActionFile', () => {
 
 	it('change file value on the button trigger the onChange props', () => {
 		// given
-		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
+		const wrapper = mount(<ActionFile extra="extra" {...myAction} />);
 		const mockEvent = { preventDefault: jest.fn(), target: { files: [] } };
 
+		// when
 		// when
 		wrapper
 			.find('input')
