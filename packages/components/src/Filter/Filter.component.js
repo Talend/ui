@@ -128,9 +128,7 @@ function Filter(props) {
 
 	let classes = classNames(theme.filter, { [theme.highlight]: highlight });
 	if (navbar) {
-		classes = classNames('navbar-form', 'navbar-right', theme.filter, {
-			[theme.highlight]: highlight,
-		});
+		classes = classNames('navbar-form', 'navbar-right', classes);
 	}
 
 	return (
@@ -150,6 +148,7 @@ function Filter(props) {
 					toggeable={toggeable}
 				/>
 				<Action
+					className={theme.remove}
 					id={id && `${id}-cross-icon`}
 					bsStyle="link"
 					icon="talend-cross"

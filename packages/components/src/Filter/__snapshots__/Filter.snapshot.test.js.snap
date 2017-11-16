@@ -39,6 +39,7 @@ exports[`Filter should render filter input with default placeholder 1`] = `
     />
     <Action
       bsStyle="link"
+      className={undefined}
       hideLabel={true}
       icon="talend-cross"
       id={undefined}
@@ -76,6 +77,7 @@ exports[`Filter should render filter input with given placeholder 1`] = `
     />
     <Action
       bsStyle="link"
+      className={undefined}
       hideLabel={true}
       icon="talend-cross"
       id={undefined}

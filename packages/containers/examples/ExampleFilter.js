@@ -36,13 +36,17 @@ const ExampleFilter = {
 	undockAndUntoggle: () => (
 		<div>
 			<IconsProvider />
-			<Filter id="exampleFilterUndock" actionId="example-filter:undock-and-untoggle" />
+			<Filter
+				id="exampleFilterUndock"
+				actionId="example-filter:undock-and-untoggle"
+				navbar={false}
+			/>
 		</div>
 	),
 	dockAndToggle: () => (
 		<div>
 			<IconsProvider />
-			<Filter id="exampleFilterDock" actionId="example-filter:dock-and-toggle" />
+			<Filter id="exampleFilterDock" actionId="example-filter:dock-and-toggle" navbar={false} />
 		</div>
 	),
 };

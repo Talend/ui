@@ -5,7 +5,7 @@ import {
 	action,
 } from '@storybook/react';
 
-import { Filter, IconsProvider } from '../src/';
+import { ActionBar, Filter, IconsProvider } from '../src/';
 
 const propsDockToggle = {
 	id: 'FILTER-dockAndToggle',
@@ -44,12 +44,12 @@ const divStyle = {
 
 stories
 	.addWithInfo('default-dock and toggle', () => (
-		<nav>
-			<div style={divStyle}>
-				<IconsProvider />
+		<div style={divStyle}>
+			<IconsProvider />
+			<ActionBar>
 				<Filter {...propsDockToggle} />
-			</div>
-		</nav>
+			</ActionBar>
+		</div>
 	))
 	.addWithInfo('custom-undock no toggle', () => (
 		<div>
