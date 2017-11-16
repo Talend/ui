@@ -49,14 +49,6 @@ function chooseItem2() {
 	};
 }
 
-// const registerActionCreator = api.action.registerActionCreator;
-// registerActionCreator('object:view', objectView);
-// registerActionCreator('cancel:hide:dialog', hideDialog);
-// registerActionCreator('confirm:dialog', confirmDialog);
-// registerActionCreator('item1:action', chooseItem1);
-// registerActionCreator('item2:action', chooseItem2);
-// filterExample actions
-
 const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
 	isTrueExpressionAction(context, first);
