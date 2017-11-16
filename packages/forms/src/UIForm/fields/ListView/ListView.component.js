@@ -2,7 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
 import ListView from '@talend/react-components/lib/ListView';
+import { translate } from 'react-i18next';
 
+import I18N_DOMAIN_FORMS from '../../../constants';
+import { DEFAULT_I18N, getDefaultTranslate } from '../../../translate';
 import { getItemsProps, initItems, updateItems } from './ListView.utils';
 import FieldTemplate from '../FieldTemplate';
 
@@ -14,19 +17,20 @@ class ListViewWidget extends React.Component {
 	constructor(props) {
 		super(props);
 
+		const { t } = props;
 		this.defaultHeaderActions = [
 			{
-				icon: 'talend-search',
 				id: `${props.id}-search`,
-				label: 'Search for specific values',
+				icon: 'talend-search',
+				label: t('LISTVIEW_WIDGET_SEARCH', 'Search for specific values'),
 				onClick: this.switchToSearchMode.bind(this),
 			},
 		];
 		this.defaultSearchHeaderActions = [
 			{
-				label: 'Abort',
-				icon: 'talend-cross',
 				id: 'abort',
+				icon: 'talend-cross',
+				label: t('LISTVIEW_WIDGET_ABORT', 'Abort'),
 				onClick: this.switchToDefaultMode.bind(this),
 			},
 		];
@@ -53,9 +57,7 @@ class ListViewWidget extends React.Component {
 				initItems(schema, value, oldState.searchCriteria, this.onToggleItem.bind(this)),
 			);
 		} else if (value !== this.props.value) {
-			this.setState(oldState =>
-				updateItems(oldState.items, value, oldState.searchCriteria)
-			);
+			this.setState(oldState => updateItems(oldState.items, value, oldState.searchCriteria));
 		}
 	}
 
@@ -91,8 +93,7 @@ class ListViewWidget extends React.Component {
 		if (event.keyCode === keycode('enter')) {
 			event.stopPropagation();
 			event.preventDefault();
-		}
-		else if (event.keyCode === keycode('escape')) {
+		} else if (event.keyCode === keycode('escape')) {
 			event.stopPropagation();
 			event.preventDefault();
 			this.switchToDefaultMode();
@@ -106,7 +107,7 @@ class ListViewWidget extends React.Component {
 	 */
 	onToggleItem(event, changedItem) {
 		const value = this.state.items
-			.filter((item) => {
+			.filter(item => {
 				if (changedItem === item) {
 					return !item.checked;
 				}
@@ -179,6 +180,7 @@ class ListViewWidget extends React.Component {
 					{...this.state}
 					id={this.props.id}
 					items={this.state.displayedItems}
+					t={this.props.t}
 				/>
 			</FieldTemplate>
 		);
@@ -187,8 +189,8 @@ class ListViewWidget extends React.Component {
 
 ListViewWidget.defaultProps = {
 	value: [],
+	t: getDefaultTranslate,
 };
-
 if (process.env.NODE_ENV !== 'production') {
 	ListViewWidget.propTypes = {
 		id: PropTypes.string,
@@ -199,8 +201,6 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.shape({
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
-			emptyLabel: PropTypes.string,
-			noResultLabel: PropTypes.string,
 			placeholder: PropTypes.string,
 			required: PropTypes.bool,
 			title: PropTypes.string,
@@ -212,7 +212,10 @@ if (process.env.NODE_ENV !== 'production') {
 			),
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
+		t: PropTypes.func,
 	};
 }
 
-export default ListViewWidget;
+export { ListViewWidget };
+
+export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ListViewWidget);
