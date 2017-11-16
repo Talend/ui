@@ -8,6 +8,10 @@ import { withKnobs } from '@storybook/addon-knobs';
 import Well from 'react-bootstrap/lib/Well';
 
 import { createStore, combineReducers } from 'redux';
+
+import { I18nextProvider } from 'react-i18next';
+import i18n from './../stories/config/i18n';
+
 import { formReducer } from '../src/UIForm';
 
 import jsonStories from './jsonStories';
@@ -27,7 +31,10 @@ const store = createStore(reducer);
 a11y(ReactDOM);
 
 const forStoryDecorator = story => (
+	<I18nextProvider i18n={i18n}>
 	<Provider store={store}>
+		<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+		<button onClick={() => i18n.changeLanguage('it')}>it</button>
 		<div className="container-fluid">
 			<div
 				className="col-md-offset-1 col-md-10"
@@ -39,6 +46,7 @@ const forStoryDecorator = story => (
 			</div>
 		</div>
 	</Provider>
+	</I18nextProvider>
 );
 
 const coreConceptsStories = storiesOf('Core concepts', module)
