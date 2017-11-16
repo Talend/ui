@@ -93,6 +93,7 @@ FilterInput.propTypes = {
 function Filter(props) {
 	const {
 		id,
+		className,
 		debounceMinLength,
 		debounceTimeout,
 		docked,
@@ -126,10 +127,11 @@ function Filter(props) {
 		return onFilter(event, get(event, 'target.search.value'));
 	}
 
-	let classes = classNames(theme.filter, { [theme.highlight]: highlight });
-	if (navbar) {
-		classes = classNames('navbar-form', 'navbar-right', classes);
-	}
+	const classes = classNames(theme.filter, {
+		[theme.highlight]: highlight,
+		'navbar-form': navbar,
+		className,
+	});
 
 	return (
 		<form className={classes} role="search" onSubmit={onSubmit}>
