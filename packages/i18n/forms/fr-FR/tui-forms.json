@@ -11,5 +11,7 @@
   "ENUMERATION_WIDGET_REMOVE_VALUE": "Supprimer la valeur",
   "ENUMERATION_WIDGET_SEARCH_VALUES": "Rechercher des valeurs spécifiques",
   "ENUMERATION_WIDGET_VALIDATE": "Valider",
-  "ENUMERATION_WIDGET_VALIDATE_AND_ADD": "Valider et ajouter"
+  "ENUMERATION_WIDGET_VALIDATE_AND_ADD": "Valider et ajouter",
+  "LISTVIEW_WIDGET_ABORT": "",
+  "LISTVIEW_WIDGET_SEARCH": ""
 }
