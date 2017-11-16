@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import ListView from '@talend/react-components/lib/ListView';
+import { translate } from 'react-i18next';
+
+import I18N_DOMAIN_FORMS from '../../constants';
+import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
+import { abort, search } from './ListViewWidget.actions';
 
 import {
-	search,
-	abort,
-} from './ListViewWidget.actions';
-
-import {
-	onInputChange,
-	onToggleAll,
 	onAbortHandler,
-	onItemChange,
 	onAddKeyDown,
+	onInputChange,
+	onItemChange,
+	onToggleAll,
 } from './ListViewWidget.handlers';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
@@ -22,16 +22,24 @@ const DEFAULT_ITEM_HEIGHT = 33;
 class ListViewWidget extends React.Component {
 	constructor(props) {
 		super(props);
-		const { options, value } = props;
+		const { options, value, t } = props;
 
 		this.timerSearch = null;
 		this.value = value;
 
 		this.defaultHeaderActions = [
-			{ ...search, onClick: this.changeDisplayToSearchMode.bind(this) },
+			{
+				...search,
+				label: t('LISTVIEW_WIDGET_SEARCH', 'Search for specific values'),
+				onClick: this.changeDisplayToSearchMode.bind(this),
+			},
 		];
 		this.searchInputsActions = [
-			{ ...abort, onClick: onAbortHandler.bind(this) },
+			{
+				...abort,
+				label: t('LISTVIEW_WIDGET_ABORT', 'Abort'),
+				onClick: onAbortHandler.bind(this),
+			},
 		];
 
 		let defaultDisplayMode = DISPLAY_MODE_DEFAULT;
@@ -50,8 +58,6 @@ class ListViewWidget extends React.Component {
 		this.state = {
 			displayMode: defaultDisplayMode,
 			required: !!(props.schema && props.schema.required),
-			emptyLabel: props.schema && props.schema.emptyLabel,
-			noResultLabel: props.schema && props.schema.noResultLabel,
 			headerLabel: props.schema && props.schema.title,
 			headerDefault: this.defaultHeaderActions,
 			headerSelected: this.selectedHeaderActions,
@@ -69,17 +75,22 @@ class ListViewWidget extends React.Component {
 
 	setFormData() {
 		this.props.onChange(
-			this.state.items.filter(item => item.checked)
-				.map(itemChecked => itemChecked.value)
+			this.state.items.filter(item => item.checked).map(itemChecked => itemChecked.value),
 		);
 	}
 
 	callActionHandler(actionName, value, successHandler, errorHandler) {
-		if (this.props.registry &&
+		if (
+			this.props.registry &&
 			this.props.registry.formContext &&
-			this.props.registry.formContext.handleAction !== undefined) {
+			this.props.registry.formContext.handleAction !== undefined
+		) {
 			this.props.registry.formContext.handleAction(
-				this.props.id, actionName, value, successHandler, errorHandler
+				this.props.id,
+				actionName,
+				value,
+				successHandler,
+				errorHandler,
 			);
 			return true;
 		}
@@ -98,6 +109,7 @@ class ListViewWidget extends React.Component {
 			...this.state,
 			items: this.state.displayedItems,
 			id: this.props.id,
+			t: this.props.t,
 		};
 		return (
 			<div>
@@ -107,11 +119,11 @@ class ListViewWidget extends React.Component {
 	}
 }
 
-
 ListViewWidget.defaultProps = {
 	options: {
 		enumOptions: [],
 	},
+	t: getDefaultTranslate,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -125,7 +137,8 @@ if (process.env.NODE_ENV !== 'production') {
 		options: PropTypes.shape({
 			enumOptions: PropTypes.array,
 		}).isRequired,
+		t: PropTypes.func,
 	};
 }
 
-export default ListViewWidget;
+export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ListViewWidget);
