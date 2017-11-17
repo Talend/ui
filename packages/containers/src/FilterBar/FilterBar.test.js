@@ -22,8 +22,7 @@ describe('Filter container', () => {
 			onFilter: () => jest.fn(),
 			t: () => jest.fn(),
 		};
-		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper).toMatchSnapshot();
+		expect(shallow(<Container {...props} />)).toMatchSnapshot();
 	});
 	it('should call setState when onFilter event trigger', () => {
 		const setState = jest.fn();
@@ -133,8 +132,7 @@ describe('Filter Selectors', () => {
 				components: Map({ [DISPLAY_NAME]: Map({ myFilterComponent: componentState }) }),
 			},
 		};
-		const ret = getComponentState(state, 'myFilterComponent');
-		expect(ret).toEqual(componentState);
+		expect(getComponentState(state, 'myFilterComponent')).toEqual(componentState);
 	});
 	it('should return the default filter component state', () => {
 		const state = {
@@ -142,8 +140,7 @@ describe('Filter Selectors', () => {
 				components: Map(),
 			},
 		};
-		const ret = getComponentState(state, 'myFilterComponent');
-		expect(ret).toEqual(DEFAULT_STATE);
+		expect(getComponentState(state, 'myFilterComponent')).toEqual(DEFAULT_STATE);
 	});
 	it('should return the query', () => {
 		const componentState = Map({
@@ -155,7 +152,6 @@ describe('Filter Selectors', () => {
 				components: Map({ [DISPLAY_NAME]: Map({ myFilterComponent: componentState }) }),
 			},
 		};
-		const ret = getQuery(state, 'myFilterComponent');
-		expect(ret).toEqual('Hello world');
+		expect(getQuery(state, 'myFilterComponent')).toEqual('Hello world');
 	});
 });

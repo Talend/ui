@@ -61,8 +61,7 @@ class FilterBar extends React.Component {
 			if (this.props.dockable) {
 				state = state.set('docked', !this.props.state.get('docked'));
 			}
-			state = state.set('query', '');
-			return state;
+			return state.set('query', '');
 		});
 		if (this.props.onToggleActionCreator) {
 			this.props.dispatchActionCreator(this.props.onToggleActionCreator);
