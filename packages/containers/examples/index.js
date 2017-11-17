@@ -10,7 +10,6 @@ import NotificationExample from './ExampleNotification';
 import ObjectViewerExample from './ExampleObjectViewer';
 import SelectObjectExample from './ExampleSelectObject';
 import SidePanelExample from './ExampleSidePanel';
-import TreeViewExample from './ExampleTreeView';
 import DeleteResource from './ExampleDeleteResource';
 
 export default {
@@ -26,6 +25,5 @@ export default {
 	ObjectViewerExample,
 	SelectObjectExample,
 	SidePanelExample,
-	TreeViewExample,
 	DeleteResource,
 };
