@@ -37,7 +37,7 @@ function confirmDialog(event, data) {
 	};
 }
 
-function chooseItem1() {
+function chooseItem1(...rest) {
 	return {
 		type: 'CHOOSE_ITEM1',
 	};
@@ -91,7 +91,8 @@ function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
 		state.cmf.collections = state.cmf.collections.set(
-			'myResourceType', List([Map({ id: 'myID', label: 'myLabel' })]),
+			'myResourceType',
+			List([Map({ id: 'myID', label: 'myLabel' })]),
 		);
 		state.cmf.collections = state.cmf.collections.set(
 			'with',
