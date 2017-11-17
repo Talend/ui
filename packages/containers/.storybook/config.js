@@ -49,6 +49,13 @@ function chooseItem2() {
 	};
 }
 
+const registerActionCreator = api.action.registerActionCreator;
+registerActionCreator('object:view', objectView);
+registerActionCreator('cancel:hide:dialog', hideDialog);
+registerActionCreator('confirm:dialog', confirmDialog);
+registerActionCreator('item1:action', chooseItem1);
+registerActionCreator('item2:action', chooseItem2);
+
 const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
 	isTrueExpressionAction(context, first);
@@ -80,19 +87,12 @@ api.expression.register('modelHasLabel', context => {
 	return !!context.payload.model.label;
 });
 
-function createMockCollectionDeleteResource() {
-	const value = new Map({ id: 'myID', label: 'myLabel' });
-	return List([value]);
-}
-
 function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
 		state.cmf.collections = state.cmf.collections.set(
-			'myResourceType',
-			createMockCollectionDeleteResource(),
+			'myResourceType', List([Map({ id: 'myID', label: 'myLabel' })]),
 		);
-		const value = new Map({ id: 'myID', label: 'myLabel' });
 		state.cmf.collections = state.cmf.collections.set(
 			'with',
 			new Map({
