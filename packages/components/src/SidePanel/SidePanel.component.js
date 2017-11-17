@@ -18,13 +18,16 @@ import theme from './SidePanel.scss';
  * @return {string}        	formatted id
  */
 function getActionId(id, action) {
-	const actionId =
-		action.id ||
-		action.label
-			.toLowerCase()
-			.split(' ')
-			.join('-');
-	return id && `${id}-nav-${actionId}`;
+	if (action.id || action.label) {
+		const actionId =
+			action.id ||
+			action.label
+				.toLowerCase()
+				.split(' ')
+				.join('-');
+		return id && `${id}-nav-${actionId}`;
+	}
+	return undefined;
 }
 
 /**
