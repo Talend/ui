@@ -81,4 +81,13 @@ describe('SidePanel', () => {
 		expect(wrapper.find('#test-nav-datasets-custom-id').text()).toEqual('Datasets');
 		expect(wrapper.find('#test-nav-favs-custom-id').text()).toEqual('Favorites');
 	});
+
+	it('should work even if there is no id, label, or action id', () => {
+		const actions = [{}, {}, {}];
+		const sidePanel = <SidePanel actions={actions} />;
+
+		expect(() => {
+			mount(sidePanel);
+		}).not.toThrow();
+	});
 });
