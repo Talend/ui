@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionFile should apply transformation on icon 1`] = `
-<form>
+<span>
   <input
     className={undefined}
     disabled={false}
@@ -22,11 +22,11 @@ exports[`ActionFile should apply transformation on icon 1`] = `
       Click me
     </span>
   </label>
-</form>
+</span>
 `;
 
 exports[`ActionFile should display a Progress indicator if set 1`] = `
-<form>
+<span>
   <input
     className={undefined}
     disabled={true}
@@ -46,11 +46,11 @@ exports[`ActionFile should display a Progress indicator if set 1`] = `
       Click me
     </span>
   </label>
-</form>
+</span>
 `;
 
 exports[`ActionFile should display a disabled Icon 1`] = `
-<form>
+<span>
   <input
     className={undefined}
     disabled={true}
@@ -71,11 +71,11 @@ exports[`ActionFile should display a disabled Icon 1`] = `
       Click me
     </span>
   </label>
-</form>
+</span>
 `;
 
 exports[`ActionFile should pass all props to the Button 1`] = `
-<form>
+<span>
   <input
     className={undefined}
     disabled={false}
@@ -96,11 +96,11 @@ exports[`ActionFile should pass all props to the Button 1`] = `
       Click me
     </span>
   </label>
-</form>
+</span>
 `;
 
 exports[`ActionFile should render a div with a input[type="file"] and a label to mimic a button 1`] = `
-<form>
+<span>
   <input
     className={undefined}
     disabled={false}
@@ -121,11 +121,11 @@ exports[`ActionFile should render a div with a input[type="file"] and a label to
       Click me
     </span>
   </label>
-</form>
+</span>
 `;
 
 exports[`ActionFile should render action with html property name = props.name if set 1`] = `
-<form>
+<span>
   <input
     className={undefined}
     disabled={false}
@@ -146,11 +146,11 @@ exports[`ActionFile should render action with html property name = props.name if
       Click me
     </span>
   </label>
-</form>
+</span>
 `;
 
 exports[`ActionFile should reverse icon/label 1`] = `
-<form>
+<span>
   <input
     className={undefined}
     disabled={false}
@@ -171,5 +171,5 @@ exports[`ActionFile should reverse icon/label 1`] = `
       transform={undefined}
     />
   </label>
-</form>
+</span>
 `;

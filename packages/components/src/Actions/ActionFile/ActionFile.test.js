@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import ActionFile from './ActionFile.component';
 
 // jest.mock('react-dom');
@@ -25,8 +25,8 @@ describe('ActionFile', () => {
 
 	it('change file value on the button trigger the onChange props', () => {
 		// given
-		const wrapper = mount(<ActionFile extra="extra" {...myAction} />);
-		const mockEvent = { preventDefault: jest.fn(), target: { files: [] } };
+		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
+		const mockEvent = { preventDefault: jest.fn(), target: { files: [''] } };
 
 		// when
 		// when
@@ -39,12 +39,28 @@ describe('ActionFile', () => {
 		expect(myAction.onChange).toHaveBeenCalled();
 		expect(myAction.onChange.mock.calls.length).toBe(1);
 		const args = myAction.onChange.mock.calls[0];
-		expect(args[0].target).toBe(mockEvent.target);
+		expect(args[0]).toBe(mockEvent);
+	});
+
+	it('props.change is not called if target has no files attached', () => {
+		// given
+		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
+		const mockEvent = { preventDefault: jest.fn(), target: { files: [] } };
+
+		// when
+		// when
+		wrapper
+			.find('input')
+			.first()
+			.simulate('change', mockEvent);
+
+		// then
+		expect(myAction.onChange).not.toHaveBeenCalled();
 	});
 
 	it('after change props being trigered, clear the input value', () => {
 		// given
-		const wrapper = mount(<ActionFile extra="extra" {...myAction} />);
+		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
 		const mockEvent = { preventDefault: jest.fn(), target: { files: [] } };
 
 		// when

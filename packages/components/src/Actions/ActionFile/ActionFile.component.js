@@ -95,8 +95,11 @@ class ActionFile extends React.Component {
 	}
 	handleChange(event) {
 		event.preventDefault();
-		this.props.onChange(event, event.target.files[0]);
-		this.form.reset();
+		if (event.target.files.length > 0) {
+			this.props.onChange(event, event.target.files[0]);
+			// clear inout value
+			event.target.value = null; /* eslint no-param-reassign: ["error", { "props": false }] */
+		}
 	}
 
 	render() {
@@ -123,11 +126,7 @@ class ActionFile extends React.Component {
 			(disabled || inProgress) && 'disabled',
 		);
 		const btn = (
-			<form
-				ref={form => {
-					this.form = form;
-				}}
-			>
+			<span>
 				<input
 					onChange={this.handleChange}
 					type="file"
@@ -139,7 +138,7 @@ class ActionFile extends React.Component {
 				<label htmlFor={localId} className={labelClasses}>
 					{buttonContent}
 				</label>
-			</form>
+			</span>
 		);
 		if (hideLabel || tooltip || tooltipLabel) {
 			return (
