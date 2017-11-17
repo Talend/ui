@@ -16,6 +16,18 @@ Some constant from CMF/middlewares/http/constants are renamed
 | HTTP_RESPONSE | ACTION_TYPE_HTTP_RESPONSE |
 | HTTP_ERRORS | ACTION_TYPE_HTTP_ERRORS |
 
+* Component: ListView
+* PR: [feat(ListView): i18n](https://github.com/Talend/ui/pull/850)
+* Changes :
+
+| Before | After |
+|---|---|
+| emptyLabel | i18next `t()` fn will do the magic trick by providing `LISTVIEW_EMPTY` |
+| noResultLabel | i18next `t()` fn will do the magic trick by providing `LISTVIEW_NO_RESULT` |
+| toggleAllLabel | i18next `t()` fn will do the magic trick by providing `LISTVIEW_ITEMS_TOGGLE_ALL` |
+| searchPlaceholder | i18next `t()` fn will do the magic trick by providing `LISTVIEW_HEADERINPUT_SEARCH_PLACEHOLDER` |
+
+
 * Component: SidePanel
 * PR: [feat(components/sidepanel): accept custom action ids](https://github.com/Talend/ui/pull/846)
 * Changes :

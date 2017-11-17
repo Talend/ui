@@ -2,10 +2,18 @@
 
 exports[`Container(ActionSplitDropdown) should render 1`] = `
 <ActionSplitDropdown
+  actionCreator="split"
+  actionId="menu:article"
+  actionIds={
+    Array [
+      "menu:items",
+    ]
+  }
   foo="extra"
   items={
     Array [
       Object {
+        "actionCreator": "menu:item",
         "foo": "bar",
         "onClick": [Function],
       },
