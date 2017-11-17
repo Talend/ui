@@ -3,7 +3,7 @@
 exports[`Filter should render 1`] = `
 <Action
   bsStyle="link"
-  className="navbar-right"
+  className={undefined}
   hideLabel={true}
   icon="talend-search"
   id={undefined}
@@ -14,7 +14,7 @@ exports[`Filter should render 1`] = `
 
 exports[`Filter should render filter input with default placeholder 1`] = `
 <form
-  className="navbar-form navbar-right"
+  className="navbar-form"
   onSubmit={[Function]}
   role="search"
 >
@@ -28,6 +28,7 @@ exports[`Filter should render filter input with default placeholder 1`] = `
     <FilterInput
       debounceMinLength={undefined}
       debounceTimeout={undefined}
+      dockable={true}
       id={undefined}
       onBlur={undefined}
       onFilter={undefined}
@@ -38,6 +39,7 @@ exports[`Filter should render filter input with default placeholder 1`] = `
     />
     <Action
       bsStyle="link"
+      className={undefined}
       hideLabel={true}
       icon="talend-cross"
       id={undefined}
@@ -50,7 +52,7 @@ exports[`Filter should render filter input with default placeholder 1`] = `
 
 exports[`Filter should render filter input with given placeholder 1`] = `
 <form
-  className="navbar-form navbar-right"
+  className="navbar-form"
   onSubmit={[Function]}
   role="search"
 >
@@ -64,6 +66,7 @@ exports[`Filter should render filter input with given placeholder 1`] = `
     <FilterInput
       debounceMinLength={undefined}
       debounceTimeout={undefined}
+      dockable={true}
       id={undefined}
       onBlur={undefined}
       onFilter={undefined}
@@ -74,6 +77,7 @@ exports[`Filter should render filter input with given placeholder 1`] = `
     />
     <Action
       bsStyle="link"
+      className={undefined}
       hideLabel={true}
       icon="talend-cross"
       id={undefined}
@@ -87,7 +91,7 @@ exports[`Filter should render filter input with given placeholder 1`] = `
 exports[`Filter should render highlighted filter 1`] = `
 <Action
   bsStyle="link"
-  className="navbar-right"
+  className={undefined}
   hideLabel={true}
   icon="talend-search"
   id={undefined}
@@ -99,7 +103,7 @@ exports[`Filter should render highlighted filter 1`] = `
 exports[`Filter should render id if provided 1`] = `
 <Action
   bsStyle="link"
-  className="navbar-right"
+  className={undefined}
   hideLabel={true}
   icon="talend-search"
   id="toolbar-filter"
@@ -111,7 +115,7 @@ exports[`Filter should render id if provided 1`] = `
 exports[`Filter should render only toggle icon 1`] = `
 <Action
   bsStyle="link"
-  className="navbar-right"
+  className={undefined}
   hideLabel={true}
   icon="talend-search"
   id={undefined}
