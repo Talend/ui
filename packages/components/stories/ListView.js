@@ -1,8 +1,9 @@
 import React from 'react';
 import { storiesOf, action } from '@storybook/react';
+import { I18nextProvider } from 'react-i18next';
 
+import i18n, { LanguageSwitcher } from './config/i18n';
 import { ListView, IconsProvider } from '../src/index';
-
 
 const filterAction = {
 	label: 'Filter',
@@ -28,10 +29,8 @@ const props = {
 	getItemHeight: () => 33,
 	onAddChange: action('onAddChange'),
 	onAddKeyDown: action('onAddKeyDown'),
-	searchPlaceholder: 'Search',
 	headerLabel: 'Choose wisely',
 	toggleAllChecked: false,
-	toggleAllLabel: 'All values',
 	onToggleAll: action('onToggleAll'),
 };
 
@@ -54,14 +53,15 @@ const noResultsSearch = {
 };
 
 storiesOf('ListView', module)
-	.addDecorator((story) => (
-		<div>
-			<IconsProvider />
-			<h1>ListView</h1>
-			<form>
-				{story()}
-			</form>
-		</div>
+	.addDecorator(story => (
+		<I18nextProvider i18n={i18n}>
+			<div>
+				<LanguageSwitcher/>
+				<IconsProvider/>
+				<h1>ListView</h1>
+				<form>{story()}</form>
+			</div>
+		</I18nextProvider>
 	))
 	.addWithInfo('empty', () => {
 		const emptyProps = { ...props };

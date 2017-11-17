@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { api, cmfConnect } from '@talend/react-cmf';
 import { ActionSplitDropdown } from '@talend/react-components';
 
+import getOnClick from '../actionOnClick';
+
 export function mapStateToProps(state, { actionId, actionIds } = {}) {
 	let props = {};
 	const context = {
@@ -15,59 +17,42 @@ export function mapStateToProps(state, { actionId, actionIds } = {}) {
 		props = api.action.getActionInfo(context, actionId);
 	}
 	if (actionIds) {
-		props.items = actionIds.map(itemId => api.action.getActionInfo(context, itemId));
+		props.actionIds = actionIds;
+	}
+	if (props.actionIds) {
+		props.items = props.actionIds.map(itemId => api.action.getActionInfo(context, itemId));
 	}
 	return props;
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
 	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	if (props.actionId) {
+		delete props.actionId;
+	}
+
+	if (props.actionIds) {
+		delete props.actionIds;
+	}
 	return props;
 }
 
 export function ContainerActionSplitDropdown(props) {
-	const newProps = Object.assign({}, props);
+	let newProps = Object.assign({}, props);
 	if (props.actionId) {
-		newProps.onClick = (event, data) => {
-			if (props.actionCreator) {
-				props.dispatchActionCreator(props.actionCreator, event, data);
-			} else {
-				props.dispatch(
-					Object.assign(
-						{
-							model: props.model,
-						},
-						props.payload,
-					),
-				);
-			}
+		newProps = {
+			...getOnClick(newProps, props),
+			...newProps,
 		};
-		delete newProps.actionId;
 	}
-	if (props.actionIds) {
-		newProps.items = props.items.map(item =>
-			Object.assign(
-				{
-					onClick: (event, data) => {
-						if (item.actionCreator) {
-							props.dispatchActionCreator(item.actionCreator, event, data);
-						} else {
-							props.dispatch(
-								Object.assign(
-									{
-										model: props.model,
-									},
-									item.payload,
-								),
-							);
-						}
-					},
-				},
-				item,
-			),
-		);
+
+	if (newProps.items) {
+		newProps.items = props.items.map(item => ({
+			...getOnClick(item, props),
+			...item,
+		}));
 	}
-	delete newProps.actionIds;
+
 	return <ActionSplitDropdown {...newProps} />;
 }
 
@@ -75,7 +60,6 @@ ContainerActionSplitDropdown.displayName = 'Container(ActionSplitDropdown)';
 
 ContainerActionSplitDropdown.propTypes = {
 	actionId: PropTypes.string,
-	actionIds: PropTypes.arrayOf(PropTypes.string),
 	items: PropTypes.arrayOf(PropTypes.object),
 };
 

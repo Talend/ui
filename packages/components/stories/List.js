@@ -576,9 +576,7 @@ storiesOf('List', module)
 		</div>
 	))
 	.add('Virtualized - title without click', () => {
-		const tprops = {
-			...props,
-		};
+		const tprops = cloneDeep(props);
 
 		tprops.list.titleProps.onClick = null;
 
@@ -589,7 +587,7 @@ storiesOf('List', module)
 					Display the list in table mode.<br />
 					This is the default mode.
 				</p>
-				<List {...props} virtualized />
+				<List {...tprops} virtualized />
 			</div>
 		);
 	})
