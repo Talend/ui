@@ -70,11 +70,8 @@ import I18N_DOMAIN_COMPONENTS from './constants';
 
 import { Action, ActionFile, ActionDropdown, ActionButton, ActionSplitDropdown, Actions } from './Actions';
 import ActionBar from './ActionBar';
-import Notification from './Notification';
 import AppHeaderBar from './AppHeaderBar';
-import HeaderBar from './HeaderBar';
-import HttpError from './HttpError';
-import TalendBadge from './Badge';
+import Branding from './Branding';
 import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
 import CollapsiblePanel from './CollapsiblePanel';
@@ -83,24 +80,29 @@ import Dialog from './Dialog';
 import Drawer from './Drawer';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
-import ListView from './ListView';
-import TreeView from './TreeView';
+import HeaderBar from './HeaderBar';
+import HttpError from './HttpError';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
 import List from './List';
+import ListView from './ListView';
+import Notification from './Notification';
 import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import SidePanel from './SidePanel';
 import Status from './Status';
+import TalendBadge from './Badge';
 import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
-import getTranslated from './TranslateWrapper';
+import TreeView from './TreeView';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
+
+import getTranslated from './TranslateWrapper';
 
 export {
 	Action,
@@ -111,6 +113,7 @@ export {
 	ActionSplitDropdown,
 	Actions,
 	AppHeaderBar,
+	Branding,
 	HeaderBar,
 	HttpError,
 	Breadcrumbs,

@@ -51,7 +51,7 @@ function getActionId(id, action) {
  */
 function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, renderers }) {
 	const dockedCSS = { [theme.docked]: docked };
-	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
+	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel', 'branding-sidePanel');
 	const listCSS = classNames(
 		'nav nav-pills nav-inverse nav-stacked',
 		'tc-side-panel-list',
@@ -71,7 +71,10 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 	return (
 		<nav className={navCSS} role="navigation">
 			<ul className={listCSS}>
-				<li className={theme['toggle-btn']} title={toggleButtonTitle}>
+				<li
+					className={classNames('toggle-btn', theme['toggle-btn'])}
+					title={toggleButtonTitle}
+				>
 					<Action
 						id={id && `${id}-toggle-dock`}
 						className={theme.link}

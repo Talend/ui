@@ -54,4 +54,37 @@
     .virtualized-list div.tc-list-cell-modified {
         flex: 0 0 90px;
     }
+
+    .branding-configurer pre {
+        white-space: pre-wrap;
+    }
+    .branding-configurer input {
+        max-width: 300px;
+    }
+    .branding-configurer form {
+        border: 1px solid lightgrey;
+        border-radius: 8px;
+        box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    .branding-configurer > * {
+        padding: 20px;
+    }
+    .branding-configurer section+section {
+        border-left: 1px solid grey;
+    }
+    .branding-configurer,
+    .branding-configurer .branding-profiles,
+    .branding-configurer .inline-group {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .branding-configurer > *,
+    .branding-configurer .branding-profiles > * {
+        flex: 1 0 400px;
+    }
+    .branding-configurer .inline-group > * {
+        flex: 1;
+    }
 </style>

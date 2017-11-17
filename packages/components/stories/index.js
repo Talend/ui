@@ -6,6 +6,7 @@ import './ActionDropdown';
 import './ActionSplitDropdown';
 import './Actions';
 import './AppHeaderBar';
+import './Branding';
 import './Breadcrumbs';
 import './CircularProgress';
 import './CollapsiblePanel';

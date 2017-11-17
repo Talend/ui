@@ -29,9 +29,11 @@ function Logo({ isFull, renderers, t, ...props }) {
 	const itemClassName = classNames(theme['tc-header-bar-action'], {
 		[theme.separated]: !isFull,
 	});
-	const actionClassName = classNames(theme['tc-header-bar-logo'], {
-		[theme.full]: isFull,
-	});
+	const actionClassName = classNames(
+		theme['tc-header-bar-logo'],
+		'tc-header-bar-logo',
+		{ [theme.full]: isFull }
+	);
 
 	return (
 		<li className={itemClassName}>
@@ -207,7 +209,7 @@ function HeaderBar(props) {
 	);
 
 	return (
-		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar', 'navbar')}>
+		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar', 'navbar', 'branding-headerBar')}>
 			<ul className={theme['tc-header-bar-actions']}>
 				{props.logo && <Components.Logo renderers={renderers} {...props.logo} t={props.t} />}
 				{props.brand && (
