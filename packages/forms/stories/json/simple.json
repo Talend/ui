@@ -28,10 +28,6 @@
         "type": "string",
         "title": "Password",
         "minLength": 3
-      },
-      "togglePassword":{
-        "type": "string",
-        "title": "Toggle Password"
       }
     }
   },
@@ -49,9 +45,6 @@
       "ui:widget": "password",
       "ui:help": "Hint: Make it strong!"
     },
-    "togglePassword": {
-      "ui:widget": "togglePassword"
-    },
     "date": {
       "ui:widget": "alt-datetime"
     }
@@ -61,7 +54,6 @@
     "lastName": "Norris",
     "age": 75,
     "bio": "Roundhouse kicking asses since 1940",
-    "password": "noneed",
-    "togglePassword": "noneed"
+    "password": "noneed"
   }
 }

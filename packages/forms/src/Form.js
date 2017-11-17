@@ -37,7 +37,7 @@ export const customWidgets = {
 	code: CodeWidget,
 	columns: ColumnsWidget,
 	listview: ListViewWidget,
-	togglePassword: TogglePasswordWidget,
+	password: TogglePasswordWidget,
 };
 
 const customFields = {
