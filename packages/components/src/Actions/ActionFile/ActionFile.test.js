@@ -39,12 +39,12 @@ describe('ActionFile', () => {
 		expect(myAction.onChange).toHaveBeenCalled();
 		expect(myAction.onChange.mock.calls.length).toBe(1);
 		const args = myAction.onChange.mock.calls[0];
-		expect(args[0]).toBe(mockEvent);
+		expect(args[0].target).toBe(mockEvent.target);
 	});
 
 	it('after change props being trigered, clear the input value', () => {
 		// given
-		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
+		const wrapper = mount(<ActionFile extra="extra" {...myAction} />);
 		const mockEvent = { preventDefault: jest.fn(), target: { files: [] } };
 
 		// when
