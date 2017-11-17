@@ -49,17 +49,15 @@ function ListToVirtualizedList(props) {
 					label: column.label,
 					dataKey: column.key,
 				};
-				if (supposedActions[column.key]) {
-					Object.assign(cProps, CellActions);
-				}
-				if (column.type && cellDictionary[column.type]) {
-					Object.assign(cProps, cellDictionary[column.type], {
-						columnData: column.data,
-					});
-				}
 				if (titleProps && column.key === titleProps.key) {
 					Object.assign(cProps, CellTitle, {
 						columnData: titleProps,
+					});
+				} else if (supposedActions[column.key]) {
+					Object.assign(cProps, CellActions);
+				} else if (column.type && cellDictionary[column.type]) {
+					Object.assign(cProps, cellDictionary[column.type], {
+						columnData: column.data,
 					});
 				}
 				return <VirtualizedList.Content key={index} {...cProps} />;
