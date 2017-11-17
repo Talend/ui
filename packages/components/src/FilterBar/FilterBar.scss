@@ -24,8 +24,8 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 	.search {
 		display: inline-block;
 		width: $tc-list-filter-input-size;
+		// sass-lint:disable-next-line no-vendor-prefixes
 		&::-ms-clear {
-			// sass-lint:disable-line no-vendor-prefixes
 			display: none;
 		}
 	}

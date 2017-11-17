@@ -3,21 +3,6 @@ import { IconsProvider } from '@talend/react-components';
 
 import { FilterBar } from '../src';
 
-/*
-const actions = {
-	exampleFilter: {
-		id: 'exampleFilter',
-		docked: false,
-		navbar: false,
-		toggeable: false,
-		debounceMinLength: 2,
-		debounceTimeout: 300,
-		highlight: false,
-		placeholder: 'My placeholder',
-	},
-};
-*/
-
 const ExampleFilter = {
 	dockable: () => (
 		<div>
