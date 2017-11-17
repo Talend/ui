@@ -6,14 +6,19 @@ import Container, { DEFAULT_STATE } from './SidePanel.container';
 export function mapStateToProps(state, ownProps) {
 	const props = {};
 	if (ownProps.actionIds) {
-		props.actions = ownProps.actionIds.map((id) => {
+		props.actions = ownProps.actionIds.map(id => {
 			const action = { actionId: id };
-			const info = api.action.getActionInfo({
-				registry: api.registry.getRegistry(),
-				store: {
-					getState: () => state,
+			const info = api.action.getActionInfo(
+				{
+					registry: api.registry.getRegistry(),
+					store: {
+						getState: () => state,
+					},
 				},
-			}, id);
+				id,
+			);
+			action.label = info.label;
+			action.id = info.id;
 			let route = get(info, 'payload.cmf.routerReplace');
 			if (!route) {
 				route = get(info, 'payload.cmf.routerPush');
@@ -41,9 +46,11 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 	return props;
 }
 
-export default withRouter(cmfConnect({
-	defaultState: DEFAULT_STATE,
-	keepComponentState: true,
-	mapStateToProps,
-	mergeProps,
-})(Container));
+export default withRouter(
+	cmfConnect({
+		defaultState: DEFAULT_STATE,
+		keepComponentState: true,
+		mapStateToProps,
+		mergeProps,
+	})(Container),
+);
