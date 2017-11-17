@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-
+import classNames from 'classnames';
 import { Action } from '../';
 import TreeViewItem from './TreeViewItem/';
 
@@ -68,7 +68,7 @@ function TreeView({
 		cache.called = true;
 	}
 	return (
-		<div className={theme['tc-treeview']}>
+		<div className={classNames('tc-treeview', theme['tc-treeview'])}>
 			{!noHeader && (
 				<header className={theme['tc-treeview-header']}>
 					<span>{headerText}</span>

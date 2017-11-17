@@ -5,7 +5,7 @@ import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-
+import ObjectViewer from '../src/ObjectViewer';
 import examples from '../examples';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
@@ -48,6 +48,8 @@ function chooseItem2() {
 		type: 'CHOOSE_ITEM2',
 	};
 }
+
+api.component.register('ObjectViewer', ObjectViewer);
 
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);

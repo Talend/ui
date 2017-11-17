@@ -3,25 +3,20 @@ import { IconsProvider } from '@talend/react-components';
 import { SelectObject } from '../src';
 
 const props = {
+	id: 'example',
 	source: 'with.data',
 	nameAttr: 'label',
 	tree: {},
 };
 
 const ExampleSelectObject = {
-	'default list': () => (
-		<div>
-			<IconsProvider />
-			<SelectObject {...props} />
-		</div>
-	),
 	'default tree': () => (
 		<div>
 			<IconsProvider />
 			<SelectObject {...props} />
 		</div>
 	),
-	'tree with preview': () => (
+	'tree with ObjectViewer as Preview': () => (
 		<div>
 			<IconsProvider />
 			<SelectObject {...props} preview="ObjectViewer" />

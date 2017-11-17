@@ -13,6 +13,13 @@ export function mapStateToProps(state, ownProps) {
 			nameAttr: ownProps.nameAttr,
 		}, ownProps.tree);
 	}
+	const filterPath = ['Container(FilterBar)', ownProps.id];
+	const filterState = state.cmf.components.getIn(filterPath);
+	if (filterState) {
+		props.query = filterState.get('query', '');
+	} else {
+		props.query = '';
+	}
 	return props;
 }
 

@@ -4,12 +4,18 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 
 .filter {
 	display: flex;
+	max-height: 35px;
+	background-color: $gray;
 	align-items: top;
 	padding: 0;
 	background: $white;
 
 	.search-icon {
 		margin: $padding-small;
+	}
+
+	> :global(.form-group) {
+		margin-bottom: 0;
 	}
 
 	:global(.form-group.form-group) {
