@@ -8,7 +8,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Filter
+  "node": <FilterBar
     collectionToFilter="myCollectionToFilter"
     dockable={true}
     docked={true}
@@ -20,7 +20,7 @@ ShallowWrapper {
     value=""
 />,
   "nodes": Array [
-    <Filter
+    <FilterBar
       collectionToFilter="myCollectionToFilter"
       dockable={true}
       docked={true}
@@ -38,7 +38,7 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 0,
       "_context": Object {},
-      "_currentElement": <Container(Filter)
+      "_currentElement": <Container(FilterBar)
         collectionToFilter="myCollectionToFilter"
         dockable={true}
         docked={false}
@@ -49,7 +49,7 @@ ShallowWrapper {
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
-      "_instance": Filter {
+      "_instance": FilterBar {
         "_reactInternalInstance": [Circular],
         "context": Object {
           "registry": undefined,
@@ -85,7 +85,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Filter
+        "_currentElement": <FilterBar
           collectionToFilter="myCollectionToFilter"
           dockable={true}
           docked={true}
@@ -97,7 +97,7 @@ ShallowWrapper {
           value=""
 />,
         "_debugID": 2,
-        "_renderedOutput": <Filter
+        "_renderedOutput": <FilterBar
           collectionToFilter="myCollectionToFilter"
           dockable={true}
           docked={true}
@@ -119,7 +119,7 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <Container(Filter)
+  "unrendered": <Container(FilterBar)
     collectionToFilter="myCollectionToFilter"
     dockable={true}
     docked={false}

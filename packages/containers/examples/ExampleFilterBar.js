@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconsProvider } from '@talend/react-components';
 
-import { Filter } from '../src';
+import { FilterBar } from '../src';
 
 /*
 const actions = {
@@ -22,7 +22,7 @@ const ExampleFilter = {
 	dockable: () => (
 		<div>
 			<IconsProvider />
-			<Filter
+			<FilterBar
 				id="exampleFilterNavbar"
 				placeholder="filter nav bar"
 				dockable
@@ -33,7 +33,7 @@ const ExampleFilter = {
 	'not dockable': () => (
 		<div>
 			<IconsProvider />
-			<Filter
+			<FilterBar
 				id="exampleFilterNoNavbar"
 				dockable={false}
 				navbar={false}

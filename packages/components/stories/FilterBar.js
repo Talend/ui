@@ -5,7 +5,7 @@ import {
 	action,
 } from '@storybook/react';
 
-import { ActionBar, Filter, IconsProvider } from '../src/';
+import { ActionBar, FilterBar, IconsProvider } from '../src/';
 
 const propsDockToggle = {
 	id: 'FILTER-dockAndToggle',
@@ -33,7 +33,7 @@ const propsNoDockToggle = {
 	highlight: false,
 };
 
-const stories = storiesOf('Filter', module);
+const stories = storiesOf('FilterBar', module);
 if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
 }
@@ -47,13 +47,13 @@ stories
 		<div style={divStyle}>
 			<IconsProvider />
 			<ActionBar>
-				<Filter {...propsDockToggle} />
+				<FilterBar {...propsDockToggle} />
 			</ActionBar>
 		</div>
 	))
 	.addWithInfo('custom-undock no toggle', () => (
 		<div>
 			<IconsProvider />
-			<Filter {...propsNoDockToggle} />
+			<FilterBar {...propsNoDockToggle} />
 		</div>
 	));

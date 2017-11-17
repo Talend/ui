@@ -1,5 +1,5 @@
 import { cmfConnect } from '@talend/react-cmf';
-import Container, { DEFAULT_STATE } from './Filter.container';
+import Container, { DEFAULT_STATE } from './FilterBar.container';
 
 export default cmfConnect({
 	componentId: ownProps => ownProps.id,

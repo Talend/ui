@@ -90,6 +90,7 @@ import Dialog from './Dialog';
 import Drawer from './Drawer';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
+import FilterBar from './FilterBar';
 import ListView from './ListView';
 import TreeView from './TreeView';
 import Icon from './Icon';
@@ -108,7 +109,6 @@ import getTranslated from './TranslateWrapper';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
-import Filter from './Filter';
 
 export {
 	Action,
@@ -149,7 +149,7 @@ export {
 	Typeahead,
 	VirtualizedList,
 	WithDrawer,
-	Filter,
+	FilterBar,
 	Alert,
 	Badge as BootstrapBadge,
 	Breadcrumb,

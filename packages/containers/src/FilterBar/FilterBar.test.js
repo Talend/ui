@@ -1,9 +1,9 @@
 import React from 'react';
 import { Map } from 'immutable';
 import { shallow } from 'enzyme';
-import Container, { DEFAULT_STATE, DISPLAY_NAME } from './Filter.container';
-import Connected from './Filter.connect';
-import { getComponentState, getQuery } from './Filter.selectors';
+import Container, { DEFAULT_STATE, DISPLAY_NAME } from './FilterBar.container';
+import Connected from './FilterBar.connect';
+import { getComponentState, getQuery } from './FilterBar.selectors';
 
 describe('Filter connected', () => {
 	it('should connect filter', () => {

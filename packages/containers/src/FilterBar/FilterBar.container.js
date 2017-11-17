@@ -3,16 +3,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import Immutable from 'immutable';
-import { Filter as Component } from '@talend/react-components';
+import { FilterBar as Component } from '@talend/react-components';
 
 export const DEFAULT_STATE = new Immutable.Map({
 	query: '',
 	docked: true,
 });
 
-export const DISPLAY_NAME = 'Container(Filter)';
+export const DISPLAY_NAME = 'Container(FilterBar)';
 
-class Filter extends React.Component {
+class FilterBar extends React.Component {
 	static displayName = DISPLAY_NAME;
 
 	static contextTypes = {
@@ -84,4 +84,4 @@ class Filter extends React.Component {
 	}
 }
 
-export default Filter;
+export default FilterBar;

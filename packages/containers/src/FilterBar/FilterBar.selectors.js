@@ -1,4 +1,4 @@
-import { DEFAULT_STATE, DISPLAY_NAME } from './Filter.container';
+import { DEFAULT_STATE, DISPLAY_NAME } from './FilterBar.container';
 
 /**
  * Selector on the state from the filter id given.

@@ -19,6 +19,7 @@ import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
 import AppHeaderBar from './AppHeaderBar';
 import ConfirmDialog from './ConfirmDialog';
+import FilterBar from './FilterBar';
 import Form from './Form';
 import HeaderBar from './HeaderBar';
 import HomeListView from './HomeListView';
@@ -28,7 +29,6 @@ import ObjectViewer from './ObjectViewer';
 import Redirect from './Redirect';
 import ShortcutManager from './ShortcutManager';
 import SidePanel from './SidePanel';
-import Filter from './Filter';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 
@@ -47,6 +47,7 @@ export {
 	ConfirmDialog,
 	Drawer,
 	DeleteResource,
+	FilterBar,
 	Form,
 	HeaderBar,
 	HomeListView,
@@ -62,5 +63,4 @@ export {
 	TooltipTrigger,
 	TreeView,
 	Typeahead,
-	Filter,
 };

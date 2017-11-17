@@ -8,7 +8,7 @@ import keycode from 'keycode';
 import { Action } from '../Actions';
 import Icon from '../Icon';
 import { getDefaultTranslate } from '../translate';
-import theme from './Filter.scss';
+import theme from './FilterBar.scss';
 
 function onKeyDown(event, escAction, enterAction) {
 	switch (event.keyCode) {
@@ -88,9 +88,9 @@ FilterInput.propTypes = {
 /**
  * @param {object} props react props
  * @example
- <Filter id="my-filter" docked="false" onFilter="filter()"></Filter>
+ <FilterBar id="my-filter" docked="false" onFilter="filter()"></Filter>
  */
-function Filter(props) {
+function FilterBar(props) {
 	const {
 		id,
 		className,
@@ -163,7 +163,8 @@ function Filter(props) {
 	);
 }
 
-Filter.propTypes = {
+FilterBar.displayName = 'FilterBar';
+FilterBar.propTypes = {
 	id: PropTypes.string,
 	className: PropTypes.string,
 	debounceMinLength: PropTypes.number,
@@ -181,7 +182,7 @@ Filter.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-Filter.defaultProps = {
+FilterBar.defaultProps = {
 	dockable: true,
 	docked: true,
 	navbar: true,
@@ -189,4 +190,4 @@ Filter.defaultProps = {
 	t: getDefaultTranslate,
 };
 
-export default Filter;
+export default FilterBar;
