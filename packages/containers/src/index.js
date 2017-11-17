@@ -61,5 +61,6 @@ export {
 	SelectObject,
 	SidePanel,
 	TooltipTrigger,
+	TreeView,
 	Typeahead,
 };
