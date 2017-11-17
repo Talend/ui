@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Filter from './Filter.component';
+import FilterBar from './FilterBar.component';
 
 jest.useFakeTimers();
 
@@ -16,14 +16,14 @@ beforeEach(() => {
 	};
 });
 
-describe('Filter', () => {
+describe('FilterBar', () => {
 	it('should call onToggle on search icon click', () => {
 		// given
 		const props = {
 			...defaultProps,
 			docked: true,
 		};
-		const filterInstance = mount(<Filter {...props} />);
+		const filterInstance = mount(<FilterBar {...props} />);
 
 		// when
 		filterInstance.find('button').simulate('click');
@@ -37,7 +37,7 @@ describe('Filter', () => {
 		const props = {
 			...defaultProps,
 		};
-		const filterInstance = mount(<Filter {...props} />);
+		const filterInstance = mount(<FilterBar {...props} />);
 
 		// when
 		filterInstance.find('button').simulate('click');
@@ -49,7 +49,7 @@ describe('Filter', () => {
 	it('should call onFilter when input value change', () => {
 		// given
 		const props = { ...defaultProps };
-		const filterInstance = mount(<Filter {...props} />);
+		const filterInstance = mount(<FilterBar {...props} />);
 
 		// when
 		filterInstance.find('input').simulate('change');
@@ -61,7 +61,7 @@ describe('Filter', () => {
 	it('should call onBlur on input blur', () => {
 		// given
 		const props = { ...defaultProps };
-		const filterInstance = mount(<Filter {...props} />);
+		const filterInstance = mount(<FilterBar {...props} />);
 
 		// when
 		filterInstance.find('input').simulate('blur');
@@ -73,7 +73,7 @@ describe('Filter', () => {
 	it('should call onToggle on ESC keydown', () => {
 		// given
 		const props = { ...defaultProps };
-		const filterInstance = mount(<Filter {...props} />);
+		const filterInstance = mount(<FilterBar {...props} />);
 
 		// when
 		filterInstance.find('input').simulate('keydown', { keyCode: 27 });
@@ -85,7 +85,7 @@ describe('Filter', () => {
 	it('should call onToggle on ENTER keydown', () => {
 		// given
 		const props = { ...defaultProps };
-		const filterInstance = mount(<Filter {...props} />);
+		const filterInstance = mount(<FilterBar {...props} />);
 
 		// when
 		filterInstance.find('input').simulate('keydown', { keyCode: 13 });
@@ -102,7 +102,7 @@ describe('Filter', () => {
 			...defaultProps,
 			debounceTimeout,
 		};
-		const filterInstance = mount(<Filter {...props} />);
+		const filterInstance = mount(<FilterBar {...props} />);
 
 		// when
 		filterInstance.find('input').simulate('change');
@@ -124,7 +124,7 @@ describe('Filter', () => {
 		const underMinLengthEvent = { target: { value: '2' } };
 		const overMinLengthEvent = { target: { value: 'toto' } };
 
-		const filterInstance = mount(<Filter {...props} />);
+		const filterInstance = mount(<FilterBar {...props} />);
 
 		// when
 		filterInstance.find('input').simulate('change', underMinLengthEvent);

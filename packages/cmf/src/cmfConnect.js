@@ -47,6 +47,15 @@ const CMF_PROPS = [
 	'willUnMountActionCreator', // componentWillUnmount action creator id in registry
 ];
 
+export const INJECTED_PROPS = [
+	'setState',
+	'state',
+	'initState',
+	'getCollection',
+	'dispatch',
+	'dispatchActionCreator',
+];
+
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }
@@ -103,13 +112,14 @@ export function getStateToProps({
 		userProps = mapStateToProps(state, ownProps, cmfProps);
 	}
 
-	return {
+	const props = {
 		...cmfProps,
 		...viewProps,
-		...api.expression.mapStateToProps(state, ownProps),
-		...api.expression.mapStateToProps(state, viewProps),
 		...userProps,
-		...api.expression.mapStateToProps(state, userProps),
+	};
+	return {
+		...props,
+		...api.expression.mapStateToProps(state, { ...ownProps, ...props }),
 	};
 }
 
@@ -146,12 +156,7 @@ export function getDispatchToProps({
  * call mergeProps if exists after the cleanup
  * @param {object} options { mergeProps, stateProps, dispatchProps, ownProps }
  */
-export function getMergeProps({
-	mergeProps,
-	stateProps,
-	dispatchProps,
-	ownProps,
-}) {
+export function getMergeProps({ mergeProps, stateProps, dispatchProps, ownProps }) {
 	if (mergeProps) {
 		return mergeProps(
 			api.expression.mergeProps(stateProps),
@@ -160,9 +165,9 @@ export function getMergeProps({
 		);
 	}
 	return {
-		...api.expression.mergeProps(stateProps),
-		...api.expression.mergeProps(dispatchProps),
 		...api.expression.mergeProps(ownProps),
+		...api.expression.mergeProps(dispatchProps),
+		...api.expression.mergeProps(stateProps),
 	};
 }
 
@@ -258,7 +263,7 @@ export default function cmfConnect({
 				});
 
 				// remove all internal props already used by the container
-				CMF_PROPS.forEach((key) => {
+				CMF_PROPS.forEach(key => {
 					delete props[key];
 				});
 
@@ -297,3 +302,5 @@ export default function cmfConnect({
 		return Connected;
 	};
 }
+
+cmfConnect.INJECTED_PROPS = INJECTED_PROPS;

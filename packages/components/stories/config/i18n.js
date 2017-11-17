@@ -17,10 +17,18 @@ i18n.init({
 				LIST_SELECT_DISPLAY_MODE_TILE: 'Tuile',
 				LIST_FILTER_TOGGLE: 'Afficher le filtre',
 				LIST_FILTER_REMOVE: 'Supprimer le filtre',
+				LISTVIEW_NO_RESULT: 'Aucun résultat.',
+				LISTVIEW_EMPTY: 'Cette liste est vide.',
+				LISTVIEW_HEADER_TITLE: 'Valeurs',
+				LISTVIEW_HEADER_SELECTED: '{{count}}/{{total}} élément sélectionné',
+				LISTVIEW_HEADER_SELECTED_plural: '{{count}}/{{total}} éléments sélectionnés',
+				LISTVIEW_HEADERINPUT_SEARCH_PLACEHOLDER: 'Rechercher…',
+				LISTVIEW_ITEMS_TOGGLE_ALL: 'Tout',
 				ENUMERATION_EMPTY_LIST: 'La liste est vide',
 				ENUMERATION_HEADER_LABEL: 'Valeurs',
 				SIDEPANEL_EXPAND: 'Développer',
 				SIDEPANEL_COLLAPSE: 'Réduire',
+				VIRTUALIZEDLIST_NO_RESULT: 'Aucun résultat',
 			},
 		},
 		it: {
@@ -36,10 +44,18 @@ i18n.init({
 				LIST_SELECT_DISPLAY_MODE_TILE: 'Piastrella',
 				LIST_FILTER_TOGGLE: 'Ginocchiera filtro',
 				LIST_FILTER_REMOVE: 'Rimuova il filtro',
+				LISTVIEW_NO_RESULT: 'Nessun risultato.',
+				LISTVIEW_EMPTY: 'Questa lista è vuota.',
+				LISTVIEW_HEADER_TITLE: 'Valori',
+				LISTVIEW_HEADER_SELECTED: '{{count}}/{{total}} articolo selezionato',
+				LISTVIEW_HEADER_SELECTED_plural: '{{count}}/{{total}} articoli selezionati',
+				LISTVIEW_HEADERINPUT_SEARCH_PLACEHOLDER: 'Ricercare…',
+				LISTVIEW_ITEMS_TOGGLE_ALL: 'Tutto',
 				ENUMERATION_EMPTY_LIST: "L'elenco è vuoto",
 				ENUMERATION_HEADER_LABEL: 'Valori',
 				SIDEPANEL_EXPAND: 'Espandere',
 				SIDEPANEL_COLLAPSE: 'Collassare',
+				VIRTUALIZEDLIST_NO_RESULT: 'Nessun risultato',
 			},
 		},
 	},
@@ -55,15 +71,21 @@ export const LanguageSwitcher = () => {
 		textAlign: 'center',
 		zIndex: 1,
 	};
+
+	function renderBtn(locale, isDefault) {
+		return (
+			<button className="btn" onClick={() => i18n.changeLanguage(locale)}>
+				{locale} {isDefault && '(default)'}
+			</button>
+		);
+	}
+
 	return (
 		<nav style={style}>
 			<div className="btn-group">
-				<button className="btn" onClick={() => i18n.changeLanguage('fr')}>
-					fr
-				</button>
-				<button className="btn" onClick={() => i18n.changeLanguage('it')}>
-					it
-				</button>
+				{renderBtn('en', true)}
+				{renderBtn('fr')}
+				{renderBtn('it')}
 			</div>
 		</nav>
 	);

@@ -2,6 +2,7 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
+    "arrow-parens": [2, "as-needed"],
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
     "indent": ["error", "tab", { "SwitchCase": 1 }],
     "new-cap": [
@@ -10,6 +11,7 @@
             "capIsNewExceptions": ["List", "Map"]
         }
     ],
+    "no-mixed-operators": "off",
     "no-tabs": "off",
     "react/forbid-prop-types": [0],
     "react/prefer-es6-class": 0,

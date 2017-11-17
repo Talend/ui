@@ -1,5 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import Items from './Items.component';
 
 jest.mock('../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
@@ -7,23 +8,28 @@ jest.mock('../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoS
 );
 
 describe('Items', () => {
-	it('should display a checked item between the two others', () => {
-		// given
-		const props = {
-			items: Array(3).fill('').map((item, index) => ({
-				label: `Lorem ipsum dolor sit amet ${index}`,
-			})),
-			getItemHeight: () => 42,
-		};
+	const props = {
+		items: [
+			{ label: 'Lorem ipsum dolor sit amet 0' },
+			{ label: 'Lorem ipsum dolor sit amet 1', checked: true },
+			{ label: 'Lorem ipsum dolor sit amet 2' },
+		],
+		getItemHeight: () => 42,
+	};
 
-		props.items[1].checked = true;
-
+	it('should render', () => {
 		// when
-		const wrapper = renderer.create(
-			<Items {...props} />
-		).toJSON();
+		const wrapper = mount(<Items {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
+
+	it('should render with provided id', () => {
+		// when
+		const wrapper = mount(<Items {...props} id={'my-widget'} />);
+
+		// then
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });

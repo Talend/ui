@@ -9,23 +9,20 @@ import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
 
 export function renderInputComponent(props) {
-	const {
-		key,
-		debounceMinLength,
-		debounceTimeout,
-		icon,
-		inputRef,
-		...rest
-	} = props;
+	const { key, debounceMinLength, debounceTimeout, icon, inputRef, ...rest } = props;
 
-	const renderedIcon = icon && (<div className={theme['icon-cls']}>
-		<Icon name={icon.name} title={icon.title} />
-	</div>);
+	const renderedIcon = icon && (
+		<div className={theme['icon-cls']}>
+			<Icon name={icon.name} title={icon.title} />
+		</div>
+	);
 
 	return (
 		<div className={theme['typeahead-input-icon']}>
-			<ControlLabel srOnly htmlFor={key}>Search</ControlLabel>
-			{(debounceMinLength || debounceTimeout) ?
+			<ControlLabel srOnly htmlFor={key}>
+				Search
+			</ControlLabel>
+			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
 					id={key}
 					{...rest}
@@ -34,12 +31,10 @@ export function renderInputComponent(props) {
 					element={FormControl}
 					minLength={debounceMinLength}
 					ref={inputRef}
-				/> : <FormControl
-					id={key}
-					autoFocus
-					inputRef={inputRef}
-					{...rest}
-				/> }
+				/>
+			) : (
+				<FormControl id={key} autoFocus inputRef={inputRef} {...rest} />
+			)}
 			{renderedIcon}
 		</div>
 	);
@@ -72,9 +67,7 @@ function ItemContainer(props) {
 			</div>
 		);
 	}
-	return (
-		<div {...containerProps} />
-	);
+	return <div {...containerProps} />;
 }
 ItemContainer.propTypes = {
 	className: PropTypes.string,
@@ -91,7 +84,7 @@ ItemContainer.propTypes = {
 					}),
 				),
 			}),
-		])
+		]),
 	),
 	noResultText: PropTypes.string,
 	searching: PropTypes.bool,
@@ -99,14 +92,10 @@ ItemContainer.propTypes = {
 };
 
 export function renderItemsContainerFactory(items, noResultText, searching, searchingText) {
-	const renderItemsContainerComponent = (props) => {
+	const renderItemsContainerComponent = props => {
 		const { id, key, ref, ...rest } = props;
 		return (
-			<div
-				id={id}
-				ref={ref}
-				key={key}
-			>
+			<div id={id} ref={ref} key={key}>
 				<ItemContainer
 					{...rest}
 					items={items}
@@ -153,9 +142,11 @@ export function renderItem(item, { value }) {
 			<span className={theme['item-title']}>
 				<Emphasis value={value} text={title} />
 			</span>
-			{description && <p className={theme['item-description']}>
-				<Emphasis value={value} text={description} />
-			</p>}
+			{description && (
+				<p className={theme['item-description']}>
+					<Emphasis value={value} text={description} />
+				</p>
+			)}
 		</div>
 	);
 }

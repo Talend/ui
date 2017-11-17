@@ -12,7 +12,7 @@ export default function toFlat(data, buffer = {}, path = '$') {
 			toFlat(value, buffer, `${path}[${index}]`);
 		});
 	} else if (!!data && typeof data === 'object') {
-		Object.keys(data).forEach((key) => {
+		Object.keys(data).forEach(key => {
 			toFlat(data[key], buffer, `${path}['${key}']`);
 		});
 	} else {

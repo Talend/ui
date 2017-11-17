@@ -8,10 +8,7 @@ export function getValue(properties, key) {
 		return undefined;
 	}
 
-	return key.reduce(
-		(accu, nextKey) => accu && accu[nextKey],
-		properties
-	);
+	return key.reduce((accu, nextKey) => accu && accu[nextKey], properties);
 }
 
 /**
@@ -26,7 +23,7 @@ export function omitAll(properties, keys) {
 	const result = {};
 	Object.keys(properties)
 		.filter(nextKey => keys.indexOf(nextKey) === -1)
-		.forEach((nextKey) => {
+		.forEach(nextKey => {
 			result[nextKey] = properties[nextKey];
 		});
 	return result;

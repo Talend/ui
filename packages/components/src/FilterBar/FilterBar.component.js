@@ -5,11 +5,10 @@ import DebounceInput from 'react-debounce-input';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import get from 'lodash/get';
 import keycode from 'keycode';
-
-import { getDefaultTranslate } from '../../../translate';
-import { Action } from '../../../Actions';
-import Icon from '../../../Icon';
-import theme from './Filter.scss';
+import { Action } from '../Actions';
+import Icon from '../Icon';
+import { getDefaultTranslate } from '../translate';
+import theme from './FilterBar.scss';
 
 function onKeyDown(event, escAction, enterAction) {
 	switch (event.keyCode) {
@@ -39,6 +38,7 @@ function FilterInput(props) {
 		onToggle,
 		placeholder,
 		value,
+		dockable,
 	} = props;
 
 	const inputProps = {
@@ -47,7 +47,10 @@ function FilterInput(props) {
 		type: 'search',
 		value,
 		placeholder,
-		className: theme.search,
+		autoComplete: 'off',
+		className: classNames(theme.search, {
+			[theme.animate]: dockable,
+		}),
 		'aria-label': 'Filter',
 		onBlur: onBlur && (event => onBlur(event, event.target.value)),
 		onFocus: onFocus && (event => onFocus(event, event.target.value)),
@@ -57,14 +60,16 @@ function FilterInput(props) {
 	};
 
 	if (debounceMinLength || debounceTimeout) {
-		return (<DebounceInput
-			{...inputProps}
-			element={FormControl}
-			minLength={debounceMinLength}
-			debounceTimeout={debounceTimeout}
-		/>);
+		return (
+			<DebounceInput
+				{...inputProps}
+				element={FormControl}
+				minLength={debounceMinLength}
+				debounceTimeout={debounceTimeout}
+			/>
+		);
 	}
-	return (<FormControl {...inputProps} />);
+	return <FormControl {...inputProps} />;
 }
 
 FilterInput.propTypes = {
@@ -77,19 +82,23 @@ FilterInput.propTypes = {
 	onToggle: PropTypes.func,
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
+	dockable: PropTypes.bool,
 };
 
 /**
  * @param {object} props react props
  * @example
- <Filter id="my-filter" docked="false" onFilter="filter()"></Filter>
+ <FilterBar id="my-filter" docked="false" onFilter="filter()"></Filter>
  */
-function Filter(props) {
+function FilterBar(props) {
 	const {
 		id,
+		className,
 		debounceMinLength,
 		debounceTimeout,
 		docked,
+		navbar,
+		dockable,
 		highlight,
 		onBlur,
 		onFocus,
@@ -99,11 +108,11 @@ function Filter(props) {
 		value,
 		t,
 	} = props;
-	if (docked) {
+	if (dockable && docked) {
 		return (
 			<Action
 				id={id}
-				className="navbar-right"
+				className={className}
 				onClick={onToggle}
 				label={t('LIST_FILTER_TOGGLE', { defaultValue: 'Toggle filter' })}
 				hideLabel
@@ -118,19 +127,14 @@ function Filter(props) {
 		return onFilter(event, get(event, 'target.search.value'));
 	}
 
-	const classes = classNames(
-		'navbar-form',
-		'navbar-right',
-		theme.filter,
-		{ [theme.highlight]: highlight },
-	);
+	const classes = classNames(theme.filter, {
+		[theme.highlight]: highlight,
+		'navbar-form': navbar,
+		className,
+	});
 
 	return (
-		<form
-			className={classes}
-			role="search"
-			onSubmit={onSubmit}
-		>
+		<form className={classes} role="search" onSubmit={onSubmit}>
 			<Icon name="talend-search" className={theme['search-icon']} />
 			<div className="form-group">
 				<FilterInput
@@ -143,8 +147,10 @@ function Filter(props) {
 					onToggle={onToggle}
 					placeholder={placeholder}
 					value={value}
+					dockable={dockable}
 				/>
 				<Action
+					className={theme.remove}
 					id={id && `${id}-cross-icon`}
 					bsStyle="link"
 					icon="talend-cross"
@@ -157,25 +163,31 @@ function Filter(props) {
 	);
 }
 
-Filter.propTypes = {
+FilterBar.displayName = 'FilterBar';
+FilterBar.propTypes = {
 	id: PropTypes.string,
+	className: PropTypes.string,
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
 	docked: PropTypes.bool,
+	navbar: PropTypes.bool,
+	dockable: PropTypes.bool,
 	onBlur: PropTypes.func,
 	onFocus: PropTypes.func,
 	onFilter: PropTypes.func.isRequired,
-	onToggle: PropTypes.func.isRequired,
+	onToggle: PropTypes.func,
 	highlight: PropTypes.bool,
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
 	t: PropTypes.func.isRequired,
 };
 
-Filter.defaultProps = {
+FilterBar.defaultProps = {
+	dockable: true,
 	docked: true,
+	navbar: true,
 	placeholder: 'Filter',
 	t: getDefaultTranslate,
 };
 
-export default Filter;
+export default FilterBar;

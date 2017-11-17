@@ -42,6 +42,7 @@ function ListToVirtualizedList(props) {
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
 			type={props.displayMode.toUpperCase()}
+			t={props.t}
 		>
 			{props.columns.map((column, index) => {
 				const cProps = {
@@ -52,11 +53,9 @@ function ListToVirtualizedList(props) {
 					Object.assign(cProps, CellTitle, {
 						columnData: titleProps,
 					});
-				}
-				if (supposedActions[column.key]) {
+				} else if (supposedActions[column.key]) {
 					Object.assign(cProps, CellActions);
-				}
-				if (column.type && cellDictionary[column.type]) {
+				} else if (column.type && cellDictionary[column.type]) {
 					Object.assign(cProps, cellDictionary[column.type], {
 						columnData: column.data,
 					});
@@ -88,6 +87,7 @@ ListToVirtualizedList.propTypes = {
 		actionsKey: PropTypes.string,
 		key: PropTypes.string,
 	}),
+	t: PropTypes.func,
 };
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',
