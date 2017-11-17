@@ -14,6 +14,8 @@ export function mapStateToProps(state, ownProps) {
 					getState: () => state,
 				},
 			}, id);
+			action.label = info.label
+			action.id = info.id;
 			let route = get(info, 'payload.cmf.routerReplace');
 			if (!route) {
 				route = get(info, 'payload.cmf.routerPush');
