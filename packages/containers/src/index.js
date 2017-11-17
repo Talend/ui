@@ -29,6 +29,7 @@ import Redirect from './Redirect';
 import ShortcutManager from './ShortcutManager';
 import SelectObject from './SelectObject';
 import SidePanel from './SidePanel';
+import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 
 export {

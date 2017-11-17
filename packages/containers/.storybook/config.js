@@ -199,13 +199,28 @@ function loadStories() {
 			displayMode: 'dropdown',
 			label: 'my items',
 			itemsExpression: 'getItems',
+			actionCreator: 'object:view',
 		};
 		actions['menu:items-id'] = {
-			id: 'menu:items',
+			id: 'menu:items-id',
 			displayMode: 'dropdown',
 			label: 'my items',
 			actionIds: ['menu:first', 'menu:second'],
-		},
+			actionCreator: 'object:view',
+		};
+		actions['menu:href'] = {
+			id: 'menu:href',
+			label: 'Talend',
+			target: '_blank',
+			href: '//www.talend.com',
+		};
+		actions['menu:dropdown-href'] = {
+			id: 'menu:dropdown-href',
+			displayMode: 'dropdown',
+			label: 'my items',
+			actionIds: ['menu:href'],
+			actionCreator: 'object:view',
+		};
 		actions['dialog:delete:validate'] = {
 			id: 'dialog:delete:validate',
 			label: 'Yes',

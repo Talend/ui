@@ -1,5 +1,5 @@
 
-> @talend/react-components@0.124.0 lint:style /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.125.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
 
@@ -9,8 +9,5 @@ src/Actions/ActionFile/ActionFile.scss
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
 
-src/VirtualizedList/RowSelection/RowSelection.scss
-  12:1  warning  Space expected between blocks  empty-line-between-blocks
-
-✖ 3 problems (1 error, 2 warnings)
+✖ 2 problems (1 error, 1 warning)
 

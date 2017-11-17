@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Action, Icon, Badge } from '../../';
+import { Action } from '../../Actions';
+import Icon from '../../Icon';
+import Badge from '../../Badge';
 
 import css from './TreeViewItem.scss';
 
@@ -15,7 +17,6 @@ function getActionHandler(func, item) {
 	};
 }
 
-
 /**
  *
  * Single item of TreeView component
@@ -23,20 +24,14 @@ function getActionHandler(func, item) {
  * @param id, for qa purposes
  * @param item required, item to display
  * 		  item.actions optional, array with actions' to be displayed meta-info
- * @param itemSelectCallback required, callback function to trigger once item was clicked
- * @param itemToggleCallback required, callback function to trigger once item was clicked
+ * @param onSelect required, callback function to trigger once item was clicked
+ * @param onClick required, callback function to trigger once item was clicked
  * @param depth optional, depth of an item in a tree
  *
  * @returns XML, jsx to display
  */
 
-function TreeViewItem({
-	id,
-	item,
-	depth = 0,
-	itemSelectCallback,
-	itemToggleCallback,
-}) {
+function TreeViewItem({ id, item, depth = 0, onClick, onSelect }) {
 	const {
 		toggled = false,
 		selected,
@@ -50,63 +45,66 @@ function TreeViewItem({
 	} = item;
 	const toggleIconLabel = toggled ? 'Collapse' : 'Expand';
 
-	function selectHandler() {
-		return itemSelectCallback(item);
+	function onSelectWrapper() {
+		return onSelect(item);
 	}
 
 	function getTreeViewItem(child, i) {
-		return (<TreeViewItem
-			{...{
-				id: id && `${id}-${i}`,
-				item: child,
-				itemSelectCallback,
-				itemToggleCallback,
-				depth: depth + 1,
-				key: i,
-			}}
-		/>);
+		return (
+			<TreeViewItem
+				{...{
+					id: id && `${id}-${i}`,
+					item: child,
+					onSelect,
+					onClick,
+					depth: depth + 1,
+					key: i,
+				}}
+			/>
+		);
 	}
 
 	function getIconAction(label, icon_, action, id_) {
-		return (<Action
-			label={label}
-			icon={icon_}
-			onClick={getActionHandler(action, item)}
-			tooltipPlacement="right"
-			hideLabel
-			key={label}
-			id={id_ || `${id}-${icon_}`}
-			link
-		/>);
+		return (
+			<Action
+				label={label}
+				icon={icon_}
+				onClick={getActionHandler(action, item)}
+				tooltipPlacement="right"
+				hideLabel
+				key={label}
+				id={id_ || `${id}-${icon_}`}
+				link
+			/>
+		);
 	}
-	const paddingLeft = `${(depth * PADDING_NORMAL) + PADDING_LARGE}px`;
+	const paddingLeft = `${depth * PADDING_NORMAL + PADDING_LARGE}px`;
 
 	return (
 		<li className={css['tc-treeview-li']} data-hidden={hidden}>
 			<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 				className={css['tc-treeview-item']}
 				data-selected={selected}
-				onClick={selectHandler}
+				onClick={onSelectWrapper}
 				id={id}
 				style={{ paddingLeft }}
 			>
-				{!children.length ||
+				{!children.length || (
 					<div className={css['tc-treeview-toggle']} data-toggled={toggled}>
-						{getIconAction(toggleIconLabel, 'talend-caret-down', itemToggleCallback, `${id}-toggle`)}
+						{getIconAction(toggleIconLabel, 'talend-caret-down', onClick, `${id}-toggle`)}
 					</div>
-				}
-				<span className={css['tc-treeview-folder']}><Icon name={icon} key={icon} /></span>
+				)}
+				<span className={css['tc-treeview-folder']}>
+					<Icon name={icon} key={icon} />
+				</span>
 				<span>{name}</span>
 				<div className={css['tc-treeview-item-ctrl']}>
 					{showCounter && <Badge label={counter.toString()} />}
 					{actions && actions.map(a => getIconAction(a.label, a.icon, a.action))}
 				</div>
 			</div>
-			{children && toggled &&
-				<ul className={css['tc-treeview-ul']}>
-					{children.map(getTreeViewItem)}
-				</ul>
-			}
+			{children &&
+				toggled && <ul className={css['tc-treeview-ul']}>{children.map(getTreeViewItem)}</ul>}
 		</li>
 	);
 }
@@ -119,16 +117,18 @@ TreeViewItem.propTypes = {
 		selected: PropTypes.bool,
 		children: PropTypes.arrayOf(PropTypes.object),
 		icon: PropTypes.string,
-		actions: PropTypes.arrayOf(PropTypes.shape({
-			action: PropTypes.func,
-			label: PropTypes.string,
-			icon: PropTypes.string,
-		})),
+		actions: PropTypes.arrayOf(
+			PropTypes.shape({
+				action: PropTypes.func,
+				label: PropTypes.string,
+				icon: PropTypes.string,
+			}),
+		),
 		counter: PropTypes.number,
 		showCounter: PropTypes.bool,
 	}).isRequired,
-	itemSelectCallback: PropTypes.func.isRequired,
-	itemToggleCallback: PropTypes.func.isRequired,
+	onClick: PropTypes.func.isRequired,
+	onSelect: PropTypes.func.isRequired,
 	depth: PropTypes.number,
 };
 
