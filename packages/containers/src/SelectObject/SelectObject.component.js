@@ -9,18 +9,21 @@ import theme from './SelectObject.scss';
 function SelectObject(props) {
 	return (
 		<div className={`tc-select-object ${theme.wrapper}`}>
-			<div>FilterBar</div>
+			<div>
+				FilterBar
+				<input type="text" onChange={props.onFilter} />
+			</div>
 			{!props.tree ? (
 				<List
-					data={props.sourceData}
+					data={props.filteredData}
 					className={theme.list}
 					{...props.list}
 				/>
 			) : (
 				<TreeView
-					noHeader
-					collection={props.source}
 					{...props.tree}
+					noHeader
+					data={props.filteredData}
 				/>
 			)}
 			{props.preview === 'string' && props.selected && (

@@ -4,9 +4,8 @@ import { SelectObject } from '../src';
 
 const props = {
 	source: 'with.data',
-	tree: {
-		nameAttr: 'label',
-	},
+	nameAttr: 'label',
+	tree: {},
 };
 
 const ExampleSelectObject = {

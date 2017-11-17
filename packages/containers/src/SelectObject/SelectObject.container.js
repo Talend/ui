@@ -16,11 +16,18 @@ class SelectObject extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.onFilter = this.onFilter.bind(this);
+		this.state = {};
+	}
+
+	onFilter(event) {
+		this.setState({query: event.target.value});
 	}
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
+		props.onFilter = this.onFilter;
 		return <Component {...props} />;
 	}
 }

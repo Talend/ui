@@ -8,6 +8,11 @@ export function mapStateToProps(state, ownProps) {
 	if (ownProps.source) {
 		props.sourceData = state.cmf.collections.getIn(ownProps.source.split('.'));
 	}
+	if (ownProps.nameAttr && ownProps.tree) {
+		props.tree = Object.assign({
+			nameAttr: ownProps.nameAttr,
+		}, ownProps.tree);
+	}
 	return props;
 }
 
