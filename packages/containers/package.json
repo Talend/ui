@@ -140,6 +140,5 @@
   },
   "version": "0.124.0",
   "dependencies": {
-    "react-immutable-proptypes": "^2.1.0"
   }
 }
