@@ -12,8 +12,8 @@ import ListExample from './ExampleList';
 import NotificationExample from './ExampleNotification';
 import ObjectViewerExample from './ExampleObjectViewer';
 import SidePanelExample from './ExampleSidePanel';
+import FilterBarExample from './ExampleFilterBar';
 import TreeViewExample from './ExampleTreeView';
-
 
 export default {
 	ActionExample,
@@ -22,8 +22,9 @@ export default {
 	ActionSplitDropdown,
 	ActionsExample,
 	AppHeaderBarExample,
-	DeleteResource,
 	ConfirmDialogExample,
+	DeleteResource,
+	FilterBarExample,
 	HeaderBarExample,
 	HomeListViewExample,
 	ListExample,

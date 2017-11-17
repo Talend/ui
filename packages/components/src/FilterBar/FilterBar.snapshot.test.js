@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Filter from './Filter.component';
+import Filter from './FilterBar.component';
 
 jest.mock('react-dom');
 

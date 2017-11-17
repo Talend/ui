@@ -7,7 +7,7 @@ import SelectAll from './SelectAll';
 import SelectDisplayMode from './SelectDisplayMode';
 import SelectSortBy from './SelectSortBy';
 import Pagination from './Pagination';
-import Filter from './Filter';
+import FilterBar from '../../FilterBar';
 import Label from './Label';
 import ActionBar from '../../ActionBar';
 
@@ -100,7 +100,15 @@ function Toolbar({
 						/>
 					)}
 					{pagination && <Pagination id={id && `${id}-pagination`} {...pagination} />}
-					{filter && <Filter id={id && `${id}-filter`} {...filter} t={t} />}
+					{filter && (
+						<FilterBar
+							id={id && `${id}-filter`}
+							{...filter}
+							t={t}
+							navbar
+							className="navbar-right"
+						/>
+					)}
 				</Navbar>
 			)}
 		</div>
@@ -114,7 +122,7 @@ Toolbar.propTypes = {
 	display: PropTypes.shape(omit(SelectDisplayMode.propTypes, 't')),
 	sort: PropTypes.shape(omit(SelectSortBy.propTypes, 't')),
 	pagination: PropTypes.shape(Pagination.propTypes),
-	filter: PropTypes.shape(omit(Filter.propTypes, 't')),
+	filter: PropTypes.shape(omit(FilterBar.propTypes, 't')),
 	t: PropTypes.func.isRequired,
 	renderers: PropTypes.shape({
 		ActionBar: PropTypes.element,
