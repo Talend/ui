@@ -1,5 +1,7 @@
-import React, { PropTypes } from 'react';
-import { componentState } from '@talend/react-cmf'
+import React from 'react';
+import PropTypes from 'prop-types';
+import omit from 'lodash/omit';
+import { componentState, cmfConnect } from '@talend/react-cmf';
 import { Map } from 'immutable';
 
 import Component from './SelectObject.component';
@@ -18,10 +20,8 @@ class SelectObject extends React.Component {
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
-		return (
-			<Component
-			/>
-		);
+		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
+		return <Component {...props} />;
 	}
 }
 

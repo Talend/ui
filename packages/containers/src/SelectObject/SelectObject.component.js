@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Inject } from '@talend/react-cmf';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import Filter from './Filter';
 import List from '../List';
 import TreeView from '../TreeView';
 import theme from './SelectObject.scss';
@@ -10,21 +9,21 @@ import theme from './SelectObject.scss';
 function SelectObject(props) {
 	return (
 		<div className={`tc-select-object ${theme.wrapper}`}>
-			<Filter />
-			{!props.isTree ? (
+			<div>FilterBar</div>
+			{!props.tree ? (
 				<List
 					data={props.sourceData}
 					className={theme.list}
-					{...this.props.list}
+					{...props.list}
 				/>
 			) : (
 				<TreeView
 					noHeader
-					data={props.sourceData}
-					{...this.props.tree}
+					collection={props.source}
+					{...props.tree}
 				/>
 			)}
-			{props.preview && props.selected && (
+			{props.preview === 'string' && props.selected && (
 				<Inject component={props.preview} data={props.selected} />
 			)}
 		</div>
@@ -33,7 +32,7 @@ function SelectObject(props) {
 
 SelectObject.displayName = 'SelectObject';
 SelectObject.propTypes = {
-	isTree: PropTypes.bool,
+	tree: PropTypes.bool,
 	preview: PropTypes.string,
 	sourceData: ImmutablePropTypes.List,
 	selected: PropTypes.object,

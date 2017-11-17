@@ -119,6 +119,9 @@ class TreeView extends React.Component {
 	}
 
 	render() {
+		if (!this.props.data) {
+			return null;
+		}
 		const structure = transform(this.props.data.toJS(), this.props);
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
 		return (
@@ -131,6 +134,10 @@ export function mapStateToProps(state, ownProps) {
 	const props = {};
 	if (ownProps.collection) {
 		props.data = state.cmf.collections.getIn(ownProps.collection.split('.'));
+		if (!props.data) {
+			// eslint-disable-next-line no-console;
+			console.warn('TreeView.collection not found');
+		}
 	}
 	return props;
 }
