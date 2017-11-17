@@ -5,7 +5,6 @@ import { renderActions } from '../../Form';
 import theme from './TogglePasswordWidget.scss';
 
 export default class TogglePasswordWidget extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
@@ -16,7 +15,8 @@ export default class TogglePasswordWidget extends React.Component {
 		this.setState({ type: this.state.type === 'text' ? 'password' : 'text' });
 	}
 
-	handleActionClick(onClick) { // eslint-disable-line class-methods-use-this
+	handleActionClick(onClick) {
+		// eslint-disable-line class-methods-use-this
 		if (onClick) {
 			return () => onClick();
 		}
@@ -24,12 +24,16 @@ export default class TogglePasswordWidget extends React.Component {
 	}
 
 	render() {
-		const toggleAction = renderActions([{
-			label: '',
-			icon: this.state.type === 'password' ? 'talend-locked' : 'talend-unlocked',
-			onClick: this.onToggle,
-		},
-		], this.handleActionClick);
+		const toggleAction = renderActions(
+			[
+				{
+					label: '',
+					icon: this.state.type === 'password' ? 'talend-locked' : 'talend-unlocked',
+					onClick: this.onToggle,
+				},
+			],
+			this.handleActionClick,
+		);
 
 		return (
 			<div className={classNames(theme['password-group'], 'btn-group')}>
