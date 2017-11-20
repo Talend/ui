@@ -61,11 +61,12 @@ $tc-filter-bar-highlight-color: #f6e5bb !default;
 		color: opacify($gray, 0.2);
 		padding: $padding-smaller 0;
 		line-height: 2.0rem;
-		margin-left: -14px; // small + 0/4rem from btn
+		margin-left: -(2 * $padding-small); // small + btn svg margin
 
 		:global(.tc-svg-icon) {
 			height: $svg-xs-size;
 			width: $svg-xs-size;
+			margin-right: $padding-small;
 		}
 	}
 
