@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import omit from 'lodash/omit';
 
 import ActionButton from '../ActionButton';
 import ActionFile from '../ActionFile';

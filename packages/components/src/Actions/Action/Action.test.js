@@ -81,21 +81,10 @@ describe('#wrapOnClick', () => {
 		const onClick = jest.fn();
 		const eventFn = wrapOnClick({
 			onClick,
-			bsStyle: 'bsStyle',
-			inProgress: 'inProgress',
-			disabled: 'disabled',
-			hideLabel: 'hideLabel',
-			link: 'link',
-			onMouseDown: 'onMouseDown',
-			tooltipPlacement: 'tooltipPlacement',
-			tooltip: 'tooltip',
-			tooltipLabel: 'tooltipLabel',
-			available: 'available',
 			label: 'label',
 			model: {
 				id: '#model',
 			},
-			otherProperty: 'otherProperty',
 		});
 
 		// when
@@ -109,20 +98,7 @@ describe('#wrapOnClick', () => {
 				type: 'click',
 			},
 			{
-				action: {
-					available: 'available',
-					bsStyle: 'bsStyle',
-					disabled: 'disabled',
-					hideLabel: 'hideLabel',
-					inProgress: 'inProgress',
-					label: 'label',
-					link: 'link',
-					onMouseDown: 'onMouseDown',
-					otherProperty: 'otherProperty',
-					tooltip: 'tooltip',
-					tooltipLabel: 'tooltipLabel',
-					tooltipPlacement: 'tooltipPlacement',
-				},
+				action: { label: 'label' },
 				model: { id: '#model' },
 			},
 		);
