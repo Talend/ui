@@ -42,9 +42,9 @@ class SelectObject extends React.Component {
 		this.onSelect = this.onSelect.bind(this);
 	}
 
-	onSelect(event, data) {
+	onSelect(data) {
 		this.props.setState({
-			selected: data,
+			selected: data.id || data.get('id'),
 		});
 	}
 
@@ -63,11 +63,14 @@ class SelectObject extends React.Component {
 			addMatch,
 		);
 		if (matches.length === 1) {
-			this.onSelect({ type: 'auto' }, matches[0]);
+			this.onSelect(matches[0]);
 		}
 		props.selected = state.get('selected');
-		if (props.selected) {
+		if (props.selected && props.selected.toJS) {
 			props.selected = props.selected.toJS();
+		}
+		if (props.tree) {
+			props.tree.onSelect = this.onSelect;
 		}
 		return <Component {...props} />;
 	}
