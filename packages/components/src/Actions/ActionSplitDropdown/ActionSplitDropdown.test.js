@@ -116,8 +116,6 @@ describe('ActionSplitDropdown', () => {
 		const actionSplitDropdownInstance = mount(<ActionSplitDropdown {...props} />);
 		const menuItems = actionSplitDropdownInstance.find('MenuItem');
 
-		// then
-		// when
 		menuItems
 			.at(0)
 			.find('SafeAnchor')
