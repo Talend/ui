@@ -1,0 +1,17 @@
+{
+  "ENUMERATION_WIDGET_ABORT": "Abort",
+  "ENUMERATION_WIDGET_ADD_FROM_FILE": "Add values from a file",
+  "ENUMERATION_WIDGET_ADD_ITEM": "Add item",
+  "ENUMERATION_WIDGET_DUPLICATION_ERROR": "This term is already in the list",
+  "ENUMERATION_WIDGET_EDIT": "Edit",
+  "ENUMERATION_WIDGET_IMPORT_FROM_FILE": "Import values from a file",
+  "ENUMERATION_WIDGET_LOADING": "Loading",
+  "ENUMERATION_WIDGET_OVERWRITE_VALUES": "Overwrite existing values",
+  "ENUMERATION_WIDGET_REMOVE_SELECTED_VALUES": "Remove selected values",
+  "ENUMERATION_WIDGET_REMOVE_VALUE": "Remove value",
+  "ENUMERATION_WIDGET_SEARCH_VALUES": "Search for specific values",
+  "ENUMERATION_WIDGET_VALIDATE": "Validate",
+  "ENUMERATION_WIDGET_VALIDATE_AND_ADD": "Validate and Add",
+  "LISTVIEW_WIDGET_ABORT": "",
+  "LISTVIEW_WIDGET_SEARCH": ""
+}

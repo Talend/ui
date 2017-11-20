@@ -1,0 +1,26 @@
+{
+  "name": "@talend/react-i18n",
+  "description": "I18n json for ui",
+  "license": "Apache-2.0",
+  "scripts": {},
+  "keywords": [
+    "react",
+    "i18n"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/i18n#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.124.0"
+}
