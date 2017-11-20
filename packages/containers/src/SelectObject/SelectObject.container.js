@@ -21,7 +21,7 @@ function getById({
 	items.forEach(item => {
 		if (item.get(idAttr) === id) {
 			found = item.toJS();
-		} else if (!!found && item.get(childrenAttr, new List()).size > 0) {
+		} else if (!found && item.get(childrenAttr, new List()).size > 0) {
 			found = getById({
 				id,
 				items: item.get(childrenAttr),
@@ -91,9 +91,9 @@ class SelectObject extends React.Component {
 			matches.push(item);
 		}
 		props.filteredData = filter({
+			...props,
 			items: props.sourceData,
 			onMatch: addMatch,
-			...props,
 		});
 		if (matches.length === 1) {
 			this.onSelect(matches[0]);

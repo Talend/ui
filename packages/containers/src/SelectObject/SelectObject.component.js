@@ -14,6 +14,7 @@ function SelectObject(props) {
 			<FilterBar id={props.id} dockable={false} navbar={false} {...props.filter} />
 			{!props.tree ? (
 				<List
+					id={`${props.id}-list`}
 					data={props.filteredData}
 					className={theme.list}
 					{...props.list}
@@ -21,6 +22,7 @@ function SelectObject(props) {
 			) : (
 				<TreeView
 					{...props.tree}
+					id={`${props.id}-tree`}
 					noHeader
 					data={props.filteredData}
 				/>
@@ -34,6 +36,7 @@ function SelectObject(props) {
 
 SelectObject.displayName = 'SelectObject';
 SelectObject.propTypes = {
+	id: PropTypes.string,
 	tree: PropTypes.bool,
 	preview: PropTypes.string,
 	sourceData: ImmutablePropTypes.List,

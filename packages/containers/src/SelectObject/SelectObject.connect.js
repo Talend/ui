@@ -1,7 +1,7 @@
 import { cmfConnect } from '@talend/react-cmf';
 
-import Container, { DISPLAY_NAME, DEFAULT_STATE } from './SelectObject.container';
-
+import Container, { DEFAULT_STATE } from './SelectObject.container';
+import { DISPLAY_NAME } from '../FilterBar/FilterBar.container';
 
 export function mapStateToProps(state, ownProps) {
 	const props = {};
