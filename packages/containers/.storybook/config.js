@@ -37,9 +37,10 @@ function confirmDialog(event, data) {
 	};
 }
 
-function chooseItem1(...rest) {
+function chooseItem1(event, data) {
 	return {
 		type: 'CHOOSE_ITEM1',
+		...data,
 	};
 }
 
@@ -64,18 +65,12 @@ api.expression.register('isTrueExpression', (context, first) => {
 
 api.expression.register('getItems', () => [
 	{
-		id: {
-			actionCreator: 'item1:action',
-			property: 'item1',
-		},
+		id: 'item1:action',
 		label: 'label1',
 		actionCreator: 'item1:action',
 	},
 	{
-		id: {
-			actionCreator: 'item2:action',
-			property: 'item2',
-		},
+		id: 'item2:action',
 		label: 'label2',
 		actionCreator: 'item2:action',
 	},
