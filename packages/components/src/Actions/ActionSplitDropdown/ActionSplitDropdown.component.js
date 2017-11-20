@@ -5,7 +5,7 @@ import { SplitButton, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 import Icon from '../../Icon';
 import theme from './ActionSplitDropdown.scss';
-import getRClick from '../utils';
+import { wrapOnClick } from '../Action/Action.component';
 
 /**
  * @param {object} props react props
@@ -41,7 +41,7 @@ function ActionSplitDropdown(props) {
 
 	return (
 		<SplitButton
-			onClick={getRClick(props)}
+			onClick={wrapOnClick(props)}
 			title={Title}
 			id={uuid.v4()}
 			className={classNames(className, theme['tc-split-dropdown'])}
@@ -49,7 +49,7 @@ function ActionSplitDropdown(props) {
 		>
 			{items.length ? (
 				items.map((item, index) => (
-					<MenuItem {...item} key={index} onClick={getRClick(item)}>
+					<MenuItem {...item} key={index} onClick={wrapOnClick(item)}>
 						{item.icon && <Icon name={item.icon} />}
 						{item.label}
 					</MenuItem>

@@ -114,11 +114,11 @@ describe('ActionSplitDropdown', () => {
 
 		// when
 		const actionSplitDropdownInstance = mount(<ActionSplitDropdown {...props} />);
+		const menuItems = actionSplitDropdownInstance.find('MenuItem');
 
 		// then
 		// when
-		actionSplitDropdownInstance
-			.find('MenuItem')
+		menuItems
 			.at(0)
 			.find('SafeAnchor')
 			.simulate('click');
@@ -131,8 +131,7 @@ describe('ActionSplitDropdown', () => {
 		expect(onItemClick.mock.calls[0][0].type).toBe('click');
 
 		// when
-		actionSplitDropdownInstance
-			.find('MenuItem')
+		menuItems
 			.at(1)
 			.find('SafeAnchor')
 			.simulate('click');

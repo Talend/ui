@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Action, { getActionComponent } from './Action.component';
+import Action, { getActionComponent, wrapOnClick } from './Action.component';
 import ActionButton from '../ActionButton';
 import ActionFile from '../ActionFile';
 import ActionDropdown from '../ActionDropdown';
@@ -72,5 +72,43 @@ describe('Action', () => {
 		const wrapper = shallow(<Action label="hello world" displayMode="dropdown" />);
 		expect(wrapper.getNode().type).toBe(ActionDropdown);
 		expect(wrapper.getNode().props.label).toBe('hello world');
+	});
+});
+
+describe('#wrapOnClick', () => {
+	it('should return onclick', () => {
+		// given
+		const onClick = jest.fn();
+		const eventFn = wrapOnClick({
+			onClick,
+			bsStyle: 'bsStyle',
+			inProgress: 'inProgress',
+			disabled: 'disabled',
+			hideLabel: 'hideLabel',
+			link: 'link',
+			onMouseDown: 'onMouseDown',
+			tooltipPlacement: 'tooltipPlacement',
+			tooltip: 'tooltip',
+			tooltipLabel: 'tooltipLabel',
+			available: 'available',
+			label: 'label',
+			model: {
+				id: '#model',
+			},
+			otherProperty: 'otherProperty',
+		});
+
+		// when
+		eventFn({
+			type: 'click',
+		});
+
+		// then
+		expect(onClick).toHaveBeenCalledWith(
+			{
+				type: 'click',
+			},
+			{ action: { label: 'label', otherProperty: 'otherProperty' }, model: { id: '#model' } },
+		);
 	});
 });

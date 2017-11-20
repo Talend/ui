@@ -17,10 +17,10 @@ describe('ActionDropdown', () => {
 			],
 		};
 		const actionDropdownInstance = mount(<ActionDropdown {...props} />);
+		const menuItems = actionDropdownInstance.find('MenuItem');
 
 		// when
-		actionDropdownInstance
-			.find('MenuItem')
+		menuItems
 			.at(0)
 			.find('SafeAnchor')
 			.simulate('click');
@@ -34,8 +34,7 @@ describe('ActionDropdown', () => {
 		expect(onItemClick.mock.calls[0][0].type).toBe('click');
 
 		// when
-		actionDropdownInstance
-			.find('MenuItem')
+		menuItems
 			.at(1)
 			.find('SafeAnchor')
 			.simulate('click');

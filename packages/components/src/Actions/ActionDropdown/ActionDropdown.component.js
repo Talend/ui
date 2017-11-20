@@ -4,14 +4,14 @@ import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
-import getRClick from '../utils';
+import { wrapOnClick } from '../Action/Action.component';
 
 function getMenuItem(item, index) {
 	if (item.divider) {
 		return <MenuItem key={index} divider />;
 	}
 	return (
-		<MenuItem key={index} eventKey={item} {...item} onClick={getRClick(item)}>
+		<MenuItem key={index} eventKey={item} {...item} onClick={wrapOnClick(item)}>
 			{item.icon && <Icon name={item.icon} />}
 			{item.label}
 		</MenuItem>

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import omit from 'lodash/omit';
 
 import ActionButton from '../ActionButton';
 import ActionFile from '../ActionFile';
@@ -19,6 +20,32 @@ const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
  * @property {TYPE_DROPDOWN | TYPE_SPLIT_DROPDOWN | false} displayMode
  * @property {Object.<String, Component>} renderers
  */
+
+const IGNORED_PROPS = [
+	'bsStyle',
+	'inProgress',
+	'disabled',
+	'hideLabel',
+	'link',
+	'onMouseDown',
+	'tooltipPlacement',
+	'tooltip',
+	'tooltipLabel',
+	'available',
+];
+
+function noOp() {}
+
+export function wrapOnClick(action) {
+	const { label, model, onClick, ...rest } = omit(action, IGNORED_PROPS);
+	const eventHandler = onClick || noOp;
+
+	return event =>
+		eventHandler(event, {
+			action: { label, ...rest },
+			model,
+		});
+}
 
 /**
  * Internal: should not be used outside
