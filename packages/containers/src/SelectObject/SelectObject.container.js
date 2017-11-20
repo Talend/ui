@@ -11,7 +11,35 @@ export const DISPLAY_NAME = 'Container(SelectObject)';
 
 function noop() {}
 
-function filter(items, query = '', nameAttr = 'name', childrenAttr = 'children', onMatch = noop) {
+function getById({
+	id,
+	items,
+	idAttr = 'id',
+	childrenAttr = 'children',
+}) {
+	let found;
+	items.forEach(item => {
+		if (item.get(idAttr) === id) {
+			found = item.toJS();
+		} else if (!!found && item.get(childrenAttr, new List()).size > 0) {
+			found = getById({
+				id,
+				items: item.get(childrenAttr),
+				idAttr,
+				childrenAttr,
+			});
+		}
+	});
+	return found;
+}
+
+function filter({
+	items,
+	query = '',
+	nameAttr = 'name',
+	childrenAttr = 'children',
+	onMatch = noop,
+}) {
 	return (
 		items.filter(item => {
 			if (
@@ -21,10 +49,13 @@ function filter(items, query = '', nameAttr = 'name', childrenAttr = 'children',
 					.indexOf(query.toLowerCase()) !== -1
 			) {
 				onMatch(item);
-				console.log('found', onMatch);
 				return true;
 			} else if (item.get(childrenAttr, new List()).size > 0) {
-				return filter(item.get(childrenAttr), query, nameAttr).size > 0;
+				return filter({
+					items: item.get(childrenAttr),
+					query,
+					nameAttr,
+				}).size > 0;
 			}
 			return false;
 		}) || new List([])
@@ -59,19 +90,21 @@ class SelectObject extends React.Component {
 		function addMatch(item) {
 			matches.push(item);
 		}
-		props.filteredData = filter(
-			props.sourceData,
-			props.query,
-			props.nameAttr,
-			props.childrenAttr,
-			addMatch,
-		);
+		props.filteredData = filter({
+			items: props.sourceData,
+			onMatch: addMatch,
+			...props,
+		});
 		if (matches.length === 1) {
 			this.onSelect(matches[0]);
 		}
 		props.selected = state.get('selected');
-		if (props.selected && props.selected.toJS) {
-			props.selected = props.selected.toJS();
+		if (props.selected) {
+			props.selected = getById({
+				...props,
+				id: props.selected,
+				items: props.sourceData,
+			});
 		}
 		if (props.tree) {
 			props.tree.onSelect = this.onSelect;
