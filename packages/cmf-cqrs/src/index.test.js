@@ -1,11 +1,4 @@
-import {
-	actions,
-	ACKDispatcher,
-	constants,
-	middlewares,
-	reducers,
-	ackProcessed,
-} from './';
+import { actions, ACKDispatcher, constants, middlewares, reducers, sagas, ackProcessed } from './';
 
 describe('cmf-cqrs', () => {
 	it('should export API', () => {
@@ -14,6 +7,7 @@ describe('cmf-cqrs', () => {
 		expect(constants).toBeDefined();
 		expect(middlewares).toBeDefined();
 		expect(reducers).toBeDefined();
+		expect(sagas).toBeDefined();
 		expect(ackProcessed).toBeDefined();
 	});
 	it('should export constant', () => {
