@@ -65,12 +65,10 @@ api.expression.register('isTrueExpression', (context, first) => {
 
 api.expression.register('getItems', () => [
 	{
-		id: 'item1:action',
 		label: 'label1',
 		actionCreator: 'item1:action',
 	},
 	{
-		id: 'item2:action',
 		label: 'label2',
 		actionCreator: 'item2:action',
 	},
