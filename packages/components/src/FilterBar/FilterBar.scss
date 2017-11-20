@@ -15,7 +15,7 @@ $tc-filter-bar-highlight-color: #f6e5bb !default;
 		// margin: $padding-small;
 		margin: $padding-small;
 		margin-right: $padding-smaller;
-		margin-top: 7px;  // ...
+		margin-top: 7px; // ...
 		// height: $svg-sm-size;
 	}
 
@@ -60,7 +60,7 @@ $tc-filter-bar-highlight-color: #f6e5bb !default;
 		display: inline-block;
 		color: opacify($gray, 0.2);
 		padding: $padding-smaller 0;
-		line-height: 2.0rem;
+		line-height: 2rem;
 		margin-left: -(2 * $padding-small); // small + btn svg margin
 
 		:global(.tc-svg-icon) {

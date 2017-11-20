@@ -93,7 +93,6 @@ FilterInput.propTypes = {
  <FilterBar id="my-filter" docked="false" onFilter="filter()"></Filter>
  */
 class FilterBar extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.onFocus = this.onFocus.bind(this);
@@ -145,7 +144,6 @@ class FilterBar extends React.Component {
 			);
 		}
 
-
 		const classes = classNames(theme.filter, {
 			[theme.highlight]: this.props.highlight,
 			[theme.navbar]: this.props.navbar,
@@ -154,7 +152,9 @@ class FilterBar extends React.Component {
 
 		return (
 			<form className={classes} role="search" onSubmit={this.onSubmit}>
-				{!(this.state.focus || this.state.value) && <Icon name="talend-search" className={theme['search-icon']} />}
+				{!(this.state.focus || this.state.value) && (
+					<Icon name="talend-search" className={theme['search-icon']} />
+				)}
 				<div className="form-group">
 					<FilterInput
 						autoFocus={this.props.autoFocus}

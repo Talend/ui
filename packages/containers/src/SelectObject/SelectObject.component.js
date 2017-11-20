@@ -13,21 +13,12 @@ function SelectObject(props) {
 		<div className={`tc-select-object ${theme.wrapper}`}>
 			<FilterBar id={props.id} dockable={false} navbar={false} {...props.filter} />
 			{!props.tree ? (
-				<List
-					data={props.filteredData}
-					className={theme.list}
-					{...props.list}
-				/>
+				<List data={props.filteredData} className={theme.list} {...props.list} />
 			) : (
-				<TreeView
-					{...props.tree}
-					noHeader
-					data={props.filteredData}
-				/>
+				<TreeView {...props.tree} noHeader data={props.filteredData} />
 			)}
-			{props.preview && props.selected && (
-				<Inject component={props.preview} data={props.selected} />
-			)}
+			{props.preview &&
+				props.selected && <Inject component={props.preview} data={props.selected} />}
 		</div>
 	);
 }
