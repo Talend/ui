@@ -1,6 +1,6 @@
 // Filter styles
-$tc-list-filter-input-size: 200px !default;
-$tc-list-filter-highlight-color: #f6e5bb !default;
+$tc-filter-bar-input-size: 200px !default;
+$tc-filter-bar-highlight-color: #f6e5bb !default;
 
 .filter {
 	display: flex;
@@ -22,6 +22,7 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 	> :global(.form-group) {
 		margin-bottom: 0;
 		display: flex;
+		flex-grow: 1;
 	}
 
 	:global(.form-group.form-group) {
@@ -35,7 +36,7 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 
 	.search {
 		// display: inline-block;
-		width: $tc-list-filter-input-size;
+		min-width: $tc-filter-bar-input-size;
 		box-shadow: none;
 		padding-right: $padding-small;
 		color: $dove-gray;
@@ -43,6 +44,11 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 
 		&::placeholder {
 			color: $dark-silver;
+		}
+
+		&:focus {
+			min-width: $tc-filter-bar-input-size + 31px;
+			margin-left: $padding-small;
 		}
 		// sass-lint:disable-next-line no-vendor-prefixes
 		&::-ms-clear {
@@ -62,16 +68,24 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 			width: $svg-xs-size;
 		}
 	}
+
+	&.navbar {
+		margin-top: 8px;
+		margin-bottom: 8px;
+		.remove {
+			min-height: 2rem;
+		}
+	}
 }
 
 .highlight {
-	background-color: $tc-list-filter-highlight-color;
+	background-color: $tc-filter-bar-highlight-color;
 }
 
 @keyframes reveal {
 	0% {
 		opacity: 0;
-		width: 0;
+		min-width: 0;
 	}
 
 	50% {
@@ -79,6 +93,6 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 	}
 
 	100% {
-		width: $tc-list-filter-input-size;
+		min-width: $tc-filter-bar-input-size;
 	}
 }

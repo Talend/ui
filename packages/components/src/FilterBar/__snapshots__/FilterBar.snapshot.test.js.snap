@@ -9,12 +9,13 @@ exports[`Filter should render 1`] = `
   id={undefined}
   label="Toggle filter"
   onClick={[Function]}
+  tooltipPlacement={undefined}
 />
 `;
 
 exports[`Filter should render filter input with default placeholder 1`] = `
 <form
-  className="navbar-form"
+  className="undefined"
   onSubmit={[Function]}
   role="search"
 >
@@ -26,13 +27,14 @@ exports[`Filter should render filter input with default placeholder 1`] = `
     className="form-group"
   >
     <FilterInput
+      autoFocus={true}
       debounceMinLength={undefined}
       debounceTimeout={undefined}
       dockable={true}
       id={undefined}
-      onBlur={undefined}
+      onBlur={[Function]}
       onFilter={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onToggle={undefined}
       placeholder="Filter"
       value={undefined}
@@ -45,6 +47,7 @@ exports[`Filter should render filter input with default placeholder 1`] = `
       id={undefined}
       label="Remove filter"
       onClick={undefined}
+      tooltipPlacement={undefined}
     />
   </div>
 </form>
@@ -52,7 +55,7 @@ exports[`Filter should render filter input with default placeholder 1`] = `
 
 exports[`Filter should render filter input with given placeholder 1`] = `
 <form
-  className="navbar-form"
+  className="undefined"
   onSubmit={[Function]}
   role="search"
 >
@@ -64,13 +67,14 @@ exports[`Filter should render filter input with given placeholder 1`] = `
     className="form-group"
   >
     <FilterInput
+      autoFocus={true}
       debounceMinLength={undefined}
       debounceTimeout={undefined}
       dockable={true}
       id={undefined}
-      onBlur={undefined}
+      onBlur={[Function]}
       onFilter={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onToggle={undefined}
       placeholder="find something"
       value={undefined}
@@ -83,6 +87,7 @@ exports[`Filter should render filter input with given placeholder 1`] = `
       id={undefined}
       label="Remove filter"
       onClick={undefined}
+      tooltipPlacement={undefined}
     />
   </div>
 </form>
@@ -97,6 +102,7 @@ exports[`Filter should render highlighted filter 1`] = `
   id={undefined}
   label="Toggle filter"
   onClick={[Function]}
+  tooltipPlacement={undefined}
 />
 `;
 
@@ -109,6 +115,7 @@ exports[`Filter should render id if provided 1`] = `
   id="toolbar-filter"
   label="Toggle filter"
   onClick={[Function]}
+  tooltipPlacement={undefined}
 />
 `;
 
@@ -121,5 +128,6 @@ exports[`Filter should render only toggle icon 1`] = `
   id={undefined}
   label="Toggle filter"
   onClick={[Function]}
+  tooltipPlacement={undefined}
 />
 `;
