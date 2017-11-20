@@ -37,9 +37,10 @@ function confirmDialog(event, data) {
 	};
 }
 
-function chooseItem1() {
+function chooseItem1(event, data) {
 	return {
 		type: 'CHOOSE_ITEM1',
+		...data,
 	};
 }
 
@@ -64,18 +65,10 @@ api.expression.register('isTrueExpression', (context, first) => {
 
 api.expression.register('getItems', () => [
 	{
-		id: {
-			actionCreator: 'item1:action',
-			property: 'item1',
-		},
 		label: 'label1',
 		actionCreator: 'item1:action',
 	},
 	{
-		id: {
-			actionCreator: 'item2:action',
-			property: 'item2',
-		},
 		label: 'label2',
 		actionCreator: 'item2:action',
 	},
@@ -91,7 +84,8 @@ function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
 		state.cmf.collections = state.cmf.collections.set(
-			'myResourceType', List([Map({ id: 'myID', label: 'myLabel' })]),
+			'myResourceType',
+			List([Map({ id: 'myID', label: 'myLabel' })]),
 		);
 		state.cmf.collections = state.cmf.collections.set(
 			'with',
