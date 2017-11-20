@@ -21,28 +21,15 @@ const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
  * @property {Object.<String, Component>} renderers
  */
 
-const IGNORED_PROPS = [
-	'bsStyle',
-	'inProgress',
-	'disabled',
-	'hideLabel',
-	'link',
-	'onMouseDown',
-	'tooltipPlacement',
-	'tooltip',
-	'tooltipLabel',
-	'available',
-];
-
 function noOp() {}
 
 export function wrapOnClick(action) {
-	const { label, model, onClick, ...rest } = omit(action, IGNORED_PROPS);
+	const { model, onClick, ...rest } = action;
 	const eventHandler = onClick || noOp;
 
 	return event =>
 		eventHandler(event, {
-			action: { label, ...rest },
+			action: { ...rest },
 			model,
 		});
 }

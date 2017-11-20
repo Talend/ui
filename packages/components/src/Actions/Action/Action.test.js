@@ -108,7 +108,23 @@ describe('#wrapOnClick', () => {
 			{
 				type: 'click',
 			},
-			{ action: { label: 'label', otherProperty: 'otherProperty' }, model: { id: '#model' } },
+			{
+				action: {
+					available: 'available',
+					bsStyle: 'bsStyle',
+					disabled: 'disabled',
+					hideLabel: 'hideLabel',
+					inProgress: 'inProgress',
+					label: 'label',
+					link: 'link',
+					onMouseDown: 'onMouseDown',
+					otherProperty: 'otherProperty',
+					tooltip: 'tooltip',
+					tooltipLabel: 'tooltipLabel',
+					tooltipPlacement: 'tooltipPlacement',
+				},
+				model: { id: '#model' },
+			},
 		);
 	});
 });
