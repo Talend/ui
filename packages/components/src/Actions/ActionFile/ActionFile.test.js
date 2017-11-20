@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ActionFile from './ActionFile.component';
 
-jest.mock('react-dom');
+// jest.mock('react-dom');
 
 const myAction = {
 	label: 'Click me',
@@ -11,6 +11,10 @@ const myAction = {
 };
 
 describe('ActionFile', () => {
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
+
 	it('should render a div with a input[type="file"] and a label to mimic a button', () => {
 		// when
 		const wrapper = shallow(<ActionFile {...myAction} />);
@@ -22,8 +26,9 @@ describe('ActionFile', () => {
 	it('change file value on the button trigger the onChange props', () => {
 		// given
 		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
-		const mockEvent = { preventDefault: jest.fn(), target: { files: [] } };
+		const mockEvent = { preventDefault: jest.fn(), target: { files: [''] } };
 
+		// when
 		// when
 		wrapper
 			.find('input')
@@ -35,6 +40,35 @@ describe('ActionFile', () => {
 		expect(myAction.onChange.mock.calls.length).toBe(1);
 		const args = myAction.onChange.mock.calls[0];
 		expect(args[0]).toBe(mockEvent);
+	});
+
+	it('props.change is not called if target has no files attached', () => {
+		// given
+		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
+		const mockEvent = { preventDefault: jest.fn(), target: { files: [] } };
+
+		// when
+		// when
+		wrapper
+			.find('input')
+			.first()
+			.simulate('change', mockEvent);
+
+		// then
+		expect(myAction.onChange).not.toHaveBeenCalled();
+	});
+
+	it('after change props being trigered, clear the input value', () => {
+		// given
+		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
+		const mockEvent = { preventDefault: jest.fn(), target: { files: [] } };
+
+		// when
+		const input = wrapper.find('input').first();
+		input.simulate('change', mockEvent);
+
+		// then
+		expect(input.value).toEqual();
 	});
 
 	it('should pass all props to the Button', () => {
