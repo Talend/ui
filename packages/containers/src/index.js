@@ -31,6 +31,7 @@ import ShortcutManager from './ShortcutManager';
 import SidePanel from './SidePanel';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
+import SubHeaderBar from './SubHeaderBar';
 
 export {
 	actionAPI,
@@ -60,6 +61,7 @@ export {
 	Redirect,
 	ShortcutManager,
 	SidePanel,
+	SubHeaderBar,
 	TooltipTrigger,
 	TreeView,
 	Typeahead,

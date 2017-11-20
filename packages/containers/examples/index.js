@@ -14,6 +14,7 @@ import ObjectViewerExample from './ExampleObjectViewer';
 import SidePanelExample from './ExampleSidePanel';
 import FilterBarExample from './ExampleFilterBar';
 import TreeViewExample from './ExampleTreeView';
+import SubHeaderBarExample from './ExampleSubHeaderBar';
 
 export default {
 	ActionExample,
@@ -31,5 +32,6 @@ export default {
 	NotificationExample,
 	ObjectViewerExample,
 	SidePanelExample,
+	SubHeaderBarExample,
 	TreeViewExample,
 };
