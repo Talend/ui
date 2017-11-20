@@ -98,7 +98,8 @@ class FilterBar extends React.Component {
 		super(props);
 		this.onFocus = this.onFocus.bind(this);
 		this.onBlur = this.onBlur.bind(this);
-		this.state = { focus: this.props.focus };
+		this.onFilter = this.onFilter.bind(this);
+		this.state = { focus: this.props.focus, value: this.props.value };
 	}
 
 	onFocus() {
@@ -115,9 +116,16 @@ class FilterBar extends React.Component {
 		}
 	}
 
+	onFilter(event) {
+		this.setState({ value: event.target.value });
+		if (this.props.onFilter) {
+			this.props.onFilter(event, event.target.value);
+		}
+	}
+
 	onSubmit(event) {
 		event.preventDefault();
-		return this.props.onFilter(event, get(event, 'target.search.value'));
+		return this.onFilter(event);
 	}
 
 	render() {
@@ -146,7 +154,7 @@ class FilterBar extends React.Component {
 
 		return (
 			<form className={classes} role="search" onSubmit={this.onSubmit}>
-				{!(this.state.focus || this.props.value) && <Icon name="talend-search" className={theme['search-icon']} />}
+				{!(this.state.focus || this.state.value) && <Icon name="talend-search" className={theme['search-icon']} />}
 				<div className="form-group">
 					<FilterInput
 						autoFocus={this.props.autoFocus}
@@ -155,10 +163,10 @@ class FilterBar extends React.Component {
 						debounceTimeout={this.props.debounceTimeout}
 						onBlur={this.onBlur}
 						onFocus={this.onFocus}
-						onFilter={this.props.onFilter}
+						onFilter={this.onFilter}
 						onToggle={this.props.onToggle}
 						placeholder={this.state.focus ? '' : this.props.placeholder}
-						value={this.props.value}
+						value={this.state.value}
 						dockable={this.props.dockable}
 					/>
 					<Action

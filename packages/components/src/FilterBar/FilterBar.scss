@@ -14,7 +14,7 @@ $tc-filter-bar-highlight-color: #f6e5bb !default;
 	.search-icon {
 		// margin: $padding-small;
 		margin: $padding-small;
-		margin-right: $padding-normal;
+		margin-right: $padding-smaller;
 		margin-top: 7px;  // ...
 		// height: $svg-sm-size;
 	}
@@ -41,6 +41,7 @@ $tc-filter-bar-highlight-color: #f6e5bb !default;
 		padding-right: $padding-small;
 		color: $dove-gray;
 		font-size: 14px;
+		margin-left: $padding-small;
 
 		&::placeholder {
 			color: $dark-silver;
@@ -48,7 +49,6 @@ $tc-filter-bar-highlight-color: #f6e5bb !default;
 
 		&:focus {
 			min-width: $tc-filter-bar-input-size + 31px;
-			margin-left: $padding-small;
 		}
 		// sass-lint:disable-next-line no-vendor-prefixes
 		&::-ms-clear {
