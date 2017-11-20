@@ -4,18 +4,24 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 
 .filter {
 	display: flex;
-	max-height: 35px;
-	background-color: $gray;
+	height: $padding-larger;
+	background-color: rgba($silver, 0.2);
+	color: $dove-gray;
 	align-items: top;
 	padding: 0;
-	background: $white;
+	border-radius: $border-radius-base;
 
 	.search-icon {
+		// margin: $padding-small;
 		margin: $padding-small;
+		margin-right: $padding-normal;
+		margin-top: 7px;  // ...
+		// height: $svg-sm-size;
 	}
 
 	> :global(.form-group) {
 		margin-bottom: 0;
+		display: flex;
 	}
 
 	:global(.form-group.form-group) {
@@ -28,8 +34,16 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 	}
 
 	.search {
-		display: inline-block;
+		// display: inline-block;
 		width: $tc-list-filter-input-size;
+		box-shadow: none;
+		padding-right: $padding-small;
+		color: $dove-gray;
+		font-size: 14px;
+
+		&::placeholder {
+			color: $dark-silver;
+		}
 		// sass-lint:disable-next-line no-vendor-prefixes
 		&::-ms-clear {
 			display: none;
@@ -38,6 +52,15 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 
 	.remove {
 		display: inline-block;
+		color: opacify($gray, 0.2);
+		padding: $padding-smaller 0;
+		line-height: 2.0rem;
+		margin-left: -14px; // small + 0/4rem from btn
+
+		:global(.tc-svg-icon) {
+			height: $svg-xs-size;
+			width: $svg-xs-size;
+		}
 	}
 }
 
