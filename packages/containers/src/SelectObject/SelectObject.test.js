@@ -1,38 +1,37 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { Provider } from 'react-cmf/lib/mock';
+import { shallow } from 'enzyme';
+import mock from '@talend/react-cmf/lib/mock';
 import { Map } from 'immutable';
 
 import Component from './SelectObject.component';
 import Container, { DEFAULT_STATE } from './SelectObject.container';
 import Connected, {
-	mapDispatchToProps,
 	mapStateToProps,
 } from './SelectObject.connect';
 
 describe('Component SelectObject', () => {
 	it('should render', () => {
-		const wrapper = renderer.create(
+		const context = mock.context();
+		const wrapper = shallow(
 			<Component name="Hello world" />
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		, { context });
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
 
 describe('Container SelectObject', () => {
 	it('should render', () => {
-		const wrapper = renderer.create(
-			<Provider>
-				<Container name="Hello world" />
-			</Provider>
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const context = mock.context();
+		const wrapper = shallow(
+			<Container />
+		, { context });
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
 
 describe('Connected SelectObject', () => {
 	it('should connect SelectObject', () => {
-		expect(Connected.displayName).toBe(`Connect(${Container.displayName})`);
+		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
 		expect(Connected.WrappedComponent).toBe(Container);
 	});
 	it('should map state to props', () => {
@@ -45,12 +44,7 @@ describe('Connected SelectObject', () => {
 				}),
 			},
 		};
-		const props = mapStateToProps(state);
-		expect(typeof props).toBe('object');
-	});
-	it('should map state to props', () => {
-		const dispatch = () => {};
-		const props = mapDispatchToProps(dispatch);
+		const props = mapStateToProps(state, {});
 		expect(typeof props).toBe('object');
 	});
 });

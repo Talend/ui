@@ -1,6 +1,6 @@
 import { cmfConnect } from '@talend/react-cmf';
 
-import Container, { DEFAULT_STATE } from './SelectObject.container';
+import Container, { DISPLAY_NAME, DEFAULT_STATE } from './SelectObject.container';
 
 
 export function mapStateToProps(state, ownProps) {
@@ -13,7 +13,7 @@ export function mapStateToProps(state, ownProps) {
 			nameAttr: ownProps.nameAttr,
 		}, ownProps.tree);
 	}
-	const filterPath = ['Container(FilterBar)', ownProps.id];
+	const filterPath = [DISPLAY_NAME, ownProps.id];
 	const filterState = state.cmf.components.getIn(filterPath);
 	if (filterState) {
 		props.query = filterState.get('query', '');

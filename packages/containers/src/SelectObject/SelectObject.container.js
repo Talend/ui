@@ -7,6 +7,7 @@ import { Map, List } from 'immutable';
 import Component from './SelectObject.component';
 
 export const DEFAULT_STATE = new Map({});
+export const DISPLAY_NAME = 'Container(SelectObject)';
 
 function noop() {}
 
@@ -31,9 +32,12 @@ function filter(items, query = '', nameAttr = 'name', childrenAttr = 'children',
 }
 
 class SelectObject extends React.Component {
-	static displayName = 'CMFContainer(SelectObject)';
+	static displayName = DISPLAY_NAME;
 	static propTypes = {
 		...componentState.propTypes,
+	};
+	static defaultProps = {
+		sourceData: [],
 	};
 
 	constructor(props) {
@@ -59,7 +63,7 @@ class SelectObject extends React.Component {
 			props.sourceData,
 			props.query,
 			props.nameAttr,
-			props.nameAttr.childrenAttr,
+			props.childrenAttr,
 			addMatch,
 		);
 		if (matches.length === 1) {
