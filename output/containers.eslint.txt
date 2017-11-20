@@ -27,8 +27,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   5:33  error  Unexpected parentheses around single function argument  arrow-parens
 
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
-  3:1   error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  9:42  error  Unexpected parentheses around single function argument                              arrow-parens
+  3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 12 problems (11 errors, 1 warning)
+✖ 11 problems (10 errors, 1 warning)
 
