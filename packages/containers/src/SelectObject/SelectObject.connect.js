@@ -9,9 +9,12 @@ export function mapStateToProps(state, ownProps) {
 		props.sourceData = state.cmf.collections.getIn(ownProps.source.split('.'));
 	}
 	if (ownProps.nameAttr && ownProps.tree) {
-		props.tree = Object.assign({
-			nameAttr: ownProps.nameAttr,
-		}, ownProps.tree);
+		props.tree = Object.assign(
+			{
+				nameAttr: ownProps.nameAttr,
+			},
+			ownProps.tree,
+		);
 	}
 	const filterPath = [DISPLAY_NAME, ownProps.id];
 	const filterState = state.cmf.components.getIn(filterPath);

@@ -14,10 +14,10 @@ function SelectObject(props) {
 			<FilterBar id={props.id} dockable={false} navbar={false} {...props.filter} />
 			{!props.tree ? (
 				<List
+					{...props.list}
 					id={`${props.id}-list`}
 					data={props.filteredData}
 					className={theme.list}
-					{...props.list}
 				/>
 			) : (
 				<TreeView
@@ -30,6 +30,8 @@ function SelectObject(props) {
 			{props.preview && props.selected && (
 				<Inject component={props.preview} data={props.selected} />
 			)}
+			{props.preview &&
+				props.selected && <Inject component={props.preview} data={props.selected} />}
 		</div>
 	);
 }
