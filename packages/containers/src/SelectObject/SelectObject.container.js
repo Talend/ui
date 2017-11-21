@@ -10,12 +10,7 @@ export const DISPLAY_NAME = 'Container(SelectObject)';
 
 function noop() {}
 
-function getById({
-	id,
-	items,
-	idAttr = 'id',
-	childrenAttr = 'children',
-}) {
+function getById({ id, items, idAttr = 'id', childrenAttr = 'children' }) {
 	let found;
 	items.forEach(item => {
 		if (item.get(idAttr) === id) {
@@ -100,9 +95,12 @@ class SelectObject extends React.Component {
 				items: props.sourceData,
 			});
 			if (props.preview) {
-				preview = Object.assign({
-					[props.preview.selectedAttr]: props.selected,
-				}, props.preview);
+				preview = Object.assign(
+					{
+						[props.preview.selectedAttr]: props.selected,
+					},
+					props.preview,
+				);
 			}
 		}
 		if (props.tree) {

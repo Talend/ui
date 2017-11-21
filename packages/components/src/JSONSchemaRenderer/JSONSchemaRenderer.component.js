@@ -74,10 +74,7 @@ function TextRenderer({ propertyKey, title, properties }) {
 
 TextRenderer.propTypes = {
 	...RendererProptypes,
-	properties: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number,
-	]).isRequired,
+	properties: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 /**
@@ -85,7 +82,10 @@ TextRenderer.propTypes = {
  */
 function BooleanRenderer({ propertyKey, title, properties }) {
 	return (
-		<div className={classNames('boolean-renderer', `boolean-renderer-${propertyKey}`)} key={propertyKey}>
+		<div
+			className={classNames('boolean-renderer', `boolean-renderer-${propertyKey}`)}
+			key={propertyKey}
+		>
 			<dt>{title || propertyKey}</dt>
 			<dd>{properties.toString()}</dd>
 		</div>
@@ -111,9 +111,7 @@ function ArrayRenderer({ propertyKey, title, properties }) {
 
 ArrayRenderer.propTypes = {
 	...RendererProptypes,
-	properties: PropTypes.arrayOf(
-		PropTypes.shape({ ...RendererProptypes })
-	).isRequired,
+	properties: PropTypes.arrayOf(PropTypes.shape({ ...RendererProptypes })).isRequired,
 };
 
 const registry = {
@@ -170,19 +168,15 @@ function typeResolver(schema, uiSchema) {
 function ObjectRenderer({ propertyKey, title, properties, schema, uiSchema = {} }) {
 	const flattenProperties = entries(properties);
 	const elements = flattenProperties.map(
-		typeResolver(schema[propertyKey].properties,
-		uiSchema[propertyKey])
+		typeResolver(schema[propertyKey].properties, uiSchema[propertyKey]),
 	);
 	return (
 		<div className={classNames(css.object, `object-renderer-${propertyKey}`)} key={propertyKey}>
 			<h2>{title || propertyKey}</h2>
-			<div>
-				{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}
-			</div>
+			<div>{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}</div>
 		</div>
 	);
 }
-
 
 ObjectRenderer.propTypes = {
 	...RendererProptypes,

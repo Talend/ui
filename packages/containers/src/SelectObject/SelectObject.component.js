@@ -18,12 +18,7 @@ function SelectObject(props) {
 	}
 	return (
 		<div className={`tc-select-object ${theme.wrapper}`}>
-			<FilterBar
-				id={props.id}
-				dockable={false}
-				navbar={false}
-				{...props.filter}
-			/>
+			<FilterBar id={props.id} dockable={false} navbar={false} {...props.filter} />
 			<div className={theme.container}>
 				{!props.tree ? (
 					<List
