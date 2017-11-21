@@ -11,13 +11,8 @@ export const DISPLAY_NAME = 'Container(SelectObject)';
 
 function noop() {}
 
-function getById({
-	id,
-	items,
-	idAttr = 'id',
-	childrenAttr = 'children',
-}) {
-	console.log({id, items, idAttr, childrenAttr});
+function getById({ id, items, idAttr = 'id', childrenAttr = 'children' }) {
+	console.log({ id, items, idAttr, childrenAttr });
 	let found;
 	items.forEach(item => {
 		if (item.get(idAttr) === id) {
@@ -52,11 +47,13 @@ function filter({
 				onMatch(item);
 				return true;
 			} else if (item.get(childrenAttr, new List()).size > 0) {
-				return filter({
-					items: item.get(childrenAttr),
-					query,
-					nameAttr,
-				}).size > 0;
+				return (
+					filter({
+						items: item.get(childrenAttr),
+						query,
+						nameAttr,
+					}).size > 0
+				);
 			}
 			return false;
 		}) || new List([])

@@ -47,7 +47,7 @@ export function transform(items, props) {
 		return undefined;
 	}
 	const state = props.state || DEFAULT_STATE;
-	const selectedId = props[SELECTED_ATTR] || state && state.get(SELECTED_ATTR);
+	const selectedId = props[SELECTED_ATTR] || (state && state.get(SELECTED_ATTR));
 	const opened = state && state.get(OPENED_ATTR).toJS();
 	return items.map(item => ({
 		...item,
