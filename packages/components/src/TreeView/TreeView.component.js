@@ -70,10 +70,7 @@ function TreeView({
 		cache.called = true;
 	}
 	return (
-		<div
-			className={classNames('tc-treeview', theme['tc-treeview'], className)}
-			style={style}
-		>
+		<div className={classNames('tc-treeview', theme['tc-treeview'], className)} style={style}>
 			{!noHeader && (
 				<header className={theme['tc-treeview-header']}>
 					<span>{headerText}</span>
