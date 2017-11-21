@@ -20,6 +20,19 @@ const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
  * @property {Object.<String, Component>} renderers
  */
 
+function noOp() {}
+
+export function wrapOnClick(action) {
+	const { model, onClick, ...rest } = action;
+	const eventHandler = onClick || noOp;
+
+	return event =>
+		eventHandler(event, {
+			action: { ...rest },
+			model,
+		});
+}
+
 /**
  * Internal: should not be used outside
  * This function decide which component should be used to display the action
