@@ -3,7 +3,6 @@ import React from 'react';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 import FormControl from 'react-bootstrap/lib/FormControl';
-import get from 'lodash/get';
 import keycode from 'keycode';
 import { Action } from '../Actions';
 import Icon from '../Icon';
@@ -144,10 +143,9 @@ class FilterBar extends React.Component {
 			);
 		}
 
-		const classes = classNames(theme.filter, {
+		const classes = classNames(theme.filter, this.props.className, {
 			[theme.highlight]: this.props.highlight,
 			[theme.navbar]: this.props.navbar,
-			className: this.props.className,
 		});
 
 		return (

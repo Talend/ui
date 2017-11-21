@@ -11,7 +11,13 @@ import theme from './SelectObject.scss';
 function SelectObject(props) {
 	return (
 		<div className={`tc-select-object ${theme.wrapper}`}>
-			<FilterBar id={props.id} dockable={false} navbar={false} {...props.filter} />
+			<FilterBar
+				className={theme.filter}
+				id={props.id}
+				dockable={false}
+				navbar={false}
+				{...props.filter}
+			/>
 			{!props.tree ? (
 				<List
 					{...props.list}
@@ -20,16 +26,10 @@ function SelectObject(props) {
 					className={theme.list}
 				/>
 			) : (
-				<TreeView
-					{...props.tree}
-					id={`${props.id}-tree`}
-					noHeader
-					data={props.filteredData}
-				/>
+				<TreeView {...props.tree} id={`${props.id}-tree`} noHeader data={props.filteredData} />
 			)}
-			{props.preview && props.selected && (
-				<Inject component={props.preview} data={props.selected} />
-			)}
+			{props.preview &&
+				props.selected && <Inject component={props.preview} data={props.selected} />}
 			{props.preview &&
 				props.selected && <Inject component={props.preview} data={props.selected} />}
 		</div>

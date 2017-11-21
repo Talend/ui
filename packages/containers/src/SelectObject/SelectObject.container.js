@@ -74,17 +74,9 @@ class SelectObject extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
-		this.onSelect = this.onSelect.bind(this);
-	}
-
-	onSelect(data) {
-		this.props.setState({
-			selected: data.id || data.get('id'),
-		});
 	}
 
 	render() {
-		const state = this.props.state || DEFAULT_STATE;
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
 		const matches = [];
 		function addMatch(item) {
@@ -95,19 +87,20 @@ class SelectObject extends React.Component {
 			items: props.sourceData,
 			onMatch: addMatch,
 		});
+		let selected;
 		if (matches.length === 1) {
-			this.onSelect(matches[0]);
+			selected = matches[0].get('id');
 		}
-		props.selected = state.get('selected');
-		if (props.selected) {
+		if (selected) {
 			props.selected = getById({
 				...props,
-				id: props.selected,
+				id: selected,
 				items: props.sourceData,
 			});
 		}
 		if (props.tree) {
 			props.tree.onSelect = this.onSelect;
+			props.tree.selectedId = selected;
 		}
 		return <Component {...props} />;
 	}
