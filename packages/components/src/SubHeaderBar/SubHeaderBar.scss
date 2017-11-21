@@ -1,0 +1,14 @@
+.tc-subheader-bar {
+	background-color: $wild-sand;
+	display: flex;
+	position: fixed;
+	width: 100%;
+	height: 7rem;
+	
+	.tc-subheader-bar-back-button {
+		background-color: $gallery;
+	}
+	.tc-subheader-bar-back-icon {
+		width: $padding-large;
+	}
+}
