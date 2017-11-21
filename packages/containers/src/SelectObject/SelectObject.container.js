@@ -17,6 +17,7 @@ function getById({
 	idAttr = 'id',
 	childrenAttr = 'children',
 }) {
+	console.log({id, items, idAttr, childrenAttr});
 	let found;
 	items.forEach(item => {
 		if (item.get(idAttr) === id) {
@@ -87,8 +88,8 @@ class SelectObject extends React.Component {
 			items: props.sourceData,
 			onMatch: addMatch,
 		});
-		let selected;
-		if (matches.length === 1) {
+		let selected = props.selectedId;
+		if (!selected && matches.length === 1) {
 			selected = matches[0].get('id');
 		}
 		if (selected) {

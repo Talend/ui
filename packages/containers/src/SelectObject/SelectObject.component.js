@@ -26,10 +26,8 @@ function SelectObject(props) {
 					className={theme.list}
 				/>
 			) : (
-				<TreeView {...props.tree} id={`${props.id}-tree`} noHeader data={props.filteredData} />
+				<TreeView {...props.tree} componentId={props.id} noHeader data={props.filteredData} />
 			)}
-			{props.preview &&
-				props.selected && <Inject component={props.preview} data={props.selected} />}
 			{props.preview &&
 				props.selected && <Inject component={props.preview} data={props.selected} />}
 		</div>

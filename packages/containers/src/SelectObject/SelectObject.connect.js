@@ -2,6 +2,7 @@ import { cmfConnect } from '@talend/react-cmf';
 
 import Container, { DEFAULT_STATE } from './SelectObject.container';
 import { DISPLAY_NAME } from '../FilterBar/FilterBar.container';
+import { DISPLAY_NAME as TREE_NAME } from '../TreeView/TreeView.container';
 
 export function mapStateToProps(state, ownProps) {
 	const props = {};
@@ -22,6 +23,10 @@ export function mapStateToProps(state, ownProps) {
 		props.query = filterState.get('query', '');
 	} else {
 		props.query = '';
+	}
+	const treeState = state.cmf.components.getIn([TREE_NAME, ownProps.id]);
+	if (treeState) {
+		props.selectedId = treeState.get('selectedId');
 	}
 	return props;
 }

@@ -8,6 +8,7 @@ import omit from 'lodash/omit';
 
 const OPENED_ATTR = 'opened';
 const SELECTED_ATTR = 'selectedId';
+export const DISPLAY_NAME = 'Container(TreeView)';
 export const DEFAULT_PROPS = {
 	idAttr: 'id',
 	nameAttr: 'name',
@@ -62,7 +63,7 @@ export function transform(items, props) {
  * The TreeView React container
  */
 class TreeView extends React.Component {
-	static displayName = 'Container(TreeView)';
+	static displayName = DISPLAY_NAME;
 	static propTypes = {
 		data: ImmutablePropTypes.List,
 		idAttr: PropTypes.string,
