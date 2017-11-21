@@ -22,22 +22,21 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   5:33  error  Unexpected parentheses around single function argument  arrow-parens
 
 /home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.component.js
-  14:25  error  'id' is missing in props validation                      react/prop-types
-  14:71  error  'filter' is missing in props validation                  react/prop-types
-  16:23  error  'filteredData' is missing in props validation            react/prop-types
-  16:70  error  'list' is missing in props validation                    react/prop-types
-  18:52  error  'filteredData' is missing in props validation            react/prop-types
-  30:14  error  'sourceData' PropType is defined but prop is never used  react/no-unused-prop-types
+  19:15  error  'filter' is missing in props validation                  react/prop-types
+  23:16  error  'list' is missing in props validation                    react/prop-types
+  25:18  error  'filteredData' is missing in props validation            react/prop-types
+  29:75  error  'filteredData' is missing in props validation            react/prop-types
+  42:14  error  'sourceData' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.container.js
    2:8  error    'PropTypes' is defined but never used  no-unused-vars
-  24:5  warning  Unexpected console statement           no-console
+  15:2  warning  Unexpected console statement           no-console
 
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/containers/src/TreeView/TreeView.container.js
-  139:4  warning  Unexpected console statement  no-console
+  140:4  warning  Unexpected console statement  no-console
 
-✖ 17 problems (14 errors, 3 warnings)
+✖ 16 problems (13 errors, 3 warnings)
 

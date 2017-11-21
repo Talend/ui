@@ -50,11 +50,13 @@ function filter({
 				onMatch(item);
 				return true;
 			} else if (item.get(childrenAttr, new List()).size > 0) {
-				return filter({
-					items: item.get(childrenAttr),
-					query,
-					nameAttr,
-				}).size > 0;
+				return (
+					filter({
+						items: item.get(childrenAttr),
+						query,
+						nameAttr,
+					}).size > 0
+				);
 			}
 			return false;
 		}) || new List([])
