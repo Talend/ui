@@ -3,6 +3,7 @@
 exports[`TreeView should render normally with all buttons and custom labels 1`] = `
 <div
   className="tc-treeview"
+  style={undefined}
 >
   <header
     className={undefined}

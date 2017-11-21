@@ -5,7 +5,7 @@ import entries from 'lodash/entries';
 
 import css from './JSONSchemaRenderer.scss';
 
-const className = 'json-schema-renderer';
+const CLASS_NAME = 'json-schema-renderer';
 
 export const RendererProptypes = {
 	propertyKey: PropTypes.string.isRequired,
@@ -220,7 +220,7 @@ function orderProperties(order, properties) {
  * properties
  * @returns {string} - HTML markup for the component
  */
-function JSONSchemaRenderer({ schema }) {
+function JSONSchemaRenderer({ schema, className }) {
 	if (!schema.jsonSchema || !schema.properties) {
 		throw new InvalidSchemaException();
 	}
@@ -230,7 +230,7 @@ function JSONSchemaRenderer({ schema }) {
 	}
 	const elements = properties.map(typeResolver(schema.jsonSchema.properties, schema.uiSchema));
 	return (
-		<dl className={classNames(css[className], 'json-schema-renderer')}>
+		<dl className={classNames(css[CLASS_NAME], 'json-schema-renderer', className)}>
 			{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}
 		</dl>
 	);
@@ -238,6 +238,7 @@ function JSONSchemaRenderer({ schema }) {
 
 JSONSchemaRenderer.propTypes = {
 	schema: PropTypes.shape({ ...SchemaProptypes }),
+	className: PropTypes.string,
 };
 
 JSONSchemaRenderer.InvalidSchemaException = InvalidSchemaException;

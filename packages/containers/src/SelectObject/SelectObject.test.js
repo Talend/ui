@@ -29,15 +29,7 @@ describe('Connected SelectObject', () => {
 		expect(Connected.WrappedComponent).toBe(Container);
 	});
 	it('should map state to props', () => {
-		const state = {
-			cmf: {
-				components: new Map({
-					SelectObject: {
-						SelectObject: DEFAULT_STATE.toJS(),
-					},
-				}),
-			},
-		};
+		const state = mock.state();
 		const props = mapStateToProps(state, {});
 		expect(typeof props).toBe('object');
 	});

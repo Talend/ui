@@ -1,9 +1,33 @@
 .wrapper {
 	min-height: 400px;
+	max-width: 500px;
 	display: flex;
 	flex-direction: column;
 
-	.filter {
-		max-width: 400px;
+	.container {
+		display: flex;
+		flex-direction: row;
+
+		.list {
+			flex: 4 0 0;
+		}
+
+		.tree {
+			flex: 4 0 0;
+		}
+
+		.preview {
+			flex: 3 0 0;
+
+			:global(.text-renderer-label) {
+				dt {
+					display: none;
+				}
+				dd {
+					font-size: 2em;
+					font-weight: bold;
+				}
+			}
+		}
 	}
 }

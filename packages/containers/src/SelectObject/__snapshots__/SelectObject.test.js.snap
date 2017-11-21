@@ -5,22 +5,26 @@ exports[`Component SelectObject should render 1`] = `
   className="tc-select-object undefined"
 >
   <Connect(CMF(Container(FilterBar)))
-    className={undefined}
     dockable={false}
     id={undefined}
     navbar={false}
   />
-  <Connect(CMF(Container(List)))
+  <div
     className={undefined}
-    data={undefined}
-    id="undefined-list"
-  />
+  >
+    <Connect(CMF(Container(List)))
+      className={undefined}
+      data={undefined}
+      id="undefined-list"
+    />
+  </div>
 </div>
 `;
 
 exports[`Container SelectObject should render 1`] = `
 <SelectObject
   filteredData={Array []}
+  preview={undefined}
   sourceData={Array []}
 />
 `;

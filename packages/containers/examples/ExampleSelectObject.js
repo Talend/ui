@@ -9,9 +9,25 @@ const props = {
 	tree: {},
 };
 
-const inject = {
-	component: 'ObjectViewer',
-	selectedAttr: 'data',
+const schema = {
+	jsonSchema: {
+		title: 'Demo',
+		type: 'object',
+		properties: {
+			label: {
+				type: 'string',
+				title: 'Label',
+			},
+			author: {
+				type: 'string',
+				title: 'Author',
+			},
+			created: {
+				type: 'string',
+				title: 'Created',
+			},
+		},
+	},
 };
 
 const ExampleSelectObject = {
@@ -21,10 +37,10 @@ const ExampleSelectObject = {
 			<SelectObject {...props} />
 		</div>
 	),
-	'tree with ObjectViewer as Preview': () => (
+	'tree with preview': () => (
 		<div>
 			<IconsProvider />
-			<SelectObject {...props} preview={inject} />
+			<SelectObject {...props} schema={schema} />
 		</div>
 	),
 };

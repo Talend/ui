@@ -59,6 +59,8 @@ function TreeView({
 	onClick,
 	onSelect,
 	noHeader,
+	className,
+	style,
 }) {
 	if (!cache.called && (itemSelectCallback || itemToggleCallback)) {
 		// eslint-disable-next-line
@@ -68,7 +70,10 @@ function TreeView({
 		cache.called = true;
 	}
 	return (
-		<div className={classNames('tc-treeview', theme['tc-treeview'])}>
+		<div
+			className={classNames('tc-treeview', theme['tc-treeview'], className)}
+			style={style}
+		>
 			{!noHeader && (
 				<header className={theme['tc-treeview-header']}>
 					<span>{headerText}</span>
@@ -114,6 +119,8 @@ TreeView.propTypes = {
 	onClick: PropTypes.func.isRequired,
 	onSelect: PropTypes.func.isRequired,
 	noHeader: PropTypes.bool,
+	className: PropTypes.string,
+	style: PropTypes.object,
 };
 
 TreeView.defaultProps = {
