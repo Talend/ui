@@ -1,6 +1,7 @@
 // Filter styles
 $tc-filter-bar-input-size: 200px !default;
 $tc-filter-bar-highlight-color: #f6e5bb !default;
+$tc-filter-bar-width: 250px !default;
 
 .filter {
 	display: flex;
@@ -31,12 +32,12 @@ $tc-filter-bar-highlight-color: #f6e5bb !default;
 	}
 
 	.animate {
+		overflow: hidden;
+		width: $tc-filter-bar-width;
 		animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	.search {
-		// display: inline-block;
-		min-width: $tc-filter-bar-input-size;
 		box-shadow: none;
 		padding-right: $padding-small;
 		color: $dove-gray;
@@ -47,9 +48,6 @@ $tc-filter-bar-highlight-color: #f6e5bb !default;
 			color: $dark-silver;
 		}
 
-		&:focus {
-			min-width: $tc-filter-bar-input-size + 31px;
-		}
 		// sass-lint:disable-next-line no-vendor-prefixes
 		&::-ms-clear {
 			display: none;
@@ -86,7 +84,7 @@ $tc-filter-bar-highlight-color: #f6e5bb !default;
 @keyframes reveal {
 	0% {
 		opacity: 0;
-		min-width: 0;
+		width: 0;
 	}
 
 	50% {
@@ -94,6 +92,6 @@ $tc-filter-bar-highlight-color: #f6e5bb !default;
 	}
 
 	100% {
-		min-width: $tc-filter-bar-input-size;
+		width: $tc-filter-bar-width;
 	}
 }

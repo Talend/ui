@@ -48,9 +48,7 @@ function FilterInput(props) {
 		value,
 		placeholder,
 		autoComplete: 'off',
-		className: classNames(theme.search, {
-			[theme.animate]: dockable,
-		}),
+		className: classNames(theme.search),
 		'aria-label': 'Filter',
 		onBlur: onBlur && (event => onBlur(event, event.target.value)),
 		onFocus: onFocus && (event => onFocus(event, event.target.value)),
@@ -152,10 +150,14 @@ class FilterBar extends React.Component {
 
 		return (
 			<form className={classes} role="search" onSubmit={this.onSubmit}>
-				{!(this.state.focus || this.state.value) && (
-					<Icon name="talend-search" className={theme['search-icon']} />
-				)}
-				<div className="form-group">
+				<div
+					className={classNames('form-group', {
+						[theme.animate]: this.props.dockable,
+					})}
+				>
+					{!(this.state.focus || this.state.value) && (
+						<Icon name="talend-search" className={theme['search-icon']} />
+					)}
 					<FilterInput
 						autoFocus={this.props.autoFocus}
 						id={this.props.id && `${this.props.id}-input`}
