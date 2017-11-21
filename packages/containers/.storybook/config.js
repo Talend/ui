@@ -93,7 +93,8 @@ function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
 		state.cmf.collections = state.cmf.collections.set(
-			'myResourceType', List([Map({ id: 'myID', label: 'myLabel' })]),
+			'myResourceType',
+			List([Map({ id: 'myID', label: 'myLabel' })]),
 		);
 		state.cmf.collections = state.cmf.collections.set(
 			'with',
@@ -102,24 +103,42 @@ function loadStories() {
 					new Map({
 						id: 1,
 						label: 'foo',
+						author: 'Jacques',
+						created: '10/12/2013',
+						modified: '13/02/2015',
 						children: new List([new Map({ id: 11, label: 'sub foo' })]),
 					}),
 					new Map({
 						id: 2,
 						label: 'bar',
+						author: 'Paul',
+						created: '10/12/2013',
+						modified: '13/02/2015',
 						children: new List([new Map({ id: 21, label: 'sub bar' })]),
 					}),
 					new Map({
 						id: 3,
 						label: 'baz',
+						author: 'Boris',
+						created: '10/12/2013',
+						modified: '13/02/2015',
 						children: new List([new Map({ id: 31, label: 'sub baz' })]),
 					}),
 					new Map({
 						id: 4,
 						label: 'extra',
+						author: 'Henri',
+						created: '10/12/2013',
+						modified: '13/02/2015',
 						children: new List([new Map({ id: 41, label: 'sub extra' })]),
 					}),
-					new Map({ id: 5, label: 'hello world' }),
+					new Map({
+						id: 5,
+						label: 'hello world',
+						author: 'David',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+					}),
 				]),
 			}),
 		);

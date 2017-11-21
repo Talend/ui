@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { componentState, cmfConnect } from '@talend/react-cmf';
-import { Map, List } from 'immutable';
+import { List } from 'immutable';
 
 import Component from './SelectObject.component';
 
-export const DEFAULT_STATE = new Map({});
 export const DISPLAY_NAME = 'Container(SelectObject)';
 
 function noop() {}
@@ -17,7 +16,6 @@ function getById({
 	idAttr = 'id',
 	childrenAttr = 'children',
 }) {
-	console.log({id, items, idAttr, childrenAttr});
 	let found;
 	items.forEach(item => {
 		if (item.get(idAttr) === id) {
@@ -89,6 +87,7 @@ class SelectObject extends React.Component {
 			onMatch: addMatch,
 		});
 		let selected = props.selectedId;
+		let preview;
 		if (!selected && matches.length === 1) {
 			selected = matches[0].get('id');
 		}
@@ -98,12 +97,16 @@ class SelectObject extends React.Component {
 				id: selected,
 				items: props.sourceData,
 			});
+			if (props.preview) {
+				preview = Object.assign({
+					[props.preview.selectedAttr]: props.selected,
+				}, props.preview);
+			}
 		}
 		if (props.tree) {
-			props.tree.onSelect = this.onSelect;
 			props.tree.selectedId = selected;
 		}
-		return <Component {...props} />;
+		return <Component {...props} preview={preview} />;
 	}
 }
 

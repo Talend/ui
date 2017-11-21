@@ -28,8 +28,7 @@ function SelectObject(props) {
 			) : (
 				<TreeView {...props.tree} componentId={props.id} noHeader data={props.filteredData} />
 			)}
-			{props.preview &&
-				props.selected && <Inject component={props.preview} data={props.selected} />}
+			{props.preview && props.selected && <Inject {...props.preview} />}
 		</div>
 	);
 }

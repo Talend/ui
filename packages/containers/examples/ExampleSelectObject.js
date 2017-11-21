@@ -9,6 +9,11 @@ const props = {
 	tree: {},
 };
 
+const inject = {
+	component: 'ObjectViewer',
+	selectedAttr: 'data',
+};
+
 const ExampleSelectObject = {
 	'default tree': () => (
 		<div>
@@ -19,7 +24,7 @@ const ExampleSelectObject = {
 	'tree with ObjectViewer as Preview': () => (
 		<div>
 			<IconsProvider />
-			<SelectObject {...props} preview="ObjectViewer" />
+			<SelectObject {...props} preview={inject} />
 		</div>
 	),
 };

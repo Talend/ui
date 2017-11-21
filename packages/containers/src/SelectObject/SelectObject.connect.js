@@ -1,7 +1,7 @@
 import { cmfConnect } from '@talend/react-cmf';
 
-import Container, { DEFAULT_STATE } from './SelectObject.container';
-import { DISPLAY_NAME } from '../FilterBar/FilterBar.container';
+import Container from './SelectObject.container';
+import { DISPLAY_NAME as FILTER_NAME, QUERY_ATTR } from '../FilterBar/FilterBar.container';
 import { DISPLAY_NAME as TREE_NAME } from '../TreeView/TreeView.container';
 
 export function mapStateToProps(state, ownProps) {
@@ -17,10 +17,9 @@ export function mapStateToProps(state, ownProps) {
 			ownProps.tree,
 		);
 	}
-	const filterPath = [DISPLAY_NAME, ownProps.id];
-	const filterState = state.cmf.components.getIn(filterPath);
+	const filterState = state.cmf.components.getIn([FILTER_NAME, ownProps.id]);
 	if (filterState) {
-		props.query = filterState.get('query', '');
+		props.query = filterState.get(QUERY_ATTR, '');
 	} else {
 		props.query = '';
 	}
@@ -33,5 +32,4 @@ export function mapStateToProps(state, ownProps) {
 
 export default cmfConnect({
 	mapStateToProps,
-	defaultState: DEFAULT_STATE,
 })(Container);
