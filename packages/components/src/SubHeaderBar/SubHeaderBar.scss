@@ -1,14 +1,89 @@
+@mixin input-icon {
+	margin-top: 1rem;
+	margin-left: 1rem;
+}
+
 .tc-subheader-bar {
 	background-color: $wild-sand;
 	display: flex;
 	position: fixed;
 	width: 100%;
 	height: 7rem;
-	
+
 	.tc-subheader-bar-back-button {
 		background-color: $gallery;
 	}
 	.tc-subheader-bar-back-icon {
 		width: $padding-large;
+	}
+
+	.tc-subheader-bar-details {
+		display: flex;
+		align-items: flex-start;
+		padding-top: 1.8rem;
+
+		&:hover .tc-subheader-bar-details-pencil {
+			visibility: visible;
+		}
+
+		.tc-subheader-bar-details-text {
+			padding-left: $padding-large;
+		}
+
+		.tc-subheader-bar-details-icon {
+			width: 2.4rem;
+			height: 2.4rem;
+			margin-left: $padding-large;
+			color: $brand-primary;
+		}
+
+		.tc-subheader-bar-details-pencil {
+			stroke: 0.1rem;
+			height: 1.6rem;
+			color: $gallery;
+			visibility: hidden;
+		}
+
+		.tc-subheader-bar-details-title {
+			color: $black;
+			font-size: 1.4rem;
+			font-weight: 800;
+			padding-right: $padding-small;
+			text-transform: uppercase;
+		}
+
+		.tc-subheader-bar-details-subtitle {
+			color: $dark-silver;
+			font-size: 1.4rem;
+		}
+	}
+
+	.tc-subheader-bar-form {
+		display: flex;
+		align-items: flex-start;
+		padding-top: 1.8rem;
+
+		.tc-subheader-bar-form-group {
+			padding-top: 0rem;
+
+		}
+
+		.tc-subheader-bar-form-icon-cancel {
+			@include input-icon;
+		}
+		.tc-subheader-bar-form-icon-validate {
+			@include input-icon;
+		}
+
+		.tc-subheader-bar-form-details-icon {
+			width: 2.4rem;
+			height: 2.4rem;
+			margin-left: $padding-large;
+			color: $brand-primary;
+		}
+	}
+
+	.tc-subheader-bar-form-button-overlay {
+		margin-right: 1rem;
 	}
 }
