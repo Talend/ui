@@ -45,7 +45,7 @@ export function renderActions(headerDefault = []) {
 
 function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required, t }) {
 	function renderTitle() {
-		const computedHeaderLabel = headerLabel || t('LISTVIEW_HEADER_TITLE', 'Values');
+		const computedHeaderLabel = headerLabel || t('LISTVIEW_HEADER_TITLE', { defaultValue: 'Values' });
 		return (
 			<strong>
 				{computedHeaderLabel}
