@@ -62,6 +62,9 @@ class SelectObject extends React.Component {
 	static displayName = DISPLAY_NAME;
 	static propTypes = {
 		...componentState.propTypes,
+		sourceData: PropTypes.array,
+		selectedId: PropTypes.string,
+		tree: PropTypes.object,
 	};
 	static defaultProps = {
 		sourceData: [],

@@ -136,7 +136,7 @@ export function mapStateToProps(state, ownProps) {
 	if (ownProps.collection) {
 		props.data = state.cmf.collections.getIn(ownProps.collection.split('.'));
 		if (!props.data) {
-			// eslint-disable-next-line no-console;
+			// eslint-disable-next-line no-console
 			console.warn('TreeView.collection not found');
 		}
 	}

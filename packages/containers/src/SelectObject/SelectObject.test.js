@@ -1,10 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import mock from '@talend/react-cmf/lib/mock';
-import { Map } from 'immutable';
 
 import Component from './SelectObject.component';
-import Container, { DEFAULT_STATE } from './SelectObject.container';
+import Container from './SelectObject.container';
 import Connected, { mapStateToProps } from './SelectObject.connect';
 
 describe('Component SelectObject', () => {
