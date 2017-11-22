@@ -38,7 +38,6 @@ function FilterInput(props) {
 		autoFocus,
 		placeholder,
 		value,
-		dockable,
 	} = props;
 
 	const inputProps = {
