@@ -31,7 +31,6 @@ $tc-filter-bar-width: 250px !default;
 	}
 
 	.animate {
-		overflow: hidden;
 		width: $tc-filter-bar-width;
 		animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1);
 	}
@@ -84,6 +83,7 @@ $tc-filter-bar-width: 250px !default;
 	0% {
 		opacity: 0;
 		width: 0;
+		overflow: hidden;
 	}
 
 	50% {
