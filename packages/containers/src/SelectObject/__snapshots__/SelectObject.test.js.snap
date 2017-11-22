@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component SelectObject should render 1`] = `
+<div
+  className="tc-select-object undefined"
+>
+  <Connect(CMF(Container(FilterBar)))
+    dockable={false}
+    id={undefined}
+    navbar={false}
+  />
+  <div
+    className={undefined}
+  >
+    <Connect(CMF(Container(List)))
+      className={undefined}
+      data={undefined}
+      id="undefined-list"
+    />
+  </div>
+</div>
+`;
+
+exports[`Container SelectObject should render 1`] = `
+<SelectObject
+  filteredData={Array []}
+  preview={undefined}
+  sourceData={Array []}
+/>
+`;
