@@ -217,6 +217,7 @@ FilterBar.defaultProps = {
 	focus: false,
 	placeholder: 'Filter',
 	t: getDefaultTranslate,
+	className: '',
 };
 
 export default FilterBar;

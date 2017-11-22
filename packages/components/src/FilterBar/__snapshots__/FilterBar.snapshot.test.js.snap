@@ -3,7 +3,7 @@
 exports[`Filter should render 1`] = `
 <Action
   bsStyle="link"
-  className={undefined}
+  className=""
   hideLabel={true}
   icon="talend-search"
   id={undefined}
@@ -19,13 +19,13 @@ exports[`Filter should render filter input with default placeholder 1`] = `
   onSubmit={[Function]}
   role="search"
 >
-  <Icon
-    className={undefined}
-    name="talend-search"
-  />
   <div
-    className="form-group"
+    className="form-group undefined"
   >
+    <Icon
+      className={undefined}
+      name="talend-search"
+    />
     <FilterInput
       autoFocus={true}
       debounceMinLength={undefined}
@@ -59,13 +59,13 @@ exports[`Filter should render filter input with given placeholder 1`] = `
   onSubmit={[Function]}
   role="search"
 >
-  <Icon
-    className={undefined}
-    name="talend-search"
-  />
   <div
-    className="form-group"
+    className="form-group undefined"
   >
+    <Icon
+      className={undefined}
+      name="talend-search"
+    />
     <FilterInput
       autoFocus={true}
       debounceMinLength={undefined}
@@ -96,7 +96,7 @@ exports[`Filter should render filter input with given placeholder 1`] = `
 exports[`Filter should render highlighted filter 1`] = `
 <Action
   bsStyle="link"
-  className={undefined}
+  className=""
   hideLabel={true}
   icon="talend-search"
   id={undefined}
@@ -109,7 +109,7 @@ exports[`Filter should render highlighted filter 1`] = `
 exports[`Filter should render id if provided 1`] = `
 <Action
   bsStyle="link"
-  className={undefined}
+  className=""
   hideLabel={true}
   icon="talend-search"
   id="toolbar-filter"
@@ -122,7 +122,7 @@ exports[`Filter should render id if provided 1`] = `
 exports[`Filter should render only toggle icon 1`] = `
 <Action
   bsStyle="link"
-  className={undefined}
+  className=""
   hideLabel={true}
   icon="talend-search"
   id={undefined}
