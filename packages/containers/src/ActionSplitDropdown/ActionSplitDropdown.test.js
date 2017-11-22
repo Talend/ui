@@ -32,9 +32,8 @@ describe('Container(ActionSplitDropdown)', () => {
 		const wrapper = shallow(
 			<ContainerActionSplitDropdown
 				foo="extra"
-				actionId="menu:article"
-				actionIds={['menu:items']}
-				items={[{ foo: 'bar' }]}
+				items={[{ foo: 'bar', actionCreator: 'menu:item' }]}
+				actionCreator="split"
 			/>,
 			{ context },
 		);
