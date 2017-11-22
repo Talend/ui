@@ -1,14 +1,29 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
-import JSONSchemaRenderer, { InvalidSchemaException, UnkownTypeException } from './JSONSchemaRenderer.component';
+import JSONSchemaRenderer, {
+	InvalidSchemaException,
+	UnkownTypeException,
+} from './JSONSchemaRenderer.component';
 
 describe('JSONSchemaRenderer', () => {
 	it('should render', () => {
 		const schema = { jsonSchema: {}, properties: {} };
 		const wrapper = renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should support custom className', () => {
+		const schema = { jsonSchema: {}, properties: {} };
+		const wrapper = shallow(<JSONSchemaRenderer schema={schema} className="custom-test" />);
+		expect(wrapper.props().className).toContain('custom-test');
+	});
+
+	it('should support custom props', () => {
+		const schema = { jsonSchema: {}, properties: {} };
+		const wrapper = shallow(<JSONSchemaRenderer schema={schema} extra="foo" />);
+		expect(wrapper.props().extra).toBe('foo');
 	});
 
 	it('should render strings and integers', () => {
@@ -100,8 +115,18 @@ describe('JSONSchemaRenderer', () => {
 			},
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper.find('dt').first().text()).toEqual('a');
-		expect(wrapper.find('dt').last().text()).toEqual('d');
+		expect(
+			wrapper
+				.find('dt')
+				.first()
+				.text(),
+		).toEqual('a');
+		expect(
+			wrapper
+				.find('dt')
+				.last()
+				.text(),
+		).toEqual('d');
 	});
 
 	it("shouldn't render hidden fields", () => {
@@ -127,12 +152,22 @@ describe('JSONSchemaRenderer', () => {
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
 		expect(wrapper.find('dt')).toHaveLength(2);
-		expect(wrapper.find('dt').first().text()).toEqual('b');
-		expect(wrapper.find('dt').last().text()).toEqual('d');
+		expect(
+			wrapper
+				.find('dt')
+				.first()
+				.text(),
+		).toEqual('b');
+		expect(
+			wrapper
+				.find('dt')
+				.last()
+				.text(),
+		).toEqual('d');
 	});
 
-	it("shouldn't render properties without a schema", () 	=> {
-		const schema = 	{
+	it("shouldn't render properties without a schema", () => {
+		const schema = {
 			jsonSchema: {
 				properties: {
 					a: { type: 'string' },
@@ -145,7 +180,12 @@ describe('JSONSchemaRenderer', () => {
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
 		expect(wrapper.find('dt')).toHaveLength(1);
-		expect(wrapper.find('dt').first().text()).toEqual('a');
+		expect(
+			wrapper
+				.find('dt')
+				.first()
+				.text(),
+		).toEqual('a');
 	});
 
 	// TODO: Add $ref handling
