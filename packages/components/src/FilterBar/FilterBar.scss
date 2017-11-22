@@ -12,11 +12,9 @@ $tc-filter-bar-width: 250px !default;
 	border-radius: $border-radius-base;
 
 	.search-icon {
-		// margin: $padding-small;
 		margin: $padding-small;
 		margin-right: $padding-smaller;
-		margin-top: 7px; // ...
-		// height: $svg-sm-size;
+		margin-top: 7px;
 	}
 
 	> :global(.form-group) {
@@ -39,7 +37,7 @@ $tc-filter-bar-width: 250px !default;
 		box-shadow: none;
 		padding-right: $padding-small;
 		color: $dove-gray;
-		font-size: 14px;
+		font-size: $font-size-base;
 		margin-left: $padding-small;
 
 		&::placeholder {

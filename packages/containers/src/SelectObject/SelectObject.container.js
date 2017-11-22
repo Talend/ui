@@ -10,15 +10,18 @@ export const DISPLAY_NAME = 'Container(SelectObject)';
 
 function noop() {}
 
-function getById({ id, items, idAttr = 'id', childrenAttr = 'children' }) {
+/**
+ * Internal
+ * @return item in items found with the id
+ * @param {Object} options {id, items, idAttr, childrenAttr }
+ */
+export function getById(items, id, { idAttr = 'id', childrenAttr = 'children' } = {}) {
 	let found;
 	items.forEach(item => {
 		if (item.get(idAttr) === id) {
 			found = item.toJS();
 		} else if (!found && item.get(childrenAttr, new List()).size > 0) {
-			found = getById({
-				id,
-				items: item.get(childrenAttr),
+			found = getById(item.get(childrenAttr), id, {
 				idAttr,
 				childrenAttr,
 			});
@@ -27,13 +30,16 @@ function getById({ id, items, idAttr = 'id', childrenAttr = 'children' }) {
 	return found;
 }
 
-function filter({
-	items,
+/**
+ * Internal
+ * @return item in items found with the id
+ * @param {Object} optins {query, items, idAttr, childrenAttr }
+ */
+export function filter(
+	items = new List(),
 	query = '',
-	nameAttr = 'name',
-	childrenAttr = 'children',
-	onMatch = noop,
-}) {
+	{ nameAttr = 'name', childrenAttr = 'children', onMatch = noop } = {},
+) {
 	return (
 		items.filter(item => {
 			if (
@@ -46,15 +52,13 @@ function filter({
 				return true;
 			} else if (item.get(childrenAttr, new List()).size > 0) {
 				return (
-					filter({
-						items: item.get(childrenAttr),
-						query,
+					filter(item.get(childrenAttr), query, {
 						nameAttr,
 					}).size > 0
 				);
 			}
 			return false;
-		}) || new List([])
+		}) || new List()
 	);
 }
 
@@ -73,6 +77,8 @@ class SelectObject extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
+		this.filter = filter;
+		this.getById = getById;
 	}
 
 	render() {
@@ -81,9 +87,8 @@ class SelectObject extends React.Component {
 		function addMatch(item) {
 			matches.push(item);
 		}
-		props.filteredData = filter({
+		props.filteredData = this.filter(props.sourceData, props.query, {
 			...props,
-			items: props.sourceData,
 			onMatch: addMatch,
 		});
 		let selected = props.selectedId;
@@ -92,11 +97,7 @@ class SelectObject extends React.Component {
 			selected = matches[0].get('id');
 		}
 		if (selected) {
-			props.selected = getById({
-				...props,
-				id: selected,
-				items: props.sourceData,
-			});
+			props.selected = this.getById(props.sourceData, selected, props);
 			if (props.preview) {
 				preview = Object.assign(
 					{
