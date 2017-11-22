@@ -114,7 +114,6 @@ class ItemEdit extends React.Component {
 		});
 	}
 
-
 	render() {
 		function updateDisabledStatus(action, currentEdit) {
 			if (currentEdit[action.id] !== undefined && 'disabled' in currentEdit[action.id]) {
@@ -127,15 +126,15 @@ class ItemEdit extends React.Component {
 			return action;
 		}
 
-		const editActions = this.props.item.itemProps.actions.map(
-			action => updateDisabledStatus(action, this.props.currentEdit)
+		const editActions = this.props.item.itemProps.actions.map(action =>
+			updateDisabledStatus(action, this.props.currentEdit),
 		);
 
 		return (
 			<li className={itemClasses(this.props.item.error)} id={this.props.id}>
 				<input
 					className={itemLabelClasses()}
-					ref={(input) => {
+					ref={input => {
 						this.itemInput = input;
 					}}
 					type="text"
@@ -146,10 +145,7 @@ class ItemEdit extends React.Component {
 				<div className={itemEditActionsClasses()}>
 					{editActions.map((action, index) => this.getAction(action, index))}
 				</div>
-				{
-					this.props.item.error &&
-					<div className={itemErrorClasses()}>{this.props.item.error}</div>
-				}
+				{this.props.item.error && <div className={itemErrorClasses()}>{this.props.item.error}</div>}
 			</li>
 		);
 	}

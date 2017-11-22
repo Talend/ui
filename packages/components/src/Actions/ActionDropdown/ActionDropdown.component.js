@@ -1,22 +1,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {
-	DropdownButton,
-	MenuItem,
-	OverlayTrigger,
-} from 'react-bootstrap';
+import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
-
+import { wrapOnClick } from '../Action/Action.component';
 
 function getMenuItem(item, index) {
 	if (item.divider) {
-		return (<MenuItem key={index} divider />);
+		return <MenuItem key={index} divider />;
 	}
 	return (
-		<MenuItem key={index} eventKey={item} {...item} >
-			{item.icon && (<Icon name={item.icon} />)}
+		<MenuItem key={index} eventKey={item} {...item} onClick={wrapOnClick(item)}>
+			{item.icon && <Icon name={item.icon} />}
 			{item.label}
 		</MenuItem>
 	);
@@ -78,37 +74,34 @@ function ActionDropdown(props) {
 	}
 
 	const dropdown = (
-		<DropdownButton
-			title={title}
-			bsStyle={style}
-			role="button"
-			onSelect={onItemSelect}
-			{...rest}
-		>
-			{items.length ? items.map(getMenuItem) : (<MenuItem disabled>No options</MenuItem>)}
+		<DropdownButton title={title} bsStyle={style} role="button" onSelect={onItemSelect} {...rest}>
+			{items.length ? items.map(getMenuItem) : <MenuItem disabled>No options</MenuItem>}
 		</DropdownButton>
 	);
 
 	if (hideLabel || tooltipLabel) {
-		return (<TooltipTrigger
-			label={tooltipLabel || label}
-			tooltipPlacement={tooltipPlacement}
-		>
-			{dropdown}
-		</TooltipTrigger>);
+		return (
+			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+				{dropdown}
+			</TooltipTrigger>
+		);
 	}
 	return dropdown;
 }
+
+ActionDropdown.displayName = 'ActionDropdown';
 
 ActionDropdown.propTypes = {
 	bsStyle: PropTypes.string,
 	hideLabel: PropTypes.bool,
 	icon: PropTypes.string,
-	items: PropTypes.arrayOf(PropTypes.shape({
-		icon: PropTypes.string,
-		label: PropTypes.string,
-		...MenuItem.propTypes,
-	})).isRequired,
+	items: PropTypes.arrayOf(
+		PropTypes.shape({
+			icon: PropTypes.string,
+			label: PropTypes.string,
+			...MenuItem.propTypes,
+		}),
+	).isRequired,
 	label: PropTypes.string.isRequired,
 	link: PropTypes.bool,
 	onSelect: PropTypes.func,
@@ -119,6 +112,7 @@ ActionDropdown.propTypes = {
 ActionDropdown.defaultProps = {
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
+	items: [],
 };
 
 export default ActionDropdown;

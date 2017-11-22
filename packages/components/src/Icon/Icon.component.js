@@ -43,21 +43,12 @@ function Icon({ className, name, title, transform, onClick }) {
 		title: title || null,
 	};
 	if (name.startsWith('fa-')) {
-		const classes = classnames(
-			'fa',
-			name,
-			className,
-			transform && FA_TRANSFORMS[transform],
-		);
-		return (<i className={classes} {...accessibility} />);
+		const classes = classnames('fa', name, className, transform && FA_TRANSFORMS[transform]);
+		return <i className={classes} {...accessibility} />;
 	}
 	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
-		const classes = classnames(
-			name,
-			className,
-			transform && FA_TRANSFORMS[transform],
-		);
-		return (<i className={classes} {...accessibility} />);
+		const classes = classnames(name, className, transform && FA_TRANSFORMS[transform]);
+		return <i className={classes} {...accessibility} />;
 	}
 	if (onClick && name) {
 		const classname = classnames(
@@ -69,11 +60,7 @@ function Icon({ className, name, title, transform, onClick }) {
 		return (
 			// eslint doesn't recognizes the xlinkHref mention
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-			<a
-				xlinkHref="#"
-				onClick={onClick}
-				className={classnames('tc-svg-anchor', theme.link)}
-			>
+			<a xlinkHref="#" onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
 				<svg className={classname} {...accessibility}>
 					<use xlinkHref={`#${name}`} />
 				</svg>

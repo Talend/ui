@@ -1,158 +1,85 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {
-	Button,
-	OverlayTrigger,
-} from 'react-bootstrap';
 
-import TooltipTrigger from '../../TooltipTrigger';
-import CircularProgress from '../../CircularProgress';
-import Icon from '../../Icon';
-import getPropsFrom from '../../utils/getPropsFrom';
+import ActionButton from '../ActionButton';
+import ActionFile from '../ActionFile';
+import ActionSplitDropdown from '../ActionSplitDropdown';
+import ActionDropdown from '../ActionDropdown';
 
-const LEFT = 'left';
-const RIGHT = 'right';
+const TYPE_FILE = 'file';
+const TYPE_DROPDOWN = 'dropdown';
+const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
 
-function getIcon({ icon, iconTransform, inProgress }) {
-	if (inProgress) {
-		return (<CircularProgress size="small" key="icon" />);
-	}
+/**
+ * @typedef {(Object|Function)} Component
+ */
 
-	if (icon) {
-		return (<Icon name={icon} transform={iconTransform} key="icon" />);
-	}
-
-	return null;
-}
-getIcon.propTypes = {
-	icon: PropTypes.string,
-	iconTransform: PropTypes.string,
-	inProgress: PropTypes.bool,
-};
-
-function getLabel({ hideLabel, label }) {
-	if (hideLabel) {
-		return null;
-	}
-	return (<span key="label">{label}</span>);
-}
-
-getLabel.propTypes = {
-	label: PropTypes.string,
-	hideLabel: PropTypes.bool,
-};
-
-function adjustContentPlacement(icon, label, iconPosition) {
-	if (iconPosition === RIGHT) {
-		return [label, icon];
-	}
-	return [icon, label];
-}
-
-function getContent(props) {
-	return adjustContentPlacement(
-		getIcon(props),
-		getLabel(props),
-		props.iconPosition,
-	);
-}
+/**
+ * @typedef {Object} ActionProps
+ * @property {TYPE_DROPDOWN | TYPE_SPLIT_DROPDOWN | false} displayMode
+ * @property {Object.<String, Component>} renderers
+ */
 
 function noOp() {}
 
-/**
- * @param {object} props react props
- * @example
- const props = {
-	label: 'edit',
-	icon: 'fa fa-edit',
-	onClick: action('onEdit'),
-	tooltipPlacement: 'right',
-	hideLabel: true,
-	link: true,
-};
- <Action {...props} />
- */
-function Action(props) {
-	const {
-		bsStyle,
-		inProgress,
-		disabled,
-		hideLabel,
-		label,
-		link,
-		model,
-		onMouseDown = noOp,
-		onClick = noOp,
-		tooltipPlacement,
-		tooltip,
-		tooltipLabel,
-		available,
-		...rest
-	} = props;
+export function wrapOnClick(action) {
+	const { model, onClick, ...rest } = action;
+	const eventHandler = onClick || noOp;
 
-	if (!available) {
-		return null;
-	}
-
-	const buttonProps = getPropsFrom(Button, rest);
-	const style = link ? 'link' : bsStyle;
-	const rClick = onClick && (event => onClick(event, {
-		action: { label, ...rest },
-		model,
-	}));
-
-	const rMouseDown = event => onMouseDown(event, {
-		action: { label, ...rest },
-		model,
-	});
-
-	const buttonContent = getContent(props);
-
-	const btn = (
-		<Button
-			onMouseDown={rMouseDown}
-			onClick={rClick}
-			bsStyle={style}
-			disabled={inProgress || disabled}
-			role={link ? 'link' : null}
-			{...buttonProps}
-		>
-			{buttonContent}
-		</Button>
-	);
-	if (hideLabel || tooltip || tooltipLabel) {
-		return (
-			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-				{btn}
-			</TooltipTrigger>
-		);
-	}
-	return btn;
+	return event =>
+		eventHandler(event, {
+			action: { ...rest },
+			model,
+		});
 }
 
-Action.propTypes = {
-	...getIcon.propTypes,
-	id: PropTypes.string,
-	bsStyle: PropTypes.string,
-	disabled: PropTypes.bool,
-	hideLabel: PropTypes.bool,
-	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
-	label: PropTypes.string.isRequired,
-	link: PropTypes.bool,
-	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	name: PropTypes.string,
-	onClick: PropTypes.func,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
-	tooltip: PropTypes.bool,
-	tooltipLabel: PropTypes.string,
-};
+/**
+ * Internal: should not be used outside
+ * This function decide which component should be used to display the action
+ * based on a displayMode.
+ * Component can be override by the renderers
+ * @param {ActionProps} - props should contains displayMode and renderers
+ * @return {Component} the component to be used
+ */
+export function getActionComponent({ displayMode, renderers = {} }) {
+	switch (displayMode) {
+		case TYPE_FILE:
+			return renderers.ActionFile || ActionFile;
+		case TYPE_DROPDOWN:
+			return renderers.ActionDropdown || ActionDropdown;
+		case TYPE_SPLIT_DROPDOWN:
+			return renderers.ActionSplitDropdown || ActionSplitDropdown;
+		default:
+			return renderers.ActionButton || ActionButton;
+	}
+}
 
-Action.defaultProps = {
-	available: true,
-	bsStyle: 'default',
-	tooltipPlacement: 'top',
-	inProgress: false,
-	disabled: false,
+/**
+ * This component is a component selector which to discover which kind of
+ * action you want to display to the user.
+ * The choice is fully based on the props displayMode
+ * You can override the component using props renderer
+ * @param {ActionProps}
+ */
+function Action({ displayMode, renderers, ...props }) {
+	const ActionComponent = getActionComponent({
+		displayMode,
+		renderers,
+		...props,
+	});
+	return <ActionComponent {...props} />;
+}
+
+Action.displayName = 'Action';
+
+Action.propTypes = {
+	displayMode: PropTypes.string,
+	renderers: PropTypes.shape({
+		ActionButton: PropTypes.node,
+		ActionFile: PropTypes.node,
+		ActionSplitDropdown: PropTypes.node,
+		ActionDropdown: PropTypes.node,
+	}),
 };
 
 export default Action;

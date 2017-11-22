@@ -2,22 +2,19 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { AutoSizer, List } from 'react-virtualized';
+import { translate } from 'react-i18next';
 
+import I18N_DOMAIN_COMPONENTS from '../../constants';
+import { DEFAULT_I18N, getDefaultTranslate } from '../../translate';
 import Item from './Item/Item.component';
 import theme from './Items.scss';
 
 function listClasses() {
-	return classNames(
-		theme['tc-list-items'],
-		'tc-list-items',
-	);
+	return classNames(theme['tc-list-items'], 'tc-list-items');
 }
 
 function itemsClasses() {
-	return classNames(
-		theme['tc-listview-items'],
-		'tc-listview-items',
-	);
+	return classNames(theme['tc-listview-items'], 'tc-listview-items');
 }
 
 function itemContainer(additionalClassName) {
@@ -28,7 +25,6 @@ function itemContainer(additionalClassName) {
 		additionalClassName,
 	);
 }
-
 
 class Items extends React.PureComponent {
 	constructor(props) {
@@ -81,8 +77,8 @@ class Items extends React.PureComponent {
 	}
 
 	renderToggleAll() {
-		const { toggleAllLabel, toggleAllChecked, onToggleAll } = this.props;
-		const toggleAllId = 'tc-listview-toggle-all';
+		const { id, toggleAllChecked, onToggleAll, t } = this.props;
+		const toggleAllId = `${id || 'tc-listview'}-toggle-all`;
 		return (
 			<div className="checkbox">
 				<label htmlFor={toggleAllId}>
@@ -92,20 +88,23 @@ class Items extends React.PureComponent {
 						onChange={onToggleAll}
 						checked={!!toggleAllChecked}
 					/>
-					<strong>{toggleAllLabel}</strong>
+					<strong>{t('LISTVIEW_ITEMS_TOGGLE_ALL', 'Toggle all')}</strong>
 				</label>
 			</div>
 		);
 	}
 
 	renderItem(item, index) {
-		const computedIndex = this.hasToggleAll ? index + 1 : index;
-		// affecting index to the item
+		let computedId;
+		if (this.props.id) {
+			const computedIndex = this.hasToggleAll ? index + 1 : index;
+			computedId = `${this.props.id}-${computedIndex}-item`;
+		}
 
 		return (
 			<Item
-				key={`${computedIndex}-item`}
-				id={`${computedIndex}-item`}
+				key={computedId}
+				id={computedId}
 				item={item}
 				searchCriteria={this.props.searchCriteria}
 			/>
@@ -139,20 +138,24 @@ class Items extends React.PureComponent {
 }
 
 Items.propTypes = {
-	items: PropTypes.arrayOf(PropTypes.shape({
-		label: PropTypes.string,
-		onChange: PropTypes.func,
-		checked: PropTypes.bool,
-		index: PropTypes.number,
-	})),
-	getItemHeight: PropTypes.oneOfType([
-		PropTypes.func,
-		PropTypes.number,
-	]),
+	id: PropTypes.string,
+	items: PropTypes.arrayOf(
+		PropTypes.shape({
+			label: PropTypes.string,
+			onChange: PropTypes.func,
+			checked: PropTypes.bool,
+			index: PropTypes.number,
+		}),
+	),
+	getItemHeight: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,
-	toggleAllLabel: PropTypes.string,
 	onToggleAll: PropTypes.func,
+	t: PropTypes.func,
 };
 
-export default Items;
+Items.defaultProps = {
+	t: getDefaultTranslate,
+};
+
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Items);
