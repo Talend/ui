@@ -1,6 +1,36 @@
-import { ARRAY_ABSTRACT, OBJECT_ABSTRACT, abstracter, getDataAbstract, getDataInfo } from './JSONLike.component';
+import React from 'react';
+import { shallow } from 'enzyme';
+import Component, {
+	ARRAY_ABSTRACT,
+	OBJECT_ABSTRACT,
+	abstracter,
+	getDataAbstract,
+	getDataInfo,
+} from './JSONLike.component';
 
 describe('JSONLike', () => {
+	it('should render', () => {
+		const data = {
+			foo: 'foo',
+			bar: {
+				hello: 'hello',
+			},
+		};
+		const wrapper = shallow(<Component data={data} />);
+		expect(wrapper.getNode()).toMatchSnapshot();
+	});
+
+	it('should support className', () => {
+		const data = {
+			foo: 'foo',
+			bar: {
+				hello: 'hello',
+			},
+		};
+		const wrapper = shallow(<Component data={data} className="extra-test" />);
+		expect(wrapper.props().className).toContain('extra-test');
+	});
+
 	describe('abstracter', () => {
 		const TEST_STRING = 'test';
 
@@ -34,7 +64,11 @@ describe('JSONLike', () => {
 		};
 
 		it('replaces the object type by the provided label', () => {
-			expect(getDataInfo(data, objLabel)).toEqual({ keys: ['k1', 'k2'], length: 2, type: 'Record' });
+			expect(getDataInfo(data, objLabel)).toEqual({
+				keys: ['k1', 'k2'],
+				length: 2,
+				type: 'Record',
+			});
 		});
 	});
 
@@ -63,7 +97,9 @@ describe('JSONLike', () => {
 		});
 
 		it('abstracts an object with nested objects', () => {
-			expect(getDataAbstract(mixedObject)).toEqual(`${OBJECT_ABSTRACT}, ${OBJECT_ABSTRACT}, true, quiet`);
+			expect(getDataAbstract(mixedObject)).toEqual(
+				`${OBJECT_ABSTRACT}, ${OBJECT_ABSTRACT}, true, quiet`,
+			);
 		});
 
 		it('abstracts an array of primitive', () => {

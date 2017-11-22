@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import classNames from 'classnames';
 
 import { Action } from '../../Actions';
 import Icon from '../../Icon';
@@ -81,9 +82,9 @@ function TreeViewItem({ id, item, depth = 0, onClick, onSelect }) {
 	const paddingLeft = `${depth * PADDING_NORMAL + PADDING_LARGE}px`;
 
 	return (
-		<li className={css['tc-treeview-li']} data-hidden={hidden}>
+		<li className={classNames('tc-treeview-item-li', css['tc-treeview-li'])} data-hidden={hidden}>
 			<div // eslint-disable-line jsx-a11y/no-static-element-interactions
-				className={css['tc-treeview-item']}
+				className={classNames('tc-treeview-item', css['tc-treeview-item'])}
 				data-selected={selected}
 				onClick={onSelectWrapper}
 				id={id}
@@ -97,7 +98,7 @@ function TreeViewItem({ id, item, depth = 0, onClick, onSelect }) {
 				<span className={css['tc-treeview-folder']}>
 					<Icon name={icon} key={icon} />
 				</span>
-				<span>{name}</span>
+				<span className="tc-treeview-item-name">{name}</span>
 				<div className={css['tc-treeview-item-ctrl']}>
 					{showCounter && <Badge label={counter.toString()} />}
 					{actions && actions.map(a => getIconAction(a.label, a.icon, a.action))}

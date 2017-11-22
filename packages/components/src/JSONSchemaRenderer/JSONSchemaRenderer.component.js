@@ -5,7 +5,7 @@ import entries from 'lodash/entries';
 
 import css from './JSONSchemaRenderer.scss';
 
-const className = 'json-schema-renderer';
+const CLASS_NAME = 'json-schema-renderer';
 
 export const RendererProptypes = {
 	propertyKey: PropTypes.string.isRequired,
@@ -74,10 +74,7 @@ function TextRenderer({ propertyKey, title, properties }) {
 
 TextRenderer.propTypes = {
 	...RendererProptypes,
-	properties: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number,
-	]).isRequired,
+	properties: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 /**
@@ -85,7 +82,10 @@ TextRenderer.propTypes = {
  */
 function BooleanRenderer({ propertyKey, title, properties }) {
 	return (
-		<div className={classNames('boolean-renderer', `boolean-renderer-${propertyKey}`)} key={propertyKey}>
+		<div
+			className={classNames('boolean-renderer', `boolean-renderer-${propertyKey}`)}
+			key={propertyKey}
+		>
 			<dt>{title || propertyKey}</dt>
 			<dd>{properties.toString()}</dd>
 		</div>
@@ -111,9 +111,7 @@ function ArrayRenderer({ propertyKey, title, properties }) {
 
 ArrayRenderer.propTypes = {
 	...RendererProptypes,
-	properties: PropTypes.arrayOf(
-		PropTypes.shape({ ...RendererProptypes })
-	).isRequired,
+	properties: PropTypes.arrayOf(PropTypes.shape({ ...RendererProptypes })).isRequired,
 };
 
 const registry = {
@@ -170,19 +168,15 @@ function typeResolver(schema, uiSchema) {
 function ObjectRenderer({ propertyKey, title, properties, schema, uiSchema = {} }) {
 	const flattenProperties = entries(properties);
 	const elements = flattenProperties.map(
-		typeResolver(schema[propertyKey].properties,
-		uiSchema[propertyKey])
+		typeResolver(schema[propertyKey].properties, uiSchema[propertyKey]),
 	);
 	return (
 		<div className={classNames(css.object, `object-renderer-${propertyKey}`)} key={propertyKey}>
 			<h2>{title || propertyKey}</h2>
-			<div>
-				{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}
-			</div>
+			<div>{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}</div>
 		</div>
 	);
 }
-
 
 ObjectRenderer.propTypes = {
 	...RendererProptypes,
@@ -220,7 +214,7 @@ function orderProperties(order, properties) {
  * properties
  * @returns {string} - HTML markup for the component
  */
-function JSONSchemaRenderer({ schema }) {
+function JSONSchemaRenderer({ schema, className, ...props }) {
 	if (!schema.jsonSchema || !schema.properties) {
 		throw new InvalidSchemaException();
 	}
@@ -230,7 +224,7 @@ function JSONSchemaRenderer({ schema }) {
 	}
 	const elements = properties.map(typeResolver(schema.jsonSchema.properties, schema.uiSchema));
 	return (
-		<dl className={classNames(css[className], 'json-schema-renderer')}>
+		<dl className={classNames(css[CLASS_NAME], 'json-schema-renderer', className)} {...props}>
 			{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}
 		</dl>
 	);
@@ -238,6 +232,7 @@ function JSONSchemaRenderer({ schema }) {
 
 JSONSchemaRenderer.propTypes = {
 	schema: PropTypes.shape({ ...SchemaProptypes }),
+	className: PropTypes.string,
 };
 
 JSONSchemaRenderer.InvalidSchemaException = InvalidSchemaException;

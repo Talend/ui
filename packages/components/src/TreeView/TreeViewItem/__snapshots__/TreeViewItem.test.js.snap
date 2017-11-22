@@ -2,11 +2,11 @@
 
 exports[`TreeView should render normally with all buttons and custom labels 1`] = `
 <li
-  className={undefined}
+  className="tc-treeview-item-li"
   data-hidden={undefined}
 >
   <div
-    className={undefined}
+    className="tc-treeview-item"
     data-selected={undefined}
     id={undefined}
     onClick={[Function]}
@@ -37,7 +37,9 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
         name="talend-folder"
       />
     </span>
-    <span>
+    <span
+      className="tc-treeview-item-name"
+    >
       grandpa
     </span>
     <div
