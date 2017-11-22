@@ -1,5 +1,5 @@
 
-> @talend/react-containers@0.125.0 lint:es /home/travis/build/Talend/ui/packages/containers
+> @talend/react-containers@0.126.0 lint:es /home/travis/build/Talend/ui/packages/containers
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -11,11 +11,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/containers/src/ActionSplitDropdown/ActionSplitDropdown.test.js
   4:10  error  'ActionSplitDropdown' is defined but never used  no-unused-vars
-
-/home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
-  106:35  error  Missing trailing comma                                  comma-dangle
-  155:62  error  Unexpected parentheses around single function argument  arrow-parens
-  158:64  error  Unexpected parentheses around single function argument  arrow-parens
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   12:90  error  'notifications' is missing in props validation  react/prop-types
@@ -29,5 +24,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 11 problems (10 errors, 1 warning)
+✖ 8 problems (7 errors, 1 warning)
 

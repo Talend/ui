@@ -9,9 +9,12 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <FilterBar
+    autoFocus={true}
+    className=""
     collectionToFilter="myCollectionToFilter"
     dockable={true}
     docked={true}
+    focus={false}
     navbar={true}
     onFilter={[Function]}
     onToggle={[Function]}
@@ -21,9 +24,12 @@ ShallowWrapper {
 />,
   "nodes": Array [
     <FilterBar
+      autoFocus={true}
+      className=""
       collectionToFilter="myCollectionToFilter"
       dockable={true}
       docked={true}
+      focus={false}
       navbar={true}
       onFilter={[Function]}
       onToggle={[Function]}
@@ -86,9 +92,12 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <FilterBar
+          autoFocus={true}
+          className=""
           collectionToFilter="myCollectionToFilter"
           dockable={true}
           docked={true}
+          focus={false}
           navbar={true}
           onFilter={[Function]}
           onToggle={[Function]}
@@ -98,9 +107,12 @@ ShallowWrapper {
 />,
         "_debugID": 2,
         "_renderedOutput": <FilterBar
+          autoFocus={true}
+          className=""
           collectionToFilter="myCollectionToFilter"
           dockable={true}
           docked={true}
+          focus={false}
           navbar={true}
           onFilter={[Function]}
           onToggle={[Function]}

@@ -405,7 +405,7 @@ Item.defaultProps = {
  * this is an indented list of item where each item render 'id: type #items'
  * @param {object} props react
  */
-export function JSONLike({ onSubmit, ...props }) {
+export function JSONLike({ onSubmit, className, style, ...props }) {
 	const rootIsObject = isObject(props.data);
 	let rootComputedLabel = null;
 
@@ -418,7 +418,8 @@ export function JSONLike({ onSubmit, ...props }) {
 	if (onSubmit) {
 		return (
 			<form
-				className={`tc-object-viewer ${theme.container} `}
+				className={classNames('tc-object-viewer', theme.container, className)}
+				style={style}
 				onSubmit={event => {
 					onSubmit(event);
 					event.preventDefault();
@@ -435,7 +436,7 @@ export function JSONLike({ onSubmit, ...props }) {
 	}
 
 	return (
-		<div className={`tc-object-viewer ${theme.container}`}>
+		<div className={classNames('tc-object-viewer', theme.container, className)} style={style}>
 			{rootComputedLabel ? (
 				<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
 					<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
@@ -449,6 +450,8 @@ export function JSONLike({ onSubmit, ...props }) {
 JSONLike.propTypes = {
 	data: PropTypes.oneOfType([...VALIDE_TYPES, ...COMPLEX_TYPES].map(t => `PropTypes.${t}`)),
 	onSubmit: PropTypes.func,
+	className: PropTypes.string,
+	style: PropTypes.object,
 	rootLabel: PropTypes.string,
 	tupleLabel: PropTypes.string,
 };
