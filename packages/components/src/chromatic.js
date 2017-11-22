@@ -11,9 +11,7 @@ if (process.env.NODE_ENV === 'development') {
 		// components - An array of components. You can simply import these components as you would ordinarily in your app. We will automatically detect their displayName.
 		// components: [],
 		// componentContext - a (array of) Webpack require context of files that export components.
-		componentContext: [
-			require.context('./', true, /\/[^.]*\.js/),
-		],
+		componentContext: [require.context('./', true, /\/[^.]*\.js/)],
 		// runtimes - an array of runtime configurations (see Storybook).
 		runtimes: [storybookRuntime],
 	});
