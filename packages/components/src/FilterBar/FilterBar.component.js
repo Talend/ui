@@ -80,7 +80,6 @@ FilterInput.propTypes = {
 	onToggle: PropTypes.func,
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
-	dockable: PropTypes.bool,
 };
 
 /**
