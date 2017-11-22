@@ -62,7 +62,11 @@ describe('Container SelectObject', () => {
 		it('should return a tree with only the item match', () => {
 			// given
 			const subfirst = new Immutable.Map({ id: 11, name: 'sub abc' });
-			const first = new Immutable.Map({ id: 1, name: 'abc', children: new Immutable.List([subfirst]) });
+			const first = new Immutable.Map({
+				id: 1,
+				name: 'abc',
+				children: new Immutable.List([subfirst]),
+			});
 			const second = new Immutable.Map({ id: 2, name: 'foo' });
 			const items = new Immutable.List([first, second]);
 
@@ -72,7 +76,13 @@ describe('Container SelectObject', () => {
 			// then
 			expect(results.size).toBe(1);
 			expect(results.get(0).get('name')).toBe('abc');
-			expect(results.get(0).get('children').get(0).get('name')).toBe('sub abc');
+			expect(
+				results
+					.get(0)
+					.get('children')
+					.get(0)
+					.get('name'),
+			).toBe('sub abc');
 		});
 	});
 });
