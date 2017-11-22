@@ -28,8 +28,8 @@ export function generateDefaultViewId(viewId, componentName, componentId) {
  * @param {*} componentName name of the cmfConnect component
  * @param {*} componentId componentId, can be undefined
  */
-export function nonMemoizedMapStateToViewProps(state, ownProps, componentName, componentId) {
-	let viewProps = {};
+export function nonMemoized(state, ownProps, componentName, componentId) {
+	let viewProps;
 	let viewId = ownProps.view;
 
 	viewId = generateDefaultViewId(viewId, componentName, componentId);
@@ -83,7 +83,7 @@ export function nonMemoizedMapStateToViewProps(state, ownProps, componentName, c
  * @return {Object}           React props for the component injected from the settings
  */
 export const mapStateToViewProps = memoize(
-	nonMemoizedMapStateToViewProps,
+	nonMemoized,
 	(state, ownProps, componentName, componentId) =>
 		`${ownProps.view}-${componentName}-${componentId}`,
 );
