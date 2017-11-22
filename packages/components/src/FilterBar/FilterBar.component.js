@@ -38,7 +38,6 @@ function FilterInput(props) {
 		autoFocus,
 		placeholder,
 		value,
-		dockable,
 	} = props;
 
 	const inputProps = {
@@ -81,7 +80,6 @@ FilterInput.propTypes = {
 	onToggle: PropTypes.func,
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
-	dockable: PropTypes.bool,
 };
 
 /**
