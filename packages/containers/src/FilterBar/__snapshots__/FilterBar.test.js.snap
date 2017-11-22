@@ -10,6 +10,7 @@ ShallowWrapper {
   "length": 1,
   "node": <FilterBar
     autoFocus={true}
+    className=""
     collectionToFilter="myCollectionToFilter"
     dockable={true}
     docked={true}
@@ -24,6 +25,7 @@ ShallowWrapper {
   "nodes": Array [
     <FilterBar
       autoFocus={true}
+      className=""
       collectionToFilter="myCollectionToFilter"
       dockable={true}
       docked={true}
@@ -91,6 +93,7 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <FilterBar
           autoFocus={true}
+          className=""
           collectionToFilter="myCollectionToFilter"
           dockable={true}
           docked={true}
@@ -105,6 +108,7 @@ ShallowWrapper {
         "_debugID": 2,
         "_renderedOutput": <FilterBar
           autoFocus={true}
+          className=""
           collectionToFilter="myCollectionToFilter"
           dockable={true}
           docked={true}
