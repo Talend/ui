@@ -7,8 +7,8 @@ src/Actions/ActionFile/ActionFile.scss
   5:12  error  Strings must use single quotes  quotes
 
 src/FilterBar/FilterBar.scss
-   3:33  warning  Hex notation should all be upper case  hex-notation
-  54:6   warning  Vendor prefixes should not be used     no-vendor-prefixes
+   2:33  warning  Hex notation should all be upper case  hex-notation
+  48:6   warning  Vendor prefixes should not be used     no-vendor-prefixes
 
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
