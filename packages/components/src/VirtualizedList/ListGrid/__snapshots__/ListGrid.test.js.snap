@@ -103,7 +103,9 @@ exports[`ListGrid should render no-rows component 1`] = `
             aria-live="polite"
             className="no-result"
             role="status"
-          />
+          >
+            No result found
+          </span>
         </NoRows>
       </div>
     </Grid>
