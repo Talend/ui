@@ -214,7 +214,7 @@ function orderProperties(order, properties) {
  * properties
  * @returns {string} - HTML markup for the component
  */
-function JSONSchemaRenderer({ schema, className }) {
+function JSONSchemaRenderer({ schema, className, ...props }) {
 	if (!schema.jsonSchema || !schema.properties) {
 		throw new InvalidSchemaException();
 	}
@@ -224,7 +224,7 @@ function JSONSchemaRenderer({ schema, className }) {
 	}
 	const elements = properties.map(typeResolver(schema.jsonSchema.properties, schema.uiSchema));
 	return (
-		<dl className={classNames(css[CLASS_NAME], 'json-schema-renderer', className)}>
+		<dl className={classNames(css[CLASS_NAME], 'json-schema-renderer', className)} {...props}>
 			{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}
 		</dl>
 	);

@@ -96,7 +96,7 @@ class FilterBar extends React.Component {
 		this.state = { focus: this.props.focus };
 	}
 
-	onFocus() {
+	onFocus(event) {
 		this.setState({ focus: true });
 		if (this.props.onFocus) {
 			this.props.onFocus(event);

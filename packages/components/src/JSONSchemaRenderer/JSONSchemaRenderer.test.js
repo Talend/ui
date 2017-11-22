@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import JSONSchemaRenderer, { InvalidSchemaException, UnkownTypeException } from './JSONSchemaRenderer.component';
 
@@ -9,6 +9,18 @@ describe('JSONSchemaRenderer', () => {
 		const schema = { jsonSchema: {}, properties: {} };
 		const wrapper = renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should support custom className', () => {
+		const schema = { jsonSchema: {}, properties: {} };
+		const wrapper = shallow(<JSONSchemaRenderer schema={schema} className="custom-test" />);
+		expect(wrapper.props().className).toContain('custom-test');
+	});
+
+	it('should support custom props', () => {
+		const schema = { jsonSchema: {}, properties: {} };
+		const wrapper = shallow(<JSONSchemaRenderer schema={schema} extra="foo" />);
+		expect(wrapper.props().extra).toBe('foo');
 	});
 
 	it('should render strings and integers', () => {
