@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import FilterBar from './FilterBar.component';
+import Icon from '../Icon';
 
 jest.useFakeTimers();
 
@@ -182,5 +183,20 @@ describe('FilterBar', () => {
 		// then
 		expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount + 1);
 		expect(setTimeout.mock.calls[0][1]).toBe(debounceTimeout);
+	});
+
+	it('when value is reset to undefined form outside search icon should be displayed', () => {
+		// given
+		const props = { dockable: false };
+		const filterInstance = mount(<FilterBar {...props} />);
+
+		// when
+		// value is change by the user
+		filterInstance.setState({ value: 'test' });
+		// and reset by the host
+		filterInstance.setProps({ value: undefined });
+
+		// then the search icon should appear
+		expect(filterInstance.find(Icon).length).toEqual(2);
 	});
 });
