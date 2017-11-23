@@ -265,8 +265,9 @@ function loadStories() {
 		actions['subheaderbar:action-filter'] = {
 			id: 'subheaderbar:action-filter',
 			componentId: 'FilterBar',
-			t: () => console.log('t'),
-			onFilter: () => console.log('onFilter'),
+			navbar: true,
+			docked: false,
+			dockable: false,
 		};
 
 		const story = storiesOf(example);

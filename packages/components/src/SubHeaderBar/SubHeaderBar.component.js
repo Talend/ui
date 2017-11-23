@@ -77,32 +77,34 @@ EditTitle.propTypes = {
 	onClickCancel: PropTypes.func.isRequired,
 };
 
-function ActionsRight({ actionsContentRight }) {
-	if (actionsContentRight && Array.isArray(actionsContentRight)) {
-		const actions = actionsContentRight.map((action, index) => {
+function Actions({ actions }, right, center) {
+	if (actions && Array.isArray(actions)) {
+		const actionsComponent = actions.map((action, index) => {
 			if (action.tag === 'button') {
 				return (
-					<ActionBar.Content key={index} tag="button" right>
+					<ActionBar.Content key={index} tag="button" center={center} right={right}>
 						<Action key={index} {...action} />
 					</ActionBar.Content>
 				);
 			}
 			return (
-				<ActionBar.Content key={index} tag={action.tag} right>
+				<ActionBar.Content key={index} tag={action.tag} center={center} right={right}>
 					{action.component}
 				</ActionBar.Content>
 			);
 		});
-		return <ActionBar className={theme['tc-subheader-bar-action-bar']}>{actions}</ActionBar>;
+		return (
+			<ActionBar className={theme['tc-subheader-bar-action-bar']}>{actionsComponent}</ActionBar>
+		);
 	}
 	return null;
 }
 
-ActionsRight.propTypes = {
-	actionsContentRight: PropTypes.array,
+Actions.propTypes = {
+	actions: PropTypes.array,
 };
 
-function SubHeaderBar({ backAction, editMode, ...rest }) {
+function SubHeaderBar({ backAction, actionsCenter, actionsRight, editMode, ...rest }) {
 	return (
 		<nav className={classNames(theme['tc-subheader-bar'])}>
 			<span className={classNames(theme['tc-subheader-bar-back-button'])}>
@@ -111,7 +113,8 @@ function SubHeaderBar({ backAction, editMode, ...rest }) {
 				</ActionBar.Content>
 			</span>
 			{editMode ? <EditTitle {...rest} /> : <DetailsTitle {...rest} />}
-			<ActionsRight {...rest} />
+			{actionsCenter && <Actions actions={actionsCenter} center right={false} />}
+			{actionsRight && <Actions actions={actionsRight} center={false} right />}
 		</nav>
 	);
 }
@@ -119,6 +122,8 @@ function SubHeaderBar({ backAction, editMode, ...rest }) {
 SubHeaderBar.propTypes = {
 	backAction: PropTypes.object,
 	editMode: PropTypes.bool,
+	actionsCenter: PropTypes.array,
+	actionsRight: PropTypes.array,
 };
 
 SubHeaderBar.propTypes.default = {

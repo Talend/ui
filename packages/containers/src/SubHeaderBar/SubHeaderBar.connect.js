@@ -17,7 +17,7 @@ function getActionInfo(actionId, state) {
 function mapStateToProps(state, ownProps) {
 	if (ownProps.actionsRight) {
 		return {
-			actionsContentRight: ownProps.actionsRight.map(actionId => {
+			actionsRight: ownProps.actionsRight.map(actionId => {
 				const actionInfo = getActionInfo(actionId, state);
 				if (actionInfo.componentId) {
 					actionInfo.component = <Inject component={actionInfo.componentId} {...actionInfo} />;
