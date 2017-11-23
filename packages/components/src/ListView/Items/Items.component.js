@@ -88,7 +88,7 @@ class Items extends React.PureComponent {
 						onChange={onToggleAll}
 						checked={!!toggleAllChecked}
 					/>
-					<strong>{t('LISTVIEW_ITEMS_TOGGLE_ALL', 'Toggle all')}</strong>
+					<strong>{t('LISTVIEW_ITEMS_TOGGLE_ALL', { defaultValue: 'Toggle all' })}</strong>
 				</label>
 			</div>
 		);
