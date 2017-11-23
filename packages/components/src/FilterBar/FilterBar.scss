@@ -35,10 +35,9 @@ $tc-filter-bar-width: 250px !default;
 
 	.search {
 		box-shadow: none;
-		padding-right: $padding-small;
 		color: $dove-gray;
 		font-size: $font-size-base;
-		margin-left: $padding-small;
+		margin: 0 $padding-small;
 
 		&::placeholder {
 			color: $dark-silver;
