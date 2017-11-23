@@ -6,69 +6,53 @@ import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
 import theme from './SubHeaderBar.scss';
 
-class SubHeaderBar extends React.Component {
-	static propTypes = {
-		title: PropTypes.string.isRequied,
-		onClickValidate: PropTypes.func.isRequired,
-		subTitle: PropTypes.string,
-		iconFile: PropTypes.string,
-	};
+function DetailsTitle({ title, subTitle, iconFile, onClickEdit }) {
+	return (
+		<div className={theme['tc-subheader-bar-details']}>
+			<span className={theme['tc-subheader-bar-icon-box']}>
+				{iconFile && <Icon name={iconFile} className={theme['tc-subheader-bar-icon']} />}
+			</span>
+			<span className={theme['tc-subheader-bar-details-text']}>
+				<span className={theme['tc-subheader-bar-details-title']}>{title}</span>
+				<Icon
+					name="talend-pencil"
+					className={theme['tc-subheader-bar-details-pencil']}
+					onClick={onClickEdit}
+				/>
+				{subTitle && <div className={theme['tc-subheader-bar-details-subtitle']}>{subTitle}</div>}
+			</span>
+		</div>
+	);
+}
 
-	constructor(props) {
-		super(props);
-		this.onClickEdit = this.onClickEdit.bind(this);
-		this.onClickCancel = this.onClickCancel.bind(this);
-		this.getDetails = this.getDetails.bind(this);
-		this.getEditTitle = this.getEditTitle.bind(this);
-		this.state = {
-			editMode: false,
-		};
-	}
+DetailsTitle.propTypes = {
+	title: PropTypes.string.isRequired,
+	subTitle: PropTypes.string,
+	iconFile: PropTypes.string,
+	onClickEdit: PropTypes.func.isRequired,
+};
 
-	onClickEdit() {
-		this.setState({ editMode: !this.state.editMode });
-	}
-
-	onClickCancel() {
-		this.setState({ editMode: false });
-	}
-
-	getDetails() {
-		const { title, subTitle, iconFile } = this.props;
-		return (
-			<div className={theme['tc-subheader-bar-details']}>
-				{iconFile && <Icon name={iconFile} className={theme['tc-subheader-bar-details-icon']} />}
-				<p className={theme['tc-subheader-bar-details-text']}>
-					{title && (
-						<span>
-							<span className={theme['tc-subheader-bar-details-title']}>{title}</span>
-							<Icon
-								name="talend-pencil"
-								className={theme['tc-subheader-bar-details-pencil']}
-								onClick={this.onClickEdit}
-							/>
-						</span>
-					)}
-					{subTitle && <div className={theme['tc-subheader-bar-details-subtitle']}>{subTitle}</div>}
-				</p>
-			</div>
-		);
-	}
-
-	getEditTitle() {
-		const { title, iconFile, onClickValidate } = this.props;
-		return (
-			<div className={theme['tc-subheader-bar-form']}>
-				{iconFile && (
-					<Icon name={iconFile} className={theme['tc-subheader-bar-form-details-icon']} />
-				)}
-				<form>
-					<div className={classNames(theme['tc-subheader-bar-form-group'], 'form-group')}>
-						<div className="col-lg-10">
-							<input type="text" className="form-control" id="inputTitle" placeholder={title} />
-						</div>
+function EditTitle({ title, iconFile, onClickValidate, onClickCancel }) {
+	return (
+		<div className={theme['tc-subheader-bar-form']}>
+			{iconFile && (
+				<span className={theme['tc-subheader-bar-icon-box']}>
+					<Icon name={iconFile} className={theme['tc-subheader-bar-icon']} />
+				</span>
+			)}
+			<form className={theme['tc-subheader-bar-form-box']}>
+				<div className={classNames(theme['tc-subheader-bar-form-group'], 'form-group')}>
+					<div className={classNames(theme['tc-subheader-bar-override-width'], 'col-lg-10')}>
+						<input
+							type="text"
+							className={classNames(theme['tc-subheader-bar-input-field'], 'form-control')}
+							id="inputTitle"
+							placeholder={title}
+						/>
 					</div>
-				</form>
+				</div>
+			</form>
+			<div className={theme['tc-subheader-bar-form-icon-box']}>
 				<Icon
 					className={theme['tc-subheader-bar-form-icon-validate']}
 					name="talend-check"
@@ -77,32 +61,66 @@ class SubHeaderBar extends React.Component {
 				<Icon
 					className={theme['tc-subheader-bar-form-icon-cancel']}
 					name="talend-cross"
-					onClick={this.onClickCancel}
+					onClick={onClickCancel}
 				/>
 			</div>
-		);
-	}
-
-	render() {
-		return (
-			<nav className={classNames(theme['tc-subheader-bar'])}>
-				<span className={classNames(theme['tc-subheader-bar-back-button'])}>
-					<ActionBar.Content tag="button" left>
-						<Action {...this.props.returnAction} hideLabel />
-					</ActionBar.Content>
-				</span>
-				{this.state.editMode ? this.getEditTitle() : this.getDetails()}
-				{this.props.rightActions && <ActionBar selected={0} actions={this.props.rightActions} />}
-			</nav>
-		);
-	}
+		</div>
+	);
 }
 
-export default SubHeaderBar;
+EditTitle.propTypes = {
+	title: PropTypes.string.isRequired,
+	iconFile: PropTypes.string,
+	onClickValidate: PropTypes.func.isRequired,
+	onClickCancel: PropTypes.func.isRequired,
+};
 
-// <ActionBar.Content tag="button" right>
-// 	<Action className={theme['tc-subheader-bar-button-overlay']} icon="talend-bubbles" onClick={() => console.log('return bubbles')} />
-// 	<Action className={theme['tc-subheader-bar-button-overlay']} icon="talend-activity" onClick={() => console.log('return activity')} />
-// 	<Action className={theme['tc-subheader-bar-button-overlay']} icon="talend-bell" onClick={() => console.log('return bell')} />
-// 	<Action className={theme['tc-subheader-bar-button-overlay']} icon="talend-check" onClick={() => console.log('return check')} />
-// </ActionBar.Content>
+function ActionsRight({ actionsContentRight }) {
+	if (actionsContentRight && Array.isArray(actionsContentRight)) {
+		const actions = actionsContentRight.map((action, index) => {
+			if (action.tag === 'button') {
+				return (
+					<ActionBar.Content key={index} tag="button" right>
+						<Action key={index} {...action} />
+					</ActionBar.Content>
+				);
+			}
+			return (
+				<ActionBar.Content key={index} tag={action.tag} right>
+					{action.component(action.componentProps)}
+				</ActionBar.Content>
+			);
+		});
+		return <ActionBar className={theme['tc-subheader-bar-action-bar']}>{actions}</ActionBar>;
+	}
+	return null;
+}
+
+ActionsRight.propTypes = {
+	actionsContentRight: PropTypes.array,
+};
+
+function SubHeaderBar({ backAction, editMode, ...rest }) {
+	return (
+		<nav className={classNames(theme['tc-subheader-bar'])}>
+			<span className={classNames(theme['tc-subheader-bar-back-button'])}>
+				<ActionBar.Content tag="button" left>
+					<Action {...backAction} hideLabel />
+				</ActionBar.Content>
+			</span>
+			{editMode ? <EditTitle {...rest} /> : <DetailsTitle {...rest} />}
+			<ActionsRight {...rest} />
+		</nav>
+	);
+}
+
+SubHeaderBar.propTypes = {
+	backAction: PropTypes.object,
+	editMode: PropTypes.bool,
+};
+
+SubHeaderBar.propTypes.default = {
+	editMode: false,
+};
+
+export default SubHeaderBar;

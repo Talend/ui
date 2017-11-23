@@ -1,5 +1,15 @@
 import { cmfConnect } from '@talend/react-cmf';
-import SubHeaderBar from './SubHeaderBar.container';
+import SubHeaderBar, { DEFAULT_STATE } from './SubHeaderBar.container';
 
-export default cmfConnect({})(SubHeaderBar);
+function mapStateToPops(state, ownProps) {
+    
+    
 
+
+}
+
+export default cmfConnect({
+	componentId: ownProps => ownProps.id,
+	defaultState: DEFAULT_STATE,
+	mapStateToPops,
+})(SubHeaderBar);

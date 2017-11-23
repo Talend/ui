@@ -1,20 +1,73 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { SubHeaderBar as Component } from '@talend/react-components';
+import Immutable from 'immutable';
 
-const viewSubHeader = {
-	iconFile: 'talend-file-csv-o',
-	title: 'Marketing',
-	subTitle: 'Creator John Doe',
-};
-
-const returnArrowProps = {
-	id: 'returnArrow',
-	icon: 'talend-arrow-left',
-	onClick: () => console.log('return arrown left'),
-};
+export const DEFAULT_STATE = new Immutable.Map({
+	editMode: false,
+});
 
 class SubHeaderBar extends React.Component {
+	static propTypes = {
+		actionCreatorCancel: PropTypes.func,
+		actionCreatorEdit: PropTypes.func,
+		actionCreatorValidate: PropTypes.func,
+		onClickCancel: PropTypes.func,
+		onClickEdit: PropTypes.func,
+		onClickValidate: PropTypes.func,
+	};
+
+	constructor(props) {
+		super(props);
+		this.onClickCancel = this.onClickCancel.bind(this);
+		this.onClickEdit = this.onClickEdit.bind(this);
+		this.onClickValidate = this.onClickValidate.bind(this);
+	}
+
+	onClickValidate(event) {
+		if (this.props.actionCreatorValidate) {
+			this.dispatchActionCreator(this.props.actionCreatorValidate, event, {
+				props: this.props,
+			});
+		}
+		if (this.props.onClickValidate) {
+			this.props.onClickValidate(event);
+		}
+	}
+
+	onClickCancel(event) {
+		this.props.setState({ editMode: false });
+		if (this.props.actionCreatorCancel) {
+			this.dispatchActionCreator(this.props.actionCreatorCancel, event, {
+				props: this.props,
+			});
+		}
+		if (this.props.onClickCancel) {
+			this.props.onClickCancel(event);
+		}
+	}
+
+	onClickEdit(event) {
+		this.props.setState({ editMode: !this.props.state.get('editMode') });
+		if (this.props.actionCreatorEdit) {
+			this.dispatchActionCreator(this.props.actionCreatorEdit, event, {
+				props: this.props,
+			});
+		}
+		if (this.props.onClickEdit) {
+			this.props.onClickEdit(event);
+		}
+	}
+
 	render() {
-		return <Component {...viewSubHeader} returnAction={returnArrowProps} />;
+		const state = this.props.state || DEFAULT_STATE;
+		const props = Object.assign({}, this.props, {
+			editMode: state.get('editMode'),
+			onClickEdit: this.onClickEdit,
+			onClickCancel: this.onClickCancel,
+			onClickValidate: this.onClickValidate,
+		});
+		return <Component {...props} />;
 	}
 }
 
