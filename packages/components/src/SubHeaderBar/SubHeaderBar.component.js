@@ -53,11 +53,13 @@ function EditTitle({ title, iconFile, onClickValidate, onClickCancel }) {
 				</div>
 			</form>
 			<div className={theme['tc-subheader-bar-form-icon-box']}>
+				{/* TODO MAKE ACTION COMPONENT */}
 				<Icon
 					className={theme['tc-subheader-bar-form-icon-validate']}
 					name="talend-check"
 					onClick={onClickValidate}
 				/>
+				{/* TODO MAKE ACTION COMPONENT */}
 				<Icon
 					className={theme['tc-subheader-bar-form-icon-cancel']}
 					name="talend-cross"
@@ -87,7 +89,7 @@ function ActionsRight({ actionsContentRight }) {
 			}
 			return (
 				<ActionBar.Content key={index} tag={action.tag} right>
-					{action.component(action.componentProps)}
+					{action.component}
 				</ActionBar.Content>
 			);
 		});

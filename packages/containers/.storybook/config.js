@@ -5,7 +5,7 @@ import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-
+import { FilterBar } from '../src/index';
 import examples from '../examples';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
@@ -49,12 +49,21 @@ function chooseItem2() {
 	};
 }
 
+function sharingOverlayDisplay() {
+	return {
+		type: 'OVERLAY_SHARING',
+	};
+}
+
+api.component.register('FilterBar', FilterBar);
+
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
 registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
 registerActionCreator('item1:action', chooseItem1);
 registerActionCreator('item2:action', chooseItem2);
+registerActionCreator('overlay:display-sharing', sharingOverlayDisplay);
 
 const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
@@ -91,7 +100,8 @@ function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
 		state.cmf.collections = state.cmf.collections.set(
-			'myResourceType', List([Map({ id: 'myID', label: 'myLabel' })]),
+			'myResourceType',
+			List([Map({ id: 'myID', label: 'myLabel' })]),
 		);
 		state.cmf.collections = state.cmf.collections.set(
 			'with',
@@ -243,6 +253,20 @@ function loadStories() {
 			id: 'dialog:delete:cancel',
 			label: 'No',
 			actionCreator: 'cancel:hide:dialog',
+		};
+		actions['subheaderbar:action-sharing'] = {
+			id: 'subheaderbar:action-sharing',
+			tag: 'button',
+			actionCreator: 'overlay:display-sharing',
+			icon: 'talend-share-alt',
+			hideLabel: true,
+			overlay: false,
+		};
+		actions['subheaderbar:action-filter'] = {
+			id: 'subheaderbar:action-filter',
+			componentId: 'FilterBar',
+			t: () => console.log('t'),
+			onFilter: () => console.log('onFilter'),
 		};
 
 		const story = storiesOf(example);

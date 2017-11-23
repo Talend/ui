@@ -24,7 +24,7 @@ const backAction = {
 const actions = [
 	{
 		tag: 'button',
-		icon: 'talend-bubbles',
+		icon: 'talend-share-alt',
 		onClick: action('return action1'),
 		hideLabel: true,
 	},
