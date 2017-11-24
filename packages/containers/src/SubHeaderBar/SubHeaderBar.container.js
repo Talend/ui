@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { SubHeaderBar as Component } from '@talend/react-components';
 import Immutable from 'immutable';
+import omit from 'lodash/omit';
+import { componentState, cmfConnect } from '@talend/react-cmf';
 
 export const DEFAULT_STATE = new Immutable.Map({
 	editMode: false,
@@ -9,6 +11,7 @@ export const DEFAULT_STATE = new Immutable.Map({
 
 class SubHeaderBar extends React.Component {
 	static propTypes = {
+		// ...componentState,
 		actionCreatorCancel: PropTypes.func,
 		actionCreatorEdit: PropTypes.func,
 		actionCreatorValidate: PropTypes.func,
@@ -61,7 +64,7 @@ class SubHeaderBar extends React.Component {
 
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
-		const props = Object.assign({}, this.props, {
+		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), {
 			editMode: state.get('editMode'),
 			onClickEdit: this.onClickEdit,
 			onClickCancel: this.onClickCancel,

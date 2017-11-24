@@ -14,19 +14,25 @@ function getActionInfo(actionId, state) {
 	);
 }
 
+function buildActions(actions, state) {
+	return actions.map(actionId => {
+		const actionInfo = getActionInfo(actionId, state);
+		if (actionInfo.componentId) {
+			actionInfo.component = <Inject component={actionInfo.componentId} {...actionInfo} />;
+		}
+		return actionInfo;
+	});
+}
+
 function mapStateToProps(state, ownProps) {
+	const props = {};
 	if (ownProps.actionsRight) {
-		return {
-			actionsRight: ownProps.actionsRight.map(actionId => {
-				const actionInfo = getActionInfo(actionId, state);
-				if (actionInfo.componentId) {
-					actionInfo.component = <Inject component={actionInfo.componentId} {...actionInfo} />;
-				}
-				return actionInfo;
-			}),
-		};
+		props.actionsRight = buildActions(ownProps.actionsRight, state);
 	}
-	return {};
+	if (ownProps.actionsCenter) {
+		props.actionsCenter = buildActions(ownProps.actionsRight, state);
+	}
+	return props;
 }
 
 export default cmfConnect({

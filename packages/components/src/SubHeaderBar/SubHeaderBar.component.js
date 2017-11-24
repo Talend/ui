@@ -83,7 +83,7 @@ function Actions({ actions }, right, center) {
 			if (action.tag === 'button') {
 				return (
 					<ActionBar.Content key={index} tag="button" center={center} right={right}>
-						<Action key={index} {...action} />
+						<Action {...action} />
 					</ActionBar.Content>
 				);
 			}
