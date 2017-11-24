@@ -1,3 +1,5 @@
+import './chromatic.js';
+
 import {
 	Alert,
 	Badge,
