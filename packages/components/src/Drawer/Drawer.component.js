@@ -62,7 +62,7 @@ function DrawerContainer({ stacked, className, children, withTransition = true, 
 		});
 	return (
 		<div className={drawerContainerClasses} {...rest}>
-			<div className={theme['tc-drawer-container']}>
+			<div className={`tc-drawer-container ${theme['tc-drawer-container']}`}>
 				{children}
 			</div>
 		</div>
@@ -89,7 +89,7 @@ export function cancelActionComponent(onCancelAction) {
 }
 
 export function subtitleComponent(subtitle) {
-	if (!subtitle || subtitle === '') {
+	if (!subtitle || !subtitle.length) {
 		return null;
 	}
 	return <h2 title={subtitle}>{subtitle}</h2>;
