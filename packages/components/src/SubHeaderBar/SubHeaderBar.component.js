@@ -94,7 +94,6 @@ function SubHeaderBarActions({ actions, right, center }) {
 			);
 		});
 		return <div className={theme['tc-subheader-bar-action-bar']}>{actionsComponent}</div>;
-		// <ActionBar className={theme['tc-subheader-bar-action-bar']}>{actionsComponent}</ActionBar>
 	}
 	return null;
 }
