@@ -24,11 +24,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-/home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.container.js
-  12:17  warning  Unexpected console statement                         no-console
-  15:1   error    Component should be written as a pure function       react/prefer-stateless-function
-  16:8   error    Expected 'this' to be used by class method 'render'  class-methods-use-this
-  17:11  error    'Component' is not defined                           react/jsx-no-undef
-
-✖ 12 problems (10 errors, 2 warnings)
+✖ 8 problems (7 errors, 1 warning)
 

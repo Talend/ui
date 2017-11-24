@@ -22,17 +22,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/SubHeaderBar.component.js
-   91:30  error  'returnAction' is missing in props validation    react/prop-types
-   95:17  error  'rightActions' is missing in props validation    react/prop-types
-   95:77  error  'rightActions' is missing in props validation    react/prop-types
-  104:1   error  Line 104 exceeds the maximum line length of 100  max-len
-  105:1   error  Line 105 exceeds the maximum line length of 100  max-len
-  106:1   error  Line 106 exceeds the maximum line length of 100  max-len
-  107:1   error  Line 107 exceeds the maximum line length of 100  max-len
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 16 problems (16 errors, 0 warnings)
+✖ 9 problems (9 errors, 0 warnings)
 
