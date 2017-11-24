@@ -54,12 +54,16 @@ $tc-filter-bar-width: 250px !default;
 		color: opacify($gray, 0.2);
 		padding: $padding-smaller 0;
 		line-height: 2rem;
-		margin-left: -(2 * $padding-small); // small + btn svg margin
+		// sorry magic number
+		// can't quite mix pixel units and rem
+		// $padding-small & $svg-xs-size
+		// ideally this should be -(($padding-small * 2) + $svg-xs-size)
+		margin-left: -28px;
 
 		:global(.tc-svg-icon) {
 			height: $svg-xs-size;
 			width: $svg-xs-size;
-			margin-right: $padding-small;
+			margin: 0 $padding-small;
 			vertical-align: baseline;
 		}
 	}
