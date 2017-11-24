@@ -90,7 +90,9 @@ describe('JSONLike', () => {
 			});
 		});
 
-		it(`${birthData.notCompliantString} should have a type "string" as it does not meet any of datetime, date or time regexp`, () => {
+		it(`${
+			birthData.notCompliantString
+		} should have a type "string" as it does not meet any of datetime, date or time regexp`, () => {
 			expect(getDataInfo(birthData.notCompliantString)).toEqual({
 				type: 'string',
 				keys: Object.keys(birthData.notCompliantString),
