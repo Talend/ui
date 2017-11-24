@@ -1,3 +1,7 @@
 .tc-list-list {
 	padding: $padding-normal;
+
+	&:focus {
+		outline: none;
+	}
 }

@@ -173,7 +173,6 @@ export function getDataInfo(data, tupleLabel) {
 		}
 	}
 
-
 	return info;
 }
 
