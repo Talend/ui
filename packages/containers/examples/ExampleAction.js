@@ -19,6 +19,14 @@ const eAction = {
 	},
 };
 
+const overlayComponentProps = {
+	collection: 'with.data',
+	nameAttr: 'label',
+	onToggleActionCreator: 'object:view',
+	onSelectActionCreator: 'object:view',
+	noHeader: true,
+};
+
 export default function ExampleAction() {
 	return (
 		<div>
@@ -57,6 +65,13 @@ export default function ExampleAction() {
 				label="should not be displayed: model without label"
 				availableExpression="modelHasLabel"
 				model={{ id: 'bar' }}
+			/>
+			<p>Using actions with overlay</p>
+			<Action
+				overlayComponent="testComponent"
+				overlayComponentProps={overlayComponentProps}
+				overlayPlacement="bottom"
+				{...myAction}
 			/>
 		</div>
 	);
