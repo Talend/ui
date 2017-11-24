@@ -21,7 +21,7 @@ const backAction = {
 	className: 'tc-subheader-bar-back-icon',
 };
 
-const actions = [
+const actionsRight = [
 	{
 		tag: 'button',
 		icon: 'talend-share-alt',
@@ -40,14 +40,20 @@ const actions = [
 		onClick: action('return action3'),
 		hideLabel: true,
 	},
+];
+
+const actionsCenter = [
 	{
 		tag: 'form',
-		component: FilterBar,
-		componentProps: {
-			id: 'toto',
-			t: () => action('t'),
-			onFilter: () => action('onFilter'),
-		},
+		component: (
+			<FilterBar
+				t={() => action('t')}
+				onFilter={() => action('onFilter')}
+				navbar
+				docked={false}
+				dockable={false}
+			/>
+		),
 	},
 ];
 
@@ -74,9 +80,26 @@ stories
 			<SubHeaderBar {...props} />
 		</div>
 	))
-	.addWithInfo('with icon file and actions', () => (
+	.addWithInfo('with icon file and right actions', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar iconFile="talend-file-csv-o" actionsContentRight={actions} {...props} />
+			<SubHeaderBar iconFile="talend-file-csv-o" actionsRight={actionsRight} {...props} />
+		</div>
+	))
+	.addWithInfo('with icon file and center actions', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar iconFile="talend-file-csv-o" actionsCenter={actionsCenter} {...props} />
+		</div>
+	))
+	.addWithInfo('with icon file and center && right actions', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				iconFile="talend-file-csv-o"
+				actionsCenter={actionsCenter}
+				actionsRight={actionsRight}
+				{...props}
+			/>
 		</div>
 	));

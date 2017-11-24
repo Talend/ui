@@ -126,8 +126,8 @@ SubHeaderBar.propTypes = {
 	actionsRight: PropTypes.array,
 };
 
-SubHeaderBar.propTypes.default = {
-	editMode: false,
-};
+// SubHeaderBar.propTypes.default = {
+// 	editMode: false,
+// };
 
 export default SubHeaderBar;

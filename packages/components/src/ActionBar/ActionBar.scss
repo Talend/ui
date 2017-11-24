@@ -28,6 +28,7 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 
 	.navbar-center {
 		display: inline-block;
+		align-self: center;
 	}
 
 	:global(.navbar-form),
