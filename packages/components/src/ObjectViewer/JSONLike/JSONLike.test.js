@@ -6,9 +6,6 @@ import Component, {
 	abstracter,
 	getDataAbstract,
 	getDataInfo,
-	dateTimeRegexp,
-	timeRegexp,
-	dateRegexp,
 } from './JSONLike.component';
 
 describe('JSONLike', () => {
@@ -65,38 +62,38 @@ describe('JSONLike', () => {
 			k1: 'v1',
 			k2: { k21: 'v21' },
 		};
-		const dateTimeData = {
-			birthdateTime: '1985-03-01T12:19:58Z',
-		};
-		const dateData = {
-			birthDate: '1985-03-01',
-		};
-		const timeData = {
-			birthTime: '12:19:58',
+		const birthData = {
+			completeDateTime: '1985-03-01T12:19:58Z',
+			justDate: '1985-03-01',
+			justTime: '12:19:58',
+			notCompliantString: '1985-03-01 12:19:58Z',
 		};
 
-		it('should change type to datetime', () => {
-			const info = getDataInfo(dateTimeData);
-			expect(info).toEqual({
-				type: 'type',
-				keys: ['birthdateTime'],
-				length: 1,
+		it(`${birthData.completeDateTime} should have a type "datetime"`, () => {
+			expect(getDataInfo(birthData.completeDateTime)).toEqual({
+				type: 'datetime',
+				keys: Object.keys(birthData.completeDateTime),
 			});
 		});
 
-		it('should change type to date', () => {
-			expect(getDataInfo(dateData)).toEqual({
-				type: 'object',
-				keys: ['birthDate'],
-				length: 1,
+		it(`${birthData.justDate} should have a type "date"`, () => {
+			expect(getDataInfo(birthData.justDate)).toEqual({
+				type: 'date',
+				keys: Object.keys(birthData.justDate),
 			});
 		});
 
-		it('should change type to time', () => {
-			expect(getDataInfo(timeData)).toEqual({
-				type: 'object',
-				keys: ['birthTime'],
-				length: 1,
+		it(`${birthData.justTime} should have a type "time"`, () => {
+			expect(getDataInfo(birthData.justTime)).toEqual({
+				type: 'time',
+				keys: Object.keys(birthData.justTime),
+			});
+		});
+
+		it(`${birthData.notCompliantString} should have a type "string" as it does not meet any of datetime, date or time regexp`, () => {
+			expect(getDataInfo(birthData.notCompliantString)).toEqual({
+				type: 'string',
+				keys: Object.keys(birthData.notCompliantString),
 			});
 		});
 

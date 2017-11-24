@@ -24,6 +24,7 @@ const dateTimeData = [
 		birth: '1985-03-01T12:19:58Z',
 		birthday: '1985-03-01',
 		birthtime: '12:19:58',
+		notCompliantString: '1985-03-01 12:19:58Z',
 	},
 ];
 
