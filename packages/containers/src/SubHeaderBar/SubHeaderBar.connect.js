@@ -30,7 +30,7 @@ function mapStateToProps(state, ownProps) {
 		props.actionsRight = buildActions(ownProps.actionsRight, state);
 	}
 	if (ownProps.actionsCenter) {
-		props.actionsCenter = buildActions(ownProps.actionsRight, state);
+		props.actionsCenter = buildActions(ownProps.actionsCenter, state);
 	}
 	return props;
 }

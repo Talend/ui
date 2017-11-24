@@ -5,11 +5,14 @@ import Immutable from 'immutable';
 import omit from 'lodash/omit';
 import { componentState, cmfConnect } from '@talend/react-cmf';
 
+export const DISPLAY_NAME = 'Container(SubHeaderBar)';
 export const DEFAULT_STATE = new Immutable.Map({
 	editMode: false,
 });
 
 class SubHeaderBar extends React.Component {
+	static displayName = DISPLAY_NAME;
+
 	static propTypes = {
 		// ...componentState,
 		actionCreatorCancel: PropTypes.func,
@@ -20,6 +23,11 @@ class SubHeaderBar extends React.Component {
 		onClickValidate: PropTypes.func,
 	};
 
+	static contextTypes = {
+		registry: PropTypes.object,
+		store: PropTypes.object,
+	};
+
 	constructor(props) {
 		super(props);
 		this.onClickCancel = this.onClickCancel.bind(this);
@@ -28,37 +36,37 @@ class SubHeaderBar extends React.Component {
 	}
 
 	onClickValidate(event) {
+		if (this.props.onClickValidate) {
+			this.props.onClickValidate(event);
+		}
 		if (this.props.actionCreatorValidate) {
 			this.dispatchActionCreator(this.props.actionCreatorValidate, event, {
 				props: this.props,
 			});
 		}
-		if (this.props.onClickValidate) {
-			this.props.onClickValidate(event);
-		}
 	}
 
 	onClickCancel(event) {
 		this.props.setState({ editMode: false });
+		if (this.props.onClickCancel) {
+			this.props.onClickCancel(event);
+		}
 		if (this.props.actionCreatorCancel) {
 			this.dispatchActionCreator(this.props.actionCreatorCancel, event, {
 				props: this.props,
 			});
 		}
-		if (this.props.onClickCancel) {
-			this.props.onClickCancel(event);
-		}
 	}
 
 	onClickEdit(event) {
 		this.props.setState({ editMode: !this.props.state.get('editMode') });
+		if (this.props.onClickEdit) {
+			this.props.onClickEdit(event);
+		}
 		if (this.props.actionCreatorEdit) {
 			this.dispatchActionCreator(this.props.actionCreatorEdit, event, {
 				props: this.props,
 			});
-		}
-		if (this.props.onClickEdit) {
-			this.props.onClickEdit(event);
 		}
 	}
 

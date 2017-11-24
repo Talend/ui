@@ -238,14 +238,14 @@ storiesOf('ActionBar', module)
 							onClick={action('onClick')}
 						/>
 					</ActionBar.Content>
-					<ActionBar.Content tag="p" right>
-						Hello paragraph
-					</ActionBar.Content>
-					<ActionBar.Content tag="form" role="search" right>
+					<ActionBar.Content tag="form" role="search" center>
 						<div className="form-group">
 							<input type="text" className="form-control" placeholder="Search" />
 						</div>
 						<button type="submit" className="btn btn-default">Submit</button>
+					</ActionBar.Content>
+					<ActionBar.Content tag="p" right>
+						Hello paragraph
 					</ActionBar.Content>
 				</ActionBar>
 			</div>

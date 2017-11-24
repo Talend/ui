@@ -2,6 +2,7 @@ $tc-action-bar-background-color: $concrete !default;
 $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 
 .tc-actionbar-container {
+	text-align: center;
 	padding: 0 $padding-small;
 	background: $tc-action-bar-background-color;
 
@@ -23,6 +24,10 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 
 	.navbar-right {
 		margin-right: 0;
+	}
+
+	.navbar-center {
+		display: inline-block;
 	}
 
 	:global(.navbar-form),

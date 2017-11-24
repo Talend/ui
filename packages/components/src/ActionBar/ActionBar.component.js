@@ -11,14 +11,18 @@ const DISPLAY_MODES = {
 };
 
 const actionsShape = {
-	left: PropTypes.arrayOf(PropTypes.oneOfType([
-		PropTypes.shape(Action.propTypes),
-		PropTypes.shape(ActionSplitDropdown.propTypes),
-	])),
-	right: PropTypes.arrayOf(PropTypes.oneOfType([
-		PropTypes.shape(Action.propTypes),
-		PropTypes.shape(ActionSplitDropdown.propTypes),
-	])),
+	left: PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			PropTypes.shape(Action.propTypes),
+			PropTypes.shape(ActionSplitDropdown.propTypes),
+		]),
+	),
+	right: PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			PropTypes.shape(Action.propTypes),
+			PropTypes.shape(ActionSplitDropdown.propTypes),
+		]),
+	),
 	children: PropTypes.node,
 };
 
@@ -41,26 +45,27 @@ function getActionsToRender({ selected, actions, multiSelectActions }) {
 	return actions || {};
 }
 
-function getContentClassName({ tag, className, left, right }) {
-	return classNames(
-		className,
-		{
-			[`${css['navbar-left']}`]: left,
-			[`${css['navbar-right']}`]: right,
-			'navbar-left': left,
-			'navbar-right': right,
-			'navbar-text': tag === 'p',
-			'navbar-btn': tag === 'button',
-			'navbar-form': tag === 'form',
-			'navbar-link': tag === 'a',
-		},
-	);
+function getContentClassName({ tag, className, left, right, center }) {
+	return classNames(className, {
+		[`${css['navbar-left']}`]: left,
+		[`${css['navbar-right']}`]: right,
+		[`${css['navbar-center']}`]: center,
+		'navbar-left': left,
+		'navbar-right': right,
+		'navbar-text': tag === 'p',
+		'navbar-btn': tag === 'button',
+		'navbar-form': tag === 'form',
+		'navbar-link': tag === 'a',
+	});
 }
 
-function Content({ tag = 'div', left, right, className, children, ...rest }) {
-	const props = Object.assign({
-		className: getContentClassName({ tag, left, right, className }),
-	}, rest);
+function Content({ tag = 'div', left, right, center, className, children, ...rest }) {
+	const props = Object.assign(
+		{
+			className: getContentClassName({ tag, left, center, right, className }),
+		},
+		rest,
+	);
 	return React.createElement(tag, props, children);
 }
 Content.propTypes = {
@@ -68,6 +73,7 @@ Content.propTypes = {
 	className: PropTypes.string,
 	left: PropTypes.bool,
 	right: PropTypes.bool,
+	center: PropTypes.bool,
 	tag: PropTypes.oneOf(['p', 'button', 'form', 'a', 'div']),
 };
 
@@ -75,10 +81,8 @@ function SwitchActions({ actions, left, right, selected, renderers }) {
 	const Renderers = getRenderers({ renderers });
 	return (
 		<Content left={left} right={right}>
-			{ selected > 0 && !right ? (
-				<Count selected={selected} />
-			) : null }
-			{ actions.map((action, index) => {
+			{selected > 0 && !right ? <Count selected={selected} /> : null}
+			{actions.map((action, index) => {
 				const { displayMode, ...rest } = action;
 				switch (displayMode) {
 					case DISPLAY_MODES.DROPDOWN:
@@ -93,7 +97,7 @@ function SwitchActions({ actions, left, right, selected, renderers }) {
 						}
 						return <Renderers.Action key={index} {...rest} />;
 				}
-			}) }
+			})}
 		</Content>
 	);
 }
@@ -102,13 +106,11 @@ SwitchActions.propTypes = {
 	left: PropTypes.bool,
 	right: PropTypes.bool,
 	selected: PropTypes.number,
-	renderers: PropTypes.shape(
-		{
-			Action: PropTypes.func,
-			Actions: PropTypes.func,
-			ActionSplitDropdown: PropTypes.func,
-		}
-	),
+	renderers: PropTypes.shape({
+		Action: PropTypes.func,
+		Actions: PropTypes.func,
+		ActionSplitDropdown: PropTypes.func,
+	}),
 };
 SwitchActions.defaultProps = {
 	actions: [],
@@ -138,7 +140,7 @@ function ActionBar(props) {
 	);
 	return (
 		<nav className={cssClass}>
-			{ (left || !!props.selected) && (
+			{(left || !!props.selected) && (
 				<SwitchActions
 					renderers={props.renderers}
 					key={0}
@@ -148,7 +150,7 @@ function ActionBar(props) {
 				/>
 			)}
 			{props.children}
-			{ right && (
+			{right && (
 				<SwitchActions
 					renderers={props.renderers}
 					key={1}

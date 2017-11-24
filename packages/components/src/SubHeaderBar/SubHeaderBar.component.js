@@ -77,7 +77,7 @@ EditTitle.propTypes = {
 	onClickCancel: PropTypes.func.isRequired,
 };
 
-function Actions({ actions }, right, center) {
+function SubHeaderBarActions({ actions, right, center }) {
 	if (actions && Array.isArray(actions)) {
 		const actionsComponent = actions.map((action, index) => {
 			if (action.tag === 'button') {
@@ -93,15 +93,16 @@ function Actions({ actions }, right, center) {
 				</ActionBar.Content>
 			);
 		});
-		return (
-			<ActionBar className={theme['tc-subheader-bar-action-bar']}>{actionsComponent}</ActionBar>
-		);
+		return <div className={theme['tc-subheader-bar-action-bar']}>{actionsComponent}</div>;
+		// <ActionBar className={theme['tc-subheader-bar-action-bar']}>{actionsComponent}</ActionBar>
 	}
 	return null;
 }
 
-Actions.propTypes = {
+SubHeaderBarActions.propTypes = {
 	actions: PropTypes.array,
+	right: PropTypes.bool,
+	center: PropTypes.bool,
 };
 
 function SubHeaderBar({ backAction, actionsCenter, actionsRight, editMode, ...rest }) {
@@ -113,8 +114,8 @@ function SubHeaderBar({ backAction, actionsCenter, actionsRight, editMode, ...re
 				</ActionBar.Content>
 			</span>
 			{editMode ? <EditTitle {...rest} /> : <DetailsTitle {...rest} />}
-			{actionsCenter && <Actions actions={actionsCenter} center right={false} />}
-			{actionsRight && <Actions actions={actionsRight} center={false} right />}
+			{actionsCenter && <SubHeaderBarActions actions={actionsCenter} center right={false} />}
+			{actionsRight && <SubHeaderBarActions actions={actionsRight} center={false} right />}
 		</nav>
 	);
 }

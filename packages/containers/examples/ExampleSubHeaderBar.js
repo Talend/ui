@@ -49,7 +49,8 @@ const backAction = {
 	className: 'tc-subheader-bar-back-icon',
 };
 
-const actionsRight = ['subheaderbar:action-sharing', 'subheaderbar:action-filter'];
+const actionsRight = ['subheaderbar:action-sharing', 'subheaderbar:action-sharing'];
+const actionsCenter = ['subheaderbar:action-filter'];
 
 const props = {
 	...viewSubHeader,
@@ -66,7 +67,12 @@ const ExampleSubHeaderBar = {
 	withActions: () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...props} actionsRight={actionsRight} iconFile="talend-file-csv-o" />
+			<SubHeaderBar
+				{...props}
+				actionsCenter={actionsCenter}
+				actionsRight={actionsRight}
+				iconFile="talend-file-csv-o"
+			/>
 		</div>
 	),
 };
