@@ -28,6 +28,7 @@ import Notification from './Notification';
 import ObjectViewer from './ObjectViewer';
 import Redirect from './Redirect';
 import ShortcutManager from './ShortcutManager';
+import SelectObject from './SelectObject';
 import SidePanel from './SidePanel';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
@@ -60,6 +61,7 @@ export {
 	ObjectViewer,
 	Redirect,
 	ShortcutManager,
+	SelectObject,
 	SidePanel,
 	SubHeaderBar,
 	TooltipTrigger,

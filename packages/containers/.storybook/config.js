@@ -5,7 +5,7 @@ import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import { FilterBar } from '../src/index';
+import { FilterBar, ObjectViewer } from '../src/index';
 import examples from '../examples';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
@@ -37,9 +37,10 @@ function confirmDialog(event, data) {
 	};
 }
 
-function chooseItem1() {
+function chooseItem1(event, data) {
 	return {
 		type: 'CHOOSE_ITEM1',
+		...data,
 	};
 }
 
@@ -56,6 +57,7 @@ function sharingOverlayDisplay() {
 }
 
 api.component.register('FilterBar', FilterBar);
+api.component.register('ObjectViewer', ObjectViewer);
 
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
@@ -73,18 +75,10 @@ api.expression.register('isTrueExpression', (context, first) => {
 
 api.expression.register('getItems', () => [
 	{
-		id: {
-			actionCreator: 'item1:action',
-			property: 'item1',
-		},
 		label: 'label1',
 		actionCreator: 'item1:action',
 	},
 	{
-		id: {
-			actionCreator: 'item2:action',
-			property: 'item2',
-		},
 		label: 'label2',
 		actionCreator: 'item2:action',
 	},
@@ -110,24 +104,42 @@ function loadStories() {
 					new Map({
 						id: 1,
 						label: 'foo',
+						author: 'Jacques',
+						created: '10/12/2013',
+						modified: '13/02/2015',
 						children: new List([new Map({ id: 11, label: 'sub foo' })]),
 					}),
 					new Map({
 						id: 2,
 						label: 'bar',
+						author: 'Paul',
+						created: '10/12/2013',
+						modified: '13/02/2015',
 						children: new List([new Map({ id: 21, label: 'sub bar' })]),
 					}),
 					new Map({
 						id: 3,
 						label: 'baz',
+						author: 'Boris',
+						created: '10/12/2013',
+						modified: '13/02/2015',
 						children: new List([new Map({ id: 31, label: 'sub baz' })]),
 					}),
 					new Map({
 						id: 4,
 						label: 'extra',
+						author: 'Henri',
+						created: '10/12/2013',
+						modified: '13/02/2015',
 						children: new List([new Map({ id: 41, label: 'sub extra' })]),
 					}),
-					new Map({ id: 5, label: 'hello world' }),
+					new Map({
+						id: 5,
+						label: 'hello world',
+						author: 'David',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+					}),
 				]),
 			}),
 		);
