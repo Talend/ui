@@ -48,7 +48,7 @@
 		}
 
 		.tc-subheader-bar-details-title {
-			@include input-text(800)
+			@include input-text(800);
 		}
 
 		.tc-subheader-bar-details-subtitle {
@@ -71,7 +71,7 @@
 			padding-top: 0rem;
 
 			.tc-subheader-bar-input-field {
-				@include input-text(400)
+				@include input-text(400);
 			}
 
 			.tc-subheader-bar-override-width {
@@ -100,11 +100,10 @@
 			color: $brand-primary;
 			margin-left: $padding-large;
 		}
-	};
+	}
 
 	.tc-subheader-bar-action-bar {
 		margin-left: auto;
 		background-color: $wild-sand;
 	}
-
 }
