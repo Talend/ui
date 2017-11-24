@@ -19,6 +19,14 @@ const veryLongDatasetLabel =
 const veryLongCafeName = "Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name";
 const clubCategory = 'Club category mixology hipster';
 
+const dateTimeData = [
+	{
+		birth: '03-01-1985T12:19:58Z',
+		birthday: '03-01-1985',
+		birthtime: '12:19:58',
+	},
+];
+
 const data = [
 	{
 		business_id: 0,
@@ -252,6 +260,12 @@ stories
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} {...handlerHighlight} />
+		</div>
+	))
+	.addWithInfo('array tree with datetime', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer data={dateTimeData} {...rootOpenedTypeHandler} showType={showType}/>
 		</div>
 	))
 	.addWithInfo('primitive array tree', () => (
