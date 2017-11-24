@@ -108,7 +108,9 @@ function DrawerTitle({ title, subtitle, children, onCancelAction }) {
 				{subtitleComponent(subtitle)}
 				{cancelActionComponent(onCancelAction)}
 			</div>
-			<div className={classnames('tc-drawer-header-with-tabs', theme['tc-drawer-header-with-tabs'])}>
+			<div
+				className={classnames('tc-drawer-header-with-tabs', theme['tc-drawer-header-with-tabs'])}
+			>
 				{children}
 			</div>
 		</div>
@@ -135,7 +137,9 @@ DrawerContent.propTypes = {
 };
 
 function DrawerFooter({ children }) {
-	return <div className={classnames('tc-drawer-footer', theme['tc-drawer-footer'])}>{children}</div>;
+	return (
+		<div className={classnames('tc-drawer-footer', theme['tc-drawer-footer'])}>{children}</div>
+	);
 }
 
 DrawerFooter.propTypes = {
@@ -184,7 +188,12 @@ function Drawer({
 			)}
 			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
 				<DrawerContent>{children}</DrawerContent>
-				<div className={classnames('tc-drawer-actionbar-container', theme['tc-drawer-actionbar-container'])}>
+				<div
+					className={classnames(
+						'tc-drawer-actionbar-container',
+						theme['tc-drawer-actionbar-container'],
+					)}
+				>
 					<ActionBar
 						{...combinedFooterActions(onCancelAction, footerActions)}
 						className={classnames('tc-drawer-actionbar', theme['tc-drawer-actionbar'])}
