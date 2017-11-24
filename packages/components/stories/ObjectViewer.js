@@ -21,8 +21,8 @@ const clubCategory = 'Club category mixology hipster';
 
 const dateTimeData = [
 	{
-		birth: '03-01-1985T12:19:58Z',
-		birthday: '03-01-1985',
+		birth: '1985-03-01T12:19:58Z',
+		birthday: '1985-03-01',
 		birthtime: '12:19:58',
 	},
 ];
