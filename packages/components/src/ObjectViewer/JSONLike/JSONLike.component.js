@@ -17,7 +17,6 @@ const COMPLEX_TYPES = ['object', 'array'];
 export const ARRAY_ABSTRACT = '[...]';
 export const OBJECT_ABSTRACT = '{...}';
 
-
 export const DATE_TIME_PATTERN = /^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z)?$/;
 export const DATE_PATTERN = /\d{4}-\d{2}-\d{2}/;
 export const TIME_PATTERN = /\d{2}:\d{2}:\d{2}/;
@@ -25,7 +24,6 @@ export const TIME_PATTERN = /\d{2}:\d{2}:\d{2}/;
 const dateTimeRegexp = new RegExp(DATE_TIME_PATTERN);
 const dateRegexp = new RegExp(DATE_PATTERN);
 const timeRegexp = new RegExp(TIME_PATTERN);
-
 
 function stopAndSelect(event, { onSelect, jsonpath }) {
 	event.stopPropagation();
@@ -178,7 +176,6 @@ export function getDataInfo(data, tupleLabel) {
 			info.type = 'time';
 		}
 	}
-
 
 	return info;
 }
