@@ -8,7 +8,7 @@ exports[`Drawer should render 1`] = `
   style={undefined}
 >
   <div
-    className={undefined}
+    className="tc-drawer-container undefined"
   >
     <div
       style={
@@ -45,7 +45,7 @@ exports[`Drawer should render stacked 1`] = `
   style={undefined}
 >
   <div
-    className={undefined}
+    className="tc-drawer-container undefined"
   >
     <div
       style={
@@ -82,7 +82,7 @@ exports[`Drawer should render using custom className 1`] = `
   style={undefined}
 >
   <div
-    className={undefined}
+    className="tc-drawer-container undefined"
   >
     <div
       style={
@@ -123,7 +123,7 @@ exports[`Drawer should render using custom styles 1`] = `
   }
 >
   <div
-    className={undefined}
+    className="tc-drawer-container undefined"
   >
     <div
       style={
@@ -160,7 +160,7 @@ exports[`Drawer should render with tabs 1`] = `
   style={undefined}
 >
   <div
-    className={undefined}
+    className="tc-drawer-container undefined"
   >
     <div
       className={undefined}
@@ -241,7 +241,7 @@ exports[`Drawer should render without tc-drawer-transition class 1`] = `
   style={undefined}
 >
   <div
-    className={undefined}
+    className="tc-drawer-container undefined"
   >
     <div
       style={
