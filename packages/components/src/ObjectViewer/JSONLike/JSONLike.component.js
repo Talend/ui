@@ -22,9 +22,9 @@ export const DATE_TIME_PATTERN = /^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-
 export const DATE_PATTERN = /\d{4}-\d{2}-\d{2}/;
 export const TIME_PATTERN = /\d{2}:\d{2}:\d{2}/;
 
-const dateTimeRegexp = new RegExp(DATE_TIME_PATTERN);
-const dateRegexp = new RegExp(DATE_PATTERN);
-const timeRegexp = new RegExp(TIME_PATTERN);
+export const dateTimeRegexp = new RegExp(DATE_TIME_PATTERN);
+export const dateRegexp = new RegExp(DATE_PATTERN);
+export const timeRegexp = new RegExp(TIME_PATTERN);
 
 
 function stopAndSelect(event, { onSelect, jsonpath }) {

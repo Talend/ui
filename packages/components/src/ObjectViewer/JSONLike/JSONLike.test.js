@@ -6,6 +6,9 @@ import Component, {
 	abstracter,
 	getDataAbstract,
 	getDataInfo,
+	dateTimeRegexp,
+	timeRegexp,
+	dateRegexp,
 } from './JSONLike.component';
 
 describe('JSONLike', () => {
@@ -62,6 +65,40 @@ describe('JSONLike', () => {
 			k1: 'v1',
 			k2: { k21: 'v21' },
 		};
+		const dateTimeData = {
+			birthdateTime: '1985-03-01T12:19:58Z',
+		};
+		const dateData = {
+			birthDate: '1985-03-01',
+		};
+		const timeData = {
+			birthTime: '12:19:58',
+		};
+
+		it('should change type to datetime', () => {
+			const info = getDataInfo(dateTimeData);
+			expect(info).toEqual({
+				type: 'type',
+				keys: ['birthdateTime'],
+				length: 1,
+			});
+		});
+
+		it('should change type to date', () => {
+			expect(getDataInfo(dateData)).toEqual({
+				type: 'object',
+				keys: ['birthDate'],
+				length: 1,
+			});
+		});
+
+		it('should change type to time', () => {
+			expect(getDataInfo(timeData)).toEqual({
+				type: 'object',
+				keys: ['birthTime'],
+				length: 1,
+			});
+		});
 
 		it('replaces the object type by the provided label', () => {
 			expect(getDataInfo(data, objLabel)).toEqual({
