@@ -18,8 +18,8 @@ function listviewClasses() {
 }
 
 function ListView(props) {
-	const noResultLabel = props.t('LISTVIEW_NO_RESULT', 'No result found.');
-	const emptyLabel = props.t('LISTVIEW_EMPTY', 'This list is empty.');
+	const noResultLabel = props.t('LISTVIEW_NO_RESULT', { defaultValue: 'No result found.' });
+	const emptyLabel = props.t('LISTVIEW_EMPTY', { defaultValue: 'This list is empty.' });
 	const label = props.displayMode === DISPLAY_MODE_SEARCH ? noResultLabel : emptyLabel;
 	return (
 		<div className={listviewClasses()}>

@@ -9,7 +9,6 @@ import TabBar from '../TabBar';
 import theme from './Drawer.scss';
 
 class DrawerAnimation extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.handleTransitionComplete = this.handleTransitionComplete.bind(this);
@@ -36,7 +35,6 @@ class DrawerAnimation extends React.Component {
 			</CSSTransition>
 		);
 	}
-
 }
 
 DrawerAnimation.propTypes = {
@@ -59,7 +57,8 @@ function DrawerContainer({ stacked, className, children, withTransition = true, 
 		{
 			[theme['drawer-stacked']]: stacked,
 			stacked,
-		});
+		},
+	);
 	return (
 		<div className={drawerContainerClasses} {...rest}>
 			<div className={`tc-drawer-container ${theme['tc-drawer-container']}`}>
@@ -80,11 +79,14 @@ export function cancelActionComponent(onCancelAction) {
 	if (!onCancelAction) {
 		return null;
 	}
-	const enhancedCancelAction = Object.assign({
-		icon: 'talend-cross',
-		hideLabel: true,
-		link: true,
-	}, onCancelAction);
+	const enhancedCancelAction = Object.assign(
+		{
+			icon: 'talend-cross',
+			hideLabel: true,
+			link: true,
+		},
+		onCancelAction,
+	);
 	return <Action className={theme['tc-drawer-close-action']} {...enhancedCancelAction} />;
 }
 
@@ -133,11 +135,7 @@ DrawerContent.propTypes = {
 };
 
 function DrawerFooter({ children }) {
-	return (
-		<div className={`tc-drawer-footer ${theme['tc-drawer-footer']}`}>
-			{children}
-		</div>
-	);
+	return <div className={`tc-drawer-footer ${theme['tc-drawer-footer']}`}>{children}</div>;
 }
 
 DrawerFooter.propTypes = {
@@ -185,12 +183,11 @@ function Drawer({
 				</div>
 			)}
 			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
-				<DrawerContent>
-					{children}
-				</DrawerContent>
+				<DrawerContent>{children}</DrawerContent>
 				<div className={theme['tc-drawer-actionbar-container']}>
 					<ActionBar
-						{...combinedFooterActions(onCancelAction, footerActions)} className={theme['tc-drawer-actionbar']}
+						{...combinedFooterActions(onCancelAction, footerActions)}
+						className={theme['tc-drawer-actionbar']}
 					/>
 				</div>
 			</div>
@@ -202,7 +199,7 @@ Drawer.propTypes = {
 	stacked: PropTypes.bool,
 	title: PropTypes.string,
 	children: PropTypes.node,
-	style: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
+	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,
 	// footer action, see action bar for api
 	footerActions: PropTypes.shape(ActionBar.propTypes).isRequired,
