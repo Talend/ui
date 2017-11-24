@@ -10,6 +10,8 @@ import css from './TreeViewItem.scss';
 
 const PADDING_NORMAL = 15;
 const PADDING_LARGE = 20;
+const DEFAULT_OPEN_ICON = 'talend-folder';
+const DEFAULT_CLOSED_ICON = 'talend-folder-closed';
 
 function getActionHandler(func, item) {
 	return function actionHandler(event) {
@@ -79,6 +81,23 @@ function TreeViewItem({ id, item, depth = 0, onClick, onSelect }) {
 			/>
 		);
 	}
+
+	/**
+	 * return the default open or closed folder icon if non is specified on item
+	 * or if it is specified return the specified icon with `-closed` append if not toggled
+	 * @param {String} icon - icon name
+	 * @param {Boolean} toggled - state of the item
+	 * @return {String}
+	 */
+	function getItemIcon(itemIcon, itemStateToggled) {
+		if (itemIcon === DEFAULT_OPEN_ICON) {
+			if (itemStateToggled) return DEFAULT_OPEN_ICON;
+			return DEFAULT_CLOSED_ICON;
+		}
+		if (itemStateToggled) return itemIcon;
+		return `${itemIcon}-closed`;
+	}
+
 	const paddingLeft = `${depth * PADDING_NORMAL + PADDING_LARGE}px`;
 
 	return (
@@ -96,7 +115,7 @@ function TreeViewItem({ id, item, depth = 0, onClick, onSelect }) {
 					</div>
 				)}
 				<span className={css['tc-treeview-folder']}>
-					<Icon name={icon} key={icon} />
+					<Icon name={getItemIcon(icon, toggled)} key={icon} />
 				</span>
 				<span className="tc-treeview-item-name">{name}</span>
 				<div className={css['tc-treeview-item-ctrl']}>
