@@ -31,7 +31,8 @@ export function getById(items, id, { idAttr = 'id', childrenAttr = 'children' } 
 }
 
 /**
- * Internal
+ * apply query only on leaf elements, return them on a single list,
+ * not taking into account the deepth of matched elements.
  * @return item in items found with the id
  * @param {Object} optins {query, items, idAttr, childrenAttr }
  */
@@ -39,28 +40,34 @@ export function filter(
 	items = new List(),
 	query = '',
 	{ nameAttr = 'name', childrenAttr = 'children', onMatch = noop } = {},
+	currentPosition = 'root',
 ) {
-	return (
-		items.reduce((acc, item) => {
-			if (
-				item
-					.get(nameAttr, '')
-					.toLowerCase()
-					.indexOf(query.toLowerCase()) !== -1
-			) {
-				onMatch(item);
-				return acc.push(item);
-			} else if (item.get(childrenAttr, new List()).size > 0) {
-				const children = filter(item.get(childrenAttr), query, {
-					nameAttr,
-				});
-				if (children.size > 0) {
-					return acc.push(item.set('toggled', true).set('children', children));
+	if (query) {
+		return (
+			items.reduce((acc, item) => {
+				const currentElementName = item.get(nameAttr, '');
+				if (item.get(childrenAttr, new List()).size === 0) {
+					if (currentElementName.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+						const withElementPosition = item.set('currentPosition', currentPosition);
+						onMatch(item);
+						return acc.push(withElementPosition);
+					}
+				} else {
+					const result = filter(
+						item.get(childrenAttr),
+						query,
+						{
+							nameAttr,
+						},
+						`${currentPosition} > ${currentElementName}`,
+					);
+					return acc.concat(result);
 				}
-			}
-			return acc;
-		}, new List()) || new List()
-	);
+				return acc;
+			}, new List()) || new List()
+		);
+	}
+	return items;
 }
 
 class SelectObject extends React.Component {

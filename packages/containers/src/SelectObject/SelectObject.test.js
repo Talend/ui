@@ -59,7 +59,7 @@ describe('Container SelectObject', () => {
 		});
 	});
 	describe('filter', () => {
-		it('return first level element (not toggled) if it match', () => {
+		it('does not match on non leaf element (non leaf element have children)', () => {
 			// given
 			const subfirst = new Immutable.Map({ id: 11, name: 'sub' });
 			const first = new Immutable.Map({
@@ -74,69 +74,142 @@ describe('Container SelectObject', () => {
 			const results = filter(items, 'ab');
 
 			// then
+			expect(results.size).toBe(0);
+		});
+		it('does match only on leaf element', () => {
+			// given
+			const subfirst = new Immutable.Map({ id: 11, name: 'sub' });
+			const first = new Immutable.Map({
+				id: 1,
+				name: 'abc',
+				children: new Immutable.List([subfirst]),
+			});
+			const second = new Immutable.Map({ id: 2, name: 'foo' });
+			const items = new Immutable.List([first, second]);
+
+			// when
+			const results = filter(items, 'sub');
+
+			// then
 			expect(results.size).toBe(1);
-			expect(results.get(0).get('name')).toBe('abc');
+			expect(results.get(0).get('name')).toBe('sub');
 			expect(results.get(0).get('toggled')).toBeFalsy();
-			expect(
-				results
-					.get(0)
-					.get('children')
-					.get(0)
-					.get('name'),
-			).toBe('sub');
+			expect(results.get(0).get('currentPosition')).toBe('root > abc');
+			expect(results.get(0).get('children')).toBeFalsy();
 		});
-		it('return first level element (toogled) and its children if children match', () => {
+		it('does match on multiple leaf elements of different depth, result is list', () => {
 			// given
-			const subfirst = new Immutable.Map({ id: 11, name: 'sub abc' });
+			const subfirst = new Immutable.Map({ id: 11, name: 'sub' });
 			const first = new Immutable.Map({
 				id: 1,
 				name: 'abc',
 				children: new Immutable.List([subfirst]),
 			});
-			const second = new Immutable.Map({ id: 2, name: 'foo' });
+			const second = new Immutable.Map({ id: 2, name: 'sub' });
 			const items = new Immutable.List([first, second]);
 
 			// when
-			const results = filter(items, 'sub abc');
+			const results = filter(items, 'sub');
 
 			// then
-			expect(results.size).toBe(1);
-			expect(results.get(0).get('name')).toBe('abc');
-			expect(results.get(0).get('toggled')).toBe(true);
-			expect(
-				results
-					.get(0)
-					.get('children')
-					.get(0)
-					.get('name'),
-			).toBe('sub abc');
+			expect(results.size).toBe(2);
+			expect(results.get(0).get('name')).toBe('sub');
+			expect(results.get(0).get('currentPosition')).toBe('root > abc');
+			expect(results.get(1).get('name')).toBe('sub');
+			expect(results.get(1).get('currentPosition')).toBe('root');
+			expect(results.get(0).get('toggled')).toBeFalsy();
+			expect(results.get(0).get('children')).toBeFalsy();
+			expect(results.get(1).get('children')).toBeFalsy();
 		});
 
-		it('return the first (toggled) and second level element if both match', () => {
+		it('does match on multiple leaf children of a node', () => {
 			// given
-			const subfirst = new Immutable.Map({ id: 11, name: 'sub abc' });
+			const subfirst = new Immutable.Map({ id: 11, name: 'sub1' });
+			const subsecond = new Immutable.Map({
+				id: 12,
+				name: 'sub2',
+				children: new Immutable.List([Immutable.Map()]),
+			});
+			const subthird = new Immutable.Map({ id: 13, name: 'sub3' });
+			const first = new Immutable.Map({
+				id: 1,
+				name: 'abc',
+				children: new Immutable.List([subfirst, subsecond, subthird]),
+			});
+			const second = new Immutable.Map({ id: 2, name: 'sub' });
+			const items = new Immutable.List([first, second]);
+
+			// when
+			const results = filter(items, 'sub');
+
+			// then
+			expect(results.size).toBe(3);
+			expect(results.get(0).get('name')).toBe('sub1');
+			expect(results.get(0).get('currentPosition')).toBe('root > abc');
+			expect(results.get(1).get('name')).toBe('sub3');
+			expect(results.get(1).get('currentPosition')).toBe('root > abc');
+			expect(results.get(2).get('name')).toBe('sub');
+			expect(results.get(2).get('currentPosition')).toBe('root');
+			expect(results.get(0).get('toggled')).toBeFalsy();
+			expect(results.get(0).get('children')).toBeFalsy();
+			expect(results.get(1).get('children')).toBeFalsy();
+			expect(results.get(2).get('children')).toBeFalsy();
+		});
+
+		it('does match on multiple leaf children of differents node', () => {
+			// given
+			const subfirst = new Immutable.Map({ id: 11, name: 'sub1' });
+			const subsecond = new Immutable.Map({ id: 13, name: 'sub2' });
 			const first = new Immutable.Map({
 				id: 1,
 				name: 'abc',
 				children: new Immutable.List([subfirst]),
 			});
-			const second = new Immutable.Map({ id: 2, name: 'foo' });
+			const second = new Immutable.Map({
+				id: 2,
+				name: 'sub',
+				children: new Immutable.List([subsecond]),
+			});
 			const items = new Immutable.List([first, second]);
 
 			// when
-			const results = filter(items, 'abc');
+			const results = filter(items, 'sub');
 
 			// then
-			expect(results.size).toBe(1);
-			expect(results.get(0).get('name')).toBe('abc');
-			expect(results.get(0).get('toggled')).toBe(true);
-			expect(
-				results
-					.get(0)
-					.get('children')
-					.get(0)
-					.get('name'),
-			).toBe('sub abc');
+			expect(results.size).toBe(2);
+			expect(results.get(0).get('name')).toBe('sub1');
+			expect(results.get(0).get('currentPosition')).toBe('root > abc');
+			expect(results.get(1).get('name')).toBe('sub2');
+			expect(results.get(1).get('currentPosition')).toBe('root > sub');
+			expect(results.get(0).get('toggled')).toBeFalsy();
+			expect(results.get(0).get('children')).toBeFalsy();
+			expect(results.get(1).get('children')).toBeFalsy();
+		});
+
+		it('return the original struct if no query or empty query is provided', () => {
+			// given
+			const subfirst = new Immutable.Map({ id: 11, name: 'sub1' });
+			const subsecond = new Immutable.Map({
+				id: 12,
+				name: 'sub2',
+				children: new Immutable.List([Immutable.Map()]),
+			});
+			const subthird = new Immutable.Map({ id: 13, name: 'sub3' });
+			const first = new Immutable.Map({
+				id: 1,
+				name: 'abc',
+				children: new Immutable.List([subfirst, subsecond, subthird]),
+			});
+			const second = new Immutable.Map({ id: 2, name: 'sub' });
+			const items = new Immutable.List([first, second]);
+
+			// when
+			const results = filter(items, '');
+			const results2 = filter(items);
+
+			// then
+			expect(results).toBe(items);
+			expect(results2).toBe(items);
 		});
 	});
 });
