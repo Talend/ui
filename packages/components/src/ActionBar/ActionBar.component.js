@@ -81,7 +81,7 @@ function SwitchActions({ actions, left, right, center, selected, renderers }) {
 	const Renderers = getRenderers({ renderers });
 	return (
 		<Content left={left} right={right} center={center}>
-			{selected > 0 && !right ? <Count selected={selected} /> : null}
+			{selected > 0 && left ? <Count selected={selected} /> : null}
 			{actions.map((action, index) => {
 				const { displayMode, ...rest } = action;
 				switch (displayMode) {

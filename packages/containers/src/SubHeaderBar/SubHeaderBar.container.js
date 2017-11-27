@@ -8,6 +8,7 @@ import { componentState, cmfConnect } from '@talend/react-cmf';
 export const DISPLAY_NAME = 'Container(SubHeaderBar)';
 export const DEFAULT_STATE = new Immutable.Map({
 	editMode: false,
+	inputText: '',
 });
 
 class SubHeaderBar extends React.Component {
@@ -17,10 +18,13 @@ class SubHeaderBar extends React.Component {
 		...componentState,
 		actionCreatorCancel: PropTypes.func,
 		actionCreatorEdit: PropTypes.func,
-		actionCreatorValidate: PropTypes.func,
-		onClickCancel: PropTypes.func,
-		onClickEdit: PropTypes.func,
-		onClickValidate: PropTypes.func,
+		actionCreatorSubmit: PropTypes.func,
+		actionCreatorChange: PropTypes.func,
+		onCancel: PropTypes.func,
+		onEdit: PropTypes.func,
+		onSubmit: PropTypes.func,
+		onChange: PropTypes.func,
+		title: PropTypes.string,
 	};
 
 	static contextTypes = {
@@ -30,26 +34,31 @@ class SubHeaderBar extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.onClickCancel = this.onClickCancel.bind(this);
-		this.onClickEdit = this.onClickEdit.bind(this);
-		this.onClickValidate = this.onClickValidate.bind(this);
+		this.onCancel = this.onCancel.bind(this);
+		this.onEdit = this.onEdit.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
+		this.onChange = this.onChange.bind(this);
 	}
 
-	onClickValidate(event) {
-		if (this.props.onClickValidate) {
-			this.props.onClickValidate(event);
+	onSubmit(event) {
+		if (this.props.onSubmit) {
+			this.props.onSubmit(event);
 		}
-		if (this.props.actionCreatorValidate) {
-			this.dispatchActionCreator(this.props.actionCreatorValidate, event, {
+		if (this.props.actionCreatorSubmit) {
+			this.dispatchActionCreator(this.props.actionCreatorSubmit, event, {
 				props: this.props,
+				inputText: this.props.state.get('inpuText'),
 			});
 		}
 	}
 
-	onClickCancel(event) {
-		this.props.setState({ editMode: false });
-		if (this.props.onClickCancel) {
-			this.props.onClickCancel(event);
+	onCancel(event) {
+		this.props.setState(() => ({
+			editMode: false,
+			inputText: '',
+		}));
+		if (this.props.onCancel) {
+			this.props.onCancel(event);
 		}
 		if (this.props.actionCreatorCancel) {
 			this.dispatchActionCreator(this.props.actionCreatorCancel, event, {
@@ -58,10 +67,13 @@ class SubHeaderBar extends React.Component {
 		}
 	}
 
-	onClickEdit(event) {
-		this.props.setState({ editMode: !this.props.state.get('editMode') });
-		if (this.props.onClickEdit) {
-			this.props.onClickEdit(event);
+	onEdit(event) {
+		this.props.setState(() => ({
+			editMode: !this.props.state.get('editMode'),
+			inputText: this.props.title,
+		}));
+		if (this.props.onEdit) {
+			this.props.onEdit(event);
 		}
 		if (this.props.actionCreatorEdit) {
 			this.dispatchActionCreator(this.props.actionCreatorEdit, event, {
@@ -70,13 +82,28 @@ class SubHeaderBar extends React.Component {
 		}
 	}
 
+	onChange(event) {
+		this.props.setState(() => ({
+			inputText: event.target.value,
+		}));
+		if (this.props.onChange) {
+			this.props.onChange(event);
+		}
+		if (this.props.actionCreatorChange) {
+			this.dispatchActionCreator(this.props.actionCreatorChange, event, {
+				props: this.props,
+				inputText: event.target.value,
+			});
+		}
+	}
+
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), {
 			editMode: state.get('editMode'),
-			onClickEdit: this.onClickEdit,
-			onClickCancel: this.onClickCancel,
-			onClickValidate: this.onClickValidate,
+			onEdit: this.onEdit,
+			onCancel: this.onCancel,
+			onSubmit: this.onSubmit,
 		});
 		return <Component {...props} />;
 	}

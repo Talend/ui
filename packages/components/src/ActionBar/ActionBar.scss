@@ -2,36 +2,40 @@ $tc-action-bar-background-color: $concrete !default;
 $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 
 .tc-actionbar-container {
-	text-align: center;
 	padding: 0 $padding-small;
 	background: $tc-action-bar-background-color;
 	position: relative;
 
 	.navbar-left,
 	.navbar-right {
+		height: $navbar-height;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: $navbar-height;
-
+		
 		> * {
 			margin: $tc-action-bar-margin;
 		}
-
+		
 		> :last-child {
 			margin-right: 0;
 		}
 	}
-
+	
 	.navbar-right {
 		margin-right: 0;
 	}
-
+	
 	.navbar-center {
 		position: absolute;
 		width: 100%;
+		height: $navbar-height;
 		left: 0;
 		top: 0;
+		text-align: center;
+		> * {
+			margin-top: $padding-small;
+		}
 	}
 
 	:global(.navbar-form),

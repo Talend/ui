@@ -6,7 +6,7 @@ import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
 import theme from './SubHeaderBar.scss';
 
-function DetailsTitle({ title, subTitle, iconFile, onClickEdit }) {
+function DetailsTitle({ title, subTitle, iconFile, onEdit }) {
 	return (
 		<div className={theme['tc-subheader-bar-details']}>
 			<span className={theme['tc-subheader-bar-icon-box']}>
@@ -17,7 +17,7 @@ function DetailsTitle({ title, subTitle, iconFile, onClickEdit }) {
 				<Icon
 					name="talend-pencil"
 					className={theme['tc-subheader-bar-details-pencil']}
-					onClick={onClickEdit}
+					onClick={onEdit}
 				/>
 				{subTitle && <div className={theme['tc-subheader-bar-details-subtitle']}>{subTitle}</div>}
 			</span>
@@ -29,10 +29,10 @@ DetailsTitle.propTypes = {
 	title: PropTypes.string.isRequired,
 	subTitle: PropTypes.string,
 	iconFile: PropTypes.string,
-	onClickEdit: PropTypes.func.isRequired,
+	onEdit: PropTypes.func.isRequired,
 };
 
-function EditTitle({ title, iconFile, onClickValidate, onClickCancel }) {
+function EditTitle({ title, iconFile, onSubmit, onCancel }) {
 	return (
 		<div className={theme['tc-subheader-bar-form']}>
 			{iconFile && (
@@ -57,13 +57,13 @@ function EditTitle({ title, iconFile, onClickValidate, onClickCancel }) {
 				<Icon
 					className={theme['tc-subheader-bar-form-icon-validate']}
 					name="talend-check"
-					onClick={onClickValidate}
+					onClick={onSubmit}
 				/>
 				{/* TODO MAKE ACTION COMPONENT */}
 				<Icon
 					className={theme['tc-subheader-bar-form-icon-cancel']}
 					name="talend-cross"
-					onClick={onClickCancel}
+					onClick={onCancel}
 				/>
 			</div>
 		</div>
@@ -73,8 +73,8 @@ function EditTitle({ title, iconFile, onClickValidate, onClickCancel }) {
 EditTitle.propTypes = {
 	title: PropTypes.string.isRequired,
 	iconFile: PropTypes.string,
-	onClickValidate: PropTypes.func.isRequired,
-	onClickCancel: PropTypes.func.isRequired,
+	onSubmit: PropTypes.func.isRequired,
+	onCancel: PropTypes.func.isRequired,
 };
 
 function SubHeaderBarActions({ actions, right, center }) {
@@ -126,8 +126,8 @@ SubHeaderBar.propTypes = {
 	actionsRight: PropTypes.array,
 };
 
-// SubHeaderBar.propTypes.default = {
-// 	editMode: false,
-// };
+SubHeaderBar.defaultProps = {
+	editMode: false,
+};
 
 export default SubHeaderBar;
