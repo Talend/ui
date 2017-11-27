@@ -126,7 +126,7 @@ export default class ArrayWidget extends React.Component {
 		const canReorder = schema.reorder !== false;
 
 		return (
-			<div>
+			<div className={theme['tf-array-container']}>
 				<ol id={id} className={theme['tf-array']}>
 					{value.map((itemValue, index) => {
 						// create item schema with item index in key

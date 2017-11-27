@@ -9,6 +9,12 @@
       "firstname": {
         "type": "string"
       },
+      "age": {
+        "type": "number"
+      },
+      "address": {
+        "type": "string"
+      },
       "comment": {
         "type": "string",
         "maxLength": 20
@@ -23,7 +29,8 @@
   "uiSchema": [
     {
       "widget": "collapsibleFieldset",
-      "title": "My awesome USER form",
+      "key": "technical.basic",
+      "title": "Basic",
       "items": [
         {
           "key": "lastname",
@@ -34,6 +41,21 @@
           "key": "firstname",
           "title": "First Name (with placeholder)",
           "placeholder": "Enter your firstname here"
+        }
+      ]
+    },
+    {
+      "widget": "collapsibleFieldset",
+      "key": "technical.details",
+      "title": "Details",
+      "items": [
+        {
+          "key": "age",
+          "title": "Age"
+        },
+        {
+          "key": "address",
+          "title": "Adress"
         },
         {
           "key": "comment",
