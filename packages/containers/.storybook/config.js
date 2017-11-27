@@ -123,7 +123,13 @@ function loadStories() {
 						author: 'Henri',
 						created: '10/12/2013',
 						modified: '13/02/2015',
-						children: new List([new Map({ id: 41, label: 'sub extra' })]),
+						children: new List([
+							new Map({
+								id: 41,
+								label: 'sub extra',
+								children: new List([new Map({ id: 411, label: 'third level' })]),
+							}),
+						]),
 					}),
 					new Map({
 						id: 5,

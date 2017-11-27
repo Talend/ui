@@ -59,7 +59,33 @@ describe('Container SelectObject', () => {
 		});
 	});
 	describe('filter', () => {
-		it('should return a tree with only the item match', () => {
+		it('return first level element (not toggled) if it match', () => {
+			// given
+			const subfirst = new Immutable.Map({ id: 11, name: 'sub' });
+			const first = new Immutable.Map({
+				id: 1,
+				name: 'abc',
+				children: new Immutable.List([subfirst]),
+			});
+			const second = new Immutable.Map({ id: 2, name: 'foo' });
+			const items = new Immutable.List([first, second]);
+
+			// when
+			const results = filter(items, 'ab');
+
+			// then
+			expect(results.size).toBe(1);
+			expect(results.get(0).get('name')).toBe('abc');
+			expect(results.get(0).get('toggled')).toBeFalsy();
+			expect(
+				results
+					.get(0)
+					.get('children')
+					.get(0)
+					.get('name'),
+			).toBe('sub');
+		});
+		it('return first level element (toogled) and its children if children match', () => {
 			// given
 			const subfirst = new Immutable.Map({ id: 11, name: 'sub abc' });
 			const first = new Immutable.Map({
@@ -71,11 +97,39 @@ describe('Container SelectObject', () => {
 			const items = new Immutable.List([first, second]);
 
 			// when
-			const results = filter(items, 's');
+			const results = filter(items, 'sub abc');
 
 			// then
 			expect(results.size).toBe(1);
 			expect(results.get(0).get('name')).toBe('abc');
+			expect(results.get(0).get('toggled')).toBe(true);
+			expect(
+				results
+					.get(0)
+					.get('children')
+					.get(0)
+					.get('name'),
+			).toBe('sub abc');
+		});
+
+		it('return the first (toggled) and second level element if both match', () => {
+			// given
+			const subfirst = new Immutable.Map({ id: 11, name: 'sub abc' });
+			const first = new Immutable.Map({
+				id: 1,
+				name: 'abc',
+				children: new Immutable.List([subfirst]),
+			});
+			const second = new Immutable.Map({ id: 2, name: 'foo' });
+			const items = new Immutable.List([first, second]);
+
+			// when
+			const results = filter(items, 'abc');
+
+			// then
+			expect(results.size).toBe(1);
+			expect(results.get(0).get('name')).toBe('abc');
+			expect(results.get(0).get('toggled')).toBe(true);
 			expect(
 				results
 					.get(0)

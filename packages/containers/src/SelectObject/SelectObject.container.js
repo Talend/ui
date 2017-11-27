@@ -41,7 +41,7 @@ export function filter(
 	{ nameAttr = 'name', childrenAttr = 'children', onMatch = noop } = {},
 ) {
 	return (
-		items.filter(item => {
+		items.reduce((acc, item) => {
 			if (
 				item
 					.get(nameAttr, '')
@@ -49,16 +49,17 @@ export function filter(
 					.indexOf(query.toLowerCase()) !== -1
 			) {
 				onMatch(item);
-				return true;
+				return acc.push(item);
 			} else if (item.get(childrenAttr, new List()).size > 0) {
-				return (
-					filter(item.get(childrenAttr), query, {
-						nameAttr,
-					}).size > 0
-				);
+				const children = filter(item.get(childrenAttr), query, {
+					nameAttr,
+				});
+				if (children.size > 0) {
+					return acc.push(item.set('toggled', true).set('children', children));
+				}
 			}
-			return false;
-		}) || new List()
+			return acc;
+		}, new List()) || new List()
 	);
 }
 
@@ -91,6 +92,7 @@ class SelectObject extends React.Component {
 			...props,
 			onMatch: addMatch,
 		});
+		console.error('___DEBUG__', props.sourceData, props.filteredData);
 		let selected = props.selectedId;
 		let preview;
 		if (!selected && matches.length === 1) {

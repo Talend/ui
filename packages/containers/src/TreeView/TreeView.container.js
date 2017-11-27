@@ -49,14 +49,16 @@ export function transform(items, props) {
 	const state = props.state || DEFAULT_STATE;
 	const selectedId = props[SELECTED_ATTR] || (state && state.get(SELECTED_ATTR));
 	const opened = state && state.get(OPENED_ATTR).toJS();
-	return items.map(item => ({
-		...item,
-		id: item[props.idAttr],
-		selected: item[props.idAttr] === selectedId,
-		toggled: opened.indexOf(item[props.idAttr]) !== -1,
-		name: item[props.nameAttr],
-		children: transform(item[props.childrenAttr], props),
-	}));
+	return items.map(item => {
+		return {
+			...item,
+			id: item[props.idAttr],
+			selected: item[props.idAttr] === selectedId,
+			toggled: item.toggled || opened.indexOf(item[props.idAttr]) !== -1,
+			name: item[props.nameAttr],
+			children: transform(item[props.childrenAttr], props),
+		};
+	});
 }
 
 /**
