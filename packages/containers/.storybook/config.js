@@ -55,6 +55,11 @@ function sharingOverlayDisplay() {
 		type: 'OVERLAY_SHARING',
 	};
 }
+function bubblesOverlayDisplay() {
+	return {
+		type: 'OVERLAY_BUBBLES',
+	};
+}
 
 api.component.register('FilterBar', FilterBar);
 api.component.register('ObjectViewer', ObjectViewer);
@@ -66,6 +71,7 @@ registerActionCreator('confirm:dialog', confirmDialog);
 registerActionCreator('item1:action', chooseItem1);
 registerActionCreator('item2:action', chooseItem2);
 registerActionCreator('overlay:display-sharing', sharingOverlayDisplay);
+registerActionCreator('overlay:display-bubbles', bubblesOverlayDisplay);
 
 const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
@@ -271,6 +277,14 @@ function loadStories() {
 			tag: 'button',
 			actionCreator: 'overlay:display-sharing',
 			icon: 'talend-share-alt',
+			hideLabel: true,
+			overlay: false,
+		};
+		actions['subheaderbar:action-bubbles'] = {
+			id: 'subheaderbar:action-bubbles',
+			tag: 'button',
+			actionCreator: 'overlay:display-bubbles',
+			icon: 'talend-bubbles',
 			hideLabel: true,
 			overlay: false,
 		};

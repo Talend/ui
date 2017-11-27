@@ -15,7 +15,7 @@ class SubHeaderBar extends React.Component {
 	static displayName = DISPLAY_NAME;
 
 	static propTypes = {
-		...componentState,
+		...componentState.propTypes,
 		actionCreatorCancel: PropTypes.func,
 		actionCreatorEdit: PropTypes.func,
 		actionCreatorSubmit: PropTypes.func,
