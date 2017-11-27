@@ -32,7 +32,7 @@ DetailsTitle.propTypes = {
 	onEdit: PropTypes.func.isRequired,
 };
 
-function EditTitle({ title, iconFile, onSubmit, onCancel }) {
+function EditTitle({ title, iconFile, inputTextValue, onSubmit, onCancel, onChange }) {
 	return (
 		<div className={theme['tc-subheader-bar-form']}>
 			{iconFile && (
@@ -48,16 +48,21 @@ function EditTitle({ title, iconFile, onSubmit, onCancel }) {
 							className={classNames(theme['tc-subheader-bar-input-field'], 'form-control')}
 							id="inputTitle"
 							placeholder={title}
+							onChange={onChange}
+							value={inputTextValue}
 						/>
 					</div>
 				</div>
 			</form>
 			<div className={theme['tc-subheader-bar-form-icon-box']}>
-				{/* TODO MAKE ACTION COMPONENT */}
-				<Icon
-					className={theme['tc-subheader-bar-form-icon-validate']}
-					name="talend-check"
+				<Action
+					name="action-submit-title"
+					label="submit"
+					icon="talend-check"
 					onClick={onSubmit}
+					bsStyle="link"
+					className={theme['tc-subheader-bar-form-icon-validate']}
+					hideLabel
 				/>
 				{/* TODO MAKE ACTION COMPONENT */}
 				<Icon
@@ -75,6 +80,7 @@ EditTitle.propTypes = {
 	iconFile: PropTypes.string,
 	onSubmit: PropTypes.func.isRequired,
 	onCancel: PropTypes.func.isRequired,
+	onChange: PropTypes.func,
 };
 
 function SubHeaderBarActions({ actions, right, center }) {

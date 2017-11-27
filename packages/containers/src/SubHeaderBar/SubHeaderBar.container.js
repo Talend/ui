@@ -70,7 +70,6 @@ class SubHeaderBar extends React.Component {
 	onEdit(event) {
 		this.props.setState(() => ({
 			editMode: !this.props.state.get('editMode'),
-			inputText: this.props.title,
 		}));
 		if (this.props.onEdit) {
 			this.props.onEdit(event);
@@ -104,6 +103,8 @@ class SubHeaderBar extends React.Component {
 			onEdit: this.onEdit,
 			onCancel: this.onCancel,
 			onSubmit: this.onSubmit,
+			onChange: this.onChange,
+			inputTextValue: state.get('inputText'),
 		});
 		return <Component {...props} />;
 	}
