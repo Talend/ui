@@ -40,10 +40,6 @@ $tc-list-table-header-color: $black !default;
 			text-overflow: ellipsis;
 			padding: $tc-list-table-cell-padding;
 		}
-
-		&:focus {
-			outline: none;
-		}
 	}
 
 	[class*='tc-list-cell-'] {
