@@ -49,7 +49,17 @@ function getActionId(id, action) {
  />
  *
  */
-function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, renderers }) {
+function SidePanel({
+	id,
+	selected,
+	onSelect,
+	actions,
+	docked,
+	dockable,
+	onToggleDock,
+	t,
+	renderers,
+}) {
 	const dockedCSS = { [theme.docked]: docked };
 	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
 	const listCSS = classNames(
@@ -71,16 +81,18 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 	return (
 		<nav className={navCSS} role="navigation">
 			<ul className={listCSS}>
-				<li className={theme['toggle-btn']} title={toggleButtonTitle}>
-					<Action
-						id={id && `${id}-toggle-dock`}
-						className={theme.link}
-						bsStyle="link"
-						onClick={onToggleDock}
-						icon="talend-opener"
-						label=""
-					/>
-				</li>
+				{dockable ? (
+					<li className={theme['toggle-btn']} title={toggleButtonTitle}>
+						<Action
+							id={id && `${id}-toggle-dock`}
+							className={theme.link}
+							bsStyle="link"
+							onClick={onToggleDock}
+							icon="talend-opener"
+							label=""
+						/>
+					</li>
+				) : null}
 				{actions.map(action => {
 					const a11y = {};
 					const extra = {};
@@ -131,6 +143,7 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 SidePanel.defaultProps = {
 	actions: [],
 	renderers: { Action },
+	dockable: true,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -149,6 +162,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onSelect: PropTypes.func,
 		onToggleDock: PropTypes.func,
 		docked: PropTypes.bool,
+		dockable: PropTypes.bool,
 		selected: actionPropType,
 		t: PropTypes.func,
 		renderers: PropTypes.shape({

@@ -90,6 +90,16 @@ stories
 			tooltipPlacement="top"
 		/>
 	))
+	.addWithInfo('not dockable', () => (
+		<SidePanel
+			actions={items}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			selected={items[1]}
+			dockable={false}
+			tooltipPlacement="top"
+		/>
+	))
 	.addWithInfo('With layout (toggle interactive)', () => {
 		class WithLayout extends React.Component {
 			constructor() {
