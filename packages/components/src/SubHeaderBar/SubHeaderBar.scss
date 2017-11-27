@@ -11,20 +11,29 @@
 	text-transform: uppercase;
 }
 
-.tc-test {
+.subheader-right {
 	display: flex;
+	margin-left: auto;
 }
 
-.tc-subheader-bar {
+.subheader-center {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.subheader-container {
 	background-color: $wild-sand;
 	display: flex;
 	width: 100%;
 	height: 7rem;
-	// padding-right: 4rem;
 
+	.subheader-navbar {
+		display: flex;
+		padding-left: 0px;
+	}
 
-
-	.tc-subheader-bar-back-button {
+	.subheader-back-button {
 		color: $gray;
 		background-color: $gallery;
 		width: 7rem;
@@ -32,85 +41,80 @@
 
 		&:hover {
 			background-color: $white;
-			opacity: .1;
+			opacity: 0.1;
 		}
 	}
 
-	.tc-subheader-bar-details {
+	.subheader-details {
 		display: flex;
 		align-items: normal;
 
-		&:hover .tc-subheader-bar-details-pencil {
+		&:hover .subheader-details-text .subheader-details-pencil {
 			visibility: visible;
 		}
 
-		.tc-subheader-bar-details-text {
+		.subheader-details-text {
+			align-self: center;
+			padding-left: $padding-large;
+
+			.subheader-details-pencil {
+				display: inline-flex;
+				padding-left: 0px;
+				stroke: 0.1rem;
+				height: 1.6rem;
+				color: $gallery;
+				visibility: hidden;
+				vertical-align: top;
+			}
+
+			.subheader-details-title {
+				@include input-text(800);
+			}
+
+			.subheader-details-subtitle {
+				color: $dark-silver;
+				padding-top: 0.1rem;
+				font-size: 1.4rem;
+				font-weight: 300;
+			}
+		}
+	}
+
+	.subheader-form-container {
+		display: flex;
+		align-items: normal;
+
+		.subheader-form {
 			align-self: center;
 			padding-left: $padding-large;
 		}
 
-		.tc-subheader-bar-details-pencil {
-			stroke: 0.1rem;
-			height: 1.6rem;
-			color: $gallery;
-			visibility: hidden;
-		}
-
-		.tc-subheader-bar-details-title {
-			@include input-text(800);
-		}
-
-		.tc-subheader-bar-details-subtitle {
-			color: $dark-silver;
-			padding-top: 0.1rem;
-			font-size: 1.4rem;
-			font-weight: 300;
-		}
-	}
-
-	.tc-subheader-bar-form {
-		display: flex;
-		align-items: normal;
-
-		.tc-subheader-bar-form-box {
-			align-self: center;
-		}
-
-		.tc-subheader-bar-form-group {
+		& .form-group {
 			padding-top: 0rem;
 
-			.tc-subheader-bar-input-field {
-				@include input-text(400);
-			}
-
-			.tc-subheader-bar-override-width {
+			& .col-lg-10 {
 				width: 100%;
 			}
 		}
 
-		.tc-subheader-bar-form-icon-box {
-			align-self: center;
+		.subheader-input {
+			@include input-text(400);
 		}
 	}
+}
 
-	.tc-subheader-bar-icon-box {
-		align-self: center;
+// make selector
+.subheader-form-icon {
+	align-self: center;
+}
 
-		.tc-subheader-bar-icon {
-			width: 2.4rem;
-			height: 2.4rem;
-			color: $brand-primary;
-			margin-left: $padding-large;
-		}
-	}
+.subheader-file-icon-box {
+	align-self: center;
 
-	.tc-subheader-bar-action-bar {
-		margin-left: auto;
-		align-self: center;
-
-		 :global(.tc-svg-icon) {
-			width: 2rem;
-			height: 2rem;
-		}
+	.subheader-file-icon {
+		width: 2.4rem;
+		height: 2.4rem;
+		color: $brand-primary;
+		margin-left: $padding-large;
 	}
 }

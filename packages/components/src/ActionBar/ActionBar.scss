@@ -4,11 +4,12 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 .tc-actionbar-container {
 	padding: 0 $padding-small;
 	background: $tc-action-bar-background-color;
+	height: 100%;
+	width: 100%;
 	position: relative;
 
 	.navbar-left,
 	.navbar-right {
-		height: $navbar-height;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -27,14 +28,14 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 	}
 	
 	.navbar-center {
+		display: flex;
 		position: absolute;
 		width: 100%;
-		height: $navbar-height;
-		left: 0;
-		top: 0;
-		text-align: center;
+		height: 100%;
+		justify-content: center;
 		> * {
 			margin-top: $padding-small;
+			margin-bottom: $padding-small;
 		}
 	}
 

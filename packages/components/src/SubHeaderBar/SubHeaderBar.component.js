@@ -6,20 +6,37 @@ import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
 import theme from './SubHeaderBar.scss';
 
+function DetailsIcon({ iconFile }) {
+	if (iconFile) {
+		return (
+			<span className={theme['subheader-file-icon-box']}>
+				<Icon name={iconFile} className={theme['subheader-file-icon']} />
+			</span>
+		);
+	}
+	return null;
+}
+
+DetailsIcon.propTypes = {
+	iconFile: PropTypes.string.isRequired,
+};
+
 function DetailsTitle({ title, subTitle, iconFile, onEdit }) {
 	return (
-		<div className={theme['tc-subheader-bar-details']}>
-			<span className={theme['tc-subheader-bar-icon-box']}>
-				{iconFile && <Icon name={iconFile} className={theme['tc-subheader-bar-icon']} />}
-			</span>
-			<span className={theme['tc-subheader-bar-details-text']}>
-				<span className={theme['tc-subheader-bar-details-title']}>{title}</span>
-				<Icon
-					name="talend-pencil"
-					className={theme['tc-subheader-bar-details-pencil']}
+		<div className={theme['subheader-details']}>
+			<DetailsIcon iconFile={iconFile} />
+			<span className={theme['subheader-details-text']}>
+				<span className={theme['subheader-details-title']}>{title}</span>
+				<Action
+					name="action-edit-title"
+					label="edit"
+					icon="talend-pencil"
 					onClick={onEdit}
+					bsStyle="link"
+					className={theme['subheader-details-pencil']}
+					hideLabel
 				/>
-				{subTitle && <div className={theme['tc-subheader-bar-details-subtitle']}>{subTitle}</div>}
+				{subTitle && <div className={theme['subheader-details-subtitle']}>{subTitle}</div>}
 			</span>
 		</div>
 	);
@@ -34,27 +51,19 @@ DetailsTitle.propTypes = {
 
 function EditTitle({ title, iconFile, inputTextValue, onSubmit, onCancel, onChange }) {
 	return (
-		<div className={theme['tc-subheader-bar-form']}>
-			{iconFile && (
-				<span className={theme['tc-subheader-bar-icon-box']}>
-					<Icon name={iconFile} className={theme['tc-subheader-bar-icon']} />
-				</span>
-			)}
-			<form className={theme['tc-subheader-bar-form-box']}>
-				<div className={classNames(theme['tc-subheader-bar-form-group'], 'form-group')}>
-					<div className={classNames(theme['tc-subheader-bar-override-width'], 'col-lg-10')}>
-						<input
-							type="text"
-							className={classNames(theme['tc-subheader-bar-input-field'], 'form-control')}
-							id="inputTitle"
-							placeholder={title}
-							onChange={onChange}
-							value={inputTextValue}
-						/>
-					</div>
-				</div>
+		<div className={theme['subheader-form-container']}>
+			<DetailsIcon iconFile={iconFile} />
+			<form className={theme['subheader-form']}>
+				<input
+					type="text"
+					className={classNames(theme['subheader-input'], 'form-control')}
+					id="inputTitle"
+					placeholder={title}
+					onChange={onChange}
+					value={inputTextValue}
+				/>
 			</form>
-			<div className={theme['tc-subheader-bar-form-icon-box']}>
+			<div className={theme['subheader-form-icon']}>
 				<Action
 					name="action-submit-title"
 					label="submit"
@@ -95,10 +104,10 @@ function getComponentFromType(action) {
 	return null;
 }
 
-function SubHeaderBarActions({ actions, right, center }) {
+function SubHeaderBarActions({ actions, right, center, className }) {
 	if (actions && Array.isArray(actions)) {
 		return (
-			<div>
+			<div className={theme[className]}>
 				{actions.map(action => (
 					<ActionBar.Content tag={action.tag} center={center} right={right}>
 						{getComponentFromType(action)}
@@ -108,13 +117,13 @@ function SubHeaderBarActions({ actions, right, center }) {
 		);
 	}
 	return null;
-	// return <div className={theme['tc-subheader-bar-action-bar']}>{actionsComponent}</div>;
 }
 
 SubHeaderBarActions.propTypes = {
 	actions: PropTypes.array,
 	right: PropTypes.bool,
 	center: PropTypes.bool,
+	className: PropTypes.string,
 };
 
 function SubHeaderBar({
@@ -126,8 +135,8 @@ function SubHeaderBar({
 	...rest
 }) {
 	return (
-		<div className={classNames(theme['tc-subheader-bar'], className)}>
-			<ActionBar className={theme['tc-test']}>
+		<div className={classNames(theme['subheader-container'], 'subheader-container', className)}>
+			<ActionBar className={theme['subheader-navbar']}>
 				<ActionBar.Content left>
 					<Action
 						id="backArrow"
@@ -135,13 +144,23 @@ function SubHeaderBar({
 						label="backArrow"
 						icon="talend-arrow-left"
 						bsStyle="link"
-						className={theme['tc-subheader-bar-back-button']}
+						className={theme['subheader-back-button']}
 						hideLabel
 					/>
 				</ActionBar.Content>
 				{editMode ? <EditTitle {...rest} /> : <DetailsTitle {...rest} />}
-				<SubHeaderBarActions actions={actionsCenter} center right={false} />
-				<SubHeaderBarActions actions={actionsRight} center={false} right />
+				<SubHeaderBarActions
+					actions={actionsCenter}
+					className="subheader-center"
+					center
+					right={false}
+				/>
+				<SubHeaderBarActions
+					actions={actionsRight}
+					className="subheader-right"
+					center={false}
+					right
+				/>
 			</ActionBar>
 		</div>
 	);
@@ -156,7 +175,7 @@ SubHeaderBar.propTypes = {
 };
 
 SubHeaderBar.defaultProps = {
-	editMode: false,
+	editMode: true,
 };
 
 export default SubHeaderBar;
