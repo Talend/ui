@@ -77,10 +77,10 @@ Content.propTypes = {
 	tag: PropTypes.oneOf(['p', 'button', 'form', 'a', 'div']),
 };
 
-function SwitchActions({ actions, left, right, selected, renderers }) {
+function SwitchActions({ actions, left, right, center, selected, renderers }) {
 	const Renderers = getRenderers({ renderers });
 	return (
-		<Content left={left} right={right}>
+		<Content left={left} right={right} center={center}>
 			{selected > 0 && !right ? <Count selected={selected} /> : null}
 			{actions.map((action, index) => {
 				const { displayMode, ...rest } = action;
@@ -131,7 +131,7 @@ Count.propTypes = {
 };
 
 function ActionBar(props) {
-	const { left, right } = getActionsToRender(props);
+	const { left, right, center } = getActionsToRender(props);
 	const cssClass = classNames(
 		css['tc-actionbar-container'],
 		'tc-actionbar-container',
@@ -150,10 +150,19 @@ function ActionBar(props) {
 				/>
 			)}
 			{props.children}
-			{right && (
+			{center && (
 				<SwitchActions
 					renderers={props.renderers}
 					key={1}
+					actions={center}
+					selected={props.selected}
+					center
+				/>
+			)}
+			{right && (
+				<SwitchActions
+					renderers={props.renderers}
+					key={2}
 					actions={right}
 					selected={props.selected}
 					right

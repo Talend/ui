@@ -151,6 +151,31 @@ const btnGroupActions = {
 			],
 		},
 	],
+	center: [
+		{
+			displayMode: ActionBar.DISPLAY_MODES.BTN_GROUP,
+			actions: [
+				{
+					label: 'you can also add',
+					icon: 'talend-plus-circle',
+					hideLabel: true,
+					onClick: action('add !'),
+				},
+				{
+					label: 'search',
+					icon: 'talend-search',
+					hideLabel: true,
+					onClick: action('search'),
+				},
+				{
+					label: 'star',
+					icon: 'talend-star',
+					hideLabel: true,
+					onClick: action('star'),
+				},
+			],
+		},
+	],
 	right: [
 		{
 			displayMode: ActionBar.DISPLAY_MODES.BTN_GROUP,
@@ -169,7 +194,6 @@ const btnGroupActions = {
 				},
 			],
 		},
-
 	],
 };
 
@@ -214,9 +238,7 @@ storiesOf('ActionBar', module)
 			</div>
 			<p>Toolbar with btn-group and only icons</p>
 			<div id="btn-group">
-				<ActionBar
-					actions={btnGroupActions}
-				/>
+				<ActionBar actions={btnGroupActions} />
 			</div>
 		</nav>
 	))
@@ -232,17 +254,15 @@ storiesOf('ActionBar', module)
 						Hello button
 					</ActionBar.Content>
 					<ActionBar.Content left>
-						<Action
-							label="hello Action"
-							icon="talend-trash"
-							onClick={action('onClick')}
-						/>
+						<Action label="hello Action" icon="talend-trash" onClick={action('onClick')} />
 					</ActionBar.Content>
 					<ActionBar.Content tag="form" role="search" center>
 						<div className="form-group">
 							<input type="text" className="form-control" placeholder="Search" />
 						</div>
-						<button type="submit" className="btn btn-default">Submit</button>
+						<button type="submit" className="btn btn-default">
+							Submit
+						</button>
 					</ActionBar.Content>
 					<ActionBar.Content tag="p" right>
 						Hello paragraph

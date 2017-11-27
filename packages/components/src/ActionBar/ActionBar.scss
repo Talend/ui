@@ -5,6 +5,7 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 	text-align: center;
 	padding: 0 $padding-small;
 	background: $tc-action-bar-background-color;
+	position: relative;
 
 	.navbar-left,
 	.navbar-right {
@@ -27,8 +28,10 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 	}
 
 	.navbar-center {
-		display: inline-block;
-		align-self: center;
+		position: absolute;
+		width: 100%;
+		left: 0;
+		top: 0;
 	}
 
 	:global(.navbar-form),
