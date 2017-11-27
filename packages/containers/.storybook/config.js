@@ -274,7 +274,7 @@ function loadStories() {
 		};
 		actions['subheaderbar:action-sharing'] = {
 			id: 'subheaderbar:action-sharing',
-			tag: 'button',
+			type: 'action',
 			actionCreator: 'overlay:display-sharing',
 			icon: 'talend-share-alt',
 			hideLabel: true,
@@ -282,7 +282,7 @@ function loadStories() {
 		};
 		actions['subheaderbar:action-bubbles'] = {
 			id: 'subheaderbar:action-bubbles',
-			tag: 'button',
+			type: 'action',
 			actionCreator: 'overlay:display-bubbles',
 			icon: 'talend-bubbles',
 			hideLabel: true,
@@ -291,6 +291,8 @@ function loadStories() {
 		actions['subheaderbar:action-filter'] = {
 			id: 'subheaderbar:action-filter',
 			componentId: 'FilterBar',
+			tag: 'form',
+			type: 'component',
 			navbar: true,
 			docked: false,
 			dockable: false,

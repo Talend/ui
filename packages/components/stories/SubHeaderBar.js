@@ -9,21 +9,21 @@ import { IconsProvider, SubHeaderBar, FilterBar } from '../src/index';
 const viewSubHeader = {
 	title: 'Marketing',
 	subTitle: 'Creator John Doe',
-	onClickEdit: action('onClickEdit'),
-	onClickValidate: action('onClickValidate'),
-	onClickCancel: action('onClickCancel'),
+	onEdit: action('onEdit'),
+	onSubmit: action('onSubmit'),
+	onCancel: action('onCancel'),
+	onChange: action('onChange'),
 };
 
 const backAction = {
-	id: 'backAction',
-	onClick: action('return action'),
+	onClickBackArrow: action('onClickBackArrow'),
 };
 
 const actionsRight = [
 	{
 		id: 'action1',
 		label: 'action1',
-		tag: 'button',
+		type: 'action',
 		bsStyle: 'link',
 		icon: 'talend-share-alt',
 		onClick: action('return action1'),
@@ -32,7 +32,7 @@ const actionsRight = [
 	{
 		id: 'action2',
 		label: 'action2',
-		tag: 'button',
+		type: 'action',
 		bsStyle: 'link',
 		icon: 'talend-activity',
 		onClick: action('return action2'),
@@ -41,7 +41,7 @@ const actionsRight = [
 	{
 		id: 'action3',
 		label: 'action3',
-		tag: 'button',
+		type: 'action',
 		icon: 'talend-bell',
 		bsStyle: 'link',
 		onClick: action('return action3'),
@@ -52,6 +52,7 @@ const actionsRight = [
 const actionsCenter = [
 	{
 		tag: 'form',
+		type: 'component',
 		component: (
 			<FilterBar
 				t={() => action('t')}

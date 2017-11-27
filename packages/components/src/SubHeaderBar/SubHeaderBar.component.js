@@ -85,11 +85,11 @@ EditTitle.propTypes = {
 	inputTextValue: PropTypes.string,
 };
 
-function getComponentFromTag(action) {
-	if (action.tag === 'action') {
+function getComponentFromType(action) {
+	if (action.type === 'action') {
 		return <Action {...action} />;
 	}
-	if (action.tag === 'component') {
+	if (action.type === 'component') {
 		return action.component;
 	}
 	return null;
@@ -98,13 +98,17 @@ function getComponentFromTag(action) {
 function SubHeaderBarActions({ actions, right, center }) {
 	if (actions && Array.isArray(actions)) {
 		return (
-			<ActionBar.Content center={center} right={right}>
-				{actions.map(action => getComponentFromTag(action))}
-			</ActionBar.Content>
+			<div>
+				{actions.map(action => (
+					<ActionBar.Content tag={action.tag} center={center} right={right}>
+						{getComponentFromType(action)}
+					</ActionBar.Content>
+				))}
+			</div>
 		);
-		// return <div className={theme['tc-subheader-bar-action-bar']}>{actionsComponent}</div>;
 	}
 	return null;
+	// return <div className={theme['tc-subheader-bar-action-bar']}>{actionsComponent}</div>;
 }
 
 SubHeaderBarActions.propTypes = {
@@ -136,8 +140,8 @@ function SubHeaderBar({
 					/>
 				</ActionBar.Content>
 				{editMode ? <EditTitle {...rest} /> : <DetailsTitle {...rest} />}
-				{actionsCenter && <SubHeaderBarActions actions={actionsCenter} center right={false} />}
-				{actionsRight && <SubHeaderBarActions actions={actionsRight} center={false} right />}
+				<SubHeaderBarActions actions={actionsCenter} center right={false} />
+				<SubHeaderBarActions actions={actionsRight} center={false} right />
 			</ActionBar>
 		</div>
 	);
