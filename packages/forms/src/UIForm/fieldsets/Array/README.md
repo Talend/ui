@@ -1,4 +1,4 @@
-# Buttons
+# Array
 
 This widget allows you to create arrays of simple fields/widgets or objects
 
@@ -73,7 +73,7 @@ Array of objects { name, email, comment }
 Array of simple strings
 
 ```json
-["users"]
+["users"]``
 ```
 
 Array of objects
