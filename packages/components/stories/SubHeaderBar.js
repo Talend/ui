@@ -21,20 +21,29 @@ const backAction = {
 
 const actionsRight = [
 	{
+		id: 'action1',
+		label: 'action1',
 		tag: 'button',
+		bsStyle: 'link',
 		icon: 'talend-share-alt',
 		onClick: action('return action1'),
 		hideLabel: true,
 	},
 	{
+		id: 'action2',
+		label: 'action2',
 		tag: 'button',
+		bsStyle: 'link',
 		icon: 'talend-activity',
 		onClick: action('return action2'),
 		hideLabel: true,
 	},
 	{
+		id: 'action3',
+		label: 'action3',
 		tag: 'button',
 		icon: 'talend-bell',
+		bsStyle: 'link',
 		onClick: action('return action3'),
 		hideLabel: true,
 	},

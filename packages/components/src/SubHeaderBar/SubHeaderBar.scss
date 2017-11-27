@@ -11,18 +11,29 @@
 	text-transform: uppercase;
 }
 
+.tc-test {
+	display: flex;
+}
+
 .tc-subheader-bar {
 	background-color: $wild-sand;
 	display: flex;
-	position: fixed;
 	width: 100%;
 	height: 7rem;
+	// padding-right: 4rem;
+
+
 
 	.tc-subheader-bar-back-button {
 		color: $gray;
 		background-color: $gallery;
 		width: 7rem;
 		height: 100%;
+
+		&:hover {
+			background-color: $white;
+			opacity: .1;
+		}
 	}
 
 	.tc-subheader-bar-details {
@@ -95,6 +106,11 @@
 
 	.tc-subheader-bar-action-bar {
 		margin-left: auto;
-		background-color: $wild-sand;
+		align-self: center;
+
+		 :global(.tc-svg-icon) {
+			width: 2rem;
+			height: 2rem;
+		}
 	}
 }

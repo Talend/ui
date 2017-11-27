@@ -85,23 +85,24 @@ EditTitle.propTypes = {
 	inputTextValue: PropTypes.string,
 };
 
+function getComponentFromTag(action) {
+	if (action.tag === 'action') {
+		return <Action {...action} />;
+	}
+	if (action.tag === 'component') {
+		return action.component;
+	}
+	return null;
+}
+
 function SubHeaderBarActions({ actions, right, center }) {
 	if (actions && Array.isArray(actions)) {
-		const actionsComponent = actions.map((action, index) => {
-			if (action.tag === 'button') {
-				return (
-					<ActionBar.Content key={index} tag="button" center={center} right={right}>
-						<Action {...action} />
-					</ActionBar.Content>
-				);
-			}
-			return (
-				<ActionBar.Content key={index} tag={action.tag} center={center} right={right}>
-					{action.component}
-				</ActionBar.Content>
-			);
-		});
-		return <div className={theme['tc-subheader-bar-action-bar']}>{actionsComponent}</div>;
+		return (
+			<ActionBar.Content center={center} right={right}>
+				{actions.map(action => getComponentFromTag(action))}
+			</ActionBar.Content>
+		);
+		// return <div className={theme['tc-subheader-bar-action-bar']}>{actionsComponent}</div>;
 	}
 	return null;
 }
@@ -112,24 +113,33 @@ SubHeaderBarActions.propTypes = {
 	center: PropTypes.bool,
 };
 
-function SubHeaderBar({ onClickBackArrow, actionsCenter, actionsRight, editMode, ...rest }) {
+function SubHeaderBar({
+	onClickBackArrow,
+	actionsCenter,
+	actionsRight,
+	editMode,
+	className,
+	...rest
+}) {
 	return (
-		<nav className={classNames(theme['tc-subheader-bar'], 'tc-subheader-bar', 'nav')}>
-			<ActionBar.Content left>
-				<Action
-					id="backArrow"
-					onClick={onClickBackArrow}
-					label="backArrow"
-					icon="talend-arrow-left"
-					bsStyle="link"
-					className={theme['tc-subheader-bar-back-button']}
-					hideLabel
-				/>
-			</ActionBar.Content>
-			{editMode ? <EditTitle {...rest} /> : <DetailsTitle {...rest} />}
-			{actionsCenter && <SubHeaderBarActions actions={actionsCenter} center right={false} />}
-			{actionsRight && <SubHeaderBarActions actions={actionsRight} center={false} right />}
-		</nav>
+		<div className={classNames(theme['tc-subheader-bar'], className)}>
+			<ActionBar className={theme['tc-test']}>
+				<ActionBar.Content left>
+					<Action
+						id="backArrow"
+						onClick={onClickBackArrow}
+						label="backArrow"
+						icon="talend-arrow-left"
+						bsStyle="link"
+						className={theme['tc-subheader-bar-back-button']}
+						hideLabel
+					/>
+				</ActionBar.Content>
+				{editMode ? <EditTitle {...rest} /> : <DetailsTitle {...rest} />}
+				{actionsCenter && <SubHeaderBarActions actions={actionsCenter} center right={false} />}
+				{actionsRight && <SubHeaderBarActions actions={actionsRight} center={false} right />}
+			</ActionBar>
+		</div>
 	);
 }
 
@@ -138,6 +148,7 @@ SubHeaderBar.propTypes = {
 	editMode: PropTypes.bool,
 	actionsCenter: PropTypes.array,
 	actionsRight: PropTypes.array,
+	className: PropTypes.string,
 };
 
 SubHeaderBar.defaultProps = {
