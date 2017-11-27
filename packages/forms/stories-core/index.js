@@ -33,9 +33,14 @@ a11y(ReactDOM);
 const forStoryDecorator = story => (
 	<I18nextProvider i18n={i18n}>
 	<Provider store={store}>
-		<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
-		<button onClick={() => i18n.changeLanguage('it')}>it</button>
 		<div className="container-fluid">
+			<nav style={{ position: 'fixed', bottom: 0, width: '100vw', textAlign: 'center', zIndex: 1 }}>
+				<div className="btn-group">
+					<button className="btn" onClick={() => i18n.changeLanguage('en')}>Default (en)</button>
+					<button className="btn" onClick={() => i18n.changeLanguage('fr')}>fr</button>
+					<button className="btn" onClick={() => i18n.changeLanguage('it')}>it</button>
+				</div>
+			</nav>
 			<div
 				className="col-md-offset-1 col-md-10"
 				style={{ marginTop: '20px', marginBottom: '20px' }}
