@@ -16,9 +16,7 @@ const viewSubHeader = {
 
 const backAction = {
 	id: 'backAction',
-	icon: 'talend-arrow-left',
 	onClick: action('return action'),
-	className: 'tc-subheader-bar-back-icon',
 };
 
 const actionsRight = [
@@ -74,7 +72,7 @@ stories
 			<SubHeaderBar {...props} iconFile="talend-file-csv-o" />
 		</div>
 	))
-	.addWithInfo('without icon file no actions', () => (
+	.addWithInfo('without no icon file', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...props} />
@@ -86,10 +84,10 @@ stories
 			<SubHeaderBar iconFile="talend-file-csv-o" actionsRight={actionsRight} {...props} />
 		</div>
 	))
-	.addWithInfo('with icon file and center actions', () => (
+	.addWithInfo('with no icon file and center actions', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar iconFile="talend-file-csv-o" actionsCenter={actionsCenter} {...props} />
+			<SubHeaderBar actionsCenter={actionsCenter} {...props} />
 		</div>
 	))
 	.addWithInfo('with icon file and center && right actions', () => (

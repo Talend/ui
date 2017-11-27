@@ -61,14 +61,15 @@ function EditTitle({ title, iconFile, inputTextValue, onSubmit, onCancel, onChan
 					icon="talend-check"
 					onClick={onSubmit}
 					bsStyle="link"
-					className={theme['tc-subheader-bar-form-icon-validate']}
 					hideLabel
 				/>
-				{/* TODO MAKE ACTION COMPONENT */}
-				<Icon
-					className={theme['tc-subheader-bar-form-icon-cancel']}
-					name="talend-cross"
+				<Action
+					name="action-cancel-title"
+					label="cancel"
+					icon="talend-cross"
 					onClick={onCancel}
+					bsStyle="link"
+					hideLabel
 				/>
 			</div>
 		</div>
@@ -81,6 +82,7 @@ EditTitle.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
 	onCancel: PropTypes.func.isRequired,
 	onChange: PropTypes.func,
+	inputTextValue: PropTypes.string,
 };
 
 function SubHeaderBarActions({ actions, right, center }) {
@@ -110,12 +112,20 @@ SubHeaderBarActions.propTypes = {
 	center: PropTypes.bool,
 };
 
-function SubHeaderBar({ backAction, actionsCenter, actionsRight, editMode, ...rest }) {
+function SubHeaderBar({ onClickBackArrow, actionsCenter, actionsRight, editMode, ...rest }) {
 	return (
 		<nav className={classNames(theme['tc-subheader-bar'])}>
-			<span className={classNames(theme['tc-subheader-bar-back-button'])}>
-				<ActionBar.Content tag="button" left>
-					<Action {...backAction} hideLabel />
+			<span className={theme['tc-subheader-bar-back-button']}>
+				<ActionBar.Content left>
+					<Action
+						id="backArrow"
+						onClick={onClickBackArrow}
+						label="backArrow"
+						icon="talend-arrow-left"
+						className="tc-subheader-bar-back-icon"
+						bsStyle="link"
+						hideLabel
+					/>
 				</ActionBar.Content>
 			</span>
 			{editMode ? <EditTitle {...rest} /> : <DetailsTitle {...rest} />}
@@ -126,14 +136,14 @@ function SubHeaderBar({ backAction, actionsCenter, actionsRight, editMode, ...re
 }
 
 SubHeaderBar.propTypes = {
-	backAction: PropTypes.object,
+	onClickBackArrow: PropTypes.func.isRequired,
 	editMode: PropTypes.bool,
 	actionsCenter: PropTypes.array,
 	actionsRight: PropTypes.array,
 };
 
 SubHeaderBar.defaultProps = {
-	editMode: false,
+	editMode: true,
 };
 
 export default SubHeaderBar;

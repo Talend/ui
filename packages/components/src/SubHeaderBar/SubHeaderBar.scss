@@ -1,7 +1,6 @@
 @mixin input-icon($margin-left) {
 	margin-top: 1rem;
 	margin-left: $margin-left;
-	align-self: center;
 }
 
 @mixin input-text($weight) {
@@ -20,7 +19,10 @@
 	height: 7rem;
 
 	.tc-subheader-bar-back-button {
+		display: flex;
 		background-color: $gallery;
+		width: 7rem;
+		align-items: center;
 
 		.tc-subheader-bar-back-icon {
 			width: $padding-large;
@@ -81,13 +83,6 @@
 
 		.tc-subheader-bar-form-icon-box {
 			align-self: center;
-
-			.tc-subheader-bar-form-icon-cancel {
-				@include input-icon(1.5rem);
-			}
-			.tc-subheader-bar-form-icon-validate {
-				@include input-icon(1rem);
-			}
 		}
 	}
 

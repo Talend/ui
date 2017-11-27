@@ -9,16 +9,15 @@ import { SubHeaderBar } from '../src';
 const viewSubHeader = {
 	title: 'Marketing',
 	subTitle: 'Creator John Doe',
-	onClickEdit: () => action('onClickEdit'),
-	onClickValidate: () => action('onClickValidate'),
-	onClickCancel: () => action('onClickCancel'),
+	onEdit: () => action('onEdit'),
+	onSubmit: () => action('onSubmit'),
+	onCancel: () => action('onCancel'),
+	onChange: () => action('onChange'),
 };
 
 const backAction = {
-	id: 'backAction',
-	icon: 'talend-arrow-left',
-	onClick: () => action('backAction'),
-	className: 'tc-subheader-bar-back-icon',
+	idBackAction: 'backAction',
+	backActionClick: () => action('backAction'),
 };
 
 const actionsRight = ['subheaderbar:action-sharing', 'subheaderbar:action-bubbles'];
