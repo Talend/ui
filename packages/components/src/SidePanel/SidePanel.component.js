@@ -49,12 +49,23 @@ function getActionId(id, action) {
  />
  *
  */
-function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, renderers }) {
+function SidePanel({
+	id,
+	selected,
+	onSelect,
+	actions,
+	docked,
+	inverted,
+	onToggleDock,
+	t,
+	renderers,
+}) {
 	const dockedCSS = { [theme.docked]: docked };
 	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
 	const listCSS = classNames(
-		'nav nav-pills nav-inverse nav-stacked',
+		'nav nav-pills nav-stacked',
 		'tc-side-panel-list',
+		{ 'nav-inverse': !inverted },
 		theme['action-list'],
 	);
 	const isActionSelected = action => {
@@ -149,6 +160,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onSelect: PropTypes.func,
 		onToggleDock: PropTypes.func,
 		docked: PropTypes.bool,
+		inverted: PropTypes.bool,
 		selected: actionPropType,
 		t: PropTypes.func,
 		renderers: PropTypes.shape({

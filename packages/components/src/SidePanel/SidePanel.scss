@@ -52,12 +52,36 @@ $toggle-button-padding: $padding-small - 1;
 		overflow: hidden;
 	}
 
+	:global(.nav-inverse) {
+		:global(.tc-side-panel-list-item):hover {
+			background-color: $list-item-hover-color;
+			color: $white;
+		}
+
+		:global(.tc-side-panel-list-item.active) {
+			background-color: $list-item-active-color;
+			color: $white;
+		}
+	}
+
+	:global(.tc-side-panel-list) {
+		border-right: 1px solid $alto;
+		&.nav-inverse {
+			border-right: none;
+		}
+	}
+
 	:global(.tc-side-panel-list-item):hover {
-		background-color: $list-item-hover-color;
+		background-color: $white;
+		color: $brand-primary;
 	}
 
 	:global(.tc-side-panel-list-item.active) {
-		background-color: $list-item-active-color;
+		background-color: $white;
+		color: $brand-primary;
+		.btn.btn-link {
+			font-weight: bold;
+		}
 	}
 
 	&.docked {

@@ -90,6 +90,16 @@ stories
 			tooltipPlacement="top"
 		/>
 	))
+	.addWithInfo('with inverted style', () => (
+		<SidePanel
+			actions={items}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			selected={items[1]}
+			inverted
+			tooltipPlacement="top"
+		/>
+	))
 	.addWithInfo('With layout (toggle interactive)', () => {
 		class WithLayout extends React.Component {
 			constructor() {
