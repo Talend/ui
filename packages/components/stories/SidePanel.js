@@ -96,7 +96,7 @@ stories
 			onSelect={action('onItemSelect')}
 			onToggleDock={action('onToggleDock')}
 			selected={items[1]}
-			inverted
+			reverse
 			tooltipPlacement="top"
 		/>
 	))

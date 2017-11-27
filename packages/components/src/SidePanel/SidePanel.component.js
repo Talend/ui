@@ -55,7 +55,7 @@ function SidePanel({
 	onSelect,
 	actions,
 	docked,
-	inverted,
+	reverse,
 	onToggleDock,
 	t,
 	renderers,
@@ -65,7 +65,7 @@ function SidePanel({
 	const listCSS = classNames(
 		'nav nav-pills nav-stacked',
 		'tc-side-panel-list',
-		{ 'nav-inverse': !inverted },
+		{ 'nav-inverse': !reverse },
 		theme['action-list'],
 	);
 	const isActionSelected = action => {
@@ -142,6 +142,7 @@ function SidePanel({
 SidePanel.defaultProps = {
 	actions: [],
 	renderers: { Action },
+	reverse: false,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -160,7 +161,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onSelect: PropTypes.func,
 		onToggleDock: PropTypes.func,
 		docked: PropTypes.bool,
-		inverted: PropTypes.bool,
+		reverse: PropTypes.bool,
 		selected: actionPropType,
 		t: PropTypes.func,
 		renderers: PropTypes.shape({
