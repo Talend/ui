@@ -114,20 +114,18 @@ SubHeaderBarActions.propTypes = {
 
 function SubHeaderBar({ onClickBackArrow, actionsCenter, actionsRight, editMode, ...rest }) {
 	return (
-		<nav className={classNames(theme['tc-subheader-bar'])}>
-			<span className={theme['tc-subheader-bar-back-button']}>
-				<ActionBar.Content left>
-					<Action
-						id="backArrow"
-						onClick={onClickBackArrow}
-						label="backArrow"
-						icon="talend-arrow-left"
-						className="tc-subheader-bar-back-icon"
-						bsStyle="link"
-						hideLabel
-					/>
-				</ActionBar.Content>
-			</span>
+		<nav className={classNames(theme['tc-subheader-bar'], 'tc-subheader-bar', 'nav')}>
+			<ActionBar.Content left>
+				<Action
+					id="backArrow"
+					onClick={onClickBackArrow}
+					label="backArrow"
+					icon="talend-arrow-left"
+					bsStyle="link"
+					className={theme['tc-subheader-bar-back-button']}
+					hideLabel
+				/>
+			</ActionBar.Content>
 			{editMode ? <EditTitle {...rest} /> : <DetailsTitle {...rest} />}
 			{actionsCenter && <SubHeaderBarActions actions={actionsCenter} center right={false} />}
 			{actionsRight && <SubHeaderBarActions actions={actionsRight} center={false} right />}
@@ -143,7 +141,7 @@ SubHeaderBar.propTypes = {
 };
 
 SubHeaderBar.defaultProps = {
-	editMode: true,
+	editMode: false,
 };
 
 export default SubHeaderBar;

@@ -19,14 +19,10 @@
 	height: 7rem;
 
 	.tc-subheader-bar-back-button {
-		display: flex;
+		color: $gray;
 		background-color: $gallery;
 		width: 7rem;
-		align-items: center;
-
-		.tc-subheader-bar-back-icon {
-			width: $padding-large;
-		}
+		height: 100%;
 	}
 
 	.tc-subheader-bar-details {
