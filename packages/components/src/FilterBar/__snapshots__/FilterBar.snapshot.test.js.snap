@@ -3,46 +3,51 @@
 exports[`Filter should render 1`] = `
 <Action
   bsStyle="link"
-  className="navbar-right"
+  className=""
   hideLabel={true}
   icon="talend-search"
   id={undefined}
   label="Toggle filter"
   onClick={[Function]}
+  tooltipPlacement={undefined}
 />
 `;
 
 exports[`Filter should render filter input with default placeholder 1`] = `
 <form
-  className="navbar-form navbar-right"
+  className="undefined"
   onSubmit={[Function]}
   role="search"
 >
-  <Icon
-    className={undefined}
-    name="talend-search"
-  />
   <div
-    className="form-group"
+    className="form-group undefined"
   >
+    <Icon
+      className={undefined}
+      name="talend-search"
+    />
     <FilterInput
+      autoFocus={true}
       debounceMinLength={undefined}
       debounceTimeout={undefined}
+      dockable={true}
       id={undefined}
-      onBlur={undefined}
-      onFilter={undefined}
-      onFocus={undefined}
+      onBlur={[Function]}
+      onFilter={[Function]}
+      onFocus={[Function]}
       onToggle={undefined}
       placeholder="Filter"
       value={undefined}
     />
     <Action
       bsStyle="link"
+      className={undefined}
       hideLabel={true}
       icon="talend-cross"
       id={undefined}
       label="Remove filter"
       onClick={undefined}
+      tooltipPlacement={undefined}
     />
   </div>
 </form>
@@ -50,35 +55,39 @@ exports[`Filter should render filter input with default placeholder 1`] = `
 
 exports[`Filter should render filter input with given placeholder 1`] = `
 <form
-  className="navbar-form navbar-right"
+  className="undefined"
   onSubmit={[Function]}
   role="search"
 >
-  <Icon
-    className={undefined}
-    name="talend-search"
-  />
   <div
-    className="form-group"
+    className="form-group undefined"
   >
+    <Icon
+      className={undefined}
+      name="talend-search"
+    />
     <FilterInput
+      autoFocus={true}
       debounceMinLength={undefined}
       debounceTimeout={undefined}
+      dockable={true}
       id={undefined}
-      onBlur={undefined}
-      onFilter={undefined}
-      onFocus={undefined}
+      onBlur={[Function]}
+      onFilter={[Function]}
+      onFocus={[Function]}
       onToggle={undefined}
       placeholder="find something"
       value={undefined}
     />
     <Action
       bsStyle="link"
+      className={undefined}
       hideLabel={true}
       icon="talend-cross"
       id={undefined}
       label="Remove filter"
       onClick={undefined}
+      tooltipPlacement={undefined}
     />
   </div>
 </form>
@@ -87,35 +96,38 @@ exports[`Filter should render filter input with given placeholder 1`] = `
 exports[`Filter should render highlighted filter 1`] = `
 <Action
   bsStyle="link"
-  className="navbar-right"
+  className=""
   hideLabel={true}
   icon="talend-search"
   id={undefined}
   label="Toggle filter"
   onClick={[Function]}
+  tooltipPlacement={undefined}
 />
 `;
 
 exports[`Filter should render id if provided 1`] = `
 <Action
   bsStyle="link"
-  className="navbar-right"
+  className=""
   hideLabel={true}
   icon="talend-search"
   id="toolbar-filter"
   label="Toggle filter"
   onClick={[Function]}
+  tooltipPlacement={undefined}
 />
 `;
 
 exports[`Filter should render only toggle icon 1`] = `
 <Action
   bsStyle="link"
-  className="navbar-right"
+  className=""
   hideLabel={true}
   icon="talend-search"
   id={undefined}
   label="Toggle filter"
   onClick={[Function]}
+  tooltipPlacement={undefined}
 />
 `;

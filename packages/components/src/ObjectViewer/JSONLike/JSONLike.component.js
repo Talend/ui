@@ -17,6 +17,14 @@ const COMPLEX_TYPES = ['object', 'array'];
 export const ARRAY_ABSTRACT = '[...]';
 export const OBJECT_ABSTRACT = '{...}';
 
+const dateTimeRegexp = new RegExp(
+	/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z)?$/,
+); // eslint-disable-line max-len
+const dateRegexp = new RegExp(
+	/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])$/,
+); // eslint-disable-line max-len
+const timeRegexp = new RegExp(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/);
+
 function stopAndSelect(event, { onSelect, jsonpath }) {
 	event.stopPropagation();
 	onSelect(event, jsonpath);
@@ -158,6 +166,14 @@ export function getDataInfo(data, tupleLabel) {
 
 		if (tupleLabel && tupleLabel.length > 0) {
 			info.type = tupleLabel;
+		}
+	} else if (info.type === 'string') {
+		if (dateTimeRegexp.test(data)) {
+			info.type = 'datetime';
+		} else if (dateRegexp.test(data)) {
+			info.type = 'date';
+		} else if (timeRegexp.test(data)) {
+			info.type = 'time';
 		}
 	}
 
@@ -405,7 +421,7 @@ Item.defaultProps = {
  * this is an indented list of item where each item render 'id: type #items'
  * @param {object} props react
  */
-export function JSONLike({ onSubmit, ...props }) {
+export function JSONLike({ onSubmit, className, style, ...props }) {
 	const rootIsObject = isObject(props.data);
 	let rootComputedLabel = null;
 
@@ -418,7 +434,8 @@ export function JSONLike({ onSubmit, ...props }) {
 	if (onSubmit) {
 		return (
 			<form
-				className={`tc-object-viewer ${theme.container} `}
+				className={classNames('tc-object-viewer', theme.container, className)}
+				style={style}
 				onSubmit={event => {
 					onSubmit(event);
 					event.preventDefault();
@@ -435,7 +452,7 @@ export function JSONLike({ onSubmit, ...props }) {
 	}
 
 	return (
-		<div className={`tc-object-viewer ${theme.container}`}>
+		<div className={classNames('tc-object-viewer', theme.container, className)} style={style}>
 			{rootComputedLabel ? (
 				<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
 					<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
@@ -449,6 +466,8 @@ export function JSONLike({ onSubmit, ...props }) {
 JSONLike.propTypes = {
 	data: PropTypes.oneOfType([...VALIDE_TYPES, ...COMPLEX_TYPES].map(t => `PropTypes.${t}`)),
 	onSubmit: PropTypes.func,
+	className: PropTypes.string,
+	style: PropTypes.object,
 	rootLabel: PropTypes.string,
 	tupleLabel: PropTypes.string,
 };
