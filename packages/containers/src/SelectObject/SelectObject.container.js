@@ -129,10 +129,15 @@ class SelectObject extends React.Component {
 		}
 		let selected = state.get('selectedId') || props.selectedId;
 		if (props.query) {
-			props.filteredData = this.filter(props.sourceData, props.query, {
-				...props,
-				onMatch: addMatch,
-			}, props.breadCrumbsRootLabel);
+			props.filteredData = this.filter(
+				props.sourceData,
+				props.query,
+				{
+					...props,
+					onMatch: addMatch,
+				},
+				props.breadCrumbsRootLabel,
+			);
 			delete props.tree;
 			props.results = {
 				onClick: this.onResultsClick,
