@@ -78,10 +78,11 @@ function ArrayItem(props) {
 					>
 						<Icon name="talend-trash" />
 					</button>
-					{!value.isClosed && onReorder && [
-						<TranslatedReorderButton {...props} index={index} />,
-						<TranslatedReorderButton {...props} index={index} isMoveDown />,
-					]}
+					{!value.isClosed &&
+						onReorder && [
+							<TranslatedReorderButton {...props} index={index} />,
+							<TranslatedReorderButton {...props} index={index} isMoveDown />,
+						]}
 				</div>
 			}
 			{children}

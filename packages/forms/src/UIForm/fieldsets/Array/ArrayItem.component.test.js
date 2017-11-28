@@ -16,7 +16,7 @@ describe('Array Item component', () => {
 				value={{}}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// then
@@ -36,7 +36,7 @@ describe('Array Item component', () => {
 				value={{ isClosed: true }}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// then
@@ -52,10 +52,10 @@ describe('Array Item component', () => {
 				id={'talend-control-3'}
 				index={3}
 				onRemove={jest.fn()}
-				value={{ }}
+				value={{}}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// then
@@ -72,10 +72,10 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
-				value={{ }}
+				value={{}}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// then
@@ -92,10 +92,10 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
-				value={{ }}
+				value={{}}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// then
@@ -113,10 +113,10 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={onRemove}
 				onReorder={jest.fn()}
-				value={{ }}
+				value={{}}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// when
@@ -137,10 +137,10 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={onReorder}
-				value={{ }}
+				value={{}}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// when
@@ -161,10 +161,10 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={onReorder}
-				value={{ }}
+				value={{}}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// when
