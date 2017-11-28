@@ -32,14 +32,14 @@
 		flex-direction: column;
 		padding: 0 $padding-small;
 
-		.delete {
-			margin: $padding-normal 0 ($padding-normal * 2) 0;
+		.delete + button {
+			margin-top: ($padding-normal * 2);
 		}
 
 		button {
 			background: transparent;
 			border: 0;
-			margin: 0 0 1em 0;
+			margin: 1em 0 0 0;
 			color: $dark-silver;
 
 			&:hover {

@@ -4,6 +4,21 @@ exports[`Array Item component should NOT render control panel when value.isClose
 <div
   className="tf-array-item"
 >
+  <div
+    className={undefined}
+  >
+    <button
+      className={undefined}
+      id="talend-control-3-delete"
+      onClick={[Function]}
+      title="Delete"
+      type="button"
+    >
+      <Icon
+        name="talend-trash"
+      />
+    </button>
+  </div>
   <span>
     This is the item content
   </span>

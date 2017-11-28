@@ -20,7 +20,6 @@ export default function ArrayItem(props) {
 	return (
 		<div className={classNames(theme['tf-array-item'], 'tf-array-item')} >
 			{
-				!value.isClosed &&
 				<div className={theme.control}>
 					<button
 						className={theme.delete}
@@ -32,6 +31,7 @@ export default function ArrayItem(props) {
 						<Icon name="talend-trash" />
 					</button>
 					{
+						!value.isClosed &&
 						onReorder &&
 						<button
 							disabled={!hasMoveUp}
@@ -47,6 +47,7 @@ export default function ArrayItem(props) {
 						</button>
 					}
 					{
+						!value.isClosed &&
 						onReorder &&
 						<button
 							disabled={!hasMoveDown}
