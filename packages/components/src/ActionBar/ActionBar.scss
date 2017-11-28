@@ -29,7 +29,17 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 	
 	.navbar-center {
 		display: flex;
-		width: 100%;
+		flex-grow: 1;
+		align-items: center;
+		justify-content: center;
+		> * {
+			margin-top: $padding-small;
+			margin-bottom: $padding-small;
+		}
+	}
+
+	.navbar-center-full {
+		display: flex;
 		align-items: center;
 		justify-content: center;
 		> * {
@@ -45,7 +55,6 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 
 	:global(.navbar-text),
 	:global(.navbar-link) {
-		text-align: center;
 		margin: $padding-normal $padding-larger $padding-small 0;
 	}
 

@@ -49,6 +49,16 @@ const actionsRight = [
 	},
 ];
 
+const action4 = {
+	id: 'action4',
+	label: 'action4',
+	type: 'action',
+	icon: 'talend-bell',
+	bsStyle: 'link',
+	onClick: action('return action4'),
+	hideLabel: true,
+};
+
 const actionsCenter = [
 	{
 		tag: 'form',
@@ -97,7 +107,7 @@ stories
 	.addWithInfo('with no icon file and center actions', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar actionsCenter={actionsCenter} {...props} />
+			<SubHeaderBar actionsCenter={[action4, ...actionsCenter]} {...props} />
 		</div>
 	))
 	.addWithInfo('with icon file and center && right actions', () => (

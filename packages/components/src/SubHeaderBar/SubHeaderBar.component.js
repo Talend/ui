@@ -126,14 +126,7 @@ SubHeaderBarActions.propTypes = {
 	className: PropTypes.string,
 };
 
-function SubHeaderBar({
-	onGoBack,
-	actionsCenter,
-	actionsRight,
-	editMode,
-	className,
-	...rest
-}) {
+function SubHeaderBar({ onGoBack, actionsCenter, actionsRight, editMode, className, ...rest }) {
 	return (
 		<div className={classNames(theme['subheader-container'], 'subheader-container', className)}>
 			<ActionBar className={theme['subheader-navbar']}>
@@ -151,7 +144,9 @@ function SubHeaderBar({
 				{editMode ? <EditTitle {...rest} /> : <DetailsTitle {...rest} />}
 				<SubHeaderBarActions
 					actions={actionsCenter}
-					className="subheader-center"
+					className={
+						actionsRight ? 'subheader-center-simple-margin' : 'subheader-center-double-margin'
+					}
 					center
 					right={false}
 				/>
