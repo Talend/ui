@@ -13,13 +13,6 @@ const PADDING_LARGE = 20;
 const DEFAULT_OPEN_ICON = 'talend-folder';
 const DEFAULT_CLOSED_ICON = 'talend-folder-closed';
 
-function getActionHandler(func, item) {
-	return function actionHandler(event) {
-		event.stopPropagation();
-		func(item);
-	};
-}
-
 /**
 * return the default open or closed folder icon if non is specified on item
 * or if it is specified return the specified icon with `-closed` append if not toggled
@@ -83,9 +76,9 @@ class TreeViewItem extends React.Component {
 		this.renderTreeViewItem = this.renderTreeViewItem.bind(this);
 	}
 
-	onSelect(event) {
+	onSelect() {
 		this.elementRef.focus();
-		this.props.onClick(event, this.props.item);
+		this.props.onClick(this.props.item);
 		return this.props.onSelect(this.props.item);
 	}
 
@@ -107,7 +100,10 @@ class TreeViewItem extends React.Component {
 			<Action
 				label={label}
 				icon={icon_}
-				onClick={getActionHandler(action, this.props.item)}
+				onClick={event => {
+					event.stopPropagation();
+					action(this.props.item);
+				}}
 				tooltipPlacement="right"
 				hideLabel
 				key={label}
