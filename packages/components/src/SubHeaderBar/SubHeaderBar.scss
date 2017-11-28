@@ -100,14 +100,14 @@ $subheader-bar-height: 7rem;
 	margin-left: auto;
 }
 
-.subheader-center-double-margin {
+.subheader-center {
 	display: flex;
+	margin-left: auto;
 	margin-right: auto;
-	margin-left: auto;
-}
-.subheader-center-simple-margin {
-	display: flex;
-	margin-left: auto;
+	
+	&.no-margin-right {
+		margin-right: 0;
+	}
 }
 
 .subheader-form-icon {

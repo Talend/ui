@@ -72,7 +72,7 @@ class SubHeaderBar extends React.Component {
 
 	onEdit(event) {
 		this.props.setState(() => ({
-			editMode: !this.props.state.get('editMode'),
+			editMode: !this.props.state.get('editMode', false),
 		}));
 		if (this.props.onEdit) {
 			this.props.onEdit(event);
@@ -113,7 +113,7 @@ class SubHeaderBar extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), {
-			editMode: state.get('editMode'),
+			editMode: state.get('editMode', false),
 			onEdit: this.onEdit,
 			onCancel: this.onCancel,
 			onSubmit: this.onSubmit,

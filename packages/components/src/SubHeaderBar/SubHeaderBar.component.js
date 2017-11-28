@@ -7,11 +7,11 @@ import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
 import theme from './SubHeaderBar.scss';
 
-function DetailsIcon({ iconFile }) {
-	if (iconFile) {
+function DetailsIcon(props) {
+	if (props.iconFile) {
 		return (
 			<span className={theme['subheader-file-icon-box']}>
-				<Icon name={iconFile} className={theme['subheader-file-icon']} />
+				<Icon name={props.iconFile} className={theme['subheader-file-icon']} />
 			</span>
 		);
 	}
@@ -109,7 +109,7 @@ function getComponentFromType(action) {
 function SubHeaderBarActions({ actions, right, center, className }) {
 	if (actions && Array.isArray(actions)) {
 		return (
-			<div className={theme[className]}>
+			<div className={className}>
 				{actions.map((action, index) => (
 					<ActionBar.Content key={index} tag={action.tag} center={center} right={right}>
 						{getComponentFromType(action)}
@@ -146,15 +146,15 @@ function SubHeaderBar({ onGoBack, actionsCenter, actionsRight, editMode, classNa
 				{editMode ? <EditTitle {...rest} /> : <DetailsTitle {...rest} />}
 				<SubHeaderBarActions
 					actions={actionsCenter}
-					className={
-						actionsRight ? 'subheader-center-simple-margin' : 'subheader-center-double-margin'
-					}
+					className={classNames([`${theme['subheader-center']}`], {
+						[`${theme['no-margin-right']}`]: actionsRight,
+					})}
 					center
 					right={false}
 				/>
 				<SubHeaderBarActions
 					actions={actionsRight}
-					className="subheader-right"
+					className={theme['subheader-right']}
 					center={false}
 					right
 				/>
