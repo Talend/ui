@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
@@ -16,9 +17,16 @@ function SelectObject(props) {
 			...props.schema,
 		};
 	}
+	const { className, ...filter } = props.filter;
 	return (
 		<div className={`tc-select-object ${theme.wrapper}`}>
-			<FilterBar id={props.id} dockable={false} navbar={false} {...props.filter} />
+			<FilterBar
+				className={classNames(className, theme.filter)}
+				id={props.id}
+				dockable={false}
+				navbar={false}
+				{...filter}
+			/>
 			<div className={theme.container}>
 				{!props.tree &&
 					!props.filteredData && (
