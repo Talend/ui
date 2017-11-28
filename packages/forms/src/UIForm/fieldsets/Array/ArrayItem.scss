@@ -55,11 +55,10 @@
 
 	:global(.collapsible-panel) {
 		margin: 0;
-		border: 0;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
-		box-shadow: none;
 
+		&,
 		&:hover {
 			box-shadow: none;
 			border: 0;
