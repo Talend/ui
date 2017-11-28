@@ -139,7 +139,7 @@ exports[`Storyshots SidePanel With layout (toggle interactive) 1`] = `
           role="navigation"
         >
           <ul
-            className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list"
+            className="nav nav-pills nav-stacked tc-side-panel-list nav-inverse"
           >
             <li
               className={undefined}
@@ -823,7 +823,7 @@ exports[`Storyshots SidePanel default 1`] = `
     role="navigation"
   >
     <ul
-      className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list"
+      className="nav nav-pills nav-stacked tc-side-panel-list nav-inverse"
     >
       <li
         className={undefined}
@@ -1073,7 +1073,7 @@ exports[`Storyshots SidePanel docked 1`] = `
     role="navigation"
   >
     <ul
-      className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list"
+      className="nav nav-pills nav-stacked tc-side-panel-list nav-inverse"
     >
       <li
         className={undefined}
@@ -1132,6 +1132,252 @@ exports[`Storyshots SidePanel docked 1`] = `
       </li>
       <li
         className="tc-side-panel-list-item"
+        title="Datasets"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            focusable="false"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-download"
+            />
+          </svg>
+          <span>
+            Datasets
+          </span>
+        </button>
+      </li>
+      <li
+        className="tc-side-panel-list-item"
+        title="Favorites"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            focusable="false"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-star"
+            />
+          </svg>
+          <span>
+            Favorites
+          </span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`Storyshots SidePanel with inverted style 1`] = `
+<div>
+  <nav
+    style={
+      Object {
+        "bottom": 0,
+        "position": "fixed",
+        "textAlign": "center",
+        "width": "100vw",
+        "zIndex": 1,
+      }
+    }
+  >
+    <div
+      className="btn-group"
+    >
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
+        en
+         
+        (default)
+      </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
+        fr
+         
+      </button>
+      <button
+        className="btn"
+        onClick={[Function]}
+      >
+        it
+         
+      </button>
+    </div>
+  </nav>
+  <svg
+    focusable="false"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-arrow-left"
+    >
+      <svg
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polygon
+          points="15,7 4.4,7 8.4,3 7,1.6 0.6,8 7,14.4 8.4,13 4.4,9 15,9 "
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-dataprep"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.99976,6a3,3,0,1,0-3-3A3.00082,3.00082,0,0,0,14.99976,6Zm-7,2a2,2,0,1,0-2-2A1.99884,1.99884,0,0,0,7.99976,8Zm16-1.6a2,2,0,1,0-2-2A1.99883,1.99883,0,0,0,23.99976,6.4Zm5.02736,23.85L20.9724,15.74608a3.303,3.303,0,0,0-.9726-1.0078V11.5a1.89446,1.89446,0,0,0,2-1.75,1.8918,1.8918,0,0,0-2-1.75h-8a1.89184,1.89184,0,0,0-2,1.75,1.89449,1.89449,0,0,0,2,1.75v3.23828a3.28838,3.28838,0,0,0-.97168,1.0078L2.97144,30.25A1.07993,1.07993,0,0,0,3.99976,32h24A1.07943,1.07943,0,0,0,29.02712,30.25ZM7.11112,28,9.3328,24h13.335l2.22064,4Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-download"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16,11v5H0V11H2v3H14V11ZM13.4,7l-1.4-1.4-3,3V0h-2V8.6l-3-3L2.6,7l5.4,5Z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-star"
+    >
+      <svg
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polygon
+          points="8,0 10.5,5 16,5.8 12,9.7 12.9,15.2 8,12.6 3.1,15.2 4,9.7 0,5.8 5.5,5 "
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-opener"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.5083,6.998 L8.7373,12.149 C8.8373,12.248 8.8373,12.407 8.7373,12.505 L7.2943,13.926 C7.1953,14.024 7.0323,14.024 6.9333,13.926 L1.5393,8.613 C1.5323,8.607 1.5243,8.61 1.5183,8.604 L0.0743,7.182 C-0.0247,7.084 -0.0247,6.925 0.0743,6.827 L0.0753,6.826 C0.0773,6.824 0.0763,6.82 0.0793,6.818 L1.5223,5.396 C1.5253,5.394 1.5283,5.395 1.5303,5.393 L6.9293,0.074 C7.0293,-0.024 7.1913,-0.024 7.2903,0.074 L8.7343,1.495 C8.8333,1.593 8.8333,1.752 8.7343,1.851 L3.5083,6.998 Z M15.9253,12.1494 C16.0253,12.2474 16.0253,12.4064 15.9253,12.5044 L14.4823,13.9264 C14.3823,14.0244 14.2213,14.0244 14.1213,13.9264 L8.7283,8.6124 C8.7223,8.6074 8.7123,8.6094 8.7063,8.6044 L7.2633,7.1824 C7.1633,7.0844 7.1633,6.9244 7.2633,6.8264 C7.2653,6.8244 7.2653,6.8204 7.2673,6.8174 L8.7103,5.3964 C8.7123,5.3944 8.7163,5.3954 8.7183,5.3924 L14.1173,0.0734 C14.2173,-0.0246 14.3783,-0.0246 14.4783,0.0734 L15.9213,1.4954 C16.0213,1.5934 16.0213,1.7524 15.9213,1.8504 L10.6963,6.9984 L15.9253,12.1494 Z"
+          transform="translate(0 1)"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-world"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M.10054,9.25919A8.0698,8.0698,0,0,1,3.81818,1.1828a7.96509,7.96509,0,0,1,8.0727-.164,8.14938,8.14938,0,0,1,3.99389,8.32993,7.99469,7.99469,0,0,1-14.337,3.37658A7.93979,7.93979,0,0,1,.10054,9.25919Zm4.07931-.19453a1.14584,1.14584,0,0,0,1.78039.84214c.34369.072.98911.19153.80927.74463a2.27322,2.27322,0,0,1,.2268,1.78131c.31272.61961-.06544,1.7368.68788,2.02435.86772.007,1.13048-.92466,1.57807-1.47375-.19682-.68262,1.00309-.91466.45709-1.68029-.18633-.76713.67789-1.22821.98361-1.83682.18883-.36606.27725-.61861-.17784-.36956-.69387.0285-1.144-.67512-1.39574-1.23871.48156-.92216.7768.75913,1.16894.97967.78479-.09352,1.15146-.82564,1.44869-1.36423.48306-.054.74333.49108,1.18992.46158.35768.32105.11789,1.65228.69737,1.40874-.06594-.64261.47607-1.57977,1.079-1.48175-.033.71012.48356.35006.34119-.15553A6.70215,6.70215,0,0,0,11.92135,2.368c-.5495-.0115-.85673-.29305-1.07253-.10952-.06244.42657-.16935.69262-.70486.5871-.572-.20353-1.03257.74963-1.48016.38057.18283-.17553.39914-.90015-.25477-.83414-.7728.0015-1.80187-.105-2.245.67962-.1129.45358.66989.71962.81626.88715.39364-.75613,1.49565.18953.45559.237a3.90718,3.90718,0,0,0-2.12308.62561c.56249.33906.003.5561-.3357.5706-.08892.24754-.09991.86665.19432.76513.60895.13552,1.16245-1.31673,1.76041-.52609.16235.33656.69537.50059.36367-.045-.25227-.256-.40314-.74513.05695-.31155.13338.19853.85123,1.23971.71236.51809.10241-.51709.37816.5551.7688.40457.84474.36206-.09641,1.10669-.67589.80564-.46358.05651-.68638.5856-1.12248.043-.26826-.163-.00849-.69662-.581-.47608-.80827.04851-1.61254.15353-1.9912.99167-.41812.39957-.16735.99917-.28324,1.50226ZM5.086,4.30384c.29074.5981,1.48466-.15553.78979-.74913-.47107-.5921-.9951-.09152-.498.42507-.0015.18-.16735.24054-.29124.32406Z"
+        />
+      </svg>
+    </symbol>
+  </svg>
+  <nav
+    className="tc-side-panel"
+    role="navigation"
+  >
+    <ul
+      className="nav nav-pills nav-stacked tc-side-panel-list"
+    >
+      <li
+        className={undefined}
+        title="Collapse"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            focusable="false"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-opener"
+            />
+          </svg>
+          <span>
+            
+          </span>
+        </button>
+      </li>
+      <li
+        className="tc-side-panel-list-item"
+        title="Preparations"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="tc-svg-icon"
+            focusable="false"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-dataprep"
+            />
+          </svg>
+          <span>
+            Preparations
+          </span>
+        </button>
+      </li>
+      <li
+        aria-current={true}
+        className="tc-side-panel-list-item active"
         title="Datasets"
       >
         <button
@@ -1319,7 +1565,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
     role="navigation"
   >
     <ul
-      className="nav nav-pills nav-inverse nav-stacked tc-side-panel-list"
+      className="nav nav-pills nav-stacked tc-side-panel-list nav-inverse"
     >
       <li
         className={undefined}
