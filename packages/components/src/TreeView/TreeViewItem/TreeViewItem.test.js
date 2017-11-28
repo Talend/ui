@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import keycode from 'keycode';
 
 import TreeViewItem, { getItemIcon } from './TreeViewItem.component';
 
@@ -53,6 +54,20 @@ describe('TreeView', () => {
 		const wrapper = shallow(<TreeViewItem {...props} />);
 		wrapper.instance().elementRef = { focus };
 		wrapper.find('.tc-treeview-item').simulate('click');
+		expect(props.onClick).toHaveBeenCalled();
+		expect(props.onSelect).toHaveBeenCalled();
+		expect(focus).toHaveBeenCalled();
+	});
+	it('should enter call onClick and onSelect', () => {
+		const props = {
+			...defaultProps,
+			onClick: jest.fn(),
+			onSelect: jest.fn(),
+		};
+		const focus = jest.fn();
+		const wrapper = shallow(<TreeViewItem {...props} />);
+		wrapper.instance().elementRef = { focus };
+		wrapper.find('.tc-treeview-item').simulate('keyDown', { keyCode: keycode.codes.enter });
 		expect(props.onClick).toHaveBeenCalled();
 		expect(props.onSelect).toHaveBeenCalled();
 		expect(focus).toHaveBeenCalled();

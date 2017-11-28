@@ -10,6 +10,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
     data-selected={undefined}
     id="tc-treeview-item"
     onClick={[Function]}
+    onKeyDown={[Function]}
     role="button"
     style={
       Object {

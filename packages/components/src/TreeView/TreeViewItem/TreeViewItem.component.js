@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import keycode from 'keycode';
 
 import { Action } from '../../Actions';
 import Icon from '../../Icon';
@@ -68,7 +69,14 @@ class TreeViewItem extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onSelect = this.onSelect.bind(this);
+		this.onKeyDown = this.onKeyDown.bind(this);
 		this.renderTreeViewItem = this.renderTreeViewItem.bind(this);
+	}
+
+	onKeyDown(event) {
+		if (event.keyCode === keycode.codes.enter) {
+			this.onSelect();
+		}
 	}
 
 	onSelect() {
@@ -136,6 +144,7 @@ class TreeViewItem extends React.Component {
 					role="button"
 					tabIndex="0"
 					ref={element => { this.elementRef = element; }}
+					onKeyDown={this.onKeyDown}
 				>
 					{!children.length || (
 						<Icon className={css['tc-treeview-toggle']} name="talend-caret-down" transform={toggled ? undefined : 'rotate-270'} title={toggleIconLabel} />
