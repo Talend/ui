@@ -96,38 +96,59 @@ function loadStories() {
 					new Map({
 						id: 1,
 						label: 'foo',
-						author: 'Jacques',
-						created: '10/12/2013',
-						modified: '13/02/2015',
-						children: new List([new Map({ id: 11, label: 'sub foo' })]),
+						children: new List([
+							new Map({
+								id: 11,
+								label: 'sub foo',
+								author: 'Jacques',
+								created: '10/12/2013',
+								modified: '13/02/2015',
+							}),
+						]),
 					}),
 					new Map({
 						id: 2,
 						label: 'bar',
-						author: 'Paul',
-						created: '10/12/2013',
-						modified: '13/02/2015',
-						children: new List([new Map({ id: 21, label: 'sub bar' })]),
+						children: new List([
+							new Map({
+								id: 21,
+								label: 'sub bar',
+								author: 'Paul',
+								created: '10/12/2013',
+								modified: '13/02/2015',
+							}),
+						]),
 					}),
 					new Map({
 						id: 3,
 						label: 'baz',
-						author: 'Boris',
-						created: '10/12/2013',
-						modified: '13/02/2015',
-						children: new List([new Map({ id: 31, label: 'sub baz' })]),
+						children: new List([
+							new Map({
+								id: 31,
+								label: 'sub baz',
+								author: 'Boris',
+								created: '10/12/2013',
+								modified: '13/02/2015',
+							}),
+						]),
 					}),
 					new Map({
 						id: 4,
 						label: 'extra',
-						author: 'Henri',
-						created: '10/12/2013',
-						modified: '13/02/2015',
+
 						children: new List([
 							new Map({
 								id: 41,
 								label: 'sub extra',
-								children: new List([new Map({ id: 411, label: 'third level' })]),
+								children: new List([
+									new Map({
+										id: 411,
+										label: 'third level',
+										author: 'Henri',
+										created: '10/12/2013',
+										modified: '13/02/2015',
+									}),
+								]),
 							}),
 						]),
 					}),

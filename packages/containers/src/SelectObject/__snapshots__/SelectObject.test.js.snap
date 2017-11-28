@@ -23,7 +23,13 @@ exports[`Component SelectObject should render 1`] = `
 
 exports[`Container SelectObject should render 1`] = `
 <SelectObject
-  filteredData={Array []}
+  filter={
+    Object {
+      "onKeyDown": [Function],
+    }
+  }
+  idAttr="id"
+  nameAttr="name"
   preview={undefined}
   sourceData={Array []}
 />

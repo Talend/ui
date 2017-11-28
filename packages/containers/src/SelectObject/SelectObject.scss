@@ -16,6 +16,20 @@
 			flex: 4 0 0;
 		}
 
+		.results {
+			margin-top: $padding-smaller;
+			flex: 4 0 0;
+
+			:global(.active) {
+				background-color: rgba($brand-primary, 0.12);
+				color: $brand-primary;
+			}
+
+			:global(.list-group-item-text) {
+				color: $gray;
+			}
+		}
+
 		.preview {
 			flex: 3 0 0;
 
