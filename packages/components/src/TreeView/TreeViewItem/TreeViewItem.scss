@@ -61,7 +61,7 @@ $item-height: 40px;
 			}
 		}
 
-		&[data-selected=true] {
+		&[data-selected='true'] {
 			background-color: rgba($brand-primary, 0.12);
 			color: $brand-primary;
 
@@ -102,13 +102,12 @@ $item-height: 40px;
 		}
 	}
 
-
 	.tc-treeview-ul {
 		width: 100%;
 		padding: 0;
 	}
 
-	&[data-hidden=true] {
+	&[data-hidden='true'] {
 		height: 0;
 		display: none;
 	}
