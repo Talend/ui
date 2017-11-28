@@ -50,7 +50,7 @@ const ExampleSubHeaderBar = {
 			<IconsProvider />
 			<SubHeaderBar
 				{...props}
-				actionsCenter={[...actionsCenter, ...actionsRight]}
+				actionsCenter={actionsCenter}
 			/>
 		</div>
 	),

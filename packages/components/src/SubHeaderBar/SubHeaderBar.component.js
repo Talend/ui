@@ -18,7 +18,7 @@ function DetailsIcon({ iconFile }) {
 }
 
 DetailsIcon.propTypes = {
-	iconFile: PropTypes.string.isRequired,
+	iconFile: PropTypes.string,
 };
 
 function DetailsTitle({ title, subTitle, iconFile, onEdit }) {
@@ -46,7 +46,7 @@ DetailsTitle.propTypes = {
 	title: PropTypes.string.isRequired,
 	subTitle: PropTypes.string,
 	iconFile: PropTypes.string,
-	onEdit: PropTypes.func.isRequired,
+	onEdit: PropTypes.func,
 };
 
 function EditTitle({ title, iconFile, inputTextValue, onSubmit, onCancel, onChange }) {
@@ -88,8 +88,8 @@ function EditTitle({ title, iconFile, inputTextValue, onSubmit, onCancel, onChan
 EditTitle.propTypes = {
 	title: PropTypes.string.isRequired,
 	iconFile: PropTypes.string,
-	onSubmit: PropTypes.func.isRequired,
-	onCancel: PropTypes.func.isRequired,
+	onSubmit: PropTypes.func,
+	onCancel: PropTypes.func,
 	onChange: PropTypes.func,
 	inputTextValue: PropTypes.string,
 };
@@ -127,7 +127,7 @@ SubHeaderBarActions.propTypes = {
 };
 
 function SubHeaderBar({
-	onClickBackArrow,
+	onGoBack,
 	actionsCenter,
 	actionsRight,
 	editMode,
@@ -140,7 +140,7 @@ function SubHeaderBar({
 				<ActionBar.Content left>
 					<Action
 						id="backArrow"
-						onClick={onClickBackArrow}
+						onClick={onGoBack}
 						label="backArrow"
 						icon="talend-arrow-left"
 						bsStyle="link"
@@ -167,7 +167,7 @@ function SubHeaderBar({
 }
 
 SubHeaderBar.propTypes = {
-	onClickBackArrow: PropTypes.func.isRequired,
+	onGoBack: PropTypes.func.isRequired,
 	editMode: PropTypes.bool,
 	actionsCenter: PropTypes.array,
 	actionsRight: PropTypes.array,
@@ -175,7 +175,7 @@ SubHeaderBar.propTypes = {
 };
 
 SubHeaderBar.defaultProps = {
-	editMode: true,
+	editMode: false,
 };
 
 export default SubHeaderBar;

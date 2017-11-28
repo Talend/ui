@@ -25,7 +25,7 @@ class SubHeaderBar extends React.Component {
 		onEdit: PropTypes.func,
 		onSubmit: PropTypes.func,
 		onChange: PropTypes.func,
-		onClickBackArrow: PropTypes.func,
+		onGoBack: PropTypes.func,
 		title: PropTypes.string,
 	};
 
@@ -40,7 +40,7 @@ class SubHeaderBar extends React.Component {
 		this.onEdit = this.onEdit.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onChange = this.onChange.bind(this);
-		this.onClickBackArrow = this.onClickBackArrow(this);
+		this.onGoBack = this.onGoBack.bind(this);
 	}
 
 	onSubmit(event) {
@@ -99,12 +99,12 @@ class SubHeaderBar extends React.Component {
 		}
 	}
 
-	onClickBackArrow(event) {
-		if (this.props.onClickBackArrow) {
-			this.props.onClickBackArrow(event);
+	onGoBack(event) {
+		if (this.props.onGoBack) {
+			this.props.onGoBack(event);
 		}
-		if (this.props.actionCreatorBackArrow) {
-			this.props.dispatchActionCreator(this.props.actionCreatorBackArrow, event, {
+		if (this.props.actionCreatorGoBack) {
+			this.props.dispatchActionCreator(this.props.actionCreatorGoBack, event, {
 				props: this.props,
 			});
 		}
@@ -118,7 +118,7 @@ class SubHeaderBar extends React.Component {
 			onCancel: this.onCancel,
 			onSubmit: this.onSubmit,
 			onChange: this.onChange,
-			onClickBackArrow: this.onClickBackArrow,
+			onGoBack: this.onGoBack,
 			inputTextValue: state.get('inputText'),
 		});
 		return <Component {...props} />;

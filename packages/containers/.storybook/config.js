@@ -277,6 +277,7 @@ function loadStories() {
 			type: 'action',
 			actionCreator: 'overlay:display-sharing',
 			icon: 'talend-share-alt',
+			bsStyle: 'link',
 			hideLabel: true,
 			overlay: false,
 		};
@@ -285,6 +286,7 @@ function loadStories() {
 			type: 'action',
 			actionCreator: 'overlay:display-bubbles',
 			icon: 'talend-bubbles',
+			bsStyle: 'link',
 			hideLabel: true,
 			overlay: false,
 		};

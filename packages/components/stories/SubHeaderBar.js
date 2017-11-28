@@ -16,7 +16,7 @@ const viewSubHeader = {
 };
 
 const backAction = {
-	onClickBackArrow: action('onClickBackArrow'),
+	onGoBack: action('onGoBack'),
 };
 
 const actionsRight = [
