@@ -70,12 +70,18 @@ function SelectObject(props) {
 SelectObject.displayName = 'SelectObject';
 SelectObject.propTypes = {
 	id: PropTypes.string,
+	idAttr: PropTypes.string,
 	tree: PropTypes.object,
 	list: PropTypes.object,
 	filter: PropTypes.object,
 	schema: PropTypes.object,
 	filteredData: ImmutablePropTypes.List,
+	sourceData: ImmutablePropTypes.List,
 	selected: PropTypes.object,
+};
+
+SelectObject.defaultProps = {
+	idAttr: 'id',
 };
 
 export default SelectObject;
