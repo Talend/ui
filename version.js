@@ -127,6 +127,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'eslint-plugin-react': '^6.3.0',
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
+	'jest-in-case': '^1.0.2',
 	'react-storybook-cmf': '^0.1.3',
 	'react-stub-context': '^0.7.0',
 	rimraf: '^2.6.1',
