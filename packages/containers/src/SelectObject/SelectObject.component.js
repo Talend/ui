@@ -17,7 +17,7 @@ function SelectObject(props) {
 			...props.schema,
 		};
 	}
-	const { className, ...filter } = props.filter;
+	const { className = '', ...filter } = props.filter || {};
 	return (
 		<div className={`tc-select-object ${theme.wrapper}`}>
 			<FilterBar

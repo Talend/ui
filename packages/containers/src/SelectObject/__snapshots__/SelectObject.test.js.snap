@@ -5,6 +5,7 @@ exports[`Component SelectObject should render 1`] = `
   className="tc-select-object undefined"
 >
   <Connect(CMF(Container(FilterBar)))
+    className=""
     dockable={false}
     id={undefined}
     navbar={false}
