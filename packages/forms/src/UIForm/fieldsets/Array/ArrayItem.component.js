@@ -6,19 +6,10 @@ import classNames from 'classnames';
 import theme from './ArrayItem.scss';
 
 export default function ArrayItem(props) {
-	const {
-		children,
-		hasMoveDown,
-		hasMoveUp,
-		id,
-		index,
-		onRemove,
-		onReorder,
-		value,
-	} = props;
+	const { children, hasMoveDown, hasMoveUp, id, index, onRemove, onReorder, value } = props;
 
 	return (
-		<div className={classNames(theme['tf-array-item'], 'tf-array-item')} >
+		<div className={classNames(theme['tf-array-item'], 'tf-array-item')}>
 			{
 				<div className={theme.control}>
 					<button
@@ -30,38 +21,40 @@ export default function ArrayItem(props) {
 					>
 						<Icon name="talend-trash" />
 					</button>
-					{
-						!value.isClosed &&
-						onReorder &&
-						<button
-							disabled={!hasMoveUp}
-							id={id && `${id}-moveUp`}
-							onClick={event => onReorder(event, {
-								previousIndex: index,
-								nextIndex: index - 1,
-							})}
-							title="Move Up"
-							type="button"
-						>
-							<Icon name="talend-caret-down" transform="flip-vertical" />
-						</button>
-					}
-					{
-						!value.isClosed &&
-						onReorder &&
-						<button
-							disabled={!hasMoveDown}
-							id={id && `${id}-moveDown`}
-							onClick={event => onReorder(event, {
-								previousIndex: index,
-								nextIndex: index + 1,
-							})}
-							type="button"
-							title="Move Down"
-						>
-							<Icon name="talend-caret-down" />
-						</button>
-					}
+					{!value.isClosed &&
+						onReorder && (
+							<button
+								disabled={!hasMoveUp}
+								id={id && `${id}-moveUp`}
+								onClick={event =>
+									onReorder(event, {
+										previousIndex: index,
+										nextIndex: index - 1,
+									})
+								}
+								title="Move Up"
+								type="button"
+							>
+								<Icon name="talend-caret-down" transform="flip-vertical" />
+							</button>
+						)}
+					{!value.isClosed &&
+						onReorder && (
+							<button
+								disabled={!hasMoveDown}
+								id={id && `${id}-moveDown`}
+								onClick={event =>
+									onReorder(event, {
+										previousIndex: index,
+										nextIndex: index + 1,
+									})
+								}
+								type="button"
+								title="Move Down"
+							>
+								<Icon name="talend-caret-down" />
+							</button>
+						)}
 				</div>
 			}
 			{children}

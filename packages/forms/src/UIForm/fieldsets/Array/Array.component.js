@@ -74,15 +74,12 @@ export default class ArrayWidget extends React.Component {
 
 		// shift up the items errors after the one we remove
 		function widgetChangeErrors(errors) {
-			return shiftArrayErrorsKeys(
-				errors,
-				{
-					arrayKey: schema.key,
-					minIndex: indexToRemove,
-					shouldRemoveIndex: index => index === indexToRemove,
-					getNextIndex: index => index - 1,
-				},
-			);
+			return shiftArrayErrorsKeys(errors, {
+				arrayKey: schema.key,
+				minIndex: indexToRemove,
+				shouldRemoveIndex: index => index === indexToRemove,
+				getNextIndex: index => index - 1,
+			});
 		}
 
 		const payload = { schema, value };
@@ -103,17 +100,14 @@ export default class ArrayWidget extends React.Component {
 
 			// shift the items errors between the previous and next position
 			// set the item-we-move errors indexes
-			return shiftArrayErrorsKeys(
-				errors,
-				{
-					arrayKey: schema.key,
-					minIndex,
-					maxIndex,
-					getNextIndex(index) {
-						return index === previousIndex ? nextIndex : index + switchPace;
-					},
+			return shiftArrayErrorsKeys(errors, {
+				arrayKey: schema.key,
+				minIndex,
+				maxIndex,
+				getNextIndex(index) {
+					return index === previousIndex ? nextIndex : index + switchPace;
 				},
-			);
+			});
 		}
 
 		const payload = { schema, value };
@@ -155,13 +149,11 @@ export default class ArrayWidget extends React.Component {
 					})}
 				</ol>
 				<div>
-					<button type="button" className="btn btn-info" onClick={this.onAdd}>New Element</button>
+					<button type="button" className="btn btn-info" onClick={this.onAdd}>
+						New Element
+					</button>
 				</div>
-				<Message
-					errorMessage={errorMessage}
-					description={schema.description}
-					isValid={isValid}
-				/>
+				<Message errorMessage={errorMessage} description={schema.description} isValid={isValid} />
 			</div>
 		);
 	}

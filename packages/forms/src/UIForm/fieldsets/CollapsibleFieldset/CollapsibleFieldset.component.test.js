@@ -38,11 +38,13 @@ describe('CollapsibleFieldset', () => {
 			const CollapsibleFieldset = createCollapsibleFieldset(opts.titleFn);
 
 			// when
-			const wrapper = shallow(<CollapsibleFieldset
-				id={'my-fieldset'}
-				schema={schema}
-				value={{ ...value, isClosed: opts.isClosed }}
-			/>);
+			const wrapper = shallow(
+				<CollapsibleFieldset
+					id={'my-fieldset'}
+					schema={schema}
+					value={{ ...value, isClosed: opts.isClosed }}
+				/>,
+			);
 
 			// then
 			expect(wrapper.getNode()).toMatchSnapshot();
@@ -51,7 +53,7 @@ describe('CollapsibleFieldset', () => {
 			'a full fieldset (header and body)': { isClosed: false },
 			'a collapsed fieldset (header only)': { isClosed: true },
 			'a custom title': { isClosed: false, titleFn: customTitle },
-		}
+		},
 	);
 
 	cases(
@@ -65,12 +67,14 @@ describe('CollapsibleFieldset', () => {
 				preventDefault: jest.fn(),
 			};
 
-			const wrapper = shallow(<CollapsibleFieldset
-				id={'my-fieldset'}
-				onChange={onChange}
-				schema={schema}
-				value={{ ...value, isClosed: true }}
-			/>);
+			const wrapper = shallow(
+				<CollapsibleFieldset
+					id={'my-fieldset'}
+					onChange={onChange}
+					schema={schema}
+					value={{ ...value, isClosed: true }}
+				/>,
+			);
 
 			// when
 			wrapper.find(opts.selector).simulate(opts.actionType, event);
@@ -87,6 +91,6 @@ describe('CollapsibleFieldset', () => {
 			'on title click': { selector: '#my-fieldset__title_wrapper', actionType: 'click' },
 			'on header double click': { selector: '#my-fieldset__title_bar', actionType: 'dblclick' },
 			'on icon click': { selector: '#my-fieldset__collapse', actionType: 'click' },
-		}
+		},
 	);
 });

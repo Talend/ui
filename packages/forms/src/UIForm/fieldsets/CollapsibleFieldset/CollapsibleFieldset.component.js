@@ -36,7 +36,9 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 			const iconTransform = !this.props.value.isClosed ? 'flip-vertical' : '';
 
 			return (
-				<fieldset className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}>
+				<fieldset
+					className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}
+				>
 					<div
 						onDoubleClick={this.toggle}
 						id={id && `${id}__title_bar`}
@@ -49,9 +51,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 							role="button"
 							className={theme.title}
 						>
-							<legend id={id && `${id}__title`}>
-								{title(value, schema)}
-							</legend>
+							<legend id={id && `${id}__title`}>{title(value, schema)}</legend>
 						</div>
 						<button
 							onClick={this.toggle}
@@ -63,19 +63,13 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 							<Icon name="talend-caret-down" transform={iconTransform} />
 						</button>
 					</div>
-					{!value.isClosed &&
+					{!value.isClosed && (
 						<div className={theme.body}>
 							{items.map((itemSchema, index) => (
-								<Widget
-									{...restProps}
-									id={id}
-									key={index}
-									schema={itemSchema}
-									value={value}
-								/>
+								<Widget {...restProps} id={id} key={index} schema={itemSchema} value={value} />
 							))}
 						</div>
-					}
+					)}
 				</fieldset>
 			);
 		}
