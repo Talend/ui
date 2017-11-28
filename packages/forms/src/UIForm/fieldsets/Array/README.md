@@ -73,7 +73,7 @@ Array of objects { name, email, comment }
 Array of simple strings
 
 ```json
-["users"]``
+["users"]
 ```
 
 Array of objects
