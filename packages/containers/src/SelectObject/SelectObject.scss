@@ -29,6 +29,13 @@
 
 			:global(.list-group-item) {
 				border: none;
+				padding-left: $padding-small;
+				padding-bottom: $padding-smaller;
+				border-radius: unset;
+			}
+
+			:global(.list-group-item-heading) {
+				font-size: 15px;
 			}
 
 			:global(.active) {
@@ -38,6 +45,7 @@
 
 			:global(.list-group-item-text) {
 				color: $gray;
+				font-size: 13px;
 			}
 		}
 

@@ -81,11 +81,13 @@ class SelectObject extends React.Component {
 		tree: PropTypes.object,
 		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
+		breadCrumbsRootLabel: PropTypes.string,
 	};
 	static defaultProps = {
 		sourceData: [],
 		idAttr: 'id',
 		nameAttr: 'name',
+		breadCrumbsRootLabel: 'root',
 	};
 
 	constructor(props) {
@@ -130,7 +132,7 @@ class SelectObject extends React.Component {
 			props.filteredData = this.filter(props.sourceData, props.query, {
 				...props,
 				onMatch: addMatch,
-			});
+			}, props.breadCrumbsRootLabel);
 			delete props.tree;
 			props.results = {
 				onClick: this.onResultsClick,
