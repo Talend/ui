@@ -1,5 +1,5 @@
 
-> @talend/react-containers@0.126.0 lint:es /home/travis/build/Talend/ui/packages/containers
+> @talend/react-containers@0.127.0 lint:es /home/travis/build/Talend/ui/packages/containers
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -21,8 +21,19 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/renderers.js
   5:33  error  Unexpected parentheses around single function argument  arrow-parens
 
+/home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.component.js
+  28:20  error  'sourceData' is missing in props validation  react/prop-types
+  38:20  error  'sourceData' is missing in props validation  react/prop-types
+  49:61  error  'idAttr' is missing in props validation      react/prop-types
+
+/home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.container.js
+  142:3  warning  Unexpected console statement  no-console
+
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 8 problems (7 errors, 1 warning)
+/home/travis/build/Talend/ui/packages/containers/src/TreeView/TreeView.container.js
+  52:27  error  Unexpected block statement surrounding arrow body  arrow-body-style
+
+✖ 13 problems (11 errors, 2 warnings)
 
