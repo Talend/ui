@@ -10,8 +10,6 @@ import css from './TreeViewItem.scss';
 
 const PADDING_NORMAL = 15;
 const PADDING_LARGE = 20;
-const DEFAULT_OPEN_ICON = 'talend-folder';
-const DEFAULT_CLOSED_ICON = 'talend-folder-closed';
 
 /**
 * return the default open or closed folder icon if non is specified on item
@@ -20,10 +18,7 @@ const DEFAULT_CLOSED_ICON = 'talend-folder-closed';
 * @param {Boolean} toggled - state of the item
 * @return {String}
 */
-function getItemIcon(itemIcon, itemStateToggled) {
-	if (itemIcon === DEFAULT_OPEN_ICON) {
-		return itemStateToggled ? DEFAULT_OPEN_ICON : DEFAULT_CLOSED_ICON;
-	}
+export function getItemIcon(itemIcon = 'talend-folder', itemStateToggled) {
 	return itemStateToggled ? itemIcon : `${itemIcon}-closed`;
 }
 
@@ -123,7 +118,7 @@ class TreeViewItem extends React.Component {
 			children = [],
 			showCounter,
 			actions,
-			icon = 'talend-folder',
+			icon,
 			counter = children.length,
 		} = item;
 		const toggleIconLabel = toggled ? 'Collapse' : 'Expand';
@@ -145,7 +140,7 @@ class TreeViewItem extends React.Component {
 					{!children.length || (
 						<Icon className={css['tc-treeview-toggle']} name="talend-caret-down" transform={toggled ? undefined : 'rotate-270'} title={toggleIconLabel} />
 					)}
-					<Icon name={getItemIcon(icon, toggled)} key={icon} className={css['tc-treeview-folder']} />
+					<Icon name={getItemIcon(icon, toggled)} className={css['tc-treeview-folder']} />
 					<span className="tc-treeview-item-name">{name}</span>
 					<div className={css['tc-treeview-item-ctrl']}>
 						{showCounter && <Badge label={counter.toString()} />}

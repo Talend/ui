@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import ExportedTreeView from './index';
 import TreeView from './TreeView.component';
 
 const defaultProps = {
@@ -36,8 +37,38 @@ const defaultProps = {
 };
 
 describe('TreeView', () => {
+	it('should be exported', () => {
+		expect(TreeView).toBe(ExportedTreeView);
+	});
 	it('should render normally with all buttons and custom labels', () => {
 		const wrapper = shallow(<TreeView {...defaultProps} />);
 		expect(wrapper.getNode()).toMatchSnapshot();
+	});
+	it('should call add action', () => {
+		const props = {
+			...defaultProps,
+			addAction: jest.fn(),
+		};
+		const wrapper = shallow(<TreeView {...props} />);
+		wrapper.find('Action').simulate('click');
+		expect(props.addAction).toHaveBeenCalled();
+	});
+	it('should call onClick', () => {
+		const props = {
+			...defaultProps,
+			onClick: jest.fn(),
+		};
+		const wrapper = shallow(<TreeView {...props} />);
+		wrapper.find('TreeViewItem').simulate('click');
+		expect(props.onClick).toHaveBeenCalled();
+	});
+	it('should call onSelect', () => {
+		const props = {
+			...defaultProps,
+			onSelect: jest.fn(),
+		};
+		const wrapper = shallow(<TreeView {...props} />);
+		wrapper.find('TreeViewItem').simulate('select');
+		expect(props.onSelect).toHaveBeenCalled();
 	});
 });
