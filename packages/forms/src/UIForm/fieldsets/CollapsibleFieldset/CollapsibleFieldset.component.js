@@ -33,7 +33,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 		render() {
 			const { id, schema, value, ...restProps } = this.props;
 			const { items } = schema;
-			const iconTransform = !this.props.value.isClosed ? 'flip-vertical' : '';
+			const iconTransform = classNames({'flip-vertical': !this.props.value.isClosed});
 
 			return (
 				<fieldset
@@ -45,7 +45,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 						role="button"
 						className={theme['title-bar']}
 					>
-						<div
+						<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 							onClick={this.toggle}
 							id={id && `${id}__title_wrapper`}
 							role="button"

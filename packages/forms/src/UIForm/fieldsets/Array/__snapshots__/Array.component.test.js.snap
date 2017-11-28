@@ -2,10 +2,10 @@
 
 exports[`Array component should render array 1`] = `
 <div
-  className={undefined}
+  className="tf-array-container"
 >
   <ol
-    className={undefined}
+    className="tf-array"
     id="talend-array"
   >
     <li
@@ -310,10 +310,10 @@ exports[`Array component should render array 1`] = `
 
 exports[`Array component should render array that can't be reordered 1`] = `
 <div
-  className={undefined}
+  className="tf-array-container"
 >
   <ol
-    className={undefined}
+    className="tf-array"
     id="talend-array"
   >
     <li

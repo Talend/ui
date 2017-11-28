@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import classNames from 'classnames';
 import ArrayItem from './ArrayItem.component';
 import Message from '../../Message';
 import Widget from '../../Widget';
@@ -120,8 +121,8 @@ export default class ArrayWidget extends React.Component {
 		const canReorder = schema.reorder !== false;
 
 		return (
-			<div className={theme['tf-array-container']}>
-				<ol id={id} className={theme['tf-array']}>
+			<div className={classNames(theme['tf-array-container'], 'tf-array-container')}>
+				<ol id={id} className={classNames(theme['tf-array'], 'tf-array')}>
 					{value.map((itemValue, index) => {
 						// create item schema with item index in key
 						const itemSchema = getItemSchema(schema, index, itemValue);
