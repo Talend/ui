@@ -22,9 +22,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   5:33  error  Unexpected parentheses around single function argument  arrow-parens
 
 /home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.component.js
-  28:20  error  'sourceData' is missing in props validation  react/prop-types
-  38:20  error  'sourceData' is missing in props validation  react/prop-types
-  49:61  error  'idAttr' is missing in props validation      react/prop-types
+  36:20  error  'sourceData' is missing in props validation  react/prop-types
+  46:20  error  'sourceData' is missing in props validation  react/prop-types
+  57:61  error  'idAttr' is missing in props validation      react/prop-types
 
 /home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.container.js
   142:3  warning  Unexpected console statement  no-console
