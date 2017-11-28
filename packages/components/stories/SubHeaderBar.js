@@ -23,7 +23,7 @@ const actionsRight = [
 	{
 		id: 'action1',
 		label: 'action1',
-		type: 'action',
+		renderType: 'action',
 		bsStyle: 'link',
 		icon: 'talend-share-alt',
 		onClick: action('return action1'),
@@ -32,7 +32,7 @@ const actionsRight = [
 	{
 		id: 'action2',
 		label: 'action2',
-		type: 'action',
+		renderType: 'action',
 		bsStyle: 'link',
 		icon: 'talend-activity',
 		onClick: action('return action2'),
@@ -41,7 +41,7 @@ const actionsRight = [
 	{
 		id: 'action3',
 		label: 'action3',
-		type: 'action',
+		renderType: 'action',
 		icon: 'talend-bell',
 		bsStyle: 'link',
 		onClick: action('return action3'),
@@ -52,7 +52,7 @@ const actionsRight = [
 const action4 = {
 	id: 'action4',
 	label: 'action4',
-	type: 'action',
+	renderType: 'action',
 	icon: 'talend-bell',
 	bsStyle: 'link',
 	onClick: action('return action4'),
@@ -61,8 +61,7 @@ const action4 = {
 
 const actionsCenter = [
 	{
-		tag: 'form',
-		type: 'component',
+		renderType: 'component',
 		component: (
 			<FilterBar
 				t={() => action('t')}
@@ -77,7 +76,7 @@ const actionsCenter = [
 
 const props = {
 	...viewSubHeader,
-	backAction,
+	...backAction,
 };
 
 const stories = storiesOf('SubHeaderBar', module);

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { omit } from 'lodash';
 import Icon from '../Icon';
 import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
@@ -95,11 +96,12 @@ EditTitle.propTypes = {
 };
 
 function getComponentFromType(action) {
-	if (action.type === 'action') {
-		return <Action {...action} />;
-	}
-	if (action.type === 'component') {
+	const ACTION_PROPS_OMITTED = ['renderType', 'tag'];
+	if (action.component) {
 		return action.component;
+	}
+	if (action.renderType === 'action') {
+		return <Action {...omit(action, ACTION_PROPS_OMITTED)} />;
 	}
 	return null;
 }
@@ -108,8 +110,8 @@ function SubHeaderBarActions({ actions, right, center, className }) {
 	if (actions && Array.isArray(actions)) {
 		return (
 			<div className={theme[className]}>
-				{actions.map(action => (
-					<ActionBar.Content tag={action.tag} center={center} right={right}>
+				{actions.map((action, index) => (
+					<ActionBar.Content key={index} tag={action.tag} center={center} right={right}>
 						{getComponentFromType(action)}
 					</ActionBar.Content>
 				))}

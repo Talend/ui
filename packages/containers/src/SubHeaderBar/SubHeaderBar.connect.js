@@ -1,5 +1,7 @@
 import React from 'react';
 import { api, cmfConnect, Inject } from '@talend/react-cmf';
+import { Action } from '@talend/react-components';
+import { omit } from 'lodash';
 import SubHeaderBar, { DEFAULT_STATE } from './SubHeaderBar.container';
 
 function getActionInfo(actionId, state) {
@@ -15,10 +17,16 @@ function getActionInfo(actionId, state) {
 }
 
 function buildActions(actions, state) {
+	const ACTION_PROPS_OMITTED = ['renderType', 'tag'];
 	return actions.map(actionId => {
 		const actionInfo = getActionInfo(actionId, state);
-		if (actionInfo.componentId) {
-			actionInfo.component = <Inject component={actionInfo.componentId} {...actionInfo} />;
+		if (actionInfo.renderType === 'component' && actionInfo.componentId) {
+			actionInfo.component = (
+				<Inject component={actionInfo.componentId} {...omit(actionInfo, ACTION_PROPS_OMITTED)} />
+			);
+		}
+		if (actionInfo.render === 'action') {
+			actionInfo.component = <Action {...omit(actionInfo, ACTION_PROPS_OMITTED)} />;
 		}
 		return actionInfo;
 	});
