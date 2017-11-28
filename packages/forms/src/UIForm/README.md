@@ -59,7 +59,7 @@ This will produce a flat properties :
     "firstname": "",
     "age": 0,
     "email": "",
-    "comment": "",
+    "comment": ""
 }
 ```
 

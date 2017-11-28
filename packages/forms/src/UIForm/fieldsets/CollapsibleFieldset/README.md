@@ -85,10 +85,37 @@ const MyCustomCollapsiblePanel = createCollapsibleFieldset(title);
 
 2. Register your component while using `<UIForms>`
 ```javascript
+import { UIForms } from '@talend/react-forms';
+
+...
+    const widgets = { myCustomCollapsibleFieldset: MyCustomCollapsiblePanel };
+
+    return <UIForm
+        {...props}
+        widgets={widgets}
+    />;
 
 ```
 
 3. Define your UI schema to use your custom fieldset
-```javascript
-
+```json
+[
+  {
+    "widget": "myCustomCollapsibleFieldset",
+    "key": "technical.basic",
+    "title": "Basic title",
+    "items": [
+      {
+        "key": "lastname",
+        "title": "Last Name (with description)",
+        "description": "Hint: this is the last name"
+      },
+      {
+        "key": "firstname",
+        "title": "First Name (with placeholder)",
+        "placeholder": "Enter your firstname here"
+      }
+    ]
+  }
+]
 ```
