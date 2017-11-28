@@ -141,7 +141,7 @@ class SelectObject extends React.Component {
 				selectedId: selected,
 			};
 		}
-		console.error('___DEBUG__', props.sourceData, props.filteredData);
+
 		let preview;
 		if (!selected && matches.length === 1) {
 			selected = matches[0].get('id');
