@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Array component should render array 1`] = `
-<div>
+<div
+  className={undefined}
+>
   <ol
     className={undefined}
     id="talend-array"
@@ -307,7 +309,9 @@ exports[`Array component should render array 1`] = `
 `;
 
 exports[`Array component should render array that can't be reordered 1`] = `
-<div>
+<div
+  className={undefined}
+>
   <ol
     className={undefined}
     id="talend-array"

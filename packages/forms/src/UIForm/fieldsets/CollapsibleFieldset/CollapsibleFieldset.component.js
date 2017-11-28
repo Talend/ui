@@ -98,4 +98,3 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 
 	return CollapsibleFieldset;
 }
-
