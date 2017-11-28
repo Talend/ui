@@ -1,4 +1,5 @@
 import React from 'react';
+import cases from 'jest-in-case';
 import { shallow } from 'enzyme';
 import createCollapsibleFieldset from './CollapsibleFieldset.component';
 
@@ -27,136 +28,65 @@ const schema = {
 const value = {
 	firstname: 'Jimmy',
 	lastname: 'Somsanith',
-	isClosed: false,
 };
 
 describe('CollapsibleFieldset', () => {
-	it('should render a full fieldset (header and body)', () => {
-		// given
-		const CollapsibleFieldset = createCollapsibleFieldset();
+	cases(
+		'should render',
+		opts => {
+			// given
+			const CollapsibleFieldset = createCollapsibleFieldset(opts.titleFn);
 
-		// when
-		const wrapper = shallow(<CollapsibleFieldset
-			id={'my-fieldset'}
-			schema={schema}
-			value={value}
-		/>);
+			// when
+			const wrapper = shallow(<CollapsibleFieldset
+				id={'my-fieldset'}
+				schema={schema}
+				value={{ ...value, isClosed: opts.isClosed }}
+			/>);
 
-		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
-	});
+			// then
+			expect(wrapper.getNode()).toMatchSnapshot();
+		},
+		{
+			'a full fieldset (header and body)': { isClosed: false },
+			'a collapsed fieldset (header only)': { isClosed: true },
+			'a custom title': { isClosed: false, titleFn: customTitle },
+		}
+	);
 
-	it('should render a collapsed fieldset (header only)', () => {
-		// given
-		const CollapsibleFieldset = createCollapsibleFieldset();
+	cases(
+		'should toggle',
+		opts => {
+			// given
+			const CollapsibleFieldset = createCollapsibleFieldset();
+			const onChange = jest.fn();
+			const event = {
+				stopPropagation: jest.fn(),
+				preventDefault: jest.fn(),
+			};
 
-		// when
-		const wrapper = shallow(<CollapsibleFieldset
-			id={'my-fieldset'}
-			schema={schema}
-			value={{ ...value, isClosed: true }}
-		/>);
+			const wrapper = shallow(<CollapsibleFieldset
+				id={'my-fieldset'}
+				onChange={onChange}
+				schema={schema}
+				value={{ ...value, isClosed: true }}
+			/>);
 
-		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
-	});
+			// when
+			wrapper.find(opts.selector).simulate(opts.actionType, event);
 
-	it('should render a custom title', () => {
-		// given
-		const CollapsibleFieldset = createCollapsibleFieldset(customTitle);
-
-		// when
-		const wrapper = shallow(<CollapsibleFieldset
-			id={'my-fieldset'}
-			schema={schema}
-			value={{ ...value, isClosed: true }}
-		/>);
-
-		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
-	});
-
-	it('should toggle on title click', () => {
-		// given
-		const CollapsibleFieldset = createCollapsibleFieldset();
-		const onChange = jest.fn();
-		const event = {
-			stopPropagation: jest.fn(),
-			preventDefault: jest.fn(),
-		};
-
-		const wrapper = shallow(<CollapsibleFieldset
-			id={'my-fieldset'}
-			onChange={onChange}
-			schema={schema}
-			value={{ ...value, isClosed: true }}
-		/>);
-
-		// when
-		wrapper.find('#my-fieldset__title_wrapper').simulate('click', event);
-
-		// then
-		expect(event.stopPropagation).toBeCalled();
-		expect(event.preventDefault).toBeCalled();
-		expect(onChange).toBeCalledWith(event, {
-			schema,
-			value: { ...value, isClosed: false },
-		});
-	});
-
-	it('should toggle on header double click', () => {
-		// given
-		const CollapsibleFieldset = createCollapsibleFieldset();
-		const onChange = jest.fn();
-		const event = {
-			stopPropagation: jest.fn(),
-			preventDefault: jest.fn(),
-		};
-
-		const wrapper = shallow(<CollapsibleFieldset
-			id={'my-fieldset'}
-			onChange={onChange}
-			schema={schema}
-			value={{ ...value, isClosed: true }}
-		/>);
-
-		// when
-		wrapper.find('#my-fieldset__title_bar').simulate('dblclick', event);
-
-		// then
-		expect(event.stopPropagation).toBeCalled();
-		expect(event.preventDefault).toBeCalled();
-		expect(onChange).toBeCalledWith(event, {
-			schema,
-			value: { ...value, isClosed: false },
-		});
-	});
-
-	it('should toggle on icon click', () => {
-		// given
-		const CollapsibleFieldset = createCollapsibleFieldset();
-		const onChange = jest.fn();
-		const event = {
-			stopPropagation: jest.fn(),
-			preventDefault: jest.fn(),
-		};
-
-		const wrapper = shallow(<CollapsibleFieldset
-			id={'my-fieldset'}
-			onChange={onChange}
-			schema={schema}
-			value={{ ...value, isClosed: true }}
-		/>);
-
-		// when
-		wrapper.find('#my-fieldset__collapse').simulate('click', event);
-
-		// then
-		expect(event.stopPropagation).toBeCalled();
-		expect(event.preventDefault).toBeCalled();
-		expect(onChange).toBeCalledWith(event, {
-			schema,
-			value: { ...value, isClosed: false },
-		});
-	});
+			// then
+			expect(event.stopPropagation).toBeCalled();
+			expect(event.preventDefault).toBeCalled();
+			expect(onChange).toBeCalledWith(event, {
+				schema,
+				value: { ...value, isClosed: false },
+			});
+		},
+		{
+			'on title click': { selector: '#my-fieldset__title_wrapper', actionType: 'click' },
+			'on header double click': { selector: '#my-fieldset__title_bar', actionType: 'dblclick' },
+			'on icon click': { selector: '#my-fieldset__collapse', actionType: 'click' },
+		}
+	);
 });

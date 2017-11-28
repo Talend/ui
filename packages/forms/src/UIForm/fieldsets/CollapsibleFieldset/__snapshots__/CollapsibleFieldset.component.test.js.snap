@@ -69,9 +69,59 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
     >
       <Icon
         name="talend-caret-down"
-        transform=""
+        transform="flip-vertical"
       />
     </button>
+  </div>
+  <div
+    className={undefined}
+  >
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "age",
+          ],
+          "schema": Object {
+            "type": "number",
+          },
+          "title": "Age",
+          "type": "number",
+        }
+      }
+      value={
+        Object {
+          "firstname": "Jimmy",
+          "isClosed": false,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "address",
+          ],
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "Adress",
+          "type": "text",
+        }
+      }
+      value={
+        Object {
+          "firstname": "Jimmy",
+          "isClosed": false,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
   </div>
 </fieldset>
 `;
