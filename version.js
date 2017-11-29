@@ -47,7 +47,7 @@ const STACK_VERSION = {
 const ADDONS = {
 	'babel-polyfill': '6.26.0',
 	'date-fns': '1.27.2',
-	'focus-outline-manager': '1.0.2',
+	'focus-outline-manager': '^1.0.2',
 	immutablediff: '0.4.4',
 	'normalize.css': '5.0.0',
 	'path-to-regexp': '2.0.0',
