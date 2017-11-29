@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailsIcon should render 1`] = `
+<span
+  className={undefined}
+>
+  <Icon
+    className={undefined}
+    name="talend-pencil"
+  />
+</span>
+`;
+
+exports[`DetailsTitle should render 1`] = `
+<div
+  className={undefined}
+>
+  <DetailsIcon
+    iconFile="talend-pencil"
+  />
+  <span
+    className={undefined}
+  >
+    <span
+      className={undefined}
+    >
+      myTitle
+    </span>
+    <Action
+      bsStyle="link"
+      className={undefined}
+      hideLabel={true}
+      icon="talend-pencil"
+      label="edit"
+      name="action-edit-title"
+      onClick={[Function]}
+    />
+    <div
+      className={undefined}
+    >
+      mySubTitle
+    </div>
+  </span>
+</div>
+`;

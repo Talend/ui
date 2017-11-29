@@ -8,14 +8,11 @@ import ActionBar from '../ActionBar';
 import theme from './SubHeaderBar.scss';
 
 function DetailsIcon(props) {
-	if (props.iconFile) {
-		return (
-			<span className={theme['subheader-file-icon-box']}>
-				<Icon name={props.iconFile} className={theme['subheader-file-icon']} />
-			</span>
-		);
-	}
-	return null;
+	return (
+		<span className={theme['subheader-file-icon-box']}>
+			<Icon name={props.iconFile} className={theme['subheader-file-icon']} />
+		</span>
+	);
 }
 
 DetailsIcon.propTypes = {
@@ -25,18 +22,20 @@ DetailsIcon.propTypes = {
 function DetailsTitle({ title, subTitle, iconFile, onEdit }) {
 	return (
 		<div className={theme['subheader-details']}>
-			<DetailsIcon iconFile={iconFile} />
+			{iconFile && <DetailsIcon iconFile={iconFile} />}
 			<span className={theme['subheader-details-text']}>
 				<span className={theme['subheader-details-title']}>{title}</span>
-				<Action
-					name="action-edit-title"
-					label="edit"
-					icon="talend-pencil"
-					onClick={onEdit}
-					bsStyle="link"
-					className={theme['subheader-details-pencil']}
-					hideLabel
-				/>
+				{onEdit && (
+					<Action
+						name="action-edit-title"
+						label="edit"
+						icon="talend-pencil"
+						onClick={onEdit}
+						bsStyle="link"
+						className={theme['subheader-details-pencil']}
+						hideLabel
+					/>
+				)}
 				{subTitle && <div className={theme['subheader-details-subtitle']}>{subTitle}</div>}
 			</span>
 		</div>
@@ -96,6 +95,9 @@ EditTitle.propTypes = {
 };
 
 function getComponentFromType(action) {
+	if (!action) {
+		return null;
+	}
 	const ACTION_PROPS_OMITTED = ['renderType', 'tag'];
 	if (action.component) {
 		return action.component;
@@ -175,4 +177,11 @@ SubHeaderBar.defaultProps = {
 	editMode: false,
 };
 
-export default SubHeaderBar;
+export {
+	SubHeaderBar as default,
+	SubHeaderBarActions,
+	EditTitle,
+	DetailsTitle,
+	DetailsIcon,
+	getComponentFromType,
+};
