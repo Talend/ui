@@ -55,8 +55,14 @@ describe('Notification', () => {
 		it('onMouseEnter', () => {
 			const instance = new NotificationsContainer({ notifications: [] });
 			instance.registry.cancel = jest.fn();
-			instance.onMouseEnter({}, mockNotification);
+			const event = {
+				currentTarget: {
+					setAttribute: jest.fn(),
+				},
+			};
+			instance.onMouseEnter(event, mockNotification);
 			expect(instance.registry.cancel).toHaveBeenCalledWith(mockNotification);
+			expect(event.currentTarget.setAttribute).toHaveBeenCalledWith('pin', 'true');
 		});
 
 		it('onMouseOut', () => {

@@ -152,6 +152,7 @@ class NotificationsContainer extends React.Component {
 	onMouseEnter(event, notification) {
 		if (notification.error !== 'error' || this.props.autoLeaveError) {
 			this.registry.cancel(notification);
+			event.currentTarget.setAttribute('pin', 'true');
 		}
 	}
 
