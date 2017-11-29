@@ -4,9 +4,7 @@ import { Map, fromJS } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 
 import Container, { DEFAULT_STATE } from './List.container';
-import Connected, {
-	mapStateToProps,
-} from './List.connect';
+import Connected, { mapStateToProps } from './List.connect';
 
 const list = {
 	columns: [
@@ -26,10 +24,7 @@ const toolbar = {
 		placeholder: 'find an object',
 	},
 	sort: {
-		options: [
-			{ id: 'id', name: 'Id' },
-			{ id: 'name', name: 'Name' },
-		],
+		options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 		field: 'id',
 		isDescending: false,
 	},
@@ -52,7 +47,6 @@ const settings = {
 	toolbar,
 	actions,
 };
-
 
 const items = [
 	{
@@ -86,9 +80,9 @@ const items = [
 
 describe('Container List', () => {
 	it('should put default props', () => {
-		const wrapper = shallow(
-			<Container {...cloneDeep(settings)} items={items} />
-		, { lifecycleExperimental: true });
+		const wrapper = shallow(<Container {...cloneDeep(settings)} items={items} />, {
+			lifecycleExperimental: true,
+		});
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('table');
 		expect(props.list.items.length).toBe(3);
@@ -107,17 +101,15 @@ describe('Container List', () => {
 	});
 
 	it('should render without toolbar', () => {
-		const wrapper = shallow(
-			<Container items={items} />
-		, { lifecycleExperimental: true });
+		const wrapper = shallow(<Container items={items} />, { lifecycleExperimental: true });
 		const props = wrapper.props();
 		expect(props.toolbar).toBe(undefined);
 	});
 
 	it('should support displayMode as props', () => {
-		const wrapper = shallow(
-			<Container displayMode="large" items={items} />
-		, { lifecycleExperimental: true });
+		const wrapper = shallow(<Container displayMode="large" items={items} />, {
+			lifecycleExperimental: true,
+		});
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('large');
 	});
@@ -135,11 +127,12 @@ describe('Container List', () => {
 				{...cloneDeep(settings)}
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
-			/>
-		, {
-			lifecycleExperimental: true,
-			context,
-		});
+			/>,
+			{
+				lifecycleExperimental: true,
+				context,
+			},
+		);
 		const props = wrapper.props();
 		const onClick = props.list.titleProps.onClick;
 		const e = {};
@@ -171,11 +164,12 @@ describe('Container List', () => {
 				{...settingsWithoutActions}
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
-			/>
-		, {
-			lifecycleExperimental: true,
-			context,
-		});
+			/>,
+			{
+				lifecycleExperimental: true,
+				context,
+			},
+		);
 		const props = wrapper.props();
 		expect(props.list.titleProps.onClick).toBeUndefined();
 	});
@@ -198,7 +192,8 @@ describe('Container List', () => {
 			{
 				lifecycleExperimental: true,
 				context,
-			});
+			},
+		);
 		const props = wrapper.props();
 		const event = {};
 		const data = { foo: 'bar' };
@@ -219,8 +214,9 @@ describe('Container List', () => {
 			tile: 1,
 		};
 		const wrapper = shallow(
-			<Container {...cloneDeep(settings)} items={items} rowHeight={rowHeight} />
-			, { lifecycleExperimental: true });
+			<Container {...cloneDeep(settings)} items={items} rowHeight={rowHeight} />,
+			{ lifecycleExperimental: true },
+		);
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('table');
 		expect(props).toMatchSnapshot();
@@ -284,7 +280,7 @@ describe('Connected List', () => {
 				components: fromJS({
 					'Container(List)': {
 						cid: {
-							...(DEFAULT_STATE.toJS()),
+							...DEFAULT_STATE.toJS(),
 							toolbar: {
 								pagination: {
 									onChange: 'pagination:change',

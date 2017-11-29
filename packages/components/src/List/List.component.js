@@ -145,7 +145,17 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
 }
  <List {...props}></List>
  */
-function List({ displayMode, id, list, toolbar, useContent, virtualized, t, renderers, rowHeight }) {
+function List({
+	displayMode,
+	id,
+	list,
+	toolbar,
+	useContent,
+	virtualized,
+	t,
+	renderers,
+	rowHeight,
+}) {
 	const classnames = classNames('tc-list', theme.list);
 
 	return (
