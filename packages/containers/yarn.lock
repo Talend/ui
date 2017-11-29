@@ -150,35 +150,35 @@
     react-treebeard "^2.0.3"
     redux "^3.6.0"
 
-"@talend/bootstrap-theme@^0.124.0":
-  version "0.124.0"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.124.0.tgz#9c145870884636035358fb7bb514ac8e31d3dc6f"
+"@talend/bootstrap-theme@^0.127.0":
+  version "0.127.0"
+  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.127.0.tgz#9d0bf38396cba9fbf75256c7ec328c0f9de2d396"
   dependencies:
     bootstrap-sass "3.3.7"
 
-"@talend/icons@^0.124.0":
-  version "0.124.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.124.0.tgz#54c50a33ff56dfc908f284da75816719a348dde6"
+"@talend/icons@^0.127.0":
+  version "0.127.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.127.0.tgz#2160f72ac7b1b446b949f3671b4d31c1bead843d"
 
-"@talend/react-cmf@^0.124.0":
-  version "0.124.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.124.0.tgz#e6f3743ff9bb90642b28768f878862a8bbe37933"
+"@talend/react-cmf@^0.127.0":
+  version "0.127.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.127.0.tgz#8ddfd328dc3430ea2983005064d09466c539dd44"
   dependencies:
     babel-polyfill "6.26.0"
     hoist-non-react-statics "^1.2.0"
 
-"@talend/react-components@^0.124.0":
-  version "0.124.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.124.0.tgz#a0151563a4286976915793b23054a68184b9dc70"
+"@talend/react-components@^0.127.0":
+  version "0.127.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.127.0.tgz#64bb107e408e9afdb7854e7f6e7606a042ccb933"
   dependencies:
     lodash "4.17.4"
     react-autowhatever "7.0.0"
     react-debounce-input "2.4.2"
     react-virtualized "9.10.1"
 
-"@talend/react-forms@^0.124.0":
-  version "0.124.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-0.124.0.tgz#8e0f649043848652b74812909e951dff74ab2d4d"
+"@talend/react-forms@^0.127.0":
+  version "0.127.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-0.127.0.tgz#59cbb574ab6cf4646aba36b7747866b163621ff7"
   dependencies:
     classnames "2.2.5"
     keycode "2.1.9"
@@ -2968,6 +2968,10 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
+focus-outline-manager@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/focus-outline-manager/-/focus-outline-manager-1.0.2.tgz#7bf3658865341fb6b08d042a037b9d2868b119b5"
+
 for-each@~0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/for-each/-/for-each-0.3.2.tgz#2c40450b9348e97f281322593ba96704b9abd4d4"
@@ -5725,7 +5729,7 @@ react-icons@^2.2.5:
   dependencies:
     react-icon-base "2.0.7"
 
-react-immutable-proptypes@^2.1.0:
+react-immutable-proptypes@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-immutable-proptypes/-/react-immutable-proptypes-2.1.0.tgz#023d6f39bb15c97c071e9e60d00d136eac5fa0b4"
 

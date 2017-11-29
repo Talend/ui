@@ -39,12 +39,11 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 
 export function ContainerActionSplitDropdown(props) {
 	let newProps = Object.assign({}, props);
-	if (props.actionId) {
-		newProps = {
-			...getOnClick(newProps, props),
-			...newProps,
-		};
-	}
+
+	newProps = {
+		...getOnClick(newProps, props),
+		...newProps,
+	};
 
 	if (newProps.items) {
 		newProps.items = props.items.map(item => ({
@@ -59,7 +58,6 @@ export function ContainerActionSplitDropdown(props) {
 ContainerActionSplitDropdown.displayName = 'Container(ActionSplitDropdown)';
 
 ContainerActionSplitDropdown.propTypes = {
-	actionId: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.object),
 };
 
