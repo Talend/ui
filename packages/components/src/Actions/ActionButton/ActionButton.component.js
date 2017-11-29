@@ -52,8 +52,6 @@ function getContent(props) {
 
 function noOp() {}
 
-const popoverClickRootClose = child => <Popover>{child}</Popover>;
-
 /**
  * @param {object} props react props
  * @example
@@ -93,21 +91,21 @@ function ActionButton(props) {
 
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
-	const rClick = !overlayComponent
-		? event =>
-				onClick(event, {
-					action: { label, ...rest },
-					model,
-				})
-		: null;
+	let rClick = null;
+	let rMouseDown = null;
 
-	const rMouseDown = !overlayComponent
-		? event =>
-				onMouseDown(event, {
-					action: { label, ...rest },
-					model,
-				})
-		: null;
+	if (!overlayComponent) {
+		rClick = event =>
+			onClick(event, {
+				action: { label, ...rest },
+				model,
+			});
+		rMouseDown = event =>
+			onMouseDown(event, {
+				action: { label, ...rest },
+				model,
+			});
+	}
 
 	const buttonContent = getContent(props);
 
@@ -131,7 +129,7 @@ function ActionButton(props) {
 					trigger="click"
 					rootClose
 					placement={overlayPlacement}
-					overlay={popoverClickRootClose(overlayComponent)}
+					overlay={<Popover>{overlayComponent}</Popover>}
 				>
 					{btn}
 				</OverlayTrigger>

@@ -112,7 +112,7 @@ describe('Action', () => {
 		expect(wrapper.type()).toBe(null);
 	});
 
-	it('should render action with overlayp provider', () => {
+	it('should render action with overlay provider', () => {
 		const actionTest = <Button>Test button popover</Button>;
 		const wrapper = shallow(
 			<ActionButton available={false} overlayComponent={actionTest} overlayPlacement="top" />,
