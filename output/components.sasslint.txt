@@ -10,8 +10,17 @@ src/FilterBar/FilterBar.scss
    2:33  warning  Hex notation should all be upper case  hex-notation
   47:6   warning  Vendor prefixes should not be used     no-vendor-prefixes
 
+src/Notification/Notification.scss
+   1:30  warning  Hex notation should all be upper case  hex-notation
+   2:32  warning  Hex notation should all be upper case  hex-notation
+   4:33  warning  Hex notation should all be upper case  hex-notation
+   5:35  warning  Hex notation should all be upper case  hex-notation
+   7:31  warning  Hex notation should all be upper case  hex-notation
+   8:33  warning  Hex notation should all be upper case  hex-notation
+  73:12  warning  Hex notation should all be upper case  hex-notation
+
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
 
-✖ 4 problems (1 error, 3 warnings)
+✖ 11 problems (1 error, 10 warnings)
 
