@@ -19,7 +19,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:8  error  Using exported name 'Notification' as identifier for default export  import/no-named-as-default
 
 /home/travis/build/Talend/ui/packages/components/src/Notification/Notification.component.js
-  100:61  error  'autoLeaveError' is missing in props validation  react/prop-types
+  97:61  error  'autoLeaveError' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/Notification/Notification.snap.test.js
   4:8  error  Using exported name 'Notification' as identifier for default export  import/no-named-as-default
@@ -44,5 +44,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 10 problems (10 errors, 0 warnings)
+✖ 20 problems (20 errors, 0 warnings)
 

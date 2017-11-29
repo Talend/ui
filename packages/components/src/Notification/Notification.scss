@@ -1,11 +1,11 @@
-$tc-notification-info-color: #3C763D !default;
-$tc-notification-info-bgcolor: #E8F2CC !default;
+$tc-notification-info-color: #3c763d !default;
+$tc-notification-info-bgcolor: #e8f2cc !default;
 
-$tc-notification-warning-color: #8A6D3B !default;
-$tc-notification-warning-bgcolor: #FDEECC !default;
+$tc-notification-warning-color: #8a6d3b !default;
+$tc-notification-warning-bgcolor: #fdeecc !default;
 
-$tc-notification-error-color: #A94442 !default;
-$tc-notification-error-bgcolor: #F5E0E0 !default;
+$tc-notification-error-color: #a94442 !default;
+$tc-notification-error-bgcolor: #f5e0e0 !default;
 
 $tc-notification-animation-duration: 0.3s;
 
@@ -70,7 +70,7 @@ $icon-size: $svg-md-size;
 			}
 
 			&-action {
-				color: #1BABCD;
+				color: #1babcd;
 				padding: 0 $padding-small;
 
 				svg {
@@ -102,7 +102,6 @@ $icon-size: $svg-md-size;
 	}
 
 	.tc-notification[pin='true'] {
-
 		.tc-notification-timer-bar {
 			animation: none;
 			transform: translateX(100%);
@@ -110,7 +109,7 @@ $icon-size: $svg-md-size;
 	}
 }
 
-@keyframes  timer-bar {
+@keyframes timer-bar {
 	from {
 		transform: translateX(0);
 	}

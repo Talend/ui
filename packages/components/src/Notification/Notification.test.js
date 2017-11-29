@@ -136,17 +136,20 @@ describe('Notification', () => {
 			];
 		});
 
-		it('should register autoLeave only for notification of type info or warning ' +
-			'should trigger leaveFn after timeout', () => {
-			const props = {
-				notifications,
-				leaveFn: mockLeaveFn,
-			};
-			const instance = new NotificationsContainer(props);
-			expect(mockLeaveFn).not.toHaveBeenCalled();
-			expect(Object.keys(instance.timerRegistry).length).toBe(3);
-			jest.runAllTimers();
-			expect(mockLeaveFn.mock.calls.length).toEqual(3);
-		});
+		it(
+			'should register autoLeave only for notification of type info or warning ' +
+				'should trigger leaveFn after timeout',
+			() => {
+				const props = {
+					notifications,
+					leaveFn: mockLeaveFn,
+				};
+				const instance = new NotificationsContainer(props);
+				expect(mockLeaveFn).not.toHaveBeenCalled();
+				expect(Object.keys(instance.timerRegistry).length).toBe(3);
+				jest.runAllTimers();
+				expect(mockLeaveFn.mock.calls.length).toEqual(3);
+			},
+		);
 	});
 });
