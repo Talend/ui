@@ -78,6 +78,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 	CollapsibleFieldset.defaultProps = {
 		value: {},
 	};
+	CollapsibleFieldset.isCloseable = true;
 
 	if (process.env.NODE_ENV !== 'production') {
 		CollapsibleFieldset.propTypes = {

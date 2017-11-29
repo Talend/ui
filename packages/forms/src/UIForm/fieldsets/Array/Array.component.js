@@ -5,6 +5,7 @@ import ArrayItem from './ArrayItem.component';
 import Message from '../../Message';
 import Widget from '../../Widget';
 import { shiftArrayErrorsKeys } from '../../utils/validation';
+import widgets from '../../utils/widgets';
 
 import theme from './Array.scss';
 
@@ -61,7 +62,12 @@ export default class ArrayWidget extends React.Component {
 	onAdd(event) {
 		const arrayMergedSchema = this.props.schema;
 		const defaultValue = arrayMergedSchema.schema.items.type === 'object' ? {} : '';
-		const value = [...this.props.value, defaultValue];
+
+		const itemWidget = widgets[this.props.schema.itemWidget];
+		const currentValue = itemWidget && itemWidget.isCloseable ?
+			this.props.value.map(item => ({ ...item, isClosed: true })) :
+			this.props.value;
+		const value = currentValue.concat(defaultValue);
 
 		const payload = { schema: arrayMergedSchema, value };
 		this.props.onChange(event, payload);
