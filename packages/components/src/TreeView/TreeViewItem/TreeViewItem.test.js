@@ -44,7 +44,7 @@ describe('TreeView', () => {
 		const wrapper = shallow(<TreeViewItem {...defaultProps} />);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
-	it('should select call onClick and onSelect', () => {
+	it('when the user click the item it should get focus and call props.onClick and props.onSelect', () => {
 		const props = {
 			...defaultProps,
 			onClick: jest.fn(),
@@ -58,7 +58,7 @@ describe('TreeView', () => {
 		expect(props.onSelect).toHaveBeenCalled();
 		expect(focus).toHaveBeenCalled();
 	});
-	it('should enter call onClick and onSelect', () => {
+	it('when item has focus and the user type enter it should call props.onClick and props.onSelect', () => {
 		const props = {
 			...defaultProps,
 			onClick: jest.fn(),

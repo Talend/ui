@@ -44,7 +44,7 @@ describe('TreeView', () => {
 		const wrapper = shallow(<TreeView {...defaultProps} />);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
-	it('should call add action', () => {
+	it('when a user click on the add Action it should call props.addAction', () => {
 		const props = {
 			...defaultProps,
 			addAction: jest.fn(),
@@ -53,7 +53,7 @@ describe('TreeView', () => {
 		wrapper.find('Action').simulate('click');
 		expect(props.addAction).toHaveBeenCalled();
 	});
-	it('should call onClick', () => {
+	it('when a user click on a TreeViewItem it should call props.onClick', () => {
 		const props = {
 			...defaultProps,
 			onClick: jest.fn(),
@@ -62,7 +62,7 @@ describe('TreeView', () => {
 		wrapper.find('TreeViewItem').simulate('click');
 		expect(props.onClick).toHaveBeenCalled();
 	});
-	it('should call onSelect', () => {
+	it('when a user select a TreeViewItem it should call onSelect', () => {
 		const props = {
 			...defaultProps,
 			onSelect: jest.fn(),

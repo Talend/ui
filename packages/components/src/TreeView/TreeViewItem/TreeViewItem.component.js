@@ -80,7 +80,7 @@ class TreeViewItem extends React.Component {
 	}
 
 	onSelect() {
-		this.elementRef.focus();
+		this.containerRef.focus();
 		this.props.onClick(this.props.item);
 		return this.props.onSelect(this.props.item);
 	}
@@ -143,7 +143,7 @@ class TreeViewItem extends React.Component {
 					style={{ paddingLeft }}
 					role="button"
 					tabIndex="0"
-					ref={element => { this.elementRef = element; }}
+					ref={element => { this.containerRef = element; }}
 					onKeyDown={this.onKeyDown}
 				>
 					{!children.length || (
