@@ -43,3 +43,45 @@ exports[`DetailsTitle should render 1`] = `
   </span>
 </div>
 `;
+
+exports[`EditTitle should render 1`] = `
+<div
+  className={undefined}
+>
+  <DetailsIcon
+    iconFile="talend-pencil"
+  />
+  <form
+    className={undefined}
+  >
+    <input
+      className="form-control"
+      id="inputTitle"
+      onChange={[Function]}
+      placeholder="myTitle"
+      type="text"
+      value=""
+    />
+  </form>
+  <div
+    className={undefined}
+  >
+    <Action
+      bsStyle="link"
+      hideLabel={true}
+      icon="talend-check"
+      label="submit"
+      name="action-submit-title"
+      onClick={[Function]}
+    />
+    <Action
+      bsStyle="link"
+      hideLabel={true}
+      icon="talend-cross"
+      label="cancel"
+      name="action-cancel-title"
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
