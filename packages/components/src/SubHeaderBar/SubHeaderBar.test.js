@@ -11,7 +11,9 @@ import SubHeaderBar, {
 
 describe('getComponentFromType', () => {
 	it('should return a component', () => {
-		expect(getComponentFromType({ component: <Icon /> })).toEqual(<Icon />);
+		expect(getComponentFromType({ component: <Icon name="talend-pencil" /> })).toEqual(
+			<Icon name="talend-pencil" />,
+		);
 	});
 	it('should return an Action component', () => {
 		expect(getComponentFromType({ renderType: 'action' })).toEqual(<Action />);
@@ -27,7 +29,6 @@ describe('getComponentFromType', () => {
 describe('DetailsIcon', () => {
 	it('should render', () => {
 		const wrapper = shallow(<DetailsIcon iconFile="talend-pencil" />);
-		// expect(wrapper.instance().props.iconFile).toBe('talend-pencil');
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render an Icon component', () => {
@@ -79,7 +80,40 @@ describe('DetailsTitle', () => {
 });
 
 describe('EditTitle', () => {
-	it('should', () => {
-
+	it('should render', () => {
+		const wrapper = shallow(
+			<EditTitle
+				title="myTitle"
+				iconFile="talend-pencil"
+				inputTextValue=""
+				onSubmit={jest.fn()}
+				onCancel={jest.fn()}
+				onChange={jest.fn()}
+			/>,
+		);
+		expect(wrapper.getNode()).toMatchSnapshot();
+	});
+	it('should render DetailsTitle', () => {
+		const wrapper = shallow(<EditTitle title="myTitle" iconFile="talend-pencil" />);
+		expect(wrapper.find(DetailsIcon).getNode().props.iconFile).toBe('talend-pencil');
+		expect(wrapper.find(DetailsIcon)).toHaveLength(1);
+	});
+	it('should render an input field', () => {
+		const inputProps = {
+			title: 'myTitle',
+			placeHolder: 'myTitle',
+			onChange: jest.fn(),
+			inputTextValue: 'value',
+		};
+		const wrapper = shallow(<EditTitle {...inputProps} />);
+		expect(wrapper.find('input').getNode().props).toEqual({
+			type: 'text',
+			className: 'form-control',
+			id: 'inputTitle',
+			placeholder: inputProps.placeHolder,
+			onChange: inputProps.onChange,
+			value: inputProps.inputTextValue,
+		});
+		expect(wrapper.find('input')).toHaveLength(1);
 	});
 });
