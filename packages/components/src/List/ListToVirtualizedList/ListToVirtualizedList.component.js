@@ -37,6 +37,7 @@ function ListToVirtualizedList(props) {
 			isSelected={itemProps && itemProps.isSelected}
 			inProgress={props.inProgress}
 			onRowClick={itemProps && itemProps.onRowClick}
+			rowHeight={props.rowHeight}
 			selectionToggle={itemProps && itemProps.onToggle}
 			sort={adaptOnSort(sort && sort.onChange)}
 			sortBy={sort && sort.field}
