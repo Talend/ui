@@ -92,7 +92,7 @@ function TreeView({
 				<ul className={theme['tc-treeview-ul']}>
 					{structure.map((item, i) => (
 						<TreeViewItem
-							id={id && `${id}-${i}`}
+							id={`${id}-${i}`}
 							item={item}
 							onSelect={onSelect || itemSelectCallback}
 							onClick={onClick || itemToggleCallback}
@@ -121,6 +121,7 @@ TreeView.propTypes = {
 };
 
 TreeView.defaultProps = {
+	id: 'tc-treeview',
 	addActionLabel: 'Add folder',
 	headerText: 'Folders',
 };

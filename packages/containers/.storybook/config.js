@@ -5,6 +5,7 @@ import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
+import 'focus-outline-manager';
 import ObjectViewer from '../src/ObjectViewer';
 import examples from '../examples';
 
