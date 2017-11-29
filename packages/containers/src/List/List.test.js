@@ -211,6 +211,20 @@ describe('Container List', () => {
 		// then
 		expect(dispatchActionCreator).toBeCalledWith('pagination:change', event, data, context);
 	});
+
+	it('should set the proper rowHeight', () => {
+		const rowHeight = {
+			table: 3,
+			large: 2,
+			tile: 1,
+		};
+		const wrapper = shallow(
+			<Container {...cloneDeep(settings)} items={items} rowHeight={rowHeight} />
+			, { lifecycleExperimental: true });
+		const props = wrapper.props();
+		expect(props.displayMode).toBe('table');
+		expect(props).toMatchSnapshot();
+	});
 });
 
 describe('Connected List', () => {
