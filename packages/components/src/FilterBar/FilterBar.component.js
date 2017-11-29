@@ -9,10 +9,7 @@ import Icon from '../Icon';
 import { getDefaultTranslate } from '../translate';
 import theme from './FilterBar.scss';
 
-function onKeyDownWrapper(event, escAction, enterAction, onKeyDown) {
-	if (onKeyDown) {
-		onKeyDown(event);
-	}
+function onKeyDown(event, escAction, enterAction) {
 	switch (event.keyCode) {
 		case keycode.codes.enter:
 			if (enterAction) {
@@ -37,7 +34,6 @@ function FilterInput(props) {
 		onBlur,
 		onFocus,
 		onFilter,
-		onKeyDown,
 		onToggle,
 		autoFocus,
 		placeholder,
@@ -56,7 +52,7 @@ function FilterInput(props) {
 		onBlur: onBlur && (event => onBlur(event, event.target.value)),
 		onFocus: onFocus && (event => onFocus(event, event.target.value)),
 		onChange: event => onFilter(event, event.target.value),
-		onKeyDown: event => onKeyDownWrapper(event, onToggle, onBlur, onKeyDown),
+		onKeyDown: event => onKeyDown(event, onToggle, onBlur),
 		autoFocus,
 	};
 
@@ -80,7 +76,6 @@ FilterInput.propTypes = {
 	debounceTimeout: PropTypes.number,
 	onBlur: PropTypes.func,
 	onFocus: PropTypes.func,
-	onKeyDown: PropTypes.func,
 	onFilter: PropTypes.func.isRequired,
 	onToggle: PropTypes.func,
 	placeholder: PropTypes.string,
@@ -174,7 +169,6 @@ class FilterBar extends React.Component {
 						onFocus={this.onFocus}
 						onFilter={this.onFilter}
 						onToggle={this.props.onToggle}
-						onKeyDown={this.props.onKeyDown}
 						placeholder={this.state.focus ? '' : this.props.placeholder}
 						value={this.state.value}
 						dockable={this.props.dockable}
@@ -209,7 +203,6 @@ FilterBar.propTypes = {
 	onBlur: PropTypes.func,
 	onFocus: PropTypes.func,
 	onFilter: PropTypes.func.isRequired,
-	onKeyDown: PropTypes.func,
 	onToggle: PropTypes.func,
 	highlight: PropTypes.bool,
 	placeholder: PropTypes.string,
