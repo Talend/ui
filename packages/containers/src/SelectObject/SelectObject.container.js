@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { componentState, cmfConnect } from '@talend/react-cmf';
 import Immutable, { List } from 'immutable';
-import keycode from 'keycode';
 
 import Component from './SelectObject.component';
 
@@ -118,25 +117,12 @@ class SelectObject extends React.Component {
 		this.state = {};
 		this.filter = filter;
 		this.getById = getById;
-		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onTreeClick = this.onTreeClick.bind(this);
 		this.onResultsClick = this.onResultsClick.bind(this);
 	}
 
-	onKeyDown(event) {
-		// handle arrows only if query has been set
-		if (event.keyCode === keycode.codes.down) {
-			// put focus on treeview or results
-			this.props.setState({ focus: 'content' });
-		}
-	}
-
-	onFilterFocus() {
-		this.props.setState({ focus: 'FilterBar' });
-	}
-
 	onTreeClick(data) {
-		this.props.setState({ selectedId: data[this.props.idAttr], focus: 'content' });
+		this.props.setState({ selectedId: data[this.props.idAttr] });
 	}
 
 	onResultsClick(event, item) {
@@ -147,10 +133,12 @@ class SelectObject extends React.Component {
 		const state = this.props.state || DEFAULT_STATE;
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
 		const matches = [];
+		let selectedId = state.get('selectedId') || props.selectedId;
+		let preview;
 		function addMatch(item) {
 			matches.push(item);
 		}
-		let selected = state.get('selectedId') || props.selectedId;
+
 		if (props.query) {
 			props.filteredData = this.filter(
 				props.sourceData,
@@ -166,16 +154,17 @@ class SelectObject extends React.Component {
 				onClick: this.onResultsClick,
 				idAttr: this.props.idAttr,
 				nameAttr: this.props.nameAttr,
-				selectedId: selected,
+				selectedId,
 			};
 		}
 
-		let preview;
-		if (!selected && matches.length === 1) {
-			selected = matches[0].get('id');
+		if (!selectedId && matches.length === 1) {
+			selectedId = matches[0].get('id');
 		}
-		if (selected) {
-			props.selected = this.getById(props.sourceData, selected, props);
+
+		if (selectedId) {
+			props.selected = this.getById(props.sourceData, selectedId, props);
+
 			if (props.preview) {
 				preview = Object.assign(
 					{
@@ -185,14 +174,12 @@ class SelectObject extends React.Component {
 				);
 			}
 		}
+
 		if (props.tree) {
-			props.tree.selectedId = selected;
+			props.tree.selectedId = selectedId;
 			props.tree.onSelect = this.onTreeClick;
 		}
-		if (!props.filter) {
-			props.filter = {};
-		}
-		props.filter.onKeyDown = this.onKeyDown;
+
 		return <Component {...props} preview={preview} />;
 	}
 }
