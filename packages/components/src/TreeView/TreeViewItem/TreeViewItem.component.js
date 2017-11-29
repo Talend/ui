@@ -15,16 +15,16 @@ const PADDING_LARGE = 20;
 /**
  * return the default open or closed folder icon if non is specified on item
  * or if it is specified return the specified icon with `-closed` append if not toggled
- * @param {String} icon - icon name
+ * @param {String} iconName - icon name
  * @param {Boolean} toggled - state of the item
  * @return {String}
  */
-export function getItemIcon(itemIcon = 'talend-folder', itemStateToggled) {
-	return itemStateToggled ? itemIcon : `${itemIcon}-closed`;
+export function getItemIcon(iconName = 'talend-folder', toggled) {
+	return toggled ? iconName : `${iconName}-closed`;
 }
 
 /**
- *
+ * Internal: you should not use it
  * Single item of TreeView component
  *
  * @param id, for qa purposes
