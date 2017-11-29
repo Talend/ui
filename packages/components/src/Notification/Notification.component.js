@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import { Action } from '../Actions';
 import theme from './Notification.scss';
 
-
 export function CloseButton({ notification, leaveFn }) {
 	return (
 		<Action
@@ -66,9 +65,7 @@ export function TimerBar({ type, autoLeaveError }) {
 		return null;
 	}
 	return (
-		<div
-			className={classNames(theme['tc-notification-timer-bar'], 'tc-notification-timer-bar')}
-		/>
+		<div className={classNames(theme['tc-notification-timer-bar'], 'tc-notification-timer-bar')} />
 	);
 }
 
@@ -103,7 +100,6 @@ export function Notification({ notification, leaveFn, ...props }) {
 }
 
 class NotificationsContainer extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {};
@@ -171,7 +167,7 @@ class NotificationsContainer extends React.Component {
 			.forEach(notification => {
 				this.registry.register(
 					notification,
-					setTimeout(() => this.props.leaveFn(notification), this.props.autoLeaveTimeout)
+					setTimeout(() => this.props.leaveFn(notification), this.props.autoLeaveTimeout),
 				);
 			});
 	}
@@ -180,25 +176,27 @@ class NotificationsContainer extends React.Component {
 		const { enterTimeout, leaveTimeout, notifications, leaveFn, autoLeaveTimeout } = this.props;
 		return (
 			<div className={classNames(theme['tc-notification-container'], 'tc-notification-container')}>
-				{<ReactCSSTransitionGroup
-					transitionName="tc-notification"
-					transitionEnterTimeout={enterTimeout}
-					transitionLeaveTimeout={leaveTimeout}
-				>
-					{notifications.map(notification => (
-						<Notification
-							key={notification.id}
-							notification={notification}
-							leaveFn={leaveFn}
-							autoLeaveTimeout={autoLeaveTimeout}
-							autoLeaveError={this.props.autoLeaveError}
-							onMouseEnter={this.onMouseEnter}
-							onMouseOut={this.onMouseOut}
-							onClose={this.onClose}
-							onClick={this.onClick}
-						/>
-					))}
-				</ReactCSSTransitionGroup>}
+				{
+					<ReactCSSTransitionGroup
+						transitionName="tc-notification"
+						transitionEnterTimeout={enterTimeout}
+						transitionLeaveTimeout={leaveTimeout}
+					>
+						{notifications.map(notification => (
+							<Notification
+								key={notification.id}
+								notification={notification}
+								leaveFn={leaveFn}
+								autoLeaveTimeout={autoLeaveTimeout}
+								autoLeaveError={this.props.autoLeaveError}
+								onMouseEnter={this.onMouseEnter}
+								onMouseOut={this.onMouseOut}
+								onClose={this.onClose}
+								onClick={this.onClick}
+							/>
+						))}
+					</ReactCSSTransitionGroup>
+				}
 			</div>
 		);
 	}
