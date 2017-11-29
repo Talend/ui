@@ -153,6 +153,38 @@ describe('Array component', () => {
 			expect(onChange).toBeCalledWith(event, payload);
 			expect(onFinish).toBeCalledWith(event, payload);
 		});
+
+		it('should close all items with closeable item widget', () => {
+			// given
+			const onChange = jest.fn();
+			const onFinish = jest.fn();
+			const event = { target: {} };
+			const wrapper = shallow(
+				<ArrayWidget
+					description={'My array description'}
+					errorMessage={'This array is not correct'}
+					id={'talend-array'}
+					isValid
+					onChange={onChange}
+					onFinish={onFinish}
+					schema={{ ...schema, itemWidget: 'collapsibleFieldset' }}
+					value={value}
+				/>
+			);
+
+			// when
+			wrapper.instance().onAdd(event);
+
+			// then
+			const newValues = onChange.mock.calls[0][1].value;
+			newValues.forEach((item, index) => {
+				if (index === newValues.length - 1) {
+					expect(item).toEqual({});
+				} else {
+					expect(item.isClosed).toBe(true);
+				}
+			});
+		});
 	});
 
 	describe('#onRemove', () => {
