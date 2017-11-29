@@ -52,12 +52,6 @@ const customHeight = {
 
 export const defaultListState = new Immutable.Map({
 	displayMode: 'large',
-	searchQuery: '',
-	limit: 0,
-	offset: 0,
-	sortOn: 'label',
-	sortAsc: true,
-	filterDocked: true,
 });
 
 const items = Immutable.fromJS([
