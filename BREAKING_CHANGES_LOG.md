@@ -2,6 +2,15 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.128.0
+* Component: TreeView
+* PR: [feat(SelectObject): display results as ListGroupItem](https://github.com/Talend/ui/pull/880)
+* Changes :
+
+| Before | After |
+|---|---|
+| undefined-add | nothing |
+
 ## v0.125.0
 * Component: ListView
 * PR: [feat(ListView): i18n](https://github.com/Talend/ui/pull/850)
