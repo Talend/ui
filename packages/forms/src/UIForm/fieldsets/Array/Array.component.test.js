@@ -4,37 +4,41 @@ import ArrayWidget from './Array.component';
 
 const schema = {
 	key: ['comments'],
-	items: [{
-		key: ['comments', '', 'name'],
-		title: 'Name',
-		required: true,
-		schema: { title: 'Name', type: 'string' },
-		type: 'text',
-	}, {
-		key: ['comments', '', 'email'],
-		title: 'Email',
-		description: 'Email will be used for evil.',
-		schema: {
+	items: [
+		{
+			key: ['comments', '', 'name'],
+			title: 'Name',
+			required: true,
+			schema: { title: 'Name', type: 'string' },
+			type: 'text',
+		},
+		{
+			key: ['comments', '', 'email'],
 			title: 'Email',
-			type: 'string',
-			pattern: '^\\S+@\\S+$',
 			description: 'Email will be used for evil.',
+			schema: {
+				title: 'Email',
+				type: 'string',
+				pattern: '^\\S+@\\S+$',
+				description: 'Email will be used for evil.',
+			},
+			type: 'text',
 		},
-		type: 'text',
-	}, {
-		key: ['comments', '', 'comment'],
-		type: 'textarea',
-		rows: 3,
-		title: 'Comment',
-		maxlength: 20,
-		validationMessage: "Don't be greedy!",
-		schema: {
+		{
+			key: ['comments', '', 'comment'],
+			type: 'textarea',
+			rows: 3,
 			title: 'Comment',
-			type: 'string',
-			maxLength: 20,
+			maxlength: 20,
 			validationMessage: "Don't be greedy!",
+			schema: {
+				title: 'Comment',
+				type: 'string',
+				maxLength: 20,
+				validationMessage: "Don't be greedy!",
+			},
 		},
-	}],
+	],
 	title: 'comments',
 	required: true,
 	schema: {
@@ -94,14 +98,14 @@ describe('Array component', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={value}
-			/>
+			/>,
 		);
 
 		// then
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should render array that can\'t be reordered', () => {
+	it("should render array that can't be reordered", () => {
 		// given
 		const nonReorderSchema = {
 			...schema,
@@ -119,7 +123,7 @@ describe('Array component', () => {
 				onFinish={jest.fn()}
 				schema={nonReorderSchema}
 				value={value}
-			/>
+			/>,
 		);
 
 		// then
@@ -142,7 +146,7 @@ describe('Array component', () => {
 					onFinish={onFinish}
 					schema={schema}
 					value={value}
-				/>
+				/>,
 			);
 
 			// when
@@ -169,7 +173,7 @@ describe('Array component', () => {
 					onFinish={onFinish}
 					schema={{ ...schema, itemWidget: 'collapsibleFieldset' }}
 					value={value}
-				/>
+				/>,
 			);
 
 			// when
@@ -203,7 +207,7 @@ describe('Array component', () => {
 					onFinish={onFinish}
 					schema={schema}
 					value={value}
-				/>
+				/>,
 			);
 
 			// when
@@ -229,7 +233,7 @@ describe('Array component', () => {
 					onFinish={onFinish}
 					schema={schema}
 					value={value}
-				/>
+				/>,
 			);
 
 			wrapper.instance().onRemove(event, 1);
@@ -270,7 +274,7 @@ describe('Array component', () => {
 					onFinish={onFinish}
 					schema={schema}
 					value={value}
-				/>
+				/>,
 			);
 
 			// when
@@ -296,7 +300,7 @@ describe('Array component', () => {
 					onFinish={onFinish}
 					schema={schema}
 					value={value}
-				/>
+				/>,
 			);
 
 			wrapper.instance().onReorder(event, { previousIndex: 0, nextIndex: 2 });

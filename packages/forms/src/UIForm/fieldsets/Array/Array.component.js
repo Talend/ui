@@ -64,9 +64,10 @@ export default class ArrayWidget extends React.Component {
 		const defaultValue = arrayMergedSchema.schema.items.type === 'object' ? {} : '';
 
 		const itemWidget = widgets[this.props.schema.itemWidget];
-		const currentValue = itemWidget && itemWidget.isCloseable ?
-			this.props.value.map(item => ({ ...item, isClosed: true })) :
-			this.props.value;
+		const currentValue =
+			itemWidget && itemWidget.isCloseable
+				? this.props.value.map(item => ({ ...item, isClosed: true }))
+				: this.props.value;
 		const value = currentValue.concat(defaultValue);
 
 		const payload = { schema: arrayMergedSchema, value };
