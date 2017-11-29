@@ -98,6 +98,7 @@ import IconsProvider from './IconsProvider';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
 import List from './List';
+import Loader from './Loader';
 import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import SidePanel from './SidePanel';
@@ -180,6 +181,7 @@ export {
 	Label,
 	ListGroup,
 	ListGroupItem,
+	Loader,
 	Media,
 	MenuItem,
 	Modal,

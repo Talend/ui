@@ -6,9 +6,10 @@ import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration } from './utils/tablerow';
 
-import CircularProgress from './../CircularProgress';
+import Loader from './../Loader';
 
 import theme from './VirtualizedList.scss';
+
 /**
  * Composable List based on react-virtualized
  */
@@ -39,9 +40,8 @@ function VirtualizedList(props) {
 
 	if (inProgress) {
 		return (
-			<div aria-atomic="true" aria-busy="true" className={theme['tc-list-progress']}>
-				<CircularProgress size={'default'} />
-			</div>
+			<Loader id={id && `${id}-loader`}
+			        className={theme['tc-list-progress']}/>
 		);
 	}
 	return (
@@ -70,6 +70,7 @@ function VirtualizedList(props) {
 		</AutoSizer>
 	);
 }
+
 VirtualizedList.displayName = 'VirtualizedList';
 VirtualizedList.propTypes = propTypes;
 VirtualizedList.defaultProps = {
