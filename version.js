@@ -47,7 +47,7 @@ const STACK_VERSION = {
 const ADDONS = {
 	'babel-polyfill': '6.26.0',
 	'date-fns': '1.27.2',
-	'focus-outline-manager': '1.0.2',
+	'focus-outline-manager': '^1.0.2',
 	immutablediff: '0.4.4',
 	'normalize.css': '5.0.0',
 	'path-to-regexp': '2.0.0',
@@ -127,6 +127,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'eslint-plugin-react': '^6.3.0',
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
+	'jest-in-case': '^1.0.2',
 	'react-storybook-cmf': '^0.1.3',
 	'react-stub-context': '^0.7.0',
 	rimraf: '^2.6.1',

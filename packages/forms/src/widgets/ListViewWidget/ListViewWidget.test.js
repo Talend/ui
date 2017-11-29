@@ -27,10 +27,10 @@ function getValueLabelPair(item) {
 
 function generateProps(values, selected) {
 	return {
+		id: 'my-widget',
 		options: {
 			enumOptions: values.map(getValueLabelPair),
 		},
-		id: 'root_documents',
 		multiple: true,
 		value: selected || [],
 		disabled: false,
@@ -60,7 +60,7 @@ describe('ListViewWidget', () => {
 			);
 
 			// when
-			wrapper.find('#tc-listview-toggle-all').simulate('change');
+			wrapper.find('#my-widget-toggle-all').simulate('change');
 
 			// then
 			expect(onChangeHandler).toBeCalledWith(values);
@@ -75,7 +75,7 @@ describe('ListViewWidget', () => {
 			);
 
 			// when
-			wrapper.find('#tc-listview-toggle-all').simulate('change');
+			wrapper.find('#my-widget-toggle-all').simulate('change');
 
 			// then
 			expect(onChangeHandler).toBeCalledWith([]);
@@ -90,13 +90,13 @@ describe('ListViewWidget', () => {
 			// when
 			values.forEach((_, i) => {
 				wrapper
-					.find(`#checkbox-${i + 1}-item`)
+					.find(`#checkbox-my-widget-${i + 1}-item`)
 					.at(0)
 					.simulate('change', evt);
 			});
 
 			// then
-			expect(wrapper.find('#tc-listview-toggle-all').props().checked).toBe(true);
+			expect(wrapper.find('#my-widget-toggle-all').props().checked).toBe(true);
 		});
 
 		it('should check only filterd items', cb => {
@@ -115,7 +115,7 @@ describe('ListViewWidget', () => {
 				.simulate('click');
 			simulateSearch(wrapper, 'e')
 				.then(() => {
-					wrapper.find('#tc-listview-toggle-all').simulate('change');
+					wrapper.find('#my-widget-toggle-all').simulate('change');
 					return simulateSearch(wrapper, '');
 				})
 				.then(() => {
@@ -212,11 +212,11 @@ describe('ListViewWidget', () => {
 
 		// when
 		wrapper
-			.find('#checkbox-2-item')
+			.find('#checkbox-my-widget-2-item')
 			.at(0)
 			.simulate('change', evt);
 		wrapper
-			.find('#checkbox-3-item')
+			.find('#checkbox-my-widget-3-item')
 			.at(0)
 			.simulate('change', evt);
 
@@ -254,7 +254,7 @@ describe('ListViewWidget', () => {
 			// then
 			values.forEach((v, i) => {
 				const node = wrapper
-					.find(`#${i + 1}-item`)
+					.find(`#my-widget-${i + 1}-item`)
 					.find('.tc-listview-item-label')
 					.at(0);
 				expect(node.text()).toBe(v.label);
@@ -269,7 +269,7 @@ describe('ListViewWidget', () => {
 			// then
 			values.forEach((v, i) => {
 				const node = wrapper
-					.find(`#${i + 1}-item`)
+					.find(`#my-widget-${i + 1}-item`)
 					.find('.tc-listview-item-label')
 					.at(0);
 				expect(node.text()).toBe(v);
@@ -285,7 +285,7 @@ describe('ListViewWidget', () => {
 
 			// when
 			wrapper
-				.find('#checkbox-0-item')
+				.find('#checkbox-my-widget-0-item')
 				.at(0)
 				.simulate('change', evt);
 

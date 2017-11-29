@@ -53,11 +53,9 @@ function ListToVirtualizedList(props) {
 					Object.assign(cProps, CellTitle, {
 						columnData: titleProps,
 					});
-				}
-				if (supposedActions[column.key]) {
+				} else if (supposedActions[column.key]) {
 					Object.assign(cProps, CellActions);
-				}
-				if (column.type && cellDictionary[column.type]) {
+				} else if (column.type && cellDictionary[column.type]) {
 					Object.assign(cProps, cellDictionary[column.type], {
 						columnData: column.data,
 					});
