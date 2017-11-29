@@ -32,10 +32,41 @@ export function getById(items, id, { idAttr = 'id', childrenAttr = 'children' } 
 }
 
 /**
+ * Check if an `item` is a leaf element, by checking if it
+ * has a non empty `childrenAttr`
+ * @param {Object} item the item wich be checked for children
+ * @param {String} childrenAttr name of the attributes holding children
+ * @return {Boolean}
+ */
+function isLeafElement(item, childrenAttr) {
+	return item.get(childrenAttr, new List()).size === 0;
+}
+
+/**
+ * if item match the query it will be concatened into the accumulator
+ * else the accumulator is returned without modification
+ * @param {Object} item the item on wich the matchign will happen
+ * @param {String} currentPosition the element position inside the parsed tree
+ * @param {String} query the query element used to match
+ * @param {String} nameAttr the attribute of item on wich should be matched
+ * @param {callback} onMatch callback to call if match happen
+ * @param {List<Object>} accumulator
+ */
+function matchOnLeaf(item, currentPosition, query, nameAttr, onMatch, accumulator) {
+	const currentElementName = item.get(nameAttr, '');
+	if (currentElementName.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+		const withElementPosition = item.set('currentPosition', currentPosition);
+		onMatch(item);
+		return accumulator.push(withElementPosition);
+	}
+	return accumulator;
+}
+
+/**
  * apply query only on leaf elements, return them on a single list,
  * not taking into account the deepth of matched elements.
  * @return item in items found with the id
- * @param {Object} optins {query, items, idAttr, childrenAttr }
+ * @param {Object} options {query, items, idAttr, childrenAttr }
  */
 export function filter(
 	items = new List(),
@@ -45,26 +76,18 @@ export function filter(
 ) {
 	if (query) {
 		return (
-			items.reduce((acc, item) => {
-				const currentElementName = item.get(nameAttr, '');
-				if (item.get(childrenAttr, new List()).size === 0) {
-					if (currentElementName.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
-						const withElementPosition = item.set('currentPosition', currentPosition);
-						onMatch(item);
-						return acc.push(withElementPosition);
-					}
-				} else {
-					const result = filter(
-						item.get(childrenAttr),
-						query,
-						{
-							nameAttr,
-						},
-						`${currentPosition} > ${currentElementName}`,
-					);
-					return acc.concat(result);
+			items.reduce((accumulator, item) => {
+				if (isLeafElement(item, childrenAttr)) {
+					return matchOnLeaf(item, currentPosition, query, nameAttr, onMatch, accumulator);
 				}
-				return acc;
+				const currentElementName = item.get(nameAttr, '');
+				const result = filter(
+					item.get(childrenAttr),
+					query,
+					{ nameAttr },
+					`${currentPosition} > ${currentElementName}`,
+				);
+				return accumulator.concat(result);
 			}, new List()) || new List()
 		);
 	}
