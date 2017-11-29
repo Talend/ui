@@ -101,6 +101,7 @@ import List from './List';
 import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import SidePanel from './SidePanel';
+import Slider from './Slider';
 import Status from './Status';
 import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
@@ -206,6 +207,7 @@ export {
 	ResponsiveEmbed,
 	Row,
 	SafeAnchor,
+	Slider,
 	SplitButton,
 	Tab,
 	TabContainer,

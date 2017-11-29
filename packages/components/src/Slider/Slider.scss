@@ -1,0 +1,19 @@
+.tc-slider-container {
+	padding: 0 20px;
+}
+
+.tc-slider {
+	:global(.rc-slider-step),
+	:global(.rc-slider-rail),
+	:global(.rc-slider-track) {
+		height: 7px;
+	}
+	:global(.rc-slider-track) {
+		background-color: $scooter;
+	}
+	:global(.rc-slider-handle) {
+		width: 17px;
+		height: 17px;
+		border-color: $alto;
+	}
+}
