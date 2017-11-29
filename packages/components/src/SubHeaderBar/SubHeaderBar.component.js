@@ -109,22 +109,19 @@ function getComponentFromType(action) {
 }
 
 function SubHeaderBarActions({ actions, right, center, className }) {
-	if (actions && Array.isArray(actions)) {
-		return (
-			<div className={className}>
-				{actions.map((action, index) => (
-					<ActionBar.Content key={index} tag={action.tag} center={center} right={right}>
-						{getComponentFromType(action)}
-					</ActionBar.Content>
-				))}
-			</div>
-		);
-	}
-	return null;
+	return (
+		<div className={className}>
+			{actions.map((action, index) => (
+				<ActionBar.Content key={index} tag={action.tag} center={center} right={right}>
+					{getComponentFromType(action)}
+				</ActionBar.Content>
+			))}
+		</div>
+	);
 }
 
 SubHeaderBarActions.propTypes = {
-	actions: PropTypes.array,
+	actions: PropTypes.array.isRequired,
 	right: PropTypes.bool,
 	center: PropTypes.bool,
 	className: PropTypes.string,
@@ -146,20 +143,24 @@ function SubHeaderBar({ onGoBack, actionsCenter, actionsRight, editMode, classNa
 					/>
 				</ActionBar.Content>
 				{editMode ? <EditTitle {...rest} /> : <DetailsTitle {...rest} />}
-				<SubHeaderBarActions
-					actions={actionsCenter}
-					className={classNames([`${theme['subheader-center']}`], {
-						[`${theme['no-margin-right']}`]: actionsRight,
-					})}
-					center
-					right={false}
-				/>
-				<SubHeaderBarActions
-					actions={actionsRight}
-					className={theme['subheader-right']}
-					center={false}
-					right
-				/>
+				{Array.isArray(actionsCenter) && (
+					<SubHeaderBarActions
+						actions={actionsCenter}
+						className={classNames([`${theme['subheader-center']}`], {
+							[`${theme['no-margin-right']}`]: actionsRight,
+						})}
+						center
+						right={false}
+					/>
+				)}
+				{Array.isArray(actionsRight) && (
+					<SubHeaderBarActions
+						actions={actionsRight}
+						className={theme['subheader-right']}
+						center={false}
+						right
+					/>
+				)}
 			</ActionBar>
 		</div>
 	);
