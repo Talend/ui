@@ -39,10 +39,7 @@ function VirtualizedList(props) {
 	});
 
 	if (inProgress) {
-		return (
-			<Loader id={id && `${id}-loader`}
-			        className={theme['tc-list-progress']}/>
-		);
+		return <Loader id={id && `${id}-loader`} className={theme['tc-list-progress']} />;
 	}
 	return (
 		<AutoSizer>

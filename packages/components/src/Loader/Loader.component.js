@@ -6,23 +6,12 @@ import CircularProgress from './../CircularProgress';
 
 import theme from './Loader.scss';
 
-function Loader({
-	                id,
-	                className,
-                }) {
-
-	const loaderClassNames = classNames(
-		'tc-loader',
-		theme['tc-loader'],
-		className,
-	);
+function Loader({ id, className }) {
+	const loaderClassNames = classNames('tc-loader', theme['tc-loader'], className);
 
 	return (
-		<div id={id}
-		     aria-atomic="true"
-		     aria-busy="true"
-		     className={loaderClassNames}>
-			<CircularProgress size={'default'}/>
+		<div id={id} aria-atomic="true" aria-busy="true" className={loaderClassNames}>
+			<CircularProgress size={'default'} />
 		</div>
 	);
 }
