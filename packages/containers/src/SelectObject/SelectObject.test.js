@@ -21,14 +21,82 @@ describe('Container SelectObject', () => {
 		const wrapper = shallow(<Container />, { context });
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
-	it('should support extra props', () => {
+	it('should propagate extra props', () => {
 		const context = mock.context();
 		const wrapper = shallow(<Container extra="foo" />, { context });
 		expect(wrapper.props().extra).toBe('foo');
 	});
+	it('should default props with Tree map the selectedId and onTreeClick', () => {
+		const context = mock.context();
+		const tree = {};
+		const item = new Immutable.Map({ id: '1', name: 'foo' });
+		const sourceData = new Immutable.List([item]);
+		const wrapper = shallow(<Container tree={tree} selectedId="1" sourceData={sourceData} />, {
+			context,
+		});
+
+		const props = wrapper.props();
+		expect(props).toEqual({
+			breadCrumbsRootLabel: 'root',
+			idAttr: 'id',
+			nameAttr: 'name',
+			preview: undefined,
+			selected: item.toJS(),
+			selectedId: '1',
+			sourceData: new Immutable.List([item]),
+			tree: {
+				onSelect: wrapper.instance().onTreeClick,
+				selectedId: '1',
+			},
+		});
+	});
+	it('should set selectedId props to the only matched item if nothing selected', () => {
+		const context = mock.context();
+		const tree = {};
+		const item1 = new Immutable.Map({ id: '1', name: 'foo' });
+		const item2 = new Immutable.Map({ id: '2', name: 'bar' });
+		const sourceData = new Immutable.List([item1, item2]);
+		const filteredData = new Immutable.List([item1.set('currentPosition', 'root')]);
+
+		const wrapper = shallow(
+			<Container tree={tree} sourceData={sourceData} query="f" />,
+			{ context },
+		);
+
+		const props = wrapper.props();
+		expect(props).toEqual({
+			breadCrumbsRootLabel: 'root',
+			idAttr: 'id',
+			nameAttr: 'name',
+			query: 'f',
+			selected: item1.toJS(),
+			sourceData,
+			filteredData,
+			results: {
+				idAttr: 'id',
+				nameAttr: 'name',
+				onClick: wrapper.instance().onResultsClick,
+				selectedId: '1',
+			},
+		});
+	});
+	it('should call props.setState when onTreeClick is called', () => {
+		const props = { idAttr: 'id', setState: jest.fn() };
+		const instance = new Container(props);
+		const data = { id: '1', name: 'foo' };
+		instance.onTreeClick(data);
+		expect(props.setState).toHaveBeenCalledWith({ selectedId: '1' });
+	});
+	it('should call props.setState when onTreeClick is called', () => {
+		const props = { idAttr: 'id', setState: jest.fn() };
+		const instance = new Container(props);
+		const data = { id: '1', name: 'foo' };
+		instance.onTreeClick(data);
+		expect(props.setState).toHaveBeenCalledWith({ selectedId: '1' });
+	});
 	it('should call filter and getById', () => {
 		const props = {
-			sourceData: [],
+			sourceData: new Immutable.List(),
 			query: 'query',
 			selectedId: 1,
 		};

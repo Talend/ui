@@ -83,7 +83,7 @@ class SelectObject extends React.Component {
 		breadCrumbsRootLabel: PropTypes.string,
 	};
 	static defaultProps = {
-		sourceData: [],
+		sourceData: new Immutable.List(),
 		idAttr: 'id',
 		nameAttr: 'name',
 		breadCrumbsRootLabel: 'root',
@@ -111,7 +111,6 @@ class SelectObject extends React.Component {
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
 		const matches = [];
 		let selectedId = state.get('selectedId') || props.selectedId;
-		let preview;
 		function addMatch(item) {
 			matches.push(item);
 		}
@@ -127,6 +126,9 @@ class SelectObject extends React.Component {
 				props.breadCrumbsRootLabel,
 			);
 			delete props.tree;
+			if (!selectedId && matches.length === 1) {
+				selectedId = matches[0].get('id');
+			}
 			props.results = {
 				onClick: this.onResultsClick,
 				idAttr: this.props.idAttr,
@@ -135,21 +137,9 @@ class SelectObject extends React.Component {
 			};
 		}
 
-		if (!selectedId && matches.length === 1) {
-			selectedId = matches[0].get('id');
-		}
 
 		if (selectedId) {
 			props.selected = this.getById(props.sourceData, selectedId, props);
-
-			if (props.preview) {
-				preview = Object.assign(
-					{
-						[props.preview.selectedAttr]: props.selected,
-					},
-					props.preview,
-				);
-			}
 		}
 
 		if (props.tree) {
@@ -157,7 +147,7 @@ class SelectObject extends React.Component {
 			props.tree.onSelect = this.onTreeClick;
 		}
 
-		return <Component {...props} preview={preview} />;
+		return <Component {...props} />;
 	}
 }
 
