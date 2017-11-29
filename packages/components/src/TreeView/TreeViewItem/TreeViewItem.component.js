@@ -62,7 +62,6 @@ class TreeViewItem extends React.Component {
 	};
 
 	static defaultProps = {
-		id: 'tc-treeview-item',
 		depth: 0,
 	};
 
@@ -74,7 +73,7 @@ class TreeViewItem extends React.Component {
 	}
 
 	onKeyDown(event) {
-		if (event.keyCode === keycode.codes.enter) {
+		if (event.keyCode === keycode.codes.enter || event.keyCode === keycode.codes.space) {
 			this.onSelect();
 		}
 	}
@@ -88,7 +87,7 @@ class TreeViewItem extends React.Component {
 	renderTreeViewItem(child, i) {
 		return (
 			<TreeViewItem
-				id={`${this.props.id}-${i}`}
+				id={this.props.id && `${this.props.id}-${i}`}
 				item={child}
 				onSelect={this.props.onSelect}
 				onClick={this.props.onClick}
@@ -98,11 +97,15 @@ class TreeViewItem extends React.Component {
 		);
 	}
 
-	renderIconAction(label, icon_, action, id_) {
+	renderIconAction(label, icon, action, id) {
+		let safeId = id;
+		if (!id && this.props.id) {
+			safeId = `${this.props.id}-${icon}`;
+		}
 		return (
 			<Action
 				label={label}
-				icon={icon_}
+				icon={icon}
 				onClick={event => {
 					event.stopPropagation();
 					action(this.props.item);
@@ -110,7 +113,7 @@ class TreeViewItem extends React.Component {
 				tooltipPlacement="right"
 				hideLabel
 				key={label}
-				id={id_ || `${this.props.id}-${icon_}`}
+				id={safeId}
 				link
 			/>
 		);
