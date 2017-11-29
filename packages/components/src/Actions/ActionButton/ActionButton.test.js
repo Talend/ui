@@ -1,8 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import ActionButton from './ActionButton.component';
-import { Button } from '../../index';
 
 jest.mock('react-dom');
 
@@ -110,13 +108,5 @@ describe('Action', () => {
 	it('should not render action if props.available=false', () => {
 		const wrapper = shallow(<ActionButton available={false} />);
 		expect(wrapper.type()).toBe(null);
-	});
-
-	it('should render action with overlay provider', () => {
-		const actionTest = <Button>Test button popover</Button>;
-		const wrapper = shallow(
-			<ActionButton available={false} overlayComponent={actionTest} overlayPlacement="top" />,
-		);
-		expect(wrapper).toMatchSnapshot();
 	});
 });
