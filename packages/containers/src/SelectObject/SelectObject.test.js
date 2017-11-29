@@ -74,10 +74,9 @@ describe('Container SelectObject', () => {
 		const sourceData = new Immutable.List([item1, item2]);
 		const filteredData = new Immutable.List([item1.set('currentPosition', 'root')]);
 
-		const wrapper = shallow(
-			<Container tree={tree} sourceData={sourceData} query="f" />,
-			{ context },
-		);
+		const wrapper = shallow(<Container tree={tree} sourceData={sourceData} query="f" />, {
+			context,
+		});
 
 		const props = wrapper.props();
 		expect(props).toEqual({
