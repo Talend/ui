@@ -11,6 +11,22 @@ exports[`DetailsIcon should render 1`] = `
 </span>
 `;
 
+exports[`DetailsTitle should not render a DetailsIcon 1`] = `
+<div
+  className={undefined}
+>
+  <span
+    className={undefined}
+  >
+    <span
+      className={undefined}
+    >
+      myTitle
+    </span>
+  </span>
+</div>
+`;
+
 exports[`DetailsTitle should render 1`] = `
 <div
   className={undefined}
@@ -44,6 +60,68 @@ exports[`DetailsTitle should render 1`] = `
 </div>
 `;
 
+exports[`DetailsTitle should render an Action 1`] = `
+<div
+  className={undefined}
+>
+  <span
+    className={undefined}
+  >
+    <span
+      className={undefined}
+    >
+      myTitle
+    </span>
+    <Action
+      bsStyle="link"
+      className={undefined}
+      hideLabel={true}
+      icon="talend-pencil"
+      label="edit"
+      name="action-edit-title"
+      onClick={[Function]}
+    />
+  </span>
+</div>
+`;
+
+exports[`DetailsTitle should render with subTitle 1`] = `
+<div
+  className={undefined}
+>
+  <span
+    className={undefined}
+  >
+    <span
+      className={undefined}
+    >
+      myTitle
+    </span>
+    <div
+      className={undefined}
+    >
+      mySubTitle
+    </div>
+  </span>
+</div>
+`;
+
+exports[`DetailsTitle should render with title 1`] = `
+<div
+  className={undefined}
+>
+  <span
+    className={undefined}
+  >
+    <span
+      className={undefined}
+    >
+      myTitle
+    </span>
+  </span>
+</div>
+`;
+
 exports[`EditTitle should render 1`] = `
 <div
   className={undefined}
@@ -60,7 +138,7 @@ exports[`EditTitle should render 1`] = `
       onChange={[Function]}
       placeholder="myTitle"
       type="text"
-      value=""
+      value="value"
     />
   </form>
   <div
@@ -86,7 +164,100 @@ exports[`EditTitle should render 1`] = `
 </div>
 `;
 
-exports[`SubHeaderBar should render with all actions 1`] = `
+exports[`EditTitle should render not DetailsIcon 1`] = `
+<div
+  className={undefined}
+>
+  <form
+    className={undefined}
+  >
+    <input
+      className="form-control"
+      id="inputTitle"
+      onChange={undefined}
+      placeholder="myTitle"
+      type="text"
+      value={undefined}
+    />
+  </form>
+  <div
+    className={undefined}
+  >
+    <Action
+      bsStyle="link"
+      hideLabel={true}
+      icon="talend-check"
+      label="submit"
+      name="action-submit-title"
+      onClick={undefined}
+    />
+    <Action
+      bsStyle="link"
+      hideLabel={true}
+      icon="talend-cross"
+      label="cancel"
+      name="action-cancel-title"
+      onClick={undefined}
+    />
+  </div>
+</div>
+`;
+
+exports[`SubHeaderBar should render one SubHeaderBarActions (right) 1`] = `
+<div
+  className="subheader-container"
+>
+  <ActionBar
+    className={undefined}
+  >
+    <Content
+      left={true}
+    >
+      <Action
+        bsStyle="link"
+        className={undefined}
+        hideLabel={true}
+        icon="talend-arrow-left"
+        id="backArrow"
+        label="backArrow"
+        onClick={[Function]}
+      />
+    </Content>
+    <DetailsTitle
+      title="myTitle"
+    />
+    <SubHeaderBarActions
+      actions={
+        Array [
+          Object {
+            "bsStyle": "link",
+            "hideLabel": true,
+            "icon": "talend-share-alt",
+            "id": "action1",
+            "label": "action1",
+            "onClick": [Function],
+            "renderType": "action",
+          },
+          Object {
+            "bsStyle": "link",
+            "hideLabel": true,
+            "icon": "talend-activity",
+            "id": "action2",
+            "label": "action2",
+            "onClick": [Function],
+            "renderType": "action",
+          },
+        ]
+      }
+      center={false}
+      className={undefined}
+      right={true}
+    />
+  </ActionBar>
+</div>
+`;
+
+exports[`SubHeaderBar should render with 2 SubHeaderBarActions 1`] = `
 <div
   className="subheader-container"
 >
@@ -158,7 +329,34 @@ exports[`SubHeaderBar should render with all actions 1`] = `
 </div>
 `;
 
-exports[`SubHeaderBar should render with center actions 1`] = `
+exports[`SubHeaderBar should render with EditTitle 1`] = `
+<div
+  className="subheader-container"
+>
+  <ActionBar
+    className={undefined}
+  >
+    <Content
+      left={true}
+    >
+      <Action
+        bsStyle="link"
+        className={undefined}
+        hideLabel={true}
+        icon="talend-arrow-left"
+        id="backArrow"
+        label="backArrow"
+        onClick={[Function]}
+      />
+    </Content>
+    <EditTitle
+      title="myTitle"
+    />
+  </ActionBar>
+</div>
+`;
+
+exports[`SubHeaderBar should render with SubHeaderBarActions (center) 1`] = `
 <div
   className="subheader-container"
 >
@@ -203,7 +401,7 @@ exports[`SubHeaderBar should render with center actions 1`] = `
 </div>
 `;
 
-exports[`SubHeaderBar should render with no actions 1`] = `
+exports[`SubHeaderBar should render with no SubHeaderBarActions 1`] = `
 <div
   className="subheader-container"
 >
@@ -224,87 +422,6 @@ exports[`SubHeaderBar should render with no actions 1`] = `
       />
     </Content>
     <DetailsTitle
-      title="myTitle"
-    />
-  </ActionBar>
-</div>
-`;
-
-exports[`SubHeaderBar should render with right actions 1`] = `
-<div
-  className="subheader-container"
->
-  <ActionBar
-    className={undefined}
-  >
-    <Content
-      left={true}
-    >
-      <Action
-        bsStyle="link"
-        className={undefined}
-        hideLabel={true}
-        icon="talend-arrow-left"
-        id="backArrow"
-        label="backArrow"
-        onClick={[Function]}
-      />
-    </Content>
-    <DetailsTitle
-      title="myTitle"
-    />
-    <SubHeaderBarActions
-      actions={
-        Array [
-          Object {
-            "bsStyle": "link",
-            "hideLabel": true,
-            "icon": "talend-share-alt",
-            "id": "action1",
-            "label": "action1",
-            "onClick": [Function],
-            "renderType": "action",
-          },
-          Object {
-            "bsStyle": "link",
-            "hideLabel": true,
-            "icon": "talend-activity",
-            "id": "action2",
-            "label": "action2",
-            "onClick": [Function],
-            "renderType": "action",
-          },
-        ]
-      }
-      center={false}
-      className={undefined}
-      right={true}
-    />
-  </ActionBar>
-</div>
-`;
-
-exports[`SubHeaderBar should render with title in edit mode 1`] = `
-<div
-  className="subheader-container"
->
-  <ActionBar
-    className={undefined}
-  >
-    <Content
-      left={true}
-    >
-      <Action
-        bsStyle="link"
-        className={undefined}
-        hideLabel={true}
-        icon="talend-arrow-left"
-        id="backArrow"
-        label="backArrow"
-        onClick={[Function]}
-      />
-    </Content>
-    <EditTitle
       title="myTitle"
     />
   </ActionBar>

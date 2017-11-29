@@ -52,7 +52,7 @@ DetailsTitle.propTypes = {
 function EditTitle({ title, iconFile, inputTextValue, onSubmit, onCancel, onChange }) {
 	return (
 		<div className={theme['subheader-form-container']}>
-			<DetailsIcon iconFile={iconFile} />
+			{iconFile && <DetailsIcon iconFile={iconFile} />}
 			<form className={theme['subheader-form']}>
 				<input
 					type="text"

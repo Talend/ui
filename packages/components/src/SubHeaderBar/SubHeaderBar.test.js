@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { Icon, Action, ActionBar } from '../index';
 import SubHeaderBar, {
 	SubHeaderBarActions,
@@ -29,12 +29,8 @@ describe('getComponentFromType', () => {
 describe('DetailsIcon', () => {
 	it('should render', () => {
 		const wrapper = shallow(<DetailsIcon iconFile="talend-pencil" />);
+		expect(wrapper.find(Icon)).toHaveLength(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
-	});
-	it('should render an Icon component', () => {
-		const wrapper = shallow(<DetailsIcon iconFile="talend-pencil" />).find(Icon);
-		expect(wrapper.getNode().props.name).toBe('talend-pencil');
-		expect(wrapper).toHaveLength(1);
 	});
 });
 
@@ -48,22 +44,23 @@ describe('DetailsTitle', () => {
 				onEdit={jest.fn()}
 			/>,
 		);
+		expect(wrapper.find(DetailsIcon)).toHaveLength(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
-	it('should render a DetailsIcon', () => {
-		const wrapper = shallow(<DetailsTitle title="myTitle" iconFile="talend-pencil" />).find(
-			DetailsIcon,
-		);
-		expect(wrapper.getNode().props.iconFile).toBe('talend-pencil');
-		expect(wrapper).toHaveLength(1);
+	it('should not render a DetailsIcon', () => {
+		const wrapper = shallow(<DetailsTitle title="myTitle" />);
+		expect(wrapper.find(DetailsIcon)).toHaveLength(0);
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render with title', () => {
 		const wrapper = shallow(<DetailsTitle title="myTitle" />);
 		expect(wrapper.text()).toBe('myTitle');
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render with subTitle', () => {
 		const wrapper = shallow(<DetailsTitle title="myTitle" subTitle="mySubTitle" />);
 		expect(wrapper.text()).toBe('myTitlemySubTitle');
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render an Action', () => {
 		const actionProps = {
@@ -75,11 +72,9 @@ describe('DetailsTitle', () => {
 			className: undefined,
 			hideLabel: true,
 		};
-		const wrapper = shallow(<DetailsTitle title="myTitle" onEdit={actionProps.onClick} />).find(
-			Action,
-		);
-		expect(wrapper.getNode().props).toEqual(actionProps);
-		expect(wrapper).toHaveLength(1);
+		const wrapper = shallow(<DetailsTitle title="myTitle" onEdit={actionProps.onClick} />);
+		expect(wrapper.find(Action)).toHaveLength(1);
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
 
@@ -89,68 +84,21 @@ describe('EditTitle', () => {
 			<EditTitle
 				title="myTitle"
 				iconFile="talend-pencil"
-				inputTextValue=""
+				inputTextValue="value"
 				onSubmit={jest.fn()}
 				onCancel={jest.fn()}
 				onChange={jest.fn()}
 			/>,
 		);
+		expect(wrapper.find(DetailsIcon)).toHaveLength(1);
+		expect(wrapper.find('input')).toHaveLength(1);
+		expect(wrapper.find(Action)).toHaveLength(2);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
-	it('should render DetailsTitle', () => {
-		const wrapper = shallow(<EditTitle title="myTitle" iconFile="talend-pencil" />).find(
-			DetailsIcon,
-		);
-		expect(wrapper.getNode().props.iconFile).toBe('talend-pencil');
-		expect(wrapper).toHaveLength(1);
-	});
-	it('should render an input field', () => {
-		const inputProps = {
-			title: 'myTitle',
-			placeHolder: 'myTitle',
-			onChange: jest.fn(),
-			inputTextValue: 'value',
-		};
-		const wrapper = shallow(<EditTitle {...inputProps} />);
-		expect(wrapper.find('input').getNode().props).toEqual({
-			type: 'text',
-			className: 'form-control',
-			id: 'inputTitle',
-			placeholder: inputProps.placeHolder,
-			onChange: inputProps.onChange,
-			value: inputProps.inputTextValue,
-		});
-		expect(wrapper.find('input')).toHaveLength(1);
-	});
-	it('should render a Action (submit)', () => {
-		const actionProps = {
-			name: 'action-submit-title',
-			label: 'submit',
-			icon: 'talend-check',
-			onClick: jest.fn(),
-			bsStyle: 'link',
-			hideLabel: true,
-		};
-		const wrapper = shallow(<EditTitle title="myTitle" onSubmit={actionProps.onClick} />).find(
-			'[name="action-submit-title"]',
-		);
-		expect(wrapper.getNode().props).toEqual(actionProps);
-		expect(wrapper).toHaveLength(1);
-	});
-	it('should render a Action (cancel)', () => {
-		const actionProps = {
-			name: 'action-cancel-title',
-			label: 'cancel',
-			icon: 'talend-cross',
-			onClick: jest.fn(),
-			bsStyle: 'link',
-			hideLabel: true,
-		};
-		const wrapper = shallow(<EditTitle title="myTitle" onCancel={actionProps.onClick} />).find(
-			'[name="action-cancel-title"]',
-		);
-		expect(wrapper.getNode().props).toEqual(actionProps);
-		expect(wrapper).toHaveLength(1);
+	it('should render not DetailsIcon', () => {
+		const wrapper = shallow(<EditTitle title="myTitle" />);
+		expect(wrapper.find(DetailsIcon)).toHaveLength(0);
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
 
@@ -190,6 +138,8 @@ describe('SubHeaderBarActions', () => {
 			actions,
 		};
 		const wrapper = shallow(<SubHeaderBarActions {...props} />);
+		expect(wrapper.find(Icon)).toHaveLength(1);
+		expect(wrapper.find(Action)).toHaveLength(2);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render with right props', () => {
@@ -240,7 +190,7 @@ describe('SubHeaderBar', () => {
 			},
 		];
 	});
-	it('should render with all actions', () => {
+	it('should render with 2 SubHeaderBarActions', () => {
 		const props = {
 			title: 'myTitle',
 			actionsCenter,
@@ -252,7 +202,7 @@ describe('SubHeaderBar', () => {
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(2);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
-	it('should render with right actions', () => {
+	it('should render one SubHeaderBarActions (right)', () => {
 		const props = {
 			title: 'myTitle',
 			actionsRight,
@@ -263,7 +213,7 @@ describe('SubHeaderBar', () => {
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
-	it('should render with center actions', () => {
+	it('should render with SubHeaderBarActions (center)', () => {
 		const props = {
 			title: 'myTitle',
 			actionsCenter,
@@ -274,7 +224,7 @@ describe('SubHeaderBar', () => {
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
-	it('should render with no actions', () => {
+	it('should render with no SubHeaderBarActions', () => {
 		const props = {
 			title: 'myTitle',
 			editMode: false,
@@ -284,7 +234,7 @@ describe('SubHeaderBar', () => {
 		expect(wrapper.find(ActionBar.Content)).toHaveLength(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
-	it('should render with title in edit mode', () => {
+	it('should render with EditTitle', () => {
 		const props = {
 			title: 'myTitle',
 			editMode: true,
