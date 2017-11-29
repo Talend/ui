@@ -31,10 +31,16 @@ const defaultProps = {
 };
 
 describe('getItemIcon', () => {
-	it('should return icon', () => {
+	it('should return given icon when toggled', () => {
 		expect(getItemIcon('my', true)).toBe('my');
+	});
+	it('should return closed version of the given icon when not toggled', () => {
 		expect(getItemIcon('my', false)).toBe('my-closed');
+	});
+	it('should return talend-folder icon when toggled without icon name', () => {
 		expect(getItemIcon(undefined, true)).toBe('talend-folder');
+	});
+	it('should return talend-folder-closed icon when not toggled and without icon name', () => {
 		expect(getItemIcon(undefined, false)).toBe('talend-folder-closed');
 	});
 });
@@ -52,7 +58,7 @@ describe('TreeView', () => {
 		};
 		const focus = jest.fn();
 		const wrapper = shallow(<TreeViewItem {...props} />);
-		wrapper.instance().elementRef = { focus };
+		wrapper.instance().containerRef = { focus };
 		wrapper.find('.tc-treeview-item').simulate('click');
 		expect(props.onClick).toHaveBeenCalled();
 		expect(props.onSelect).toHaveBeenCalled();
@@ -66,7 +72,7 @@ describe('TreeView', () => {
 		};
 		const focus = jest.fn();
 		const wrapper = shallow(<TreeViewItem {...props} />);
-		wrapper.instance().elementRef = { focus };
+		wrapper.instance().containerRef = { focus };
 		wrapper.find('.tc-treeview-item').simulate('keyDown', { keyCode: keycode.codes.enter });
 		expect(props.onClick).toHaveBeenCalled();
 		expect(props.onSelect).toHaveBeenCalled();
