@@ -10,7 +10,23 @@ import Connected, { mapStateToProps } from './SelectObject.connect';
 describe('Component SelectObject', () => {
 	it('should render', () => {
 		const context = mock.context();
-		const wrapper = shallow(<Component name="Hello world" />, { context });
+		const item = new Immutable.Map({ id: '1', name: 'foo' });
+		const props = {
+			id: 'my-tree',
+			schema: {
+				jsonSchema: {},
+			},
+			sourceData: new Immutable.List([item]),
+			filter: {
+				className: 'my-custom-filter',
+			},
+			tree: {},
+			selected: {
+				id: '1',
+				name: 'foo',
+			},
+		};
+		const wrapper = shallow(<Component {...props} />, { context });
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });

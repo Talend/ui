@@ -5,18 +5,38 @@ exports[`Component SelectObject should render 1`] = `
   className="tc-select-object undefined"
 >
   <Connect(CMF(Container(FilterBar)))
-    className=""
+    className="my-custom-filter"
     dockable={false}
-    id={undefined}
+    id="my-tree"
     navbar={false}
   />
   <div
     className={undefined}
   >
-    <Connect(CMF(Container(List)))
+    <Connect(CMF(Container(TreeView)))
       className={undefined}
-      data={undefined}
-      id="undefined-list"
+      componentId="my-tree"
+      data={
+        Immutable.List [
+          Immutable.Map {
+            id: "1",
+            name: "foo",
+          },
+        ]
+      }
+      noHeader={true}
+    />
+    <JSONSchemaRenderer
+      className={undefined}
+      schema={
+        Object {
+          "jsonSchema": Object {},
+          "properties": Object {
+            "id": "1",
+            "name": "foo",
+          },
+        }
+      }
     />
   </div>
 </div>
