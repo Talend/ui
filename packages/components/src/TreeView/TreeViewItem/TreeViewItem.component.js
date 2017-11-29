@@ -73,7 +73,7 @@ class TreeViewItem extends React.Component {
 	}
 
 	onKeyDown(event) {
-		if (event.keyCode === keycode.codes.enter || event.keyCode === keycode.codes.space) {
+		if (event.keyCode === keycode.codes.enter) {
 			this.onSelect();
 		}
 	}
