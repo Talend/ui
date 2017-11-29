@@ -160,7 +160,6 @@ class SelectObject extends React.Component {
 			};
 		}
 
-
 		if (selectedId) {
 			props.selected = this.getById(props.sourceData, selectedId, props);
 		}
