@@ -13,12 +13,12 @@ const PADDING_NORMAL = 15;
 const PADDING_LARGE = 20;
 
 /**
-* return the default open or closed folder icon if non is specified on item
-* or if it is specified return the specified icon with `-closed` append if not toggled
-* @param {String} icon - icon name
-* @param {Boolean} toggled - state of the item
-* @return {String}
-*/
+ * return the default open or closed folder icon if non is specified on item
+ * or if it is specified return the specified icon with `-closed` append if not toggled
+ * @param {String} icon - icon name
+ * @param {Boolean} toggled - state of the item
+ * @return {String}
+ */
 export function getItemIcon(itemIcon = 'talend-folder', itemStateToggled) {
 	return itemStateToggled ? itemIcon : `${itemIcon}-closed`;
 }
@@ -143,11 +143,18 @@ class TreeViewItem extends React.Component {
 					style={{ paddingLeft }}
 					role="button"
 					tabIndex="0"
-					ref={element => { this.containerRef = element; }}
+					ref={element => {
+						this.containerRef = element;
+					}}
 					onKeyDown={this.onKeyDown}
 				>
 					{!children.length || (
-						<Icon className={css['tc-treeview-toggle']} name="talend-caret-down" transform={toggled ? undefined : 'rotate-270'} title={toggleIconLabel} />
+						<Icon
+							className={css['tc-treeview-toggle']}
+							name="talend-caret-down"
+							transform={toggled ? undefined : 'rotate-270'}
+							title={toggleIconLabel}
+						/>
 					)}
 					<Icon name={getItemIcon(icon, toggled)} className={css['tc-treeview-folder']} />
 					<span className="tc-treeview-item-name">{name}</span>
@@ -157,7 +164,9 @@ class TreeViewItem extends React.Component {
 					</div>
 				</div>
 				{children &&
-					toggled && <ul className={css['tc-treeview-ul']}>{children.map(this.renderTreeViewItem)}</ul>}
+					toggled && (
+						<ul className={css['tc-treeview-ul']}>{children.map(this.renderTreeViewItem)}</ul>
+					)}
 			</li>
 		);
 	}
