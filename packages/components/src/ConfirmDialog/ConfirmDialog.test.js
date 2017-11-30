@@ -158,7 +158,7 @@ describe('ConfirmDialog', () => {
 		);
 
 		// then
-		expect(wrapper.ref('modal').root.node.props.bodyOverflow).toBe(false);
+		expect(wrapper.getElement().props.bodyOverflow).toBe(false);
 	});
 
 	it('should render with additional actions', () => {
