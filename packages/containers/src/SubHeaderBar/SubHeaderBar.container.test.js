@@ -36,6 +36,19 @@ describe('SubHeaderBar container', () => {
 			inputText: props.state.get('inputText'),
 		});
 	});
+	it('should setState when cancel event trigger', () => {
+		const event = {};
+		let state;
+		const props = {
+			state: Map({ editMode: true, inputText: 'my edited title' }),
+			setState: jest.fn(fn => (state = fn())),
+			onCancel: jest.fn(),
+		};
+		new Container(props).onCancel(event);
+		expect(props.setState).toHaveBeenCalled();
+		expect(state.editMode).toEqual(false);
+		expect(state.inputText).toEqual('');
+	});
 	it('should call onCancel when cancel event trigger', () => {
 		// Given
 		const event = {};
@@ -65,7 +78,19 @@ describe('SubHeaderBar container', () => {
 			props,
 		});
 	});
-	it('should call onEdit when edit event tigger', () => {
+	it('should call setState when edit event trigger', () => {
+		const event = {};
+		let state;
+		const props = {
+			state: Map({ editMode: true, inputText: 'my edited title' }),
+			setState: jest.fn(fn => (state = fn())),
+			onCancel: jest.fn(),
+		};
+		new Container(props).onEdit(event);
+		expect(props.setState).toHaveBeenCalled();
+		expect(state.editMode).toEqual(false);
+	});
+	it('should call onEdit when edit event trigger', () => {
 		// Given
 		const event = {};
 		const props = {
@@ -78,7 +103,7 @@ describe('SubHeaderBar container', () => {
 		// Then
 		expect(props.onEdit).toHaveBeenCalledWith(event);
 	});
-	it('should call onEdit when edit event tigger', () => {
+	it('should call onEdit when edit event trigger', () => {
 		// Given
 		const event = {};
 		const props = {
@@ -93,6 +118,18 @@ describe('SubHeaderBar container', () => {
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorEdit, event, {
 			props,
 		});
+	});
+	it('should call setState when change event trigger', () => {
+		const event = { target: { value: 'my new edited title' } };
+		let state;
+		const props = {
+			state: Map({ editMode: true, inputText: 'my old title' }),
+			setState: jest.fn(fn => (state = fn())),
+			onCChange: jest.fn(),
+		};
+		new Container(props).onChange(event);
+		expect(props.setState).toHaveBeenCalled();
+		expect(state.inputText).toEqual(event.target.value);
 	});
 	it('should call onChange when change event tigger', () => {
 		// Given
