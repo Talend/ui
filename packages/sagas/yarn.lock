@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@talend/react-cmf@^0.121.0":
-  version "0.121.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.121.0.tgz#40d3892ba44727a091b90c622f78c0d11f932210"
+"@talend/react-cmf@^0.127.0":
+  version "0.127.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.127.0.tgz#8ddfd328dc3430ea2983005064d09466c539dd44"
   dependencies:
     babel-polyfill "6.26.0"
     hoist-non-react-statics "^1.2.0"

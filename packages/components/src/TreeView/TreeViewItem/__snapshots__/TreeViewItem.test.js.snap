@@ -8,35 +8,27 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
   <div
     className="tc-treeview-item"
     data-selected={undefined}
-    id={undefined}
+    id="tc-treeview-item"
     onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
     style={
       Object {
         "paddingLeft": "20px",
       }
     }
+    tabIndex="0"
   >
-    <div
+    <Icon
       className={undefined}
-      data-toggled={true}
-    >
-      <Action
-        hideLabel={true}
-        icon="talend-caret-down"
-        id="undefined-toggle"
-        label="Collapse"
-        link={true}
-        onClick={[Function]}
-        tooltipPlacement="right"
-      />
-    </div>
-    <span
+      name="talend-caret-down"
+      title="Collapse"
+      transform={undefined}
+    />
+    <Icon
       className={undefined}
-    >
-      <Icon
-        name="talend-folder"
-      />
-    </span>
+      name="talend-folder"
+    />
     <span
       className="tc-treeview-item-name"
     >
@@ -51,7 +43,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       <Action
         hideLabel={true}
         icon="talend-trash"
-        id="undefined-talend-trash"
+        id="tc-treeview-item-talend-trash"
         label="remove element"
         link={true}
         onClick={[Function]}
@@ -64,7 +56,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
   >
     <TreeViewItem
       depth={1}
-      id={undefined}
+      id="tc-treeview-item-0"
       item={
         Object {
           "children": Array [
@@ -85,7 +77,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
     />
     <TreeViewItem
       depth={1}
-      id={undefined}
+      id="tc-treeview-item-1"
       item={
         Object {
           "children": Array [
