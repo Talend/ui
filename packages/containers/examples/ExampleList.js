@@ -47,7 +47,7 @@ const props = {
 const customHeight = {
 	tile: undefined,
 	large: 200,
-	table: 200,
+	table: 100,
 };
 
 export const defaultListState = new Immutable.Map({

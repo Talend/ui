@@ -219,7 +219,7 @@ describe('Container List', () => {
 		);
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('table');
-		expect(props).toMatchSnapshot();
+		expect(props.rowHeight).toBe(3);
 	});
 });
 
