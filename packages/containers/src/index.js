@@ -2,7 +2,6 @@ import {
 	Breadcrumbs,
 	CircularProgress,
 	Drawer,
-	TreeView,
 	Icon,
 	IconsProvider,
 	Layout,
@@ -20,6 +19,7 @@ import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
 import AppHeaderBar from './AppHeaderBar';
 import ConfirmDialog from './ConfirmDialog';
+import FilterBar from './FilterBar';
 import Form from './Form';
 import HeaderBar from './HeaderBar';
 import HomeListView from './HomeListView';
@@ -28,7 +28,9 @@ import Notification from './Notification';
 import ObjectViewer from './ObjectViewer';
 import Redirect from './Redirect';
 import ShortcutManager from './ShortcutManager';
+import SelectObject from './SelectObject';
 import SidePanel from './SidePanel';
+import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 
 export {
@@ -46,6 +48,7 @@ export {
 	ConfirmDialog,
 	Drawer,
 	DeleteResource,
+	FilterBar,
 	Form,
 	HeaderBar,
 	HomeListView,
@@ -57,6 +60,7 @@ export {
 	ObjectViewer,
 	Redirect,
 	ShortcutManager,
+	SelectObject,
 	SidePanel,
 	TooltipTrigger,
 	TreeView,

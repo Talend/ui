@@ -1,5 +1,5 @@
 
-> @talend/react-forms@0.124.0 lint:es /home/travis/build/Talend/ui/packages/forms
+> @talend/react-forms@0.127.0 lint:es /home/travis/build/Talend/ui/packages/forms
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -10,12 +10,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
   8:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/ListView/ListView.component.js
-   94:3   error  Closing curly brace does not appear on the same line as the subsequent block  brace-style
-  109:12  error  Unexpected parentheses around single function argument                        arrow-parens
-
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-✖ 5 problems (5 errors, 0 warnings)
+✖ 3 problems (3 errors, 0 warnings)
 

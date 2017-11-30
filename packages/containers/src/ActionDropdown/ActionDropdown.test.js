@@ -2,7 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import mock from '@talend/react-cmf/lib/mock';
 import { ActionDropdown } from '@talend/react-components';
-import Connected, { mapStateToProps, ContainerActionDropdown, mergeProps } from './ActionDropdown.connect';
+import Connected, {
+	mapStateToProps,
+	ContainerActionDropdown,
+	mergeProps,
+} from './ActionDropdown.connect';
 
 describe('Connect(CMF(Container(ActionDropdown)))', () => {
 	it('should connect ActionDropdown', () => {
@@ -39,14 +43,10 @@ describe('Container(ActionDropdown)', () => {
 	it('should render', () => {
 		const context = mock.context();
 		const actionIds = ['menu:article'];
-		const items = [{ label: 'Foo' }];
+		const items = [{ label: 'Foo', actionCreator: 'menu:item' }];
 		const wrapper = shallow(
-			<ContainerActionDropdown
-				foo="extra"
-				actionIds={actionIds}
-				items={items}
-			/>,
-			{ context }
+			<ContainerActionDropdown foo="extra" actionIds={actionIds} items={items} />,
+			{ context },
 		);
 		expect(wrapper.getNode()).toMatchSnapshot();
 		expect(wrapper.find(ActionDropdown).length).toBe(1);
