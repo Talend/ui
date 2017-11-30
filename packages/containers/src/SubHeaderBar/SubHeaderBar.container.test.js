@@ -36,4 +36,117 @@ describe('SubHeaderBar container', () => {
 			inputText: props.state.get('inputText'),
 		});
 	});
+	it('should call onCancel when cancel event trigger', () => {
+		// Given
+		const event = {};
+		const props = {
+			setState: jest.fn(),
+			state: Map({ editMode: false, inputText: 'my new title' }),
+			onCancel: jest.fn(),
+		};
+		// When
+		new Container(props).onCancel(event);
+		// Then
+		expect(props.onCancel).toHaveBeenCalledWith(event);
+	});
+	it('should call actionCreatorCancel when cancel event trigger', () => {
+		// Given
+		const event = {};
+		const props = {
+			setState: jest.fn(),
+			state: Map({ editMode: false, inputText: 'my new title' }),
+			actionCreatorCancel: jest.fn(),
+			dispatchActionCreator: jest.fn(),
+		};
+		// When
+		new Container(props).onCancel(event);
+		// Then
+		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorCancel, event, {
+			props,
+		});
+	});
+	it('should call onEdit when edit event tigger', () => {
+		// Given
+		const event = {};
+		const props = {
+			setState: jest.fn(),
+			state: Map({ editMode: false, inputText: 'my new title' }),
+			onEdit: jest.fn(),
+		};
+		// When
+		new Container(props).onEdit(event);
+		// Then
+		expect(props.onEdit).toHaveBeenCalledWith(event);
+	});
+	it('should call onEdit when edit event tigger', () => {
+		// Given
+		const event = {};
+		const props = {
+			setState: jest.fn(),
+			state: Map({ editMode: false, inputText: 'my new title' }),
+			dispatchActionCreator: jest.fn(),
+			actionCreatorEdit: jest.fn(),
+		};
+		// When
+		new Container(props).onEdit(event);
+		// Then
+		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorEdit, event, {
+			props,
+		});
+	});
+	it('should call onChange when change event tigger', () => {
+		// Given
+		const event = { target: { value: 'my onChangeTitle' } };
+		const props = {
+			setState: jest.fn(),
+			state: Map({ editMode: false, inputText: 'my new title' }),
+			onChange: jest.fn(),
+		};
+		// When
+		new Container(props).onChange(event);
+		// Then
+		expect(props.onChange).toHaveBeenCalledWith(event, event.target.value);
+	});
+	it('should call onChange when change event tigger', () => {
+		// Given
+		const event = { target: { value: 'my onChangeTitle' } };
+		const props = {
+			setState: jest.fn(),
+			state: Map({ editMode: false, inputText: 'my new title' }),
+			dispatchActionCreator: jest.fn(),
+			actionCreatorChange: jest.fn(),
+		};
+		// When
+		new Container(props).onChange(event);
+		// Then
+		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorChange, event, {
+			props,
+			inputText: event.target.value,
+		});
+	});
+	it('should call onGoBack event when goBack event trigger', () => {
+		// Given
+		const event = {};
+		const props = {
+			onGoBack: jest.fn(),
+		};
+		// When
+		new Container(props).onGoBack(event);
+		// Then
+		expect(props.onGoBack).toHaveBeenCalledWith(event);
+	});
+	it('should call actionCreatorGoBack event when goBack event trigger', () => {
+		// Given
+		const event = {};
+		const props = {
+			actionCreatorGoBack: jest.fn(),
+			dispatchActionCreator: jest.fn(),
+		};
+		// When
+		new Container(props).onGoBack(event);
+		// Then
+		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorGoBack, event, {
+			props,
+		});
+	});
 });

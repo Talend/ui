@@ -89,7 +89,7 @@ class SubHeaderBar extends React.Component {
 			inputText: event.target.value,
 		}));
 		if (this.props.onChange) {
-			this.props.onChange(event);
+			this.props.onChange(event, event.target.value);
 		}
 		if (this.props.actionCreatorChange) {
 			this.props.dispatchActionCreator(this.props.actionCreatorChange, event, {
