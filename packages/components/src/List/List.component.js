@@ -54,7 +54,7 @@ ListToolbar.propTypes = {
 	renderers: PropTypes.object,
 };
 
-function DisplayModeComponent({ displayMode, id, list, useContent, virtualized, t }) {
+function DisplayModeComponent({ displayMode, id, list, rowHeight, useContent, virtualized, t }) {
 	const translatedList = Object.assign({}, list, { t });
 	if (useContent) {
 		return <Content id={id && `${id}-content`} displayMode={displayMode} {...translatedList} />;
@@ -62,7 +62,12 @@ function DisplayModeComponent({ displayMode, id, list, useContent, virtualized, 
 	if (virtualized) {
 		return (
 			<div className={'tc-list-display-virtualized'}>
-				<ListToVirtualizedList id={id} displayMode={displayMode} {...translatedList} />
+				<ListToVirtualizedList
+					id={id}
+					displayMode={displayMode}
+					rowHeight={rowHeight}
+					{...translatedList}
+				/>
 			</div>
 		);
 	}
@@ -85,10 +90,11 @@ DisplayModeComponent.propTypes = {
 	]),
 	useContent: PropTypes.bool,
 	virtualized: PropTypes.bool,
+	rowHeight: PropTypes.number,
 	t: PropTypes.func,
 };
 
-function ListDisplay({ displayMode, id, list, useContent, virtualized, t }) {
+function ListDisplay({ displayMode, id, list, useContent, rowHeight, virtualized, t }) {
 	return (
 		<DisplayModeComponent
 			id={id}
@@ -96,6 +102,7 @@ function ListDisplay({ displayMode, id, list, useContent, virtualized, t }) {
 			displayMode={displayMode}
 			list={list}
 			virtualized={virtualized}
+			rowHeight={rowHeight}
 			t={t}
 		/>
 	);
@@ -138,7 +145,17 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
 }
  <List {...props}></List>
  */
-function List({ displayMode, id, list, toolbar, useContent, virtualized, t, renderers }) {
+function List({
+	displayMode,
+	id,
+	list,
+	toolbar,
+	useContent,
+	virtualized,
+	t,
+	renderers,
+	rowHeight,
+}) {
 	const classnames = classNames('tc-list', theme.list);
 
 	return (
@@ -158,6 +175,7 @@ function List({ displayMode, id, list, toolbar, useContent, virtualized, t, rend
 				useContent={useContent}
 				virtualized={virtualized}
 				renderers={renderers}
+				rowHeight={rowHeight}
 				t={t}
 			/>
 		</div>

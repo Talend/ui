@@ -53,6 +53,12 @@ describe('ListToVirtualizedList', () => {
 		expect(large.type).toBe('LARGE');
 	});
 
+	it('should support rowHeight', () => {
+		const rProps = { ...props, rowHeight: 200 };
+		const table = shallow(<ListToVirtualizedList {...rProps} displayMode="table" />).props();
+		expect(table.rowHeight).toBe(200);
+	});
+
 	it('should add actionsKey to titleProps', () => {
 		// when
 		const wrapper = shallow(<ListToVirtualizedList {...props} />);

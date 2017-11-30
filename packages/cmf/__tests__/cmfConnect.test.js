@@ -4,6 +4,7 @@ import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
 import expression from '../src/expression';
 import mock from '../src/mock';
+import { mapStateToViewProps } from '../src/settings';
 
 import cmfConnect, {
 	getComponentName,
@@ -185,6 +186,7 @@ describe('cmfConnect', () => {
 		it('should create a connected component', () => {
 			const TestComponent = jest.fn();
 			TestComponent.displayName = 'TestComponent';
+			mapStateToViewProps.cache.clear();
 			const CMFConnected = cmfConnect({})(TestComponent);
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
