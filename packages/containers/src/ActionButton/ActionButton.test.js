@@ -35,7 +35,7 @@ describe('CMF(Container(ActionButton))', () => {
 	it('should render', () => {
 		const context = mock.context();
 		const wrapper = shallow(<ContainerActionButton actionId="menu:article" extra="foo" />, { context });
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(wrapper.find(ActionButton).length).toBe(1);
 	});
 });

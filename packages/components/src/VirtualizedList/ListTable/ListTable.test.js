@@ -33,7 +33,7 @@ describe('ListGrid', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render table with sort props', () => {

@@ -29,7 +29,7 @@ describe('ObjectViewer.List', () => {
 		const wrapper = shallow(
 			<List data={data} />
 		);
-		const element = wrapper.getNode();
+		const element = wrapper.getElement();
 		expect(element.type).toBe('ul');
 		expect(wrapper.hasClass('tc-object-viewer')).toBe(true);
 		expect(wrapper.find('li').length).toBe(2);

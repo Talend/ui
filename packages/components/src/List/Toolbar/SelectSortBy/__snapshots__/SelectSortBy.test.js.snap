@@ -73,6 +73,7 @@ exports[`SelectSortBy should render 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       Ascending
@@ -154,6 +155,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
       href="#"
       id="toolbar-sort-order"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       Ascending

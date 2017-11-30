@@ -12,7 +12,7 @@ describe('SidePanel', () => {
 			<SidePanel />,
 			{ context }
 		);
-		expect(sidepanel.getNode()).toMatchSnapshot();
+		expect(sidepanel.getElement()).toMatchSnapshot();
 	});
 	it('should render provided actions as string', () => {
 		const actions = ['menu:article', 'menu:demo'];
@@ -21,7 +21,7 @@ describe('SidePanel', () => {
 			<SidePanel actions={actions} />,
 			{ context }
 		);
-		expect(sidepanel.getNode()).toMatchSnapshot();
+		expect(sidepanel.getElement()).toMatchSnapshot();
 	});
 	it('should add renderers', () => {
 		const context = mock.context();

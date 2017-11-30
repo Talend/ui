@@ -94,6 +94,6 @@ describe('VirtualizedList', () => {
 			</VirtualizedList>,
 		);
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

@@ -11,7 +11,7 @@ describe('Action', () => {
 			<Action name="menu:article" extra="foo" />,
 			{ context }
 		);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
