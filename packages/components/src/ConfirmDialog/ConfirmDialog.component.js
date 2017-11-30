@@ -3,9 +3,36 @@ import React from 'react';
 import classNames from 'classnames';
 import { ProgressBar, Modal } from 'react-bootstrap';
 
+import IconModal from '../Dialog/IconModal.component';
+import DescriptionModal from '../Dialog/DescriptionModal.component';
+import FooterActionsModal from '../Dialog/FooterActionsModal.component';
 import theme from './ConfirmDialog.scss';
 import Action from '../Actions/Action';
 
+function transformFooterProps(props) {
+	let footer = {
+		left: [],
+		right: [],
+	};
+
+	if (props.cancelAction) {
+		footer.left.push(props.cancelAction);
+	}
+
+	if (props.secondaryActions) {
+		footer.right = footer.right.concat(props.secondaryActions);
+	}
+
+	if (props.validateAction) {
+		footer.right.push(props.validateAction);
+	}
+
+	if (props.footer) {
+		footer = props.footer;
+	}
+
+	return footer;
+}
 /**
  *
  * @param size optional, allow to change the size of the model ( small / large )
@@ -34,17 +61,17 @@ import Action from '../Actions/Action';
  <ConfirmDialog {...defaultProps}>{children}</ConfirmDialog>
  * @constructor
  */
-function ConfirmDialog({
-	size,
-	show,
-	header,
-	children,
-	validateAction,
-	secondaryActions,
-	cancelAction,
-	progressValue,
-	bodyOverflow = true,
-}) {
+function ConfirmDialog(props) {
+	const {
+		bodyOverflow = true,
+		children,
+		description,
+		header,
+		icon,
+		progressValue,
+		show,
+		size,
+	} = props;
 	return (
 		<Modal
 			bsSize={size}
@@ -55,27 +82,25 @@ function ConfirmDialog({
 				bodyOverflow && theme['modal-body-overflow'],
 			)}
 		>
-			{header
-				? <Modal.Header closeButton={false}>
-					<Modal.Title>{header}</Modal.Title>
+			{header ? (
+				<Modal.Header closeButton={false}>
+					<IconModal icon={icon} />
+					<div>
+						<h5 className="modal-title">{header}</h5>
+						<DescriptionModal description={description} />
+					</div>
 				</Modal.Header>
-				: null}
+			) : null}
 			{progressValue ? <ProgressBar now={progressValue} /> : null}
-			<Modal.Body>
-				{children}
-			</Modal.Body>
-			<Modal.Footer>
-				<Action {...cancelAction} />
-				<div className={theme['tc-confirm-actions']}>
-					{secondaryActions && secondaryActions.map((props, i) => <Action {...props} key={i} />)}
-					<Action {...validateAction} />
-				</div>
-			</Modal.Footer>
+			<Modal.Body>{children}</Modal.Body>
+			<FooterActionsModal footer={transformFooterProps(props)} />
 		</Modal>
 	);
 }
 
 ConfirmDialog.propTypes = {
+	...DescriptionModal.propTypes,
+	...IconModal.propTypes,
 	header: PropTypes.string,
 	size: PropTypes.oneOf(['small', 'large']),
 	children: PropTypes.element,

@@ -26,10 +26,12 @@ exports[`Dialog should render action 1`] = `
     className="Header"
     closeButton={true}
   >
-    <div
-      className="Title"
-    >
-      Hello world
+    <div>
+      <h5
+        className="modal-title"
+      >
+        Hello world
+      </h5>
     </div>
   </div>
   <div
@@ -42,18 +44,26 @@ exports[`Dialog should render action 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
-    >
-      <span>
-        OK
-      </span>
-    </button>
+    <div />
+    <div />
+    <div>
+      <div
+        className="tc-actions btn-group"
+      >
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -68,10 +78,12 @@ exports[`Dialog should render header 1`] = `
     className="Header"
     closeButton={true}
   >
-    <div
-      className="Title"
-    >
-      Hello world
+    <div>
+      <h5
+        className="modal-title"
+      >
+        Hello world
+      </h5>
     </div>
   </div>
   <div
@@ -98,10 +110,12 @@ exports[`Dialog should render large 1`] = `
     className="Header"
     closeButton={true}
   >
-    <div
-      className="Title"
-    >
-      Hello world
+    <div>
+      <h5
+        className="modal-title"
+      >
+        Hello world
+      </h5>
     </div>
   </div>
   <div
@@ -114,18 +128,26 @@ exports[`Dialog should render large 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
-    >
-      <span>
-        OK
-      </span>
-    </button>
+    <div />
+    <div />
+    <div>
+      <div
+        className="tc-actions btn-group"
+      >
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -144,10 +166,12 @@ exports[`Dialog should render small 1`] = `
     className="Header"
     closeButton={true}
   >
-    <div
-      className="Title"
-    >
-      Hello world
+    <div>
+      <h5
+        className="modal-title"
+      >
+        Hello world
+      </h5>
     </div>
   </div>
   <div
@@ -160,18 +184,26 @@ exports[`Dialog should render small 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
-    >
-      <span>
-        OK
-      </span>
-    </button>
+    <div />
+    <div />
+    <div>
+      <div
+        className="tc-actions btn-group"
+      >
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 `;

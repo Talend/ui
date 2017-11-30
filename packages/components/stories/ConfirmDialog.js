@@ -5,6 +5,7 @@ import talendIcons from '@talend/icons/dist/react';
 import { List, ConfirmDialog, IconsProvider } from '../src/index';
 
 const icons = {
+	'talend-file-csv-o': talendIcons['talend-file-csv-o'],
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
 	'talend-chevron-end': talendIcons['talend-chevron-end'],
@@ -29,6 +30,11 @@ const icons = {
 const defaultProps = {
 	header: 'Hello world',
 	show: true,
+	description: {
+		text: 'Owner',
+		highlight: 'John Doe',
+	},
+	icon: 'talend-file-csv-o',
 	validateAction: {
 		label: 'OK',
 		onClick: action('ok'),
@@ -39,7 +45,6 @@ const defaultProps = {
 		onClick: action('cancel'),
 	},
 };
-
 
 const propsWithoutHeader = {
 	show: true,
@@ -99,13 +104,13 @@ const withProgressBarProps = {
 	progressValue: 66,
 };
 
-const children = (<div>BODY content. You can put what ever you want here</div>);
-
+const children = <div>BODY content. You can put what ever you want here</div>;
 
 storiesOf('ConfirmDialog', module)
 	.addWithInfo('default', () => (
 		<div>
 			<h1>Dialog</h1>
+			<IconsProvider defaultIcons={icons} />
 			<ConfirmDialog {...defaultProps}>{children}</ConfirmDialog>
 		</div>
 	))
@@ -141,9 +146,7 @@ storiesOf('ConfirmDialog', module)
 		return (
 			<div>
 				<h1>Dialog</h1>
-				<ConfirmDialog {...withProgressBarProps}>
-					{rows}
-				</ConfirmDialog>
+				<ConfirmDialog {...withProgressBarProps}>{rows}</ConfirmDialog>
 			</div>
 		);
 	})
@@ -211,11 +214,11 @@ storiesOf('ConfirmDialog', module)
 			displayMode: 'table',
 			list: {
 				columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created' },
-			{ key: 'modified', label: 'Modified' },
+					{ key: 'id', label: 'Id' },
+					{ key: 'name', label: 'Name' },
+					{ key: 'author', label: 'Author' },
+					{ key: 'created', label: 'Created' },
+					{ key: 'modified', label: 'Modified' },
 				],
 				items,
 				titleProps: {
@@ -270,10 +273,7 @@ storiesOf('ConfirmDialog', module)
 				sort: {
 					field: 'name',
 					onChange: action('sort.onChange'),
-					options: [
-				{ id: 'id', name: 'Id' },
-				{ id: 'name', name: 'Name' },
-					],
+					options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 				},
 				pagination: {
 					itemsPerPage: 5,

@@ -1662,7 +1662,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-12">
             <h2>Dialog box</h2>
             <div id="modals-component" class="bs-component">
               <div class="modal">
@@ -1670,21 +1670,37 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                      <h4 class="modal-title">Modal title</h4>
+                      <figure>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                          <path d="M7.5,14C3.9,14,1,11.1,1,7.5S3.9,1,7.5,1S14,3.9,14,7.5S11.1,14,7.5,14z M7.5,3C5,3,3,5,3,7.5S5,12,7.5,12S12,10,12,7.5S10,3,7.5,3z"></path>
+                          <path d="M13.5,12c-0.4,0.6-0.9,1.1-1.5,1.5l2.5,2.5l1.5-1.5L13.5,12z"></path>
+                        </svg>
+                      </figure>
+                      <div>
+                        <h5 class="modal-title">MKT_Leads dataset</h5>
+                        <p>Owner <mark>John Doe</mark></p>
+                      </div>
                     </div>
                     <div class="modal-body">
                       <p>One fine body…</p>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                      <div>
+                        <button type="button" class="btn btn-info">Save changes</button>
+                      </div>
+                      <div>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-12">
             <h2>Popovers</h2>
             <div id="popovers-component" class="bs-component">
               <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Left</button>

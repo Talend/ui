@@ -32,16 +32,26 @@ exports[`Dialog modal props should render dialog without bsDialogProps 1`] = `
     closeButton={true}
     closeLabel="Close"
   >
-    <ModalTitle
-      bsClass="modal-title"
-      componentClass="h4"
-    >
-      Hello world
-    </ModalTitle>
+    <IconModal
+      icon={undefined}
+    />
+    <div>
+      <h5
+        className="modal-title"
+      >
+        Hello world
+      </h5>
+      <DescriptionModal
+        description={undefined}
+      />
+    </div>
   </ModalHeader>
   <ModalBody
     bsClass="modal-body"
     componentClass="div"
+  />
+  <FooterActionsModal
+    footer={undefined}
   />
 </Modal>
 `;
@@ -78,16 +88,26 @@ exports[`Dialog modal props should render dialog without bsDialogProps 2`] = `
     closeButton={true}
     closeLabel="Close"
   >
-    <ModalTitle
-      bsClass="modal-title"
-      componentClass="h4"
-    >
-      Hello world
-    </ModalTitle>
+    <IconModal
+      icon={undefined}
+    />
+    <div>
+      <h5
+        className="modal-title"
+      >
+        Hello world
+      </h5>
+      <DescriptionModal
+        description={undefined}
+      />
+    </div>
   </ModalHeader>
   <ModalBody
     bsClass="modal-body"
     componentClass="div"
+  />
+  <FooterActionsModal
+    footer={undefined}
   />
 </Modal>
 `;
@@ -124,16 +144,26 @@ exports[`Dialog modal props should render dialog without bsDialogProps 3`] = `
     closeButton={true}
     closeLabel="Close"
   >
-    <ModalTitle
-      bsClass="modal-title"
-      componentClass="h4"
-    >
-      Hello world
-    </ModalTitle>
+    <IconModal
+      icon={undefined}
+    />
+    <div>
+      <h5
+        className="modal-title"
+      >
+        Hello world
+      </h5>
+      <DescriptionModal
+        description={undefined}
+      />
+    </div>
   </ModalHeader>
   <ModalBody
     bsClass="modal-body"
     componentClass="div"
+  />
+  <FooterActionsModal
+    footer={undefined}
   />
 </Modal>
 `;

@@ -11,10 +11,12 @@ exports[`ConfirmDialog should render with a large container 1`] = `
     className="Header"
     closeButton={false}
   >
-    <div
-      className="Title"
-    >
-      Hello world
+    <div>
+      <h5
+        className="modal-title"
+      >
+        Hello world
+      </h5>
     </div>
   </div>
   <div
@@ -27,33 +29,42 @@ exports[`ConfirmDialog should render with a large container 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
-    >
-      <span>
-        CANCEL
-      </span>
-    </button>
-    <div
-      className={undefined}
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+    <div>
+      <div
+        className="tc-actions btn-group"
       >
-        <span>
-          OK
-        </span>
-      </button>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+    </div>
+    <div />
+    <div>
+      <div
+        className="tc-actions btn-group"
+      >
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -70,10 +81,12 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
     className="Header"
     closeButton={false}
   >
-    <div
-      className="Title"
-    >
-      Hello world
+    <div>
+      <h5
+        className="modal-title"
+      >
+        Hello world
+      </h5>
     </div>
   </div>
   <div
@@ -90,33 +103,42 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
-    >
-      <span>
-        CANCEL
-      </span>
-    </button>
-    <div
-      className={undefined}
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+    <div>
+      <div
+        className="tc-actions btn-group"
       >
-        <span>
-          OK
-        </span>
-      </button>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+    </div>
+    <div />
+    <div>
+      <div
+        className="tc-actions btn-group"
+      >
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -133,10 +155,12 @@ exports[`ConfirmDialog should render with a small container 1`] = `
     className="Header"
     closeButton={false}
   >
-    <div
-      className="Title"
-    >
-      Hello world
+    <div>
+      <h5
+        className="modal-title"
+      >
+        Hello world
+      </h5>
     </div>
   </div>
   <div
@@ -149,33 +173,42 @@ exports[`ConfirmDialog should render with a small container 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
-    >
-      <span>
-        CANCEL
-      </span>
-    </button>
-    <div
-      className={undefined}
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+    <div>
+      <div
+        className="tc-actions btn-group"
       >
-        <span>
-          OK
-        </span>
-      </button>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+    </div>
+    <div />
+    <div>
+      <div
+        className="tc-actions btn-group"
+      >
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -192,10 +225,12 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
     className="Header"
     closeButton={false}
   >
-    <div
-      className="Title"
-    >
-      Hello world
+    <div>
+      <h5
+        className="modal-title"
+      >
+        Hello world
+      </h5>
     </div>
   </div>
   <div
@@ -208,45 +243,54 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
-    >
-      <span>
-        CANCEL
-      </span>
-    </button>
-    <div
-      className={undefined}
-    >
-      <button
-        className="btn btn-info"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+    <div>
+      <div
+        className="tc-actions btn-group"
       >
-        <span>
-          Keep on Github
-        </span>
-      </button>
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+    </div>
+    <div />
+    <div>
+      <div
+        className="tc-actions btn-group"
       >
-        <span>
-          OK
-        </span>
-      </button>
+        <button
+          className="btn btn-info"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            Keep on Github
+          </span>
+        </button>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -263,10 +307,12 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
     className="Header"
     closeButton={false}
   >
-    <div
-      className="Title"
-    >
-      Hello world
+    <div>
+      <h5
+        className="modal-title"
+      >
+        Hello world
+      </h5>
     </div>
   </div>
   <div
@@ -279,33 +325,42 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
-    >
-      <span>
-        CANCEL
-      </span>
-    </button>
-    <div
-      className={undefined}
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+    <div>
+      <div
+        className="tc-actions btn-group"
       >
-        <span>
-          OK
-        </span>
-      </button>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+    </div>
+    <div />
+    <div>
+      <div
+        className="tc-actions btn-group"
+      >
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -328,33 +383,42 @@ exports[`ConfirmDialog should render without header 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
-    >
-      <span>
-        CANCEL
-      </span>
-    </button>
-    <div
-      className={undefined}
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+    <div>
+      <div
+        className="tc-actions btn-group"
       >
-        <span>
-          OK
-        </span>
-      </button>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+    </div>
+    <div />
+    <div>
+      <div
+        className="tc-actions btn-group"
+      >
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </div>

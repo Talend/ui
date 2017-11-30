@@ -1,36 +1,98 @@
-
-.modal-dialog {
-	max-height: 80vh;
-	display: flex;
-	flex-direction: column;
-}
+$modal-header-height: 9rem !default;
+$modal-footer-height: 6.5rem !default;
+$modal-height: 55rem !default;
+$modal-width: 65rem !default;
 
 .modal {
+	&-dialog {
+		display: flex;
+		flex-direction: column;
+		color: $black;
+	}
+
+	&-content {
+		width: $modal-width;
+		box-shadow: 0.2rem 0.5rem 1rem 0.2rem rgba(0, 0, 0, 0.3);
+		border-radius: $border-radius-base;
+		border: none;
+	}
 
 	&-header {
-		border-top-left-radius: $border-radius-base;
-		border-top-right-radius: $border-radius-base;
-		background-color: $modal-header-bg;
+		box-sizing: border-box;
+		height: $modal-header-height;
+		padding: $padding-larger $padding-large;
+		border: none;
+		display: flex;
+		align-items: flex-start;
+		position: relative;
+		background-color: $white;
 
-		.modal-title {
-			font-weight: bold;
-			color: $modal-header-color;
-			text-align: center;
+		div {
+			h5 {
+				font-weight: 600;
+			}
+
+			p {
+				flex: 1 1 0%;
+				font-size: 1.2rem;
+				font-weight: 300;
+				color: $dark-silver;
+
+				mark {
+					background-color: inherit;
+					font-weight: 600;
+				}
+			}
+		}
+
+		figure {
+			color: $brand-primary;
+
+			svg {
+				width: $padding-larger;
+				height: $padding-larger;
+			}
+
+			+ div {
+				margin-left: $padding-large;
+			}
 		}
 
 		.close {
-			color: $modal-header-color;
+			width: 1.2rem;
+			height: 1.2rem;
+			position: absolute;
+			top: $padding-large;
+			right: $padding-large;
+			margin-top: 0;
 			opacity: 1;
+			color: $dove-gray;
 		}
 	}
 
 	&-body {
+		max-height: $modal-height - $modal-footer-height - $modal-header-height;
 		flex-grow: 1;
+		overflow: auto;
+		border-top: 1px solid $gallery;
+		background-color: $wild-sand;
+		z-index: 1;
 	}
 
 	&-footer {
+		z-index: 2;
+		box-shadow: 0.2rem -0.2rem 0.7rem 0.1rem rgba(0, 0, 0, 0.3);
+		position: inherit;
+		display: flex;
+		box-sizing: border-box;
+		height: $modal-footer-height;
 		flex-shrink: 0;
 		border-top: none;
-	}
+		padding: $padding-normal $padding-large;
+		background-color: $white;
 
+		> div:not(:first-child) {
+			margin-left: auto;
+		}
+	}
 }
