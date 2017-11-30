@@ -116,6 +116,7 @@ describe('Notification', () => {
 		const props = {
 			notification: { message: 'foo', type: 'error' },
 			onClick: jest.fn(),
+			leaveFn: jest.fn(),
 		};
 		const wrapper = shallow(<Notification {...props} />);
 		const event = {};
@@ -193,13 +194,15 @@ describe('NotificationContainer', () => {
 		});
 
 		it('onClick', () => {
-			const instance = new NotificationsContainer({ notifications: [] });
+			const props = { notifications: [], leaveFn: jest.fn() };
+			const instance = new NotificationsContainer(props);
 			instance.onClick(mockEvent, mockNotification);
 			expect(mockGetAttribute).toHaveBeenCalledWith('pin');
 			expect(mockSetAttribute).toHaveBeenCalledWith('pin', 'true');
 			mockEvent.currentTarget.getAttribute = jest.fn(() => 'true');
 			instance.onClick(mockEvent, mockNotification);
 			expect(mockSetAttribute.mock.calls[1]).toEqual(['pin', 'false']);
+			expect(props.leaveFn).toHaveBeenCalledWith(mockNotification);
 		});
 
 		it('onClose', () => {

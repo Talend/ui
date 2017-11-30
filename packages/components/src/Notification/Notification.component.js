@@ -135,6 +135,7 @@ class NotificationsContainer extends React.Component {
 				event.currentTarget.setAttribute('pin', 'true');
 			} else {
 				event.currentTarget.setAttribute('pin', 'false');
+				this.props.leaveFn(notification);
 			}
 		}
 	}
