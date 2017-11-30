@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeView should render the data 1`] = `
+<TreeView
+  addActionLabel="Add folder"
+  childrenAttr="children"
+  data={
+    Immutable.List [
+      Immutable.Map {
+        id: 1,
+        name: "foo",
+        children: Array [],
+      },
+      Immutable.Map {
+        id: 2,
+        name: "bar",
+        children: Array [],
+      },
+    ]
+  }
+  headerText="Folders"
+  id="tc-treeview"
+  idAttr="id"
+  nameAttr="name"
+  onClick={[Function]}
+  onSelect={[Function]}
+  structure={
+    Array [
+      Object {
+        "children": Array [],
+        "id": 1,
+        "name": "foo",
+        "selected": false,
+        "toggled": false,
+      },
+      Object {
+        "children": Array [],
+        "id": 2,
+        "name": "bar",
+        "selected": false,
+        "toggled": false,
+      },
+    ]
+  }
+/>
+`;

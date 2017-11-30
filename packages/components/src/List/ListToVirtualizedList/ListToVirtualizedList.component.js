@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
+import VirtualizedList, { SORT_BY, cellDictionary } from '../../VirtualizedList';
 import CellTitle from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
 
@@ -9,19 +9,12 @@ function adaptOnSort(onChange) {
 		return null;
 	}
 	return function onSortChange({ sortBy, sortDirection }) {
-		return onChange(
-			null,
-			{ field: sortBy, isDescending: sortDirection === SORT_BY.DESC }
-		);
+		return onChange(null, { field: sortBy, isDescending: sortDirection === SORT_BY.DESC });
 	};
 }
 
 function ListToVirtualizedList(props) {
-	const {
-		itemProps,
-		sort,
-		titleProps,
-	} = props;
+	const { itemProps, sort, titleProps } = props;
 
 	if (titleProps && !titleProps.actionsKey) {
 		titleProps.actionsKey = 'actions';
@@ -32,7 +25,9 @@ function ListToVirtualizedList(props) {
 		const item = props.items[0];
 		Object.keys(item)
 			.filter(key => Array.isArray(item[key]))
-			.forEach((key) => { supposedActions[key] = true; });
+			.forEach(key => {
+				supposedActions[key] = true;
+			});
 	}
 	return (
 		<VirtualizedList
@@ -40,12 +35,15 @@ function ListToVirtualizedList(props) {
 			collection={props.items}
 			isActive={itemProps && itemProps.isActive}
 			isSelected={itemProps && itemProps.isSelected}
+			inProgress={props.inProgress}
 			onRowClick={itemProps && itemProps.onRowClick}
+			rowHeight={props.rowHeight}
 			selectionToggle={itemProps && itemProps.onToggle}
 			sort={adaptOnSort(sort && sort.onChange)}
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
 			type={props.displayMode.toUpperCase()}
+			t={props.t}
 		>
 			{props.columns.map((column, index) => {
 				const cProps = {
@@ -56,13 +54,14 @@ function ListToVirtualizedList(props) {
 					Object.assign(cProps, CellTitle, {
 						columnData: titleProps,
 					});
-				}
-				if (supposedActions[column.key]) {
+				} else if (supposedActions[column.key]) {
 					Object.assign(cProps, CellActions);
+				} else if (column.type && cellDictionary[column.type]) {
+					Object.assign(cProps, cellDictionary[column.type], {
+						columnData: column.data,
+					});
 				}
-				return (
-					<VirtualizedList.Content key={index} {...cProps} />
-				);
+				return <VirtualizedList.Content key={index} {...cProps} />;
 			})}
 		</VirtualizedList>
 	);
@@ -79,6 +78,8 @@ ListToVirtualizedList.propTypes = {
 		onToggle: PropTypes.func,
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
+	inProgress: PropTypes.bool,
+	rowHeight: PropTypes.number,
 	sort: PropTypes.shape({
 		onChange: PropTypes.func,
 		field: PropTypes.string,
@@ -88,6 +89,7 @@ ListToVirtualizedList.propTypes = {
 		actionsKey: PropTypes.string,
 		key: PropTypes.string,
 	}),
+	t: PropTypes.func,
 };
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',

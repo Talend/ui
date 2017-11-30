@@ -1,5 +1,9 @@
 /**
+ * Internal. It contains the wrapper to make react-router run with the CMF
+ * settings
  * @module react-cmf/lib/UIRouter
+ * @see react-cmf/lib/route
+ * @see react-cmf/lib/settings
  */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -56,6 +60,10 @@ CMFRoute.contextTypes = {
 	router: PropTypes.object,
 };
 CMFRoute.displayName = 'CMFRoute';
+
+ /**
+ * @typedef {Object} Router
+ */
 
 /**
  * pure arrow function that render the router component.

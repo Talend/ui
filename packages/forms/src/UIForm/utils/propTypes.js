@@ -10,6 +10,10 @@ export const formPropTypes = {
 	 *  This will be prevented if you provide an onSubmit props
 	 */
 	action: PropTypes.string,
+	/**
+	 * Form custom classname
+	 */
+	className: PropTypes.string,
 	/** Form definition: encoding type */
 	encType: PropTypes.string,
 	/** Form definition: form name. This is also used to create input ids */
@@ -36,7 +40,8 @@ export const formPropTypes = {
 
 export function extractFormProps(props) {
 	const formProps = {};
-	Object.keys(formPropTypes)
-		.forEach((key) => { formProps[key] = props[key]; });
+	Object.keys(formPropTypes).forEach(key => {
+		formProps[key] = props[key];
+	});
 	return formProps;
 }

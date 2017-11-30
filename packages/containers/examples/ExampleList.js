@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from 'react-talend-components';
+import { IconsProvider } from '@talend/react-components';
 import Immutable from 'immutable';
 import { I18nextProvider } from 'react-i18next';
 
@@ -21,17 +21,14 @@ const list = {
 
 const actions = {
 	title: 'object:view',
-	left: ['object:add'],
+	left: ['object:add', 'object:upload', 'menu:items'],
 	items: ['object:delete'],
 };
 
 const toolbar = {
 	sort: {
 		field: 'id',
-		options: [
-			{ id: 'id', name: 'Id' },
-			{ id: 'label', name: 'Name' },
-		],
+		options: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
 	},
 	display: {
 		displayModes: ['large', 'table'],
@@ -46,6 +43,16 @@ const props = {
 	actions,
 	toolbar,
 };
+
+const customHeight = {
+	tile: undefined,
+	large: 200,
+	table: 100,
+};
+
+export const defaultListState = new Immutable.Map({
+	displayMode: 'large',
+});
 
 const items = Immutable.fromJS([
 	{
@@ -99,6 +106,14 @@ const ExampleList = {
 			<IconsProvider />
 			<div className="list-container">
 				<List {...props} items={items} virtualized />
+			</div>
+		</div>
+	),
+	virtualizedCustomHeight: () => (
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List {...props} items={items} rowHeight={customHeight} initialState={defaultListState} virtualized />
 			</div>
 		</div>
 	),

@@ -1,10 +1,9 @@
 package org.talend.component.list.table;
 
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.talend.component.Component;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NotFoundException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
@@ -23,7 +22,11 @@ public class Table extends Component {
 
     private static final String TABLE_COLUMN_HEADER_KEY_CLASS = TABLE_COLUMN_HEADER_SELECTOR + ".tc-list-cell-%s";
 
+    private static final String TABLE_GRID_SELECTOR = ".ReactVirtualized__Table__Grid";
+
     private static final String TABLE_ITEM_SELECTOR = ".ReactVirtualized__Table__row";
+
+    private final WebDriverWait wait;
 
     /**
      * Constructor.
@@ -41,6 +44,7 @@ public class Table extends Component {
      */
     public Table(final WebDriver driver, final String id) {
         super(driver, NAME, String.format(TABLE_SELECTOR, id != null ? "#" + id : ""));
+        this.wait = new WebDriverWait(driver, 1);
     }
 
     /**
@@ -68,12 +72,52 @@ public class Table extends Component {
      *
      * @return The list of Items
      */
-    public List<Item> getItems() {
+    public List<Item> getDisplayedItems() {
         return this.getElement() //
                 .findElements(By.cssSelector(TABLE_ITEM_SELECTOR)) //
                 .stream() //
                 .map(webElement -> new Item(driver, webElement)) //
                 .collect(toList());
+    }
+
+    /**
+     * Scroll to top
+     */
+    public void scrollToTop() {
+        final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
+        jsExec.executeScript("arguments[0].scrollTop = 0", grid);
+    }
+
+    /**
+     * Test if grid can scroll down
+     */
+    public boolean canScrollDown() {
+        final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
+        return (boolean) jsExec.executeScript(
+                "return arguments[0].scrollHeight > (arguments[0].scrollTop + arguments[0].offsetHeight);",
+                grid
+        );
+    }
+
+    /**
+     * Scroll to next set of rows
+     * @return true if the element has been scrolled, false otherwise.
+     */
+    public boolean scrollDown() {
+        if (! canScrollDown()) {
+            return false;
+        }
+
+        final WebElement firstElement = this.getElement().findElement(By.cssSelector(TABLE_ITEM_SELECTOR)) ;
+        final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
+        jsExec.executeScript("arguments[0].scrollTop += arguments[0].offsetHeight;", grid);
+        try {
+            wait.until(ExpectedConditions.stalenessOf(firstElement));
+        } catch (TimeoutException e) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -84,11 +128,25 @@ public class Table extends Component {
      * @return The Item
      */
     public Item getItem(final String itemTitle) {
-        return getItems() //
-                .stream() //
-                .filter(item -> itemTitle.equalsIgnoreCase(item.getTitle().getText())) //
-                .findFirst() //
-                .orElseThrow(() -> new NotFoundException("List table item not found with title " + itemTitle));
+        this.scrollToTop();
+        Item item = null;
+
+        while (item == null) {
+            item = getDisplayedItems() //
+                    .stream() //
+                    .filter(nextItem -> {
+                        final WebElement title = nextItem.getTitle();
+                        return title != null && itemTitle.equalsIgnoreCase(title.getText());
+                    }) //
+                    .findFirst() //
+                    .orElse(null);
+
+            if (item == null && !this.scrollDown()) {
+                throw new NotFoundException("List table item not found with title " + itemTitle);
+            }
+        }
+
+        return item;
     }
 
     /**

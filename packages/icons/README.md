@@ -12,7 +12,7 @@ This is the set of SVG icons used in our apps.
 [![peerdependencies][peerdependencies-image] ][peerdependencies-url]
 
 [npm-icon]: https://nodei.co/npm/talend-icons.svg?downloads=true
-[npm-url]: https://npmjs.org/package/talend-icons
+[npm-url]: https://npmjs.org/package/@talend/icons
 [travis-ci-image]: https://travis-ci.org/Talend/icons.svg?branch=master
 [travis-ci-url]: https://travis-ci.org/Talend/icons
 
@@ -32,22 +32,22 @@ This is the set of SVG icons used in our apps.
 To use this icon set you just have to install it through NPM.
 
 ```shell
-npm install talend-icons
+npm install @talend/icons
 ```
 
 Next you can get the icon set object through a simple require:
 
 ```javascript
-var icons = require('talend-icons').default;
+var icons = require('@talend/icons').default;
 icons.svgs['add'];
 <svg ...></svg>
 ```
 
-This icon set is registred within [react-talend-components](https://github.com/Talend/react-talend-components) Icon. So you can use it through this addon.
+This icon set is registred within [@talend/react-components](https://github.com/Talend/ui/tree/master/packages/components) Icon. So you can use it through this addon.
 
 ```javascript
 import React from 'react';
-import { Icon } from 'react-talend-components';
+import { Icon } from '@talend/react-components';
 function MyComponent() {
 	return (<Icon name="talend-add" />);
 }

@@ -10,7 +10,11 @@ const ESC_KEY = 27;
 const ENTER_KEY = 13;
 
 function TitleText({ id, value }) {
-	return (<div id={id} className="tc-list-item-title-text">{value}</div>);
+	return (
+		<div id={id} className="tc-list-item-title-text">
+			{value}
+		</div>
+	);
 }
 
 TitleText.propTypes = {
@@ -20,13 +24,7 @@ TitleText.propTypes = {
 
 function TitleButton({ id, value, onClick }) {
 	return (
-		<Button
-			id={id}
-			title={value}
-			onClick={onClick}
-			role="link"
-			bsStyle="link"
-		>
+		<Button id={id} title={value} onClick={onClick} role="link" bsStyle="link">
 			{value}
 		</Button>
 	);
@@ -39,16 +37,16 @@ TitleButton.propTypes = {
 };
 
 function TitleInput({ id, value, onChange, onSubmit, onCancel }) {
-	const onKeyUp = (event) => {
+	const onKeyUp = event => {
 		switch (event.keyCode) {
-		case ESC_KEY:
-			onCancel(event);
-			break;
-		case ENTER_KEY:
-			onSubmit(event);
-			break;
-		default:
-			break;
+			case ESC_KEY:
+				onCancel(event);
+				break;
+			case ENTER_KEY:
+				onSubmit(event);
+				break;
+			default:
+				break;
 		}
 	};
 	return (
@@ -93,32 +91,24 @@ function ItemTitle(props) {
 	const { display, ...rest } = props;
 	const getTitleElement = () => {
 		switch (display) {
-		case TITLE_MODE_TEXT:
-			return <TitleText {...rest} />;
-		case TITLE_MODE_BUTTON:
-			return <TitleButton {...rest} />;
-		case TITLE_MODE_INPUT:
-			return <TitleInput {...rest} />;
-		default:
-			return null;
+			case TITLE_MODE_TEXT:
+				return <TitleText {...rest} />;
+			case TITLE_MODE_BUTTON:
+				return <TitleButton {...rest} />;
+			case TITLE_MODE_INPUT:
+				return <TitleInput {...rest} />;
+			default:
+				return null;
 		}
 	};
 
-	return (
-		<div className="tc-list-item-title">
-			{getTitleElement()}
-		</div>
-	);
+	return <div className="tc-list-item-title">{getTitleElement()}</div>;
 }
 
 ItemTitle.propTypes = {
 	id: PropTypes.string,
 	value: PropTypes.string.isRequired,
-	display: PropTypes.oneOf([
-		TITLE_MODE_TEXT,
-		TITLE_MODE_BUTTON,
-		TITLE_MODE_INPUT,
-	]),
+	display: PropTypes.oneOf([TITLE_MODE_TEXT, TITLE_MODE_BUTTON, TITLE_MODE_INPUT]),
 	onClick: PropTypes.func,
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func,

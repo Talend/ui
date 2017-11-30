@@ -8,10 +8,7 @@ export function getValue(properties, key) {
 		return undefined;
 	}
 
-	return key.reduce(
-		(accu, nextKey) => accu && accu[nextKey],
-		properties
-	);
+	return key.reduce((accu, nextKey) => accu && accu[nextKey], properties);
 }
 
 /**
@@ -26,7 +23,7 @@ export function omitAll(properties, keys) {
 	const result = {};
 	Object.keys(properties)
 		.filter(nextKey => keys.indexOf(nextKey) === -1)
-		.forEach((nextKey) => {
+		.forEach(nextKey => {
 			result[nextKey] = properties[nextKey];
 		});
 	return result;
@@ -58,13 +55,13 @@ export function convertValue(type, value) {
 
 /**
  * Mutate the properties, setting the value in the path identified by key
- * @param {object} properties The original properties store
+ * @param {object | array} properties The original properties store
  * @param {array} key The key chain (array of strings) to identify the path
  * @param {any} value The value to set
  * @returns {object} The new mutated properties store.
  */
-export function mutateValue(properties, key, value) {
-	if (!key.length) {
+export function mutateValue(properties = {}, key, value) {
+	if (!key || !key.length) {
 		return value;
 	}
 

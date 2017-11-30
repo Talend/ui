@@ -3,7 +3,7 @@ import route from '../src/route';
 import registry from '../src/registry';
 
 describe('CMF route', () => {
-	it('registerComponent', () => {
+	it('registerComponent should be an alias to component.get', () => {
 		function C1() { }
 		const emptyRegistry = {};
 		registry.Registry._registry = emptyRegistry;

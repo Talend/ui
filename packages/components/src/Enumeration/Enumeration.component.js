@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import i18n from 'i18next';
 import { translate } from 'react-i18next';
 
-import defaultTranslateFn from '../translate';
+import {
+	getDefaultTranslate,
+	DEFAULT_I18N,
+} from '../translate';
 import headerPropTypes from './Header/Header.propTypes';
 import ItemEditPropTypes from './Items/Item/ItemEdit.propTypes';
 import Action from '../Actions/Action';
@@ -129,50 +131,48 @@ function HeaderEnumeration({
 		inputValue, inputRef, label, t,
 	}) {
 	switch (displayMode) {
-	case DISPLAY_MODE_SEARCH: {
-		const propsInput = {
-			headerInput,
-			onInputChange,
-			onAddKeyDown,
-			headerError,
-			inputRef,
-			inputPlaceholder: t('ENUMERATION_PLACEHOLDER_SEARCH', { defaultValue: 'Search' }),
-		};
-		return <HeaderInput {...propsInput} />;
-	}
-	case DISPLAY_MODE_ADD : {
-		const propsInput =
-			{
+		case DISPLAY_MODE_SEARCH: {
+			const propsInput = {
 				headerInput,
 				onInputChange,
 				onAddKeyDown,
 				headerError,
 				inputRef,
-				value: inputValue,
-				inputPlaceholder: t('ENUMERATION_NEW_ENTRY', { defaultValue: 'New entry' }),
+				inputPlaceholder: t('ENUMERATION_PLACEHOLDER_SEARCH', { defaultValue: 'Search' }),
 			};
-		return <HeaderInput {...propsInput} />;
-	}
-	case DISPLAY_MODE_DEFAULT: {
-		const propsDefault = {
-			headerDefault,
-			required,
-			label: label || t('ENUMERATION_HEADER_LABEL', { defaultValue: 'Values' }),
-		};
+			return <HeaderInput {...propsInput} />;
+		}
+		case DISPLAY_MODE_ADD : {
+			const propsInput =
+				{
+					headerInput,
+					onInputChange,
+					onAddKeyDown,
+					headerError,
+					inputRef,
+					value: inputValue,
+					inputPlaceholder: t('ENUMERATION_NEW_ENTRY', { defaultValue: 'New entry' }),
+				};
+			return <HeaderInput {...propsInput} />;
+		}
+		case DISPLAY_MODE_DEFAULT: {
+			const propsDefault = {
+				headerDefault,
+				required,
+				label: label || t('ENUMERATION_HEADER_LABEL', { defaultValue: 'Values' }),
+			};
 
-		return <Header {...propsDefault} />;
-	}
-
-	case DISPLAY_MODE_SELECTED: {
-		const propsSelected = {
-			headerSelected,
-			nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
-		};
-		return <HeaderSelected {...propsSelected} />;
-	}
-
-	default:
-		return null;
+			return <Header {...propsDefault} />;
+		}
+		case DISPLAY_MODE_SELECTED: {
+			const propsSelected = {
+				headerSelected,
+				nbItemsSelected: items.filter(item => item.isSelected && item.isSelected === true).length,
+			};
+			return <HeaderSelected {...propsSelected} />;
+		}
+		default:
+			return null;
 	}
 }
 
@@ -193,7 +193,7 @@ HeaderEnumeration.propTypes = {
 };
 
 HeaderEnumeration.defaultProps = {
-	t: defaultTranslateFn,
-}
+	t: getDefaultTranslate,
+};
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.init() })(Enumeration);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Enumeration);

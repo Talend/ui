@@ -1,6 +1,6 @@
 import { configure } from '@storybook/react';
 
-import 'bootstrap-talend-theme/src/theme/theme.scss';
+import '@talend/bootstrap-theme/src/theme/theme.scss';
 
 function loadStories() {
 	require('../stories');

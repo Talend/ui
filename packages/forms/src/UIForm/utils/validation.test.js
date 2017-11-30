@@ -426,5 +426,42 @@ describe('Validation utils', () => {
 				widget: 'datalist',
 			});
 		});
+
+		it('should adapt mergedSchema to avoid enum validation on array', () => {
+			// given
+			const schema = {
+				key: ['gender'],
+				restricted: false,
+				schema: {
+					key: ['genders'],
+					type: 'array',
+					items: {
+						type: 'string',
+						enum: ['M', 'F'],
+					},
+				},
+				type: 'text',
+				widget: 'multiSelectTag',
+			};
+
+			// when
+			const adaptedSchema = adaptAdditionalRules(schema);
+
+			// then
+			expect(adaptedSchema).toEqual({
+				key: ['gender'],
+				restricted: false,
+				schema: {
+					key: ['genders'],
+					type: 'array',
+					items: {
+						type: 'string',
+						enum: undefined,
+					},
+				},
+				type: 'text',
+				widget: 'multiSelectTag',
+			});
+		});
 	});
 });

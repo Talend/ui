@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import i18n from 'i18next';
 import { translate } from 'react-i18next';
+import omit from 'lodash/omit';
 
 import Toolbar from './Toolbar';
 import DisplayPropTypes from './Display/Display.propTypes';
@@ -13,8 +13,9 @@ import Content from './Content';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+import { DEFAULT_I18N } from '../translate';
 
-function ListToolbar({ id, toolbar, displayMode, list, t }) {
+function ListToolbar({ id, toolbar, displayMode, list, t, renderers }) {
 	if (!toolbar) {
 		return null;
 	}
@@ -22,6 +23,7 @@ function ListToolbar({ id, toolbar, displayMode, list, t }) {
 	const toolbarProps = {
 		...toolbar,
 		id,
+		renderers,
 		t,
 	};
 
@@ -37,7 +39,7 @@ function ListToolbar({ id, toolbar, displayMode, list, t }) {
 			onToggleAll: list.itemProps.onToggleAll,
 		};
 	}
-	return (<Toolbar {...toolbarProps} />);
+	return <Toolbar {...toolbarProps} />;
 }
 
 ListToolbar.propTypes = {
@@ -47,19 +49,15 @@ ListToolbar.propTypes = {
 		PropTypes.shape(DisplayPropTypes),
 		PropTypes.shape(Content.propTypes),
 	]),
-	toolbar: PropTypes.shape(Toolbar.propTypes),
+	toolbar: PropTypes.shape(omit(Toolbar.propTypes, 't')),
 	t: PropTypes.func.isRequired,
+	renderers: PropTypes.object,
 };
 
-function DisplayModeComponent({ displayMode, id, list, useContent, virtualized }) {
+function DisplayModeComponent({ displayMode, id, list, rowHeight, useContent, virtualized, t }) {
+	const translatedList = Object.assign({}, list, { t });
 	if (useContent) {
-		return (
-			<Content
-				id={id && `${id}-content`}
-				displayMode={displayMode}
-				{...list}
-			/>
-		);
+		return <Content id={id && `${id}-content`} displayMode={displayMode} {...translatedList} />;
 	}
 	if (virtualized) {
 		return (
@@ -67,17 +65,22 @@ function DisplayModeComponent({ displayMode, id, list, useContent, virtualized }
 				<ListToVirtualizedList
 					id={id}
 					displayMode={displayMode}
-					{...list}
+					rowHeight={rowHeight}
+					{...translatedList}
 				/>
 			</div>
 		);
 	}
 	switch (displayMode) {
-	case 'tile': return <DisplayTile id={id} {...list} />;
-	case 'large': return <DisplayLarge id={id} {...list} />;
-	default: return <DisplayTable id={id} {...list} />;
+		case 'tile':
+			return <DisplayTile id={id} {...translatedList} />;
+		case 'large':
+			return <DisplayLarge id={id} {...translatedList} />;
+		default:
+			return <DisplayTable id={id} {...translatedList} />;
 	}
 }
+
 DisplayModeComponent.propTypes = {
 	displayMode: PropTypes.string,
 	id: PropTypes.string,
@@ -87,9 +90,11 @@ DisplayModeComponent.propTypes = {
 	]),
 	useContent: PropTypes.bool,
 	virtualized: PropTypes.bool,
+	rowHeight: PropTypes.number,
+	t: PropTypes.func,
 };
 
-function ListDisplay({ displayMode, id, list, useContent, virtualized }) {
+function ListDisplay({ displayMode, id, list, useContent, rowHeight, virtualized, t }) {
 	return (
 		<DisplayModeComponent
 			id={id}
@@ -97,11 +102,13 @@ function ListDisplay({ displayMode, id, list, useContent, virtualized }) {
 			displayMode={displayMode}
 			list={list}
 			virtualized={virtualized}
+			rowHeight={rowHeight}
+			t={t}
 		/>
 	);
 }
-ListDisplay.propTypes = DisplayModeComponent.propTypes;
 
+ListDisplay.propTypes = DisplayModeComponent.propTypes;
 
 /**
  * @param {object} props react props
@@ -138,11 +145,18 @@ ListDisplay.propTypes = DisplayModeComponent.propTypes;
 }
  <List {...props}></List>
  */
-function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
-	const classnames = classNames(
-		'tc-list',
-		theme.list,
-	);
+function List({
+	displayMode,
+	id,
+	list,
+	toolbar,
+	useContent,
+	virtualized,
+	t,
+	renderers,
+	rowHeight,
+}) {
+	const classnames = classNames('tc-list', theme.list);
 
 	return (
 		<div className={classnames}>
@@ -152,6 +166,7 @@ function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
 				displayMode={displayMode}
 				list={list}
 				t={t}
+				renderers={renderers}
 			/>
 			<ListDisplay
 				displayMode={displayMode}
@@ -159,14 +174,19 @@ function List({ displayMode, id, list, toolbar, useContent, virtualized, t }) {
 				list={list}
 				useContent={useContent}
 				virtualized={virtualized}
+				renderers={renderers}
+				rowHeight={rowHeight}
+				t={t}
 			/>
 		</div>
 	);
 }
 
 List.propTypes = {
-	...ListToolbar.propTypes,
+	...omit(ListToolbar.propTypes, 't'),
 	...ListDisplay.propTypes,
+	renderers: PropTypes.object,
+	t: PropTypes.func,
 };
 
 List.defaultProps = {
@@ -174,4 +194,4 @@ List.defaultProps = {
 	useContent: false,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: i18n.init() })(List);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(List);

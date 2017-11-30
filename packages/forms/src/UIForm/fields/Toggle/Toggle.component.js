@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Toggle from 'react-talend-components/lib/Toggle';
+import Toggle from '@talend/react-components/lib/Toggle';
 import FieldTemplate from '../FieldTemplate';
 
 function ToggleWidget(props) {

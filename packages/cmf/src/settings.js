@@ -1,44 +1,49 @@
 /**
- * All stuff related to the routing in CMF
- * @module react-cmf/lib/route
+ * Internal. All stuff related to the settings handling in CMF.
+ * @module react-cmf/lib/settings
  */
-
-/* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
-import invariant from 'invariant';
-
+import memoize from 'lodash/memoize';
 /**
- * if an object try to find _ref property and resolve it
+ * if viewId is undefined, try to generate a meaningfull one
+ * else return given viewId
+ * @param {string} viewId
+ * @param {strign} componentName
+ * @param {string} componentId
  */
-export function attachRef(state, obj) {
-	if (obj === null || typeof obj !== 'object' || Array.isArray(obj)) {
-		return obj;
+export function generateDefaultViewId(viewId, componentName, componentId) {
+	if (!viewId) {
+		if (componentName && componentId) {
+			return `${componentName}#${componentId}`;
+		} else if (componentName) {
+			return componentName;
+		}
 	}
-	let props = Object.assign({}, obj);
-	if (props._ref) {
-		const ref = state.cmf.settings.ref[props._ref];
-		invariant(ref, `CMF/Settings: Reference '${props._ref}' not found`);
-		props = Object.assign(
-			{},
-			state.cmf.settings.ref[props._ref],
-			obj
-		);
-		delete props._ref;
-	}
-	return props;
+	return viewId;
 }
 
-export function attachRefs(state, props) {
-	const attachedProps = attachRef(state, props);
-	Object.keys(attachedProps).forEach(
-		(key) => {
-			attachedProps[key] = attachRef(state, attachedProps[key]);
-		}
-	);
-	return attachedProps;
+/**
+ * try to retrieve view settings for a cmfconnected component
+ * @param {Object} state the application state
+ * @param {*} ownProps props given to the cmfConnected component
+ * @param {*} componentName name of the cmfConnect component
+ * @param {*} componentId componentId, can be undefined
+ */
+export function nonMemoized(state, ownProps, componentName, componentId) {
+	let viewProps;
+	let viewId = ownProps.view;
+
+	viewId = generateDefaultViewId(viewId, componentName, componentId);
+
+	if (viewId && state.cmf.settings.views[viewId]) {
+		viewProps = state.cmf.settings.views[viewId] || {};
+	}
+	return viewProps;
 }
 
 /**
  * return props for a given view with reference and override support
+ * this function is memoized and the map key is computed using
+ * `${ownProps.view}-${componentName}-${componentId}`
  *
  * @example
 
@@ -77,20 +82,12 @@ export function attachRefs(state, props) {
  * @param  {Object} ownProps   the props passed to the component. may have a view attribute
  * @return {Object}           React props for the component injected from the settings
  */
-export function mapStateToViewProps(state, ownProps) {
-	let viewProps = {};
-	if (ownProps.view) {
-		viewProps = Object.assign(
-			{},
-			state.cmf.settings.views[ownProps.view],
-		);
-		viewProps = attachRefs(state, viewProps);
-	}
-	return viewProps;
-}
+export const mapStateToViewProps = memoize(
+	nonMemoized,
+	(state, ownProps, componentName, componentId) =>
+		`${ownProps.view}-${componentName}-${componentId}`,
+);
 
 export default {
-	attachRef,
-	attachRefs,
 	mapStateToViewProps,
 };

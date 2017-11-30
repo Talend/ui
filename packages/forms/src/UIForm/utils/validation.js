@@ -9,14 +9,27 @@ import { getValue, omitAll } from '../utils/properties';
 export function adaptAdditionalRules(mergedSchema) {
 	// skip enum validation if explicitly not restricted
 	const { schema } = mergedSchema;
-	if (mergedSchema.restricted === false && schema.enum) {
-		return {
-			...mergedSchema,
-			schema: {
-				...schema,
-				enum: undefined,
-			},
-		};
+	if (mergedSchema.restricted === false) {
+		if (schema.type === 'array' && (schema.items && schema.items.enum)) {
+			return {
+				...mergedSchema,
+				schema: {
+					...schema,
+					items: {
+						...schema.items,
+						enum: undefined,
+					},
+				},
+			};
+		} else if (schema.enum) {
+			return {
+				...mergedSchema,
+				schema: {
+					...schema,
+					enum: undefined,
+				},
+			};
+		}
 	}
 
 	return mergedSchema;
@@ -71,7 +84,7 @@ export function validateArray(mergedSchema, value, properties, customValidationF
 	if (deepValidation && value) {
 		for (let valueIndex = 0; valueIndex < value.length; valueIndex += 1) {
 			// adapt items schema with value index
-			const indexedItems = items.map((item) => {
+			const indexedItems = items.map(item => {
 				const indexedKey = [...item.key];
 				indexedKey[key.length] = valueIndex;
 				return {
@@ -103,7 +116,7 @@ export function validateSimple(
 	value,
 	properties,
 	customValidationFn,
-	deepValidation
+	deepValidation,
 ) {
 	const results = {};
 	const { key, items } = mergedSchema;
@@ -136,7 +149,7 @@ export function validateSingle(
 	value,
 	properties,
 	customValidationFn,
-	deepValidation
+	deepValidation,
 ) {
 	if (mergedSchema.type === 'array') {
 		return validateArray(mergedSchema, value, properties, customValidationFn, deepValidation);
@@ -155,7 +168,7 @@ export function validateSingle(
  */
 export function validateAll(mergedSchema, properties, customValidationFn) {
 	const results = {};
-	mergedSchema.forEach((schema) => {
+	mergedSchema.forEach(schema => {
 		const { key } = schema;
 		const value = key && getValue(properties, key);
 		const subResults = validateSingle(
@@ -163,7 +176,7 @@ export function validateAll(mergedSchema, properties, customValidationFn) {
 			value,
 			properties,
 			customValidationFn,
-			true // deep validation
+			true, // deep validation
 		);
 		Object.assign(results, subResults);
 	});
@@ -208,11 +221,12 @@ export function filterArrayErrorsKeys(errors, arrayKey, minIndex, maxIndex) {
 	const minArrayIndexKey = Number.isInteger(minIndex) && arrayKey.concat(minIndex).toString();
 	const maxArrayIndexKey = Number.isInteger(maxIndex) && arrayKey.concat(maxIndex).toString();
 
-	return Object.keys(errors)
-		.filter(errorKey => errorKey.startsWith(arrayKey) && // is on target array
-				(!minArrayIndexKey || errorKey >= minArrayIndexKey) && // is after min
-				(!maxArrayIndexKey || errorKey < maxArrayIndexKey) // is before max
-		);
+	return Object.keys(errors).filter(
+		errorKey =>
+			errorKey.startsWith(arrayKey) && // is on target array
+			(!minArrayIndexKey || errorKey >= minArrayIndexKey) && // is after min
+			(!maxArrayIndexKey || errorKey < maxArrayIndexKey), // is before max
+	);
 }
 
 /**
@@ -228,7 +242,7 @@ export function filterArrayErrorsKeys(errors, arrayKey, minIndex, maxIndex) {
  */
 export function shiftArrayErrorsKeys(
 	oldErrors,
-	{ arrayKey, minIndex, maxIndex, shouldRemoveIndex, getNextIndex }
+	{ arrayKey, minIndex, maxIndex, shouldRemoveIndex, getNextIndex },
 ) {
 	// extract the errors included between the range
 	const arrayErrorsToShiftOrRemove = filterArrayErrorsKeys(oldErrors, arrayKey, minIndex, maxIndex);
@@ -240,7 +254,7 @@ export function shiftArrayErrorsKeys(
 	arrayErrorsToShiftOrRemove
 		.map(errorKey => errorKey.split(','))
 		// filter the index we want to remove (shouldRemoveIndex)
-		.filter((errorKey) => {
+		.filter(errorKey => {
 			if (!shouldRemoveIndex) {
 				return true;
 			}
@@ -248,7 +262,7 @@ export function shiftArrayErrorsKeys(
 			return !shouldRemoveIndex(itemIndex);
 		})
 		// shift the item index (getNextIndex)
-		.map((oldErrorKey) => {
+		.map(oldErrorKey => {
 			const oldIndex = Number(oldErrorKey[indexPositionInKey]);
 			const newErrorKey = oldErrorKey.slice(0);
 			newErrorKey[indexPositionInKey] = getNextIndex(oldIndex);

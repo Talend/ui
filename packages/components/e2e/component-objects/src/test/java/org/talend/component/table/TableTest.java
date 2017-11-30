@@ -9,11 +9,7 @@ import org.talend.component.list.table.Item;
 import org.talend.component.list.table.Table;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalToIgnoringCase;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.startsWith;
+import static org.hamcrest.Matchers.*;
 
 public class TableTest extends StorybookTest {
 
@@ -21,7 +17,7 @@ public class TableTest extends StorybookTest {
 
     @Before
     public void init() {
-        goToStory("Open List", "Open Virtualized - table display");
+        goToStory("List", "Virtualized - table display");
     }
 
     @Test
@@ -50,7 +46,7 @@ public class TableTest extends StorybookTest {
     @Test
     public void should_get_all_items() {
         // when
-        final java.util.List<Item> items = tableObject.getItems();
+        final java.util.List<Item> items = tableObject.getDisplayedItems();
 
         // then
         assertThat(items, hasSize(4));
@@ -128,6 +124,19 @@ public class TableTest extends StorybookTest {
     }
 
     @Test
+    public void should_scroll_and_click_on_item_title() {
+        // given
+        goToStory("Virtualized List", "List > Table");
+        assertThat(getActionLog(), not(startsWith("▶onTitleClick:")));
+
+        // when
+        tableObject.getItem("Title with icon and actions 25").clickOnTitle();
+
+        // then
+        assertThat(getActionLog(), startsWith("▶onTitleClick:"));
+    }
+
+    @Test
     public void should_mouseover_and_click_on_item_action() {
         // given
         final Item item = tableObject.getItem("Title with actions");
@@ -140,6 +149,19 @@ public class TableTest extends StorybookTest {
         // then
         // should not throw because of non button visibility
         assertThat(item.getAction("edit").isDisplayed(), is(true));
+        assertThat(getActionLog(), startsWith("▶onEdit:"));
+    }
+
+    @Test
+    public void should_scroll_and_click_on_item_action() {
+        // given
+        goToStory("Virtualized List", "List > Table");
+        assertThat(getActionLog(), not(startsWith("▶onEdit:")));
+
+        // when
+        tableObject.getItem("Title with icon and actions 25").clickOnAction("edit");
+
+        // then
         assertThat(getActionLog(), startsWith("▶onEdit:"));
     }
 }

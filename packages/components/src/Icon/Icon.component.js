@@ -36,32 +36,40 @@ export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
  * @example
 <Icon name="fa-bars"></Icon>
  */
-function Icon({ className, name, title, transform }) {
+function Icon({ className, name, title, transform, onClick }) {
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
 		title: title || null,
 	};
 	if (name.startsWith('fa-')) {
-		const classes = classnames(
-			'fa',
-			name,
-			className,
-			transform && FA_TRANSFORMS[transform],
-		);
-		return (<i className={classes} {...accessibility} />);
+		const classes = classnames('fa', name, className, transform && FA_TRANSFORMS[transform]);
+		return <i className={classes} {...accessibility} />;
 	}
 	if (name.startsWith('fa fa-') || name.startsWith('icon-')) {
-		const classes = classnames(
-			name,
+		const classes = classnames(name, className, transform && FA_TRANSFORMS[transform]);
+		return <i className={classes} {...accessibility} />;
+	}
+	if (onClick && name) {
+		const classname = classnames(
+			theme['tc-svg-icon'],
+			'tc-svg-icon',
 			className,
-			transform && FA_TRANSFORMS[transform],
+			SVG_TRANSFORMS[transform],
 		);
-		return (<i className={classes} {...accessibility} />);
+		return (
+			// eslint doesn't recognizes the xlinkHref mention
+			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+			<a xlinkHref="#" onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
+				<svg className={classname} {...accessibility}>
+					<use xlinkHref={`#${name}`} />
+				</svg>
+			</a>
+		);
 	}
 	if (name) {
 		const classname = classnames(
-			theme['svg-icon'],
+			theme['tc-svg-icon'],
 			'tc-svg-icon',
 			className,
 			SVG_TRANSFORMS[transform],
@@ -80,6 +88,7 @@ Icon.propTypes = {
 	name: PropTypes.string.isRequired,
 	title: PropTypes.string,
 	transform: PropTypes.oneOf(TRANSFORMS),
+	onClick: PropTypes.func,
 };
 
 export default Icon;

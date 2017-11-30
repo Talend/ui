@@ -42,24 +42,24 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 	function changePageTo(type) {
 		let from;
 		switch (type) {
-		case FIRST: {
-			from = 1;
-			break;
-		}
-		case PREV: {
-			from = startIndex - itemsPerPage;
-			break;
-		}
-		case NEXT: {
-			from = startIndex + itemsPerPage;
-			break;
-		}
-		case LAST: {
-			from = ((pagesLength - 1) * itemsPerPage) + 1;
-			break;
-		}
-		default:
-			return;
+			case FIRST: {
+				from = 1;
+				break;
+			}
+			case PREV: {
+				from = startIndex - itemsPerPage;
+				break;
+			}
+			case NEXT: {
+				from = startIndex + itemsPerPage;
+				break;
+			}
+			case LAST: {
+				from = ((pagesLength - 1) * itemsPerPage) + 1;
+				break;
+			}
+			default:
+				return;
 		}
 		onChange(from, itemsPerPage);
 	}

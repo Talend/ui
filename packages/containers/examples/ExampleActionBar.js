@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider } from 'react-talend-components';
+import { IconsProvider } from '@talend/react-components';
 import { action } from '@storybook/react';
 import { ActionBar } from '../src';
 
@@ -42,14 +42,25 @@ export default function ExampleActions() {
 		<div>
 			<IconsProvider />
 			<p>using action ids</p>
-			<ActionBar actionIds={{ left: ['menu:first', 'menu:second', 'menu:third'] }} />
+			<ActionBar actionIds={{ left: ['menu:first', 'menu:second', 'menu:third', 'menu:fourth'] }} />
 			<p>using btn groups</p>
 			<ActionBar
 				actionIds={{
 					left: [
 						{
 							displayMode: 'btnGroup',
-							actions: ['menu:first', 'menu:second', 'menu:third'],
+							actionIds: ['menu:first', 'menu:second', 'menu:third'],
+						},
+					],
+				}}
+			/>
+			<p>using dropdown</p>
+			<ActionBar
+				actionIds={{
+					left: [
+						{
+							displayMode: 'dropdown',
+							actionId: 'menu:items',
 						},
 					],
 				}}
@@ -60,8 +71,7 @@ export default function ExampleActions() {
 					left: [
 						{
 							displayMode: 'splitDropdown',
-							name: 'menu:first',
-							items: ['menu:second', 'menu:third'],
+							actionId: 'menu:items',
 						},
 					],
 				}}

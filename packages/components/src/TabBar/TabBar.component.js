@@ -6,17 +6,12 @@ import Action from '../Actions/Action';
 import theme from './TabBar.scss';
 
 function Tab({ item, onClick, isSelected }) {
-	const onSelect = (event) => {
+	const onSelect = event => {
 		onClick(event, item);
 	};
 	return (
-		<li className={classNames(['tc-tab-bar-action', isSelected && 'active'])} >
-			<Action
-				bsStyle="link"
-				id={item.id}
-				label={item.label}
-				onClick={onSelect}
-			/>
+		<li className={classNames(['tc-tab-bar-action', isSelected && 'active'])}>
+			<Action bsStyle="link" id={item.id} label={item.label} onClick={onSelect} />
 		</li>
 	);
 }
@@ -31,9 +26,9 @@ Tab.propTypes = {
 	onClick: PropTypes.func.isRequired,
 };
 
-function TabBar({ items, onSelect, selected }) {
+function TabBar({ items, onSelect, selected, className }) {
 	return (
-		<nav className={classNames(['nav', 'tc-tab-bar', theme['tc-tab-bar']])}>
+		<nav className={classNames(['nav', 'tc-tab-bar', className, theme['tc-tab-bar']])}>
 			<ul className="nav nav-tabs tc-tab-bar-actions">
 				{items.map(item => (
 					<Tab key={item.key} onClick={onSelect} isSelected={selected === item.key} item={item} />
@@ -44,13 +39,16 @@ function TabBar({ items, onSelect, selected }) {
 }
 
 TabBar.propTypes = {
-	items: PropTypes.arrayOf(PropTypes.shape({
-		id: PropTypes.string,
-		key: PropTypes.string.isRequired,
-		label: PropTypes.string.isRequired,
-	})).isRequired,
+	items: PropTypes.arrayOf(
+		PropTypes.shape({
+			id: PropTypes.string,
+			key: PropTypes.string.isRequired,
+			label: PropTypes.string.isRequired,
+		}),
+	).isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selected: PropTypes.string,
+	className: PropTypes.string,
 };
 
 TabBar.Tab = Tab;

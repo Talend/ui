@@ -67,6 +67,11 @@ exports[`RowLarge should render large row 1`] = `
           }
           hideLabel={true}
           link={true}
+          renderers={
+            Object {
+              "Action": [Function],
+            }
+          }
         />
       </div>
     </div>

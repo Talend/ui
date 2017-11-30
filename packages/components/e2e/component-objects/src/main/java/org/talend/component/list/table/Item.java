@@ -1,11 +1,16 @@
 package org.talend.component.list.table;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.talend.component.Component;
+
+import java.util.List;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Table - Item.
@@ -18,13 +23,11 @@ public class Item extends Component {
 
     private static final String TABLE_ITEM_TITLE_SELECTOR = TABLE_ITEM_TITLE_CONTAINER_SELECTOR + " > button";
 
-    private static final String TABLE_ITEM_ACTIONS_SELECTOR = TABLE_ITEM_TITLE_CONTAINER_SELECTOR + " > .tc-actions button";
-
-    private static final String TABLE_ITEM_ACTION_SELECTOR = TABLE_ITEM_ACTIONS_SELECTOR + "[id*=\"%s\"]";
-
     private static final String TABLE_ITEM_SELECT_CHECKBOX_SELECTOR = ".tc-list-internal-row-selector input[type=checkbox]";
 
     private static final String TABLE_ITEM_CELL_SELECTOR = ".tc-list-cell-%s";
+
+    private final WebDriverWait wait;
 
     /**
      * Constructor.
@@ -34,6 +37,7 @@ public class Item extends Component {
      */
     public Item(final WebDriver driver, final WebElement root) {
         super(driver, NAME, root);
+        this.wait = new WebDriverWait(driver, 1);
     }
 
     /**
@@ -42,7 +46,21 @@ public class Item extends Component {
      * @return The title button WebElement
      */
     public WebElement getTitle() {
-        return this.getElement().findElement(By.cssSelector(TABLE_ITEM_TITLE_SELECTOR));
+        final List<WebElement> titleButtons = this.getElement().findElements(By.cssSelector(TABLE_ITEM_TITLE_SELECTOR));
+        if (titleButtons.size() == 1) {
+            return titleButtons.get(0);
+        }
+        return null;
+    }
+
+    /**
+     * Extract current row id and build a specific action selector
+     * @param actionId
+     * @return
+     */
+    private By getActionSelector(final String actionId) {
+        final String cellID = this.getElement().findElement(By.cssSelector(TABLE_ITEM_TITLE_CONTAINER_SELECTOR)).getAttribute("id");
+        return By.cssSelector(String.format("#%s #%s", cellID, actionId));
     }
 
     /**
@@ -52,7 +70,7 @@ public class Item extends Component {
      * @return The action WebElement
      */
     public WebElement getAction(final String actionId) {
-        return this.getElement().findElement(By.cssSelector(String.format(TABLE_ITEM_ACTION_SELECTOR, actionId)));
+        return this.driver.findElement(getActionSelector(actionId));
     }
 
     /**
@@ -79,7 +97,15 @@ public class Item extends Component {
      * Click on item title.
      */
     public void clickOnTitle() {
-        getTitle().click();
+        final WebElement title = getTitle();
+        if (title == null) {
+            throw new NotFoundException("Item title element not found. Not able to click on it.");
+        }
+
+        // this is js execution because in some cases react-virtualized freeze a very (very) short time after scroll.
+        // this is a problem only for automated tests that click fast. So the click is programmatic.
+        // for common human, this is not noticeable.
+        jsExec.executeScript("arguments[0].scrollIntoView(); arguments[0].click();", title);
     }
 
     /**
@@ -89,9 +115,14 @@ public class Item extends Component {
      * @param actionId The item action id
      */
     public void clickOnAction(final String actionId) {
-        final WebElement actionButton = this.getAction(actionId);
-        final Actions action = new Actions(driver);
-        action.moveToElement(actionButton).perform();
-        actionButton.click();
+        new Actions(driver)
+                .moveToElement(this.getElement())
+                .moveToElement(this.getAction(actionId))
+                .build()
+                .perform();
+
+        wait
+                .until(elementToBeClickable(getActionSelector(actionId)))
+                .click();
     }
 }

@@ -1,23 +1,23 @@
 import {
-	addComponentState,
-	mergeComponentState,
-	removeComponentState,
+	addState,
+	mergeState,
+	removeState,
 } from '../../src/actions/componentsActions';
 
 describe('test component state management action creators', () => {
-	it('addComponentState dispatch well formed action object', () => {
-		expect(addComponentState(
+	it('addState dispatch well formed action object', () => {
+		expect(addState(
 			'componentName', 'key', { searchQuery: '' }
 		)).toMatchSnapshot();
 	});
 
-	it('mergeComponentState dispatch well formed acton object', () => {
-		expect(mergeComponentState(
+	it('mergeState dispatch well formed acton object', () => {
+		expect(mergeState(
 				'componentName', 'key', { searchQuery: 'JSON' }
 		)).toMatchSnapshot();
 	});
 
-	it('removeComponentState dispatch well formed acton object', () => {
-		expect(removeComponentState('componentName', 'key')).toMatchSnapshot();
+	it('removeState dispatch well formed acton object', () => {
+		expect(removeState('componentName', 'key')).toMatchSnapshot();
 	});
 });

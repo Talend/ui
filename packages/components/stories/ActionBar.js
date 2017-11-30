@@ -1,5 +1,5 @@
 import React from 'react';
-import talendIcons from 'talend-icons/dist/react';
+import talendIcons from '@talend/icons/dist/react';
 import { storiesOf, action } from '@storybook/react';
 
 import { Action, Icon, ActionBar, IconsProvider } from '../src/index';
@@ -56,8 +56,9 @@ const actions = {
 	right: [
 		{
 			label: 'Secondary4',
-			icon: 'talend-cog',
-			onClick: action('You clicked me'),
+			icon: 'talend-upload',
+			displayMode: 'file',
+			onChange: action('You changed me'),
 		},
 		{
 			label: 'Secondary5',
@@ -187,6 +188,7 @@ const icons = {
 	'talend-star': talendIcons['talend-star'],
 	'talend-table': talendIcons['talend-table'],
 	'talend-trash': talendIcons['talend-trash'],
+	'talend-upload': talendIcons['talend-upload'],
 };
 
 storiesOf('ActionBar', module)

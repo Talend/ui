@@ -1,4 +1,4 @@
-# Buttons
+# Array
 
 This widget allows you to create arrays of simple fields/widgets or objects
 
@@ -64,10 +64,11 @@ Array of objects { name, email, comment }
 
 **UI Schema**
 
-| Property | Description |
-|---|---|
-| itemWidget | An optional widget to render each item. Default: `fieldset` |
-| items | An array of field/fieldset definitions that is included in each array object |
+| Property | Description | Default |
+|---|---|---|
+| reorder | An optional flag to enable/disable reorder. | `true` |
+| itemWidget | An optional widget to render each item. | `fieldset` |
+| items | An array of field/fieldset definitions that is included in each array object |  |
 
 Array of simple strings
 

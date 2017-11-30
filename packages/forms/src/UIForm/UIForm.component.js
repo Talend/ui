@@ -197,6 +197,7 @@ export default class UIForm extends React.Component {
 				acceptCharset={this.props.acceptCharset}
 				action={this.props.action}
 				autoComplete={this.props.autoComplete}
+				className={this.props.className}
 				encType={this.props.encType}
 				id={this.props.id}
 				method={this.props.method}

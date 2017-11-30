@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 
-import talendIcons from 'talend-icons/dist/react';
-import { Layout, Drawer, IconsProvider, SidePanel, Nav, NavItem, Tab, AppHeaderBar } from '../src/index';
+import talendIcons from '@talend/icons/dist/react';
+import { Layout, Drawer, IconsProvider, SidePanel, Nav, NavItem, Tab, AppHeaderBar, ActionBar } from '../src/index';
 
 const header = <AppHeaderBar app="Example App Name" />;
 
@@ -13,6 +13,7 @@ const icons = {
 	'talend-plus-circle': talendIcons['talend-plus-circle'],
 	'talend-star': talendIcons['talend-star'],
 	'talend-cross': talendIcons['talend-cross'],
+	'talend-opener': talendIcons['talend-opener'],
 };
 
 const actions = [
@@ -33,8 +34,8 @@ const actions = [
 	},
 ];
 
-const connect = {
-	label: 'Connect',
+const cancel = {
+	label: 'Cancel',
 	onClick: action('You clicked me'),
 };
 
@@ -50,9 +51,10 @@ const onCancelAction = {
 };
 
 const panelActions = {
-	left: [],
+	left: [
+		cancel,
+	],
 	right: [
-		connect,
 		primary,
 	],
 };
@@ -269,6 +271,38 @@ storiesOf('Drawer', module)
 				</Tab.Container>
 			</Drawer.Container>
 		)];
+		return (
+			<Layout
+				header={header}
+				mode="TwoColumns"
+				one={sidePanel}
+				drawers={customDrawers}
+			>
+				<span>zone with drawer</span>
+				<IconsProvider defaultIcons={icons} />
+			</Layout>
+		);
+	})
+	.addWithInfo('Custom stacked', () => {
+		const customDrawers = [(
+			<Drawer.Container stacked>
+				<Tab.Container
+					defaultActiveKey="info"
+				>
+					<div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+						<Drawer.Title title="Custom drawer with tabs and a super long name that breaks the drawer title" onCancelAction={onCancelAction} />
+						<Tab.Content>
+							<Drawer.Content>
+								<p>content</p>
+							</Drawer.Content>
+							<Drawer.Footer>
+								<ActionBar actions={panelActions} />
+							</Drawer.Footer>
+						</Tab.Content>
+					</div>
+				</Tab.Container>
+			</Drawer.Container>
+	)];
 		return (
 			<Layout
 				header={header}

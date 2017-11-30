@@ -1,30 +1,23 @@
 # Content Management Framework (aka CMF)
 
-This is a library to help you to build configurable React App.
+This is a framework to help you to build configurable React App.
 
-It provides a set of base components and patterns.
-
-[![NPM][npm-icon] ][npm-url]
+It provides a set of base APIs and patterns.
 
 [![Travis CI][travis-ci-image] ][travis-ci-url]
-[![Quality][quality-badge] ][quality-url]
+[![NPM][npm-icon] ][npm-url]
 [![dependencies][dependencies-image] ][dependencies-url]
 [![devdependencies][devdependencies-image] ][devdependencies-url]
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1e353b0f69c4cf99a4cb3f68b70ea7d)](https://www.codacy.com/app/Talend/react-cmf)
 
-[npm-icon]: https://nodei.co/npm/react-cmf.png?downloads=true
-[npm-url]: https://npmjs.org/package/react-cmf
-[travis-ci-image]: https://travis-ci.org/Talend/react-cmf.svg?branch=master
-[travis-ci-url]: https://travis-ci.org/Talend/react-cmf
+[npm-icon]: https://img.shields.io/npm/v/@talend/react-cmf.svg
+[npm-url]: https://npmjs.org/package/@talend/react-cmf
+[travis-ci-image]: https://travis-ci.org/Talend/ui.svg?branch=master
+[travis-ci-url]: https://travis-ci.org/Talend/ui
 
-[dependencies-image]: https://david-dm.org/Talend/react-cmf/status.svg
-[dependencies-url]: https://david-dm.org/Talend/react-cmf
-[devdependencies-image]: https://david-dm.org/Talend/react-cmf/dev-status.svg
-[devdependencies-url]: https://david-dm.org/Talend/react-cmf#info=devDependencies
-
-[quality-badge]: http://npm.packagequality.com/shield/react-cmf.svg
-[quality-url]: http://packagequality.com/#?package=react-cmf
-
+[dependencies-image]: https://david-dm.org/Talend/ui/status.svg?path=packages/cmf
+[dependencies-url]: https://david-dm.org/Talend/ui?path=packages/cmf
+[devdependencies-image]: https://david-dm.org/Talend/ui/dev-status.svg?path=packages/cmf
+[devdependencies-url]: https://david-dm.org/Talend/ui?path=packages/cmf&type=dev
 
 ## Breaking changes log
 
@@ -129,7 +122,7 @@ Existing commands:
 
 * cmf.routerReplace (string or function)
 * cmf.routerPush (string or function)
-* response + cmf.collectionId -> addOrReplaceCollection
+* response + cmf.collectionId -> addOrReplace
 
 ### HTTP
 
@@ -138,7 +131,7 @@ CMF init a middleware which is able to handle http requests for you.
 It attach the response to the action object.
 
 ```javascript
-import { actions } from 'react-cmf';
+import { actions } from '@talend/react-cmf';
 
 const url = '/foo/bar';
 
@@ -183,7 +176,7 @@ We use them to handle dynamic configuration like disable buttons if a user doesn
 Given an existing `MyComponent` you may want to add disabled props expression support just by doing the following:
 
 ```javascript
-import { api } from 'react-cmf';
+import { api } from '@talend/react-cmf';
 import MyComponent from './MyComponent';
 
 const MySuperComponent = api.expressions.withExpression(MyComponent, ['disabled']);
@@ -201,7 +194,7 @@ We want testing experience to be easy so CMF provides some mocks for you.
 ```javascript
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Provider, store as mock } from 'react-cmf/lib/mock';
+import { Provider, store as mock } from '@talend/react-cmf/lib/mock';
 
 import MyComponent from './My.component';
 
@@ -235,9 +228,7 @@ you may change the following using simple props:
 For 1.0
 
 - [x] embedable apps
-- [ ] higher order configuration (RegistryProvider)
 - [ ] react-router v4
 - [ ] i18n
 - [x] generator
-- [ ] content types
-- [ ] actionCreator should become first class
+- [x] actionCreator should become first class

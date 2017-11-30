@@ -1,3 +1,3 @@
-import RowSelectionRenderer from './RowSelection.component';
+import getRowSelectionRenderer from './RowSelection.component';
 
-export default RowSelectionRenderer;
+export default getRowSelectionRenderer;

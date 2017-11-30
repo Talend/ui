@@ -1,6 +1,6 @@
 import React from 'react';
-import { IconsProvider, Drawer } from 'react-talend-components';
-import talendIcons from 'talend-icons/dist/react';
+import { IconsProvider, Drawer } from '@talend/react-components';
+import talendIcons from '@talend/icons/dist/react';
 import { action } from '@storybook/react';
 import Immutable from 'immutable';
 
@@ -86,6 +86,8 @@ const icons = {
 	'talend-table': talendIcons['talend-table'],
 	'talend-tiles': talendIcons['talend-tiles'],
 	'talend-trash': talendIcons['talend-trash'],
+	'talend-opener': talendIcons['talend-opener'],
+	'talend-upload': talendIcons['talend-upload'],
 };
 
 const header = {
@@ -111,7 +113,7 @@ const list = {
 
 const actions = {
 	title: 'object:view',
-	left: ['object:add'],
+	left: ['object:add', 'object:upload'],
 	items: ['object:delete'],
 };
 

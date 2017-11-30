@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import keycode from 'keycode';
-import Typeahead from 'react-talend-components/lib/Typeahead';
+import Typeahead from '@talend/react-components/lib/Typeahead';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './Datalist.scss';
@@ -73,39 +73,39 @@ class Datalist extends Component {
 	 */
 	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
 		switch (event.which) {
-		case keycode.codes.esc:
-			event.preventDefault();
-			this.resetValue();
-			break;
-		case keycode.codes.enter:
-			if (!this.state.suggestions) {
+			case keycode.codes.esc:
+				event.preventDefault();
+				this.resetValue();
 				break;
-			}
-			event.preventDefault();
-			if (Number.isInteger(focusedItemIndex)) {
-				// suggestions are displayed and an item has the focus : we select it
-				this.onSelect(event, { itemIndex: focusedItemIndex });
-			} else if (this.state.value !== this.state.previousValue) {
-				// there is no focused item and the current value is not persisted
-				// we persist it
-				this.updateValue(event, this.state.value, true);
-			}
-			this.resetSuggestions();
-			break;
-		case keycode.codes.down:
-			event.preventDefault();
-			if (!this.state.suggestions) {
-				// display all suggestions when they are not displayed
-				this.updateSuggestions();
-			}
-			this.setState({ focusedItemIndex: newFocusedItemIndex });
-			break;
-		case keycode.codes.up:
-			event.preventDefault();
-			this.setState({ focusedItemIndex: newFocusedItemIndex });
-			break;
-		default:
-			break;
+			case keycode.codes.enter:
+				if (!this.state.suggestions) {
+					break;
+				}
+				event.preventDefault();
+				if (Number.isInteger(focusedItemIndex)) {
+					// suggestions are displayed and an item has the focus : we select it
+					this.onSelect(event, { itemIndex: focusedItemIndex });
+				} else if (this.state.value !== this.state.previousValue) {
+					// there is no focused item and the current value is not persisted
+					// we persist it
+					this.updateValue(event, this.state.value, true);
+				}
+				this.resetSuggestions();
+				break;
+			case keycode.codes.down:
+				event.preventDefault();
+				if (!this.state.suggestions) {
+					// display all suggestions when they are not displayed
+					this.updateSuggestions();
+				}
+				this.setState({ focusedItemIndex: newFocusedItemIndex });
+				break;
+			case keycode.codes.up:
+				event.preventDefault();
+				this.setState({ focusedItemIndex: newFocusedItemIndex });
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -154,6 +154,10 @@ class Datalist extends Component {
 	 * @param value The value to base suggestions on
 	 */
 	updateSuggestions(value) {
+		if (this.props.schema.readOnly || this.props.schema.disabled) {
+			return;
+		}
+
 		let suggestions = this.props.schema.titleMap.map(item => item.value);
 		if (value) {
 			const escapedValue = escapeRegexCharacters(value.trim());
@@ -187,6 +191,7 @@ class Datalist extends Component {
 					<Typeahead
 						id={this.props.id}
 						autoFocus={this.props.schema.autoFocus || false}
+						disabled={this.props.schema.disabled || false}
 						focusedItemIndex={this.state.focusedItemIndex}
 						items={this.state.suggestions}
 						multiSection={false}
@@ -195,6 +200,8 @@ class Datalist extends Component {
 						onFocus={this.onFocus}
 						onKeyDown={this.onKeyDown}
 						onSelect={this.onSelect}
+						placeholder={this.props.schema.placeholder}
+						readOnly={this.props.schema.readOnly || false}
 						theme={this.theme}
 						value={this.state.value}
 					/>
@@ -231,7 +238,6 @@ if (process.env.NODE_ENV !== 'production') {
 				name: PropTypes.string.isRequired,
 				value: PropTypes.string.isRequired,
 			})),
-			type: PropTypes.string,
 		}),
 		value: PropTypes.string,
 	};

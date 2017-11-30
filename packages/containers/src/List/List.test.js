@@ -1,11 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Map, fromJS } from 'immutable';
+import cloneDeep from 'lodash/cloneDeep';
 
 import Container, { DEFAULT_STATE } from './List.container';
-import Connected, {
-	mapStateToProps,
-} from './List.connect';
+import Connected, { mapStateToProps } from './List.connect';
 
 const list = {
 	columns: [
@@ -25,10 +24,7 @@ const toolbar = {
 		placeholder: 'find an object',
 	},
 	sort: {
-		options: [
-			{ id: 'id', name: 'Id' },
-			{ id: 'name', name: 'Name' },
-		],
+		options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 		field: 'id',
 		isDescending: false,
 	},
@@ -51,7 +47,6 @@ const settings = {
 	toolbar,
 	actions,
 };
-
 
 const items = [
 	{
@@ -85,16 +80,16 @@ const items = [
 
 describe('Container List', () => {
 	it('should put default props', () => {
-		const wrapper = shallow(
-			<Container {...settings} items={items} />
-		, { lifecycleExperimental: true });
+		const wrapper = shallow(<Container {...cloneDeep(settings)} items={items} />, {
+			lifecycleExperimental: true,
+		});
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('table');
 		expect(props.list.items.length).toBe(3);
 		expect(props.list.items[0].id).toBe(1);
 		expect(props.list.items[1].id).toBe(2);
 		expect(props.list.items[2].id).toBe(3);
-		expect(props.list.columns).toBe(list.columns);
+		expect(props.list.columns).toEqual(list.columns);
 		expect(props.list.titleProps.key).toBe('label');
 		expect(typeof props.list.titleProps.onClick).toBe('function');
 		expect(props.toolbar.filter.placeholder).toBe('find an object');
@@ -106,17 +101,15 @@ describe('Container List', () => {
 	});
 
 	it('should render without toolbar', () => {
-		const wrapper = shallow(
-			<Container items={items} />
-		, { lifecycleExperimental: true });
+		const wrapper = shallow(<Container items={items} />, { lifecycleExperimental: true });
 		const props = wrapper.props();
 		expect(props.toolbar).toBe(undefined);
 	});
 
 	it('should support displayMode as props', () => {
-		const wrapper = shallow(
-			<Container displayMode="large" items={items} />
-		, { lifecycleExperimental: true });
+		const wrapper = shallow(<Container displayMode="large" items={items} />, {
+			lifecycleExperimental: true,
+		});
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('large');
 	});
@@ -130,11 +123,16 @@ describe('Container List', () => {
 			},
 		};
 		const wrapper = shallow(
-			<Container {...settings} items={items} dispatchActionCreator={dispatchActionCreator} />
-		, {
-			lifecycleExperimental: true,
-			context,
-		});
+			<Container
+				{...cloneDeep(settings)}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+			/>,
+			{
+				lifecycleExperimental: true,
+				context,
+			},
+		);
 		const props = wrapper.props();
 		const onClick = props.list.titleProps.onClick;
 		const e = {};
@@ -149,6 +147,33 @@ describe('Container List', () => {
 		expect(calls[0][3].registry).toBe(context.registry);
 	});
 
+	it('should not set onclick if no action on title', () => {
+		const dispatchActionCreator = jest.fn();
+		const actionCreator = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:object:open': actionCreator,
+			},
+		};
+		const settingsWithoutActions = {
+			...cloneDeep(settings),
+			actions: {},
+		};
+		const wrapper = shallow(
+			<Container
+				{...settingsWithoutActions}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+			/>,
+			{
+				lifecycleExperimental: true,
+				context,
+			},
+		);
+		const props = wrapper.props();
+		expect(props.list.titleProps.onClick).toBeUndefined();
+	});
+
 	it('should call action creator on pagination change', () => {
 		// given
 		const dispatchActionCreator = jest.fn();
@@ -160,14 +185,15 @@ describe('Container List', () => {
 		};
 		const wrapper = shallow(
 			<Container
-				{...settings}
+				{...cloneDeep(settings)}
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
 			/>,
 			{
 				lifecycleExperimental: true,
 				context,
-			});
+			},
+		);
 		const props = wrapper.props();
 		const event = {};
 		const data = { foo: 'bar' };
@@ -179,6 +205,21 @@ describe('Container List', () => {
 
 		// then
 		expect(dispatchActionCreator).toBeCalledWith('pagination:change', event, data, context);
+	});
+
+	it('should set the proper rowHeight', () => {
+		const rowHeight = {
+			table: 3,
+			large: 2,
+			tile: 1,
+		};
+		const wrapper = shallow(
+			<Container {...cloneDeep(settings)} items={items} rowHeight={rowHeight} />,
+			{ lifecycleExperimental: true },
+		);
+		const props = wrapper.props();
+		expect(props.displayMode).toBe('table');
+		expect(props.rowHeight).toBe(3);
 	});
 });
 
@@ -239,7 +280,7 @@ describe('Connected List', () => {
 				components: fromJS({
 					'Container(List)': {
 						cid: {
-							...(DEFAULT_STATE.toJS()),
+							...DEFAULT_STATE.toJS(),
 							toolbar: {
 								pagination: {
 									onChange: 'pagination:change',

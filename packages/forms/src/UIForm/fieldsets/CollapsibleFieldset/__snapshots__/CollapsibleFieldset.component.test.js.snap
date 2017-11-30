@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`] = `
+<fieldset
+  className="form-group collapsible-panel"
+>
+  <div
+    className={undefined}
+    id="my-fieldset__title_bar"
+    onDoubleClick={[Function]}
+    role="button"
+  >
+    <div
+      className={undefined}
+      id="my-fieldset__title_wrapper"
+      onClick={[Function]}
+      role="button"
+    >
+      <legend
+        id="my-fieldset__title"
+      >
+        Basic
+      </legend>
+    </div>
+    <button
+      className={undefined}
+      id="my-fieldset__collapse"
+      onClick={[Function]}
+      title="Collapse"
+      type="button"
+    >
+      <Icon
+        name="talend-caret-down"
+        transform=""
+      />
+    </button>
+  </div>
+</fieldset>
+`;
+
+exports[`CollapsibleFieldset should render a custom title 1`] = `
+<fieldset
+  className="form-group collapsible-panel"
+>
+  <div
+    className={undefined}
+    id="my-fieldset__title_bar"
+    onDoubleClick={[Function]}
+    role="button"
+  >
+    <div
+      className={undefined}
+      id="my-fieldset__title_wrapper"
+      onClick={[Function]}
+      role="button"
+    >
+      <legend
+        id="my-fieldset__title"
+      >
+        Basic: Jimmy Somsanith
+      </legend>
+    </div>
+    <button
+      className={undefined}
+      id="my-fieldset__collapse"
+      onClick={[Function]}
+      title="Collapse"
+      type="button"
+    >
+      <Icon
+        name="talend-caret-down"
+        transform="flip-vertical"
+      />
+    </button>
+  </div>
+  <div
+    className={undefined}
+  >
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "age",
+          ],
+          "schema": Object {
+            "type": "number",
+          },
+          "title": "Age",
+          "type": "number",
+        }
+      }
+      value={
+        Object {
+          "firstname": "Jimmy",
+          "isClosed": false,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "address",
+          ],
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "Adress",
+          "type": "text",
+        }
+      }
+      value={
+        Object {
+          "firstname": "Jimmy",
+          "isClosed": false,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+  </div>
+</fieldset>
+`;
+
+exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`] = `
+<fieldset
+  className="form-group collapsible-panel"
+>
+  <div
+    className={undefined}
+    id="my-fieldset__title_bar"
+    onDoubleClick={[Function]}
+    role="button"
+  >
+    <div
+      className={undefined}
+      id="my-fieldset__title_wrapper"
+      onClick={[Function]}
+      role="button"
+    >
+      <legend
+        id="my-fieldset__title"
+      >
+        Basic
+      </legend>
+    </div>
+    <button
+      className={undefined}
+      id="my-fieldset__collapse"
+      onClick={[Function]}
+      title="Collapse"
+      type="button"
+    >
+      <Icon
+        name="talend-caret-down"
+        transform="flip-vertical"
+      />
+    </button>
+  </div>
+  <div
+    className={undefined}
+  >
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "age",
+          ],
+          "schema": Object {
+            "type": "number",
+          },
+          "title": "Age",
+          "type": "number",
+        }
+      }
+      value={
+        Object {
+          "firstname": "Jimmy",
+          "isClosed": false,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+    <Widget
+      id="my-fieldset"
+      schema={
+        Object {
+          "key": Array [
+            "address",
+          ],
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "Adress",
+          "type": "text",
+        }
+      }
+      value={
+        Object {
+          "firstname": "Jimmy",
+          "isClosed": false,
+          "lastname": "Somsanith",
+        }
+      }
+      widgets={Object {}}
+    />
+  </div>
+</fieldset>
+`;

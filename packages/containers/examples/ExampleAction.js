@@ -1,6 +1,6 @@
 import React from 'react';
 import { action as stAction } from '@storybook/react';
-import { IconsProvider } from 'react-talend-components';
+import { IconsProvider } from '@talend/react-components';
 import { Action } from '../src';
 
 const myAction = {
@@ -23,15 +23,17 @@ export default function ExampleAction() {
 	return (
 		<div>
 			<IconsProvider />
-			<p>Using names</p>
-			<Action name="menu:first" />
-			<p>Using actions</p>
+			<p>Using actionId</p>
+			<Action actionId="menu:first" />
+			<Action actionId="menu:items" />
+			<Action actionId="menu:items-id" />
+			<p>Using pure action props</p>
 			<Action {...myAction} />
-			<p>Using available expression (4 Actions 2 hidden)</p>
+			<p>Using availableExpression (4 Actions 2 hidden)</p>
 			<Action
 				{...eAction}
 				label="is True expression"
-				available={{
+				availableExpression={{
 					id: 'isTrueExpression',
 					args: [true],
 				}}
@@ -39,7 +41,7 @@ export default function ExampleAction() {
 			<Action
 				{...eAction}
 				label="should not be displayed: false expression"
-				available={{
+				availableExpression={{
 					id: 'isTrueExpression',
 					args: [],
 				}}
@@ -47,13 +49,13 @@ export default function ExampleAction() {
 			<Action
 				{...eAction}
 				label="model has label"
-				available="modelHasLabel"
+				availableExpression="modelHasLabel"
 				model={{ id: 'foo', label: 'bar' }}
 			/>
 			<Action
 				{...eAction}
 				label="should not be displayed: model without label"
-				available="modelHasLabel"
+				availableExpression="modelHasLabel"
 				model={{ id: 'bar' }}
 			/>
 		</div>

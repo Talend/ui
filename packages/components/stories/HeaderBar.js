@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf, action } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
-import talendIcons from 'talend-icons/dist/react';
+import talendIcons from '@talend/icons/dist/react';
 
 import { I18nextProvider } from 'react-i18next';
 import i18n from './config/i18n';
@@ -25,6 +25,8 @@ const icons = {
 	'talend-star': talendIcons['talend-star'],
 	'talend-user-circle': talendIcons['talend-user-circle'],
 	'talend-board': talendIcons['talend-board'],
+	'talend-bell': talendIcons['talend-bell'],
+	'talend-bell-notification': talendIcons['talend-bell-notification'],
 };
 
 const typeaheadItems = [
@@ -84,7 +86,7 @@ const typeaheadItems = [
 const props = {
 	brand: {
 		id: 'header-brand',
-		name: 'Example App Name',
+		label: 'Example App Name',
 		onClick: action('onApplicationNameClick'),
 	},
 	logo: {
@@ -180,6 +182,20 @@ decoratedStories
 		};
 		return <HeaderBar {...headerProps} />;
 	})
+	.addWithInfo('with unread notifications', () => {
+		const headerProps = Immutable.fromJS(props).toJS();
+		headerProps.notification = {
+			hasUnread: true,
+		};
+		return <HeaderBar {...headerProps} />;
+	})
+	.addWithInfo('with read notifications', () => {
+		const headerProps = Immutable.fromJS(props).toJS();
+		headerProps.notification = {
+			hasUnread: false,
+		};
+		return <HeaderBar {...headerProps} />;
+	})
 	.addWithInfo('with help split dropdown', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.help.items = [
@@ -238,4 +254,5 @@ decoratedStories
 			onChange: action('onSearchChange'),
 		};
 		return <HeaderBar {...headerProps} />;
-	});
+	})
+	.addWithInfo('barebone', () => <HeaderBar />);

@@ -1,13 +1,17 @@
 
-> react-talend-components@0.108.0 lint:style /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.127.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
+
+src/Actions/ActionFile/ActionFile.scss
+  5:12  error  Strings must use single quotes  quotes
+
+src/FilterBar/FilterBar.scss
+   2:33  warning  Hex notation should all be upper case  hex-notation
+  47:6   warning  Vendor prefixes should not be used     no-vendor-prefixes
 
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
 
-src/VirtualizedList/RowSelection/RowSelection.scss
-  12:1  warning  Space expected between blocks  empty-line-between-blocks
-
-✖ 2 problems (0 errors, 2 warnings)
+✖ 4 problems (1 error, 3 warnings)
 
