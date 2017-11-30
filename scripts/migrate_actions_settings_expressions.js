@@ -107,7 +107,7 @@ function save(ppath, data) {
 }
 
 JSONs.forEach(json => {
-	const content = require(`../${json}`);
+	const content = require(`${json}`);
 	if (content.actions) {
 		Object.assign(content.actions, getActions(content));
 	}
