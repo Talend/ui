@@ -45,12 +45,12 @@ class SubHeaderBar extends React.Component {
 
 	onSubmit(event) {
 		if (this.props.onSubmit) {
-			this.props.onSubmit(event);
+			this.props.onSubmit(event, this.props.state.get('inputText'));
 		}
 		if (this.props.actionCreatorSubmit) {
-			this.dispatchActionCreator(this.props.actionCreatorSubmit, event, {
+			this.props.dispatchActionCreator(this.props.actionCreatorSubmit, event, {
 				props: this.props,
-				inputText: this.props.state.get('inpuText'),
+				inputText: this.props.state.get('inputText'),
 			});
 		}
 	}
@@ -64,7 +64,7 @@ class SubHeaderBar extends React.Component {
 			this.props.onCancel(event);
 		}
 		if (this.props.actionCreatorCancel) {
-			this.dispatchActionCreator(this.props.actionCreatorCancel, event, {
+			this.props.dispatchActionCreator(this.props.actionCreatorCancel, event, {
 				props: this.props,
 			});
 		}
@@ -78,7 +78,7 @@ class SubHeaderBar extends React.Component {
 			this.props.onEdit(event);
 		}
 		if (this.props.actionCreatorEdit) {
-			this.dispatchActionCreator(this.props.actionCreatorEdit, event, {
+			this.props.dispatchActionCreator(this.props.actionCreatorEdit, event, {
 				props: this.props,
 			});
 		}
@@ -92,7 +92,7 @@ class SubHeaderBar extends React.Component {
 			this.props.onChange(event);
 		}
 		if (this.props.actionCreatorChange) {
-			this.dispatchActionCreator(this.props.actionCreatorChange, event, {
+			this.props.dispatchActionCreator(this.props.actionCreatorChange, event, {
 				props: this.props,
 				inputText: event.target.value,
 			});
