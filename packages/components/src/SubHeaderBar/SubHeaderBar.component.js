@@ -94,7 +94,7 @@ EditTitle.propTypes = {
 	inputTextValue: PropTypes.string,
 };
 
-function getComponentFromType(action) {
+function getComponentFromRenderType(action) {
 	if (!action) {
 		return null;
 	}
@@ -113,7 +113,7 @@ function SubHeaderBarActions({ actions, right, center, className }) {
 		<div className={className}>
 			{actions.map((action, index) => (
 				<ActionBar.Content key={index} tag={action.tag} center={center} right={right}>
-					{getComponentFromType(action)}
+					{getComponentFromRenderType(action)}
 				</ActionBar.Content>
 			))}
 		</div>
@@ -184,5 +184,5 @@ export {
 	EditTitle,
 	DetailsTitle,
 	DetailsIcon,
-	getComponentFromType,
+	getComponentFromRenderType,
 };

@@ -6,23 +6,23 @@ import SubHeaderBar, {
 	EditTitle,
 	DetailsTitle,
 	DetailsIcon,
-	getComponentFromType,
+	getComponentFromRenderType,
 } from './SubHeaderBar.component';
 
 describe('getComponentFromType', () => {
 	it('should return a component', () => {
-		expect(getComponentFromType({ component: <Icon name="talend-pencil" /> })).toEqual(
+		expect(getComponentFromRenderType({ component: <Icon name="talend-pencil" /> })).toEqual(
 			<Icon name="talend-pencil" />,
 		);
 	});
 	it('should return an Action component', () => {
-		expect(getComponentFromType({ renderType: 'action' })).toEqual(<Action />);
+		expect(getComponentFromRenderType({ renderType: 'action' })).toEqual(<Action />);
 	});
 	it('should return null when no parameters', () => {
-		expect(getComponentFromType()).toEqual(null);
+		expect(getComponentFromRenderType()).toEqual(null);
 	});
 	it('should return null when no component or renderType found ', () => {
-		expect(getComponentFromType({ renderType: '', component: '' })).toEqual(null);
+		expect(getComponentFromRenderType({ renderType: '', component: '' })).toEqual(null);
 	});
 });
 

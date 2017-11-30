@@ -14,6 +14,6 @@ export function getComponentState(state, idComponent) {
  * @param {object} state
  * @param {string} idComponent
  */
-export function getQuery(state, idComponent) {
+export function getInputText(state, idComponent) {
 	return getComponentState(state, idComponent).get('inputText', '');
 }

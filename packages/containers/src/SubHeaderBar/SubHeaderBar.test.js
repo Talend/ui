@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Map } from 'immutable';
-import Container from './SubHeaderBar.container';
+import Container, { DEFAULT_STATE, DISPLAY_NAME } from './SubHeaderBar.container';
+import { getComponentState, getInputText } from './SubHeaderBar.selectors';
 
 describe('SubHeaderBar container', () => {
 	it('should render', () => {
@@ -185,5 +186,29 @@ describe('SubHeaderBar container', () => {
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorGoBack, event, {
 			props,
 		});
+	});
+});
+
+let mockState;
+describe('SubHeaderBar selectors', () => {
+	const componentState = Map({ editMode: true, inputText: 'my edited title' });
+	beforeEach(() => {
+		mockState = {
+			cmf: {
+				components: Map({ [DISPLAY_NAME]: Map({ mySubHeaderBar: componentState }) }),
+			},
+		};
+	});
+	it('should return the state', () => {
+		expect(getComponentState(mockState, 'mySubHeaderBar')).toEqual(componentState);
+	});
+	it('should return the default state', () => {
+		expect(getComponentState(mockState, 'wrongComponentId')).toEqual(DEFAULT_STATE);
+	});
+	it('should return the inputText', () => {
+		expect(getInputText(mockState, 'mySubHeaderBar')).toEqual('my edited title');
+	});
+	it('should return the inputText', () => {
+		expect(getInputText(mockState, 'wrongComponentId')).toEqual('');
 	});
 });
