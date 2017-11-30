@@ -469,7 +469,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         </form>
       </li>
       <li
-        className={undefined}
+        className=""
       >
         <button
           className="btn btn-link"
@@ -1211,7 +1211,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         </form>
       </li>
       <li
-        className={undefined}
+        className=""
       >
         <button
           className="btn btn-link"
@@ -1965,7 +1965,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         </form>
       </li>
       <li
-        className={undefined}
+        className=""
       >
         <button
           className="btn btn-link"
@@ -2658,7 +2658,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         </form>
       </li>
       <li
-        className={undefined}
+        className=""
       >
         <button
           className="btn btn-link"
@@ -3351,7 +3351,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         </form>
       </li>
       <li
-        className={undefined}
+        className=""
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -4163,7 +4163,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         </form>
       </li>
       <li
-        className={undefined}
+        className=""
       >
         <button
           className="btn btn-link"
@@ -4856,7 +4856,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         </form>
       </li>
       <li
-        className={undefined}
+        className=""
       >
         <button
           className="btn btn-link"
@@ -5596,7 +5596,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         </form>
       </li>
       <li
-        className={undefined}
+        className=""
       >
         <button
           className="btn btn-link"
@@ -6640,7 +6640,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         </form>
       </li>
       <li
-        className={undefined}
+        className=""
       >
         <button
           className="btn btn-link"
@@ -7333,7 +7333,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         </form>
       </li>
       <li
-        className={undefined}
+        className=""
       >
         <button
           className="btn btn-link"

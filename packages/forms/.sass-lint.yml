@@ -34,11 +34,6 @@ rules:
     - 2
     -
       include: false
-  empty-line-between-blocks:
-    - 1
-    -
-      include: true
-      allow-single-line-rulesets: false
   extends-before-declarations: 2
   extends-before-mixins: 2
   final-newline:

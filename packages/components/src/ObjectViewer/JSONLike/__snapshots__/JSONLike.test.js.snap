@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JSONLike should render 1`] = `
+<div
+  className="tc-object-viewer"
+  style={undefined}
+>
+  <Item
+    data={
+      Object {
+        "bar": Object {
+          "hello": "hello",
+        },
+        "foo": "foo",
+      }
+    }
+    edited={Array []}
+    jsonpath="$"
+    onEdit={[Function]}
+    onMouseOver={[Function]}
+    onSelect={[Function]}
+    onToggle={[Function]}
+    opened={Array []}
+  />
+</div>
+`;

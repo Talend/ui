@@ -29,6 +29,30 @@
             "comment"
           ]
         }
+      },
+      "collapsibleComments": {
+        "type": "array",
+        "maxItems": 2,
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "pattern": "^\\S+@\\S+$"
+            },
+            "comment": {
+              "type": "string",
+              "maxLength": 20
+            }
+          },
+          "required": [
+            "name",
+            "comment"
+          ]
+        }
       }
     }
   },
@@ -54,6 +78,28 @@
           "validationMessage": "Don't be greedy!"
         }
       ]
+    },
+    {
+      "key": "collapsibleComments",
+      "itemWidget": "collapsibleFieldset",
+      "items": [
+        {
+          "key": "collapsibleComments[].name",
+          "title": "Name"
+        },
+        {
+          "key": "collapsibleComments[].email",
+          "title": "Email",
+          "description": "Email will be used for evil."
+        },
+        {
+          "key": "collapsibleComments[].comment",
+          "title": "Comment",
+          "type": "textarea",
+          "rows": 3,
+          "validationMessage": "Don't be greedy!"
+        }
+      ]
     }
   ],
   "properties": {
@@ -62,6 +108,14 @@
         "name": "Jimmy",
         "email": "jimmy@lol.com",
         "comment": "Let's do this"
+      }
+    ],
+    "collapsibleComments": [
+      {
+        "name": "Jimmy",
+        "email": "jimmy@lol.com",
+        "comment": "Let's do this",
+        "isClosed": true
       }
     ]
   }

@@ -5,7 +5,8 @@ import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-
+import 'focus-outline-manager';
+import ObjectViewer from '../src/ObjectViewer';
 import examples from '../examples';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
@@ -37,9 +38,10 @@ function confirmDialog(event, data) {
 	};
 }
 
-function chooseItem1() {
+function chooseItem1(event, data) {
 	return {
 		type: 'CHOOSE_ITEM1',
+		...data,
 	};
 }
 
@@ -48,6 +50,8 @@ function chooseItem2() {
 		type: 'CHOOSE_ITEM2',
 	};
 }
+
+api.component.register('ObjectViewer', ObjectViewer);
 
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
@@ -64,18 +68,10 @@ api.expression.register('isTrueExpression', (context, first) => {
 
 api.expression.register('getItems', () => [
 	{
-		id: {
-			actionCreator: 'item1:action',
-			property: 'item1',
-		},
 		label: 'label1',
 		actionCreator: 'item1:action',
 	},
 	{
-		id: {
-			actionCreator: 'item2:action',
-			property: 'item2',
-		},
 		label: 'label2',
 		actionCreator: 'item2:action',
 	},
@@ -90,8 +86,56 @@ api.expression.register('modelHasLabel', context => {
 function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
-		const value = new Map({ id: 'myID', label: 'myLabel' });
-		state.cmf.collections = state.cmf.collections.set('myResourceType', new List([value]));
+		state.cmf.collections = state.cmf.collections.set(
+			'myResourceType',
+			List([Map({ id: 'myID', label: 'myLabel' })]),
+		);
+		state.cmf.collections = state.cmf.collections.set(
+			'with',
+			new Map({
+				data: List([
+					new Map({
+						id: 1,
+						label: 'foo',
+						author: 'Jacques',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+						children: new List([new Map({ id: 11, label: 'sub foo' })]),
+					}),
+					new Map({
+						id: 2,
+						label: 'bar',
+						author: 'Paul',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+						children: new List([new Map({ id: 21, label: 'sub bar' })]),
+					}),
+					new Map({
+						id: 3,
+						label: 'baz',
+						author: 'Boris',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+						children: new List([new Map({ id: 31, label: 'sub baz' })]),
+					}),
+					new Map({
+						id: 4,
+						label: 'extra',
+						author: 'Henri',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+						children: new List([new Map({ id: 41, label: 'sub extra' })]),
+					}),
+					new Map({
+						id: 5,
+						label: 'hello world',
+						author: 'David',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+					}),
+				]),
+			}),
+		);
 		state.cmf.settings.views.appheaderbar = {
 			app: 'Hello Test',
 		};
@@ -182,13 +226,28 @@ function loadStories() {
 			displayMode: 'dropdown',
 			label: 'my items',
 			itemsExpression: 'getItems',
+			actionCreator: 'object:view',
 		};
 		actions['menu:items-id'] = {
-			id: 'menu:items',
+			id: 'menu:items-id',
 			displayMode: 'dropdown',
 			label: 'my items',
 			actionIds: ['menu:first', 'menu:second'],
-		},
+			actionCreator: 'object:view',
+		};
+		actions['menu:href'] = {
+			id: 'menu:href',
+			label: 'Talend',
+			target: '_blank',
+			href: '//www.talend.com',
+		};
+		actions['menu:dropdown-href'] = {
+			id: 'menu:dropdown-href',
+			displayMode: 'dropdown',
+			label: 'my items',
+			actionIds: ['menu:href'],
+			actionCreator: 'object:view',
+		};
 		actions['dialog:delete:validate'] = {
 			id: 'dialog:delete:validate',
 			label: 'Yes',

@@ -68,7 +68,14 @@ import {
 
 import I18N_DOMAIN_COMPONENTS from './constants';
 
-import { Action, ActionFile, ActionDropdown, ActionButton, ActionSplitDropdown, Actions } from './Actions';
+import {
+	Action,
+	ActionFile,
+	ActionDropdown,
+	ActionButton,
+	ActionSplitDropdown,
+	Actions,
+} from './Actions';
 import ActionBar from './ActionBar';
 import Notification from './Notification';
 import AppHeaderBar from './AppHeaderBar';
@@ -83,6 +90,7 @@ import Dialog from './Dialog';
 import Drawer from './Drawer';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
+import FilterBar from './FilterBar';
 import ListView from './ListView';
 import TreeView from './TreeView';
 import Icon from './Icon';
@@ -141,6 +149,7 @@ export {
 	Typeahead,
 	VirtualizedList,
 	WithDrawer,
+	FilterBar,
 	Alert,
 	Badge as BootstrapBadge,
 	Breadcrumb,

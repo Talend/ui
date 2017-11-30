@@ -98,12 +98,13 @@ class List extends React.Component {
 		const props = {
 			displayMode: this.props.displayMode || state.displayMode,
 			list: {
+				id: get(this.props, 'list.id', 'list'),
 				items,
 				columns: get(this.props, 'list.columns', []),
 				sort: {
 					field: state.sortOn,
 					isDescending: !state.sortAsc,
-					onChange: this.onSelectSortBy
+					onChange: this.onSelectSortBy,
 				},
 			},
 			virtualized: this.props.virtualized,
@@ -152,10 +153,10 @@ class List extends React.Component {
 			const actions = this.props.actions;
 			if (actions) {
 				if (actions.left) {
-					props.toolbar.actionBar.actions.left = actions.left.map((action) => ({ name: action }));
+					props.toolbar.actionBar.actions.left = actions.left.map(action => ({ name: action }));
 				}
 				if (actions.right) {
-					props.toolbar.actionBar.actions.right = actions.right.map((action) => ({ name: action }));
+					props.toolbar.actionBar.actions.right = actions.right.map(action => ({ name: action }));
 				}
 			}
 

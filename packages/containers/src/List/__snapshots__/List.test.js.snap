@@ -137,6 +137,7 @@ Object {
         "label": "Modified",
       },
     ],
+    "id": "list",
     "items": Array [
       Object {
         "actions": Array [],

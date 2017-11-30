@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeView should render normally with all buttons and custom labels 1`] = `
+<li
+  className="tc-treeview-item-li"
+  data-hidden={undefined}
+>
+  <div
+    className="tc-treeview-item"
+    data-selected={undefined}
+    id="tc-treeview-item"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    style={
+      Object {
+        "paddingLeft": "20px",
+      }
+    }
+    tabIndex="0"
+  >
+    <Icon
+      className={undefined}
+      name="talend-caret-down"
+      title="Collapse"
+      transform={undefined}
+    />
+    <Icon
+      className={undefined}
+      name="talend-folder"
+    />
+    <span
+      className="tc-treeview-item-name"
+    >
+      grandpa
+    </span>
+    <div
+      className={undefined}
+    >
+      <Translate(Badge)
+        label="101"
+      />
+      <Action
+        hideLabel={true}
+        icon="talend-trash"
+        id="tc-treeview-item-talend-trash"
+        label="remove element"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="right"
+      />
+    </div>
+  </div>
+  <ul
+    className={undefined}
+  >
+    <TreeViewItem
+      depth={1}
+      id="tc-treeview-item-0"
+      item={
+        Object {
+          "children": Array [
+            Object {
+              "name": "me",
+              "selected": true,
+            },
+            Object {
+              "name": "bro",
+            },
+          ],
+          "name": "mami",
+          "toggled": true,
+        }
+      }
+      onClick={[Function]}
+      onSelect={[Function]}
+    />
+    <TreeViewItem
+      depth={1}
+      id="tc-treeview-item-1"
+      item={
+        Object {
+          "children": Array [
+            Object {
+              "name": "cousin",
+            },
+          ],
+          "name": "aunt",
+          "toggled": false,
+        }
+      }
+      onClick={[Function]}
+      onSelect={[Function]}
+    />
+  </ul>
+</li>
+`;
