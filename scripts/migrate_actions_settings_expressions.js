@@ -5,7 +5,12 @@ const pathLib = require('path');
 const program = require('commander');
 
 const stackVersion = program.stack || require('../lerna.json').version;
+const JSONs = [];
+const ATTRS = ['active', 'available', 'disabled', 'inProgress'];
 
+// --------------------------------
+// -- Command line parse and check
+// --------------------------------
 program
 	.version(stackVersion)
 	.option('-d, --debug', 'display more info')
@@ -30,9 +35,9 @@ if (program.debug) {
 	console.log(`use stack version ${stackVersion}`);
 }
 
-
-const JSONs = [];
-
+// ---------------------
+// -- Utility functions
+// ---------------------
 function readFolderContent(folder) {
 	console.log('scan ', folder);
 	fs.readdirSync(folder).forEach(path => {
@@ -46,16 +51,8 @@ function readFolderContent(folder) {
 	console.log('found ', JSONs);
 }
 
-if (program.path) {
-	JSONs.push(program.path);
-} else if (program.folder) {
-	readFolderContent(program.folder);
-}
-
-const ATTRS = ['active', 'available', 'disabled', 'inProgress'];
-
 /**
- * from version XX to version YY we have introduce the following change:
+ * From version XX to version YY we have introduce the following change:
  * action.available = 'myExpression' was evaluated using cmf expression
  * @param {Object} settings
  */
@@ -104,6 +101,15 @@ function save(ppath, data) {
 			});
 		});
 	});
+}
+
+// ---------------------
+// -- Run, Forest, run
+// ---------------------
+if (program.path) {
+	JSONs.push(program.path);
+} else if (program.folder) {
+	readFolderContent(program.folder);
 }
 
 JSONs.forEach(json => {
