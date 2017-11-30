@@ -15,24 +15,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Notification/index.js
-  1:8  error  Using exported name 'Notification' as identifier for default export  import/no-named-as-default
-
-/home/travis/build/Talend/ui/packages/components/src/Notification/Notification.component.js
-  97:61  error  'autoLeaveError' is missing in props validation  react/prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/Notification/Notification.snap.test.js
-  4:8  error  Using exported name 'Notification' as identifier for default export  import/no-named-as-default
-
-/home/travis/build/Talend/ui/packages/components/src/Notification/Notification.test.js
-  1:8   error  'React' is defined but never used          no-unused-vars
-  2:10  error  'mount' is defined but never used          no-unused-vars
-  4:2   error  'Notification' is defined but never used   no-unused-vars
-  5:2   error  'TimerBar' is defined but never used       no-unused-vars
-  6:2   error  'CloseButton' is defined but never used    no-unused-vars
-  7:2   error  'Message' is defined but never used        no-unused-vars
-  8:2   error  'MessageAction' is defined but never used  no-unused-vars
-
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
   21:1  error  Line 21 exceeds the maximum line length of 100                                       max-len
   56:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
@@ -44,5 +26,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 20 problems (20 errors, 0 warnings)
+✖ 10 problems (10 errors, 0 warnings)
 

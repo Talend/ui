@@ -6,21 +6,26 @@
 src/Actions/ActionFile/ActionFile.scss
   5:12  error  Strings must use single quotes  quotes
 
-src/FilterBar/FilterBar.scss
-   2:33  warning  Hex notation should all be upper case  hex-notation
-  47:6   warning  Vendor prefixes should not be used     no-vendor-prefixes
+src/ConfirmDialog/ConfirmDialog.scss
+  76:4  warning  Expected indentation of 2 tabs but found 3  indentation
 
-src/Notification/Notification.scss
-   1:30  warning  Hex notation should all be upper case  hex-notation
-   2:32  warning  Hex notation should all be upper case  hex-notation
-   4:33  warning  Hex notation should all be upper case  hex-notation
-   5:35  warning  Hex notation should all be upper case  hex-notation
-   7:31  warning  Hex notation should all be upper case  hex-notation
-   8:33  warning  Hex notation should all be upper case  hex-notation
-  73:12  warning  Hex notation should all be upper case  hex-notation
+src/Drawer/Drawer.scss
+   4:21  warning  Hex notation should all be lower case  hex-notation
+  16:11  warning  Hex notation should all be lower case  hex-notation
+
+src/FilterBar/FilterBar.scss
+  47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
+
+src/List/Content/Content.scss
+  298:8  warning  Expected indentation of 5 tabs but found 7  indentation
+  303:8  warning  Expected indentation of 5 tabs but found 7  indentation
+  308:8  warning  Expected indentation of 5 tabs but found 7  indentation
+
+src/List/DisplayTile/DisplayTile.scss
+  37:3  warning  Expected indentation of 1 tab but found 2  indentation
 
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
 
-✖ 11 problems (1 error, 10 warnings)
+✖ 10 problems (1 error, 9 warnings)
 
