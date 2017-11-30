@@ -79,6 +79,7 @@ ListToVirtualizedList.propTypes = {
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
 	inProgress: PropTypes.bool,
+	rowHeight: PropTypes.number,
 	sort: PropTypes.shape({
 		onChange: PropTypes.func,
 		field: PropTypes.string,
