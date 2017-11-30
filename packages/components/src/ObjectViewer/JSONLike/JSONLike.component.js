@@ -3,6 +3,7 @@ import React from 'react';
 import invariant from 'invariant';
 import { isObject } from 'lodash';
 import classNames from 'classnames';
+import keycode from 'keycode';
 
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -16,9 +17,23 @@ const COMPLEX_TYPES = ['object', 'array'];
 export const ARRAY_ABSTRACT = '[...]';
 export const OBJECT_ABSTRACT = '{...}';
 
+const dateTimeRegexp = new RegExp(
+	/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z)?$/,
+); // eslint-disable-line max-len
+const dateRegexp = new RegExp(
+	/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])$/,
+); // eslint-disable-line max-len
+const timeRegexp = new RegExp(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/);
+
 function stopAndSelect(event, { onSelect, jsonpath }) {
 	event.stopPropagation();
 	onSelect(event, jsonpath);
+}
+
+function stopAndSelectWithEnterOrSpace(event, { onSelect, jsonpath }) {
+	if (keycode(event) === 'enter' || keycode(event) === 'space') {
+		stopAndSelect(event, { onSelect, jsonpath });
+	}
 }
 
 export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
@@ -35,20 +50,18 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 
-	const lineValueClasses = classNames(
-		theme.native,
-		theme[type],
-		theme['line-value'],
-	);
+	const lineValueClasses = classNames(theme.native, theme[type], theme['line-value']);
 
 	return (
-		<button
+		<span
 			className={lineValueClasses}
-			type="button"
+			role="button"
+			tabIndex="0"
+			onKeyUp={e => stopAndSelectWithEnterOrSpace(e, { onSelect, jsonpath })}
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 		>
 			{display}
-		</button>
+		</span>
 	);
 }
 
@@ -105,9 +118,10 @@ export function LineItem({
 	});
 
 	return (
-	// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<span
 			className={classes}
+			onKeyUp={e => stopAndSelectWithEnterOrSpace(e, { onSelect, jsonpath })}
 			onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
 			{...props}
 		>
@@ -152,6 +166,14 @@ export function getDataInfo(data, tupleLabel) {
 
 		if (tupleLabel && tupleLabel.length > 0) {
 			info.type = tupleLabel;
+		}
+	} else if (info.type === 'string') {
+		if (dateTimeRegexp.test(data)) {
+			info.type = 'datetime';
+		} else if (dateRegexp.test(data)) {
+			info.type = 'date';
+		} else if (timeRegexp.test(data)) {
+			info.type = 'time';
 		}
 	}
 
@@ -243,11 +265,7 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 							({info.type})
 						</button>
 					) : null}
-					<TooltipTrigger
-						className="offset"
-						label={getDataAbstract(data)}
-						tooltipPlacement="right"
-					>
+					<TooltipTrigger className="offset" label={getDataAbstract(data)} tooltipPlacement="right">
 						<sup className="badge">{decoratedLength}</sup>
 					</TooltipTrigger>
 					{isOpened ? (
@@ -305,14 +323,24 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 	if (props.tupleLabel) {
 		COMPLEX_TYPES.push(props.tupleLabel);
 	}
-
-	if (data === undefined) {
-		return null;
-	}
-	const info = getDataInfo(data, props.tupleLabel);
-	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
 	const isEdited = edited.indexOf(jsonpath) !== -1 && !!props.onChange;
 	const isOpened = opened.indexOf(jsonpath) !== -1;
+
+	if (data === undefined || data === null) {
+		return (
+			<LineItem
+				name={name}
+				onMouseOver={props.onMouseOver}
+				mouseOverData={{ data, isOpened, isEdited }}
+				onSelect={props.onSelect}
+				jsonpath={jsonpath}
+				selectedJsonpath={props.selectedJsonpath}
+			/>
+		);
+	}
+
+	const info = getDataInfo(data, props.tupleLabel);
+	const isNativeType = COMPLEX_TYPES.indexOf(info.type) === -1;
 
 	if (isNativeType) {
 		return (
@@ -333,9 +361,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					onChange={props.onChange}
 				/>
 				{props.showType && (
-					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>
-						({info.type})
-					</div>
+					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>({info.type})</div>
 				)}
 			</LineItem>
 		);
@@ -395,7 +421,7 @@ Item.defaultProps = {
  * this is an indented list of item where each item render 'id: type #items'
  * @param {object} props react
  */
-export function JSONLike({ onSubmit, ...props }) {
+export function JSONLike({ onSubmit, className, style, ...props }) {
 	const rootIsObject = isObject(props.data);
 	let rootComputedLabel = null;
 
@@ -408,7 +434,8 @@ export function JSONLike({ onSubmit, ...props }) {
 	if (onSubmit) {
 		return (
 			<form
-				className={`tc-object-viewer ${theme.container} `}
+				className={classNames('tc-object-viewer', theme.container, className)}
+				style={style}
 				onSubmit={event => {
 					onSubmit(event);
 					event.preventDefault();
@@ -425,12 +452,12 @@ export function JSONLike({ onSubmit, ...props }) {
 	}
 
 	return (
-		<div className={`tc-object-viewer ${theme.container}`}>
+		<div className={classNames('tc-object-viewer', theme.container, className)} style={style}>
 			{rootComputedLabel ? (
 				<TooltipTrigger label={rootComputedLabel} tooltipPlacement="right">
 					<div className={theme['root-label-overflow']}>{rootComputedLabel}</div>
 				</TooltipTrigger>
-				) : null}
+			) : null}
 			<Item {...props} />
 		</div>
 	);
@@ -439,6 +466,8 @@ export function JSONLike({ onSubmit, ...props }) {
 JSONLike.propTypes = {
 	data: PropTypes.oneOfType([...VALIDE_TYPES, ...COMPLEX_TYPES].map(t => `PropTypes.${t}`)),
 	onSubmit: PropTypes.func,
+	className: PropTypes.string,
+	style: PropTypes.object,
 	rootLabel: PropTypes.string,
 	tupleLabel: PropTypes.string,
 };

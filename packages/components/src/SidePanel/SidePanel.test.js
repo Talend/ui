@@ -25,7 +25,10 @@ describe('SidePanel', () => {
 			/>
 		);
 		const wrapper = mount(sidePanel);
-		wrapper.find(Button).at(0).simulate('click');
+		wrapper
+			.find(Button)
+			.at(0)
+			.simulate('click');
 
 		// then
 		expect(onToggleDock).toBeCalled();
@@ -53,11 +56,38 @@ describe('SidePanel', () => {
 			/>
 		);
 		const wrapper = mount(sidePanel);
-		wrapper.find('nav').find(Button).at(2).simulate('click');
+		wrapper
+			.find('nav')
+			.find(Button)
+			.at(2)
+			.simulate('click');
 
 		// then
 		expect(onPreparationsClick).not.toBeCalled();
 		expect(onDatasetsClick).toBeCalled();
 		expect(onFavoritesClick).not.toBeCalled();
+	});
+
+	it('should accept custom action ids', () => {
+		const actions = [
+			{ label: 'Preparations', id: 'preparation-custom-id' },
+			{ label: 'Datasets', id: 'datasets-custom-id' },
+			{ label: 'Favorites', id: 'favs-custom-id' },
+		];
+		const sidePanel = <SidePanel id="test" actions={actions} />;
+		const wrapper = mount(sidePanel);
+
+		expect(wrapper.find('#test-nav-preparation-custom-id').text()).toEqual('Preparations');
+		expect(wrapper.find('#test-nav-datasets-custom-id').text()).toEqual('Datasets');
+		expect(wrapper.find('#test-nav-favs-custom-id').text()).toEqual('Favorites');
+	});
+
+	it('should work even if there is no id, label, or action id', () => {
+		const actions = [{}, {}, {}];
+		const sidePanel = <SidePanel actions={actions} />;
+
+		expect(() => {
+			mount(sidePanel);
+		}).not.toThrow();
 	});
 });

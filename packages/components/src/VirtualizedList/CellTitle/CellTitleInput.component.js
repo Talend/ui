@@ -42,15 +42,14 @@ export default class CellTitleInput extends React.Component {
 	render() {
 		return (
 			<form onSubmit={this.onSubmit}>
-				<label
-					aria-hidden="true"
-					hidden
-					className="sr-only"
-					htmlFor={this.props.id}
-				>{this.props.label || 'title'}</label>
+				<label aria-hidden="true" hidden className="sr-only" htmlFor={this.props.id}>
+					{this.props.label || 'title'}
+				</label>
 				<input
 					id={this.props.id}
-					ref={(input) => { this.titleInput = input; }}
+					ref={input => {
+						this.titleInput = input;
+					}}
 					onBlur={this.onBlur}
 					onKeyUp={this.onKeyUp}
 					autoFocus

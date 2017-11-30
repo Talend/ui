@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import ArrayItem from './ArrayItem.component';
 
 describe('Array Item component', () => {
@@ -16,14 +16,14 @@ describe('Array Item component', () => {
 				value={{}}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
-	it('should NOT render control panel when value.isClosed is true', () => {
+	it('should NOT render reorder control panel when value.isClosed is true', () => {
 		// when
 		const wrapper = shallow(
 			<ArrayItem
@@ -36,11 +36,30 @@ describe('Array Item component', () => {
 				value={{ isClosed: true }}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
+	});
+
+	it('should NOT render moveUp/moveDown with no reorder callback', () => {
+		// when
+		const wrapper = shallow(
+			<ArrayItem
+				hasMoveDown={false}
+				hasMoveUp
+				id={'talend-control-3'}
+				index={3}
+				onRemove={jest.fn()}
+				value={{}}
+			>
+				<span>This is the item content</span>
+			</ArrayItem>,
+		);
+
+		// then
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should disable moveDown', () => {
@@ -53,14 +72,14 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
-				value={{ }}
+				value={{}}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should disable moveUp', () => {
@@ -73,21 +92,20 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
-				value={{ }}
+				value={{}}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should trigger onRemove when remove button is clicked', () => {
 		// given
 		const onRemove = jest.fn();
-		const event = { target: {} };
-		const wrapper = shallow(
+		const wrapper = mount(
 			<ArrayItem
 				hasMoveDown
 				hasMoveUp
@@ -95,24 +113,23 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={onRemove}
 				onReorder={jest.fn()}
-				value={{ }}
+				value={{}}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// when
-		wrapper.find('#talend-control-3-delete').simulate('click', event);
+		wrapper.find('#talend-control-3-delete').simulate('click');
 
 		// then
-		expect(onRemove).toBeCalledWith(event, 3);
+		expect(onRemove).toBeCalledWith(expect.anything(), 3);
 	});
 
 	it('should trigger onReorder when moveUp button is clicked', () => {
 		// given
 		const onReorder = jest.fn();
-		const event = { target: {} };
-		const wrapper = shallow(
+		const wrapper = mount(
 			<ArrayItem
 				hasMoveDown
 				hasMoveUp
@@ -120,24 +137,23 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={onReorder}
-				value={{ }}
+				value={{}}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// when
-		wrapper.find('#talend-control-3-moveUp').simulate('click', event);
+		wrapper.find('#talend-control-3-moveUp').simulate('click');
 
 		// then
-		expect(onReorder).toBeCalledWith(event, { previousIndex: 3, nextIndex: 2 });
+		expect(onReorder).toBeCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 2 });
 	});
 
 	it('should trigger onReorder when moveDown button is clicked', () => {
 		// given
 		const onReorder = jest.fn();
-		const event = { target: {} };
-		const wrapper = shallow(
+		const wrapper = mount(
 			<ArrayItem
 				hasMoveDown
 				hasMoveUp
@@ -145,16 +161,16 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={onReorder}
-				value={{ }}
+				value={{}}
 			>
 				<span>This is the item content</span>
-			</ArrayItem>
+			</ArrayItem>,
 		);
 
 		// when
-		wrapper.find('#talend-control-3-moveDown').simulate('click', event);
+		wrapper.find('#talend-control-3-moveDown').simulate('click');
 
 		// then
-		expect(onReorder).toBeCalledWith(event, { previousIndex: 3, nextIndex: 4 });
+		expect(onReorder).toBeCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 4 });
 	});
 });

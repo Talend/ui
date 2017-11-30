@@ -36,7 +36,7 @@
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
-    "babel-loader": "6.4.1",
+    "babel-loader": "7.1.2",
     "babel-plugin-transform-class-properties": "6.23.0",
     "babel-plugin-transform-object-rest-spread": "6.20.2",
     "babel-preset-env": "1.6.0",
@@ -44,6 +44,7 @@
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.2",
     "enzyme": "^3.0.0",
+    "enzyme-adapter-react-16": "1.0.0",
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
@@ -107,8 +108,7 @@
     ],
     "roots": [
       "src",
-      "__tests__",
-      "__mocks__"
+      "__tests__"
     ],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
@@ -120,5 +120,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.118.0"
+  "version": "0.127.0"
 }

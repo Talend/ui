@@ -48,7 +48,7 @@ function Logo({ isFull, renderers, t, ...props }) {
 	);
 }
 
-function Brand({ name, isSeparated, renderers, ...props }) {
+function Brand({ label, isSeparated, renderers, ...props }) {
 	const className = classNames(theme['tc-header-bar-action'], {
 		[theme.separated]: isSeparated,
 	});
@@ -59,7 +59,7 @@ function Brand({ name, isSeparated, renderers, ...props }) {
 				bsStyle="link"
 				className={theme['tc-header-bar-brand']}
 				tooltipPlacement="bottom"
-				label={name}
+				label={label}
 				{...props}
 			/>
 		</li>
@@ -104,9 +104,10 @@ function Help({ renderers, t, ...props }) {
 		tooltipPlacement: 'bottom',
 		...props,
 	};
+	const className = classNames(theme['tc-header-bar-action'], theme.separated);
 
 	return (
-		<li className={theme['tc-header-bar-action']}>
+		<li className={className}>
 			{props.items && props.items.length ? (
 				<renderers.ActionSplitDropdown pullRight {...global} />
 			) : (

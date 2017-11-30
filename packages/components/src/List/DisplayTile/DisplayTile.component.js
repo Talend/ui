@@ -17,8 +17,10 @@ const columnPropType = PropTypes.shape({
  */
 function tileItem(column, value) {
 	return [
-		(<dt className={theme.itemtitle}>{column.label}</dt>),
-		(<dd title={value} className={theme.itemvalue}>{value}</dd>),
+		<dt className={theme.itemtitle}>{column.label}</dt>,
+		<dd title={value} className={theme.itemvalue}>
+			{value}
+		</dd>,
 	];
 }
 
@@ -36,24 +38,24 @@ function Tile({ id, columns, item, itemProps, titleProps }) {
 		onItemSelect = event => onSelect(item, event);
 	}
 
-	const checkbox = onToggle && isSelected ?
-		(<div className="checkbox">
-			<label htmlFor={id && `${id}-check`}>
-				<input
-					id={id && `${id}-check`}
-					type="checkbox"
-					onChange={e => onToggle(e, item)}
-					checked={isSelected(item)}
-				/>
-				<span><span className="sr-only">Select {item.name}</span></span>
-			</label>
-		</div>) :
-		null;
+	const checkbox =
+		onToggle && isSelected ? (
+			<div className="checkbox">
+				<label htmlFor={id && `${id}-check`}>
+					<input
+						id={id && `${id}-check`}
+						type="checkbox"
+						onChange={e => onToggle(e, item)}
+						checked={isSelected(item)}
+					/>
+					<span>
+						<span className="sr-only">Select {item.name}</span>
+					</span>
+				</label>
+			</div>
+		) : null;
 
-	const titleClasses = classNames(
-		theme.title,
-		theme.titlelink,
-	);
+	const titleClasses = classNames(theme.title, theme.titlelink);
 
 	const tileClasses = classNames(
 		theme.tile,
@@ -76,11 +78,9 @@ function Tile({ id, columns, item, itemProps, titleProps }) {
 				titleProps={titleProps}
 			/>
 			<dl className={theme.itemlist}>
-				{
-					columns
-						.filter(column => column.key !== titleProps.key)
-						.map(column => tileItem(column, item[column.key]))
-				}
+				{columns
+					.filter(column => column.key !== titleProps.key)
+					.map(column => tileItem(column, item[column.key]))}
 			</dl>
 		</div>
 	);
@@ -100,7 +100,7 @@ Tile.propTypes = {
  * @param {object} itemProps the item configuration props
  * @param {object} titleProps the title configuration props
  * @example
-const props = {
+ const props = {
 	items: [
 		{
 			id: 1,
@@ -146,20 +146,14 @@ const props = {
 		width: '250px'
 	}
 };
-<DisplayTile {...props} />
+ <DisplayTile {...props} />
  */
 function DisplayTile(props) {
-	const {
-		id,
-		columns,
-		items,
-		itemProps,
-		titleProps,
-	} = props;
+	const { id, columns, items, itemProps, titleProps, t } = props;
 	const { width = '250px' } = itemProps || {};
 	return (
 		<div className="tc-list-display">
-			{ !!items.length && (
+			{!!items.length && (
 				<ul className={theme.tiles}>
 					{items.map((item, index) => (
 						<li key={index}>
@@ -175,7 +169,7 @@ function DisplayTile(props) {
 					))}
 				</ul>
 			)}
-			{!items.length && <NoRows />}
+			{!items.length && <NoRows t={t} />}
 		</div>
 	);
 }

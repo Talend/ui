@@ -1,5 +1,9 @@
 /**
+ * Internal. It contains the wrapper to make react-router run with the CMF
+ * settings
  * @module react-cmf/lib/UIRouter
+ * @see react-cmf/lib/route
+ * @see react-cmf/lib/settings
  */
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -7,6 +11,11 @@ import { Router as BaseRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 import api from './api';
+
+
+ /**
+ * @typedef {Object} Router
+ */
 
 /**
  * pure arrow function that render the router component.

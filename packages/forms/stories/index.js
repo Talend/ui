@@ -22,56 +22,48 @@ a11y(ReactDOM);
 const decoratedStories = storiesOf('Form', module)
 .addDecorator(withKnobs)
 .addDecorator(story =>
-	<div className="container-fluid">
-		<div
-			className="col-md-offset-1 col-md-10"
-			style={{ marginTop: '20px', marginBottom: '20px' }}
-		>
-			<Well>
-				{story()}
-			</Well>
-		</div>
-	</div>,
+	<I18nextProvider i18n={i18n}>
+		<section>
+			<nav style={{ position: 'fixed', bottom: 0, width: '100vw', textAlign: 'center', zIndex: 1 }}>
+				<div className="btn-group">
+					<button className="btn" onClick={() => i18n.changeLanguage('en')}>Default (en)</button>
+					<button className="btn" onClick={() => i18n.changeLanguage('fr')}>fr</button>
+					<button className="btn" onClick={() => i18n.changeLanguage('it')}>it</button>
+				</div>
+			</nav>
+			<IconsProvider />
+			<div className="container-fluid">
+				<div
+					className="col-md-offset-1 col-md-10"
+					style={{ marginTop: '20px', marginBottom: '20px' }}
+				>
+					<Well>
+						{story()}
+					</Well>
+				</div>
+			</div>
+		</section>
+	</I18nextProvider>
 );
 
 const capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.slice(1);
 const sampleFilenames = require.context('./json', true, /.(js|json)$/);
 const sampleFilenameRegex = /^.\/(.*).js/;
 
-sampleFilenames.keys().forEach((filename) => {
+sampleFilenames.keys().forEach(filename => {
 	const sampleNameMatches = filename.match(sampleFilenameRegex);
 	const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 	const capitalizedSampleName = capitalizeFirstLetter(sampleName);
 	decoratedStories.add(capitalizedSampleName, () =>
-		<section>
-			<IconsProvider />
-			<Form
-				autocomplete="off"
-				data={object(capitalizedSampleName, sampleFilenames(filename))}
-				onChange={action('Change')}
-				onBlur={action('Blur')}
-				onSubmit={action('Submit')}
-			/>
-		</section>,
+		<Form
+			autocomplete="off"
+			data={object(capitalizedSampleName, sampleFilenames(filename))}
+			onChange={action('Change')}
+			onBlur={action('Blur')}
+			onSubmit={action('Submit')}
+		/>
 	);
 });
-
-decoratedStories.add('enumeration i18n', () =>
-	<I18nextProvider i18n={i18n}>
-		<section>
-			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
-			<button onClick={() => i18n.changeLanguage('it')}>it</button>
-			<IconsProvider />
-			<Form
-				autocomplete="off"
-				data={object('Enumeration', sampleFilenames('./enumeration.json'))}
-				onChange={action('Change')}
-				onBlur={action('Blur')}
-				onSubmit={action('Submit')}
-			/>
-		</section>
-	</I18nextProvider>
-);
 
 decoratedStories.add('Multiple actions', () => {
 	const actions = [
@@ -320,7 +312,7 @@ const UnknownWidget = (props) => {
 };
 
 UnknownWidget.propTypes = {
-	value: React.PropTypes.string,
+	value: PropTypes.string,
 };
 
 decoratedStories.add('Custom widget', () => {
@@ -494,5 +486,47 @@ decoratedStories.add('Form Children', () => {
 			<h1>Child</h1>
 			<p>This is an inner child in the form</p>
 		</Form>
+	);
+});
+
+
+decoratedStories.add('Form with live validation', () => {
+	const schema = {
+		jsonSchema: {
+			title: 'Form with live validation',
+			type: 'object',
+			properties: {
+				name: {
+					title: 'Name',
+					type: 'string',
+					required: true,
+					minLength: 3,
+				},
+				email: {
+					title: 'Email',
+					type: 'string',
+					pattern: '^\\S+@\\S+$',
+					minLength: 5,
+					required: true,
+				},
+			},
+		},
+		uiSchema: {
+			email: {
+				'ui:help': 'Please enter a valid email address, e.g. user@email.com',
+			},
+		},
+		properties: {
+			name: 'Rey',
+			email: 'lastJedi@sw.com',
+		},
+	};
+	return (
+		<Form
+			liveValidate
+			data={schema}
+			showErrorList={false}
+			onSubmit={action('SUBMIT')}
+		/>
 	);
 });

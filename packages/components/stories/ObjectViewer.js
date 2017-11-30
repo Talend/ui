@@ -9,15 +9,32 @@ const icons = {
 	'talend-chevron-left': talendIcons['talend-chevron-left'],
 };
 
+const schema = new Map();
+schema
+	.set('business_id', 'integer')
+	.set('name', 'CAFE_NAME')
+	.set('rating', 'integer');
 const veryLongDatasetLabel =
 	"Dataset of something that I cant't imagine; Dataset of something that I cant't imagine; Dataset of something that I cant't imagine";
 const veryLongCafeName = "Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name";
+const clubCategory = 'Club category mixology hipster';
+
+const dateTimeData = [
+	{
+		birth: '1985-03-01T12:19:58Z',
+		birthday: '1985-03-01',
+		birthtime: '12:19:58',
+		notCompliantString: '1985-03-01 12:19:58Z',
+	},
+];
+
 const data = [
 	{
 		business_id: 0,
-		name: veryLongCafeName,
-		category: 'Club',
+		name: `${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName}  ${veryLongCafeName} ${veryLongCafeName}   ${veryLongCafeName} ${veryLongCafeName} `,
+		category: `${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory}`,
 		rating: 4,
+		null_value: null,
 		num_of_reviews: 2647,
 		attributes: {
 			good_for: {
@@ -52,6 +69,7 @@ const data = [
 		name: `${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName}`,
 		category: 'Club',
 		rating: 4,
+		null_value: null,
 		num_of_reviews: 2647,
 		attributes: {
 			good_for: {
@@ -86,6 +104,7 @@ const data = [
 		name: "Nancy's Club",
 		category: 'Club',
 		rating: 2,
+		null_value: null,
 		num_of_reviews: 3779,
 		attributes: {
 			good_for: {
@@ -120,6 +139,7 @@ const data = [
 		name: "Cecelia's Club",
 		category: 'Cafe',
 		rating: 4,
+		null_value: null,
 		num_of_reviews: 16547,
 		attributes: {
 			good_for: {
@@ -154,6 +174,7 @@ const data = [
 		name: "Gordon's Bar",
 		category: 'Cafe',
 		rating: 1,
+		null_value: null,
 		num_of_reviews: 152,
 		attributes: {
 			good_for: {
@@ -203,6 +224,7 @@ const handlerHighlight = {
 	onClick: action('onClick'),
 	onSelect: (e, jsonpath) => {
 		selectedJsonpath = jsonpath;
+		action('onSelect');
 	},
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
@@ -214,7 +236,17 @@ const openedNativeTypeHandler = {
 	onClick: action('onClick'),
 	onSelect: (e, jsonpath) => {
 		selectedJsonpath = jsonpath;
+		action('onSelect');
 	},
+	onSubmit: action('onSubmit'),
+	onChange: action('onChange'),
+};
+
+const rootOpenedTypeHandler = {
+	edited: [],
+	opened: ['$', '$[0]'],
+	onClick: action('onClick'),
+	onSelect: (e, jsonpath) => (selectedJsonpath = jsonpath),
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
 };
@@ -231,10 +263,16 @@ stories
 			<ObjectViewer data={data} {...handlerHighlight} />
 		</div>
 	))
+	.addWithInfo('array tree with datetime', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer data={dateTimeData} {...rootOpenedTypeHandler} showType={showType}/>
+		</div>
+	))
 	.addWithInfo('primitive array tree', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer data={primitiveArray} {...openedNativeTypeHandler} />
+			<ObjectViewer data={primitiveArray} {...rootOpenedTypeHandler} />
 		</div>
 	))
 	.addWithInfo('tree with hightlighting', () => (
@@ -317,6 +355,12 @@ stories
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer data={data} displayMode="flat" />
+		</div>
+	))
+	.addWithInfo('flat default with schema', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer data={{ dataset: data, schema }} displayMode="flat" />
 		</div>
 	))
 	.addWithInfo('flat with handler', () => (

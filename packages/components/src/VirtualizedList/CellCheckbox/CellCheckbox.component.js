@@ -9,16 +9,20 @@ import theme from './CellCheckbox.scss';
 function CellCheckbox({ cellData, columnData, rowData, rowIndex }) {
 	const { id, label, onChange } = columnData;
 	return (
-		<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])} >
+		<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
 			<div className="checkbox">
 				<label htmlFor={id && `${id}-${rowIndex}-check`}>
 					<input
 						id={id && `${id}-${rowIndex}-check`}
 						type="checkbox"
-						onChange={(e) => { onChange(e, rowData); }}
+						onChange={e => {
+							onChange(e, rowData);
+						}}
 						checked={cellData}
 					/>
-					<span><span className="sr-only">{label}</span></span>
+					<span>
+						<span className="sr-only">{label}</span>
+					</span>
 				</label>
 			</div>
 		</form>

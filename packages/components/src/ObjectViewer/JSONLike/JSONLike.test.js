@@ -1,6 +1,36 @@
-import { ARRAY_ABSTRACT, OBJECT_ABSTRACT, abstracter, getDataAbstract, getDataInfo } from './JSONLike.component';
+import React from 'react';
+import { shallow } from 'enzyme';
+import Component, {
+	ARRAY_ABSTRACT,
+	OBJECT_ABSTRACT,
+	abstracter,
+	getDataAbstract,
+	getDataInfo,
+} from './JSONLike.component';
 
 describe('JSONLike', () => {
+	it('should render', () => {
+		const data = {
+			foo: 'foo',
+			bar: {
+				hello: 'hello',
+			},
+		};
+		const wrapper = shallow(<Component data={data} />);
+		expect(wrapper.getNode()).toMatchSnapshot();
+	});
+
+	it('should support className', () => {
+		const data = {
+			foo: 'foo',
+			bar: {
+				hello: 'hello',
+			},
+		};
+		const wrapper = shallow(<Component data={data} className="extra-test" />);
+		expect(wrapper.props().className).toContain('extra-test');
+	});
+
 	describe('abstracter', () => {
 		const TEST_STRING = 'test';
 
@@ -32,9 +62,49 @@ describe('JSONLike', () => {
 			k1: 'v1',
 			k2: { k21: 'v21' },
 		};
+		const birthData = {
+			completeDateTime: '1985-03-01T12:19:58Z',
+			justDate: '1985-03-01',
+			justTime: '12:19:58',
+			notCompliantString: '1985-03-01 12:19:58Z',
+		};
+
+		it(`${birthData.completeDateTime} should have a type "datetime"`, () => {
+			expect(getDataInfo(birthData.completeDateTime)).toEqual({
+				type: 'datetime',
+				keys: Object.keys(birthData.completeDateTime),
+			});
+		});
+
+		it(`${birthData.justDate} should have a type "date"`, () => {
+			expect(getDataInfo(birthData.justDate)).toEqual({
+				type: 'date',
+				keys: Object.keys(birthData.justDate),
+			});
+		});
+
+		it(`${birthData.justTime} should have a type "time"`, () => {
+			expect(getDataInfo(birthData.justTime)).toEqual({
+				type: 'time',
+				keys: Object.keys(birthData.justTime),
+			});
+		});
+
+		it(`${
+			birthData.notCompliantString
+		} should have a type "string" as it does not meet any of datetime, date or time regexp`, () => {
+			expect(getDataInfo(birthData.notCompliantString)).toEqual({
+				type: 'string',
+				keys: Object.keys(birthData.notCompliantString),
+			});
+		});
 
 		it('replaces the object type by the provided label', () => {
-			expect(getDataInfo(data, objLabel)).toEqual({ keys: ['k1', 'k2'], length: 2, type: 'Record' });
+			expect(getDataInfo(data, objLabel)).toEqual({
+				keys: ['k1', 'k2'],
+				length: 2,
+				type: 'Record',
+			});
 		});
 	});
 
@@ -63,7 +133,9 @@ describe('JSONLike', () => {
 		});
 
 		it('abstracts an object with nested objects', () => {
-			expect(getDataAbstract(mixedObject)).toEqual(`${OBJECT_ABSTRACT}, ${OBJECT_ABSTRACT}, true, quiet`);
+			expect(getDataAbstract(mixedObject)).toEqual(
+				`${OBJECT_ABSTRACT}, ${OBJECT_ABSTRACT}, true, quiet`,
+			);
 		});
 
 		it('abstracts an array of primitive', () => {

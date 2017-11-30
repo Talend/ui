@@ -2,7 +2,8 @@
 
 exports[`TreeView should render normally with all buttons and custom labels 1`] = `
 <div
-  className={undefined}
+  className="tc-treeview"
+  style={undefined}
 >
   <header
     className={undefined}
@@ -10,28 +11,15 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
     <span>
       some elements
     </span>
-    <button
-      className="btn btn-link"
-      disabled={false}
+    <Action
+      hideLabel={true}
+      icon="talend-plus"
       id="id-add"
+      label="add element"
+      link={true}
       onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseOver={[Function]}
-      role="link"
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="tc-svg-icon"
-        focusable="false"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-plus"
-        />
-      </svg>
-    </button>
+      tooltipPlacement="right"
+    />
   </header>
   <nav
     className={undefined}
@@ -39,319 +27,51 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
     <ul
       className={undefined}
     >
-      <li
-        className={undefined}
-        data-hidden={undefined}
-      >
-        <div
-          className={undefined}
-          data-selected={undefined}
-          id="id-0"
-          onClick={[Function]}
-          style={
-            Object {
-              "paddingLeft": "20px",
-            }
+      <TreeViewItem
+        depth={0}
+        id="id-0"
+        item={
+          Object {
+            "actions": Array [
+              Object {
+                "action": [Function],
+                "icon": "talend-trash",
+                "label": "remove element",
+              },
+            ],
+            "children": Array [
+              Object {
+                "children": Array [
+                  Object {
+                    "name": "me",
+                    "selected": true,
+                  },
+                  Object {
+                    "name": "bro",
+                  },
+                ],
+                "name": "mami",
+                "toggled": true,
+              },
+              Object {
+                "children": Array [
+                  Object {
+                    "name": "cousin",
+                  },
+                ],
+                "name": "aunt",
+                "toggled": false,
+              },
+            ],
+            "counter": 101,
+            "name": "grandpa",
+            "showCounter": true,
+            "toggled": true,
           }
-        >
-          <div
-            className={undefined}
-            data-toggled={true}
-          >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="id-0-toggle"
-              onClick={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              onMouseOver={[Function]}
-              role="link"
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-caret-down"
-                />
-              </svg>
-            </button>
-          </div>
-          <span
-            className={undefined}
-          >
-            <svg
-              aria-hidden="true"
-              className="tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-folder"
-              />
-            </svg>
-          </span>
-          <span>
-            grandpa
-          </span>
-          <div
-            className={undefined}
-          >
-            <div
-              className="tc-badge tc-badge-readonly"
-              style={undefined}
-            >
-              <button
-                className="tc-badge-button"
-                disabled={false}
-                onClick={undefined}
-              >
-                <span
-                  className="tc-badge-label"
-                >
-                  101
-                </span>
-              </button>
-            </div>
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="id-0-talend-trash"
-              onClick={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              onMouseOver={[Function]}
-              role="link"
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-trash"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <ul
-          className={undefined}
-        >
-          <li
-            className={undefined}
-            data-hidden={undefined}
-          >
-            <div
-              className={undefined}
-              data-selected={undefined}
-              id="id-0-0"
-              onClick={[Function]}
-              style={
-                Object {
-                  "paddingLeft": "35px",
-                }
-              }
-            >
-              <div
-                className={undefined}
-                data-toggled={true}
-              >
-                <button
-                  className="btn btn-link"
-                  disabled={false}
-                  id="id-0-0-toggle"
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseOver={[Function]}
-                  role="link"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="tc-svg-icon"
-                    focusable="false"
-                    title={null}
-                  >
-                    <use
-                      xlinkHref="#talend-caret-down"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <span
-                className={undefined}
-              >
-                <svg
-                  aria-hidden="true"
-                  className="tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-folder"
-                  />
-                </svg>
-              </span>
-              <span>
-                mami
-              </span>
-              <div
-                className={undefined}
-              />
-            </div>
-            <ul
-              className={undefined}
-            >
-              <li
-                className={undefined}
-                data-hidden={undefined}
-              >
-                <div
-                  className={undefined}
-                  data-selected={true}
-                  id="id-0-0-0"
-                  onClick={[Function]}
-                  style={
-                    Object {
-                      "paddingLeft": "50px",
-                    }
-                  }
-                >
-                  <span
-                    className={undefined}
-                  >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-folder"
-                      />
-                    </svg>
-                  </span>
-                  <span>
-                    me
-                  </span>
-                  <div
-                    className={undefined}
-                  />
-                </div>
-              </li>
-              <li
-                className={undefined}
-                data-hidden={undefined}
-              >
-                <div
-                  className={undefined}
-                  data-selected={undefined}
-                  id="id-0-0-1"
-                  onClick={[Function]}
-                  style={
-                    Object {
-                      "paddingLeft": "50px",
-                    }
-                  }
-                >
-                  <span
-                    className={undefined}
-                  >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-folder"
-                      />
-                    </svg>
-                  </span>
-                  <span>
-                    bro
-                  </span>
-                  <div
-                    className={undefined}
-                  />
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li
-            className={undefined}
-            data-hidden={undefined}
-          >
-            <div
-              className={undefined}
-              data-selected={undefined}
-              id="id-0-1"
-              onClick={[Function]}
-              style={
-                Object {
-                  "paddingLeft": "35px",
-                }
-              }
-            >
-              <div
-                className={undefined}
-                data-toggled={false}
-              >
-                <button
-                  className="btn btn-link"
-                  disabled={false}
-                  id="id-0-1-toggle"
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseOver={[Function]}
-                  role="link"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="tc-svg-icon"
-                    focusable="false"
-                    title={null}
-                  >
-                    <use
-                      xlinkHref="#talend-caret-down"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <span
-                className={undefined}
-              >
-                <svg
-                  aria-hidden="true"
-                  className="tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-folder"
-                  />
-                </svg>
-              </span>
-              <span>
-                aunt
-              </span>
-              <div
-                className={undefined}
-              />
-            </div>
-          </li>
-        </ul>
-      </li>
+        }
+        onClick={[Function]}
+        onSelect={[Function]}
+      />
     </ul>
   </nav>
 </div>

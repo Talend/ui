@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { IconsProvider } from '@talend/react-components';
 import { Notification } from '@talend/react-containers';
 
@@ -18,5 +19,5 @@ export default function App(props) {
 }
 
 App.propTypes = {
-	children: React.PropTypes.element,
+	children: PropTypes.element,
 };

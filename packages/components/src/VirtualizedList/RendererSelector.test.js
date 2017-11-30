@@ -9,20 +9,8 @@ import collection from './collection';
 const { TABLE, LARGE } = listTypes;
 
 const contentFields = [
-	<VirtualizedList.Content
-		label="Id"
-		dataKey="id"
-		width={50}
-		flexShrink={0}
-		flexGrow={0}
-	/>,
-	<VirtualizedList.Content
-		label="Name"
-		dataKey="name"
-		width={350}
-		flexShrink={0}
-		flexGrow={0}
-	/>,
+	<VirtualizedList.Content label="Id" dataKey="id" width={50} flexShrink={0} flexGrow={0} />,
+	<VirtualizedList.Content label="Name" dataKey="name" width={350} flexShrink={0} flexGrow={0} />,
 	<VirtualizedList.Content
 		label="Description"
 		dataKey="name"
@@ -50,7 +38,7 @@ describe('RendererSelector', () => {
 				width={1024}
 			>
 				{contentFields}
-			</RendererSelector>
+			</RendererSelector>,
 		);
 
 		// then
@@ -75,7 +63,7 @@ describe('RendererSelector', () => {
 				width={1024}
 			>
 				{contentFields}
-			</RendererSelector>
+			</RendererSelector>,
 		);
 
 		// then
@@ -98,7 +86,7 @@ describe('RendererSelector', () => {
 				width={1024}
 			>
 				{contentFields}
-			</RendererSelector>
+			</RendererSelector>,
 		);
 
 		// then

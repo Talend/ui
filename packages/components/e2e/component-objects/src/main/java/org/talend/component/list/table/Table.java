@@ -1,10 +1,8 @@
 package org.talend.component.list.table;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NotFoundException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.talend.component.Component;
 
 import java.util.List;
@@ -28,6 +26,8 @@ public class Table extends Component {
 
     private static final String TABLE_ITEM_SELECTOR = ".ReactVirtualized__Table__row";
 
+    private final WebDriverWait wait;
+
     /**
      * Constructor.
      *
@@ -44,6 +44,7 @@ public class Table extends Component {
      */
     public Table(final WebDriver driver, final String id) {
         super(driver, NAME, String.format(TABLE_SELECTOR, id != null ? "#" + id : ""));
+        this.wait = new WebDriverWait(driver, 1);
     }
 
     /**
@@ -107,8 +108,15 @@ public class Table extends Component {
             return false;
         }
 
+        final WebElement firstElement = this.getElement().findElement(By.cssSelector(TABLE_ITEM_SELECTOR)) ;
         final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
         jsExec.executeScript("arguments[0].scrollTop += arguments[0].offsetHeight;", grid);
+        try {
+            wait.until(ExpectedConditions.stalenessOf(firstElement));
+        } catch (TimeoutException e) {
+            return false;
+        }
+
         return true;
     }
 

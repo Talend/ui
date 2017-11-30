@@ -1,11 +1,12 @@
 import get from 'lodash/get';
 import registry from './registry';
+import CONST from './constant';
 
 /**
+ * This module provide low level api to register and handle action in a CMF App.
  * @module react-cmf/lib/action
+ * @see module:react-cmf/lib/Dispatcher
  */
-
-const ACTION_CREATOR_PREFIX = 'actionCreator';
 
 /**
  * get the global actions registered in the settings
@@ -26,11 +27,7 @@ function getActionsById(context) {
  */
 function getContentTypeActions(context, contentType, category) {
 	const state = context.store.getState();
-	return get(
-		state,
-		`cmf.settings.contentTypes[${contentType}.actions[${category}]`,
-		[],
-	);
+	return get(state, `cmf.settings.contentTypes[${contentType}.actions[${category}]`, []);
 }
 
 /**
@@ -40,7 +37,7 @@ function getContentTypeActions(context, contentType, category) {
  * @return {function}
  */
 function getActionCreatorFunction(context, id) {
-	const creator = context.registry[`${ACTION_CREATOR_PREFIX}:${id}`];
+	const creator = context.registry[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:${id}`];
 	if (!creator) {
 		throw new Error(`actionCreator not found in the registry: ${id}`);
 	}
@@ -94,10 +91,9 @@ function getActionObject(context, action, event, data) {
  * @return {Array}       of string
  */
 function getOnProps(props) {
-	return Object.keys(props).filter(name => (
-		{}.hasOwnProperty.call(props, name) &&
-		/^on.+/.test(name)
-	));
+	return Object.keys(props).filter(
+		name => ({}.hasOwnProperty.call(props, name) && /^on.+/.test(name)),
+	);
 }
 
 /**
@@ -111,7 +107,7 @@ function getOnProps(props) {
  */
 function mapDispatchToProps(dispatch, props) {
 	const resolvedActions = {};
-	getOnProps(props).forEach((name) => {
+	getOnProps(props).forEach(name => {
 		resolvedActions[name] = (event, data, context) => {
 			let action = props[name];
 			if (typeof action === 'string') {
@@ -132,8 +128,8 @@ function mapDispatchToProps(dispatch, props) {
  * @param  {String} id
  * @param  {Function} actionCreator (event, data, context)
  */
-function registerActionCreator(id, actionCreator) {
-	registry.addToRegistry(`${ACTION_CREATOR_PREFIX}:${id}`, actionCreator);
+function registerActionCreator(id, actionCreator, context) {
+	registry.addToRegistry(`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:${id}`, actionCreator, context);
 }
 
 export default {

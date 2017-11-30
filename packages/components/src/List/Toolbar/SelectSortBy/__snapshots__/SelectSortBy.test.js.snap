@@ -185,6 +185,7 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       Ascending
