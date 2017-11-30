@@ -1,4 +1,4 @@
-# Buttons
+# Array
 
 This widget allows you to create arrays of simple fields/widgets or objects
 

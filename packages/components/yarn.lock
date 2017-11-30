@@ -168,15 +168,15 @@
     react-treebeard "^2.0.3"
     redux "^3.6.0"
 
-"@talend/bootstrap-theme@^0.124.0":
-  version "0.124.0"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.124.0.tgz#9c145870884636035358fb7bb514ac8e31d3dc6f"
+"@talend/bootstrap-theme@^0.127.0":
+  version "0.127.0"
+  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.127.0.tgz#9d0bf38396cba9fbf75256c7ec328c0f9de2d396"
   dependencies:
     bootstrap-sass "3.3.7"
 
-"@talend/icons@^0.124.0":
-  version "0.124.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.124.0.tgz#54c50a33ff56dfc908f284da75816719a348dde6"
+"@talend/icons@^0.127.0":
+  version "0.127.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.127.0.tgz#2160f72ac7b1b446b949f3671b4d31c1bead843d"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -3084,6 +3084,10 @@ flat-cache@^1.2.1:
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
+
+focus-outline-manager@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/focus-outline-manager/-/focus-outline-manager-1.0.2.tgz#7bf3658865341fb6b08d042a037b9d2868b119b5"
 
 for-each@~0.3.2:
   version "0.3.2"

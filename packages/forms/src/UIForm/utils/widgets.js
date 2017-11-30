@@ -1,4 +1,5 @@
 import ArrayWidget from '../fieldsets/Array';
+import createCollapsibleFieldset from '../fieldsets/CollapsibleFieldset';
 import Columns from '../fieldsets/Columns';
 import Fieldset from '../fieldsets/Fieldset';
 import Tabs from '../fieldsets/Tabs';
@@ -20,6 +21,7 @@ const widgets = {
 	// fieldsets
 	array: ArrayWidget,
 	columns: Columns,
+	collapsibleFieldset: createCollapsibleFieldset(),
 	fieldset: Fieldset,
 	tabs: Tabs,
 
