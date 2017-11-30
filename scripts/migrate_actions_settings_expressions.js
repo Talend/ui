@@ -4,10 +4,10 @@ const fs = require('fs');
 const pathLib = require('path');
 const program = require('commander');
 
-const stack_version = program.stack || require('../lerna.json').version;
+const stackVersion = program.stack || require('../lerna.json').version;
 
 program
-	.version(stack_version)
+	.version(stackVersion)
 	.option('-d, --debug', 'display more info')
 	.option('-q, --quiet', 'do not display logs')
 	.option('-p, --path [value]', 'path of the settings.json to update')
@@ -15,9 +15,9 @@ program
 
 program.on('--help', () => {
 	console.log('To update your project settings : ');
-	console.log('>node bin/version.js --path ../yourapp/settings.json');
+	console.log('> node bin/migrate_actions_settings_expressions.js --path ../yourapp/settings.json');
 	console.log('If your project use a folder with multiple json');
-	console.log('>node version.js --folder ../yourapp/settings');
+	console.log('> node migrate_actions_settings_expressions.js --folder ../yourapp/settings');
 });
 
 program.parse(process.argv);
@@ -27,15 +27,15 @@ if (!program.path && !program.folder) {
 }
 
 if (program.debug) {
-	console.log(`use stack version ${stack_version}`);
+	console.log(`use stack version ${stackVersion}`);
 }
 
 
 const JSONs = [];
 
 function readFolderContent(folder) {
-	console.log('scan ', folder)
-	fs.readdirSync(folder).forEach((path) => {
+	console.log('scan ', folder);
+	fs.readdirSync(folder).forEach(path => {
 		const fullpath = pathLib.join(folder, path);
 		if (path.endsWith('.json')) {
 			JSONs.push(fullpath);
@@ -64,7 +64,7 @@ function getActions(settings) {
 		return {};
 	}
 	const actions = {};
-	Object.keys(settings.actions).map(key => {
+	Object.keys(settings.actions).forEach(key => {
 		const action = settings.actions[key];
 		const newAction = Object.assign({}, action);
 		ATTRS.forEach(attr => {
@@ -75,7 +75,7 @@ function getActions(settings) {
 				delete newAction[attr];
 			}
 		});
-		if (typeof newAction['labelExpression'] === 'string') {
+		if (typeof newAction.labelExpression === 'string') {
 			console.log('You should use object to set labelExpression');
 		}
 		actions[key] = newAction;
@@ -84,18 +84,18 @@ function getActions(settings) {
 }
 
 function save(ppath, data) {
-	const withLineEnd = data + '\n';
+	const dataWithLineEnd = `${data}\n`;
 	if (!program.quiet) {
 		console.log(`save ${ppath}`);
 	}
-	fs.open(ppath, 'w', (err, fd) => {
-		if (err) {
-			throw new Error(`error opening file: ${err}`);
+	fs.open(ppath, 'w', (openErr, fd) => {
+		if (openErr) {
+			throw new Error(`error opening file: ${openErr}`);
 		}
 
-		fs.write(fd, withLineEnd, 0, data.length, null, (err) => {
-			if (err) {
-				throw new Error(`error writing file: ${err}`);
+		fs.write(fd, dataWithLineEnd, 0, dataWithLineEnd.length, null, writeErr => {
+			if (writeErr) {
+				throw new Error(`error writing file: ${writeErr}`);
 			}
 			fs.close(fd, () => {
 				if (!program.quiet) {
