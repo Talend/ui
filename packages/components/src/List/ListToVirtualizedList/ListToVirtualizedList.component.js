@@ -46,7 +46,7 @@ function ListToVirtualizedList(props) {
 		>
 			{props.columns.map((column, index) => {
 				const cProps = {
-					label: column.label,
+					label: column.hideHeader ? '' : column.label,
 					dataKey: column.key,
 				};
 				if (titleProps && column.key === titleProps.key) {
