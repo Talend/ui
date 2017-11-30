@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
+import { Action } from '../Actions';
 import NotificationsContainer, {
 	Notification,
 	TimerBar,
@@ -10,7 +11,120 @@ import NotificationsContainer, {
 
 jest.useFakeTimers();
 
+describe('CloseButton', () => {
+	it('should render an Action', () => {
+		const notification = { foo: 'bar' };
+		const leaveFn = jest.fn();
+		const wrapper = shallow(<CloseButton notification={notification} leaveFn={leaveFn} />);
+		expect(wrapper.type()).toBe(Action);
+	});
+
+	it('should call leaveFn props when the user click', () => {
+		const notification = { foo: 'bar' };
+		const leaveFn = jest.fn();
+		const wrapper = shallow(<CloseButton notification={notification} leaveFn={leaveFn} />);
+		wrapper.simulate('click');
+		expect(leaveFn).toHaveBeenCalledWith(notification);
+	});
+});
+
+describe('MessageAction', () => {
+	it('should render an Action if action props', () => {
+		const action = { foo: 'bar' };
+		const wrapper = shallow(<MessageAction action={action} />);
+		expect(wrapper.type()).toBe(Action);
+	});
+
+	it('should render nothing if no action', () => {
+		const wrapper = shallow(<MessageAction />);
+		expect(wrapper.type()).toBe(null);
+	});
+});
+
+describe('Message', () => {
+	it('should render an article with one paragraph if notification is not an array', () => {
+		const notification = { message: 'bar' };
+		const wrapper = shallow(<Message notification={notification} />);
+		expect(wrapper.type()).toBe('article');
+		expect(wrapper.find('p').length).toBe(1);
+	});
+	it('should render an article if notification is not an array', () => {
+		const notification = { message: ['foo', 'bar'] };
+		const wrapper = shallow(<Message notification={notification} />);
+		expect(wrapper.type()).toBe('article');
+		expect(wrapper.find('p').length).toBe(2);
+	});
+	it('should render a MessageAction if notification contain an action attribute', () => {
+		const notification = { message: 'bar', action: { label: 'my bar' } };
+		const wrapper = shallow(<Message notification={notification} />);
+		const action = wrapper.find(MessageAction);
+		expect(action.first().props().action.label).toBe('my bar');
+	});
+});
+
+describe('TimerBar', () => {
+	it('should render null if type === error', () => {
+		const wrapper = shallow(<TimerBar type="error" />);
+		expect(wrapper.type()).toBe(null);
+	});
+	it('should render null if type === error', () => {
+		const wrapper = shallow(<TimerBar type="whatever" />);
+		expect(wrapper.type()).toBe('div');
+	});
+});
+
+describe('TimerBar', () => {
+	it('should render null if type === error', () => {
+		const wrapper = shallow(<TimerBar type="error" />);
+		expect(wrapper.type()).toBe(null);
+	});
+	it('should render null if type === error', () => {
+		const wrapper = shallow(<TimerBar type="whatever" />);
+		expect(wrapper.type()).toBe('div');
+	});
+});
+
 describe('Notification', () => {
+	it('should render null if type === error', () => {
+		const props = {
+			notification: { message: 'foo', type: 'error' },
+		};
+		const wrapper = shallow(<Notification {...props} />);
+		expect(wrapper.getNode()).toMatchSnapshot();
+	});
+	it('should call onMouseEnter with the notification when mouseenter', () => {
+		const props = {
+			notification: { message: 'foo', type: 'error' },
+			onMouseEnter: jest.fn(),
+		};
+		const wrapper = shallow(<Notification {...props} />);
+		const event = {};
+		wrapper.simulate('mouseEnter', event);
+		expect(props.onMouseEnter).toHaveBeenCalledWith(event, props.notification);
+	});
+	it('should call onMouseOut with the notification when mouseleave', () => {
+		const props = {
+			notification: { message: 'foo', type: 'error' },
+			onMouseOut: jest.fn(),
+		};
+		const wrapper = shallow(<Notification {...props} />);
+		const event = {};
+		wrapper.simulate('mouseLeave', event);
+		expect(props.onMouseOut).toHaveBeenCalledWith(event, props.notification);
+	});
+	it('should call onClick with the notification when mouseleave', () => {
+		const props = {
+			notification: { message: 'foo', type: 'error' },
+			onClick: jest.fn(),
+		};
+		const wrapper = shallow(<Notification {...props} />);
+		const event = {};
+		wrapper.simulate('click', event);
+		expect(props.onClick).toHaveBeenCalledWith(event, props.notification);
+	});
+});
+
+describe('NotificationContainer', () => {
 	describe('Timer Registry Utility', () => {
 		it('register, cancel, isRegistered', () => {
 			const notification = {

@@ -232,6 +232,7 @@ Notification.propTypes = {
 	notification: PropTypes.shape(notificationShape).isRequired,
 	leaveFn: PropTypes.func.isRequired,
 	autoLeaveTimeout: PropTypes.number,
+	autoLeaveError: PropTypes.bool,
 	onMouseEnter: PropTypes.func,
 	onMouseOut: PropTypes.func,
 	onClick: PropTypes.func,

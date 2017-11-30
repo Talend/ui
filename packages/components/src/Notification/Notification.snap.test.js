@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Notification from './Notification.component';
+import NotificationContainer from './Notification.component';
 
 describe('Notification', () => {
 	it('should render', () => {
@@ -37,7 +37,7 @@ describe('Notification', () => {
 			},
 		];
 		const wrapper = renderer.create(
-			<Notification notifications={notifications} leaveFn={() => {}} />
+			<NotificationContainer notifications={notifications} leaveFn={() => {}} />
 		).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
