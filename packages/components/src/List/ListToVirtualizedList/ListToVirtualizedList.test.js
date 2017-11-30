@@ -1,5 +1,4 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 import { shallow } from 'enzyme';
 
 import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
@@ -56,8 +55,8 @@ describe('ListToVirtualizedList', () => {
 
 	it('should support rowHeight', () => {
 		const rProps = { ...props, rowHeight: 200 };
-		const table = shallow(<ListToVirtualizedList {...rProps} displayMode="table" />);
-		expect(toJson(table)).toMatchSnapshot();
+		const table = shallow(<ListToVirtualizedList {...rProps} displayMode="table" />).props();
+		expect(table.rowHeight).toBe(200);
 	});
 
 	it('should add actionsKey to titleProps', () => {
