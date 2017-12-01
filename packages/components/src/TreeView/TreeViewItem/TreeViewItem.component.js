@@ -163,7 +163,7 @@ class TreeViewItem extends React.Component {
 					<span className="tc-treeview-item-name">{name}</span>
 					<div className={css['tc-treeview-item-ctrl']}>
 						{showCounter && <Badge label={counter.toString()} />}
-						{actions && actions.map(a => this.renderIconAction(a.label, a.icon, a.action))}
+						{actions && actions.map(a => this.renderIconAction(a.label, a.icon, a.action, a.id))}
 					</div>
 				</div>
 				{children &&

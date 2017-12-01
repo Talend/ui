@@ -9,7 +9,16 @@ import List from '../List';
 import TreeView from '../TreeView';
 import theme from './SelectObject.scss';
 
-function SelectObject(props) {
+function SelectObject({
+	filteredData,
+	idAttr,
+	nameAttr,
+	results,
+	sourceData,
+	tree,
+	filter = {},
+	...props
+}) {
 	let schema;
 	if (props.schema && props.selected) {
 		schema = {
@@ -17,44 +26,43 @@ function SelectObject(props) {
 			...props.schema,
 		};
 	}
-	const { className = '', ...filter } = props.filter || {};
 	return (
 		<div className={`tc-select-object ${theme.wrapper}`}>
 			<FilterBar
-				className={classNames(className, theme.filter)}
+				{...filter}
+				className={classNames(filter.className, theme.filter)}
 				id={props.id}
 				dockable={false}
 				navbar={false}
-				{...filter}
 			/>
 			<div className={theme.container}>
-				{!props.tree &&
-					!props.filteredData && (
+				{!tree &&
+					!filteredData && (
 						<List
 							{...props.list}
 							id={`${props.id}-list`}
-							data={props.sourceData}
+							data={sourceData}
 							className={theme.list}
 						/>
 					)}
-				{props.tree &&
-					!props.filteredData && (
+				{tree &&
+					!filteredData && (
 						<TreeView
-							{...props.tree}
+							{...tree}
 							componentId={props.id}
 							noHeader
-							data={props.sourceData}
+							data={sourceData}
 							className={theme.tree}
 						/>
 					)}
-				{props.filteredData && (
+				{filteredData && (
 					<ListGroup className={theme.results}>
-						{props.filteredData.map(data => (
+						{filteredData.map(data => (
 							<ListGroupItem
-								key={data.get(props.idAttr)}
-								header={data.get(props.nameAttr)}
-								onClick={event => props.results.onClick(event, data)}
-								active={props.results.selectedId === data.get(props.idAttr)}
+								key={data.get(idAttr)}
+								header={data.get(nameAttr)}
+								onClick={event => results.onClick(event, data)}
+								active={results.selectedId === data.get(idAttr)}
 							>
 								{data.get('currentPosition')}
 							</ListGroupItem>
@@ -71,11 +79,16 @@ SelectObject.displayName = 'SelectObject';
 SelectObject.propTypes = {
 	id: PropTypes.string,
 	idAttr: PropTypes.string,
+	nameAttr: PropTypes.string,
 	tree: PropTypes.object,
 	list: PropTypes.object,
 	filter: PropTypes.object,
 	schema: PropTypes.object,
 	filteredData: ImmutablePropTypes.List,
+	results: PropTypes.shape({
+		selectedId: PropTypes.string,
+		onClick: PropTypes.func,
+	}),
 	sourceData: ImmutablePropTypes.List,
 	selected: PropTypes.object,
 };

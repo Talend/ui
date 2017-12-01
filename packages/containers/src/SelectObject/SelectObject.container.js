@@ -31,7 +31,7 @@ export function getById(items, id, { idAttr = 'id' } = {}) {
 /**
  * Check if an `item` is a leaf element, by checking if it
  * has a non empty `children`
- * @param {Object} item the item wich be checked for children
+ * @param {Object} item to be checked if it has children attribute
  * @return {Boolean}
  */
 function isLeafElement(item) {
@@ -41,7 +41,7 @@ function isLeafElement(item) {
 /**
  * if item match the query it will be concatened into the accumulator
  * else the accumulator is returned without modification
- * @param {Object} item the item on wich the matchign will happen
+ * @param {Object} item the item on wich the matching will happen
  * @param {String} currentPosition the element position inside the parsed tree
  * @param {String} query the query element used to match
  * @param {String} nameAttr the attribute of item on wich should be matched
@@ -50,7 +50,7 @@ function isLeafElement(item) {
  */
 function matchOnLeaf(item, currentPosition, query, nameAttr, onMatch, accumulator) {
 	const currentElementName = item.get(nameAttr, '');
-	if (currentElementName.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+	if (currentElementName.toLowerCase().includes(query.toLowerCase())) {
 		const withElementPosition = item.set('currentPosition', currentPosition);
 		onMatch(item);
 		return accumulator.push(withElementPosition);
