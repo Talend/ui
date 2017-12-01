@@ -48,6 +48,7 @@ function ListToVirtualizedList(props) {
 				const cProps = {
 					label: column.hideHeader ? '' : column.label,
 					dataKey: column.key,
+					disableSort: column.hideHeader,
 				};
 				if (titleProps && column.key === titleProps.key) {
 					Object.assign(cProps, CellTitle, {
