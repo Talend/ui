@@ -93,7 +93,13 @@ class FilterBar extends React.Component {
 		this.onFocus = this.onFocus.bind(this);
 		this.onBlur = this.onBlur.bind(this);
 		this.onFilter = this.onFilter.bind(this);
-		this.state = { focus: this.props.focus };
+		this.state = { focus: this.props.focus, value: this.props.value };
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.value !== this.state.value) {
+			this.setState({ value: nextProps.value });
+		}
 	}
 
 	onFocus(event) {
@@ -111,9 +117,7 @@ class FilterBar extends React.Component {
 	}
 
 	onFilter(event) {
-		if (this.props.value !== undefined) {
-			this.setState({ value: event.target.value });
-		}
+		this.setState({ value: event.target.value });
 		if (this.props.onFilter) {
 			this.props.onFilter(event, event.target.value);
 		}
@@ -166,7 +170,7 @@ class FilterBar extends React.Component {
 						onFilter={this.onFilter}
 						onToggle={this.props.onToggle}
 						placeholder={this.state.focus ? '' : this.props.placeholder}
-						value={this.props.value !== undefined ? this.props.value : this.state.value}
+						value={this.state.value}
 						dockable={this.props.dockable}
 					/>
 					<Action

@@ -24,9 +24,14 @@ const decoratedStories = storiesOf('Form', module)
 .addDecorator(story =>
 	<I18nextProvider i18n={i18n}>
 		<section>
-			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
-			<button onClick={() => i18n.changeLanguage('it')}>it</button>
-			<IconsProvider/>
+			<nav style={{ position: 'fixed', bottom: 0, width: '100vw', textAlign: 'center', zIndex: 1 }}>
+				<div className="btn-group">
+					<button className="btn" onClick={() => i18n.changeLanguage('en')}>Default (en)</button>
+					<button className="btn" onClick={() => i18n.changeLanguage('fr')}>fr</button>
+					<button className="btn" onClick={() => i18n.changeLanguage('it')}>it</button>
+				</div>
+			</nav>
+			<IconsProvider />
 			<div className="container-fluid">
 				<div
 					className="col-md-offset-1 col-md-10"
@@ -45,18 +50,18 @@ const capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.
 const sampleFilenames = require.context('./json', true, /.(js|json)$/);
 const sampleFilenameRegex = /^.\/(.*).js/;
 
-sampleFilenames.keys().forEach((filename) => {
+sampleFilenames.keys().forEach(filename => {
 	const sampleNameMatches = filename.match(sampleFilenameRegex);
 	const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 	const capitalizedSampleName = capitalizeFirstLetter(sampleName);
 	decoratedStories.add(capitalizedSampleName, () =>
-			<Form
-				autocomplete="off"
-				data={object(capitalizedSampleName, sampleFilenames(filename))}
-				onChange={action('Change')}
-				onBlur={action('Blur')}
-				onSubmit={action('Submit')}
-			/>
+		<Form
+			autocomplete="off"
+			data={object(capitalizedSampleName, sampleFilenames(filename))}
+			onChange={action('Change')}
+			onBlur={action('Blur')}
+			onSubmit={action('Submit')}
+		/>
 	);
 });
 

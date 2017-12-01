@@ -6,6 +6,7 @@ import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import { FilterBar, ObjectViewer } from '../src/index';
+import 'focus-outline-manager';
 import examples from '../examples';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
