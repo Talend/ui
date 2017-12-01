@@ -134,10 +134,10 @@ describe('Container SelectObject', () => {
 		});
 		it('should return be able to support some options', () => {
 			const subfirst = new Immutable.Map({ myid: 11 });
-			const first = new Immutable.Map({ myid: 1, mychild: new Immutable.List([subfirst]) });
+			const first = new Immutable.Map({ myid: 1, children: new Immutable.List([subfirst]) });
 			const second = new Immutable.Map({ myid: 2 });
 			const items = new Immutable.List([first, second]);
-			expect(getById(items, 11, { idAttr: 'myid', childrenAttr: 'mychild' })).toEqual({ myid: 11 });
+			expect(getById(items, 11, { idAttr: 'myid' })).toEqual({ myid: 11 });
 			expect(getById(items, 3)).toBe();
 		});
 	});
@@ -239,7 +239,7 @@ describe('Container SelectObject', () => {
 			expect(results.get(2).get('children')).toBeFalsy();
 		});
 
-		it('does match on multiple leaf children of differents node', () => {
+		it('does match on multiple leaf children of different node', () => {
 			// given
 			const subfirst = new Immutable.Map({ id: 11, name: 'sub1' });
 			const subsecond = new Immutable.Map({ id: 13, name: 'sub2' });
