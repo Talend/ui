@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-
+import classNames from 'classnames';
 import { Action } from '../';
 import TreeViewItem from './TreeViewItem/';
 
@@ -59,6 +59,8 @@ function TreeView({
 	onClick,
 	onSelect,
 	noHeader,
+	className,
+	style,
 }) {
 	if (!cache.called && (itemSelectCallback || itemToggleCallback)) {
 		// eslint-disable-next-line
@@ -68,7 +70,7 @@ function TreeView({
 		cache.called = true;
 	}
 	return (
-		<div className={theme['tc-treeview']}>
+		<div className={classNames('tc-treeview', theme['tc-treeview'], className)} style={style}>
 			{!noHeader && (
 				<header className={theme['tc-treeview-header']}>
 					<span>{headerText}</span>
@@ -90,7 +92,7 @@ function TreeView({
 				<ul className={theme['tc-treeview-ul']}>
 					{structure.map((item, i) => (
 						<TreeViewItem
-							id={id && `${id}-${i}`}
+							id={`${id}-${i}`}
 							item={item}
 							onSelect={onSelect || itemSelectCallback}
 							onClick={onClick || itemToggleCallback}
@@ -114,9 +116,12 @@ TreeView.propTypes = {
 	onClick: PropTypes.func.isRequired,
 	onSelect: PropTypes.func.isRequired,
 	noHeader: PropTypes.bool,
+	className: PropTypes.string,
+	style: PropTypes.object,
 };
 
 TreeView.defaultProps = {
+	id: 'tc-treeview',
 	addActionLabel: 'Add folder',
 	headerText: 'Folders',
 };

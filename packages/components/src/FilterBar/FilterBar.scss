@@ -1,15 +1,26 @@
 // Filter styles
-$tc-list-filter-input-size: 200px !default;
-$tc-list-filter-highlight-color: #f6e5bb !default;
+$tc-filter-bar-highlight-color: #f6e5bb !default;
+$tc-filter-bar-width: 250px !default;
 
 .filter {
 	display: flex;
+	height: $padding-larger;
+	background-color: rgba($silver, 0.2);
+	color: $dove-gray;
 	align-items: top;
 	padding: 0;
-	background: $white;
+	border-radius: $border-radius-base;
 
 	.search-icon {
 		margin: $padding-small;
+		margin-right: $padding-smaller;
+		margin-top: 7px;
+	}
+
+	> :global(.form-group) {
+		margin-bottom: 0;
+		display: flex;
+		flex-grow: 1;
 	}
 
 	:global(.form-group.form-group) {
@@ -18,12 +29,20 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 	}
 
 	.animate {
+		width: $tc-filter-bar-width;
 		animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	.search {
-		display: inline-block;
-		width: $tc-list-filter-input-size;
+		box-shadow: none;
+		color: $dove-gray;
+		font-size: $font-size-base;
+		margin: 0 $padding-small;
+
+		&::placeholder {
+			color: $dark-silver;
+		}
+
 		// sass-lint:disable-next-line no-vendor-prefixes
 		&::-ms-clear {
 			display: none;
@@ -32,17 +51,41 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 
 	.remove {
 		display: inline-block;
+		color: opacify($gray, 0.2);
+		padding: $padding-smaller 0;
+		line-height: 2rem;
+		// sorry magic number
+		// can't quite mix pixel units and rem
+		// $padding-small & $svg-xs-size
+		// ideally this should be -(($padding-small * 2) + $svg-xs-size)
+		margin-left: -28px;
+
+		:global(.tc-svg-icon) {
+			height: $svg-xs-size;
+			width: $svg-xs-size;
+			margin: 0 $padding-small;
+			vertical-align: baseline;
+		}
+	}
+
+	&.navbar {
+		margin-top: 8px;
+		margin-bottom: 8px;
+		.remove {
+			min-height: 2rem;
+		}
 	}
 }
 
 .highlight {
-	background-color: $tc-list-filter-highlight-color;
+	background-color: $tc-filter-bar-highlight-color;
 }
 
 @keyframes reveal {
 	0% {
 		opacity: 0;
 		width: 0;
+		overflow: hidden;
 	}
 
 	50% {
@@ -50,6 +93,6 @@ $tc-list-filter-highlight-color: #f6e5bb !default;
 	}
 
 	100% {
-		width: $tc-list-filter-input-size;
+		width: $tc-filter-bar-width;
 	}
 }
