@@ -3,6 +3,7 @@ import React from 'react';
 import VirtualizedList, { SORT_BY, cellDictionary } from '../../VirtualizedList';
 import CellTitle from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
+import { defaultTableHeaderRenderer } from 'react-virtualized';
 
 function adaptOnSort(onChange) {
 	if (!onChange) {
@@ -11,6 +12,12 @@ function adaptOnSort(onChange) {
 	return function onSortChange({ sortBy, sortDirection }) {
 		return onChange(null, { field: sortBy, isDescending: sortDirection === SORT_BY.DESC });
 	};
+}
+
+function hideHeaderRenderer(props) {
+	return (
+		<span className="sr-only">{props.label}</span>
+	);
 }
 
 function ListToVirtualizedList(props) {
@@ -47,9 +54,10 @@ function ListToVirtualizedList(props) {
 		>
 			{props.columns.map((column, index) => {
 				const cProps = {
-					label: column.hideHeader ? '' : column.label,
+					label: column.label,
 					dataKey: column.key,
 					disableSort: column.hideHeader,
+					headerRenderer: column.hideHeader ? hideHeaderRenderer : defaultTableHeaderRenderer
 				};
 				if (titleProps && column.key === titleProps.key) {
 					Object.assign(cProps, CellTitle, {
