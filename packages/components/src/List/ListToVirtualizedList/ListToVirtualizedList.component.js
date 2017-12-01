@@ -15,9 +15,7 @@ function adaptOnSort(onChange) {
 }
 
 function hideHeaderRenderer(props) {
-	return (
-		<span className="sr-only">{props.label}</span>
-	);
+	return <span className="sr-only">{props.label}</span>;
 }
 
 function ListToVirtualizedList(props) {
