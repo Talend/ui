@@ -71,21 +71,19 @@ export function filter(
 	currentPosition = 'root',
 ) {
 	if (query) {
-		return (
-			items.reduce((accumulator, item) => {
-				if (isLeafElement(item)) {
-					return matchOnLeaf(item, currentPosition, query, nameAttr, onMatch, accumulator);
-				}
-				const currentElementName = item.get(nameAttr, '');
-				const result = filter(
-					item.get('children'),
-					query,
-					{ nameAttr },
-					`${currentPosition} > ${currentElementName}`,
-				);
-				return accumulator.concat(result);
-			}, new List())
-		);
+		return items.reduce((accumulator, item) => {
+			if (isLeafElement(item)) {
+				return matchOnLeaf(item, currentPosition, query, nameAttr, onMatch, accumulator);
+			}
+			const currentElementName = item.get(nameAttr, '');
+			const result = filter(
+				item.get('children'),
+				query,
+				{ nameAttr },
+				`${currentPosition} > ${currentElementName}`,
+			);
+			return accumulator.concat(result);
+		}, new List());
 	}
 	return items;
 }
