@@ -54,9 +54,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@talend/react-cmf@^0.127.0":
-  version "0.127.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.127.0.tgz#8ddfd328dc3430ea2983005064d09466c539dd44"
+"@talend/react-cmf@^0.128.0":
+  version "0.128.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.128.0.tgz#7316d939ce7db8bd3b77ddc608ca0b81777d074e"
   dependencies:
     babel-polyfill "6.26.0"
     hoist-non-react-statics "^1.2.0"

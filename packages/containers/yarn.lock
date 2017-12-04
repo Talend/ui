@@ -235,35 +235,35 @@
     react-treebeard "^2.0.3"
     redux "^3.7.2"
 
-"@talend/bootstrap-theme@^0.127.0":
-  version "0.127.0"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.127.0.tgz#9d0bf38396cba9fbf75256c7ec328c0f9de2d396"
+"@talend/bootstrap-theme@^0.128.0":
+  version "0.128.0"
+  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.128.0.tgz#6288bdea7d5c4150f26d235ee874ef0b5f116227"
   dependencies:
     bootstrap-sass "3.3.7"
 
-"@talend/icons@^0.127.0":
-  version "0.127.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.127.0.tgz#2160f72ac7b1b446b949f3671b4d31c1bead843d"
+"@talend/icons@^0.128.0":
+  version "0.128.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.128.0.tgz#3436bf0b0a68a27c9bb7fd6af607a026af6b0033"
 
-"@talend/react-cmf@^0.127.0":
-  version "0.127.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.127.0.tgz#8ddfd328dc3430ea2983005064d09466c539dd44"
+"@talend/react-cmf@^0.128.0":
+  version "0.128.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.128.0.tgz#7316d939ce7db8bd3b77ddc608ca0b81777d074e"
   dependencies:
     babel-polyfill "6.26.0"
     hoist-non-react-statics "^1.2.0"
 
-"@talend/react-components@^0.127.0":
-  version "0.127.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.127.0.tgz#64bb107e408e9afdb7854e7f6e7606a042ccb933"
+"@talend/react-components@^0.128.0":
+  version "0.128.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.128.0.tgz#a37aa1c5af42a24d92aa119bd86cbf2652a9333e"
   dependencies:
     lodash "4.17.4"
     react-autowhatever "7.0.0"
     react-debounce-input "2.4.2"
     react-virtualized "9.10.1"
 
-"@talend/react-forms@^0.127.0":
-  version "0.127.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-0.127.0.tgz#59cbb574ab6cf4646aba36b7747866b163621ff7"
+"@talend/react-forms@^0.128.0":
+  version "0.128.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-0.128.0.tgz#dac7d26814a4a246b81074162cae538076fa0d9c"
   dependencies:
     classnames "2.2.5"
     keycode "2.1.9"
@@ -2691,6 +2691,24 @@ enhanced-resolve@^3.4.0:
 entities@^1.1.1, entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
+
+enzyme-adapter-react-16@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.0.0.tgz#e7edd5536743818dcbef336d40d7da59b3a7db8e"
+  dependencies:
+    enzyme-adapter-utils "^1.0.0"
+    lodash "^4.17.4"
+    object.assign "^4.0.4"
+    object.values "^1.0.4"
+    prop-types "^15.5.10"
+
+enzyme-adapter-utils@^1.0.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/enzyme-adapter-utils/-/enzyme-adapter-utils-1.2.0.tgz#7f4471ee0a70b91169ec8860d2bf0a6b551664b2"
+  dependencies:
+    lodash "^4.17.4"
+    object.assign "^4.0.4"
+    prop-types "^15.5.10"
 
 enzyme@^3.0.0:
   version "3.2.0"
