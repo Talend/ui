@@ -591,6 +591,28 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('Virtualized - list with hidden header labels', () => {
+		const tprops = cloneDeep(props);
+
+		tprops.list.columns[0].hideHeader = true;
+
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Display the list with hidden header labels.</p>
+				<List {...tprops} virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized - list with custom classnames', () => {
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list virtualized-list-customized-row">
+				<h1>List</h1>
+				<p>Display the list with hidden header labels.</p>
+				<List {...props} virtualized />
+			</div>
+		);
+	})
 	.add('DEPRECATED - Table (migrated to virtualized)', () => (
 		<div className="display-table tc-list-fixed-name-column">
 			<h1>List</h1>

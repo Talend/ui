@@ -13,7 +13,11 @@ function adaptOnSort(onChange) {
 	};
 }
 
-function ListToVirtualizedList(props) {
+export function HiddenHeader(props) {
+	return <span className="sr-only">{props.label}</span>;
+}
+
+export function ListToVirtualizedList(props) {
 	const { itemProps, sort, titleProps } = props;
 
 	if (titleProps && !titleProps.actionsKey) {
@@ -61,6 +65,10 @@ function ListToVirtualizedList(props) {
 						columnData: column.data,
 					});
 				}
+				if (column.hideHeader) {
+					cProps.disableSort = true;
+					cProps.headerRenderer = HiddenHeader;
+				}
 				return <VirtualizedList.Content key={index} {...cProps} />;
 			})}
 		</VirtualizedList>
@@ -94,5 +102,6 @@ ListToVirtualizedList.propTypes = {
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',
 };
-
-export default ListToVirtualizedList;
+HiddenHeader.propTypes = {
+	label: PropTypes.string,
+};
