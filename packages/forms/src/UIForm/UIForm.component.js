@@ -80,7 +80,7 @@ export default class UIForm extends React.Component {
 			newValue,
 			this.props.properties,
 			this.props.customValidation,
-			deepValidation
+			deepValidation,
 		)[schema.key];
 
 		// update errors map
@@ -105,10 +105,7 @@ export default class UIForm extends React.Component {
 				payload.properties = mutateValue(this.props.properties, schema.key, value);
 			}
 
-			this.onTrigger(
-				event,
-				payload
-			);
+			this.onTrigger(event, payload);
 		}
 	}
 
@@ -125,20 +122,19 @@ export default class UIForm extends React.Component {
 			return null;
 		}
 
-		return onTrigger(
-			event,
-			{
-				formName,
-				properties,
-				...payload,
-			}
-		)
-			.then(newForm => updateForm(
-				formName,
-				newForm.jsonSchema,
-				newForm.uiSchema,
-				newForm.properties,
-				newForm.errors)
+		return onTrigger(event, {
+			formName,
+			properties,
+			...payload,
+		})
+			.then(newForm =>
+				updateForm(
+					formName,
+					newForm.jsonSchema,
+					newForm.uiSchema,
+					newForm.properties,
+					newForm.errors,
+				),
 			)
 			.catch(({ errors }) => setError(formName, errors));
 	}
@@ -153,7 +149,7 @@ export default class UIForm extends React.Component {
 			this.props.formName,
 			this.props.initialData.jsonSchema,
 			this.props.initialData.uiSchema,
-			this.props.initialData.properties
+			this.props.initialData.properties,
 		);
 		this.props.setErrors(this.props.formName, {});
 
@@ -185,12 +181,14 @@ export default class UIForm extends React.Component {
 	}
 
 	render() {
-		const actions = this.props.actions || [{
-			bsStyle: 'primary',
-			title: 'Submit',
-			type: 'submit',
-			widget: 'button',
-		}];
+		const actions = this.props.actions || [
+			{
+				bsStyle: 'primary',
+				title: 'Submit',
+				type: 'submit',
+				widget: 'button',
+			},
+		];
 
 		return (
 			<form
@@ -207,22 +205,20 @@ export default class UIForm extends React.Component {
 				onSubmit={this.onSubmit}
 				target={this.props.target}
 			>
-				{
-					this.state.mergedSchema.map((nextSchema, index) => (
-						<Widget
-							id={this.props.id}
-							key={index}
-							formName={this.props.formName}
-							onChange={this.onChange}
-							onFinish={this.onFinish}
-							onTrigger={this.onTrigger}
-							schema={nextSchema}
-							properties={this.props.properties}
-							errors={this.props.errors}
-							widgets={this.props.widgets}
-						/>
-					))
-				}
+				{this.state.mergedSchema.map((nextSchema, index) => (
+					<Widget
+						id={this.props.id}
+						key={index}
+						formName={this.props.formName}
+						onChange={this.onChange}
+						onFinish={this.onFinish}
+						onTrigger={this.onTrigger}
+						schema={nextSchema}
+						properties={this.props.properties}
+						errors={this.props.errors}
+						widgets={this.props.widgets}
+					/>
+				))}
 				<Buttons
 					id={`${this.props.id}-${this.props.formName}-actions`}
 					onTrigger={this.onTrigger}
