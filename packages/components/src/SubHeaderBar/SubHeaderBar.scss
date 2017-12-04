@@ -125,15 +125,10 @@ $subheader-bar-height: 7rem;
 	align-self: center;
 }
 
-.subheader-file-icon-box {
-	display: flex;
-	align-items: center;
-	// align-self: center;
-
-	.subheader-file-icon {
-		width: $file-icon-size;
-		height: $file-icon-size;
-		color: $brand-primary;
-		margin-left: $padding-large;
-	}
+.subheader-file-icon {
+	align-self: center;
+	width: $file-icon-size;
+	height: $file-icon-size;
+	color: $brand-primary;
+	margin-left: $padding-large;
 }
