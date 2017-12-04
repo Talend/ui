@@ -4,13 +4,18 @@ import classNames from 'classnames';
 import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
 import theme from './SubHeaderBar.scss';
-import InputSubheaderBar from './InputSubheaderBar.component';
 
-function SubHeaderBarActions({ components, right, center, className }) {
+function SubHeaderBarActions({ components, left, right, center, className }) {
 	return (
 		<div className={className}>
 			{components.map((component, index) => (
-				<ActionBar.Content key={index} tag={component.tag} center={center} right={right}>
+				<ActionBar.Content
+					key={index}
+					tag={component.tag}
+					left={left}
+					center={center}
+					right={right}
+				>
 					{component.injectedComponent}
 				</ActionBar.Content>
 			))}
@@ -22,6 +27,7 @@ SubHeaderBarActions.propTypes = {
 	components: PropTypes.array.isRequired,
 	right: PropTypes.bool,
 	center: PropTypes.bool,
+	left: PropTypes.bool,
 	className: PropTypes.string,
 };
 
@@ -31,29 +37,37 @@ function SubHeaderBar({
 	componentsCenter,
 	componentsRight,
 	className,
-	...rest
 }) {
+	const backArrow = {
+		injectedComponent: (
+			<Action
+				id="backArrow"
+				onClick={onGoBack}
+				label="backArrow"
+				icon="talend-arrow-left"
+				bsStyle="link"
+				className={theme['subheader-back-button']}
+				hideLabel
+			/>
+		),
+	};
 	return (
 		<div className={classNames(theme['subheader-container'], 'subheader-container', className)}>
 			<ActionBar className={theme['subheader-navbar']}>
-				<ActionBar.Content left>
-					<Action
-						id="backArrow"
-						onClick={onGoBack}
-						label="backArrow"
-						icon="talend-arrow-left"
-						bsStyle="link"
-						className={theme['subheader-back-button']}
-						hideLabel
-					/>
-				</ActionBar.Content>
-				<InputSubheaderBar {...rest} />
+				<SubHeaderBarActions
+					components={Array.isArray(componentsLeft) ? [backArrow, ...componentsLeft] : [backArrow]}
+					className={theme['subheader-left']}
+					left
+					center={false}
+					right={false}
+				/>
 				{Array.isArray(componentsCenter) && (
 					<SubHeaderBarActions
 						components={componentsCenter}
 						className={classNames([`${theme['subheader-center']}`], {
 							[`${theme['no-margin-right']}`]: componentsRight,
 						})}
+						left={false}
 						center
 						right={false}
 					/>
@@ -62,6 +76,7 @@ function SubHeaderBar({
 					<SubHeaderBarActions
 						components={componentsRight}
 						className={theme['subheader-right']}
+						left={false}
 						center={false}
 						right
 					/>
@@ -73,7 +88,6 @@ function SubHeaderBar({
 
 SubHeaderBar.propTypes = {
 	onGoBack: PropTypes.func.isRequired,
-	editMode: PropTypes.bool,
 	componentsLeft: PropTypes.array,
 	componentsCenter: PropTypes.array,
 	componentsRight: PropTypes.array,

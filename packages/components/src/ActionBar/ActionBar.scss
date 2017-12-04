@@ -32,10 +32,6 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 		flex-grow: 1;
 		align-items: center;
 		justify-content: center;
-		> * {
-			margin-top: $padding-small;
-			margin-bottom: $padding-small;
-		}
 	}
 
 	:global(.navbar-form),

@@ -1,17 +1,8 @@
-$file-icon-size: 2.4rem;
 $subheader-bar-height: 7rem;
 
 @mixin input-icon($margin-left) {
 	margin-top: 1rem;
 	margin-left: $margin-left;
-}
-
-@mixin input-text($weight) {
-	color: $black;
-	font-size: 1.4rem;
-	font-weight: $weight;
-	padding-right: $padding-small;
-	text-transform: uppercase;
 }
 
 .subheader-container {
@@ -42,66 +33,10 @@ $subheader-bar-height: 7rem;
 			background-color: $wild-sand;
 		}
 	}
+}
 
-	.subheader-details {
-		display: flex;
-		align-items: normal;
-		max-width: 47.5rem;
-
-		&:hover .subheader-details-text .subheader-details-pencil {
-			visibility: visible;
-		}
-
-		.subheader-details-text {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			padding-left: $padding-large;
-
-			.subheader-details-pencil {
-				display: inline-flex;
-				padding-left: 0;
-				stroke: 0.1rem;
-				height: 1.6rem;
-				color: $gallery;
-				visibility: hidden;
-				vertical-align: top;
-			}
-
-			.subheader-details-title {
-				@include input-text(800);
-			}
-
-			.subheader-details-subtitle {
-				color: $dark-silver;
-				// padding-top: 0.1rem;
-				font-size: 1.4rem;
-				font-weight: 300;
-			}
-		}
-	}
-
-	.subheader-form-container {
-		display: flex;
-		align-items: normal;
-
-		.subheader-form {
-			align-self: center;
-			padding-left: $padding-large;
-		}
-
-		& .form-group {
-			padding-top: 0;
-
-			& .col-lg-10 {
-				width: 100%;
-			}
-		}
-
-		.subheader-input {
-			@include input-text(400);
-		}
-	}
+.subheader-left {
+	display: flex;
 }
 
 .subheader-right {
@@ -119,16 +54,4 @@ $subheader-bar-height: 7rem;
 	&.no-margin-right {
 		margin-right: 0;
 	}
-}
-
-.subheader-form-icon {
-	align-self: center;
-}
-
-.subheader-file-icon {
-	align-self: center;
-	width: $file-icon-size;
-	height: $file-icon-size;
-	color: $brand-primary;
-	margin-left: $padding-large;
 }

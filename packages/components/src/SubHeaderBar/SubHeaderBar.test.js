@@ -6,7 +6,6 @@ import SubHeaderBar, {
 	EditTitle,
 	DetailsTitle,
 	DetailsIcon,
-	// getComponentFromRenderType,
 } from './SubHeaderBar.component';
 
 describe('DetailsIcon', () => {
