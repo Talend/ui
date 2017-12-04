@@ -26,7 +26,7 @@ describe('CheckBox field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render disabled input', () => {
@@ -50,7 +50,7 @@ describe('CheckBox field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onChange on input change', () => {

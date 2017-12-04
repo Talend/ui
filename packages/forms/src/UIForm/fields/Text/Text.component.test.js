@@ -27,7 +27,7 @@ describe('Text field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render password input', () => {
@@ -45,7 +45,7 @@ describe('Text field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render disabled input', () => {
@@ -69,7 +69,7 @@ describe('Text field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render readonly input', () => {
@@ -93,7 +93,7 @@ describe('Text field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onChange', () => {

@@ -74,7 +74,7 @@ $tf-typeahead-section-border-color: #E0E0E0 !default;
 	padding: $padding-normal;
 	cursor: pointer;
 
-	&-focused {
+	&-highlighted {
 		background-color: $tf-typeahead-items-focus-background-color;
 	}
 }

@@ -12,7 +12,7 @@ describe('CodeWidget', () => {
 		const wrapper = shallow(
 			<CodeWidget />
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should support formContext.codeWidgetProps customization', () => {

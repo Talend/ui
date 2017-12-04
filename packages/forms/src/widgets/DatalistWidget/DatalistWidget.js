@@ -18,14 +18,17 @@ export function escapeRegexCharacters(str) {
  * Render the datalist suggestion items container
  * @param props
  */
-function defaultRenderDatalistItemContainer(props) {
-	return <div {...props} />;
+function DefaultRenderDatalistItemContainer({ containerProps, ...rest }) {
+	return <div {...containerProps} {...rest} />;
 }
+DefaultRenderDatalistItemContainer.propTypes = {
+	containerProps: PropTypes.object,
+};
 
 /**
  * Render an empty container
  */
-function defaultRenderNoMatch() {
+function DefaultRenderNoMatch() {
 	return (
 		<div className={`${theme['items-container']} ${theme['no-result']}`}>
 			<span>No match.</span>
@@ -121,7 +124,7 @@ class DatalistWidget extends React.Component {
 			containerOpen: theme['container-open'],
 			highlight: theme['highlight-match'],
 			input: theme['typeahead-input'],
-			itemFocused: theme['item-focused'],
+			itemHighlighted: theme['item-highlighted'],
 			itemsContainer: theme['items-container'],
 			itemsList: theme.items,
 		};
@@ -161,7 +164,7 @@ class DatalistWidget extends React.Component {
 
 	onKeyDown(
 		event,
-		{ newFocusedSectionIndex, newFocusedItemIndex, focusedSectionIndex, focusedItemIndex },
+		{ newHighlightedSectionIndex, newHighlightedItemIndex, highlightedSectionIndex, highlightedItemIndex },
 	) {
 		switch (event.which) {
 			case keycode.codes.esc:
@@ -170,15 +173,15 @@ class DatalistWidget extends React.Component {
 				break;
 			case keycode.codes.enter:
 				// could be null in case of no match
-				if (focusedItemIndex != null) {
-					this.selectItem(focusedSectionIndex, focusedItemIndex);
+				if (highlightedItemIndex != null) {
+					this.selectItem(highlightedSectionIndex, highlightedItemIndex);
 				}
 				event.preventDefault();
 				break;
 			case keycode.codes.up:
 			case keycode.codes.down:
 				event.preventDefault();
-				this.focusOnItem(newFocusedSectionIndex, newFocusedItemIndex);
+				this.focusOnItem(newHighlightedSectionIndex, newHighlightedItemIndex);
 				break;
 			default:
 				break;
@@ -374,7 +377,7 @@ class DatalistWidget extends React.Component {
 		let renderItemsContainer;
 		const value = this.state.value;
 		const renderItemData = { value };
-		const renderNoMatch = this.props.renderNoMatch || defaultRenderNoMatch;
+		const renderNoMatch = this.props.renderNoMatch || DefaultRenderNoMatch;
 
 		this.inputProps.value = value;
 		if (this.state.noMatch) {
@@ -382,7 +385,7 @@ class DatalistWidget extends React.Component {
 		} else if (this.props.renderItemsContainer) {
 			renderItemsContainer = this.props.renderItemsContainer;
 		} else {
-			renderItemsContainer = defaultRenderDatalistItemContainer;
+			renderItemsContainer = DefaultRenderDatalistItemContainer;
 		}
 
 		const props = {
@@ -395,7 +398,7 @@ class DatalistWidget extends React.Component {
 			renderInputComponent: this.renderDatalistInput,
 			renderItemsContainer,
 			itemProps: this.itemProps,
-			focusedItemIndex: this.state.itemIndex,
+			highlightedItemIndex: this.state.itemIndex,
 			ref: ref => {
 				this.reference = ref;
 			},
@@ -406,7 +409,7 @@ class DatalistWidget extends React.Component {
 			renderSectionTitle,
 			getSectionItems,
 			renderItem: (item, filter) => this.renderDatalistItem(item.text, filter),
-			focusedSectionIndex: this.state.sectionIndex,
+			highlightedSectionIndex: this.state.sectionIndex,
 		});
 
 		if (this.props.options && this.props.options.groupBy) {

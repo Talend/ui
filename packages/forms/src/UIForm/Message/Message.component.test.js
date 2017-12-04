@@ -15,7 +15,7 @@ describe('Message component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render provided error message if the field is invalid', () => {
@@ -29,7 +29,7 @@ describe('Message component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render nothing when field is valid and no description is provided', () => {
@@ -42,6 +42,6 @@ describe('Message component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

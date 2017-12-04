@@ -30,7 +30,7 @@ describe('MultiSelectTag field', () => {
 		const wrapper = shallow(<MultiSelectTag {...props} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should update suggestion on input change', () => {

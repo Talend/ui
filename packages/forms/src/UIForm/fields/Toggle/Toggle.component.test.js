@@ -25,7 +25,7 @@ describe('Toggle field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render autoFocused input', () => {
@@ -49,7 +49,7 @@ describe('Toggle field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render disabled input', () => {
@@ -73,7 +73,7 @@ describe('Toggle field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onChange', () => {

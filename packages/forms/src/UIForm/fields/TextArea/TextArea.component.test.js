@@ -28,7 +28,7 @@ describe('TextArea field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render disabled textarea', () => {
@@ -52,7 +52,7 @@ describe('TextArea field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render readonly textarea', () => {
@@ -76,7 +76,7 @@ describe('TextArea field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render provided rows', () => {
@@ -100,7 +100,7 @@ describe('TextArea field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onChange', () => {

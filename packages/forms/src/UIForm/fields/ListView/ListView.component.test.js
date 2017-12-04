@@ -81,7 +81,7 @@ describe('ListView field', () => {
 			const wrapper = mount(<ListView {...props} schema={noItemsSchema} />);
 
 			// then
-			expect(wrapper.find('.tc-listview').at(0).node).toMatchSnapshot();
+			expect(wrapper.find('.tc-listview').at(0).getElement()).toMatchSnapshot();
 		});
 	});
 
@@ -147,7 +147,6 @@ describe('ListView field', () => {
 				.simulate('click');
 
 			// then
-			// expect(wrapper.find('.tc-listview-header').at(0).node).toMatchSnapshot();
 			const nextHeader = wrapper.find('.tc-listview-header').at(0);
 			expect(nextHeader.find('input').length).toBe(1);
 			expect(nextHeader.text()).toBe('');

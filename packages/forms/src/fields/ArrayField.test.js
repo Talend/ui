@@ -14,6 +14,6 @@ describe('ArrayField', () => {
 		const wrapper = shallow(
 			<ArrayField schema={schema} uiSchema={uiSchema} />
 		);
-		expect(wrapper.root.node).toBe(null);
+		expect(wrapper.getElement()).toBe(null);
 	});
 });
