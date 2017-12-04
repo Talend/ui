@@ -7,7 +7,7 @@ import Icon from '../../Icon';
 
 function DetailsTitle({ title, subTitle, onEdit }) {
 	return (
-		<span className={theme['subheader-details-text']}>
+		<span className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
 			<span className={theme['subheader-details-title']}>
 				{title}
 				{onEdit && (
@@ -35,7 +35,7 @@ DetailsTitle.propTypes = {
 
 function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange }) {
 	return (
-		<form className={theme['subheader-form']}>
+		<form className={classNames(theme['tc-subheader-form'], 'tc-subheader-form')}>
 			<input
 				id="inputTitle"
 				type="text"
@@ -77,7 +77,12 @@ EditTitle.propTypes = {
 function InputTitleSubHeader({ title, iconFile, editMode, ...rest }) {
 	return (
 		<div className={theme['tc-subheader-details']}>
-			{iconFile && <Icon name={iconFile} className={theme['tc-subheader-title-icon']} />}
+			{iconFile && (
+				<Icon
+					name={iconFile}
+					className={classNames(theme['tc-subheader-title-icon'], 'tc-subheader-title-icon')}
+				/>
+			)}
 			{editMode ? <EditTitle title={title} {...rest} /> : <DetailsTitle title={title} {...rest} />}
 		</div>
 	);
