@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
+import InputTitleSubHeader from './InputTitleSubHeader';
 import theme from './SubHeaderBar.scss';
 
 function SubHeaderBarActions({ components, left, right, center, className }) {
@@ -37,25 +38,35 @@ function SubHeaderBar({
 	componentsCenter,
 	componentsRight,
 	className,
+	...rest
 }) {
-	const backArrow = {
-		injectedComponent: (
-			<Action
-				id="backArrow"
-				onClick={onGoBack}
-				label="backArrow"
-				icon="talend-arrow-left"
-				bsStyle="link"
-				className={theme['subheader-back-button']}
-				hideLabel
-			/>
-		),
-	};
+	const defaultComponentsLeft = [
+		{
+			injectedComponent: (
+				<Action
+					id="backArrow"
+					onClick={onGoBack}
+					label="backArrow"
+					icon="talend-arrow-left"
+					bsStyle="link"
+					className={theme['subheader-back-button']}
+					hideLabel
+				/>
+			),
+		},
+		{
+			injectedComponent: <InputTitleSubHeader {...rest} />,
+		},
+	];
 	return (
 		<div className={classNames(theme['subheader-container'], 'subheader-container', className)}>
 			<ActionBar className={theme['subheader-navbar']}>
 				<SubHeaderBarActions
-					components={Array.isArray(componentsLeft) ? [backArrow, ...componentsLeft] : [backArrow]}
+					components={
+						Array.isArray(componentsLeft)
+							? [defaultComponentsLeft, ...componentsLeft]
+							: [defaultComponentsLeft]
+					}
 					className={theme['subheader-left']}
 					left
 					center={false}

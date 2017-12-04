@@ -1,428 +1,303 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DetailsIcon should render 1`] = `
-<span
-  className={undefined}
->
-  <Icon
-    className={undefined}
-    name="talend-pencil"
-  />
-</span>
-`;
-
-exports[`DetailsTitle should not render a DetailsIcon 1`] = `
-<div
-  className={undefined}
->
-  <span
-    className={undefined}
-  >
-    <span
-      className={undefined}
-    >
-      myTitle
-    </span>
-  </span>
-</div>
-`;
-
-exports[`DetailsTitle should render 1`] = `
-<div
-  className={undefined}
->
-  <DetailsIcon
-    iconFile="talend-pencil"
-  />
-  <span
-    className={undefined}
-  >
-    <span
-      className={undefined}
-    >
-      myTitle
-    </span>
-    <Action
-      bsStyle="link"
-      className={undefined}
-      hideLabel={true}
-      icon="talend-pencil"
-      label="edit"
-      name="action-edit-title"
-      onClick={[Function]}
-    />
-    <div
-      className={undefined}
-    >
-      mySubTitle
-    </div>
-  </span>
-</div>
-`;
-
-exports[`DetailsTitle should render an Action 1`] = `
-<div
-  className={undefined}
->
-  <span
-    className={undefined}
-  >
-    <span
-      className={undefined}
-    >
-      myTitle
-    </span>
-    <Action
-      bsStyle="link"
-      className={undefined}
-      hideLabel={true}
-      icon="talend-pencil"
-      label="edit"
-      name="action-edit-title"
-      onClick={[Function]}
-    />
-  </span>
-</div>
-`;
-
-exports[`DetailsTitle should render with subTitle 1`] = `
-<div
-  className={undefined}
->
-  <span
-    className={undefined}
-  >
-    <span
-      className={undefined}
-    >
-      myTitle
-    </span>
-    <div
-      className={undefined}
-    >
-      mySubTitle
-    </div>
-  </span>
-</div>
-`;
-
-exports[`DetailsTitle should render with title 1`] = `
-<div
-  className={undefined}
->
-  <span
-    className={undefined}
-  >
-    <span
-      className={undefined}
-    >
-      myTitle
-    </span>
-  </span>
-</div>
-`;
-
-exports[`EditTitle should render 1`] = `
-<div
-  className={undefined}
->
-  <DetailsIcon
-    iconFile="talend-pencil"
-  />
-  <form
-    className={undefined}
-  >
-    <input
-      className="form-control"
-      id="inputTitle"
-      onChange={[Function]}
-      placeholder="myTitle"
-      type="text"
-      value="value"
-    />
-  </form>
-  <div
-    className={undefined}
-  >
-    <Action
-      bsStyle="link"
-      hideLabel={true}
-      icon="talend-check"
-      label="submit"
-      name="action-submit-title"
-      onClick={[Function]}
-    />
-    <Action
-      bsStyle="link"
-      hideLabel={true}
-      icon="talend-cross"
-      label="cancel"
-      name="action-cancel-title"
-      onClick={[Function]}
-    />
-  </div>
-</div>
-`;
-
-exports[`EditTitle should render not DetailsIcon 1`] = `
-<div
-  className={undefined}
->
-  <form
-    className={undefined}
-  >
-    <input
-      className="form-control"
-      id="inputTitle"
-      onChange={undefined}
-      placeholder="myTitle"
-      type="text"
-      value={undefined}
-    />
-  </form>
-  <div
-    className={undefined}
-  >
-    <Action
-      bsStyle="link"
-      hideLabel={true}
-      icon="talend-check"
-      label="submit"
-      name="action-submit-title"
-      onClick={undefined}
-    />
-    <Action
-      bsStyle="link"
-      hideLabel={true}
-      icon="talend-cross"
-      label="cancel"
-      name="action-cancel-title"
-      onClick={undefined}
-    />
-  </div>
-</div>
-`;
-
-exports[`SubHeaderBar should render one SubHeaderBarActions (right) 1`] = `
+exports[`SubHeaderBar should render SubHeaderBarActions (default + center) 1`] = `
 <div
   className="subheader-container"
 >
   <ActionBar
     className={undefined}
   >
-    <Content
-      left={true}
-    >
-      <Action
-        bsStyle="link"
-        className={undefined}
-        hideLabel={true}
-        icon="talend-arrow-left"
-        id="backArrow"
-        label="backArrow"
-        onClick={[Function]}
-      />
-    </Content>
-    <DetailsTitle
-      title="myTitle"
-    />
     <SubHeaderBarActions
-      actions={
-        Array [
-          Object {
-            "bsStyle": "link",
-            "hideLabel": true,
-            "icon": "talend-share-alt",
-            "id": "action1",
-            "label": "action1",
-            "onClick": [Function],
-            "renderType": "action",
-          },
-          Object {
-            "bsStyle": "link",
-            "hideLabel": true,
-            "icon": "talend-activity",
-            "id": "action2",
-            "label": "action2",
-            "onClick": [Function],
-            "renderType": "action",
-          },
-        ]
-      }
       center={false}
       className={undefined}
-      right={true}
-    />
-  </ActionBar>
-</div>
-`;
-
-exports[`SubHeaderBar should render with 2 SubHeaderBarActions 1`] = `
-<div
-  className="subheader-container"
->
-  <ActionBar
-    className={undefined}
-  >
-    <Content
-      left={true}
-    >
-      <Action
-        bsStyle="link"
-        className={undefined}
-        hideLabel={true}
-        icon="talend-arrow-left"
-        id="backArrow"
-        label="backArrow"
-        onClick={[Function]}
-      />
-    </Content>
-    <DetailsTitle
-      title="myTitle"
-    />
-    <SubHeaderBarActions
-      actions={
+      components={
         Array [
-          Object {
-            "bsStyle": "link",
-            "hideLabel": true,
-            "icon": "talend-activity",
-            "id": "action3",
-            "label": "action3",
-            "onClick": [Function],
-            "renderType": "action",
-          },
+          Array [
+            Object {
+              "injectedComponent": <Action
+                bsStyle="link"
+                className={undefined}
+                hideLabel={true}
+                icon="talend-arrow-left"
+                id="backArrow"
+                label="backArrow"
+                onClick={[Function]}
+        />,
+            },
+            Object {
+              "injectedComponent": <InputTitleSubHeader
+                editMode={false}
+                title="myTitle"
+        />,
+            },
+          ],
         ]
       }
-      center={true}
-      className="undefined undefined"
+      left={true}
       right={false}
     />
     <SubHeaderBarActions
-      actions={
-        Array [
-          Object {
-            "bsStyle": "link",
-            "hideLabel": true,
-            "icon": "talend-share-alt",
-            "id": "action1",
-            "label": "action1",
-            "onClick": [Function],
-            "renderType": "action",
-          },
-          Object {
-            "bsStyle": "link",
-            "hideLabel": true,
-            "icon": "talend-activity",
-            "id": "action2",
-            "label": "action2",
-            "onClick": [Function],
-            "renderType": "action",
-          },
-        ]
-      }
-      center={false}
-      className={undefined}
-      right={true}
-    />
-  </ActionBar>
-</div>
-`;
-
-exports[`SubHeaderBar should render with EditTitle 1`] = `
-<div
-  className="subheader-container"
->
-  <ActionBar
-    className={undefined}
-  >
-    <Content
-      left={true}
-    >
-      <Action
-        bsStyle="link"
-        className={undefined}
-        hideLabel={true}
-        icon="talend-arrow-left"
-        id="backArrow"
-        label="backArrow"
-        onClick={[Function]}
-      />
-    </Content>
-    <EditTitle
-      title="myTitle"
-    />
-  </ActionBar>
-</div>
-`;
-
-exports[`SubHeaderBar should render with SubHeaderBarActions (center) 1`] = `
-<div
-  className="subheader-container"
->
-  <ActionBar
-    className={undefined}
-  >
-    <Content
-      left={true}
-    >
-      <Action
-        bsStyle="link"
-        className={undefined}
-        hideLabel={true}
-        icon="talend-arrow-left"
-        id="backArrow"
-        label="backArrow"
-        onClick={[Function]}
-      />
-    </Content>
-    <DetailsTitle
-      title="myTitle"
-    />
-    <SubHeaderBarActions
-      actions={
-        Array [
-          Object {
-            "bsStyle": "link",
-            "hideLabel": true,
-            "icon": "talend-activity",
-            "id": "action3",
-            "label": "action3",
-            "onClick": [Function],
-            "renderType": "action",
-          },
-        ]
-      }
       center={true}
       className="undefined"
+      components={
+        Array [
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              hideLabel={true}
+              icon="talend-activity"
+              label="action3"
+              onClick={[Function]}
+        />,
+          },
+        ]
+      }
+      left={false}
       right={false}
     />
   </ActionBar>
 </div>
 `;
 
-exports[`SubHeaderBar should render with no SubHeaderBarActions 1`] = `
+exports[`SubHeaderBar should render SubHeaderBarActions (default + custom) 1`] = `
 <div
   className="subheader-container"
 >
   <ActionBar
     className={undefined}
   >
-    <Content
+    <SubHeaderBarActions
+      center={false}
+      className={undefined}
+      components={
+        Array [
+          Array [
+            Object {
+              "injectedComponent": <Action
+                bsStyle="link"
+                className={undefined}
+                hideLabel={true}
+                icon="talend-arrow-left"
+                id="backArrow"
+                label="backArrow"
+                onClick={[Function]}
+        />,
+            },
+            Object {
+              "injectedComponent": <InputTitleSubHeader
+                editMode={false}
+                title="myTitle"
+        />,
+            },
+          ],
+        ]
+      }
       left={true}
-    >
-      <Action
-        bsStyle="link"
-        className={undefined}
-        hideLabel={true}
-        icon="talend-arrow-left"
-        id="backArrow"
-        label="backArrow"
-        onClick={[Function]}
-      />
-    </Content>
-    <DetailsTitle
-      title="myTitle"
+      right={false}
+    />
+    <SubHeaderBarActions
+      center={true}
+      className="undefined undefined"
+      components={
+        Array [
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              hideLabel={true}
+              icon="talend-activity"
+              label="action3"
+              onClick={[Function]}
+        />,
+          },
+        ]
+      }
+      left={false}
+      right={false}
+    />
+    <SubHeaderBarActions
+      center={false}
+      className={undefined}
+      components={
+        Array [
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              hideLabel={true}
+              icon="talend-share-alt"
+              label="action1"
+              onClick={[Function]}
+        />,
+          },
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              hideLabel={true}
+              icon="talend-activity"
+              label="action2"
+              onClick={[Function]}
+        />,
+          },
+        ]
+      }
+      left={false}
+      right={true}
+    />
+  </ActionBar>
+</div>
+`;
+
+exports[`SubHeaderBar should render SubHeaderBarActions (default + left) 1`] = `
+<div
+  className="subheader-container"
+>
+  <ActionBar
+    className={undefined}
+  >
+    <SubHeaderBarActions
+      center={false}
+      className={undefined}
+      components={
+        Array [
+          Array [
+            Object {
+              "injectedComponent": <Action
+                bsStyle="link"
+                className={undefined}
+                hideLabel={true}
+                icon="talend-arrow-left"
+                id="backArrow"
+                label="backArrow"
+                onClick={[Function]}
+        />,
+            },
+            Object {
+              "injectedComponent": <InputTitleSubHeader
+                editMode={false}
+                title="myTitle"
+        />,
+            },
+          ],
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              hideLabel={true}
+              icon="talend-share-alt"
+              label="action0"
+              onClick={[Function]}
+        />,
+          },
+        ]
+      }
+      left={true}
+      right={false}
+    />
+  </ActionBar>
+</div>
+`;
+
+exports[`SubHeaderBar should render SubHeaderBarActions (default + right) 1`] = `
+<div
+  className="subheader-container"
+>
+  <ActionBar
+    className={undefined}
+  >
+    <SubHeaderBarActions
+      center={false}
+      className={undefined}
+      components={
+        Array [
+          Array [
+            Object {
+              "injectedComponent": <Action
+                bsStyle="link"
+                className={undefined}
+                hideLabel={true}
+                icon="talend-arrow-left"
+                id="backArrow"
+                label="backArrow"
+                onClick={[Function]}
+        />,
+            },
+            Object {
+              "injectedComponent": <InputTitleSubHeader
+                editMode={false}
+                title="myTitle"
+        />,
+            },
+          ],
+        ]
+      }
+      left={true}
+      right={false}
+    />
+    <SubHeaderBarActions
+      center={false}
+      className={undefined}
+      components={
+        Array [
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              hideLabel={true}
+              icon="talend-share-alt"
+              label="action1"
+              onClick={[Function]}
+        />,
+          },
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              hideLabel={true}
+              icon="talend-activity"
+              label="action2"
+              onClick={[Function]}
+        />,
+          },
+        ]
+      }
+      left={false}
+      right={true}
+    />
+  </ActionBar>
+</div>
+`;
+
+exports[`SubHeaderBar should render SubHeaderBarActions (default) 1`] = `
+<div
+  className="subheader-container"
+>
+  <ActionBar
+    className={undefined}
+  >
+    <SubHeaderBarActions
+      center={false}
+      className={undefined}
+      components={
+        Array [
+          Array [
+            Object {
+              "injectedComponent": <Action
+                bsStyle="link"
+                className={undefined}
+                hideLabel={true}
+                icon="talend-arrow-left"
+                id="backArrow"
+                label="backArrow"
+                onClick={[Function]}
+        />,
+            },
+            Object {
+              "injectedComponent": <InputTitleSubHeader
+                editMode={false}
+                title="myTitle"
+        />,
+            },
+          ],
+        ]
+      }
+      left={true}
+      right={false}
     />
   </ActionBar>
 </div>
@@ -433,36 +308,82 @@ exports[`SubHeaderBarActions should render with center props 1`] = `
   className="myClassName"
 >
   <Content
-    center={false}
-    right={true}
+    center={true}
+    left={false}
+    right={false}
     tag={undefined}
   >
     <Action
       bsStyle="link"
       hideLabel={true}
       icon="talend-share-alt"
-      id="action1"
       label="action1"
       onClick={[Function]}
     />
   </Content>
   <Content
-    center={false}
-    right={true}
+    center={true}
+    left={false}
+    right={false}
     tag={undefined}
   >
     <Action
       bsStyle="link"
       hideLabel={true}
       icon="talend-activity"
-      id="action2"
+      label="action2"
+      onClick={[Function]}
+    />
+  </Content>
+  <Content
+    center={true}
+    left={false}
+    right={false}
+    tag={undefined}
+  >
+    <Icon
+      name="talend-bell"
+    />
+  </Content>
+</div>
+`;
+
+exports[`SubHeaderBarActions should render with left props 1`] = `
+<div
+  className="myClassName"
+>
+  <Content
+    center={false}
+    left={true}
+    right={false}
+    tag={undefined}
+  >
+    <Action
+      bsStyle="link"
+      hideLabel={true}
+      icon="talend-share-alt"
+      label="action1"
+      onClick={[Function]}
+    />
+  </Content>
+  <Content
+    center={false}
+    left={true}
+    right={false}
+    tag={undefined}
+  >
+    <Action
+      bsStyle="link"
+      hideLabel={true}
+      icon="talend-activity"
       label="action2"
       onClick={[Function]}
     />
   </Content>
   <Content
     center={false}
-    right={true}
+    left={true}
+    right={false}
     tag={undefined}
   >
     <Icon
@@ -477,36 +398,37 @@ exports[`SubHeaderBarActions should render with right props 1`] = `
   className="myClassName"
 >
   <Content
-    center={true}
-    right={false}
+    center={false}
+    left={false}
+    right={true}
     tag={undefined}
   >
     <Action
       bsStyle="link"
       hideLabel={true}
       icon="talend-share-alt"
-      id="action1"
       label="action1"
       onClick={[Function]}
     />
   </Content>
   <Content
-    center={true}
-    right={false}
+    center={false}
+    left={false}
+    right={true}
     tag={undefined}
   >
     <Action
       bsStyle="link"
       hideLabel={true}
       icon="talend-activity"
-      id="action2"
       label="action2"
       onClick={[Function]}
     />
   </Content>
   <Content
-    center={true}
-    right={false}
+    center={false}
+    left={false}
+    right={true}
     tag={undefined}
   >
     <Icon
