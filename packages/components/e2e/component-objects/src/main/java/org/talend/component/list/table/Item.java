@@ -125,4 +125,24 @@ public class Item extends Component {
                 .until(elementToBeClickable(getActionSelector(actionId)))
                 .click();
     }
+
+	/**
+     * Move the mouse to the action of a column and click
+     * The column is identified by its column key
+     * The item action is identified by its id.
+     *
+     * @param columnKey The columnKey
+     * @param actionId The item action id
+     */
+    public void clickOnColAction(final String columnKey, final String actionId) {
+        new Actions(driver)
+                .moveToElement(this.getElement())
+                .moveToElement(this.getCell(columnKey).getAction(actionId))
+                .build()
+                .perform();
+
+        wait
+                .until(elementToBeClickable(By.cssSelector(String.format("button[id=%s]", actionId))))
+                .click();
+    }
 }
