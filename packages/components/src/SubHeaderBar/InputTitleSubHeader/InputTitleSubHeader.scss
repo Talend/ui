@@ -9,7 +9,7 @@ $file-icon-size: 2.4rem;
 }
 
 .subheader-form-icon {
-    display: flex;
+	display: flex;
 }
 
 .tc-subheader-details {
@@ -21,13 +21,13 @@ $file-icon-size: 2.4rem;
 		visibility: visible;
 	}
 
-    :global(.tc-subheader-title-icon) {
-        align-self: center;
-        width: $file-icon-size;
-        height: $file-icon-size;
-        color: $brand-primary;
-        margin-left: $padding-large;
-    }
+	:global(.tc-subheader-title-icon) {
+		align-self: center;
+		width: $file-icon-size;
+		height: $file-icon-size;
+		color: $brand-primary;
+		margin-left: $padding-large;
+	}
 
 	:global(.tc-subheader-details-text) {
 		display: flex;
@@ -56,20 +56,20 @@ $file-icon-size: 2.4rem;
 		}
 	}
 	:global(.tc-subheader-form) {
-        display: flex;
+		display: flex;
 		align-items: center;
 		padding-left: $padding-large;
-	}
 
-	& .form-group {
-		padding-top: 0;
-
-		& .col-lg-10 {
-			width: 100%;
+		.subheader-input {
+			@include input-text(400);
 		}
-	}
 
-	.subheader-input {
-		@include input-text(400);
+		& .form-group {
+			padding-top: 0;
+
+			& .col-lg-10 {
+				width: 100%;
+			}
+		}
 	}
 }
