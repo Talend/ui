@@ -20,8 +20,31 @@ const backAction = {
 	backActionClick: () => action('backAction'),
 };
 
-const actionsRight = ['subheaderbar:action-sharing', 'subheaderbar:action-bubbles'];
-const actionsCenter = ['subheaderbar:action-filter'];
+const injectedComponentsLeft = {
+	left: [],
+};
+const injectedComponentsCenter = {
+	center: [
+		{
+			componentId: 'FilterBar',
+			navbar: true,
+			docked: false,
+			dockable: false,
+		},
+	],
+};
+const injectedComponentsRight = {
+	right: [
+		{
+			actionId: 'subheaderbar:action-sharing',
+			componentId: 'Action',
+		},
+		{
+			actionId: 'subheaderbar:action-bubbles',
+			componentId: 'Action',
+		},
+	],
+};
 
 const props = {
 	...viewSubHeader,
@@ -40,7 +63,7 @@ const ExampleSubHeaderBar = {
 			<IconsProvider />
 			<SubHeaderBar
 				{...props}
-				actionsRight={actionsRight}
+				injectedComponents={[...injectedComponentsLeft, ...injectedComponentsRight]}
 				iconFile="talend-file-csv-o"
 			/>
 		</div>
@@ -50,7 +73,7 @@ const ExampleSubHeaderBar = {
 			<IconsProvider />
 			<SubHeaderBar
 				{...props}
-				actionsCenter={actionsCenter}
+				injectedComponents={[...injectedComponentsLeft, ...injectedComponentsCenter]}
 			/>
 		</div>
 	),
@@ -59,8 +82,11 @@ const ExampleSubHeaderBar = {
 			<IconsProvider />
 			<SubHeaderBar
 				{...props}
-				actionsCenter={actionsCenter}
-				actionsRight={actionsRight}
+				injectedComponents={[
+					...injectedComponentsLeft,
+					...injectedComponentsCenter,
+					...injectedComponentsRight,
+				]}
 				iconFile="talend-file-csv-o"
 			/>
 		</div>

@@ -293,14 +293,6 @@ function loadStories() {
 			hideLabel: true,
 			overlay: false,
 		};
-		actions['subheaderbar:action-filter'] = {
-			id: 'subheaderbar:action-filter',
-			componentId: 'FilterBar',
-			renderType: 'component',
-			navbar: true,
-			docked: false,
-			dockable: false,
-		};
 
 		const story = storiesOf(example);
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { omit } from 'lodash';
 import Icon from '../Icon';
 import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
@@ -24,18 +23,20 @@ function DetailsTitle({ title, subTitle, iconFile, onEdit }) {
 		<div className={theme['subheader-details']}>
 			{iconFile && <DetailsIcon iconFile={iconFile} />}
 			<span className={theme['subheader-details-text']}>
-				<span className={theme['subheader-details-title']}>{title}</span>
-				{onEdit && (
-					<Action
-						name="action-edit-title"
-						label="edit"
-						icon="talend-pencil"
-						onClick={onEdit}
-						bsStyle="link"
-						className={theme['subheader-details-pencil']}
-						hideLabel
-					/>
-				)}
+				<span className={theme['subheader-details-title']}>
+					{title}
+					{onEdit && (
+						<Action
+							name="action-edit-title"
+							label="edit"
+							icon="talend-pencil"
+							onClick={onEdit}
+							bsStyle="link"
+							className={theme['subheader-details-pencil']}
+							hideLabel
+						/>
+					)}
+				</span>
 				{subTitle && <div className={theme['subheader-details-subtitle']}>{subTitle}</div>}
 			</span>
 		</div>
@@ -94,26 +95,12 @@ EditTitle.propTypes = {
 	inputTextValue: PropTypes.string,
 };
 
-function getComponentFromRenderType(action) {
-	if (!action) {
-		return null;
-	}
-	const ACTION_PROPS_OMITTED = ['renderType', 'tag'];
-	if (action.component) {
-		return action.component;
-	}
-	if (action.renderType === 'action') {
-		return <Action {...omit(action, ACTION_PROPS_OMITTED)} />;
-	}
-	return null;
-}
-
-function SubHeaderBarActions({ actions, right, center, className }) {
+function SubHeaderBarActions({ components, right, center, className }) {
 	return (
 		<div className={className}>
-			{actions.map((action, index) => (
-				<ActionBar.Content key={index} tag={action.tag} center={center} right={right}>
-					{getComponentFromRenderType(action)}
+			{components.map((component, index) => (
+				<ActionBar.Content key={index} tag={component.tag} center={center} right={right}>
+					{component.injectedComponent}
 				</ActionBar.Content>
 			))}
 		</div>
@@ -121,13 +108,21 @@ function SubHeaderBarActions({ actions, right, center, className }) {
 }
 
 SubHeaderBarActions.propTypes = {
-	actions: PropTypes.array.isRequired,
+	components: PropTypes.array.isRequired,
 	right: PropTypes.bool,
 	center: PropTypes.bool,
 	className: PropTypes.string,
 };
 
-function SubHeaderBar({ onGoBack, actionsCenter, actionsRight, editMode, className, ...rest }) {
+function SubHeaderBar({
+	onGoBack,
+	componentsLeft,
+	componentsCenter,
+	componentsRight,
+	editMode,
+	className,
+	...rest
+}) {
 	return (
 		<div className={classNames(theme['subheader-container'], 'subheader-container', className)}>
 			<ActionBar className={theme['subheader-navbar']}>
@@ -143,19 +138,19 @@ function SubHeaderBar({ onGoBack, actionsCenter, actionsRight, editMode, classNa
 					/>
 				</ActionBar.Content>
 				{editMode ? <EditTitle {...rest} /> : <DetailsTitle {...rest} />}
-				{Array.isArray(actionsCenter) && (
+				{Array.isArray(componentsCenter) && (
 					<SubHeaderBarActions
-						actions={actionsCenter}
+						components={componentsCenter}
 						className={classNames([`${theme['subheader-center']}`], {
-							[`${theme['no-margin-right']}`]: actionsRight,
+							[`${theme['no-margin-right']}`]: componentsRight,
 						})}
 						center
 						right={false}
 					/>
 				)}
-				{Array.isArray(actionsRight) && (
+				{Array.isArray(componentsRight) && (
 					<SubHeaderBarActions
-						actions={actionsRight}
+						components={componentsRight}
 						className={theme['subheader-right']}
 						center={false}
 						right
@@ -169,20 +164,14 @@ function SubHeaderBar({ onGoBack, actionsCenter, actionsRight, editMode, classNa
 SubHeaderBar.propTypes = {
 	onGoBack: PropTypes.func.isRequired,
 	editMode: PropTypes.bool,
-	actionsCenter: PropTypes.array,
-	actionsRight: PropTypes.array,
+	componentsLeft: PropTypes.array,
+	componentsCenter: PropTypes.array,
+	componentsRight: PropTypes.array,
 	className: PropTypes.string,
 };
 
 SubHeaderBar.defaultProps = {
-	editMode: false,
+	editMode: true,
 };
 
-export {
-	SubHeaderBar as default,
-	SubHeaderBarActions,
-	EditTitle,
-	DetailsTitle,
-	DetailsIcon,
-	getComponentFromRenderType,
-};
+export { SubHeaderBar as default, SubHeaderBarActions, EditTitle, DetailsTitle, DetailsIcon };

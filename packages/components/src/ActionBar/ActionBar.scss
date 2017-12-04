@@ -38,16 +38,6 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 		}
 	}
 
-	.navbar-center-full {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		> * {
-			margin-top: $padding-small;
-			margin-bottom: $padding-small;
-		}
-	}
-
 	:global(.navbar-form),
 	:global(.navbar-btn) {
 		margin: $tc-action-bar-margin;

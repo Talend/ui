@@ -1,44 +1,30 @@
 import React from 'react';
-import { api, cmfConnect, Inject } from '@talend/react-cmf';
-import { Action } from '@talend/react-components';
-import { omit } from 'lodash';
+import { cmfConnect, Inject } from '@talend/react-cmf';
 import SubHeaderBar, { DEFAULT_STATE } from './SubHeaderBar.container';
 
-function getActionInfo(actionId, state) {
-	return api.action.getActionInfo(
-		{
-			registry: api.registry.getRegistry(),
-			store: {
-				getState: () => state,
-			},
-		},
-		actionId,
-	);
-}
-
-function buildActions(actions, state) {
-	const ACTION_PROPS_OMITTED = ['renderType', 'tag'];
-	return actions.map(actionId => {
-		const actionInfo = getActionInfo(actionId, state);
-		if (actionInfo.renderType === 'component' && actionInfo.componentId) {
-			actionInfo.component = (
-				<Inject component={actionInfo.componentId} {...omit(actionInfo, ACTION_PROPS_OMITTED)} />
-			);
+function buildActions(state, injectedComponents) {
+	return injectedComponents.map(injectedComponent => {
+		const { componentId, tag, ...rest } = injectedComponent;
+		if (componentId) {
+			return Object.assign({}, tag, {
+				injectedComponent: <Inject component={componentId} {...rest} />,
+			});
 		}
-		if (actionInfo.render === 'action') {
-			actionInfo.component = <Action {...omit(actionInfo, ACTION_PROPS_OMITTED)} />;
-		}
-		return actionInfo;
+		return null;
 	});
 }
 
 function mapStateToProps(state, ownProps) {
 	const props = {};
-	if (ownProps.actionsRight) {
-		props.actionsRight = buildActions(ownProps.actionsRight, state);
+	const { left, center, right } = ownProps.injectedComponents;
+	if (left) {
+		props.componentsRight = buildActions(state, left);
 	}
-	if (ownProps.actionsCenter) {
-		props.actionsCenter = buildActions(ownProps.actionsCenter, state);
+	if (center) {
+		props.componentsCenter = buildActions(state, center);
+	}
+	if (right) {
+		props.componentsRight = buildActions(state, right);
 	}
 	return props;
 }

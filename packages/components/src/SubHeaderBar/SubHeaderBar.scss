@@ -15,12 +15,12 @@ $subheader-bar-height: 7rem;
 }
 
 .subheader-container {
-	background-color: $wild-sand;
-	display: flex;
+	border-bottom: 0.1rem solid $gallery;
 	width: 100%;
-	height: $subheader-bar-height;
 
 	.subheader-navbar {
+		height: $subheader-bar-height;
+		background-color: $wild-sand;
 		display: flex;
 		padding-left: 0;
 	}
@@ -32,21 +32,30 @@ $subheader-bar-height: 7rem;
 		height: $subheader-bar-height;
 
 		&:hover {
-			background-color: $white;
-			opacity: 0.1;
+			border-bottom: 0.1rem solid $gallery;
+			color: $scooter;
+			background-color: $wild-sand;
+		}
+		&:active {
+			border-bottom: 0.1rem solid $gallery;
+			color: darken($scooter, 25%);
+			background-color: $wild-sand;
 		}
 	}
 
 	.subheader-details {
 		display: flex;
 		align-items: normal;
+		max-width: 47.5rem;
 
 		&:hover .subheader-details-text .subheader-details-pencil {
 			visibility: visible;
 		}
 
 		.subheader-details-text {
-			align-self: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 			padding-left: $padding-large;
 
 			.subheader-details-pencil {
@@ -65,7 +74,7 @@ $subheader-bar-height: 7rem;
 
 			.subheader-details-subtitle {
 				color: $dark-silver;
-				padding-top: 0.1rem;
+				// padding-top: 0.1rem;
 				font-size: 1.4rem;
 				font-weight: 300;
 			}
@@ -98,13 +107,15 @@ $subheader-bar-height: 7rem;
 .subheader-right {
 	display: flex;
 	margin-left: auto;
+	justify-content: flex-end;
+	max-width: 42.2rem;
 }
 
 .subheader-center {
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
-	
+
 	&.no-margin-right {
 		margin-right: 0;
 	}
@@ -115,7 +126,9 @@ $subheader-bar-height: 7rem;
 }
 
 .subheader-file-icon-box {
-	align-self: center;
+	display: flex;
+	align-items: center;
+	// align-self: center;
 
 	.subheader-file-icon {
 		width: $file-icon-size;

@@ -4,11 +4,10 @@ import {
 	action,
 	storiesOf,
 } from '@storybook/react';
-import { IconsProvider, SubHeaderBar, FilterBar } from '../src/index';
+import { IconsProvider, SubHeaderBar, FilterBar, Action } from '../src/index';
 
 const viewSubHeader = {
 	title: 'Marketing',
-	subTitle: 'Creator John Doe',
 	onEdit: action('onEdit'),
 	onSubmit: action('onSubmit'),
 	onCancel: action('onCancel'),
@@ -19,50 +18,57 @@ const backAction = {
 	onGoBack: action('onGoBack'),
 };
 
-const actionsRight = [
+const injectedComponentsRight = [
 	{
-		id: 'action1',
-		label: 'action1',
-		renderType: 'action',
-		bsStyle: 'link',
-		icon: 'talend-share-alt',
-		onClick: action('return action1'),
-		hideLabel: true,
+		injectedComponent: (
+			<Action
+				label="action1"
+				bsStyle="link"
+				icon="talend-share-alt"
+				onClick={action('return action1')}
+				hideLabel
+			/>
+		),
 	},
 	{
-		id: 'action2',
-		label: 'action2',
-		renderType: 'action',
-		bsStyle: 'link',
-		icon: 'talend-activity',
-		onClick: action('return action2'),
-		hideLabel: true,
+		injectedComponent: (
+			<Action
+				label="action2"
+				bsStyle="link"
+				icon="talend-activity"
+				onClick={action('return action2')}
+				hideLabel
+			/>
+		),
 	},
 	{
-		id: 'action3',
-		label: 'action3',
-		renderType: 'action',
-		icon: 'talend-bell',
-		bsStyle: 'link',
-		onClick: action('return action3'),
-		hideLabel: true,
+		injectedComponent: (
+			<Action
+				label="action3"
+				bsStyle="link"
+				icon="talend-bell"
+				onClick={action('return action3')}
+				hideLabel
+			/>
+		),
 	},
 ];
 
 const action4 = {
-	id: 'action4',
-	label: 'action4',
-	renderType: 'action',
-	icon: 'talend-bell',
-	bsStyle: 'link',
-	onClick: action('return action4'),
-	hideLabel: true,
+	injectedComponent: (
+		<Action
+			label="action4"
+			bsStyle="link"
+			icon="talend-bell"
+			onClick={action('return action4')}
+			hideLabel
+		/>
+	),
 };
 
-const actionsCenter = [
+const injectedComponentsCenter = [
 	{
-		renderType: 'component',
-		component: (
+		injectedComponent: (
 			<FilterBar
 				t={() => action('t')}
 				onFilter={() => action('onFilter')}
@@ -88,25 +94,29 @@ stories
 	.addWithInfo('with icon file no actions', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...props} iconFile="talend-file-csv-o" />
+			<SubHeaderBar {...props} subTitle="Creator John Doe" iconFile="talend-file-csv-o" />
 		</div>
 	))
 	.addWithInfo('without no icon file', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...props} />
+			<SubHeaderBar {...props} subTitle="Creator John Doe" />
 		</div>
 	))
-	.addWithInfo('with icon file and right actions', () => (
+	.addWithInfo('with icon file no subtitle and right actions', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar iconFile="talend-file-csv-o" actionsRight={actionsRight} {...props} />
+			<SubHeaderBar iconFile="talend-file-csv-o" componentsRight={injectedComponentsRight} {...props} />
 		</div>
 	))
-	.addWithInfo('with no icon file and center actions', () => (
+	.addWithInfo('with no icon file, no subtitle and center actions', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar actionsCenter={[action4, ...actionsCenter]} {...props} />
+			<SubHeaderBar
+				subTitle="Creator John Doe"
+				componentsCenter={[action4, ...injectedComponentsCenter]}
+				{...props}
+			/>
 		</div>
 	))
 	.addWithInfo('with icon file and center && right actions', () => (
@@ -114,8 +124,8 @@ stories
 			<IconsProvider />
 			<SubHeaderBar
 				iconFile="talend-file-csv-o"
-				actionsCenter={actionsCenter}
-				actionsRight={actionsRight}
+				componentsCenter={injectedComponentsCenter}
+				componentsRight={injectedComponentsRight}
 				{...props}
 			/>
 		</div>
