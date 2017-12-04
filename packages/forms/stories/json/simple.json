@@ -32,9 +32,6 @@
     }
   },
   "uiSchema": {
-    "firstName": {
-      "ui:autofocus": true
-    },
     "age": {
       "ui:widget": "updown"
     },
@@ -44,9 +41,6 @@
     "password": {
       "ui:widget": "password",
       "ui:help": "Hint: Make it strong!"
-    },
-    "date": {
-      "ui:widget": "alt-datetime"
     }
   },
   "properties": {
