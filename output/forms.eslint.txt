@@ -13,5 +13,21 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-✖ 3 problems (3 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/merge.js
+   4:2   warning  Unexpected console statement                            no-console
+   6:10  error    'parseProperties' was used before it was defined        no-use-before-define
+   8:10  error    'getUISchemaFromObject' was used before it was defined  no-use-before-define
+  19:14  error    'parseProperties' was used before it was defined        no-use-before-define
+  47:2   warning  Unexpected console statement                            no-console
+  60:6   error    Assignment to property of function parameter 'ui'       no-param-reassign
+  62:14  error    Assignment to property of function parameter 'ui'       no-param-reassign
+  63:7   error    Assignment to property of function parameter 'ui'       no-param-reassign
+  66:14  error    Assignment to property of function parameter 'ui'       no-param-reassign
+  67:7   error    Assignment to property of function parameter 'ui'       no-param-reassign
+  71:6   error    Assignment to property of function parameter 'ui'       no-param-reassign
+  74:6   error    Assignment to property of function parameter 'ui'       no-param-reassign
+  77:6   error    Assignment to property of function parameter 'ui'       no-param-reassign
+  80:6   error    Assignment to property of function parameter 'ui'       no-param-reassign
+
+✖ 17 problems (15 errors, 2 warnings)
 
