@@ -604,7 +604,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Virtualized - list with customized rows', () => {
+	.add('Virtualized - list with custom classnames', () => {
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list virtualized-list-customized-row">
 				<h1>List</h1>

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { defaultTableHeaderRenderer } from 'react-virtualized';
 import VirtualizedList, { SORT_BY, cellDictionary } from '../../VirtualizedList';
 import CellTitle from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
@@ -14,11 +13,11 @@ function adaptOnSort(onChange) {
 	};
 }
 
-function hideHeaderRenderer(props) {
+export function hideHeaderRenderer(props) {
 	return <span className="sr-only">{props.label}</span>;
 }
 
-function ListToVirtualizedList(props) {
+export function ListToVirtualizedList(props) {
 	const { itemProps, sort, titleProps } = props;
 
 	if (titleProps && !titleProps.actionsKey) {
@@ -54,8 +53,6 @@ function ListToVirtualizedList(props) {
 				const cProps = {
 					label: column.label,
 					dataKey: column.key,
-					disableSort: column.hideHeader,
-					headerRenderer: column.hideHeader ? hideHeaderRenderer : defaultTableHeaderRenderer,
 				};
 				if (titleProps && column.key === titleProps.key) {
 					Object.assign(cProps, CellTitle, {
@@ -67,6 +64,10 @@ function ListToVirtualizedList(props) {
 					Object.assign(cProps, cellDictionary[column.type], {
 						columnData: column.data,
 					});
+				}
+				if (column.hideHeader) {
+					cProps.disableSort = true;
+					cProps.headerRenderer = hideHeaderRenderer;
 				}
 				return <VirtualizedList.Content key={index} {...cProps} />;
 			})}
@@ -104,5 +105,3 @@ ListToVirtualizedList.defaultProps = {
 hideHeaderRenderer.propTypes = {
 	label: PropTypes.string,
 };
-
-export default ListToVirtualizedList;

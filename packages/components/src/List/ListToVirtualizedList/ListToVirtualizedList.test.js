@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
-import ListToVirtualizedList from './ListToVirtualizedList.component';
+import { ListToVirtualizedList, hideHeaderRenderer } from './ListToVirtualizedList.component';
 import CellActions from '../../VirtualizedList/CellActions';
 import CellBadge from '../../VirtualizedList/CellBadge';
 
@@ -13,7 +13,7 @@ const props = {
 		{ key: 'id', label: 'Id' },
 		{ key: 'label', label: 'Label' },
 		{ key: 'tag', label: 'Tag', type: 'badge' },
-		{ key: 'myactions', label: 'Actions' },
+		{ key: 'myactions', label: 'Actions', hideHeader: true },
 	],
 	titleProps: {
 		key: 'label',
@@ -37,6 +37,8 @@ describe('ListToVirtualizedList', () => {
 				expect(eProps.columnData.extra).toBe('Extra');
 			} else if (eProps.label === 'Actions') {
 				expect(eProps.dataKey).toBe('myactions');
+				expect(eProps.disableSort).toBe(true);
+				expect(eProps.headerRenderer).toBe(hideHeaderRenderer);
 			} else if (eProps.label === 'Tag') {
 				expect(eProps.dataKey).toBe('tag');
 			} else {
