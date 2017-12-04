@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailsTitle should render 1`] = `
+<span
+  className="tc-subheader-details-text"
+>
+  <span
+    className={undefined}
+  >
+    myTitle
+    <Action
+      bsStyle="link"
+      className={undefined}
+      hideLabel={true}
+      icon="talend-pencil"
+      label="edit"
+      name="action-edit-title"
+      onClick={[Function]}
+    />
+  </span>
+  <div
+    className={undefined}
+  >
+    mySubTitle
+  </div>
+</span>
+`;
+
+exports[`DetailsTitle should render an Action 1`] = `
+<span
+  className="tc-subheader-details-text"
+>
+  <span
+    className={undefined}
+  >
+    myTitle
+    <Action
+      bsStyle="link"
+      className={undefined}
+      hideLabel={true}
+      icon="talend-pencil"
+      label="edit"
+      name="action-edit-title"
+      onClick={[Function]}
+    />
+  </span>
+</span>
+`;
+
+exports[`DetailsTitle should render with subTitle 1`] = `
+<span
+  className="tc-subheader-details-text"
+>
+  <span
+    className={undefined}
+  >
+    myTitle
+  </span>
+  <div
+    className={undefined}
+  >
+    mySubTitle
+  </div>
+</span>
+`;
+
+exports[`DetailsTitle should render with title 1`] = `
+<span
+  className="tc-subheader-details-text"
+>
+  <span
+    className={undefined}
+  >
+    myTitle
+  </span>
+</span>
+`;
+
+exports[`EditTitle should render 1`] = `
+<form
+  className="tc-subheader-form"
+>
+  <input
+    className="form-control"
+    id="inputTitle"
+    onChange={[Function]}
+    placeholder="myTitle"
+    type="text"
+    value="value"
+  />
+  <div
+    className={undefined}
+  >
+    <Action
+      bsStyle="link"
+      hideLabel={true}
+      icon="talend-check"
+      label="submit"
+      name="action-submit-title"
+      onClick={[Function]}
+    />
+    <Action
+      bsStyle="link"
+      hideLabel={true}
+      icon="talend-cross"
+      label="cancel"
+      name="action-cancel-title"
+      onClick={[Function]}
+    />
+  </div>
+</form>
+`;
+
+exports[`InputTitleSubHeader should render 1`] = `
+<div
+  className={undefined}
+>
+  <Icon
+    className="tc-subheader-title-icon"
+    name="myIconFile"
+  />
+  <DetailsTitle
+    title="myTitle"
+  />
+</div>
+`;
