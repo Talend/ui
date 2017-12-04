@@ -5,7 +5,7 @@ import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import { FilterBar, ObjectViewer } from '../src/index';
+import { FilterBar, ObjectViewer, Action } from '../src/index';
 import 'focus-outline-manager';
 import examples from '../examples';
 
@@ -64,6 +64,7 @@ function bubblesOverlayDisplay() {
 
 api.component.register('FilterBar', FilterBar);
 api.component.register('ObjectViewer', ObjectViewer);
+api.component.register('Action', Action);
 
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);

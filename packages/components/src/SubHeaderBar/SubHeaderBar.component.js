@@ -59,13 +59,13 @@ function SubHeaderBar({
 		},
 	];
 	return (
-		<div className={classNames(theme['subheader-container'], 'subheader-container', className)}>
-			<ActionBar className={theme['subheader-navbar']}>
+		<div className={classNames(theme['tc-subheader-container'], className)}>
+			<ActionBar className={classNames(theme['subheader-navbar'], 'subheader-navbar')}>
 				<SubHeaderBarActions
 					components={
 						Array.isArray(componentsLeft)
-							? [defaultComponentsLeft, ...componentsLeft]
-							: [defaultComponentsLeft]
+							? [...defaultComponentsLeft, ...componentsLeft]
+							: defaultComponentsLeft
 					}
 					className={theme['subheader-left']}
 					left

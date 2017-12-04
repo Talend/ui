@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Icon, Action, ActionBar } from '../index';
-import InputTitleSubHeader from './InputTitleSubHeader';
+import { Icon, Action } from '../index';
+// import InputTitleSubHeader from './InputTitleSubHeader';
 import SubHeaderBar, { SubHeaderBarActions } from './SubHeaderBar.component';
 
 let components = [];

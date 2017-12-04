@@ -16,15 +16,17 @@ function buildActions(state, injectedComponents) {
 
 function mapStateToProps(state, ownProps) {
 	const props = {};
-	const { left, center, right } = ownProps.injectedComponents;
-	if (left) {
-		props.componentsRight = buildActions(state, left);
-	}
-	if (center) {
-		props.componentsCenter = buildActions(state, center);
-	}
-	if (right) {
-		props.componentsRight = buildActions(state, right);
+	if (ownProps.injectedComponents) {
+		const { left, center, right } = ownProps.injectedComponents;
+		if (left) {
+			props.componentsLeft = buildActions(state, left);
+		}
+		if (center) {
+			props.componentsCenter = buildActions(state, center);
+		}
+		if (right) {
+			props.componentsRight = buildActions(state, right);
+		}
 	}
 	return props;
 }

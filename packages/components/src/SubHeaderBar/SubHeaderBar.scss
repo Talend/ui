@@ -5,11 +5,11 @@ $subheader-bar-height: 7rem;
 	margin-left: $margin-left;
 }
 
-.subheader-container {
+.tc-subheader-container {
 	border-bottom: 0.1rem solid $gallery;
 	width: 100%;
 
-	.subheader-navbar {
+	:global(.subheader-navbar) {
 		height: $subheader-bar-height;
 		background-color: $wild-sand;
 		display: flex;
@@ -23,14 +23,10 @@ $subheader-bar-height: 7rem;
 		height: $subheader-bar-height;
 
 		&:hover {
-			border-bottom: 0.1rem solid $gallery;
 			color: $scooter;
-			background-color: $wild-sand;
 		}
 		&:active {
-			border-bottom: 0.1rem solid $gallery;
 			color: darken($scooter, 25%);
-			background-color: $wild-sand;
 		}
 	}
 }

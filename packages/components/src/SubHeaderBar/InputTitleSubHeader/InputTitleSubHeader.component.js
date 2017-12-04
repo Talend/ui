@@ -13,12 +13,11 @@ function DetailsTitle({ title, subTitle, onEdit }) {
 				{onEdit && (
 					<Action
 						name="action-edit-title"
-						label="edit"
+						label="Modify"
 						icon="talend-pencil"
 						onClick={onEdit}
 						bsStyle="link"
 						className={theme['subheader-details-pencil']}
-						hideLabel
 					/>
 				)}
 			</span>
@@ -95,7 +94,7 @@ InputTitleSubHeader.propTypes = {
 };
 
 InputTitleSubHeader.defaultProps = {
-	editMode: false,
+	editMode: true,
 };
 
 export { InputTitleSubHeader as default, EditTitle, DetailsTitle };

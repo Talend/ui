@@ -2,35 +2,33 @@
 
 exports[`SubHeaderBar should render SubHeaderBarActions (default + center) 1`] = `
 <div
-  className="subheader-container"
+  className=""
 >
   <ActionBar
-    className={undefined}
+    className="subheader-navbar"
   >
     <SubHeaderBarActions
       center={false}
       className={undefined}
       components={
         Array [
-          Array [
-            Object {
-              "injectedComponent": <Action
-                bsStyle="link"
-                className={undefined}
-                hideLabel={true}
-                icon="talend-arrow-left"
-                id="backArrow"
-                label="backArrow"
-                onClick={[Function]}
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              className={undefined}
+              hideLabel={true}
+              icon="talend-arrow-left"
+              id="backArrow"
+              label="backArrow"
+              onClick={[Function]}
         />,
-            },
-            Object {
-              "injectedComponent": <InputTitleSubHeader
-                editMode={false}
-                title="myTitle"
+          },
+          Object {
+            "injectedComponent": <InputTitleSubHeader
+              editMode={false}
+              title="myTitle"
         />,
-            },
-          ],
+          },
         ]
       }
       left={true}
@@ -61,35 +59,33 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + center) 1`] =
 
 exports[`SubHeaderBar should render SubHeaderBarActions (default + custom) 1`] = `
 <div
-  className="subheader-container"
+  className=""
 >
   <ActionBar
-    className={undefined}
+    className="subheader-navbar"
   >
     <SubHeaderBarActions
       center={false}
       className={undefined}
       components={
         Array [
-          Array [
-            Object {
-              "injectedComponent": <Action
-                bsStyle="link"
-                className={undefined}
-                hideLabel={true}
-                icon="talend-arrow-left"
-                id="backArrow"
-                label="backArrow"
-                onClick={[Function]}
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              className={undefined}
+              hideLabel={true}
+              icon="talend-arrow-left"
+              id="backArrow"
+              label="backArrow"
+              onClick={[Function]}
         />,
-            },
-            Object {
-              "injectedComponent": <InputTitleSubHeader
-                editMode={false}
-                title="myTitle"
+          },
+          Object {
+            "injectedComponent": <InputTitleSubHeader
+              editMode={false}
+              title="myTitle"
         />,
-            },
-          ],
+          },
         ]
       }
       left={true}
@@ -148,35 +144,33 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + custom) 1`] =
 
 exports[`SubHeaderBar should render SubHeaderBarActions (default + left) 1`] = `
 <div
-  className="subheader-container"
+  className=""
 >
   <ActionBar
-    className={undefined}
+    className="subheader-navbar"
   >
     <SubHeaderBarActions
       center={false}
       className={undefined}
       components={
         Array [
-          Array [
-            Object {
-              "injectedComponent": <Action
-                bsStyle="link"
-                className={undefined}
-                hideLabel={true}
-                icon="talend-arrow-left"
-                id="backArrow"
-                label="backArrow"
-                onClick={[Function]}
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              className={undefined}
+              hideLabel={true}
+              icon="talend-arrow-left"
+              id="backArrow"
+              label="backArrow"
+              onClick={[Function]}
         />,
-            },
-            Object {
-              "injectedComponent": <InputTitleSubHeader
-                editMode={false}
-                title="myTitle"
+          },
+          Object {
+            "injectedComponent": <InputTitleSubHeader
+              editMode={false}
+              title="myTitle"
         />,
-            },
-          ],
+          },
           Object {
             "injectedComponent": <Action
               bsStyle="link"
@@ -197,35 +191,33 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + left) 1`] = `
 
 exports[`SubHeaderBar should render SubHeaderBarActions (default + right) 1`] = `
 <div
-  className="subheader-container"
+  className=""
 >
   <ActionBar
-    className={undefined}
+    className="subheader-navbar"
   >
     <SubHeaderBarActions
       center={false}
       className={undefined}
       components={
         Array [
-          Array [
-            Object {
-              "injectedComponent": <Action
-                bsStyle="link"
-                className={undefined}
-                hideLabel={true}
-                icon="talend-arrow-left"
-                id="backArrow"
-                label="backArrow"
-                onClick={[Function]}
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              className={undefined}
+              hideLabel={true}
+              icon="talend-arrow-left"
+              id="backArrow"
+              label="backArrow"
+              onClick={[Function]}
         />,
-            },
-            Object {
-              "injectedComponent": <InputTitleSubHeader
-                editMode={false}
-                title="myTitle"
+          },
+          Object {
+            "injectedComponent": <InputTitleSubHeader
+              editMode={false}
+              title="myTitle"
         />,
-            },
-          ],
+          },
         ]
       }
       left={true}
@@ -265,35 +257,33 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + right) 1`] = 
 
 exports[`SubHeaderBar should render SubHeaderBarActions (default) 1`] = `
 <div
-  className="subheader-container"
+  className=""
 >
   <ActionBar
-    className={undefined}
+    className="subheader-navbar"
   >
     <SubHeaderBarActions
       center={false}
       className={undefined}
       components={
         Array [
-          Array [
-            Object {
-              "injectedComponent": <Action
-                bsStyle="link"
-                className={undefined}
-                hideLabel={true}
-                icon="talend-arrow-left"
-                id="backArrow"
-                label="backArrow"
-                onClick={[Function]}
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              className={undefined}
+              hideLabel={true}
+              icon="talend-arrow-left"
+              id="backArrow"
+              label="backArrow"
+              onClick={[Function]}
         />,
-            },
-            Object {
-              "injectedComponent": <InputTitleSubHeader
-                editMode={false}
-                title="myTitle"
+          },
+          Object {
+            "injectedComponent": <InputTitleSubHeader
+              editMode={false}
+              title="myTitle"
         />,
-            },
-          ],
+          },
         ]
       }
       left={true}

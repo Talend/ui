@@ -5,43 +5,16 @@ import {
 	storiesOf,
 } from '@storybook/react';
 import { IconsProvider, SubHeaderBar, FilterBar, Action } from '../src/index';
-import InputTitleSubHeader from '../src/SubHeaderBar/InputTitleSubHeader';
 
-const mockInputSubHeader = {
+const viewProps = {
+	title: 'myTitle',
 	onEdit: action('onEdit'),
 	onSubmit: action('onSubmit'),
 	onCancel: action('onCancel'),
 	onChange: action('onChange'),
 };
 
-const backAction = () => action('onGoBack');
-
-const inputNoSubTitleNoIcon = {
-	injectedComponent: <InputTitleSubHeader title="Marketing" {...mockInputSubHeader} />,
-};
-
-const inputNoSubTitleWithIcon = {
-	injectedComponent: (
-		<InputTitleSubHeader title="Marketing" iconFile="talend-file-csv-o" {...mockInputSubHeader} />
-	),
-};
-
-const inputWithSubTitleNoIcon = {
-	injectedComponent: (
-		<InputTitleSubHeader title="Marketing" subTitle="Creator John Doe" {...mockInputSubHeader} />
-	),
-};
-
-const inputWithSubTitleWithIcon = {
-	injectedComponent: (
-		<InputTitleSubHeader
-			title="Marketing"
-			subTitle="Creator John Doe"
-			iconFile="talend-file-csv-o"
-			{...mockInputSubHeader}
-		/>
-	),
-};
+const backAction = action('onGoBack');
 
 const injectedComponentsRight = [
 	{
@@ -111,30 +84,37 @@ if (!stories.addWithInfo) {
 }
 
 stories
-	.addWithInfo('with default left actions alone', () => (
+	.addWithInfo('with default left components', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar onGoBack={backAction} />
+			<SubHeaderBar {...viewProps} onGoBack={backAction} />
+		</div>
+	))
+	.addWithInfo('with default left and custom components', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar {...viewProps} componentsLeft={[action4]} onGoBack={backAction} />
 		</div>
 	))
 	.addWithInfo('with icon file no actions', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar onGoBack={backAction} componentsLeft={[inputWithSubTitleWithIcon]} />
+			<SubHeaderBar {...viewProps} iconFile="talend-file-csv-o" onGoBack={backAction} />
 		</div>
 	))
 	.addWithInfo('with subtitle no icon file', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar onGoBack={backAction} componentsLeft={[inputWithSubTitleNoIcon]} />
+			<SubHeaderBar {...viewProps} subTitle="mySubTitle" onGoBack={backAction} />
 		</div>
 	))
 	.addWithInfo('with icon file no subtitle and right actions', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
+				{...viewProps}
+				iconFile="talend-file-csv-o"
 				onGoBack={backAction}
-				componentsLeft={[inputNoSubTitleWithIcon]}
 				componentsRight={injectedComponentsRight}
 			/>
 		</div>
@@ -143,8 +123,8 @@ stories
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
+				{...viewProps}
 				onGoBack={backAction}
-				componentsLeft={[inputNoSubTitleNoIcon]}
 				componentsCenter={[action4, ...injectedComponentsCenter]}
 			/>
 		</div>
@@ -153,8 +133,9 @@ stories
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
+				{...viewProps}
+				iconFile="talend-file-csv-o"
 				onGoBack={backAction}
-				componentsLeft={[inputWithSubTitleWithIcon]}
 				componentsCenter={injectedComponentsCenter}
 				componentsRight={injectedComponentsRight}
 			/>

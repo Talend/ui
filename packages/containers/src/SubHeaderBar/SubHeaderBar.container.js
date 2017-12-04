@@ -44,6 +44,7 @@ class SubHeaderBar extends React.Component {
 	}
 
 	onSubmit(event) {
+		console.log('event', event.target.value);
 		if (this.props.onSubmit) {
 			this.props.onSubmit(event, this.props.state.get('inputText'));
 		}
@@ -121,6 +122,7 @@ class SubHeaderBar extends React.Component {
 			onGoBack: this.onGoBack,
 			inputTextValue: state.get('inputText'),
 		});
+		console.log('props', props);
 		return <Component {...props} />;
 	}
 }

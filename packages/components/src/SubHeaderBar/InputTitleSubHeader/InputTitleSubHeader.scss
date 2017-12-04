@@ -1,15 +1,11 @@
-$file-icon-size: 2.4rem;
+$icon-title-size: 2.4rem;
+$icon-modify-size: 1.4rem;
 
 @mixin input-text($weight) {
 	color: $black;
 	font-size: 1.4rem;
 	font-weight: $weight;
 	padding-right: $padding-small;
-	text-transform: uppercase;
-}
-
-.subheader-form-icon {
-	display: flex;
 }
 
 .tc-subheader-details {
@@ -17,14 +13,20 @@ $file-icon-size: 2.4rem;
 	align-items: normal;
 	max-width: 47.5rem;
 
-	&:hover .subheader-details-text .subheader-details-pencil {
+	&:hover .tc-subheader-details-text .subheader-details-pencil {
 		visibility: visible;
+		color: $scooter;
+	}
+
+	&:active .tc-subheader-details-text .subheader-details-pencil {
+		visibility: visible;
+		color: darken($scooter, 25%);
 	}
 
 	:global(.tc-subheader-title-icon) {
 		align-self: center;
-		width: $file-icon-size;
-		height: $file-icon-size;
+		width: $icon-title-size;
+		height: $icon-title-size;
 		color: $brand-primary;
 		margin-left: $padding-large;
 	}
@@ -35,18 +37,26 @@ $file-icon-size: 2.4rem;
 		justify-content: center;
 		padding-left: $padding-large;
 
-		.subheader-details-pencil {
-			display: inline-flex;
-			padding-left: 0;
-			stroke: 0.1rem;
-			height: 1.6rem;
-			color: $gallery;
-			visibility: hidden;
-			vertical-align: top;
-		}
-
 		.subheader-details-title {
 			@include input-text(800);
+			text-transform: uppercase;
+		}
+
+		.subheader-details-pencil {
+			display: inline-flex;
+			align-items: center;
+			color: $brand-primary;
+			font-size: 1.2rem;
+			font-weight: 400;
+			text-transform: none;
+			visibility: visible;
+			padding-left: $padding-small;
+			padding-right: $padding-small;
+
+			&.btn svg {
+				width: $icon-modify-size;
+				height: $icon-modify-size;
+			}
 		}
 
 		.subheader-details-subtitle {
@@ -62,6 +72,10 @@ $file-icon-size: 2.4rem;
 
 		.subheader-input {
 			@include input-text(400);
+		}
+
+		.subheader-form-icon {
+			display: flex;
 		}
 
 		& .form-group {

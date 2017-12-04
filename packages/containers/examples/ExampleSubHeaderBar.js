@@ -7,8 +7,7 @@ import {
 import { SubHeaderBar } from '../src';
 
 const viewSubHeader = {
-	title: 'Marketing',
-	subTitle: 'Creator John Doe',
+	title: 'MyTitle',
 	onEdit: () => action('onEdit'),
 	onSubmit: () => action('onSubmit'),
 	onCancel: () => action('onCancel'),
@@ -16,12 +15,16 @@ const viewSubHeader = {
 };
 
 const backAction = {
-	idBackAction: 'backAction',
 	backActionClick: () => action('backAction'),
 };
 
 const injectedComponentsLeft = {
-	left: [],
+	left: [
+		{
+			actionId: 'subheaderbar:action-sharing',
+			componentId: 'Action',
+		},
+	],
 };
 const injectedComponentsCenter = {
 	center: [
@@ -55,7 +58,7 @@ const ExampleSubHeaderBar = {
 	'only-title-no-icon': () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...props} />
+			<SubHeaderBar subTitle="mySubTitle" {...props} />
 		</div>
 	),
 	'with-right-actions-and-icon': () => (
@@ -63,31 +66,32 @@ const ExampleSubHeaderBar = {
 			<IconsProvider />
 			<SubHeaderBar
 				{...props}
-				injectedComponents={[...injectedComponentsLeft, ...injectedComponentsRight]}
+				subTitle="mySubTitle"
+				injectedComponents={injectedComponentsRight}
 				iconFile="talend-file-csv-o"
 			/>
 		</div>
 	),
-	'with-center-actions-and-no-icon': () => (
+	'with-center-actions-and-no-icon-no-subtitle': () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar
-				{...props}
-				injectedComponents={[...injectedComponentsLeft, ...injectedComponentsCenter]}
-			/>
+			<SubHeaderBar {...props} injectedComponents={injectedComponentsCenter} />
 		</div>
 	),
-	'complete-layout': () => (
+	'with-left-actions-and-no-icon': () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar {...props} subTitle="mySubTitle" injectedComponents={injectedComponentsLeft} />
+		</div>
+	),
+	'with-center-and-right-actions': () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
 				{...props}
-				injectedComponents={[
-					...injectedComponentsLeft,
-					...injectedComponentsCenter,
-					...injectedComponentsRight,
-				]}
+				injectedComponents={Object.assign({}, injectedComponentsCenter, injectedComponentsRight)}
 				iconFile="talend-file-csv-o"
+				subTitle="mySubTitle"
 			/>
 		</div>
 	),
