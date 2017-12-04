@@ -13,7 +13,7 @@ function adaptOnSort(onChange) {
 	};
 }
 
-export function hideHeaderRenderer(props) {
+export function HiddenHeader(props) {
 	return <span className="sr-only">{props.label}</span>;
 }
 
@@ -67,7 +67,7 @@ export function ListToVirtualizedList(props) {
 				}
 				if (column.hideHeader) {
 					cProps.disableSort = true;
-					cProps.headerRenderer = hideHeaderRenderer;
+					cProps.headerRenderer = HiddenHeader;
 				}
 				return <VirtualizedList.Content key={index} {...cProps} />;
 			})}
@@ -102,6 +102,6 @@ ListToVirtualizedList.propTypes = {
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',
 };
-hideHeaderRenderer.propTypes = {
+HiddenHeader.propTypes = {
 	label: PropTypes.string,
 };
