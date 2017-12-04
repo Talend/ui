@@ -13,6 +13,10 @@ export const DISPLAY_MODES = {
 };
 
 export default function ObjectViewer({ displayMode, ...props }) {
+	if (!props.data) {
+		return null;
+	}
+
 	switch (displayMode) {
 		case DISPLAY_MODES.TABLE:
 			return <Table {...props} />;
@@ -32,6 +36,7 @@ ObjectViewer.propTypes = {
 	tupleLabel: PropTypes.string,
 	rootLabel: PropTypes.string,
 	showTypes: PropTypes.bool,
+	data: PropTypes.arrayOf(PropTypes.object),
 };
 
 ObjectViewer.Table = Table;

@@ -61,7 +61,7 @@ export function convertValue(type, value) {
  * @returns {object} The new mutated properties store.
  */
 export function mutateValue(properties = {}, key, value) {
-	if (!key.length) {
+	if (!key || !key.length) {
 		return value;
 	}
 
