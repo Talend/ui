@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { defaultTableHeaderRenderer } from 'react-virtualized';
 import VirtualizedList, { SORT_BY, cellDictionary } from '../../VirtualizedList';
 import CellTitle from '../../VirtualizedList/CellTitle';
 import CellActions from '../../VirtualizedList/CellActions';
-import { defaultTableHeaderRenderer } from 'react-virtualized';
 
 function adaptOnSort(onChange) {
 	if (!onChange) {
@@ -100,6 +100,9 @@ ListToVirtualizedList.propTypes = {
 };
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',
+};
+hideHeaderRenderer.propTypes = {
+	label: PropTypes.string,
 };
 
 export default ListToVirtualizedList;
