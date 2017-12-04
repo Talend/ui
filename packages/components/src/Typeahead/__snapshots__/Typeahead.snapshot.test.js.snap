@@ -40,14 +40,8 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
     id={undefined}
   >
     <div
-      containerProps={
-        Object {
-          "id": "react-autowhatever-my-search",
-          "key": "react-autowhatever-my-search-items-container",
-          "ref": [Function],
-          "style": Object {},
-        }
-      }
+      id="react-autowhatever-my-search"
+      style={Object {}}
     >
       <div
         style={Object {}}
@@ -286,14 +280,8 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
     id={undefined}
   >
     <div
-      containerProps={
-        Object {
-          "id": "react-autowhatever-my-search",
-          "key": "react-autowhatever-my-search-items-container",
-          "ref": [Function],
-          "style": Object {},
-        }
-      }
+      id="react-autowhatever-my-search"
+      style={Object {}}
     >
       <div
         style={Object {}}
@@ -474,14 +462,8 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
     id={undefined}
   >
     <div
-      containerProps={
-        Object {
-          "id": "react-autowhatever-my-search",
-          "key": "react-autowhatever-my-search-items-container",
-          "ref": [Function],
-          "style": Object {},
-        }
-      }
+      id="react-autowhatever-my-search"
+      style={Object {}}
     >
       <ul
         role="listbox"
@@ -572,14 +554,8 @@ exports[`Typeahead items should render typeahead without items 1`] = `
   >
     <div
       className="undefined undefined"
-      containerProps={
-        Object {
-          "id": "react-autowhatever-my-search",
-          "key": "react-autowhatever-my-search-items-container",
-          "ref": [Function],
-          "style": Object {},
-        }
-      }
+      id="react-autowhatever-my-search"
+      style={Object {}}
     >
       <span
         className="no-result"
@@ -631,14 +607,8 @@ exports[`Typeahead position should render search bar on the right 1`] = `
     id={undefined}
   >
     <div
-      containerProps={
-        Object {
-          "id": "react-autowhatever-my-search",
-          "key": "react-autowhatever-my-search-items-container",
-          "ref": [Function],
-          "style": Object {},
-        }
-      }
+      id="react-autowhatever-my-search"
+      style={Object {}}
     />
   </div>
 </div>

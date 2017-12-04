@@ -43,7 +43,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			containerOpen: theme['container-open'],
 			highlight: theme['highlight-match'],
 			input: theme['typeahead-input'],
-			itemFocused: theme['item-focused'],
+			itemHighlighted: theme['item-highlighted'],
 			itemsContainer: theme['items-container'],
 			itemsList: theme.items,
 			sectionContainer: theme['section-container'],
@@ -88,9 +88,15 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 		renderItemData: { value: rest.value },
 	};
 
+	const compatibilityProps = {
+		highlightedSectionIndex: rest.focusedSectionIndex,
+		highlightedItemIndex: rest.focusedItemIndex,
+	};
+
 	const autowhateverProps = {
 		...defaultRenderersProps,
 		...rest,
+		...compatibilityProps,
 		...sectionProps,
 		...themeProps,
 		...inputProps,

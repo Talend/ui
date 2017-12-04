@@ -2,6 +2,15 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## react-16
+* Component: Typeahead
+* PR: [chore(react): Updates to React 16(https://github.com/Talend/ui/pull/761)
+* Changes : we upgraded React-autowhatever from 7.0.0 to 10.1.0. We ensured old props compatibility, but overriding some props have been changed.
+
+| Before | After |
+|---|---|
+| props.theme.itemFocused | props.theme.itemHighlighted |
+
 ## v0.125.0
 * Component: ListView
 * PR: [feat(ListView): i18n](https://github.com/Talend/ui/pull/850)
