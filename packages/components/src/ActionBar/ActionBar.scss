@@ -6,8 +6,8 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 	background: $tc-action-bar-background-color;
 	height: 100%;
 	width: 100%;
-	display:flex;
-	
+	display: flex;
+
 	.navbar-left,
 	.navbar-right {
 		display: flex;
@@ -16,17 +16,17 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 		> * {
 			margin: $tc-action-bar-margin;
 		}
-		
+
 		> :last-child {
 			margin-right: 0;
 		}
 	}
-	
+
 	.navbar-right {
 		margin-right: 0;
 		margin-left: auto;
 	}
-	
+
 	.navbar-center {
 		display: flex;
 		flex-grow: 1;
