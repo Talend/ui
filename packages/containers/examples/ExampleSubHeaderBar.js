@@ -18,14 +18,6 @@ const backAction = {
 	backActionClick: () => action('backAction'),
 };
 
-const injectedComponentsLeft = {
-	left: [
-		{
-			actionId: 'subheaderbar:action-sharing',
-			componentId: 'Action',
-		},
-	],
-};
 const injectedComponentsCenter = {
 	center: [
 		{
@@ -76,12 +68,6 @@ const ExampleSubHeaderBar = {
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...props} injectedComponents={injectedComponentsCenter} />
-		</div>
-	),
-	'with-left-actions-and-no-icon': () => (
-		<div>
-			<IconsProvider />
-			<SubHeaderBar {...props} subTitle="mySubTitle" injectedComponents={injectedComponentsLeft} />
 		</div>
 	),
 	'with-center-and-right-actions': () => (

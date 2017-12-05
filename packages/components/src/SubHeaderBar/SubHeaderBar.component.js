@@ -34,7 +34,6 @@ SubHeaderBarActions.propTypes = {
 
 function SubHeaderBar({
 	onGoBack,
-	componentsLeft,
 	componentsCenter,
 	componentsRight,
 	className,
@@ -49,7 +48,7 @@ function SubHeaderBar({
 					label="backArrow"
 					icon="talend-arrow-left"
 					bsStyle="link"
-					className={theme['subheader-back-button']}
+					className={classNames(theme['subheader-back-button'], 'btn-link')}
 					hideLabel
 				/>
 			),
@@ -62,11 +61,7 @@ function SubHeaderBar({
 		<div className={classNames(theme['tc-subheader-container'], className)}>
 			<ActionBar className={classNames(theme['subheader-navbar'], 'subheader-navbar')}>
 				<SubHeaderBarActions
-					components={
-						Array.isArray(componentsLeft)
-							? [...defaultComponentsLeft, ...componentsLeft]
-							: defaultComponentsLeft
-					}
+					components={defaultComponentsLeft}
 					className={theme['subheader-left']}
 					left
 					center={false}
@@ -99,7 +94,6 @@ function SubHeaderBar({
 
 SubHeaderBar.propTypes = {
 	onGoBack: PropTypes.func.isRequired,
-	componentsLeft: PropTypes.array,
 	componentsCenter: PropTypes.array,
 	componentsRight: PropTypes.array,
 	className: PropTypes.string,

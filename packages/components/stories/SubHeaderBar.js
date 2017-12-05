@@ -7,7 +7,7 @@ import {
 import { IconsProvider, SubHeaderBar, FilterBar, Action } from '../src/index';
 
 const viewProps = {
-	title: 'myTitle',
+	title: 'My Long Title is Long Long Lé Long La La La Lé Long Long Long Long',
 	onEdit: action('onEdit'),
 	onSubmit: action('onSubmit'),
 	onCancel: action('onCancel'),
@@ -90,12 +90,6 @@ stories
 			<SubHeaderBar {...viewProps} onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('with default left and custom components', () => (
-		<div>
-			<IconsProvider />
-			<SubHeaderBar {...viewProps} componentsLeft={[action4]} onGoBack={backAction} />
-		</div>
-	))
 	.addWithInfo('with icon file no actions', () => (
 		<div>
 			<IconsProvider />
@@ -135,6 +129,7 @@ stories
 			<SubHeaderBar
 				{...viewProps}
 				iconFile="talend-file-csv-o"
+				subTitle="mySubTitle"
 				onGoBack={backAction}
 				componentsCenter={injectedComponentsCenter}
 				componentsRight={injectedComponentsRight}

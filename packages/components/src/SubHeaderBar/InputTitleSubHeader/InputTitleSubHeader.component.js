@@ -8,8 +8,8 @@ import Icon from '../../Icon';
 function DetailsTitle({ title, subTitle, onEdit }) {
 	return (
 		<span className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
-			<span className={theme['subheader-details-title']}>
-				{title}
+			<span className={theme['subheader-details-title-icon-container']}>
+				<span className={theme['subheader-details-title']}>{title}</span>
 				{onEdit && (
 					<Action
 						name="action-edit-title"
@@ -43,13 +43,14 @@ function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange }) {
 				onChange={onChange}
 				value={inputTextValue}
 			/>
-			<div className={theme['subheader-form-icon']}>
+			<div className={theme['subheader-form-icon-container']}>
 				<Action
 					name="action-submit-title"
 					label="submit"
 					icon="talend-check"
 					onClick={onSubmit}
 					bsStyle="link"
+					className={theme['subheader-form-icon']}
 					hideLabel
 				/>
 				<Action
@@ -58,6 +59,7 @@ function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange }) {
 					icon="talend-cross"
 					onClick={onCancel}
 					bsStyle="link"
+					className={theme['subheader-form-icon']}
 					hideLabel
 				/>
 			</div>

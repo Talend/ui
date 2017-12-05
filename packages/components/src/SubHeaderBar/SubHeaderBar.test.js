@@ -35,19 +35,6 @@ describe('SubHeaderBarActions', () => {
 			},
 		];
 	});
-	it('should render with left props', () => {
-		const props = {
-			left: true,
-			center: false,
-			right: false,
-			className: 'myClassName',
-			components,
-		};
-		const wrapper = shallow(<SubHeaderBarActions {...props} />);
-		expect(wrapper.find(Icon)).toHaveLength(1);
-		expect(wrapper.find(Action)).toHaveLength(2);
-		expect(wrapper.getNode()).toMatchSnapshot();
-	});
 	it('should render with center props', () => {
 		const props = {
 			left: false,
@@ -76,24 +63,10 @@ describe('SubHeaderBarActions', () => {
 	});
 });
 
-let componentsLeft = [];
 let componentsRight = [];
 let componentsCenter = [];
 describe('SubHeaderBar', () => {
 	beforeEach(() => {
-		componentsLeft = [
-			{
-				injectedComponent: (
-					<Action
-						label="action0"
-						bsStyle="link"
-						icon="talend-share-alt"
-						onClick={jest.fn()}
-						hideLabel
-					/>
-				),
-			},
-		];
 		componentsRight = [
 			{
 				injectedComponent: (
@@ -166,11 +139,10 @@ describe('SubHeaderBar', () => {
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(2);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
-	it('should render SubHeaderBarActions (default + left)', () => {
+	it('should render SubHeaderBarActions (default)', () => {
 		const props = {
 			title: 'myTitle',
 			editMode: false,
-			componentsLeft,
 			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);

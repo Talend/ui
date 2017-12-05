@@ -8,10 +8,19 @@ $icon-modify-size: 1.4rem;
 	padding-right: $padding-small;
 }
 
+@mixin ellipsis-title() {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+@mixin form-icon-color($color) {
+	color: $color;
+	border: 0.2rem solid $color;
+}
+
 .tc-subheader-details {
 	display: flex;
-	align-items: normal;
-	max-width: 47.5rem;
 
 	&:hover .tc-subheader-details-text .subheader-details-pencil {
 		visibility: visible;
@@ -36,9 +45,16 @@ $icon-modify-size: 1.4rem;
 		flex-direction: column;
 		justify-content: center;
 		padding-left: $padding-large;
+		width: 47.5rem;
+
+		.subheader-details-title-icon-container {
+			display: inline-flex;
+			align-items: center;
+		}
 
 		.subheader-details-title {
 			@include input-text(800);
+			@include ellipsis-title();
 			text-transform: uppercase;
 		}
 
@@ -60,6 +76,7 @@ $icon-modify-size: 1.4rem;
 		}
 
 		.subheader-details-subtitle {
+			@include ellipsis-title();
 			color: $dark-silver;
 			font-size: 1.4rem;
 			font-weight: 300;
@@ -74,12 +91,35 @@ $icon-modify-size: 1.4rem;
 			@include input-text(400);
 		}
 
-		.subheader-form-icon {
+		.subheader-form-icon-container {
 			display: flex;
+
+			.subheader-form-icon {
+				@include form-icon-color($gray);
+				width: 2.4rem;
+				height: 2.4rem;
+				display: flex;
+				border-radius: 50%;
+				padding: 0;
+				margin-left: 20px;
+				
+				&:last-child {
+					margin-left: 10px;
+				}
+
+				&:hover {
+					@include form-icon-color($scooter);
+				}
+
+				&:active {
+					@include form-icon-color(darken($scooter, 25%));
+				}
+			}
 		}
 
 		& .form-group {
 			padding-top: 0;
+			width: 17.1rem;
 
 			& .col-lg-10 {
 				width: 100%;
