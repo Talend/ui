@@ -48,7 +48,8 @@ describe('CMF(Container(ActionButton))', () => {
 				overlayComponentProps={{
 					customProps: 'customProps',
 				}}
-			/>);
+			/>,
+		);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
