@@ -1,4 +1,3 @@
-import React from 'react';
 import { api, cmfConnect } from '@talend/react-cmf';
 import { Action } from '@talend/react-components';
 

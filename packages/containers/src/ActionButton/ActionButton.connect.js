@@ -13,6 +13,7 @@ function updateExpression(props) {
 		if (typeof props[key] === 'string' || typeof props[key] === 'object') {
 			if (!warned[key]) {
 				warned[key] = true;
+				// eslint-disable-next-line no-console
 				console.warn(`Warning: please use ${key}Expression props instead
 				to compute ${props.actionId} expression`);
 			}
