@@ -13,7 +13,7 @@ module.exports = (storybookBaseConfig) => {
 
 	storybookConfig.resolve = {
 		alias: {
-			'react-cmf': path.join(__dirname, '../node_modules/@talend/react-cmf'),
+			'react-cmf': path.join(__dirname, '../../../node_modules/@talend/react-cmf'),
 		},
 	};
 

@@ -3,12 +3,13 @@
     "commander": "^2.9.0",
     "cpx": "^1.5.0",
     "i18next-parser": "^0.12.0",
-    "lerna": "2.0.0",
+    "lerna": "2.5.1",
     "npm-watch": "^0.1.8",
     "surge": "^0.18.0"
   },
   "scripts": {
-    "postinstall": "lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress --mutex network && node copylibs.js",
+    "start-components": "lerna exec --scope=@talend/react-components -- yarn start",
+    "postinstall": "lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && lerna exec -- yarn && node copylibs.js",
     "build": "lerna exec --ignore=generator-talend -- yarn run prepublish && node copylibs.js",
     "build-cmf": "lerna exec --scope=*cmf -- yarn run prepublish && node copylibs.js --scope=cmf",
@@ -86,5 +87,8 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "version": "0.0.0",
-  "private": true
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
 }

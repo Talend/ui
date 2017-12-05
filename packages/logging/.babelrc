@@ -1,14 +1,4 @@
 {
-  "presets": [[
-    "env",
-    {
-      "targets": {
-        "ie": 11,
-        "browsers": [
-          "last 2 versions"
-        ]
-      }
-    }
-  ]],
-  "plugins": ["transform-object-rest-spread"]
+  "extends": "../../.babelrc",
+  "babelrc": false
 }
