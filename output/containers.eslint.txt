@@ -4,12 +4,6 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/containers/src/Action/Action.connect.js
-  1:8  error  'React' is defined but never used  no-unused-vars
-
-/home/travis/build/Talend/ui/packages/containers/src/ActionButton/ActionButton.connect.js
-  16:5  warning  Unexpected console statement  no-console
-
 /home/travis/build/Talend/ui/packages/containers/src/ActionSplitDropdown/ActionSplitDropdown.test.js
   4:10  error  'ActionSplitDropdown' is defined but never used  no-unused-vars
 
@@ -25,5 +19,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-✖ 7 problems (6 errors, 1 warning)
+✖ 5 problems (5 errors, 0 warnings)
 
