@@ -1,6 +1,6 @@
 // Content styles
 
-$border-color: #CCC;
+$border-color: #ccc;
 $actions-background-color: rgba(242, 242, 242, 0.7);
 $checkbox-background-color: rgba(255, 255, 255, 0.7);
 $text-size: 14px;
@@ -12,7 +12,6 @@ $definition-width: 220px;
 $description-width: 130px;
 $icon-column-width: 30px;
 $line-height: 30px;
-
 
 .tc-list-content {
 	list-style: none;
@@ -295,15 +294,18 @@ $line-height: 30px;
 			padding: 0 $padding-small;
 
 			:global(.btn-link) {
-				max-width: $tile-size - $icon-column-width - 2 * ($border-size + $padding-normal + $padding-small);
+				max-width: $tile-size - $icon-column-width - 2 * ($border-size + $padding-normal +
+							$padding-small);
 			}
 
 			:global(.tc-list-item-title-text) {
-				max-width: $tile-size - $icon-column-width - 2 * ($border-size + $padding-normal + $padding-small);
+				max-width: $tile-size - $icon-column-width - 2 * ($border-size + $padding-normal +
+							$padding-small);
 			}
 
 			:global(.tc-list-item-title-input) {
-				width: $tile-size - $icon-column-width - 2 * ($border-size + $padding-normal + $padding-small);
+				width: $tile-size - $icon-column-width - 2 * ($border-size + $padding-normal +
+							$padding-small);
 			}
 		}
 

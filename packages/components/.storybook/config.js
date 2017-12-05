@@ -9,6 +9,7 @@ import infoAddon from '@storybook/addon-info';
 import withPropsCombinations from 'react-storybook-addon-props-combinations';
 
 import '@talend/bootstrap-theme/src/theme/theme.scss';
+import 'focus-outline-manager';
 
 a11y(ReactDOM);
 

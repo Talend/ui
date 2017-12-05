@@ -5,6 +5,10 @@
         overflow-y: auto !important;
     }
 
+    html.focus-outline-hidden *:focus {
+        outline: none !important;
+    }
+
     .tc-drawer.drawer-custom {
         background-color: #000;
         color: White;
@@ -54,4 +58,13 @@
     .virtualized-list div.tc-list-cell-modified {
         flex: 0 0 90px;
     }
+
+    .virtualized-list-customized-row .item-0-class .tc-svg-icon {
+        fill: blue;
+    }
+
+    .virtualized-list-customized-row .item-1-class .tc-svg-icon {
+        fill: green;
+    }
+
 </style>

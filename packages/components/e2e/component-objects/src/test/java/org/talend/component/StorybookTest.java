@@ -23,6 +23,7 @@ public class StorybookTest {
     @BeforeClass
     public static void before() {
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("http://localhost:6006/");
     }
 
