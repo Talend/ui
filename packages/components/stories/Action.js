@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
 
-import { Action, Button, IconsProvider } from '../src/index';
+import { Action, IconsProvider } from '../src/index';
 
 const icons = {
 	'talend-dataprep': talendIcons['talend-dataprep'],
@@ -14,7 +14,7 @@ const myAction = {
 	onClick: action('You clicked me'),
 };
 
-const OverlayComponent = (<div>I'm an overlay</div>);
+const OverlayComponent = <div>I'm an overlay</div>;
 
 const mouseDownAction = {
 	label: 'Click me',
