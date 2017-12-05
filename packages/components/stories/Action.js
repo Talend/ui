@@ -14,7 +14,7 @@ const myAction = {
 	onClick: action('You clicked me'),
 };
 
-const OverlayComponent = <div>I'm an overlay</div>;
+const OverlayComponent = (<div>I'm an overlay</div>);
 
 const mouseDownAction = {
 	label: 'Click me',
