@@ -174,7 +174,7 @@ public class TableTest extends StorybookTest {
         // when
         tableObject
                 .getItem("Title with actions")
-                .clickOnColAction("columnActions", "favorite-action-0");
+                .clickOnCellAction("columnActions", "favorite-action-0");
 
         // then
         assertThat(getActionLog(), startsWith("▶onFavorite:"));
