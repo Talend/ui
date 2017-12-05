@@ -205,6 +205,7 @@ const columnsForItems = [
 ];
 const actionsForItems = [
 	{
+		id: 'favorite-action',
 		key: 'favorite',
 		label: 'Favorite',
 		icon: 'talend-star',
@@ -306,15 +307,17 @@ function getActionsProps() {
 	};
 
 	columnActionsProps.list.columns.splice(2, 0, actionsColumn);
-	columnActionsProps.list.items = columnActionsProps.list.items.map(item => ({
+	columnActionsProps.list.items = columnActionsProps.list.items.map((item, index) => ({
 		columnActions: [
 			{
+				id: `favorite-action-${index}`,
 				label: 'favorite',
 				icon: 'talend-star',
 				className: 'favorite',
 				onClick: action('onFavorite'),
 			},
 			{
+				id: `certify-action-${index}`,
 				label: 'certify',
 				icon: 'talend-badge',
 				className: 'certify',
@@ -588,6 +591,28 @@ storiesOf('List', module)
 					This is the default mode.
 				</p>
 				<List {...tprops} virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized - list with hidden header labels', () => {
+		const tprops = cloneDeep(props);
+
+		tprops.list.columns[0].hideHeader = true;
+
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Display the list with hidden header labels.</p>
+				<List {...tprops} virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized - list with custom classnames', () => {
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list virtualized-list-customized-row">
+				<h1>List</h1>
+				<p>Display the list with hidden header labels.</p>
+				<List {...props} virtualized />
 			</div>
 		);
 	})

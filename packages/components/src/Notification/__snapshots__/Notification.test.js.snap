@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification should render null if type === error 1`] = `
+<div
+  className="undefined tc-notification tc-notification-error"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="status"
+>
+  <CloseButton
+    leaveFn={undefined}
+    notification={
+      Object {
+        "message": "foo",
+        "type": "error",
+      }
+    }
+  />
+  <Message
+    notification={
+      Object {
+        "message": "foo",
+        "type": "error",
+      }
+    }
+  />
+  <TimerBar
+    autoLeaveError={undefined}
+    type="error"
+  />
+</div>
+`;
