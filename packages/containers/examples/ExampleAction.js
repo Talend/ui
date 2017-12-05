@@ -19,14 +19,6 @@ const eAction = {
 	},
 };
 
-const overlayComponentProps = {
-	collection: 'with.data',
-	nameAttr: 'label',
-	onToggleActionCreator: 'object:view',
-	onSelectActionCreator: 'object:view',
-	noHeader: true,
-};
-
 export default function ExampleAction() {
 	return (
 		<div>

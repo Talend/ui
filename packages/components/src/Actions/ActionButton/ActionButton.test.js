@@ -109,4 +109,22 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton available={false} />);
 		expect(wrapper.type()).toBe(null);
 	});
+
+	it('should render a button with a overlay component', () => {
+		function OverlayComponent() {
+			return <div>OverlayComponent</div>
+		}
+
+		const props = {
+			...myAction,
+			overlayComponent: OverlayComponent,
+			overlayPlacement: 'bottom',
+		};
+
+		// when
+		const wrapper = shallow(<ActionButton {...props} />);
+
+		// then
+		expect(wrapper.getNode()).toMatchSnapshot();
+	});
 });
