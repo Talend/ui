@@ -36,12 +36,6 @@ export function mapStateToProps(state, ownProps) {
 			ownProps.actionId,
 		);
 
-		if (props.overlayComponent) {
-			props.overlayComponent = (
-				<Inject component={props.overlayComponent} {...props.overlayComponentProps} />
-			);
-		}
-
 		props = updateExpression(props);
 	}
 	return props;
@@ -55,11 +49,21 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 			delete props[key];
 		}
 	});
+
 	return props;
 }
 
 export function ContainerActionButton(props) {
 	const newProps = Object.assign({}, props);
+
+	if (typeof props.overlayComponent === 'string' && props.overlayComponent) {
+		newProps.overlayComponent = (
+			<Inject component={props.overlayComponent} {...props.overlayComponentProps} />
+		);
+
+		delete newProps.overlayComponentProps;
+	}
+
 	if (!newProps.onClick) {
 		newProps.onClick = (event, data) => {
 			if (props.actionCreator) {
@@ -86,6 +90,8 @@ ContainerActionButton.propTypes = {
 	dispatch: PropTypes.func,
 	dispatchActionCreator: PropTypes.func,
 	model: PropTypes.Object,
+	overlayComponent: PropTypes.string,
+	overlayComponentProps: PropTypes.object,
 	payload: PropTypes.Object,
 };
 

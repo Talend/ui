@@ -42,24 +42,14 @@ describe('CMF(Container(ActionButton))', () => {
 	});
 
 	it('should inject a component overlay', () => {
-		const state = {
-			cmf: {
-				settings: {
-					actions: {
-						foo: {
-							id: 'foo',
-							label: 'Foo!',
-							overlayComponent: 'ComponentOverlay',
-							overlayComponentProps: {
-								customProps: 'customProps',
-							},
-						},
-					},
-				},
-			},
-		};
-		const props = mapStateToProps(state, { actionId: 'foo' });
-		expect(props).toMatchSnapshot();
+		const wrapper = shallow(
+			<ContainerActionButton
+				overlayComponent="ComponentOverlay"
+				overlayComponentProps={{
+					customProps: 'customProps',
+				}}
+			/>);
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
 

@@ -1,6 +1,5 @@
 import 'babel-polyfill';
 import { action, storiesOf, configure, setAddon } from '@storybook/react';
-import Action from '../src/TreeView';
 import cmf from 'react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
@@ -266,13 +265,13 @@ function loadStories() {
 			actionCreator: 'cancel:hide:dialog',
 		};
 		actions['action:overlay:component'] = {
-			id: 'action:overlay:omponent',
+			id: 'action:overlay:component',
 			label: 'overlay with component',
 			overlayComponent: 'ComponentOverlay',
 			overlayComponentProps: {
 				customProps: 'customProps',
 			},
-			overlayPlacement: 'bottom'
+			overlayPlacement: 'bottom',
 		}
 
 		const story = storiesOf(example);

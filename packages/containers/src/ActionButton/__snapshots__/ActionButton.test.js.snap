@@ -1,17 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CMF(Container(ActionButton)) should inject a component overlay 1`] = `
-Object {
-  "id": "foo",
-  "label": "Foo!",
-  "overlayComponent": <Inject
-    component="ComponentOverlay"
-    customProps="customProps"
-/>,
-  "overlayComponentProps": Object {
-    "customProps": "customProps",
-  },
-}
+<ActionButton
+  available={true}
+  bsStyle="default"
+  disabled={false}
+  inProgress={false}
+  onClick={[Function]}
+  overlayComponent={
+    <Inject
+      component="ComponentOverlay"
+      customProps="customProps"
+    />
+  }
+  tooltipPlacement="top"
+/>
 `;
 
 exports[`CMF(Container(ActionButton)) should render 1`] = `
