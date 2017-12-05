@@ -35,8 +35,9 @@ function parseProperties(properties, isRoot, path) {
 	if (isRoot) {
 		return [getUISchemaFromObject(properties)];
 	}
-	return Object.keys(properties)
-		.map(key => getUISchemaFromObject(properties[key], path ? `${path}.${key}` : key));
+	return Object.keys(properties).map(key =>
+		getUISchemaFromObject(properties[key], path ? `${path}.${key}` : key),
+	);
 }
 
 /**
@@ -49,8 +50,9 @@ export function migrate(jsonSchema, uiSchema) {
 		return [jsonSchema, safeUISchema];
 	} else if (!Array.isArray(uiSchema) && typeof uiSchema === 'object') {
 		if (uiSchema['ui:order']) {
-			safeUISchema[0].items = uiSchema['ui:order']
-				.map(key => getUISchemaFromObject(jsonSchema.properties[key], key));
+			safeUISchema[0].items = uiSchema['ui:order'].map(key =>
+				getUISchemaFromObject(jsonSchema.properties[key], key),
+			);
 		}
 
 		safeUISchema[0].items = safeUISchema[0].items.map(ui => {
