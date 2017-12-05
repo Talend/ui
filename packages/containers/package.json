@@ -129,7 +129,7 @@
       "./env__tests.js"
     ],
     "transform": {
-      ".*": "<rootDir>/node_modules/babel-jest"
+      ".*": "<rootDir>/../../node_modules/babel-jest"
     },
     "testRegex": "src/.*\\.test\\.js$",
     "moduleNameMapper": {
