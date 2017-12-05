@@ -1,4 +1,5 @@
 import { merge } from 'talend-json-schema-form-core';
+/* eslint-disable no-param-reassign */
 
 function parseArray(items, key) {
 	console.log('parseArray key', key);
@@ -44,10 +45,12 @@ function parseProperties(properties, isRoot, path) {
  * migrate from react-jsonschema-form to UIschema
  * @param {Object} mergedSchema
  */
+
 export function migrate(jsonSchema, uiSchema) {
-	let safeUISchema = parseProperties(jsonSchema, true);
+	const safeUISchema = parseProperties(jsonSchema, true);
+	const widgets = {};
 	if (!uiSchema || uiSchema === {}) {
-		return [jsonSchema, safeUISchema];
+		return { jsonSchema, uiSchema: safeUISchema };
 	} else if (!Array.isArray(uiSchema) && typeof uiSchema === 'object') {
 		if (uiSchema['ui:order']) {
 			safeUISchema[0].items = uiSchema['ui:order'].map(key =>
@@ -58,14 +61,21 @@ export function migrate(jsonSchema, uiSchema) {
 		safeUISchema[0].items = safeUISchema[0].items.map(ui => {
 			if (ui.key && uiSchema[ui.key]) {
 				const config = uiSchema[ui.key];
-				if (config['ui:widget']) {
-					ui.widget = config['ui:widget'];
-					if (config['ui:widget'] === 'password') {
-						ui.widget = 'text';
-						ui.type = 'password';
-					} else if (config['ui:widget'] === 'updown') {
-						ui.widget = 'text';
-						ui.type = 'number';
+				const uiWidget = config['ui:widget'];
+				if (uiWidget) {
+					if (typeof uiWidget !== 'string') {
+						console.log(uiWidget, uiWidget);
+						widgets[uiWidget.name || ui.key] = uiWidget;
+						ui.widget = uiWidget.name || ui.key;
+					} else {
+						ui.widget = config['ui:widget'];
+						if (config['ui:widget'] === 'password') {
+							ui.widget = 'text';
+							ui.type = 'password';
+						} else if (config['ui:widget'] === 'updown') {
+							ui.widget = 'text';
+							ui.type = 'number';
+						}
 					}
 				}
 				if (config['ui:autofocus']) {
@@ -86,9 +96,20 @@ export function migrate(jsonSchema, uiSchema) {
 			}
 			return ui;
 		});
-		return [jsonSchema, safeUISchema];
+		return {
+			jsonSchema,
+			widgets,
+			uiSchema: safeUISchema,
+		};
 	}
-	return [jsonSchema, uiSchema];
+	return {
+		jsonSchema,
+		uiSchema,
+	};
 }
 
-export default (jsonSchema, uiSchema) => merge(...migrate(jsonSchema, uiSchema));
+export default (jsonSchema, uiSchema) => {
+	const props = migrate(jsonSchema, uiSchema);
+	props.mergedSchema = merge(props.jsonSchema, props.uiSchema);
+	return props;
+};

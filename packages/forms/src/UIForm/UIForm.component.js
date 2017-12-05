@@ -12,9 +12,7 @@ export default class UIForm extends React.Component {
 	constructor(props) {
 		super(props);
 		const { jsonSchema, uiSchema } = props;
-		this.state = {
-			mergedSchema: merge(jsonSchema, uiSchema),
-		};
+		this.state = merge(jsonSchema, uiSchema);
 
 		this.onChange = this.onChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
@@ -32,9 +30,7 @@ export default class UIForm extends React.Component {
 		if (!jsonSchema || !uiSchema) {
 			return;
 		}
-		this.setState({
-			mergedSchema: merge(jsonSchema, uiSchema),
-		});
+		this.setState(merge(jsonSchema, uiSchema));
 	}
 
 	/**
@@ -216,7 +212,7 @@ export default class UIForm extends React.Component {
 						schema={nextSchema}
 						properties={this.props.properties}
 						errors={this.props.errors}
-						widgets={this.props.widgets}
+						widgets={Object.assign({}, this.props.widgets, this.state.widgets)}
 					/>
 				))}
 				<Buttons
