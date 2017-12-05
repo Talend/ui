@@ -205,6 +205,7 @@ const columnsForItems = [
 ];
 const actionsForItems = [
 	{
+		id: 'favorite-action',
 		key: 'favorite',
 		label: 'Favorite',
 		icon: 'talend-star',
@@ -306,15 +307,17 @@ function getActionsProps() {
 	};
 
 	columnActionsProps.list.columns.splice(2, 0, actionsColumn);
-	columnActionsProps.list.items = columnActionsProps.list.items.map(item => ({
+	columnActionsProps.list.items = columnActionsProps.list.items.map((item, index) => ({
 		columnActions: [
 			{
+				id: `favorite-action-${index}`,
 				label: 'favorite',
 				icon: 'talend-star',
 				className: 'favorite',
 				onClick: action('onFavorite'),
 			},
 			{
+				id: `certify-action-${index}`,
 				label: 'certify',
 				icon: 'talend-badge',
 				className: 'certify',
