@@ -1,5 +1,5 @@
 import React from 'react';
-import { api, cmfConnect, Inject } from '@talend/react-cmf';
+import { api, cmfConnect } from '@talend/react-cmf';
 import { Action } from '@talend/react-components';
 
 import ActionButton from '../ActionButton';
@@ -19,11 +19,6 @@ export function mapStateToProps(state, ownProps) {
 	const props = {
 		renderers: getRenderers(renderers),
 	};
-	if (ownProps.overlayComponent) {
-		props.overlayComponent = (
-			<Inject component={ownProps.overlayComponent} {...ownProps.overlayComponentProps} />
-		);
-	}
 
 	if (!ownProps.actionId && !ownProps.name) {
 		return props;

@@ -68,10 +68,7 @@ export default function ExampleAction() {
 			/>
 			<p>Using actions with overlay</p>
 			<Action
-				overlayComponent="testComponent"
-				overlayComponentProps={overlayComponentProps}
-				overlayPlacement="bottom"
-				{...myAction}
+				actionId="action:overlay:component"
 			/>
 		</div>
 	);

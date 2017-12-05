@@ -38,6 +38,27 @@ describe('CMF(Container(ActionButton))', () => {
 		expect(wrapper.getNode()).toMatchSnapshot();
 		expect(wrapper.find(ActionButton).length).toBe(1);
 	});
+
+	it('should inject a component overlay', () => {
+		const state = {
+			cmf: {
+				settings: {
+					actions: {
+						foo: {
+							id: 'foo',
+							label: 'Foo!',
+							overlayComponent: 'ComponentOverlay',
+							overlayComponentProps: {
+								customProps: 'customProps',
+							},
+						},
+					},
+				},
+			},
+		};
+		const props = mapStateToProps(state, { actionId: 'foo' });
+		expect(props).toMatchSnapshot();
+	});
 });
 
 describe('ActionButton.mergeProps', () => {

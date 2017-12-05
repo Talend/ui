@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { api, cmfConnect } from '@talend/react-cmf';
+import { api, cmfConnect, Inject } from '@talend/react-cmf';
 import { ActionButton } from '@talend/react-components';
 
 const DEPRECATED_EXPRESSION = ['active', 'available', 'disabled', 'inProgress'];
@@ -9,7 +9,7 @@ const warned = {};
 
 function updateExpression(props) {
 	const newProps = Object.assign({}, props);
-	DEPRECATED_EXPRESSION.forEach((key) => {
+	DEPRECATED_EXPRESSION.forEach(key => {
 		if (typeof props[key] === 'string' || typeof props[key] === 'object') {
 			if (!warned[key]) {
 				warned[key] = true;
@@ -34,6 +34,13 @@ export function mapStateToProps(state, ownProps) {
 			},
 			ownProps.actionId,
 		);
+
+		if (props.overlayComponent) {
+			props.overlayComponent = (
+				<Inject component={props.overlayComponent} {...props.overlayComponentProps} />
+			);
+		}
+
 		props = updateExpression(props);
 	}
 	return props;
@@ -42,7 +49,7 @@ export function mapStateToProps(state, ownProps) {
 export function mergeProps(stateProps, dispatchProps, ownProps) {
 	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
 	delete props.actionId;
-	DEPRECATED_EXPRESSION.forEach((key) => {
+	DEPRECATED_EXPRESSION.forEach(key => {
 		if (typeof props[key] === 'string' || typeof props[key] === 'object') {
 			delete props[key];
 		}
