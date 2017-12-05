@@ -112,7 +112,7 @@ describe('Action', () => {
 
 	it('should render a button with a overlay component', () => {
 		function OverlayComponent() {
-			return <div>OverlayComponent</div>
+			return <div>OverlayComponent</div>;
 		}
 
 		const props = {
