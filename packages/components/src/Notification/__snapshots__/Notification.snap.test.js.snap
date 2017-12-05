@@ -5,6 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NotificationsContainer
+    autoLeaveError={false}
     autoLeaveTimeout={4000}
     enterTimeout={300}
     leaveFn={[Function]}
@@ -70,6 +71,7 @@ ShallowWrapper {
         transitionName="tc-notification"
 >
         <Notification
+                autoLeaveError={false}
                 autoLeaveTimeout={4000}
                 leaveFn={[Function]}
                 notification={
@@ -83,8 +85,13 @@ ShallowWrapper {
                                 "message": "This is a feedback of your operation1, This is a feedback of your operation1",
                               }
                 }
+                onClick={[Function]}
+                onClose={[Function]}
+                onMouseEnter={[Function]}
+                onMouseOut={[Function]}
         />
         <Notification
+                autoLeaveError={false}
                 autoLeaveTimeout={4000}
                 leaveFn={[Function]}
                 notification={
@@ -102,8 +109,13 @@ ShallowWrapper {
                                 "type": "error",
                               }
                 }
+                onClick={[Function]}
+                onClose={[Function]}
+                onMouseEnter={[Function]}
+                onMouseOut={[Function]}
         />
         <Notification
+                autoLeaveError={false}
                 autoLeaveTimeout={4000}
                 leaveFn={[Function]}
                 notification={
@@ -116,8 +128,13 @@ ShallowWrapper {
                                 "type": "warning",
                               }
                 }
+                onClick={[Function]}
+                onClose={[Function]}
+                onMouseEnter={[Function]}
+                onMouseOut={[Function]}
         />
         <Notification
+                autoLeaveError={false}
                 autoLeaveTimeout={4000}
                 leaveFn={[Function]}
                 notification={
@@ -127,6 +144,10 @@ ShallowWrapper {
                                 "type": "warning",
                               }
                 }
+                onClick={[Function]}
+                onClose={[Function]}
+                onMouseEnter={[Function]}
+                onMouseOut={[Function]}
         />
 </CSSTransitionGroup>,
       "className": "tc-notification-container",
@@ -139,6 +160,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Notification
+            autoLeaveError={false}
             autoLeaveTimeout={4000}
             leaveFn={[Function]}
             notification={
@@ -152,8 +174,13 @@ ShallowWrapper {
                                     "message": "This is a feedback of your operation1, This is a feedback of your operation1",
                                   }
             }
+            onClick={[Function]}
+            onClose={[Function]}
+            onMouseEnter={[Function]}
+            onMouseOut={[Function]}
 />,
           <Notification
+            autoLeaveError={false}
             autoLeaveTimeout={4000}
             leaveFn={[Function]}
             notification={
@@ -171,8 +198,13 @@ ShallowWrapper {
                                     "type": "error",
                                   }
             }
+            onClick={[Function]}
+            onClose={[Function]}
+            onMouseEnter={[Function]}
+            onMouseOut={[Function]}
 />,
           <Notification
+            autoLeaveError={false}
             autoLeaveTimeout={4000}
             leaveFn={[Function]}
             notification={
@@ -185,8 +217,13 @@ ShallowWrapper {
                                     "type": "warning",
                                   }
             }
+            onClick={[Function]}
+            onClose={[Function]}
+            onMouseEnter={[Function]}
+            onMouseOut={[Function]}
 />,
           <Notification
+            autoLeaveError={false}
             autoLeaveTimeout={4000}
             leaveFn={[Function]}
             notification={
@@ -196,6 +233,10 @@ ShallowWrapper {
                                     "type": "warning",
                                   }
             }
+            onClick={[Function]}
+            onClose={[Function]}
+            onMouseEnter={[Function]}
+            onMouseOut={[Function]}
 />,
         ],
         "transitionAppear": false,
@@ -212,6 +253,7 @@ ShallowWrapper {
           "key": "story-1",
           "nodeType": "function",
           "props": Object {
+            "autoLeaveError": false,
             "autoLeaveTimeout": 4000,
             "leaveFn": [Function],
             "notification": Object {
@@ -223,6 +265,10 @@ ShallowWrapper {
               "id": "story-1",
               "message": "This is a feedback of your operation1, This is a feedback of your operation1",
             },
+            "onClick": [Function],
+            "onClose": [Function],
+            "onMouseEnter": [Function],
+            "onMouseOut": [Function],
           },
           "ref": null,
           "rendered": null,
@@ -233,6 +279,7 @@ ShallowWrapper {
           "key": "story-2",
           "nodeType": "function",
           "props": Object {
+            "autoLeaveError": false,
             "autoLeaveTimeout": 4000,
             "leaveFn": [Function],
             "notification": Object {
@@ -248,6 +295,10 @@ ShallowWrapper {
               ],
               "type": "error",
             },
+            "onClick": [Function],
+            "onClose": [Function],
+            "onMouseEnter": [Function],
+            "onMouseOut": [Function],
           },
           "ref": null,
           "rendered": null,
@@ -258,6 +309,7 @@ ShallowWrapper {
           "key": "story-3",
           "nodeType": "function",
           "props": Object {
+            "autoLeaveError": false,
             "autoLeaveTimeout": 4000,
             "leaveFn": [Function],
             "notification": Object {
@@ -268,6 +320,10 @@ ShallowWrapper {
               ],
               "type": "warning",
             },
+            "onClick": [Function],
+            "onClose": [Function],
+            "onMouseEnter": [Function],
+            "onMouseOut": [Function],
           },
           "ref": null,
           "rendered": null,
@@ -278,6 +334,7 @@ ShallowWrapper {
           "key": "story-4",
           "nodeType": "function",
           "props": Object {
+            "autoLeaveError": false,
             "autoLeaveTimeout": 4000,
             "leaveFn": [Function],
             "notification": Object {
@@ -285,6 +342,10 @@ ShallowWrapper {
               "message": "This is a feedback of your operation4",
               "type": "warning",
             },
+            "onClick": [Function],
+            "onClose": [Function],
+            "onMouseEnter": [Function],
+            "onMouseOut": [Function],
           },
           "ref": null,
           "rendered": null,
@@ -310,6 +371,7 @@ ShallowWrapper {
           transitionName="tc-notification"
 >
           <Notification
+                    autoLeaveError={false}
                     autoLeaveTimeout={4000}
                     leaveFn={[Function]}
                     notification={
@@ -323,8 +385,13 @@ ShallowWrapper {
                                         "message": "This is a feedback of your operation1, This is a feedback of your operation1",
                                       }
                     }
+                    onClick={[Function]}
+                    onClose={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseOut={[Function]}
           />
           <Notification
+                    autoLeaveError={false}
                     autoLeaveTimeout={4000}
                     leaveFn={[Function]}
                     notification={
@@ -342,8 +409,13 @@ ShallowWrapper {
                                         "type": "error",
                                       }
                     }
+                    onClick={[Function]}
+                    onClose={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseOut={[Function]}
           />
           <Notification
+                    autoLeaveError={false}
                     autoLeaveTimeout={4000}
                     leaveFn={[Function]}
                     notification={
@@ -356,8 +428,13 @@ ShallowWrapper {
                                         "type": "warning",
                                       }
                     }
+                    onClick={[Function]}
+                    onClose={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseOut={[Function]}
           />
           <Notification
+                    autoLeaveError={false}
                     autoLeaveTimeout={4000}
                     leaveFn={[Function]}
                     notification={
@@ -367,6 +444,10 @@ ShallowWrapper {
                                         "type": "warning",
                                       }
                     }
+                    onClick={[Function]}
+                    onClose={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseOut={[Function]}
           />
 </CSSTransitionGroup>,
         "className": "tc-notification-container",
@@ -379,6 +460,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <Notification
+              autoLeaveError={false}
               autoLeaveTimeout={4000}
               leaveFn={[Function]}
               notification={
@@ -392,8 +474,13 @@ ShallowWrapper {
                                           "message": "This is a feedback of your operation1, This is a feedback of your operation1",
                                         }
               }
+              onClick={[Function]}
+              onClose={[Function]}
+              onMouseEnter={[Function]}
+              onMouseOut={[Function]}
 />,
             <Notification
+              autoLeaveError={false}
               autoLeaveTimeout={4000}
               leaveFn={[Function]}
               notification={
@@ -411,8 +498,13 @@ ShallowWrapper {
                                           "type": "error",
                                         }
               }
+              onClick={[Function]}
+              onClose={[Function]}
+              onMouseEnter={[Function]}
+              onMouseOut={[Function]}
 />,
             <Notification
+              autoLeaveError={false}
               autoLeaveTimeout={4000}
               leaveFn={[Function]}
               notification={
@@ -425,8 +517,13 @@ ShallowWrapper {
                                           "type": "warning",
                                         }
               }
+              onClick={[Function]}
+              onClose={[Function]}
+              onMouseEnter={[Function]}
+              onMouseOut={[Function]}
 />,
             <Notification
+              autoLeaveError={false}
               autoLeaveTimeout={4000}
               leaveFn={[Function]}
               notification={
@@ -436,6 +533,10 @@ ShallowWrapper {
                                           "type": "warning",
                                         }
               }
+              onClick={[Function]}
+              onClose={[Function]}
+              onMouseEnter={[Function]}
+              onMouseOut={[Function]}
 />,
           ],
           "transitionAppear": false,
@@ -452,6 +553,7 @@ ShallowWrapper {
             "key": "story-1",
             "nodeType": "function",
             "props": Object {
+              "autoLeaveError": false,
               "autoLeaveTimeout": 4000,
               "leaveFn": [Function],
               "notification": Object {
@@ -463,6 +565,10 @@ ShallowWrapper {
                 "id": "story-1",
                 "message": "This is a feedback of your operation1, This is a feedback of your operation1",
               },
+              "onClick": [Function],
+              "onClose": [Function],
+              "onMouseEnter": [Function],
+              "onMouseOut": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -473,6 +579,7 @@ ShallowWrapper {
             "key": "story-2",
             "nodeType": "function",
             "props": Object {
+              "autoLeaveError": false,
               "autoLeaveTimeout": 4000,
               "leaveFn": [Function],
               "notification": Object {
@@ -488,6 +595,10 @@ ShallowWrapper {
                 ],
                 "type": "error",
               },
+              "onClick": [Function],
+              "onClose": [Function],
+              "onMouseEnter": [Function],
+              "onMouseOut": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -498,6 +609,7 @@ ShallowWrapper {
             "key": "story-3",
             "nodeType": "function",
             "props": Object {
+              "autoLeaveError": false,
               "autoLeaveTimeout": 4000,
               "leaveFn": [Function],
               "notification": Object {
@@ -508,6 +620,10 @@ ShallowWrapper {
                 ],
                 "type": "warning",
               },
+              "onClick": [Function],
+              "onClose": [Function],
+              "onMouseEnter": [Function],
+              "onMouseOut": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -518,6 +634,7 @@ ShallowWrapper {
             "key": "story-4",
             "nodeType": "function",
             "props": Object {
+              "autoLeaveError": false,
               "autoLeaveTimeout": 4000,
               "leaveFn": [Function],
               "notification": Object {
@@ -525,6 +642,10 @@ ShallowWrapper {
                 "message": "This is a feedback of your operation4",
                 "type": "warning",
               },
+              "onClick": [Function],
+              "onClose": [Function],
+              "onMouseEnter": [Function],
+              "onMouseOut": [Function],
             },
             "ref": null,
             "rendered": null,

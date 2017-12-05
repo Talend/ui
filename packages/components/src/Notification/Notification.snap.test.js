@@ -18,7 +18,10 @@ describe('Notification', () => {
 			{
 				id: 'story-2',
 				type: 'error',
-				message: ['This is a feedback of your operation2', 'This is a feedback of your operation1, This is a feedback of your operation1'],
+				message: [
+					'This is a feedback of your operation2',
+					'This is a feedback of your operation1, This is a feedback of your operation1',
+				],
 				action: {
 					label: 'undo',
 					icon: 'talend-undo',
