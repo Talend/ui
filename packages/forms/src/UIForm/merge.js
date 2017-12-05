@@ -9,11 +9,13 @@ function parseArray(items, key) {
 }
 
 function getUISchemaFromObject(schema, key) {
-	const ui = {
-		key,
-		title: schema.title,
-		description: schema.description,
-	};
+	const ui = { key };
+	if (schema.title) {
+		ui.title = schema.title;
+	}
+	if (schema.description) {
+		ui.description = schema.description;
+	}
 	if (schema.type === 'object') {
 		ui.widget = 'fieldset';
 		ui.items = parseProperties(schema.properties, false, key);
@@ -41,27 +43,26 @@ function parseProperties(properties, isRoot, path) {
  * migrate from react-jsonschema-form to UIschema
  * @param {Object} mergedSchema
  */
-function migrate(jsonSchema, uiSchema) {
+export function migrate(jsonSchema, uiSchema) {
 	let safeUISchema = parseProperties(jsonSchema, true);
-	console.log(safeUISchema);
 	if (!uiSchema || uiSchema === {}) {
 		return [jsonSchema, safeUISchema];
 	} else if (!Array.isArray(uiSchema) && typeof uiSchema === 'object') {
 		if (uiSchema['ui:order']) {
-			safeUISchema = uiSchema['ui:order']
+			safeUISchema[0].items = uiSchema['ui:order']
 				.map(key => getUISchemaFromObject(jsonSchema.properties[key], key));
 		}
-		safeUISchema = safeUISchema.map(ui => {
+
+		safeUISchema[0].items = safeUISchema[0].items.map(ui => {
 			if (ui.key && uiSchema[ui.key]) {
 				const config = uiSchema[ui.key];
 				if (config['ui:widget']) {
 					ui.widget = config['ui:widget'];
 					if (config['ui:widget'] === 'password') {
-						delete ui.widget;
+						ui.widget = 'text';
 						ui.type = 'password';
-					}
-					if (config['ui:widget'] === 'updown') {
-						delete ui.widget;
+					} else if (config['ui:widget'] === 'updown') {
+						ui.widget = 'text';
 						ui.type = 'number';
 					}
 				}

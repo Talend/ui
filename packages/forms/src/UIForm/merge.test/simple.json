@@ -1,0 +1,20 @@
+[
+	{
+		"description": "A simple form example.",
+		"items": [
+			{ "key": "firstName", "title": "First name", "widget": "text" },
+			{ "key": "lastName", "title": "Last name", "widget": "text" },
+			{ "key": "age", "title": "Age", "type": "number", "widget": "text" },
+			{ "key": "bio", "title": "Bio", "widget": "textarea" },
+			{
+				"key": "password",
+				"title": "Password",
+				"widget": "text",
+				"type": "password",
+				"helpvalue": "Hint: Make it strong!"
+			}
+		],
+		"title": "A registration form",
+		"widget": "fieldset"
+	}
+]
