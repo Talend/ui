@@ -9,6 +9,7 @@ import Buttons from './fields/Button/Buttons.component';
 import { getValue, mutateValue, omit } from './utils/properties';
 
 export default class UIForm extends React.Component {
+	static displayName = 'TalendUIForm';
 	constructor(props) {
 		super(props);
 		const { jsonSchema, uiSchema } = props;

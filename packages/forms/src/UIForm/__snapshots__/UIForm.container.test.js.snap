@@ -222,7 +222,7 @@ Object {
 `;
 
 exports[`UIForm container should render form 2`] = `
-<UIForm
+<TalendUIForm
   acceptCharset={undefined}
   action={undefined}
   actions={undefined}

@@ -12,6 +12,7 @@ export default function Widget(props) {
 	const WidgetImpl = props.widgets[widgetId] || defaultWidgets[widgetId];
 
 	if (!WidgetImpl) {
+		console.error('Widget not found', widgetId);
 		return null;
 	}
 
@@ -32,6 +33,7 @@ export default function Widget(props) {
 			schema={schema}
 			errors={errors}
 			value={getValue(properties, key)}
+			widgets={props.widgets}
 		/>
 	);
 }

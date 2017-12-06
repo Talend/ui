@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Map } from 'immutable';
 import { componentState } from '@talend/react-cmf';
 import ComponentForm from '@talend/react-forms';
+import { UIForm } from '@talend/react-forms/lib/UIForm';
 import ArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
 import classnames from 'classnames';
 
@@ -116,31 +117,30 @@ class Form extends React.Component {
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
-		const data = {
-			jsonSchema: this.jsonSchema(),
-			uiSchema: this.uiSchema(),
-			properties: this.data(),
+		const props = {
+			data: {
+				jsonSchema: this.jsonSchema(),
+				uiSchema: this.uiSchema(),
+				properties: this.data(),
+			},
+			className: classnames('tc-form', 'rjsf', this.props.className, {
+				dirty: state.dirty,
+				pristine: !state.dirty,
+			}),
+			ArrayFieldTemplate,
+			actions: this.formActions(),
+			fields: this.props.fields,
+			onChange: this.onChange,
+			onSubmit: this.onSubmit,
+			buttonBlockClass: this.props.buttonBlockClass,
+			children: this.props.children,
+			...this.props.formProps,
 		};
-		const className = classnames('tc-form', 'rjsf', this.props.className, {
-			dirty: state.dirty,
-			pristine: !state.dirty,
-		});
-		return (
-			<ComponentForm
-				ArrayFieldTemplate={ArrayFieldTemplate}
-				className={className}
-				data={data}
-				actions={this.formActions()}
-				fields={this.props.fields}
-				onTrigger={this.onTrigger}
-				onChange={this.onChange}
-				onSubmit={this.onSubmit}
-				buttonBlockClass={this.props.buttonBlockClass}
-				{...this.props.formProps}
-			>
-				{this.props.children}
-			</ComponentForm>
-		);
+		console.log('FormContainer', this.props);
+		if (this.props.uiform) {
+			return <UIForm {...props} />;
+		}
+		return <ComponentForm {...props} />;
 	}
 }
 Form.defaultProps = {

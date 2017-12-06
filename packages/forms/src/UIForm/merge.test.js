@@ -7,6 +7,8 @@ const SIMPLE_STORY = require('../../stories/json/simple.json');
 const SIMPLE_STORY_EXPECTED = require('./merge.test/simple.json');
 const ORDERING_STORY = require('../../stories/json/ordering.json');
 const ORDERING_STORY_EXPECTED = require('./merge.test/ordering.json');
+const WIDGETS_STORY = require('../../stories/json/widgets.json');
+const WIDGETS_STORY_EXPECTED = require('./merge.test/widgets.json');
 
 describe('migrate', () => {
 	it('should support no uiSchema', () => {
@@ -49,6 +51,11 @@ describe('migrate', () => {
 	it('should support ordering.json', () => {
 		expect(migrate(ORDERING_STORY.jsonSchema, ORDERING_STORY.uiSchema).uiSchema).toEqual(
 			ORDERING_STORY_EXPECTED,
+		);
+	});
+	it('should support widgets.json', () => {
+		expect(migrate(WIDGETS_STORY.jsonSchema, WIDGETS_STORY.uiSchema).uiSchema).toEqual(
+			WIDGETS_STORY_EXPECTED,
 		);
 	});
 	it('should support custom widget', () => {

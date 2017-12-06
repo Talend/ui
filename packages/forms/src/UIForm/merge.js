@@ -2,7 +2,6 @@ import { merge } from 'talend-json-schema-form-core';
 /* eslint-disable no-param-reassign */
 
 function parseArray(items, key) {
-	console.log('parseArray key', key);
 	if (items.type === 'object') {
 		return parseProperties(items.properties, false, `${key}[]`);
 	}
@@ -19,9 +18,15 @@ function getUISchemaFromObject(schema, key) {
 	}
 	if (schema.type === 'object') {
 		ui.widget = 'fieldset';
-		ui.items = parseProperties(schema.properties, false, key);
+		ui.items = parseProperties(schema.properties, false);
 	} else if (schema.type === 'string') {
 		ui.widget = 'text';
+		if (schema.format) {
+			ui.type = schema.format;
+			if (schema.format === 'uri') {
+				ui.type = 'url';
+			}
+		}
 	} else if (schema.type === 'array') {
 		ui.widget = 'array';
 		ui.items = parseArray(schema.items, key);
@@ -41,11 +46,63 @@ function parseProperties(properties, isRoot, path) {
 	);
 }
 
+function updateWidgets(items, uiSchema, widgets, prefix) {
+	return items.map(ui => {
+		const uiSchemaKey = ui.key.replace(prefix, '');
+		if (ui.key && uiSchema[uiSchemaKey]) {
+			const config = uiSchema[uiSchemaKey];
+			const uiWidget = config['ui:widget'];
+			if (uiWidget) {
+				if (typeof uiWidget !== 'string') {
+					widgets[uiWidget.name || ui.key] = uiWidget;
+					ui.widget = uiWidget.name || ui.key;
+				} else {
+					// wtf widget or type ?
+					ui.widget = uiWidget;
+					ui.type = uiWidget;
+					if (uiWidget === 'password') {
+						ui.widget = 'text';
+						ui.type = 'password';
+					} else if (uiWidget === 'updown') {
+						ui.widget = 'text';
+						ui.type = 'number';
+					} else if (uiWidget === 'color') {
+						ui.widget = 'text';
+						ui.type = 'color';
+					} else if (uiWidget === 'radio') {
+						ui.widget = 'radios';
+					} else if (uiWidget === 'enumeration') {
+						delete ui.items;
+					}
+				}
+			}
+			if (config['ui:autofocus']) {
+				ui.autoFocus = config['ui:autofocus'];
+			}
+			if (config['ui:help']) {
+				ui.helpvalue = config['ui:help'];
+			}
+			if (config['ui:disabled']) {
+				ui.disabled = true;
+			}
+			if (config['ui:readonly']) {
+				ui.readonly = true;
+			}
+			if (config['ui:options']) {
+				Object.assign(ui, config['ui:options']);
+			}
+			if (ui.items && config && ui.widget !== 'enumeration') {
+				ui.items = updateWidgets(ui.items, config, widgets, `${ui.key}.`);
+			}
+		}
+		return ui;
+	});
+}
+
 /**
  * migrate from react-jsonschema-form to UIschema
  * @param {Object} mergedSchema
  */
-
 export function migrate(jsonSchema, uiSchema) {
 	const safeUISchema = parseProperties(jsonSchema, true);
 	const widgets = {};
@@ -58,44 +115,9 @@ export function migrate(jsonSchema, uiSchema) {
 			);
 		}
 
-		safeUISchema[0].items = safeUISchema[0].items.map(ui => {
-			if (ui.key && uiSchema[ui.key]) {
-				const config = uiSchema[ui.key];
-				const uiWidget = config['ui:widget'];
-				if (uiWidget) {
-					if (typeof uiWidget !== 'string') {
-						console.log(uiWidget, uiWidget);
-						widgets[uiWidget.name || ui.key] = uiWidget;
-						ui.widget = uiWidget.name || ui.key;
-					} else {
-						ui.widget = config['ui:widget'];
-						if (config['ui:widget'] === 'password') {
-							ui.widget = 'text';
-							ui.type = 'password';
-						} else if (config['ui:widget'] === 'updown') {
-							ui.widget = 'text';
-							ui.type = 'number';
-						}
-					}
-				}
-				if (config['ui:autofocus']) {
-					ui.autoFocus = config['ui:autofocus'];
-				}
-				if (config['ui:help']) {
-					ui.helpvalue = config['ui:help'];
-				}
-				if (config['ui:disabled']) {
-					ui.disabled = true;
-				}
-				if (config['ui:readonly']) {
-					ui.readonly = true;
-				}
-				if (config['ui:options']) {
-					Object.assign(ui, config['ui:options']);
-				}
-			}
-			return ui;
-		});
+		safeUISchema[0].items = updateWidgets(safeUISchema[0].items, uiSchema, widgets);
+		console.log(uiSchema);
+		console.log('merged uiSchema', JSON.stringify(safeUISchema, null, 2));
 		return {
 			jsonSchema,
 			widgets,
