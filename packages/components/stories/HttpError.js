@@ -28,7 +28,7 @@ const forbiddenProps = {
 };
 
 const notFoundProps = {
-	status: 404,
+	status: 402,
 	title: 'Oops ...',
 	message: 'The page you are looking for cannot be found',
 };
