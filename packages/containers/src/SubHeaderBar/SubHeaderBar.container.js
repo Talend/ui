@@ -26,7 +26,6 @@ class SubHeaderBar extends React.Component {
 		onSubmit: PropTypes.func,
 		onChange: PropTypes.func,
 		onGoBack: PropTypes.func,
-		onFocus: PropTypes.func,
 		title: PropTypes.string,
 	};
 
