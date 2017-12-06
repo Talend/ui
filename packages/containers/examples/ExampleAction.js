@@ -58,6 +58,10 @@ export default function ExampleAction() {
 				availableExpression="modelHasLabel"
 				model={{ id: 'bar' }}
 			/>
+			<p>Using actions with overlay</p>
+			<Action
+				actionId="action:overlay:component"
+			/>
 		</div>
 	);
 }
