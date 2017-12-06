@@ -1,0 +1,5 @@
+.tc-dropdown-button:global(.btn-link) {
+	&:hover, &:focus {
+		text-decoration: none;
+	}
+}
