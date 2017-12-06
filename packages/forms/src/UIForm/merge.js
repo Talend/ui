@@ -18,7 +18,7 @@ function getUISchemaFromObject(schema, key) {
 	}
 	if (schema.type === 'object') {
 		ui.widget = 'fieldset';
-		ui.items = parseProperties(schema.properties, false);
+		ui.items = parseProperties(schema.properties, false, key);
 	} else if (schema.type === 'string') {
 		ui.widget = 'text';
 		if (schema.format) {
@@ -57,17 +57,16 @@ function updateWidgets(items, uiSchema, widgets, prefix) {
 					widgets[uiWidget.name || ui.key] = uiWidget;
 					ui.widget = uiWidget.name || ui.key;
 				} else {
-					// wtf widget or type ?
 					ui.widget = uiWidget;
-					ui.type = uiWidget;
-					if (uiWidget === 'password') {
-						ui.widget = 'text';
-						ui.type = 'password';
-					} else if (uiWidget === 'updown') {
-						ui.widget = 'text';
-						ui.type = 'number';
+					if (uiWidget === 'updown') {
+						ui.widget = 'number';
+						// ui.widget = 'text';
+						// ui.type = 'number';
+					// } else if (uiWidget === 'password') {
+						// 	ui.widget = 'text';
+						// 	ui.type = 'password';
 					} else if (uiWidget === 'color') {
-						ui.widget = 'text';
+						// ui.widget = 'text';
 						ui.type = 'color';
 					} else if (uiWidget === 'radio') {
 						ui.widget = 'radios';
@@ -89,7 +88,7 @@ function updateWidgets(items, uiSchema, widgets, prefix) {
 				ui.readonly = true;
 			}
 			if (config['ui:options']) {
-				Object.assign(ui, config['ui:options']);
+				ui.options = config['ui:options'];
 			}
 			if (ui.items && config && ui.widget !== 'enumeration') {
 				ui.items = updateWidgets(ui.items, config, widgets, `${ui.key}.`);

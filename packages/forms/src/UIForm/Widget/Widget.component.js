@@ -7,13 +7,13 @@ import { getValue } from '../utils/properties';
 
 export default function Widget(props) {
 	const { errors, formName, properties, schema } = props;
-	const { key, type, validationMessage, widget } = schema;
+	const { key, type, validationMessage, widget, options } = schema;
+	console.log('Widget', props);
 	const widgetId = widget || type;
 	const WidgetImpl = props.widgets[widgetId] || defaultWidgets[widgetId];
 
 	if (!WidgetImpl) {
-		console.error('Widget not found', widgetId);
-		return null;
+		return <p className="text-danger">Widget not found {widgetId}</p>;
 	}
 
 	const id = sfPath.name(key, '-', formName);
@@ -34,6 +34,7 @@ export default function Widget(props) {
 			errors={errors}
 			value={getValue(properties, key)}
 			widgets={props.widgets}
+			options={options}
 		/>
 	);
 }
