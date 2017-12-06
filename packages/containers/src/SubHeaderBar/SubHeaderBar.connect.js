@@ -2,7 +2,7 @@ import React from 'react';
 import { cmfConnect, Inject } from '@talend/react-cmf';
 import SubHeaderBar, { DEFAULT_STATE } from './SubHeaderBar.container';
 
-function buildActions(state, injectedComponents) {
+function buildComponents(state, injectedComponents) {
 	return injectedComponents.map(injectedComponent => {
 		const { componentId, tag, ...rest } = injectedComponent;
 		if (componentId) {
@@ -11,7 +11,7 @@ function buildActions(state, injectedComponents) {
 			});
 		}
 		return null;
-	});
+	}).filter(component => component != null);
 }
 
 function mapStateToProps(state, ownProps) {
@@ -19,10 +19,10 @@ function mapStateToProps(state, ownProps) {
 	if (ownProps.injectedComponents) {
 		const { center, right } = ownProps.injectedComponents;
 		if (center) {
-			props.componentsCenter = buildActions(state, center);
+			props.componentsCenter = buildComponents(state, center);
 		}
 		if (right) {
-			props.componentsRight = buildActions(state, right);
+			props.componentsRight = buildComponents(state, right);
 		}
 	}
 	return props;
@@ -33,3 +33,5 @@ export default cmfConnect({
 	defaultState: DEFAULT_STATE,
 	mapStateToProps,
 })(SubHeaderBar);
+
+export { buildComponents, mapStateToProps };

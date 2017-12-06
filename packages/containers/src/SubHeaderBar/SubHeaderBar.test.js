@@ -1,8 +1,97 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Map } from 'immutable';
+import { Inject } from '@talend/react-cmf';
+import mock from '@talend/react-cmf/lib/mock';
 import Container, { DEFAULT_STATE, DISPLAY_NAME } from './SubHeaderBar.container';
+import Connect, { buildComponents, mapStateToProps } from './SubHeaderBar.connect';
 import { getComponentState, getInputText } from './SubHeaderBar.selectors';
+
+describe('Connect', () => {
+	it('should connect ShortcutManager', () => {
+		expect(Connect.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
+		expect(Connect.WrappedComponent).toBe(Container);
+	});
+});
+
+describe('mapStateToProps', () => {
+	it('should return Inject components by position', () => {
+		const state = mock.state();
+		const ownProps = {
+			injectedComponents: {
+				center: [
+					{
+						componentId: 'FilterBar',
+						navbar: true,
+						docked: false,
+						dockable: false,
+					},
+				],
+				right: [
+					{
+						actionId: 'subheaderbar:action-sharing',
+						componentId: 'Action',
+					},
+					{
+						actionId: 'subheaderbar:action-bubbles',
+						componentId: 'Action',
+					},
+				],
+			},
+		};
+		const props = mapStateToProps(state, ownProps);
+		expect(props).toEqual({
+			componentsCenter: [
+				{
+					injectedComponent: (
+						<Inject component="FilterBar" dockable={false} docked={false} navbar={true} />
+					),
+				},
+			],
+			componentsRight: [
+				{ injectedComponent: <Inject actionId="subheaderbar:action-sharing" component="Action" /> },
+				{ injectedComponent: <Inject actionId="subheaderbar:action-bubbles" component="Action" /> },
+			],
+		});
+	});
+	it('should return empty props', () => {
+		const state = mock.state();
+		const props = { lotOfStuff: 'fullStuffButNoInjectedComponents' };
+		expect(mapStateToProps(state, props)).toEqual({});
+	});
+});
+
+describe('buildActions', () => {
+	it('should render Injected components', () => {
+		const state = mock.state();
+		const injectedComponents = [
+			{
+				actionId: 'subheaderbar:action-sharing',
+				componentId: 'Action',
+			},
+			{
+				actionId: 'subheaderbar:action-bubbles',
+				componentId: 'Action',
+			},
+		];
+		expect(buildComponents(state, injectedComponents)).toEqual([
+			{ injectedComponent: <Inject actionId="subheaderbar:action-sharing" component="Action" /> },
+			{ injectedComponent: <Inject actionId="subheaderbar:action-bubbles" component="Action" /> },
+		]);
+	});
+	it('should return empty array', () => {
+		const state = mock.state();
+		const injectedComponents = [
+			{
+				actionId: 'subheaderbar:action-sharing',
+			},
+			{
+				actionId: 'subheaderbar:action-bubbles',
+			},
+		];
+		expect(buildComponents(state, injectedComponents)).toEqual([]);
+	});
+});
 
 describe('SubHeaderBar container', () => {
 	it('should render', () => {
