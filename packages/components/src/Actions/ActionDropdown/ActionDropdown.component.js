@@ -81,7 +81,8 @@ function ActionDropdown(props) {
 			role="button"
 			onSelect={onItemSelect}
 			className={theme['tc-dropdown-button']}
-			{...rest}>
+			{...rest}
+		>
 			{items.length ? items.map(getMenuItem) : <MenuItem disabled>No options</MenuItem>}
 		</DropdownButton>
 	);
