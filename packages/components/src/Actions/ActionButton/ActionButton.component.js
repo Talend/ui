@@ -95,11 +95,13 @@ function ActionButton(props) {
 	let rMouseDown = null;
 
 	if (!overlayComponent) {
-		rClick = onClick && (event =>
-			onClick(event, {
-				action: { label, ...rest },
-				model,
-			}));
+		rClick =
+			onClick &&
+			(event =>
+				onClick(event, {
+					action: { label, ...rest },
+					model,
+				}));
 		rMouseDown = event =>
 			onMouseDown(event, {
 				action: { label, ...rest },
