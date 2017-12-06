@@ -27,7 +27,7 @@ function StringField(props) {
 	} = props;
 	const { title, format } = schema;
 	const { widgets, formContext } = registry;
-	const enumOptions = isSelect(schema) && optionsList(schema);
+	const enumOptions = isSelect(schema) ? optionsList(schema) : undefined;
 	const defaultWidget = format || (enumOptions ? 'select' : 'text');
 	const { widget = defaultWidget, placeholder = '', ...options } = getUiOptions(
 		uiSchema

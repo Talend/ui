@@ -39,10 +39,10 @@ function FieldTemplate(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
-		children: PropTypes.oneOf(
+		children: PropTypes.oneOf([
 			PropTypes.element,
-			PropTypes.arrayOf(PropTypes.element)
-		),
+			PropTypes.arrayOf(PropTypes.element),
+		]),
 		description: PropTypes.string,
 		errorMessage: PropTypes.string,
 		id: PropTypes.string,

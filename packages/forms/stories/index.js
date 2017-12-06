@@ -119,7 +119,7 @@ decoratedStories.add('Multiple actions', () => {
 });
 
 function CustomDatalist(...args) {
-	function renderItemsContainer({ children, ...containerProps }) {
+	function RenderItemsContainer({ children, containerProps }) {
 		return (
 			<div {...containerProps}>
 				{children}
@@ -147,11 +147,12 @@ function CustomDatalist(...args) {
 		);
 	}
 
-	renderItemsContainer.propTypes = {
+	RenderItemsContainer.propTypes = {
 		children: PropTypes.element,
+		containerProps: PropTypes.object,
 	};
 
-	function renderNoMatch({ ...containerProps }) {
+	function RenderNoMatch({ containerProps }) {
 		return (
 			<div
 				{...containerProps}
@@ -180,11 +181,15 @@ function CustomDatalist(...args) {
 			</div>
 		);
 	}
+	RenderNoMatch.propTypes = {
+		containerProps: PropTypes.object,
+	};
+
 	return (
 		<DatalistWidget
 			{...args[0]}
-			renderItemsContainer={renderItemsContainer}
-			renderNoMatch={renderNoMatch}
+			renderItemsContainer={RenderItemsContainer}
+			renderNoMatch={RenderNoMatch}
 		/>
 	);
 }
