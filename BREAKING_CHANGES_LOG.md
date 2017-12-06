@@ -11,6 +11,96 @@ This document aims to ease the WIP migration from a version to another by provid
 |---|---|
 | props.theme.itemFocused | props.theme.itemHighlighted |
 
+* Component: Form's Datalist widget
+* PR: [chore(react): Updates to React 16(https://github.com/Talend/ui/pull/761)
+* Changes : we upgraded React-autowhatever from 7.0.0 to 10.1.0. Custom item container have api changes
+Now containerProps are in a nested object `props.containerProps` instead of directly in `props`.
+
+Before
+```javascript
+function renderItemsContainer({ children, ...containerProps }) {
+    return (
+        <div {...containerProps}>
+            {children}
+        </div>
+    );
+}
+
+function CustomDatalist() {
+    return (
+		<DatalistWidget
+			{...otherProps}
+			renderItemsContainer={renderItemsContainer}
+		/>
+	);
+}
+```
+
+After
+```javascript
+function renderItemsContainer({ children, containerProps }) {
+		return (
+			<div {...containerProps}>
+				{children}
+			</div>
+		);
+	}
+```
+
+* Component: Forms
+* PR: [chore(react): Updates to React 16(https://github.com/Talend/ui/pull/761)
+* Changes : we upgraded react-jsonSchema-form to 1.0.0. They switched their validation to ajv (https://github.com/mozilla-services/react-jsonschema-form/releases/tag/v1.0.0)
+For example the boolean required property is invalid 
+
+Before
+```json
+{
+    "jsonSchema": {
+        "title": "Form with live validation",
+        "type": "object",
+        "properties": {
+            "name": {
+                "title": "Name",
+                "type": "string",
+                "minLength": 3,
+                "required": true
+            },
+            "email": {
+                "title": "Email",
+                "type": "string",
+                "pattern": "^\\S+@\\S+$",
+                "minLength": 5,
+                "required": true
+            }
+        }
+    }
+}
+```
+After
+```json
+{
+    "jsonSchema": {
+        "title": "Form with live validation",
+        "type": "object",
+        "required": ["name", "email"],
+        "properties": {
+            "name": {
+                "title": "Name",
+                "type": "string",
+                "minLength": 3
+            },
+            "email": {
+                "title": "Email",
+                "type": "string",
+                "pattern": "^\\S+@\\S+$",
+                "minLength": 5
+            }
+        }
+    }
+}
+```
+
+
 ## v0.125.0
 * Component: ListView
 * PR: [feat(ListView): i18n](https://github.com/Talend/ui/pull/850)

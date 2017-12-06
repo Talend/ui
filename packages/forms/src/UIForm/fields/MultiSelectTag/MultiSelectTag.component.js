@@ -57,22 +57,22 @@ export default class MultiSelectTag extends React.Component {
 	/**
 	 * Manage suggestion selection
 	 * @param { object } event
-	 * @param { number } focusedItemIndex
-	 * @param { number } newFocusedItemIndex
+	 * @param { number } highlightedItemIndex
+	 * @param { number } newHighlightedItemIndex
 	 */
-	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
+	onKeyDown(event, { highlightedItemIndex, newHighlightedItemIndex }) {
 		switch (event.which) {
 			case keycode.codes.enter:
 				event.preventDefault();
 				// suggestions are displayed and an item has the focus : we select it
-				if (Number.isInteger(focusedItemIndex)) {
-					this.onAddTag(event, { itemIndex: focusedItemIndex });
+				if (Number.isInteger(highlightedItemIndex)) {
+					this.onAddTag(event, { itemIndex: highlightedItemIndex });
 				}
 				break;
 			case keycode.codes.down:
 			case keycode.codes.up:
 				event.preventDefault();
-				this.setState({ focusedItemIndex: newFocusedItemIndex });
+				this.setState({ focusedItemIndex: newHighlightedItemIndex });
 				break;
 			case keycode.codes.backspace:
 				if (!this.state.value && this.props.value.length) {

@@ -59,7 +59,7 @@ const ADDONS = {
 	'react-autowhatever': '10.1.0',
 	'react-debounce-input': '3.0.1',
 	'react-immutable-proptypes': '2.1.0',
-	'react-jsonschema-form': '0.42.0',
+	'react-jsonschema-form': '1.0.0',
 	'react-tap-event-plugin': '2.0.0',
 	'react-virtualized': '9.10.1',
 	slugify: '1.1.0',

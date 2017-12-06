@@ -22,11 +22,13 @@ function toValue(formData) {
 	return toKeyValue(formData)[1];
 }
 
-function renderKey(schema, data, onChange) {
+function renderKey({ schema, value, formData, onChange, ...rest }) {
+	const data = value || formData;
 	if (schema.properties && Array.isArray(schema.properties.key.enum)) {
 		const options = optionsList(schema.properties.key);
 		return (
 			<Select
+				value={data.key}
 				schema={schema.properties.key}
 				options={{ enumOptions: options }}
 				onChange={change => onChange({ key: change, value: data.value })}
@@ -35,16 +37,19 @@ function renderKey(schema, data, onChange) {
 	}
 	return (
 		<Text
+			{...rest}
 			value={toKey(data)}
 			onChange={change => onChange(`${change}=${toValue(data)}`)}
 		/>
 	);
 }
 
-function renderValue(schema, data, onChange) {
+function renderValue({ schema, value, formData, onChange, ...rest }) {
+	const data = value || formData;
 	if (schema.properties && Array.isArray(schema.properties.key.enum)) {
 		return (
 			<Text
+				{...rest}
 				value={data.value}
 				onChange={change => onChange({ key: data.key, value: change })}
 			/>
@@ -52,6 +57,7 @@ function renderValue(schema, data, onChange) {
 	}
 	return (
 		<Text
+			{...rest}
 			value={toValue(data)}
 			onChange={change => onChange(`${toKey(data)}=${change}`)}
 		/>
@@ -61,8 +67,8 @@ function renderValue(schema, data, onChange) {
 function KeyValueWidget(props) {
 	return (
 		<dl className={theme['key-value']}>
-			<dt>{ renderKey(props.schema, props.value || props.formData, props.onChange) }</dt>
-			<dd>{ renderValue(props.schema, props.value || props.formData, props.onChange) }</dd>
+			<dt>{ renderKey(props) }</dt>
+			<dd>{ renderValue(props) }</dd>
 		</dl>
 	);
 }

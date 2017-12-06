@@ -31,7 +31,7 @@ describe('Container(Form)', () => {
 				formProps={{ other: true }} // extra props
 			/>
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should use props.onSubmit', () => {

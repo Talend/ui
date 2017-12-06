@@ -164,7 +164,12 @@ class DatalistWidget extends React.Component {
 
 	onKeyDown(
 		event,
-		{ newHighlightedSectionIndex, newHighlightedItemIndex, highlightedSectionIndex, highlightedItemIndex },
+		{
+			newHighlightedSectionIndex,
+			newHighlightedItemIndex,
+			highlightedSectionIndex,
+			highlightedItemIndex,
+		},
 	) {
 		switch (event.which) {
 			case keycode.codes.esc:

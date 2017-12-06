@@ -495,11 +495,11 @@ decoratedStories.add('Form with live validation', () => {
 		jsonSchema: {
 			title: 'Form with live validation',
 			type: 'object',
+			required: ['name', 'email'],
 			properties: {
 				name: {
 					title: 'Name',
 					type: 'string',
-					required: true,
 					minLength: 3,
 				},
 				email: {
@@ -507,7 +507,6 @@ decoratedStories.add('Form with live validation', () => {
 					type: 'string',
 					pattern: '^\\S+@\\S+$',
 					minLength: 5,
-					required: true,
 				},
 			},
 		},

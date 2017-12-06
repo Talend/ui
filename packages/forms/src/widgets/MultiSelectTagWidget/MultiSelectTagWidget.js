@@ -101,7 +101,12 @@ class MultiSelectTagWidget extends React.Component {
 
 	onKeyDown(
 		event,
-		{ focusedItemIndex, newFocusedItemIndex, focusedSectionIndex, newFocusedSectionIndex },
+		{
+			newHighlightedSectionIndex,
+			newHighlightedItemIndex,
+			highlightedSectionIndex,
+			highlightedItemIndex,
+		},
 	) {
 		switch (event.which) {
 			case keycode.codes.backspace: {
@@ -113,8 +118,8 @@ class MultiSelectTagWidget extends React.Component {
 			case keycode.codes.enter: {
 				if (this.state.suggestions.length > 0) {
 					this.onSelect(event, {
-						itemIndex: focusedItemIndex,
-						sectionIndex: focusedSectionIndex,
+						itemIndex: highlightedItemIndex,
+						sectionIndex: highlightedSectionIndex,
 					});
 				} else if (this.state.filterText.length > 0) {
 					const { schema } = this.props;
@@ -130,14 +135,14 @@ class MultiSelectTagWidget extends React.Component {
 				event.preventDefault();
 				this.scrollDropDownIfRequired(
 					{
-						itemIndex: newFocusedItemIndex,
-						sectionIndex: newFocusedSectionIndex,
+						itemIndex: newHighlightedItemIndex,
+						sectionIndex: newHighlightedSectionIndex,
 					},
 					event.which,
 				);
 				this.setState({
-					focusedItemIndex: newFocusedItemIndex,
-					focusedSectionIndex: newFocusedSectionIndex,
+					focusedItemIndex: newHighlightedItemIndex,
+					focusedSectionIndex: newHighlightedSectionIndex,
 				});
 				break;
 			}
