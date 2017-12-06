@@ -100,6 +100,10 @@ $icon-modify-size: 1.2rem;
 		.subheader-input {
 			width: 17.1rem;
 			@include input-text(400);
+
+			&::selection {
+				background: lighten($scooter, 25%);
+			}
 		}
 
 		.subheader-form-icon-container {

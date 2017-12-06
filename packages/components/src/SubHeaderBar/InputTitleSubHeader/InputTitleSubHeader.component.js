@@ -32,7 +32,14 @@ DetailsTitle.propTypes = {
 	onEdit: PropTypes.func,
 };
 
-function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange }) {
+function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus }) {
+
+	function onFocus(event) {
+		const { target } = event;
+		target.selectionStart = 0;
+		target.selectionEnd = target.value.length;
+	}
+
 	return (
 		<form className={classNames(theme['tc-subheader-form'], 'tc-subheader-form')}>
 			<input
@@ -41,7 +48,8 @@ function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange }) {
 				className={classNames(theme['subheader-input'], 'form-control')}
 				onChange={onChange}
 				value={inputTextValue || title}
-				autoFocus
+				onFocus={onFocus}
+				autoFocus={focus}
 			/>
 			<div className={theme['subheader-form-icon-container']}>
 				<Action
@@ -72,7 +80,12 @@ EditTitle.propTypes = {
 	onSubmit: PropTypes.func,
 	onCancel: PropTypes.func,
 	onChange: PropTypes.func,
+	focus: PropTypes.bool,
 	inputTextValue: PropTypes.string,
+};
+
+EditTitle.defaultProps = {
+	focus: true,
 };
 
 function InputTitleSubHeader({ title, iconFile, editMode, ...rest }) {
