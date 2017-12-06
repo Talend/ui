@@ -32,13 +32,7 @@ SubHeaderBarActions.propTypes = {
 	className: PropTypes.string,
 };
 
-function SubHeaderBar({
-	onGoBack,
-	componentsCenter,
-	componentsRight,
-	className,
-	...rest
-}) {
+function SubHeaderBar({ onGoBack, componentsCenter, componentsRight, className, ...rest }) {
 	const defaultComponentsLeft = [
 		{
 			injectedComponent: (

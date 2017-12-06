@@ -39,7 +39,6 @@ function onFocus(event) {
 }
 
 function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus }) {
-
 	return (
 		<form className={classNames(theme['tc-subheader-form'], 'tc-subheader-form')}>
 			<input
@@ -109,7 +108,7 @@ InputTitleSubHeader.propTypes = {
 };
 
 InputTitleSubHeader.defaultProps = {
-	editMode: true,
+	editMode: false,
 };
 
 export { InputTitleSubHeader as default, EditTitle, DetailsTitle, onFocus };

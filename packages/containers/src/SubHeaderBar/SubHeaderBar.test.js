@@ -106,7 +106,7 @@ describe('SubHeaderBar container', () => {
 			state: Map({ editMode: false, inputText: 'my new title' }),
 		};
 		// When
-		new Container(props).onSubmit(event);
+		shallow(<Container {...props} />).simulate('submit', event);
 		// Then
 		expect(props.onSubmit).toHaveBeenCalledWith(event, props.state.get('inputText'));
 	});
@@ -119,7 +119,7 @@ describe('SubHeaderBar container', () => {
 			state: Map({ editMode: false, inputText: 'my new title' }),
 		};
 		// When
-		new Container(props).onSubmit(event);
+		shallow(<Container {...props} />).simulate('submit', event);
 		// Then
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorSubmit, event, {
 			props,
@@ -134,7 +134,7 @@ describe('SubHeaderBar container', () => {
 			setState: jest.fn(fn => (state = fn())),
 			onCancel: jest.fn(),
 		};
-		new Container(props).onCancel(event);
+		shallow(<Container {...props} />).simulate('cancel', event);
 		expect(props.setState).toHaveBeenCalled();
 		expect(state.editMode).toEqual(false);
 		expect(state.inputText).toEqual('');
@@ -148,7 +148,7 @@ describe('SubHeaderBar container', () => {
 			onCancel: jest.fn(),
 		};
 		// When
-		new Container(props).onCancel(event);
+		shallow(<Container {...props} />).simulate('cancel', event);
 		// Then
 		expect(props.onCancel).toHaveBeenCalledWith(event);
 	});
@@ -162,7 +162,7 @@ describe('SubHeaderBar container', () => {
 			dispatchActionCreator: jest.fn(),
 		};
 		// When
-		new Container(props).onCancel(event);
+		shallow(<Container {...props} />).simulate('cancel', event);
 		// Then
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorCancel, event, {
 			props,
@@ -176,7 +176,7 @@ describe('SubHeaderBar container', () => {
 			setState: jest.fn(fn => (state = fn())),
 			onCancel: jest.fn(),
 		};
-		new Container(props).onEdit(event);
+		shallow(<Container {...props} />).simulate('edit', event);
 		expect(props.setState).toHaveBeenCalled();
 		expect(state.editMode).toEqual(false);
 	});
@@ -189,7 +189,7 @@ describe('SubHeaderBar container', () => {
 			onEdit: jest.fn(),
 		};
 		// When
-		new Container(props).onEdit(event);
+		shallow(<Container {...props} />).simulate('edit', event);
 		// Then
 		expect(props.onEdit).toHaveBeenCalledWith(event);
 	});
@@ -203,7 +203,7 @@ describe('SubHeaderBar container', () => {
 			actionCreatorEdit: jest.fn(),
 		};
 		// When
-		new Container(props).onEdit(event);
+		shallow(<Container {...props} />).simulate('edit', event);
 		// Then
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorEdit, event, {
 			props,
@@ -217,7 +217,7 @@ describe('SubHeaderBar container', () => {
 			setState: jest.fn(fn => (state = fn())),
 			onCChange: jest.fn(),
 		};
-		new Container(props).onChange(event);
+		shallow(<Container {...props} />).simulate('change', event);
 		expect(props.setState).toHaveBeenCalled();
 		expect(state.inputText).toEqual(event.target.value);
 	});
@@ -230,7 +230,7 @@ describe('SubHeaderBar container', () => {
 			onChange: jest.fn(),
 		};
 		// When
-		new Container(props).onChange(event);
+		shallow(<Container {...props} />).simulate('change', event);
 		// Then
 		expect(props.onChange).toHaveBeenCalledWith(event, event.target.value);
 	});
@@ -244,7 +244,7 @@ describe('SubHeaderBar container', () => {
 			actionCreatorChange: jest.fn(),
 		};
 		// When
-		new Container(props).onChange(event);
+		shallow(<Container {...props} />).simulate('change', event);
 		// Then
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorChange, event, {
 			props,
@@ -258,7 +258,7 @@ describe('SubHeaderBar container', () => {
 			onGoBack: jest.fn(),
 		};
 		// When
-		new Container(props).onGoBack(event);
+		shallow(<Container {...props} />).simulate('goBack', event);
 		// Then
 		expect(props.onGoBack).toHaveBeenCalledWith(event);
 	});
@@ -270,7 +270,7 @@ describe('SubHeaderBar container', () => {
 			dispatchActionCreator: jest.fn(),
 		};
 		// When
-		new Container(props).onGoBack(event);
+		shallow(<Container {...props} />).simulate('goBack', event);
 		// Then
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorGoBack, event, {
 			props,

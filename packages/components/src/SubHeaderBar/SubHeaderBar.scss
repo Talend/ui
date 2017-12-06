@@ -22,6 +22,10 @@ $subheader-bar-height: 7rem;
 		width: $subheader-bar-height;
 		height: $subheader-bar-height;
 
+		&:focus {
+			color: $gray;
+			background-color: $gallery;
+		}
 		&:hover {
 			color: $scooter;
 			background-color: $wild-sand;
@@ -29,11 +33,6 @@ $subheader-bar-height: 7rem;
 		&:active {
 			color: darken($scooter, 25%);
 			background-color: $wild-sand;
-		}
-
-		&:focus {
-			color: $gray;
-			background-color: $gallery;
 		}
 	}
 }

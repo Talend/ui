@@ -1,7 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Icon, Action } from '../../index';
-import InputTitleSubHeader, { EditTitle, DetailsTitle, onFocus } from './InputTitleSubHeader.component';
+import InputTitleSubHeader, {
+	EditTitle,
+	DetailsTitle,
+	onFocus,
+} from './InputTitleSubHeader.component';
 
 describe('InputTitleSubHeader', () => {
 	it('should render', () => {
