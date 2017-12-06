@@ -15,7 +15,7 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + center) 1`] =
           Object {
             "injectedComponent": <Action
               bsStyle="link"
-              className={undefined}
+              className="btn-link"
               hideLabel={true}
               icon="talend-arrow-left"
               id="backArrow"
@@ -72,7 +72,7 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + custom) 1`] =
           Object {
             "injectedComponent": <Action
               bsStyle="link"
-              className={undefined}
+              className="btn-link"
               hideLabel={true}
               icon="talend-arrow-left"
               id="backArrow"
@@ -142,53 +142,6 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + custom) 1`] =
 </div>
 `;
 
-exports[`SubHeaderBar should render SubHeaderBarActions (default + left) 1`] = `
-<div
-  className=""
->
-  <ActionBar
-    className="subheader-navbar"
-  >
-    <SubHeaderBarActions
-      center={false}
-      className={undefined}
-      components={
-        Array [
-          Object {
-            "injectedComponent": <Action
-              bsStyle="link"
-              className={undefined}
-              hideLabel={true}
-              icon="talend-arrow-left"
-              id="backArrow"
-              label="backArrow"
-              onClick={[Function]}
-        />,
-          },
-          Object {
-            "injectedComponent": <InputTitleSubHeader
-              editMode={false}
-              title="myTitle"
-        />,
-          },
-          Object {
-            "injectedComponent": <Action
-              bsStyle="link"
-              hideLabel={true}
-              icon="talend-share-alt"
-              label="action0"
-              onClick={[Function]}
-        />,
-          },
-        ]
-      }
-      left={true}
-      right={false}
-    />
-  </ActionBar>
-</div>
-`;
-
 exports[`SubHeaderBar should render SubHeaderBarActions (default + right) 1`] = `
 <div
   className=""
@@ -204,7 +157,7 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + right) 1`] = 
           Object {
             "injectedComponent": <Action
               bsStyle="link"
-              className={undefined}
+              className="btn-link"
               hideLabel={true}
               icon="talend-arrow-left"
               id="backArrow"
@@ -270,7 +223,45 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default) 1`] = `
           Object {
             "injectedComponent": <Action
               bsStyle="link"
-              className={undefined}
+              className="btn-link"
+              hideLabel={true}
+              icon="talend-arrow-left"
+              id="backArrow"
+              label="backArrow"
+              onClick={[Function]}
+        />,
+          },
+          Object {
+            "injectedComponent": <InputTitleSubHeader
+              editMode={false}
+              title="myTitle"
+        />,
+          },
+        ]
+      }
+      left={true}
+      right={false}
+    />
+  </ActionBar>
+</div>
+`;
+
+exports[`SubHeaderBar should render SubHeaderBarActions (default) 2`] = `
+<div
+  className=""
+>
+  <ActionBar
+    className="subheader-navbar"
+  >
+    <SubHeaderBarActions
+      center={false}
+      className={undefined}
+      components={
+        Array [
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              className="btn-link"
               hideLabel={true}
               icon="talend-arrow-left"
               id="backArrow"
@@ -328,51 +319,6 @@ exports[`SubHeaderBarActions should render with center props 1`] = `
   <Content
     center={true}
     left={false}
-    right={false}
-    tag={undefined}
-  >
-    <Icon
-      name="talend-bell"
-    />
-  </Content>
-</div>
-`;
-
-exports[`SubHeaderBarActions should render with left props 1`] = `
-<div
-  className="myClassName"
->
-  <Content
-    center={false}
-    left={true}
-    right={false}
-    tag={undefined}
-  >
-    <Action
-      bsStyle="link"
-      hideLabel={true}
-      icon="talend-share-alt"
-      label="action1"
-      onClick={[Function]}
-    />
-  </Content>
-  <Content
-    center={false}
-    left={true}
-    right={false}
-    tag={undefined}
-  >
-    <Action
-      bsStyle="link"
-      hideLabel={true}
-      icon="talend-activity"
-      label="action2"
-      onClick={[Function]}
-    />
-  </Content>
-  <Content
-    center={false}
-    left={true}
     right={false}
     tag={undefined}
   >

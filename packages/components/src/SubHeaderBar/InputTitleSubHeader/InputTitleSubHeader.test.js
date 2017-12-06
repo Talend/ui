@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Icon, Action } from '../../index';
-import InputTitleSubHeader, { EditTitle, DetailsTitle } from './InputTitleSubHeader.component';
+import InputTitleSubHeader, { EditTitle, DetailsTitle, onFocus } from './InputTitleSubHeader.component';
 
 describe('InputTitleSubHeader', () => {
 	it('should render', () => {
@@ -98,5 +98,20 @@ describe('EditTitle', () => {
 		expect(wrapper.find('input')).toHaveLength(1);
 		expect(wrapper.find(Action)).toHaveLength(2);
 		expect(wrapper.getNode()).toMatchSnapshot();
+	});
+	it('should return selectionStart and end', () => {
+		const event = {
+			target: {
+				value: 'myTitle',
+				selectionStart: 0,
+				selectionEnd: 0,
+			},
+		};
+		onFocus(event);
+		expect(event.target).toEqual({
+			value: event.target.value,
+			selectionStart: 0,
+			selectionEnd: event.target.value.length,
+		});
 	});
 });

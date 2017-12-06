@@ -32,13 +32,13 @@ DetailsTitle.propTypes = {
 	onEdit: PropTypes.func,
 };
 
-function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus }) {
+function onFocus(event) {
+	const { target } = event;
+	target.selectionStart = 0;
+	target.selectionEnd = target.value.length;
+}
 
-	function onFocus(event) {
-		const { target } = event;
-		target.selectionStart = 0;
-		target.selectionEnd = target.value.length;
-	}
+function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus }) {
 
 	return (
 		<form className={classNames(theme['tc-subheader-form'], 'tc-subheader-form')}>
@@ -112,4 +112,4 @@ InputTitleSubHeader.defaultProps = {
 	editMode: true,
 };
 
-export { InputTitleSubHeader as default, EditTitle, DetailsTitle };
+export { InputTitleSubHeader as default, EditTitle, DetailsTitle, onFocus };

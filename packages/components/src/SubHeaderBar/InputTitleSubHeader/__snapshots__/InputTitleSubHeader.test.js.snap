@@ -7,13 +7,16 @@ exports[`DetailsTitle should render 1`] = `
   <span
     className={undefined}
   >
-    myTitle
+    <span
+      className={undefined}
+    >
+      myTitle
+    </span>
     <Action
       bsStyle="link"
       className={undefined}
-      hideLabel={true}
       icon="talend-pencil"
-      label="edit"
+      label="Modify"
       name="action-edit-title"
       onClick={[Function]}
     />
@@ -33,13 +36,16 @@ exports[`DetailsTitle should render an Action 1`] = `
   <span
     className={undefined}
   >
-    myTitle
+    <span
+      className={undefined}
+    >
+      myTitle
+    </span>
     <Action
       bsStyle="link"
       className={undefined}
-      hideLabel={true}
       icon="talend-pencil"
-      label="edit"
+      label="Modify"
       name="action-edit-title"
       onClick={[Function]}
     />
@@ -54,7 +60,11 @@ exports[`DetailsTitle should render with subTitle 1`] = `
   <span
     className={undefined}
   >
-    myTitle
+    <span
+      className={undefined}
+    >
+      myTitle
+    </span>
   </span>
   <div
     className={undefined}
@@ -71,7 +81,11 @@ exports[`DetailsTitle should render with title 1`] = `
   <span
     className={undefined}
   >
-    myTitle
+    <span
+      className={undefined}
+    >
+      myTitle
+    </span>
   </span>
 </span>
 `;
@@ -81,10 +95,11 @@ exports[`EditTitle should render 1`] = `
   className="tc-subheader-form"
 >
   <input
+    autoFocus={true}
     className="form-control"
     id="inputTitle"
     onChange={[Function]}
-    placeholder="myTitle"
+    onFocus={[Function]}
     type="text"
     value="value"
   />
@@ -93,6 +108,7 @@ exports[`EditTitle should render 1`] = `
   >
     <Action
       bsStyle="link"
+      className={undefined}
       hideLabel={true}
       icon="talend-check"
       label="submit"
@@ -101,6 +117,7 @@ exports[`EditTitle should render 1`] = `
     />
     <Action
       bsStyle="link"
+      className={undefined}
       hideLabel={true}
       icon="talend-cross"
       label="cancel"
