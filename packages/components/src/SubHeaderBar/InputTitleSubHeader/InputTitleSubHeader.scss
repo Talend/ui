@@ -1,11 +1,10 @@
 $icon-title-size: 2.4rem;
-$icon-modify-size: 1.4rem;
+$icon-modify-size: 1.2rem;
 
 @mixin input-text($weight) {
 	color: $black;
 	font-size: 1.4rem;
 	font-weight: $weight;
-	padding-right: $padding-small;
 }
 
 @mixin ellipsis-title() {
@@ -20,16 +19,17 @@ $icon-modify-size: 1.4rem;
 }
 
 .tc-subheader-details {
+	max-width: 47.5rem;
 	display: flex;
+	margin: 0;
+	height: 100%;
 
-	&:hover .tc-subheader-details-text .subheader-details-pencil {
+	&:hover
+		.tc-subheader-details-text
+		.subheader-details-title-icon-container
+		.subheader-details-pencil {
 		visibility: visible;
-		color: $scooter;
-	}
-
-	&:active .tc-subheader-details-text .subheader-details-pencil {
-		visibility: visible;
-		color: darken($scooter, 25%);
+		color: $brand-primary;
 	}
 
 	:global(.tc-subheader-title-icon) {
@@ -45,36 +45,46 @@ $icon-modify-size: 1.4rem;
 		flex-direction: column;
 		justify-content: center;
 		padding-left: $padding-large;
-		width: 47.5rem;
+		overflow: hidden;
+		flex: 1;
 
 		.subheader-details-title-icon-container {
 			display: inline-flex;
 			align-items: center;
-		}
 
-		.subheader-details-title {
-			@include input-text(800);
-			@include ellipsis-title();
-			text-transform: uppercase;
-		}
+			.subheader-details-title {
+				@include input-text(800);
+				@include ellipsis-title();
+				text-transform: uppercase;
+			}
 
-		.subheader-details-pencil {
-			display: inline-flex;
-			align-items: center;
-			color: $brand-primary;
-			font-size: 1.2rem;
-			font-weight: 400;
-			text-transform: none;
-			visibility: visible;
-			padding-left: $padding-small;
-			padding-right: $padding-small;
+			.subheader-details-pencil {
+				display: inline-flex;
+				align-items: center;
+				color: $brand-primary;
+				font-size: 1.2rem;
+				font-weight: 400;
+				text-transform: none;
+				visibility: hidden;
+				padding-left: $padding-small;
+				padding-right: $padding-small;
+				line-height: 0;
 
-			&.btn svg {
-				width: $icon-modify-size;
-				height: $icon-modify-size;
+				> svg {
+					width: $icon-modify-size;
+					height: $icon-modify-size;
+				}
+
+				&:hover {
+					visibility: visible;
+					color: $scooter;
+				}
+				&:active {
+					visibility: visible;
+					color: darken($scooter, 25%);
+				}
 			}
 		}
-
 		.subheader-details-subtitle {
 			@include ellipsis-title();
 			color: $dark-silver;
@@ -88,6 +98,7 @@ $icon-modify-size: 1.4rem;
 		padding-left: $padding-large;
 
 		.subheader-input {
+			width: 17.1rem;
 			@include input-text(400);
 		}
 
@@ -102,9 +113,20 @@ $icon-modify-size: 1.4rem;
 				border-radius: 50%;
 				padding: 0;
 				margin-left: 20px;
-				
+				justify-content: center;
+
+				> svg {
+					width: 1.4rem;
+					height: 1.4rem;
+				}
+
 				&:last-child {
 					margin-left: 10px;
+
+					> svg {
+						width: 1rem;
+						height: 1rem;
+					}
 				}
 
 				&:hover {

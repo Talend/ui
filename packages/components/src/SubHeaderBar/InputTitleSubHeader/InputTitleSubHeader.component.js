@@ -39,9 +39,9 @@ function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange }) {
 				id="inputTitle"
 				type="text"
 				className={classNames(theme['subheader-input'], 'form-control')}
-				placeholder={title}
 				onChange={onChange}
-				value={inputTextValue}
+				value={inputTextValue || title}
+				autoFocus
 			/>
 			<div className={theme['subheader-form-icon-container']}>
 				<Action
