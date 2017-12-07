@@ -52,8 +52,8 @@ $subheader-bar-height: 7rem;
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: 5rem;
-	padding-right: 5rem;
+	padding-left: $padding-smaller;
+	padding-right: $padding-smaller;
 
 	&.no-margin-right {
 		margin-right: 0;
