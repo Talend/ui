@@ -164,4 +164,19 @@ public class TableTest extends StorybookTest {
         // then
         assertThat(getActionLog(), startsWith("▶onEdit:"));
     }
+
+    @Test
+    public void should_click_on_item_specific_cell_action() {
+        // given
+        goToStory("List", "Virtualized - column actions");
+        assertThat(getActionLog(), not(startsWith("▶onFavorite:")));
+
+        // when
+        tableObject
+                .getItem("Title with actions")
+                .clickOnCellAction("columnActions", "favorite-action-0");
+
+        // then
+        assertThat(getActionLog(), startsWith("▶onFavorite:"));
+    }
 }

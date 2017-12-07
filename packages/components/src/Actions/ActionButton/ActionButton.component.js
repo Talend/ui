@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Button, OverlayTrigger } from 'react-bootstrap';
+import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -76,6 +76,8 @@ function ActionButton(props) {
 		model,
 		onMouseDown = noOp,
 		onClick = noOp,
+		overlayComponent,
+		overlayPlacement,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
@@ -89,23 +91,27 @@ function ActionButton(props) {
 
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
-	const rClick =
-		onClick &&
-		(event =>
-			onClick(event, {
+	let rClick = null;
+	let rMouseDown = null;
+
+	if (!overlayComponent) {
+		rClick =
+			onClick &&
+			(event =>
+				onClick(event, {
+					action: { label, ...rest },
+					model,
+				}));
+		rMouseDown = event =>
+			onMouseDown(event, {
 				action: { label, ...rest },
 				model,
-			}));
-
-	const rMouseDown = event =>
-		onMouseDown(event, {
-			action: { label, ...rest },
-			model,
-		});
+			});
+	}
 
 	const buttonContent = getContent(props);
 
-	const btn = (
+	let btn = (
 		<Button
 			onMouseDown={rMouseDown}
 			onClick={rClick}
@@ -117,13 +123,29 @@ function ActionButton(props) {
 			{buttonContent}
 		</Button>
 	);
+	if (overlayComponent) {
+		btn = (
+			// this span is here to allow the tooltip trigger to work
+			<span>
+				<OverlayTrigger
+					trigger="click"
+					rootClose
+					placement={overlayPlacement}
+					overlay={<Popover>{overlayComponent}</Popover>}
+				>
+					{btn}
+				</OverlayTrigger>
+			</span>
+		);
+	}
 	if (hideLabel || tooltip || tooltipLabel) {
-		return (
+		btn = (
 			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
 				{btn}
 			</TooltipTrigger>
 		);
 	}
+
 	return btn;
 }
 
@@ -139,6 +161,8 @@ ActionButton.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
+	overlayComponent: PropTypes.element,
+	overlayPlacement: OverlayTrigger.propTypes.placement,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,

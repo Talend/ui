@@ -1,5 +1,4 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import ActionButton from './ActionButton.component';
 
@@ -109,5 +108,23 @@ describe('Action', () => {
 	it('should not render action if props.available=false', () => {
 		const wrapper = shallow(<ActionButton available={false} />);
 		expect(wrapper.type()).toBe(null);
+	});
+
+	it('should render a button with a overlay component', () => {
+		function OverlayComponent() {
+			return <div>OverlayComponent</div>;
+		}
+
+		const props = {
+			...myAction,
+			overlayComponent: OverlayComponent,
+			overlayPlacement: 'bottom',
+		};
+
+		// when
+		const wrapper = shallow(<ActionButton {...props} />);
+
+		// then
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
