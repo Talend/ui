@@ -9,7 +9,7 @@ This document aims to ease the WIP migration from a version to another by provid
 
 | Before | After |
 |---|---|
-| undefined-add | nothing |
+| generated id was undefined-add on the add button if no was given | no id is generated for the the add button |
 
 ## v0.125.0
 * Component: ListView
