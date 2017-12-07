@@ -41,13 +41,7 @@ function ListToolbar({ id, toolbar, displayMode, list, t, renderers }) {
 		};
 	}
 
-
-	return (
-		<Toolbar
-			{...toolbarProps}
-			sort={!shouldHideSortOptions && toolbarProps.sort}
-		/>
-	);
+	return <Toolbar {...toolbarProps} sort={!shouldHideSortOptions && toolbarProps.sort} />;
 }
 
 ListToolbar.propTypes = {

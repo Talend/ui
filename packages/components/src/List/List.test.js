@@ -3,15 +3,8 @@ import renderer from 'react-test-renderer';
 import List from './List.component';
 
 const listProps = {
-	columns: [
-		{ key: 'id', label: 'Id' },
-		{ key: 'name', label: 'Name' },
-	],
-	items: [
-		{ id: 1, name: 'Hello world' },
-		{ id: 2, name: 'Foo' },
-		{ id: 3, name: 'Bar' },
-	],
+	columns: [{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }],
+	items: [{ id: 1, name: 'Hello world' }, { id: 2, name: 'Foo' }, { id: 3, name: 'Bar' }],
 	itemProps: {
 		isSelected: () => false,
 		onToggleAll: jest.fn(),
@@ -29,10 +22,7 @@ const toolbarProps = {
 	sort: {
 		field: 'name',
 		onChange: jest.fn(),
-		options: [
-			{ id: 'id', name: 'Id' },
-			{ id: 'name', name: 'Name' },
-		],
+		options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 	},
 	pagination: {
 		startIndex: 6,
@@ -82,7 +72,9 @@ describe('List', () => {
 				isDescending: false,
 			},
 		};
-		const wrapper = renderer.create(<List displayMode="table" {...props} list={listPropsWithSort} />).toJSON();
+		const wrapper = renderer
+			.create(<List displayMode="table" {...props} list={listPropsWithSort} />)
+			.toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
 
