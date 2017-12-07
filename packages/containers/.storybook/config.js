@@ -7,6 +7,7 @@ import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import { FilterBar, ObjectViewer, Action } from '../src/index';
 import 'focus-outline-manager';
+import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
@@ -74,6 +75,9 @@ registerActionCreator('item1:action', chooseItem1);
 registerActionCreator('item2:action', chooseItem2);
 registerActionCreator('overlay:display-sharing', sharingOverlayDisplay);
 registerActionCreator('overlay:display-bubbles', bubblesOverlayDisplay);
+
+const registerComponent = api.component.register;
+registerComponent('ComponentOverlay', ComponentOverlay);
 
 const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
@@ -294,6 +298,15 @@ function loadStories() {
 			hideLabel: true,
 			overlay: false,
 		};
+		actions['action:overlay:component'] = {
+			id: 'action:overlay:component',
+			label: 'overlay with component',
+			overlayComponent: 'ComponentOverlay',
+			overlayComponentProps: {
+				customProps: 'customProps',
+			},
+			overlayPlacement: 'bottom',
+		}
 
 		const story = storiesOf(example);
 
