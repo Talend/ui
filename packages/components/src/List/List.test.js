@@ -72,6 +72,20 @@ describe('List', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
+	it('should not render search options when not necessary', () => {
+		const listPropsWithSort = {
+			...props.list,
+			sort: {
+				options: [],
+				displayModes: [],
+				field: 'name',
+				isDescending: false,
+			},
+		};
+		const wrapper = renderer.create(<List displayMode="table" {...props} list={listPropsWithSort} />).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should render empty list in table', () => {
 		const tProps = {
 			...listProps,
