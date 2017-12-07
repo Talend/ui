@@ -8,7 +8,7 @@
     "surge": "^0.18.0"
   },
   "scripts": {
-    "start-components": "lerna exec --scope=@talend/react-components -- yarn start",
+    "postinstall": "lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && yarn",
     "test": "lerna exec --concurrency 1 -- yarn test",
     "test:cov": "lerna exec --concurrency 1 -- yarn test:cov",
