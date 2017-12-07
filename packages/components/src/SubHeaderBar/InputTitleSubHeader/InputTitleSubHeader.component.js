@@ -20,6 +20,7 @@ function DetailsTitle({ title, subTitle, onEdit }) {
 						onClick={onEdit}
 						bsStyle="link"
 						className={theme['subheader-details-pencil']}
+						hideLabel
 					/>
 				)}
 			</span>

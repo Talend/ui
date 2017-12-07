@@ -23,18 +23,21 @@ $tc-subheader-bar-height: 7rem !default;
 		height: $tc-subheader-bar-height;
 
 		&:focus {
-			background-color: $white;
-			opacity: 0.12;
+			color: $scooter;
+			background-color: $wild-sand;
 		}
 		&:hover {
-			// color: $scooter;
-			// background-color: $wild-sand;
-			background-color: $white;
-			opacity: 0.12;
+			color: $scooter;
+			background-color: $wild-sand;
 		}
 		&:active {
-			// color: darken($scooter, 25%);
-			// background-color: $wild-sand;
+			color: darken($scooter, 25%);
+			background-color: $wild-sand;
+		}
+
+		> svg {
+			width: $padding-large;
+			height: $padding-large;
 		}
 	}
 }
@@ -47,7 +50,7 @@ $tc-subheader-bar-height: 7rem !default;
 	display: flex;
 	margin-left: auto;
 	justify-content: flex-end;
-	max-width: 42.2rem;
+	// max-width: 42.2rem;
 }
 
 .subheader-center {

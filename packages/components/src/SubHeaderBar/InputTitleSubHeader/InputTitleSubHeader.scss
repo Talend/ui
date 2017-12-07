@@ -21,26 +21,11 @@ $icon-modify-size: 1.2rem;
 }
 
 .tc-subheader-details {
-	max-width: 47.5rem;
+	// max-width: 47.5rem;
 	display: flex;
 	margin: 0;
 	height: 100%;
-
-	&:focus
-		.tc-subheader-details-text
-		.subheader-details-title-icon-container
-		.subheader-details-pencil {
-		visibility: visible;
-		color: $brand-primary;
-	}
-
-	&:hover
-		.tc-subheader-details-text
-		.subheader-details-title-icon-container
-		.subheader-details-pencil {
-		visibility: visible;
-		color: $brand-primary;
-	}
+	margin: 0;
 
 	:global(.tc-subheader-title-icon) {
 		align-self: center;
@@ -66,35 +51,19 @@ $icon-modify-size: 1.2rem;
 				@include input-text(800);
 				@include ellipsis();
 				text-transform: uppercase;
+				margin: 0;
 			}
 
 			.subheader-details-pencil {
 				display: inline-flex;
 				align-items: center;
-				color: $brand-primary;
-				font-size: $icon-modify-size;
-				font-weight: 400;
-				text-transform: none;
-				visibility: hidden;
 				padding-left: $padding-small;
 				padding-right: $padding-small;
-				line-height: 0;
-
-				> svg {
-					width: $icon-modify-size;
-					height: $icon-modify-size;
-				}
-
+				color: $gallery;
 				&:focus {
-					visibility: visible;
-					color: $scooter;
-				}
-				&:hover {
-					visibility: visible;
 					color: $scooter;
 				}
 				&:active {
-					visibility: visible;
 					color: darken($scooter, 25%);
 				}
 			}
@@ -163,7 +132,7 @@ $icon-modify-size: 1.2rem;
 
 		& .form-group {
 			padding-top: 0;
-			width: 17.1rem;
+			// width: 17.1rem;
 
 			& .col-lg-10 {
 				width: 100%;
