@@ -19,7 +19,6 @@
   "plugins": [
     "transform-class-properties",
     "transform-object-assign",
-    "transform-object-rest-spread",
-    "transform-class-properties"
+    "transform-object-rest-spread"
   ]
 }
