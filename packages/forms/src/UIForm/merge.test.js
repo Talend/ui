@@ -1,5 +1,6 @@
 import React from 'react';
-import { migrate } from './merge';
+import { mount, shallow } from 'enzyme';
+import { migrate, wrapCustomWidget } from './merge';
 
 /* eslint-disable react/prop-types */
 
@@ -88,7 +89,7 @@ describe('migrate', () => {
 			},
 		};
 		const props = migrate(schema.jsonSchema, schema.uiSchema);
-		expect(props.widgets.customWidget).toEqual(customWidget);
+		expect(props.widgets.customWidget.displayName).toBe('TFMigratedWidget');
 		expect(props.uiSchema).toEqual([
 			{
 				title: 'custom',
@@ -102,5 +103,22 @@ describe('migrate', () => {
 				],
 			},
 		]);
+	});
+});
+
+describe('wrapCustomWidget', () => {
+	it('should create an higher order component', () => {
+		const component = jest.fn(() => <div />);
+		const Wrapper = wrapCustomWidget(component);
+		mount(<Wrapper />);
+		expect(component).toHaveBeenCalled();
+	});
+	it('should wrap onChange', () => {
+		const onChange = jest.fn();
+		const component = () => <div />;
+		const Wrapper = wrapCustomWidget(component);
+		const wrapper = shallow(<Wrapper onChange={onChange} />);
+		wrapper.simulate('change', { foo: 'bar' });
+		expect(onChange.mock.calls[0]).toEqual([{}, { schema: undefined, value: { foo: 'bar' } }]);
 	});
 });

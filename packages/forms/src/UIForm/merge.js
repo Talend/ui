@@ -1,3 +1,4 @@
+import React, { PropTypes } from 'react';
 import { merge } from 'talend-json-schema-form-core';
 /* eslint-disable no-param-reassign */
 
@@ -25,6 +26,8 @@ function getUISchemaFromObject(schema, key) {
 			ui.type = schema.format;
 			if (schema.format === 'uri') {
 				ui.type = 'url';
+			} if (schema.format === 'data-url') {
+				ui.type = 'file';
 			}
 		}
 	} else if (schema.type === 'array') {
@@ -46,6 +49,21 @@ function parseProperties(properties, isRoot, path) {
 	);
 }
 
+export const wrapCustomWidget = Component => {
+	function TFMigratedWidget(props) {
+		const formContext = props.formContext || {};
+		const onChange = value => props.onChange({}, { schema: props.schema, value });
+		return <Component {...props} formContext={formContext} onChange={onChange} />;
+	}
+	TFMigratedWidget.propTypes = {
+		formContext: PropTypes.object,
+		onChange: PropTypes.func,
+		schema: PropTypes.object,
+	};
+	TFMigratedWidget.displayName = 'TFMigratedWidget';
+	return TFMigratedWidget;
+};
+
 function updateWidgets(items, uiSchema, widgets, prefix) {
 	return items.map(ui => {
 		const uiSchemaKey = ui.key.replace(prefix, '');
@@ -54,19 +72,21 @@ function updateWidgets(items, uiSchema, widgets, prefix) {
 			const uiWidget = config['ui:widget'];
 			if (uiWidget) {
 				if (typeof uiWidget !== 'string') {
-					widgets[uiWidget.name || ui.key] = uiWidget;
+					widgets[uiWidget.name || ui.key] = wrapCustomWidget(uiWidget);
 					ui.widget = uiWidget.name || ui.key;
 				} else {
 					ui.widget = uiWidget;
 					if (uiWidget === 'updown') {
-						ui.widget = 'number';
-						// ui.widget = 'text';
-						// ui.type = 'number';
-					// } else if (uiWidget === 'password') {
-						// 	ui.widget = 'text';
-						// 	ui.type = 'password';
+						ui.widget = 'text';
+						ui.type = 'number';
+					} else if (uiWidget === 'password') {
+						ui.widget = 'text';
+						ui.type = 'password';
+					} else if (uiWidget === 'url') {
+						ui.widget = 'text';
+						ui.type = 'url';
 					} else if (uiWidget === 'color') {
-						// ui.widget = 'text';
+						ui.widget = 'text';
 						ui.type = 'color';
 					} else if (uiWidget === 'radio') {
 						ui.widget = 'radios';
@@ -115,8 +135,6 @@ export function migrate(jsonSchema, uiSchema) {
 		}
 
 		safeUISchema[0].items = updateWidgets(safeUISchema[0].items, uiSchema, widgets);
-		console.log(uiSchema);
-		console.log('merged uiSchema', JSON.stringify(safeUISchema, null, 2));
 		return {
 			jsonSchema,
 			widgets,

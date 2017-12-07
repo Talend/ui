@@ -20,8 +20,8 @@
 					},
 					{
 						"key": "stringFormats.uri",
-            "widget": "text",
-            "type": "url"
+						"widget": "text",
+						"type": "url"
 					}
 				]
 			},
@@ -36,11 +36,13 @@
 					},
 					{
 						"key": "boolean.radio",
-						"title": "radio buttons"
+						"title": "radio buttons",
+						"widget": "radios"
 					},
 					{
 						"key": "boolean.select",
-						"title": "select box"
+						"title": "select box",
+						"widget": "select"
 					}
 				]
 			},
@@ -57,12 +59,13 @@
 					{
 						"key": "string.textarea",
 						"title": "textarea",
-						"widget": "text"
+						"widget": "textarea"
 					},
 					{
 						"key": "string.color",
 						"title": "color picker",
-						"widget": "text"
+						"widget": "text",
+						"type": "color"
 					}
 				]
 			},

@@ -8,7 +8,6 @@ import { getValue } from '../utils/properties';
 export default function Widget(props) {
 	const { errors, formName, properties, schema } = props;
 	const { key, type, validationMessage, widget, options } = schema;
-	console.log('Widget', props);
 	const widgetId = widget || type;
 	const WidgetImpl = props.widgets[widgetId] || defaultWidgets[widgetId];
 
