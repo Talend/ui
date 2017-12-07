@@ -62,7 +62,7 @@ $icon-modify-size: 1.2rem;
 				display: inline-flex;
 				align-items: center;
 				color: $brand-primary;
-				font-size: 1.2rem;
+				font-size: $icon-modify-size;
 				font-weight: 400;
 				text-transform: none;
 				visibility: hidden;
@@ -116,7 +116,7 @@ $icon-modify-size: 1.2rem;
 				display: flex;
 				border-radius: 50%;
 				padding: 0;
-				margin-left: 20px;
+				margin-left: $padding-large;
 				justify-content: center;
 
 				> svg {
@@ -125,7 +125,7 @@ $icon-modify-size: 1.2rem;
 				}
 
 				&:last-child {
-					margin-left: 10px;
+					margin-left: $padding-small;
 
 					> svg {
 						width: 1rem;
