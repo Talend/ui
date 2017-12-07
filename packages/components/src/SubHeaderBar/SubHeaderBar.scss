@@ -1,9 +1,9 @@
-$tc-subheader-bar-height: 7rem !default;
-
 @mixin input-icon($margin-left) {
 	margin-top: 1rem;
 	margin-left: $margin-left;
 }
+
+$tc-subheader-bar-height: 7rem !default;
 
 .tc-subheader-container {
 	border-bottom: 0.1rem solid $gallery;
