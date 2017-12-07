@@ -41,9 +41,8 @@ DetailsTitle.propTypes = {
 };
 
 function onFocus(event) {
-	const { target } = event;
-	target.selectionStart = 0;
-	target.selectionEnd = target.value.length;
+	event.target.selectionStart = 0; // eslint-disable-line no-param-reassign
+	event.target.selectionEnd = event.target.value.length; // eslint-disable-line no-param-reassign
 }
 
 function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus }) {
