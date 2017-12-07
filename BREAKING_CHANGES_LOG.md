@@ -2,6 +2,15 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.129.0
+* Component: TreeView
+* PR: [feat(SelectObject): display results as ListGroupItem](https://github.com/Talend/ui/pull/880)
+* Changes :
+
+| Before | After |
+|---|---|
+| generated id was undefined-add on the add button if no was given | no id is generated for the the add button |
+
 ## v0.125.0
 * Component: ListView
 * PR: [feat(ListView): i18n](https://github.com/Talend/ui/pull/850)
