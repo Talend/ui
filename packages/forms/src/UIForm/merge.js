@@ -110,6 +110,9 @@ function updateWidgets(items, uiSchema, widgets, prefix) {
 			if (config['ui:options']) {
 				ui.options = config['ui:options'];
 			}
+			if (config['ui:trigger']) {
+				ui.triggers = config['ui:trigger'];
+			}
 			if (ui.items && config && ui.widget !== 'enumeration') {
 				ui.items = updateWidgets(ui.items, config, widgets, `${ui.key}.`);
 			}

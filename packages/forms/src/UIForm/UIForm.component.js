@@ -101,7 +101,15 @@ export default class UIForm extends React.Component {
 			if (value !== undefined) {
 				payload.properties = mutateValue(this.props.properties, schema.key, value);
 			}
-
+			// adapt payload to the old one.
+			let properties = this.props.properties;
+			schema.key.forEach((key, index) => {
+				if (index !== schema.key.length - 1) {
+					properties = properties[key];
+				}
+			});
+			payload.formData = this.props.properties;
+			payload.properties = properties;
 			this.onTrigger(event, payload);
 		}
 	}
@@ -114,17 +122,17 @@ export default class UIForm extends React.Component {
 	 * schema The field schema
 	 */
 	onTrigger(event, payload) {
-		const { formName, updateForm, onTrigger, setError, properties } = this.props;
+		const { formName, updateForm, onTrigger, setError } = this.props;
 		if (!onTrigger) {
 			return null;
 		}
 
-		return onTrigger(event, {
+		const result = onTrigger(event, {
 			formName,
-			properties,
 			...payload,
-		})
-			.then(newForm =>
+		});
+		if (result.then) {
+			return result.then(newForm =>
 				updateForm(
 					formName,
 					newForm.jsonSchema,
@@ -134,6 +142,8 @@ export default class UIForm extends React.Component {
 				),
 			)
 			.catch(({ errors }) => setError(formName, errors));
+		}
+		return result;
 	}
 
 	/**

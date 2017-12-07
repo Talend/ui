@@ -5,8 +5,8 @@ import { componentState } from '@talend/react-cmf';
 import ComponentForm from '@talend/react-forms';
 import { UIForm } from '@talend/react-forms/lib/UIForm';
 import ArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
+import { wrapCustomWidget } from '@talend/react-forms/lib/UIForm/merge';
 import classnames from 'classnames';
-
 export const DEFAULT_STATE = new Map({});
 
 /**
@@ -59,8 +59,11 @@ class Form extends React.Component {
 	}
 
 	onTrigger(formData, formId, propertyName, propertyValue) {
-		if (this.props.onTrigger) {
+		if (this.props.onTrigger && !this.props.uiform) {
 			this.props.onTrigger(formData, formId, propertyName, propertyValue);
+		} else if (this.props.onTrigger && this.props.uiform) {
+			const { schema, formName, properties } = formId;
+			this.props.onTrigger(properties, formName, schema.key[schema.key.length - 1], propertyValue);
 		}
 	}
 
@@ -136,9 +139,15 @@ class Form extends React.Component {
 			children: this.props.children,
 			...this.props.formProps,
 		};
+		if (props.formProps && props.formProps.widgets) {
+			const widgets = props.formProps.widgets;
+			Object.keys(widgets).forEach(key => {
+				widgets[key] = wrapCustomWidget(widgets[key]);
+			});
+		}
 		console.log('FormContainer', this.props);
 		if (this.props.uiform) {
-			return <UIForm {...props} />;
+			return <UIForm {...props} onTrigger={this.onTrigger} />;
 		}
 		return <ComponentForm {...props} />;
 	}
