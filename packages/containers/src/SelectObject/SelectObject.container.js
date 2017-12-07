@@ -41,10 +41,10 @@ function isLeafElement(item) {
 /**
  * if item match the query it will be concatened into the accumulator
  * else the accumulator is returned without modification
- * @param {Object} item the item on wich the matching will happen
+ * @param {Object} item the item on which the matching will happen
  * @param {String} currentPosition the element position inside the parsed tree
  * @param {String} query the query element used to match
- * @param {String} nameAttr the attribute of item on wich should be matched
+ * @param {String} nameAttr the attribute of item on which should be matched
  * @param {callback} onMatch callback to call if match happen
  * @param {List<Object>} accumulator
  */
