@@ -64,7 +64,7 @@ function SubHeaderBar({ onGoBack, componentsCenter, componentsRight, className, 
 				{Array.isArray(componentsCenter) && (
 					<SubHeaderBarActions
 						components={componentsCenter}
-						className={classNames([`${theme['subheader-center']}`], {
+						className={classNames([theme['subheader-center']], {
 							[`${theme['no-margin-right']}`]: componentsRight,
 						})}
 						left={false}
