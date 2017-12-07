@@ -9,9 +9,9 @@ function DetailsTitle({ title, subTitle, onEdit }) {
 	return (
 		<span className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
 			<span className={theme['subheader-details-title-icon-container']}>
-				<span className={classNames(theme['subheader-details-title'], 'subheader-details-title')}>
+				<h1 className={classNames(theme['subheader-details-title'], 'subheader-details-title')}>
 					{title}
-				</span>
+				</h1>
 				{onEdit && (
 					<Action
 						name="action-edit-title"
@@ -24,11 +24,11 @@ function DetailsTitle({ title, subTitle, onEdit }) {
 				)}
 			</span>
 			{subTitle && (
-				<div
+				<small
 					className={classNames(theme['subheader-details-subtitle'], 'subheader-details-subtitle')}
 				>
 					{subTitle}
-				</div>
+				</small>
 			)}
 		</span>
 	);

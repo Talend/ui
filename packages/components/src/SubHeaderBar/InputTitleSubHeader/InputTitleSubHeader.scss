@@ -1,13 +1,15 @@
-$icon-title-size: 2.4rem;
+$size-large: 2.4rem;
+$size-medium: 1.4rem;
+$size-small: 1rem;
 $icon-modify-size: 1.2rem;
 
 @mixin input-text($weight) {
 	color: $black;
-	font-size: 1.4rem;
+	font-size: $size-medium;
 	font-weight: $weight;
 }
 
-@mixin ellipsis-title() {
+@mixin ellipsis() {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
@@ -24,6 +26,14 @@ $icon-modify-size: 1.2rem;
 	margin: 0;
 	height: 100%;
 
+	&:focus
+		.tc-subheader-details-text
+		.subheader-details-title-icon-container
+		.subheader-details-pencil {
+		visibility: visible;
+		color: $brand-primary;
+	}
+
 	&:hover
 		.tc-subheader-details-text
 		.subheader-details-title-icon-container
@@ -34,8 +44,8 @@ $icon-modify-size: 1.2rem;
 
 	:global(.tc-subheader-title-icon) {
 		align-self: center;
-		width: $icon-title-size;
-		height: $icon-title-size;
+		width: $size-large;
+		height: $size-large;
 		color: $brand-primary;
 		margin-left: $padding-large;
 	}
@@ -54,7 +64,7 @@ $icon-modify-size: 1.2rem;
 
 			:global(.subheader-details-title) {
 				@include input-text(800);
-				@include ellipsis-title();
+				@include ellipsis();
 				text-transform: uppercase;
 			}
 
@@ -75,6 +85,10 @@ $icon-modify-size: 1.2rem;
 					height: $icon-modify-size;
 				}
 
+				&:focus {
+					visibility: visible;
+					color: $scooter;
+				}
 				&:hover {
 					visibility: visible;
 					color: $scooter;
@@ -86,9 +100,9 @@ $icon-modify-size: 1.2rem;
 			}
 		}
 		:global(.subheader-details-subtitle) {
-			@include ellipsis-title();
+			@include ellipsis();
 			color: $dark-silver;
-			font-size: 1.4rem;
+			font-size: $size-medium;
 			font-weight: 300;
 		}
 	}
@@ -111,8 +125,8 @@ $icon-modify-size: 1.2rem;
 
 			.subheader-form-icon {
 				@include form-icon-color($gray);
-				width: 2.4rem;
-				height: 2.4rem;
+				width: $size-large;
+				height: $size-large;
 				display: flex;
 				border-radius: 50%;
 				padding: 0;
@@ -120,17 +134,21 @@ $icon-modify-size: 1.2rem;
 				justify-content: center;
 
 				> svg {
-					width: 1.4rem;
-					height: 1.4rem;
+					width: $size-medium;
+					height: $size-medium;
 				}
 
 				&:last-child {
 					margin-left: $padding-small;
 
 					> svg {
-						width: 1rem;
-						height: 1rem;
+						width: $size-small;
+						height: $size-small;
 					}
+				}
+
+				&:focus {
+					@include form-icon-color($scooter);
 				}
 
 				&:hover {

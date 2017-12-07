@@ -1,4 +1,4 @@
-$subheader-bar-height: 7rem;
+$tc-subheader-bar-height: 7rem !default;
 
 @mixin input-icon($margin-left) {
 	margin-top: 1rem;
@@ -10,7 +10,7 @@ $subheader-bar-height: 7rem;
 	width: 100%;
 
 	:global(.subheader-navbar) {
-		height: $subheader-bar-height;
+		height: $tc-subheader-bar-height;
 		background-color: $wild-sand;
 		display: flex;
 		padding-left: 0;
@@ -19,20 +19,22 @@ $subheader-bar-height: 7rem;
 	.subheader-back-button {
 		color: $gray;
 		background-color: $gallery;
-		width: $subheader-bar-height;
-		height: $subheader-bar-height;
+		width: $tc-subheader-bar-height;
+		height: $tc-subheader-bar-height;
 
 		&:focus {
-			color: $gray;
-			background-color: $gallery;
+			background-color: $white;
+			opacity: 0.12;
 		}
 		&:hover {
-			color: $scooter;
-			background-color: $wild-sand;
+			// color: $scooter;
+			// background-color: $wild-sand;
+			background-color: $white;
+			opacity: 0.12;
 		}
 		&:active {
-			color: darken($scooter, 25%);
-			background-color: $wild-sand;
+			// color: darken($scooter, 25%);
+			// background-color: $wild-sand;
 		}
 	}
 }

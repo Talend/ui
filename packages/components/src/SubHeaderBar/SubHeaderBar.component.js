@@ -39,7 +39,7 @@ function SubHeaderBar({ onGoBack, componentsCenter, componentsRight, className, 
 				<Action
 					id="backArrow"
 					onClick={onGoBack}
-					label="backArrow"
+					label="Go Back"
 					icon="talend-arrow-left"
 					bsStyle="link"
 					className={classNames(theme['subheader-back-button'], 'btn-link')}
@@ -52,7 +52,7 @@ function SubHeaderBar({ onGoBack, componentsCenter, componentsRight, className, 
 		},
 	];
 	return (
-		<div className={classNames(theme['tc-subheader-container'], className)}>
+		<header className={classNames(theme['tc-subheader-container'], className)}>
 			<ActionBar className={classNames(theme['subheader-navbar'], 'subheader-navbar')}>
 				<SubHeaderBarActions
 					components={defaultComponentsLeft}
@@ -82,7 +82,7 @@ function SubHeaderBar({ onGoBack, componentsCenter, componentsRight, className, 
 					/>
 				)}
 			</ActionBar>
-		</div>
+		</header>
 	);
 }
 
