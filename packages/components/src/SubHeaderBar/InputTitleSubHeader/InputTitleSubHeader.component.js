@@ -9,7 +9,7 @@ function DetailsTitle({ title, subTitle, onEdit, t }) {
 	const modifyLabel = t('MODIFY_TOOLTIP', { defaultValue: 'Modify' });
 	return (
 		<span className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
-			<span className={theme['subheader-details-title-icon-container']}>
+			<span className={classNames(theme['subheader-details-icon-container'], 'subheader-details-icon-container')}>
 				<h1 className={classNames(theme['subheader-details-title'], 'subheader-details-title')}>
 					{title}
 				</h1>

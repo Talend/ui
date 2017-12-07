@@ -42,7 +42,7 @@ $icon-modify-size: 1.2rem;
 		overflow: hidden;
 		flex: 1;
 
-		.subheader-details-title-icon-container {
+		.subheader-details-icon-container {
 			display: inline-flex;
 			align-items: center;
 
@@ -129,10 +129,10 @@ $icon-modify-size: 1.2rem;
 			}
 		}
 
-		& .form-group {
+		:global(.form-group) {
 			padding-top: 0;
 
-			& .col-lg-10 {
+			:global(.col-lg-10) {
 				width: 100%;
 			}
 		}
