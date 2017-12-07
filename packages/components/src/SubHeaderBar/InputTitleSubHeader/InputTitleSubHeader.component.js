@@ -5,7 +5,8 @@ import { Action } from '../../Actions';
 import theme from './InputTitleSubHeader.scss';
 import Icon from '../../Icon';
 
-function DetailsTitle({ title, subTitle, onEdit }) {
+function DetailsTitle({ title, subTitle, onEdit, t }) {
+	const modifyLabel = t('MODIFY_TOOLTIP', { defaultValue: 'Modify' });
 	return (
 		<span className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
 			<span className={theme['subheader-details-title-icon-container']}>
@@ -15,7 +16,7 @@ function DetailsTitle({ title, subTitle, onEdit }) {
 				{onEdit && (
 					<Action
 						name="action-edit-title"
-						label="Modify"
+						label={modifyLabel}
 						icon="talend-pencil"
 						onClick={onEdit}
 						bsStyle="link"
@@ -39,6 +40,7 @@ DetailsTitle.propTypes = {
 	title: PropTypes.string.isRequired,
 	subTitle: PropTypes.string,
 	onEdit: PropTypes.func,
+	t: PropTypes.func,
 };
 
 function onFocus(event) {
@@ -46,7 +48,9 @@ function onFocus(event) {
 	event.target.selectionEnd = event.target.value.length; // eslint-disable-line no-param-reassign
 }
 
-function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus }) {
+function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus, t }) {
+	const submitLabel = t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' });
+	const cancelLabel = t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' });
 	return (
 		<form className={classNames(theme['tc-subheader-form'], 'tc-subheader-form')}>
 			<input
@@ -61,7 +65,7 @@ function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus 
 			<div className={theme['subheader-form-icon-container']}>
 				<Action
 					name="action-submit-title"
-					label="submit"
+					label={submitLabel}
 					icon="talend-check"
 					onClick={onSubmit}
 					bsStyle="link"
@@ -70,7 +74,7 @@ function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus 
 				/>
 				<Action
 					name="action-cancel-title"
-					label="cancel"
+					label={cancelLabel}
 					icon="talend-cross"
 					onClick={onCancel}
 					bsStyle="link"
@@ -89,6 +93,7 @@ EditTitle.propTypes = {
 	onChange: PropTypes.func,
 	focus: PropTypes.bool,
 	inputTextValue: PropTypes.string,
+	t: PropTypes.func,
 };
 
 EditTitle.defaultProps = {

@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import { DEFAULT_I18N } from '../translate';
 import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
 import InputTitleSubHeader from './InputTitleSubHeader';
@@ -32,14 +35,15 @@ SubHeaderBarActions.propTypes = {
 	className: PropTypes.string,
 };
 
-function SubHeaderBar({ onGoBack, componentsCenter, componentsRight, className, ...rest }) {
+function SubHeaderBar({ t, onGoBack, componentsCenter, componentsRight, className, ...rest }) {
+	const backArrowLabel = t('BACK_ARROW_TOOLTIP', { defaultValue: 'Go Back' });
 	const defaultComponentsLeft = [
 		{
 			injectedComponent: (
 				<Action
 					id="backArrow"
 					onClick={onGoBack}
-					label="Go Back"
+					label={backArrowLabel}
 					icon="talend-arrow-left"
 					bsStyle="link"
 					className={classNames(theme['subheader-back-button'], 'btn-link')}
@@ -48,7 +52,7 @@ function SubHeaderBar({ onGoBack, componentsCenter, componentsRight, className, 
 			),
 		},
 		{
-			injectedComponent: <InputTitleSubHeader {...rest} />,
+			injectedComponent: <InputTitleSubHeader t={t} {...rest} />,
 		},
 	];
 	return (
@@ -91,6 +95,8 @@ SubHeaderBar.propTypes = {
 	componentsCenter: PropTypes.array,
 	componentsRight: PropTypes.array,
 	className: PropTypes.string,
+	t: PropTypes.func,
 };
 
-export { SubHeaderBar as default, SubHeaderBarActions };
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(SubHeaderBar);
+export { SubHeaderBarActions };
