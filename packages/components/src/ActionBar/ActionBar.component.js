@@ -9,6 +9,13 @@ const DISPLAY_MODES = {
 	SPLIT_DROPDOWN: 'splitDropdown',
 	BTN_GROUP: 'btnGroup',
 };
+const TAG_TYPES = {
+	DIV: 'div',
+	P: 'p',
+	FORM: 'form',
+	BUTTON: 'button',
+	A: 'a',
+};
 
 const actionsShape = {
 	left: PropTypes.arrayOf(
@@ -45,24 +52,24 @@ function getActionsToRender({ selected, actions, multiSelectActions }) {
 	return actions || {};
 }
 
-function getContentClassName({ tag, className, left, right, center }) {
+function getContentClassName(tag, left, center, right, className) {
 	return classNames(className, {
 		[`${css['navbar-left']}`]: left,
 		[`${css['navbar-right']}`]: right,
 		[`${css['navbar-center']}`]: center,
 		'navbar-left': left,
 		'navbar-right': right,
-		'navbar-text': tag === 'p',
-		'navbar-btn': tag === 'button',
-		'navbar-form': tag === 'form',
-		'navbar-link': tag === 'a',
+		'navbar-text': tag === TAG_TYPES.P,
+		'navbar-btn': tag === TAG_TYPES.BUTTON,
+		'navbar-form': tag === TAG_TYPES.FORM,
+		'navbar-link': tag === TAG_TYPES.A,
 	});
 }
 
-function Content({ tag = 'div', left, right, center, className, children, ...rest }) {
+function Content({ tag = TAG_TYPES.DIV, left, right, center, className, children, ...rest }) {
 	const props = Object.assign(
 		{
-			className: getContentClassName({ tag, left, center, right, className }),
+			className: getContentClassName(tag, left, center, right, className),
 		},
 		rest,
 	);
@@ -74,30 +81,34 @@ Content.propTypes = {
 	left: PropTypes.bool,
 	right: PropTypes.bool,
 	center: PropTypes.bool,
-	tag: PropTypes.oneOf(['p', 'button', 'form', 'a', 'div']),
+	tag: PropTypes.oneOf([TAG_TYPES.P, TAG_TYPES.BUTTON, TAG_TYPES.FORM, TAG_TYPES.A, TAG_TYPES.DIV]),
 };
 
-function SwitchActions({ actions, left, right, center, selected, renderers }) {
+function getActionsFromRenderers(actions, renderers) {
 	const Renderers = getRenderers({ renderers });
+	return actions.map((action, index) => {
+		const { displayMode, ...rest } = action;
+		switch (displayMode) {
+			case DISPLAY_MODES.DROPDOWN:
+				return <Renderers.ActionDropdown key={index} {...rest} />;
+			case DISPLAY_MODES.SPLIT_DROPDOWN:
+				return <Renderers.ActionSplitDropdown key={index} {...rest} />;
+			case DISPLAY_MODES.BTN_GROUP:
+				return <Renderers.Actions key={index} {...rest} />;
+			default:
+				if (displayMode) {
+					return <Renderers.Action key={index} displayMode={displayMode} {...rest} />;
+				}
+				return <Renderers.Action key={index} {...rest} />;
+		}
+	});
+}
+
+function SwitchActions({ actions, left, right, center, selected, renderers }) {
 	return (
 		<Content left={left} right={right} center={center}>
 			{selected > 0 && left ? <Count selected={selected} /> : null}
-			{actions.map((action, index) => {
-				const { displayMode, ...rest } = action;
-				switch (displayMode) {
-					case DISPLAY_MODES.DROPDOWN:
-						return <Renderers.ActionDropdown key={index} {...rest} />;
-					case DISPLAY_MODES.SPLIT_DROPDOWN:
-						return <Renderers.ActionSplitDropdown key={index} {...rest} />;
-					case DISPLAY_MODES.BTN_GROUP:
-						return <Renderers.Actions key={index} {...rest} />;
-					default:
-						if (displayMode) {
-							return <Renderers.Action key={index} displayMode={displayMode} {...rest} />;
-						}
-						return <Renderers.Action key={index} {...rest} />;
-				}
-			})}
+			{getActionsFromRenderers(actions, renderers)}
 		</Content>
 	);
 }
