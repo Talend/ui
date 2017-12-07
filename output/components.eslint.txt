@@ -20,10 +20,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/SubHeaderBar.test.js
-  3:24  error  'ActionBar' is defined but never used            no-unused-vars
-  4:8   error  'InputTitleSubHeader' is defined but never used  no-unused-vars
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 

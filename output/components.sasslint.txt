@@ -23,8 +23,17 @@ src/List/Content/Content.scss
 src/List/DisplayTile/DisplayTile.scss
   37:3  warning  Expected indentation of 1 tab but found 2  indentation
 
+src/SubHeaderBar/InputTitleSubHeader/InputTitleSubHeader.scss
+   10:22  error    Parenthesis should be removed              empty-args
+   28:3   warning  Expected indentation of 1 tab but found 2  indentation
+   29:3   warning  Expected indentation of 1 tab but found 2  indentation
+   30:3   warning  Expected indentation of 1 tab but found 2  indentation
+   57:28  error    Parenthesis should be removed              empty-args
+   89:27  error    Parenthesis should be removed              empty-args
+  102:4   error    Mixins should come before declarations     mixins-before-declarations
+
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
 
-✖ 9 problems (1 error, 8 warnings)
+✖ 16 problems (5 errors, 11 warnings)
 
