@@ -9,7 +9,12 @@ function DetailsTitle({ title, subTitle, onEdit, t }) {
 	const modifyLabel = t('MODIFY_TOOLTIP', { defaultValue: 'Modify' });
 	return (
 		<span className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
-			<span className={classNames(theme['subheader-details-icon-container'], 'subheader-details-icon-container')}>
+			<span
+				className={classNames(
+					theme['subheader-details-icon-container'],
+					'subheader-details-icon-container',
+				)}
+			>
 				<h1 className={classNames(theme['subheader-details-title'], 'subheader-details-title')}>
 					{title}
 				</h1>
@@ -20,7 +25,7 @@ function DetailsTitle({ title, subTitle, onEdit, t }) {
 						icon="talend-pencil"
 						onClick={onEdit}
 						bsStyle="link"
-						className={theme['subheader-details-pencil']}
+						className={classNames(theme['subheader-details-pencil'], 'subheader-details-pencil')}
 						hideLabel
 					/>
 				)}
@@ -56,20 +61,25 @@ function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus,
 			<input
 				id="inputTitle"
 				type="text"
-				className={classNames(theme['subheader-input'], 'form-control')}
+				className={classNames(theme['subheader-input'], 'subheader-input', 'form-control')}
 				onChange={onChange}
 				value={inputTextValue || title}
 				onFocus={onFocus}
 				autoFocus={focus}
 			/>
-			<div className={theme['subheader-form-icon-container']}>
+			<div
+				className={classNames(
+					theme['subheader-form-icon-container'],
+					'subheader-form-icon-container',
+				)}
+			>
 				<Action
 					name="action-submit-title"
 					label={submitLabel}
 					icon="talend-check"
 					onClick={onSubmit}
 					bsStyle="link"
-					className={theme['subheader-form-icon']}
+					className={classNames(theme['subheader-form-icon'], 'subheader-form-icon')}
 					hideLabel
 				/>
 				<Action
@@ -78,7 +88,7 @@ function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus,
 					icon="talend-cross"
 					onClick={onCancel}
 					bsStyle="link"
-					className={theme['subheader-form-icon']}
+					className={classNames(theme['subheader-form-icon'], 'subheader-form-icon')}
 					hideLabel
 				/>
 			</div>
@@ -102,7 +112,7 @@ EditTitle.defaultProps = {
 
 function InputTitleSubHeader({ title, iconFile, editMode, ...rest }) {
 	return (
-		<div className={theme['tc-subheader-details']}>
+		<div className={classNames(theme['tc-subheader-details'], 'tc-subheader-details')}>
 			{iconFile && (
 				<Icon
 					name={iconFile}

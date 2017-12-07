@@ -1,6 +1,6 @@
 @mixin input-text($weight) {
 	color: $black;
-	font-size: $size-medium;
+	font-size: $tc-subheader-size-medium;
 	font-weight: $weight;
 }
 
@@ -15,26 +15,26 @@
 	border: 0.2rem solid $color;
 }
 
-$size-large: 2.4rem;
-$size-medium: 1.4rem;
-$size-small: 1rem;
-$icon-modify-size: 1.2rem;
+$tc-subheader-size-large: 2.4rem !default;
+$tc-subheader-size-medium: 1.4rem !default;
+$tc-subheader-size-small: 1rem !default;
 
 .tc-subheader-details {
 	display: flex;
 	margin: 0;
 	height: 100%;
 	margin: 0;
+	width: 45rem;
 
-	:global(.tc-subheader-title-icon) {
+	.tc-subheader-title-icon {
 		align-self: center;
-		width: $size-large;
-		height: $size-large;
+		width: $tc-subheader-size-large;
+		height: $tc-subheader-size-large;
 		color: $brand-primary;
 		margin-left: $padding-large;
 	}
 
-	:global(.tc-subheader-details-text) {
+	.tc-subheader-details-text {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -46,7 +46,7 @@ $icon-modify-size: 1.2rem;
 			display: inline-flex;
 			align-items: center;
 
-			:global(.subheader-details-title) {
+			.subheader-details-title {
 				@include input-text(800);
 				@include ellipsis;
 				text-transform: uppercase;
@@ -67,14 +67,14 @@ $icon-modify-size: 1.2rem;
 				}
 			}
 		}
-		:global(.subheader-details-subtitle) {
+		.subheader-details-subtitle {
 			@include ellipsis;
 			color: $dark-silver;
-			font-size: $size-medium;
+			font-size: $tc-subheader-size-medium;
 			font-weight: 300;
 		}
 	}
-	:global(.tc-subheader-form) {
+	.tc-subheader-form {
 		display: flex;
 		align-items: center;
 		padding-left: $padding-large;
@@ -93,8 +93,8 @@ $icon-modify-size: 1.2rem;
 
 			.subheader-form-icon {
 				@include form-icon-color($gray);
-				width: $size-large;
-				height: $size-large;
+				width: $tc-subheader-size-large;
+				height: $tc-subheader-size-large;
 				display: flex;
 				border-radius: 50%;
 				padding: 0;
@@ -102,16 +102,16 @@ $icon-modify-size: 1.2rem;
 				justify-content: center;
 
 				> svg {
-					width: $size-medium;
-					height: $size-medium;
+					width: $tc-subheader-size-medium;
+					height: $tc-subheader-size-medium;
 				}
 
 				&:last-child {
 					margin-left: $padding-small;
 
 					> svg {
-						width: $size-small;
-						height: $size-small;
+						width: $tc-subheader-size-small;
+						height: $tc-subheader-size-small;
 					}
 				}
 

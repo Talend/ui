@@ -46,7 +46,7 @@ function SubHeaderBar({ t, onGoBack, componentsCenter, componentsRight, classNam
 					label={backArrowLabel}
 					icon="talend-arrow-left"
 					bsStyle="link"
-					className={classNames(theme['subheader-back-button'], 'btn-link')}
+					className={classNames(theme['subheader-back-button'], 'subheader-back-button')}
 					hideLabel
 				/>
 			),
@@ -56,7 +56,7 @@ function SubHeaderBar({ t, onGoBack, componentsCenter, componentsRight, classNam
 		},
 	];
 	return (
-		<header className={classNames(theme['tc-subheader-container'], className)}>
+		<header className={classNames(theme['tc-subheader-container'], 'tc-subheader-container', className)}>
 			<ActionBar className={classNames(theme['subheader-navbar'], 'subheader-navbar')}>
 				<SubHeaderBarActions
 					components={defaultComponentsLeft}
@@ -68,8 +68,9 @@ function SubHeaderBar({ t, onGoBack, componentsCenter, componentsRight, classNam
 				{Array.isArray(componentsCenter) && (
 					<SubHeaderBarActions
 						components={componentsCenter}
-						className={classNames([theme['subheader-center']], {
+						className={classNames([theme['subheader-center']], 'subheader-center', {
 							[`${theme['no-margin-right']}`]: componentsRight,
+							'no-margin-right': componentsRight,
 						})}
 						left={false}
 						center
@@ -79,7 +80,7 @@ function SubHeaderBar({ t, onGoBack, componentsCenter, componentsRight, classNam
 				{Array.isArray(componentsRight) && (
 					<SubHeaderBarActions
 						components={componentsRight}
-						className={theme['subheader-right']}
+						className={classNames(theme['subheader-right'], 'subheader-right')}
 						left={false}
 						center={false}
 						right

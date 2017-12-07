@@ -9,7 +9,7 @@ $tc-subheader-bar-height: 7rem !default;
 	border-bottom: 0.1rem solid $gallery;
 	width: 100%;
 
-	:global(.subheader-navbar) {
+	.subheader-navbar {
 		height: $tc-subheader-bar-height;
 		background-color: $wild-sand;
 		display: flex;
