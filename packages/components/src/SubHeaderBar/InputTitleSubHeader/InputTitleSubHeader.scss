@@ -52,7 +52,7 @@ $icon-modify-size: 1.2rem;
 			display: inline-flex;
 			align-items: center;
 
-			.subheader-details-title {
+			:global(.subheader-details-title) {
 				@include input-text(800);
 				@include ellipsis-title();
 				text-transform: uppercase;
@@ -85,7 +85,7 @@ $icon-modify-size: 1.2rem;
 				}
 			}
 		}
-		.subheader-details-subtitle {
+		:global(.subheader-details-subtitle) {
 			@include ellipsis-title();
 			color: $dark-silver;
 			font-size: 1.4rem;

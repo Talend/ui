@@ -9,7 +9,9 @@ function DetailsTitle({ title, subTitle, onEdit }) {
 	return (
 		<span className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
 			<span className={theme['subheader-details-title-icon-container']}>
-				<span className={theme['subheader-details-title']}>{title}</span>
+				<span className={classNames(theme['subheader-details-title'], 'subheader-details-title')}>
+					{title}
+				</span>
 				{onEdit && (
 					<Action
 						name="action-edit-title"
@@ -21,7 +23,13 @@ function DetailsTitle({ title, subTitle, onEdit }) {
 					/>
 				)}
 			</span>
-			{subTitle && <div className={theme['subheader-details-subtitle']}>{subTitle}</div>}
+			{subTitle && (
+				<div
+					className={classNames(theme['subheader-details-subtitle'], 'subheader-details-subtitle')}
+				>
+					{subTitle}
+				</div>
+			)}
 		</span>
 	);
 }
