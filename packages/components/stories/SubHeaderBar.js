@@ -52,7 +52,7 @@ const injectedComponentsRight = [
 	},
 ];
 
-const action4 = {
+const componentAction = {
 	injectedComponent: (
 		<Action
 			label="action4"
@@ -60,6 +60,18 @@ const action4 = {
 			icon="talend-bell"
 			onClick={action('return action4')}
 			hideLabel
+		/>
+	),
+};
+
+const componentInput = {
+	tag: 'form',
+	injectedComponent: (
+		<input
+			id="inputTitle"
+			type="text"
+			onChange={action('onChange')}
+			value=""
 		/>
 	),
 };
@@ -90,19 +102,19 @@ stories
 			<SubHeaderBar {...viewProps} onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('with icon file no actions', () => (
+	.addWithInfo('with default left components and icon file', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} iconFile="talend-file-csv-o" onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('with subtitle no icon file', () => (
+	.addWithInfo('default left components and subtitle', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} subTitle="mySubTitle" onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('with icon file no subtitle and right actions', () => (
+	.addWithInfo('with right components', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
@@ -113,17 +125,28 @@ stories
 			/>
 		</div>
 	))
-	.addWithInfo('with no icon file no subtitle and center actions', () => (
+	.addWithInfo('with center components', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
 				{...viewProps}
 				onGoBack={backAction}
-				componentsCenter={[action4, ...injectedComponentsCenter]}
+				componentsCenter={[componentAction, ...injectedComponentsCenter]}
 			/>
 		</div>
 	))
-	.addWithInfo('with subtitle icon file and center && right actions', () => (
+	.addWithInfo('with center components with tag props', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				{...viewProps}
+				subTitle="mySubTitle"
+				onGoBack={backAction}
+				componentsCenter={[componentInput]}
+			/>
+		</div>
+	))
+	.addWithInfo('with center && right components', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
