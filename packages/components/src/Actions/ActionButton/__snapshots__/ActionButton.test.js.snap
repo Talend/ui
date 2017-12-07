@@ -107,6 +107,44 @@ exports[`Action should render a button 1`] = `
 </Button>
 `;
 
+exports[`Action should render a button with a overlay component 1`] = `
+<span>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    overlay={
+      <Popover
+        bsClass="popover"
+        placement="right"
+      >
+        [Function]
+      </Popover>
+    }
+    placement="bottom"
+    rootClose={true}
+    trigger="click"
+  >
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      disabled={false}
+      onClick={null}
+      onMouseDown={null}
+      role={null}
+    >
+      <Icon
+        name="talend-caret-down"
+        transform={undefined}
+      />
+      <span>
+        Click me
+      </span>
+    </Button>
+  </OverlayTrigger>
+</span>
+`;
+
 exports[`Action should render action with html property name = props.name if set 1`] = `
 <Button
   active={false}

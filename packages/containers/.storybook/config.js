@@ -6,6 +6,8 @@ import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';
+
+import ComponentOverlay from './ComponentOverlay';
 import ObjectViewer from '../src/ObjectViewer';
 import examples from '../examples';
 
@@ -59,6 +61,9 @@ registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
 registerActionCreator('item1:action', chooseItem1);
 registerActionCreator('item2:action', chooseItem2);
+
+const registerComponent = api.component.register;
+registerComponent('ComponentOverlay', ComponentOverlay);
 
 const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
@@ -259,6 +264,15 @@ function loadStories() {
 			label: 'No',
 			actionCreator: 'cancel:hide:dialog',
 		};
+		actions['action:overlay:component'] = {
+			id: 'action:overlay:component',
+			label: 'overlay with component',
+			overlayComponent: 'ComponentOverlay',
+			overlayComponentProps: {
+				customProps: 'customProps',
+			},
+			overlayPlacement: 'bottom',
+		}
 
 		const story = storiesOf(example);
 

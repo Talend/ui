@@ -2,10 +2,10 @@
 
 /// tile background color
 /// @type Color
-$tile-background: #FFF;
+$tile-background: #fff;
 /// tile border color
 /// @type Color
-$tile-border-color: #CCC;
+$tile-border-color: #ccc;
 /// all tile title color
 /// @type Color
 $title-color: #555;
@@ -33,7 +33,8 @@ $tile-width: 16em;
 	margin: 0 25px 25px 0;
 	max-width: $tile-width;
 	padding: 15px;
-	transition: 0.13s background cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.13s border-color cubic-bezier(0.18, 0.89, 0.32, 1.28);
+	transition: 0.13s background cubic-bezier(0.18, 0.89, 0.32, 1.28),
+		0.13s border-color cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
 	&:hover {
 		background: lighten($title-color, 60%);
