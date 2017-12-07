@@ -3,15 +3,17 @@ import { cmfConnect, Inject } from '@talend/react-cmf';
 import SubHeaderBar, { DEFAULT_STATE } from './SubHeaderBar.container';
 
 function buildComponents(state, injectedComponents) {
-	return injectedComponents.map(injectedComponent => {
-		const { componentId, tag, ...rest } = injectedComponent;
-		if (componentId) {
-			return Object.assign({}, tag, {
-				injectedComponent: <Inject component={componentId} {...rest} />,
-			});
-		}
-		return null;
-	}).filter(component => component != null);
+	return injectedComponents
+		.map(injectedComponent => {
+			const { componentId, tag, ...rest } = injectedComponent;
+			if (componentId) {
+				return Object.assign({}, tag, {
+					injectedComponent: <Inject component={componentId} {...rest} />,
+				});
+			}
+			return null;
+		})
+		.filter(component => component != null);
 }
 
 function mapStateToProps(state, ownProps) {
