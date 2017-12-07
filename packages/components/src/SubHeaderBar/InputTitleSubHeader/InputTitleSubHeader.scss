@@ -1,15 +1,10 @@
-$size-large: 2.4rem;
-$size-medium: 1.4rem;
-$size-small: 1rem;
-$icon-modify-size: 1.2rem;
-
 @mixin input-text($weight) {
 	color: $black;
 	font-size: $size-medium;
 	font-weight: $weight;
 }
 
-@mixin ellipsis() {
+@mixin ellipsis {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
@@ -20,8 +15,12 @@ $icon-modify-size: 1.2rem;
 	border: 0.2rem solid $color;
 }
 
+$size-large: 2.4rem;
+$size-medium: 1.4rem;
+$size-small: 1rem;
+$icon-modify-size: 1.2rem;
+
 .tc-subheader-details {
-	// max-width: 47.5rem;
 	display: flex;
 	margin: 0;
 	height: 100%;
@@ -49,7 +48,7 @@ $icon-modify-size: 1.2rem;
 
 			:global(.subheader-details-title) {
 				@include input-text(800);
-				@include ellipsis();
+				@include ellipsis;
 				text-transform: uppercase;
 				margin: 0;
 			}
@@ -69,7 +68,7 @@ $icon-modify-size: 1.2rem;
 			}
 		}
 		:global(.subheader-details-subtitle) {
-			@include ellipsis();
+			@include ellipsis;
 			color: $dark-silver;
 			font-size: $size-medium;
 			font-weight: 300;
@@ -132,7 +131,6 @@ $icon-modify-size: 1.2rem;
 
 		& .form-group {
 			padding-top: 0;
-			// width: 17.1rem;
 
 			& .col-lg-10 {
 				width: 100%;

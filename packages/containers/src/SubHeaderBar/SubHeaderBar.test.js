@@ -44,7 +44,7 @@ describe('mapStateToProps', () => {
 			componentsCenter: [
 				{
 					injectedComponent: (
-						<Inject component="FilterBar" dockable={false} docked={false} navbar={true} />
+						<Inject component="FilterBar" dockable={false} docked={false} navbar />
 					),
 				},
 			],
