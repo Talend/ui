@@ -64,7 +64,7 @@ exports[`Actions should render actions 1`] = `
     <button
       aria-expanded={false}
       aria-haspopup={true}
-      className="dropdown-toggle btn btn-default"
+      className="tc-dropdown-button dropdown-toggle btn btn-default"
       disabled={false}
       id="dropdown-id"
       onClick={[Function]}
@@ -274,7 +274,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
     <button
       aria-expanded={false}
       aria-haspopup={true}
-      className="dropdown-toggle btn btn-link"
+      className="tc-dropdown-button dropdown-toggle btn btn-link"
       disabled={false}
       id="dropdown-id"
       onClick={[Function]}
@@ -481,7 +481,7 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     <button
       aria-expanded={false}
       aria-haspopup={true}
-      className="dropdown-toggle btn btn-link"
+      className="tc-dropdown-button dropdown-toggle btn btn-link"
       disabled={false}
       id="dropdown-id"
       onClick={[Function]}
@@ -687,7 +687,7 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     <button
       aria-expanded={false}
       aria-haspopup={true}
-      className="dropdown-toggle btn btn-default"
+      className="tc-dropdown-button dropdown-toggle btn btn-default"
       disabled={false}
       id="dropdown-id"
       onClick={[Function]}

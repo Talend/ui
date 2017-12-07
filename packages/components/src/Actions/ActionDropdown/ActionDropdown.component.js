@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import classNames from 'classnames';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
 
 import theme from './ActionDropdown.scss';
@@ -80,7 +81,7 @@ function ActionDropdown(props) {
 			bsStyle={style}
 			role="button"
 			onSelect={onItemSelect}
-			className={theme['tc-dropdown-button']}
+			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button')}
 			{...rest}
 		>
 			{items.length ? items.map(getMenuItem) : <MenuItem disabled>No options</MenuItem>}
