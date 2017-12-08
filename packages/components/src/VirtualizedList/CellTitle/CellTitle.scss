@@ -20,6 +20,8 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	}
 
 	.main-title {
+		flex-grow: 0;
+
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -41,14 +43,35 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 			text-decoration: none;
 		}
 	}
-
+	.spacer {
+		flex-grow: 1;
+	}
 }
 
+
+
+
+// manage actions display on row hover
+:global(.tc-list-large-row):hover :global(.tc-list-title .tc-actions),
+:global(.ReactVirtualized__Table__row):hover :global(.tc-list-title .tc-actions) {
+	opacity: 1;
+	transition: opacity 0.15s ease-in;
+	visibility: visible;
+}
+
+:global(.tc-list-large-row.active):hover :global(.tc-list-title .tc-actions),
+:global(.ReactVirtualized__Table__row.active):hover :global(.tc-list-title .tc-actions) {
+	background: linear-gradient(to right, transparent, $tc-list-row-active-hover-bg $padding-large);
+}
+
+:global(.tc-list-large-row.selected):hover :global(.tc-list-title .tc-actions),
+:global(.ReactVirtualized__Table__row.selected):hover :global(.tc-list-title .tc-actions) {
+	background: linear-gradient(to right, transparent, $tc-list-row-selected-hover-bg $padding-large);
+}
 
 // START : hack to allow actions dropdown to display
 // there are important to override some inline styles injected by react-virtualized... sorry !
 // sass-lint:disable no-important
-
 :global(.ReactVirtualized__Grid__innerScrollContainer):hover,
 :global(.ReactVirtualized__Table__row):hover,
 :global(.tc-list-title-cell),

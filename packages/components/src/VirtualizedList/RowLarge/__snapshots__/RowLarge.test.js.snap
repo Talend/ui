@@ -50,26 +50,30 @@ exports[`RowLarge should render large row 1`] = `
             }
           }
         />
-        <Actions
-          actions={
-            Array [
-              Object {
-                "icon": "talend-pencil",
-                "label": "edit",
-                "onClick": [Function],
-              },
-              Object {
-                "icon": "talend-trash",
-                "label": "delete",
-                "onClick": [Function],
-              },
-            ]
-          }
-          hideLabel={true}
-          link={true}
-          renderers={
+        <div
+          className={undefined}
+        />
+        <VirtualizedList(CellTitleActions)
+          actionsKey="titleActions"
+          displayMode="text"
+          persistentActionsKey={undefined}
+          rowData={
             Object {
-              "Action": [Function],
+              "description": "This comes from second element in collection",
+              "id": 1,
+              "name": "Title from second item",
+              "titleActions": Array [
+                Object {
+                  "icon": "talend-pencil",
+                  "label": "edit",
+                  "onClick": [Function],
+                },
+                Object {
+                  "icon": "talend-trash",
+                  "label": "delete",
+                  "onClick": [Function],
+                },
+              ],
             }
           }
         />

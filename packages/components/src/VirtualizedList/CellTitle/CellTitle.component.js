@@ -45,7 +45,7 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
 			/>
-
+			<div className={theme.spacer} />
 			<CellTitleActions
 				rowData={rowData}
 				actionsKey={actionsKey}
