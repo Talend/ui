@@ -43,7 +43,7 @@ const deps = [
 	},
 	{
 		src: 'forms/lib',
-		dest: 'containers/node_modules/react-talend-forms/lib',
+		dest: 'containers/node_modules/@talend/react-forms/lib',
 	},
 	{
 		src: 'theme/src',
