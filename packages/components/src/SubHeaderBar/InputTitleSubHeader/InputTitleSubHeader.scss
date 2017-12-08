@@ -78,7 +78,7 @@ $tc-subheader-size-small: 1rem !default;
 		align-items: center;
 		padding-left: $padding-large;
 
-		.tc-subheader-details-form-input {
+		&-input {
 			width: 18rem;
 			@include input-text(400);
 

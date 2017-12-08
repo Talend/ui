@@ -1,104 +1,104 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DetailsTitle should render 1`] = `
-<span
+<div
   className="tc-subheader-details-text"
 >
-  <span
-    className="subheader-details-icon-container"
+  <div
+    className="tc-subheader-details-text-title"
   >
     <h1
-      className="subheader-details-title"
+      className="tc-subheader-details-text-title-wording"
     >
       myTitle
     </h1>
     <Action
       bsStyle="link"
-      className="subheader-details-pencil"
+      className="tc-subheader-details-text-title-pencil"
       hideLabel={true}
       icon="talend-pencil"
       label="Modify"
       name="action-edit-title"
       onClick={[Function]}
     />
-  </span>
+  </div>
   <small
-    className="subheader-details-subtitle"
+    className="tc-subheader-details-text-subtitle"
   >
     mySubTitle
   </small>
-</span>
+</div>
 `;
 
 exports[`DetailsTitle should render an Action 1`] = `
-<span
+<div
   className="tc-subheader-details-text"
 >
-  <span
-    className="subheader-details-icon-container"
+  <div
+    className="tc-subheader-details-text-title"
   >
     <h1
-      className="subheader-details-title"
+      className="tc-subheader-details-text-title-wording"
     >
       myTitle
     </h1>
     <Action
       bsStyle="link"
-      className="subheader-details-pencil"
+      className="tc-subheader-details-text-title-pencil"
       hideLabel={true}
       icon="talend-pencil"
       label="Modify"
       name="action-edit-title"
       onClick={[Function]}
     />
-  </span>
-</span>
+  </div>
+</div>
 `;
 
 exports[`DetailsTitle should render with subTitle 1`] = `
-<span
+<div
   className="tc-subheader-details-text"
 >
-  <span
-    className="subheader-details-icon-container"
+  <div
+    className="tc-subheader-details-text-title"
   >
     <h1
-      className="subheader-details-title"
+      className="tc-subheader-details-text-title-wording"
     >
       myTitle
     </h1>
-  </span>
+  </div>
   <small
-    className="subheader-details-subtitle"
+    className="tc-subheader-details-text-subtitle"
   >
     mySubTitle
   </small>
-</span>
+</div>
 `;
 
 exports[`DetailsTitle should render with title 1`] = `
-<span
+<div
   className="tc-subheader-details-text"
 >
-  <span
-    className="subheader-details-icon-container"
+  <div
+    className="tc-subheader-details-text-title"
   >
     <h1
-      className="subheader-details-title"
+      className="tc-subheader-details-text-title-wording"
     >
       myTitle
     </h1>
-  </span>
-</span>
+  </div>
+</div>
 `;
 
 exports[`EditTitle should render 1`] = `
 <form
-  className="tc-subheader-form"
+  className="tc-subheader-details-form"
 >
   <input
     autoFocus={true}
-    className="subheader-input form-control"
+    className="tc-subheader-details-form-input form-control"
     id="inputTitle"
     onChange={[Function]}
     onFocus={[Function]}
@@ -106,11 +106,11 @@ exports[`EditTitle should render 1`] = `
     value="value"
   />
   <div
-    className="subheader-form-icon-container"
+    className="tc-subheader-details-form-buttons"
   >
     <Action
       bsStyle="link"
-      className="subheader-form-icon"
+      className="tc-subheader-details-form-buttons-icon"
       hideLabel={true}
       icon="talend-check"
       label="Submit"
@@ -119,7 +119,7 @@ exports[`EditTitle should render 1`] = `
     />
     <Action
       bsStyle="link"
-      className="subheader-form-icon"
+      className="tc-subheader-details-form-buttons-icon"
       hideLabel={true}
       icon="talend-cross"
       label="Cancel"
@@ -135,7 +135,7 @@ exports[`InputTitleSubHeader should render 1`] = `
   className="tc-subheader-details"
 >
   <Icon
-    className="tc-subheader-title-icon"
+    className="tc-subheader-details-icon"
     name="myIconFile"
   />
   <DetailsTitle

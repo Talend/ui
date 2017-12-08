@@ -2,10 +2,10 @@
 
 exports[`SubHeaderBar should render SubHeaderBarActions (default + center) 1`] = `
 <header
-  className="tc-subheader-container"
+  className="tc-subheader"
 >
   <ActionBar
-    className="subheader-navbar"
+    className="tc-subheader-navbar"
   >
     <SubHeaderBarActions
       center={false}
@@ -15,7 +15,7 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + center) 1`] =
           Object {
             "injectedComponent": <Action
               bsStyle="link"
-              className="subheader-back-button"
+              className="tc-subheader-back-button"
               hideLabel={true}
               icon="talend-arrow-left"
               id="backArrow"
@@ -60,10 +60,10 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + center) 1`] =
 
 exports[`SubHeaderBar should render SubHeaderBarActions (default + custom) 1`] = `
 <header
-  className="tc-subheader-container"
+  className="tc-subheader"
 >
   <ActionBar
-    className="subheader-navbar"
+    className="tc-subheader-navbar"
   >
     <SubHeaderBarActions
       center={false}
@@ -73,7 +73,7 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + custom) 1`] =
           Object {
             "injectedComponent": <Action
               bsStyle="link"
-              className="subheader-back-button"
+              className="tc-subheader-back-button"
               hideLabel={true}
               icon="talend-arrow-left"
               id="backArrow"
@@ -95,7 +95,7 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + custom) 1`] =
     />
     <SubHeaderBarActions
       center={true}
-      className=" subheader-center undefined no-margin-right"
+      className=" subheader-center undefined tc-subheader-navbar-center-no-margin-right"
       components={
         Array [
           Object {
@@ -114,7 +114,7 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + custom) 1`] =
     />
     <SubHeaderBarActions
       center={false}
-      className="subheader-right"
+      className="tc-subheader-navbar-right"
       components={
         Array [
           Object {
@@ -146,10 +146,10 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + custom) 1`] =
 
 exports[`SubHeaderBar should render SubHeaderBarActions (default + right) 1`] = `
 <header
-  className="tc-subheader-container"
+  className="tc-subheader"
 >
   <ActionBar
-    className="subheader-navbar"
+    className="tc-subheader-navbar"
   >
     <SubHeaderBarActions
       center={false}
@@ -159,7 +159,7 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + right) 1`] = 
           Object {
             "injectedComponent": <Action
               bsStyle="link"
-              className="subheader-back-button"
+              className="tc-subheader-back-button"
               hideLabel={true}
               icon="talend-arrow-left"
               id="backArrow"
@@ -181,7 +181,7 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + right) 1`] = 
     />
     <SubHeaderBarActions
       center={false}
-      className="subheader-right"
+      className="tc-subheader-navbar-right"
       components={
         Array [
           Object {
@@ -213,10 +213,10 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default + right) 1`] = 
 
 exports[`SubHeaderBar should render SubHeaderBarActions (default) 1`] = `
 <header
-  className="tc-subheader-container"
+  className="tc-subheader"
 >
   <ActionBar
-    className="subheader-navbar"
+    className="tc-subheader-navbar"
   >
     <SubHeaderBarActions
       center={false}
@@ -226,7 +226,7 @@ exports[`SubHeaderBar should render SubHeaderBarActions (default) 1`] = `
           Object {
             "injectedComponent": <Action
               bsStyle="link"
-              className="subheader-back-button"
+              className="tc-subheader-back-button"
               hideLabel={true}
               icon="talend-arrow-left"
               id="backArrow"
@@ -3893,10 +3893,10 @@ exports[`SubHeaderBarActions should render with right props 1`] = `
 
 exports[`dfdfdffd 1`] = `
 <header
-  className="tc-subheader-container"
+  className="tc-subheader"
 >
   <ActionBar
-    className="subheader-navbar"
+    className="tc-subheader-navbar"
   >
     <SubHeaderBarActions
       center={false}
@@ -3906,7 +3906,7 @@ exports[`dfdfdffd 1`] = `
           Object {
             "injectedComponent": <Action
               bsStyle="link"
-              className="subheader-back-button"
+              className="tc-subheader-back-button"
               hideLabel={true}
               icon="talend-arrow-left"
               id="backArrow"
@@ -3932,10 +3932,10 @@ exports[`dfdfdffd 1`] = `
 
 exports[`dfdfdffd 2`] = `
 <header
-  className="tc-subheader-container"
+  className="tc-subheader"
 >
   <ActionBar
-    className="subheader-navbar"
+    className="tc-subheader-navbar"
   >
     <SubHeaderBarActions
       center={false}
@@ -3945,7 +3945,7 @@ exports[`dfdfdffd 2`] = `
           Object {
             "injectedComponent": <Action
               bsStyle="link"
-              className="subheader-back-button"
+              className="tc-subheader-back-button"
               hideLabel={true}
               icon="talend-arrow-left"
               id="backArrow"
