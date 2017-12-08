@@ -7,6 +7,7 @@ import { UIForm } from '@talend/react-forms/lib/UIForm';
 import ArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
 import { wrapCustomWidget } from '@talend/react-forms/lib/UIForm/merge';
 import classnames from 'classnames';
+
 export const DEFAULT_STATE = new Map({});
 
 /**
@@ -145,7 +146,6 @@ class Form extends React.Component {
 				widgets[key] = wrapCustomWidget(widgets[key]);
 			});
 		}
-		console.log('FormContainer', this.props);
 		if (this.props.uiform) {
 			return <UIForm {...props} onTrigger={this.onTrigger} />;
 		}

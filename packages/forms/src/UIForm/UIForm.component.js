@@ -122,13 +122,14 @@ export default class UIForm extends React.Component {
 	 * schema The field schema
 	 */
 	onTrigger(event, payload) {
-		const { formName, updateForm, onTrigger, setError } = this.props;
+		const { formName, updateForm, onTrigger, setError, properties } = this.props;
 		if (!onTrigger) {
 			return null;
 		}
 
 		const result = onTrigger(event, {
 			formName,
+			properties,
 			...payload,
 		});
 		if (result.then) {
