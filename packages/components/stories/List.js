@@ -9,6 +9,7 @@ import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
 
 const icons = {
+	'talend-apache': talendIcons['talend-apache'],
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
 	'talend-chevron-end': talendIcons['talend-chevron-end'],
@@ -86,6 +87,14 @@ const props = {
 		],
 		items: [
 			{
+				persistentActions: [
+					{
+						id: 'edit',
+						label: 'edit',
+						icon: 'talend-apache',
+						onClick: action('onEdit'),
+					},
+				],
 				id: 0,
 				name: 'Title with actions',
 				created: '2016-09-22',
@@ -97,6 +106,14 @@ const props = {
 				className: 'item-0-class',
 			},
 			{
+				persistentActions: [
+					{
+						id: 'edit',
+						label: 'edit',
+						icon: 'talend-apache',
+						onClick: action('onEdit'),
+					},
+				],
 				id: 1,
 				name: 'Title in input mode',
 				created: '2016-09-22',
@@ -107,6 +124,14 @@ const props = {
 				className: 'item-1-class',
 			},
 			{
+				persistentActions: [
+					{
+						id: 'edit',
+						label: 'edit',
+						icon: 'talend-apache',
+						onClick: action('onEdit'),
+					},
+				],
 				id: 2,
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
@@ -116,6 +141,14 @@ const props = {
 				className: 'item-2-class',
 			},
 			{
+				persistentActions: [
+					{
+						id: 'edit',
+						label: 'edit',
+						icon: 'talend-apache',
+						onClick: action('onEdit'),
+					},
+				],
 				id: 3,
 				name: 'Title with long long long long long long long long long long long text',
 				created: '2016-09-22',

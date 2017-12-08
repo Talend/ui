@@ -1,0 +1,55 @@
+@import '../colors';
+$tc-list-title-actions-color: $brand-primary-dark !default;
+
+.main-title-actions-group {
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	:global(.tc-actions) {
+		&:not(.persistent-actions) {
+			opacity: 0;
+			visibility: hidden;
+			background: linear-gradient(to right, transparent, $tc-list-row-hover-bg $padding-large);
+		}
+
+		flex-shrink: 0;
+		flex-grow: 0;
+		z-index: 1;
+
+		:global(.btn-link) {
+			color: $tc-list-title-actions-color;
+		}
+	}
+}
+
+
+
+
+// manage actions display on row hover
+:global(.tc-list-large-row):hover :global(.tc-list-title .tc-actions),
+:global(.ReactVirtualized__Table__row):hover :global(.tc-list-title .tc-actions) {
+	opacity: 1;
+	transition: opacity 0.15s ease-in;
+	visibility: visible;
+}
+
+:global(.tc-list-large-row.active):hover :global(.tc-list-title .tc-actions),
+:global(.ReactVirtualized__Table__row.active):hover :global(.tc-list-title .tc-actions) {
+	background: linear-gradient(to right, transparent, $tc-list-row-active-hover-bg $padding-large);
+}
+
+:global(.tc-list-large-row.selected):hover :global(.tc-list-title .tc-actions),
+:global(.ReactVirtualized__Table__row.selected):hover :global(.tc-list-title .tc-actions) {
+	background: linear-gradient(to right, transparent, $tc-list-row-selected-hover-bg $padding-large);
+}
+
+// START : hack to allow actions dropdown to display
+// there are important to override some inline styles injected by react-virtualized... sorry !
+// sass-lint:disable no-important
+:global(.ReactVirtualized__Grid__innerScrollContainer):hover,
+:global(.ReactVirtualized__Table__row):hover,
+:global(.tc-list-title-cell),
+:global(.tc-list-title-cell) :global(.tc-actions.btn-group) {
+	overflow: visible !important;
+}
