@@ -56,9 +56,7 @@ function SubHeaderBar({ t, onGoBack, componentsCenter, componentsRight, classNam
 		},
 	];
 	return (
-		<header
-			className={classNames(theme['tc-subheader'], 'tc-subheader', className)}
-		>
+		<header className={classNames(theme['tc-subheader'], 'tc-subheader', className)}>
 			<ActionBar className={classNames(theme['tc-subheader-navbar'], 'tc-subheader-navbar')}>
 				<SubHeaderBarActions
 					components={defaultComponentsLeft}

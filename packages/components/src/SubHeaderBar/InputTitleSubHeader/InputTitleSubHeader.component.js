@@ -17,7 +17,10 @@ function DetailsTitle({ title, subTitle, onEdit, t }) {
 				)}
 			>
 				<h1
-					className={classNames(theme['tc-subheader-details-text-title-wording'], 'tc-subheader-details-text-title-wording')}
+					className={classNames(
+						theme['tc-subheader-details-text-title-wording'],
+						'tc-subheader-details-text-title-wording',
+					)}
 				>
 					{title}
 				</h1>

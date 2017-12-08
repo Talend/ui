@@ -20,24 +20,22 @@ $tc-subheader-bar-height: 7rem !default;
 		&-right {
 			display: flex;
 		}
-		
+
 		&-right {
 			margin-left: auto;
 			justify-content: flex-end;
 		}
-		
+
 		&-center {
 			margin-left: auto;
 			margin-right: auto;
 			padding-left: $padding-smaller;
 			padding-right: $padding-smaller;
-		
+
 			&-no-margin-right {
 				margin-right: 0;
 			}
 		}
-
-
 	}
 
 	&-back-button {
