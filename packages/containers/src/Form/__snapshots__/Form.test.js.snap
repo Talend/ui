@@ -19,7 +19,6 @@ Object {
   "fields": undefined,
   "onChange": [Function],
   "onSubmit": [Function],
-  "onTrigger": [Function],
   "other": true,
 }
 `;
@@ -44,7 +43,6 @@ exports[`Container(Form) should render a Form 1`] = `
   fields={undefined}
   onChange={[Function]}
   onSubmit={[Function]}
-  onTrigger={[Function]}
   other={true}
 />
 `;

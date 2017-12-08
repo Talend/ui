@@ -7,6 +7,7 @@ import { UIForm } from '@talend/react-forms/lib/UIForm';
 import ArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
 import { wrapCustomWidget } from '@talend/react-forms/lib/UIForm/merge';
 import classnames from 'classnames';
+
 export const DEFAULT_STATE = new Map({});
 
 /**

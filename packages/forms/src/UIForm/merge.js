@@ -21,7 +21,9 @@ function getUISchemaFromObject(schema, key) {
 		ui.widget = 'fieldset';
 		ui.items = parseProperties(schema.properties, false, key);
 	} else if (schema.type === 'string') {
-		ui.widget = 'text';
+		if (!schema.enum) {
+			ui.widget = 'text';
+		}
 		if (schema.format) {
 			ui.type = schema.format;
 			if (schema.format === 'uri') {
@@ -69,50 +71,45 @@ function updateWidgets(items, uiSchema, widgets, prefix) {
 		const uiSchemaKey = ui.key.replace(prefix, '');
 		if (ui.key && uiSchema[uiSchemaKey]) {
 			const config = uiSchema[uiSchemaKey];
-			const uiWidget = config['ui:widget'];
-			if (uiWidget) {
-				if (typeof uiWidget !== 'string') {
-					widgets[uiWidget.name || ui.key] = wrapCustomWidget(uiWidget);
-					ui.widget = uiWidget.name || ui.key;
-				} else {
-					ui.widget = uiWidget;
-					if (uiWidget === 'updown') {
-						ui.widget = 'text';
-						ui.type = 'number';
-					} else if (uiWidget === 'password') {
-						ui.widget = 'text';
-						ui.type = 'password';
-					} else if (uiWidget === 'url') {
-						ui.widget = 'text';
-						ui.type = 'url';
-					} else if (uiWidget === 'color') {
-						ui.widget = 'text';
-						ui.type = 'color';
-					} else if (uiWidget === 'radio') {
-						ui.widget = 'radios';
-					} else if (uiWidget === 'enumeration') {
-						delete ui.items;
-					}
+			Object.keys(config || {}).forEach(configKey => {
+				if (!configKey.startsWith('ui:')) {
+					return;
 				}
-			}
-			if (config['ui:autofocus']) {
-				ui.autoFocus = config['ui:autofocus'];
-			}
-			if (config['ui:help']) {
-				ui.helpvalue = config['ui:help'];
-			}
-			if (config['ui:disabled']) {
-				ui.disabled = true;
-			}
-			if (config['ui:readonly']) {
-				ui.readonly = true;
-			}
-			if (config['ui:options']) {
-				ui.options = config['ui:options'];
-			}
-			if (config['ui:trigger']) {
-				ui.triggers = config['ui:trigger'];
-			}
+				if (configKey === 'ui:widget') {
+					const uiWidget = config[configKey];
+					if (typeof uiWidget !== 'string') {
+						widgets[uiWidget.name || ui.key] = wrapCustomWidget(uiWidget);
+						ui.widget = uiWidget.name || ui.key;
+					} else {
+						ui.widget = uiWidget;
+						if (uiWidget === 'updown') {
+							ui.widget = 'text';
+							ui.type = 'number';
+						} else if (uiWidget === 'password') {
+							ui.widget = 'text';
+							ui.type = 'password';
+						} else if (uiWidget === 'url') {
+							ui.widget = 'text';
+							ui.type = 'url';
+						} else if (uiWidget === 'color') {
+							ui.widget = 'text';
+							ui.type = 'color';
+						} else if (uiWidget === 'radio') {
+							ui.widget = 'radios';
+						} else if (uiWidget === 'enumeration') {
+							delete ui.items;
+						}
+					}
+				} else if (configKey === 'ui:autofocus') {
+					ui.autoFocus = config['ui:autofocus'];
+				} else if (configKey === 'ui:help') {
+					ui.helpvalue = config['ui:help'];
+				} else if (config['ui:trigger']) {
+					ui.triggers = config['ui:trigger'];
+				} else {
+					ui[configKey.replace('ui:', '')] = config[configKey];
+				}
+			});
 			if (ui.items && config && ui.widget !== 'enumeration') {
 				ui.items = updateWidgets(ui.items, config, widgets, `${ui.key}.`);
 			}

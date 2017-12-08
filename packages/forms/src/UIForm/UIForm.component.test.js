@@ -20,7 +20,7 @@ describe('UIForm component', () => {
 		const wrapper = shallow(<UIForm {...data} {...props} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	it('should render provided actions', () => {
@@ -28,7 +28,7 @@ describe('UIForm component', () => {
 		const wrapper = shallow(<UIForm {...data} {...props} actions={actions} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
 	describe('#onChange', () => {
@@ -70,6 +70,7 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
+				formData: { firstname: 'toto' },
 				formName: props.formName,
 				trigger: 'after',
 				schema: mergedSchema[1],

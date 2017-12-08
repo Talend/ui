@@ -28,6 +28,11 @@
         "type": "string",
         "title": "Password",
         "minLength": 3
+      },
+      "enum": {
+        "type": "string",
+        "title": "Enum",
+        "enum": ["1", "two", "three"]
       }
     }
   },
