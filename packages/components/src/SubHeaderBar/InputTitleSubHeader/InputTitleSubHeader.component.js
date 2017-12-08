@@ -9,7 +9,7 @@ import Icon from '../../Icon';
 function DetailsTitle({ title, subTitle, onEdit, t }) {
 	const modifyLabel = t('MODIFY_TOOLTIP', { defaultValue: 'Modify' });
 	return (
-		<span className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
+		<div className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
 			<span
 				className={classNames(
 					theme['subheader-details-icon-container'],
@@ -38,7 +38,7 @@ function DetailsTitle({ title, subTitle, onEdit, t }) {
 					{subTitle}
 				</small>
 			)}
-		</span>
+		</div>
 	);
 }
 
