@@ -56,6 +56,16 @@ storiesOf('Action', module)
 				{...mouseDownAction}
 				hideLabel
 			/>
+			<p>Action with popover</p>
+			<Action
+				id="hidelabel"
+				inProgress="true"
+				overlayComponent={OverlayComponent}
+				overlayPlacement="top"
+				tooltipPlacement="left"
+				{...mouseDownAction}
+				hideLabel
+			/>
 		</div>
 	))
 	.addWithPropsCombinations('combinations', Action, {
