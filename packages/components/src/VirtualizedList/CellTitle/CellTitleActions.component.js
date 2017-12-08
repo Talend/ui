@@ -5,21 +5,13 @@ import { cellTitleDisplayModes } from '../utils/constants';
 
 import theme from './CellTitleActions.scss';
 
-
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
-
 
 function CellTitleActions({ rowData, actionsKey, displayMode, persistentActionsKey }) {
 	const elems = [];
 
 	if (actionsKey && rowData[actionsKey] && displayMode === TITLE_MODE_TEXT) {
-		elems.push(
-			<Actions
-				actions={rowData[actionsKey]}
-				hideLabel
-				link
-			/>
-		);
+		elems.push(<Actions actions={rowData[actionsKey]} hideLabel link />);
 	}
 	if (persistentActionsKey && rowData[persistentActionsKey] && displayMode === TITLE_MODE_TEXT) {
 		elems.push(
@@ -28,13 +20,12 @@ function CellTitleActions({ rowData, actionsKey, displayMode, persistentActionsK
 				actions={rowData[persistentActionsKey]}
 				hideLabel
 				link
-			/>
+			/>,
 		);
 	}
 
-	return <div className={theme['main-title-actions-group']}>{ elems }</div>;
+	return <div className={theme['main-title-actions-group']}>{elems}</div>;
 }
-
 
 CellTitleActions.displayName = 'VirtualizedList(CellTitleActions)';
 CellTitleActions.propTypes = {
@@ -47,6 +38,5 @@ CellTitleActions.propTypes = {
 	// The collection item.
 	rowData: PropTypes.object, // eslint-disable-line
 };
-
 
 export default CellTitleActions;

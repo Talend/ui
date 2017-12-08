@@ -48,9 +48,6 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	}
 }
 
-
-
-
 // manage actions display on row hover
 :global(.tc-list-large-row):hover :global(.tc-list-title .tc-actions),
 :global(.ReactVirtualized__Table__row):hover :global(.tc-list-title .tc-actions) {
