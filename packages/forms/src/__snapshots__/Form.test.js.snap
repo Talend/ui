@@ -34,6 +34,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
           label="Name"
           onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
           placeholder=""
           readOnly={false}
           required={false}
@@ -61,7 +62,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
           multiple={undefined}
           onBlur={[Function]}
           onChange={[Function]}
-          readOnly={false}
+          onFocus={[Function]}
           required={false}
           value=""
         >
@@ -71,11 +72,13 @@ exports[`<Form/> actions should render form with custom css 1`] = `
             
           </option>
           <option
+            disabled={undefined}
             value="dev"
           >
             dev
           </option>
           <option
+            disabled={undefined}
             value="pm"
           >
             pm
@@ -186,7 +189,6 @@ Object {
     "title": "TestForm",
     "type": "object",
   },
-  "status": "initial",
   "uiSchema": Object {
     "admin": Object {
       "ui:trigger": Array [

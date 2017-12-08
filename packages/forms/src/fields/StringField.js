@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
+	getDefaultFormState,
 	getWidget,
 	getUiOptions,
 	isSelect,
@@ -20,18 +21,16 @@ function StringField(props) {
 		disabled,
 		readonly,
 		autofocus,
+		registry,
 		onChange,
 		onBlur,
 		onFocus,
-		registry = getDefaultRegistry(),
 	} = props;
 	const { title, format } = schema;
 	const { widgets, formContext } = registry;
 	const enumOptions = isSelect(schema) ? optionsList(schema) : undefined;
 	const defaultWidget = format || (enumOptions ? 'select' : 'text');
-	const { widget = defaultWidget, placeholder = '', ...options } = getUiOptions(
-		uiSchema
-	);
+	const { widget = defaultWidget, placeholder = '', ...options } = getUiOptions(uiSchema);
 	const Widget = getWidget(schema, widget, widgets);
 
 	const onChangeHandler = value => {
@@ -44,7 +43,7 @@ function StringField(props) {
 			schema={schema}
 			id={idSchema && idSchema.$id}
 			label={title === undefined ? name : title}
-			value={formData}
+			value={getDefaultFormState(schema, formData)}
 			onChange={onChangeHandler}
 			onBlur={onBlur}
 			onFocus={onFocus}
@@ -86,6 +85,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 StringField.defaultProps = {
 	uiSchema: {},
+	registry: getDefaultRegistry(),
 	disabled: false,
 	readonly: false,
 	autofocus: false,
