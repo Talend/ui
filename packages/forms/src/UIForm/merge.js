@@ -21,7 +21,9 @@ function getUISchemaFromObject(schema, key) {
 		ui.widget = 'fieldset';
 		ui.items = parseProperties(schema.properties, false, key);
 	} else if (schema.type === 'string') {
-		ui.widget = 'text';
+		if (!schema.enum) {
+			ui.widget = 'text';
+		}
 		if (schema.format) {
 			ui.type = schema.format;
 			if (schema.format === 'uri') {
@@ -105,7 +107,6 @@ function updateWidgets(items, uiSchema, widgets, prefix) {
 				} else if (config['ui:trigger']) {
 					ui.triggers = config['ui:trigger'];
 				} else {
-					console.log(`Migrate ${configKey} by default`);
 					ui[configKey.replace('ui:', '')] = config[configKey];
 				}
 			});
