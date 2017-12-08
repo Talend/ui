@@ -5,18 +5,42 @@
 
 $tc-subheader-bar-height: 7rem !default;
 
-.tc-subheader-container {
+.tc-subheader {
 	border-bottom: 0.1rem solid $gallery;
 	width: 100%;
 
-	.subheader-navbar {
+	&-navbar {
 		height: $tc-subheader-bar-height;
 		background-color: $wild-sand;
 		display: flex;
 		padding-left: 0;
+
+		&-left,
+		&-center,
+		&-right {
+			display: flex;
+		}
+		
+		&-right {
+			margin-left: auto;
+			justify-content: flex-end;
+		}
+		
+		&-center {
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: $padding-smaller;
+			padding-right: $padding-smaller;
+		
+			&-no-margin-right {
+				margin-right: 0;
+			}
+		}
+
+
 	}
 
-	.subheader-back-button {
+	&-back-button {
 		color: $gray;
 		background-color: $gallery;
 		width: $tc-subheader-bar-height;
@@ -39,27 +63,5 @@ $tc-subheader-bar-height: 7rem !default;
 			width: $padding-large;
 			height: $padding-large;
 		}
-	}
-}
-
-.subheader-left {
-	display: flex;
-}
-
-.subheader-right {
-	display: flex;
-	margin-left: auto;
-	justify-content: flex-end;
-}
-
-.subheader-center {
-	display: flex;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: $padding-smaller;
-	padding-right: $padding-smaller;
-
-	&.no-margin-right {
-		margin-right: 0;
 	}
 }

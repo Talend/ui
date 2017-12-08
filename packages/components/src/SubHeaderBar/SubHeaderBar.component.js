@@ -46,7 +46,7 @@ function SubHeaderBar({ t, onGoBack, componentsCenter, componentsRight, classNam
 					label={backArrowLabel}
 					icon="talend-arrow-left"
 					bsStyle="link"
-					className={classNames(theme['subheader-back-button'], 'subheader-back-button')}
+					className={classNames(theme['tc-subheader-back-button'], 'tc-subheader-back-button')}
 					hideLabel
 				/>
 			),
@@ -57,12 +57,12 @@ function SubHeaderBar({ t, onGoBack, componentsCenter, componentsRight, classNam
 	];
 	return (
 		<header
-			className={classNames(theme['tc-subheader-container'], 'tc-subheader-container', className)}
+			className={classNames(theme['tc-subheader'], 'tc-subheader', className)}
 		>
-			<ActionBar className={classNames(theme['subheader-navbar'], 'subheader-navbar')}>
+			<ActionBar className={classNames(theme['tc-subheader-navbar'], 'tc-subheader-navbar')}>
 				<SubHeaderBarActions
 					components={defaultComponentsLeft}
-					className={theme['subheader-left']}
+					className={theme['tc-subheader-navbar-left']}
 					left
 					center={false}
 					right={false}
@@ -70,9 +70,9 @@ function SubHeaderBar({ t, onGoBack, componentsCenter, componentsRight, classNam
 				{Array.isArray(componentsCenter) && (
 					<SubHeaderBarActions
 						components={componentsCenter}
-						className={classNames([theme['subheader-center']], 'subheader-center', {
-							[`${theme['no-margin-right']}`]: componentsRight,
-							'no-margin-right': componentsRight,
+						className={classNames([theme['tc-subheader-navbar-center']], 'subheader-center', {
+							[`${theme['tc-subheader-navbar-center-no-margin-right']}`]: componentsRight,
+							'tc-subheader-navbar-center-no-margin-right': componentsRight,
 						})}
 						left={false}
 						center
@@ -82,7 +82,7 @@ function SubHeaderBar({ t, onGoBack, componentsCenter, componentsRight, classNam
 				{Array.isArray(componentsRight) && (
 					<SubHeaderBarActions
 						components={componentsRight}
-						className={classNames(theme['subheader-right'], 'subheader-right')}
+						className={classNames(theme['tc-subheader-navbar-right'], 'tc-subheader-navbar-right')}
 						left={false}
 						center={false}
 						right

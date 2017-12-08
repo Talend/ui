@@ -10,13 +10,15 @@ function DetailsTitle({ title, subTitle, onEdit, t }) {
 	const modifyLabel = t('MODIFY_TOOLTIP', { defaultValue: 'Modify' });
 	return (
 		<div className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
-			<span
+			<div
 				className={classNames(
-					theme['subheader-details-icon-container'],
-					'subheader-details-icon-container',
+					theme['tc-subheader-details-text-title'],
+					'tc-subheader-details-text-title',
 				)}
 			>
-				<h1 className={classNames(theme['subheader-details-title'], 'subheader-details-title')}>
+				<h1
+					className={classNames(theme['tc-subheader-details-text-title-wording'], 'tc-subheader-details-text-title-wording')}
+				>
 					{title}
 				</h1>
 				{onEdit && (
@@ -26,14 +28,20 @@ function DetailsTitle({ title, subTitle, onEdit, t }) {
 						icon="talend-pencil"
 						onClick={onEdit}
 						bsStyle="link"
-						className={classNames(theme['subheader-details-pencil'], 'subheader-details-pencil')}
+						className={classNames(
+							theme['tc-subheader-details-text-title-pencil'],
+							'tc-subheader-details-text-title-pencil',
+						)}
 						hideLabel
 					/>
 				)}
-			</span>
+			</div>
 			{subTitle && (
 				<small
-					className={classNames(theme['subheader-details-subtitle'], 'subheader-details-subtitle')}
+					className={classNames(
+						theme['tc-subheader-details-text-subtitle'],
+						'tc-subheader-details-text-subtitle',
+					)}
 				>
 					{subTitle}
 				</small>
@@ -59,14 +67,16 @@ function onFocus(event) {
 }
 
 function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus, t }) {
-	const submitLabel = t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' });
-	const cancelLabel = t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' });
 	return (
-		<form className={classNames(theme['tc-subheader-form'], 'tc-subheader-form')}>
+		<form className={classNames(theme['tc-subheader-details-form'], 'tc-subheader-details-form')}>
 			<input
 				id="inputTitle"
 				type="text"
-				className={classNames(theme['subheader-input'], 'subheader-input', 'form-control')}
+				className={classNames(
+					theme['tc-subheader-details-form-input'],
+					'tc-subheader-details-form-input',
+					'form-control',
+				)}
 				onChange={onChange}
 				value={inputTextValue || title}
 				onFocus={onFocus}
@@ -74,26 +84,32 @@ function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus,
 			/>
 			<div
 				className={classNames(
-					theme['subheader-form-icon-container'],
-					'subheader-form-icon-container',
+					theme['tc-subheader-details-form-buttons'],
+					'tc-subheader-details-form-buttons',
 				)}
 			>
 				<Action
 					name="action-submit-title"
-					label={submitLabel}
+					label={t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}
 					icon="talend-check"
 					onClick={onSubmit}
 					bsStyle="link"
-					className={classNames(theme['subheader-form-icon'], 'subheader-form-icon')}
+					className={classNames(
+						theme['tc-subheader-details-form-buttons-icon'],
+						'tc-subheader-details-form-buttons-icon',
+					)}
 					hideLabel
 				/>
 				<Action
 					name="action-cancel-title"
-					label={cancelLabel}
+					label={t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' })}
 					icon="talend-cross"
 					onClick={onCancel}
 					bsStyle="link"
-					className={classNames(theme['subheader-form-icon'], 'subheader-form-icon')}
+					className={classNames(
+						theme['tc-subheader-details-form-buttons-icon'],
+						'tc-subheader-details-form-buttons-icon',
+					)}
 					hideLabel
 				/>
 			</div>
@@ -122,7 +138,7 @@ function InputTitleSubHeader({ title, iconFile, editMode, ...rest }) {
 			{iconFile && (
 				<Icon
 					name={iconFile}
-					className={classNames(theme['tc-subheader-title-icon'], 'tc-subheader-title-icon')}
+					className={classNames(theme['tc-subheader-details-icon'], 'tc-subheader-details-icon')}
 				/>
 			)}
 			{editMode ? <EditTitle title={title} {...rest} /> : <DetailsTitle title={title} {...rest} />}
@@ -137,7 +153,7 @@ InputTitleSubHeader.propTypes = {
 };
 
 InputTitleSubHeader.defaultProps = {
-	editMode: false,
+	editMode: true,
 };
 
 export { InputTitleSubHeader as default, EditTitle, DetailsTitle, onFocus };

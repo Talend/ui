@@ -25,7 +25,7 @@ $tc-subheader-size-small: 1rem !default;
 	height: 100%;
 	width: 45rem;
 
-	.tc-subheader-title-icon {
+	&-icon {
 		align-self: center;
 		width: $tc-subheader-size-large;
 		height: $tc-subheader-size-large;
@@ -33,7 +33,7 @@ $tc-subheader-size-small: 1rem !default;
 		margin-left: $padding-large;
 	}
 
-	.tc-subheader-details-text {
+	& &-text {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -41,18 +41,18 @@ $tc-subheader-size-small: 1rem !default;
 		overflow: hidden;
 		flex: 1;
 
-		.subheader-details-icon-container {
+		&-title {
 			display: inline-flex;
 			align-items: center;
 
-			.subheader-details-title {
+			&-wording {
 				@include input-text(800);
 				@include ellipsis;
 				text-transform: uppercase;
 				margin: 0;
 			}
 
-			.subheader-details-pencil {
+			&-pencil {
 				display: inline-flex;
 				align-items: center;
 				padding-left: $padding-small;
@@ -66,19 +66,19 @@ $tc-subheader-size-small: 1rem !default;
 				}
 			}
 		}
-		.subheader-details-subtitle {
+		&-subtitle {
 			@include ellipsis;
 			color: $dark-silver;
 			font-size: $tc-subheader-size-medium;
 			font-weight: 300;
 		}
 	}
-	.tc-subheader-form {
+	& &-form {
 		display: flex;
 		align-items: center;
 		padding-left: $padding-large;
 
-		.subheader-input {
+		.tc-subheader-details-form-input {
 			width: 18rem;
 			@include input-text(400);
 
@@ -87,10 +87,10 @@ $tc-subheader-size-small: 1rem !default;
 			}
 		}
 
-		.subheader-form-icon-container {
+		&-buttons {
 			display: flex;
 
-			.subheader-form-icon {
+			&-icon {
 				@include form-icon-color($gray);
 				width: $tc-subheader-size-large;
 				height: $tc-subheader-size-large;
