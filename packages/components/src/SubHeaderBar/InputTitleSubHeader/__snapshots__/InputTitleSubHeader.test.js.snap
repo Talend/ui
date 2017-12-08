@@ -5,27 +5,28 @@ exports[`DetailsTitle should render 1`] = `
   className="tc-subheader-details-text"
 >
   <span
-    className={undefined}
+    className="subheader-details-icon-container"
   >
-    <span
-      className={undefined}
+    <h1
+      className="subheader-details-title"
     >
       myTitle
-    </span>
+    </h1>
     <Action
       bsStyle="link"
-      className={undefined}
+      className="subheader-details-pencil"
+      hideLabel={true}
       icon="talend-pencil"
       label="Modify"
       name="action-edit-title"
       onClick={[Function]}
     />
   </span>
-  <div
-    className={undefined}
+  <small
+    className="subheader-details-subtitle"
   >
     mySubTitle
-  </div>
+  </small>
 </span>
 `;
 
@@ -34,16 +35,17 @@ exports[`DetailsTitle should render an Action 1`] = `
   className="tc-subheader-details-text"
 >
   <span
-    className={undefined}
+    className="subheader-details-icon-container"
   >
-    <span
-      className={undefined}
+    <h1
+      className="subheader-details-title"
     >
       myTitle
-    </span>
+    </h1>
     <Action
       bsStyle="link"
-      className={undefined}
+      className="subheader-details-pencil"
+      hideLabel={true}
       icon="talend-pencil"
       label="Modify"
       name="action-edit-title"
@@ -58,19 +60,19 @@ exports[`DetailsTitle should render with subTitle 1`] = `
   className="tc-subheader-details-text"
 >
   <span
-    className={undefined}
+    className="subheader-details-icon-container"
   >
-    <span
-      className={undefined}
+    <h1
+      className="subheader-details-title"
     >
       myTitle
-    </span>
+    </h1>
   </span>
-  <div
-    className={undefined}
+  <small
+    className="subheader-details-subtitle"
   >
     mySubTitle
-  </div>
+  </small>
 </span>
 `;
 
@@ -79,13 +81,13 @@ exports[`DetailsTitle should render with title 1`] = `
   className="tc-subheader-details-text"
 >
   <span
-    className={undefined}
+    className="subheader-details-icon-container"
   >
-    <span
-      className={undefined}
+    <h1
+      className="subheader-details-title"
     >
       myTitle
-    </span>
+    </h1>
   </span>
 </span>
 `;
@@ -96,7 +98,7 @@ exports[`EditTitle should render 1`] = `
 >
   <input
     autoFocus={true}
-    className="form-control"
+    className="subheader-input form-control"
     id="inputTitle"
     onChange={[Function]}
     onFocus={[Function]}
@@ -104,23 +106,23 @@ exports[`EditTitle should render 1`] = `
     value="value"
   />
   <div
-    className={undefined}
+    className="subheader-form-icon-container"
   >
     <Action
       bsStyle="link"
-      className={undefined}
+      className="subheader-form-icon"
       hideLabel={true}
       icon="talend-check"
-      label="submit"
+      label="Submit"
       name="action-submit-title"
       onClick={[Function]}
     />
     <Action
       bsStyle="link"
-      className={undefined}
+      className="subheader-form-icon"
       hideLabel={true}
       icon="talend-cross"
-      label="cancel"
+      label="Cancel"
       name="action-cancel-title"
       onClick={[Function]}
     />
@@ -130,13 +132,14 @@ exports[`EditTitle should render 1`] = `
 
 exports[`InputTitleSubHeader should render 1`] = `
 <div
-  className={undefined}
+  className="tc-subheader-details"
 >
   <Icon
     className="tc-subheader-title-icon"
     name="myIconFile"
   />
   <DetailsTitle
+    t={[Function]}
     title="myTitle"
   />
 </div>

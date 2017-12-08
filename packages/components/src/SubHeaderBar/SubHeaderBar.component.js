@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N } from '../translate';
+import { DEFAULT_I18N, getDefaultTranslate } from '../translate';
 import { Action } from '../Actions';
 import ActionBar from '../ActionBar';
 import InputTitleSubHeader from './InputTitleSubHeader';
@@ -56,7 +56,9 @@ function SubHeaderBar({ t, onGoBack, componentsCenter, componentsRight, classNam
 		},
 	];
 	return (
-		<header className={classNames(theme['tc-subheader-container'], 'tc-subheader-container', className)}>
+		<header
+			className={classNames(theme['tc-subheader-container'], 'tc-subheader-container', className)}
+		>
 			<ActionBar className={classNames(theme['subheader-navbar'], 'subheader-navbar')}>
 				<SubHeaderBarActions
 					components={defaultComponentsLeft}
@@ -99,5 +101,9 @@ SubHeaderBar.propTypes = {
 	t: PropTypes.func,
 };
 
+SubHeaderBar.defaultProps = {
+	t: getDefaultTranslate,
+};
+
 export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(SubHeaderBar);
-export { SubHeaderBarActions };
+export { SubHeaderBar, SubHeaderBarActions };

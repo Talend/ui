@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Action } from '../../Actions';
 import theme from './InputTitleSubHeader.scss';
+import { getDefaultTranslate } from '../../translate';
 import Icon from '../../Icon';
 
 function DetailsTitle({ title, subTitle, onEdit, t }) {
@@ -46,6 +47,10 @@ DetailsTitle.propTypes = {
 	subTitle: PropTypes.string,
 	onEdit: PropTypes.func,
 	t: PropTypes.func,
+};
+
+DetailsTitle.defaultProps = {
+	t: getDefaultTranslate,
 };
 
 function onFocus(event) {
@@ -108,6 +113,7 @@ EditTitle.propTypes = {
 
 EditTitle.defaultProps = {
 	focus: true,
+	t: getDefaultTranslate,
 };
 
 function InputTitleSubHeader({ title, iconFile, editMode, ...rest }) {

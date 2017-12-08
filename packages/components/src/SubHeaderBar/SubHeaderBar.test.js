@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Icon, Action } from '../index';
-import SubHeaderBar, { SubHeaderBarActions } from './SubHeaderBar.component';
+import Container, { SubHeaderBar, SubHeaderBarActions } from './SubHeaderBar.component';
 
 let components = [];
 describe('SubHeaderBarActions', () => {
@@ -33,6 +33,17 @@ describe('SubHeaderBarActions', () => {
 				injectedComponent: <Icon name="talend-bell" />,
 			},
 		];
+	});
+	it('should render with i18n', () => {
+		const props = {
+			left: false,
+			center: true,
+			right: false,
+			className: 'myClassName',
+			components,
+		};
+		const wrapper = shallow(<Container {...props} />);
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render with center props', () => {
 		const props = {
@@ -145,8 +156,9 @@ describe('SubHeaderBar', () => {
 			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
+		expect(wrapper.getNode()).toMatchSnapshot('dfdfdffd');
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot('dfdfdffd');
 	});
 	it('should render SubHeaderBarActions (default)', () => {
 		const props = {
