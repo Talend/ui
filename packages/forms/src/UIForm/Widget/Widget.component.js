@@ -9,6 +9,11 @@ export default function Widget(props) {
 	const { errors, formName, properties, schema } = props;
 	const { key, type, validationMessage, widget, options } = schema;
 	const widgetId = widget || type;
+
+	if (widgetId === 'hidden') {
+		return null;
+	}
+
 	const WidgetImpl = props.widgets[widgetId] || defaultWidgets[widgetId];
 
 	if (!WidgetImpl) {
