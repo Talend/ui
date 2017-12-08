@@ -42,6 +42,7 @@ class Form extends React.Component {
 		this.onChange = this.onChange.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.onUIFormSubmit = this.onUIFormSubmit.bind(this);
 		this.jsonSchema = this.jsonSchema.bind(this);
 		this.uiSchema = this.uiSchema.bind(this);
 		this.data = this.data.bind(this);
@@ -84,6 +85,10 @@ class Form extends React.Component {
 				formData,
 			});
 		}
+	}
+
+	onUIFormSubmit(event, formData) {
+		this.onSubmit(formData);
 	}
 
 	formActions() {
@@ -145,9 +150,8 @@ class Form extends React.Component {
 				widgets[key] = wrapCustomWidget(widgets[key]);
 			});
 		}
-		console.log('FormContainer', this.props);
 		if (this.props.uiform) {
-			return <UIForm {...props} onTrigger={this.onTrigger} />;
+			return <UIForm {...props} onSubmit={this.onUIFormSubmit} onTrigger={this.onTrigger} />;
 		}
 		return <ComponentForm {...props} />;
 	}

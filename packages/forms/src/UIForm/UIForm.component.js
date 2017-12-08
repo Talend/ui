@@ -229,6 +229,7 @@ export default class UIForm extends React.Component {
 				<Buttons
 					id={`${this.props.id}-${this.props.formName}-actions`}
 					onTrigger={this.onTrigger}
+					className={this.props.buttonBlockClass}
 					schema={{ items: actions }}
 				/>
 			</form>
@@ -291,4 +292,5 @@ if (process.env.NODE_ENV !== 'production') {
 
 UIForm.defaultProps = {
 	noHtml5Validate: true,
+	buttonBlockClass: 'form-actions',
 };

@@ -104,9 +104,11 @@ export default class UIForm extends React.Component {
 
 				onReset={this.props.onReset}
 				onChange={this.onChange}
+				onSubmit={this.props.onSubmit}
 				setError={this.setError}
 				setErrors={this.setErrors}
 				updateForm={this.updateForm}
+				buttonBlockClass={this.props.buttonBlockClass}
 			/>
 		);
 	}
