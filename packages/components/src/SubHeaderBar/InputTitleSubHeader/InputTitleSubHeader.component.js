@@ -153,7 +153,7 @@ InputTitleSubHeader.propTypes = {
 };
 
 InputTitleSubHeader.defaultProps = {
-	editMode: true,
+	editMode: false,
 };
 
 export { InputTitleSubHeader as default, EditTitle, DetailsTitle, onFocus };
