@@ -80,7 +80,7 @@ $tc-subheader-size-small: 1rem !default;
 		padding-left: $padding-large;
 
 		.subheader-input {
-			width: 17.1rem;
+			width: 18rem;
 			@include input-text(400);
 
 			&::selection {
