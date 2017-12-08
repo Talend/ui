@@ -47,7 +47,16 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 
 			{actionsKey &&
 				rowData[actionsKey] &&
-				displayMode === TITLE_MODE_TEXT && <Actions actions={rowData[actionsKey]} hideLabel link />}
+				displayMode === TITLE_MODE_TEXT && <TitleActionGroup data={rowData} />}
+		</div>
+	);
+}
+
+function TitleActionGroup({ data }) {
+	return (
+		<div className={theme['main-title-actions-group']}>
+			<Actions className={theme['persistent-actions']} actions={data.actions} hideLabel link />
+			<Actions actions={data.titleActions} hideLabel link />
 		</div>
 	);
 }

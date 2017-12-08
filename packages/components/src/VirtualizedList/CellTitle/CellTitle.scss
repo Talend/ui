@@ -43,20 +43,27 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		}
 	}
 
-	:global(.tc-actions) {
-		flex-shrink: 0;
-		flex-grow: 0;
-		opacity: 0;
-		visibility: hidden;
-		z-index: 1;
-
+	.main-title-actions-group {
 		position: absolute;
 		right: 0;
 		top: 0;
-		background: linear-gradient(to right, transparent, $tc-list-row-hover-bg $padding-large);
 
-		:global(.btn-link) {
-			color: $tc-list-title-actions-color;
+
+		:global(.tc-actions) {
+			&:not(.persistent-actions) {
+				opacity: 0;
+				visibility: hidden;
+				background: linear-gradient(to right, transparent, $tc-list-row-hover-bg $padding-large);
+			}
+
+			padding-left: $padding-large;
+			flex-shrink: 0;
+			flex-grow: 0;
+			z-index: 1;
+
+			:global(.btn-link) {
+				color: $tc-list-title-actions-color;
+			}
 		}
 	}
 }
