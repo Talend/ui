@@ -8,6 +8,8 @@ export default {
 	children: PropTypes.arrayOf(PropTypes.element),
 	// The collection items
 	collection: PropTypes.arrayOf(PropTypes.object),
+	// Default height to render list
+	defaultHeight: PropTypes.number,
 	// Disable header on TABLE
 	disableHeader: PropTypes.boolean,
 	// The id. The sub-ids will be based on the ids as prefix

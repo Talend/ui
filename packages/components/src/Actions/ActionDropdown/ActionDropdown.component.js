@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import classNames from 'classnames';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
 
+import theme from './ActionDropdown.scss';
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
 import { wrapOnClick } from '../Action/Action.component';
@@ -74,7 +76,14 @@ function ActionDropdown(props) {
 	}
 
 	const dropdown = (
-		<DropdownButton title={title} bsStyle={style} role="button" onSelect={onItemSelect} {...rest}>
+		<DropdownButton
+			title={title}
+			bsStyle={style}
+			role="button"
+			onSelect={onItemSelect}
+			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button')}
+			{...rest}
+		>
 			{items.length ? items.map(getMenuItem) : <MenuItem disabled>No options</MenuItem>}
 		</DropdownButton>
 	);
