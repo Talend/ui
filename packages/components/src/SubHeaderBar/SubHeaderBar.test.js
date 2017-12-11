@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Icon, Action } from '../index';
+import { Icon, Action, ActionBar } from '../index';
 import Container, { SubHeaderBar, SubHeaderBarActions } from './SubHeaderBar.component';
 
 let components = [];
@@ -43,6 +43,11 @@ describe('SubHeaderBarActions', () => {
 			components,
 		};
 		const wrapper = shallow(<SubHeaderBarActions {...props} />);
+		expect(wrapper.instance().props.center).toEqual(true);
+		expect(wrapper.find(ActionBar.Content)).toHaveLength(3);
+		expect(wrapper.find(ActionBar.Content).get(0).props.center).toEqual(true);
+		expect(wrapper.find(ActionBar.Content).get(1).props.center).toEqual(true);
+		expect(wrapper.find(ActionBar.Content).get(2).props.center).toEqual(true);
 		expect(wrapper.find(Icon)).toHaveLength(1);
 		expect(wrapper.find(Action)).toHaveLength(2);
 	});
@@ -55,6 +60,11 @@ describe('SubHeaderBarActions', () => {
 			components,
 		};
 		const wrapper = shallow(<SubHeaderBarActions {...props} />);
+		expect(wrapper.instance().props.right).toEqual(true);
+		expect(wrapper.find(ActionBar.Content)).toHaveLength(3);
+		expect(wrapper.find(ActionBar.Content).get(0).props.right).toEqual(true);
+		expect(wrapper.find(ActionBar.Content).get(1).props.right).toEqual(true);
+		expect(wrapper.find(ActionBar.Content).get(2).props.right).toEqual(true);
 		expect(wrapper.find(Icon)).toHaveLength(1);
 		expect(wrapper.find(Action)).toHaveLength(2);
 	});
@@ -135,6 +145,9 @@ describe('SubHeaderBar', () => {
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(3);
+		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toEqual(true);
+		expect(wrapper.find(SubHeaderBarActions).get(1).props.center).toEqual(true);
+		expect(wrapper.find(SubHeaderBarActions).get(2).props.right).toEqual(true);
 	});
 	it('should render SubHeaderBarActions (default + right)', () => {
 		const props = {
@@ -145,6 +158,8 @@ describe('SubHeaderBar', () => {
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(2);
+		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toEqual(true);
+		expect(wrapper.find(SubHeaderBarActions).get(1).props.right).toEqual(true);
 	});
 	it('should render SubHeaderBarActions (default + center)', () => {
 		const props = {
@@ -155,6 +170,8 @@ describe('SubHeaderBar', () => {
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(2);
+		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toEqual(true);
+		expect(wrapper.find(SubHeaderBarActions).get(1).props.center).toEqual(true);
 	});
 	it('should render SubHeaderBarActions (default)', () => {
 		const props = {
@@ -164,14 +181,6 @@ describe('SubHeaderBar', () => {
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
-	});
-	it('should render SubHeaderBarActions (default)', () => {
-		const props = {
-			title: 'myTitle',
-			editMode: false,
-			onGoBack: jest.fn(),
-		};
-		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
+		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toEqual(true);
 	});
 });

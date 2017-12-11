@@ -25,6 +25,7 @@ describe('InputTitleSubHeader', () => {
 		};
 		const wrapper = shallow(<InputTitleSubHeader {...props} />);
 		expect(wrapper.find(Icon)).toHaveLength(1);
+		expect(wrapper.find(Icon).get(0).props.name).toEqual('myIconFile');
 	});
 	it('should not render Icon', () => {
 		const props = {
@@ -34,7 +35,7 @@ describe('InputTitleSubHeader', () => {
 		const wrapper = shallow(<InputTitleSubHeader {...props} />);
 		expect(wrapper.find(Icon)).toHaveLength(0);
 	});
-	it('should render DetailsTitle', () => {
+	it('should render TitleSubHeader', () => {
 		const props = {
 			title: 'myTitle',
 			editMode: false,
@@ -43,7 +44,7 @@ describe('InputTitleSubHeader', () => {
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(1);
 		expect(wrapper.find(InlineFormSubHeader)).toHaveLength(0);
 	});
-	it('should render EditTitle', () => {
+	it('should render InputTitleSubHeader', () => {
 		const props = {
 			title: 'myTitle',
 			iconFile: 'myIconFile',
