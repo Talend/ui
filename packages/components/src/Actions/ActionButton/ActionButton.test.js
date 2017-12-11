@@ -126,6 +126,7 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton {...props} />);
 
 		// then
+		expect(wrapper.find('OverlayTrigger').length).toBe(0);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 
@@ -144,6 +145,7 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton {...props} />);
 
 		// then
+		expect(wrapper.find('OverlayTrigger').length).toBe(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
