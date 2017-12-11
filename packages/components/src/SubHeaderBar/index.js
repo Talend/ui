@@ -1,3 +1,3 @@
-import SubHeaderBar from './SubHeaderBar.component';
+import Component from './SubHeaderBar.component';
 
-export default SubHeaderBar;
+export default Component;
