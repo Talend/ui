@@ -66,7 +66,9 @@ describe('TitleSubHeader', () => {
 	});
 	it('should render with title', () => {
 		const wrapper = shallow(<TitleSubHeader title="myTitle" />);
-		expect(wrapper.find('h1').getNode().props.className).toEqual('tc-subheader-details-text-title-wording');
+		expect(wrapper.find('h1').getNode().props.className).toEqual(
+			'tc-subheader-details-text-title-wording',
+		);
 		expect(wrapper.find('h1').getNode().props.children).toEqual('myTitle');
 	});
 	it('should render with subTitle', () => {
