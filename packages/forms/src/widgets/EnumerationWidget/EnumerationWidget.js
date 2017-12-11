@@ -423,6 +423,7 @@ class EnumerationForm extends React.Component {
 				} else {
 					this.setState({
 						searchCriteria: value.value,
+						items: this.searchItems(value.value)
 					});
 				}
 			}, 400);
@@ -448,6 +449,7 @@ class EnumerationForm extends React.Component {
 			headerInput: this.searchInputsActions,
 			searchCriteria: prevState.loadingSearchCriteria,
 			loadingSearchCriteria: '',
+			items: this.searchItems(value.value),
 		}));
 	}
 
