@@ -53,14 +53,24 @@ function parseProperties(properties, isRoot, path) {
 
 export const wrapCustomWidget = Component => {
 	function TFMigratedWidget(props) {
-		const formContext = props.formContext || {};
-		const onChange = value => props.onChange({}, { schema: props.schema, value });
-		return <Component {...props} formContext={formContext} onChange={onChange} />;
+		const newProps = Object.assign({}, props);
+		newProps.formContext = props.formContext || {};
+		if (props.schema.titleMap) {
+			// old one has enumNames in the schema but we have props.titleMap
+			newProps.options = {
+				enumOptions: props.schema.titleMap.map(item => ({ value: item.value, label: item.name })),
+			};
+		} else if (props.schema.schema.enum) {
+			newProps.schema.enum = props.schema.schema.enum;
+		}
+		newProps.onChange = value => props.onChange({}, { schema: newProps.schema, value });
+		return <Component {...newProps} />;
 	}
 	TFMigratedWidget.propTypes = {
 		formContext: PropTypes.object,
 		onChange: PropTypes.func,
 		schema: PropTypes.object,
+		titleMap: PropTypes.array,
 	};
 	TFMigratedWidget.displayName = 'TFMigratedWidget';
 	return TFMigratedWidget;
@@ -144,6 +154,7 @@ export function migrate(jsonSchema, uiSchema) {
 	return {
 		jsonSchema,
 		uiSchema,
+		widgets,
 	};
 }
 

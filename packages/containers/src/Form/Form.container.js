@@ -145,10 +145,9 @@ class Form extends React.Component {
 			children: this.props.children,
 			...this.props.formProps,
 		};
-		if (props.formProps && props.formProps.widgets) {
-			const widgets = props.formProps.widgets;
-			Object.keys(widgets).forEach(key => {
-				widgets[key] = wrapCustomWidget(widgets[key]);
+		if (this.props.uiform && props.widgets) {
+			Object.keys(props.widgets).forEach(key => {
+				props.widgets[key] = wrapCustomWidget(props.widgets[key]);
 			});
 		}
 		if (this.props.uiform) {
