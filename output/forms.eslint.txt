@@ -13,12 +13,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/EnumerationWidget/EnumerationWidget.js
-  350:7   error  Expected indentation of 5 tabs but found 6  indent
-  351:6   error  Expected indentation of 4 tabs but found 5  indent
-  450:28  error  'value' is not defined                      no-undef
-  814:8   error  Expected indentation of 6 tabs but found 7  indent
-  815:7   error  Expected indentation of 5 tabs but found 6  indent
-
-✖ 8 problems (8 errors, 0 warnings)
+✖ 3 problems (3 errors, 0 warnings)
 
