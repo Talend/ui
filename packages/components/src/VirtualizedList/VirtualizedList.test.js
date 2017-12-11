@@ -43,12 +43,11 @@ describe('VirtualizedList', () => {
 		expect(wrapper.node).toMatchSnapshot();
 	});
 
-	it('should use AutoSizer with defaultHeight', () => {
+	it('should use defaultHeight if AutoSizer can not get parent element height', () => {
 		// when
 		const wrapper = shallow(
 			<VirtualizedList
 				collection={collection}
-				defaultHeight={600}
 				id={'my-list-id'}
 				isSelected={jest.fn()}
 				rowHeight={50}
@@ -68,7 +67,8 @@ describe('VirtualizedList', () => {
 		const rendererInstance = renderer({ height: 0, width: 300 });
 
 		// then
-		expect(rendererInstance).toMatchSnapshot();
+
+		expect(rendererInstance.props.height).toBe(250);
 	});
 
 	it('should render RendererSelector', () => {
