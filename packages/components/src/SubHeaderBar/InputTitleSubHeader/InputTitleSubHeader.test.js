@@ -4,6 +4,7 @@ import { Icon, Action } from '../../index';
 import InputTitleSubHeader, {
 	InlineFormSubHeader,
 	TitleSubHeader,
+	selectInput,
 } from './InputTitleSubHeader.component';
 
 describe('InputTitleSubHeader', () => {
@@ -105,5 +106,17 @@ describe('InlineFormSubHeader', () => {
 		expect(wrapper.find('input')).toHaveLength(1);
 		expect(wrapper.find(Action)).toHaveLength(2);
 		expect(wrapper.getNode()).toMatchSnapshot();
+	});
+});
+
+describe('selectInput', () => {
+	it('should called select and focus', () => {
+		const input = {
+			select: jest.fn(),
+			focus: jest.fn(),
+		};
+		selectInput(input);
+		expect(input.select).toHaveBeenCalled();
+		expect(input.focus).toHaveBeenCalled();
 	});
 });
