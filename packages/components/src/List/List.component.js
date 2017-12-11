@@ -54,7 +54,16 @@ ListToolbar.propTypes = {
 	renderers: PropTypes.object,
 };
 
-function DisplayModeComponent({ displayMode, id, list, rowHeight, useContent, virtualized, t }) {
+function DisplayModeComponent({
+	displayMode,
+	defaultHeight,
+	id,
+	list,
+	rowHeight,
+	useContent,
+	virtualized,
+	t,
+}) {
 	const translatedList = Object.assign({}, list, { t });
 	if (useContent) {
 		return <Content id={id && `${id}-content`} displayMode={displayMode} {...translatedList} />;
@@ -65,6 +74,7 @@ function DisplayModeComponent({ displayMode, id, list, rowHeight, useContent, vi
 				<ListToVirtualizedList
 					id={id}
 					displayMode={displayMode}
+					defaultHeight={defaultHeight}
 					rowHeight={rowHeight}
 					{...translatedList}
 				/>
@@ -83,6 +93,7 @@ function DisplayModeComponent({ displayMode, id, list, rowHeight, useContent, vi
 
 DisplayModeComponent.propTypes = {
 	displayMode: PropTypes.string,
+	defaultHeight: PropTypes.number,
 	id: PropTypes.string,
 	list: PropTypes.oneOfType([
 		PropTypes.shape(DisplayPropTypes),
@@ -94,13 +105,23 @@ DisplayModeComponent.propTypes = {
 	t: PropTypes.func,
 };
 
-function ListDisplay({ displayMode, id, list, useContent, rowHeight, virtualized, t }) {
+function ListDisplay({
+	displayMode,
+	id,
+	list,
+	useContent,
+	rowHeight,
+	defaultHeight,
+	virtualized,
+	t,
+}) {
 	return (
 		<DisplayModeComponent
 			id={id}
 			useContent={useContent}
 			displayMode={displayMode}
 			list={list}
+			defaultHeight={defaultHeight}
 			virtualized={virtualized}
 			rowHeight={rowHeight}
 			t={t}
@@ -151,13 +172,13 @@ function List({
 	list,
 	toolbar,
 	useContent,
+	defaultHeight,
 	virtualized,
 	t,
 	renderers,
 	rowHeight,
 }) {
 	const classnames = classNames('tc-list', theme.list);
-
 	return (
 		<div className={classnames}>
 			<ListToolbar
@@ -173,6 +194,7 @@ function List({
 				id={id}
 				list={list}
 				useContent={useContent}
+				defaultHeight={defaultHeight}
 				virtualized={virtualized}
 				renderers={renderers}
 				rowHeight={rowHeight}
