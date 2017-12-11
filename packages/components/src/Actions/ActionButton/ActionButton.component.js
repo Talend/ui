@@ -123,7 +123,7 @@ function ActionButton(props) {
 			{buttonContent}
 		</Button>
 	);
-	if (overlayComponent) {
+	if (!inProgress && overlayComponent) {
 		btn = (
 			// this span is here to allow the tooltip trigger to work
 			<span>
