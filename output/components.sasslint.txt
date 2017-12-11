@@ -23,11 +23,8 @@ src/List/Content/Content.scss
 src/List/DisplayTile/DisplayTile.scss
   37:3  warning  Expected indentation of 1 tab but found 2  indentation
 
-src/SubHeaderBar/InputTitleSubHeader/InputTitleSubHeader.scss
-  83:4  error  Mixins should come before declarations  mixins-before-declarations
-
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
 
-✖ 10 problems (2 errors, 8 warnings)
+✖ 9 problems (1 error, 8 warnings)
 
