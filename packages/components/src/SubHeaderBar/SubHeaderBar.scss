@@ -4,6 +4,7 @@
 }
 
 $tc-subheader-bar-height: 7rem !default;
+$tc-svg-icon-size: $padding-large !default;
 
 .tc-subheader {
 	border-bottom: 0.1rem solid $gallery;
@@ -44,22 +45,19 @@ $tc-subheader-bar-height: 7rem !default;
 		width: $tc-subheader-bar-height;
 		height: $tc-subheader-bar-height;
 
-		&:focus {
-			color: $scooter;
-			background-color: $wild-sand;
-		}
-		&:hover {
+		&:focus,
+		&:hover,
+		&:active {
 			color: $scooter;
 			background-color: $wild-sand;
 		}
 		&:active {
 			color: darken($scooter, 25%);
-			background-color: $wild-sand;
 		}
 
 		> svg {
-			width: $padding-large;
-			height: $padding-large;
+			width: $tc-svg-icon-size;
+			height: $tc-svg-icon-size;
 		}
 	}
 }

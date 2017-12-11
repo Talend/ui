@@ -34,17 +34,6 @@ describe('SubHeaderBarActions', () => {
 			},
 		];
 	});
-	it('should render with i18n', () => {
-		const props = {
-			left: false,
-			center: true,
-			right: false,
-			className: 'myClassName',
-			components,
-		};
-		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper.getNode()).toMatchSnapshot();
-	});
 	it('should render with center props', () => {
 		const props = {
 			left: false,
@@ -56,7 +45,6 @@ describe('SubHeaderBarActions', () => {
 		const wrapper = shallow(<SubHeaderBarActions {...props} />);
 		expect(wrapper.find(Icon)).toHaveLength(1);
 		expect(wrapper.find(Action)).toHaveLength(2);
-		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render with right props', () => {
 		const props = {
@@ -69,7 +57,6 @@ describe('SubHeaderBarActions', () => {
 		const wrapper = shallow(<SubHeaderBarActions {...props} />);
 		expect(wrapper.find(Icon)).toHaveLength(1);
 		expect(wrapper.find(Action)).toHaveLength(2);
-		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
 
@@ -115,6 +102,29 @@ describe('SubHeaderBar', () => {
 			},
 		];
 	});
+	it('should render with i18n', () => {
+		const props = {
+			left: false,
+			center: true,
+			right: false,
+			className: 'myClassName',
+			components,
+		};
+		const wrapper = shallow(<Container {...props} />);
+		expect(wrapper.getNode().props.i18n).toBeDefined();
+	});
+	it('should render without i18n', () => {
+		const props = {
+			left: false,
+			center: true,
+			right: false,
+			className: 'myClassName',
+			components,
+		};
+		const wrapper = shallow(<SubHeaderBar {...props} />);
+		expect(wrapper.getNode().props.i18n).toBeFalsy();
+		expect(wrapper.getNode()).toMatchSnapshot();
+	});
 	it('should render SubHeaderBarActions (default + custom)', () => {
 		const props = {
 			title: 'myTitle',
@@ -125,7 +135,6 @@ describe('SubHeaderBar', () => {
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(3);
-		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render SubHeaderBarActions (default + right)', () => {
 		const props = {
@@ -136,7 +145,6 @@ describe('SubHeaderBar', () => {
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(2);
-		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render SubHeaderBarActions (default + center)', () => {
 		const props = {
@@ -147,18 +155,6 @@ describe('SubHeaderBar', () => {
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(2);
-		expect(wrapper.getNode()).toMatchSnapshot();
-	});
-	it('should render SubHeaderBarActions (default)', () => {
-		const props = {
-			title: 'myTitle',
-			editMode: false,
-			onGoBack: jest.fn(),
-		};
-		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.getNode()).toMatchSnapshot('dfdfdffd');
-		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
-		expect(wrapper.getNode()).toMatchSnapshot('dfdfdffd');
 	});
 	it('should render SubHeaderBarActions (default)', () => {
 		const props = {
@@ -168,6 +164,14 @@ describe('SubHeaderBar', () => {
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
-		expect(wrapper.getNode()).toMatchSnapshot();
+	});
+	it('should render SubHeaderBarActions (default)', () => {
+		const props = {
+			title: 'myTitle',
+			editMode: false,
+			onGoBack: jest.fn(),
+		};
+		const wrapper = shallow(<SubHeaderBar {...props} />);
+		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
 	});
 });

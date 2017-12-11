@@ -6,8 +6,7 @@ import theme from './InputTitleSubHeader.scss';
 import { getDefaultTranslate } from '../../translate';
 import Icon from '../../Icon';
 
-function DetailsTitle({ title, subTitle, onEdit, t }) {
-	const modifyLabel = t('MODIFY_TOOLTIP', { defaultValue: 'Modify' });
+function TitleSubHeader({ title, subTitle, onEdit, t }) {
 	return (
 		<div className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
 			<div
@@ -27,7 +26,7 @@ function DetailsTitle({ title, subTitle, onEdit, t }) {
 				{onEdit && (
 					<Action
 						name="action-edit-title"
-						label={modifyLabel}
+						label={t('MODIFY_TOOLTIP', { defaultValue: 'Modify' })}
 						icon="talend-pencil"
 						onClick={onEdit}
 						bsStyle="link"
@@ -53,87 +52,95 @@ function DetailsTitle({ title, subTitle, onEdit, t }) {
 	);
 }
 
-DetailsTitle.propTypes = {
+TitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
 	subTitle: PropTypes.string,
 	onEdit: PropTypes.func,
 	t: PropTypes.func,
 };
 
-DetailsTitle.defaultProps = {
+TitleSubHeader.defaultProps = {
 	t: getDefaultTranslate,
 };
 
-function onFocus(event) {
-	event.target.selectionStart = 0; // eslint-disable-line no-param-reassign
-	event.target.selectionEnd = event.target.value.length; // eslint-disable-line no-param-reassign
-}
+class InlineFormSubHeader extends React.Component {
+	static propTypes = {
+		title: PropTypes.string.isRequired,
+		onSubmit: PropTypes.func,
+		onCancel: PropTypes.func,
+		onChange: PropTypes.func,
+		inputTextValue: PropTypes.string,
+		t: PropTypes.func,
+	};
 
-function EditTitle({ title, inputTextValue, onSubmit, onCancel, onChange, focus, t }) {
-	return (
-		<form className={classNames(theme['tc-subheader-details-form'], 'tc-subheader-details-form')}>
-			<input
-				id="inputTitle"
-				type="text"
-				className={classNames(
-					theme['tc-subheader-details-form-input'],
-					'tc-subheader-details-form-input',
-					'form-control',
-				)}
-				onChange={onChange}
-				value={inputTextValue || title}
-				onFocus={onFocus}
-				autoFocus={focus}
-			/>
-			<div
-				className={classNames(
-					theme['tc-subheader-details-form-buttons'],
-					'tc-subheader-details-form-buttons',
-				)}
-			>
-				<Action
-					name="action-submit-title"
-					label={t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}
-					icon="talend-check"
-					onClick={onSubmit}
-					bsStyle="link"
+	static defaultProps = {
+		t: getDefaultTranslate,
+	};
+
+	constructor(props) {
+		super(props);
+		this.selectInput = this.selectInput.bind(this);
+	}
+
+	selectInput(input) {
+		this.textInput = input;
+		if (this.textInput) {
+			this.textInput.select();
+			this.textInput.focus();
+		}
+	}
+
+	render() {
+		const { title, inputTextValue, onSubmit, onCancel, onChange, t } = this.props;
+		return (
+			<form className={classNames(theme['tc-subheader-details-form'], 'tc-subheader-details-form')}>
+				<input
+					ref={this.selectInput}
+					id="inputTitle"
+					type="text"
 					className={classNames(
-						theme['tc-subheader-details-form-buttons-icon'],
-						'tc-subheader-details-form-buttons-icon',
+						theme['tc-subheader-details-form-input'],
+						'tc-subheader-details-form-input',
+						'form-control',
 					)}
-					hideLabel
+					onChange={onChange}
+					value={inputTextValue || title}
 				/>
-				<Action
-					name="action-cancel-title"
-					label={t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' })}
-					icon="talend-cross"
-					onClick={onCancel}
-					bsStyle="link"
+				<div
 					className={classNames(
-						theme['tc-subheader-details-form-buttons-icon'],
-						'tc-subheader-details-form-buttons-icon',
+						theme['tc-subheader-details-form-buttons'],
+						'tc-subheader-details-form-buttons',
 					)}
-					hideLabel
-				/>
-			</div>
-		</form>
-	);
+				>
+					<Action
+						name="action-submit-title"
+						label={t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}
+						icon="talend-check"
+						onClick={onSubmit}
+						bsStyle="link"
+						className={classNames(
+							theme['tc-subheader-details-form-buttons-icon'],
+							'tc-subheader-details-form-buttons-icon',
+						)}
+						hideLabel
+					/>
+					<Action
+						name="action-cancel-title"
+						label={t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' })}
+						icon="talend-cross"
+						onClick={onCancel}
+						bsStyle="link"
+						className={classNames(
+							theme['tc-subheader-details-form-buttons-icon'],
+							'tc-subheader-details-form-buttons-icon',
+						)}
+						hideLabel
+					/>
+				</div>
+			</form>
+		);
+	}
 }
-
-EditTitle.propTypes = {
-	title: PropTypes.string.isRequired,
-	onSubmit: PropTypes.func,
-	onCancel: PropTypes.func,
-	onChange: PropTypes.func,
-	focus: PropTypes.bool,
-	inputTextValue: PropTypes.string,
-	t: PropTypes.func,
-};
-
-EditTitle.defaultProps = {
-	focus: true,
-	t: getDefaultTranslate,
-};
 
 function InputTitleSubHeader({ title, iconFile, editMode, ...rest }) {
 	return (
@@ -144,7 +151,11 @@ function InputTitleSubHeader({ title, iconFile, editMode, ...rest }) {
 					className={classNames(theme['tc-subheader-details-icon'], 'tc-subheader-details-icon')}
 				/>
 			)}
-			{editMode ? <EditTitle title={title} {...rest} /> : <DetailsTitle title={title} {...rest} />}
+			{editMode ? (
+				<InlineFormSubHeader title={title} {...rest} />
+			) : (
+				<TitleSubHeader title={title} {...rest} />
+			)}
 		</div>
 	);
 }
@@ -159,4 +170,4 @@ InputTitleSubHeader.defaultProps = {
 	editMode: false,
 };
 
-export { InputTitleSubHeader as default, EditTitle, DetailsTitle, onFocus };
+export { InputTitleSubHeader as default, InlineFormSubHeader, TitleSubHeader };

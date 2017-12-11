@@ -1,107 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DetailsTitle should render 1`] = `
-<div
-  className="tc-subheader-details-text"
->
-  <div
-    className="tc-subheader-details-text-title"
-  >
-    <h1
-      className="tc-subheader-details-text-title-wording"
-    >
-      myTitle
-    </h1>
-    <Action
-      bsStyle="link"
-      className="tc-subheader-details-text-title-pencil"
-      hideLabel={true}
-      icon="talend-pencil"
-      label="Modify"
-      name="action-edit-title"
-      onClick={[Function]}
-    />
-  </div>
-  <small
-    className="tc-subheader-details-text-subtitle"
-  >
-    mySubTitle
-  </small>
-</div>
-`;
-
-exports[`DetailsTitle should render an Action 1`] = `
-<div
-  className="tc-subheader-details-text"
->
-  <div
-    className="tc-subheader-details-text-title"
-  >
-    <h1
-      className="tc-subheader-details-text-title-wording"
-    >
-      myTitle
-    </h1>
-    <Action
-      bsStyle="link"
-      className="tc-subheader-details-text-title-pencil"
-      hideLabel={true}
-      icon="talend-pencil"
-      label="Modify"
-      name="action-edit-title"
-      onClick={[Function]}
-    />
-  </div>
-</div>
-`;
-
-exports[`DetailsTitle should render with subTitle 1`] = `
-<div
-  className="tc-subheader-details-text"
->
-  <div
-    className="tc-subheader-details-text-title"
-  >
-    <h1
-      className="tc-subheader-details-text-title-wording"
-    >
-      myTitle
-    </h1>
-  </div>
-  <small
-    className="tc-subheader-details-text-subtitle"
-  >
-    mySubTitle
-  </small>
-</div>
-`;
-
-exports[`DetailsTitle should render with title 1`] = `
-<div
-  className="tc-subheader-details-text"
->
-  <div
-    className="tc-subheader-details-text-title"
-  >
-    <h1
-      className="tc-subheader-details-text-title-wording"
-    >
-      myTitle
-    </h1>
-  </div>
-</div>
-`;
-
-exports[`EditTitle should render 1`] = `
+exports[`InlineFormSubHeader should render 1`] = `
 <form
   className="tc-subheader-details-form"
 >
   <input
-    autoFocus={true}
     className="tc-subheader-details-form-input form-control"
     id="inputTitle"
     onChange={[Function]}
-    onFocus={[Function]}
     type="text"
     value="value"
   />
@@ -138,9 +44,39 @@ exports[`InputTitleSubHeader should render 1`] = `
     className="tc-subheader-details-icon"
     name="myIconFile"
   />
-  <DetailsTitle
+  <TitleSubHeader
     t={[Function]}
     title="myTitle"
   />
+</div>
+`;
+
+exports[`TitleSubHeader should render 1`] = `
+<div
+  className="tc-subheader-details-text"
+>
+  <div
+    className="tc-subheader-details-text-title"
+  >
+    <h1
+      className="tc-subheader-details-text-title-wording"
+    >
+      myTitle
+    </h1>
+    <Action
+      bsStyle="link"
+      className="tc-subheader-details-text-title-pencil"
+      hideLabel={true}
+      icon="talend-pencil"
+      label="Modify"
+      name="action-edit-title"
+      onClick={[Function]}
+    />
+  </div>
+  <small
+    className="tc-subheader-details-text-subtitle"
+  >
+    mySubTitle
+  </small>
 </div>
 `;

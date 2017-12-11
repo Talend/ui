@@ -36,14 +36,13 @@ SubHeaderBarActions.propTypes = {
 };
 
 function SubHeaderBar({ t, onGoBack, componentsCenter, componentsRight, className, ...rest }) {
-	const backArrowLabel = t('BACK_ARROW_TOOLTIP', { defaultValue: 'Go Back' });
 	const defaultComponentsLeft = [
 		{
 			injectedComponent: (
 				<Action
 					id="backArrow"
 					onClick={onGoBack}
-					label={backArrowLabel}
+					label={t('BACK_ARROW_TOOLTIP', { defaultValue: 'Go Back' })}
 					icon="talend-arrow-left"
 					bsStyle="link"
 					className={classNames(theme['tc-subheader-back-button'], 'tc-subheader-back-button')}

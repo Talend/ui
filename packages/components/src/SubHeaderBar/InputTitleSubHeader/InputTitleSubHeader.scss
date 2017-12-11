@@ -113,10 +113,7 @@ $tc-subheader-size-small: 1rem !default;
 					}
 				}
 
-				&:focus {
-					@include form-icon-color($scooter);
-				}
-
+				&:focus,
 				&:hover {
 					@include form-icon-color($scooter);
 				}
@@ -129,10 +126,6 @@ $tc-subheader-size-small: 1rem !default;
 
 		:global(.form-group) {
 			padding-top: 0;
-
-			:global(.col-lg-10) {
-				width: 100%;
-			}
 		}
 	}
 }

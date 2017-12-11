@@ -2,9 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Icon, Action } from '../../index';
 import InputTitleSubHeader, {
-	EditTitle,
-	DetailsTitle,
-	onFocus,
+	InlineFormSubHeader,
+	TitleSubHeader,
 } from './InputTitleSubHeader.component';
 
 describe('InputTitleSubHeader', () => {
@@ -15,7 +14,7 @@ describe('InputTitleSubHeader', () => {
 			editMode: false,
 		};
 		const wrapper = shallow(<InputTitleSubHeader {...props} />);
-		expect(wrapper.find(DetailsTitle)).toHaveLength(1);
+		expect(wrapper.find(TitleSubHeader)).toHaveLength(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render Icon', () => {
@@ -41,8 +40,8 @@ describe('InputTitleSubHeader', () => {
 			editMode: false,
 		};
 		const wrapper = shallow(<InputTitleSubHeader {...props} />);
-		expect(wrapper.find(DetailsTitle)).toHaveLength(1);
-		expect(wrapper.find(EditTitle)).toHaveLength(0);
+		expect(wrapper.find(TitleSubHeader)).toHaveLength(1);
+		expect(wrapper.find(InlineFormSubHeader)).toHaveLength(0);
 	});
 	it('should render EditTitle', () => {
 		const props = {
@@ -51,26 +50,28 @@ describe('InputTitleSubHeader', () => {
 			editMode: true,
 		};
 		const wrapper = shallow(<InputTitleSubHeader {...props} />);
-		expect(wrapper.find(DetailsTitle)).toHaveLength(0);
-		expect(wrapper.find(EditTitle)).toHaveLength(1);
+		expect(wrapper.find(TitleSubHeader)).toHaveLength(0);
+		expect(wrapper.find(InlineFormSubHeader)).toHaveLength(1);
 	});
 });
 
-describe('DetailsTitle', () => {
+describe('TitleSubHeader', () => {
 	it('should render', () => {
 		const wrapper = shallow(
-			<DetailsTitle title="myTitle" subTitle="mySubTitle" onEdit={jest.fn()} />,
+			<TitleSubHeader title="myTitle" subTitle="mySubTitle" onEdit={jest.fn()} />,
 		);
 		expect(wrapper.find(Action)).toHaveLength(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render with title', () => {
-		const wrapper = shallow(<DetailsTitle title="myTitle" />);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		const wrapper = shallow(<TitleSubHeader title="myTitle" />);
+		expect(wrapper.find('h1').getNode().props.className).toEqual('tc-subheader-details-text-title-wording');
+		expect(wrapper.find('h1').getNode().props.children).toEqual('myTitle');
 	});
 	it('should render with subTitle', () => {
-		const wrapper = shallow(<DetailsTitle title="myTitle" subTitle="mySubTitle" />);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		const wrapper = shallow(<TitleSubHeader title="myTitle" subTitle="mySubTitle" />).find('small');
+		expect(wrapper.getNode().props.className).toEqual('tc-subheader-details-text-subtitle');
+		expect(wrapper.getNode().props.children).toEqual('mySubTitle');
 	});
 	it('should render an Action', () => {
 		const actionProps = {
@@ -82,16 +83,15 @@ describe('DetailsTitle', () => {
 			className: undefined,
 			hideLabel: true,
 		};
-		const wrapper = shallow(<DetailsTitle title="myTitle" onEdit={actionProps.onClick} />);
+		const wrapper = shallow(<TitleSubHeader title="myTitle" onEdit={actionProps.onClick} />);
 		expect(wrapper.find(Action)).toHaveLength(1);
-		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
 
-describe('EditTitle', () => {
+describe('InlineFormSubHeader', () => {
 	it('should render', () => {
 		const wrapper = shallow(
-			<EditTitle
+			<InlineFormSubHeader
 				title="myTitle"
 				inputTextValue="value"
 				onSubmit={jest.fn()}
@@ -102,20 +102,5 @@ describe('EditTitle', () => {
 		expect(wrapper.find('input')).toHaveLength(1);
 		expect(wrapper.find(Action)).toHaveLength(2);
 		expect(wrapper.getNode()).toMatchSnapshot();
-	});
-	it('should return selectionStart and end', () => {
-		const event = {
-			target: {
-				value: 'myTitle',
-				selectionStart: 0,
-				selectionEnd: 0,
-			},
-		};
-		onFocus(event);
-		expect(event.target).toEqual({
-			value: event.target.value,
-			selectionStart: 0,
-			selectionEnd: event.target.value.length,
-		});
 	});
 });
