@@ -345,9 +345,12 @@ class EnumerationForm extends React.Component {
 		this.setState(prevState => {
 			const valueExist = this.valueAlreadyExist(value.value, prevState);
 			const items = [...prevState.items];
-			items[value.index].error = valueExist ? t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
-				defaultValue: 'This term is already in the list',
-			}) : '';
+			items[value.index].error = '';
+			if (valueExist) {
+				items[value.index].error = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
+					defaultValue: 'This term is already in the list',
+				});
+			}
 			const validation = this.constructor.updateItemValidateDisabled(value, valueExist);
 			return { items, ...validation };
 		});
@@ -804,12 +807,15 @@ class EnumerationForm extends React.Component {
 			const [validateAndAddAction, validateAction, abortAction] = prevState.headerInput;
 			validateAndAddAction.disabled = value === '' || valueExist;
 			validateAction.disabled = value === '' || valueExist;
-
+			let headerError = '';
+			if (valueExist) {
+				headerError = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
+					defaultValue: 'This term is already in the list',
+				});
+			}
 			return {
 				headerInput: [validateAndAddAction, validateAction, abortAction],
-				headerError: valueExist ? t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
-					defaultValue: 'This term is already in the list',
-				}) : '',
+				headerError,
 				inputValue: value,
 			};
 		});
