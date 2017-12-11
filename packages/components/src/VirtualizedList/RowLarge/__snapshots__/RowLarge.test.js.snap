@@ -50,9 +50,6 @@ exports[`RowLarge should render large row 1`] = `
             }
           }
         />
-        <div
-          className={undefined}
-        />
         <VirtualizedList(CellTitleActions)
           actionsKey="titleActions"
           displayMode="text"

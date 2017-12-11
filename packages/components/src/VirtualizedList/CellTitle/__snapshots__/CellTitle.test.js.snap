@@ -32,9 +32,6 @@ exports[`CellTitle actions should NOT render the actions when no actions key is 
       }
     }
   />
-  <div
-    className={undefined}
-  />
   <VirtualizedList(CellTitleActions)
     actionsKey={undefined}
     displayMode="text"
@@ -81,9 +78,6 @@ exports[`CellTitle actions should NOT render the actions when rowData has no act
         "title": "my awesome title",
       }
     }
-  />
-  <div
-    className={undefined}
   />
   <VirtualizedList(CellTitleActions)
     actionsKey="actions"
@@ -132,9 +126,6 @@ exports[`CellTitle actions should render the actions 1`] = `
       }
     }
   />
-  <div
-    className={undefined}
-  />
   <VirtualizedList(CellTitleActions)
     actionsKey="actions"
     displayMode="text"
@@ -182,9 +173,6 @@ exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1
       }
     }
   />
-  <div
-    className={undefined}
-  />
   <VirtualizedList(CellTitleActions)
     actionsKey={undefined}
     displayMode="text"
@@ -220,9 +208,6 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
         "title": "my awesome title",
       }
     }
-  />
-  <div
-    className={undefined}
   />
   <VirtualizedList(CellTitleActions)
     actionsKey={undefined}
@@ -264,9 +249,6 @@ exports[`CellTitle icon should render the icon 1`] = `
       }
     }
   />
-  <div
-    className={undefined}
-  />
   <VirtualizedList(CellTitleActions)
     actionsKey={undefined}
     displayMode="text"
@@ -303,9 +285,6 @@ exports[`CellTitle should render title selector component 1`] = `
         "title": "my awesome title",
       }
     }
-  />
-  <div
-    className={undefined}
   />
   <VirtualizedList(CellTitleActions)
     actionsKey={undefined}

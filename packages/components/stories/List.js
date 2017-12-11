@@ -87,14 +87,6 @@ const props = {
 		],
 		items: [
 			{
-				persistentActions: [
-					{
-						id: 'edit',
-						label: 'edit',
-						icon: 'talend-apache',
-						onClick: action('onEdit'),
-					},
-				],
 				id: 0,
 				name: 'Title with actions',
 				created: '2016-09-22',
