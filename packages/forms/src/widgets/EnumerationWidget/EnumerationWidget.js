@@ -345,11 +345,9 @@ class EnumerationForm extends React.Component {
 		this.setState(prevState => {
 			const valueExist = this.valueAlreadyExist(value.value, prevState);
 			const items = [...prevState.items];
-			items[value.index].error = valueExist
-				? t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
-						defaultValue: 'This term is already in the list',
-					})
-				: '';
+			items[value.index].error = valueExist ? t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
+				defaultValue: 'This term is already in the list',
+			}) : '';
 			const validation = this.constructor.updateItemValidateDisabled(value, valueExist);
 			return { items, ...validation };
 		});
@@ -417,6 +415,7 @@ class EnumerationForm extends React.Component {
 					this.setState({
 						loadingSearchCriteria: value.value,
 						headerInput: this.loadingInputsActions,
+						items: this.searchItems(value.value),
 					});
 				} else {
 					this.setState({
@@ -447,7 +446,6 @@ class EnumerationForm extends React.Component {
 			headerInput: this.searchInputsActions,
 			searchCriteria: prevState.loadingSearchCriteria,
 			loadingSearchCriteria: '',
-			items: this.searchItems(value.value),
 		}));
 	}
 
@@ -809,11 +807,9 @@ class EnumerationForm extends React.Component {
 
 			return {
 				headerInput: [validateAndAddAction, validateAction, abortAction],
-				headerError: valueExist
-					? t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
-							defaultValue: 'This term is already in the list',
-						})
-					: '',
+				headerError: valueExist ? t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
+					defaultValue: 'This term is already in the list',
+				}) : '',
 				inputValue: value,
 			};
 		});
