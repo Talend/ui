@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import VirtualizedList from './VirtualizedList.component';
 import { listTypes } from './utils/constants';
@@ -45,30 +45,26 @@ describe('VirtualizedList', () => {
 
 	it('should use defaultHeight if AutoSizer can not get parent element height', () => {
 		// when
-		const wrapper = shallow(
-			<VirtualizedList
-				collection={collection}
-				id={'my-list-id'}
-				isSelected={jest.fn()}
-				rowHeight={50}
-				selectionToggle={jest.fn()}
-				sort={jest.fn()}
-				sortBy={'name'}
-				sortDirection={'DESC'}
-				type={TABLE}
-			>
-				{contentFields}
-			</VirtualizedList>,
+		const wrapper = mount(
+			<span>
+				<VirtualizedList
+					collection={collection}
+					id={'my-list-id'}
+					isSelected={jest.fn()}
+					rowHeight={50}
+					selectionToggle={jest.fn()}
+					sort={jest.fn()}
+					sortBy={'name'}
+					sortDirection={'DESC'}
+					type={TABLE}
+				>
+					{contentFields}
+				</VirtualizedList>
+			</span>,
 		);
 
-		const renderer = wrapper.node.props.children;
-
-		// when
-		const rendererInstance = renderer({ height: 0, width: 300 });
-
 		// then
-
-		expect(rendererInstance.props.height).toBe(250);
+		expect(wrapper.find('VirtualizedList(RendererSelector)').props().height).toBe(250);
 	});
 
 	it('should render RendererSelector', () => {
