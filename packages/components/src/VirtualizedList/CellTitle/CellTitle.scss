@@ -20,7 +20,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	}
 
 	.main-title {
-		flex-grow: 0;
+		flex-grow: 1;
 
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -33,6 +33,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		font-weight: 600;
 		letter-spacing: inherit;
 		text-transform: none;
+		text-align: left;
 
 		&:first-child {
 			padding-left: 0;
@@ -42,9 +43,6 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		&:focus {
 			text-decoration: none;
 		}
-	}
-	.spacer {
-		flex-grow: 1;
 	}
 }
 
