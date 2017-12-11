@@ -54,7 +54,16 @@ ListToolbar.propTypes = {
 	renderers: PropTypes.object,
 };
 
-function DisplayModeComponent({ displayMode, defaultHeight, id, list, rowHeight, useContent, virtualized, t }) {
+function DisplayModeComponent({
+	displayMode,
+	defaultHeight,
+	id,
+	list,
+	rowHeight,
+	useContent,
+	virtualized,
+	t,
+}) {
 	const translatedList = Object.assign({}, list, { t });
 	if (useContent) {
 		return <Content id={id && `${id}-content`} displayMode={displayMode} {...translatedList} />;
@@ -96,7 +105,16 @@ DisplayModeComponent.propTypes = {
 	t: PropTypes.func,
 };
 
-function ListDisplay({ displayMode, id, list, useContent, rowHeight, defaultHeight, virtualized, t }) {
+function ListDisplay({
+	displayMode,
+	id,
+	list,
+	useContent,
+	rowHeight,
+	defaultHeight,
+	virtualized,
+	t,
+}) {
 	return (
 		<DisplayModeComponent
 			id={id}
@@ -154,7 +172,7 @@ function List({
 	list,
 	toolbar,
 	useContent,
-    defaultHeight,
+	defaultHeight,
 	virtualized,
 	t,
 	renderers,
