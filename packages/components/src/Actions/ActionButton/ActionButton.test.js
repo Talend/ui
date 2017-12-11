@@ -110,6 +110,26 @@ describe('Action', () => {
 		expect(wrapper.type()).toBe(null);
 	});
 
+	it('should render a button without an overlay component if inProgress is true', () => {
+		function OverlayComponent() {
+			return <div>OverlayComponent</div>;
+		}
+
+		const props = {
+			...myAction,
+			inProgress: true,
+			overlayComponent: OverlayComponent,
+			overlayPlacement: 'bottom',
+		};
+
+		// when
+		const wrapper = shallow(<ActionButton {...props} />);
+
+		// then
+		expect(wrapper.find('OverlayTrigger').length).toBe(0);
+		expect(wrapper.getNode()).toMatchSnapshot();
+	});
+
 	it('should render a button with a overlay component', () => {
 		function OverlayComponent() {
 			return <div>OverlayComponent</div>;
@@ -125,6 +145,7 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton {...props} />);
 
 		// then
+		expect(wrapper.find('OverlayTrigger').length).toBe(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
