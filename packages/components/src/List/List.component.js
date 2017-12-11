@@ -20,6 +20,7 @@ function ListToolbar({ id, toolbar, displayMode, list, t, renderers }) {
 		return null;
 	}
 
+	const shouldHideSortOptions = !!(displayMode === 'table' && list.sort);
 	const toolbarProps = {
 		...toolbar,
 		id,
@@ -39,7 +40,8 @@ function ListToolbar({ id, toolbar, displayMode, list, t, renderers }) {
 			onToggleAll: list.itemProps.onToggleAll,
 		};
 	}
-	return <Toolbar {...toolbarProps} />;
+
+	return <Toolbar {...toolbarProps} sort={!shouldHideSortOptions && toolbarProps.sort} />;
 }
 
 ListToolbar.propTypes = {
