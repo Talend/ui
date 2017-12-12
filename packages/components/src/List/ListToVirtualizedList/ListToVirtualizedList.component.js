@@ -46,6 +46,7 @@ export function ListToVirtualizedList(props) {
 			isSelected={itemProps && itemProps.isSelected}
 			inProgress={props.inProgress}
 			onRowClick={itemProps && itemProps.onRowClick}
+			defaultHeight={props.defaultHeight}
 			rowHeight={props.rowHeight}
 			selectionToggle={itemProps && itemProps.onToggle}
 			sort={adaptOnSort(sort && sort.onChange)}
@@ -84,6 +85,7 @@ ListToVirtualizedList.propTypes = {
 	id: PropTypes.string,
 	columns: PropTypes.arrayOf(PropTypes.object),
 	displayMode: PropTypes.oneOf(['large', 'table']),
+	defaultHeight: PropTypes.number,
 	itemProps: PropTypes.shape({
 		isActive: PropTypes.func,
 		isSelected: PropTypes.func,

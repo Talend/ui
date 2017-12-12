@@ -145,6 +145,26 @@ exports[`Action should render a button with a overlay component 1`] = `
 </span>
 `;
 
+exports[`Action should render a button without an overlay component if inProgress is true 1`] = `
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  disabled={true}
+  onClick={null}
+  onMouseDown={null}
+  role={null}
+>
+  <CircularProgress
+    size="small"
+  />
+  <span>
+    Click me
+  </span>
+</Button>
+`;
+
 exports[`Action should render action with html property name = props.name if set 1`] = `
 <Button
   active={false}

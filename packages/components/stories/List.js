@@ -641,6 +641,17 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('Virtualized - list with inline parent', () => {
+		return (
+			<div className="virtualized-list">
+				<h1>List</h1>
+				{/*Do not reproduce!*/}
+				<span>
+					<List {...props} virtualized />
+				</span>
+			</div>
+		);
+	})
 	.add('DEPRECATED - Table (migrated to virtualized)', () => (
 		<div className="display-table tc-list-fixed-name-column">
 			<h1>List</h1>

@@ -14,7 +14,7 @@ const myAction = {
 	onClick: action('You clicked me'),
 };
 
-const OverlayComponent = <div>I'm an overlay</div>;
+const OverlayComponent = <div>I am an overlay</div>;
 
 const mouseDownAction = {
 	label: 'Click me',
@@ -50,6 +50,16 @@ storiesOf('Action', module)
 			<p>Action with popover</p>
 			<Action
 				id="hidelabel"
+				overlayComponent={OverlayComponent}
+				overlayPlacement="top"
+				tooltipPlacement="left"
+				{...mouseDownAction}
+				hideLabel
+			/>
+			<p>Action with popover</p>
+			<Action
+				id="hidelabel"
+				inProgress="true"
 				overlayComponent={OverlayComponent}
 				overlayPlacement="top"
 				tooltipPlacement="left"
