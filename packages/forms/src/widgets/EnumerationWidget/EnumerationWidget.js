@@ -422,7 +422,6 @@ class EnumerationForm extends React.Component {
 				} else {
 					this.setState({
 						searchCriteria: value.value,
-						items: this.searchItems(value.value),
 					});
 				}
 			}, 400);
