@@ -1,13 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import {
-	extractSpecialFields,
-	getId,
-	getLabel,
-	getRowData,
-	renderCell,
-} from '../utils/gridrow';
+import { extractSpecialFields, getId, getLabel, getRowData, renderCell } from '../utils/gridrow';
 
 import rowThemes from './RowThemes';
 import theme from './RowLarge.scss';
@@ -29,8 +23,10 @@ function RowLarge({ className, index, key, parent, style }) {
 		const label = getLabel(field);
 		return (
 			<li key={fieldIndex}>
-				{label && (<span className={theme['field-label']}>{label}: </span>)}
-				<span className={theme['field-value']} title={tooltip}>{cellContent}</span>
+				{label && <span className={theme['field-label']}>{label}: </span>}
+				<span className={theme['field-value']} title={tooltip}>
+					{cellContent}
+				</span>
 			</li>
 		);
 	});
@@ -48,17 +44,12 @@ function RowLarge({ className, index, key, parent, style }) {
 			onClick={onRowClick}
 			style={style}
 		>
-			<div
-				className={`tc-list-large-row ${theme['inner-box']} ${className}`}
-				id={id}
-			>
+			<div className={`tc-list-large-row ${theme['inner-box']} ${className}`} id={id}>
 				<div className={theme.header}>
 					{titleCell}
 					{selectionCell}
 				</div>
-				<ul className={theme.content}>
-					{otherCellsListItems}
-				</ul>
+				<ul className={theme.content}>{otherCellsListItems}</ul>
 			</div>
 		</div>
 	);
