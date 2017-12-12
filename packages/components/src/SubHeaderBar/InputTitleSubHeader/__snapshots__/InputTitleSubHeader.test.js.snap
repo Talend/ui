@@ -3,13 +3,14 @@
 exports[`InlineFormSubHeader should render 1`] = `
 <form
   className="tc-subheader-details-form"
+  onSubmit={[Function]}
 >
   <input
     className="tc-subheader-details-form-input form-control"
     id="inputTitle"
     onChange={[Function]}
     type="text"
-    value="value"
+    value="myTitle"
   />
   <div
     className="tc-subheader-details-form-buttons"
@@ -19,16 +20,17 @@ exports[`InlineFormSubHeader should render 1`] = `
       className="tc-subheader-details-form-buttons-icon"
       hideLabel={true}
       icon="talend-check"
-      label="Submit"
+      label={undefined}
       name="action-submit-title"
       onClick={[Function]}
+      type="submit"
     />
     <Action
       bsStyle="link"
       className="tc-subheader-details-form-buttons-icon"
       hideLabel={true}
       icon="talend-cross"
-      label="Cancel"
+      label={undefined}
       name="action-cancel-title"
       onClick={[Function]}
     />

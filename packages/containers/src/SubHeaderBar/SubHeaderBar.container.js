@@ -8,7 +8,6 @@ import { componentState, cmfConnect } from '@talend/react-cmf';
 export const DISPLAY_NAME = 'Container(SubHeaderBar)';
 export const DEFAULT_STATE = new Immutable.Map({
 	editMode: false,
-	inputText: '',
 });
 
 class SubHeaderBar extends React.Component {
@@ -43,14 +42,14 @@ class SubHeaderBar extends React.Component {
 		this.onGoBack = this.onGoBack.bind(this);
 	}
 
-	onSubmit(event) {
+	onSubmit(event, data) {
 		if (this.props.onSubmit) {
-			this.props.onSubmit(event, this.props.state.get('inputText'));
+			this.props.onSubmit(event, data);
 		}
 		if (this.props.actionCreatorSubmit) {
 			this.props.dispatchActionCreator(this.props.actionCreatorSubmit, event, {
 				props: this.props,
-				inputText: this.props.state.get('inputText'),
+				data,
 			});
 		}
 	}
@@ -58,7 +57,6 @@ class SubHeaderBar extends React.Component {
 	onCancel(event) {
 		this.props.setState(() => ({
 			editMode: false,
-			inputText: '',
 		}));
 		if (this.props.onCancel) {
 			this.props.onCancel(event);
@@ -85,16 +83,13 @@ class SubHeaderBar extends React.Component {
 	}
 
 	onChange(event) {
-		this.props.setState(() => ({
-			inputText: event.target.value,
-		}));
 		if (this.props.onChange) {
 			this.props.onChange(event, event.target.value);
 		}
 		if (this.props.actionCreatorChange) {
 			this.props.dispatchActionCreator(this.props.actionCreatorChange, event, {
 				props: this.props,
-				inputText: event.target.value,
+				value: event.target.value,
 			});
 		}
 	}
@@ -119,7 +114,6 @@ class SubHeaderBar extends React.Component {
 			onSubmit: this.onSubmit,
 			onChange: this.onChange,
 			onGoBack: this.onGoBack,
-			inputTextValue: state.get('inputText'),
 		});
 		return <Component {...props} />;
 	}

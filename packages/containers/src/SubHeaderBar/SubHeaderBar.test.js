@@ -99,71 +99,60 @@ describe('SubHeaderBar container', () => {
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should call onSubmit when submit event trigger', () => {
-		// Given
 		const event = {};
+		const data = { value: 'submitValue', props: {} };
 		const props = {
 			onSubmit: jest.fn(),
-			state: Map({ editMode: false, inputText: 'my new title' }),
+			state: Map({ editMode: false }),
 		};
-		// When
-		shallow(<Container {...props} />).simulate('submit', event);
-		// Then
-		expect(props.onSubmit).toHaveBeenCalledWith(event, props.state.get('inputText'));
+		shallow(<Container {...props} />).simulate('submit', event, data);
+		expect(props.onSubmit).toHaveBeenCalledWith(event, data);
 	});
 	it('should call ActionCreatorSubmit when submit event trigger', () => {
-		// Given
 		const event = {};
+		const data = { value: 'submitValue', props: {} };
 		const props = {
 			actionCreatorSubmit: jest.fn(),
 			dispatchActionCreator: jest.fn(),
-			state: Map({ editMode: false, inputText: 'my new title' }),
+			state: Map({ editMode: false }),
 		};
-		// When
-		shallow(<Container {...props} />).simulate('submit', event);
-		// Then
+		shallow(<Container {...props} />).simulate('submit', event, data);
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorSubmit, event, {
 			props,
-			inputText: props.state.get('inputText'),
+			data,
 		});
 	});
 	it('should setState when cancel event trigger', () => {
 		const event = {};
 		let state;
 		const props = {
-			state: Map({ editMode: true, inputText: 'my edited title' }),
+			state: Map({ editMode: true }),
 			setState: jest.fn(fn => (state = fn())),
 			onCancel: jest.fn(),
 		};
 		shallow(<Container {...props} />).simulate('cancel', event);
 		expect(props.setState).toHaveBeenCalled();
 		expect(state.editMode).toEqual(false);
-		expect(state.inputText).toEqual('');
 	});
 	it('should call onCancel when cancel event trigger', () => {
-		// Given
 		const event = {};
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: false, inputText: 'my new title' }),
+			state: Map({ editMode: false }),
 			onCancel: jest.fn(),
 		};
-		// When
 		shallow(<Container {...props} />).simulate('cancel', event);
-		// Then
 		expect(props.onCancel).toHaveBeenCalledWith(event);
 	});
 	it('should call actionCreatorCancel when cancel event trigger', () => {
-		// Given
 		const event = {};
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: false, inputText: 'my new title' }),
+			state: Map({ editMode: false }),
 			actionCreatorCancel: jest.fn(),
 			dispatchActionCreator: jest.fn(),
 		};
-		// When
 		shallow(<Container {...props} />).simulate('cancel', event);
-		// Then
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorCancel, event, {
 			props,
 		});
@@ -172,7 +161,7 @@ describe('SubHeaderBar container', () => {
 		const event = {};
 		let state;
 		const props = {
-			state: Map({ editMode: true, inputText: 'my edited title' }),
+			state: Map({ editMode: true }),
 			setState: jest.fn(fn => (state = fn())),
 			onCancel: jest.fn(),
 		};
@@ -181,16 +170,13 @@ describe('SubHeaderBar container', () => {
 		expect(state.editMode).toEqual(false);
 	});
 	it('should call onEdit when edit event trigger', () => {
-		// Given
 		const event = {};
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: false, inputText: 'my new title' }),
+			state: Map({ editMode: false }),
 			onEdit: jest.fn(),
 		};
-		// When
 		shallow(<Container {...props} />).simulate('edit', event);
-		// Then
 		expect(props.onEdit).toHaveBeenCalledWith(event);
 	});
 	it('should call onEdit when edit event trigger', () => {
@@ -198,7 +184,7 @@ describe('SubHeaderBar container', () => {
 		const event = {};
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: false, inputText: 'my new title' }),
+			state: Map({ editMode: false }),
 			dispatchActionCreator: jest.fn(),
 			actionCreatorEdit: jest.fn(),
 		};
@@ -209,24 +195,12 @@ describe('SubHeaderBar container', () => {
 			props,
 		});
 	});
-	it('should call setState when change event trigger', () => {
-		const event = { target: { value: 'my new edited title' } };
-		let state;
-		const props = {
-			state: Map({ editMode: true, inputText: 'my old title' }),
-			setState: jest.fn(fn => (state = fn())),
-			onCChange: jest.fn(),
-		};
-		shallow(<Container {...props} />).simulate('change', event);
-		expect(props.setState).toHaveBeenCalled();
-		expect(state.inputText).toEqual(event.target.value);
-	});
-	it('should call onChange when change event tigger', () => {
+	it('should call onChange when change event trigger', () => {
 		// Given
 		const event = { target: { value: 'my onChangeTitle' } };
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: false, inputText: 'my new title' }),
+			state: Map({ editMode: false }),
 			onChange: jest.fn(),
 		};
 		// When
@@ -239,7 +213,7 @@ describe('SubHeaderBar container', () => {
 		const event = { target: { value: 'my onChangeTitle' } };
 		const props = {
 			setState: jest.fn(),
-			state: Map({ editMode: false, inputText: 'my new title' }),
+			state: Map({ editMode: false }),
 			dispatchActionCreator: jest.fn(),
 			actionCreatorChange: jest.fn(),
 		};
@@ -248,7 +222,7 @@ describe('SubHeaderBar container', () => {
 		// Then
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorChange, event, {
 			props,
-			inputText: event.target.value,
+			value: event.target.value,
 		});
 	});
 	it('should call onGoBack event when goBack event trigger', () => {
@@ -278,9 +252,9 @@ describe('SubHeaderBar container', () => {
 	});
 });
 
-let mockState;
 describe('SubHeaderBar selectors', () => {
-	const componentState = Map({ editMode: true, inputText: 'my edited title' });
+	let mockState;
+	const componentState = Map({ editMode: true });
 	beforeEach(() => {
 		mockState = {
 			cmf: {

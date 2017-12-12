@@ -10,10 +10,10 @@ export function getComponentState(state, idComponent) {
 }
 
 /**
- * Return the inputText attr from the state of subheader bar id given.
+ * Return the editMode attr from the state of subheader bar id given.
  * @param {object} state
  * @param {string} idComponent
  */
 export function getInputText(state, idComponent) {
-	return getComponentState(state, idComponent).get('inputText', '');
+	return getComponentState(state, idComponent).get('editMode', false);
 }

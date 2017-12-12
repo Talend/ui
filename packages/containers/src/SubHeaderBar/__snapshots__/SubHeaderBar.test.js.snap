@@ -3,7 +3,6 @@
 exports[`SubHeaderBar container should render 1`] = `
 <Translate(SubHeaderBar)
   editMode={false}
-  inputTextValue=""
   onCancel={[Function]}
   onChange={[Function]}
   onEdit={[Function]}
