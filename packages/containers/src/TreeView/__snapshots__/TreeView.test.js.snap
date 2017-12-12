@@ -19,6 +19,7 @@ exports[`TreeView should render the data 1`] = `
     ]
   }
   headerText="Folders"
+  id="tc-treeview"
   idAttr="id"
   nameAttr="name"
   onClick={[Function]}

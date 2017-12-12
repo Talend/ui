@@ -5,6 +5,9 @@ import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
+import 'focus-outline-manager';
+
+import ComponentOverlay from './ComponentOverlay';
 import ObjectViewer from '../src/ObjectViewer';
 import examples from '../examples';
 
@@ -59,6 +62,9 @@ registerActionCreator('confirm:dialog', confirmDialog);
 registerActionCreator('item1:action', chooseItem1);
 registerActionCreator('item2:action', chooseItem2);
 
+const registerComponent = api.component.register;
+registerComponent('ComponentOverlay', ComponentOverlay);
+
 const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
 	isTrueExpressionAction(context, first);
@@ -96,38 +102,86 @@ function loadStories() {
 					new Map({
 						id: 1,
 						label: 'foo',
-						author: 'Jacques',
-						created: '10/12/2013',
-						modified: '13/02/2015',
-						children: new List([new Map({ id: 11, label: 'sub foo' })]),
+						children: new List([
+							new Map({
+								id: 11,
+								label: 'sub foo',
+								author: 'Jacques',
+								created: '10/12/2013',
+								modified: '13/02/2015',
+							}),
+						]),
 					}),
 					new Map({
 						id: 2,
 						label: 'bar',
-						author: 'Paul',
-						created: '10/12/2013',
-						modified: '13/02/2015',
-						children: new List([new Map({ id: 21, label: 'sub bar' })]),
+						children: new List([
+							new Map({
+								id: 21,
+								label: 'sub bar',
+								author: 'Paul',
+								created: '10/12/2013',
+								modified: '13/02/2015',
+							}),
+						]),
 					}),
 					new Map({
 						id: 3,
 						label: 'baz',
-						author: 'Boris',
-						created: '10/12/2013',
-						modified: '13/02/2015',
-						children: new List([new Map({ id: 31, label: 'sub baz' })]),
+						children: new List([
+							new Map({
+								id: 31,
+								label: 'sub baz',
+								author: 'Boris',
+								created: '10/12/2013',
+								modified: '13/02/2015',
+							}),
+						]),
 					}),
 					new Map({
 						id: 4,
 						label: 'extra',
-						author: 'Henri',
-						created: '10/12/2013',
-						modified: '13/02/2015',
-						children: new List([new Map({ id: 41, label: 'sub extra' })]),
+
+						children: new List([
+							new Map({
+								id: 41,
+								label: 'sub extra',
+								children: new List([
+									new Map({
+										id: 411,
+										label: 'third level',
+										author: 'Henri',
+										created: '10/12/2013',
+										modified: '13/02/2015',
+									}),
+								]),
+							}),
+						]),
 					}),
 					new Map({
 						id: 5,
-						label: 'hello world',
+						label: 'look at me',
+						author: 'David',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+					}),
+					new Map({
+						id: 6,
+						label: 'I am famous',
+						author: 'David',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+					}),
+					new Map({
+						id: 7,
+						label: 'Strange test',
+						author: 'David',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+					}),
+					new Map({
+						id: 8,
+						label: 'Do you see me ?',
 						author: 'David',
 						created: '10/12/2013',
 						modified: '13/02/2015',
@@ -258,6 +312,15 @@ function loadStories() {
 			label: 'No',
 			actionCreator: 'cancel:hide:dialog',
 		};
+		actions['action:overlay:component'] = {
+			id: 'action:overlay:component',
+			label: 'overlay with component',
+			overlayComponent: 'ComponentOverlay',
+			overlayComponentProps: {
+				customProps: 'customProps',
+			},
+			overlayPlacement: 'bottom',
+		}
 
 		const story = storiesOf(example);
 

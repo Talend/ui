@@ -13,7 +13,11 @@ function adaptOnSort(onChange) {
 	};
 }
 
-function ListToVirtualizedList(props) {
+export function HiddenHeader(props) {
+	return <span className="sr-only">{props.label}</span>;
+}
+
+export function ListToVirtualizedList(props) {
 	const { itemProps, sort, titleProps } = props;
 
 	if (titleProps && !titleProps.actionsKey) {
@@ -37,6 +41,8 @@ function ListToVirtualizedList(props) {
 			isSelected={itemProps && itemProps.isSelected}
 			inProgress={props.inProgress}
 			onRowClick={itemProps && itemProps.onRowClick}
+			defaultHeight={props.defaultHeight}
+			rowHeight={props.rowHeight}
 			selectionToggle={itemProps && itemProps.onToggle}
 			sort={adaptOnSort(sort && sort.onChange)}
 			sortBy={sort && sort.field}
@@ -60,6 +66,10 @@ function ListToVirtualizedList(props) {
 						columnData: column.data,
 					});
 				}
+				if (column.hideHeader) {
+					cProps.disableSort = true;
+					cProps.headerRenderer = HiddenHeader;
+				}
 				return <VirtualizedList.Content key={index} {...cProps} />;
 			})}
 		</VirtualizedList>
@@ -70,6 +80,7 @@ ListToVirtualizedList.propTypes = {
 	id: PropTypes.string,
 	columns: PropTypes.arrayOf(PropTypes.object),
 	displayMode: PropTypes.oneOf(['large', 'table']),
+	defaultHeight: PropTypes.number,
 	itemProps: PropTypes.shape({
 		isActive: PropTypes.func,
 		isSelected: PropTypes.func,
@@ -78,6 +89,7 @@ ListToVirtualizedList.propTypes = {
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
 	inProgress: PropTypes.bool,
+	rowHeight: PropTypes.number,
 	sort: PropTypes.shape({
 		onChange: PropTypes.func,
 		field: PropTypes.string,
@@ -92,5 +104,6 @@ ListToVirtualizedList.propTypes = {
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',
 };
-
-export default ListToVirtualizedList;
+HiddenHeader.propTypes = {
+	label: PropTypes.string,
+};

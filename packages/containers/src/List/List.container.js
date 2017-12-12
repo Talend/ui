@@ -110,6 +110,9 @@ class List extends React.Component {
 			virtualized: this.props.virtualized,
 			renderers: this.props.renderers,
 		};
+		if (this.props.rowHeight) {
+			props.rowHeight = this.props.rowHeight[props.displayMode];
+		}
 		props.list.titleProps = get(this.props, 'list.titleProps');
 
 		if (props.list.titleProps && this.props.actions.title) {
