@@ -8,6 +8,7 @@
     "build": "webpack",
     "dist-untested": "webpack --config webpack.config.dist.js",
     "tslint": "tslint \"src/**/*.ts\"",
+    "test:cov": "npm run test",
     "test": "mocha --opts .mocha",
     "testdoc": "mocha --opts .mocha && mocha --opts .mocha.md > docs/test.md"
   },
