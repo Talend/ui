@@ -5,7 +5,7 @@ import { Inject } from '@talend/react-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import Container, { DEFAULT_STATE, DISPLAY_NAME } from './SubHeaderBar.container';
 import Connect, { buildComponents, mapStateToProps } from './SubHeaderBar.connect';
-import { getComponentState, getInputText } from './SubHeaderBar.selectors';
+import { getComponentState, getEditMode } from './SubHeaderBar.selectors';
 
 describe('Connect', () => {
 	it('should connect ShortcutManager', () => {
@@ -269,9 +269,9 @@ describe('SubHeaderBar selectors', () => {
 		expect(getComponentState(mockState, 'wrongComponentId')).toEqual(DEFAULT_STATE);
 	});
 	it('should return the editMode', () => {
-		expect(getInputText(mockState, 'mySubHeaderBar')).toEqual(true);
+		expect(getEditMode(mockState, 'mySubHeaderBar')).toEqual(true);
 	});
 	it('should return the editModet', () => {
-		expect(getInputText(mockState, 'wrongComponentId')).toEqual(false);
+		expect(getEditMode(mockState, 'wrongComponentId')).toEqual(false);
 	});
 });

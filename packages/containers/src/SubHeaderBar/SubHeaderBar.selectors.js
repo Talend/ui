@@ -14,6 +14,6 @@ export function getComponentState(state, idComponent) {
  * @param {object} state
  * @param {string} idComponent
  */
-export function getInputText(state, idComponent) {
+export function getEditMode(state, idComponent) {
 	return getComponentState(state, idComponent).get('editMode', false);
 }
