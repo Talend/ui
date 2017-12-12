@@ -23,7 +23,11 @@ function CellTitleActions({ rowData, actionsKey, displayMode, persistentActionsK
 		);
 	}
 
-	return <div className={classNames('main-title-actions-group', theme['main-title-actions-group'])}>{actions}</div>;
+	return (
+		<div className={classNames('main-title-actions-group', theme['main-title-actions-group'])}>
+			{actions}
+		</div>
+	);
 }
 
 CellTitleActions.displayName = 'VirtualizedList(CellTitleActions)';
