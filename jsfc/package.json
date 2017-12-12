@@ -1,0 +1,72 @@
+{
+  "name": "json-schema-form-core",
+  "version": "1.0.0-alpha.1",
+  "description": "JSON-Schema and JSON-UI-Schema utilities for form generation.",
+  "main": "dist/json-schema-form-core.js",
+  "scripts": {
+    "build": "webpack",
+    "dist-untested": "webpack --config webpack.config.dist.js",
+    "tslint": "tslint \"src/**/*.ts\"",
+    "test": "mocha --opts .mocha",
+    "testdoc": "mocha --opts .mocha && mocha --opts .mocha.md > docs/test.md"
+  },
+  "author": "json-schema-form",
+  "contributors": [
+    "David Jensen <david.lgj@gmail.com> (https://github.com/davidlgj)",
+    "Marcel J Bennett <iamanthropic@gmail.com> (https://github.com/Anthropic)"
+  ],
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/json-schema-form/json-schema-form-core/master/LICENSE"
+    }
+  ],
+  "homepage": "https://github.com/json-schema-form/json-schema-form-core#readme",
+  "bugs": {
+    "url": "https://github.com/json-schema-form/json-schema-form-core/issues"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "http://github.com/json-schema-form/json-schema-form-core.git"
+  },
+  "keywords": [
+    "angular-schema-form",
+    "json-schema-form-core",
+    "json-schema-form",
+    "json-ui-schema",
+    "json-schema"
+  ],
+  "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/mocha": "^2.2.33",
+    "@types/node": "^6.0.42",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.9",
+    "babel-plugin-transform-flow-strip-types": "^6.21.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "chai": "^3.5.0",
+    "karma": "^1.3.0",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-chai-sinon": "^0.1.5",
+    "karma-coverage": "^1.1.1",
+    "karma-growler-reporter": "0.0.2",
+    "karma-mocha": "^1.3.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-webpack": "^1.8.1",
+    "mocha": "^3.2.0",
+    "objectpath": "^1.2.1",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0",
+    "ts-loader": "^1.2.2",
+    "ts-node": "^1.2.1",
+    "tslint": "^4.0.2",
+    "tslint-loader": "^3.2.1",
+    "tv4": "^1.2.7",
+    "typescript": "~2.0.3",
+    "webpack": "^2.1.0-beta.27"
+  }
+}
