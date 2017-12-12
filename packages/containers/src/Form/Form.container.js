@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Map } from 'immutable';
+import Immutable from 'immutable';
 import { componentState } from '@talend/react-cmf';
 import ComponentForm from '@talend/react-forms';
-import { UIForm } from '@talend/react-forms/lib/UIForm';
+import UIForm from '@talend/react-forms/lib/UIForm/UIForm.component';
+// import { UIForm } from '@talend/react-forms/lib/UIForm';
 import ArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
 import { wrapCustomWidget } from '@talend/react-forms/lib/UIForm/merge';
 import classnames from 'classnames';
 
-export const DEFAULT_STATE = new Map({});
+export const DEFAULT_STATE = new Immutable.Map({
+	errors: new Immutable.Map(),
+});
 
 /**
  * Because we don't want to loose form input
@@ -34,7 +37,7 @@ class Form extends React.Component {
 	 * @return {[type]}        [description]
 	 */
 	static getFormData(state, formId) {
-		return state.cmf.components.getIn(['Container(Form)', formId, 'data'], Map());
+		return state.cmf.components.getIn(['Container(Form)', formId, 'data'], new Immutable.Map());
 	}
 
 	constructor(props) {
@@ -47,6 +50,9 @@ class Form extends React.Component {
 		this.jsonSchema = this.jsonSchema.bind(this);
 		this.uiSchema = this.uiSchema.bind(this);
 		this.data = this.data.bind(this);
+		this.setError = this.setError.bind(this);
+		this.setErrors = this.setErrors.bind(this);
+		this.updateUIForm = this.updateUIForm.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -64,15 +70,27 @@ class Form extends React.Component {
 		if (this.props.onTrigger && !this.props.uiform) {
 			this.props.onTrigger(formData, formId, propertyName, propertyValue);
 		} else if (this.props.onTrigger && this.props.uiform) {
-			const { schema, formName, properties } = formId;
-			this.props.onTrigger(properties, formName, schema.key[schema.key.length - 1], propertyValue);
+			const payload = formId;
+			this.props.onTrigger(
+				payload.properties,
+				payload.formName,
+				payload.propertyName,
+				payload.propertyValue
+			);
 		}
 	}
 
-	onChange(form) {
-		this.props.setState({ data: form.formData, dirty: true });
-		if (this.props.onChange) {
-			this.props.onChange(form);
+	onChange(form, uiform) {
+		if (this.props.uiform) {
+			this.props.setState({ data: uiform.formData, dirty: true });
+			if (this.props.onChange) {
+				this.props.onChange(uiform);
+			}
+		} else {
+			this.props.setState({ data: form.formData, dirty: true });
+			if (this.props.onChange) {
+				this.props.onChange(form);
+			}
 		}
 	}
 
@@ -124,6 +142,19 @@ class Form extends React.Component {
 		return Object.assign({}, this.props.data, state.data);
 	}
 
+	updateUIForm(formName, jsonSchema, uiSchema, properties, errors) {
+		console.log('Form.container updateUIForm TODO');
+	}
+
+	setError(formName, errors) {
+		console.log('Form.container setError TODO', errors);
+		// this.props.setState({ errors });
+	}
+
+	setErrors(formName, errors) {
+		this.props.setState({ errors });
+	}
+
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
 		const props = {
@@ -151,7 +182,22 @@ class Form extends React.Component {
 			});
 		}
 		if (this.props.uiform) {
-			return <UIForm {...props} onSubmit={this.onUIFormSubmit} onTrigger={this.onTrigger} />;
+			props.jsonSchema = props.data.jsonSchema;
+			props.uiSchema = props.data.uiSchema;
+			props.properties = props.data.properties;
+			props.formName = this.props.formId;
+			delete props.data;
+			return (
+				<UIForm
+					{...props}
+					onSubmit={this.onUIFormSubmit}
+					onTrigger={this.onTrigger}
+					updateForm={this.updateUIForm}
+					setError={this.setError}
+					setErrors={this.setErrors}
+					errors={state.errors}
+				/>
+			);
 		}
 		return <ComponentForm {...props} />;
 	}

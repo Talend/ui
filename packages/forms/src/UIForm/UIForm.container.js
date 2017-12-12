@@ -25,6 +25,19 @@ export default class UIForm extends React.Component {
 	}
 
 	/**
+	 * Update the state with the new schema.
+	 * @param jsonSchema
+	 * @param uiSchema
+	 */
+	componentWillReceiveProps(nextProps) {
+		this.updateForm(
+			nextProps.formName,
+			nextProps.data.jsonSchema,
+			nextProps.data.uiSchema,
+			nextProps.data.properties
+		);
+	}
+	/**
 	 * Update the model and validation
 	 * If onChange is provided, it is triggered
 	 * @param event The change event

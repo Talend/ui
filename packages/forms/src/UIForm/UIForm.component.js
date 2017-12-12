@@ -43,10 +43,11 @@ export default class UIForm extends React.Component {
 	onChange(event, { schema, value }) {
 		const payload = {
 			formName: this.props.formName,
-			properties: this.props.properties,
+			properties: this.props.properties || {},
 			schema,
 			value,
 		};
+		payload.formData = mutateValue(payload.properties, schema.key, value);
 		this.props.onChange(event, payload);
 	}
 
@@ -101,15 +102,10 @@ export default class UIForm extends React.Component {
 			if (value !== undefined) {
 				payload.properties = mutateValue(this.props.properties, schema.key, value);
 			}
-			// adapt payload to the old one.
-			let properties = this.props.properties;
-			schema.key.forEach((key, index) => {
-				if (index !== schema.key.length - 1) {
-					properties = properties[key];
-				}
-			});
-			payload.formData = this.props.properties;
-			payload.properties = properties;
+			// compat with old trigger
+			payload.propertyValue = newValue;
+			payload.propertyName = schema.key[schema.key.length - 1];
+			payload.formData = payload.properties;
 			this.onTrigger(event, payload);
 		}
 	}
@@ -132,7 +128,7 @@ export default class UIForm extends React.Component {
 			properties,
 			...payload,
 		});
-		if (result.then) {
+		if (result && result.then) {
 			return result.then(newForm =>
 				updateForm(
 					formName,

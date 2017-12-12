@@ -10,6 +10,11 @@
       "restrictedDatalist": {
         "type": "string",
         "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
+      },
+      "keyValue": {
+        "type": "string",
+        "enum": [ "a", "p", "b", "c", "l", "g" ],
+        "enumNames": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
       }
     },
     "required": [
@@ -28,6 +33,11 @@
       "key": "restrictedDatalist",
       "title": "Datalist with restricted options",
       "description": "This datalist does not allow other values than the possible choices",
+      "widget": "datalist"
+    },
+    {
+      "key": "keyValue",
+      "title": "Datalist with named options",
       "widget": "datalist"
     }
   ],
