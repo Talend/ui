@@ -22,6 +22,7 @@ function RowLarge({ className, index, key, parent, style }) {
 	const id = parentId && `${parentId}-${index}`;
 	const titleCell = titleField && renderCell(index, parent, titleField);
 	const selectionCell = selectionField && renderCell(index, parent, selectionField);
+	const rowData = getRowData(parent, index);
 	const otherCellsListItems = otherFields.map((field, fieldIndex) => {
 		const cellContent = renderCell(index, parent, field);
 		const tooltip = typeof cellContent === 'string' ? cellContent : null;
@@ -33,14 +34,15 @@ function RowLarge({ className, index, key, parent, style }) {
 			</li>
 		);
 	});
+
 	let onRowClick;
 	if (parent.props.onRowClick) {
-		onRowClick = event => parent.props.onRowClick(event, getRowData(parent, index));
+		onRowClick = event => parent.props.onRowClick(event, rowData);
 	}
 
 	return (
 		<div
-			className={classNames(rowThemes)}
+			className={classNames('tc-list-item', rowThemes, rowData.className)}
 			key={key}
 			role="button"
 			onClick={onRowClick}

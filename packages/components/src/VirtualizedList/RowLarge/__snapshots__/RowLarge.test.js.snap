@@ -2,7 +2,7 @@
 
 exports[`RowLarge should render large row 1`] = `
 <div
-  className="tc-list-large"
+  className="tc-list-item tc-list-large"
   onClick={undefined}
   role="button"
   style={
