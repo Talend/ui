@@ -1,5 +1,35 @@
 .tc-slider-container {
-	padding: 0 20px;
+	:global(label) {
+		display: block;
+	}
+
+	.informations {
+		display: flex;
+		:global(svg) {
+			height: 24px;
+			width: 24px;
+			fill: $brand-primary;
+		}
+
+		.informations-label {
+			margin-left: $padding-small;
+			line-height: 24px;
+		}
+	}
+
+	.icons {
+		display: flex;
+		justify-content: space-between;
+		margin-top: $padding-small;
+		:global(svg) {
+			height: 24px;
+			width: 24px;
+			fill: gray;
+		}
+		.selected {
+			fill: $brand-primary;
+		}
+	}
 }
 
 .tc-slider {

@@ -140,6 +140,8 @@
   },
   "version": "0.127.0",
   "dependencies": {
+    "rc-slider": "^8.5.0",
+    "react-ace": "^5.8.0",
     "react-immutable-proptypes": "^2.1.0"
   }
 }

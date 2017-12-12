@@ -13,6 +13,7 @@ import NotificationExample from './ExampleNotification';
 import ObjectViewerExample from './ExampleObjectViewer';
 import SelectObjectExample from './ExampleSelectObject';
 import SidePanelExample from './ExampleSidePanel';
+import SliderExample from './ExampleSlider';
 import FilterBarExample from './ExampleFilterBar';
 import TreeViewExample from './ExampleTreeView';
 
@@ -33,5 +34,6 @@ export default {
 	ObjectViewerExample,
 	SelectObjectExample,
 	SidePanelExample,
+	SliderExample,
 	TreeViewExample,
 };

@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter container should render 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Translate(Slider)
+    onAfterChange={[Function]}
+    onChange={[Function]}
+    props={
+        Object {
+            "id": "filter",
+          }
+    }
+    value={undefined}
+/>,
+  "nodes": Array [
+    <Translate(Slider)
+      onAfterChange={[Function]}
+      onChange={[Function]}
+      props={
+            Object {
+                  "id": "filter",
+                }
+      }
+      value={undefined}
+/>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <Container(Slider)
+        props={
+                Object {
+                        "id": "filter",
+                      }
+        }
+        value={0}
+/>,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": Slider {
+        "_reactInternalInstance": [Circular],
+        "context": Object {
+          "registry": undefined,
+          "store": undefined,
+        },
+        "onAfterChange": [Function],
+        "onChange": [Function],
+        "props": Object {
+          "props": Object {
+            "id": "filter",
+          },
+          "value": 0,
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Translate(Slider)
+          onAfterChange={[Function]}
+          onChange={[Function]}
+          props={
+                    Object {
+                              "id": "filter",
+                            }
+          }
+          value={undefined}
+/>,
+        "_debugID": 2,
+        "_renderedOutput": <Translate(Slider)
+          onAfterChange={[Function]}
+          onChange={[Function]}
+          props={
+                    Object {
+                              "id": "filter",
+                            }
+          }
+          value={undefined}
+/>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Container(Slider)
+    props={
+        Object {
+            "id": "filter",
+          }
+    }
+    value={0}
+/>,
+}
+`;

@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SliderSpec Slider renderers should render Slider 1`] = `
+<span
+  className={undefined}
+>
+  <div
+    className={undefined}
+  />
+  <span>
+    no label
+  </span>
+  <label
+    htmlFor="selectable"
+  >
+    <ComponentEnhancer(undefined)
+      activeDotStyle={Object {}}
+      className=""
+      disabled={false}
+      dotStyle={Object {}}
+      dots={false}
+      handle={[Function]}
+      handleStyle={
+        Array [
+          Object {},
+        ]
+      }
+      id="selectable"
+      included={true}
+      marks={Object {}}
+      max={100}
+      min={0}
+      onAfterChange={[Function]}
+      onBeforeChange={[Function]}
+      onChange={[Function]}
+      prefixCls="rc-slider"
+      railStyle={Object {}}
+      step={1}
+      trackStyle={
+        Array [
+          Object {},
+        ]
+      }
+      value={undefined}
+      vertical={false}
+    />
+  </label>
+  <div
+    className={undefined}
+  />
+</span>
+`;
+
+exports[`SliderSpec Slider renderers should render Slider with icons everywhere 1`] = `
+<span
+  className={undefined}
+>
+  <div
+    className={undefined}
+  >
+    <Icon
+      name="talend-logo-square"
+    />
+  </div>
+  <span
+    className={undefined}
+  >
+    Heeey
+     
+    45
+     %
+  </span>
+  <label
+    htmlFor="selectable"
+  >
+    <ComponentEnhancer(undefined)
+      activeDotStyle={Object {}}
+      className=""
+      disabled={false}
+      dotStyle={Object {}}
+      dots={false}
+      handle={[Function]}
+      handleStyle={
+        Array [
+          Object {},
+        ]
+      }
+      id="selectable"
+      included={true}
+      marks={Object {}}
+      max={100}
+      min={0}
+      onAfterChange={[Function]}
+      onBeforeChange={[Function]}
+      onChange={[Function]}
+      prefixCls="rc-slider"
+      railStyle={Object {}}
+      step={1}
+      trackStyle={
+        Array [
+          Object {},
+        ]
+      }
+      value={45}
+      vertical={false}
+    />
+  </label>
+  <div
+    className={undefined}
+  >
+    <Icon
+      className={null}
+      name="talend-smiley-rating"
+    />
+    <Icon
+      className={null}
+      name="talend-most-trusted"
+    />
+    <Icon
+      className={undefined}
+      name="talend-network"
+    />
+    <Icon
+      className={null}
+      name="talend-streams"
+    />
+    <Icon
+      className={null}
+      name="talend-tdc-negative"
+    />
+  </div>
+</span>
+`;
+
+exports[`SliderSpec Slider renderers should render Slider with icons everywhere 2`] = `
+<span
+  className={undefined}
+>
+  <div
+    className={undefined}
+  />
+  <span
+    className={undefined}
+  >
+    Heeey
+     
+    35
+     %
+  </span>
+  <label
+    htmlFor="selectable"
+  >
+    <ComponentEnhancer(undefined)
+      activeDotStyle={Object {}}
+      className=""
+      disabled={false}
+      dotStyle={Object {}}
+      dots={false}
+      handle={[Function]}
+      handleStyle={
+        Array [
+          Object {},
+        ]
+      }
+      id="selectable"
+      included={true}
+      marks={Object {}}
+      max={100}
+      min={0}
+      onAfterChange={[Function]}
+      onBeforeChange={[Function]}
+      onChange={[Function]}
+      prefixCls="rc-slider"
+      railStyle={Object {}}
+      step={1}
+      trackStyle={
+        Array [
+          Object {},
+        ]
+      }
+      value={35}
+      vertical={false}
+    />
+  </label>
+  <div
+    className={undefined}
+  />
+</span>
+`;
