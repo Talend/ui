@@ -268,10 +268,10 @@ describe('SubHeaderBar selectors', () => {
 	it('should return the default state', () => {
 		expect(getComponentState(mockState, 'wrongComponentId')).toEqual(DEFAULT_STATE);
 	});
-	it('should return the inputText', () => {
-		expect(getInputText(mockState, 'mySubHeaderBar')).toEqual('my edited title');
+	it('should return the editMode', () => {
+		expect(getInputText(mockState, 'mySubHeaderBar')).toEqual(true);
 	});
-	it('should return the inputText', () => {
-		expect(getInputText(mockState, 'wrongComponentId')).toEqual('');
+	it('should return the editModet', () => {
+		expect(getInputText(mockState, 'wrongComponentId')).toEqual(false);
 	});
 });
