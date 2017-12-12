@@ -20,6 +20,7 @@ export default class UIForm extends React.Component {
 		this.onReset = this.onReset.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
+		this.onActionClick = this.onActionClick.bind(this);
 	}
 
 	/**
@@ -162,6 +163,19 @@ export default class UIForm extends React.Component {
 		}
 	}
 
+	onActionClick(actionOnClick) {
+		if (actionOnClick) {
+			return (event, data) =>
+				actionOnClick(event, {
+					...data,
+					formData: this.props.properties,
+					properties: this.props.properties,
+				}
+			);
+		}
+		return () => {};
+	}
+
 	/**
 	 * Triggers submit callback if form is valid
 	 * @param event the submit event
@@ -228,6 +242,7 @@ export default class UIForm extends React.Component {
 					onTrigger={this.onTrigger}
 					className={this.props.buttonBlockClass}
 					schema={{ items: actions }}
+					onClick={this.onActionClick}
 				/>
 			</form>
 		);
