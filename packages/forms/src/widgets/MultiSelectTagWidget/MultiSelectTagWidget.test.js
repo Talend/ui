@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import Typeahead from '@talend/react-components/lib/Typeahead';
 import MultiSelectTagWidget from './MultiSelectTagWidget';
 
 describe('MultiSelectTagWidget', () => {
