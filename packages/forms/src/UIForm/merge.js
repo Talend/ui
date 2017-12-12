@@ -63,12 +63,29 @@ export const wrapCustomWidget = Component => {
 		} else if (props.schema.schema.enum) {
 			newProps.schema.enum = props.schema.schema.enum;
 		}
-		newProps.onChange = value => props.onChange({}, { schema: newProps.schema, value });
+		const onChange = props.onChange;
+		newProps.onChange = (event, payload) => {
+			if (!payload) {
+				onChange({}, { schema: newProps.schema, value: event });
+				// TODO: trigger !
+				if (props.schema.triggers && props.onTrigger) {
+					props.onTrigger({}, {
+						schema: newProps.schema,
+						value: event,
+						propertyName: newProps.schema.key.join('.'),
+						propertyValue: event,
+					});
+				}
+			} else {
+				onChange(event, payload);
+			}
+		};
 		return <Component {...newProps} />;
 	}
 	TFMigratedWidget.propTypes = {
 		formContext: PropTypes.object,
 		onChange: PropTypes.func,
+		onTrigger: PropTypes.func,
 		schema: PropTypes.object,
 		titleMap: PropTypes.array,
 	};
