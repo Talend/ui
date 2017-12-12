@@ -30,7 +30,7 @@ const ExampleSlider = {
 				id="slider3"
 				initialState={initialState}
 				emptyValueLabel="i am empty"
-				label="coucou jean alain :"
+				label="label of value  :"
 				labelIcon={labelIcon}
 			/>
 		</div>
