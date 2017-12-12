@@ -29,7 +29,7 @@ if (program.debug) {
 	console.log(`use stack version ${stack_version}`);
 }
 
-const REACT_VERSION = '^15.6.1';
+const REACT_VERSION = '^15.6.2';
 const JEST_VERSION = '20.0.3';
 
 const STACK_VERSION = {
