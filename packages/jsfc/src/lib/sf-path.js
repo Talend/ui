@@ -12,22 +12,19 @@ export { normalize } from 'objectpath';
  *
  * @return {string}                    I am the formatted key
  */
-export function name (key: Array<string>, separator?: string, formName = '', omitNumbers = false) {
-  if (key) {
-    let fieldKey = key.slice();
-    let fieldSeparator = separator || '-';
+export function name(key: Array<string>, separator?: string, formName = '', omitNumbers = false) {
+	if (key) {
+		let fieldKey = key.slice();
+		let fieldSeparator = separator || '-';
 
-    if (omitNumbers) {
-      fieldKey = fieldKey.filter(function(currentKey: any) {
-        return typeof currentKey !== 'number';
-      });
-    };
+		if (omitNumbers) {
+			fieldKey = fieldKey.filter(function(currentKey: any) {
+				return typeof currentKey !== 'number';
+			});
+		}
 
-    return ((formName.length !== 0)
-      ? formName + fieldSeparator
-      : ''
-    ) + fieldKey.join(fieldSeparator);
-  };
+		return (formName.length !== 0 ? formName + fieldSeparator : '') + fieldKey.join(fieldSeparator);
+	}
 
-  return '';
-};
+	return '';
+}
