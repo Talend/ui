@@ -63,7 +63,7 @@ exports[`SliderSpec Slider renderers should render Slider with icons everywhere 
     />
   </div>
   <span
-    className={undefined}
+    className="informations-label"
   >
     Heeey
      
@@ -140,7 +140,7 @@ exports[`SliderSpec Slider renderers should render Slider with icons everywhere 
     className={undefined}
   />
   <span
-    className={undefined}
+    className="informations-label"
   >
     Heeey
      

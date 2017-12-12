@@ -73,7 +73,7 @@ function getTextLabel(value, label, emptyValueLabel) {
  */
 export function Slider({ id, label, value, icons, emptyValueLabel, labelIcon, min, max, ...rest }) {
 	return (
-		<span className={(theme['tc-slider-container'], 'tc-slider-container')}>
+		<span className={theme['tc-slider-container']}>
 			<div className={theme.informations}>{labelIcon ? <Icon name={labelIcon} /> : null}</div>
 			{getTextLabel(value, label, emptyValueLabel)}
 			<label htmlFor={id}>
@@ -82,7 +82,7 @@ export function Slider({ id, label, value, icons, emptyValueLabel, labelIcon, mi
 					value={value}
 					min={min}
 					max={max}
-					className={(theme['tc-slider'], 'tc-slider')}
+					className={theme['tc-slider']}
 					{...rest}
 				/>
 			</label>
