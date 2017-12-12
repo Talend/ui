@@ -31,7 +31,7 @@ InputTitleSubHeader.propTypes = {
 };
 
 InputTitleSubHeader.defaultProps = {
-	editMode: false,
+	editMode: true,
 };
 
 export { InputTitleSubHeader as default, InlineFormSubHeader, TitleSubHeader };

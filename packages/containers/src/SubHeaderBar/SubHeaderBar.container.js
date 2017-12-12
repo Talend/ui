@@ -15,11 +15,11 @@ class SubHeaderBar extends React.Component {
 
 	static propTypes = {
 		...componentState.propTypes,
-		actionCreatorCancel: PropTypes.func,
-		actionCreatorEdit: PropTypes.func,
-		actionCreatorSubmit: PropTypes.func,
-		actionCreatorChange: PropTypes.func,
-		actionCreatorBackArrow: PropTypes.func,
+		actionCreatorCancel: PropTypes.string,
+		actionCreatorEdit: PropTypes.string,
+		actionCreatorSubmit: PropTypes.string,
+		actionCreatorChange: PropTypes.string,
+		actionCreatorBackArrow: PropTypes.string,
 		onCancel: PropTypes.func,
 		onEdit: PropTypes.func,
 		onSubmit: PropTypes.func,
@@ -43,6 +43,9 @@ class SubHeaderBar extends React.Component {
 	}
 
 	onSubmit(event, data) {
+		this.props.setState(() => ({
+			editMode: false,
+		}));
 		if (this.props.onSubmit) {
 			this.props.onSubmit(event, data);
 		}

@@ -27,7 +27,7 @@ class InlineFormSubHeader extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.selectInput = this.selectInput.bind(this);
 		this.state = {
-			value: '',
+			value: props.title,
 		};
 	}
 
@@ -59,7 +59,6 @@ class InlineFormSubHeader extends React.Component {
 	}
 
 	render() {
-		const { title, t } = this.props;
 		return (
 			<form
 				onSubmit={this.onSubmit}
@@ -75,7 +74,7 @@ class InlineFormSubHeader extends React.Component {
 						'form-control',
 					)}
 					onChange={this.onChange}
-					value={this.state.value || title}
+					value={this.state.value}
 				/>
 				<div
 					className={classNames(
@@ -86,7 +85,7 @@ class InlineFormSubHeader extends React.Component {
 					<Action
 						type="submit"
 						name="action-submit-title"
-						label={t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}
+						label={this.props.t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}
 						icon="talend-check"
 						onClick={noop}
 						bsStyle="link"
@@ -98,7 +97,7 @@ class InlineFormSubHeader extends React.Component {
 					/>
 					<Action
 						name="action-cancel-title"
-						label={t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' })}
+						label={this.props.t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' })}
 						icon="talend-cross"
 						onClick={this.onCancel}
 						bsStyle="link"

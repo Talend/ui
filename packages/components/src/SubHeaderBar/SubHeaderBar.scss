@@ -67,7 +67,7 @@ $tc-svg-icon-size: $padding-large !default;
 			color: $tc-subheader-active-color;
 		}
 
-		> svg {
+		.tc-svg-icon {
 			width: $tc-svg-icon-size;
 			height: $tc-svg-icon-size;
 		}

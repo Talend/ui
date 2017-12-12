@@ -98,23 +98,38 @@ describe('SubHeaderBar container', () => {
 		const wrapper = shallow(<Container />);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
+	it('should setState when submit event trigger', () => {
+		const event = {};
+		let state;
+		const props = {
+			state: Map({ editMode: true }),
+			setState: jest.fn(fn => (state = fn())),
+			onCancel: jest.fn(),
+		};
+		shallow(<Container {...props} />).simulate('submit', event);
+		expect(props.setState).toHaveBeenCalled();
+		expect(state.editMode).toEqual(false);
+	});
 	it('should call onSubmit when submit event trigger', () => {
 		const event = {};
 		const data = { value: 'submitValue', props: {} };
 		const props = {
 			onSubmit: jest.fn(),
 			state: Map({ editMode: false }),
+			setState: jest.fn(),
 		};
 		shallow(<Container {...props} />).simulate('submit', event, data);
+		expect(props.setState).toHaveBeenCalled();
 		expect(props.onSubmit).toHaveBeenCalledWith(event, data);
 	});
 	it('should call ActionCreatorSubmit when submit event trigger', () => {
 		const event = {};
 		const data = { value: 'submitValue', props: {} };
 		const props = {
-			actionCreatorSubmit: jest.fn(),
+			actionCreatorSubmit: 'mySubmitActionCreator',
 			dispatchActionCreator: jest.fn(),
 			state: Map({ editMode: false }),
+			setState: jest.fn(),
 		};
 		shallow(<Container {...props} />).simulate('submit', event, data);
 		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.actionCreatorSubmit, event, {
@@ -149,7 +164,7 @@ describe('SubHeaderBar container', () => {
 		const props = {
 			setState: jest.fn(),
 			state: Map({ editMode: false }),
-			actionCreatorCancel: jest.fn(),
+			actionCreatorCancel: 'myCancelActionCreator',
 			dispatchActionCreator: jest.fn(),
 		};
 		shallow(<Container {...props} />).simulate('cancel', event);
@@ -186,7 +201,7 @@ describe('SubHeaderBar container', () => {
 			setState: jest.fn(),
 			state: Map({ editMode: false }),
 			dispatchActionCreator: jest.fn(),
-			actionCreatorEdit: jest.fn(),
+			actionCreatorEdit: 'myEditActionCreator',
 		};
 		// When
 		shallow(<Container {...props} />).simulate('edit', event);
@@ -215,7 +230,7 @@ describe('SubHeaderBar container', () => {
 			setState: jest.fn(),
 			state: Map({ editMode: false }),
 			dispatchActionCreator: jest.fn(),
-			actionCreatorChange: jest.fn(),
+			actionCreatorChange: 'myChangeActionCreator',
 		};
 		// When
 		shallow(<Container {...props} />).simulate('change', event);
@@ -240,7 +255,7 @@ describe('SubHeaderBar container', () => {
 		// Given
 		const event = {};
 		const props = {
-			actionCreatorGoBack: jest.fn(),
+			actionCreatorGoBack: 'myGoBackActionCreator',
 			dispatchActionCreator: jest.fn(),
 		};
 		// When

@@ -1,21 +1,14 @@
 import React from 'react';
 import { IconsProvider } from '@talend/react-components';
-import {
-	// eslint-disbale-line import/no-extraneous-dependencies
-	action,
-} from '@storybook/react';
 import { SubHeaderBar } from '../src';
 
 const viewSubHeader = {
 	title: 'MyTitle',
-	onEdit: () => action('onEdit'),
-	onSubmit: () => action('onSubmit'),
-	onCancel: () => action('onCancel'),
-	onChange: () => action('onChange'),
-};
-
-const backAction = {
-	backActionClick: () => action('backAction'),
+	actionCreatorCancel: 'subheaderbar:cancel',
+	actionCreatorEdit: 'subheaderbar:edit',
+	actionCreatorSubmit: 'subheaderbar:submit',
+	actionCreatorChange: 'subheaderbar:change',
+	actionCreatorGoBack: 'subheaderbar:goback',
 };
 
 const injectedComponentsCenter = {
@@ -43,7 +36,6 @@ const injectedComponentsRight = {
 
 const props = {
 	...viewSubHeader,
-	backAction,
 };
 
 const ExampleSubHeaderBar = {

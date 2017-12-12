@@ -9,6 +9,7 @@ import { FilterBar, ObjectViewer, Action } from '../src/index';
 import 'focus-outline-manager';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
+import { actions as actionsSubHeader, actionsCreators as actionsCreatorsSubHeader } from './subheaderbar.storybook'
 
 setAddon({ addWithCMF: cmf.addWithCMF });
 
@@ -52,17 +53,6 @@ function chooseItem2() {
 	};
 }
 
-function sharingOverlayDisplay() {
-	return {
-		type: 'OVERLAY_SHARING',
-	};
-}
-function bubblesOverlayDisplay() {
-	return {
-		type: 'OVERLAY_BUBBLES',
-	};
-}
-
 api.component.register('FilterBar', FilterBar);
 api.component.register('ObjectViewer', ObjectViewer);
 api.component.register('Action', Action);
@@ -73,8 +63,14 @@ registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
 registerActionCreator('item1:action', chooseItem1);
 registerActionCreator('item2:action', chooseItem2);
-registerActionCreator('overlay:display-sharing', sharingOverlayDisplay);
-registerActionCreator('overlay:display-bubbles', bubblesOverlayDisplay);
+
+registerActionCreator('subheaderbar:display-sharing', actionsCreatorsSubHeader.sharingSubHeader);
+registerActionCreator('subheaderbar:display-bubbles', actionsCreatorsSubHeader.bubblesSubHeader);
+registerActionCreator('subheaderbar:submit', actionsCreatorsSubHeader.submitSubheader);
+registerActionCreator('subheaderbar:edit', actionsCreatorsSubHeader.editSubHeaderBar);
+registerActionCreator('subheaderbar:cancel', actionsCreatorsSubHeader.cancelSubHeaderBar);
+registerActionCreator('subheaderbar:change', actionsCreatorsSubHeader.changeSubHeaderBar);
+registerActionCreator('subheaderbar:goback', actionsCreatorsSubHeader.goBackSubHeaderBar);
 
 const registerComponent = api.component.register;
 registerComponent('ComponentOverlay', ComponentOverlay);
@@ -326,26 +322,6 @@ function loadStories() {
 			label: 'No',
 			actionCreator: 'cancel:hide:dialog',
 		};
-		actions['subheaderbar:action-sharing'] = {
-			id: 'subheaderbar:action-sharing',
-			label: 'sharing',
-			renderType: 'action',
-			actionCreator: 'overlay:display-sharing',
-			icon: 'talend-share-alt',
-			bsStyle: 'link',
-			hideLabel: true,
-			overlay: false,
-		};
-		actions['subheaderbar:action-bubbles'] = {
-			id: 'subheaderbar:action-bubbles',
-			label: 'bubbles',
-			renderType: 'action',
-			actionCreator: 'overlay:display-bubbles',
-			icon: 'talend-bubbles',
-			bsStyle: 'link',
-			hideLabel: true,
-			overlay: false,
-		};
 		actions['action:overlay:component'] = {
 			id: 'action:overlay:component',
 			label: 'overlay with component',
@@ -354,7 +330,10 @@ function loadStories() {
 				customProps: 'customProps',
 			},
 			overlayPlacement: 'bottom',
-		}
+		};
+		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
+		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
+		
 
 		const story = storiesOf(example);
 

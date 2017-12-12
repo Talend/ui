@@ -135,7 +135,7 @@ describe('InlineFormSubHeader', () => {
 		expect(defaultProps.onCancel).toHaveBeenCalledWith(event);
 		expect(wrapper.state('value')).toEqual('');
 	});
-	it('sould call selectInput on render', () => {
+	it('should call selectInput on render', () => {
 		const input = { select: jest.fn(), focus: jest.fn() };
 		new InlineFormSubHeader(defaultProps).selectInput(input);
 		expect(input.select).toHaveBeenCalled();
