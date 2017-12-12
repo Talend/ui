@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import classNames from 'classnames';
 import { Actions } from '../../Actions';
 import { cellTitleDisplayModes } from '../utils/constants';
 
@@ -8,13 +9,13 @@ import theme from './CellTitleActions.scss';
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;
 
 function CellTitleActions({ rowData, actionsKey, displayMode, persistentActionsKey }) {
-	const elems = [];
+	const actions = [];
 
 	if (displayMode === TITLE_MODE_TEXT) {
-		elems.push(<Actions actions={rowData[actionsKey]} hideLabel link />);
-		elems.push(
+		actions.push(<Actions actions={rowData[actionsKey]} hideLabel link />);
+		actions.push(
 			<Actions
-				className={theme['persistent-actions']}
+				className={classNames('persistent-actions', theme['persistent-actions'])}
 				actions={rowData[persistentActionsKey]}
 				hideLabel
 				link
@@ -22,7 +23,7 @@ function CellTitleActions({ rowData, actionsKey, displayMode, persistentActionsK
 		);
 	}
 
-	return <div className={theme['main-title-actions-group']}>{elems}</div>;
+	return <div className={classNames('main-title-actions-group', theme['main-title-actions-group'])}>{actions}</div>;
 }
 
 CellTitleActions.displayName = 'VirtualizedList(CellTitleActions)';
