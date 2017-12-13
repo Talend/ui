@@ -61,7 +61,7 @@ function getTextLabel(value, label, emptyValueLabel) {
 		return <span>{emptyValueLabel}</span>;
 	}
 	return (
-		<span className={(theme['informations-label'], 'informations-label')}>
+		<span className={theme['informations-label']}>
 			{label} {value} %
 		</span>
 	);
@@ -74,8 +74,10 @@ function getTextLabel(value, label, emptyValueLabel) {
 export function Slider({ id, label, value, icons, emptyValueLabel, labelIcon, min, max, ...rest }) {
 	return (
 		<span className={theme['tc-slider-container']}>
-			<div className={theme.informations}>{labelIcon ? <Icon name={labelIcon} /> : null}</div>
-			{getTextLabel(value, label, emptyValueLabel)}
+			<div className={theme.informations}>
+				{labelIcon ? <Icon name={labelIcon} /> : null}
+				{getTextLabel(value, label, emptyValueLabel)}
+			</div>
 			<label htmlFor={id}>
 				<RcSlider
 					id={id}

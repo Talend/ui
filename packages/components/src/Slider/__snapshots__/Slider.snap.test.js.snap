@@ -6,10 +6,11 @@ exports[`SliderSpec Slider renderers should render Slider 1`] = `
 >
   <div
     className={undefined}
-  />
-  <span>
-    no label
-  </span>
+  >
+    <span>
+      no label
+    </span>
+  </div>
   <label
     htmlFor="selectable"
   >
@@ -61,15 +62,15 @@ exports[`SliderSpec Slider renderers should render Slider with icons everywhere 
     <Icon
       name="talend-logo-square"
     />
+    <span
+      className={undefined}
+    >
+      Heeey
+       
+      45
+       %
+    </span>
   </div>
-  <span
-    className="informations-label"
-  >
-    Heeey
-     
-    45
-     %
-  </span>
   <label
     htmlFor="selectable"
   >
@@ -138,15 +139,16 @@ exports[`SliderSpec Slider renderers should render Slider with icons everywhere 
 >
   <div
     className={undefined}
-  />
-  <span
-    className="informations-label"
   >
-    Heeey
-     
-    35
-     %
-  </span>
+    <span
+      className={undefined}
+    >
+      Heeey
+       
+      35
+       %
+    </span>
+  </div>
   <label
     htmlFor="selectable"
   >
