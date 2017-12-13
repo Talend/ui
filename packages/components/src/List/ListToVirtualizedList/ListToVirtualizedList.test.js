@@ -47,6 +47,12 @@ describe('ListToVirtualizedList', () => {
 		});
 	});
 
+	it('should support defaultHeight', () => {
+		const rProps = { ...props, defaultHeight: 300 };
+		const table = shallow(<ListToVirtualizedList {...rProps} displayMode="table" />).props();
+		expect(table.defaultHeight).toBe(300);
+	});
+
 	it('should support displayMode', () => {
 		const table = shallow(<ListToVirtualizedList {...props} displayMode="table" />).props();
 		expect(table.type).toBe('TABLE');

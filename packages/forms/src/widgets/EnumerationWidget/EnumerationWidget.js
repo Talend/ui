@@ -345,11 +345,12 @@ class EnumerationForm extends React.Component {
 		this.setState(prevState => {
 			const valueExist = this.valueAlreadyExist(value.value, prevState);
 			const items = [...prevState.items];
-			items[value.index].error = valueExist
-				? t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
+			items[value.index].error = '';
+			if (valueExist) {
+				items[value.index].error = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
 					defaultValue: 'This term is already in the list',
-				})
-				: '';
+				});
+			}
 			const validation = this.constructor.updateItemValidateDisabled(value, valueExist);
 			return { items, ...validation };
 		});
@@ -385,9 +386,7 @@ class EnumerationForm extends React.Component {
 				const valueExist = this.valueAlreadyExist(value.value, prevState);
 				// if the value is empty, no value update is done
 				if (value.value && !valueExist) {
-					items[value.index].values = this.constructor.parseStringValueToArray(
-						value.value,
-					);
+					items[value.index].values = this.constructor.parseStringValueToArray(value.value);
 				}
 				if (valueExist) {
 					items[value.index].error = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
@@ -448,6 +447,7 @@ class EnumerationForm extends React.Component {
 			headerInput: this.searchInputsActions,
 			searchCriteria: prevState.loadingSearchCriteria,
 			loadingSearchCriteria: '',
+			items: this.searchItems(prevState.loadingSearchCriteria),
 		}));
 	}
 
@@ -456,11 +456,7 @@ class EnumerationForm extends React.Component {
 			this.updateHeaderInputDisabled('');
 		}
 		if (
-			this.callActionHandler(
-				ENUMERATION_RESET_LIST,
-				null,
-				this.onConnectedAbortHandler.bind(this),
-			)
+			this.callActionHandler(ENUMERATION_RESET_LIST, null, this.onConnectedAbortHandler.bind(this))
 		) {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
@@ -634,11 +630,7 @@ class EnumerationForm extends React.Component {
 	// lazy loading
 	onLoadData() {
 		if (
-			this.callActionHandler(
-				ENUMERATION_LOAD_DATA_ACTION,
-				undefined,
-				this.onLazyHandler.bind(this),
-			)
+			this.callActionHandler(ENUMERATION_LOAD_DATA_ACTION, undefined, this.onLazyHandler.bind(this))
 		) {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
@@ -814,14 +806,15 @@ class EnumerationForm extends React.Component {
 			const [validateAndAddAction, validateAction, abortAction] = prevState.headerInput;
 			validateAndAddAction.disabled = value === '' || valueExist;
 			validateAction.disabled = value === '' || valueExist;
-
+			let headerError = '';
+			if (valueExist) {
+				headerError = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
+					defaultValue: 'This term is already in the list',
+				});
+			}
 			return {
 				headerInput: [validateAndAddAction, validateAction, abortAction],
-				headerError: valueExist
-					? t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
-						defaultValue: 'This term is already in the list',
-					})
-					: '',
+				headerError,
 				inputValue: value,
 			};
 		});
