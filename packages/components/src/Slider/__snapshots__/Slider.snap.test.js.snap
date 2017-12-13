@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SliderSpec Slider renderers should render Slider 1`] = `
+exports[`Slider component renderers should render Slider 1`] = `
 <span
   className={undefined}
 >
@@ -52,7 +52,7 @@ exports[`SliderSpec Slider renderers should render Slider 1`] = `
 </span>
 `;
 
-exports[`SliderSpec Slider renderers should render Slider with icons everywhere 1`] = `
+exports[`Slider component renderers should render Slider with icons everywhere 1`] = `
 <span
   className={undefined}
 >
@@ -133,7 +133,7 @@ exports[`SliderSpec Slider renderers should render Slider with icons everywhere 
 </span>
 `;
 
-exports[`SliderSpec Slider renderers should render Slider with icons everywhere 2`] = `
+exports[`Slider component renderers should render Slider with icons everywhere 2`] = `
 <span
   className={undefined}
 >
