@@ -59,9 +59,9 @@ function ListTable(props) {
 			noRowsRenderer={() => <NoRows t={t} />}
 			rowClassName={({ index }) => {
 				if (collection[index]) {
-					return classNames(rowThemes, collection[index].className);
+					return classNames('tc-list-item', rowThemes, collection[index].className);
 				}
-				return classNames(rowThemes);
+				return classNames('tc-list-item', rowThemes);
 			}}
 			rowCount={collection.length}
 			rowGetter={({ index }) => collection[index]}
