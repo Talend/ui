@@ -100,6 +100,14 @@ After
 }
 ```
 
+## v0.130.0
+* Component: TreeView
+* PR: [feat(SelectObject): display results as ListGroupItem](https://github.com/Talend/ui/pull/880)
+* Changes :
+
+| Before | After |
+|---|---|
+| generated id was undefined-add on the add button if no was given | no id is generated for the the add button |
 
 ## v0.125.0
 * Component: ListView

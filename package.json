@@ -79,6 +79,15 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/cmf",
+    "packages/cmf-cqrs",
+    "packages/components",
+    "packages/containers",
+    "packages/forms",
+    "packages/generator",
+    "packages/icons",
+    "packages/logging",
+    "packages/sagas",
+    "packages/theme"
   ]
 }

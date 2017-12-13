@@ -9,6 +9,7 @@ import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
 
 const icons = {
+	'talend-apache': talendIcons['talend-apache'],
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
 	'talend-chevron-end': talendIcons['talend-chevron-end'],
@@ -73,6 +74,15 @@ const actions = [
 	},
 ];
 
+const persistentActions = [
+	{
+		id: 'edit',
+		label: 'edit',
+		icon: 'talend-apache',
+		onClick: action('onEdit'),
+	},
+];
+
 const props = {
 	id: 'talend',
 	displayMode: 'table',
@@ -97,6 +107,7 @@ const props = {
 				className: 'item-0-class',
 			},
 			{
+				persistentActions,
 				id: 1,
 				name: 'Title in input mode',
 				created: '2016-09-22',
@@ -107,6 +118,7 @@ const props = {
 				className: 'item-1-class',
 			},
 			{
+				persistentActions,
 				id: 2,
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
@@ -116,6 +128,7 @@ const props = {
 				className: 'item-2-class',
 			},
 			{
+				persistentActions,
 				id: 3,
 				name: 'Title with long long long long long long long long long long long text',
 				created: '2016-09-22',
@@ -613,6 +626,17 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display the list with hidden header labels.</p>
 				<List {...props} virtualized />
+			</div>
+		);
+	})
+	.add('Virtualized - list with inline parent', () => {
+		return (
+			<div className="virtualized-list">
+				<h1>List</h1>
+				{/*Do not reproduce!*/}
+				<span>
+					<List {...props} virtualized />
+				</span>
 			</div>
 		);
 	})

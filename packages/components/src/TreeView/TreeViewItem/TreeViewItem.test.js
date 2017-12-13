@@ -5,6 +5,7 @@ import keycode from 'keycode';
 import TreeViewItem, { getItemIcon } from './TreeViewItem.component';
 
 const defaultProps = {
+	id: 'tc-treeview-item',
 	item: {
 		name: 'grandpa',
 		actions: [
