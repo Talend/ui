@@ -74,6 +74,15 @@ const actions = [
 	},
 ];
 
+const persistentActions = [
+	{
+		id: 'edit',
+		label: 'edit',
+		icon: 'talend-apache',
+		onClick: action('onEdit'),
+	},
+];
+
 const props = {
 	id: 'talend',
 	displayMode: 'table',
@@ -98,14 +107,7 @@ const props = {
 				className: 'item-0-class',
 			},
 			{
-				persistentActions: [
-					{
-						id: 'edit',
-						label: 'edit',
-						icon: 'talend-apache',
-						onClick: action('onEdit'),
-					},
-				],
+				persistentActions,
 				id: 1,
 				name: 'Title in input mode',
 				created: '2016-09-22',
@@ -116,14 +118,7 @@ const props = {
 				className: 'item-1-class',
 			},
 			{
-				persistentActions: [
-					{
-						id: 'edit',
-						label: 'edit',
-						icon: 'talend-apache',
-						onClick: action('onEdit'),
-					},
-				],
+				persistentActions,
 				id: 2,
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
@@ -133,14 +128,7 @@ const props = {
 				className: 'item-2-class',
 			},
 			{
-				persistentActions: [
-					{
-						id: 'edit',
-						label: 'edit',
-						icon: 'talend-apache',
-						onClick: action('onEdit'),
-					},
-				],
+				persistentActions,
 				id: 3,
 				name: 'Title with long long long long long long long long long long long text',
 				created: '2016-09-22',
