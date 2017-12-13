@@ -33,7 +33,7 @@ describe('RadioOrSelect field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render select when titleMap has more than 2 options', () => {
@@ -60,6 +60,6 @@ describe('RadioOrSelect field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

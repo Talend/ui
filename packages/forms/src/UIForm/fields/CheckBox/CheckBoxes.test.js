@@ -33,7 +33,7 @@ describe('CheckBoxes field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render checkboxes with no values', () => {
@@ -50,7 +50,7 @@ describe('CheckBoxes field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render disabled checkboxes', () => {
@@ -73,7 +73,7 @@ describe('CheckBoxes field', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	describe('#onChange', () => {

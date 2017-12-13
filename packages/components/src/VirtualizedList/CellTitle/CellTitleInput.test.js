@@ -21,7 +21,7 @@ describe('CellTitleInput', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should call submit callback on blur', () => {

@@ -40,7 +40,7 @@ describe('VirtualizedList', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should use defaultHeight if AutoSizer can not get parent element height', () => {
@@ -87,7 +87,7 @@ describe('VirtualizedList', () => {
 				{contentFields}
 			</VirtualizedList>,
 		);
-		const renderer = wrapper.node.props.children;
+		const renderer = wrapper.getElement().props.children;
 
 		// when
 		const rendererInstance = renderer({ height: 600, width: 300 });
@@ -118,6 +118,6 @@ describe('VirtualizedList', () => {
 			</VirtualizedList>,
 		);
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

@@ -19,7 +19,7 @@ describe('UIForm container', () => {
 			.instance()
 			.state
 		).toMatchSnapshot();
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	describe('#onChange', () => {

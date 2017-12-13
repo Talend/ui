@@ -36,7 +36,7 @@ describe('RowSelection', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should enhance classname without selection class on non selected row', () => {
@@ -58,7 +58,7 @@ describe('RowSelection', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should enhance classname with active class on active row', () => {
@@ -80,6 +80,6 @@ describe('RowSelection', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

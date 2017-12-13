@@ -31,7 +31,7 @@ describe('CellTitle', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	describe('icon', () => {
@@ -59,7 +59,7 @@ describe('CellTitle', () => {
 			);
 
 			// then
-			expect(wrapper.node).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
 		it('should NOT render the icon when no iconKey is provided', () => {
@@ -80,7 +80,7 @@ describe('CellTitle', () => {
 			);
 
 			// then
-			expect(wrapper.node).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
 		it('should NOT render the icon when the rowData has no icon value', () => {
@@ -105,7 +105,7 @@ describe('CellTitle', () => {
 			);
 
 			// then
-			expect(wrapper.node).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 	});
 
@@ -145,7 +145,7 @@ describe('CellTitle', () => {
 			);
 
 			// then
-			expect(wrapper.node).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
 		it('should NOT render the actions when no actions key is provided', () => {
@@ -166,7 +166,7 @@ describe('CellTitle', () => {
 			);
 
 			// then
-			expect(wrapper.node).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
 		it('should NOT render the actions when rowData has no actions', () => {
@@ -191,7 +191,7 @@ describe('CellTitle', () => {
 			);
 
 			// then
-			expect(wrapper.node).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 	});
 });

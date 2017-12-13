@@ -24,30 +24,7 @@ Object {
 }
 `;
 
-exports[`Container(Form) should render a Form 1`] = `
-<TalendForm
-  ArrayFieldTemplate={[Function]}
-  actions={Array []}
-  buttonBlockClass="form-actions"
-  className="tc-form rjsf pristine"
-  data={
-    Object {
-      "jsonSchema": Object {
-        "schema": true,
-      },
-      "properties": Object {},
-      "uiSchema": Object {
-        "uiSchema": true,
-      },
-    }
-  }
-  fields={undefined}
-  onChange={[Function]}
-  onSubmit={[Function]}
-  onTrigger={[Function]}
-  other={true}
-/>
-`;
+exports[`Container(Form) should render a Form 1`] = `undefined`;
 
 exports[`Container(Form) should use props.onChange 1`] = `
 Array [

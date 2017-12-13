@@ -73,7 +73,7 @@ describe('ListView field', () => {
 			const wrapper = shallow(<ListView {...props} />);
 
 			// then
-			expect(wrapper.getNode()).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
 		it('should render no items message', () => {

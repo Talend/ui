@@ -21,7 +21,7 @@ describe('Connected ActionFile', () => {
 			<ActionFile id="42"actionId="menu:article" extra="foo" />,
 			{ context }
 		);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 

@@ -119,7 +119,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'babel-preset-env': '1.6.0',
 	'babel-preset-react': '6.16.0',
 	cpx: '1.5.0',
-	enzyme: '^2.7.1',
+	enzyme: '^3.1.0',
 	eslint: '^3.6.1',
 	'eslint-config-airbnb': '^11.1.0',
 	'eslint-plugin-import': '^1.16.0',

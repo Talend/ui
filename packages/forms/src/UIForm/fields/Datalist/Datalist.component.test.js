@@ -37,7 +37,7 @@ describe('Datalist component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should update suggestions on value change', () => {

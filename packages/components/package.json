@@ -70,8 +70,9 @@
     "codacy-coverage": "^2.0.0",
     "cpx": "1.5.0",
     "css-loader": "0.28.7",
-    "enzyme": "^2.7.1",
-    "enzyme-to-json": "^1.5.1",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-15": "^1.0.1",
+    "enzyme-to-json": "^3.0.0",
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
@@ -136,7 +137,8 @@
     "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
-    }
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
   },
   "publishConfig": {
     "access": "public"

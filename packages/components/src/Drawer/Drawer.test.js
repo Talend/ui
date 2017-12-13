@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import Drawer, { cancelActionComponent } from './Drawer.component';
 
@@ -52,8 +52,8 @@ describe('Drawer', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 	it('should render cancelActionComponent', () => {
-		const wrapper = shallow(cancelActionComponent({}));
-		expect(wrapper.find('<button />')).toBeTruthy();
+		const wrapper = mount(cancelActionComponent({}));
+		expect(wrapper.find('button')).toBeTruthy();
 	});
 	it('should not render cancelActionComponent', () => {
 		expect(cancelActionComponent()).toBe(null);

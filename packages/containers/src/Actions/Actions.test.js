@@ -11,6 +11,6 @@ describe('Actions', () => {
 			<Actions actionIds={['menu:demo']} />,
 			{ context }
 		);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

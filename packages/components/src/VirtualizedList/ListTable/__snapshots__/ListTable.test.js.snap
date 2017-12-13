@@ -57,6 +57,7 @@ exports[`ListGrid should render no-rows component 1`] = `
       >
         <div
           className="ReactVirtualized__Table__headerColumn tc-list-cell-id"
+          key="Header-Col0"
           role="columnheader"
           style={
             Object {
@@ -68,6 +69,7 @@ exports[`ListGrid should render no-rows component 1`] = `
         >
           <span
             className="ReactVirtualized__Table__headerTruncatedText"
+            key="label"
             title="Id"
           >
             Id
@@ -75,6 +77,7 @@ exports[`ListGrid should render no-rows component 1`] = `
         </div>
         <div
           className="ReactVirtualized__Table__headerColumn tc-list-cell-name"
+          key="Header-Col1"
           role="columnheader"
           style={
             Object {
@@ -86,6 +89,7 @@ exports[`ListGrid should render no-rows component 1`] = `
         >
           <span
             className="ReactVirtualized__Table__headerTruncatedText"
+            key="label"
             title="Name"
           >
             Name

@@ -43,7 +43,8 @@
     "babel-preset-react": "6.16.0",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.2",
-    "enzyme": "^2.7.1",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-15": "^1.0.1",
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
@@ -115,7 +116,8 @@
     },
     "setupFiles": [
       "./env__tests.js"
-    ]
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
   },
   "publishConfig": {
     "access": "public"

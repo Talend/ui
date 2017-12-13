@@ -17,7 +17,7 @@ describe('JSONLike', () => {
 			},
 		};
 		const wrapper = shallow(<Component data={data} />);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should support className', () => {

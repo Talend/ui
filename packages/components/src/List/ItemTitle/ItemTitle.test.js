@@ -32,7 +32,7 @@ describe('ItemTitle', () => {
 		const wrapper = shallow(<ItemTitle {...props} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render button title', () => {
@@ -52,7 +52,7 @@ describe('ItemTitle', () => {
 		const wrapper = shallow(<ItemTitle {...props} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render input title', () => {
@@ -71,7 +71,7 @@ describe('ItemTitle', () => {
 		const wrapper = shallow(<ItemTitle {...props} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render icon', () => {
@@ -89,7 +89,7 @@ describe('ItemTitle', () => {
 		const wrapper = shallow(<ItemTitle {...props} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render text with undefined', () => {
@@ -104,7 +104,7 @@ describe('ItemTitle', () => {
 			},
 		};
 		const wrapper = shallow(<ItemTitle {...props} />);
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger callback on button title click (left click)', () => {

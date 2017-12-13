@@ -66,7 +66,7 @@ describe('ActionBar', () => {
 			<ActionBar {...props} />
 		);
 		// then
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 		const switchActions = wrapper.find(ActionBar.SwitchActions);
 		expect(switchActions.props().left).toBe(true);
 		expect(switchActions.props().selected).toBe(0);
@@ -86,7 +86,7 @@ describe('ActionBar', () => {
 			<ActionBar {...props} />
 		);
 		// then
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render no-selected actions, all on right', () => {
@@ -102,7 +102,7 @@ describe('ActionBar', () => {
 			<ActionBar {...props} />
 		);
 		// then
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render selected count and multi-selected actions, all on left', () => {
@@ -119,7 +119,7 @@ describe('ActionBar', () => {
 			<ActionBar {...props} />
 		);
 		// then
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render selected count and multi-selected actions,' +
@@ -138,7 +138,7 @@ describe('ActionBar', () => {
 			<ActionBar {...props} />
 		);
 		// then
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render selected count and multi-selected actions, all on right', () => {
@@ -155,7 +155,7 @@ describe('ActionBar', () => {
 			<ActionBar {...props} />
 		);
 		// then
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render a btn-group', () => {
@@ -167,7 +167,7 @@ describe('ActionBar', () => {
 		const wrapper = shallow(
 			<ActionBar {...props} />
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
@@ -179,8 +179,8 @@ describe('ActionBar.Count', () => {
 		const noselected = shallow(
 			<ActionBar.Count />
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
-		expect(noselected.root.node).toBe(null);
+		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(noselected.getElement()).toBe(null);
 	});
 });
 
@@ -193,7 +193,7 @@ describe('ActionBar.SwitchActions', () => {
 				left
 			/>
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render one Action on navbar-right', () => {
 		const wrapper = shallow(
@@ -202,7 +202,7 @@ describe('ActionBar.SwitchActions', () => {
 				right
 			/>
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render one Action on navbar-left with selected', () => {
 		const wrapper = shallow(
@@ -212,7 +212,7 @@ describe('ActionBar.SwitchActions', () => {
 				left
 			/>
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should not render selected on right', () => {
 		const wrapper = shallow(
@@ -221,6 +221,6 @@ describe('ActionBar.SwitchActions', () => {
 				right
 			/>
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

@@ -21,7 +21,7 @@ describe('UIForm connect', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should create form state on mount', () => {

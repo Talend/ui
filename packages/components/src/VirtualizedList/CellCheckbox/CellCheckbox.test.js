@@ -21,7 +21,7 @@ describe('CellActions', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render unchecked checkbox', () => {
@@ -35,7 +35,7 @@ describe('CellActions', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger callback on checkbox toggle', () => {

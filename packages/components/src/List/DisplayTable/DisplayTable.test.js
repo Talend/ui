@@ -113,21 +113,21 @@ describe('CellContent', () => {
 			column={{ key: 'test' }}
 			item={{ test: 'hello' }}
 		/>);
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render undefined', () => {
 		const wrapper = shallow(<CellContent
 			column={{ key: 'test' }}
 			item={{}}
 		/>);
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render array', () => {
 		const wrapper = shallow(<CellContent
 			column={{ key: 'test' }}
 			item={{ test: [{ label: 'action' }] }}
 		/>);
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render title', () => {
 		const wrapper = shallow(<CellContent
@@ -137,7 +137,7 @@ describe('CellContent', () => {
 			id="my-id"
 			titleProps={{ foo: 'bar' }}
 		/>);
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
@@ -148,7 +148,7 @@ describe('RowRenderer', () => {
 			item={{ foo: 'bar', baz: 'hello' }}
 			titleProps={{ key: 'foo' }}
 		/>);
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
@@ -157,20 +157,20 @@ describe('ColumnHeader', () => {
 		const wrapper = shallow(<ColumnHeader
 			column={{ key: 'test', label: 'Test' }}
 		/>);
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render an invisible screen reader compatible column header', () => {
 		const wrapper = shallow(<ColumnHeader
 			column={{ key: 'test', label: 'Test', hideHeader: true }}
 		/>);
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render with sort', () => {
 		const wrapper = shallow(<ColumnHeader
 			column={{ key: 'test', label: 'Test' }}
 			sort={{ field: 'test', onChange: jest.fn() }}
 		/>);
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
@@ -180,6 +180,6 @@ describe('ListHeaders', () => {
 			columns={[{ item: 'value' }]}
 			sort={{ foo: 'bar' }}
 		/>);
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
