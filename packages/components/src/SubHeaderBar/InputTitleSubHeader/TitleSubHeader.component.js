@@ -15,6 +15,7 @@ function TitleSubHeader({ title, subTitle, onEdit, t }) {
 				)}
 			>
 				<h1
+					onDoubleClick={onEdit}
 					className={classNames(
 						theme['tc-subheader-details-text-title-wording'],
 						'tc-subheader-details-text-title-wording',
@@ -22,20 +23,18 @@ function TitleSubHeader({ title, subTitle, onEdit, t }) {
 				>
 					{title}
 				</h1>
-				{onEdit && (
-					<Action
-						name="action-edit-title"
-						label={t('MODIFY_TOOLTIP', { defaultValue: 'Modify' })}
-						icon="talend-pencil"
-						onClick={onEdit}
-						bsStyle="link"
-						className={classNames(
-							theme['tc-subheader-details-text-title-pencil'],
-							'tc-subheader-details-text-title-pencil',
-						)}
-						hideLabel
-					/>
-				)}
+				<Action
+					name="action-edit-title"
+					label={t('MODIFY_TOOLTIP', { defaultValue: 'Modify' })}
+					icon="talend-pencil"
+					onClick={onEdit}
+					bsStyle="link"
+					className={classNames(
+						theme['tc-subheader-details-text-title-pencil'],
+						'tc-subheader-details-text-title-pencil',
+					)}
+					hideLabel
+				/>
 			</div>
 			{subTitle && (
 				<small
@@ -53,8 +52,8 @@ function TitleSubHeader({ title, subTitle, onEdit, t }) {
 
 TitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
+	onEdit: PropTypes.func.isRequired,
 	subTitle: PropTypes.string,
-	onEdit: PropTypes.func,
 	t: PropTypes.func,
 };
 

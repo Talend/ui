@@ -36,6 +36,7 @@ describe('SubHeaderBarActions', () => {
 	});
 	it('should render with center props', () => {
 		const props = {
+			title: 'myTitle',
 			left: false,
 			center: true,
 			right: false,
@@ -114,22 +115,26 @@ describe('SubHeaderBar', () => {
 	});
 	it('should render with i18n', () => {
 		const props = {
+			title: 'myTitle',
 			left: false,
 			center: true,
 			right: false,
 			className: 'myClassName',
 			components,
+			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<Container {...props} />);
 		expect(wrapper.getNode().props.i18n).toBeDefined();
 	});
 	it('should render without i18n', () => {
 		const props = {
+			title: 'myTitle',
 			left: false,
 			center: true,
 			right: false,
 			className: 'myClassName',
 			components,
+			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
 		expect(wrapper.getNode().props.i18n).toBeFalsy();

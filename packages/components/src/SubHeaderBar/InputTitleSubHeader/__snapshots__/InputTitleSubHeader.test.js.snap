@@ -44,9 +44,11 @@ exports[`InputTitleSubHeader should render 1`] = `
 >
   <Icon
     className="tc-subheader-details-icon"
-    name="myIconFile"
+    name="myIconId"
   />
   <TitleSubHeader
+    onEdit={[Function]}
+    onSubmit={[Function]}
     t={[Function]}
     title="myTitle"
   />
@@ -62,6 +64,7 @@ exports[`TitleSubHeader should render 1`] = `
   >
     <h1
       className="tc-subheader-details-text-title-wording"
+      onDoubleClick={[Function]}
     >
       myTitle
     </h1>

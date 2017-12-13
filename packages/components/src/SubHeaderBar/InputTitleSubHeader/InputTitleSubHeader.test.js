@@ -7,72 +7,65 @@ import InputTitleSubHeader, {
 } from './InputTitleSubHeader.component';
 
 describe('InputTitleSubHeader', () => {
+	let defaultProps;
+	beforeEach(
+		() =>
+			(defaultProps = {
+				title: 'myTitle',
+				onEdit: jest.fn(),
+				onSubmit: jest.fn(),
+			}),
+	);
 	it('should render', () => {
-		const props = {
-			title: 'myTitle',
-			iconFile: 'myIconFile',
-			editMode: false,
-		};
-		const wrapper = shallow(<InputTitleSubHeader {...props} />);
+		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} iconId="myIconId" />);
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render Icon', () => {
-		const props = {
-			title: 'myTitle',
-			iconFile: 'myIconFile',
-			editMode: false,
-		};
-		const wrapper = shallow(<InputTitleSubHeader {...props} />);
+		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} iconId="myIconId" />);
 		expect(wrapper.find(Icon)).toHaveLength(1);
-		expect(wrapper.find(Icon).get(0).props.name).toEqual('myIconFile');
+		expect(wrapper.find(Icon).get(0).props.name).toEqual('myIconId');
 	});
 	it('should not render Icon', () => {
-		const props = {
-			title: 'myTitle',
-			editMode: false,
-		};
-		const wrapper = shallow(<InputTitleSubHeader {...props} />);
+		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} />);
 		expect(wrapper.find(Icon)).toHaveLength(0);
 	});
 	it('should render TitleSubHeader', () => {
-		const props = {
-			title: 'myTitle',
-			editMode: false,
-		};
-		const wrapper = shallow(<InputTitleSubHeader {...props} />);
+		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} />);
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(1);
 		expect(wrapper.find(InlineFormSubHeader)).toHaveLength(0);
 	});
 	it('should render InputTitleSubHeader', () => {
-		const props = {
-			title: 'myTitle',
-			iconFile: 'myIconFile',
-			editMode: true,
-		};
-		const wrapper = shallow(<InputTitleSubHeader {...props} />);
+		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} editMode />);
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(0);
 		expect(wrapper.find(InlineFormSubHeader)).toHaveLength(1);
 	});
 });
 
 describe('TitleSubHeader', () => {
+	let defaultProps;
+	beforeEach(() => {
+		defaultProps = {
+			title: 'myTitle',
+			onEdit: jest.fn(),
+		};
+	});
 	it('should render', () => {
-		const wrapper = shallow(
-			<TitleSubHeader title="myTitle" subTitle="mySubTitle" onEdit={jest.fn()} />,
-		);
+		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />);
 		expect(wrapper.find(Action)).toHaveLength(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render with title', () => {
-		const wrapper = shallow(<TitleSubHeader title="myTitle" />);
+		const wrapper = shallow(<TitleSubHeader {...defaultProps} />);
 		expect(wrapper.find('h1').getNode().props.className).toEqual(
 			'tc-subheader-details-text-title-wording',
 		);
 		expect(wrapper.find('h1').getNode().props.children).toEqual('myTitle');
 	});
 	it('should render with subTitle', () => {
-		const wrapper = shallow(<TitleSubHeader title="myTitle" subTitle="mySubTitle" />).find('small');
+		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />).find(
+			'small',
+		);
 		expect(wrapper.getNode().props.className).toEqual('tc-subheader-details-text-subtitle');
 		expect(wrapper.getNode().props.children).toEqual('mySubTitle');
 	});
@@ -86,7 +79,7 @@ describe('TitleSubHeader', () => {
 			className: undefined,
 			hideLabel: true,
 		};
-		const wrapper = shallow(<TitleSubHeader title="myTitle" onEdit={actionProps.onClick} />);
+		const wrapper = shallow(<TitleSubHeader {...defaultProps} onEdit={actionProps.onClick} />);
 		expect(wrapper.find(Action)).toHaveLength(1);
 	});
 });

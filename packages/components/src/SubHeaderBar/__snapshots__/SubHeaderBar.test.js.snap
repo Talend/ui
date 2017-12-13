@@ -20,7 +20,7 @@ exports[`SubHeaderBar should render without i18n 1`] = `
               icon="talend-arrow-left"
               id="backArrow"
               label="Go Back"
-              onClick={undefined}
+              onClick={[Function]}
         />,
           },
           Object {
@@ -57,6 +57,7 @@ exports[`SubHeaderBar should render without i18n 1`] = `
               left={false}
               right={false}
               t={[Function]}
+              title="myTitle"
         />,
           },
         ]

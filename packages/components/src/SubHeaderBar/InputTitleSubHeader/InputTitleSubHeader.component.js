@@ -6,12 +6,12 @@ import InlineFormSubHeader from './InlineFormSubHeader.component';
 import theme from './InputTitleSubHeader.scss';
 import Icon from '../../Icon';
 
-function InputTitleSubHeader({ title, iconFile, editMode, ...rest }) {
+function InputTitleSubHeader({ title, iconId, editMode, ...rest }) {
 	return (
 		<div className={classNames(theme['tc-subheader-details'], 'tc-subheader-details')}>
-			{iconFile && (
+			{iconId && (
 				<Icon
-					name={iconFile}
+					name={iconId}
 					className={classNames(theme['tc-subheader-details-icon'], 'tc-subheader-details-icon')}
 				/>
 			)}
@@ -25,9 +25,9 @@ function InputTitleSubHeader({ title, iconFile, editMode, ...rest }) {
 }
 
 InputTitleSubHeader.propTypes = {
-	editMode: PropTypes.bool.isRequired,
 	title: PropTypes.string.isRequired,
-	iconFile: PropTypes.string,
+	editMode: PropTypes.bool.isRequired,
+	iconId: PropTypes.string,
 };
 
 InputTitleSubHeader.defaultProps = {
