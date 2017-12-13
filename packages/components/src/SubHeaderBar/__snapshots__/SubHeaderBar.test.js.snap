@@ -53,7 +53,7 @@ exports[`SubHeaderBar should render without i18n 1`] = `
                           },
                         ]
               }
-              editMode={true}
+              editMode={false}
               left={false}
               right={false}
               t={[Function]}
