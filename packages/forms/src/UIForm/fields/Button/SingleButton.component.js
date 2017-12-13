@@ -3,7 +3,7 @@ import React from 'react';
 import { Action } from '@talend/react-components';
 import classNames from 'classnames';
 
-export default function SingleButton({ className, id, onTrigger, schema }) {
+export default function SingleButton({ className, id, onTrigger, onClick, schema }) {
 	const {
 		style,
 		disabled = false,
@@ -11,12 +11,15 @@ export default function SingleButton({ className, id, onTrigger, schema }) {
 		label,
 		name,
 		triggers,
+		model,
 		type = 'button',
 	} = schema;
 
-	let onClick;
+	let localOnClick;
 	if (type === 'button' && triggers) {
-		onClick = event => onTrigger(event, { trigger: triggers[0], schema });
+		localOnClick = event => onTrigger(event, { trigger: triggers[0], schema });
+	} else {
+		localOnClick = event => onClick(event, schema);
 	}
 
 	return (
@@ -28,8 +31,9 @@ export default function SingleButton({ className, id, onTrigger, schema }) {
 			inProgress={inProgress}
 			label={label}
 			name={name}
-			onClick={onClick}
+			onClick={localOnClick}
 			type={type}
+			model={model}
 		/>
 	);
 }
@@ -39,6 +43,7 @@ if (process.env.NODE_ENV !== 'production') {
 		className: PropTypes.string,
 		id: PropTypes.string,
 		onTrigger: PropTypes.func,
+		onClick: PropTypes.func,
 		schema: PropTypes.shape({
 			bsStyle: PropTypes.string,
 			disabled: PropTypes.bool,
