@@ -17,7 +17,7 @@ describe('Slider component', () => {
 			expect(wrapper.getNode()).toMatchSnapshot();
 		});
 
-		it('should render Slider with icons everywhere', () => {
+		it('should render Slider with icons on status', () => {
 			// given
 			const props = {
 				id: 'selectable',
@@ -30,7 +30,6 @@ describe('Slider component', () => {
 					'talend-streams',
 					'talend-tdc-negative',
 				],
-				labelIcon: 'talend-logo-square',
 			};
 			// when
 			const wrapper = shallow(<Slider {...props} />);
@@ -38,12 +37,13 @@ describe('Slider component', () => {
 			expect(wrapper.getNode()).toMatchSnapshot();
 		});
 
-		it('should render Slider with icons everywhere', () => {
+		it('should render Slider with icons on label', () => {
 			// given
 			const props = {
 				id: 'selectable',
-				value: 35,
+				value: 45,
 				label: 'Heeey',
+				labelIcon: 'talend-logo-square',
 			};
 			// when
 			const wrapper = shallow(<Slider {...props} />);

@@ -52,7 +52,7 @@ exports[`Slider component renderers should render Slider 1`] = `
 </span>
 `;
 
-exports[`Slider component renderers should render Slider with icons everywhere 1`] = `
+exports[`Slider component renderers should render Slider with icons on label 1`] = `
 <span
   className={undefined}
 >
@@ -62,6 +62,63 @@ exports[`Slider component renderers should render Slider with icons everywhere 1
     <Icon
       name="talend-logo-square"
     />
+    <span
+      className={undefined}
+    >
+      Heeey
+       
+      45
+       %
+    </span>
+  </div>
+  <label
+    htmlFor="selectable"
+  >
+    <ComponentEnhancer(undefined)
+      activeDotStyle={Object {}}
+      className=""
+      disabled={false}
+      dotStyle={Object {}}
+      dots={false}
+      handle={[Function]}
+      handleStyle={
+        Array [
+          Object {},
+        ]
+      }
+      id="selectable"
+      included={true}
+      marks={Object {}}
+      max={100}
+      min={0}
+      onAfterChange={[Function]}
+      onBeforeChange={[Function]}
+      onChange={[Function]}
+      prefixCls="rc-slider"
+      railStyle={Object {}}
+      step={1}
+      trackStyle={
+        Array [
+          Object {},
+        ]
+      }
+      value={45}
+      vertical={false}
+    />
+  </label>
+  <div
+    className={undefined}
+  />
+</span>
+`;
+
+exports[`Slider component renderers should render Slider with icons on status 1`] = `
+<span
+  className={undefined}
+>
+  <div
+    className={undefined}
+  >
     <span
       className={undefined}
     >
@@ -130,62 +187,5 @@ exports[`Slider component renderers should render Slider with icons everywhere 1
       name="talend-tdc-negative"
     />
   </div>
-</span>
-`;
-
-exports[`Slider component renderers should render Slider with icons everywhere 2`] = `
-<span
-  className={undefined}
->
-  <div
-    className={undefined}
-  >
-    <span
-      className={undefined}
-    >
-      Heeey
-       
-      35
-       %
-    </span>
-  </div>
-  <label
-    htmlFor="selectable"
-  >
-    <ComponentEnhancer(undefined)
-      activeDotStyle={Object {}}
-      className=""
-      disabled={false}
-      dotStyle={Object {}}
-      dots={false}
-      handle={[Function]}
-      handleStyle={
-        Array [
-          Object {},
-        ]
-      }
-      id="selectable"
-      included={true}
-      marks={Object {}}
-      max={100}
-      min={0}
-      onAfterChange={[Function]}
-      onBeforeChange={[Function]}
-      onChange={[Function]}
-      prefixCls="rc-slider"
-      railStyle={Object {}}
-      step={1}
-      trackStyle={
-        Array [
-          Object {},
-        ]
-      }
-      value={35}
-      vertical={false}
-    />
-  </label>
-  <div
-    className={undefined}
-  />
 </span>
 `;
