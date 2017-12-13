@@ -105,7 +105,7 @@ stories
 	.addWithInfo('with default left components and icon file', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...viewProps} iconFile="talend-file-csv-o" onGoBack={backAction} />
+			<SubHeaderBar {...viewProps} iconId="talend-file-csv-o" onGoBack={backAction} />
 		</div>
 	))
 	.addWithInfo('default left components and subtitle', () => (
@@ -119,7 +119,7 @@ stories
 			<IconsProvider />
 			<SubHeaderBar
 				{...viewProps}
-				iconFile="talend-file-csv-o"
+				iconId="talend-file-csv-o"
 				onGoBack={backAction}
 				componentsRight={injectedComponentsRight}
 			/>
@@ -151,7 +151,7 @@ stories
 			<IconsProvider />
 			<SubHeaderBar
 				{...viewProps}
-				iconFile="talend-file-csv-o"
+				iconId="talend-file-csv-o"
 				subTitle="mySubTitle"
 				onGoBack={backAction}
 				componentsCenter={injectedComponentsCenter}

@@ -52,7 +52,7 @@ const ExampleSubHeaderBar = {
 				{...props}
 				subTitle="mySubTitle"
 				injectedComponents={injectedComponentsRight}
-				iconFile="talend-file-csv-o"
+				iconId="talend-file-csv-o"
 			/>
 		</div>
 	),
@@ -68,7 +68,7 @@ const ExampleSubHeaderBar = {
 			<SubHeaderBar
 				{...props}
 				injectedComponents={Object.assign({}, injectedComponentsCenter, injectedComponentsRight)}
-				iconFile="talend-file-csv-o"
+				iconId="talend-file-csv-o"
 				subTitle="mySubTitle"
 			/>
 		</div>
