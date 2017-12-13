@@ -81,7 +81,7 @@ function SidePanel({
 	return (
 		<nav className={navCSS} role="navigation">
 			<ul className={listCSS}>
-				{dockable ? (
+				{dockable && (
 					<li className={theme['toggle-btn']} title={toggleButtonTitle}>
 						<Action
 							id={id && `${id}-toggle-dock`}
@@ -92,7 +92,7 @@ function SidePanel({
 							label=""
 						/>
 					</li>
-				) : null}
+				)}
 				{actions.map(action => {
 					const a11y = {};
 					const extra = {};
