@@ -183,7 +183,10 @@ export function migrate(jsonSchema, uiSchema) {
 }
 
 export default (jsonSchema, uiSchema) => {
-	const props = migrate(jsonSchema, uiSchema);
+	let props = { jsonSchema, uiSchema };
+	if (!Array.isArray(uiSchema)) {
+		props = migrate(jsonSchema, uiSchema);
+	}
 	props.mergedSchema = merge(props.jsonSchema, props.uiSchema);
 	return props;
 };
