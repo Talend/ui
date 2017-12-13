@@ -5,11 +5,11 @@ import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
+import { FilterBar, ObjectViewer, Action } from '../src/index';
 import 'focus-outline-manager';
-
 import ComponentOverlay from './ComponentOverlay';
-import ObjectViewer from '../src/ObjectViewer';
 import examples from '../examples';
+import { actions as actionsSubHeader, actionsCreators as actionsCreatorsSubHeader } from './subheaderbar.storybook'
 
 setAddon({ addWithCMF: cmf.addWithCMF });
 
@@ -53,7 +53,9 @@ function chooseItem2() {
 	};
 }
 
+api.component.register('FilterBar', FilterBar);
 api.component.register('ObjectViewer', ObjectViewer);
+api.component.register('Action', Action);
 
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
@@ -61,6 +63,14 @@ registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
 registerActionCreator('item1:action', chooseItem1);
 registerActionCreator('item2:action', chooseItem2);
+
+registerActionCreator('subheaderbar:display-sharing', actionsCreatorsSubHeader.sharingSubHeader);
+registerActionCreator('subheaderbar:display-bubbles', actionsCreatorsSubHeader.bubblesSubHeader);
+registerActionCreator('subheaderbar:submit', actionsCreatorsSubHeader.submitSubheader);
+registerActionCreator('subheaderbar:edit', actionsCreatorsSubHeader.editSubHeaderBar);
+registerActionCreator('subheaderbar:cancel', actionsCreatorsSubHeader.cancelSubHeaderBar);
+registerActionCreator('subheaderbar:change', actionsCreatorsSubHeader.changeSubHeaderBar);
+registerActionCreator('subheaderbar:goback', actionsCreatorsSubHeader.goBackSubHeaderBar);
 
 const registerComponent = api.component.register;
 registerComponent('ComponentOverlay', ComponentOverlay);
@@ -320,7 +330,10 @@ function loadStories() {
 				customProps: 'customProps',
 			},
 			overlayPlacement: 'bottom',
-		}
+		};
+		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
+		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
+		
 
 		const story = storiesOf(example);
 

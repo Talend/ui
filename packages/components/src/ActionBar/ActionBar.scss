@@ -4,14 +4,15 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 .tc-actionbar-container {
 	padding: 0 $padding-small;
 	background: $tc-action-bar-background-color;
+	height: 100%;
+	width: 100%;
+	display: flex;
 
 	.navbar-left,
 	.navbar-right {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: $navbar-height;
-
 		> * {
 			margin: $tc-action-bar-margin;
 		}
@@ -23,6 +24,14 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 
 	.navbar-right {
 		margin-right: 0;
+		margin-left: auto;
+	}
+
+	.navbar-center {
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+		justify-content: center;
 	}
 
 	:global(.navbar-form),
