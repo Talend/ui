@@ -1,10 +1,6 @@
 import { Map, OrderedMap } from 'immutable';
 import * as Selectors from './nodeSelectors';
-import {
-	NodeRecord,
-	PortRecord,
-	LinkRecord,
-} from '../constants/flowdesigner.model';
+import { NodeRecord, PortRecord, LinkRecord } from '../constants/flowdesigner.model';
 
 describe('Testing node selectors', () => {
 	const node1 = new NodeRecord({

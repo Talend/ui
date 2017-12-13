@@ -21,7 +21,7 @@ export class FlowDesigner extends React.Component {
 		children: PropTypes.node,
 		setNodeTypes: PropTypes.func.isRequired,
 		moveNodeTo: PropTypes.func.isRequired,
-		moveNodeToEnd: PropTypes.func,
+		moveNodeToEnd: PropTypes.func.isRequired,
 		nodes: mapOf(NodeType).isRequired,
 		ports: mapOf(PortType).isRequired,
 		links: mapOf(PropTypes.object).isRequired,
@@ -32,7 +32,7 @@ export class FlowDesigner extends React.Component {
 		setZoom: ZoomHandler.propTypes.setZoom,
 		gridComponent: PropTypes.element,
 		snapToGrid: PropTypes.bool,
-	}
+	};
 
 	static defaultProps = {
 		snapToGrid: false,
@@ -53,46 +53,34 @@ export class FlowDesigner extends React.Component {
 		let linkTypeMap = {};
 		let portTypeMap = {};
 		if (children) {
-			children.forEach((element) => {
+			children.forEach(element => {
 				switch (element.type.displayName) {
-				case 'NodeType':
-					nodeTypeMap = Object.assign(
-						{},
-						nodeTypeMap,
-						{
+					case 'NodeType':
+						nodeTypeMap = Object.assign({}, nodeTypeMap, {
 							[element.props.type]: {
 								component: element.props.component,
 							},
-						},
-					);
-					break;
-				case 'LinkType':
-					linkTypeMap = Object.assign(
-						{},
-						linkTypeMap,
-						{
+						});
+						break;
+					case 'LinkType':
+						linkTypeMap = Object.assign({}, linkTypeMap, {
 							[element.props.type]: {
 								component: element.props.component,
 							},
-						},
-					);
-					break;
-				case 'PortType':
-					portTypeMap = Object.assign(
-						{},
-						portTypeMap,
-						{
+						});
+						break;
+					case 'PortType':
+						portTypeMap = Object.assign({}, portTypeMap, {
 							[element.props.type]: {
 								component: element.props.component,
 							},
-						},
-					);
-					break;
-				default:
-					invariant(
-					false,
-					`<${element.type.displayName} /> is an unknown component configuration`,
-				);
+						});
+						break;
+					default:
+						invariant(
+							false,
+							`<${element.type.displayName} /> is an unknown component configuration`,
+						);
 				}
 			});
 		} else {
@@ -105,11 +93,7 @@ export class FlowDesigner extends React.Component {
 
 	render() {
 		return (
-			<svg
-				onClick={this.props.onClick}
-				ref={c => (this.node = c)}
-				width="100%"
-			>
+			<svg onClick={this.props.onClick} ref={c => (this.node = c)} width="100%">
 				<defs>
 					<filter id="blur-filter" width="1.5" height="1.5" x="-.25" y="-.25">
 						<feFlood floodColor="#01A7CF" result="COLOR" />
@@ -160,11 +144,10 @@ const mapStateToProps = (state, ownProps) => ({
 	transformToApply: get(state, ownProps.reduxMountPoint).get('transformToApply'),
 });
 
-
 const mapDispatchToProps = dispatch => ({
 	setNodeTypes: nodeTypeMap => dispatch(setNodeTypes(nodeTypeMap)),
-	moveNodeTo: (nodId, nodePosition) => (dispatch(moveNodeTo(nodId, nodePosition))),
-	moveNodeToEnd: (nodId, nodePosition) => (dispatch(moveNodeToEnd(nodId, nodePosition))),
+	moveNodeTo: (nodId, nodePosition) => dispatch(moveNodeTo(nodId, nodePosition)),
+	moveNodeToEnd: (nodId, nodePosition) => dispatch(moveNodeToEnd(nodId, nodePosition)),
 	setZoom: transform => dispatch(setZoom(transform)),
 });
 

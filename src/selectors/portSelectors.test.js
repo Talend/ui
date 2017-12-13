@@ -1,10 +1,7 @@
 import { Map, fromJS } from 'immutable';
 import * as Selectors from './portSelectors';
 import { defaultState } from '../reducers/flow.reducer';
-import {
-	LinkRecord,
-	PortRecord,
-} from '../constants/flowdesigner.model';
+import { LinkRecord, PortRecord } from '../constants/flowdesigner.model';
 import { PORT_SINK, PORT_SOURCE } from '../constants/flowdesigner.constants';
 
 const port1 = new PortRecord({
@@ -27,17 +24,26 @@ const port4 = new PortRecord({
 	nodeId: 'nodeId2',
 	graphicalAttributes: fromJS({ properties: { type: PORT_SOURCE } }),
 });
-const givenState = defaultState.set('links', new Map().set('id1', new LinkRecord({
-	id: 'id1',
-	source: 'id1',
-	target: 'id2',
-})))
-.set('ports', new Map()
-	.set('id1', port1)
-	.set('id2', port2)
-	.set('id3', port3)
-	.set('id4', port4),
-);
+const givenState = defaultState
+	.set(
+		'links',
+		new Map().set(
+			'id1',
+			new LinkRecord({
+				id: 'id1',
+				source: 'id1',
+				target: 'id2',
+			}),
+		),
+	)
+	.set(
+		'ports',
+		new Map()
+			.set('id1', port1)
+			.set('id2', port2)
+			.set('id3', port3)
+			.set('id4', port4),
+	);
 
 describe('getEmitterPorts', () => {
 	it('return a map with port id2 && id4', () => {

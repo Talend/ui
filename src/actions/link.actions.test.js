@@ -8,113 +8,111 @@ import * as linkActions from './link.actions';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('Check that link action creators generate proper' +
-	' action objects and perform checking', () => {
-	it('addLink', () => {
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map(),
-				ports: new Map({
-					id1: { id: 'portId', portType: 'type' },
-					id2: { id: 'portId', portType: 'type' },
+describe(
+	'Check that link action creators generate proper' + ' action objects and perform checking',
+	() => {
+		it('addLink', () => {
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map(),
+					ports: new Map({
+						id1: { id: 'portId', portType: 'type' },
+						id2: { id: 'portId', portType: 'type' },
+					}),
+				},
+			});
+
+			store.dispatch(
+				linkActions.addLink('linkId', 'sourceId', 'targetId', 'linkType', {
+					graphicalAttributes: { selected: true },
 				}),
-			},
+			);
+			expect(store.getActions()).toMatchSnapshot();
 		});
 
-		store.dispatch(
-			linkActions.addLink(
-				'linkId',
-				'sourceId',
-				'targetId',
-				'linkType',
-				{ graphicalAttributes: { selected: true } },
-			),
-		);
-		expect(store.getActions()).toMatchSnapshot();
-	});
+		it('setLinkTarget', () => {
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map({ linkId: { id: 'linkId' } }),
+					ports: new Map({ id1: { id: 'portId', portType: 'type' } }),
+				},
+			});
 
-	it('setLinkTarget', () => {
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map({ linkId: { id: 'linkId' } }),
-				ports: new Map({ id1: { id: 'portId', portType: 'type' } }),
-			},
+			store.dispatch(linkActions.setLinkTarget('linkId', 'portId'));
+
+			expect(store.getActions()).toMatchSnapshot();
 		});
 
-		store.dispatch(linkActions.setLinkTarget('linkId', 'portId'));
+		it('setLinkSource', () => {
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map({ linkId: { id: 'linkId' } }),
+					ports: new Map({ id1: { id: 'portId', portType: 'type' } }),
+				},
+			});
 
-		expect(store.getActions()).toMatchSnapshot();
-	});
+			store.dispatch(linkActions.setLinkSource('linkId', 'portId'));
 
-	it('setLinkSource', () => {
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map({ linkId: { id: 'linkId' } }),
-				ports: new Map({ id1: { id: 'portId', portType: 'type' } }),
-			},
+			expect(store.getActions()).toMatchSnapshot();
 		});
 
-		store.dispatch(linkActions.setLinkSource('linkId', 'portId'));
+		it('setLinkGraphicalAttributes', () => {
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
+				},
+			});
 
-		expect(store.getActions()).toMatchSnapshot();
-	});
+			store.dispatch(linkActions.setLinkGraphicalAttributes('id', { selected: true }));
 
-	it('setLinkGraphicalAttributes', () => {
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
-			},
+			expect(store.getActions()).toMatchSnapshot();
 		});
 
-		store.dispatch(linkActions.setLinkGraphicalAttributes('id', { selected: true }));
+		it('removeLinkGrahicalAttribute', () => {
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
+				},
+			});
 
-		expect(store.getActions()).toMatchSnapshot();
-	});
+			store.dispatch(linkActions.removeLinkGraphicalAttribute('id', 'selected'));
 
-	it('removeLinkGrahicalAttribute', () => {
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
-			},
+			expect(store.getActions()).toMatchSnapshot();
 		});
 
-		store.dispatch(linkActions.removeLinkGraphicalAttribute('id', 'selected'));
+		it('setLinkData', () => {
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
+				},
+			});
 
-		expect(store.getActions()).toMatchSnapshot();
-	});
+			store.dispatch(linkActions.setLinkData('id', { type: 'test' }));
 
-	it('setLinkData', () => {
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
-			},
+			expect(store.getActions()).toMatchSnapshot();
 		});
 
-		store.dispatch(linkActions.setLinkData('id', { type: 'test' }));
+		it('removeLinkData', () => {
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
+				},
+			});
 
-		expect(store.getActions()).toMatchSnapshot();
-	});
+			store.dispatch(linkActions.removeLinkData('id', 'type'));
 
-	it('removeLinkData', () => {
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map({ id: { id: 'linkId', linkType: 'type' } }),
-			},
+			expect(store.getActions()).toMatchSnapshot();
 		});
 
-		store.dispatch(linkActions.removeLinkData('id', 'type'));
+		it('removeLink', () => {
+			const store = mockStore({
+				flowDesigner: {
+					links: new Map({ id: { id: 'linkId' } }),
+				},
+			});
 
-		expect(store.getActions()).toMatchSnapshot();
-	});
-
-	it('removeLink', () => {
-		const store = mockStore({
-			flowDesigner: {
-				links: new Map({ id: { id: 'linkId' } }),
-			},
+			store.dispatch(linkActions.removeLink('id'));
+			expect(store.getActions()).toMatchSnapshot();
 		});
-
-		store.dispatch(linkActions.removeLink('id'));
-		expect(store.getActions()).toMatchSnapshot();
-	});
-});
+	},
+);

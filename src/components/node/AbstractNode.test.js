@@ -1,7 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import { NodeGraphicalAttributes, NodeRecord, PositionRecord, SizeRecord } from '../../constants/flowdesigner.model';
+import {
+	NodeGraphicalAttributes,
+	NodeRecord,
+	PositionRecord,
+	SizeRecord,
+} from '../../constants/flowdesigner.model';
 import AbstractNode, { ABSTRACT_NODE_INVARIANT } from './AbstractNode.component';
 
 const node = new NodeRecord({
@@ -12,17 +17,26 @@ const node = new NodeRecord({
 	}),
 });
 
+function noOp() {}
 
 describe('Testing <AbstractNode>', () => {
 	it('should create a bare node component with provided position', () => {
-		const wrapper = shallow(<AbstractNode node={node}><rect /></AbstractNode>);
+		const wrapper = shallow(
+			<AbstractNode node={node} moveNodeTo={noOp} moveNodeToEnd={noOp}>
+				<rect />
+			</AbstractNode>,
+		);
 		const rect = wrapper.find('g[transform]');
 		expect(rect.prop('transform')).toBe('translate(100, 50)');
 	});
 
 	it('call the injected onClick action when clicked', () => {
 		const onClick = jasmine.createSpy('onClick');
-		const wrapper = shallow(<AbstractNode node={node} onClick={onClick}><rect /></AbstractNode>);
+		const wrapper = shallow(
+			<AbstractNode node={node} onClick={onClick} moveNodeTo={noOp} moveNodeToEnd={noOp}>
+				<rect />
+			</AbstractNode>,
+		);
 		wrapper.find('g[transform]').simulate('click');
 		expect(onClick.and.identity()).toEqual('onClick');
 		expect(onClick).toHaveBeenCalled();
@@ -31,15 +45,15 @@ describe('Testing <AbstractNode>', () => {
 
 	// if anyone got a clue on how to test react + d3 events
 
-	xit('call the injected onDragStart action when drag action start', (done) => {
+	xit('call the injected onDragStart action when drag action start', done => {
 		const evt = document.createEvent('HTMLEvents');
 		evt.initEvent('click', false, true);
 		const onDragStart = jest.fn();
 		mount(
-			<AbstractNode node={node} onClick={onDragStart}>
+			<AbstractNode node={node} onClick={onDragStart} moveNodeTo={noOp} moveNodeToEnd={noOp}>
 				<rect />
-			</AbstractNode>
-			, { attachTo: document.body },
+			</AbstractNode>,
+			{ attachTo: document.body },
 		);
 
 		document.querySelector('g g').addEventListener('click', () => {
@@ -60,7 +74,7 @@ describe('Testing <AbstractNode>', () => {
 
 	it('should fire an error if its rendered without a children set up', () => {
 		expect(() => {
-			shallow(<AbstractNode node={node} />);
+			shallow(<AbstractNode node={node} moveNodeTo={noOp} moveNodeToEnd={noOp} />);
 		}).toThrowError(ABSTRACT_NODE_INVARIANT);
 	});
 });

@@ -17,102 +17,154 @@ import {
 	FLOWDESIGNER_NODE_REMOVE,
 } from '../constants/flowdesigner.constants';
 import {
-	NodeRecord, PositionRecord, SizeRecord, NodeGraphicalAttributes, NodeData,
+	NodeRecord,
+	PositionRecord,
+	SizeRecord,
+	NodeGraphicalAttributes,
+	NodeData,
 } from '../constants/flowdesigner.model';
 
 const defaultState = new Map();
 const nodeReducer = (state = defaultState, action) => {
 	switch (action.type) {
-	case FLOWDESIGNER_NODE_ADD:
-		if (state.getIn(['nodes', action.nodeId])) {
-			invariant(false, `Can not create node ${action.nodeId} since it does already exist`);
-		}
-		return state.setIn(['nodes', action.nodeId], new NodeRecord({
-			id: action.nodeId,
-			type: action.nodeType,
-			data: new NodeData(action.data)
-				.set('properties', fromJS(action.data && action.data.properties) || new Map()),
-			graphicalAttributes: new NodeGraphicalAttributes(fromJS(action.graphicalAttributes))
-				.set('nodeSize', new SizeRecord(action.graphicalAttributes.nodeSize))
-				.set('position', new PositionRecord(action.graphicalAttributes.position))
-				.set('properties', fromJS(action.graphicalAttributes.properties) || new Map()),
-		}))
-		.setIn(['out', action.nodeId], new Map())
-		.setIn(['in', action.nodeId], new Map())
-		.setIn(['childrens', action.nodeId], new Map())
-		.setIn(['parents', action.nodeId], new Map());
-	case FLOWDESIGNER_NODE_MOVE:
-	case FLOWDESIGNER_NODE_MOVE_END:
-		if (!state.getIn('nodes', action.nodeId)) {
-			invariant(false, `Can't move node ${action.nodeId} since it doesn't exist`);
-		}
-		return state.setIn(
+		case FLOWDESIGNER_NODE_ADD:
+			if (state.getIn(['nodes', action.nodeId])) {
+				invariant(
+					false,
+					`Can not create node ${action.nodeId} since it does already exist`,
+				);
+			}
+			return state
+				.setIn(
+					['nodes', action.nodeId],
+					new NodeRecord({
+						id: action.nodeId,
+						type: action.nodeType,
+						data: new NodeData(action.data).set(
+							'properties',
+							fromJS(action.data && action.data.properties) || new Map(),
+						),
+						graphicalAttributes: new NodeGraphicalAttributes(
+							fromJS(action.graphicalAttributes),
+						)
+							.set('nodeSize', new SizeRecord(action.graphicalAttributes.nodeSize))
+							.set(
+								'position',
+								new PositionRecord(action.graphicalAttributes.position),
+							)
+							.set(
+								'properties',
+								fromJS(action.graphicalAttributes.properties) || new Map(),
+							),
+					}),
+				)
+				.setIn(['out', action.nodeId], new Map())
+				.setIn(['in', action.nodeId], new Map())
+				.setIn(['childrens', action.nodeId], new Map())
+				.setIn(['parents', action.nodeId], new Map());
+		case FLOWDESIGNER_NODE_MOVE:
+		case FLOWDESIGNER_NODE_MOVE_END:
+			if (!state.getIn('nodes', action.nodeId)) {
+				invariant(false, `Can't move node ${action.nodeId} since it doesn't exist`);
+			}
+			return state.setIn(
 				['nodes', action.nodeId, 'graphicalAttributes', 'position'],
 				new PositionRecord(action.nodePosition),
 			);
-	case FLOWDESIGNER_NODE_APPLY_MOVEMENT:
-		return state.update('nodes', nodes => nodes.map((node) => {
-			if (action.nodesId.find(id => id === node.id)) {
-				return node
-					.setIn(['graphicalAttributes', 'position', 'x'], node.getPosition().x + action.movement.x)
-					.setIn(['graphicalAttributes', 'position', 'y'], node.getPosition().y + action.movement.y);
+		case FLOWDESIGNER_NODE_APPLY_MOVEMENT:
+			return state.update('nodes', nodes =>
+				nodes.map(node => {
+					if (action.nodesId.find(id => id === node.id)) {
+						return node
+							.setIn(
+								['graphicalAttributes', 'position', 'x'],
+								node.getPosition().x + action.movement.x,
+							)
+							.setIn(
+								['graphicalAttributes', 'position', 'y'],
+								node.getPosition().y + action.movement.y,
+							);
+					}
+					return node;
+				}),
+			);
+		case FLOWDESIGNER_NODE_SET_SIZE:
+			if (!state.getIn(['nodes', action.nodeId])) {
+				invariant(false, `Can't set size on node ${action.nodeId} since it doesn't exist`);
 			}
-			return node;
-		}));
-	case FLOWDESIGNER_NODE_SET_SIZE:
-		if (!state.getIn(['nodes', action.nodeId])) {
-			invariant(false, `Can't set size on node ${action.nodeId} since it doesn't exist`);
-		}
-		return state.setIn(
+			return state.setIn(
 				['nodes', action.nodeId, 'graphicalAttributes', 'nodeSize'],
 				new SizeRecord(action.nodeSize),
 			);
-	case FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES:
-		if (!state.getIn(['nodes', action.nodeId])) {
-			invariant(false, `Can't set a graphical attribute on non existing node ${action.nodeId}`);
-		}
-		try {
-			return state.mergeIn(['nodes', action.nodeId, 'graphicalAttributes'], fromJS(action.graphicalAttributes));
-		} catch (error) {
-			return state.mergeIn(['nodes', action.nodeId, 'graphicalAttributes', 'properties'], fromJS(action.graphicalAttributes));
-		}
-	case FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES:
-		if (!state.getIn(['nodes', action.nodeId])) {
-			invariant(false, `Can't remove a graphical attribute on non existing node ${action.nodeId}`);
-		}
-		return state.deleteIn(['nodes', action.nodeId, 'graphicalAttributes', 'properties', action.graphicalAttributesKey]);
-	case FLOWDESIGNER_NODE_SET_DATA:
-		if (!state.getIn(['nodes', action.nodeId])) {
-			invariant(false, `Can't set a data on non existing node ${action.nodeId}`);
-		}
-		try {
-			return state.mergeIn(['nodes', action.nodeId, 'data'], fromJS(action.data));
-		} catch (error) {
-			return state.mergeIn(['nodes', action.nodeId, 'data', 'properties'], fromJS(action.data));
-		}
-	case FLOWDESIGNER_NODE_REMOVE_DATA:
-		if (!state.getIn(['nodes', action.nodeId])) {
-			invariant(false, `Can't remove a data on non existing node ${action.nodeId}`);
-		}
-		return state.deleteIn(['nodes', action.nodeId, 'data', 'properties', action.dataKey]);
-	case FLOWDESIGNER_NODE_REMOVE:
-		if (!state.getIn(['nodes', action.nodeId])) {
-			invariant(false, `Can not remove node ${action.nodeId} since it doesn't exist`);
-		}
-		return inPort(state, action.nodeId).reduce(
-			(cumulativeState, port, key) => portReducer(cumulativeState, removePort(key)),
-			outPort(state, action.nodeId).reduce(
-				(cumulativeState, port, key) => portReducer(cumulativeState, removePort(key)),
-				state,
-			),
-		)
-		.deleteIn(['nodes', action.nodeId])
-		.deleteIn(['out', action.nodeId])
-		.deleteIn(['in', action.nodeId])
-		.deleteIn(['childrens', action.nodeId])
-		.deleteIn(['parents', action.nodeId]);
-	default:
-		return state;
+		case FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES:
+			if (!state.getIn(['nodes', action.nodeId])) {
+				invariant(
+					false,
+					`Can't set a graphical attribute on non existing node ${action.nodeId}`,
+				);
+			}
+			try {
+				return state.mergeIn(
+					['nodes', action.nodeId, 'graphicalAttributes'],
+					fromJS(action.graphicalAttributes),
+				);
+			} catch (error) {
+				return state.mergeIn(
+					['nodes', action.nodeId, 'graphicalAttributes', 'properties'],
+					fromJS(action.graphicalAttributes),
+				);
+			}
+		case FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES:
+			if (!state.getIn(['nodes', action.nodeId])) {
+				invariant(
+					false,
+					`Can't remove a graphical attribute on non existing node ${action.nodeId}`,
+				);
+			}
+			return state.deleteIn([
+				'nodes',
+				action.nodeId,
+				'graphicalAttributes',
+				'properties',
+				action.graphicalAttributesKey,
+			]);
+		case FLOWDESIGNER_NODE_SET_DATA:
+			if (!state.getIn(['nodes', action.nodeId])) {
+				invariant(false, `Can't set a data on non existing node ${action.nodeId}`);
+			}
+			try {
+				return state.mergeIn(['nodes', action.nodeId, 'data'], fromJS(action.data));
+			} catch (error) {
+				return state.mergeIn(
+					['nodes', action.nodeId, 'data', 'properties'],
+					fromJS(action.data),
+				);
+			}
+		case FLOWDESIGNER_NODE_REMOVE_DATA:
+			if (!state.getIn(['nodes', action.nodeId])) {
+				invariant(false, `Can't remove a data on non existing node ${action.nodeId}`);
+			}
+			return state.deleteIn(['nodes', action.nodeId, 'data', 'properties', action.dataKey]);
+		case FLOWDESIGNER_NODE_REMOVE:
+			if (!state.getIn(['nodes', action.nodeId])) {
+				invariant(false, `Can not remove node ${action.nodeId} since it doesn't exist`);
+			}
+			return inPort(state, action.nodeId)
+				.reduce(
+					(cumulativeState, port, key) => portReducer(cumulativeState, removePort(key)),
+					outPort(state, action.nodeId).reduce(
+						(cumulativeState, port, key) =>
+							portReducer(cumulativeState, removePort(key)),
+						state,
+					),
+				)
+				.deleteIn(['nodes', action.nodeId])
+				.deleteIn(['out', action.nodeId])
+				.deleteIn(['in', action.nodeId])
+				.deleteIn(['childrens', action.nodeId])
+				.deleteIn(['parents', action.nodeId]);
+		default:
+			return state;
 	}
 };
 

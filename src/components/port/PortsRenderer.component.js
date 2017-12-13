@@ -8,7 +8,7 @@ class PortsRenderer extends React.Component {
 	static propTypes = {
 		ports: mapOf(PortType).isRequired,
 		portTypeMap: PropTypes.object.isRequired,
-	}
+	};
 
 	constructor(props) {
 		super(props);
@@ -18,15 +18,11 @@ class PortsRenderer extends React.Component {
 	renderPort(port) {
 		const type = port.getIn(['graphicalAttributes', 'portType']);
 		const ConcretePort = this.props.portTypeMap[type].component;
-		return (<ConcretePort key={port.id} port={port} />);
+		return <ConcretePort key={port.id} port={port} />;
 	}
 
 	render() {
-		return (
-			<g>
-				{this.props.ports.map(this.renderPort)}
-			</g>
-		);
+		return <g>{this.props.ports.valueSeq().map(this.renderPort)}</g>;
 	}
 }
 

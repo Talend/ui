@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 
 import { select, event } from 'd3-selection';
@@ -6,14 +7,14 @@ import { drag } from 'd3-drag';
 
 class LinkHandle extends React.Component {
 	static propTypes = {
-		position: PropTypes.shape({
+		position: ImmutablePropTypes.mapContains({
 			x: PropTypes.number.isRequired,
 			y: PropTypes.number.isRequired,
 		}).isRequired,
 		onDrag: PropTypes.func,
 		onDragEnd: PropTypes.func,
 		component: PropTypes.element.isRequired,
-	}
+	};
 
 	constructor(props) {
 		super(props);
@@ -50,7 +51,9 @@ class LinkHandle extends React.Component {
 		const position = this.props.position;
 		return (
 			<g
-				ref={(c) => { this.handle = c; }}
+				ref={c => {
+					this.handle = c;
+				}}
 				transform={`translate(${position.get('x')},${position.get('y')})`}
 			>
 				{this.props.component}

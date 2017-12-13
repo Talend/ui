@@ -31,7 +31,6 @@ export const loadFlow = listOfActionCreation => ({
 	listOfActionCreation,
 });
 
-
 export function setZoom(transform) {
 	if (!isNaN(transform.k) && !isNaN(transform.x) && !isNaN(transform.y)) {
 		return {

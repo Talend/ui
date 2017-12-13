@@ -22,8 +22,12 @@ ex: <AbstractNode><rect /></AbstractNode>`;
  */
 function calculatePortPosition(ports, nodePosition, nodeSize) {
 	let portsWithPosition = new Map();
-	const emitterPorts = ports.filter(port => port.getIn(['graphicalAttributes', 'properties', 'type']) === PORT_SOURCE);
-	const sinkPorts = ports.filter(port => port.getIn(['graphicalAttributes', 'properties', 'type']) === PORT_SINK);
+	const emitterPorts = ports.filter(
+		port => port.getIn(['graphicalAttributes', 'properties', 'type']) === PORT_SOURCE,
+	);
+	const sinkPorts = ports.filter(
+		port => port.getIn(['graphicalAttributes', 'properties', 'type']) === PORT_SINK,
+	);
 	const range = [nodePosition.get('y'), nodePosition.get('y') + nodeSize.get('height')];
 	const scaleYEmitter = scaleLinear()
 		.domain([0, emitterPorts.size + 1])
@@ -33,48 +37,57 @@ function calculatePortPosition(ports, nodePosition, nodeSize) {
 		.range(range);
 	let emitterNumber = 0;
 	let sinkNumber = 0;
-	emitterPorts.sort((a, b) => {
-		if (a.getIndex() < b.getIndex()) {
-			return -1;
-		}
-		if (a.getIndex() > b.getIndex()) {
-			return 1;
-		}
-		return 0;
-	}).forEach((port) => {
-		emitterNumber += 1;
-		const position = new PositionRecord({
-			x: nodePosition.get('x') + nodeSize.get('width'),
-			y: scaleYEmitter(emitterNumber),
+	emitterPorts
+		.sort((a, b) => {
+			if (a.getIndex() < b.getIndex()) {
+				return -1;
+			}
+			if (a.getIndex() > b.getIndex()) {
+				return 1;
+			}
+			return 0;
+		})
+		.forEach(port => {
+			emitterNumber += 1;
+			const position = new PositionRecord({
+				x: nodePosition.get('x') + nodeSize.get('width'),
+				y: scaleYEmitter(emitterNumber),
+			});
+			portsWithPosition = portsWithPosition.set(
+				port.id,
+				port.setIn(['graphicalAttributes', 'position'], position),
+			);
 		});
-		portsWithPosition = portsWithPosition.set(port.id, port.setIn(['graphicalAttributes', 'position'], position));
-	});
-	sinkPorts.sort((a, b) => {
-		if (a.getIndex() < b.getIndex()) {
-			return -1;
-		}
-		if (a.getIndex() > b.getIndex()) {
-			return 1;
-		}
-		return 0;
-	}).forEach((port) => {
-		sinkNumber += 1;
-		const position = new PositionRecord({
-			x: nodePosition.get('x'),
-			y: scaleYSink(sinkNumber),
+	sinkPorts
+		.sort((a, b) => {
+			if (a.getIndex() < b.getIndex()) {
+				return -1;
+			}
+			if (a.getIndex() > b.getIndex()) {
+				return 1;
+			}
+			return 0;
+		})
+		.forEach(port => {
+			sinkNumber += 1;
+			const position = new PositionRecord({
+				x: nodePosition.get('x'),
+				y: scaleYSink(sinkNumber),
+			});
+			portsWithPosition = portsWithPosition.set(
+				port.id,
+				port.setIn(['graphicalAttributes', 'position'], position),
+			);
 		});
-		portsWithPosition = portsWithPosition.set(port.id, port.setIn(['graphicalAttributes', 'position'], position));
-	});
 	return portsWithPosition;
 }
-
 
 class AbstractNode extends React.Component {
 	static propTypes = {
 		node: NodeType.isRequired,
 		moveNodeTo: PropTypes.func.isRequired,
 		moveNodeToEnd: PropTypes.func.isRequired,
-		snapToGrid: PropTypes.bool.isRequired,
+		snapToGrid: PropTypes.bool,
 		onDragStart: PropTypes.func,
 		onDrag: PropTypes.func,
 		onDragEnd: PropTypes.func,
@@ -103,6 +116,13 @@ class AbstractNode extends React.Component {
 				.on('drag', this.onDrag)
 				.on('end', this.onDragEnd),
 		);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		const nextPosition = nextProps.node.getPosition();
+		if (nextPosition !== this.props.node.getPosition()) {
+			this.d3Node.data([nextPosition]);
+		}
 	}
 
 	shouldComponentUpdate(nextProps) {
@@ -150,8 +170,8 @@ class AbstractNode extends React.Component {
 	getEventPosition() {
 		if (this.props.snapToGrid) {
 			return {
-				x: event.x - (event.x % GRID_SIZE),
-				y: event.y - (event.y % GRID_SIZE),
+				x: event.x - event.x % GRID_SIZE,
+				y: event.y - event.y % GRID_SIZE,
 			};
 		}
 		return { x: event.x, y: event.y };
@@ -171,11 +191,7 @@ class AbstractNode extends React.Component {
 		const transform = `translate(${x}, ${y})`;
 		return (
 			<g>
-				<g
-					transform={transform}
-					ref={c => (this.nodeElement = c)}
-					onClick={this.onClick}
-				>
+				<g transform={transform} ref={c => (this.nodeElement = c)} onClick={this.onClick}>
 					{this.renderContent()}
 				</g>
 			</g>

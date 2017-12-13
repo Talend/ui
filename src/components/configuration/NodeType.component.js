@@ -7,7 +7,7 @@ class NodeType extends React.Component {
 	static propTypes = {
 		type: PropTypes.string.isRequired,
 		component: PropTypes.func.isRequired,
-	}
+	};
 
 	render() {
 		invariant(

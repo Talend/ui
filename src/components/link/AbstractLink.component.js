@@ -43,14 +43,16 @@ class AbstractLink extends React.Component {
 			y: PropTypes.number.isRequired,
 		}),
 		linkTargetHandleComponent: PropTypes.element,
-	}
+	};
 
 	static calculatePath = calculatePath;
 
 	shouldComponentUpdate(nextProps) {
-		return nextProps.source !== this.props.source ||
+		return (
+			nextProps.source !== this.props.source ||
 			nextProps.target !== this.props.target ||
-			nextProps.targetHandlePosition !== this.props.targetHandlePosition;
+			nextProps.targetHandlePosition !== this.props.targetHandlePosition
+		);
 	}
 
 	renderLinkSourceHandle() {
@@ -87,9 +89,9 @@ class AbstractLink extends React.Component {
 			this.props.source.getPosition(),
 			this.props.targetHandlePosition || this.props.target.getPosition(),
 		);
-		const newChildren = React.Children.map(this.props.children, child => (
-				React.cloneElement(child, { d: path, xInterpolate, yInterpolate })
-			));
+		const newChildren = React.Children.map(this.props.children, child =>
+			React.cloneElement(child, { d: path, xInterpolate, yInterpolate }),
+		);
 		return (
 			<g>
 				{newChildren}

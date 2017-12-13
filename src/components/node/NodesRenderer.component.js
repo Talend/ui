@@ -12,7 +12,7 @@ class NodesRenderer extends React.Component {
 		moveNodeTo: PropTypes.func.isRequired,
 		moveNodeToEnd: PropTypes.func.isRequired,
 		snapToGrid: PropTypes.bool.isRequired,
-	}
+	};
 
 	constructor(props) {
 		super(props);
@@ -41,11 +41,7 @@ class NodesRenderer extends React.Component {
 	}
 
 	render() {
-		return (
-			<g>
-				{this.props.nodes.map(this.renderNode)}
-			</g>
-		);
+		return <g>{this.props.nodes.valueSeq().map(this.renderNode)}</g>;
 	}
 }
 

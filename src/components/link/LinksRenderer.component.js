@@ -8,8 +8,8 @@ class LinksRender extends React.Component {
 	static propTypes = {
 		links: mapOf(LinkType).isRequired,
 		ports: mapOf(PortType).isRequired,
-		linkTypeMap: PropTypes.object.isRequired,  // eslint-disable-line react/forbid-prop-types
-	}
+		linkTypeMap: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+	};
 
 	constructor(props) {
 		super(props);
@@ -28,17 +28,11 @@ class LinksRender extends React.Component {
 				check LinkType documentation`,
 			);
 		}
-		return (
-			<ConcreteLink link={link} source={source} target={target} key={link.id} />
-		);
+		return <ConcreteLink link={link} source={source} target={target} key={link.id} />;
 	}
 
 	render() {
-		return (
-			<g>
-				{this.props.links.map(this.renderLink)}
-			</g>
-		);
+		return <g>{this.props.links.valueSeq().map(this.renderLink)}</g>;
 	}
 }
 

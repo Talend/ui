@@ -5,130 +5,125 @@ import { Map, OrderedMap } from 'immutable';
 
 import * as nodeActions from './node.actions';
 
-
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('Check that node action creators generate proper' +
-	' action objects and perform checking', () => {
-	it('addNode generate action with 0 configuration', () => {
-		const store = mockStore({
-			flowDesigner: {
-				nodes: new Map({}),
-			},
-		});
+describe(
+	'Check that node action creators generate proper action objects and perform checking',
+	() => {
+		it('addNode generate action with 0 configuration', () => {
+			const store = mockStore({
+				flowDesigner: {
+					nodes: new Map({}),
+				},
+			});
 
-		store.dispatch(
-			nodeActions.addNode(
-				'id',
-				'label',
-				'description',
-				{
+			store.dispatch(
+				nodeActions.addNode('id', 'label', 'description', {
 					data: {},
 					graphicalAttributes: {
 						nodePosition: { x: 75, y: 75 },
 						nodeSize: { width: 50, heigth: 50 },
 						type: 'nodeType',
 					},
-				},
-			),
-		);
+				}),
+			);
 
-		expect(store.getActions()).toMatchSnapshot();
-	});
+			expect(store.getActions()).toMatchSnapshot();
+		});
 
-	it('moveNode generate a proper action object witch nodeId and nodePosition parameter', () => {
-		const store = mockStore({
-			flowDesigner: {
-				nodes: new Map({ nodeId: { id: 'nodeId', nodeType: 'type' } }),
-				nodeTypes: new Map({
-					type: new Map({
-						component: { calculatePortPosition: () => ({}) },
+		it('moveNode generate a proper action object witch nodeId and nodePosition parameter', () => {
+			const store = mockStore({
+				flowDesigner: {
+					nodes: new Map({ nodeId: { id: 'nodeId', nodeType: 'type' } }),
+					nodeTypes: new Map({
+						type: new Map({
+							component: { calculatePortPosition: () => ({}) },
+						}),
 					}),
-				}),
-				ports: new OrderedMap(),
-			},
+					ports: new OrderedMap(),
+				},
+			});
+
+			store.dispatch(nodeActions.moveNodeTo('nodeId', { x: 10, y: 20 }, {}));
+
+			expect(store.getActions()).toMatchSnapshot();
 		});
 
-		store.dispatch(nodeActions.moveNodeTo('nodeId', { x: 10, y: 20 }, {}));
+		it('setNodeSize', () => {
+			const store = mockStore({
+				flowDesigner: {
+					nodes: new Map({ nodeId: { id: 'nodeId', nodeType: 'type' } }),
+				},
+			});
 
-		expect(store.getActions()).toMatchSnapshot();
-	});
-
-	it('setNodeSize', () => {
-		const store = mockStore({
-			flowDesigner: {
-				nodes: new Map({ nodeId: { id: 'nodeId', nodeType: 'type' } }),
-			},
+			store.dispatch(nodeActions.setNodeSize('nodeId', { width: 100, height: 100 }));
+			expect(store.getActions()).toMatchSnapshot();
 		});
 
-		store.dispatch(nodeActions.setNodeSize('nodeId', { width: 100, height: 100 }));
-		expect(store.getActions()).toMatchSnapshot();
-	});
+		it('setNodeGraphicalAttributes', () => {
+			const store = mockStore({
+				flowDesigner: {
+					nodes: new Map({ id: { id: 'nodeId', nodeType: 'type' } }),
+				},
+			});
 
-	it('setNodeGraphicalAttributes', () => {
-		const store = mockStore({
-			flowDesigner: {
-				nodes: new Map({ id: { id: 'nodeId', nodeType: 'type' } }),
-			},
+			store.dispatch(nodeActions.setNodeGraphicalAttributes('id', { selected: true }));
+
+			expect(store.getActions()).toMatchSnapshot();
 		});
 
-		store.dispatch(nodeActions.setNodeGraphicalAttributes('id', { selected: true }));
+		it('removeNodeGraphicalAttribute', () => {
+			const store = mockStore({
+				flowDesigner: {
+					nodes: new Map({ id: { id: 'nodeId', nodeType: 'type' } }),
+				},
+			});
 
-		expect(store.getActions()).toMatchSnapshot();
-	});
+			store.dispatch(nodeActions.removeNodeGraphicalAttribute('id', 'selected'));
 
-	it('removeNodeGraphicalAttribute', () => {
-		const store = mockStore({
-			flowDesigner: {
-				nodes: new Map({ id: { id: 'nodeId', nodeType: 'type' } }),
-			},
+			expect(store.getActions()).toMatchSnapshot();
 		});
 
-		store.dispatch(nodeActions.removeNodeGraphicalAttribute('id', 'selected'));
+		it('setNodeData', () => {
+			const store = mockStore({
+				flowDesigner: {
+					nodes: new Map({ id: { id: 'nodeId', nodeType: 'type' } }),
+				},
+			});
 
-		expect(store.getActions()).toMatchSnapshot();
-	});
+			store.dispatch(nodeActions.setNodeData('id', { type: 'test' }));
 
-	it('setNodeData', () => {
-		const store = mockStore({
-			flowDesigner: {
-				nodes: new Map({ id: { id: 'nodeId', nodeType: 'type' } }),
-			},
+			expect(store.getActions()).toMatchSnapshot();
 		});
 
-		store.dispatch(nodeActions.setNodeData('id', { type: 'test' }));
+		it('removeNodeData', () => {
+			const store = mockStore({
+				flowDesigner: {
+					nodes: new Map({
+						id: { id: 'nodeId', nodeType: 'type', data: new Map({ type: 'test' }) },
+					}),
+				},
+			});
 
-		expect(store.getActions()).toMatchSnapshot();
-	});
+			store.dispatch(nodeActions.removeNodeData('id', 'type'));
 
-	it('removeNodeData', () => {
-		const store = mockStore({
-			flowDesigner: {
-				nodes: new Map({
-					id: { id: 'nodeId', nodeType: 'type', data: new Map({ type: 'test' }) },
-				}),
-			},
+			expect(store.getActions()).toMatchSnapshot();
 		});
 
-		store.dispatch(nodeActions.removeNodeData('id', 'type'));
+		it('removeNode', () => {
+			const store = mockStore({
+				flowDesigner: {
+					nodes: new Map({ id: { id: 'nodeId', nodeType: 'type' } }),
+				},
+			});
 
-		expect(store.getActions()).toMatchSnapshot();
-	});
+			store.dispatch(nodeActions.removeNode('id'));
 
-	it('removeNode', () => {
-		const store = mockStore({
-			flowDesigner: {
-				nodes: new Map({ id: { id: 'nodeId', nodeType: 'type' } }),
-			},
+			expect(store.getActions()).toMatchSnapshot();
 		});
-
-		store.dispatch(nodeActions.removeNode('id'));
-
-		expect(store.getActions()).toMatchSnapshot();
-	});
-});
-
+	},
+);
 
 describe('applyMovementTo', () => {
 	it('generate proper action', () => {

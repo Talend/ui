@@ -27,8 +27,7 @@ export const defaultState = new Map({
 });
 
 function combinedReducer(state = defaultState, action) {
-	return [nodesReducer, linksReducer, portsReducer, nodeTypeReducer]
-	.reduce(
+	return [nodesReducer, linksReducer, portsReducer, nodeTypeReducer].reduce(
 		(cumulatedState, subReducer) => subReducer(cumulatedState, action),
 		state,
 	);
@@ -36,48 +35,51 @@ function combinedReducer(state = defaultState, action) {
 
 export function reducer(state, action) {
 	switch (action.type) {
-	case FLOWDESIGNER_FLOW_ADD_ELEMENTS:
-		try {
-			return action.listOfActionCreation.reduce(
-				(cumulativeState, actionCreation) => combinedReducer(cumulativeState, actionCreation),
-				state,
+		case FLOWDESIGNER_FLOW_ADD_ELEMENTS:
+			try {
+				return action.listOfActionCreation.reduce(
+					(cumulativeState, actionCreation) =>
+						combinedReducer(cumulativeState, actionCreation),
+					state,
+				);
+			} catch (error) {
+				invariant(
+					true,
+					`Something happenned preventing FLOWDESIGNER_FLOW_ADD_ELEMENTS to be applied :${error}`,
+				);
+				return state;
+			}
+		case FLOWDESIGNER_FLOW_RESET:
+			return defaultState.set('nodeTypes', state.get('nodeTypes'));
+		case FLOWDESIGNER_FLOW_LOAD:
+			try {
+				return action.listOfActionCreation.reduce(
+					(cumulativeState, actionCreation) =>
+						combinedReducer(cumulativeState, actionCreation),
+					defaultState.set('nodeTypes', state.get('nodeTypes')),
+				);
+			} catch (error) {
+				invariant(
+					true,
+					`Something happenned preventing FLOWDESIGNER_FLOW_LOAD to be applied :${error}`,
+				);
+				return state;
+			}
+		case FLOWDESIGNER_FLOW_SET_ZOOM:
+			return state.set('transform', action.transform);
+		case FLOWDESIGNER_PAN_TO:
+			return state.update('transformToApply', () =>
+				zoomIdentity
+					.translate(state.get('transform').x, state.get('transform').y)
+					.scale(state.get('transform').k)
+					.scale(1 / state.get('transform').k)
+					.translate(
+						-(state.get('transform').x + action.x),
+						-(state.get('transform').y + action.y),
+					),
 			);
-		} catch (error) {
-			invariant(
-				true,
-				`Something happenned preventing FLOWDESIGNER_FLOW_ADD_ELEMENTS to be applied :${error}`,
-			);
-			return state;
-		}
-	case FLOWDESIGNER_FLOW_RESET:
-		return defaultState.set('nodeTypes', state.get('nodeTypes'));
-	case FLOWDESIGNER_FLOW_LOAD:
-		try {
-			return action.listOfActionCreation.reduce(
-				(cumulativeState, actionCreation) => combinedReducer(cumulativeState, actionCreation),
-				defaultState.set('nodeTypes', state.get('nodeTypes')),
-			);
-		} catch (error) {
-			invariant(
-				true,
-				`Something happenned preventing FLOWDESIGNER_FLOW_LOAD to be applied :${error}`,
-			);
-			return state;
-		}
-	case FLOWDESIGNER_FLOW_SET_ZOOM:
-		return state.set('transform', action.transform);
-	case FLOWDESIGNER_PAN_TO:
-		return state.update('transformToApply', () => (
-			zoomIdentity
-				.translate(state.get('transform').x, state.get('transform').y)
-				.scale(state.get('transform').k)
-				.scale(1 / state.get('transform').k).translate(
-					-((state.get('transform').x + action.x)),
-					-((state.get('transform').y + action.y)),
-				)
-		));
-	default:
-		return combinedReducer(state, action);
+		default:
+			return combinedReducer(state, action);
 	}
 }
 
@@ -93,9 +95,11 @@ export function reducer(state, action) {
 export function calculatePortsPosition(state, action) {
 	let nodes = [];
 	// TODO: NOT a big fan of this way to optimize port recalculations, don't feel future proof
-	if ((/FLOWDESIGNER_NODE_/.exec(action.type) && action.type !== 'FLOWDESIGNER_NODE_REMOVE') ||
+	if (
+		(/FLOWDESIGNER_NODE_/.exec(action.type) && action.type !== 'FLOWDESIGNER_NODE_REMOVE') ||
 		(/FLOWDESIGNER_PORT_/.exec(action.type) && action.type !== 'FLOWDESIGNER_PORT_REMOVE') ||
-		(/FLOWDESIGNER.FLOW_/.exec(action.type))) {
+		/FLOWDESIGNER.FLOW_/.exec(action.type)
+	) {
 		if (action.nodeId) {
 			nodes.push(state.getIn(['nodes', action.nodeId]));
 		} else if (action.portId) {
@@ -112,11 +116,7 @@ export function calculatePortsPosition(state, action) {
 				if (calculatePortPosition) {
 					return cumulativeState.mergeIn(
 						['ports'],
-						calculatePortPosition(
-							ports,
-							node.getPosition(),
-							node.getSize(),
-						),
+						calculatePortPosition(ports, node.getPosition(), node.getSize()),
 					);
 				}
 			}

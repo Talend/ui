@@ -23,5 +23,13 @@ exports[`<ZoomHandler /> renders correctly <ZoomHandler /> renders correctly 1`]
         "y": 0,
       }
     } />
+  <rect
+    transform={
+      Object {
+        "k": 1,
+        "x": 0,
+        "y": 0,
+      }
+    } />
 </g>
 `;

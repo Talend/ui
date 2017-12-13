@@ -11,7 +11,6 @@ import {
 	FLOWDESIGNER_NODE_REMOVE,
 } from '../constants/flowdesigner.constants';
 
-
 /**
  * Ask for node creation and injection into current dataflow
  * @param {string} nodeId
@@ -21,11 +20,7 @@ import {
  * @param {Object} attr
  * @return {Object}
  */
-export const addNode = (
-	nodeId,
-	nodeType,
-	{ data = {}, graphicalAttributes = {} } = {},
-) => ({
+export const addNode = (nodeId, nodeType, { data = {}, graphicalAttributes = {} } = {}) => ({
 	type: FLOWDESIGNER_NODE_ADD,
 	nodeId,
 	nodeType,

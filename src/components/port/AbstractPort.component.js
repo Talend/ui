@@ -9,13 +9,12 @@ class AbstractPort extends React.Component {
 		port: PortType,
 		onClick: PropTypes.func,
 		children: PropTypes.element,
-	}
+	};
 
 	constructor(props) {
 		super(props);
 		this.onClick = this.onClick.bind(this);
 	}
-
 
 	componentDidMount() {
 		this.d3Node = select(this.node);
@@ -36,7 +35,10 @@ class AbstractPort extends React.Component {
 		const position = this.props.port.getPosition();
 		return (
 			<g>
-				<g ref={c => (this.node = c)} transform={`translate(${position.get('x')},${position.get('y')})`}>
+				<g
+					ref={c => (this.node = c)}
+					transform={`translate(${position.get('x')},${position.get('y')})`}
+				>
 					{this.props.children}
 				</g>
 			</g>

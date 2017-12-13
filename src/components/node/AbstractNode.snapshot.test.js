@@ -2,13 +2,20 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import AbstractNode from './AbstractNode.component';
-import { NodeGraphicalAttributes, NodeRecord, PositionRecord, SizeRecord } from '../../constants/flowdesigner.model';
+import {
+	NodeGraphicalAttributes,
+	NodeRecord,
+	PositionRecord,
+	SizeRecord,
+} from '../../constants/flowdesigner.model';
 
 jest.mock('d3-selection', () => ({
 	select() {
 		return { data() {}, call() {} };
 	},
 }));
+
+const noOp = () => {};
 
 describe('<AbstractNode />', () => {
 	it('renders correctly', () => {
@@ -19,11 +26,13 @@ describe('<AbstractNode />', () => {
 				nodeSize: new SizeRecord({ width: 125, height: 75 }),
 			}),
 		});
-		const tree = renderer.create(
-			<AbstractNode node={node}>
-				<rect />
-			</AbstractNode>,
-		).toJSON();
+		const tree = renderer
+			.create(
+				<AbstractNode node={node} moveNodeTo={noOp} moveNodeToEnd={noOp}>
+					<rect />
+				</AbstractNode>,
+			)
+			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });

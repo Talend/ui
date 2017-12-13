@@ -17,7 +17,6 @@ class ZoomHandler extends React.Component {
 			x: PropTypes.number.isRequired,
 			y: PropTypes.number.isRequired,
 		}),
-
 	};
 
 	zoom;
@@ -45,10 +44,10 @@ class ZoomHandler extends React.Component {
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.transformToApply) {
 			if (nextProps.transformToApply !== this.props.transformToApply) {
-				this.selection.transition().duration(230).call(
-					this.zoom.transform,
-					nextProps.transformToApply,
-				);
+				this.selection
+					.transition()
+					.duration(230)
+					.call(this.zoom.transform, nextProps.transformToApply);
 			}
 		}
 	}
@@ -63,16 +62,20 @@ class ZoomHandler extends React.Component {
 
 	render() {
 		const { transform } = this.state;
-		const childrens = React.Children.map(
-			this.props.children,
-			children => React.cloneElement(children, { transform }),
+		const childrens = React.Children.map(this.props.children, children =>
+			React.cloneElement(children, { transform }),
 		);
 		return (
 			<g x="0" y="0" width="100%" height="100%">
 				<rect
-					ref={(c) => { this.zoomCatcher = c; }}
+					ref={c => {
+						this.zoomCatcher = c;
+					}}
 					style={{ fill: 'none', pointerEvents: 'all' }}
-					x="0" y="0" width="100%" height="100%"
+					x="0"
+					y="0"
+					width="100%"
+					height="100%"
 				/>
 				{childrens}
 			</g>

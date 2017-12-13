@@ -15,16 +15,23 @@ describe('<FlowDesigner /> renders correctly', () => {
 		const nodes = new Map();
 		const ports = new Map();
 		const links = new Map();
-		const tree = renderer.create(
-			<FlowDesigner
-				moveNodeTo={noOp} setNodeTypes={noOp}
-				nodes={nodes} ports={ports} links={links}
-				grid={mockGrid}
-			>
-				<NodeType type="test" component={NodeType} />
-				<NodeType type="test2" component={NodeType} />
-			</FlowDesigner>,
-		).toJSON();
+		const tree = renderer
+			.create(
+				<FlowDesigner
+					moveNodeTo={noOp}
+					moveNodeToEnd={noOp}
+					setNodeTypes={noOp}
+					nodes={nodes}
+					ports={ports}
+					links={links}
+					grid={mockGrid}
+					reduxMountPoint="mountPoint"
+				>
+					<NodeType type="test" component={NodeType} />
+					<NodeType type="test2" component={NodeType} />
+				</FlowDesigner>,
+			)
+			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });

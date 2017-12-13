@@ -1,4 +1,6 @@
 exports[`<LinkHandle /> renders correctly <LinkHandle /> renders correctly 1`] = `
 <g
-  transform="translate(10,10)" />
+  transform="translate(10,10)">
+  <mockComponent />
+</g>
 `;

@@ -4,13 +4,11 @@ import { Map } from 'immutable';
 const getPorts = state => state.get('ports');
 const getLinks = state => state.get('links');
 
-export const getDetachedLinks = createSelector(
-	[getLinks, getPorts],
-	(links, ports) => (
-		links.filter(
-			link => !ports.find(port => port.id === link.sourceId)
-				|| !ports.find(port => port.id === link.targetId),
-		)
+export const getDetachedLinks = createSelector([getLinks, getPorts], (links, ports) =>
+	links.filter(
+		link =>
+			!ports.find(port => port.id === link.sourceId) ||
+			!ports.find(port => port.id === link.targetId),
 	),
 );
 
@@ -38,9 +36,9 @@ export function portInLink(state, portId) {
  * @return number
  */
 export function outLink(state, nodeId) {
-	return state.getIn(['out', nodeId]).reduce((reduction, port) =>
-		reduction.merge(port)
-	, new Map());
+	return state
+		.getIn(['out', nodeId])
+		.reduce((reduction, port) => reduction.merge(port), new Map());
 }
 
 /**
@@ -49,9 +47,9 @@ export function outLink(state, nodeId) {
  * @return number
  */
 export function inLink(state, nodeId) {
-	return state.getIn(['in', nodeId]).reduce((reduction, port) =>
-		reduction.merge(port)
-	, new Map());
+	return state
+		.getIn(['in', nodeId])
+		.reduce((reduction, port) => reduction.merge(port), new Map());
 }
 
 export default getDetachedLinks;

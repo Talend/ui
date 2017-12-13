@@ -1,6 +1,13 @@
 /* @flow */
 
-import type { PortGraphicalAttributes, Port, PortData, PortAction, PortActionAdd, Id } from '../flow-typed';
+import type {
+	PortGraphicalAttributes,
+	Port,
+	PortData,
+	PortAction,
+	PortActionAdd,
+	Id,
+} from '../flow-typed';
 
 /**
  * return an action to create a new port
@@ -12,7 +19,7 @@ import type { PortGraphicalAttributes, Port, PortData, PortAction, PortActionAdd
 export function addPort(
 	nodeId: Id,
 	id: Id,
-	{ data, graphicalAttributes }: {data: PortData, graphicalAttributes: PortGraphicalAttributes},
+	{ data, graphicalAttributes }: { data: PortData, graphicalAttributes: PortGraphicalAttributes },
 ): PortActionAdd {
 	return {
 		type: 'FLOWDESIGNER_PORT_ADD',

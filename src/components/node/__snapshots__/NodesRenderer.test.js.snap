@@ -1,7 +1,7 @@
 exports[`<NodesRenderer /> renders correctly 1`] = `
 <g>
   <span>
-    MockLink
+    MockNodes
   </span>
 </g>
 `;
