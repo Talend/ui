@@ -63,6 +63,8 @@ class Form extends React.Component {
 			if (!nextProps.state) {
 				nextProps.initState();
 			}
+		} else if (nextProps.properties !== this.props.properties) {
+			this.setState({ data: nextProps.properties });
 		}
 	}
 
@@ -177,15 +179,16 @@ class Form extends React.Component {
 			...this.props.formProps,
 		};
 		if (this.props.uiform && props.widgets) {
-			Object.keys(props.widgets).forEach(key => {
-				props.widgets[key] = wrapCustomWidget(props.widgets[key]);
-			});
+			Object.keys(props.widgets)
+				.filter(key => props.widgets[key].displayName !== 'TFMigratedWidget')
+				.forEach(key => {
+					props.widgets[key] = wrapCustomWidget(props.widgets[key]);
+				});
 		}
 		if (this.props.uiform) {
 			props.jsonSchema = props.data.jsonSchema;
 			props.uiSchema = props.data.uiSchema;
 			props.properties = props.data.properties;
-			props.formName = this.props.formId;
 			delete props.data;
 			return (
 				<UIForm

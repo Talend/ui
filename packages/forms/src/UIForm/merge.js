@@ -17,6 +17,10 @@ function getUISchemaFromObject(schema, key) {
 	if (schema.description) {
 		ui.description = schema.description;
 	}
+	if (schema.enum && schema.enumNames) {
+		ui.titleMap = schema.enum.map((value, index) => ({ value, name: schema.enumNames[index] }));
+		delete schema.enumNames;
+	}
 	if (schema.type === 'object') {
 		ui.widget = 'fieldset';
 		ui.items = parseProperties(schema.properties, false, key);
@@ -52,6 +56,9 @@ function parseProperties(properties, isRoot, path) {
 }
 
 export const wrapCustomWidget = Component => {
+	if (Component.displayName === 'TFMigratedWidget') {
+		return Component;
+	}
 	function TFMigratedWidget(props) {
 		const newProps = Object.assign({}, props);
 		newProps.formContext = props.formContext || {};
