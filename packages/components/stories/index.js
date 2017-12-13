@@ -28,6 +28,7 @@ import './ObjectViewer';
 import './Progress';
 import './SidePanel';
 import './Status';
+import './SubHeaderBar';
 import './TabBar';
 import './TooltipTrigger';
 import './TreeView';

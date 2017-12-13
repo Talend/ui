@@ -32,6 +32,7 @@ import SelectObject from './SelectObject';
 import SidePanel from './SidePanel';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
+import SubHeaderBar from './SubHeaderBar';
 
 export {
 	actionAPI,
@@ -62,6 +63,7 @@ export {
 	ShortcutManager,
 	SelectObject,
 	SidePanel,
+	SubHeaderBar,
 	TooltipTrigger,
 	TreeView,
 	Typeahead,
