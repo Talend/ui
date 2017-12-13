@@ -348,7 +348,8 @@ form {
 .form {
 	&-group {
 		position: relative;
-		padding-top: 20px;
+		padding-top: $padding-normal;
+		margin-bottom: $padding-normal;
 
 		select {
 			padding: 0;
@@ -358,7 +359,7 @@ form {
 	&-control {
 		+ label {
 			position: absolute;
-			top: 28px;
+			top: 23px;
 			left: 0;
 			color: $dove-gray;
 			font-size: $font-size-base;
