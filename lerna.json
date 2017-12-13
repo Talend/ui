@@ -1,6 +1,6 @@
 {
   "lerna": "2.0.0",
-  "version": "0.131.0",
+  "version": "0.132.0",
   "packages": [
     "packages/cmf",
     "packages/cmf-cqrs",
