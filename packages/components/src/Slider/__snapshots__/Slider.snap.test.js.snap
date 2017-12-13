@@ -46,9 +46,6 @@ exports[`Slider component renderers should render Slider 1`] = `
       vertical={false}
     />
   </label>
-  <div
-    className={undefined}
-  />
 </span>
 `;
 
@@ -106,9 +103,6 @@ exports[`Slider component renderers should render Slider with icons on label 1`]
       vertical={false}
     />
   </label>
-  <div
-    className={undefined}
-  />
 </span>
 `;
 

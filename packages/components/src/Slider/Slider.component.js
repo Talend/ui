@@ -31,9 +31,13 @@ export function getSelectedIconPosition(icons, value, min, max) {
 function getIcons(icons, value, min, max) {
 	if (icons && Array.isArray(icons) && icons.length > 1) {
 		const position = getSelectedIconPosition(icons, value, min, max);
-		return icons.map((icon, index) => (
-			<Icon name={icon} className={index === position ? theme.selected : null} key={index} />
-		));
+		return (
+			<div className={theme.icons}>
+				{icons.map((icon, index) => (
+					<Icon name={icon} className={index === position ? theme.selected : null} key={index} />
+				))}
+			</div>
+		);
 	}
 	return null;
 }
@@ -76,7 +80,7 @@ function Slider({ id, label, value, icons, emptyValueLabel, labelIcon, min, max,
 					{...rest}
 				/>
 			</label>
-			<div className={theme.icons}>{icons ? getIcons(icons, value, min, max) : null}</div>
+			{icons && getIcons(icons, value, min, max)}
 		</span>
 	);
 }

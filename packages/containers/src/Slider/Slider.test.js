@@ -17,7 +17,12 @@ describe('Filter container', () => {
 		const props = {
 			id: 'filter',
 		};
-		expect(shallow(<Container props={props} />)).toMatchSnapshot();
+		const initialState = new Map({
+			value: 15,
+		});
+		expect(
+			shallow(<Container props={props} initialState={initialState} />).getNode(),
+		).toMatchSnapshot();
 	});
 
 	it('should call dispatchActionCreator method when onAfterChange', () => {
