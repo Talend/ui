@@ -77,6 +77,7 @@
     "react": "^15.6.2",
     "react-addons-css-transition-group": "15.5.2",
     "react-addons-test-utils": "15.5.1",
+    "react-ace": "5.8.0",
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
     "react-dom": "^15.6.2",
