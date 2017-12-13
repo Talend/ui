@@ -6,7 +6,7 @@ if [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
 	if [[ "$TALEND_COMMIT_MSG" =~ 'icons' ]]; then
 		lerna exec --scope=@talend/icons -- yarn svgo
 		echo "✓ Icons have been optimized"
-		lerna exec --scope=@talend/react-components -- yarn test -- src/IconsProvider/IconsProvider.test.js -u
+		yarn build-icons
 		echo "✓ Components snapshots have been updated with optimized icons"
 	fi
 else
