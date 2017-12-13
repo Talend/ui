@@ -66,7 +66,7 @@ export default class ArrayWidget extends React.Component {
 		let currentValue = this.props.value;
 		const itemWidget = widgets[this.props.schema.itemWidget];
 		if (itemWidget && itemWidget.isCloseable) {
-			currentValue = currentValue.map(item => ({ ...item, isClosed: true }))
+			currentValue = currentValue.map(item => ({ ...item, isClosed: true }));
 		}
 		const value = currentValue.concat(defaultValue);
 
