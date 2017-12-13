@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import keycode from 'keycode';
 
 import CellTitleInput from './CellTitleInput.component';
@@ -10,7 +10,7 @@ describe('CellTitleInput', () => {
 		const rowData = { id: 1 };
 
 		// when
-		const wrapper = shallow(
+		const wrapper = mount(
 			<CellTitleInput
 				id={'my-cell'}
 				cellData={'my value'}
@@ -41,7 +41,7 @@ describe('CellTitleInput', () => {
 		);
 
 		// when
-		wrapper.find('#my-cell-input').simulate('blur');
+		wrapper.find('input#my-cell-input').simulate('blur');
 
 		// then
 		expect(onEditSubmit).toBeCalledWith(
@@ -100,7 +100,7 @@ describe('CellTitleInput', () => {
 		);
 
 		// when
-		wrapper.find('#my-cell-input').simulate('keyUp', event);
+		wrapper.find('input#my-cell-input').simulate('keyUp', event);
 
 		// then
 		expect(onEditCancel).toBeCalledWith(expect.anything(), rowData);

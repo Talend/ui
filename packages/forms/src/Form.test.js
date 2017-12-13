@@ -208,7 +208,7 @@ describe('<Form/>', () => {
 			input.simulate('change', { target: { value: 'Test' } });
 
 			// then
-			expect(input.props().value).toEqual('Test');
+			expect(input.instance().value).toEqual('Test');
 			setTimeout(() => {
 				wrapper.setState({}, () => {
 					expect(onChange.mock.calls.length).toEqual(1);

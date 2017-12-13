@@ -149,7 +149,7 @@ describe('ListViewWidget', () => {
 				.simulate('click');
 
 			// then
-			expect(wrapper.find('HeaderListView > input').length).toBe(1);
+			expect(wrapper.find('HeaderListView input').length).toBe(1);
 		});
 
 		it('should filter displayed items', cb => {

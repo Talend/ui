@@ -55,7 +55,7 @@ describe('MultiSelectTagWidget', () => {
 			noAvailableMessage: 'None',
 		};
 
-		const wrapper = shallow(
+		const wrapper = mount(
 			<MultiSelectTagWidget
 				options={options}
 				schema={schema}
@@ -88,7 +88,7 @@ describe('MultiSelectTagWidget', () => {
 			createIfNoneMatch: false,
 		};
 
-		const wrapper = shallow(
+		const wrapper = mount(
 			<MultiSelectTagWidget
 				options={options}
 				schema={schema}

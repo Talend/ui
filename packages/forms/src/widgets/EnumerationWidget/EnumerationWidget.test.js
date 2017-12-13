@@ -136,7 +136,7 @@ describe('EnumerationWidget', () => {
 		wrapper.find('.tc-enumeration-item-label').at(1).simulate('click', { ctrlKey: true });
 
 		// when click on trash icon
-		wrapper.find('.tc-enumeration-header').find('.btn-link').simulate('click');
+		wrapper.find('.btn-link').at(5).simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
