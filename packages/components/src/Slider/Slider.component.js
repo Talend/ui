@@ -1,24 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { translate } from 'react-i18next';
 import RcSlider from 'rc-slider';
 import rcSliderTheme from 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
 
-import { Icon } from '../';
-import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N } from '../translate';
+import Icon from '../Icon';
 import theme from './Slider.scss';
-
-function noOp() {}
-
-/**
- * This function render an icon component
- * @param {object} icon - Icons props ( selected & name )
- * @param {number} key - index of the icon for the key
- */
-function renderIcons(icon, key) {
-	return <Icon name={icon.name} className={icon.selected ? theme.selected : null} key={key} />;
-}
 
 /**
  * This function give the selected icon position if there is more than 1 icon
@@ -30,9 +16,7 @@ function renderIcons(icon, key) {
 export function getSelectedIconPosition(icons, value, min, max) {
 	if (icons && Array.isArray(icons) && icons.length > 1) {
 		const interval = (max - min) / (icons.length - 1);
-		const div = Math.floor(value / interval);
-		const rest = value % interval;
-		return rest < interval / 2 ? div : div + 1;
+		return Math.round(value / interval);
 	}
 	return -1;
 }
@@ -45,9 +29,13 @@ export function getSelectedIconPosition(icons, value, min, max) {
  * @param {number} max - maximum value of the slider
  */
 function getIcons(icons, value, min, max) {
-	const position = getSelectedIconPosition(icons, value, min, max);
-	const iconsSelected = icons.map((icon, index) => ({ name: icon, selected: index === position }));
-	return iconsSelected.map(renderIcons);
+	if (icons && Array.isArray(icons) && icons.length > 1) {
+		const position = getSelectedIconPosition(icons, value, min, max);
+		return icons.map((icon, index) => (
+			<Icon name={icon} className={index === position ? theme.selected : null} key={index} />
+		));
+	}
+	return null;
 }
 
 /**
@@ -71,11 +59,11 @@ function getTextLabel(value, label, emptyValueLabel) {
  * The slider component
  * @param {object} props
  */
-export function Slider({ id, label, value, icons, emptyValueLabel, labelIcon, min, max, ...rest }) {
+function Slider({ id, label, value, icons, emptyValueLabel, labelIcon, min, max, ...rest }) {
 	return (
 		<span className={theme['tc-slider-container']}>
 			<div className={theme.informations}>
-				{labelIcon ? <Icon name={labelIcon} /> : null}
+				{labelIcon && <Icon name={labelIcon} />}
 				{getTextLabel(value, label, emptyValueLabel)}
 			</div>
 			<label htmlFor={id}>
@@ -102,15 +90,13 @@ Slider.propTypes = {
 	icons: PropTypes.array,
 	labelIcon: PropTypes.string,
 	emptyValueLabel: PropTypes.string,
-	min: PropTypes.number,
-	max: PropTypes.number,
+	min: PropTypes.number.isRequired,
+	max: PropTypes.number.isRequired,
 };
 
 Slider.defaultProps = {
 	min: 0,
 	max: 100,
-	onChange: noOp,
-	onAfterChange: noOp,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Slider);
+export default Slider;

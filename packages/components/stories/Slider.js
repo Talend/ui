@@ -25,7 +25,7 @@ storiesOf('Slider', module).addWithInfo('default', () => (
 		<p> With a label:</p>
 		<Slider value={50} label="Your value :" />
 		<p>with some icons</p>
-		<Slider value={14} icons={icons} />
+		<Slider value={40} icons={icons} />
 		<p>with icon close to label</p>
 		<Slider value={96} labelIcon={labelIcon} />
 	</section>

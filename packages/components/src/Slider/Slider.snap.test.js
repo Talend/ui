@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Slider, getSelectedIconPosition } from './Slider.component';
+import Slider, { getSelectedIconPosition } from './Slider.component';
 
-describe('SliderSpec', () => {
-	describe('Slider renderers', () => {
+describe('Slider component', () => {
+	describe('renderers', () => {
 		it('should render Slider', () => {
 			// given
 			const props = {
@@ -37,6 +37,7 @@ describe('SliderSpec', () => {
 			// then
 			expect(wrapper.getNode()).toMatchSnapshot();
 		});
+
 		it('should render Slider with icons everywhere', () => {
 			// given
 			const props = {
@@ -51,7 +52,7 @@ describe('SliderSpec', () => {
 		});
 	});
 
-	describe('Tests on getSelectedIconPosition method', () => {
+	describe('getSelectedIconPosition()', () => {
 		it('should return -1 when no array is given', () => {
 			// given
 			const icons = null;
@@ -79,7 +80,7 @@ describe('SliderSpec', () => {
 			expect(result).toBe(-1);
 		});
 
-		it('should return -1 when array with one icon is given', () => {
+		it('should return the selected position', () => {
 			// given
 			const icons = ['icon1', 'icon2', 'icon3', 'icon4', 'icon5'];
 			// when
@@ -89,11 +90,3 @@ describe('SliderSpec', () => {
 		});
 	});
 });
-
-/*
-it('should return -1 when no array is given', () => {
-	// given
-	// when
-	// then
-});
-*/
