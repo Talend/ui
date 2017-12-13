@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Actions } from '../../Actions';
 import Icon from '../../Icon';
 import CellTitleSelector from './CellTitleSelector.component';
+import CellTitleActions from './CellTitleActions.component';
 import { cellTitleDisplayModes } from '../utils/constants';
 
 import theme from './CellTitle.scss';
@@ -22,6 +22,7 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 		id,
 		onClick,
 		actionsKey,
+		persistentActionsKey,
 		displayModeKey,
 		iconKey,
 		onEditCancel,
@@ -44,10 +45,12 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
 			/>
-
-			{actionsKey &&
-				rowData[actionsKey] &&
-				displayMode === TITLE_MODE_TEXT && <Actions actions={rowData[actionsKey]} hideLabel link />}
+			<CellTitleActions
+				rowData={rowData}
+				actionsKey={actionsKey}
+				persistentActionsKey={persistentActionsKey}
+				displayMode={displayMode}
+			/>
 		</div>
 	);
 }
@@ -64,6 +67,8 @@ CellTitle.propTypes = {
 		onClick: PropTypes.func,
 		// The actions property key. Actions = props.rowData[props.actionsKey]
 		actionsKey: PropTypes.string,
+		// The persistent actions property key. Actions = props.rowData[props.persistentActionsKey]
+		persistentActionsKey: PropTypes.string,
 		// The display mode property key. DisplayMode = props.rowData[props.displayModeKey]
 		displayModeKey: PropTypes.string,
 		// The icon property key. Icon = props.rowData[props.iconKey]
