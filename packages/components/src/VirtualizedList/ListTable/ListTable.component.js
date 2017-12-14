@@ -57,7 +57,12 @@ function ListTable(props) {
 			id={id}
 			onRowClick={onRowClickCallback}
 			noRowsRenderer={() => <NoRows t={t} />}
-			rowClassName={classNames(rowThemes)}
+			rowClassName={({ index }) => {
+				if (collection[index]) {
+					return classNames('tc-list-item', rowThemes, collection[index].className);
+				}
+				return classNames('tc-list-item', rowThemes);
+			}}
 			rowCount={collection.length}
 			rowGetter={({ index }) => collection[index]}
 			rowHeight={rowHeight}

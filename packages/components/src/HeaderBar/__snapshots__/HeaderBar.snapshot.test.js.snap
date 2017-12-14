@@ -504,7 +504,7 @@ exports[`Storyshots HeaderBar default 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="dropdown-toggle btn btn-link"
+            className="tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -1246,7 +1246,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="dropdown-toggle btn btn-link"
+            className="tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -1878,7 +1878,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="dropdown-toggle btn btn-link"
+            className="tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-environment"
             onClick={[Function]}
@@ -2000,7 +2000,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="dropdown-toggle btn btn-link"
+            className="tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -2693,7 +2693,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="dropdown-toggle btn btn-link"
+            className="tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -3476,7 +3476,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="dropdown-toggle btn btn-link"
+            className="tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -4198,7 +4198,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="dropdown-toggle btn btn-link"
+            className="tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -4891,7 +4891,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="dropdown-toggle btn btn-link"
+            className="tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -5631,7 +5631,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="dropdown-toggle btn btn-link"
+            className="tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -6675,7 +6675,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="dropdown-toggle btn btn-link"
+            className="tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -7368,7 +7368,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="dropdown-toggle btn btn-link"
+            className="tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}

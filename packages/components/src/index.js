@@ -103,6 +103,7 @@ import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import SidePanel from './SidePanel';
 import Status from './Status';
+import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
@@ -209,6 +210,7 @@ export {
 	Row,
 	SafeAnchor,
 	SplitButton,
+	SubHeaderBar,
 	Tab,
 	TabContainer,
 	TabContent,

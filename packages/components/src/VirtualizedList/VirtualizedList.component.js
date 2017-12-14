@@ -17,6 +17,7 @@ function VirtualizedList(props) {
 	const {
 		collection,
 		children,
+		defaultHeight,
 		id,
 		isActive,
 		isSelected,
@@ -46,7 +47,7 @@ function VirtualizedList(props) {
 			{({ height, width }) => (
 				<RendererSelector
 					collection={collection}
-					height={height}
+					height={height || defaultHeight}
 					id={id}
 					isActive={isActive}
 					isSelected={isSelected}
@@ -71,6 +72,7 @@ function VirtualizedList(props) {
 VirtualizedList.displayName = 'VirtualizedList';
 VirtualizedList.propTypes = propTypes;
 VirtualizedList.defaultProps = {
+	defaultHeight: 250,
 	t: getDefaultTranslate,
 };
 

@@ -1,5 +1,5 @@
 // DisplayLarge styles
-$tc-list-display-large-color: #AAA !default;
+$tc-list-display-large-color: #aaa !default;
 $tc-list-display-large-background-color: lighten($tc-list-display-large-color, 25%) !default;
 
 .container {
@@ -16,7 +16,6 @@ $tc-list-display-large-background-color: lighten($tc-list-display-large-color, 2
 			opacity: 1;
 			visibility: visible;
 		}
-
 	}
 
 	.title {
@@ -29,7 +28,11 @@ $tc-list-display-large-background-color: lighten($tc-list-display-large-color, 2
 		visibility: hidden;
 		position: absolute;
 		right: 0;
-		background: linear-gradient(to right, rgba($tc-list-display-large-background-color, 0), $tc-list-display-large-background-color $padding-large);
+		background: linear-gradient(
+			to right,
+			rgba($tc-list-display-large-background-color, 0),
+			$tc-list-display-large-background-color $padding-large
+		);
 		padding-left: $padding-large;
 	}
 }
