@@ -84,25 +84,23 @@ function RendererSelector(props) {
 		);
 	}
 
-	return inProgress ?
-		<Loader /> :
-		(
-			<ListGrid
-				collection={collection}
-				height={height}
-				id={id}
-				isActive={isActive}
-				isSelected={isSelected}
-				onRowClick={onRowClick}
-				rowHeight={rowHeight}
-				rowRenderer={getRowRenderer(type)}
-				selectionToggle={selectionToggle}
-				width={width}
-				t={t}
-			>
-				{children}
-			</ListGrid>
-		);
+	return inProgress ? <Loader /> : (
+		<ListGrid
+			collection={collection}
+			height={height}
+			id={id}
+			isActive={isActive}
+			isSelected={isSelected}
+			onRowClick={onRowClick}
+			rowHeight={rowHeight}
+			rowRenderer={getRowRenderer(type)}
+			selectionToggle={selectionToggle}
+			width={width}
+			t={t}
+		>
+			{children}
+		</ListGrid>
+	);
 }
 RendererSelector.displayName = 'VirtualizedList(RendererSelector)';
 RendererSelector.propTypes = {

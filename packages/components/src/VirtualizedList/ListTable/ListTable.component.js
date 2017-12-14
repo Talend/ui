@@ -96,6 +96,7 @@ ListTable.propTypes = {
 	id: PropTypes.string,
 	isActive: PropTypes.func,
 	isSelected: PropTypes.func,
+	inProgress: PropTypes.bool,
 	onRowClick: PropTypes.func,
 	rowHeight: PropTypes.number,
 	sort: PropTypes.func,
