@@ -21,6 +21,7 @@ before_install:
 before_script:
   - sh -e /etc/init.d/xvfb start
   - yarn global add sassdoc http-server surge prettier
+  - .travis/before_script_icons.sh
 script:
   - yarn test:cov
 after_success:
