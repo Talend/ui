@@ -13,5 +13,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-✖ 3 problems (3 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/Message/Message.component.test.js
+  11:4  error  Expected indentation of 4 tab characters but found 3                                              react/jsx-indent-props
+  12:4  error  Expected indentation of 4 tab characters but found 3                                              react/jsx-indent-props
+  13:4  error  Expected indentation of 4 tab characters but found 3                                              react/jsx-indent-props
+  14:3  error  The closing bracket must be aligned with the line containing the opening tag (expected column 4)  react/jsx-closing-bracket-location
+
+✖ 7 problems (7 errors, 0 warnings)
 
