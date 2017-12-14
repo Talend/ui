@@ -4,7 +4,10 @@ import { listTypes } from './utils/constants';
 import { rowDictionary } from './utils/dictionary';
 import ListTable from './ListTable';
 import ListGrid from './ListGrid';
+import CircularProgress from './../CircularProgress';
 import propTypes from './PropTypes';
+
+import theme from './VirtualizedList.scss';
 
 const { TABLE } = listTypes;
 
@@ -44,6 +47,7 @@ function RendererSelector(props) {
 		type,
 		width,
 		disableHeader,
+		inProgress,
 		t,
 	} = props;
 
@@ -63,29 +67,42 @@ function RendererSelector(props) {
 				sortDirection={sortDirection}
 				rowHeight={rowHeight}
 				width={width}
+				inProgress={inProgress}
 				t={t}
 			>
 				{children}
 			</ListTable>
 		);
 	}
-	return (
-		<ListGrid
-			collection={collection}
-			height={height}
-			id={id}
-			isActive={isActive}
-			isSelected={isSelected}
-			onRowClick={onRowClick}
-			rowHeight={rowHeight}
-			rowRenderer={getRowRenderer(type)}
-			selectionToggle={selectionToggle}
-			width={width}
-			t={t}
-		>
-			{children}
-		</ListGrid>
-	);
+
+	// FIXME [NC]: waiting for Loader component to be merged
+	function Loader() {
+		return (
+			<div aria-atomic="true" aria-busy="true" className={theme['tc-list-progress']}>
+				<CircularProgress size={'default'} />
+			</div>
+		);
+	}
+
+	return inProgress ?
+		<Loader /> :
+		(
+			<ListGrid
+				collection={collection}
+				height={height}
+				id={id}
+				isActive={isActive}
+				isSelected={isSelected}
+				onRowClick={onRowClick}
+				rowHeight={rowHeight}
+				rowRenderer={getRowRenderer(type)}
+				selectionToggle={selectionToggle}
+				width={width}
+				t={t}
+			>
+				{children}
+			</ListGrid>
+		);
 }
 RendererSelector.displayName = 'VirtualizedList(RendererSelector)';
 RendererSelector.propTypes = {

@@ -8,6 +8,7 @@ import {
 import { getDefaultTranslate } from '../../translate';
 import getRowSelectionRenderer from '../RowSelection';
 import NoRows from '../NoRows';
+import CircularProgress from '../../CircularProgress';
 import { toColumns } from '../utils/tablerow';
 
 import theme from './ListTable.scss';
@@ -31,6 +32,7 @@ function ListTable(props) {
 		sortDirection,
 		width,
 		rowHeight,
+		inProgress,
 		t,
 	} = props;
 
@@ -48,6 +50,15 @@ function ListTable(props) {
 		onRowClickCallback = ({ event, rowData }) => onRowClick(event, rowData);
 	}
 
+	// FIXME [NC]: waiting for Loader component to be merged
+	function Loader() {
+		return (
+			<div aria-atomic="true" aria-busy="true" className={theme['tc-list-progress']}>
+				<CircularProgress size={'default'} />
+			</div>
+		);
+	}
+
 	return (
 		<VirtualizedTable
 			className={`tc-list-table ${theme['tc-list-table']}`}
@@ -56,14 +67,13 @@ function ListTable(props) {
 			height={height}
 			id={id}
 			onRowClick={onRowClickCallback}
-			noRowsRenderer={() => <NoRows t={t} />}
-			rowClassName={({ index }) => {
-				if (collection[index]) {
-					return classNames('tc-list-item', rowThemes, collection[index].className);
-				}
-				return classNames('tc-list-item', rowThemes);
-			}}
-			rowCount={collection.length}
+			noRowsRenderer={() => (inProgress ? <Loader /> : <NoRows t={t} />)}
+			rowClassName={({ index }) => classNames(...[
+				'tc-list-item',
+				rowThemes,
+				collection[index] && collection[index].className,
+			])}
+			rowCount={inProgress ? 0 : collection.length}
 			rowGetter={({ index }) => collection[index]}
 			rowHeight={rowHeight}
 			rowRenderer={RowTableRenderer}
