@@ -4,7 +4,6 @@ import './ActionBar';
 import './ActionDropdown';
 import './ActionSplitDropdown';
 import './Actions';
-import './AppHeaderBar';
 import './Badge';
 import './Breadcrumbs';
 import './CircularProgress';

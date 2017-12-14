@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Layout } from '@talend/react-components';
 
-import AppHeaderBar from '../AppHeaderBar';
+import HeaderBar from '../HeaderBar';
 import List from '../List';
 import SidePanel from '../SidePanel';
 
@@ -35,7 +35,7 @@ function HomeListView({ sidepanel, list, header, children }) {
 	return (
 		<Layout
 			mode="TwoColumns"
-			header={getContent(AppHeaderBar, header)}
+			header={getContent(HeaderBar, header)}
 			one={getContent(SidePanel, sidepanel)}
 			drawers={drawers}
 		>

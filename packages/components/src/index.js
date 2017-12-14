@@ -78,7 +78,6 @@ import {
 } from './Actions';
 import ActionBar from './ActionBar';
 import Notification from './Notification';
-import AppHeaderBar from './AppHeaderBar';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
 import TalendBadge from './Badge';
@@ -119,7 +118,6 @@ export {
 	ActionDropdown,
 	ActionSplitDropdown,
 	Actions,
-	AppHeaderBar,
 	HeaderBar,
 	HttpError,
 	Breadcrumbs,
