@@ -14,11 +14,11 @@ if [ -n "$GH_TOKEN" ]; then
 		git checkout $TRAVIS_PULL_REQUEST_BRANCH
 		echo "✓ Checkout $TRAVIS_PULL_REQUEST_BRANCH"
 
-		if [[ "$TALEND_COMMIT_MSG" =~ 'icons' ]]; then
+		if [[ "$TALEND_COMMIT_MSG" =~ 'icon' ]]; then
 			git add packages/components/src
 			git add packages/icons/src/svg
 			git -c user.name="travis" -c user.email="travis" commit -m "test(ci): optimize icons"
-			echo "✓ Commit optimized icons to $TRAVIS_PULL_REQUEST_BRANCH"
+			echo "✓ Commit optimized icons and components snapshots to $TRAVIS_PULL_REQUEST_BRANCH"
 		fi
 
 		git add packages/theme/screenshots/
