@@ -11,7 +11,7 @@ describe('Message component', () => {
 				errorMessage={'My error message'}
 				description={'My description'}
 				isValid
-		/>
+			/>
 		);
 
 		// then
