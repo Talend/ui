@@ -1368,6 +1368,7 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
   >
     <div
       className="form-control tf-typeahead-container"
+      key="react-autowhatever-myWidget-container"
     >
       <div>
         <FormControl
@@ -1379,6 +1380,7 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
           autoComplete="off"
           bsClass="form-control"
           componentClass="input"
+          key="react-autowhatever-myWidget-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -1416,6 +1418,7 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
       </div>
       <div
         id="react-autowhatever-myWidget"
+        key="react-autowhatever-myWidget-items-container"
         style={Object {}}
       />
     </div>

@@ -159,6 +159,7 @@ describe('ListView field', () => {
 
 			// when
 			filter(wrapper, 'ia');
+			wrapper.update();
 
 			// then
 			expect(wrapper.find('.tc-listview-item-label').length).toBe(2);
@@ -182,6 +183,7 @@ describe('ListView field', () => {
 
 			// when
 			filter(wrapper, 'lol');
+			wrapper.update();
 
 			// then
 			expect(
