@@ -1,9 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-<rect y="21" width="8" height="8"/>
-<polygon points="50 25 42 17 42 21 34 21 34 29 42 29 42 33 50 25"/>
-<polygon points="30 18 30 21 12 21 12 18 10 18 10 21 10 29 10 32 12 32 12 29 30 29 30 32 32 32 32 29 32 21 32 18 30 18"/>
-<rect x="10" y="12" width="2" height="4"/>
-<rect x="30" y="12" width="2" height="4"/>
-<rect x="30" y="34" width="2" height="4"/>
-<rect x="10" y="34" width="2" height="4"/>
+	<path d="M0 21h8v8H0zm50 4l-8-8v4h-8v8h8v4l8-8zm-20-7v3H12v-3h-2v14h2v-3h18v3h2V18h-2zm-20-6h2v4h-2zm20 0h2v4h-2zm0 22h2v4h-2zm-20 0h2v4h-2z"/>
 </svg>

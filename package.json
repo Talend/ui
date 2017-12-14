@@ -15,7 +15,7 @@
     "build-components": "lerna exec --scope=*components -- yarn run prepublish && node copylibs.js --scope=components",
     "build-containers": "lerna exec --scope=*containers -- yarn run prepublish && node copylibs.js --scope=containers",
     "build-forms": "lerna exec --scope=*forms -- yarn run prepublish && node copylibs.js --scope=forms",
-    "build-icons": "lerna exec --scope=*icons -- yarn run prepublish && node copylibs.js --scope=icons && lerna exec --scope=*components -- yarn test -- -u",
+    "build-icons": "lerna exec --scope=@talend/icons -- yarn run prepublish && node copylibs.js --scope=icons && lerna exec --scope=@talend/react-components -- yarn test -- -u",
     "build-logging": "lerna exec --ignore=generator-talend  -- yarn run prepublish",
     "build-theme": "lerna exec --scope=*theme -- yarn run prepublish && node copylibs.js --scope=theme",
     "build-sagas": "lerna exec --scope=*sagas -- yarn run prepublish && node copylibs.js --scope=sagas",
