@@ -8,9 +8,9 @@ describe('Message component', () => {
 		// when
 		const wrapper = shallow(
 			<Message
-			errorMessage={'My error message'}
-			description={'My description'}
-			isValid
+				errorMessage={'My error message'}
+				description={'My description'}
+				isValid
 		/>
 		);
 
