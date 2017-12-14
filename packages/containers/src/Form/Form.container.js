@@ -4,7 +4,6 @@ import Immutable from 'immutable';
 import { componentState } from '@talend/react-cmf';
 import ComponentForm from '@talend/react-forms';
 import UIForm from '@talend/react-forms/lib/UIForm/UIForm.component';
-// import { UIForm } from '@talend/react-forms/lib/UIForm';
 import ArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
 import { wrapCustomWidget } from '@talend/react-forms/lib/UIForm/merge';
 import classnames from 'classnames';

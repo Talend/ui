@@ -2,70 +2,75 @@
 
 exports[`SingleButton field should render button 1`] = `
 <Action
-  bsStyle="primary"
+  bsStyle={undefined}
   className="btn"
   disabled={false}
   id="myForm"
   inProgress={undefined}
-  label="Boom !"
+  label={undefined}
+  model={undefined}
   name="my-button"
-  onClick={undefined}
+  onClick={[Function]}
   type="button"
 />
 `;
 
 exports[`SingleButton field should render disabled button 1`] = `
 <Action
-  bsStyle="primary"
+  bsStyle={undefined}
   className="btn"
   disabled={true}
   id="myForm"
   inProgress={undefined}
-  label="Boom !"
+  label={undefined}
+  model={undefined}
   name="my-button"
-  onClick={undefined}
+  onClick={[Function]}
   type="button"
 />
 `;
 
 exports[`SingleButton field should render inProgress button 1`] = `
 <Action
-  bsStyle="primary"
+  bsStyle={undefined}
   className="btn"
   disabled={true}
   id="myForm"
   inProgress={undefined}
-  label="Boom !"
+  label={undefined}
+  model={undefined}
   name="my-button"
-  onClick={undefined}
+  onClick={[Function]}
   type="button"
 />
 `;
 
 exports[`SingleButton field should render reset button 1`] = `
 <Action
-  bsStyle="primary"
+  bsStyle={undefined}
   className="btn"
   disabled={false}
   id="myForm"
   inProgress={undefined}
-  label="Boom !"
+  label={undefined}
+  model={undefined}
   name="my-button"
-  onClick={undefined}
+  onClick={[Function]}
   type="reset"
 />
 `;
 
 exports[`SingleButton field should render submit button 1`] = `
 <Action
-  bsStyle="primary"
+  bsStyle={undefined}
   className="btn"
   disabled={false}
   id="myForm"
   inProgress={undefined}
-  label="Boom !"
+  label={undefined}
+  model={undefined}
   name="my-button"
-  onClick={undefined}
+  onClick={[Function]}
   type="submit"
 />
 `;

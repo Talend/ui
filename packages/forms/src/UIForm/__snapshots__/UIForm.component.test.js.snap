@@ -5,7 +5,7 @@ exports[`UIForm component should render form 1`] = `
   acceptCharset={undefined}
   action={undefined}
   autoComplete="off"
-  className="my-form-class"
+  className="tf-uiform my-form-class"
   encType={undefined}
   id="myFormId"
   method={undefined}
@@ -105,7 +105,9 @@ exports[`UIForm component should render form 1`] = `
     }
   />
   <Buttons
+    className="form-actions"
     id="myFormId-myFormName-actions"
+    onClick={[Function]}
     onTrigger={[Function]}
     schema={
       Object {
@@ -128,7 +130,7 @@ exports[`UIForm component should render provided actions 1`] = `
   acceptCharset={undefined}
   action={undefined}
   autoComplete="off"
-  className="my-form-class"
+  className="tf-uiform my-form-class"
   encType={undefined}
   id="myFormId"
   method={undefined}
@@ -228,7 +230,9 @@ exports[`UIForm component should render provided actions 1`] = `
     }
   />
   <Buttons
+    className="form-actions"
     id="myFormId-myFormName-actions"
+    onClick={[Function]}
     onTrigger={[Function]}
     schema={
       Object {
