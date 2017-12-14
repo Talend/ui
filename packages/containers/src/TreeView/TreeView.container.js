@@ -53,7 +53,7 @@ export function transform(items, props) {
 		...item,
 		id: item[props.idAttr],
 		selected: item[props.idAttr] === selectedId,
-		toggled: opened.indexOf(item[props.idAttr]) !== -1,
+		toggled: item.toggled || opened.indexOf(item[props.idAttr]) !== -1,
 		name: item[props.nameAttr],
 		children: transform(item[props.childrenAttr], props),
 	}));

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { CSSTransitionGroup } from 'react-css-transition';
+import get from 'lodash/get';
 
 import Drawer from '../Drawer';
 
@@ -27,14 +28,19 @@ function WithDrawer({ drawers, children }) {
 		<div className={theme['tc-with-drawer']}>
 			{children}
 			<CSSTransitionGroup transitionAppear className={theme['tc-with-drawer-container']}>
-				{drawers && drawers.map((drawer, key) => (
-					<Drawer.Animation
-						key={(drawer.props.route && drawer.props.route.path) || key}
-						className="tc-with-drawer-wrapper"
-					>
-						{drawer}
-					</Drawer.Animation>
-				))}
+				{drawers &&
+					drawers.map((drawer, key) => (
+						<Drawer.Animation
+							withTransition={
+								get(drawer, 'props.withTransition', true) &&
+								get(drawer, 'props.route.state.withTransition')
+							}
+							key={(drawer.props.route && drawer.props.route.path) || key}
+							className="tc-with-drawer-wrapper"
+						>
+							{drawer}
+						</Drawer.Animation>
+					))}
 			</CSSTransitionGroup>
 		</div>
 	);
