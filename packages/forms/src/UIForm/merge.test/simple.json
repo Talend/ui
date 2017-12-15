@@ -12,6 +12,10 @@
 				"widget": "text",
 				"type": "password",
 				"helpvalue": "Hint: Make it strong!"
+			},
+			{
+				"key": "enum",
+				"title": "Enum"
 			}
 		],
 		"title": "A registration form",
