@@ -26,6 +26,7 @@ function NotFoundComponent({ error }) {
 NotFoundComponent.propTypes = {
 	error: PropTypes.string.isRequired,
 };
+NotFoundComponent.displayName = 'InjectNotFound';
 
 function Inject({ component, ...props }, context) {
 	try {
@@ -41,6 +42,7 @@ Inject.contextTypes = {
 Inject.propTypes = {
 	component: PropTypes.string.isRequired,
 };
+Inject.displayName = 'Inject';
 Inject.NotFoundComponent = NotFoundComponent;
 
 export default Inject;

@@ -72,24 +72,27 @@ exports[`Component HomeListView should render with object props 1`] = `
     ]
   }
   header={
-    <Connect(CMF(AppHeaderBar))
+    <Inject
       app="hello app"
+      component="AppHeaderBar"
     />
   }
   mode="TwoColumns"
   one={
-    <withRouter(Connect(CMF(Container(SidePanel))))
+    <Inject
       actionIds={
         Array [
           "menu:demo",
           "menu:article",
         ]
       }
+      component="SidePanel"
     />
   }
 >
-  <Connect(CMF(Container(List)))
+  <Inject
     actions={Object {}}
+    component="List"
     items={
       Immutable.List [
         Immutable.Map {
