@@ -1,15 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`VirtualizedList should render CircularProgress 1`] = `
-<div
-  aria-atomic="true"
-  aria-busy="true"
+<Loader
   className={undefined}
->
-  <CircularProgress
-    size="default"
-  />
-</div>
+  id="my-list-id-loader"
+/>
 `;
 
 exports[`VirtualizedList should render RendererSelector 1`] = `
