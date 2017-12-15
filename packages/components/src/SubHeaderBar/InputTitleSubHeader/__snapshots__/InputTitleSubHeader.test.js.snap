@@ -47,6 +47,7 @@ exports[`InputTitleSubHeader should render 1`] = `
     name="myIconId"
   />
   <TitleSubHeader
+    editable={true}
     onEdit={[Function]}
     onSubmit={[Function]}
     t={[Function]}

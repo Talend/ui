@@ -66,14 +66,7 @@ const componentAction = {
 
 const componentInput = {
 	tag: 'form',
-	injectedComponent: (
-		<input
-			id="inputTitle"
-			type="text"
-			onChange={action('onChange')}
-			value=""
-		/>
-	),
+	injectedComponent: <input id="inputTitle" type="text" onChange={action('onChange')} value="" />,
 };
 
 const injectedComponentsCenter = [
@@ -99,25 +92,25 @@ stories
 	.addWithInfo('with default left components', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...viewProps} onGoBack={backAction} />
+			<SubHeaderBar {...viewProps} editable onGoBack={backAction} />
 		</div>
 	))
 	.addWithInfo('with default left components, no edit', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...viewProps} onEdit="" onGoBack={backAction} />
+			<SubHeaderBar {...viewProps} onGoBack={backAction} />
 		</div>
 	))
 	.addWithInfo('with default left components and icon file', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...viewProps} iconId="talend-file-csv-o" onGoBack={backAction} />
+			<SubHeaderBar {...viewProps} editable iconId="talend-file-csv-o" onGoBack={backAction} />
 		</div>
 	))
 	.addWithInfo('default left components and subtitle', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...viewProps} subTitle="mySubTitle" onGoBack={backAction} />
+			<SubHeaderBar {...viewProps} editable subTitle="mySubTitle" onGoBack={backAction} />
 		</div>
 	))
 	.addWithInfo('with right components', () => (
@@ -128,6 +121,7 @@ stories
 				iconId="talend-file-csv-o"
 				onGoBack={backAction}
 				componentsRight={injectedComponentsRight}
+				editable
 			/>
 		</div>
 	))
@@ -138,6 +132,7 @@ stories
 				{...viewProps}
 				onGoBack={backAction}
 				componentsCenter={[componentAction, ...injectedComponentsCenter]}
+				editable
 			/>
 		</div>
 	))
@@ -149,10 +144,11 @@ stories
 				subTitle="mySubTitle"
 				onGoBack={backAction}
 				componentsCenter={[componentInput]}
+				editable
 			/>
 		</div>
 	))
-	.addWithInfo('with center && right components', () => (
+	.addWithInfo('with center && right components, no edit', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar

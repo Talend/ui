@@ -25,7 +25,7 @@ function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
 				>
 					{title}
 				</h1>
-				{editable && onEdit && (
+				{editable && (
 					<Action
 						name="action-edit-title"
 						label={t('MODIFY_TOOLTIP', { defaultValue: 'Modify' })}
@@ -56,6 +56,7 @@ function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
 
 TitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
+	editable: PropTypes.bool.isRequired,
 	onEdit: PropTypes.func,
 	subTitle: PropTypes.string,
 	t: PropTypes.func,
@@ -63,6 +64,7 @@ TitleSubHeader.propTypes = {
 
 TitleSubHeader.defaultProps = {
 	t: getDefaultTranslate,
+	editable: false,
 };
 
 export default TitleSubHeader;

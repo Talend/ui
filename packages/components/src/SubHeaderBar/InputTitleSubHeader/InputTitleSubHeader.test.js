@@ -17,7 +17,7 @@ describe('InputTitleSubHeader', () => {
 			}),
 	);
 	it('should render', () => {
-		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} iconId="myIconId" />);
+		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} iconId="myIconId" editable />);
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
@@ -51,7 +51,7 @@ describe('TitleSubHeader', () => {
 		};
 	});
 	it('should render', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />);
+		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" editable />);
 		expect(wrapper.find(Action)).toHaveLength(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
@@ -70,7 +70,7 @@ describe('TitleSubHeader', () => {
 		expect(wrapper.getNode().props.children).toEqual('mySubTitle');
 	});
 	it('should render with no edit pencil', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} onEdit={undefined} subTitle="mySubTitle" />).find(
+		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />).find(
 			'small',
 		);
 		expect(wrapper.find(Action)).toHaveLength(0);
@@ -85,7 +85,9 @@ describe('TitleSubHeader', () => {
 			className: undefined,
 			hideLabel: true,
 		};
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} onEdit={actionProps.onClick} />);
+		const wrapper = shallow(
+			<TitleSubHeader {...defaultProps} onEdit={actionProps.onClick} editable />,
+		);
 		expect(wrapper.find(Action)).toHaveLength(1);
 	});
 });
