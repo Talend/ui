@@ -46,6 +46,12 @@ class EnumerationForm extends React.Component {
 		};
 	}
 
+	static isConnectedMode(registry) {
+		return !!(registry &&
+					registry.formContext &&
+					registry.formContext.handleAction !== undefined);
+	}
+
 	constructor(props) {
 		super(props);
 		const t = props.t;
@@ -422,6 +428,7 @@ class EnumerationForm extends React.Component {
 				} else {
 					this.setState({
 						searchCriteria: value.value,
+						items: this.searchItems(value.value),
 					});
 				}
 			}, 400);
@@ -447,7 +454,6 @@ class EnumerationForm extends React.Component {
 			headerInput: this.searchInputsActions,
 			searchCriteria: prevState.loadingSearchCriteria,
 			loadingSearchCriteria: '',
-			items: this.searchItems(prevState.loadingSearchCriteria),
 		}));
 	}
 
@@ -462,7 +468,11 @@ class EnumerationForm extends React.Component {
 				headerDefault: this.loadingInputsActions,
 			});
 		}
-		this.setState({ displayMode: DISPLAY_MODE_DEFAULT, searchCriteria: null });
+		this.setState({
+			displayMode: DISPLAY_MODE_DEFAULT,
+			searchCriteria: null,
+			items: resetItems(this.state.items),
+		});
 	}
 
 	onConnectedAbortHandler() {
@@ -691,11 +701,7 @@ class EnumerationForm extends React.Component {
 	}
 
 	callActionHandler(actionName, value, successHandler, errorHandler) {
-		if (
-			this.props.registry &&
-			this.props.registry.formContext &&
-			this.props.registry.formContext.handleAction !== undefined
-		) {
+		if (this.constructor.isConnectedMode(this.props.registry)) {
 			this.props.registry.formContext.handleAction(
 				this.props.id,
 				actionName,
@@ -836,7 +842,11 @@ class EnumerationForm extends React.Component {
 	}
 
 	render() {
-		const items = this.searchItems(this.state.searchCriteria);
+		let items = this.state.items;
+		// filter items only in non-connected mode, since in conected mode items are up-to-date
+		if (!this.constructor.isConnectedMode(this.props.registry)) {
+			items = this.searchItems(this.state.searchCriteria);
+		}
 		const stateToShow = { ...this.state, items };
 
 		return (
