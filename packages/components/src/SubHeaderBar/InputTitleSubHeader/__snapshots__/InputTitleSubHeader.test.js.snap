@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InlineFormSubHeader should render 1`] = `
+<form
+  className="tc-subheader-details-form"
+  onSubmit={[Function]}
+>
+  <input
+    className="tc-subheader-details-form-input form-control"
+    id="inputTitle"
+    onChange={[Function]}
+    type="text"
+    value="myTitle"
+  />
+  <div
+    className="tc-subheader-details-form-buttons"
+  >
+    <Action
+      bsStyle="link"
+      className="tc-subheader-details-form-buttons-icon"
+      hideLabel={true}
+      icon="talend-check"
+      label={undefined}
+      name="action-submit-title"
+      onClick={[Function]}
+      type="submit"
+    />
+    <Action
+      bsStyle="link"
+      className="tc-subheader-details-form-buttons-icon"
+      hideLabel={true}
+      icon="talend-cross"
+      label={undefined}
+      name="action-cancel-title"
+      onClick={[Function]}
+    />
+  </div>
+</form>
+`;
+
+exports[`InputTitleSubHeader should render 1`] = `
+<div
+  className="tc-subheader-details"
+>
+  <Icon
+    className="tc-subheader-details-icon"
+    name="myIconId"
+  />
+  <TitleSubHeader
+    onEdit={[Function]}
+    onSubmit={[Function]}
+    t={[Function]}
+    title="myTitle"
+  />
+</div>
+`;
+
+exports[`TitleSubHeader should render 1`] = `
+<div
+  className="tc-subheader-details-text"
+>
+  <div
+    className="tc-subheader-details-text-title"
+  >
+    <h1
+      className="tc-subheader-details-text-title-wording"
+      onDoubleClick={[Function]}
+    >
+      myTitle
+    </h1>
+    <Action
+      bsStyle="link"
+      className="tc-subheader-details-text-title-pencil"
+      hideLabel={true}
+      icon="talend-pencil"
+      label="Modify"
+      name="action-edit-title"
+      onClick={[Function]}
+    />
+  </div>
+  <small
+    className="tc-subheader-details-text-subtitle"
+  >
+    mySubTitle
+  </small>
+</div>
+`;

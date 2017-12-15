@@ -22,10 +22,8 @@ describe('FilterBar', () => {
 	it('should call onToggle on search icon click', () => {
 		// given
 		const filterInstance = shallow(<FilterBar {...defaultProps} docked />);
-
 		// when
 		filterInstance.find('Action').simulate('click');
-
 		// then
 		expect(defaultProps.onToggle).toBeCalled();
 	});
@@ -33,7 +31,6 @@ describe('FilterBar', () => {
 	it('should render the filter if not dockabled', () => {
 		// given
 		const filterInstance = shallow(<FilterBar {...defaultProps} dockable={false} />);
-
 		// then
 		expect(filterInstance.find('FilterInput').length).toBe(1);
 	});
@@ -41,7 +38,6 @@ describe('FilterBar', () => {
 	it('should support external props', () => {
 		// given
 		const filterInstance = shallow(<FilterBar {...defaultProps} className="custom-test" />);
-
 		// then
 		expect(filterInstance.props().className).toContain('custom-test');
 	});
@@ -49,7 +45,6 @@ describe('FilterBar', () => {
 	it('should be able to switch autofocus to false', () => {
 		// given
 		const filterInstance = shallow(<FilterBar {...defaultProps} autoFocus={false} />);
-
 		// then
 		expect(filterInstance.find('FilterInput').props().autoFocus).toBe(false);
 	});
@@ -58,10 +53,8 @@ describe('FilterBar', () => {
 		// given
 		const instance = shallow(<FilterBar {...defaultProps} />);
 		expect(instance.state('focus')).toBe(false);
-
 		// when
 		instance.find('FilterInput').simulate('focus');
-
 		// then
 		expect(instance.state('focus')).toBe(true);
 		expect(defaultProps.onFocus).toHaveBeenCalled();
@@ -71,11 +64,9 @@ describe('FilterBar', () => {
 		// given
 		const instance = shallow(<FilterBar {...defaultProps} />);
 		expect(instance.state('focus')).toBe(false);
-
 		// when
 		instance.find('FilterInput').simulate('focus');
 		instance.find('FilterInput').simulate('blur');
-
 		// then
 		expect(instance.state('focus')).toBe(false);
 		expect(defaultProps.onBlur).toHaveBeenCalled();
@@ -84,10 +75,8 @@ describe('FilterBar', () => {
 	it('should call onToggle on cross icon click', () => {
 		// given
 		const filterInstance = mount(<FilterBar {...defaultProps} />);
-
 		// when
 		filterInstance.find('button').simulate('click');
-
 		// then
 		expect(defaultProps.onToggle).toBeCalled();
 	});
@@ -95,10 +84,8 @@ describe('FilterBar', () => {
 	it('should call onFilter when input value change', () => {
 		// given
 		const filterInstance = mount(<FilterBar {...defaultProps} />);
-
 		// when
 		filterInstance.find('input').simulate('change');
-
 		// then
 		expect(defaultProps.onFilter).toBeCalled();
 	});
@@ -107,10 +94,8 @@ describe('FilterBar', () => {
 		// given
 		const props = { ...defaultProps };
 		const filterInstance = mount(<FilterBar {...props} />);
-
 		// when
 		filterInstance.find('input').simulate('blur');
-
 		// then
 		expect(props.onBlur).toBeCalled();
 	});
@@ -119,10 +104,8 @@ describe('FilterBar', () => {
 		// given
 		const props = { ...defaultProps };
 		const filterInstance = mount(<FilterBar {...props} />);
-
 		// when
 		filterInstance.find('input').simulate('keydown', { keyCode: 27 });
-
 		// then
 		expect(props.onToggle).toBeCalled();
 	});
@@ -131,10 +114,8 @@ describe('FilterBar', () => {
 		// given
 		const props = { ...defaultProps };
 		const filterInstance = mount(<FilterBar {...props} />);
-
 		// when
 		filterInstance.find('input').simulate('keydown', { keyCode: 13 });
-
 		// then
 		expect(props.onBlur).toBeCalled();
 	});
@@ -148,10 +129,8 @@ describe('FilterBar', () => {
 			debounceTimeout,
 		};
 		const filterInstance = mount(<FilterBar {...props} />);
-
 		// when
 		filterInstance.find('input').simulate('change');
-
 		// then
 		expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount + 1);
 		expect(setTimeout.mock.calls[0][1]).toBe(debounceTimeout);
@@ -168,18 +147,13 @@ describe('FilterBar', () => {
 		};
 		const underMinLengthEvent = { target: { value: '2' } };
 		const overMinLengthEvent = { target: { value: 'toto' } };
-
 		const filterInstance = mount(<FilterBar {...props} />);
-
 		// when
 		filterInstance.find('input').simulate('change', underMinLengthEvent);
-
 		// then
 		expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount);
-
 		// when
 		filterInstance.find('input').simulate('change', overMinLengthEvent);
-
 		// then
 		expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount + 1);
 		expect(setTimeout.mock.calls[0][1]).toBe(debounceTimeout);
@@ -189,13 +163,11 @@ describe('FilterBar', () => {
 		// given
 		const props = { dockable: false };
 		const filterInstance = mount(<FilterBar {...props} />);
-
 		// when
 		// value is change by the user
 		filterInstance.setState({ value: 'test' });
 		// and reset by the host
 		filterInstance.setProps({ value: undefined });
-
 		// then the search icon should appear
 		expect(filterInstance.find(Icon).length).toEqual(2);
 	});

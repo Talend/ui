@@ -150,35 +150,35 @@
     react-treebeard "^2.0.3"
     redux "^3.6.0"
 
-"@talend/bootstrap-theme@^0.127.0":
-  version "0.127.0"
-  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.127.0.tgz#9d0bf38396cba9fbf75256c7ec328c0f9de2d396"
+"@talend/bootstrap-theme@^0.131.0":
+  version "0.131.0"
+  resolved "https://registry.yarnpkg.com/@talend/bootstrap-theme/-/bootstrap-theme-0.131.0.tgz#bdd44781c2823bd3214911ebbf29905310ad6aaf"
   dependencies:
     bootstrap-sass "3.3.7"
 
-"@talend/icons@^0.127.0":
-  version "0.127.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.127.0.tgz#2160f72ac7b1b446b949f3671b4d31c1bead843d"
+"@talend/icons@^0.131.0":
+  version "0.131.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.131.0.tgz#b52d7690aea308ac12fe73f40ed8af7616dfe419"
 
-"@talend/react-cmf@^0.127.0":
-  version "0.127.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.127.0.tgz#8ddfd328dc3430ea2983005064d09466c539dd44"
+"@talend/react-cmf@^0.131.0":
+  version "0.131.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.131.0.tgz#674427584b7d04c47293ea3bf907b60140187c95"
   dependencies:
     babel-polyfill "6.26.0"
     hoist-non-react-statics "^1.2.0"
 
-"@talend/react-components@^0.127.0":
-  version "0.127.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.127.0.tgz#64bb107e408e9afdb7854e7f6e7606a042ccb933"
+"@talend/react-components@^0.131.0":
+  version "0.131.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.131.0.tgz#59d812fbcf6788342941d0c00fea3062960175e7"
   dependencies:
     lodash "4.17.4"
     react-autowhatever "7.0.0"
     react-debounce-input "2.4.2"
     react-virtualized "9.10.1"
 
-"@talend/react-forms@^0.127.0":
-  version "0.127.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-0.127.0.tgz#59cbb574ab6cf4646aba36b7747866b163621ff7"
+"@talend/react-forms@^0.131.0":
+  version "0.131.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-0.131.0.tgz#7ae411a3372fa8a9d31dee03dc46754b29145da0"
   dependencies:
     classnames "2.2.5"
     keycode "2.1.9"
@@ -5701,6 +5701,15 @@ react-dom@^15.6.1:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
+react-dom@^15.6.2:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.2.tgz#41cfadf693b757faf2708443a1d1fd5a02bef730"
+  dependencies:
+    fbjs "^0.8.9"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
+    prop-types "^15.5.10"
+
 react-html-attributes@^1.3.0:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/react-html-attributes/-/react-html-attributes-1.4.1.tgz#97b5ec710da68833598c8be6f89ac436216840a5"
@@ -5868,9 +5877,9 @@ react-style-proptype@^3.0.0:
   dependencies:
     prop-types "^15.5.4"
 
-react-test-renderer@^15.6.1:
-  version "15.6.1"
-  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.6.1.tgz#026f4a5bb5552661fd2cc4bbcd0d4bc8a35ebf7e"
+react-test-renderer@^15.6.2:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.6.2.tgz#d0333434fc2c438092696ca770da5ed48037efa8"
   dependencies:
     fbjs "^0.8.9"
     object-assign "^4.1.0"
@@ -5915,6 +5924,16 @@ react-virtualized@9.10.1:
 react@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
+  dependencies:
+    create-react-class "^15.6.0"
+    fbjs "^0.8.9"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
+    prop-types "^15.5.10"
+
+react@^15.6.2:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.6.2.tgz#dba0434ab439cfe82f108f0f511663908179aa72"
   dependencies:
     create-react-class "^15.6.0"
     fbjs "^0.8.9"

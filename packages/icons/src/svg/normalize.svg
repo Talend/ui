@@ -1,37 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-  <g fill="none" fill-rule="evenodd" transform="translate(2.56 -.656)">
-    <g class="ti-normalize-border" fill="#000" fill-rule="nonzero">
-      <polygon points="7.357 16.655 10.688 16.655 10.688 13.323 7.357 13.323"/>
-      <polygon points="7.352 12.923 10.683 12.923 10.683 9.593 7.352 9.593"/>
-      <polygon points="7.35 7.734 10.681 7.734 10.681 4.403 7.35 4.403"/>
-      <polygon points="7.353 3.998 10.684 3.998 10.684 .667 7.353 .667"/>
-      <polygon points=".001 13.647 3.33 13.647 3.33 10.319 .001 10.319"/>
-      <polygon points=".001 10.66 3.33 10.66 3.33 7.331 .001 7.331"/>
-      <polygon points=".003 6.998 3.332 6.998 3.332 3.669 .003 3.669"/>
-    </g>
-    
-    <g class="ti-normalize-blocks-a" fill="#515151" fill-rule="nonzero">
-      <polygon points="7.685 12.591 10.35 12.591 10.35 9.925 7.685 9.925"/>
-      <polygon points="7.686 3.665 10.351 3.665 10.351 .999 7.686 .999"/>
-      <polygon points=".336 6.664 2.999 6.664 2.999 4.002 .336 4.002"/>
-    </g>
-    <g class="ti-normalize-blocks-b" fill="#BCBCBC" fill-rule="nonzero" transform="translate(0 4)">
-      <polygon points="7.684 3.401 10.349 3.401 10.349 .736 7.684 .736"/>
-      <polygon points=".334 6.327 2.997 6.327 2.997 3.664 .334 3.664"/>
-    </g>
-    <g class="ti-normalize-separator" fill="#FFF" fill-rule="nonzero" transform="translate(0 10)">
-      <polygon points=".732 .675 1.102 .675 1.102 .315 .732 .315"/>
-      <polygon points="1.473 .674 1.843 .674 1.843 .315 1.473 .315"/>
-      <polygon points="2.213 .674 2.583 .674 2.583 .315 2.213 .315"/>
-      <polygon points="2.959 .674 3.329 .674 3.329 .315 2.959 .315"/>
-      <polygon points="0 .676 .37 .676 .37 .315 0 .315"/>
-    </g>
-    <g class="ti-normalize-blocks-c" fill="#8C8C8C" fill-rule="nonzero" transform="translate(0 10)">
-      <polygon points="7.69 6.321 10.355 6.321 10.355 3.657 7.69 3.657"/>
-      <polygon points=".334 3.314 2.997 3.314 2.997 .652 .334 .652"/>
-    </g>
-    <g class="ti-normalize-arrow" fill="#000" fill-rule="nonzero">
-    <path d="M0.926574447,4.28699818 C0.820643803,4.28699818 0.714713158,4.24502566 0.634099271,4.15974816 C0.471539037,3.98985939 0.471539037,3.7147062 0.634099271,3.54481743 L1.51219103,2.621422 L0.634099271,1.6986928 C0.471539037,1.52880404 0.471539037,1.25298462 0.634099271,1.08309585 C0.795327045,0.913873313 1.05715562,0.913873313 1.21904962,1.08309585 L2.38961656,2.31362353 C2.55151056,2.48417853 2.55151056,2.75933171 2.38961656,2.92922048 L1.21904962,4.15974816 C1.13776951,4.24502566 1.03250509,4.28699818 0.926574447,4.28699818 Z" transform="translate(4 6)"/>
-    </g>
-  </g>
+	<g fill="none" fill-rule="evenodd">
+		<g class="ti-normalize-border" fill="#000" fill-rule="nonzero">
+			<path d="M9.917 15.999h3.331v-3.332H9.917zm-.005-3.732h3.331v-3.33H9.912zM9.91 7.078h3.331V3.747H9.91zm.003-3.736h3.331V.011H9.913zm-7.352 9.649H5.89V9.663H2.561z"/>
+			<path d="M2.561 10.004H5.89V6.675H2.561zm.002-3.662h3.329V3.013H2.563z"/>
+		</g>
+		<path d="M10.245 11.935h2.665V9.269h-2.665zm.001-8.926h2.665V.343h-2.665zm-7.35 2.999h2.663V3.346H2.896z" class="ti-normalize-blocks-a" fill="#515151" fill-rule="nonzero"/>
+		<path d="M10.244 6.745h2.665V4.08h-2.665zm-7.35 2.926h2.663V7.008H2.894z" class="ti-normalize-blocks-b" fill="#BCBCBC" fill-rule="nonzero"/>
+		<path d="M3.292 10.019h.37v-.36h-.37zm.741-.001h.37v-.359h-.37zm.74 0h.37v-.359h-.37zm.746 0h.37v-.359h-.37zm-2.959.002h.37v-.361h-.37z" class="ti-normalize-separator" fill="#FFF" fill-rule="nonzero"/>
+		<path d="M10.25 15.665h2.665v-2.664H10.25zm-7.356-3.007h2.663V9.996H2.894z" class="ti-normalize-blocks-c" fill="#8C8C8C" fill-rule="nonzero"/>
+		<path d="M7.487 9.631a.4.4 0 0 1-.293-.127.449.449 0 0 1 0-.615l.878-.924-.878-.922a.45.45 0 0 1 0-.616.4.4 0 0 1 .585 0l1.17 1.23a.45.45 0 0 1 0 .616l-1.17 1.23a.401.401 0 0 1-.292.128z" class="ti-normalize-arrow" fill="#000" fill-rule="nonzero"/>
+	</g>
 </svg>

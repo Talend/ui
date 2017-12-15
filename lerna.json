@@ -1,7 +1,16 @@
 {
   "lerna": "2.0.0",
-  "version": "0.130.0",
+  "version": "0.132.0",
   "packages": [
-    "packages/*"
+    "packages/cmf",
+    "packages/cmf-cqrs",
+    "packages/components",
+    "packages/containers",
+    "packages/forms",
+    "packages/generator",
+    "packages/icons",
+    "packages/logging",
+    "packages/sagas",
+    "packages/theme"
   ]
 }
