@@ -1,76 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Filter container should render 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Container(FilterBar)
-    collectionToFilter="myCollectionToFilter"
-    dockable={true}
-    docked={false}
-    navbar={true}
-    onFilter={[Function]}
-    t={[Function]}
-/>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "autoFocus": true,
-      "className": "",
-      "collectionToFilter": "myCollectionToFilter",
-      "dockable": true,
-      "docked": true,
-      "focus": false,
-      "navbar": true,
-      "onFilter": [Function],
-      "onToggle": [Function],
-      "placeholder": "Filter",
-      "t": [Function],
-      "value": "",
-    },
-    "ref": null,
-    "rendered": null,
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "autoFocus": true,
-        "className": "",
-        "collectionToFilter": "myCollectionToFilter",
-        "dockable": true,
-        "docked": true,
-        "focus": false,
-        "navbar": true,
-        "onFilter": [Function],
-        "onToggle": [Function],
-        "placeholder": "Filter",
-        "t": [Function],
-        "value": "",
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactFifteenAdapter {
-      "options": Object {
-        "supportPrevContextArgumentOfComponentDidUpdate": true,
-      },
-    },
-  },
-}
+<FilterBar
+  autoFocus={true}
+  className=""
+  collectionToFilter="myCollectionToFilter"
+  dockable={true}
+  docked={true}
+  focus={false}
+  navbar={true}
+  onFilter={[Function]}
+  onToggle={[Function]}
+  placeholder="Filter"
+  t={[Function]}
+  value=""
+/>
 `;

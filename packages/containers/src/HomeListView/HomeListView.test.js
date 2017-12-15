@@ -65,7 +65,7 @@ describe('Component HomeListView', () => {
 				<h1>Hello children</h1>
 			</Component>
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render with element props', () => {
@@ -78,8 +78,9 @@ describe('Component HomeListView', () => {
 				<h1>Hello children</h1>
 			</Component>
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
 	it('should children transformed as array in props.drawer', () => {
 		const children = {
 			props: {
