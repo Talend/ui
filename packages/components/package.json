@@ -127,7 +127,7 @@
       "!**/__snapshots__/**"
     ],
     "transform": {
-      ".*": "<rootDir>/node_modules/babel-jest"
+      ".*": "<rootDir>/../../node_modules/babel-jest"
     },
     "roots": [
       "src",

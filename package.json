@@ -3,22 +3,13 @@
     "commander": "^2.9.0",
     "cpx": "^1.5.0",
     "i18next-parser": "^0.12.0",
-    "lerna": "2.0.0",
+    "lerna": "2.5.1",
     "npm-watch": "^0.1.8",
     "surge": "^0.18.0"
   },
   "scripts": {
-    "postinstall": "lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress --mutex network && node copylibs.js",
-    "update-versions": "node version.js && lerna exec -- yarn && node copylibs.js",
-    "build": "lerna exec --ignore=generator-talend -- yarn run prepublish && node copylibs.js",
-    "build-cmf": "lerna exec --scope=*cmf -- yarn run prepublish && node copylibs.js --scope=cmf",
-    "build-components": "lerna exec --scope=*components -- yarn run prepublish && node copylibs.js --scope=components",
-    "build-containers": "lerna exec --scope=*containers -- yarn run prepublish && node copylibs.js --scope=containers",
-    "build-forms": "lerna exec --scope=*forms -- yarn run prepublish && node copylibs.js --scope=forms",
-    "build-icons": "lerna exec --scope=@talend/icons -- yarn run prepublish && node copylibs.js --scope=icons && lerna exec --scope=@talend/react-components -- yarn test -- -u",
-    "build-logging": "lerna exec --ignore=generator-talend  -- yarn run prepublish",
-    "build-theme": "lerna exec --scope=*theme -- yarn run prepublish && node copylibs.js --scope=theme",
-    "build-sagas": "lerna exec --scope=*sagas -- yarn run prepublish && node copylibs.js --scope=sagas",
+    "postinstall": "lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
+    "update-versions": "node version.js && yarn",
     "test": "lerna exec --concurrency 1 -- yarn test",
     "test:cov": "lerna exec --concurrency 1 -- yarn test:cov",
     "start": "lerna exec -- yarn start",
@@ -86,5 +77,17 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "version": "0.0.0",
-  "private": true
+  "private": true,
+  "workspaces": [
+    "packages/cmf",
+    "packages/cmf-cqrs",
+    "packages/components",
+    "packages/containers",
+    "packages/forms",
+    "packages/generator",
+    "packages/icons",
+    "packages/logging",
+    "packages/sagas",
+    "packages/theme"
+  ]
 }
