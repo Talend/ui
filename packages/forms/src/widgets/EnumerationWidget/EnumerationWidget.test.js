@@ -22,7 +22,8 @@ describe('EnumerationWidget', () => {
 				schema={{
 					required: true,
 				}}
-			/>);
+			/>,
+		);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
@@ -31,7 +32,10 @@ describe('EnumerationWidget', () => {
 		const wrapper = mount(<EnumerationWidget />);
 
 		// when
-		wrapper.find('.tc-enumeration-header .btn-link').last().simulate('click');
+		wrapper
+			.find('.tc-enumeration-header .btn-link')
+			.last()
+			.simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -42,7 +46,10 @@ describe('EnumerationWidget', () => {
 		const wrapper = mount(<EnumerationWidget />);
 
 		// when
-		wrapper.find('.tc-enumeration-header .btn-link').first().simulate('click');
+		wrapper
+			.find('.tc-enumeration-header .btn-link')
+			.first()
+			.simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -53,14 +60,16 @@ describe('EnumerationWidget', () => {
 		const wrapper = mount(
 			<EnumerationWidget
 				onChange={jest.fn()}
-				formData={[
-					{ id: '111', values: ['titi', 'tata'] },
-				]}
-			/>
+				formData={[{ id: '111', values: ['titi', 'tata'] }]}
+			/>,
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0).simulate('click');
+		wrapper
+			.find('.tc-enumeration-item-actions')
+			.find('.btn-link')
+			.at(0)
+			.simulate('click');
 
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
@@ -70,14 +79,16 @@ describe('EnumerationWidget', () => {
 		const wrapper = mount(
 			<EnumerationWidget
 				onChange={jest.fn()}
-				formData={[
-					{ id: '111', values: ['titi', 'tata'] },
-				]}
-			/>
+				formData={[{ id: '111', values: ['titi', 'tata'] }]}
+			/>,
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1).simulate('click');
+		wrapper
+			.find('.tc-enumeration-item-actions')
+			.find('.btn-link')
+			.at(1)
+			.simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -88,14 +99,15 @@ describe('EnumerationWidget', () => {
 		const wrapper = mount(
 			<EnumerationWidget
 				onChange={jest.fn()}
-				formData={[
-					{ id: '111', values: ['titi', 'tata'] },
-				]}
-			/>
+				formData={[{ id: '111', values: ['titi', 'tata'] }]}
+			/>,
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-label').at(0).simulate('click');
+		wrapper
+			.find('.tc-enumeration-item-label')
+			.at(0)
+			.simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -110,12 +122,18 @@ describe('EnumerationWidget', () => {
 					{ id: '111', values: ['titi', 'tata'] },
 					{ id: '112', values: ['titi2', 'tata2'] },
 				]}
-			/>
+			/>,
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-label').at(0).simulate('click');
-		wrapper.find('.tc-enumeration-item-label').at(1).simulate('click', { ctrlKey: true });
+		wrapper
+			.find('.tc-enumeration-item-label')
+			.at(0)
+			.simulate('click');
+		wrapper
+			.find('.tc-enumeration-item-label')
+			.at(1)
+			.simulate('click', { ctrlKey: true });
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -130,13 +148,22 @@ describe('EnumerationWidget', () => {
 					{ id: '112', values: ['titi', 'tata'] },
 					{ id: '113', values: ['titi2', 'tata2'] },
 				]}
-			/>
+			/>,
 		);
-		wrapper.find('.tc-enumeration-item-label').at(0).simulate('click');
-		wrapper.find('.tc-enumeration-item-label').at(1).simulate('click', { ctrlKey: true });
+		wrapper
+			.find('.tc-enumeration-item-label')
+			.at(0)
+			.simulate('click');
+		wrapper
+			.find('.tc-enumeration-item-label')
+			.at(1)
+			.simulate('click', { ctrlKey: true });
 
 		// when click on trash icon
-		wrapper.find('.tc-enumeration-header').find('.btn-link').simulate('click');
+		wrapper
+			.find('.tc-enumeration-header')
+			.find('.btn-link')
+			.simulate('click');
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -154,14 +181,16 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				onChange={jest.fn()}
 				registry={registry}
-				formData={[
-					{ id: '11212242', values: ['titi', 'tata'] },
-				]}
-			/>
+				formData={[{ id: '11212242', values: ['titi', 'tata'] }]}
+			/>,
 		);
 
 		// when
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1).simulate('click');
+		wrapper
+			.find('.tc-enumeration-item-actions')
+			.find('.btn-link')
+			.at(1)
+			.simulate('click');
 
 		// then
 		expect(registry.formContext.handleAction).toBeCalled();
@@ -177,13 +206,21 @@ describe('EnumerationWidget', () => {
 					{ id: '111', values: ['titi', 'tata'] },
 					{ id: '112', values: ['toto', 'tutu'] },
 				]}
-			/>);
+			/>,
+		);
 
 		// edit item
-		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0).simulate('click');
+		wrapper
+			.find('.tc-enumeration-item-actions')
+			.find('.btn-link')
+			.at(0)
+			.simulate('click');
 
 		// when select another item
-		wrapper.find('.tc-enumeration-item-label').at(1).simulate('click');
+		wrapper
+			.find('.tc-enumeration-item-label')
+			.at(1)
+			.simulate('click');
 
 		// should reset all items to default mode
 		expect(wrapper.find('.tc-enumeration-item input').length).toBe(0);
@@ -197,7 +234,8 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
-				/>);
+				/>,
+			);
 			expect(toJson(wrapper)).toMatchSnapshot();
 		});
 
@@ -215,10 +253,15 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
-				/>);
+				/>,
+			);
 
 			// when
-			wrapper.find('.tc-enumeration-header').find('.btn-link').at(1).simulate('click');
+			wrapper
+				.find('.tc-enumeration-header')
+				.find('.btn-link')
+				.at(1)
+				.simulate('click');
 
 			// then
 			expect(registry.formContext.handleAction).toBeCalledWith(
@@ -246,10 +289,14 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
-				/>);
+				/>,
+			);
 
 			// when
-			wrapper.find('.tc-enumeration-header div.btn-group-link button').at(0).simulate('click');
+			wrapper
+				.find('.tc-enumeration-header div.btn-group-link button')
+				.at(0)
+				.simulate('click');
 
 			// then
 			expect(registry.formContext.handleAction).toBeCalledWith(
@@ -277,11 +324,13 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
-				/>);
+				/>,
+			);
 
 			// when
 			wrapper
-				.find('.tc-enumeration-header div.btn-group-link li a').at(0)
+				.find('.tc-enumeration-header div.btn-group-link li a')
+				.at(0)
 				.simulate('click');
 
 			// then
@@ -308,11 +357,13 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
-				/>);
+				/>,
+			);
 
 			// when
 			wrapper
-				.find('.tc-enumeration-header div.btn-group-link li a').at(1)
+				.find('.tc-enumeration-header div.btn-group-link li a')
+				.at(1)
 				.simulate('click');
 
 			// then
@@ -333,7 +384,8 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
-				/>);
+				/>,
+			);
 			wrapper.instance().inputFile.click = jest.fn();
 			spyOn(document.activeElement, 'blur').and.callThrough();
 
@@ -346,60 +398,63 @@ describe('EnumerationWidget', () => {
 			expect(document.activeElement.blur).toBeCalled();
 		});
 
-		it('should trigger a event when the user clicks on the upload action'
-			+ ', shows a loading and return to initial state when we call the success callback', () => {
-			// given
-			let successUploadHandler;
-			const registry = {
-				formContext: {
-					handleAction: (component, actionName, value, successHandler) => {
-						successUploadHandler = successHandler;
+		it(
+			'should trigger a event when the user clicks on the upload action' +
+				', shows a loading and return to initial state when we call the success callback',
+			() => {
+				// given
+				let successUploadHandler;
+				const registry = {
+					formContext: {
+						handleAction: (component, actionName, value, successHandler) => {
+							successUploadHandler = successHandler;
+						},
 					},
-				},
-			};
+				};
 
-			const spy = spyOn(registry.formContext, 'handleAction').and.callThrough();
+				const spy = spyOn(registry.formContext, 'handleAction').and.callThrough();
 
-			const wrapper = mount(
-				<EnumerationWidget
-					id="enumeration"
-					schema={{
-						allowImport: true,
-					}}
-					registry={registry}
-					formData={[
-						{ id: '111', values: ['titi', 'tata'] },
-						{ id: '112', values: ['titi2', 'tata2'] },
-					]}
-				/>);
+				const wrapper = mount(
+					<EnumerationWidget
+						id="enumeration"
+						schema={{
+							allowImport: true,
+						}}
+						registry={registry}
+						formData={[
+							{ id: '111', values: ['titi', 'tata'] },
+							{ id: '112', values: ['titi2', 'tata2'] },
+						]}
+					/>,
+				);
 
-			const event = {
-				target: {
-					files: ['file'],
-				},
-			};
+				const event = {
+					target: {
+						files: ['file'],
+					},
+				};
 
-			wrapper.instance().resetInputFile = jest.fn();
+				wrapper.instance().resetInputFile = jest.fn();
 
-			// when
-			wrapper.instance().importFile(event);
+				// when
+				wrapper.instance().importFile(event);
 
+				// then
+				expect(wrapper.instance().resetInputFile).toBeCalled();
+				expect(spy).toBeCalledWith(
+					'enumeration',
+					'ENUMERATION_IMPORT_FILE_ACTION',
+					'file',
+					jasmine.any(Function),
+					jasmine.any(Function),
+				);
 
-			// then
-			expect(wrapper.instance().resetInputFile).toBeCalled();
-			expect(spy).toBeCalledWith(
-				'enumeration',
-				'ENUMERATION_IMPORT_FILE_ACTION',
-				'file',
-				jasmine.any(Function),
-				jasmine.any(Function)
-			);
+				expect(toJson(wrapper.update())).toMatchSnapshot();
 
-			expect(toJson(wrapper.update())).toMatchSnapshot();
-
-			successUploadHandler();
-			expect(toJson(wrapper.update())).toMatchSnapshot();
-		});
+				successUploadHandler();
+				expect(toJson(wrapper.update())).toMatchSnapshot();
+			},
+		);
 	});
 
 	describe('utils method', () => {
@@ -409,8 +464,9 @@ describe('EnumerationWidget', () => {
 				t: () => {},
 			});
 			// when
-			const resultArray =
-				enumerationWidget.constructor.parseStringValueToArray('toto ,  to , tata ');
+			const resultArray = enumerationWidget.constructor.parseStringValueToArray(
+				'toto ,  to , tata ',
+			);
 			// then
 			expect(resultArray).toEqual(['toto', 'to', 'tata']);
 		});
