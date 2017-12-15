@@ -470,5 +470,22 @@ describe('EnumerationWidget', () => {
 			// then
 			expect(resultArray).toEqual(['toto', 'to', 'tata']);
 		});
+
+		it('should compute the correct item when in search mode', () => {
+			// given
+			const enumerationWidget = new EnumerationWidget({
+				t: () => {},
+			});
+			spyOn(enumerationWidget, 'searchItems').and.returnValue([{ values: ['toto'] }]);
+			// when
+			const resultArray = enumerationWidget.getItemInSearchMode('toto', 0, [
+				{ values: ['toto'] },
+				{ values: ['tata'] },
+				{ values: ['titi'] },
+			]);
+
+			// then
+			expect(resultArray).toEqual({ values: ['toto'] });
+		});
 	});
 });

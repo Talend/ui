@@ -256,7 +256,11 @@ class EnumerationForm extends React.Component {
 	onEnterEditModeItem(event, value) {
 		this.setState(prevState => {
 			let items = resetItems([...prevState.items]);
-			const item = items[value.index];
+			let item = items[value.index];
+			// if there is a search criteria, retrieve correct item from state
+			if (prevState.searchCriteria) {
+				item = this.getItemInSearchMode(prevState.searchCriteria, value.index, items);
+			}
 			item.displayMode = DISPLAY_MODE_EDIT;
 			// resetting errors
 			items[value.index].error = '';
@@ -386,14 +390,19 @@ class EnumerationForm extends React.Component {
 		} else {
 			this.setState(prevState => {
 				const items = [...prevState.items];
-				items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+				let item = items[value.index];
+				if (prevState.searchCriteria) {
+					// retrieve correct item
+					item = this.getItemInSearchMode(prevState.searchCriteria, value.index, items);
+				}
+				item.displayMode = DISPLAY_MODE_DEFAULT;
 				const valueExist = this.valueAlreadyExist(value.value, prevState);
 				// if the value is empty, no value update is done
 				if (value.value && !valueExist) {
-					items[value.index].values = this.constructor.parseStringValueToArray(value.value);
+					item.values = this.constructor.parseStringValueToArray(value.value);
 				}
 				if (valueExist) {
-					items[value.index].error = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
+					item.error = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
 						defaultValue: 'This term is already in the list',
 					});
 				}
@@ -665,6 +674,12 @@ class EnumerationForm extends React.Component {
 		if (this.props.onBlur) {
 			this.props.onBlur(this.props.id, this.state.items);
 		}
+	}
+
+	getItemInSearchMode(searchCriteria, index, items) {
+		const searchedItems = this.searchItems(searchCriteria);
+		const itemToEdit = searchedItems[index];
+		return items.find(currentItem => currentItem.values[0] === itemToEdit.values[0]);
 	}
 
 	itemSubmitHandler() {
