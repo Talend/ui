@@ -42,7 +42,6 @@ export {
 	ActionDropdown,
 	Actions,
 	ActionSplitDropdown,
-	AppHeaderBar,
 	Breadcrumbs,
 	CircularProgress,
 	ConfirmDialog,
