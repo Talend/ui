@@ -10,7 +10,7 @@ function getContent(Component, props) {
 	if (React.isValidElement(props)) {
 		return props;
 	}
-	return (<Component {...props} />);
+	return <Component {...props} />;
 }
 
 function wrapChildren(children) {
@@ -46,18 +46,9 @@ function HomeListView({ sidepanel, list, header, children }) {
 
 HomeListView.displayName = 'HomeListView';
 HomeListView.propTypes = {
-	header: PropTypes.oneOfType([
-		PropTypes.element,
-		PropTypes.object,
-	]),
-	sidepanel: PropTypes.oneOfType([
-		PropTypes.element,
-		PropTypes.object,
-	]).isRequired,
-	list: PropTypes.oneOfType([
-		PropTypes.element,
-		PropTypes.object,
-	]).isRequired,
+	header: PropTypes.oneOfType([PropTypes.element, PropTypes.object]),
+	sidepanel: PropTypes.oneOfType([PropTypes.element, PropTypes.object]).isRequired,
+	list: PropTypes.oneOfType([PropTypes.element, PropTypes.object]).isRequired,
 	children: PropTypes.node,
 };
 
