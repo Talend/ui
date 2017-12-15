@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 export default function SingleButton({ className, id, onTrigger, onClick, schema }) {
 	const {
-		style,
+		bsStyle,
 		disabled = false,
 		inProgress,
 		label,
@@ -25,7 +25,7 @@ export default function SingleButton({ className, id, onTrigger, onClick, schema
 	return (
 		<Action
 			id={id}
-			bsStyle={style}
+			bsStyle={bsStyle}
 			className={classNames('btn', className)}
 			disabled={disabled}
 			inProgress={inProgress}
