@@ -10,6 +10,7 @@
   "scripts": {
     "postinstall": "lerna clean --yes && lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && yarn",
+    "build-icons": "lerna exec --scope=@talend/icons -- yarn run prepublish && lerna exec --scope=@talend/react-components -- yarn test -- -u",
     "test": "lerna exec --concurrency 1 -- yarn test",
     "test:cov": "lerna exec --concurrency 1 -- yarn test:cov",
     "start": "lerna exec -- yarn start",
