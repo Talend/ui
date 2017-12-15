@@ -14,7 +14,7 @@ describe('ObjectViewer.List', () => {
 		// When
 		const wrapper = shallow(<List data={data} flat />);
 		// Then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render List with props data as an array', () => {
 		// Given
@@ -22,7 +22,7 @@ describe('ObjectViewer.List', () => {
 		// When
 		const wrapper = shallow(<List data={data} flat />);
 		// Then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render null if no data', () => {
 		const data = [{ foo: 'bar' }, {}];

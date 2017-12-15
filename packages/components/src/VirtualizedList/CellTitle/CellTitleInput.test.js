@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import keycode from 'keycode';
 
 import CellTitleInput from './CellTitleInput.component';
@@ -21,7 +22,7 @@ describe('CellTitleInput', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should call submit callback on blur', () => {

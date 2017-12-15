@@ -11,5 +11,24 @@ exports[`CellTitleInput should render the input 1`] = `
       "id": 1,
     }
   }
-/>
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      aria-hidden="true"
+      className="sr-only"
+      hidden={true}
+      htmlFor="my-cell"
+    >
+      title
+    </label>
+    <input
+      autoFocus={true}
+      id="my-cell"
+      onBlur={[Function]}
+      onKeyUp={[Function]}
+    />
+  </form>
+</CellTitleInput>
 `;

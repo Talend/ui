@@ -37,7 +37,7 @@ describe('ActionTooltip', () => {
 
 		// then
 		wrapper.update();
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render tooltip when hover the children', () => {
@@ -54,7 +54,6 @@ describe('ActionTooltip', () => {
 			.simulate('mouseOver');
 
 		// then
-		wrapper.update();
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.update().getElement()).toMatchSnapshot();
 	});
 });
