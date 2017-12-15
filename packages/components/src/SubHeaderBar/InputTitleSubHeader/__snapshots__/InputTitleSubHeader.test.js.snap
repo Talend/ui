@@ -47,7 +47,7 @@ exports[`InputTitleSubHeader should render 1`] = `
     name="myIconId"
   />
   <TitleSubHeader
-    editable={true}
+    edit={false}
     onEdit={[Function]}
     onSubmit={[Function]}
     t={[Function]}
@@ -64,20 +64,10 @@ exports[`TitleSubHeader should render 1`] = `
     className="tc-subheader-details-text-title"
   >
     <h1
-      className="tc-subheader-details-text-title-wording-with-hover"
-      onDoubleClick={[Function]}
+      className="tc-subheader-details-text-title-wording"
     >
       myTitle
     </h1>
-    <Action
-      bsStyle="link"
-      className="tc-subheader-details-text-title-pencil"
-      hideLabel={true}
-      icon="talend-pencil"
-      label="Modify"
-      name="action-edit-title"
-      onClick={[Function]}
-    />
   </div>
   <small
     className="tc-subheader-details-text-subtitle"

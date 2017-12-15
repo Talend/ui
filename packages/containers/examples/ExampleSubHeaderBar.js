@@ -62,7 +62,7 @@ const ExampleSubHeaderBar = {
 				subTitle="mySubTitle"
 				injectedComponents={injectedComponentsRight}
 				iconId="talend-file-csv-o"
-				editable
+				edit
 			/>
 		</div>
 	),

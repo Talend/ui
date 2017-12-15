@@ -48,16 +48,23 @@ $tc-input-subheader-size-small: 1rem !default;
 			align-items: center;
 
 			&-wording,
-			&-wording-with-hover {
+			&-wording-button {
 				@include input-text(800);
 				@include ellipsis;
 				text-transform: uppercase;
 				margin: 0;
-
 			}
-			
-			&-wording-with-hover:hover {
-				cursor: pointer;
+
+			&-wording-button {
+				padding: 0;
+				letter-spacing: inherit;
+				line-height: inherit;
+
+				&:focus,
+				&:hover,
+				&:active {
+					color: $black;
+				}
 			}
 
 			&-pencil {
@@ -74,6 +81,7 @@ $tc-input-subheader-size-small: 1rem !default;
 				}
 			}
 		}
+
 		&-subtitle {
 			@include ellipsis;
 			color: $dark-silver;

@@ -17,7 +17,7 @@ describe('InputTitleSubHeader', () => {
 			}),
 	);
 	it('should render', () => {
-		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} iconId="myIconId" editable />);
+		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} iconId="myIconId" />);
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(1);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
@@ -51,15 +51,12 @@ describe('TitleSubHeader', () => {
 		};
 	});
 	it('should render', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" editable />);
-		expect(wrapper.find(Action)).toHaveLength(1);
+		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />);
+		expect(wrapper.find(Action)).toHaveLength(0);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render with title', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} />);
-		expect(wrapper.find('h1').getNode().props.className).toEqual(
-			'tc-subheader-details-text-title-wording',
-		);
 		expect(wrapper.find('h1').getNode().props.children).toEqual('myTitle');
 	});
 	it('should render with subTitle', () => {
@@ -69,8 +66,8 @@ describe('TitleSubHeader', () => {
 		expect(wrapper.getNode().props.className).toEqual('tc-subheader-details-text-subtitle');
 		expect(wrapper.getNode().props.children).toEqual('mySubTitle');
 	});
-	it('should render with no edit pencil', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />).find(
+	it('should render with with edit pencil', () => {
+		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" edit />).find(
 			'small',
 		);
 		expect(wrapper.find(Action)).toHaveLength(0);
@@ -86,7 +83,7 @@ describe('TitleSubHeader', () => {
 			hideLabel: true,
 		};
 		const wrapper = shallow(
-			<TitleSubHeader {...defaultProps} onEdit={actionProps.onClick} editable />,
+			<TitleSubHeader {...defaultProps} onEdit={actionProps.onClick} edit />,
 		);
 		expect(wrapper.find(Action)).toHaveLength(1);
 	});

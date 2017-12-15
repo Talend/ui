@@ -5,12 +5,7 @@ import { Action } from '../../Actions';
 import theme from './InputTitleSubHeader.scss';
 import { getDefaultTranslate } from '../../translate';
 
-function noop() {}
-
-function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
-	const wordingClassNames = editable
-	? classNames(theme['tc-subheader-details-text-title-wording-with-hover'], 'tc-subheader-details-text-title-wording-with-hover')
-	: classNames(theme['tc-subheader-details-text-title-wording'], 'tc-subheader-details-text-title-wording');
+function TitleSubHeader({ title, subTitle, onEdit, edit, t }) {
 	return (
 		<div className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
 			<div
@@ -19,13 +14,25 @@ function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
 					'tc-subheader-details-text-title',
 				)}
 			>
-				<h1
-					onDoubleClick={editable ? onEdit : noop}
-					className={wordingClassNames}
-				>
-					{title}
-				</h1>
-				{editable && (
+				{edit ? (
+					<button
+						className={classNames(
+							theme['tc-subheader-details-text-title-wording-button'],
+							'tc-subheader-details-text-title-wording-button', 'btn', 'btn-link'
+						)}
+						onDoubleClick={onEdit}
+					>{title}</button>
+				) : (
+					<h1
+						className={classNames(
+							theme['tc-subheader-details-text-title-wording'],
+							'tc-subheader-details-text-title-wording',
+						)}
+					>
+						{title}
+					</h1>
+				)}
+				{edit && (
 					<Action
 						name="action-edit-title"
 						label={t('MODIFY_TOOLTIP', { defaultValue: 'Modify' })}
@@ -56,7 +63,7 @@ function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
 
 TitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
-	editable: PropTypes.bool.isRequired,
+	edit: PropTypes.bool,
 	onEdit: PropTypes.func,
 	subTitle: PropTypes.string,
 	t: PropTypes.func,
@@ -64,7 +71,7 @@ TitleSubHeader.propTypes = {
 
 TitleSubHeader.defaultProps = {
 	t: getDefaultTranslate,
-	editable: false,
+	edit: false,
 };
 
 export default TitleSubHeader;
