@@ -9,8 +9,14 @@ function noop() {}
 
 function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
 	const wordingClassNames = editable
-	? classNames(theme['tc-subheader-details-text-title-wording-with-hover'], 'tc-subheader-details-text-title-wording-with-hover')
-	: classNames(theme['tc-subheader-details-text-title-wording'], 'tc-subheader-details-text-title-wording');
+		? classNames(
+				theme['tc-subheader-details-text-title-wording-with-hover'],
+				'tc-subheader-details-text-title-wording-with-hover',
+			)
+		: classNames(
+				theme['tc-subheader-details-text-title-wording'],
+				'tc-subheader-details-text-title-wording',
+			);
 	return (
 		<div className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
 			<div
@@ -19,10 +25,7 @@ function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
 					'tc-subheader-details-text-title',
 				)}
 			>
-				<h1
-					onDoubleClick={editable ? onEdit : noop}
-					className={wordingClassNames}
-				>
+				<h1 onDoubleClick={editable ? onEdit : noop} className={wordingClassNames}>
 					{title}
 				</h1>
 				{editable && (
