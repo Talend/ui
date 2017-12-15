@@ -50,6 +50,7 @@ describe('UIForm component', () => {
 				schema: mergedSchema[0],
 				value: newValue,
 				properties: data.properties,
+				formData: { lastname: 'toto' },
 			});
 			expect(props.onTrigger).not.toBeCalled();
 			expect(props.setErrors).not.toBeCalled();
@@ -75,6 +76,8 @@ describe('UIForm component', () => {
 				trigger: 'after',
 				schema: mergedSchema[1],
 				properties: { firstname: 'toto' },
+				propertyName: 'firstname',
+				propertyValue: 'toto',
 			});
 		});
 

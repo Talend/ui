@@ -102,6 +102,8 @@ export default class UIForm extends React.Component {
 			const payload = { trigger: schema.triggers[0], schema };
 			if (value !== undefined) {
 				payload.properties = mutateValue(this.props.properties, schema.key, value);
+			} else {
+				payload.properties = mutateValue(this.props.properties, schema.key, newValue);
 			}
 			// compat with old trigger
 			payload.propertyValue = newValue;

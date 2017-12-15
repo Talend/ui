@@ -110,6 +110,7 @@ describe('UIForm connect', () => {
 					value: 'toto is toto',
 					error: undefined,
 					properties: data.properties,
+					formData: { lastname: 'toto is toto' },
 				}
 			);
 		});
