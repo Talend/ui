@@ -22,7 +22,7 @@ describe('CheckBox field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 
 		// then
@@ -46,7 +46,7 @@ describe('CheckBox field', () => {
 				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value
-			/>
+			/>,
 		);
 
 		// then
@@ -65,7 +65,7 @@ describe('CheckBox field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 		const event = { target: { checked: false } };
 
@@ -88,7 +88,7 @@ describe('CheckBox field', () => {
 				onFinish={onFinish}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 		const event = { target: { checked: false } };
 

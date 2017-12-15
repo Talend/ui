@@ -81,7 +81,12 @@ describe('ListView field', () => {
 			const wrapper = mount(<ListView {...props} schema={noItemsSchema} />);
 
 			// then
-			expect(wrapper.find('.tc-listview').at(0).getElement()).toMatchSnapshot();
+			expect(
+				wrapper
+					.find('.tc-listview')
+					.at(0)
+					.getElement(),
+			).toMatchSnapshot();
 		});
 	});
 

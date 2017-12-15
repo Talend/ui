@@ -8,13 +8,16 @@ describe('MultiSelectTagWidget', () => {
 	it('should render multiSelectTagWidget without dropdown', () => {
 		// given
 		const options = {
-			enumOptions: [{
-				value: 'foo-1',
-				label: 'Foo',
-			}, {
-				value: 'bar-1',
-				label: 'Bar',
-			}],
+			enumOptions: [
+				{
+					value: 'foo-1',
+					label: 'Foo',
+				},
+				{
+					value: 'bar-1',
+					label: 'Bar',
+				},
+			],
 		};
 
 		const value = ['foo-1'];
@@ -25,11 +28,7 @@ describe('MultiSelectTagWidget', () => {
 		};
 
 		const wrapper = shallow(
-			<MultiSelectTagWidget
-				options={options}
-				schema={schema}
-				value={value}
-			/>
+			<MultiSelectTagWidget options={options} schema={schema} value={value} />,
 		);
 
 		// then
@@ -39,13 +38,16 @@ describe('MultiSelectTagWidget', () => {
 	it('should render multiSelectTagWidget with dropdown', () => {
 		// given
 		const options = {
-			enumOptions: [{
-				value: 'foo-1',
-				label: 'Foo',
-			}, {
-				value: 'bar-1',
-				label: 'Bar',
-			}],
+			enumOptions: [
+				{
+					value: 'foo-1',
+					label: 'Foo',
+				},
+				{
+					value: 'bar-1',
+					label: 'Bar',
+				},
+			],
 		};
 
 		const value = ['foo-1'];
@@ -55,16 +57,13 @@ describe('MultiSelectTagWidget', () => {
 			noAvailableMessage: 'None',
 		};
 
-		const wrapper = mount(
-			<MultiSelectTagWidget
-				options={options}
-				schema={schema}
-				value={value}
-			/>
-		);
+		const wrapper = mount(<MultiSelectTagWidget options={options} schema={schema} value={value} />);
 
 		// when
-		wrapper.find('input').at(0).simulate('focus');
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('focus');
 
 		// then
 		expect(toJson(wrapper.update())).toMatchSnapshot();
@@ -73,13 +72,16 @@ describe('MultiSelectTagWidget', () => {
 	it('should take default message when there isnt items', () => {
 		// given
 		const options = {
-			enumOptions: [{
-				value: 'foo-1',
-				label: 'Foo',
-			}, {
-				value: 'bar-1',
-				label: 'Bar',
-			}],
+			enumOptions: [
+				{
+					value: 'foo-1',
+					label: 'Foo',
+				},
+				{
+					value: 'bar-1',
+					label: 'Bar',
+				},
+			],
 		};
 
 		const value = ['foo-1'];
@@ -88,16 +90,13 @@ describe('MultiSelectTagWidget', () => {
 			createIfNoneMatch: false,
 		};
 
-		const wrapper = mount(
-			<MultiSelectTagWidget
-				options={options}
-				schema={schema}
-				value={value}
-			/>
-		);
+		const wrapper = mount(<MultiSelectTagWidget options={options} schema={schema} value={value} />);
 
 		// when
-		wrapper.find('input').at(0).simulate('focus');
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('focus');
 
 		// then
 		expect(toJson(wrapper.update())).toMatchSnapshot();
@@ -108,19 +107,22 @@ describe('MultiSelectTagWidget - with category', () => {
 	it('should render section title when items has category', () => {
 		// given
 		const options = {
-			enumOptions: [{
-				value: 'apple',
-				label: {
-					label: 'Apple',
-					group: 'fruit',
+			enumOptions: [
+				{
+					value: 'apple',
+					label: {
+						label: 'Apple',
+						group: 'fruit',
+					},
 				},
-			}, {
-				value: 'dog',
-				label: {
-					label: 'Puppy',
-					group: 'pet',
+				{
+					value: 'dog',
+					label: {
+						label: 'Puppy',
+						group: 'pet',
+					},
 				},
-			}],
+			],
 			groupBy: 'group',
 		};
 
@@ -130,21 +132,17 @@ describe('MultiSelectTagWidget - with category', () => {
 			createIfNoneMatch: false,
 		};
 
-		const wrapper = mount(
-			<MultiSelectTagWidget
-				options={options}
-				schema={schema}
-				value={value}
-			/>
-		);
+		const wrapper = mount(<MultiSelectTagWidget options={options} schema={schema} value={value} />);
 
 		// when
 		wrapper.find('input').simulate('focus');
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual([{
-			suggestions: [{ group: 'pet', label: 'Puppy', title: 'Puppy', value: 'dog' }],
-			title: 'pet',
-		}]);
+		expect(wrapper.find(Typeahead).props().items).toEqual([
+			{
+				suggestions: [{ group: 'pet', label: 'Puppy', title: 'Puppy', value: 'dog' }],
+				title: 'pet',
+			},
+		]);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });

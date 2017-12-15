@@ -9,9 +9,7 @@ describe('CodeWidget', () => {
 	});
 
 	it('should render ReactAce', () => {
-		const wrapper = shallow(
-			<CodeWidget />
-		);
+		const wrapper = shallow(<CodeWidget />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
@@ -19,9 +17,7 @@ describe('CodeWidget', () => {
 		const formContext = {
 			codeWidgetProps: { foo: 'bar' },
 		};
-		const wrapper = shallow(
-			<CodeWidget formContext={formContext} />
-		);
+		const wrapper = shallow(<CodeWidget formContext={formContext} />);
 		expect(wrapper.props().foo).toBe('bar');
 	});
 
@@ -29,9 +25,7 @@ describe('CodeWidget', () => {
 		const formContext = {
 			codeWidgetOnLoad: jest.fn(),
 		};
-		mount(
-			<CodeWidget formContext={formContext} />
-		);
+		mount(<CodeWidget formContext={formContext} />);
 		expect(formContext.codeWidgetOnLoad).toHaveBeenCalled();
 	});
 });

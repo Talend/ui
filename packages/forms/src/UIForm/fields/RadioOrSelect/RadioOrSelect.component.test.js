@@ -12,10 +12,7 @@ describe('RadioOrSelect field', () => {
 			type: 'string',
 		},
 		title: 'My Select title',
-		titleMap: [
-			{ name: 'My foo title', value: 'foo' },
-			{ name: 'My bar title', value: 'bar' },
-		],
+		titleMap: [{ name: 'My foo title', value: 'foo' }, { name: 'My bar title', value: 'bar' }],
 	};
 
 	it('should render select when titleMap has less than 2 options', () => {
@@ -29,7 +26,7 @@ describe('RadioOrSelect field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
-			/>
+			/>,
 		);
 
 		// then
@@ -40,10 +37,7 @@ describe('RadioOrSelect field', () => {
 		// given
 		const moreThan2OptionsSchema = {
 			...schema,
-			titleMap: [
-				...schema.titleMap,
-				{ name: 'My lol title', value: 'lol' },
-			],
+			titleMap: [...schema.titleMap, { name: 'My lol title', value: 'lol' }],
 		};
 
 		// when
@@ -56,7 +50,7 @@ describe('RadioOrSelect field', () => {
 				onFinish={jest.fn()}
 				schema={moreThan2OptionsSchema}
 				value={'lol'}
-			/>
+			/>,
 		);
 
 		// then

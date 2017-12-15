@@ -21,7 +21,7 @@ describe('CellTitleSelector', () => {
 				onEditCancel={jest.fn()}
 				onEditSubmit={jest.fn()}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// then
@@ -41,7 +41,7 @@ describe('CellTitleSelector', () => {
 				displayMode={TITLE_MODE_TEXT}
 				onClick={jest.fn()}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// then
@@ -61,7 +61,7 @@ describe('CellTitleSelector', () => {
 				displayMode={TITLE_MODE_TEXT}
 				onClick={onClick}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// when
@@ -79,7 +79,7 @@ describe('CellTitleSelector', () => {
 				cellData={'my value'}
 				className={'my-title-classname'}
 				displayMode={TITLE_MODE_TEXT}
-			/>
+			/>,
 		);
 
 		// then

@@ -20,19 +20,10 @@ describe('ListGrid', () => {
 				onRowClick={jest.fn()}
 				width={1024}
 			>
-				<VirtualizedList.Content
-					label="Id"
-					dataKey="id"
-				/>
-				<VirtualizedList.Content
-					label="Name"
-					dataKey="name"
-				/>
-				<VirtualizedList.Content
-					label=""
-					dataKey="description"
-				/>
-			</ListGrid>
+				<VirtualizedList.Content label="Id" dataKey="id" />
+				<VirtualizedList.Content label="Name" dataKey="name" />
+				<VirtualizedList.Content label="" dataKey="description" />
+			</ListGrid>,
 		);
 
 		// then
@@ -53,15 +44,9 @@ describe('ListGrid', () => {
 				selectionToggle={jest.fn()}
 				width={1024}
 			>
-				<VirtualizedList.Content
-					label="Id"
-					dataKey="id"
-				/>
-				<VirtualizedList.Content
-					label="Name"
-					dataKey="name"
-				/>
-			</ListGrid>
+				<VirtualizedList.Content label="Id" dataKey="id" />
+				<VirtualizedList.Content label="Name" dataKey="name" />
+			</ListGrid>,
 		);
 
 		// then
@@ -83,15 +68,9 @@ describe('ListGrid', () => {
 				selectionToggle={jest.fn()}
 				width={1024}
 			>
-				<VirtualizedList.Content
-					label="Id"
-					dataKey="id"
-				/>
-				<VirtualizedList.Content
-					label="Name"
-					dataKey="name"
-				/>
-			</ListGrid>
+				<VirtualizedList.Content label="Id" dataKey="id" />
+				<VirtualizedList.Content label="Name" dataKey="name" />
+			</ListGrid>,
 		);
 
 		// then

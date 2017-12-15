@@ -7,10 +7,7 @@ import Action, { mapStateToProps, renderers } from './Action.connect';
 describe('Action', () => {
 	it('should render from name props keeping extra props', () => {
 		const context = mock.context();
-		const wrapper = shallow(
-			<Action name="menu:article" extra="foo" />,
-			{ context }
-		);
+		const wrapper = shallow(<Action name="menu:article" extra="foo" />, { context });
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

@@ -18,7 +18,7 @@ describe('CellTitleInput', () => {
 				onEditCancel={jest.fn()}
 				onEditSubmit={jest.fn()}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// then
@@ -38,20 +38,17 @@ describe('CellTitleInput', () => {
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// when
 		wrapper.find('input#my-cell-input').simulate('blur');
 
 		// then
-		expect(onEditSubmit).toBeCalledWith(
-			expect.anything(),
-			{
-				value: 'my value',
-				model: rowData,
-			}
-		);
+		expect(onEditSubmit).toBeCalledWith(expect.anything(), {
+			value: 'my value',
+			model: rowData,
+		});
 	});
 
 	it('should call submit callback on form submit', () => {
@@ -67,20 +64,17 @@ describe('CellTitleInput', () => {
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// when
 		wrapper.simulate('submit');
 
 		// then
-		expect(onEditSubmit).toBeCalledWith(
-			expect.anything(),
-			{
-				value: 'my value',
-				model: rowData,
-			}
-		);
+		expect(onEditSubmit).toBeCalledWith(expect.anything(), {
+			value: 'my value',
+			model: rowData,
+		});
 	});
 
 	it('should call cancel callback on ESC keyup', () => {
@@ -97,7 +91,7 @@ describe('CellTitleInput', () => {
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// when

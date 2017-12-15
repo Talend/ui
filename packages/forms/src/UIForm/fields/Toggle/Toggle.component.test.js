@@ -21,7 +21,7 @@ describe('Toggle field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 
 		// then
@@ -45,7 +45,7 @@ describe('Toggle field', () => {
 				onFinish={jest.fn()}
 				schema={autoFocusedSchema}
 				value
-			/>
+			/>,
 		);
 
 		// then
@@ -69,7 +69,7 @@ describe('Toggle field', () => {
 				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value
-			/>
+			/>,
 		);
 
 		// then
@@ -88,7 +88,7 @@ describe('Toggle field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 
 		// when
@@ -110,7 +110,7 @@ describe('Toggle field', () => {
 				onFinish={onFinish}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 
 		// when

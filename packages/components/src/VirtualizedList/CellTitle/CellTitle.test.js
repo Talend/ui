@@ -27,7 +27,7 @@ describe('CellTitle', () => {
 				columnData={columnData}
 				rowData={rowData}
 				rowIndex={1}
-			/>
+			/>,
 		);
 
 		// then
@@ -55,7 +55,7 @@ describe('CellTitle', () => {
 					columnData={columnData}
 					rowData={rowData}
 					rowIndex={1}
-				/>
+				/>,
 			);
 
 			// then
@@ -76,7 +76,7 @@ describe('CellTitle', () => {
 					columnData={columnData}
 					rowData={rowData}
 					rowIndex={1}
-				/>
+				/>,
 			);
 
 			// then
@@ -101,7 +101,7 @@ describe('CellTitle', () => {
 					columnData={columnData}
 					rowData={noIconRowData}
 					rowIndex={1}
-				/>
+				/>,
 			);
 
 			// then
@@ -141,7 +141,7 @@ describe('CellTitle', () => {
 					columnData={columnData}
 					rowData={rowData}
 					rowIndex={1}
-				/>
+				/>,
 			);
 
 			// then
@@ -162,7 +162,7 @@ describe('CellTitle', () => {
 					columnData={columnData}
 					rowData={rowData}
 					rowIndex={1}
-				/>
+				/>,
 			);
 
 			// then
@@ -187,7 +187,7 @@ describe('CellTitle', () => {
 					columnData={columnData}
 					rowData={noActionsRowData}
 					rowIndex={1}
-				/>
+				/>,
 			);
 
 			// then

@@ -9,7 +9,11 @@ import ConfirmDialog from './ConfirmDialog.component';
 function mockFakeComponent(name) {
 	const fakeComponent = ({ children, className, ...rest }) => {
 		const mergedClassName = classNames(className, name);
-		return <div {...rest} className={mergedClassName}>{children}</div>;
+		return (
+			<div {...rest} className={mergedClassName}>
+				{children}
+			</div>
+		);
 	};
 	fakeComponent.propTypes = {
 		children: PropTypes.oneOfType([PropTypes.any]),
@@ -28,9 +32,7 @@ jest.mock('react-bootstrap/lib/Modal', () => {
 
 	return Modal;
 });
-jest.mock('react-bootstrap/lib/ProgressBar', () =>
-	mockFakeComponent('ProgressBar'),
-);
+jest.mock('react-bootstrap/lib/ProgressBar', () => mockFakeComponent('ProgressBar'));
 
 const children = <div>BODY</div>;
 

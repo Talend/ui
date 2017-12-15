@@ -13,11 +13,7 @@ describe('UIForm connect', () => {
 	it('should render form', () => {
 		// when
 		const wrapper = shallow(
-			<UIForm
-				store={initStore(props.formName, data)}
-				data={data}
-				{...props}
-			/>
+			<UIForm store={initStore(props.formName, data)} data={data} {...props} />,
 		);
 
 		// then
@@ -29,13 +25,7 @@ describe('UIForm connect', () => {
 		const store = initStore();
 
 		// when
-		mount(
-			<UIForm
-				store={store}
-				data={data}
-				{...props}
-			/>
-		);
+		mount(<UIForm store={store} data={data} {...props} />);
 
 		// then
 		const actions = store.getActions();
@@ -46,13 +36,7 @@ describe('UIForm connect', () => {
 	it('should remove form state on unmount', () => {
 		// given
 		const store = initStore();
-		const wrapper = mount(
-			<UIForm
-				store={store}
-				data={data}
-				{...props}
-			/>
-		);
+		const wrapper = mount(<UIForm store={store} data={data} {...props} />);
 		expect(store.getActions().length).toBe(1);
 
 		// when
@@ -68,18 +52,15 @@ describe('UIForm connect', () => {
 		it('should update state properties and errors', () => {
 			// given
 			const store = initStore(props.formName, data);
-			const wrapper = mount(
-				<UIForm
-					store={store}
-					data={data}
-					{...props}
-				/>
-			);
+			const wrapper = mount(<UIForm store={store} data={data} {...props} />);
 			expect(store.getActions().length).toBe(1);
 			const event = { target: { value: 'toto' } };
 
 			// when
-			wrapper.find('input').at(0).simulate('change', event);
+			wrapper
+				.find('input')
+				.at(0)
+				.simulate('change', event);
 
 			// then
 			expect(store.getActions().length).toBe(2);
@@ -89,29 +70,23 @@ describe('UIForm connect', () => {
 		it('should trigger onChange callback', () => {
 			// given
 			const store = initStore(props.formName, data);
-			const wrapper = mount(
-				<UIForm
-					store={store}
-					data={data}
-					{...props}
-				/>
-			);
+			const wrapper = mount(<UIForm store={store} data={data} {...props} />);
 			const event = { target: { value: 'toto is toto' } };
 
 			// when
-			wrapper.find('input').at(0).simulate('change', event);
+			wrapper
+				.find('input')
+				.at(0)
+				.simulate('change', event);
 
 			// then
-			expect(props.onChange).toBeCalledWith(
-				expect.anything(),
-				{
-					formName: props.formName,
-					schema: mergedSchema[0],
-					value: 'toto is toto',
-					error: undefined,
-					properties: data.properties,
-				}
-			);
+			expect(props.onChange).toBeCalledWith(expect.anything(), {
+				formName: props.formName,
+				schema: mergedSchema[0],
+				value: 'toto is toto',
+				error: undefined,
+				properties: data.properties,
+			});
 		});
 	});
 });

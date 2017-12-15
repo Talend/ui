@@ -15,7 +15,7 @@ describe('Container(Form)', () => {
 				actions={[]}
 				className="foo"
 				formProps={{ other: true }} // extra props
-			/>
+			/>,
 		);
 		const props = wrapper.props();
 		expect(props).toMatchSnapshot();
@@ -29,7 +29,7 @@ describe('Container(Form)', () => {
 				uiSchema={{ uiSchema: true }}
 				actions={[]}
 				formProps={{ other: true }} // extra props
-			/>
+			/>,
 		);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});

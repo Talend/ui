@@ -29,7 +29,7 @@ describe('CheckBoxes field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				values={values}
-			/>
+			/>,
 		);
 
 		// then
@@ -46,7 +46,7 @@ describe('CheckBoxes field', () => {
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
-			/>
+			/>,
 		);
 
 		// then
@@ -69,7 +69,7 @@ describe('CheckBoxes field', () => {
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={disabledSchema}
-			/>
+			/>,
 		);
 
 		// then
@@ -90,18 +90,18 @@ describe('CheckBoxes field', () => {
 					onFinish={jest.fn()}
 					schema={schema}
 					value={values}
-				/>
+				/>,
 			);
 			const event = { target: { checked: true } };
 
 			// when
-			wrapper.find('input').at(2).simulate('change', event);
+			wrapper
+				.find('input')
+				.at(2)
+				.simulate('change', event);
 
 			// then
-			expect(onChange).toBeCalledWith(
-				expect.anything(),
-				{ schema, value: ['foo', 'bar', 'lol'] }
-			);
+			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['foo', 'bar', 'lol'] });
 		});
 
 		it('should trigger callback, adding a value to undefined values', () => {
@@ -115,18 +115,18 @@ describe('CheckBoxes field', () => {
 					onChange={onChange}
 					onFinish={jest.fn()}
 					schema={schema}
-				/>
+				/>,
 			);
 			const event = { target: { checked: true } };
 
 			// when
-			wrapper.find('input').at(2).simulate('change', event);
+			wrapper
+				.find('input')
+				.at(2)
+				.simulate('change', event);
 
 			// then
-			expect(onChange).toBeCalledWith(
-				expect.anything(),
-				{ schema, value: ['lol'] }
-			);
+			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['lol'] });
 		});
 
 		it('should trigger callback, removing a value to existing multi values', () => {
@@ -142,18 +142,18 @@ describe('CheckBoxes field', () => {
 					onFinish={jest.fn()}
 					schema={schema}
 					value={values}
-				/>
+				/>,
 			);
 			const event = { target: { checked: false } };
 
 			// when
-			wrapper.find('input').at(0).simulate('change', event);
+			wrapper
+				.find('input')
+				.at(0)
+				.simulate('change', event);
 
 			// then
-			expect(onChange).toBeCalledWith(
-				expect.anything(),
-				{ schema, value: ['bar'] }
-			);
+			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: ['bar'] });
 		});
 
 		it('should trigger callback, removing a value to existing single value', () => {
@@ -169,18 +169,18 @@ describe('CheckBoxes field', () => {
 					onFinish={jest.fn()}
 					schema={schema}
 					value={values}
-				/>
+				/>,
 			);
 			const event = { target: { checked: false } };
 
 			// when
-			wrapper.find('input').at(0).simulate('change', event);
+			wrapper
+				.find('input')
+				.at(0)
+				.simulate('change', event);
 
 			// then
-			expect(onChange).toBeCalledWith(
-				expect.anything(),
-				{ schema, value: undefined },
-			);
+			expect(onChange).toBeCalledWith(expect.anything(), { schema, value: undefined });
 		});
 	});
 
@@ -197,12 +197,15 @@ describe('CheckBoxes field', () => {
 				onFinish={onFinish}
 				schema={schema}
 				value={values}
-			/>
+			/>,
 		);
 		const event = { target: { checked: true } };
 
 		// when
-		wrapper.find('input').at(2).simulate('blur', event);
+		wrapper
+			.find('input')
+			.at(2)
+			.simulate('blur', event);
 
 		// then
 		expect(onFinish).toBeCalledWith(expect.anything(), { schema });
