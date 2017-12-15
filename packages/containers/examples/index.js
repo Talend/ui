@@ -3,7 +3,6 @@ import ActionBarExample from './ExampleActionBar';
 import ActionDropdown from './ExampleActionDropdown';
 import ActionSplitDropdown from './ExampleActionSplitDropdown';
 import ActionsExample from './ExampleActions';
-import AppHeaderBarExample from './ExampleAppHeaderBar';
 import DeleteResource from './ExampleDeleteResource';
 import ConfirmDialogExample from './ExampleConfirmDialog';
 import HeaderBarExample from './ExampleHeaderBar';
