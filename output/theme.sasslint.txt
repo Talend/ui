@@ -1,5 +1,5 @@
 
-> @talend/bootstrap-theme@0.130.0 lint:style /home/travis/build/Talend/ui/packages/theme
+> @talend/bootstrap-theme@0.133.0 lint:style /home/travis/build/Talend/ui/packages/theme
 > sass-lint -q -v
 
 
@@ -14,12 +14,13 @@ src/theme/_forms.scss
    29:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    46:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    47:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   96:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  282:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  298:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  319:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  342:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  422:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+   95:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  110:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  280:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  296:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  317:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  340:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  420:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
@@ -27,5 +28,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 16 problems (14 errors, 2 warnings)
+✖ 17 problems (14 errors, 3 warnings)
 

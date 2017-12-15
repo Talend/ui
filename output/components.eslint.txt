@@ -1,12 +1,7 @@
-
-> @talend/react-components@0.130.0 lint:es /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.133.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/components/src/AppHeaderBar/__snapshots__/config.js
-  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -21,7 +16,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
-  42:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  40:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 9 problems (9 errors, 0 warnings)
+✖ 7 problems (7 errors, 0 warnings)
 

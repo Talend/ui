@@ -46,9 +46,9 @@
     "@storybook/addon-knobs": "^3.2.0",
     "@storybook/addons": "^3.2.0",
     "@storybook/react": "3.1.9",
-    "@talend/bootstrap-theme": "^0.130.0",
-    "@talend/icons": "^0.130.0",
-    "@talend/react-components": "^0.130.0",
+    "@talend/bootstrap-theme": "^0.133.0",
+    "@talend/icons": "^0.133.0",
+    "@talend/react-components": "^0.133.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
@@ -77,17 +77,17 @@
     "keycode": "2.1.9",
     "node-sass": "4.5.3",
     "prop-types": "15.5.10",
-    "react": "^15.6.1",
+    "react": "^15.6.2",
     "react-a11y": "^0.3.3",
     "react-ace": "5.2.0",
     "react-addons-css-transition-group": "15.5.2",
     "react-addons-test-utils": "15.5.1",
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
-    "react-dom": "^15.6.1",
+    "react-dom": "^15.6.2",
     "react-i18next": "^5.2.0",
     "react-redux": "5.0.5",
-    "react-test-renderer": "^15.6.1",
+    "react-test-renderer": "^15.6.2",
     "react-virtualized": "9.10.1",
     "redux-mock-store": "1.2.3",
     "rimraf": "^2.6.1",
@@ -96,12 +96,12 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/react-components": "^0.130.0",
+    "@talend/react-components": "^0.133.0",
     "i18next": "^9.0.0",
     "prop-types": "15.5.10",
-    "react": "^15.6.1",
+    "react": "^15.6.2",
     "react-bootstrap": "0.31.0",
-    "react-dom": "^15.6.1",
+    "react-dom": "^15.6.2",
     "react-i18next": "^5.2.0",
     "react-redux": "5.0.5",
     "redux": "3.6.0"
@@ -127,5 +127,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.130.0"
+  "version": "0.133.0"
 }

@@ -17,7 +17,6 @@ import ActionFile from './ActionFile';
 import ActionDropdown from './ActionDropdown';
 import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
-import AppHeaderBar from './AppHeaderBar';
 import ConfirmDialog from './ConfirmDialog';
 import FilterBar from './FilterBar';
 import Form from './Form';
@@ -32,6 +31,7 @@ import SelectObject from './SelectObject';
 import SidePanel from './SidePanel';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
+import SubHeaderBar from './SubHeaderBar';
 
 export {
 	actionAPI,
@@ -62,6 +62,7 @@ export {
 	ShortcutManager,
 	SelectObject,
 	SidePanel,
+	SubHeaderBar,
 	TooltipTrigger,
 	TreeView,
 	Typeahead,
