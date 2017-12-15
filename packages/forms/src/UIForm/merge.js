@@ -65,7 +65,7 @@ export const wrapCustomWidget = Component => {
 		const newProps = Object.assign({}, props);
 		newProps.formContext = props.formContext || {};
 		if (get(props, 'schema.titleMap')) {
-			// old one has enumNames in the schema but we have props.titleMap
+			// backward compat, some widgets wait for options
 			newProps.options = {
 				enumOptions: props.schema.titleMap.map(item => ({ value: item.value, label: item.name })),
 			};
@@ -76,7 +76,6 @@ export const wrapCustomWidget = Component => {
 		newProps.onChange = (event, payload) => {
 			if (!payload) {
 				onChange({}, { schema: newProps.schema, value: event });
-				// TODO: trigger !
 				if (props.schema.triggers && props.onTrigger) {
 					props.onTrigger({}, {
 						schema: newProps.schema,
