@@ -5,11 +5,6 @@ import { translate } from 'react-i18next';
 import omit from 'lodash/omit';
 
 import Toolbar from './Toolbar';
-import DisplayPropTypes from './Display/Display.propTypes';
-import DisplayLarge from './DisplayLarge';
-import DisplayTable from './DisplayTable';
-import DisplayTile from './DisplayTile';
-import Content from './Content';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -47,97 +42,34 @@ function ListToolbar({ id, toolbar, displayMode, list, t, renderers }) {
 ListToolbar.propTypes = {
 	id: PropTypes.string,
 	displayMode: PropTypes.string,
-	list: PropTypes.oneOfType([
-		PropTypes.shape(DisplayPropTypes),
-		PropTypes.shape(Content.propTypes),
-	]),
+	list: PropTypes.shape({
+		items: PropTypes.arrayOf(PropTypes.object),
+		itemProps: PropTypes.shape({
+			classNameKey: PropTypes.string,
+			isActive: PropTypes.func,
+			isSelected: PropTypes.func,
+			onRowClick: PropTypes.func,
+			onSelect: PropTypes.func,
+			onToggle: PropTypes.func,
+			onToggleAll: PropTypes.func,
+			width: PropTypes.string,
+		}),
+		sort: PropTypes.shape({
+			field: PropTypes.string,
+			isDescending: PropTypes.bool,
+			onChange: PropTypes.func.isRequired,
+		}),
+	}),
 	toolbar: PropTypes.shape(omit(Toolbar.propTypes, 't')),
 	t: PropTypes.func.isRequired,
 	renderers: PropTypes.object,
 };
 
-function DisplayModeComponent({
-	displayMode,
-	defaultHeight,
-	id,
-	list,
-	rowHeight,
-	useContent,
-	virtualized,
-	t,
-}) {
-	const translatedList = Object.assign({}, list, { t });
-	if (useContent) {
-		return <Content id={id && `${id}-content`} displayMode={displayMode} {...translatedList} />;
-	}
-	if (virtualized) {
-		return (
-			<div className={'tc-list-display-virtualized'}>
-				<ListToVirtualizedList
-					id={id}
-					displayMode={displayMode}
-					defaultHeight={defaultHeight}
-					rowHeight={rowHeight}
-					{...translatedList}
-				/>
-			</div>
-		);
-	}
-	switch (displayMode) {
-		case 'tile':
-			return <DisplayTile id={id} {...translatedList} />;
-		case 'large':
-			return <DisplayLarge id={id} {...translatedList} />;
-		default:
-			return <DisplayTable id={id} {...translatedList} />;
-	}
-}
-
-DisplayModeComponent.propTypes = {
-	displayMode: PropTypes.string,
-	defaultHeight: PropTypes.number,
-	id: PropTypes.string,
-	list: PropTypes.oneOfType([
-		PropTypes.shape(DisplayPropTypes),
-		PropTypes.shape(Content.propTypes),
-	]),
-	useContent: PropTypes.bool,
-	virtualized: PropTypes.bool,
-	rowHeight: PropTypes.number,
-	t: PropTypes.func,
-};
-
-function ListDisplay({
-	displayMode,
-	id,
-	list,
-	useContent,
-	rowHeight,
-	defaultHeight,
-	virtualized,
-	t,
-}) {
-	return (
-		<DisplayModeComponent
-			id={id}
-			useContent={useContent}
-			displayMode={displayMode}
-			list={list}
-			defaultHeight={defaultHeight}
-			virtualized={virtualized}
-			rowHeight={rowHeight}
-			t={t}
-		/>
-	);
-}
-
-ListDisplay.propTypes = DisplayModeComponent.propTypes;
-
 /**
  * @param {object} props react props
  * @example
  const props = {
-	displayMode: 'table' / 'large' / 'tile' / component
+	displayMode: 'table' / 'large'
 	list: {
 		items: [{}, {}, ...],
 		columns: [
@@ -175,7 +107,6 @@ function List({
 	toolbar,
 	useContent,
 	defaultHeight,
-	virtualized,
 	t,
 	renderers,
 	rowHeight,
@@ -191,24 +122,22 @@ function List({
 				t={t}
 				renderers={renderers}
 			/>
-			<ListDisplay
-				displayMode={displayMode}
-				id={id}
-				list={list}
-				useContent={useContent}
-				defaultHeight={defaultHeight}
-				virtualized={virtualized}
-				renderers={renderers}
-				rowHeight={rowHeight}
-				t={t}
-			/>
+			<div className={'tc-list-display-virtualized'}>
+				<ListToVirtualizedList
+					id={id}
+					displayMode={displayMode}
+					defaultHeight={defaultHeight}
+					rowHeight={rowHeight}
+					t={t}
+					{...list}
+				/>
+			</div>
 		</div>
 	);
 }
 
 List.propTypes = {
 	...omit(ListToolbar.propTypes, 't'),
-	...ListDisplay.propTypes,
 	renderers: PropTypes.object,
 	t: PropTypes.func,
 };
