@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import { merge } from 'talend-json-schema-form-core';
+import get from 'lodash/get';
+
 /* eslint-disable no-param-reassign */
 
 function parseArray(items, key) {
@@ -62,12 +64,12 @@ export const wrapCustomWidget = Component => {
 	function TFMigratedWidget(props) {
 		const newProps = Object.assign({}, props);
 		newProps.formContext = props.formContext || {};
-		if (props.schema.titleMap) {
+		if (get(props, 'schema.titleMap')) {
 			// old one has enumNames in the schema but we have props.titleMap
 			newProps.options = {
 				enumOptions: props.schema.titleMap.map(item => ({ value: item.value, label: item.name })),
 			};
-		} else if (props.schema.schema.enum) {
+		} else if (get(props, 'schema.schema.enum')) {
 			newProps.schema.enum = props.schema.schema.enum;
 		}
 		const onChange = props.onChange;

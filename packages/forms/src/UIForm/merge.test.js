@@ -110,15 +110,15 @@ describe('wrapCustomWidget', () => {
 	it('should create an higher order component', () => {
 		const component = jest.fn(() => <div />);
 		const Wrapper = wrapCustomWidget(component);
-		mount(<Wrapper />);
+		mount(<Wrapper schema={{}} />);
 		expect(component).toHaveBeenCalled();
 	});
 	it('should wrap onChange', () => {
 		const onChange = jest.fn();
 		const component = () => <div />;
 		const Wrapper = wrapCustomWidget(component);
-		const wrapper = shallow(<Wrapper onChange={onChange} />);
+		const wrapper = shallow(<Wrapper onChange={onChange} schema={{ triggers: ['after'] }} />);
 		wrapper.simulate('change', { foo: 'bar' });
-		expect(onChange.mock.calls[0]).toEqual([{}, { schema: undefined, value: { foo: 'bar' } }]);
+		expect(onChange.mock.calls[0]).toEqual([{}, { schema: { triggers: ['after' ]}, value: { foo: 'bar' } }]);
 	});
 });
