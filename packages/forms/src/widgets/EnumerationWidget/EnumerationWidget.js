@@ -426,7 +426,6 @@ class EnumerationForm extends React.Component {
 				} else {
 					this.setState({
 						searchCriteria: value.value,
-						items: this.searchItems(value.value),
 					});
 				}
 			}, 400);
@@ -469,7 +468,6 @@ class EnumerationForm extends React.Component {
 		this.setState({
 			displayMode: DISPLAY_MODE_DEFAULT,
 			searchCriteria: null,
-			items: resetItems(this.state.items),
 		});
 	}
 
@@ -841,7 +839,7 @@ class EnumerationForm extends React.Component {
 
 	render() {
 		let items = this.state.items;
-		// filter items only in non-connected mode, since in conected mode items are up-to-date
+		// filter items only in non-connected mode, since in connected mode items are up-to-date
 		if (!this.constructor.isConnectedMode(this.props.registry)) {
 			items = this.searchItems(this.state.searchCriteria);
 		}
