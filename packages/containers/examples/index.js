@@ -22,7 +22,6 @@ export default {
 	ActionDropdown,
 	ActionSplitDropdown,
 	ActionsExample,
-	AppHeaderBarExample,
 	ConfirmDialogExample,
 	DeleteResource,
 	FilterBarExample,
