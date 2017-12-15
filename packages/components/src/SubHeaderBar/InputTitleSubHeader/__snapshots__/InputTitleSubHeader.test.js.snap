@@ -64,7 +64,7 @@ exports[`TitleSubHeader should render 1`] = `
     className="tc-subheader-details-text-title"
   >
     <h1
-      className="tc-subheader-details-text-title-wording"
+      className="tc-subheader-details-text-title-wording-with-hover"
       onDoubleClick={[Function]}
     >
       myTitle

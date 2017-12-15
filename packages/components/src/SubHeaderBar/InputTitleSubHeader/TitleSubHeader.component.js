@@ -8,9 +8,9 @@ import { getDefaultTranslate } from '../../translate';
 function noop() {}
 
 function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
-	const wordingClassNames = onEdit
-	? classNames(theme['tc-subheader-details-text-title-wording'], 'tc-subheader-details-text-title-wording')
-	: classNames(theme['tc-subheader-details-text-title-wording-with-hover'], 'tc-subheader-details-text-title-wording-with-hover');
+	const wordingClassNames = editable
+	? classNames(theme['tc-subheader-details-text-title-wording-with-hover'], 'tc-subheader-details-text-title-wording-with-hover')
+	: classNames(theme['tc-subheader-details-text-title-wording'], 'tc-subheader-details-text-title-wording');
 	return (
 		<div className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
 			<div

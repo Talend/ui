@@ -54,9 +54,10 @@ $tc-input-subheader-size-small: 1rem !default;
 				text-transform: uppercase;
 				margin: 0;
 
-				&-wording-with-hover:hover {
-					cursor: pointer;
-				}
+			}
+			
+			&-wording-with-hover:hover {
+				cursor: pointer;
 			}
 
 			&-pencil {
