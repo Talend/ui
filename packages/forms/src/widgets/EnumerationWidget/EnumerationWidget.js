@@ -47,9 +47,7 @@ class EnumerationForm extends React.Component {
 	}
 
 	static isConnectedMode(registry) {
-		return !!(registry &&
-					registry.formContext &&
-					registry.formContext.handleAction !== undefined);
+		return !!(registry && registry.formContext && registry.formContext.handleAction !== undefined);
 	}
 
 	constructor(props) {
