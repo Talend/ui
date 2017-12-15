@@ -47,13 +47,14 @@ $tc-input-subheader-size-small: 1rem !default;
 			display: inline-flex;
 			align-items: center;
 
-			&-wording {
+			&-wording,
+			&-wording-with-hover {
 				@include input-text(800);
 				@include ellipsis;
 				text-transform: uppercase;
 				margin: 0;
 
-				&:hover {
+				&-wording-with-hover:hover {
 					cursor: pointer;
 				}
 			}

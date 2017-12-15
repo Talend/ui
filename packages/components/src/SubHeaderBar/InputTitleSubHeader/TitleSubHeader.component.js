@@ -5,7 +5,12 @@ import { Action } from '../../Actions';
 import theme from './InputTitleSubHeader.scss';
 import { getDefaultTranslate } from '../../translate';
 
-function TitleSubHeader({ title, subTitle, onEdit, t }) {
+function noop() {}
+
+function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
+	const toto = onEdit
+	? classNames(theme['tc-subheader-details-text-title-wording'], 'tc-subheader-details-text-title-wording')
+	: classNames(theme['tc-subheader-details-text-title-wording-with-hover'], 'tc-subheader-details-text-title-wording-with-hover');
 	return (
 		<div className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
 			<div
@@ -15,26 +20,25 @@ function TitleSubHeader({ title, subTitle, onEdit, t }) {
 				)}
 			>
 				<h1
-					onDoubleClick={onEdit}
-					className={classNames(
-						theme['tc-subheader-details-text-title-wording'],
-						'tc-subheader-details-text-title-wording',
-					)}
+					onDoubleClick={editable ? onEdit : noop}
+					className={toto}
 				>
 					{title}
 				</h1>
-				<Action
-					name="action-edit-title"
-					label={t('MODIFY_TOOLTIP', { defaultValue: 'Modify' })}
-					icon="talend-pencil"
-					onClick={onEdit}
-					bsStyle="link"
-					className={classNames(
-						theme['tc-subheader-details-text-title-pencil'],
-						'tc-subheader-details-text-title-pencil',
-					)}
-					hideLabel
-				/>
+				{editable && onEdit && (
+					<Action
+						name="action-edit-title"
+						label={t('MODIFY_TOOLTIP', { defaultValue: 'Modify' })}
+						icon="talend-pencil"
+						onClick={onEdit}
+						bsStyle="link"
+						className={classNames(
+							theme['tc-subheader-details-text-title-pencil'],
+							'tc-subheader-details-text-title-pencil',
+						)}
+						hideLabel
+					/>
+				)}
 			</div>
 			{subTitle && (
 				<small
@@ -52,7 +56,7 @@ function TitleSubHeader({ title, subTitle, onEdit, t }) {
 
 TitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
-	onEdit: PropTypes.func.isRequired,
+	onEdit: PropTypes.func,
 	subTitle: PropTypes.string,
 	t: PropTypes.func,
 };

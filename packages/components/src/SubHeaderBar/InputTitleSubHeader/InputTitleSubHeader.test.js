@@ -69,6 +69,12 @@ describe('TitleSubHeader', () => {
 		expect(wrapper.getNode().props.className).toEqual('tc-subheader-details-text-subtitle');
 		expect(wrapper.getNode().props.children).toEqual('mySubTitle');
 	});
+	it('should render with no edit pencil', () => {
+		const wrapper = shallow(<TitleSubHeader {...defaultProps} onEdit={undefined} subTitle="mySubTitle" />).find(
+			'small',
+		);
+		expect(wrapper.find(Action)).toHaveLength(0);
+	});
 	it('should render an Action', () => {
 		const actionProps = {
 			name: 'action-edit-title',

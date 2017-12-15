@@ -5,7 +5,6 @@ import { SubHeaderBar } from '../src';
 const viewSubHeader = {
 	title: 'MyTitle',
 	actionCreatorCancel: 'subheaderbar:cancel',
-	actionCreatorEdit: 'subheaderbar:edit',
 	actionCreatorSubmit: 'subheaderbar:submit',
 	actionCreatorChange: 'subheaderbar:change',
 	actionCreatorGoBack: 'subheaderbar:goback',
@@ -43,6 +42,17 @@ const ExampleSubHeaderBar = {
 		<div>
 			<IconsProvider />
 			<SubHeaderBar subTitle="mySubTitle" {...props} />
+		</div>
+	),
+	'only-title-subtitle-icon-no-edit': () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				subTitle="mySubTitle"
+				iconId="talend-file-csv-o"
+				actionCreatorEdit=""
+				{...props}
+			/>
 		</div>
 	),
 	'with-right-actions-and-icon': () => (

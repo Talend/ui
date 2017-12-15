@@ -28,10 +28,12 @@ InputTitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
 	editMode: PropTypes.bool.isRequired,
 	iconId: PropTypes.string,
+	editable: PropTypes.bool,
 };
 
 InputTitleSubHeader.defaultProps = {
 	editMode: false,
+	editable: false,
 };
 
 export { InputTitleSubHeader as default, InlineFormSubHeader, TitleSubHeader };

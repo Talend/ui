@@ -102,6 +102,12 @@ stories
 			<SubHeaderBar {...viewProps} onGoBack={backAction} />
 		</div>
 	))
+	.addWithInfo('with default left components, no edit', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar {...viewProps} onEdit="" onGoBack={backAction} />
+		</div>
+	))
 	.addWithInfo('with default left components and icon file', () => (
 		<div>
 			<IconsProvider />
