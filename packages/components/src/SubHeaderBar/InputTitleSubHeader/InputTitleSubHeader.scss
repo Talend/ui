@@ -63,7 +63,11 @@ $tc-input-subheader-size-small: 1rem !default;
 				align-items: center;
 				padding-left: $padding-small;
 				padding-right: $padding-small;
-				color: $gallery;
+
+				&:global(.btn-link) {
+					color: $gallery;
+				}
+
 				&:focus {
 					color: $tc-input-subheader-hover-focus-color;
 				}

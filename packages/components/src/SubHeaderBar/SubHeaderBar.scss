@@ -3,8 +3,9 @@
 	margin-left: $margin-left;
 }
 
-$tc-subheader-active-color: lighten($scooter, 12%) !default;
+$tc-subheader-active-color: darken($scooter, 12%) !default;
 $tc-subheader-hover-focus-color: $scooter !default;
+$tc-subheader-color: $gray !default;
 $tc-subheader-bar-height: 7rem !default;
 $tc-svg-icon-size: $padding-large !default;
 
@@ -19,6 +20,12 @@ $tc-svg-icon-size: $padding-large !default;
 		padding-left: 0;
 
 		button {
+			text-transform: none;
+
+			&:global(.btn-link) {
+				color: $tc-subheader-color;
+			}
+
 			&:focus,
 			&:hover {
 				color: $tc-subheader-hover-focus-color;
