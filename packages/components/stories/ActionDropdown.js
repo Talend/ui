@@ -55,6 +55,10 @@ storiesOf('ActionDropdown', module).addWithInfo('default', () => (
 		<div id="dropup">
 			<ActionDropdown {...myAction} dropup />
 		</div>
+		<p>Type link</p>
+		<div id="typeLink">
+			<ActionDropdown {...myAction} link={true}/>
+		</div>
 		<IconsProvider />
 	</div>
 ));

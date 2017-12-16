@@ -329,6 +329,7 @@ exports[`ActionBar.Count should render if selected 1`] = `
 
 exports[`ActionBar.SwitchActions should not render selected on right 1`] = `
 <Content
+  center={undefined}
   left={undefined}
   right={true}
 >
@@ -338,6 +339,7 @@ exports[`ActionBar.SwitchActions should not render selected on right 1`] = `
 
 exports[`ActionBar.SwitchActions should render one Action on navbar-left 1`] = `
 <Content
+  center={undefined}
   left={true}
   right={undefined}
 >
@@ -349,6 +351,7 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-left 1`] = `
 
 exports[`ActionBar.SwitchActions should render one Action on navbar-left with selected 1`] = `
 <Content
+  center={undefined}
   left={true}
   right={undefined}
 >
@@ -363,6 +366,7 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-left with se
 
 exports[`ActionBar.SwitchActions should render one Action on navbar-right 1`] = `
 <Content
+  center={undefined}
   left={undefined}
   right={true}
 >
