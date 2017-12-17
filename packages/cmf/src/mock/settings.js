@@ -105,7 +105,7 @@ const settings = {
 			href: '/href',
 		},
 	},
-	views: {
+	props: {
 		appmenu: {
 			actions: ['menu:tuto', 'menu:forum', 'menu:settings'],
 			userMenuActions: ['menu:preferences', 'menu:logout'],

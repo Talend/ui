@@ -144,6 +144,10 @@ export function getDispatchToProps({
 
 	let userProps = {};
 	if (mapDispatchToProps) {
+		if (process.env.NODE_ENV === 'development') {
+			console.warn(`DEPRECATION WARNING: mapDispatchToProps will be removed from cmfConnect.
+			Please use the injectedProps dispatchActionCreator or dispatch`);
+		}
 		userProps = mapDispatchToProps(dispatch, ownProps, cmfProps);
 	}
 
