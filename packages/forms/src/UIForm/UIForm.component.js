@@ -177,8 +177,13 @@ export default class UIForm extends React.Component {
 
 		const isValid = !Object.keys(errors).length;
 		if (this.props.onSubmit && isValid) {
-			this.props.onSubmit(event, properties);
+			if (this.props.moz) {
+				this.props.onSubmit(event, { formData: properties });
+			} else {
+				this.props.onSubmit(event, properties);
+			}
 		}
+
 
 		return isValid;
 	}
