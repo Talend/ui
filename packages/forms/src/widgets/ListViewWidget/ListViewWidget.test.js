@@ -2,15 +2,15 @@ import React from 'react';
 import { mount } from 'enzyme';
 import ListViewWidget from './ListViewWidget';
 
+/* eslint-disable */
 jest.mock(
-	'../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
+	'../../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
 	() => props => (
-		/* eslint-disable */
 		<div id="autoSizer">{props.children({ height: 30, width: 30 })}</div>
 	),
-	/* eslint-enable */
 );
 jest.useFakeTimers();
+/* eslint-enable */
 
 const EMPTY_LIST_MESSAGE = 'This list is empty.';
 const NO_RESULT_MESSAGE = 'No result found.';
