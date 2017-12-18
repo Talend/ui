@@ -53,6 +53,8 @@ describe('TitleSubHeader', () => {
 	it('should render', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />);
 		expect(wrapper.find(Action)).toHaveLength(0);
+		expect(wrapper.find('h1')).toHaveLength(1);
+		expect(wrapper.find('button')).toHaveLength(0);
 		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 	it('should render with title', () => {
