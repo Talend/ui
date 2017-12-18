@@ -1,5 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import List from './List.component';
 
 const listProps = {
@@ -44,8 +45,8 @@ const props = {
 
 describe('List', () => {
 	it('should render', () => {
-		const wrapper = renderer.create(<List {...props} />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = mount(<List {...props} />);
+		expect(toJson(wrapper.find('.tc-list'))).toMatchSnapshot();
 	});
 
 	it('should render id if provided', () => {
@@ -53,58 +54,12 @@ describe('List', () => {
 			id: 'context',
 			...props,
 		};
-		const wrapper = renderer.create(<List {...tProps} />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = mount(<List {...tProps} />);
+		expect(toJson(wrapper.find('.tc-list'))).toMatchSnapshot();
 	});
 
 	it('should not render the toolbar without toolbar props', () => {
-		const wrapper = renderer.create(<List displayMode="table" list={listProps} />).toJSON();
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should not render search options when not necessary', () => {
-		const listPropsWithSort = {
-			...props.list,
-			sort: {
-				options: [],
-				displayModes: [],
-				field: 'name',
-				isDescending: false,
-			},
-		};
-		const wrapper = renderer
-			.create(<List displayMode="table" {...props} list={listPropsWithSort} />)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render empty list in table', () => {
-		const tProps = {
-			...listProps,
-			items: [],
-		};
-
-		const wrapper = renderer.create(<List list={tProps} />).toJSON();
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render empty list in large', () => {
-		const tProps = {
-			...listProps,
-			items: [],
-		};
-
-		const wrapper = renderer.create(<List list={tProps} displayMode="large" />).toJSON();
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render empty list in tile', () => {
-		const tProps = {
-			...listProps,
-			items: [],
-		};
-
-		const wrapper = renderer.create(<List list={tProps} displayMode="tile" />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = mount(<List displayMode="table" list={listProps} />);
+		expect(toJson(wrapper.find('.tc-list'))).toMatchSnapshot();
 	});
 });

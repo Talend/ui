@@ -101,15 +101,7 @@ const ExampleList = {
 			</div>
 		</div>
 	),
-	virtualized: () => (
-		<div>
-			<IconsProvider />
-			<div className="list-container">
-				<List {...props} items={items} virtualized />
-			</div>
-		</div>
-	),
-	virtualizedCustomHeight: () => (
+	CustomHeight: () => (
 		<div>
 			<IconsProvider />
 			<div className="list-container">
