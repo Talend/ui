@@ -18,10 +18,14 @@ function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
 					<button
 						className={classNames(
 							theme['tc-subheader-details-text-title-wording-button'],
-							'tc-subheader-details-text-title-wording-button', 'btn', 'btn-link'
+							'tc-subheader-details-text-title-wording-button',
+							'btn',
+							'btn-link',
 						)}
 						onDoubleClick={onEdit}
-					>{title}</button>
+					>
+						{title}
+					</button>
 				) : (
 					<h1
 						className={classNames(

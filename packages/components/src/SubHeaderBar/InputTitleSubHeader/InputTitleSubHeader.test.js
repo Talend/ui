@@ -69,9 +69,9 @@ describe('TitleSubHeader', () => {
 		expect(wrapper.getNode().props.children).toEqual('mySubTitle');
 	});
 	it('should render an Action with edit pencil', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" editable />).find(
-			Action,
-		);
+		const wrapper = shallow(
+			<TitleSubHeader {...defaultProps} subTitle="mySubTitle" editable />,
+		).find(Action);
 		expect(wrapper).toHaveLength(1);
 		expect(wrapper.getNode().props.icon).toEqual('talend-pencil');
 	});
