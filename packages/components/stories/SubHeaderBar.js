@@ -101,19 +101,19 @@ stories
 			<SubHeaderBar {...viewProps} onGoBack={backAction} edit />
 		</div>
 	))
-	.addWithInfo('with default left components and icon file and edit pencil', () => (
+	.addWithInfo('with default left components and icon file and edit', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...viewProps} editable iconId="talend-file-csv-o" onGoBack={backAction} edit />
+			<SubHeaderBar {...viewProps} iconId="talend-file-csv-o" onGoBack={backAction} edit />
 		</div>
 	))
 	.addWithInfo('default left components and subtitle', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...viewProps} editable subTitle="mySubTitle" onGoBack={backAction} />
+			<SubHeaderBar {...viewProps} subTitle="mySubTitle" onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('with right components and edit pencil', () => (
+	.addWithInfo('with right components and edit', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
@@ -146,7 +146,7 @@ stories
 			/>
 		</div>
 	))
-	.addWithInfo('with center && right components and edit pencil', () => (
+	.addWithInfo('with center && right components and edit', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
