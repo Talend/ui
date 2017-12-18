@@ -95,7 +95,7 @@ stories
 			<SubHeaderBar {...viewProps} onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('with default left components and edit input', () => (
+	.addWithInfo('with default left components and edit', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} onGoBack={backAction} edit />

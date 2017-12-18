@@ -44,7 +44,7 @@ const ExampleSubHeaderBar = {
 			<SubHeaderBar subTitle="mySubTitle" {...props} />
 		</div>
 	),
-	'only-title-subtitle-icon-no-edit': () => (
+	'only-title-subtitle-icon': () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
