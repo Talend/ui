@@ -257,8 +257,8 @@ class EnumerationForm extends React.Component {
 		this.setState(prevState => {
 			let items = resetItems([...prevState.items]);
 			let item = items[value.index];
-			// if there is a search criteria, retrieve correct item from state
-			if (prevState.searchCriteria) {
+			// if there is a search criteria, retrieve correct item from state in non-connected mode
+			if (prevState.searchCriteria && !this.constructor.isConnectedMode(this.props.registry)) {
 				item = this.getItemInSearchMode(prevState.searchCriteria, value.index, items);
 			}
 			item.displayMode = DISPLAY_MODE_EDIT;
