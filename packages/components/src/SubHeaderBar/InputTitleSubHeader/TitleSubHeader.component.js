@@ -5,7 +5,7 @@ import { Action } from '../../Actions';
 import theme from './InputTitleSubHeader.scss';
 import { getDefaultTranslate } from '../../translate';
 
-function TitleSubHeader({ title, subTitle, onEdit, edit, t }) {
+function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
 	return (
 		<div className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
 			<div
@@ -14,7 +14,7 @@ function TitleSubHeader({ title, subTitle, onEdit, edit, t }) {
 					'tc-subheader-details-text-title',
 				)}
 			>
-				{edit ? (
+				{editable ? (
 					<button
 						className={classNames(
 							theme['tc-subheader-details-text-title-wording-button'],
@@ -32,10 +32,10 @@ function TitleSubHeader({ title, subTitle, onEdit, edit, t }) {
 						{title}
 					</h1>
 				)}
-				{edit && (
+				{editable && (
 					<Action
 						name="action-edit-title"
-						label={t('MODIFY_TOOLTIP', { defaultValue: 'Modify' })}
+						label={t('MODIFY_TOOLTIP', { defaultValue: 'Edit' })}
 						icon="talend-pencil"
 						onClick={onEdit}
 						bsStyle="link"
@@ -63,7 +63,7 @@ function TitleSubHeader({ title, subTitle, onEdit, edit, t }) {
 
 TitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
-	edit: PropTypes.bool,
+	editable: PropTypes.bool,
 	onEdit: PropTypes.func,
 	subTitle: PropTypes.string,
 	t: PropTypes.func,
@@ -71,7 +71,7 @@ TitleSubHeader.propTypes = {
 
 TitleSubHeader.defaultProps = {
 	t: getDefaultTranslate,
-	edit: false,
+	editable: false,
 };
 
 export default TitleSubHeader;

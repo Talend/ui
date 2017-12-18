@@ -89,39 +89,37 @@ if (!stories.addWithInfo) {
 }
 
 stories
-	.addWithInfo('with default left components', () => (
+	.addWithInfo('with default', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('with default left components and edit', () => (
+	.addWithInfo('with editable', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...viewProps} onGoBack={backAction} edit />
+			<SubHeaderBar {...viewProps} onGoBack={backAction} editable />
 		</div>
 	))
-	.addWithInfo('with default left components and icon file and edit', () => (
+	.addWithInfo('with icon', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...viewProps} iconId="talend-file-csv-o" onGoBack={backAction} edit />
+			<SubHeaderBar {...viewProps} iconId="talend-file-csv-o" onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('default left components and subtitle', () => (
+	.addWithInfo('with subtitle', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} subTitle="mySubTitle" onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('with right components and edit', () => (
+	.addWithInfo('with right components', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
 				{...viewProps}
-				iconId="talend-file-csv-o"
 				onGoBack={backAction}
 				componentsRight={injectedComponentsRight}
-				edit
 			/>
 		</div>
 	))
@@ -140,13 +138,23 @@ stories
 			<IconsProvider />
 			<SubHeaderBar
 				{...viewProps}
-				subTitle="mySubTitle"
 				onGoBack={backAction}
 				componentsCenter={[componentInput]}
 			/>
 		</div>
 	))
-	.addWithInfo('with center && right components and edit', () => (
+	.addWithInfo('with center && right components', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				{...viewProps}
+				onGoBack={backAction}
+				componentsCenter={injectedComponentsCenter}
+				componentsRight={injectedComponentsRight}
+			/>
+		</div>
+	))
+	.addWithInfo('with all', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
@@ -156,7 +164,7 @@ stories
 				onGoBack={backAction}
 				componentsCenter={injectedComponentsCenter}
 				componentsRight={injectedComponentsRight}
-				edit
+				editable
 			/>
 		</div>
 	));

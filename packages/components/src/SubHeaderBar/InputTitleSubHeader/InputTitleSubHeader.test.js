@@ -35,7 +35,7 @@ describe('InputTitleSubHeader', () => {
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(1);
 		expect(wrapper.find(InlineFormSubHeader)).toHaveLength(0);
 	});
-	it('should render InputTitleSubHeader', () => {
+	it('should render InlineFormSubHeader', () => {
 		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} editMode />);
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(0);
 		expect(wrapper.find(InlineFormSubHeader)).toHaveLength(1);
@@ -66,26 +66,12 @@ describe('TitleSubHeader', () => {
 		expect(wrapper.getNode().props.className).toEqual('tc-subheader-details-text-subtitle');
 		expect(wrapper.getNode().props.children).toEqual('mySubTitle');
 	});
-	it('should render with with edit pencil', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" edit />).find(
-			'small',
+	it('should render an Action with edit pencil', () => {
+		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" editable />).find(
+			Action,
 		);
-		expect(wrapper.find(Action)).toHaveLength(0);
-	});
-	it('should render an Action', () => {
-		const actionProps = {
-			name: 'action-edit-title',
-			label: 'edit',
-			icon: 'talend-pencil',
-			onClick: jest.fn(),
-			bsStyle: 'link',
-			className: undefined,
-			hideLabel: true,
-		};
-		const wrapper = shallow(
-			<TitleSubHeader {...defaultProps} onEdit={actionProps.onClick} edit />,
-		);
-		expect(wrapper.find(Action)).toHaveLength(1);
+		expect(wrapper).toHaveLength(1);
+		expect(wrapper.getNode().props.icon).toEqual('talend-pencil');
 	});
 });
 

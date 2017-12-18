@@ -38,41 +38,55 @@ const props = {
 };
 
 const ExampleSubHeaderBar = {
-	'only-title-no-icon': () => (
+	'with-default': () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar subTitle="mySubTitle" {...props} />
+			<SubHeaderBar {...props} />
 		</div>
 	),
-	'only-title-subtitle-icon': () => (
+	'with-subtitle': () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
 				subTitle="mySubTitle"
+				{...props}
+			/>
+		</div>
+	),
+	'with-icon': () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
 				iconId="talend-file-csv-o"
 				{...props}
 			/>
 		</div>
 	),
-	'with-right-actions-icon-and-edit': () => (
+	'with-editable': () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
 				{...props}
-				subTitle="mySubTitle"
+				editable
+			/>
+		</div>
+	),
+	'with-right-actions': () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				{...props}
 				injectedComponents={injectedComponentsRight}
-				iconId="talend-file-csv-o"
-				edit
 			/>
 		</div>
 	),
-	'with-center-actions-and-no-icon-no-subtitle': () => (
+	'with-center-actions': () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...props} injectedComponents={injectedComponentsCenter} />
 		</div>
 	),
-	'with-center-right-actions-and-edit': () => (
+	'with-all': () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
@@ -80,7 +94,7 @@ const ExampleSubHeaderBar = {
 				injectedComponents={Object.assign({}, injectedComponentsCenter, injectedComponentsRight)}
 				iconId="talend-file-csv-o"
 				subTitle="mySubTitle"
-				edit
+				editable
 			/>
 		</div>
 	),
