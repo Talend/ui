@@ -22,13 +22,6 @@ export function sendReport(payload, transportOpts, attempt = 0) {
 	return transformedPayload;
 }
 
-function defaultPayloadMiddleware(payload) {
-	return {
-		time: new Date(),
-		...payload,
-	};
-}
-
 const defaultHandlers = {
 	success: response => {
 		console.info('Logging: reported', response);
@@ -79,7 +72,7 @@ export const getDefaultTransport = url => ({
 	successHandler: defaultHandlers.success,
 	failedTryHandler: defaultHandlers.failedTry,
 	failedReportHandler: defaultHandlers.failedReport,
-	payloadMiddleware: defaultPayloadMiddleware,
+	payloadMiddleware: payload => payload,
 	retryCount: 2,
 	retryTimeout: 60 * 1000,
 });

@@ -1,7 +1,7 @@
 {
   "name": "@talend/log",
   "description": "Small wrapper over TraceKit, that allows to inject error reporting as redux-logger middleware",
-  "main": "lib/errorTransformer.js",
+  "main": "lib/api/errorTransformer.js",
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "babel -d lib ./src/",
@@ -32,7 +32,12 @@
     "tracekit": "^0.4.4",
     "whatwg-fetch": "2.0.3"
   },
+  "peerDependencies": {
+    "angular": "^1.5.9",
+    "react-dom": "^15.6.2"
+  },
   "devDependencies": {
+    "angular": "^1.5.9",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
@@ -46,7 +51,8 @@
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
     "jest": "20.0.3",
-    "jest-cli": "20.0.3"
+    "jest-cli": "20.0.3",
+    "react-dom": "^15.6.2"
   },
   "jest": {
     "collectCoverageFrom": [
