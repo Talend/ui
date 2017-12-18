@@ -11,7 +11,6 @@ const icons = [
 	'talend-tdc-negative',
 ];
 
-const labelIcon = 'talend-logo-square';
 const functionToFormat = value => `${value}-test`;
 const functionFormatFloor = value => Math.floor(value);
 
@@ -19,9 +18,9 @@ storiesOf('Slider', module).addWithInfo('default', () => (
 	<section>
 		<IconsProvider />
 		<p>By default :</p>
+		<Slider />
+		<p>With value & format</p>
 		<Slider id="selectable" captionsFormat={functionToFormat} value={10} />
-		<p>With empty label</p>
-		<Slider emptyValueLabel="empty value" />
 		<p>With disabled label</p>
 		<Slider disabled />
 		<p> with default value :</p>
@@ -31,6 +30,6 @@ storiesOf('Slider', module).addWithInfo('default', () => (
 		<p>with some icons</p>
 		<Slider value={40} captionTextStepNumber={4} captionsFormat={functionFormatFloor} />
 		<p>with icon close to label</p>
-		<Slider value={96} labelIcon={labelIcon} />
+		<Slider value={96} />
 	</section>
 ));

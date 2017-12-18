@@ -149,6 +149,7 @@ class Slider extends React.Component {
 			max,
 			...rest
 		} = this.props;
+		const noValue = value === null || value === undefined;
 		return (
 			<span className={classnames(theme['tc-slider-container'])}>
 				<RcSlider
@@ -156,7 +157,7 @@ class Slider extends React.Component {
 					value={value}
 					min={min}
 					max={max}
-					handle={this.state.handle}
+					handle={noValue ? undefined : this.state.handle}
 					className={theme['tc-slider']}
 					{...rest}
 				/>

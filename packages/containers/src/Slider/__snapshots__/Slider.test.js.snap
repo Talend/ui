@@ -2,6 +2,7 @@
 
 exports[`Filter container should render 1`] = `
 <Slider
+  captionsFormat={[Function]}
   initialState={
     Immutable.Map {
       value: 15,

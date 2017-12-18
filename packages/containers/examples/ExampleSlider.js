@@ -11,7 +11,7 @@ const icons = [
 	'talend-tdc-negative',
 ];
 
-const labelIcon = 'talend-logo-square';
+const functionToFormat = value => `${value}%`;
 
 const nullState = new Map();
 const initialState = new Map({
@@ -22,16 +22,15 @@ const ExampleSlider = {
 	Slider: () => (
 		<div>
 			<IconsProvider />
-			<Slider id="slider1" label="Your value :" />
+			<Slider id="slider1" />
 			<p>with some icons</p>
-			<Slider id="slider2" emptyValueLabel="i am empty" icons={icons} initialState={nullState} />
+			<Slider id="slider2" captionIcons={icons} initialState={nullState} />
 			<p>with icon close to label</p>
 			<Slider
 				id="slider3"
 				initialState={initialState}
-				emptyValueLabel="i am empty"
-				label="label of value  :"
-				labelIcon={labelIcon}
+				captionsFormat={functionToFormat}
+				captionTextStepNumber={5}
 			/>
 		</div>
 	),
