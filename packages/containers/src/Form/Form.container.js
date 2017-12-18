@@ -68,17 +68,7 @@ class Form extends React.Component {
 	}
 
 	onTrigger(formData, formId, propertyName, propertyValue) {
-		if (this.props.onTrigger && !this.props.uiform) {
-			this.props.onTrigger(formData, formId, propertyName, propertyValue);
-		} else if (this.props.onTrigger && this.props.uiform) {
-			const payload = formId;
-			this.props.onTrigger(
-				payload.properties,
-				payload.formName,
-				payload.propertyName,
-				payload.propertyValue
-			);
-		}
+		this.props.onTrigger(formData, formId, propertyName, propertyValue);
 	}
 
 	onChange(form, uiform) {
@@ -188,6 +178,7 @@ class Form extends React.Component {
 			props.jsonSchema = props.data.jsonSchema;
 			props.uiSchema = props.data.uiSchema;
 			props.properties = props.data.properties;
+			props.moz = this.props.moz === undefined ? true : this.props.moz;
 			delete props.data;
 			return (
 				<UIForm

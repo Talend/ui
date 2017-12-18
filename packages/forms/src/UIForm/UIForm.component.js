@@ -50,6 +50,21 @@ export default class UIForm extends React.Component {
 		};
 		payload.formData = mutateValue(payload.properties, schema.key, value);
 		this.props.onChange(event, payload);
+		// trigger if value is correct
+		if (schema.triggers && schema.triggers.length) {
+			let formData = payload.formData;
+			let propertyName = schema.key.join('.');
+			if (this.props.moz) {
+				schema.key.forEach((key, index) => {
+					if (index !== schema.key.length - 1) {
+						formData = formData[key];
+					}
+				});
+				propertyName = schema.key[schema.key.length - 1];
+			}
+			const formId = this.props.formName || this.props.formId;
+			this.onTrigger(formData, formId, propertyName, value);
+		}
 	}
 
 	/**
@@ -96,21 +111,6 @@ export default class UIForm extends React.Component {
 			errors = widgetChangeErrors(errors);
 		}
 		this.props.setErrors(this.props.formName, errors);
-
-		// trigger if value is correct
-		if (!valueError && schema.triggers && schema.triggers.length) {
-			const payload = { trigger: schema.triggers[0], schema };
-			if (value !== undefined) {
-				payload.properties = mutateValue(this.props.properties, schema.key, value);
-			} else {
-				payload.properties = mutateValue(this.props.properties, schema.key, newValue);
-			}
-			// compat with old trigger
-			payload.propertyValue = newValue;
-			payload.propertyName = schema.key[schema.key.length - 1];
-			payload.formData = payload.properties;
-			this.onTrigger(event, payload);
-		}
 	}
 
 	/**
@@ -120,30 +120,13 @@ export default class UIForm extends React.Component {
 	 * trigger The type of trigger
 	 * schema The field schema
 	 */
-	onTrigger(event, payload) {
-		const { formName, updateForm, onTrigger, setError, properties } = this.props;
+	onTrigger(formData, formId, propertyName, propertyValue) {
+		const { onTrigger } = this.props;
 		if (!onTrigger) {
 			return null;
 		}
 
-		const result = onTrigger(event, {
-			formName,
-			properties,
-			...payload,
-		});
-		if (result && result.then) {
-			return result.then(newForm =>
-				updateForm(
-					formName,
-					newForm.jsonSchema,
-					newForm.uiSchema,
-					newForm.properties,
-					newForm.errors,
-				),
-			)
-			.catch(({ errors }) => setError(formName, errors));
-		}
-		return result;
+		return onTrigger(formData, formId, propertyName, propertyValue);
 	}
 
 	/**
