@@ -17,7 +17,6 @@ import ActionFile from './ActionFile';
 import ActionDropdown from './ActionDropdown';
 import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
-import AppHeaderBar from './AppHeaderBar';
 import ConfirmDialog from './ConfirmDialog';
 import FilterBar from './FilterBar';
 import Form from './Form';
@@ -43,7 +42,6 @@ export {
 	ActionDropdown,
 	Actions,
 	ActionSplitDropdown,
-	AppHeaderBar,
 	Breadcrumbs,
 	CircularProgress,
 	ConfirmDialog,
