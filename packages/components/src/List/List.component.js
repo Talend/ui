@@ -105,7 +105,6 @@ function List({
 	id,
 	list,
 	toolbar,
-	useContent,
 	defaultHeight,
 	t,
 	renderers,
@@ -144,7 +143,6 @@ List.propTypes = {
 
 List.defaultProps = {
 	displayMode: 'table',
-	useContent: false,
 };
 
 export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(List);

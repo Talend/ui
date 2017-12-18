@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-import ItemTitle from '../ItemTitle';
+import PropTypes from 'proptypes';
 
 export default {
 	id: PropTypes.string,
@@ -15,7 +14,14 @@ export default {
 		onToggleAll: PropTypes.func,
 		width: PropTypes.string,
 	}),
-	titleProps: ItemTitle.propTypes.titleProps,
+	titleProps: PropTypes.shape({
+		key: PropTypes.string,
+		iconKey: PropTypes.string,
+		displayModeKey: PropTypes.string,
+		onClick: PropTypes.func,
+		onEditSubmit: PropTypes.func,
+		onEditCancel: PropTypes.func,
+	}),
 	sort: PropTypes.shape({
 		field: PropTypes.string,
 		isDescending: PropTypes.bool,
