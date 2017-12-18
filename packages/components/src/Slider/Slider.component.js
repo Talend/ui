@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import classnames from 'classnames';
 import RcSlider from 'rc-slider';
+import Tooltip from 'rc-tooltip';
 import rcSliderTheme from 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
-
+import range from 'lodash/range';
 import Icon from '../Icon';
 import theme from './Slider.scss';
+
+const noFormat = value => value;
 
 /**
  * This function give the selected icon position if there is more than 1 icon
@@ -43,64 +47,129 @@ function getIcons(icons, value, min, max) {
 }
 
 /**
- * This function return the label to show on top of the slider
- * @param {*} value - The current value of the slider
- * @param {*} label - The label to show aside of the value
- * @param {*} emptyValueLabel - The label to show if the value is empty
+ * This function allow to get the text caption
+ * @param {number} captionTextStepNumber the number of text captions
+ * @param {function} captionsFormat the function to format the caption
+ * @param {number} value current value of the slider
+ * @param {number} min min value of the slider
+ * @param {number} max max value of the slider
  */
-function getTextLabel(value, label, emptyValueLabel) {
-	if (!value && value !== 0) {
-		return <span>{emptyValueLabel}</span>;
+function getTextCaptions(captionTextStepNumber, captionsFormat, value, min, max) {
+	if (captionTextStepNumber > 1) {
+		const interval = (max - min) / (captionTextStepNumber - 1);
+		const captions = range(min, max, interval);
+		captions.push(max);
+		return (
+			<div className={theme['text-caption']}>
+				{captions.map((caption, index) => (
+					<span key={index} className={theme.caption}>
+						{captionsFormat(caption)}
+					</span>
+				))}
+			</div>
+		);
 	}
-	return (
-		<span className={theme['informations-label']}>
-			{label} {value} %
-		</span>
-	);
+	return null;
 }
 
 /**
- * The slider component
- * @param {object} props
+ * function that return icons or text captions
+ * @param {array} captionIcons icons to display on the bottom of the slider
+ * @param {number} captionTextStepNumber number of text caption
+ * @param {function} captionsFormat the function to format the caption
+ * @param {number} value current value of the slider
+ * @param {number} min min value of the slider
+ * @param {number} max max value of the slider
  */
-function Slider({ id, label, value, icons, emptyValueLabel, labelIcon, min, max, ...rest }) {
-	return (
-		<span className={theme['tc-slider-container']}>
-			<div className={theme.informations}>
-				{labelIcon && <Icon name={labelIcon} />}
-				{getTextLabel(value, label, emptyValueLabel)}
-			</div>
-			<label htmlFor={id}>
+function getCaption(captionIcons, captionTextStepNumber, captionsFormat, value, min, max) {
+	if (captionIcons) {
+		return getIcons(captionIcons, value, min, max);
+	} else if (captionTextStepNumber) {
+		return getTextCaptions(captionTextStepNumber, captionsFormat, value, min, max);
+	}
+	return null;
+}
+
+/**
+ * Function to set the tooltip
+ * @param {function} captionsFormat the function to format the caption
+ */
+function getHandle(captionsFormat) {
+	function handle(props) {
+		return (
+			<Tooltip
+				prefixCls="rc-slider-tooltip"
+				overlay={captionsFormat(props.value)}
+				visible
+				placement="top"
+				key={props.index}
+			>
+				<RcSlider.Handle {...props} />
+			</Tooltip>
+		);
+	}
+
+	handle.propTypes = {
+		value: PropTypes.number.isRequired,
+		index: PropTypes.number.isRequired,
+	};
+
+	return handle;
+}
+
+// eslint-disable-next-line react/prefer-stateless-function
+class Slider extends React.Component {
+	static propTypes = {
+		id: PropTypes.string,
+		value: PropTypes.number,
+		onChange: PropTypes.func,
+		onAfterChange: PropTypes.func,
+		captionIcons: PropTypes.array,
+		captionTextStepNumber: PropTypes.number,
+		min: PropTypes.number.isRequired,
+		max: PropTypes.number.isRequired,
+		captionsFormat: PropTypes.func,
+	};
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			handle: getHandle(props.captionsFormat),
+		};
+	}
+
+	render() {
+		const {
+			id,
+			value,
+			captionIcons,
+			captionTextStepNumber,
+			captionsFormat,
+			min,
+			max,
+			...rest
+		} = this.props;
+		return (
+			<span className={classnames(theme['tc-slider-container'])}>
 				<RcSlider
 					id={id}
 					value={value}
 					min={min}
 					max={max}
+					handle={this.state.handle}
 					className={theme['tc-slider']}
 					{...rest}
 				/>
-			</label>
-			{icons && getIcons(icons, value, min, max)}
-		</span>
-	);
+				{getCaption(captionIcons, captionTextStepNumber, captionsFormat, value, min, max)}
+			</span>
+		);
+	}
 }
-
-Slider.propTypes = {
-	id: PropTypes.string,
-	label: PropTypes.string,
-	value: PropTypes.number,
-	onChange: PropTypes.func,
-	onAfterChange: PropTypes.func,
-	icons: PropTypes.array,
-	labelIcon: PropTypes.string,
-	emptyValueLabel: PropTypes.string,
-	min: PropTypes.number.isRequired,
-	max: PropTypes.number.isRequired,
-};
 
 Slider.defaultProps = {
 	min: 0,
 	max: 100,
+	captionsFormat: noFormat,
 };
 
 export default Slider;

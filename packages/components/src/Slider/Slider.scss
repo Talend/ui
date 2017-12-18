@@ -1,11 +1,36 @@
+$switch-thumb-shadow: 0 1px 2px 0 rgba(117, 132, 149, 0.5); //$slate-gray;
+$switch-thumb-shadow-focused: 0 3px 4px 0.5px rgba(0, 0, 0, 0.25);
+$switch-thumb-border-disabled: 1px solid rgba(198, 198, 198, 0.3);
+
+:global(.rc-slider-tooltip) {
+	padding: 0;
+
+	:global(.rc-slider-tooltip-arrow) {
+		display: none;
+	}
+
+	:global(.rc-slider-tooltip-inner) {
+		background: transparent;
+		color: $brand-primary;
+		box-shadow: 0 0 0px;
+	}
+}
+
 .tc-slider-container {
-	:global(label) {
+	display: block;
+
+	:global(.rc-slider-disabled) {
+		background-color: transparent;
+		opacity: 0.4;
+	}
+
+	& label {
 		display: block;
 	}
 
 	.informations {
 		display: flex;
-		:global(svg) {
+		& svg {
 			height: 24px;
 			width: 24px;
 			fill: $brand-primary;
@@ -15,6 +40,15 @@
 			margin-left: $padding-small;
 			line-height: 24px;
 		}
+	}
+
+	.text-caption {
+		display: flex;
+		justify-content: space-between;
+		margin-top: $padding-small;
+		color: $gray;
+		font-size: 14px;
+		font-weight: 400;
 	}
 
 	.icons {
@@ -33,17 +67,27 @@
 }
 
 .tc-slider {
+	margin-top: $padding-larger;
+
 	:global(.rc-slider-step),
 	:global(.rc-slider-rail),
 	:global(.rc-slider-track) {
 		height: 7px;
 	}
 	:global(.rc-slider-track) {
-		background-color: $scooter;
+		background-color: $brand-primary;
 	}
 	:global(.rc-slider-handle) {
 		width: 17px;
 		height: 17px;
 		border-color: $alto;
+		box-shadow: $switch-thumb-shadow;
+		background-color: $wild-sand;
+
+		&:hover,
+		&:focus {
+			background-color: $white;
+			box-shadow: $switch-thumb-shadow-focused;
+		}
 	}
 }

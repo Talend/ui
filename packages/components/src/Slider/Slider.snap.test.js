@@ -23,7 +23,7 @@ describe('Slider component', () => {
 				id: 'selectable',
 				value: 45,
 				label: 'Heeey',
-				icons: [
+				captionIcons: [
 					'talend-smiley-rating',
 					'talend-most-trusted',
 					'talend-network',
@@ -37,13 +37,15 @@ describe('Slider component', () => {
 			expect(wrapper.getNode()).toMatchSnapshot();
 		});
 
-		it('should render Slider with icons on label', () => {
+		it('should render Slider with captionTextStepNumber', () => {
 			// given
+			const captionsFormat = value => `${value}%`;
 			const props = {
 				id: 'selectable',
 				value: 45,
 				label: 'Heeey',
-				labelIcon: 'talend-logo-square',
+				captionTextStepNumber: 5,
+				captionsFormat,
 			};
 			// when
 			const wrapper = shallow(<Slider {...props} />);
