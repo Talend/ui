@@ -27,6 +27,19 @@ const ENUMERATION_IMPORT_FILE_CLICK = 'ENUMERATION_IMPORT_FILE_CLICK';
 const ENUMERATION_IMPORT_FILE_OVERWRITE_MODE = 'ENUMERATION_IMPORT_FILE_OVERWRITE_MODE';
 const ENUMERATION_IMPORT_FILE_APPEND_MODE = 'ENUMERATION_IMPORT_FILE_APPEND_MODE';
 
+
+/*
+For this widget we distinguish 2 modes :
+
+- Connected mode. All items are passed via props by callee
+There are no computation of items here, all computation is done by the callee application
+
+- Non-connected Mode : The items display is computed on frontend-side
+Add, Remove, Edit, Submit, Search actions imply a computation on frontend side.
+This is the case for story book for example.
+
+There is a special method isConnectedMode() indicating in what mode we are
+*/
 class EnumerationForm extends React.Component {
 	static getItemHeight() {
 		return ITEMS_DEFAULT_HEIGHT;
@@ -308,8 +321,14 @@ class EnumerationForm extends React.Component {
 		} else {
 			this.setState(prevState => {
 				const items = resetItems([...prevState.items]);
-				items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
-				items.splice(value.index, 1);
+				let indexToRemove = value.index;
+				const sc = prevState.searchCriteria;
+				if (sc) {
+					// retrieve correct item when in non-connected mode
+					indexToRemove = this.getIndexToRemoveInSearchMode(sc, value.index, items);
+				}
+				items[indexToRemove].displayMode = DISPLAY_MODE_DEFAULT;
+				items.splice(indexToRemove, 1);
 				const countItems = items.filter(item => item.isSelected).length;
 
 				let displayMode = prevState.displayMode;
@@ -392,7 +411,7 @@ class EnumerationForm extends React.Component {
 				const items = [...prevState.items];
 				let item = items[value.index];
 				if (prevState.searchCriteria) {
-					// retrieve correct item
+					// retrieve correct item when in non-connected mode
 					item = this.getItemInSearchMode(prevState.searchCriteria, value.index, items);
 				}
 				item.displayMode = DISPLAY_MODE_DEFAULT;
@@ -676,10 +695,19 @@ class EnumerationForm extends React.Component {
 		}
 	}
 
-	getItemInSearchMode(searchCriteria, index, items) {
+	getItemSelectedInSearchMode(searchCriteria, index) {
 		const searchedItems = this.searchItems(searchCriteria);
-		const itemToEdit = searchedItems[index];
-		return items.find(currentItem => currentItem.values[0] === itemToEdit.values[0]);
+		return searchedItems[index];
+	}
+
+	getItemInSearchMode(searchCriteria, index, items) {
+		const selectedItem = this.getItemSelectedInSearchMode(searchCriteria, index);
+		return items.find(currentItem => currentItem.values[0] === selectedItem.values[0]);
+	}
+
+	getIndexToRemoveInSearchMode(searchCriteria, index, items) {
+		const selectedItem = this.getItemSelectedInSearchMode(searchCriteria, index);
+		return items.findIndex(currentItem => currentItem.values[0] === selectedItem.values[0]);
 	}
 
 	itemSubmitHandler() {
