@@ -113,7 +113,7 @@
       "!**/__snapshots__/**"
     ],
     "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+      "^.+\\.js$": "<rootDir>/../../node_modules/babel-jest"
     },
     "roots": [
       "src",
