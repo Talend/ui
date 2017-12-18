@@ -169,7 +169,7 @@ class FilterBar extends React.Component {
 						onFocus={this.onFocus}
 						onFilter={this.onFilter}
 						onToggle={this.props.onToggle}
-						placeholder={this.state.focus ? '' : this.props.placeholder}
+						placeholder={this.props.placeholder}
 						value={this.state.value}
 						dockable={this.props.dockable}
 					/>

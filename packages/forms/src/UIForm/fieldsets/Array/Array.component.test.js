@@ -4,37 +4,41 @@ import ArrayWidget from './Array.component';
 
 const schema = {
 	key: ['comments'],
-	items: [{
-		key: ['comments', '', 'name'],
-		title: 'Name',
-		required: true,
-		schema: { title: 'Name', type: 'string' },
-		type: 'text',
-	}, {
-		key: ['comments', '', 'email'],
-		title: 'Email',
-		description: 'Email will be used for evil.',
-		schema: {
+	items: [
+		{
+			key: ['comments', '', 'name'],
+			title: 'Name',
+			required: true,
+			schema: { title: 'Name', type: 'string' },
+			type: 'text',
+		},
+		{
+			key: ['comments', '', 'email'],
 			title: 'Email',
-			type: 'string',
-			pattern: '^\\S+@\\S+$',
 			description: 'Email will be used for evil.',
+			schema: {
+				title: 'Email',
+				type: 'string',
+				pattern: '^\\S+@\\S+$',
+				description: 'Email will be used for evil.',
+			},
+			type: 'text',
 		},
-		type: 'text',
-	}, {
-		key: ['comments', '', 'comment'],
-		type: 'textarea',
-		rows: 3,
-		title: 'Comment',
-		maxlength: 20,
-		validationMessage: "Don't be greedy!",
-		schema: {
+		{
+			key: ['comments', '', 'comment'],
+			type: 'textarea',
+			rows: 3,
 			title: 'Comment',
-			type: 'string',
-			maxLength: 20,
+			maxlength: 20,
 			validationMessage: "Don't be greedy!",
+			schema: {
+				title: 'Comment',
+				type: 'string',
+				maxLength: 20,
+				validationMessage: "Don't be greedy!",
+			},
 		},
-	}],
+	],
 	title: 'comments',
 	required: true,
 	schema: {
@@ -94,14 +98,14 @@ describe('Array component', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={value}
-			/>
+			/>,
 		);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render array that can\'t be reordered', () => {
+	it("should render array that can't be reordered", () => {
 		// given
 		const nonReorderSchema = {
 			...schema,
@@ -119,7 +123,7 @@ describe('Array component', () => {
 				onFinish={jest.fn()}
 				schema={nonReorderSchema}
 				value={value}
-			/>
+			/>,
 		);
 
 		// then
@@ -142,7 +146,7 @@ describe('Array component', () => {
 					onFinish={onFinish}
 					schema={schema}
 					value={value}
-				/>
+				/>,
 			);
 
 			// when
@@ -152,6 +156,38 @@ describe('Array component', () => {
 			const payload = { schema, value: value.concat({}) };
 			expect(onChange).toBeCalledWith(event, payload);
 			expect(onFinish).toBeCalledWith(event, payload);
+		});
+
+		it('should close all items with closeable item widget', () => {
+			// given
+			const onChange = jest.fn();
+			const onFinish = jest.fn();
+			const event = { target: {} };
+			const wrapper = shallow(
+				<ArrayWidget
+					description={'My array description'}
+					errorMessage={'This array is not correct'}
+					id={'talend-array'}
+					isValid
+					onChange={onChange}
+					onFinish={onFinish}
+					schema={{ ...schema, itemWidget: 'collapsibleFieldset' }}
+					value={value}
+				/>,
+			);
+
+			// when
+			wrapper.instance().onAdd(event);
+
+			// then
+			const newValues = onChange.mock.calls[0][1].value;
+			newValues.forEach((item, index) => {
+				if (index === newValues.length - 1) {
+					expect(item).toEqual({});
+				} else {
+					expect(item.isClosed).toBe(true);
+				}
+			});
 		});
 	});
 
@@ -171,7 +207,7 @@ describe('Array component', () => {
 					onFinish={onFinish}
 					schema={schema}
 					value={value}
-				/>
+				/>,
 			);
 
 			// when
@@ -197,7 +233,7 @@ describe('Array component', () => {
 					onFinish={onFinish}
 					schema={schema}
 					value={value}
-				/>
+				/>,
 			);
 
 			wrapper.instance().onRemove(event, 1);
@@ -238,7 +274,7 @@ describe('Array component', () => {
 					onFinish={onFinish}
 					schema={schema}
 					value={value}
-				/>
+				/>,
 			);
 
 			// when
@@ -264,7 +300,7 @@ describe('Array component', () => {
 					onFinish={onFinish}
 					schema={schema}
 					value={value}
-				/>
+				/>,
 			);
 
 			wrapper.instance().onReorder(event, { previousIndex: 0, nextIndex: 2 });
