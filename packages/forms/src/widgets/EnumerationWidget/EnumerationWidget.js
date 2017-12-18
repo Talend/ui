@@ -33,10 +33,11 @@ For this widget we distinguish 2 modes :
 - Connected mode. All items are passed via props by callee
 There are no computation of items here, all computation is done by the callee application
 
-- Non-connected Mode : The items display is computed on frontend-side
+- Non-connected Mode : 
+Note: The item's index retrieved on event is different than the one in the global state list
+The items display is computed on frontend-side
 Add, Remove, Edit, Submit, Search actions imply a computation on frontend side.
 This is the case for story book for example.
-
 There is a special method isConnectedMode() indicating in what mode we are
 */
 class EnumerationForm extends React.Component {
