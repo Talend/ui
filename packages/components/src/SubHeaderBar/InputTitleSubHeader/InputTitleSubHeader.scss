@@ -65,11 +65,14 @@ $tc-input-subheader-size-small: 1rem !default;
 			}
 
 			&-pencil {
-				color: $gallery;
 				display: inline-flex;
 				align-items: center;
 				padding-left: $padding-small;
 				padding-right: $padding-small;
+
+				&:global(.btn-link) {
+					color: $gallery;
+				}
 			}
 		}
 
