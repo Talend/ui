@@ -76,14 +76,6 @@ export const wrapCustomWidget = Component => {
 		newProps.onChange = (event, payload) => {
 			if (!payload) {
 				onChange({}, { schema: newProps.schema, value: event });
-				if (props.schema.triggers && props.onTrigger) {
-					props.onTrigger({}, {
-						schema: newProps.schema,
-						value: event,
-						propertyName: newProps.schema.key.join('.'),
-						propertyValue: event,
-					});
-				}
 			} else {
 				onChange(event, payload);
 			}
@@ -93,7 +85,6 @@ export const wrapCustomWidget = Component => {
 	TFMigratedWidget.propTypes = {
 		formContext: PropTypes.object,
 		onChange: PropTypes.func,
-		onTrigger: PropTypes.func,
 		schema: PropTypes.object,
 		titleMap: PropTypes.array,
 	};

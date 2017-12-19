@@ -17,6 +17,11 @@ import Text from '../fields/Text';
 import TextArea from '../fields/TextArea';
 import Toggle from '../fields/Toggle';
 
+import Code from '../../widgets/CodeWidget';
+import { wrapCustomWidget } from '../merge';
+
+const WrappedCode = wrapCustomWidget(Code);
+
 const widgets = {
 	// fieldsets
 	array: ArrayWidget,
@@ -36,6 +41,7 @@ const widgets = {
 	submit: Button,
 	text: Text,
 	textarea: TextArea,
+	code: WrappedCode,
 
 	// widgets
 	buttons: Buttons,

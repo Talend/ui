@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import { componentState } from '@talend/react-cmf';
 import ComponentForm from '@talend/react-forms';
-import UIForm from '@talend/react-forms/lib/UIForm/UIForm.component';
 import ArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
-import { wrapCustomWidget } from '@talend/react-forms/lib/UIForm/merge';
 import classnames from 'classnames';
 
 export const DEFAULT_STATE = new Immutable.Map({
@@ -48,9 +46,7 @@ class Form extends React.Component {
 		this.jsonSchema = this.jsonSchema.bind(this);
 		this.uiSchema = this.uiSchema.bind(this);
 		this.data = this.data.bind(this);
-		this.setError = this.setError.bind(this);
 		this.setErrors = this.setErrors.bind(this);
-		this.updateUIForm = this.updateUIForm.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -61,26 +57,21 @@ class Form extends React.Component {
 			if (!nextProps.state) {
 				nextProps.initState();
 			}
-		} else if (nextProps.properties !== this.props.properties) {
-			this.setState({ data: nextProps.properties });
+		} else if (nextProps.data !== this.props.data) {
+			this.props.setState({ data: nextProps.data });
 		}
 	}
 
 	onTrigger(formData, formId, propertyName, propertyValue) {
-		this.props.onTrigger(formData, formId, propertyName, propertyValue);
+		if (this.props.onTrigger) {
+			this.props.onTrigger(formData, formId, propertyName, propertyValue);
+		}
 	}
 
-	onChange(form, uiform) {
-		if (this.props.uiform) {
-			this.props.setState({ data: uiform.formData, dirty: true });
-			if (this.props.onChange) {
-				this.props.onChange(uiform);
-			}
-		} else {
-			this.props.setState({ data: form.formData, dirty: true });
-			if (this.props.onChange) {
-				this.props.onChange(form);
-			}
+	onChange(form) {
+		this.props.setState({ data: form.formData, dirty: true });
+		if (this.props.onChange) {
+			this.props.onChange(form);
 		}
 	}
 
@@ -128,15 +119,6 @@ class Form extends React.Component {
 		return Object.assign({}, this.props.data, state.data);
 	}
 
-	updateUIForm(formName, jsonSchema, uiSchema, properties, errors) {
-		console.log('Form.container updateUIForm TODO');
-	}
-
-	setError(formName, errors) {
-		console.log('Form.container setError TODO', errors);
-		// this.props.setState({ errors });
-	}
-
 	setErrors(formName, errors) {
 		this.props.setState({ errors });
 	}
@@ -162,30 +144,11 @@ class Form extends React.Component {
 			children: this.props.children,
 			...this.props.formProps,
 		};
-		if (this.props.uiform && props.widgets) {
-			Object.keys(props.widgets)
-				.filter(key => props.widgets[key].displayName !== 'TFMigratedWidget')
-				.forEach(key => {
-					props.widgets[key] = wrapCustomWidget(props.widgets[key]);
-				});
-		}
 		if (this.props.uiform) {
-			props.jsonSchema = props.data.jsonSchema;
-			props.uiSchema = props.data.uiSchema;
-			props.properties = props.data.properties;
-			props.moz = true;
-			delete props.data;
-			return (
-				<UIForm
-					{...props}
-					onSubmit={this.onSubmit}
-					onTrigger={this.onTrigger}
-					updateForm={this.updateUIForm}
-					setError={this.setError}
-					setErrors={this.setErrors}
-					errors={state.errors}
-				/>
-			);
+			props.uiform = true;
+			props.onTrigger = this.onTrigger;
+			props.setErrors = this.setErrors;
+			props.errors = state.errors;
 		}
 		return <ComponentForm {...props} />;
 	}

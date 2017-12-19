@@ -49,7 +49,11 @@ export default class UIForm extends React.Component {
 			value,
 		};
 		payload.formData = mutateValue(payload.properties, schema.key, value);
-		this.props.onChange(event, payload);
+		if (this.props.moz) {
+			this.props.onChange(payload);
+		} else {
+			this.props.onChange(event, payload);
+		}
 		// trigger if value is correct
 		if (schema.triggers && schema.triggers.length) {
 			let formData = payload.formData;
@@ -183,8 +187,6 @@ export default class UIForm extends React.Component {
 				this.props.onSubmit(event, properties);
 			}
 		}
-
-
 		return isValid;
 	}
 
