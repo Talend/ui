@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react';
 import { merge } from 'talend-json-schema-form-core';
 import get from 'lodash/get';
 
+import FieldTemplate from './fields/FieldTemplate';
+
 /* eslint-disable no-param-reassign */
 
 function parseArray(items, key) {
@@ -69,7 +71,8 @@ export const wrapCustomWidget = Component => {
 			newProps.options = {
 				enumOptions: props.schema.titleMap.map(item => ({ value: item.value, label: item.name })),
 			};
-		} else if (get(props, 'schema.schema.enum')) {
+		}
+		if (get(props, 'schema.schema.enum')) {
 			newProps.schema.enum = props.schema.schema.enum;
 		}
 		const onChange = props.onChange;
@@ -80,7 +83,14 @@ export const wrapCustomWidget = Component => {
 				onChange(event, payload);
 			}
 		};
-		return <Component {...newProps} />;
+		newProps.required = props.schema.required;
+		newProps.placeholder = props.schema.placeholder;
+		newProps.options = props.schema.options;
+		return (
+			<FieldTemplate label={props.schema.title} >
+				<Component {...newProps} />
+			</FieldTemplate>
+		);
 	}
 	TFMigratedWidget.propTypes = {
 		formContext: PropTypes.object,
@@ -126,6 +136,10 @@ function updateWidgets(items, uiSchema, widgets, prefix) {
 							delete ui.items;
 						}
 					}
+				} else if (configKey === 'ui:placeholder') {
+					ui.placeholder = config['ui:placeholder'];
+				} else if (configKey === 'ui:options') {
+					ui.options = config['ui:options'];
 				} else if (configKey === 'ui:autofocus') {
 					ui.autoFocus = config['ui:autofocus'];
 				} else if (configKey === 'ui:help') {
