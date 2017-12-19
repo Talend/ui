@@ -55,11 +55,11 @@ describe('TitleSubHeader', () => {
 		expect(wrapper.find(Action)).toHaveLength(0);
 		expect(wrapper.find('h1')).toHaveLength(1);
 		expect(wrapper.find('button')).toHaveLength(0);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render with title', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} />);
-		expect(wrapper.find('h1').getNode().props.children).toEqual('myTitle');
+		expect(wrapper.find('h1').getElement().props.children).toEqual('myTitle');
 	});
 	it('should render with subTitle', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />).find(
@@ -73,7 +73,7 @@ describe('TitleSubHeader', () => {
 			<TitleSubHeader {...defaultProps} subTitle="mySubTitle" editable />,
 		).find(Action);
 		expect(wrapper).toHaveLength(1);
-		expect(wrapper.getNode().props.icon).toEqual('talend-pencil');
+		expect(wrapper.getElement().props.icon).toEqual('talend-pencil');
 	});
 });
 
