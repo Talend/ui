@@ -22,11 +22,11 @@ describe('CheckBox field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render disabled input', () => {
@@ -46,11 +46,11 @@ describe('CheckBox field', () => {
 				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onChange on input change', () => {
@@ -65,7 +65,7 @@ describe('CheckBox field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 		const event = { target: { checked: false } };
 
@@ -88,7 +88,7 @@ describe('CheckBox field', () => {
 				onFinish={onFinish}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 		const event = { target: { checked: false } };
 

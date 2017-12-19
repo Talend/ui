@@ -161,8 +161,8 @@ describe('EnumerationWidget', () => {
 
 		// when click on trash icon
 		wrapper
-			.find('.tc-enumeration-header')
 			.find('.btn-link')
+			.at(5)
 			.simulate('click');
 
 		// then

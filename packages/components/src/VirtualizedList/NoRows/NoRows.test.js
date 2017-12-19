@@ -7,6 +7,6 @@ describe('NoRows', () => {
 	it('should show no result', () => {
 		const wrapper = shallow(<NoRows />);
 
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

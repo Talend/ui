@@ -48,7 +48,7 @@ describe('Container DeleteResource', () => {
 			'cancel-action': 'dialog:delete:cancel',
 		};
 		const wrapper = shallow(<Container {...props} />, { context });
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render with wrong resourceInfo params', () => {
 		const props = {
@@ -60,7 +60,7 @@ describe('Container DeleteResource', () => {
 			'cancel-action': 'dialog:delete:cancel',
 		};
 		const wrapper = shallow(<Container {...props} />, { context });
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
