@@ -6,7 +6,7 @@ const webpack = require.main.require('webpack');
 module.exports = storybookBaseConfig => {
 	// remove Uglification plugin to improve build time in CI
 	const uglifyIndex = storybookBaseConfig.plugins.findIndex(
-		element => element instanceof webpack.optimize.UglifyJsPlugin,
+		element => element instanceof webpack.optimize.UglifyJsPlugin
 	);
 	storybookBaseConfig.plugins.splice(uglifyIndex, 1);
 	storybookBaseConfig.module.rules.push(
@@ -57,7 +57,7 @@ module.exports = storybookBaseConfig => {
 					},
 				},
 			],
-		},
+		}
 	);
 
 	return storybookBaseConfig;
