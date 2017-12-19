@@ -13,7 +13,7 @@ export function getComponentState(state, idComponent) {
 }
 
 /**
- * Return the filterInputValue attr from the state of filter id given.
+ * Return the slider value
  * @param {object} state
  * @param {string} idComponent
  */

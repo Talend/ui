@@ -14,7 +14,7 @@ $tc-slider-line-height: 24px;
 		background: transparent;
 		color: $brand-primary;
 		font-size: $tc-slider-font-size;
-		box-shadow: 0 0 0px;
+		box-shadow: 0 0 0;
 	}
 }
 
@@ -24,10 +24,6 @@ $tc-slider-line-height: 24px;
 	:global(.rc-slider-disabled) {
 		background-color: transparent;
 		opacity: 0.4;
-	}
-
-	& label {
-		display: block;
 	}
 
 	&-text-caption {
@@ -47,11 +43,10 @@ $tc-slider-line-height: 24px;
 			height: $tc-slider-line-height;
 			width: $tc-slider-line-height;
 			fill: $gray;
+			&.selected {
+				fill: $brand-primary;
+			}
 		}
-	}
-
-	&-selected {
-		fill: $brand-primary;
 	}
 
 	&-rc-slider {

@@ -40,11 +40,7 @@ function getIcons(icons, value, min, max) {
 				{icons.map((icon, index) => (
 					<Icon
 						name={icon}
-						className={
-							index === position
-								? classnames(theme['tc-slider-icon-selected'], 'tc-slider-icon-selected')
-								: null
-						}
+						className={index === position ? classnames(theme.selected, 'selected') : null}
 						key={index}
 					/>
 				))}
@@ -69,11 +65,7 @@ function getTextCaptions(captionTextStepNumber, captionsFormat, value, min, max)
 		captions.push(max);
 		return (
 			<div className={classnames(theme['tc-slider-text-caption'], 'tc-slider-text-caption')}>
-				{captions.map((caption, index) => (
-					<span key={index} className={classnames(theme.caption, 'caption')}>
-						{captionsFormat(caption)}
-					</span>
-				))}
+				{captions.map((caption, index) => <span key={index}>{captionsFormat(caption)}</span>)}
 			</div>
 		);
 	}
@@ -103,7 +95,7 @@ function getCaption(captionIcons, captionTextStepNumber, captionsFormat, value, 
  * @param {function} captionsFormat the function to format the caption
  */
 function getHandle(captionsFormat) {
-	function handle(props) {
+	function Handle(props) {
 		return (
 			<Tooltip
 				prefixCls="rc-slider-tooltip"
@@ -117,12 +109,12 @@ function getHandle(captionsFormat) {
 		);
 	}
 
-	handle.propTypes = {
+	Handle.propTypes = {
 		value: PropTypes.number.isRequired,
 		index: PropTypes.number.isRequired,
 	};
 
-	return handle;
+	return Handle;
 }
 
 // eslint-disable-next-line react/prefer-stateless-function

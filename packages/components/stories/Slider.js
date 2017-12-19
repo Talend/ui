@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { Slider, IconsProvider } from '../src/';
 
 const icons = [
-	'talend-smiley-rating',
+	'talend-activity',
 	'talend-most-trusted',
 	'talend-network',
 	'talend-streams',
