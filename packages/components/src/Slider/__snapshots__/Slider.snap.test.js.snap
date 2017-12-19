@@ -78,29 +78,19 @@ exports[`Slider component renderers should render Slider with captionTextStepNum
   <div
     className="tc-slider-text-caption"
   >
-    <span
-      className="caption"
-    >
+    <span>
       0%
     </span>
-    <span
-      className="caption"
-    >
+    <span>
       25%
     </span>
-    <span
-      className="caption"
-    >
+    <span>
       50%
     </span>
-    <span
-      className="caption"
-    >
+    <span>
       75%
     </span>
-    <span
-      className="caption"
-    >
+    <span>
       100%
     </span>
   </div>
@@ -155,7 +145,7 @@ exports[`Slider component renderers should render Slider with icons on status 1`
       name="talend-most-trusted"
     />
     <Icon
-      className="tc-slider-icon-selected"
+      className="selected"
       name="talend-network"
     />
     <Icon

@@ -11,6 +11,14 @@ import theme from './Slider.scss';
 const noFormat = value => value;
 
 /**
+ * this function check if we have icons to display
+ * @param {array} icons array if icons to display
+ */
+function isIconsAvailables(icons) {
+	return icons && Array.isArray(icons) && icons.length > 1;
+}
+
+/**
  * This function give the selected icon position if there is more than 1 icon
  * @param {array} icons - array of icons
  * @param {number} value - current value of the slider
@@ -18,7 +26,7 @@ const noFormat = value => value;
  * @param {number} max - maximum value of the slider
  */
 export function getSelectedIconPosition(icons, value, min, max) {
-	if (icons && Array.isArray(icons) && icons.length > 1) {
+	if (isIconsAvailables(icons)) {
 		const interval = (max - min) / (icons.length - 1);
 		return Math.round(value / interval);
 	}
@@ -33,7 +41,7 @@ export function getSelectedIconPosition(icons, value, min, max) {
  * @param {number} max - maximum value of the slider
  */
 function getIcons(icons, value, min, max) {
-	if (icons && Array.isArray(icons) && icons.length > 1) {
+	if (isIconsAvailables(icons)) {
 		const position = getSelectedIconPosition(icons, value, min, max);
 		return (
 			<div className={classnames(theme['tc-slider-icons'], 'tc-slider-icons')}>
@@ -54,11 +62,10 @@ function getIcons(icons, value, min, max) {
  * This function allow to get the text caption
  * @param {number} captionTextStepNumber the number of text captions
  * @param {function} captionsFormat the function to format the caption
- * @param {number} value current value of the slider
  * @param {number} min min value of the slider
  * @param {number} max max value of the slider
  */
-function getTextCaptions(captionTextStepNumber, captionsFormat, value, min, max) {
+function getTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
 	if (captionTextStepNumber > 1) {
 		const interval = (max - min) / (captionTextStepNumber - 1);
 		const captions = range(min, max, interval);
@@ -85,7 +92,7 @@ function getCaption(captionIcons, captionTextStepNumber, captionsFormat, value, 
 	if (captionIcons) {
 		return getIcons(captionIcons, value, min, max);
 	} else if (captionTextStepNumber) {
-		return getTextCaptions(captionTextStepNumber, captionsFormat, value, min, max);
+		return getTextCaptions(captionTextStepNumber, captionsFormat, min, max);
 	}
 	return null;
 }
