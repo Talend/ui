@@ -6,10 +6,7 @@ import { DEFAULT_STATE, DISPLAY_NAME, VALUE_ATTR } from './Slider.container';
  * @param {string} idComponent
  */
 export function getComponentState(state, idComponent) {
-	if (state.cmf.components.hasIn([DISPLAY_NAME, idComponent])) {
-		return state.cmf.components.getIn([DISPLAY_NAME, idComponent]);
-	}
-	return DEFAULT_STATE;
+	return state.cmf.components.getIn([DISPLAY_NAME, idComponent], DEFAULT_STATE);
 }
 
 /**
