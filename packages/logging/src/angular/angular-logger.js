@@ -4,26 +4,25 @@ import getStatePayloadMiddleware from '../api/payloadMiddleware';
 
 const MODULE_NAME = '@talend/error-logger';
 
+function defaultProcessState(state) {
+	return state;
+}
+
 class talendLoggerConfiguration {
-	serverUrl = '';
-	getState = () => {};
 	isInitialized = false;
 
-	setServerUrl(userServerUrl) {
-		this.serverUrl = userServerUrl;
-	}
-
-	setGetState(userGetState) {
-		this.getState = userGetState;
-	}
-
-	init() {
-		if (!this.serverUrl) {
-			console.error('@talend/logging : you need to initiate server URL in talendLogger provider');
+	init({ serverUrl, getState, processState = defaultProcessState }) {
+		if (!serverUrl) {
+			console.error('@talend/logging : you need to initiate server URL in talendLoggerConfiguration');
+			return;
+		} else if (!getState) {
+			console.error('@talend/logging : you need to initiate the state provider in talendLoggerConfiguration');
+			return;
 		}
+
 		initErrorTransformer(
-			this.serverUrl,
-			{ payloadMiddleware: getStatePayloadMiddleware(this.getState) }
+			serverUrl,
+			{ payloadMiddleware: getStatePayloadMiddleware(() => processState(getState())) }
 		);
 		this.isInitialized = true;
 	}
@@ -35,7 +34,7 @@ angular
 	.factory('$exceptionHandler', ['$log', 'talendLoggerConfiguration', ($log, tLoggerConfig) => {
 		return function talendExceptionHandler(exception, cause) {
 			if (!tLoggerConfig.isInitialized) {
-				console.error('Talend error logger is not configured');
+				console.error('@talend/logging : error logger is not configured');
 			} else {
 				TraceKit.report(exception);
 			}

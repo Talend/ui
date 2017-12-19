@@ -35,9 +35,11 @@ app
     .run((talendLoggerConfiguration, state) => {
         'ngInject';
 
-        talendLoggerConfiguration.setServerUrl('http://localhost:8888/error');
-        talendLoggerConfiguration.setGetState(() => removeData(state));
-        talendLoggerConfiguration.init();
+        talendLoggerConfiguration.init({
+            serverUrl: 'http://localhost:8888/error',
+            getState: () => state,
+            processState: state => removeSensitiveData(state),
+        });
     });
 ```
 
