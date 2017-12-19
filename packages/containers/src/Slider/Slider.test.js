@@ -25,45 +25,68 @@ describe('Filter container', () => {
 		).toMatchSnapshot();
 	});
 
-	it('should call dispatchActionCreator method when onAfterChange', () => {
-		const onAfterChangeActionCreator = jest.fn();
-		const onAfterChange = jest.fn();
-		const dispatchActionCreator = jest.fn();
-		const container = new Container({
-			onAfterChangeActionCreator,
-			onAfterChange,
-			dispatchActionCreator,
+	describe('onAfterChange', () => {
+		it('should call dispatchActionCreator method when onAfterChange', () => {
+			const onAfterChangeActionCreator = jest.fn();
+			const dispatchActionCreator = jest.fn();
+			const container = new Container({
+				onAfterChangeActionCreator,
+				dispatchActionCreator,
+			});
+
+			container.onAfterChange(12);
+			expect(dispatchActionCreator).toHaveBeenCalled();
 		});
 
-		container.onAfterChange(12);
-		expect(onAfterChange).toHaveBeenCalled();
-		expect(dispatchActionCreator).toHaveBeenCalled();
-	});
+		it('should call onAfterChange props method when onAfterChange', () => {
+			const onAfterChange = jest.fn();
+			const container = new Container({
+				onAfterChange,
+			});
 
-	it('should not call dispatchActionCreator method when no onAfterChange', () => {
-		const dispatchActionCreator = jest.fn();
-		const container = new Container({ dispatchActionCreator });
-
-		container.onAfterChange(12);
-		expect(dispatchActionCreator).not.toHaveBeenCalled();
-	});
-
-	it('should call dispatchActionCreator method when onChange', () => {
-		const dispatchActionCreator = jest.fn();
-		const onChangeActionCreator = jest.fn();
-		const onChange = jest.fn();
-		const setState = jest.fn();
-		const container = new Container({
-			onChangeActionCreator,
-			onChange,
-			setState,
-			dispatchActionCreator,
+			container.onAfterChange(12);
+			expect(onAfterChange).toHaveBeenCalled();
 		});
 
-		container.onChange(12);
-		expect(dispatchActionCreator).toHaveBeenCalled();
-		expect(onChange).toHaveBeenCalled();
-		expect(setState).toHaveBeenCalled();
+		it('should not call dispatchActionCreator method when no onAfterChange', () => {
+			const dispatchActionCreator = jest.fn();
+			const container = new Container({ dispatchActionCreator });
+
+			container.onAfterChange(12);
+			expect(dispatchActionCreator).not.toHaveBeenCalled();
+		});
+	});
+
+	describe('onChange', () => {
+		let setState;
+
+		beforeEach(() => {
+			setState = jest.fn();
+		});
+
+		it('should call dispatchActionCreator method when onChange', () => {
+			const onChangeActionCreator = jest.fn();
+			const dispatchActionCreator = jest.fn();
+			const container = new Container({
+				setState,
+				onChangeActionCreator,
+				dispatchActionCreator,
+			});
+
+			container.onChange(12);
+			expect(dispatchActionCreator).toHaveBeenCalled();
+		});
+
+		it('should call onChange props method when onChange', () => {
+			const onChange = jest.fn();
+			const container = new Container({
+				onChange,
+				setState,
+			});
+
+			container.onChange(12);
+			expect(onChange).toHaveBeenCalled();
+		});
 	});
 });
 
