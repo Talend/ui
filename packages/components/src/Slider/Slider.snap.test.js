@@ -55,33 +55,6 @@ describe('Slider component', () => {
 	});
 
 	describe('getSelectedIconPosition()', () => {
-		it('should return -1 when no array is given', () => {
-			// given
-			const icons = null;
-			// when
-			const result = getSelectedIconPosition(icons, 22, 0, 100);
-			// then
-			expect(result).toBe(-1);
-		});
-
-		it('should return -1 when empty array is given', () => {
-			// given
-			const icons = [];
-			// when
-			const result = getSelectedIconPosition(icons, 22, 0, 100);
-			// then
-			expect(result).toBe(-1);
-		});
-
-		it('should return -1 when array with one icon is given', () => {
-			// given
-			const icons = [];
-			// when
-			const result = getSelectedIconPosition(icons, 22, 0, 100);
-			// then
-			expect(result).toBe(-1);
-		});
-
 		it('should return the selected position', () => {
 			// given
 			const icons = ['icon1', 'icon2', 'icon3', 'icon4', 'icon5'];

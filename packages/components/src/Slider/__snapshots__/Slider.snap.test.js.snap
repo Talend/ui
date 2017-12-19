@@ -76,7 +76,7 @@ exports[`Slider component renderers should render Slider with captionTextStepNum
     vertical={false}
   />
   <div
-    className="tc-slider-text-caption"
+    className="tc-slider-text-captions"
   >
     <span>
       0%

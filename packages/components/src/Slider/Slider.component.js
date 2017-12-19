@@ -26,11 +26,8 @@ function isIconsAvailables(icons) {
  * @param {number} max - maximum value of the slider
  */
 export function getSelectedIconPosition(icons, value, min, max) {
-	if (isIconsAvailables(icons)) {
-		const interval = (max - min) / (icons.length - 1);
-		return Math.round(value / interval);
-	}
-	return -1;
+	const interval = (max - min) / (icons.length - 1);
+	return Math.round(value / interval);
 }
 
 /**
@@ -44,7 +41,7 @@ function getIcons(icons, value, min, max) {
 	if (isIconsAvailables(icons)) {
 		const position = getSelectedIconPosition(icons, value, min, max);
 		return (
-			<div className={classnames(theme['tc-slider-icons'], 'tc-slider-icons')}>
+			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-icons')}>
 				{icons.map((icon, index) => (
 					<Icon
 						name={icon}
@@ -71,7 +68,7 @@ function getTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
 		const captions = range(min, max, interval);
 		captions.push(max);
 		return (
-			<div className={classnames(theme['tc-slider-text-caption'], 'tc-slider-text-caption')}>
+			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-text-captions')}>
 				{captions.map((caption, index) => <span key={index}>{captionsFormat(caption)}</span>)}
 			</div>
 		);

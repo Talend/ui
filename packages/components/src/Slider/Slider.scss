@@ -25,18 +25,12 @@ $tc-slider-handle-size: 17px;
 		opacity: 0.4;
 	}
 
-	&-text-caption {
+	&-captions {
 		display: flex;
 		justify-content: space-between;
 		margin-top: $padding-small;
 		color: $gray;
 		font-size: $tc-slider-font-size;
-	}
-
-	&-icons {
-		display: flex;
-		justify-content: space-between;
-		margin-top: $padding-small;
 		:global(svg) {
 			height: $tc-slider-line-height;
 			width: $tc-slider-line-height;
