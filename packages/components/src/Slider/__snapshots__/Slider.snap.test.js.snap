@@ -2,11 +2,11 @@
 
 exports[`Slider component renderers should render Slider 1`] = `
 <span
-  className=""
+  className="tc-slider"
 >
   <ComponentEnhancer(undefined)
     activeDotStyle={Object {}}
-    className=""
+    className="tc-slider-rc-slider"
     disabled={false}
     dotStyle={Object {}}
     dots={false}
@@ -41,11 +41,11 @@ exports[`Slider component renderers should render Slider 1`] = `
 
 exports[`Slider component renderers should render Slider with captionTextStepNumber 1`] = `
 <span
-  className=""
+  className="tc-slider"
 >
   <ComponentEnhancer(undefined)
     activeDotStyle={Object {}}
-    className=""
+    className="tc-slider-rc-slider"
     disabled={false}
     dotStyle={Object {}}
     dots={false}
@@ -76,30 +76,30 @@ exports[`Slider component renderers should render Slider with captionTextStepNum
     vertical={false}
   />
   <div
-    className={undefined}
+    className="tc-slider-text-caption"
   >
     <span
-      className={undefined}
+      className="caption"
     >
       0%
     </span>
     <span
-      className={undefined}
+      className="caption"
     >
       25%
     </span>
     <span
-      className={undefined}
+      className="caption"
     >
       50%
     </span>
     <span
-      className={undefined}
+      className="caption"
     >
       75%
     </span>
     <span
-      className={undefined}
+      className="caption"
     >
       100%
     </span>
@@ -109,11 +109,11 @@ exports[`Slider component renderers should render Slider with captionTextStepNum
 
 exports[`Slider component renderers should render Slider with icons on status 1`] = `
 <span
-  className=""
+  className="tc-slider"
 >
   <ComponentEnhancer(undefined)
     activeDotStyle={Object {}}
-    className=""
+    className="tc-slider-rc-slider"
     disabled={false}
     dotStyle={Object {}}
     dots={false}
@@ -144,7 +144,7 @@ exports[`Slider component renderers should render Slider with icons on status 1`
     vertical={false}
   />
   <div
-    className={undefined}
+    className="tc-slider-icons"
   >
     <Icon
       className={null}
@@ -155,7 +155,7 @@ exports[`Slider component renderers should render Slider with icons on status 1`
       name="talend-most-trusted"
     />
     <Icon
-      className={undefined}
+      className="tc-slider-icon-selected"
       name="talend-network"
     />
     <Icon

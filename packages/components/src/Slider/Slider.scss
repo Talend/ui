@@ -18,7 +18,7 @@ $tc-slider-line-height: 24px;
 	}
 }
 
-.tc-slider-container {
+.tc-slider {
 	display: block;
 
 	:global(.rc-slider-disabled) {
@@ -30,21 +30,7 @@ $tc-slider-line-height: 24px;
 		display: block;
 	}
 
-	.informations {
-		display: flex;
-		& svg {
-			height: $tc-slider-line-height;
-			width: $tc-slider-line-height;
-			fill: $brand-primary;
-		}
-
-		.informations-label {
-			margin-left: $padding-small;
-			line-height: $tc-slider-line-height;
-		}
-	}
-
-	.text-caption {
+	&-text-caption {
 		display: flex;
 		justify-content: space-between;
 		margin-top: $padding-small;
@@ -53,7 +39,7 @@ $tc-slider-line-height: 24px;
 		font-weight: 400;
 	}
 
-	.icons {
+	&-icons {
 		display: flex;
 		justify-content: space-between;
 		margin-top: $padding-small;
@@ -62,34 +48,35 @@ $tc-slider-line-height: 24px;
 			width: $tc-slider-line-height;
 			fill: $gray;
 		}
-		.selected {
-			fill: $brand-primary;
+	}
+
+	&-selected {
+		fill: $brand-primary;
+	}
+
+	&-rc-slider {
+		margin-top: $padding-larger;
+
+		:global(.rc-slider-step),
+		:global(.rc-slider-rail),
+		:global(.rc-slider-track) {
+			height: 7px;
 		}
-	}
-}
+		:global(.rc-slider-track) {
+			background-color: $brand-primary;
+		}
+		:global(.rc-slider-handle) {
+			width: 17px;
+			height: 17px;
+			border-color: $alto;
+			box-shadow: $tc-slider-thumb-shadow;
+			background-color: $wild-sand;
 
-.tc-slider {
-	margin-top: $padding-larger;
-
-	:global(.rc-slider-step),
-	:global(.rc-slider-rail),
-	:global(.rc-slider-track) {
-		height: 7px;
-	}
-	:global(.rc-slider-track) {
-		background-color: $brand-primary;
-	}
-	:global(.rc-slider-handle) {
-		width: 17px;
-		height: 17px;
-		border-color: $alto;
-		box-shadow: $tc-slider-thumb-shadow;
-		background-color: $wild-sand;
-
-		&:hover,
-		&:focus {
-			background-color: $white;
-			box-shadow: $tc-slider-thumb-shadow-focused;
+			&:hover,
+			&:focus {
+				background-color: $white;
+				box-shadow: $tc-slider-thumb-shadow-focused;
+			}
 		}
 	}
 }

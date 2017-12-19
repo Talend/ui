@@ -36,9 +36,17 @@ function getIcons(icons, value, min, max) {
 	if (icons && Array.isArray(icons) && icons.length > 1) {
 		const position = getSelectedIconPosition(icons, value, min, max);
 		return (
-			<div className={theme.icons}>
+			<div className={classnames(theme['tc-slider-icons'], 'tc-slider-icons')}>
 				{icons.map((icon, index) => (
-					<Icon name={icon} className={index === position ? theme.selected : null} key={index} />
+					<Icon
+						name={icon}
+						className={
+							index === position
+								? classnames(theme['tc-slider-icon-selected'], 'tc-slider-icon-selected')
+								: null
+						}
+						key={index}
+					/>
 				))}
 			</div>
 		);
@@ -60,9 +68,9 @@ function getTextCaptions(captionTextStepNumber, captionsFormat, value, min, max)
 		const captions = range(min, max, interval);
 		captions.push(max);
 		return (
-			<div className={theme['text-caption']}>
+			<div className={classnames(theme['tc-slider-text-caption'], 'tc-slider-text-caption')}>
 				{captions.map((caption, index) => (
-					<span key={index} className={theme.caption}>
+					<span key={index} className={classnames(theme.caption, 'caption')}>
 						{captionsFormat(caption)}
 					</span>
 				))}
@@ -151,14 +159,14 @@ class Slider extends React.Component {
 		} = this.props;
 		const noValue = value === null || value === undefined;
 		return (
-			<span className={classnames(theme['tc-slider-container'])}>
+			<span className={classnames(theme['tc-slider'], 'tc-slider')}>
 				<RcSlider
 					id={id}
 					value={value}
 					min={min}
 					max={max}
 					handle={noValue ? undefined : this.state.handle}
-					className={theme['tc-slider']}
+					className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
 					{...rest}
 				/>
 				{getCaption(captionIcons, captionTextStepNumber, captionsFormat, value, min, max)}
