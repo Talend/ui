@@ -7,6 +7,7 @@ const MODULE_NAME = '@talend/error-logger';
 class talendLoggerConfiguration {
 	serverUrl = '';
 	getState = () => {};
+	isInitialized = false;
 
 	setServerUrl(userServerUrl) {
 		this.serverUrl = userServerUrl;
@@ -24,6 +25,7 @@ class talendLoggerConfiguration {
 			this.serverUrl,
 			{ payloadMiddleware: getStatePayloadMiddleware(this.getState) }
 		);
+		this.isInitialized = true;
 	}
 }
 
@@ -32,7 +34,11 @@ angular
 	.service('talendLoggerConfiguration', talendLoggerConfiguration)
 	.factory('$exceptionHandler', ['$log', 'talendLoggerConfiguration', ($log, tLoggerConfig) => {
 		return function talendExceptionHandler(exception, cause) {
-			TraceKit.report(exception);
+			if (!tLoggerConfig.isInitialized) {
+				console.error('Talend error logger is not configured');
+			} else {
+				TraceKit.report(exception);
+			}
 			$log.error(exception, cause);
 		};
 	}]);
