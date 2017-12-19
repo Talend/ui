@@ -15,8 +15,11 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
+src/Slider/Slider.scss
+  17:19  warning  No unit allowed for values of 0  zero-unit
+
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
 
-✖ 5 problems (1 error, 4 warnings)
+✖ 6 problems (1 error, 5 warnings)
 
