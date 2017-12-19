@@ -3,7 +3,6 @@ import ActionBarExample from './ExampleActionBar';
 import ActionDropdown from './ExampleActionDropdown';
 import ActionSplitDropdown from './ExampleActionSplitDropdown';
 import ActionsExample from './ExampleActions';
-import AppHeaderBarExample from './ExampleAppHeaderBar';
 import DeleteResource from './ExampleDeleteResource';
 import ConfirmDialogExample from './ExampleConfirmDialog';
 import HeaderBarExample from './ExampleHeaderBar';
@@ -16,6 +15,7 @@ import SidePanelExample from './ExampleSidePanel';
 import SliderExample from './ExampleSlider';
 import FilterBarExample from './ExampleFilterBar';
 import TreeViewExample from './ExampleTreeView';
+import SubHeaderBarExample from './ExampleSubHeaderBar';
 
 export default {
 	ActionExample,
@@ -23,7 +23,6 @@ export default {
 	ActionDropdown,
 	ActionSplitDropdown,
 	ActionsExample,
-	AppHeaderBarExample,
 	ConfirmDialogExample,
 	DeleteResource,
 	FilterBarExample,
@@ -35,5 +34,6 @@ export default {
 	SelectObjectExample,
 	SidePanelExample,
 	SliderExample,
+	SubHeaderBarExample,
 	TreeViewExample,
 };

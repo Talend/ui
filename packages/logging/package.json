@@ -55,7 +55,7 @@
       "!**/__snapshots__/**"
     ],
     "transform": {
-      ".*": "<rootDir>/node_modules/babel-jest"
+      ".*": "<rootDir>/../../node_modules/babel-jest"
     },
     "setupFiles": [
       "./env__tests.js"
@@ -64,5 +64,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.131.0"
+  "version": "0.133.0"
 }

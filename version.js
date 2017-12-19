@@ -129,7 +129,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
 	'jest-in-case': '^1.0.2',
-	'react-storybook-cmf': '^0.1.3',
+	'react-storybook-cmf': '^0.2.0',
 	'react-stub-context': '^0.7.0',
 	rimraf: '^2.6.1',
 	storyshots: '3.2.2',

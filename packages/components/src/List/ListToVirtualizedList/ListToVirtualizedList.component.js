@@ -20,8 +20,13 @@ export function HiddenHeader(props) {
 export function ListToVirtualizedList(props) {
 	const { itemProps, sort, titleProps } = props;
 
-	if (titleProps && !titleProps.actionsKey) {
-		titleProps.actionsKey = 'actions';
+	if (titleProps) {
+		if (!titleProps.actionsKey) {
+			titleProps.actionsKey = 'actions';
+		}
+		if (!titleProps.persistentActionsKey) {
+			titleProps.persistentActionsKey = 'persistentActions';
+		}
 	}
 	// Backward compatibility: find array in object attr:
 	const supposedActions = {};
@@ -97,6 +102,7 @@ ListToVirtualizedList.propTypes = {
 	}),
 	titleProps: PropTypes.shape({
 		actionsKey: PropTypes.string,
+		presistentActionsKey: PropTypes.string,
 		key: PropTypes.string,
 	}),
 	t: PropTypes.func,

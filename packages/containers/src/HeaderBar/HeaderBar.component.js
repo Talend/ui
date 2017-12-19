@@ -1,7 +1,7 @@
 import React from 'react';
 import { cmfConnect } from '@talend/react-cmf';
 import { HeaderBar as PureHeaderBar } from '@talend/react-components';
-import { Action } from '../index';
+import Action from '../Action';
 
 function HeaderBar(props) {
 	const renderers = {

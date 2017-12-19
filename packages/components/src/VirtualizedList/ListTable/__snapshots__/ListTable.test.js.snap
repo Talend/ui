@@ -44,7 +44,7 @@ exports[`ListGrid should render no-rows component 1`] = `
       style={Object {}}
     >
       <div
-        className="ReactVirtualized__Table__headerRow"
+        className="ReactVirtualized__Table__headerRow tc-list-item "
         role="row"
         style={
           Object {
