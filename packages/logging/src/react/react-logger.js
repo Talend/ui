@@ -32,7 +32,10 @@ function injectLogger() {
 	ReactUpdates.injection.injectBatchingStrategy(ReactTryCatchBatchingStrategy);
 }
 
-export default function initReactLogger(logServerUrl, getState) {
-	initErrorTransformer(logServerUrl, { payloadMiddleware: getStatePayloadMiddleware(getState) });
+export default function initReactLogger({ serverUrl, getState, processState = (state => state) }) {
+	initErrorTransformer(
+		serverUrl,
+		{ payloadMiddleware: getStatePayloadMiddleware(() => processState(getState())) }
+	);
 	injectLogger();
 }

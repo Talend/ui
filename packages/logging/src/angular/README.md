@@ -1,6 +1,6 @@
 # Angular error logger
 
-This module register an errorHandler that will send a log to an endpoint.
+This module register an errorHandler that sends a log to an endpoint.
 
 You need to configure 2 info
 * the log server url

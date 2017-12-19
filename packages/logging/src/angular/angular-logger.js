@@ -4,14 +4,10 @@ import getStatePayloadMiddleware from '../api/payloadMiddleware';
 
 const MODULE_NAME = '@talend/error-logger';
 
-function defaultProcessState(state) {
-	return state;
-}
-
 class talendLoggerConfiguration {
 	isInitialized = false;
 
-	init({ serverUrl, getState, processState = defaultProcessState }) {
+	init({ serverUrl, getState, processState = (state => state) }) {
 		if (!serverUrl) {
 			console.error('@talend/logging : you need to initiate server URL in talendLoggerConfiguration');
 			return;
