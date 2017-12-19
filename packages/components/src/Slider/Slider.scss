@@ -49,13 +49,16 @@ $tc-slider-handle-size: 17px;
 		:global(.rc-slider-track) {
 			height: 7px;
 		}
+		:global(.rc-slider-rail) {
+			background-color: $alto;
+		}
 		:global(.rc-slider-track) {
 			background-color: $brand-primary;
 		}
 		:global(.rc-slider-handle) {
 			width: $tc-slider-handle-size;
 			height: $tc-slider-handle-size;
-			border-color: $alto;
+			border: 1px solid $alto;
 			box-shadow: $tc-slider-thumb-shadow;
 			background-color: $wild-sand;
 
