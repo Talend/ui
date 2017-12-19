@@ -73,7 +73,7 @@ describe('ListView field', () => {
 			const wrapper = shallow(<ListView {...props} />);
 
 			// then
-			expect(wrapper.getNode()).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
 		it('should render no items message', () => {
@@ -81,7 +81,12 @@ describe('ListView field', () => {
 			const wrapper = mount(<ListView {...props} schema={noItemsSchema} />);
 
 			// then
-			expect(wrapper.find('.tc-listview').at(0).node).toMatchSnapshot();
+			expect(
+				wrapper
+					.find('.tc-listview')
+					.at(0)
+					.getElement(),
+			).toMatchSnapshot();
 		});
 	});
 
@@ -147,7 +152,7 @@ describe('ListView field', () => {
 				.simulate('click');
 
 			// then
-			// expect(wrapper.find('.tc-listview-header').at(0).node).toMatchSnapshot();
+			// expect(wrapper.find('.tc-listview-header').at(0).getElement()).toMatchSnapshot();
 			const nextHeader = wrapper.find('.tc-listview-header').at(0);
 			expect(nextHeader.find('input').length).toBe(1);
 			expect(nextHeader.text()).toBe('');
@@ -159,6 +164,7 @@ describe('ListView field', () => {
 
 			// when
 			filter(wrapper, 'ia');
+			wrapper.update();
 
 			// then
 			expect(wrapper.find('.tc-listview-item-label').length).toBe(2);
@@ -182,6 +188,7 @@ describe('ListView field', () => {
 
 			// when
 			filter(wrapper, 'lol');
+			wrapper.update();
 
 			// then
 			expect(

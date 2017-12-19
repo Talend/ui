@@ -17,11 +17,10 @@ describe('Connected ActionFile', () => {
 	});
 	it('should render', () => {
 		const context = mock.context();
-		const wrapper = shallow(
-			<ActionFile id="42"actionId="menu:article" extra="foo" />,
-			{ context }
-		);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		const wrapper = shallow(<ActionFile id="42" actionId="menu:article" extra="foo" />, {
+			context,
+		});
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 

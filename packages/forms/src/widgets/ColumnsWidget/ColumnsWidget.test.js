@@ -9,13 +9,8 @@ describe('ColumnsWidget', () => {
 	it('should render', () => {
 		const noop = () => {};
 		const wrapper = shallow(
-			<ColumnsWidget
-				schema={testSchema.jsonSchema}
-				formData={{}}
-				onChange={noop}
-				onBlur={noop}
-			/>
+			<ColumnsWidget schema={testSchema.jsonSchema} formData={{}} onChange={noop} onBlur={noop} />,
 		);
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

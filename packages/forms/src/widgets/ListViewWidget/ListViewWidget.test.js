@@ -5,10 +5,9 @@ import ListViewWidget from './ListViewWidget';
 /* eslint-disable */
 jest.mock(
 	'../../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
-	() => props => (
-		<div id="autoSizer">{props.children({ height: 30, width: 30 })}</div>
-	),
+	() => props => <div id="autoSizer">{props.children({ height: 30, width: 30 })}</div>,
 );
+jest.useFakeTimers();
 /* eslint-enable */
 
 const EMPTY_LIST_MESSAGE = 'This list is empty.';
@@ -39,11 +38,19 @@ function generateProps(values, selected) {
 	};
 }
 
-function simulateSearch(wrp, value) {
-	return new Promise(res => {
-		wrp.find('HeaderListView > input').simulate('change', { target: { value } });
-		setTimeout(res, 401); // because there is a debounce timer
-	});
+function switchToSearchMode(wrapper) {
+	wrapper
+		.find('.tc-listview-header button')
+		.at(0)
+		.simulate('click');
+}
+
+function simulateSearch(wrapper, value) {
+	wrapper
+		.find('.tc-listview-header input')
+		.at(0)
+		.simulate('change', { target: { value } });
+	jest.runAllTimers();
 }
 
 describe('ListViewWidget', () => {
@@ -99,7 +106,7 @@ describe('ListViewWidget', () => {
 			expect(wrapper.find('#my-widget-toggle-all').props().checked).toBe(true);
 		});
 
-		it('should check only filterd items', cb => {
+		it('should check only filtered items', () => {
 			// given
 			const values = ['Azert', 'Bnaze', 'Cvbn', 'Dfgh'];
 			const onChangeHandler = jest.fn();
@@ -109,20 +116,16 @@ describe('ListViewWidget', () => {
 			expect(wrapper.find('Item').length).toBe(4);
 
 			// when
-			wrapper
-				.find('button')
-				.at(0)
-				.simulate('click');
-			simulateSearch(wrapper, 'e')
-				.then(() => {
-					wrapper.find('#my-widget-toggle-all').simulate('change');
-					return simulateSearch(wrapper, '');
-				})
-				.then(() => {
-					const w = wrapper.find('.checkbox input');
-					expect(w.filterWhere(n => n.props().checked).length).toBe(2);
-					cb();
-				});
+			switchToSearchMode(wrapper);
+			simulateSearch(wrapper, 'e');
+			wrapper.update();
+			wrapper.find('#my-widget-toggle-all').simulate('change');
+			simulateSearch(wrapper, '');
+			wrapper.update();
+
+			// then
+			const checkboxes = wrapper.find('.checkbox input');
+			expect(checkboxes.filterWhere(n => n.props().checked).length).toBe(2);
 		});
 	});
 
@@ -149,10 +152,10 @@ describe('ListViewWidget', () => {
 				.simulate('click');
 
 			// then
-			expect(wrapper.find('HeaderListView > input').length).toBe(1);
+			expect(wrapper.find('HeaderListView input').length).toBe(1);
 		});
 
-		it('should filter displayed items', cb => {
+		it('should filter displayed items', () => {
 			// given
 			const values = ['Azert', 'Bnaze', 'Cvbn', 'Dfgh'];
 			const onChangeHandler = jest.fn();
@@ -162,19 +165,15 @@ describe('ListViewWidget', () => {
 			expect(wrapper.find('Item').length).toBe(4);
 
 			// when
-			wrapper
-				.find('button')
-				.at(0)
-				.simulate('click');
+			switchToSearchMode(wrapper);
+			simulateSearch(wrapper, 'e');
+			wrapper.update();
 
-			simulateSearch(wrapper, 'e').then(() => {
-				// then
-				expect(wrapper.find('Item').length).toBe(2);
-				cb();
-			});
+			// then
+			expect(wrapper.find('Item').length).toBe(2);
 		});
 
-		it('should display a message when no results was found', cb => {
+		it('should display a message when no results was found', () => {
 			// given
 			const values = ['A', 'B', 'C', 'D'];
 			const onChangeHandler = jest.fn();
@@ -184,22 +183,18 @@ describe('ListViewWidget', () => {
 			expect(wrapper.find('Item').length).toBe(4);
 
 			// when
-			wrapper
-				.find('button')
-				.at(0)
-				.simulate('click');
+			switchToSearchMode(wrapper);
+			simulateSearch(wrapper, 'E');
+			wrapper.update();
 
-			simulateSearch(wrapper, 'E').then(() => {
-				// then
-				expect(wrapper.find('Item').length).toBe(0);
-				expect(
-					wrapper
-						.find('span')
-						.at(0)
-						.text(),
-				).toBe(NO_RESULT_MESSAGE);
-				cb();
-			});
+			// then
+			expect(wrapper.find('Item').length).toBe(0);
+			expect(
+				wrapper
+					.find('span')
+					.at(0)
+					.text(),
+			).toBe(NO_RESULT_MESSAGE);
 		});
 	});
 

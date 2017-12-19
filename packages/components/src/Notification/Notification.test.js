@@ -90,7 +90,7 @@ describe('Notification', () => {
 			notification: { message: 'foo', type: 'error' },
 		};
 		const wrapper = shallow(<Notification {...props} />);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should call onMouseEnter with the notification when mouseenter', () => {
 		const props = {

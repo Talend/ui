@@ -96,7 +96,7 @@ describe('buildActions', () => {
 describe('SubHeaderBar container', () => {
 	it('should render', () => {
 		const wrapper = shallow(<Container />);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should setState when submit event trigger', () => {
 		const event = {};
