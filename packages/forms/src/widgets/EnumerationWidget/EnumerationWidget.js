@@ -33,7 +33,7 @@ For this widget we distinguish 2 modes :
 - Connected mode. All items are passed via props by callee
 There are no computation of items here, all computation is done by the callee application
 
-- Non-connected Mode : 
+- Non-connected Mode :
 Note: The item's index retrieved on event is different than the one in the global state list
 The items display is computed on frontend-side
 Add, Remove, Edit, Submit, Search actions imply a computation on frontend side.
@@ -244,7 +244,7 @@ class EnumerationForm extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.setState({ items: nextProps.formData });
+		this.setState(prevState => ({ ...prevState, items: nextProps.formData }));
 	}
 
 	onImportAppendClick() {
@@ -444,11 +444,10 @@ class EnumerationForm extends React.Component {
 					this.callActionHandler(
 						ENUMERATION_SEARCH_ACTION,
 						value.value,
-						this.onSearchHandler.bind(this),
+						this.onSearchHandler.bind(this, value.value),
 					)
 				) {
 					this.setState({
-						loadingSearchCriteria: value.value,
 						headerInput: this.loadingInputsActions,
 					});
 				} else {
@@ -474,11 +473,13 @@ class EnumerationForm extends React.Component {
 		});
 	}
 
-	onSearchHandler() {
+	onSearchHandler(value) {
 		this.setState(prevState => ({
 			headerInput: this.searchInputsActions,
-			searchCriteria: prevState.loadingSearchCriteria,
-			loadingSearchCriteria: '',
+			searchCriteria: value,
+			// since onSearchHandler() is processed asynchronously,
+			// the line below is mandatory to refresh the items (highlight them)
+			items: [...prevState.items],
 		}));
 	}
 
