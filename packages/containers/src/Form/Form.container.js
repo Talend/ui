@@ -45,7 +45,6 @@ class Form extends React.Component {
 		this.onChange = this.onChange.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
-		this.onUIFormSubmit = this.onUIFormSubmit.bind(this);
 		this.jsonSchema = this.jsonSchema.bind(this);
 		this.uiSchema = this.uiSchema.bind(this);
 		this.data = this.data.bind(this);
@@ -95,10 +94,6 @@ class Form extends React.Component {
 				formData,
 			});
 		}
-	}
-
-	onUIFormSubmit(event, formData) {
-		this.onSubmit(formData);
 	}
 
 	formActions() {
@@ -178,12 +173,12 @@ class Form extends React.Component {
 			props.jsonSchema = props.data.jsonSchema;
 			props.uiSchema = props.data.uiSchema;
 			props.properties = props.data.properties;
-			props.moz = this.props.moz === undefined ? true : this.props.moz;
+			props.moz = true;
 			delete props.data;
 			return (
 				<UIForm
 					{...props}
-					onSubmit={this.onUIFormSubmit}
+					onSubmit={this.onSubmit}
 					onTrigger={this.onTrigger}
 					updateForm={this.updateUIForm}
 					setError={this.setError}

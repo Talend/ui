@@ -55,9 +55,6 @@ describe('UIForm component', () => {
 			expect(props.onTrigger).not.toBeCalled();
 			expect(props.setErrors).not.toBeCalled();
 		});
-	});
-
-	describe('#onFinish', () => {
 		it('should perform trigger', () => {
 			// given
 			const wrapper = mount(<UIForm {...data} {...props} properties={{ firstname: 'toto' }} />);
@@ -67,20 +64,19 @@ describe('UIForm component', () => {
 			wrapper
 				.find('input')
 				.at(1)
-				.simulate('blur');
+				.simulate('change', { target: { value: 'toto' } });
 
 			// then
-			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
-				formData: { firstname: 'toto' },
-				formName: props.formName,
-				trigger: 'after',
-				schema: mergedSchema[1],
-				properties: { firstname: 'toto' },
-				propertyName: 'firstname',
-				propertyValue: 'toto',
-			});
+			expect(props.onTrigger).toBeCalledWith(
+				{ firstname: 'toto' },
+				props.formName,
+				'firstname',
+				'toto',
+			);
 		});
+	});
 
+	describe('#onFinish', () => {
 		it('should NOT perform trigger when field has errors', () => {
 			// given: required firstname is empty
 			const wrapper = mount(<UIForm {...data} {...props} />);
@@ -124,7 +120,6 @@ describe('UIForm component', () => {
 		it('should call trigger callback', () => {
 			// given
 			const wrapper = mount(<UIForm {...data} {...props} />);
-			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
 			wrapper
@@ -133,63 +128,11 @@ describe('UIForm component', () => {
 				.simulate('click');
 
 			// then
+			console.log(props.onTrigger.mock.calls[0][1]);
 			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
-				formName: props.formName,
 				trigger: 'after',
 				schema: mergedSchema[2],
-				properties: data.properties,
-			});
-		});
-
-		it('should updateForm on trigger success', done => {
-			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
-			const nextData = {
-				jsonSchema: {
-					type: 'object',
-					title: 'User',
-					properties: {
-						name: { type: 'string' },
-					},
-				},
-				uiSchema: ['name'],
-				properties: { name: 'toto' },
-				errors: { name: 'This field is required' },
-			};
-			props.onTrigger.mockReturnValueOnce(Promise.resolve(nextData));
-
-			// when
-			const trigger = wrapper.instance().onTrigger(null, 'after', mergedSchema[2], null);
-
-			// then
-			trigger.then(() => {
-				expect(props.updateForm).toBeCalledWith(
-					props.formName,
-					nextData.jsonSchema,
-					nextData.uiSchema,
-					nextData.properties,
-					nextData.errors,
-				);
-				expect(props.setError).not.toBeCalled();
-				done();
-			});
-		});
-
-		it('should setError after trigger failure', done => {
-			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
-			const triggerErrors = { errors: { check: 'Error while triggeringthe trigger' } };
-			props.onTrigger.mockReturnValueOnce(Promise.reject(triggerErrors));
-
-			// when
-			const trigger = wrapper.instance().onTrigger(null, 'after', mergedSchema[2], null);
-
-			// then
-			trigger.then(() => {
-				expect(props.updateForm).not.toBeCalled();
-				expect(props.setError).toBeCalledWith(props.formName, triggerErrors.errors);
-				done();
-			});
+			}, undefined, undefined);
 		});
 	});
 
