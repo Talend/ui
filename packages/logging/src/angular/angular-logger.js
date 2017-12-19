@@ -4,7 +4,7 @@ import getStatePayloadMiddleware from '../api/payloadMiddleware';
 
 const MODULE_NAME = '@talend/error-logger';
 
-class talendLogger {
+class talendLoggerConfiguration {
 	serverUrl = '';
 	getState = () => {};
 
@@ -29,9 +29,8 @@ class talendLogger {
 
 angular
 	.module(MODULE_NAME, [])
-	.provider('talendLogger', talendLogger)
-	.factory('$exceptionHandler', ['$log', 'talendLogger', ($log, tLogger) => {
-		tLogger.init();
+	.service('talendLoggerConfiguration', talendLoggerConfiguration)
+	.factory('$exceptionHandler', ['$log', 'talendLoggerConfiguration', ($log, tLoggerConfig) => {
 		return function talendExceptionHandler(exception, cause) {
 			TraceKit.report(exception);
 			$log.error(exception, cause);
