@@ -130,7 +130,8 @@ class Datalist extends Component {
 		const previousValue = persist ? value : this.state.previousValue;
 		this.setState({ value, previousValue });
 		if (persist) {
-			const payload = { schema: this.props.schema, value };
+			const enumValue = this.props.schema.titleMap.find(item => item.name);
+			const payload = { schema: this.props.schema, value: enumValue.value };
 			this.props.onChange(event, payload);
 			this.props.onFinish(event, payload);
 		}
@@ -158,7 +159,7 @@ class Datalist extends Component {
 			return;
 		}
 
-		let suggestions = this.props.schema.titleMap.map(item => item.value);
+		let suggestions = this.props.schema.titleMap.map(item => item.name);
 		if (value) {
 			const escapedValue = escapeRegexCharacters(value.trim());
 			const regex = new RegExp(escapedValue, 'i');
