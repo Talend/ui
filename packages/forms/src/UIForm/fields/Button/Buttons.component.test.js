@@ -36,11 +36,12 @@ describe('Buttons field', () => {
 			<Buttons
 				id={'myForm'}
 				onTrigger={jest.fn()}
+				onClick={jest.fn(onClick => onClick && onClick())}
 				schema={schema}
 			/>
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getNode()).toMatchSnapshot();
 	});
 });
