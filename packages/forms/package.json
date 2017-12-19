@@ -36,7 +36,6 @@
     "keycode": "2.1.9",
     "lodash": "4.17.4",
     "prop-types": "15.5.10",
-    "rc-slider": "8.4.1",
     "react-autowhatever": "7.0.0",
     "react-jsonschema-form": "0.42.0",
     "talend-json-schema-form-core": "1.0.2-alpha.2"

@@ -45,7 +45,10 @@ function getIcons(icons, value, min, max) {
 				{icons.map((icon, index) => (
 					<Icon
 						name={icon}
-						className={index === position ? classnames(theme.selected, 'selected') : null}
+						className={classnames(
+							{ [theme.selected]: index === position },
+							{ selected: index === position },
+						)}
 						key={index}
 					/>
 				))}
