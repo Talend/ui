@@ -87,7 +87,7 @@ export const wrapCustomWidget = Component => {
 		newProps.placeholder = props.schema.placeholder;
 		newProps.options = props.schema.options;
 		return (
-			<FieldTemplate label={props.schema.title} >
+			<FieldTemplate label={props.schema.title} id={newProps.id}>
 				<Component {...newProps} />
 			</FieldTemplate>
 		);
