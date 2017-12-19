@@ -26,7 +26,7 @@ function InputTitleSubHeader({ title, iconId, editMode, ...rest }) {
 
 InputTitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
-	editMode: PropTypes.bool.isRequired,
+	editMode: PropTypes.bool,
 	iconId: PropTypes.string,
 };
 
