@@ -10,11 +10,6 @@
 	font-weight: $weight;
 }
 
-@mixin form-icon-color($color) {
-	color: $color;
-	border: 0.2rem solid $color;
-}
-
 $tc-input-subheader-active-color: darken($scooter, 12%) !default;
 $tc-input-subheader-hover-focus-color: $scooter !default;
 $tc-input-subheader-size-large: 2.4rem !default;
@@ -60,14 +55,19 @@ $tc-input-subheader-size-small: 1rem !default;
 				letter-spacing: inherit;
 				line-height: inherit;
 
-				&:focus,
-				&:hover,
-				&:active {
+				&:global(.btn-link) {
 					color: $black;
+
+					&:focus,
+					&:hover,
+					&:active {
+						color: $black;
+					}
 				}
 			}
 
 			&-pencil {
+				color: $gallery;
 				display: inline-flex;
 				align-items: center;
 				padding-left: $padding-small;
@@ -99,7 +99,7 @@ $tc-input-subheader-size-small: 1rem !default;
 			display: flex;
 
 			&-icon {
-				@include form-icon-color($gray);
+				border: 0.2rem solid currentColor;
 				width: $tc-input-subheader-size-large;
 				height: $tc-input-subheader-size-large;
 				display: flex;
@@ -120,15 +120,6 @@ $tc-input-subheader-size-small: 1rem !default;
 						width: $tc-input-subheader-size-small;
 						height: $tc-input-subheader-size-small;
 					}
-				}
-
-				&:focus,
-				&:hover {
-					@include form-icon-color($tc-input-subheader-hover-focus-color);
-				}
-
-				&:active {
-					@include form-icon-color($tc-input-subheader-active-color);
 				}
 			}
 		}

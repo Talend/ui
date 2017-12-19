@@ -24,15 +24,16 @@ $tc-svg-icon-size: $padding-large !default;
 
 			&:global(.btn-link) {
 				color: $tc-subheader-color;
+
+				&:focus,
+				&:hover {
+					color: $tc-subheader-hover-focus-color;
+				}
+				&:active {
+					color: $tc-subheader-active-color;
+				}
 			}
 
-			&:focus,
-			&:hover {
-				color: $tc-subheader-hover-focus-color;
-			}
-			&:active {
-				color: $tc-subheader-active-color;
-			}
 		}
 
 		&-left,
