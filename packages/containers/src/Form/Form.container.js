@@ -57,7 +57,7 @@ class Form extends React.Component {
 			if (!nextProps.state) {
 				nextProps.initState();
 			}
-		} else if (nextProps.data !== this.props.data) {
+		} else if (nextProps.properties !== this.props.properties) {
 			this.props.setState({ data: nextProps.data });
 		}
 	}
