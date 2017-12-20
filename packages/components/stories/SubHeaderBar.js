@@ -31,11 +31,10 @@ const injectedComponentsRight = [
 	{
 		injectedComponent: (
 			<Action
-				label="action2"
+				label="Action2"
 				bsStyle="link"
 				icon="talend-activity"
 				onClick={action('return action2')}
-				hideLabel
 			/>
 		),
 	},

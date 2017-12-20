@@ -10,13 +10,6 @@
 	font-weight: $weight;
 }
 
-@mixin form-icon-color($color) {
-	color: $color;
-	border: 0.2rem solid $color;
-}
-
-$tc-input-subheader-active-color: lighten($scooter, 12%) !default;
-$tc-input-subheader-hover-focus-color: $scooter !default;
 $tc-input-subheader-size-large: 2.4rem !default;
 $tc-input-subheader-size-medium: 1.4rem !default;
 $tc-input-subheader-size-small: 1rem !default;
@@ -60,10 +53,14 @@ $tc-input-subheader-size-small: 1rem !default;
 				letter-spacing: inherit;
 				line-height: inherit;
 
-				&:focus,
-				&:hover,
-				&:active {
+				&:global(.btn-link) {
 					color: $black;
+
+					&:focus,
+					&:hover,
+					&:active {
+						color: $black;
+					}
 				}
 			}
 
@@ -72,12 +69,9 @@ $tc-input-subheader-size-small: 1rem !default;
 				align-items: center;
 				padding-left: $padding-small;
 				padding-right: $padding-small;
-				color: $gallery;
-				&:focus {
-					color: $tc-input-subheader-hover-focus-color;
-				}
-				&:active {
-					color: $tc-input-subheader-active-color;
+
+				&:global(.btn-link) {
+					color: $gallery;
 				}
 			}
 		}
@@ -106,7 +100,7 @@ $tc-input-subheader-size-small: 1rem !default;
 			display: flex;
 
 			&-icon {
-				@include form-icon-color($gray);
+				border: 0.2rem solid currentColor;
 				width: $tc-input-subheader-size-large;
 				height: $tc-input-subheader-size-large;
 				display: flex;
@@ -127,15 +121,6 @@ $tc-input-subheader-size-small: 1rem !default;
 						width: $tc-input-subheader-size-small;
 						height: $tc-input-subheader-size-small;
 					}
-				}
-
-				&:focus,
-				&:hover {
-					@include form-icon-color($tc-input-subheader-hover-focus-color);
-				}
-
-				&:active {
-					@include form-icon-color($tc-input-subheader-active-color);
 				}
 			}
 		}
