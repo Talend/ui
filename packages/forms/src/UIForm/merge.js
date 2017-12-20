@@ -194,23 +194,12 @@ function updateWidgets(items, uiSchema, widgets, prefix) {
 export function migrate(jsonSchema, uiSchema) {
 	const safeUISchema = parseProperties(jsonSchema, true);
 	const widgets = {};
-	if (!uiSchema || uiSchema === {}) {
+	if (!uiSchema) {
 		return { jsonSchema, uiSchema: safeUISchema };
 	} else if (!Array.isArray(uiSchema) && typeof uiSchema === 'object') {
 		if (uiSchema['ui:order']) {
-			safeUISchema[0].items.sort((left, right) => {
-				const leftOrderIndex = uiSchema['ui:order'].indexOf(left.key);
-				const righttOrderIndex = uiSchema['ui:order'].indexOf(right.key);
-				if (leftOrderIndex < righttOrderIndex) {
-					return -1;
-				}
-				if (leftOrderIndex > righttOrderIndex) {
-					return 1;
-				}
-				return 0;
-			});
+			safeUISchema[0].items.sort((left, right) => uiSchema['ui:order'].indexOf(left.key) - uiSchema['ui:order'].indexOf(right.key));
 		}
-
 		safeUISchema[0].items = updateWidgets(safeUISchema[0].items, uiSchema, widgets);
 		return {
 			jsonSchema,
