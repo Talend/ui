@@ -39,17 +39,6 @@ describe('SelectDisplayMode', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	it('should render with displayMode = tile', () => {
-		// when
-		const wrapper = renderer.create(
-			<SelectDisplayMode mode="tile" {...requiredProps} />
-		).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-
 	it('should render id if provided', () => {
 		// when
 		const wrapper = renderer.create(

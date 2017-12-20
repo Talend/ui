@@ -12,8 +12,6 @@ function getIcon(selected) {
 			return 'talend-table';
 		case 'large':
 			return 'talend-expanded';
-		case 'tile':
-			return 'talend-tiles';
 		default:
 			return 'talend-table';
 	}
@@ -25,14 +23,12 @@ function getLabel(selected, t) {
 			return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
 		case 'large':
 			return t('LIST_SELECT_DISPLAY_MODE_LARGE', { defaultValue: 'Expanded' });
-		case 'tile':
-			return t('LIST_SELECT_DISPLAY_MODE_TILE', { defaultValue: 'Tile' });
 		default:
 			return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
 	}
 }
 
-const options = ['table', 'large', 'tile'];
+const options = ['table', 'large'];
 
 function SelectDisplayMode({ id, mode, displayModes, onChange, t }) {
 	const selected = mode || 'table';
