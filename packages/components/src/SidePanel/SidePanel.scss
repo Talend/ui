@@ -5,10 +5,15 @@
 
 $list-item-hover-color: rgba($white, 0.12) !default;
 $list-item-active-color: rgba($white, 0.25) !default;
+$list-item-reverse-hover-color: rgba($white, 0.5) !default;
 $toggle-button-opacity: 0.75;
+$tc-side-panel-large-padding: 25px !default;
 $tc-side-panel-width: 200px !default;
+$tc-side-panel-large-width: 250px !default;
 $tc-side-panel-docked-width: 50px !default;
 $tc-side-panel-labels-width: 135px !default;
+$tc-side-panel-large-labels-width: 165px !default;
+$tc-side-panel-large-docked-width: 70px !default;
 $tc-side-panel-icons-size: 20px !default;
 $toggle-button-padding: $padding-small - 1;
 
@@ -22,10 +27,94 @@ $toggle-button-padding: $padding-small - 1;
 		width: $tc-side-panel-width;
 	}
 
-	:global(.btn) svg:global(.tc-svg-icon) {
-		width: $tc-side-panel-icons-size;
-		height: $tc-side-panel-icons-size;
-		margin: 0;
+	&-list {
+		border-right: 2px solid $alto;
+		background-color: $wild-sand;
+
+		.tc-side-panel-list-item.active {
+			background-color: $white;
+			color: $brand-primary;
+			&:hover {
+				:global(.tc-svg-icon) {
+					color: $brand-primary;
+				}
+			}
+			.link {
+				font-weight: bold;
+			}
+		}
+
+		.tc-side-panel-list-item:hover {
+			background-color: $list-item-reverse-hover-color;
+			color: $dove-gray;
+			:global(.tc-svg-icon) {
+				color: $silver;
+			}
+		}
+
+		&.nav-inverse {
+			border-right: none;
+			background-color: $brand-primary;
+
+			.tc-side-panel-list-item:hover,
+			.tc-side-panel-list-item.active {
+				color: $white;
+				:global(.tc-svg-icon) {
+					color: $white;
+				}
+			}
+			.tc-side-panel-list-item:hover {
+				background-color: $list-item-hover-color;
+			}
+
+			.tc-side-panel-list-item.active {
+				background-color: $list-item-active-color;
+			}
+
+			.toggle-btn {
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+	}
+
+	&.large {
+		width: $tc-side-panel-large-width;
+		> ul {
+			width: $tc-side-panel-large-width;
+		}
+
+		.link {
+			:global(.tc-svg-icon) + span {
+				margin-left: $tc-side-panel-large-padding;
+			}
+		}
+
+		:global(.btn.btn-link) > span {
+			width: $tc-side-panel-large-labels-width;
+		}
+
+		&.docked {
+			width: $tc-side-panel-large-docked-width;
+
+			.tc-side-panel-list-item {
+				width: $tc-side-panel-large-docked-width;
+			}
+
+			.nav-pills {
+				.link {
+					padding: $padding-normal $tc-side-panel-large-padding;
+				}
+			}
+
+			.toggle-btn {
+				padding-left: 4px;
+				.link {
+					padding: $padding-small $tc-side-panel-large-padding;
+				}
+			}
+		}
 	}
 
 	.link {
@@ -39,61 +128,32 @@ $toggle-button-padding: $padding-small - 1;
 		}
 	}
 
-	//override nav-pill a bit
-	:global(.nav-pills .btn.btn-link) {
-		padding: $padding-normal $padding-large;
+	:global(.btn) svg:global(.tc-svg-icon) {
+		width: $tc-side-panel-icons-size;
+		height: $tc-side-panel-icons-size;
+		margin: 0;
+	}
+
+	:global(.btn.btn-link) {
+		padding: $padding-normal;
 		text-overflow: inherit;
 	}
 
-	:global(.nav-pills .btn.btn-link) > span {
+	:global(.btn.btn-link) > span {
 		vertical-align: middle;
 		text-overflow: ellipsis;
 		width: $tc-side-panel-labels-width;
 		overflow: hidden;
 	}
 
-	:global(.nav-inverse) {
-		:global(.tc-side-panel-list-item):hover {
-			background-color: $list-item-hover-color;
-			color: $white;
-		}
-
-		:global(.tc-side-panel-list-item.active) {
-			background-color: $list-item-active-color;
-			color: $white;
-		}
-	}
-
-	:global(.tc-side-panel-list) {
-		border-right: 1px solid $alto;
-		&.nav-inverse {
-			border-right: none;
-		}
-	}
-
-	:global(.tc-side-panel-list-item):hover {
-		background-color: $white;
-		color: $brand-primary;
-	}
-
-	:global(.tc-side-panel-list-item.active) {
-		background-color: $white;
-		color: $brand-primary;
-		.btn.btn-link {
-			font-weight: bold;
-		}
-	}
-
 	&.docked {
 		width: $tc-side-panel-docked-width;
 
-		:global(.tc-side-panel-list-item) {
+		.tc-side-panel-list-item {
 			width: $tc-side-panel-docked-width;
 		}
-
-		:global(.nav-pills) {
-			//override nav-pill a bit
-			:global(.btn.btn-link) {
+		.nav-pills {
+			.link {
 				padding: $padding-normal;
 			}
 
@@ -105,7 +165,7 @@ $toggle-button-padding: $padding-small - 1;
 		}
 
 		.toggle-btn {
-			:global(.btn.btn-link) {
+			.link {
 				padding: $padding-small;
 			}
 		}
@@ -142,6 +202,7 @@ $toggle-button-padding: $padding-small - 1;
 
 		&:hover {
 			background-color: transparent;
+			color: $silver-chalice;
 		}
 	}
 }

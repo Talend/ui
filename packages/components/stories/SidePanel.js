@@ -100,6 +100,26 @@ stories
 			tooltipPlacement="top"
 		/>
 	))
+	.addWithInfo('with large inverted style', () => (
+		<SidePanel
+			actions={items}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			selected={items[1]}
+			reverse
+			large
+			tooltipPlacement="top"
+		/>
+	))
+	.addWithInfo('large docked', () => (
+		<SidePanel
+			actions={actions}
+			onToggleDock={action('Toggle dock clicked')}
+			docked
+			large
+			tooltipPlacement="top"
+		/>
+	))
 	.addWithInfo('With layout (toggle interactive)', () => {
 		class WithLayout extends React.Component {
 			constructor() {
