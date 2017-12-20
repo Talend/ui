@@ -8,7 +8,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:10  error  'ActionSplitDropdown' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
-  90:2  error  formActions should be placed after setErrors  react/sort-comp
+  90:2  error  jsonSchema should be placed after setErrors  react/sort-comp
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   12:90  error  'notifications' is missing in props validation  react/prop-types
