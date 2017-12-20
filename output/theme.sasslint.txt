@@ -1,0 +1,32 @@
+
+> @talend/bootstrap-theme@0.134.0 lint:style /home/travis/build/Talend/ui/packages/theme
+> sass-lint -q -v
+
+
+src/theme/_buttons.scss
+  14:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
+
+src/theme/_dropdowns.scss
+  22:22  error  !important not allowed  no-important
+
+src/theme/_forms.scss
+   28:11  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   29:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   46:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   47:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   95:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  110:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  280:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  296:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  317:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  340:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  420:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+
+src/theme/_tables.scss
+  21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
+  23:29  error    !important not allowed              no-important
+  29:26  error    !important not allowed              no-important
+  34:25  error    !important not allowed              no-important
+
+✖ 17 problems (14 errors, 3 warnings)
+
