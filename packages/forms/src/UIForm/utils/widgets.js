@@ -41,11 +41,11 @@ const widgets = {
 	submit: Button,
 	text: Text,
 	textarea: TextArea,
-	code: WrappedCode,
 
 	// widgets
 	buttons: Buttons,
 	checkboxes: CheckBoxes,
+	code: WrappedCode,
 	datalist: Datalist,
 	keyValue: KeyValue,
 	listView: ListView,
