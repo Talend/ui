@@ -127,6 +127,6 @@ describe('Widget component', () => {
 		const wrapper = shallow(<Widget schema={hidden} />);
 
 		// then
-		expect(wrapper.getNode()).toBe(null);
+		expect(wrapper.getElement()).toBe(null);
 	});
 });

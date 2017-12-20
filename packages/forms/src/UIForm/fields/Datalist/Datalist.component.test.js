@@ -58,7 +58,7 @@ describe('Datalist component', () => {
 		wrapper
 			.find('input')
 			.at(0)
-			.simulate('change', { target: { value: 'fo' } });
+			.simulate('change', { target: { value: 'foo' } });
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual(['foo', 'foobar']);
@@ -87,7 +87,7 @@ describe('Datalist component', () => {
 		input.simulate('blur');
 
 		// then
-		const payload = { schema, value: 'fo' };
+		const payload = { schema, value: 'foo' };
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 		expect(onFinish).toBeCalledWith(expect.anything(), payload);
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
@@ -196,7 +196,7 @@ describe('Datalist component', () => {
 		input.simulate('keydown', { which: keycode.codes.enter });
 
 		// then
-		const payload = { schema, value: 'fo' };
+		const payload = { schema, value: 'foo' };
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 		expect(onFinish).toBeCalledWith(expect.anything(), payload);
 	});

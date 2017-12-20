@@ -143,7 +143,7 @@ describe('wrapCustomWidget', () => {
 		const Wrapper = wrapCustomWidget(component);
 		const wrapper = shallow(<Wrapper onChange={onChange} schema={{ triggers: ['after'] }} />);
 		wrapper.simulate('change', { foo: 'bar' });
-		expect(onChange.mock.calls[0]).toEqual([{}, { schema: { triggers: ['after' ]}, value: { foo: 'bar' } }]);
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), { schema: { triggers: ['after'] }, value: { foo: 'bar' } });
 	});
 });
 
