@@ -50,6 +50,6 @@ describe('CellActions', () => {
 		const wrapper = shallow(<CellActions cellData={actions} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

@@ -115,14 +115,38 @@ public class Item extends Component {
      * @param actionId The item action id
      */
     public void clickOnAction(final String actionId) {
+        clickOnCellAction(null, actionId);
+    }
+
+    /**
+     * Move the mouse to the action of a column and click
+     * The column is identified by its column key
+     * The item action is identified by its id.
+     *
+     * @param columnKey The columnKey
+     * @param actionId The item action id
+     */
+    public void clickOnCellAction(final String columnKey, final String actionId) {
+        WebElement button;
+        By actionSelector;
+
+        // when columnKey is not provided, we want to click on a row action, located in title cell
+        if (columnKey == null) {
+            button = this.getAction(actionId);
+            actionSelector = getActionSelector(actionId);
+        } else {
+            button = this.getCell(columnKey).getAction(actionId);
+            actionSelector = By.cssSelector(String.format("button[id=%s]", actionId));
+        }
+
         new Actions(driver)
                 .moveToElement(this.getElement())
-                .moveToElement(this.getAction(actionId))
+                .moveToElement(button)
                 .build()
                 .perform();
 
         wait
-                .until(elementToBeClickable(getActionSelector(actionId)))
+                .until(elementToBeClickable(actionSelector))
                 .click();
     }
 }

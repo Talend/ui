@@ -18,6 +18,10 @@ const schema = {
 				type: 'string',
 				title: 'Label',
 			},
+			id: {
+				type: 'integer',
+				title: 'ID',
+			},
 			author: {
 				type: 'string',
 				title: 'Author',
@@ -27,6 +31,9 @@ const schema = {
 				title: 'Created',
 			},
 		},
+	},
+	uiSchema: {
+		'ui:order': ['label', 'id', 'author', 'created'],
 	},
 };
 

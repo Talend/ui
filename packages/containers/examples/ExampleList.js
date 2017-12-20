@@ -44,6 +44,16 @@ const props = {
 	toolbar,
 };
 
+const customHeight = {
+	tile: undefined,
+	large: 200,
+	table: 100,
+};
+
+export const defaultListState = new Immutable.Map({
+	displayMode: 'large',
+});
+
 const items = Immutable.fromJS([
 	{
 		id: 'id1',
@@ -91,11 +101,11 @@ const ExampleList = {
 			</div>
 		</div>
 	),
-	virtualized: () => (
+	CustomHeight: () => (
 		<div>
 			<IconsProvider />
 			<div className="list-container">
-				<List {...props} items={items} virtualized />
+				<List {...props} items={items} rowHeight={customHeight} initialState={defaultListState} virtualized />
 			</div>
 		</div>
 	),

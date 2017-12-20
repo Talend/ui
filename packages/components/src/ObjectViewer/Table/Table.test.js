@@ -16,7 +16,7 @@ describe('Table', () => {
 		// When
 		const wrapper = shallow(<Table data={data} flat />);
 		// Then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render if data is empty', () => {
 		// Given
@@ -24,7 +24,7 @@ describe('Table', () => {
 		// When
 		const wrapper = shallow(<Table data={data} flat />);
 		// Then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render Table with props data as an object', () => {
 		// Given
@@ -37,7 +37,7 @@ describe('Table', () => {
 		// When
 		const wrapper = shallow(<Table data={data} flat />);
 		// Then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render Table with props data as an array', () => {
 		// Given
@@ -45,7 +45,7 @@ describe('Table', () => {
 		// When
 		const wrapper = shallow(<Table data={data} flat />);
 		// Then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
