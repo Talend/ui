@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 import { Icon, IconsProvider } from '@talend/react-components';
 
@@ -62,23 +63,29 @@ function ArrayFieldTemplate(props) {
 	const { items, canAdd, onAddClick, minItems, maxItems } = props;
 	const addBtnClass = classNames(theme.addBtn, 'btn', 'btn-info');
 	return (
-		<div className={theme.ArrayFieldTemplate}>
-			<IconsProvider />
-			{canAdd &&
-				<button
-					className={addBtnClass}
-					type="button"
-					name="btn-new-element"
-					disabled={items.length >= maxItems}
-					onClick={onAddClick}
-				>
-					{`NEW ${props.type}`}
-				</button>}
-			{items &&
-				items.map(element =>
-					<FieldTemplate element={element} cantDelete={items.length <= minItems} />
-				)}
-		</div>
+		<StickyContainer>
+			<div className={theme.ArrayFieldTemplate}>
+				<IconsProvider />
+				{canAdd &&
+					<Sticky>
+						{({ style }) => <div style={style}><button
+							className={addBtnClass}
+							type="button"
+							name="btn-new-element"
+							disabled={items.length >= maxItems}
+							onClick={onAddClick}
+						>
+							{`NEW ${props.type}`}
+						</button>
+						</div>}
+					</Sticky>
+				}
+				{items &&
+					items.map(element =>
+						<FieldTemplate element={element} cantDelete={items.length <= minItems} />
+					)}
+			</div>
+		</StickyContainer>
 	);
 }
 if (process.env.NODE_ENV !== 'production') {
