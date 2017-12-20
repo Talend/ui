@@ -5,14 +5,9 @@ import classNames from 'classnames';
 
 export default function SingleButton({ className, id, onTrigger, onClick, schema }) {
 	const {
-		bsStyle,
-		disabled = false,
-		inProgress,
-		label,
-		name,
 		triggers,
-		model,
 		type = 'button',
+		...props
 	} = schema;
 
 	let localOnClick;
@@ -25,15 +20,10 @@ export default function SingleButton({ className, id, onTrigger, onClick, schema
 	return (
 		<Action
 			id={id}
-			bsStyle={bsStyle}
 			className={classNames('btn', className)}
-			disabled={disabled}
-			inProgress={inProgress}
-			label={label}
-			name={name}
 			onClick={localOnClick}
 			type={type}
-			model={model}
+			{...props}
 		/>
 	);
 }

@@ -38,6 +38,7 @@ describe('Buttons field', () => {
 				onTrigger={jest.fn()}
 				onClick={jest.fn(onClick => onClick && onClick())}
 				schema={schema}
+				className="extra"
 			/>,
 		);
 

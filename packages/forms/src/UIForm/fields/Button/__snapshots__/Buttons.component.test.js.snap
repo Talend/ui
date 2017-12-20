@@ -2,7 +2,7 @@
 
 exports[`Buttons field should render buttons 1`] = `
 <div
-  className="tf-buttons"
+  className="tf-buttons extra"
 >
   <SingleButton
     className={undefined}
