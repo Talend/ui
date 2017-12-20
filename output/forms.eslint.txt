@@ -13,10 +13,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/merge.js
-  11:10  error  'parseProperties' was used before it was defined        no-use-before-define
-  13:10  error  'getUISchemaFromObject' was used before it was defined  no-use-before-define
-  30:14  error  'parseProperties' was used before it was defined        no-use-before-define
-
-✖ 6 problems (6 errors, 0 warnings)
+✖ 3 problems (3 errors, 0 warnings)
 
