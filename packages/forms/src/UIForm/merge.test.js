@@ -5,12 +5,12 @@ import merge, { migrate, wrapCustomWidget } from './merge';
 /* eslint-disable react/prop-types */
 
 const SIMPLE_STORY = require('../../stories/json/simple.json');
-const SIMPLE_STORY_EXPECTED = require('./merge.test/simple.json');
-const SIMPLE_STORY_MERGED_EXPECTED = require('./merge.test/simple-merged.json');
+const SIMPLE_STORY_EXPECTED = require('./__snapshots__/simple.json');
+const SIMPLE_STORY_MERGED_EXPECTED = require('./__snapshots__/simple-merged.json');
 const ORDERING_STORY = require('../../stories/json/ordering.json');
-const ORDERING_STORY_EXPECTED = require('./merge.test/ordering.json');
+const ORDERING_STORY_EXPECTED = require('./__snapshots__/ordering.json');
 const WIDGETS_STORY = require('../../stories/json/widgets.json');
-const WIDGETS_STORY_EXPECTED = require('./merge.test/widgets.json');
+const WIDGETS_STORY_EXPECTED = require('./__snapshots__/widgets.json');
 
 describe('migrate', () => {
 	it('should do nothing if the uischema is an array', () => {
