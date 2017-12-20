@@ -4,11 +4,7 @@ import { Action } from '@talend/react-components';
 import classNames from 'classnames';
 
 export default function SingleButton({ className, id, onTrigger, onClick, schema }) {
-	const {
-		triggers,
-		type = 'button',
-		...props
-	} = schema;
+	const { triggers, type = 'button', ...props } = schema;
 
 	let localOnClick;
 	if (type === 'button' && triggers) {
