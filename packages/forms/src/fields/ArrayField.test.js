@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ArrayField, {} from './ArrayField';
+import ArrayField from './ArrayField';
 
 describe('ArrayField', () => {
 	it('should render hidden array', () => {
@@ -11,9 +11,7 @@ describe('ArrayField', () => {
 			},
 		};
 		const uiSchema = { 'ui:widget': 'hidden' };
-		const wrapper = shallow(
-			<ArrayField schema={schema} uiSchema={uiSchema} />
-		);
-		expect(wrapper.root.node).toBe(null);
+		const wrapper = shallow(<ArrayField schema={schema} uiSchema={uiSchema} />);
+		expect(wrapper.getElement()).toBe(null);
 	});
 });

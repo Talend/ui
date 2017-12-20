@@ -78,7 +78,6 @@ import {
 } from './Actions';
 import ActionBar from './ActionBar';
 import Notification from './Notification';
-import AppHeaderBar from './AppHeaderBar';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
 import TalendBadge from './Badge';
@@ -98,10 +97,13 @@ import IconsProvider from './IconsProvider';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
 import List from './List';
+import Loader from './Loader';
 import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import SidePanel from './SidePanel';
+import Slider from './Slider';
 import Status from './Status';
+import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
@@ -118,7 +120,6 @@ export {
 	ActionDropdown,
 	ActionSplitDropdown,
 	Actions,
-	AppHeaderBar,
 	HeaderBar,
 	HttpError,
 	Breadcrumbs,
@@ -180,6 +181,7 @@ export {
 	Label,
 	ListGroup,
 	ListGroupItem,
+	Loader,
 	Media,
 	MenuItem,
 	Modal,
@@ -206,7 +208,9 @@ export {
 	ResponsiveEmbed,
 	Row,
 	SafeAnchor,
+	Slider,
 	SplitButton,
+	SubHeaderBar,
 	Tab,
 	TabContainer,
 	TabContent,

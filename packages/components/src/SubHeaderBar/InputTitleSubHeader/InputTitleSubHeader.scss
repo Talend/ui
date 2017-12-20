@@ -1,0 +1,132 @@
+@mixin ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+@mixin input-text($weight) {
+	color: $black;
+	font-size: $tc-input-subheader-size-medium;
+	font-weight: $weight;
+}
+
+$tc-input-subheader-size-large: 2.4rem !default;
+$tc-input-subheader-size-medium: 1.4rem !default;
+$tc-input-subheader-size-small: 1rem !default;
+
+.tc-subheader-details {
+	display: flex;
+	margin: 0;
+	height: 100%;
+	width: 45rem;
+
+	&-icon {
+		align-self: center;
+		width: $tc-input-subheader-size-large;
+		height: $tc-input-subheader-size-large;
+		color: $brand-primary;
+		margin-left: $padding-large;
+	}
+
+	& &-text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding-left: $padding-large;
+		overflow: hidden;
+		flex: 1;
+
+		&-title {
+			display: inline-flex;
+			align-items: center;
+
+			&-wording,
+			&-wording-button {
+				@include input-text(800);
+				@include ellipsis;
+				text-transform: uppercase;
+				margin: 0;
+			}
+
+			&-wording-button {
+				padding: 0;
+				letter-spacing: inherit;
+				line-height: inherit;
+
+				&:global(.btn-link) {
+					color: $black;
+
+					&:focus,
+					&:hover,
+					&:active {
+						color: $black;
+					}
+				}
+			}
+
+			&-pencil {
+				display: inline-flex;
+				align-items: center;
+				padding-left: $padding-small;
+				padding-right: $padding-small;
+
+				&:global(.btn-link) {
+					color: $gallery;
+				}
+			}
+		}
+
+		&-subtitle {
+			@include ellipsis;
+			color: $dark-silver;
+			font-size: $tc-input-subheader-size-medium;
+			font-weight: 300;
+		}
+	}
+	& &-form {
+		display: flex;
+		align-items: center;
+		padding-left: $padding-large;
+
+		& .tc-subheader-details-form-input {
+			@include input-text(400);
+			width: 18rem;
+			&::selection {
+				background: lighten($scooter, 25%);
+			}
+		}
+
+		&-buttons {
+			display: flex;
+
+			&-icon {
+				border: 0.2rem solid currentColor;
+				width: $tc-input-subheader-size-large;
+				height: $tc-input-subheader-size-large;
+				display: flex;
+				border-radius: 50%;
+				padding: 0;
+				margin-left: $padding-large;
+				justify-content: center;
+
+				> svg {
+					width: $tc-input-subheader-size-medium;
+					height: $tc-input-subheader-size-medium;
+				}
+
+				&:last-child {
+					margin-left: $padding-small;
+
+					> svg {
+						width: $tc-input-subheader-size-small;
+						height: $tc-input-subheader-size-small;
+					}
+				}
+			}
+		}
+
+		:global(.form-group) {
+			padding-top: 0;
+		}
+	}
+}

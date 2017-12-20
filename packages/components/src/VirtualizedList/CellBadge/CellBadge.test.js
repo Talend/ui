@@ -17,6 +17,6 @@ describe('CellActions', () => {
 		);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

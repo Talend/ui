@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@talend/react-cmf@^0.121.0":
-  version "0.121.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.121.0.tgz#40d3892ba44727a091b90c622f78c0d11f932210"
+"@talend/react-cmf@^0.132.0":
+  version "0.132.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf/-/react-cmf-0.132.0.tgz#2cc0cf7ff2a1a635531d7f716a0c313df04b4b7a"
   dependencies:
     babel-polyfill "6.26.0"
     hoist-non-react-statics "^1.2.0"
@@ -3087,7 +3087,7 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^15.6.1:
+react-dom@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.2.tgz#41cfadf693b757faf2708443a1d1fd5a02bef730"
   dependencies:
@@ -3124,7 +3124,7 @@ react-router@3.0.5:
     prop-types "^15.5.6"
     warning "^3.0.0"
 
-react@^15.6.1:
+react@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.2.tgz#dba0434ab439cfe82f108f0f511663908179aa72"
   dependencies:

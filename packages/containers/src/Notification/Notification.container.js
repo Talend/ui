@@ -14,6 +14,7 @@ function Notification(props) {
 		<Component
 			leaveFn={i => props.deleteNotification(i)}
 			notifications={state.notifications}
+			autoLeaveError={props.autoLeaveError}
 		/>
 	);
 }
@@ -21,6 +22,7 @@ function Notification(props) {
 Notification.displayName = 'Container(Notification)';
 Notification.propTypes = {
 	deleteNotification: PropTypes.func,
+	autoLeaveError: PropTypes.bool,
 	...componentState.propTypes,
 };
 

@@ -21,10 +21,10 @@ describe('Button field', () => {
 				errorMessage={'This is wrong'}
 				onTrigger={jest.fn()}
 				schema={schema}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

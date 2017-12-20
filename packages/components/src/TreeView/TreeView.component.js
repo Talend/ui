@@ -82,7 +82,7 @@ function TreeView({
 							tooltipPlacement="right"
 							hideLabel
 							link
-							id={`${id}-add`}
+							id={id && `${id}-add`}
 							key={addActionLabel}
 						/>
 					)}
@@ -121,6 +121,7 @@ TreeView.propTypes = {
 };
 
 TreeView.defaultProps = {
+	id: 'tc-treeview',
 	addActionLabel: 'Add folder',
 	headerText: 'Folders',
 };

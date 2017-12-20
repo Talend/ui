@@ -1,7 +1,18 @@
 {
-  "lerna": "2.0.0",
-  "version": "0.127.0",
+  "lerna": "2.5.1",
+  "version": "0.135.0",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
   "packages": [
-    "packages/*"
+    "packages/cmf",
+    "packages/cmf-cqrs",
+    "packages/components",
+    "packages/containers",
+    "packages/forms",
+    "packages/generator",
+    "packages/icons",
+    "packages/logging",
+    "packages/sagas",
+    "packages/theme"
   ]
 }

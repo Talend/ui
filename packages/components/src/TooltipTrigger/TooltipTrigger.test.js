@@ -15,8 +15,11 @@ describe('ActionTooltip', () => {
 		};
 
 		// when
-		const wrapper = renderer
-			.create(<TooltipTrigger {...props} ><div>Action</div></TooltipTrigger>);
+		const wrapper = renderer.create(
+			<TooltipTrigger {...props}>
+				<div>Action</div>
+			</TooltipTrigger>,
+		);
 
 		// then
 		expect(wrapper.toJSON()).toMatchSnapshot();
@@ -30,14 +33,20 @@ describe('ActionTooltip', () => {
 		};
 
 		// when
-		const wrapper = shallow(<TooltipTrigger {...props} ><div>Action</div></TooltipTrigger>);
+		const wrapper = shallow(
+			<TooltipTrigger {...props}>
+				<div>Action</div>
+			</TooltipTrigger>,
+		);
 
-		wrapper.find('div').at(0)
+		wrapper
+			.find('div')
+			.at(0)
 			.simulate('focus');
 
 		// then
 		wrapper.update();
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render tooltip when hover the children', () => {
@@ -48,13 +57,18 @@ describe('ActionTooltip', () => {
 		};
 
 		// when
-		const wrapper = shallow(<TooltipTrigger {...props} ><div>Action</div></TooltipTrigger>);
+		const wrapper = shallow(
+			<TooltipTrigger {...props}>
+				<div>Action</div>
+			</TooltipTrigger>,
+		);
 
-		wrapper.find('div').at(0)
+		wrapper
+			.find('div')
+			.at(0)
 			.simulate('mouseOver');
 
 		// then
-		wrapper.update();
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.update().getElement()).toMatchSnapshot();
 	});
 });

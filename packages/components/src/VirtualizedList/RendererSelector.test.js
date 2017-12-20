@@ -42,7 +42,7 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render table list when requested', () => {
@@ -67,7 +67,7 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render grid list', () => {
@@ -90,7 +90,7 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
-		expect(wrapper.node.props.rowRenderer.displayName).toBe('VirtualizedList(RowLarge)');
+		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.getElement().props.rowRenderer.displayName).toBe('VirtualizedList(RowLarge)');
 	});
 });

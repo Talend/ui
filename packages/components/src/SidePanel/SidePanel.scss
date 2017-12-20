@@ -41,7 +41,7 @@ $toggle-button-padding: $padding-small - 1;
 
 	//override nav-pill a bit
 	:global(.nav-pills .btn.btn-link) {
-		padding: $padding-normal $padding-large;
+		padding: $padding-normal;
 		text-overflow: inherit;
 	}
 

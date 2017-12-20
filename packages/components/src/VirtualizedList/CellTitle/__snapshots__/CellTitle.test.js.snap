@@ -32,6 +32,29 @@ exports[`CellTitle actions should NOT render the actions when no actions key is 
       }
     }
   />
+  <VirtualizedList(CellTitleActions)
+    actionsKey={undefined}
+    displayMode="text"
+    persistentActionsKey={undefined}
+    rowData={
+      Object {
+        "actions": Array [
+          Object {
+            "icon": "talend-pencil",
+            "label": "edit",
+            "onClick": [Function],
+          },
+          Object {
+            "icon": "talend-trash",
+            "label": "delete",
+            "onClick": [Function],
+          },
+        ],
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
 </div>
 `;
 
@@ -48,6 +71,18 @@ exports[`CellTitle actions should NOT render the actions when rowData has no act
     onClick={undefined}
     onEditCancel={undefined}
     onEditSubmit={undefined}
+    rowData={
+      Object {
+        "actions": undefined,
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+  <VirtualizedList(CellTitleActions)
+    actionsKey="actions"
+    displayMode="text"
+    persistentActionsKey={undefined}
     rowData={
       Object {
         "actions": undefined,
@@ -91,26 +126,26 @@ exports[`CellTitle actions should render the actions 1`] = `
       }
     }
   />
-  <Actions
-    actions={
-      Array [
-        Object {
-          "icon": "talend-pencil",
-          "label": "edit",
-          "onClick": [Function],
-        },
-        Object {
-          "icon": "talend-trash",
-          "label": "delete",
-          "onClick": [Function],
-        },
-      ]
-    }
-    hideLabel={true}
-    link={true}
-    renderers={
+  <VirtualizedList(CellTitleActions)
+    actionsKey="actions"
+    displayMode="text"
+    persistentActionsKey={undefined}
+    rowData={
       Object {
-        "Action": [Function],
+        "actions": Array [
+          Object {
+            "icon": "talend-pencil",
+            "label": "edit",
+            "onClick": [Function],
+          },
+          Object {
+            "icon": "talend-trash",
+            "label": "delete",
+            "onClick": [Function],
+          },
+        ],
+        "id": 1,
+        "title": "my awesome title",
       }
     }
   />
@@ -138,6 +173,18 @@ exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1
       }
     }
   />
+  <VirtualizedList(CellTitleActions)
+    actionsKey={undefined}
+    displayMode="text"
+    persistentActionsKey={undefined}
+    rowData={
+      Object {
+        "icon": "talend-file-o",
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
 </div>
 `;
 
@@ -154,6 +201,18 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
     onClick={undefined}
     onEditCancel={undefined}
     onEditSubmit={undefined}
+    rowData={
+      Object {
+        "icon": undefined,
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+  <VirtualizedList(CellTitleActions)
+    actionsKey={undefined}
+    displayMode="text"
+    persistentActionsKey={undefined}
     rowData={
       Object {
         "icon": undefined,
@@ -190,6 +249,18 @@ exports[`CellTitle icon should render the icon 1`] = `
       }
     }
   />
+  <VirtualizedList(CellTitleActions)
+    actionsKey={undefined}
+    displayMode="text"
+    persistentActionsKey={undefined}
+    rowData={
+      Object {
+        "icon": "talend-file-o",
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
 </div>
 `;
 
@@ -206,6 +277,19 @@ exports[`CellTitle should render title selector component 1`] = `
     onClick={[Function]}
     onEditCancel={[Function]}
     onEditSubmit={[Function]}
+    rowData={
+      Object {
+        "displayMode": "text",
+        "icon": "talend-file-o",
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+  <VirtualizedList(CellTitleActions)
+    actionsKey={undefined}
+    displayMode="text"
+    persistentActionsKey={undefined}
     rowData={
       Object {
         "displayMode": "text",

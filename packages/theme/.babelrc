@@ -1,15 +1,4 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "targets": {
-          "ie": 11,
-          "browsers": [
-            "last 2 versions"
-          ]
-        }
-      }
-    ]
-  ]
+  "extends": "../../.babelrc",
+  "babelrc": false
 }

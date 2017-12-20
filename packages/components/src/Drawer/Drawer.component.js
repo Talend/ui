@@ -8,6 +8,8 @@ import TabBar from '../TabBar';
 
 import theme from './Drawer.scss';
 
+const DEFAULT_TRANSITION_DURATION = 350;
+
 class DrawerAnimation extends React.Component {
 	constructor(props) {
 		super(props);
@@ -21,14 +23,15 @@ class DrawerAnimation extends React.Component {
 	}
 
 	render() {
-		const { children, ...rest } = this.props;
+		const { children, withTransition, ...rest } = this.props;
+		const transitionDuration = withTransition ? DEFAULT_TRANSITION_DURATION : 0;
 		return (
 			<CSSTransition
 				{...rest}
 				onTransitionComplete={this.handleTransitionComplete}
 				defaultStyle={{ transform: 'translateX(100%)' }}
-				enterStyle={{ transform: transit('translateX(0%)', 350, 'ease-in-out') }}
-				leaveStyle={{ transform: transit('translateX(100%)', 350, 'ease-in-out') }}
+				enterStyle={{ transform: transit('translateX(0%)', transitionDuration, 'ease-in-out') }}
+				leaveStyle={{ transform: transit('translateX(100%)', transitionDuration, 'ease-in-out') }}
 				activeStyle={{ transform: 'translateX(0%)' }}
 			>
 				{React.cloneElement(children, this.state)}
@@ -39,9 +42,11 @@ class DrawerAnimation extends React.Component {
 
 DrawerAnimation.propTypes = {
 	children: PropTypes.node,
+	withTransition: PropTypes.bool,
 	onTransitionComplete: PropTypes.func,
 };
 DrawerAnimation.defaultProps = {
+	withTransition: true,
 	onTransitionComplete: () => {},
 };
 
@@ -168,7 +173,7 @@ function Drawer({
 	footerActions,
 	onCancelAction,
 	tabs,
-	withTransition = true,
+	withTransition,
 }) {
 	if (!children) {
 		return null;
@@ -215,6 +220,10 @@ Drawer.propTypes = {
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	tabs: PropTypes.shape(TabBar.propTypes),
 	withTransition: PropTypes.bool,
+};
+
+Drawer.defaultProps = {
+	withTransition: true,
 };
 
 Drawer.Animation = DrawerAnimation;

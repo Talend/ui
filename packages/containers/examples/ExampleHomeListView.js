@@ -77,6 +77,7 @@ const icons = {
 	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
 	'talend-folder': talendIcons['talend-folder'],
 	'talend-icons': talendIcons['talend-icons'],
+	'talend-logo': talendIcons['talend-logo'],
 	'talend-pencil': talendIcons['talend-pencil'],
 	'talend-plus': talendIcons['talend-plus'],
 	'talend-plus-circle': talendIcons['talend-plus-circle'],

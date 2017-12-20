@@ -2,25 +2,72 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Icon } from '@talend/react-components';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
+
+import I18N_DOMAIN_FORMS from '../../../constants';
+import { DEFAULT_I18N, getDefaultTranslate } from '../../../translate';
 
 import theme from './ArrayItem.scss';
 
-export default function ArrayItem(props) {
-	const {
-		children,
-		hasMoveDown,
-		hasMoveUp,
-		id,
-		index,
-		onRemove,
-		onReorder,
-		value,
-	} = props;
+export function ReorderButton(props) {
+	const { index, hasMoveDown, hasMoveUp, id, isMoveDown, onReorder, t } = props;
+	let buttonProps;
+	let iconTransform;
+
+	if (isMoveDown) {
+		buttonProps = {
+			id: id && `${id}-moveDown`,
+			disabled: !hasMoveDown,
+			onClick: event =>
+				props.onReorder(event, {
+					previousIndex: index,
+					nextIndex: index + 1,
+				}),
+			title: t('ARRAY_ITEM_MOVE_DOWN', { defaultValue: 'Move down' }),
+		};
+	} else {
+		iconTransform = 'flip-vertical';
+		buttonProps = {
+			id: id && `${id}-moveUp`,
+			disabled: !hasMoveUp,
+			onClick: event =>
+				onReorder(event, {
+					previousIndex: index,
+					nextIndex: index - 1,
+				}),
+			title: t('ARRAY_ITEM_MOVE_UP', { defaultValue: 'Move up' }),
+		};
+	}
 
 	return (
-		<div className={classNames(theme['tf-array-item'], 'tf-array-item')} >
+		<button {...buttonProps} type="button">
+			<Icon name="talend-caret-down" transform={iconTransform} />
+		</button>
+	);
+}
+
+ReorderButton.defaultProps = {
+	t: getDefaultTranslate,
+};
+if (process.env.NODE_ENV !== 'production') {
+	ReorderButton.propTypes = {
+		hasMoveDown: PropTypes.bool.isRequired,
+		hasMoveUp: PropTypes.bool.isRequired,
+		id: PropTypes.string,
+		index: PropTypes.number.isRequired,
+		isMoveDown: PropTypes.bool,
+		onReorder: PropTypes.func.isRequired,
+		t: PropTypes.func.isRequired,
+	};
+}
+const TranslatedReorderButton = translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ReorderButton);
+
+function ArrayItem(props) {
+	const { children, id, index, onRemove, onReorder, value } = props;
+
+	return (
+		<div className={classNames(theme['tf-array-item'], 'tf-array-item')}>
 			{
-				!value.isClosed &&
 				<div className={theme.control}>
 					<button
 						className={theme.delete}
@@ -31,36 +78,11 @@ export default function ArrayItem(props) {
 					>
 						<Icon name="talend-trash" />
 					</button>
-					{
-						onReorder &&
-						<button
-							disabled={!hasMoveUp}
-							id={id && `${id}-moveUp`}
-							onClick={event => onReorder(event, {
-								previousIndex: index,
-								nextIndex: index - 1,
-							})}
-							title="Move Up"
-							type="button"
-						>
-							<Icon name="talend-caret-down" transform="flip-vertical" />
-						</button>
-					}
-					{
-						onReorder &&
-						<button
-							disabled={!hasMoveDown}
-							id={id && `${id}-moveDown`}
-							onClick={event => onReorder(event, {
-								previousIndex: index,
-								nextIndex: index + 1,
-							})}
-							type="button"
-							title="Move Down"
-						>
-							<Icon name="talend-caret-down" />
-						</button>
-					}
+					{!value.isClosed &&
+						onReorder && [
+							<TranslatedReorderButton {...props} index={index} />,
+							<TranslatedReorderButton {...props} index={index} isMoveDown />,
+						]}
 				</div>
 			}
 			{children}
@@ -71,8 +93,6 @@ export default function ArrayItem(props) {
 if (process.env.NODE_ENV !== 'production') {
 	ArrayItem.propTypes = {
 		children: PropTypes.node,
-		hasMoveDown: PropTypes.bool.isRequired,
-		hasMoveUp: PropTypes.bool.isRequired,
 		id: PropTypes.string,
 		index: PropTypes.number.isRequired,
 		onRemove: PropTypes.func.isRequired,
@@ -80,3 +100,5 @@ if (process.env.NODE_ENV !== 'production') {
 		value: PropTypes.func.isRequired,
 	};
 }
+
+export default ArrayItem;
