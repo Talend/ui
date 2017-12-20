@@ -48,7 +48,7 @@ describe('Container(ActionDropdown)', () => {
 			<ContainerActionDropdown foo="extra" actionIds={actionIds} items={items} />,
 			{ context },
 		);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(wrapper.find(ActionDropdown).length).toBe(1);
 	});
 });

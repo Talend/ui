@@ -154,7 +154,7 @@ describe('DatalistWidget', () => {
 			.simulate('focus'); // to display suggestions
 
 		// when
-		wrapper.find('#react-autowhatever-myWidget--item-0').simulate('mouseDown');
+		wrapper.find('li#react-autowhatever-myWidget--item-0').simulate('mouseDown');
 
 		// then
 		expect(onChange).toBeCalledWith('aze');
@@ -186,7 +186,7 @@ describe('DatalistWidget', () => {
 			.simulate('focus'); // to display suggestions
 
 		// when
-		wrapper.find('#react-autowhatever-myWidget--item-0').simulate('mouseDown');
+		wrapper.find('li#react-autowhatever-myWidget--item-0').simulate('mouseDown');
 
 		// then
 		expect(onChange).not.toBeCalled();

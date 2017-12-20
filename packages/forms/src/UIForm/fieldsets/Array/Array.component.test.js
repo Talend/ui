@@ -102,7 +102,7 @@ describe('Array component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it("should render array that can't be reordered", () => {
@@ -127,7 +127,7 @@ describe('Array component', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	describe('#onAdd', () => {

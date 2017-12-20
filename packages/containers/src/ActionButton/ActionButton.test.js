@@ -37,7 +37,7 @@ describe('CMF(Container(ActionButton))', () => {
 		const wrapper = shallow(<ContainerActionButton actionId="menu:article" extra="foo" />, {
 			context,
 		});
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(wrapper.find(ActionButton).length).toBe(1);
 	});
 
@@ -50,7 +50,7 @@ describe('CMF(Container(ActionButton))', () => {
 				}}
 			/>,
 		);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
