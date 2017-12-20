@@ -198,7 +198,10 @@ export function migrate(jsonSchema, uiSchema) {
 		return { jsonSchema, uiSchema: safeUISchema };
 	} else if (!Array.isArray(uiSchema) && typeof uiSchema === 'object') {
 		if (uiSchema['ui:order']) {
-			safeUISchema[0].items.sort((left, right) => uiSchema['ui:order'].indexOf(left.key) - uiSchema['ui:order'].indexOf(right.key));
+			safeUISchema[0].items.sort(
+				(left, right) =>
+					uiSchema['ui:order'].indexOf(left.key) - uiSchema['ui:order'].indexOf(right.key),
+			);
 		}
 		safeUISchema[0].items = updateWidgets(safeUISchema[0].items, uiSchema, widgets);
 		return {
