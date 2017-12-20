@@ -3719,6 +3719,7 @@ exports[`Items should render 1`] = `
                 >
                   <div
                     className="tc-item-container toggle"
+                    key="0-0"
                     style={
                       Object {
                         "height": 40,
@@ -3748,6 +3749,7 @@ exports[`Items should render 1`] = `
                   </div>
                   <div
                     className="tc-item-container"
+                    key="1-0"
                     style={
                       Object {
                         "height": 42,
@@ -3790,6 +3792,7 @@ exports[`Items should render 1`] = `
                   </div>
                   <div
                     className="tc-item-container"
+                    key="2-0"
                     style={
                       Object {
                         "height": 42,
@@ -3834,6 +3837,7 @@ exports[`Items should render 1`] = `
                   </div>
                   <div
                     className="tc-item-container"
+                    key="3-0"
                     style={
                       Object {
                         "height": 42,
@@ -7609,6 +7613,7 @@ exports[`Items should render with provided id 1`] = `
                 >
                   <div
                     className="tc-item-container toggle"
+                    key="0-0"
                     style={
                       Object {
                         "height": 40,
@@ -7638,6 +7643,7 @@ exports[`Items should render with provided id 1`] = `
                   </div>
                   <div
                     className="tc-item-container"
+                    key="1-0"
                     style={
                       Object {
                         "height": 42,
@@ -7655,6 +7661,7 @@ exports[`Items should render with provided id 1`] = `
                           "label": "Lorem ipsum dolor sit amet 0",
                         }
                       }
+                      key="my-widget-1-item"
                     >
                       <div
                         id="my-widget-1-item"
@@ -7686,6 +7693,7 @@ exports[`Items should render with provided id 1`] = `
                   </div>
                   <div
                     className="tc-item-container"
+                    key="2-0"
                     style={
                       Object {
                         "height": 42,
@@ -7704,6 +7712,7 @@ exports[`Items should render with provided id 1`] = `
                           "label": "Lorem ipsum dolor sit amet 1",
                         }
                       }
+                      key="my-widget-2-item"
                     >
                       <div
                         id="my-widget-2-item"
@@ -7736,6 +7745,7 @@ exports[`Items should render with provided id 1`] = `
                   </div>
                   <div
                     className="tc-item-container"
+                    key="3-0"
                     style={
                       Object {
                         "height": 42,
@@ -7753,6 +7763,7 @@ exports[`Items should render with provided id 1`] = `
                           "label": "Lorem ipsum dolor sit amet 2",
                         }
                       }
+                      key="my-widget-3-item"
                     >
                       <div
                         id="my-widget-3-item"

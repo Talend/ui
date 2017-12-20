@@ -14,7 +14,7 @@ describe('ObjectViewer.List', () => {
 		// When
 		const wrapper = shallow(<List data={data} flat />);
 		// Then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render List with props data as an array', () => {
 		// Given
@@ -22,19 +22,22 @@ describe('ObjectViewer.List', () => {
 		// When
 		const wrapper = shallow(<List data={data} flat />);
 		// Then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render null if no data', () => {
 		const data = [{ foo: 'bar' }, {}];
-		const wrapper = shallow(
-			<List data={data} />
-		);
-		const element = wrapper.getNode();
+		const wrapper = shallow(<List data={data} />);
+		const element = wrapper.getElement();
 		expect(element.type).toBe('ul');
 		expect(wrapper.hasClass('tc-object-viewer')).toBe(true);
 		expect(wrapper.find('li').length).toBe(2);
 		expect(wrapper.find('JSONLike').length).toBe(2);
-		expect(wrapper.find('JSONLike').first().props()).toEqual({
+		expect(
+			wrapper
+				.find('JSONLike')
+				.first()
+				.props(),
+		).toEqual({
 			data: data[0],
 			jsonpath: '$[0]',
 		});
