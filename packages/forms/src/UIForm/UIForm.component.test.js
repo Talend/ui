@@ -128,7 +128,6 @@ describe('UIForm component', () => {
 				.simulate('click');
 
 			// then
-			console.log(props.onTrigger.mock.calls[0][1]);
 			expect(props.onTrigger).toBeCalledWith(
 				expect.anything(),
 				{

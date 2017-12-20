@@ -87,14 +87,6 @@ class Form extends React.Component {
 		}
 	}
 
-	formActions() {
-		if (typeof this.props.actions === 'function') {
-			const state = (this.props.state || DEFAULT_STATE).toJS();
-			return this.props.actions(state.data || this.props.data);
-		}
-		return this.props.actions;
-	}
-
 	jsonSchema() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
 		if (typeof this.props.jsonSchema === 'function') {
@@ -121,6 +113,14 @@ class Form extends React.Component {
 
 	setErrors(formName, errors) {
 		this.props.setState({ errors });
+	}
+
+	formActions() {
+		if (typeof this.props.actions === 'function') {
+			const state = (this.props.state || DEFAULT_STATE).toJS();
+			return this.props.actions(state.data || this.props.data);
+		}
+		return this.props.actions;
 	}
 
 	render() {
