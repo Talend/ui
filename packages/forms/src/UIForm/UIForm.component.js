@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import classNames from 'classnames';
 
 import merge from './merge';
 import { formPropTypes } from './utils/propTypes';
@@ -44,11 +45,11 @@ export default class UIForm extends React.Component {
 	onChange(event, { schema, value }) {
 		const payload = {
 			formName: this.props.formName,
-			properties: this.props.properties || {},
+			properties: this.props.properties,
 			schema,
 			value,
+			formData: mutateValue(this.props.properties, schema.key, value),
 		};
-		payload.formData = mutateValue(payload.properties, schema.key, value);
 		if (this.props.moz) {
 			this.props.onChange(payload);
 		} else {
@@ -204,7 +205,7 @@ export default class UIForm extends React.Component {
 				acceptCharset={this.props.acceptCharset}
 				action={this.props.action}
 				autoComplete={this.props.autoComplete}
-				className={`tf-uiform ${this.props.className || ''}`}
+				className={classNames('tf-uiform', this.props.className)}
 				encType={this.props.encType}
 				id={this.props.id}
 				method={this.props.method}
@@ -296,4 +297,5 @@ if (process.env.NODE_ENV !== 'production') {
 UIForm.defaultProps = {
 	noHtml5Validate: true,
 	buttonBlockClass: 'form-actions',
+	properties: {},
 };

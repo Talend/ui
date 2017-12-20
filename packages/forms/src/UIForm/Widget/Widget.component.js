@@ -6,8 +6,7 @@ import defaultWidgets from '../utils/widgets';
 import { getValue } from '../utils/properties';
 
 export default function Widget(props) {
-	const { errors, formName, properties, schema } = props;
-	const { key, type, validationMessage, widget, options } = schema;
+	const { key, type, validationMessage, widget, options } = props.schema;
 	const widgetId = widget || type;
 
 	if (widgetId === 'hidden') {
@@ -20,25 +19,18 @@ export default function Widget(props) {
 		return <p className="text-danger">Widget not found {widgetId}</p>;
 	}
 
-	const id = sfPath.name(key, '-', formName);
-	const error = errors[key];
+	const id = sfPath.name(key, '_', props.formName);
+	const error = props.errors[key];
 	const errorMessage = validationMessage || error;
 	return (
 		<WidgetImpl
 			id={id}
 			key={id}
 			errorMessage={errorMessage}
-			formName={formName}
 			isValid={!error}
-			onChange={props.onChange}
-			onFinish={props.onFinish}
-			onTrigger={props.onTrigger}
-			properties={properties}
-			schema={schema}
-			errors={errors}
-			value={getValue(properties, key)}
-			widgets={props.widgets}
+			value={getValue(props.properties, key)}
 			options={options}
+			{...props}
 		/>
 	);
 }
@@ -47,9 +39,6 @@ if (process.env.NODE_ENV !== 'production') {
 	Widget.propTypes = {
 		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		formName: PropTypes.string,
-		onChange: PropTypes.func,
-		onFinish: PropTypes.func,
-		onTrigger: PropTypes.func,
 		schema: PropTypes.shape({
 			key: PropTypes.array,
 			type: PropTypes.string,

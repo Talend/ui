@@ -9,10 +9,9 @@ exports[`Widget component should render custom widget 1`] = `
     }
   }
   formName="myForm"
-  id="myForm-user-firstname"
+  id="myForm_user_firstname"
   isValid={false}
   onChange={[Function]}
-  onFinish={undefined}
   onTrigger={[Function]}
   options={undefined}
   properties={
@@ -60,7 +59,7 @@ exports[`Widget component should render widget 1`] = `
     }
   }
   formName="myForm"
-  id="myForm-user-firstname"
+  id="myForm_user_firstname"
   isValid={false}
   onChange={[Function]}
   onFinish={[Function]}
