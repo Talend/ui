@@ -1,5 +1,5 @@
 
-> @talend/react-components@0.133.0 lint:style /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.134.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
 
@@ -15,12 +15,8 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-src/SubHeaderBar/SubHeaderBar.scss
-  28:5  error  Nesting depth 4 greater than max of 3  nesting-depth
-  32:5  error  Nesting depth 4 greater than max of 3  nesting-depth
-
 src/VirtualizedList/NoRows/NoRows.scss
   6:17  warning  No unit allowed for values of 0  zero-unit
 
-✖ 7 problems (3 errors, 4 warnings)
+✖ 5 problems (1 error, 4 warnings)
 
