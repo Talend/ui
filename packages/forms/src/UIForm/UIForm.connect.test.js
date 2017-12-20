@@ -80,17 +80,14 @@ describe('UIForm connect', () => {
 				.simulate('change', event);
 
 			// then
-			expect(props.onChange).toBeCalledWith(
-				expect.anything(),
-				{
-					formName: props.formName,
-					schema: mergedSchema[0],
-					value: 'toto is toto',
-					error: undefined,
-					properties: data.properties,
-					formData: { lastname: 'toto is toto' },
-				}
-			);
+			expect(props.onChange).toBeCalledWith(expect.anything(), {
+				formName: props.formName,
+				schema: mergedSchema[0],
+				value: 'toto is toto',
+				error: undefined,
+				properties: data.properties,
+				formData: { lastname: 'toto is toto' },
+			});
 		});
 	});
 });

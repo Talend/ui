@@ -129,10 +129,15 @@ describe('UIForm component', () => {
 
 			// then
 			console.log(props.onTrigger.mock.calls[0][1]);
-			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
-				trigger: 'after',
-				schema: mergedSchema[2],
-			}, undefined, undefined);
+			expect(props.onTrigger).toBeCalledWith(
+				expect.anything(),
+				{
+					trigger: 'after',
+					schema: mergedSchema[2],
+				},
+				undefined,
+				undefined,
+			);
 		});
 	});
 

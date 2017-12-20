@@ -159,8 +159,7 @@ export default class UIForm extends React.Component {
 					...data,
 					formData: this.props.properties,
 					properties: this.props.properties,
-				}
-			);
+				});
 		}
 		return () => {};
 	}

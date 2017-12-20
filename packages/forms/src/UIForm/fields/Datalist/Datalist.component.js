@@ -21,10 +21,7 @@ class Datalist extends Component {
 		this.onSelect = this.onSelect.bind(this);
 
 		this.theme = {
-			container: classNames(
-				theme.container,
-				'tf-datalist-container'
-			),
+			container: classNames(theme.container, 'tf-datalist-container'),
 			itemsContainer: theme['items-container'],
 			itemsList: theme.items,
 		};
@@ -235,10 +232,12 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			restricted: PropTypes.bool,
 			title: PropTypes.string,
-			titleMap: PropTypes.arrayOf(PropTypes.shape({
-				name: PropTypes.string.isRequired,
-				value: PropTypes.string.isRequired,
-			})),
+			titleMap: PropTypes.arrayOf(
+				PropTypes.shape({
+					name: PropTypes.string.isRequired,
+					value: PropTypes.string.isRequired,
+				}),
+			),
 		}),
 		value: PropTypes.string,
 	};

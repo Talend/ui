@@ -1,9 +1,4 @@
-import {
-	ConnectedUIForm,
-	UIForm,
-	formReducer,
-	triggers,
-} from './index';
+import { ConnectedUIForm, UIForm, formReducer, triggers } from './index';
 import ExpectedUIForm from './UIForm.container';
 import ExpectedConnectedUIForm from './UIForm.connect';
 import { formReducer as expectedReducer } from './reducers';

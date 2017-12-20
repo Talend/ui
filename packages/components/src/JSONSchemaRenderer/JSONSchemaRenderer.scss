@@ -1,5 +1,4 @@
 .json-schema-renderer {
-
 	margin-top: $padding-large;
 	margin-left: $padding-large;
 
@@ -20,7 +19,6 @@
 		}
 
 		&.array {
-
 			dd {
 				display: inline;
 			}
@@ -35,7 +33,6 @@
 		}
 
 		&.object {
-
 			h2 {
 				font-size: 1.7rem;
 				font-weight: 700;

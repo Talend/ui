@@ -36,7 +36,8 @@ function getUISchemaFromObject(schema, key) {
 			ui.type = schema.format;
 			if (schema.format === 'uri') {
 				ui.type = 'url';
-			} if (schema.format === 'data-url') {
+			}
+			if (schema.format === 'data-url') {
 				ui.type = 'file';
 			}
 		}

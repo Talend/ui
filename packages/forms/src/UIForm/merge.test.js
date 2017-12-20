@@ -65,22 +65,18 @@ describe('migrate', () => {
 		);
 	});
 	it('should support ui:trigger -> set triggers', () => {
-		const uiSchema = JSON.parse(JSON.stringify(SIMPLE_STORY.uiSchema));  // deep copy
+		const uiSchema = JSON.parse(JSON.stringify(SIMPLE_STORY.uiSchema)); // deep copy
 		uiSchema.password['ui:trigger'] = ['after'];
 		const expected = JSON.parse(JSON.stringify(SIMPLE_STORY_EXPECTED));
 		expected[0].items[4].triggers = ['after'];
-		expect(migrate(SIMPLE_STORY.jsonSchema, uiSchema).uiSchema).toEqual(
-			expected,
-		);
+		expect(migrate(SIMPLE_STORY.jsonSchema, uiSchema).uiSchema).toEqual(expected);
 	});
 	it('should support ui:autofocus -> set autoFocus', () => {
-		const uiSchema = JSON.parse(JSON.stringify(SIMPLE_STORY.uiSchema));  // deep copy
+		const uiSchema = JSON.parse(JSON.stringify(SIMPLE_STORY.uiSchema)); // deep copy
 		uiSchema.age['ui:autofocus'] = true;
 		const expected = JSON.parse(JSON.stringify(SIMPLE_STORY_EXPECTED));
 		expected[0].items[2].autoFocus = true;
-		expect(migrate(SIMPLE_STORY.jsonSchema, uiSchema).uiSchema).toEqual(
-			expected,
-		);
+		expect(migrate(SIMPLE_STORY.jsonSchema, uiSchema).uiSchema).toEqual(expected);
 	});
 	//  189
 	it('should support custom widget', () => {
@@ -143,7 +139,10 @@ describe('wrapCustomWidget', () => {
 		const Wrapper = wrapCustomWidget(component);
 		const wrapper = shallow(<Wrapper onChange={onChange} schema={{ triggers: ['after'] }} />);
 		wrapper.find(component).simulate('change', { foo: 'bar' });
-		expect(onChange).toHaveBeenCalledWith(expect.anything(), { schema: { triggers: ['after'] }, value: { foo: 'bar' } });
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), {
+			schema: { triggers: ['after'] },
+			value: { foo: 'bar' },
+		});
 	});
 });
 

@@ -34,7 +34,7 @@ export default class UIForm extends React.Component {
 			nextProps.formName,
 			nextProps.data.jsonSchema,
 			nextProps.data.uiSchema,
-			nextProps.data.properties
+			nextProps.data.properties,
 		);
 	}
 	/**
@@ -48,14 +48,13 @@ export default class UIForm extends React.Component {
 	 * error: The validation error
 	 */
 	onChange(event, payload) {
-		const action = updateFormData(
-			payload.formName,
-			payload.schema,
-			payload.value
-		);
+		const action = updateFormData(payload.formName, payload.schema, payload.value);
 		this.setState(
 			{ properties: modelReducer(this.state.properties, action) },
-			this.props.onChange && (() => { this.props.onChange(event, payload); })
+			this.props.onChange &&
+				(() => {
+					this.props.onChange(event, payload);
+				}),
 		);
 	}
 
@@ -89,10 +88,7 @@ export default class UIForm extends React.Component {
 	 */
 	updateForm(formName, jsonSchema, uiSchema, properties, errors) {
 		const action = updateForm(formName, jsonSchema, uiSchema, properties, errors);
-		const nextState = formReducer(
-			{ [formName]: this.state },
-			action
-		)[formName];
+		const nextState = formReducer({ [formName]: this.state }, action)[formName];
 
 		this.setState(nextState);
 	}
@@ -103,18 +99,15 @@ export default class UIForm extends React.Component {
 		return (
 			<UIFormComponent
 				{...extractFormProps(this.props)}
-
 				jsonSchema={jsonSchema}
 				uiSchema={uiSchema}
 				properties={properties}
 				errors={errors}
 				initialData={this.props.data}
-
 				actions={this.props.actions}
 				customValidation={this.props.customValidation}
 				onTrigger={this.props.onTrigger}
 				widgets={this.props.widgets}
-
 				onReset={this.props.onReset}
 				onChange={this.onChange}
 				onSubmit={this.props.onSubmit}
