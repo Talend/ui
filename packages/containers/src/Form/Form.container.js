@@ -139,6 +139,7 @@ class Form extends React.Component {
 			actions: this.formActions(),
 			fields: this.props.fields,
 			onChange: this.onChange,
+			onTrigger: this.onTrigger,
 			onSubmit: this.onSubmit,
 			buttonBlockClass: this.props.buttonBlockClass,
 			children: this.props.children,
@@ -146,7 +147,6 @@ class Form extends React.Component {
 		};
 		if (this.props.uiform) {
 			props.uiform = true;
-			props.onTrigger = this.onTrigger;
 			props.setErrors = this.setErrors;
 			props.errors = state.errors;
 		}
