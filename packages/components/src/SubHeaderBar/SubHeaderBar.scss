@@ -13,27 +13,27 @@ $tc-svg-icon-size: $padding-large !default;
 	border-bottom: 0.1rem solid $gallery;
 	width: 100%;
 
+	button {
+		text-transform: none;
+
+		&:global(.btn-link) {
+			color: $tc-subheader-color;
+
+			&:focus,
+			&:hover {
+				color: $tc-subheader-hover-focus-color;
+			}
+			&:active {
+				color: $tc-subheader-active-color;
+			}
+		}
+	}
+
 	&-navbar {
 		height: $tc-subheader-bar-height;
 		background-color: $wild-sand;
 		display: flex;
 		padding-left: 0;
-
-		button {
-			text-transform: none;
-
-			&:global(.btn-link) {
-				color: $tc-subheader-color;
-
-				&:focus,
-				&:hover {
-					color: $tc-subheader-hover-focus-color;
-				}
-				&:active {
-					color: $tc-subheader-active-color;
-				}
-			}
-		}
 
 		&-left,
 		&-center,
