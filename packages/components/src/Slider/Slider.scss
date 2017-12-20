@@ -6,6 +6,7 @@ $tc-slider-handle-size: 17px;
 
 :global(.rc-slider-tooltip) {
 	padding: 0;
+	pointer-events: none;
 
 	:global(.rc-slider-tooltip-arrow) {
 		display: none;
