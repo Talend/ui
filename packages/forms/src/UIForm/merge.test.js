@@ -142,7 +142,7 @@ describe('wrapCustomWidget', () => {
 		const component = () => <div />;
 		const Wrapper = wrapCustomWidget(component);
 		const wrapper = shallow(<Wrapper onChange={onChange} schema={{ triggers: ['after'] }} />);
-		wrapper.simulate('change', { foo: 'bar' });
+		wrapper.find(component).simulate('change', { foo: 'bar' });
 		expect(onChange).toHaveBeenCalledWith(expect.anything(), { schema: { triggers: ['after'] }, value: { foo: 'bar' } });
 	});
 });
