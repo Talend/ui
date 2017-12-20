@@ -6,13 +6,12 @@ import FieldTemplate from './fields/FieldTemplate';
 
 /* eslint-disable no-param-reassign */
 
-function parseArray(items, key) {
-	if (items.type === 'object') {
-		return parseProperties(items.properties, false, `${key}[]`);
-	}
-	return [getUISchemaFromObject(items, key)];
-}
-
+/**
+ * Return a UISchema based on the jsonSchema.
+ * So this is the default uiSchema.
+ * @param {Object} schema the jsonSchema part
+ * @param {string} key the current key for hierachical parsing
+ */
 function getUISchemaFromObject(schema, key) {
 	const ui = { key };
 	if (schema.title) {
@@ -27,6 +26,7 @@ function getUISchemaFromObject(schema, key) {
 	}
 	if (schema.type === 'object') {
 		ui.widget = 'fieldset';
+		// eslint-disable-next-line no-use-before-define
 		ui.items = parseProperties(schema.properties, false, key);
 	} else if (schema.type === 'string') {
 		if (!schema.enum) {
@@ -43,7 +43,11 @@ function getUISchemaFromObject(schema, key) {
 		}
 	} else if (schema.type === 'array') {
 		ui.widget = 'array';
-		ui.items = parseArray(schema.items, key);
+		if (schema.items.type === 'object') {
+			// eslint-disable-next-line no-use-before-define
+			ui.items = parseProperties(schema.items.properties, false, `${key}[]`);
+		}
+		ui.items = [getUISchemaFromObject(schema.items, key)];
 	} else if (schema.type === 'number') {
 		ui.widget = 'text';
 		ui.type = 'number';
@@ -51,6 +55,13 @@ function getUISchemaFromObject(schema, key) {
 	return ui;
 }
 
+/**
+ * Generate uiSchema items from the jsonSchema properties
+ * @param {Object} properties
+ * @param {boolean} isRoot true if we are on the jsonSchema entry
+ * @param {string} path to prefix key for hierarchical
+ * @return {Array} uiSchema
+ */
 function parseProperties(properties, isRoot, path) {
 	if (isRoot) {
 		return [getUISchemaFromObject(properties)];
@@ -60,6 +71,10 @@ function parseProperties(properties, isRoot, path) {
 	);
 }
 
+/**
+ * HOC to wrap widget for the `Form` and make it run well in the `UIForm`.
+ * @param {React.Component} Component
+ */
 export const wrapCustomWidget = Component => {
 	if (Component.displayName === 'TFMigratedWidget') {
 		return Component;
@@ -103,6 +118,13 @@ export const wrapCustomWidget = Component => {
 	return TFMigratedWidget;
 };
 
+/**
+ * Update the uiSchema generated from the jsonSchema with the provided uiSchema
+ * @param {Array} items
+ * @param {Object} uiSchema
+ * @param {Object} widgets
+ * @param {String} prefix
+ */
 function updateWidgets(items, uiSchema, widgets, prefix) {
 	return items.map(ui => {
 		const uiSchemaKey = ui.key.replace(prefix, '');
@@ -160,7 +182,7 @@ function updateWidgets(items, uiSchema, widgets, prefix) {
 }
 
 /**
- * migrate from react-jsonschema-form to UIschema
+ * migrate from react-jsonschema-form to UISchema
  * @param {Object} mergedSchema
  */
 export function migrate(jsonSchema, uiSchema) {
