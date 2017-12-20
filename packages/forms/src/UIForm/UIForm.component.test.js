@@ -20,7 +20,7 @@ describe('UIForm component', () => {
 		const wrapper = shallow(<UIForm {...data} {...props} />);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render provided actions', () => {
@@ -28,7 +28,7 @@ describe('UIForm component', () => {
 		const wrapper = shallow(<UIForm {...data} {...props} actions={actions} />);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	describe('#onChange', () => {

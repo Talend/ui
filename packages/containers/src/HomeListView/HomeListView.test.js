@@ -10,10 +10,7 @@ const sidepanel = {
 };
 
 const list = {
-	columns: [
-		{ key: 'id', label: 'Id' },
-		{ key: 'label', label: 'Name' },
-	],
+	columns: [{ key: 'id', label: 'Id' }, { key: 'label', label: 'Name' }],
 	titleProps: {
 		key: 'label',
 	},
@@ -21,13 +18,10 @@ const list = {
 
 const actions = {};
 
-const toolbar =	{
+const toolbar = {
 	sort: {
 		field: 'id',
-		options: [
-			{ id: 'id', name: 'Id' },
-			{ id: 'label', name: 'Name' },
-		],
+		options: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
 	},
 	filter: {
 		placeholder: 'find an object',
@@ -57,29 +51,26 @@ const listProps = {
 describe('Component HomeListView', () => {
 	it('should render with object props', () => {
 		const wrapper = shallow(
-			<Component
-				header={{ app: 'hello app' }}
-				sidepanel={sidepanel}
-				list={listProps}
-			>
+			<Component header={{ app: 'hello app' }} sidepanel={sidepanel} list={listProps}>
 				<h1>Hello children</h1>
-			</Component>
+			</Component>,
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render with element props', () => {
 		const wrapper = shallow(
 			<Component
-				header={(<div>hello app</div>)}
-				sidepanel={(<div>hello sidepanel</div>)}
-				list={(<div>hello list</div>)}
+				header={<div>hello app</div>}
+				sidepanel={<div>hello sidepanel</div>}
+				list={<div>hello list</div>}
 			>
 				<h1>Hello children</h1>
-			</Component>
+			</Component>,
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
 	it('should children transformed as array in props.drawer', () => {
 		const children = {
 			props: {
@@ -98,11 +89,11 @@ describe('Component HomeListView', () => {
 		};
 		const wrapper = shallow(
 			<Component
-				header={(<div>hello app</div>)}
-				sidepanel={(<div>hello sidepanel</div>)}
-				list={(<div>hello list</div>)}
+				header={<div>hello app</div>}
+				sidepanel={<div>hello sidepanel</div>}
+				list={<div>hello list</div>}
 				children={children}
-			/>
+			/>,
 		);
 		expect(wrapper.props().drawers).toMatchSnapshot();
 	});

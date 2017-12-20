@@ -42,6 +42,6 @@ describe('Buttons field', () => {
 		);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

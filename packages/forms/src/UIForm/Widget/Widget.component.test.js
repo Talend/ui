@@ -34,7 +34,7 @@ describe('Widget component', () => {
 		);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render nothing if widget does not exist', () => {
@@ -50,7 +50,7 @@ describe('Widget component', () => {
 		);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render custom widget', () => {
@@ -79,7 +79,7 @@ describe('Widget component', () => {
 		);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should pass validation message from schema over message from errors', () => {
@@ -102,7 +102,7 @@ describe('Widget component', () => {
 		);
 
 		// then
-		expect(wrapper.props().errorMessage).toBe('My custom validation message');
+		expect(wrapper.getElement().props.errorMessage).toBe('My custom validation message');
 	});
 
 	it('should pass message from errors when there is no validation message in schema', () => {
@@ -119,7 +119,7 @@ describe('Widget component', () => {
 		);
 
 		// then
-		expect(wrapper.node.props.errorMessage).toBe('This is not ok');
+		expect(wrapper.getElement().props.errorMessage).toBe('This is not ok');
 	});
 	it("should render null if widgetId is 'hidden'", () => {
 		// when
