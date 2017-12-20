@@ -21,7 +21,7 @@ describe('Filter container', () => {
 			value: 15,
 		});
 		expect(
-			shallow(<Container props={props} initialState={initialState} />).getNode(),
+			shallow(<Container props={props} initialState={initialState} />).getElement(),
 		).toMatchSnapshot();
 	});
 

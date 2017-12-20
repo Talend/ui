@@ -14,7 +14,7 @@ describe('Slider component', () => {
 			// when
 			const wrapper = shallow(<Slider {...props} />);
 			// then
-			expect(wrapper.getNode()).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
 		it('should render Slider with icons on status', () => {
@@ -34,7 +34,7 @@ describe('Slider component', () => {
 			// when
 			const wrapper = shallow(<Slider {...props} />);
 			// then
-			expect(wrapper.getNode()).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
 		it('should render Slider with captionTextStepNumber', () => {
@@ -50,7 +50,7 @@ describe('Slider component', () => {
 			// when
 			const wrapper = shallow(<Slider {...props} />);
 			// then
-			expect(wrapper.getNode()).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 	});
 

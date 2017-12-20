@@ -137,23 +137,23 @@ exports[`Slider component renderers should render Slider with icons on status 1`
     className="tc-slider-icons"
   >
     <Icon
-      className={null}
+      className=""
       name="talend-smiley-rating"
     />
     <Icon
-      className={null}
+      className=""
       name="talend-most-trusted"
     />
     <Icon
-      className="selected"
+      className="undefined selected"
       name="talend-network"
     />
     <Icon
-      className={null}
+      className=""
       name="talend-streams"
     />
     <Icon
-      className={null}
+      className=""
       name="talend-tdc-negative"
     />
   </div>

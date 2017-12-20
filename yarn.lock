@@ -8637,7 +8637,7 @@ rc-slider@8.4.1:
     shallowequal "^1.0.1"
     warning "^3.0.0"
 
-rc-tooltip@^3.7.0:
+rc-tooltip@3.7.0, rc-tooltip@^3.7.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/rc-tooltip/-/rc-tooltip-3.7.0.tgz#3afbf109865f7cdcfe43752f3f3f501f7be37aaa"
   dependencies:
