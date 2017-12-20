@@ -65,8 +65,14 @@ export const wrapCustomWidget = Component => {
 		return Component;
 	}
 	function TFMigratedWidget(props) {
-		const newProps = Object.assign({}, props);
-		newProps.formContext = props.formContext || {};
+		const newProps = {
+			...props,
+			formContext: props.formContext || {},
+			required: props.schema.required,
+			placeholder: props.schema.placeholder,
+			options: props.schema.options,
+		};
+
 		if (get(props, 'schema.titleMap')) {
 			// backward compat, some widgets wait for options
 			newProps.options = {
@@ -76,17 +82,17 @@ export const wrapCustomWidget = Component => {
 		if (get(props, 'schema.schema.enum')) {
 			newProps.schema.enum = props.schema.schema.enum;
 		}
-		const onChange = props.onChange;
-		newProps.onChange = (event, payload) => {
-			if (!payload) {
-				onChange({}, { schema: newProps.schema, value: event });
-			} else {
-				onChange(event, payload);
-			}
-		};
-		newProps.required = props.schema.required;
-		newProps.placeholder = props.schema.placeholder;
-		newProps.options = props.schema.options;
+		if (props.onChange) {
+			const onChange = props.onChange;
+			newProps.onChange = (event, payload) => {
+				if (!payload) {
+					onChange({}, { schema: newProps.schema, value: event });
+				} else {
+					onChange(event, payload);
+				}
+			};
+		}
+
 		return (
 			<FieldTemplate label={props.schema.title} id={newProps.id}>
 				<Component {...newProps} />
