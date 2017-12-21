@@ -11,12 +11,6 @@
       },
       "password": {
         "type": "string"
-      },
-      "enum": {
-        "type": "string",
-        "enum": [
-          "one", "two", "three"
-        ]
       }
     }
   },
@@ -33,9 +27,6 @@
       "key": "password",
       "title": "Password",
       "type": "password"
-    },
-    {
-      "key": "enum"
     }
   ],
   "properties": {}
