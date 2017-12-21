@@ -55,17 +55,31 @@ function SidePanel({
 	onSelect,
 	actions,
 	docked,
+	reverse,
+	large,
 	dockable,
 	onToggleDock,
 	t,
 	renderers,
 }) {
-	const dockedCSS = { [theme.docked]: docked };
-	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
+	const navCSS = classNames(theme['tc-side-panel'], 'tc-side-panel', {
+		[theme.docked]: docked,
+		[theme.large]: large,
+	});
 	const listCSS = classNames(
-		'nav nav-pills nav-inverse nav-stacked',
+		theme.nav,
+		'nav',
+		theme['nav-pills'],
+		'nav-pills',
+		theme['nav-stacked'],
+		'nav-stacked',
+		theme['tc-side-panel-list'],
 		'tc-side-panel-list',
 		theme['action-list'],
+		{
+			'nav-inverse': !reverse,
+			[theme['nav-inverse']]: !reverse,
+		},
 	);
 	const isActionSelected = action => {
 		if (selected) {
@@ -126,8 +140,9 @@ function SidePanel({
 						<li
 							title={action.label}
 							key={action.key || action.label}
-							className={classNames('tc-side-panel-list-item', {
+							className={classNames(theme['tc-side-panel-list-item'], 'tc-side-panel-list-item', {
 								active: isSelected,
+								[theme.active]: isSelected,
 							})}
 							{...a11y}
 						>
@@ -143,6 +158,8 @@ function SidePanel({
 SidePanel.defaultProps = {
 	actions: [],
 	renderers: { Action },
+	reverse: false,
+	large: false,
 	dockable: true,
 };
 
@@ -162,6 +179,8 @@ if (process.env.NODE_ENV !== 'production') {
 		onSelect: PropTypes.func,
 		onToggleDock: PropTypes.func,
 		docked: PropTypes.bool,
+		reverse: PropTypes.bool,
+		large: PropTypes.bool,
 		dockable: PropTypes.bool,
 		selected: actionPropType,
 		t: PropTypes.func,
