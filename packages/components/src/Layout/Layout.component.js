@@ -41,7 +41,7 @@ function Layout({ header, subheader, footer, mode, drawers, tabs, children, ...r
 	return (
 		<div className={appCSS}>
 			{header && <div className={headerCSS}>{header}</div>}
-			{subheader && subheader}
+			{subheader}
 			{Component && (
 				<Component drawers={drawers} tabs={tabs} {...rest}>
 					{children}

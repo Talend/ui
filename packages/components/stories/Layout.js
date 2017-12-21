@@ -251,26 +251,9 @@ storiesOf('Layout', module)
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
-	.addWithInfo('OneColumn with all', () => (
-		<Layout
-			header={header}
-			subheader={subheader}
-			mode="OneColumn"
-			drawers={drawers}
-			footer={footer}
-		>
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with all', () => (
-		<Layout
-			header={header}
-			subheader={subheader}
-			one={sidePanel}
-			drawers={drawers}
-			mode="TwoColumns"
-			footer={footer}
-		>
+	.addWithInfo('Subheader alone', () => (
+		<Layout subheader={subheader} mode="OneColumns">
+			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	));
