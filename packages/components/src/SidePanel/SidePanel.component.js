@@ -57,6 +57,7 @@ function SidePanel({
 	docked,
 	reverse,
 	large,
+	dockable,
 	onToggleDock,
 	t,
 	renderers,
@@ -94,16 +95,18 @@ function SidePanel({
 	return (
 		<nav className={navCSS} role="navigation">
 			<ul className={listCSS}>
-				<li className={theme['toggle-btn']} title={toggleButtonTitle}>
-					<Action
-						id={id && `${id}-toggle-dock`}
-						className={theme.link}
-						bsStyle="link"
-						onClick={onToggleDock}
-						icon="talend-opener"
-						label=""
-					/>
-				</li>
+				{dockable && (
+					<li className={theme['toggle-btn']} title={toggleButtonTitle}>
+						<Action
+							id={id && `${id}-toggle-dock`}
+							className={theme.link}
+							bsStyle="link"
+							onClick={onToggleDock}
+							icon="talend-opener"
+							label=""
+						/>
+					</li>
+				)}
 				{actions.map(action => {
 					const a11y = {};
 					const extra = {};
@@ -157,6 +160,7 @@ SidePanel.defaultProps = {
 	renderers: { Action },
 	reverse: false,
 	large: false,
+	dockable: true,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -177,6 +181,7 @@ if (process.env.NODE_ENV !== 'production') {
 		docked: PropTypes.bool,
 		reverse: PropTypes.bool,
 		large: PropTypes.bool,
+		dockable: PropTypes.bool,
 		selected: actionPropType,
 		t: PropTypes.func,
 		renderers: PropTypes.shape({

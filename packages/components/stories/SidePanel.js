@@ -90,6 +90,16 @@ stories
 			tooltipPlacement="top"
 		/>
 	))
+	.addWithInfo('not dockable', () => (
+		<SidePanel
+			actions={items}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			dockable={false}
+			selected={items[1]}
+			tooltipPlacement="top"
+		/>
+	))
 	.addWithInfo('with inverted style', () => (
 		<SidePanel
 			actions={items}
