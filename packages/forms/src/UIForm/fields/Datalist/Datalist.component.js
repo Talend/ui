@@ -127,7 +127,7 @@ class Datalist extends Component {
 		const previousValue = persist ? value : this.state.previousValue;
 		this.setState({ value, previousValue });
 		if (persist) {
-			const enumValue = this.props.schema.titleMap.find(item => item.name);
+			const enumValue = this.props.schema.titleMap.find(item => item.name === value);
 			const payload = { schema: this.props.schema, value: enumValue.value };
 			this.props.onChange(event, payload);
 			this.props.onFinish(event, payload);
