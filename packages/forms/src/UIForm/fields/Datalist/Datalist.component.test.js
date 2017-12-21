@@ -87,7 +87,7 @@ describe('Datalist component', () => {
 		input.simulate('blur');
 
 		// then
-		const payload = { schema, value: 'foo' };
+		const payload = { schema, value: 'fo' };
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 		expect(onFinish).toBeCalledWith(expect.anything(), payload);
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
@@ -196,7 +196,7 @@ describe('Datalist component', () => {
 		input.simulate('keydown', { which: keycode.codes.enter });
 
 		// then
-		const payload = { schema, value: 'foo' };
+		const payload = { schema, value: 'fo' };
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 		expect(onFinish).toBeCalledWith(expect.anything(), payload);
 	});

@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import keycode from 'keycode';
+import get from 'lodash/get';
+
 import Typeahead from '@talend/react-components/lib/Typeahead';
+
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './Datalist.scss';
@@ -128,7 +131,7 @@ class Datalist extends Component {
 		this.setState({ value, previousValue });
 		if (persist) {
 			const enumValue = this.props.schema.titleMap.find(item => item.name === value);
-			const payload = { schema: this.props.schema, value: enumValue.value };
+			const payload = { schema: this.props.schema, value: get(enumValue, 'value', value) };
 			this.props.onChange(event, payload);
 			this.props.onFinish(event, payload);
 		}
