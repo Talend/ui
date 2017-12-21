@@ -1057,7 +1057,7 @@ exports[`Storyshots SidePanel docked 1`] = `
     </symbol>
   </svg>
   <nav
-    className="tc-side-panel undefined"
+    className="tc-side-panel"
     role="navigation"
   >
     <ul
@@ -1300,7 +1300,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
     </symbol>
   </svg>
   <nav
-    className="tc-side-panel undefined undefined"
+    className="tc-side-panel undefined"
     role="navigation"
   >
     <ul

@@ -15,6 +15,8 @@ $tc-side-panel-labels-width: 135px !default;
 $tc-side-panel-large-labels-width: 165px !default;
 $tc-side-panel-large-docked-width: 70px !default;
 $tc-side-panel-icons-size: 20px !default;
+$tc-side-panel-border-size: 2px !default;
+$tc-side-panel-large-toggle-padding: 4px !default;
 $toggle-button-padding: $padding-small - 1;
 
 .tc-side-panel {
@@ -27,8 +29,26 @@ $toggle-button-padding: $padding-small - 1;
 		width: $tc-side-panel-width;
 	}
 
+	:global(.btn) svg:global(.tc-svg-icon) {
+		width: $tc-side-panel-icons-size;
+		height: $tc-side-panel-icons-size;
+		margin: 0;
+	}
+
+	:global(.btn.btn-link) {
+		padding: $padding-normal;
+		text-overflow: inherit;
+	}
+
+	:global(.btn.btn-link) > span {
+		vertical-align: middle;
+		text-overflow: ellipsis;
+		width: $tc-side-panel-labels-width;
+		overflow: hidden;
+	}
+
 	&-list {
-		border-right: 2px solid $alto;
+		border-right: $tc-side-panel-border-size solid $alto;
 		background-color: $wild-sand;
 
 		.tc-side-panel-list-item.active {
@@ -109,7 +129,7 @@ $toggle-button-padding: $padding-small - 1;
 			}
 
 			.toggle-btn {
-				padding-left: 4px;
+				padding-left: $tc-side-panel-large-toggle-padding;
 				.link {
 					padding: $padding-small $tc-side-panel-large-padding;
 				}
@@ -126,24 +146,6 @@ $toggle-button-padding: $padding-small - 1;
 			margin-left: $padding-normal;
 			vertical-align: text-bottom;
 		}
-	}
-
-	:global(.btn) svg:global(.tc-svg-icon) {
-		width: $tc-side-panel-icons-size;
-		height: $tc-side-panel-icons-size;
-		margin: 0;
-	}
-
-	:global(.btn.btn-link) {
-		padding: $padding-normal;
-		text-overflow: inherit;
-	}
-
-	:global(.btn.btn-link) > span {
-		vertical-align: middle;
-		text-overflow: ellipsis;
-		width: $tc-side-panel-labels-width;
-		overflow: hidden;
 	}
 
 	&.docked {
