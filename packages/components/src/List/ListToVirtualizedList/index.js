@@ -1,3 +1,3 @@
-import ListToVirtualizedList from './ListToVirtualizedList.component';
+import { ListToVirtualizedList } from './ListToVirtualizedList.component';
 
 export default ListToVirtualizedList;

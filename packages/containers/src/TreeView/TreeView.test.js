@@ -24,7 +24,7 @@ describe('TreeView', () => {
 	});
 	it('should render the data', () => {
 		const wrapper = shallow(<TreeView.WrappedComponent data={data} />, { context });
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should setState onClick', () => {
 		const prevState = {

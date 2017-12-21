@@ -1,7 +1,11 @@
-.tf-array {
-	padding: 0;
+.tf-array-container {
+	margin-bottom: $padding-normal;
 
-	.item {
-		list-style: none;
+	.tf-array {
+		padding: 0;
+
+		.item {
+			list-style: none;
+		}
 	}
 }

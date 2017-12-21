@@ -55,7 +55,9 @@ function registerMany(components, context) {
 }
 
 function has(id, context) {
-	return registry.getFromRegistry(`${CONST.REGISTRY_COMPONENT_PREFIX}:${id}`, context) !== undefined;
+	return (
+		registry.getFromRegistry(`${CONST.REGISTRY_COMPONENT_PREFIX}:${id}`, context) !== undefined
+	);
 }
 
 export default {

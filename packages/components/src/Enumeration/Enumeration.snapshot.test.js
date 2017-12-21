@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Enumeration from './Enumeration.component';
 
-jest.mock('../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
+jest.mock('../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
 	<div id="autoSizer">{ props.children({ height: 30, width: 30 }) }</div> // eslint-disable-line react/prop-types
 );
 

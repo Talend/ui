@@ -1,19 +1,18 @@
 // ConfirmDialog styles
-$tc-dialog-progress-bg: #C3D600 !default;
-$tc-dialog-header-color: #607D8B !default;
+$tc-dialog-progress-bg: #c3d600 !default;
+$tc-dialog-header-color: #607d8b !default;
 $tc-dialog-medium-padding: 20px !default;
 $tc-dialog-body-padding: 30px !default;
 $tc-dialog-buttons-margin: 15px !default;
 
 .tc-confirm-dialog {
-
 	/** IE-FIX */
 	:global(.modal-dialog) {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
 
-		>:global(.modal-content) {
+		> :global(.modal-content) {
 			flex-basis: 100%;
 			flex-grow: 0;
 			flex-shrink: 0;
@@ -73,10 +72,9 @@ $tc-dialog-buttons-margin: 15px !default;
 		flex-shrink: 1;
 		height: 100%;
 		overflow: hidden;
-		padding: $tc-dialog-body-padding $tc-dialog-body-padding $tc-dialog-medium-padding $tc-dialog-body-padding;
-
+		padding: $tc-dialog-body-padding $tc-dialog-body-padding $tc-dialog-medium-padding
+			$tc-dialog-body-padding;
 	}
-
 
 	:global(.modal-footer) {
 		padding: 0 $tc-dialog-body-padding $tc-dialog-medium-padding $tc-dialog-body-padding;

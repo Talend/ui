@@ -46,9 +46,9 @@
     "@storybook/addon-knobs": "^3.2.0",
     "@storybook/addons": "^3.2.0",
     "@storybook/react": "3.1.9",
-    "@talend/bootstrap-theme": "^0.127.0",
-    "@talend/icons": "^0.127.0",
-    "@talend/react-components": "^0.127.0",
+    "@talend/bootstrap-theme": "^0.135.0",
+    "@talend/icons": "^0.135.0",
+    "@talend/react-components": "^0.135.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
@@ -61,8 +61,9 @@
     "bootstrap-sass": "3.3.7",
     "chokidar": "^1.6.1",
     "cpx": "1.5.0",
-    "enzyme": "^2.7.1",
-    "enzyme-to-json": "^1.5.0",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-15": "^1.0.1",
+    "enzyme-to-json": "^3.0.0",
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
@@ -72,21 +73,22 @@
     "invariant": "2.2.2",
     "jest": "20.0.3",
     "jest-cli": "20.0.3",
+    "jest-in-case": "^1.0.2",
     "json-loader": "^0.5.7",
     "keycode": "2.1.9",
     "node-sass": "4.5.3",
     "prop-types": "15.5.10",
-    "react": "^15.6.1",
+    "react": "^15.6.2",
     "react-a11y": "^0.3.3",
     "react-ace": "5.2.0",
     "react-addons-css-transition-group": "15.5.2",
     "react-addons-test-utils": "15.5.1",
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
-    "react-dom": "^15.6.1",
+    "react-dom": "^15.6.2",
     "react-i18next": "^5.2.0",
     "react-redux": "5.0.5",
-    "react-test-renderer": "^15.6.1",
+    "react-test-renderer": "^15.6.2",
     "react-virtualized": "9.10.1",
     "redux-mock-store": "1.2.3",
     "rimraf": "^2.6.1",
@@ -95,12 +97,12 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/react-components": "^0.127.0",
+    "@talend/react-components": "^0.135.0",
     "i18next": "^9.0.0",
     "prop-types": "15.5.10",
-    "react": "^15.6.1",
+    "react": "^15.6.2",
     "react-bootstrap": "0.31.0",
-    "react-dom": "^15.6.1",
+    "react-dom": "^15.6.2",
     "react-i18next": "^5.2.0",
     "react-redux": "5.0.5",
     "redux": "3.6.0"
@@ -112,7 +114,7 @@
       "!**/__snapshots__/**"
     ],
     "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+      "^.+\\.js$": "<rootDir>/../../node_modules/babel-jest"
     },
     "roots": [
       "src",
@@ -121,10 +123,11 @@
     "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
-    }
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.127.0"
+  "version": "0.135.0"
 }

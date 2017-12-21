@@ -2,9 +2,48 @@
  * Internal. All stuff related to the settings handling in CMF.
  * @module react-cmf/lib/settings
  */
+import memoize from 'lodash/memoize';
+/**
+ * if viewId is undefined, try to generate a meaningfull one
+ * else return given viewId
+ * @param {string} viewId
+ * @param {strign} componentName
+ * @param {string} componentId
+ */
+export function generateDefaultViewId(viewId, componentName, componentId) {
+	if (!viewId) {
+		if (componentName && componentId) {
+			return `${componentName}#${componentId}`;
+		} else if (componentName) {
+			return componentName;
+		}
+	}
+	return viewId;
+}
+
+/**
+ * try to retrieve view settings for a cmfconnected component
+ * @param {Object} state the application state
+ * @param {*} ownProps props given to the cmfConnected component
+ * @param {*} componentName name of the cmfConnect component
+ * @param {*} componentId componentId, can be undefined
+ */
+export function nonMemoized(state, ownProps, componentName, componentId) {
+	let viewProps;
+	let viewId = ownProps.view;
+
+	viewId = generateDefaultViewId(viewId, componentName, componentId);
+
+	if (viewId && state.cmf.settings.views[viewId]) {
+		viewProps = state.cmf.settings.views[viewId] || {};
+	}
+	return viewProps;
+}
 
 /**
  * return props for a given view with reference and override support
+ * this function is memoized and the map key is computed using
+ * `${ownProps.view}-${componentName}-${componentId}`
  *
  * @example
 
@@ -43,19 +82,11 @@
  * @param  {Object} ownProps   the props passed to the component. may have a view attribute
  * @return {Object}           React props for the component injected from the settings
  */
-export function mapStateToViewProps(state, ownProps, componentName, componentId) {
-	let viewProps = {};
-	let viewId = ownProps.view;
-	if (!ownProps.view && componentName && !componentId) {
-		viewId = componentName;
-	} else if (!ownProps.view && componentName && componentId) {
-		viewId = `${componentName}#${componentId}`;
-	}
-	if (viewId && state.cmf.settings.views[viewId]) {
-		viewProps = state.cmf.settings.views[viewId] || {};
-	}
-	return viewProps;
-}
+export const mapStateToViewProps = memoize(
+	nonMemoized,
+	(state, ownProps, componentName, componentId) =>
+		`${ownProps.view}-${componentName}-${componentId}`,
+);
 
 export default {
 	mapStateToViewProps,

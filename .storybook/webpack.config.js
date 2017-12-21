@@ -35,7 +35,7 @@ module.exports = storybookBaseConfig => {
 					options: {
 						data: SASS_DATA,
 					},
-				}
+				},
 			],
 		},
 		{
@@ -55,7 +55,7 @@ module.exports = storybookBaseConfig => {
 					options: {
 						data: SASS_DATA,
 					},
-				}
+				},
 			],
 		}
 	);
