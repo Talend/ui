@@ -71,7 +71,7 @@ module.exports = yeoman.Base.extend({
 				this
 			);
 			this.fs.copyTpl(
-				this.templatePath('src/enzyme.test.js'),
+				this.templatePath(this.props.type === 'connect' ? 'src/connect.test.js' : 'src/enzyme.test.js'),
 				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.test.js`),
 				this
 			);
