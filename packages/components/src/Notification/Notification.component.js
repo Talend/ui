@@ -39,23 +39,20 @@ export function MessageAction({ action }) {
 }
 
 export function Message({ notification }) {
-	const { message, action } = notification;
+	const { title, message, action } = notification;
+	const messages = Array.isArray(message) ? message : [message];
+	const titleClass = classNames(theme['tc-notification-title'], 'tc-notification-title');
 	const messageClass = classNames(theme['tc-notification-message'], 'tc-notification-message');
-	return Array.isArray(message) ? (
+
+	return (
 		<article className={theme.article}>
-			{message.map((paragraph, index) => (
+			{ title && <h3 className={titleClass}>{title}</h3> }
+			{ messages.map((paragraph, index) => (
 				<p key={index} className={messageClass}>
 					{paragraph}
-					{index === message.length - 1 && <MessageAction action={action} />}
+					{index === messages.length - 1 && <MessageAction action={action} />}
 				</p>
-			))}
-		</article>
-	) : (
-		<article className={theme.article}>
-			<p className={messageClass}>
-				{message}
-				<MessageAction action={action} />
-			</p>
+			)) }
 		</article>
 	);
 }
@@ -207,6 +204,7 @@ class NotificationsContainer extends React.Component {
 const notificationShape = {
 	id: PropTypes.any.isRequired,
 	type: PropTypes.oneOf(['info', 'warning', 'error']),
+	title: PropTypes.string,
 	message: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
 	action: PropTypes.shape(Action.propTypes),
 };
