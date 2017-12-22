@@ -51,18 +51,18 @@ $icon-size: $svg-md-size;
 			width: $icon-size;
 		}
 
-		.tc-notification-close {
+		&-close {
 			font-size: $icon-size;
 			float: right;
 		}
 
-		.tc-notification-action {
+		&-action {
 			background-color: transparent;
 			border: none;
 			padding: 0;
 		}
 
-		.tc-notification-title {
+		&-title {
 			margin: {
 				top: 0;
 				right: $padding-larger;
@@ -71,7 +71,7 @@ $icon-size: $svg-md-size;
 			font-weight: bold;
 		}
 
-		.tc-notification-message {
+		&-message {
 			margin-right: $padding-larger;
 			font-size: $font-size-small;
 
@@ -95,7 +95,7 @@ $icon-size: $svg-md-size;
 			}
 		}
 
-		.tc-notification-timer-bar {
+		&-timer-bar {
 			border-width: 2px 0 1px;
 			border-style: solid;
 			position: absolute;
