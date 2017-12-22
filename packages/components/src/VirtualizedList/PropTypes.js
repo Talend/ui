@@ -19,7 +19,7 @@ export default {
 	/** Function : (collectionItem) => Boolean
 	 *  This is called to determine if the element is selected.
 	 *  Note that this is not used/displayed if the selectionToggle props is not passed */
-	isSelected: PropTypes.func,
+	isSelected: PropTypes.func.isRequired,
 	// Show spinner during loading
 	inProgress: PropTypes.bool,
 	// The row click
