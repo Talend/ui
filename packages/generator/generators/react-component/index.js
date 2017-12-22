@@ -1,12 +1,11 @@
 const yeoman = require('yeoman-generator');
 const yosay = require('yosay');
-const slug = require('slugg');
 
 module.exports = yeoman.Base.extend({
 	prompting() {
 		// Have Yeoman greet the user.
 		this.log(yosay(
-			'Welcome to the react-cmf generator!'
+			'Welcome to the react-component generator!'
 		));
 		const prompts = [{
 			type: 'input',
@@ -42,19 +41,6 @@ module.exports = yeoman.Base.extend({
 				return answers.type === 'connect';
 			},
 		}, {
-			type: 'list',
-			name: 'test',
-			message: 'test',
-			default: 'snapshot',
-			choices: ['snapshot', 'enzyme'],
-			when(answers) {
-				if (answers.type === 'connect') {
-					answers.test = 'connect';
-					return false;
-				}
-				return !answers.isFull;
-			},
-		}, {
 			type: 'confirm',
 			name: 'css',
 			message: 'css',
@@ -85,7 +71,7 @@ module.exports = yeoman.Base.extend({
 				this
 			);
 			this.fs.copyTpl(
-				this.templatePath(`src/${this.props.test}.test.js`),
+				this.templatePath('src/enzyme.test.js'),
 				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.test.js`),
 				this
 			);
@@ -108,14 +94,14 @@ module.exports = yeoman.Base.extend({
 				this
 			);
 			this.fs.copyTpl(
-				this.templatePath(`src/full.test.js`),
+				this.templatePath('src/full.test.js'),
 				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.test.js`),
 				this
 			);
 		}
 		if (this.props.css) {
 			this.fs.copyTpl(
-				this.templatePath(`src/scss`),
+				this.templatePath('src/scss'),
 				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.scss`),
 				this
 			);
