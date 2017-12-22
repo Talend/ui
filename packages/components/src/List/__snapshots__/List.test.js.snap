@@ -821,53 +821,6 @@ exports[`List should render 1`] = `
                                           </SafeAnchor>
                                         </li>
                                       </MenuItem>
-                                      <MenuItem
-                                        bsClass="dropdown"
-                                        disabled={false}
-                                        divider={false}
-                                        eventKey="tile"
-                                        header={false}
-                                        key=".$.$tile"
-                                        onKeyDown={[Function]}
-                                        onSelect={[Function]}
-                                      >
-                                        <li
-                                          className=""
-                                          role="presentation"
-                                        >
-                                          <SafeAnchor
-                                            componentClass="a"
-                                            onClick={[Function]}
-                                            onKeyDown={[Function]}
-                                            role="menuitem"
-                                            tabIndex="-1"
-                                          >
-                                            <a
-                                              href="#"
-                                              onClick={[Function]}
-                                              onKeyDown={[Function]}
-                                              role="menuitem"
-                                              tabIndex="-1"
-                                            >
-                                              <Icon
-                                                name="talend-tiles"
-                                              >
-                                                <svg
-                                                  aria-hidden="true"
-                                                  className="tc-svg-icon"
-                                                  focusable="false"
-                                                  title={null}
-                                                >
-                                                  <use
-                                                    xlinkHref="#talend-tiles"
-                                                  />
-                                                </svg>
-                                              </Icon>
-                                              Tile
-                                            </a>
-                                          </SafeAnchor>
-                                        </li>
-                                      </MenuItem>
                                     </ul>
                                   </RootCloseWrapper>
                                 </DropdownMenu>
@@ -2453,56 +2406,6 @@ exports[`List should render id if provided 1`] = `
                                                 </svg>
                                               </Icon>
                                               Expanded
-                                            </a>
-                                          </SafeAnchor>
-                                        </li>
-                                      </MenuItem>
-                                      <MenuItem
-                                        bsClass="dropdown"
-                                        disabled={false}
-                                        divider={false}
-                                        eventKey="tile"
-                                        header={false}
-                                        id="context-display-mode-tile"
-                                        key=".$.$tile"
-                                        onKeyDown={[Function]}
-                                        onSelect={[Function]}
-                                      >
-                                        <li
-                                          className=""
-                                          role="presentation"
-                                        >
-                                          <SafeAnchor
-                                            componentClass="a"
-                                            id="context-display-mode-tile"
-                                            onClick={[Function]}
-                                            onKeyDown={[Function]}
-                                            role="menuitem"
-                                            tabIndex="-1"
-                                          >
-                                            <a
-                                              href="#"
-                                              id="context-display-mode-tile"
-                                              onClick={[Function]}
-                                              onKeyDown={[Function]}
-                                              role="menuitem"
-                                              tabIndex="-1"
-                                            >
-                                              <Icon
-                                                name="talend-tiles"
-                                              >
-                                                <svg
-                                                  aria-hidden="true"
-                                                  className="tc-svg-icon"
-                                                  focusable="false"
-                                                  title={null}
-                                                >
-                                                  <use
-                                                    xlinkHref="#talend-tiles"
-                                                  />
-                                                </svg>
-                                              </Icon>
-                                              Tile
                                             </a>
                                           </SafeAnchor>
                                         </li>

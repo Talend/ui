@@ -89,6 +89,7 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 	return accessors;
 }
 
+// DEPRECATION Warning: Please use cmfConnect.propTypes
 export const statePropTypes = {
 	state: PropTypes.object,
 	initialState: PropTypes.object,
