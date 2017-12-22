@@ -1,15 +1,10 @@
-import { connect } from 'react-redux';
+import { cmfConnect } from '@talend/react-cmf';
 import { <%= props.name %> } from '<%= props.purePath %>';
-
-export function mapDispatchToProps(dispatch) {
-	return {};
-}
 
 export function mapStateToProps(state) {
 	return {};
 }
 
-export default connect(
+export default cmfConnect({
 	mapStateToProps,
-	mapDispatchToProps
-)(<%= props.name %>);
+})(<%= props.name %>);

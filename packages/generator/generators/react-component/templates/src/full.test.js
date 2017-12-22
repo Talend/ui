@@ -1,5 +1,4 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import { Provider } from 'react-cmf/lib/mock';
 import { Map } from 'immutable';
@@ -7,16 +6,15 @@ import { Map } from 'immutable';
 import Component from './<%= props.name %>.component';
 import Container, { DEFAULT_STATE } from './<%= props.name %>.container';
 import Connected, {
-	mapDispatchToProps,
 	mapStateToProps,
 } from './<%= props.name %>.connect';
 
 describe('Component <%= props.name %>', () => {
 	it('should render', () => {
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<Component />
 		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
@@ -45,11 +43,6 @@ describe('Connected <%= props.name %>', () => {
 			},
 		};
 		const props = mapStateToProps(state);
-		expect(typeof props).toBe('object');
-	});
-	it('should map state to props', () => {
-		const dispatch = jest.fn();
-		const props = mapDispatchToProps(dispatch);
 		expect(typeof props).toBe('object');
 	});
 });

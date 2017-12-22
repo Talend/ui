@@ -29,7 +29,7 @@ module.exports = yeoman.Base.extend({
 			name: 'type',
 			message: 'type',
 			default: 'es6.class',
-			choices: ['es6.class', 'es6.arrow', 'stateless', 'createClass', 'connect'],
+			choices: ['es6.class', 'es6.arrow', 'stateless', 'connect'],
 			when(answers) {
 				return !answers.isFull;
 			},
