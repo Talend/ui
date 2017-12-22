@@ -46,13 +46,13 @@ export function Message({ notification }) {
 
 	return (
 		<article className={theme.article}>
-			{ title && <h3 className={titleClass}>{title}</h3> }
-			{ messages.map((paragraph, index) => (
+			{title && <h3 className={titleClass}>{title}</h3>}
+			{messages.map((paragraph, index) => (
 				<p key={index} className={messageClass}>
 					{paragraph}
 					{index === messages.length - 1 && <MessageAction action={action} />}
 				</p>
-			)) }
+			))}
 		</article>
 	);
 }
