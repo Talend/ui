@@ -14,7 +14,6 @@ const renderers = {
 };
 
 function HeaderBar(props) {
-
 	return <PureHeaderBar renderers={getRenderers(renderers)} {...props} />;
 }
 
