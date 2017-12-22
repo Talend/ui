@@ -2,6 +2,7 @@ const SASS_DATA = "@import '~@talend/bootstrap-theme/src/theme/guidelines';";
 const autoprefixer = require.main.require('autoprefixer');
 const path = require('path');
 const webpack = require.main.require('webpack');
+const autoPrefixerPlugin = autoprefixer({ browsers: ['last 2 versions'] })
 
 module.exports = storybookBaseConfig => {
 	// remove Uglification plugin to improve build time in CI
@@ -27,7 +28,7 @@ module.exports = storybookBaseConfig => {
 				{
 					loader: 'postcss-loader',
 					options: {
-						plugins: [autoprefixer({ browsers: ['last 2 versions'] })],
+						plugins: [autoPrefixerPlugin],
 					},
 				},
 				{
@@ -47,7 +48,7 @@ module.exports = storybookBaseConfig => {
 				{
 					loader: 'postcss-loader',
 					options: {
-						plugins: [autoprefixer({ browsers: ['last 2 versions'] })],
+						plugins: [autoPrefixerPlugin],
 					},
 				},
 				{
@@ -66,7 +67,7 @@ module.exports = storybookBaseConfig => {
 				{
 					loader: 'postcss-loader',
 					options: {
-						plugins: [autoprefixer({ browsers: ['last 2 versions'] })],
+						plugins: [autoPrefixerPlugin],
 					},
 				},
 			],
