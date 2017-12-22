@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Provider } from 'react-cmf/lib/mock';
+import { Provider } from '@talend/react-cmf/lib/mock';
 import { Map } from 'immutable';
 
 import Component from './<%= props.name %>.component';
