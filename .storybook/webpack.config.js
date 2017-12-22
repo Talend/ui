@@ -57,6 +57,19 @@ module.exports = storybookBaseConfig => {
 					},
 				},
 			],
+		},
+		{
+			test: /\.css$/,
+			use: [
+				'style-loader',
+				'css-loader',
+				{
+					loader: 'postcss-loader',
+					options: {
+						plugins: [autoprefixer({ browsers: ['last 2 versions'] })],
+					},
+				},
+			],
 		}
 	);
 
