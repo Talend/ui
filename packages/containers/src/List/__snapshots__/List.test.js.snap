@@ -8,7 +8,7 @@ Object {
       "created": "2016-09-22",
       "id": 3,
       "modified": "2016-09-22",
-      "name": "Super long title to trigger overflow on tile rendering",
+      "name": "Super long title to trigger overflow on some rendering",
     },
     Object {
       "author": "Jean-Pierre DUPONT",
@@ -45,7 +45,7 @@ Object {
       "created": "2016-09-22",
       "id": 3,
       "modified": "2016-09-22",
-      "name": "Super long title to trigger overflow on tile rendering",
+      "name": "Super long title to trigger overflow on some rendering",
     },
     Object {
       "author": "Jean-Pierre DUPONT",
@@ -82,7 +82,7 @@ Object {
       "created": "2016-09-22",
       "id": 3,
       "modified": "2016-09-22",
-      "name": "Super long title to trigger overflow on tile rendering",
+      "name": "Super long title to trigger overflow on some rendering",
     },
     Object {
       "author": "Jean-Pierre DUPONT",
@@ -167,7 +167,7 @@ Object {
         "created": "2016-09-22",
         "id": 3,
         "modified": "2016-09-22",
-        "name": "Super long title to trigger overflow on tile rendering",
+        "name": "Super long title to trigger overflow on some rendering",
       },
     ],
     "sort": Object {
