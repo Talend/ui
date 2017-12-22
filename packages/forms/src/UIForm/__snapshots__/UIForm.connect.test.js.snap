@@ -202,7 +202,9 @@ exports[`UIForm connect should render form 1`] = `
   storeSubscription={
     Subscription {
       "listeners": Object {
+        "clear": [Function],
         "notify": [Function],
+        "subscribe": [Function],
       },
       "onStateChange": [Function],
       "parentSub": undefined,
@@ -214,7 +216,7 @@ exports[`UIForm connect should render form 1`] = `
         "replaceReducer": [Function],
         "subscribe": [Function],
       },
-      "unsubscribe": null,
+      "unsubscribe": [Function],
     }
   }
   updateForm={[Function]}

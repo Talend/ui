@@ -233,6 +233,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       <div
                         className="ReactVirtualized__Table__headerColumn tc-list-cell-"
                         id="tc-list-internal-row-selector"
+                        key="Header-Col0"
                         role="columnheader"
                         style={
                           Object {
@@ -244,11 +245,13 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       >
                         <span
                           className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
                           title=""
                         />
                       </div>
                       <div
                         className="ReactVirtualized__Table__headerColumn tc-list-cell-id"
+                        key="Header-Col1"
                         role="columnheader"
                         style={
                           Object {
@@ -260,6 +263,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       >
                         <span
                           className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
                           title="Id"
                         >
                           Id
@@ -267,6 +271,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       </div>
                       <div
                         className="ReactVirtualized__Table__headerColumn tc-list-cell-name"
+                        key="Header-Col2"
                         role="columnheader"
                         style={
                           Object {
@@ -278,6 +283,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       >
                         <span
                           className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
                           title="Name"
                         >
                           Name
@@ -626,6 +632,7 @@ exports[`List should render 1`] = `
                       >
                         <NavDropdown
                           id={42}
+                          key=".0"
                           onSelect={[Function]}
                           title={
                             <Icon
@@ -654,6 +661,7 @@ exports[`List should render 1`] = `
                                   bsClass="dropdown-toggle"
                                   bsRole="toggle"
                                   id={42}
+                                  key=".0"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
                                   open={false}
@@ -703,6 +711,7 @@ exports[`List should render 1`] = `
                                 <DropdownMenu
                                   bsClass="dropdown-menu"
                                   bsRole="menu"
+                                  key=".1"
                                   labelledBy={42}
                                   onClose={[Function]}
                                   onSelect={[Function]}
@@ -724,6 +733,7 @@ exports[`List should render 1`] = `
                                         divider={false}
                                         eventKey="table"
                                         header={false}
+                                        key=".$.$table"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -770,6 +780,7 @@ exports[`List should render 1`] = `
                                         divider={false}
                                         eventKey="large"
                                         header={false}
+                                        key=".$.$large"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -816,6 +827,7 @@ exports[`List should render 1`] = `
                                         divider={false}
                                         eventKey="tile"
                                         header={false}
+                                        key=".$.$tile"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -913,6 +925,7 @@ exports[`List should render 1`] = `
                       >
                         <NavDropdown
                           id={42}
+                          key=".0"
                           onSelect={[Function]}
                           title="Name"
                         >
@@ -937,6 +950,7 @@ exports[`List should render 1`] = `
                                   bsClass="dropdown-toggle"
                                   bsRole="toggle"
                                   id={42}
+                                  key=".0"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
                                   open={false}
@@ -973,6 +987,7 @@ exports[`List should render 1`] = `
                                 <DropdownMenu
                                   bsClass="dropdown-menu"
                                   bsRole="menu"
+                                  key=".1"
                                   labelledBy={42}
                                   onClose={[Function]}
                                   onSelect={[Function]}
@@ -999,6 +1014,7 @@ exports[`List should render 1`] = `
                                           }
                                         }
                                         header={false}
+                                        key=".$.$0"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -1036,6 +1052,7 @@ exports[`List should render 1`] = `
                                           }
                                         }
                                         header={false}
+                                        key=".$.$1"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -1072,6 +1089,7 @@ exports[`List should render 1`] = `
                         <NavItem
                           active={false}
                           disabled={false}
+                          key=".1"
                           onClick={[Function]}
                           onSelect={null}
                         >
@@ -1142,6 +1160,7 @@ exports[`List should render 1`] = `
                       >
                         <NavDropdown
                           id={42}
+                          key=".0"
                           onSelect={[Function]}
                           title={5}
                         >
@@ -1166,6 +1185,7 @@ exports[`List should render 1`] = `
                                   bsClass="dropdown-toggle"
                                   bsRole="toggle"
                                   id={42}
+                                  key=".0"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
                                   open={false}
@@ -1202,6 +1222,7 @@ exports[`List should render 1`] = `
                                 <DropdownMenu
                                   bsClass="dropdown-menu"
                                   bsRole="menu"
+                                  key=".1"
                                   labelledBy={42}
                                   onClose={[Function]}
                                   onSelect={[Function]}
@@ -1223,6 +1244,7 @@ exports[`List should render 1`] = `
                                         divider={false}
                                         eventKey={5}
                                         header={false}
+                                        key=".$.$0"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -1255,6 +1277,7 @@ exports[`List should render 1`] = `
                                         divider={false}
                                         eventKey={10}
                                         header={false}
+                                        key=".$.$1"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -1287,6 +1310,7 @@ exports[`List should render 1`] = `
                                         divider={false}
                                         eventKey={20}
                                         header={false}
+                                        key=".$.$2"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -1319,6 +1343,7 @@ exports[`List should render 1`] = `
                                         divider={false}
                                         eventKey={50}
                                         header={false}
+                                        key=".$.$3"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -1357,6 +1382,7 @@ exports[`List should render 1`] = `
                           className="btn-link"
                           disabled={false}
                           eventKey="first"
+                          key=".1:0"
                           onSelect={[Function]}
                         >
                           <li
@@ -1396,6 +1422,7 @@ exports[`List should render 1`] = `
                           className="btn-link"
                           disabled={false}
                           eventKey="prev"
+                          key=".1:1"
                           onSelect={[Function]}
                         >
                           <li
@@ -1433,6 +1460,7 @@ exports[`List should render 1`] = `
                         <NavItem
                           active={false}
                           disabled={true}
+                          key=".1:2"
                           onSelect={[Function]}
                         >
                           <li
@@ -1471,6 +1499,7 @@ exports[`List should render 1`] = `
                           className="btn-link"
                           disabled={false}
                           eventKey="next"
+                          key=".1:3"
                           onSelect={[Function]}
                         >
                           <li
@@ -1511,6 +1540,7 @@ exports[`List should render 1`] = `
                           className="btn-link"
                           disabled={false}
                           eventKey="last"
+                          key=".1:4"
                           onSelect={[Function]}
                         >
                           <li
@@ -1609,6 +1639,7 @@ exports[`List should render 1`] = `
                               type="button"
                             >
                               <Icon
+                                key="icon"
                                 name="talend-search"
                               >
                                 <svg
@@ -1823,6 +1854,7 @@ exports[`List should render 1`] = `
                       <div
                         className="ReactVirtualized__Table__headerColumn tc-list-cell-"
                         id="tc-list-internal-row-selector"
+                        key="Header-Col0"
                         role="columnheader"
                         style={
                           Object {
@@ -1834,11 +1866,13 @@ exports[`List should render 1`] = `
                       >
                         <span
                           className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
                           title=""
                         />
                       </div>
                       <div
                         className="ReactVirtualized__Table__headerColumn tc-list-cell-id"
+                        key="Header-Col1"
                         role="columnheader"
                         style={
                           Object {
@@ -1850,6 +1884,7 @@ exports[`List should render 1`] = `
                       >
                         <span
                           className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
                           title="Id"
                         >
                           Id
@@ -1857,6 +1892,7 @@ exports[`List should render 1`] = `
                       </div>
                       <div
                         className="ReactVirtualized__Table__headerColumn tc-list-cell-name"
+                        key="Header-Col2"
                         role="columnheader"
                         style={
                           Object {
@@ -1868,6 +1904,7 @@ exports[`List should render 1`] = `
                       >
                         <span
                           className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
                           title="Name"
                         >
                           Name
@@ -2225,6 +2262,7 @@ exports[`List should render id if provided 1`] = `
                       >
                         <NavDropdown
                           id="context-display-mode"
+                          key=".0"
                           onSelect={[Function]}
                           title={
                             <Icon
@@ -2253,6 +2291,7 @@ exports[`List should render id if provided 1`] = `
                                   bsClass="dropdown-toggle"
                                   bsRole="toggle"
                                   id="context-display-mode"
+                                  key=".0"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
                                   open={false}
@@ -2302,6 +2341,7 @@ exports[`List should render id if provided 1`] = `
                                 <DropdownMenu
                                   bsClass="dropdown-menu"
                                   bsRole="menu"
+                                  key=".1"
                                   labelledBy="context-display-mode"
                                   onClose={[Function]}
                                   onSelect={[Function]}
@@ -2324,6 +2364,7 @@ exports[`List should render id if provided 1`] = `
                                         eventKey="table"
                                         header={false}
                                         id="context-display-mode-table"
+                                        key=".$.$table"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -2373,6 +2414,7 @@ exports[`List should render id if provided 1`] = `
                                         eventKey="large"
                                         header={false}
                                         id="context-display-mode-large"
+                                        key=".$.$large"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -2422,6 +2464,7 @@ exports[`List should render id if provided 1`] = `
                                         eventKey="tile"
                                         header={false}
                                         id="context-display-mode-tile"
+                                        key=".$.$tile"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -2525,6 +2568,7 @@ exports[`List should render id if provided 1`] = `
                       >
                         <NavDropdown
                           id="context-sort-by"
+                          key=".0"
                           onSelect={[Function]}
                           title="Name"
                         >
@@ -2549,6 +2593,7 @@ exports[`List should render id if provided 1`] = `
                                   bsClass="dropdown-toggle"
                                   bsRole="toggle"
                                   id="context-sort-by"
+                                  key=".0"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
                                   open={false}
@@ -2585,6 +2630,7 @@ exports[`List should render id if provided 1`] = `
                                 <DropdownMenu
                                   bsClass="dropdown-menu"
                                   bsRole="menu"
+                                  key=".1"
                                   labelledBy="context-sort-by"
                                   onClose={[Function]}
                                   onSelect={[Function]}
@@ -2612,6 +2658,7 @@ exports[`List should render id if provided 1`] = `
                                         }
                                         header={false}
                                         id="context-sort-by-item-id"
+                                        key=".$.$0"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -2652,6 +2699,7 @@ exports[`List should render id if provided 1`] = `
                                         }
                                         header={false}
                                         id="context-sort-by-item-name"
+                                        key=".$.$1"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -2691,6 +2739,7 @@ exports[`List should render id if provided 1`] = `
                           active={false}
                           disabled={false}
                           id="context-sort-order"
+                          key=".1"
                           onClick={[Function]}
                           onSelect={null}
                         >
@@ -2767,6 +2816,7 @@ exports[`List should render id if provided 1`] = `
                       >
                         <NavDropdown
                           id="context-pagination-size"
+                          key=".0"
                           onSelect={[Function]}
                           title={5}
                         >
@@ -2791,6 +2841,7 @@ exports[`List should render id if provided 1`] = `
                                   bsClass="dropdown-toggle"
                                   bsRole="toggle"
                                   id="context-pagination-size"
+                                  key=".0"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
                                   open={false}
@@ -2827,6 +2878,7 @@ exports[`List should render id if provided 1`] = `
                                 <DropdownMenu
                                   bsClass="dropdown-menu"
                                   bsRole="menu"
+                                  key=".1"
                                   labelledBy="context-pagination-size"
                                   onClose={[Function]}
                                   onSelect={[Function]}
@@ -2848,6 +2900,7 @@ exports[`List should render id if provided 1`] = `
                                         divider={false}
                                         eventKey={5}
                                         header={false}
+                                        key=".$.$0"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -2880,6 +2933,7 @@ exports[`List should render id if provided 1`] = `
                                         divider={false}
                                         eventKey={10}
                                         header={false}
+                                        key=".$.$1"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -2912,6 +2966,7 @@ exports[`List should render id if provided 1`] = `
                                         divider={false}
                                         eventKey={20}
                                         header={false}
+                                        key=".$.$2"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -2944,6 +2999,7 @@ exports[`List should render id if provided 1`] = `
                                         divider={false}
                                         eventKey={50}
                                         header={false}
+                                        key=".$.$3"
                                         onKeyDown={[Function]}
                                         onSelect={[Function]}
                                       >
@@ -2983,6 +3039,7 @@ exports[`List should render id if provided 1`] = `
                           disabled={false}
                           eventKey="first"
                           id="context-pagination-nav-to-first"
+                          key=".1:0"
                           onSelect={[Function]}
                         >
                           <li
@@ -3025,6 +3082,7 @@ exports[`List should render id if provided 1`] = `
                           disabled={false}
                           eventKey="prev"
                           id="context-pagination-nav-to-prev"
+                          key=".1:1"
                           onSelect={[Function]}
                         >
                           <li
@@ -3064,6 +3122,7 @@ exports[`List should render id if provided 1`] = `
                         <NavItem
                           active={false}
                           disabled={true}
+                          key=".1:2"
                           onSelect={[Function]}
                         >
                           <li
@@ -3103,6 +3162,7 @@ exports[`List should render id if provided 1`] = `
                           disabled={false}
                           eventKey="next"
                           id="context-pagination-nav-to-next"
+                          key=".1:3"
                           onSelect={[Function]}
                         >
                           <li
@@ -3146,6 +3206,7 @@ exports[`List should render id if provided 1`] = `
                           disabled={false}
                           eventKey="last"
                           id="context-pagination-nav-to-last"
+                          key=".1:4"
                           onSelect={[Function]}
                         >
                           <li
@@ -3251,6 +3312,7 @@ exports[`List should render id if provided 1`] = `
                               type="button"
                             >
                               <Icon
+                                key="icon"
                                 name="talend-search"
                               >
                                 <svg
@@ -3471,6 +3533,7 @@ exports[`List should render id if provided 1`] = `
                       <div
                         className="ReactVirtualized__Table__headerColumn tc-list-cell-"
                         id="tc-list-internal-row-selector"
+                        key="Header-Col0"
                         role="columnheader"
                         style={
                           Object {
@@ -3482,11 +3545,13 @@ exports[`List should render id if provided 1`] = `
                       >
                         <span
                           className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
                           title=""
                         />
                       </div>
                       <div
                         className="ReactVirtualized__Table__headerColumn tc-list-cell-id"
+                        key="Header-Col1"
                         role="columnheader"
                         style={
                           Object {
@@ -3498,6 +3563,7 @@ exports[`List should render id if provided 1`] = `
                       >
                         <span
                           className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
                           title="Id"
                         >
                           Id
@@ -3505,6 +3571,7 @@ exports[`List should render id if provided 1`] = `
                       </div>
                       <div
                         className="ReactVirtualized__Table__headerColumn tc-list-cell-name"
+                        key="Header-Col2"
                         role="columnheader"
                         style={
                           Object {
@@ -3516,6 +3583,7 @@ exports[`List should render id if provided 1`] = `
                       >
                         <span
                           className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
                           title="Name"
                         >
                           Name

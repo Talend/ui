@@ -101,6 +101,7 @@ import Loader from './Loader';
 import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import SidePanel from './SidePanel';
+import Slider from './Slider';
 import Status from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
@@ -207,6 +208,7 @@ export {
 	ResponsiveEmbed,
 	Row,
 	SafeAnchor,
+	Slider,
 	SplitButton,
 	SubHeaderBar,
 	Tab,

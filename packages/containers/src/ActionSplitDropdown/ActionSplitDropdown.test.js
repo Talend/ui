@@ -37,7 +37,7 @@ describe('Container(ActionSplitDropdown)', () => {
 			/>,
 			{ context },
 		);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 		const props = wrapper.props();
 		expect(typeof props.items[0].onClick).toBe('function');
 	});
