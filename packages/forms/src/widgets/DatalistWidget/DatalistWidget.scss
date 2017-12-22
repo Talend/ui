@@ -13,14 +13,10 @@ $tf-typeahead-section-border-color: #E0E0E0 !default;
 	box-shadow: none;
 }
 
-.typeahead-input {
-	min-width: $tf-typeahead-input-width;
-
-	&-icon {
-		display: flex;
-		align-items: center;
-		width: 100%;
-	}
+.typeahead-input-icon {
+	display: flex;
+	align-items: center;
+	width: 100%;
 }
 
 .items-container {

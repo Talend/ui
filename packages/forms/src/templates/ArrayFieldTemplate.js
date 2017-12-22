@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
-import { Icon, IconsProvider } from '@talend/react-components';
+import Icon from '@talend/react-components/lib/Icon';
+import IconsProvider from '@talend/react-components/lib/IconsProvider';
 
 import theme from './ArrayFieldTemplate.scss';
 
