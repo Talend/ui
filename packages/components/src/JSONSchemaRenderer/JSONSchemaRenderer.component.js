@@ -2,6 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import entries from 'lodash/entries';
+import has from 'lodash/has';
+import flatten from 'lodash/flatten';
+import flatMapDeep from 'lodash/flatMapDeep';
 
 import css from './JSONSchemaRenderer.scss';
 
@@ -186,14 +189,30 @@ ObjectRenderer.propTypes = {
 /**
  * orderProperties sorts properties based on uiSchema ui:order array
  *
- * @param order
+ * @param uiSchema
  * @param properties
  * @returns {Array}
  */
-function orderProperties(order, properties) {
-	if (!order) {
+function orderProperties(uiSchema, properties) {
+	if (!uiSchema['ui:order']) {
 		return properties;
 	}
+
+	const flatMap = flatMapDeep(uiSchema, (i) => {
+		console.log('flat', i);
+		if (has(i, 'ui:order')) {
+			return i['ui:order'];
+		}
+		return i;
+	});
+	console.log('Flatten', flatMap);
+	const order = flatten(uiSchema['ui:order'].map(i => {
+		if (has(uiSchema, i, 'ui:order')) {
+			return uiSchema[i]['ui:order'];
+		}
+		return i;
+	}));
+	console.log("ORDER", order);
 	return properties.sort((a, b) => {
 		const aIndex = order.indexOf(a[0]);
 		const bIndex = order.indexOf(b[0]);
@@ -220,7 +239,7 @@ function JSONSchemaRenderer({ schema, className, ...props }) {
 	}
 	let properties = entries(schema.properties);
 	if (schema.uiSchema) {
-		properties = orderProperties(schema.uiSchema['ui:order'], properties);
+		properties = orderProperties(schema.uiSchema, properties);
 	}
 	const elements = properties.map(typeResolver(schema.jsonSchema.properties, schema.uiSchema));
 	return (

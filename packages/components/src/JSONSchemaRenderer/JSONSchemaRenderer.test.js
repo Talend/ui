@@ -129,6 +129,39 @@ describe('JSONSchemaRenderer', () => {
 		).toEqual('d');
 	});
 
+	it('should handle object level order', () => {
+		const schema = {
+			jsonSchema: {
+				properties: {
+					d: { type: 'string' },
+					obj: {
+						type: 'object',
+						properties: {
+							b: { type: 'string' },
+							c: { type: 'string' },
+							a: { type: 'string' },
+						},
+					},
+				},
+			},
+			uiSchema: {
+				obj: { 'ui:order': ['a', 'c', 'b'] },
+				'ui:order': ['obj', 'd'],
+			},
+			properties: {
+				d: 'test d',
+				obj: {
+					c: 'test c',
+					a: 'test a',
+					b: 'test b',
+				},
+			},
+		};
+		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
+		expect(wrapper.find('dt').map(item => item.text()))
+			.toEqual(['a', 'c', 'b', 'd']);
+	});
+
 	it("shouldn't render hidden fields", () => {
 		const schema = {
 			jsonSchema: {
