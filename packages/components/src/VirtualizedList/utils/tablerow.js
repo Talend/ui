@@ -13,7 +13,7 @@ import { internalIds } from './constants';
  */
 export function insertSelectionConfiguration({ children, isSelected, selectionToggle }) {
 	let contentsConfiguration = React.Children.toArray(children);
-	if (selectionToggle) {
+	if (selectionToggle && isSelected) {
 		const toggleColumn = (
 			<Column
 				id={internalIds.rowSelector}
@@ -28,6 +28,8 @@ export function insertSelectionConfiguration({ children, isSelected, selectionTo
 				{...CellCheckboxRenderer}
 			/>);
 		contentsConfiguration = [toggleColumn].concat(contentsConfiguration);
+	} else if (selectionToggle || isSelected) {
+		console.warn('VirtualizedList : props.selectionToggle goes with props.isSelected. You defined only one of those props, selection is ignored.');
 	}
 	return contentsConfiguration;
 }

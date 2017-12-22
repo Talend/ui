@@ -94,6 +94,7 @@ const listProps = {
 			onSelect: action('onSelect'),
 			onToggle: action('onToggle'),
 			onToggleAll: action('onToggleAll'),
+			isSelected: () => false,
 		},
 	},
 	toolbar: {
