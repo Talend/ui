@@ -35,7 +35,7 @@ Object {
 }
 `;
 
-exports[`json function should resolve status 204 but without json function 1`] = `Object {}`;
+exports[`json function should resolve status HTTP_STATUS.NO_CONTENT but without json function 1`] = `Object {}`;
 
 exports[`status function should reject if status >= 300 1`] = `
 Object {

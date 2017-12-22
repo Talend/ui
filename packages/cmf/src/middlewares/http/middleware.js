@@ -1,6 +1,6 @@
 import has from 'lodash/has';
 import get from 'lodash/get';
-import { HTTP_METHODS, HTTP_REQUEST, HTTP_RESPONSE, HTTP_ERRORS } from './constants';
+import { HTTP_METHODS, ACTION_TYPE_HTTP_REQUEST, ACTION_TYPE_HTTP_RESPONSE, ACTION_TYPE_HTTP_ERRORS } from './constants';
 
 export const DEFAULT_HTTP_HEADERS = {
 	Accept: 'application/json',
@@ -21,7 +21,7 @@ export function getMethod(action) {
 
 export function httpRequest(url, config) {
 	return {
-		type: HTTP_REQUEST,
+		type: ACTION_TYPE_HTTP_REQUEST,
 		url,
 		config,
 	};
@@ -29,14 +29,14 @@ export function httpRequest(url, config) {
 
 export function httpError(error) {
 	return {
-		type: HTTP_ERRORS,
+		type: ACTION_TYPE_HTTP_ERRORS,
 		error,
 	};
 }
 
 export function httpResponse(response) {
 	return {
-		type: HTTP_RESPONSE,
+		type: ACTION_TYPE_HTTP_RESPONSE,
 		data: response,
 	};
 }
