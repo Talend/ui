@@ -240,16 +240,6 @@ storiesOf('Layout', module)
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
-	.addWithInfo('TwoColumns with big Tile list', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={dockedSidePanel}
-		>
-			<List {...listProps} displayMode={'tile'} />
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
 	.addWithInfo('TwoColumns docked', () => (
 		<Layout
 			header={header}
