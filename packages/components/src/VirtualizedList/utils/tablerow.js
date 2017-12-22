@@ -29,7 +29,7 @@ export function insertSelectionConfiguration({ children, isSelected, selectionTo
 			/>
 		);
 		contentsConfiguration = [toggleColumn].concat(contentsConfiguration);
-	} else if (process.env.NODE_ENV !== 'production' && selectionToggle || isSelected) {
+	} else if ((process.env.NODE_ENV !== 'production' && selectionToggle) || isSelected) {
 		console.warn(
 			'VirtualizedList : props.selectionToggle goes with props.isSelected. You defined only one of those props, selection is ignored.',
 		);
