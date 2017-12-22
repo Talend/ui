@@ -11,6 +11,14 @@ exports[`Action should render from name props keeping extra props 1`] = `
   getCollection={[Function]}
   initState={[Function]}
   name="menu:article"
+  renderers={
+    Object {
+      "ActionButton": [Function],
+      "ActionDropdown": [Function],
+      "ActionFile": [Function],
+      "ActionSplitDropdown": [Function],
+    }
+  }
   setState={[Function]}
   state={undefined}
   updateState={[Function]}
