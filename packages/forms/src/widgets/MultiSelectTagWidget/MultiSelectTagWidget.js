@@ -163,9 +163,7 @@ class MultiSelectTagWidget extends React.Component {
 		const { value, options } = this.props;
 		return options.enumOptions
 			.filter(option => value.indexOf(option.value) < 0)
-			.filter(
-				item => item.label.toUpperCase().indexOf(this.state.filterText.toUpperCase()) > -1,
-			);
+			.filter(item => item.label.toUpperCase().indexOf(this.state.filterText.toUpperCase()) > -1);
 	}
 
 	getDropdownItems(suggestions) {

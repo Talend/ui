@@ -23,7 +23,7 @@ function FieldTemplate({ element, cantDelete }) {
 					>
 						<Icon name="talend-trash" />
 					</button>
-					{!element.itemData.isClosed &&
+					{!element.itemData.isClosed && (
 						<div className={theme.orderaction}>
 							<button
 								type="button"
@@ -43,12 +43,11 @@ function FieldTemplate({ element, cantDelete }) {
 							>
 								<Icon name="talend-caret-down" />
 							</button>
-						</div>}
+						</div>
+					)}
 				</div>
 			}
-			<div className={theme.element}>
-				{element.children}
-			</div>
+			<div className={theme.element}>{element.children}</div>
 		</div>
 	);
 }
@@ -65,7 +64,7 @@ function ArrayFieldTemplate(props) {
 	return (
 		<div className={theme.ArrayFieldTemplate}>
 			<IconsProvider />
-			{canAdd &&
+			{canAdd && (
 				<button
 					className={addBtnClass}
 					type="button"
@@ -74,11 +73,12 @@ function ArrayFieldTemplate(props) {
 					onClick={onAddClick}
 				>
 					{`NEW ${props.type}`}
-				</button>}
+				</button>
+			)}
 			{items &&
-				items.map(element =>
+				items.map(element => (
 					<FieldTemplate element={element} cantDelete={items.length <= minItems} />
-				)}
+				))}
 		</div>
 	);
 }

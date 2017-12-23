@@ -68,33 +68,24 @@ function createCollapsibleFieldset(title) {
 							Invalid {name || 'root'} object field configuration:
 							<em>{err.message}</em>.
 						</p>
-						<pre>
-							{JSON.stringify(schema)}
-						</pre>
+						<pre>{JSON.stringify(schema)}</pre>
 					</div>
 				);
 			}
 			const iconTransform = !formData.isClosed ? 'flip-vertical' : '';
 			return (
 				<fieldset>
-					<div
-						onDoubleClick={this.toggle}
-						id={`${idSchema.$id}__title_bar`}
-						role="button"
-					>
-						{title &&
-							<div
-								onClick={this.toggle}
-								id={`${idSchema.$id}__title_wrapper`}
-								role="button"
-							>
+					<div onDoubleClick={this.toggle} id={`${idSchema.$id}__title_bar`} role="button">
+						{title && (
+							<div onClick={this.toggle} id={`${idSchema.$id}__title_wrapper`} role="button">
 								<TitleField
 									id={`${idSchema.$id}__title`}
 									title={title(formData, uiSchema)}
 									required={required}
 									formContext={formContext}
 								/>
-							</div>}
+							</div>
+						)}
 						<button
 							onClick={this.toggle}
 							id={`${idSchema.$id}__collapse`}
@@ -105,12 +96,13 @@ function createCollapsibleFieldset(title) {
 							<Icon name="talend-caret-down" transform={iconTransform} />
 						</button>
 					</div>
-					{(uiSchema['ui:description'] || schema.description) &&
+					{(uiSchema['ui:description'] || schema.description) && (
 						<DescriptionField
 							id={`${idSchema.$id}__description`}
 							description={uiSchema['ui:description'] || schema.description}
 							formContext={formContext}
-						/>}
+						/>
+					)}
 					{orderedProperties.map((fieldName, index) => {
 						if (fieldName !== 'isClosed') {
 							return (
