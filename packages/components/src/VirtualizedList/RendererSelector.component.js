@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { listTypes } from './utils/constants';
 import { rowDictionary } from './utils/dictionary';
+import NoRows from './NoRows';
 import ListTable from './ListTable';
 import ListGrid from './ListGrid';
 import propTypes from './PropTypes';
@@ -24,6 +25,10 @@ function getRowRenderer(type) {
 	return rowRenderer;
 }
 
+export function getNoRowsRenderer(t, noRowsLabel) {
+	return () => <NoRows t={t} noRowsLabel={noRowsLabel} />;
+}
+
 /**
  * Component that maps list types to the corresponding component
  */
@@ -31,11 +36,11 @@ function RendererSelector(props) {
 	const {
 		children,
 		collection,
-		noRowsLabel,
 		height,
 		id,
 		isSelected,
 		isActive,
+		noRowsLabel,
 		onRowClick,
 		rowHeight,
 		selectionToggle,
@@ -53,11 +58,11 @@ function RendererSelector(props) {
 			<ListTable
 				collection={collection}
 				disableHeader={disableHeader}
-				noRowsLabel={noRowsLabel}
 				height={height}
 				id={id}
 				isActive={isActive}
 				isSelected={isSelected}
+				noRowsRenderer={getNoRowsRenderer(t, noRowsLabel)}
 				onRowClick={onRowClick}
 				selectionToggle={selectionToggle}
 				sort={sort}
@@ -74,7 +79,7 @@ function RendererSelector(props) {
 	return (
 		<ListGrid
 			collection={collection}
-			noRowsLabel={noRowsLabel}
+			noRowsRenderer={getNoRowsRenderer(t, noRowsLabel)}
 			height={height}
 			id={id}
 			isActive={isActive}
@@ -94,6 +99,7 @@ RendererSelector.displayName = 'VirtualizedList(RendererSelector)';
 RendererSelector.propTypes = {
 	...propTypes,
 	height: PropTypes.number,
+	noRows: propTypes.Element,
 	width: PropTypes.number,
 };
 RendererSelector.defaultProps = {

@@ -95,4 +95,100 @@ describe('RendererSelector', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(wrapper.getElement().props.rowRenderer.displayName).toBe('VirtualizedList(RowLarge)');
 	});
+
+	it('should render the grid with the noRowsRenderer and a custom label', () => {
+		// when
+		const wrapper = shallow(
+			<RendererSelector
+				collection={collection}
+				noRowsLabel="No user"
+				height={600}
+				id={'my-list-id'}
+				isActive={jest.fn()}
+				isSelected={jest.fn()}
+				onRowClick={jest.fn()}
+				rowHeight={50}
+				selectionToggle={jest.fn()}
+				type={LARGE}
+				width={1024}
+			>
+				{contentFields}
+			</RendererSelector>,
+		);
+
+		// then
+		expect(wrapper.props().noRowsRenderer()).toMatchSnapshot();
+	});
+
+	it('should render the grid with the noRowsRenderer', () => {
+		// when
+		const wrapper = shallow(
+			<RendererSelector
+				collection={collection}
+				height={600}
+				id={'my-list-id'}
+				isActive={jest.fn()}
+				isSelected={jest.fn()}
+				onRowClick={jest.fn()}
+				rowHeight={50}
+				selectionToggle={jest.fn()}
+				type={LARGE}
+				width={1024}
+			>
+				{contentFields}
+			</RendererSelector>,
+		);
+
+		// then
+		expect(wrapper.props().noRowsRenderer()).toMatchSnapshot();
+	});
+
+	it('should render the table with the noRowsRenderer and a custom label', () => {
+		// when
+		const wrapper = shallow(
+			<RendererSelector
+				collection={collection}
+				noRowsLabel="No users"
+				height={600}
+				id={'my-list-id'}
+				isActive={jest.fn()}
+				isSelected={jest.fn()}
+				onRowClick={jest.fn()}
+				selectionToggle={jest.fn()}
+				sort={jest.fn()}
+				sortBy={'name'}
+				sortDirection={'DESC'}
+				width={1024}
+			>
+				{contentFields}
+			</RendererSelector>,
+		);
+
+		// then
+		expect(wrapper.props().noRowsRenderer()).toMatchSnapshot();
+	});
+
+	it('should render the table with the noRowsRenderer', () => {
+		// when
+		const wrapper = shallow(
+			<RendererSelector
+				collection={collection}
+				height={600}
+				id={'my-list-id'}
+				isActive={jest.fn()}
+				isSelected={jest.fn()}
+				onRowClick={jest.fn()}
+				selectionToggle={jest.fn()}
+				sort={jest.fn()}
+				sortBy={'name'}
+				sortDirection={'DESC'}
+				width={1024}
+			>
+				{contentFields}
+			</RendererSelector>,
+		);
+
+		// then
+		expect(wrapper.props().noRowsRenderer()).toMatchSnapshot();
+	});
 });

@@ -55,7 +55,7 @@ describe('ListGrid', () => {
 		);
 	});
 
-	it('should render no-rows component', () => {
+	it('should render noRows', () => {
 		// when
 		const wrapper = mount(
 			<ListGrid
@@ -67,29 +67,7 @@ describe('ListGrid', () => {
 				rowRenderer={RowLarge}
 				selectionToggle={jest.fn()}
 				width={1024}
-			>
-				<VirtualizedList.Content label="Id" dataKey="id" />
-				<VirtualizedList.Content label="Name" dataKey="name" />
-			</ListGrid>,
-		);
-
-		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
-	});
-
-	it('should render no-rows component with custom label', () => {
-		// when
-		const wrapper = mount(
-			<ListGrid
-				collection={[]}
-				noRowsLabel="No users"
-				height={600}
-				id={'my-list'}
-				isSelected={jest.fn()}
-				rowHeight={130}
-				rowRenderer={RowLarge}
-				selectionToggle={jest.fn()}
-				width={1024}
+				noRowsRenderer={() => <div>No rows</div>}
 			>
 				<VirtualizedList.Content label="Id" dataKey="id" />
 				<VirtualizedList.Content label="Name" dataKey="name" />

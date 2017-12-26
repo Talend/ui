@@ -87,7 +87,6 @@ ListToVirtualizedList.propTypes = {
 	columns: PropTypes.arrayOf(PropTypes.object),
 	displayMode: PropTypes.oneOf(['large', 'table']),
 	defaultHeight: PropTypes.number,
-	noRowsLabel: PropTypes.string,
 	itemProps: PropTypes.shape({
 		isActive: PropTypes.func,
 		isSelected: PropTypes.func,
@@ -96,6 +95,7 @@ ListToVirtualizedList.propTypes = {
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
 	inProgress: PropTypes.bool,
+	noRowsLabel: PropTypes.string,
 	rowHeight: PropTypes.number,
 	sort: PropTypes.shape({
 		onChange: PropTypes.func,

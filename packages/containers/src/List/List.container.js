@@ -40,8 +40,8 @@ class List extends React.Component {
 			right: PropTypes.arrayOf(PropTypes.string),
 		}),
 		list: PropTypes.shape({
-			noRowsLabel: PropTypes.string,
 			columns: PropTypes.array,
+			noRowsLabel: PropTypes.string,
 			titleProps: PropTypes.object,
 		}),
 		toolbar: PropTypes.shape({

@@ -19,13 +19,13 @@ import rowThemes from './RowThemes';
 function ListTable(props) {
 	const {
 		children,
-		noRowsLabel,
 		collection,
 		disableHeader,
 		height,
 		id,
 		isActive,
 		isSelected,
+		noRowsRenderer,
 		onRowClick,
 		sort,
 		sortBy,
@@ -57,7 +57,7 @@ function ListTable(props) {
 			height={height}
 			id={id}
 			onRowClick={onRowClickCallback}
-			noRowsRenderer={() => <NoRows t={t} noRowsLabel={noRowsLabel} />}
+			noRowsRenderer={noRowsRenderer}
 			rowClassName={({ index }) => {
 				if (collection[index]) {
 					return classNames('tc-list-item', rowThemes, collection[index].className);
@@ -87,6 +87,7 @@ ListTable.propTypes = {
 	id: PropTypes.string,
 	isActive: PropTypes.func,
 	isSelected: PropTypes.func,
+	noRowsRenderer: PropTypes.func,
 	onRowClick: PropTypes.func,
 	rowHeight: PropTypes.number,
 	sort: PropTypes.func,
