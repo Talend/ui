@@ -1,6 +1,6 @@
 import React from 'react';
 import { componentState, cmfConnect } from '@talend/react-cmf';
-import { Slider as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/Slider';
 import omit from 'lodash/omit';
 import Immutable from 'immutable';
 import PropTypes from 'prop-types';

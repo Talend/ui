@@ -7,14 +7,14 @@ import deleteResourceConst from './deleteResource.constants';
  */
 function deleteResource(event, data, context) {
 	const { model } = data;
-	const path = context.router ? context.router.location.pathname : '/';
+	const { pathname } = context.router ? context.router.getCurrentLocation() : { pathname: '/' };
 	return {
 		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE,
 		cmf: {
-			routerReplace: `${path}/${model.id}/delete`,
+			routerReplace: `${pathname}/${model.id}/delete`,
 		},
 		model,
-		redirectUrl: path,
+		redirectUrl: pathname,
 	};
 }
 
