@@ -31,6 +31,7 @@ function RendererSelector(props) {
 	const {
 		children,
 		collection,
+		emptyListLabel,
 		height,
 		id,
 		isSelected,
@@ -52,6 +53,7 @@ function RendererSelector(props) {
 			<ListTable
 				collection={collection}
 				disableHeader={disableHeader}
+				emptyListLabel={emptyListLabel}
 				height={height}
 				id={id}
 				isActive={isActive}
@@ -72,6 +74,7 @@ function RendererSelector(props) {
 	return (
 		<ListGrid
 			collection={collection}
+			emptyListLabel={emptyListLabel}
 			height={height}
 			id={id}
 			isActive={isActive}

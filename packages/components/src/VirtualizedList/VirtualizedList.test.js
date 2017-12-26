@@ -25,6 +25,7 @@ describe('VirtualizedList', () => {
 		const wrapper = shallow(
 			<VirtualizedList
 				collection={collection}
+				emptyListLabel="No users"
 				height={600}
 				id={'my-list-id'}
 				isSelected={jest.fn()}

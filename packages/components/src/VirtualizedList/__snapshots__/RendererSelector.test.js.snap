@@ -16,6 +16,7 @@ exports[`RendererSelector should render grid list 1`] = `
       },
     ]
   }
+  emptyListLabel="No user"
   height={600}
   id="my-list-id"
   isActive={[Function]}
@@ -80,6 +81,7 @@ exports[`RendererSelector should render table list by default 1`] = `
     ]
   }
   disableHeader={false}
+  emptyListLabel="No users"
   height={600}
   id="my-list-id"
   isActive={[Function]}
@@ -146,6 +148,7 @@ exports[`RendererSelector should render table list when requested 1`] = `
     ]
   }
   disableHeader={false}
+  emptyListLabel={undefined}
   height={600}
   id="my-list-id"
   isActive={[Function]}

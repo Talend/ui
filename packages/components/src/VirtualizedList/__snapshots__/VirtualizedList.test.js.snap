@@ -24,6 +24,7 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
     ]
   }
   disableHeader={undefined}
+  emptyListLabel={undefined}
   height={600}
   id="my-list-id"
   isActive={[Function]}

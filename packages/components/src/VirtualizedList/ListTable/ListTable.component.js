@@ -19,6 +19,7 @@ import rowThemes from './RowThemes';
 function ListTable(props) {
 	const {
 		children,
+		emptyListLabel,
 		collection,
 		disableHeader,
 		height,
@@ -56,7 +57,7 @@ function ListTable(props) {
 			height={height}
 			id={id}
 			onRowClick={onRowClickCallback}
-			noRowsRenderer={() => <NoRows t={t} />}
+			noRowsRenderer={() => <NoRows t={t} emptyListLabel={emptyListLabel} />}
 			rowClassName={({ index }) => {
 				if (collection[index]) {
 					return classNames('tc-list-item', rowThemes, collection[index].className);

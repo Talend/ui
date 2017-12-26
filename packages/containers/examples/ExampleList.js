@@ -17,6 +17,7 @@ const list = {
 	titleProps: {
 		key: 'label',
 	},
+	emptyListLabel: 'No users',
 };
 
 const actions = {
@@ -104,7 +105,13 @@ const ExampleList = {
 		<div>
 			<IconsProvider />
 			<div className="list-container">
-				<List {...props} items={items} rowHeight={customHeight} initialState={defaultListState} virtualized />
+				<List
+					{...props}
+					items={items}
+					rowHeight={customHeight}
+					initialState={defaultListState}
+					virtualized
+				/>
 			</div>
 		</div>
 	),

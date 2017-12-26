@@ -53,6 +53,7 @@ export function ListToVirtualizedList(props) {
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
 			type={props.displayMode.toUpperCase()}
+			emptyListLabel={props.emptyListLabel}
 			t={props.t}
 		>
 			{props.columns.map((column, index) => {
@@ -86,6 +87,7 @@ ListToVirtualizedList.propTypes = {
 	columns: PropTypes.arrayOf(PropTypes.object),
 	displayMode: PropTypes.oneOf(['large', 'table']),
 	defaultHeight: PropTypes.number,
+	emptyListLabel: PropTypes.string,
 	itemProps: PropTypes.shape({
 		isActive: PropTypes.func,
 		isSelected: PropTypes.func,
