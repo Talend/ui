@@ -82,7 +82,7 @@ describe('ListGrid', () => {
 		const wrapper = mount(
 			<ListGrid
 				collection={[]}
-				emptyListLabel="No users"
+				noRowsLabel="No users"
 				height={600}
 				id={'my-list'}
 				isSelected={jest.fn()}

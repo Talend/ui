@@ -26,7 +26,7 @@ describe('RendererSelector', () => {
 		const wrapper = shallow(
 			<RendererSelector
 				collection={collection}
-				emptyListLabel="No users"
+				noRowsLabel="No users"
 				height={600}
 				id={'my-list-id'}
 				isActive={jest.fn()}
@@ -76,7 +76,7 @@ describe('RendererSelector', () => {
 		const wrapper = shallow(
 			<RendererSelector
 				collection={collection}
-				emptyListLabel="No user"
+				noRowsLabel="No user"
 				height={600}
 				id={'my-list-id'}
 				isActive={jest.fn()}

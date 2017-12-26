@@ -40,7 +40,7 @@ class List extends React.Component {
 			right: PropTypes.arrayOf(PropTypes.string),
 		}),
 		list: PropTypes.shape({
-			emptyListLabel: PropTypes.string,
+			noRowsLabel: PropTypes.string,
 			columns: PropTypes.array,
 			titleProps: PropTypes.object,
 		}),
@@ -122,8 +122,8 @@ class List extends React.Component {
 			};
 		}
 
-		if (get(this.props, 'list.emptyListLabel', undefined) !== undefined) {
-			props.list.emptyListLabel = this.props.list.emptyListLabel;
+		if (get(this.props, 'list.noRowsLabel', undefined) !== undefined) {
+			props.list.noRowsLabel = this.props.list.noRowsLabel;
 		}
 
 		// toolbar

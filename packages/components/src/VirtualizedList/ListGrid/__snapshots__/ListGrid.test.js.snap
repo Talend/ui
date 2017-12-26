@@ -97,7 +97,7 @@ exports[`ListGrid should render no-rows component 1`] = `
         tabIndex={0}
       >
         <NoRows
-          emptyListLabel="No result found"
+          noRowsLabel="No result found"
           t={[Function]}
         >
           <span
@@ -117,10 +117,10 @@ exports[`ListGrid should render no-rows component 1`] = `
 exports[`ListGrid should render no-rows component with custom label 1`] = `
 <VirtualizedList(ListGrid)
   collection={Array []}
-  emptyListLabel="No users"
   height={600}
   id="my-list"
   isSelected={[Function]}
+  noRowsLabel="No users"
   rowHeight={130}
   rowRenderer={[Function]}
   selectionToggle={[Function]}
@@ -212,7 +212,7 @@ exports[`ListGrid should render no-rows component with custom label 1`] = `
         tabIndex={0}
       >
         <NoRows
-          emptyListLabel="No result found"
+          noRowsLabel="No result found"
           t={[Function]}
         >
           <span

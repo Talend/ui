@@ -310,23 +310,23 @@ describe('Connected List', () => {
 
 	it('should support list.listEmptyLabel', () => {
 		const clonedSettings = cloneDeep(settings);
-		clonedSettings.list.emptyListLabel = 'No users';
+		clonedSettings.list.noRowsLabel = 'No users';
 		const wrapper = shallow(<Container {...clonedSettings} items={items} />, {
 			lifecycleExperimental: true,
 		});
 
 		const props = wrapper.props();
-		expect(props.list.emptyListLabel).toEqual('No users');
+		expect(props.list.noRowsLabel).toEqual('No users');
 	});
 
 	it('should support list.listEmptyLabel when falsy value', () => {
 		const clonedSettings = cloneDeep(settings);
-		clonedSettings.list.emptyListLabel = '';
+		clonedSettings.list.noRowsLabel = '';
 		const wrapper = shallow(<Container {...clonedSettings} items={items} />, {
 			lifecycleExperimental: true,
 		});
 
 		const props = wrapper.props();
-		expect(props.list.emptyListLabel).toEqual('');
+		expect(props.list.noRowsLabel).toEqual('');
 	});
 });

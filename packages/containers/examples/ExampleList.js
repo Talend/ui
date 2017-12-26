@@ -17,7 +17,7 @@ const list = {
 	titleProps: {
 		key: 'label',
 	},
-	emptyListLabel: 'No users',
+	noRowsLabel: 'No users',
 };
 
 const actions = {

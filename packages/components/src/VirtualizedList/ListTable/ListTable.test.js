@@ -105,7 +105,7 @@ describe('ListGrid', () => {
 		const wrapper = mount(
 			<ListTable
 				collection={[]}
-				emptyListLabel="No users"
+				noRowsLabel="No users"
 				height={600}
 				id={'my-list'}
 				isSelected={jest.fn()}

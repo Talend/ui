@@ -14,7 +14,7 @@ const listProps = {
 	titleProps: {
 		onClick: jest.fn(),
 	},
-	emptyListLabel: 'No user',
+	noRowsLabel: 'No user',
 };
 
 const toolbarProps = {
