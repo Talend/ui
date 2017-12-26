@@ -80,30 +80,6 @@ describe('talend:react-component', () => {
 		});
 	});
 
-	describe('component type = createClass', () => {
-		beforeEach(function onDone(done) {
-			this.gen = helpers
-				.run(path.join(__dirname, '../generators/react-component'))
-				.withOptions({})
-				.withPrompts({
-					name: 'HelloWorld',
-					type: 'createClass',
-				});
-			this.gen.on('end', done);
-		});
-
-		it('generates base files', () => {
-			assert.file(BASE_FILES);
-		});
-
-		it('generate a function', () => {
-			assert.fileContent(
-				'src/app/components/HelloWorld/HelloWorld.component.js',
-				/const HelloWorld = React\.createClass\({/
-			);
-		});
-	});
-
 	describe('component type = connect', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
@@ -123,23 +99,15 @@ describe('talend:react-component', () => {
 		it('generate some functions', () => {
 			assert.fileContent(
 				'src/app/components/HelloWorld/HelloWorld.component.js',
-				/export function mapDispatchToProps\(dispatch\) {/
-			);
-			assert.fileContent(
-				'src/app/components/HelloWorld/HelloWorld.component.js',
 				/export function mapStateToProps\(state\) {/
 			);
 			assert.fileContent(
 				'src/app/components/HelloWorld/HelloWorld.component.js',
-				/export default connect\(/
+				/export default cmfConnect\({/
 			);
 			assert.fileContent(
 				'src/app/components/HelloWorld/HelloWorld.test.js',
 				/it\('should connect/
-			);
-			assert.fileContent(
-				'src/app/components/HelloWorld/HelloWorld.test.js',
-				/it\('should map state to props/
 			);
 			assert.fileContent(
 				'src/app/components/HelloWorld/HelloWorld.test.js',
