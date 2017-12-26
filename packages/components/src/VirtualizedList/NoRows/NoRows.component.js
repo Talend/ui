@@ -6,10 +6,18 @@ import { getDefaultTranslate } from '../../translate';
 
 import theme from './NoRows.scss';
 
-function NoRows({ t, noRowsLabel }) {
+function getLabel(props) {
+	if (props.noRowsLabel !== undefined) {
+		return props.noRowsLabel;
+	}
+
+	return props.t('VIRTUALIZEDLIST_NO_RESULT', { defaultValue: 'No result found' });
+}
+
+function NoRows(props) {
 	return (
 		<span className={classNames(theme['no-result'], 'no-result')} role="status" aria-live="polite">
-			{t('VIRTUALIZEDLIST_NO_RESULT', { defaultValue: noRowsLabel })}
+			{getLabel(props)}
 		</span>
 	);
 }

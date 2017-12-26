@@ -299,6 +299,21 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('Empty list with custom label', () => {
+		const emptyListProps = cloneDeep(props);
+		emptyListProps.list.items = [];
+		emptyListProps.list.noRowsLabel = 'No data';
+		return (
+			<div style={{ height: '60vh' }}>
+				<h1>List</h1>
+				<p>When the list is empty, a custom message is displayed instead of the rows.</p>
+				<h2>Table</h2>
+				<List {...emptyListProps} />
+				<h2>Large</h2>
+				<List {...emptyListProps} displayMode="large" />
+			</div>
+		);
+	})
 	.add('In progress', () => {
 		const loadingListProps = cloneDeep(props);
 		loadingListProps.list.inProgress = true;
@@ -422,7 +437,6 @@ storiesOf('List', module)
 
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
-
 				<h1>List</h1>
 				<h2>Definition</h2>
 				<p>
@@ -508,7 +522,7 @@ storiesOf('List', module)
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					Display the list with hidden header labels.<br/>
+					Display the list with hidden header labels.<br />
 					<pre>
 						const props = &#123;...&#125;;<br />
 						props.list.columns[0].hideHeader = true;<br />
