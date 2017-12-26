@@ -13,9 +13,7 @@ function CellWithIcon(props) {
 	return (
 		<div className={styles['cell-icon-container']}>
 			<div>{props.cellData}</div>
-			<div>
-				{action && <Action {...action} hideLabel link />}
-			</div>
+			<div>{action && <Action {...action} hideLabel link />}</div>
 		</div>
 	);
 }
