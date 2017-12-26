@@ -35,12 +35,12 @@
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
-    "@storybook/react": "3.1.9",
-    "@talend/bootstrap-theme": "^0.134.0",
-    "@talend/icons": "^0.134.0",
-    "@talend/react-cmf": "^0.134.0",
-    "@talend/react-components": "^0.134.0",
-    "@talend/react-forms": "^0.134.0",
+    "@storybook/react": "3.2.18",
+    "@talend/bootstrap-theme": "^0.136.0",
+    "@talend/icons": "^0.136.0",
+    "@talend/react-cmf": "^0.136.0",
+    "@talend/react-components": "^0.136.0",
+    "@talend/react-forms": "^0.136.0",
     "babel-cli": "6.24.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
@@ -76,9 +76,9 @@
     "node-sass": "4.5.3",
     "prop-types": "15.5.10",
     "react": "^15.6.2",
+    "react-ace": "5.2.0",
     "react-addons-css-transition-group": "15.5.2",
     "react-addons-test-utils": "15.5.1",
-    "react-ace": "5.8.0",
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
     "react-dom": "^15.6.2",
@@ -102,10 +102,10 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/icons": "^0.134.0",
-    "@talend/react-cmf": "^0.134.0",
-    "@talend/react-components": "^0.134.0",
-    "@talend/react-forms": "^0.134.0",
+    "@talend/icons": "^0.136.0",
+    "@talend/react-cmf": "^0.136.0",
+    "@talend/react-components": "^0.136.0",
+    "@talend/react-forms": "^0.136.0",
     "bson-objectid": "1.1.5",
     "classnames": "2.2.5",
     "immutable": "3.8.1",
@@ -142,7 +142,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.134.0",
+  "version": "0.136.0",
   "dependencies": {
     "react-immutable-proptypes": "2.1.0"
   }

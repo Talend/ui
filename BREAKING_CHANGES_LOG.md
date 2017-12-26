@@ -2,7 +2,7 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
-## v0.137.0
+## v0.138.0
 
 * CMF: HTTP middleware
 * PR [feat(cmf/http): CSRFToken support](https://github.com/Talend/ui/pull/XXX)
@@ -15,6 +15,16 @@ Some constant from CMF/middlewares/http/constants are renamed
 | HTTP_REQUEST  | ACTION_TYPE_HTTP_REQUEST  |
 | HTTP_RESPONSE | ACTION_TYPE_HTTP_RESPONSE |
 | HTTP_ERRORS   | ACTION_TYPE_HTTP_ERRORS   |
+
+## v0.137.0
+
+* Component: Slider
+* PR: [fix: remove Slider from the global export](https://github.com/Talend/ui/pull/932)
+* Changes :
+
+| Before | After |
+|---|---|
+| import { Slider } from '@talend/react-component'; | import Slider from '@talend/react-component/lib/Slider' |
 
 ## v0.130.0
 
