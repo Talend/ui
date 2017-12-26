@@ -12,8 +12,6 @@ function getIcon(selected) {
 			return 'talend-table';
 		case 'large':
 			return 'talend-expanded';
-		case 'tile':
-			return 'talend-tiles';
 		default:
 			return 'talend-table';
 	}
@@ -25,19 +23,17 @@ function getLabel(selected, t) {
 			return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
 		case 'large':
 			return t('LIST_SELECT_DISPLAY_MODE_LARGE', { defaultValue: 'Expanded' });
-		case 'tile':
-			return t('LIST_SELECT_DISPLAY_MODE_TILE', { defaultValue: 'Tile' });
 		default:
 			return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
 	}
 }
 
-const options = ['table', 'large', 'tile'];
+const options = ['table', 'large'];
 
 function SelectDisplayMode({ id, mode, displayModes, onChange, t }) {
 	const selected = mode || 'table';
 	const modes = displayModes || options;
-	const displayIcon = (<Icon name={getIcon(selected)} />);
+	const displayIcon = <Icon name={getIcon(selected)} />;
 
 	function onChangeMode(value, event) {
 		return onChange(event, value);
@@ -45,11 +41,7 @@ function SelectDisplayMode({ id, mode, displayModes, onChange, t }) {
 
 	function getMenuItem(option) {
 		return (
-			<MenuItem
-				id={id && `${id}-${option}`}
-				key={option}
-				eventKey={option}
-			>
+			<MenuItem id={id && `${id}-${option}`} key={option} eventKey={option}>
 				<Icon name={getIcon(option)} />
 				{getLabel(option, t)}
 			</MenuItem>
@@ -58,11 +50,7 @@ function SelectDisplayMode({ id, mode, displayModes, onChange, t }) {
 
 	return (
 		<Nav>
-			<NavDropdown
-				id={id || uuid.v4()}
-				title={displayIcon}
-				onSelect={onChangeMode}
-			>
+			<NavDropdown id={id || uuid.v4()} title={displayIcon} onSelect={onChangeMode}>
 				{modes.map(option => getMenuItem(option))}
 			</NavDropdown>
 		</Nav>
