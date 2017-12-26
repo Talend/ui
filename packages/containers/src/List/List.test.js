@@ -71,7 +71,7 @@ const items = [
 	},
 	{
 		id: 3,
-		name: 'Super long title to trigger overflow on tile rendering',
+		name: 'Super long title to trigger overflow on some rendering',
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT with super long name',
@@ -211,7 +211,6 @@ describe('Container List', () => {
 		const rowHeight = {
 			table: 3,
 			large: 2,
-			tile: 1,
 		};
 		const wrapper = shallow(
 			<Container {...cloneDeep(settings)} items={items} rowHeight={rowHeight} />,

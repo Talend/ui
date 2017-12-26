@@ -31,6 +31,7 @@ export default cmfConnect({
 import PropTypes from 'prop-types';
 import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import api from './api';
 import deprecated from './deprecated';
@@ -304,3 +305,12 @@ export default function cmfConnect({
 }
 
 cmfConnect.INJECTED_PROPS = INJECTED_PROPS;
+
+cmfConnect.propTypes = {
+	state: ImmutablePropTypes.Map,
+	initialState: ImmutablePropTypes.Map,
+	setState: PropTypes.func,
+	initState: PropTypes.func,
+	dispatchActionCreator: PropTypes.func,
+	dispatch: PropTypes.func,
+};
