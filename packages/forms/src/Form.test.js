@@ -8,8 +8,7 @@ import renderer from 'react-test-renderer';
 // eslint-disable-next-line no-unused-vars
 import { getDefaultRegistry } from 'react-jsonschema-form/lib/utils';
 
-import { Action } from '@talend/react-components';
-
+import Action from '@talend/react-components/lib/Actions/Action';
 import Input from 'react-jsonschema-form/lib/components/widgets/TextWidget';
 import Select from 'react-jsonschema-form/lib/components/widgets/SelectWidget';
 
