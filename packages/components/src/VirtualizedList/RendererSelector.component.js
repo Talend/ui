@@ -70,7 +70,6 @@ function RendererSelector(props) {
 				sortDirection={sortDirection}
 				rowHeight={rowHeight}
 				width={width}
-				t={t}
 			>
 				{children}
 			</ListTable>
@@ -89,7 +88,6 @@ function RendererSelector(props) {
 			rowRenderer={getRowRenderer(type)}
 			selectionToggle={selectionToggle}
 			width={width}
-			t={t}
 		>
 			{children}
 		</ListGrid>

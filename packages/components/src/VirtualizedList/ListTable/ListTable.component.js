@@ -5,9 +5,7 @@ import {
 	Table as VirtualizedTable,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
-import { getDefaultTranslate } from '../../translate';
 import getRowSelectionRenderer from '../RowSelection';
-import NoRows from '../NoRows';
 import { toColumns } from '../utils/tablerow';
 
 import theme from './ListTable.scss';
@@ -32,7 +30,6 @@ function ListTable(props) {
 		sortDirection,
 		width,
 		rowHeight,
-		t,
 	} = props;
 
 	let RowTableRenderer = DefaultTableRowRenderer;
@@ -94,13 +91,11 @@ ListTable.propTypes = {
 	sortBy: PropTypes.string,
 	sortDirection: PropTypes.string,
 	width: PropTypes.number,
-	t: PropTypes.func,
 };
 
 ListTable.defaultProps = {
 	disableHeader: false,
 	rowHeight: 50,
-	t: getDefaultTranslate,
 };
 
 export default ListTable;

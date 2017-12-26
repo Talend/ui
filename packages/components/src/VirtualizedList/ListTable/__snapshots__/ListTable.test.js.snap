@@ -10,7 +10,6 @@ exports[`ListGrid should render noRows 1`] = `
   noRowsRenderer={[Function]}
   rowHeight={50}
   selectionToggle={[Function]}
-  t={[Function]}
   width={1024}
 >
   <Table

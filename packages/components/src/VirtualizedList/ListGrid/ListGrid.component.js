@@ -2,10 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { List as VirtualizedList } from 'react-virtualized';
 
-import { getDefaultTranslate } from '../../translate';
-
 import getRowSelectionRenderer from '../RowSelection';
-import NoRows from '../NoRows';
 
 import theme from './ListGrid.scss';
 
@@ -26,7 +23,6 @@ function ListGrid(props) {
 		rowHeight,
 		rowRenderer,
 		width,
-		t,
 	} = props;
 
 	let enhancedRowRenderer = rowRenderer;
@@ -71,12 +67,10 @@ ListGrid.propTypes = {
 	rowHeight: PropTypes.number,
 	rowRenderer: PropTypes.func,
 	width: PropTypes.number,
-	t: PropTypes.func,
 };
 
 ListGrid.defaultProps = {
 	rowHeight: 135,
-	t: getDefaultTranslate,
 };
 
 export default ListGrid;
