@@ -18,6 +18,12 @@ export class HTTPError extends Error {
 	}
 }
 
+/**
+ * handleHttpResponse - handle the http body
+ *
+ * @param  {Response} response A response object
+ * @return {Promise}           A promise that resolves with the result of parsing the body
+ */
 export function handleBody(response) {
 	let methodBody = 'text';
 
@@ -29,10 +35,24 @@ export function handleBody(response) {
 	return response[methodBody]().then(data => ({ data, response }));
 }
 
+/**
+ * handleHttpResponse - handle the http error
+ *
+ * @param  {Response} response A response object
+ * @return {Promise}           A promise that reject with the result of parsing the body
+ */
 export function handleError(response) {
 	return handleBody(response).then(body => new HTTPError(body));
 }
 
+/**
+ * handleHttpResponse - handle the http response
+ *
+ * @param  {Response} response A response object
+ * @return {Promise}           A promise that:
+ * - resolves with the result of parsing the body
+ * - reject the response
+ */
 export function handleHttpResponse(response) {
 	if (!testHTTPCode.isSuccess(response.status)) {
 		return Promise.reject(response);
@@ -47,6 +67,15 @@ export function handleHttpResponse(response) {
 	return handleBody(response);
 }
 
+/**
+ * httpFetch - call the api fetch to request the url
+ *
+ * @param  {string} url                       url to request
+ * @param  {object} config                    option that you want apply to the request
+ * @param  {string} method = HTTP_METHODS.GET method to apply
+ * @param  {object} payload                   payload to send with the request
+ * @return {Promise}                          A Promise that resolves to a Response object.
+ */
 export function httpFetch(url, config, method, payload) {
 	let body;
 	const defaultHeaders = {
@@ -77,6 +106,15 @@ export function httpFetch(url, config, method, payload) {
 		.catch(handleError);
 }
 
+/**
+ * function - wrap the fetch request with the actions errors
+ *
+ * @param  {string} url                       url to request
+ * @param  {object} config                    option that you want apply to the request
+ * @param  {string} method = HTTP_METHODS.GET method to apply
+ * @param  {object} payload                   payload to send with the request
+ * @return {object}                           the response of the request
+ */
 export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload) {
 	const answer = yield call(httpFetch, url, config, method, payload);
 
@@ -90,18 +128,60 @@ export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload) {
 	return answer;
 }
 
+/**
+ * function - fetch an url with POST method
+ *
+ * @param  {string} url     url to request
+ * @param  {object} payload payload to send with the request
+ * @param  {object} config  option that you want apply to the request
+ * @example
+ * import { sagas } from '@talend/react-cmf';
+ * import { call } from 'redux-saga/effects'
+ * yield call(sagas.http.post, '/foo', {foo: 42});
+ */
 function* httpPost(url, payload, config) {
 	return yield* wrapFetch(url, config, HTTP_METHODS.POST, payload);
 }
 
+/**
+ * function - fetch an url with PUT method
+ *
+ * @param  {string} url     url to request
+ * @param  {object} payload payload to send with the request
+ * @param  {object} config  option that you want apply to the request
+ * @example
+ * import { sagas } from '@talend/react-cmf';
+ * import { call } from 'redux-saga/effects'
+ * yield call(sagas.http.put, '/foo', {foo: 42});
+ */
 function* httpPut(url, payload, config) {
 	return yield* wrapFetch(url, config, HTTP_METHODS.PUT, payload);
 }
 
+/**
+ * function - fetch an url with DELETE method
+ *
+ * @param  {string} url     url to request
+ * @param  {object} config  option that you want apply to the request
+ * @example
+ * import { sagas } from '@talend/react-cmf';
+ * import { call } from 'redux-saga/effects'
+ * yield call(sagas.http.delete, '/foo');
+ */
 function* httpDelete(url, config) {
 	return yield* wrapFetch(url, config, HTTP_METHODS.DELETE);
 }
 
+/**
+ * function - fetch an url with GET method
+ *
+ * @param  {string} url     url to request
+ * @param  {object} config  option that you want apply to the request
+ * @example
+ * import { sagas } from '@talend/react-cmf';
+ * import { call } from 'redux-saga/effects'
+ * yield call(sagas.http.get, '/foo');
+ */
 function* httpGet(url, config) {
 	return yield* wrapFetch(url, config);
 }
