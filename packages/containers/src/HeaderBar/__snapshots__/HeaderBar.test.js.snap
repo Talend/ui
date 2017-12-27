@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Container HeaderBar should pass the props 1`] = `
+exports[`Container HeaderBar should pass props to component HeaderBar 1`] = `
 Object {
   "deleteState": [Function],
   "dispatch": [Function],
