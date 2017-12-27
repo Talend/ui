@@ -45,7 +45,7 @@
     "@storybook/addon-info": "^3.2.0",
     "@storybook/addon-knobs": "^3.2.0",
     "@storybook/addons": "^3.2.0",
-    "@storybook/react": "3.1.9",
+    "@storybook/react": "3.2.18",
     "@talend/bootstrap-theme": "^0.136.0",
     "@talend/icons": "^0.136.0",
     "@talend/react-components": "^0.136.0",

@@ -53,7 +53,7 @@
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@storybook/addon-info": "^3.2.0",
     "@storybook/addon-storyshots": "^3.2.0",
-    "@storybook/react": "3.1.9",
+    "@storybook/react": "3.2.18",
     "@talend/bootstrap-theme": "^0.136.0",
     "@talend/icons": "^0.136.0",
     "autoprefixer": "^7.1.4",
