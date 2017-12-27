@@ -16,7 +16,7 @@ src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
 src/VirtualizedList/NoRows/NoRows.scss
-  6:17  warning  No unit allowed for values of 0  zero-unit
+  7:17  warning  No unit allowed for values of 0  zero-unit
 
 ✖ 5 problems (1 error, 4 warnings)
 
