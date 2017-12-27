@@ -2,7 +2,9 @@
 
 This module register a Redux middleware that sends a log to an endpoint.
 
-This is meant to be used with react logger (see [documentation](../react/README.md)).
+You need to configure the logger, depending on the framework you use
+* angularjs logger [documentation](../angular/README.md)
+* react logger [documentation](../react/README.md)
 
 ## Configuration
 
@@ -19,6 +21,7 @@ const store = createStore(
     applyMiddleware(tLoggerMiddleware)
 )
 
+// React init example using the freshly created store 
 initReactLogger({
     serverUrl: 'http://localhost:8888/error',
     getState: () => store.getState(),
