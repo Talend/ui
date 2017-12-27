@@ -2,7 +2,7 @@
 
 exports[`CellWithIcon should render with icon 1`] = `
 <div
-  className={undefined}
+  className="cell-icon-container"
 >
   <div>
     Test label
@@ -21,7 +21,7 @@ exports[`CellWithIcon should render with icon 1`] = `
 
 exports[`CellWithIcon should render without icon 1`] = `
 <div
-  className={undefined}
+  className="cell-icon-container"
 >
   <div>
     Test label 2
