@@ -47,7 +47,7 @@ function getFetchPayload(payload, otherFetchOptions = {}) {
 			headers: { 'Content-Type': 'application/json' },
 		},
 		{
-			body: JSON.stringify({ '@message': payload }),
+			body: JSON.stringify(payload),
 			...otherFetchOptions,
 		},
 	);
