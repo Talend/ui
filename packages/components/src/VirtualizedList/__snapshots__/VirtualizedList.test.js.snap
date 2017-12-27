@@ -28,14 +28,13 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
   id="my-list-id"
   isActive={[Function]}
   isSelected={[Function]}
-  noRowsRenderer={undefined}
+  noRowsRenderer={[Function]}
   onRowClick={[Function]}
   rowHeight={50}
   selectionToggle={[Function]}
   sort={[Function]}
   sortBy="name"
   sortDirection="DESC"
-  t={[Function]}
   type="TABLE"
   width={300}
 >

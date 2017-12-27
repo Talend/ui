@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 
-import { getDefaultTranslate } from '../../translate';
+import { DEFAULT_I18N } from '../../translate';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 import theme from './NoRows.scss';
 
@@ -22,8 +24,4 @@ NoRows.propTypes = {
 	t: PropTypes.func,
 };
 
-NoRows.defaultProps = {
-	t: getDefaultTranslate,
-};
-
-export default NoRows;
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(NoRows);

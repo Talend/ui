@@ -39,6 +39,4 @@ export default {
 	sortDirection: PropTypes.oneOf([SORT_BY.ASC, SORT_BY.DESC]),
 	// List type ('TABLE' | 'LARGE' | ...)
 	type: PropTypes.oneOf([TABLE, LARGE]),
-	// i18next translate helper
-	t: PropTypes.func,
 };

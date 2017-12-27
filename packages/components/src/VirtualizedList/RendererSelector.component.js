@@ -25,13 +25,6 @@ function getRowRenderer(type) {
 	return rowRenderer;
 }
 
-export function getNoRowsRenderer(t, NoRowsRenderer) {
-	if (NoRowsRenderer) {
-		return () => <NoRowsRenderer />;
-	}
-	return () => <NoRows t={t} />;
-}
-
 /**
  * Component that maps list types to the corresponding component
  */
@@ -43,7 +36,6 @@ function RendererSelector(props) {
 		id,
 		isSelected,
 		isActive,
-		noRowsRenderer,
 		onRowClick,
 		rowHeight,
 		selectionToggle,
@@ -53,7 +45,6 @@ function RendererSelector(props) {
 		type,
 		width,
 		disableHeader,
-		t,
 	} = props;
 
 	if (type === TABLE) {
@@ -65,7 +56,7 @@ function RendererSelector(props) {
 				id={id}
 				isActive={isActive}
 				isSelected={isSelected}
-				noRowsRenderer={getNoRowsRenderer(t, noRowsRenderer)}
+				noRowsRenderer={() => <props.noRowsRenderer />}
 				onRowClick={onRowClick}
 				selectionToggle={selectionToggle}
 				sort={sort}
@@ -81,7 +72,7 @@ function RendererSelector(props) {
 	return (
 		<ListGrid
 			collection={collection}
-			noRowsRenderer={getNoRowsRenderer(t, noRowsRenderer)}
+			noRowsRenderer={() => <props.noRowsRenderer />}
 			height={height}
 			id={id}
 			isActive={isActive}
@@ -103,6 +94,7 @@ RendererSelector.propTypes = {
 	width: PropTypes.number,
 };
 RendererSelector.defaultProps = {
+	noRowsRenderer: NoRows,
 	type: TABLE,
 };
 

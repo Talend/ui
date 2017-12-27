@@ -98,7 +98,7 @@ describe('RendererSelector', () => {
 		expect(wrapper.getElement().props.rowRenderer.displayName).toBe('VirtualizedList(RowLarge)');
 	});
 
-	it('should render the grid with the default NoRows', () => {
+	it('should render the table with the default NoRows', () => {
 		// when
 		const wrapper = shallow(
 			<RendererSelector
@@ -110,7 +110,7 @@ describe('RendererSelector', () => {
 				onRowClick={jest.fn()}
 				rowHeight={50}
 				selectionToggle={jest.fn()}
-				type={LARGE}
+				type={TABLE}
 				width={1024}
 			>
 				{contentFields}
@@ -133,7 +133,6 @@ describe('RendererSelector', () => {
 				onRowClick={jest.fn()}
 				rowHeight={50}
 				selectionToggle={jest.fn()}
-				type={LARGE}
 				width={1024}
 			>
 				{contentFields}
@@ -159,6 +158,7 @@ describe('RendererSelector', () => {
 				sort={jest.fn()}
 				sortBy={'name'}
 				sortDirection={'DESC'}
+				type={TABLE}
 				width={1024}
 			>
 				{contentFields}
@@ -169,7 +169,7 @@ describe('RendererSelector', () => {
 		expect(wrapper.props().noRowsRenderer()).toMatchSnapshot();
 	});
 
-	it('should render the table with the noRowsRenderer', () => {
+	it('should render the grid with the noRowsRenderer', () => {
 		// when
 		const wrapper = shallow(
 			<RendererSelector

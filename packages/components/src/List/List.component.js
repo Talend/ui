@@ -1,16 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
 import omit from 'lodash/omit';
 
 import Toolbar from './Toolbar';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
-import I18N_DOMAIN_COMPONENTS from '../constants';
-import { DEFAULT_I18N } from '../translate';
 
-function ListToolbar({ id, toolbar, displayMode, list, t, renderers }) {
+function ListToolbar({ id, toolbar, displayMode, list, renderers }) {
 	if (!toolbar) {
 		return null;
 	}
@@ -20,7 +17,6 @@ function ListToolbar({ id, toolbar, displayMode, list, t, renderers }) {
 		...toolbar,
 		id,
 		renderers,
-		t,
 	};
 
 	if (toolbar.display) {
@@ -61,7 +57,6 @@ ListToolbar.propTypes = {
 		}),
 	}),
 	toolbar: PropTypes.shape(omit(Toolbar.propTypes, 't')),
-	t: PropTypes.func.isRequired,
 	renderers: PropTypes.object,
 };
 
@@ -118,7 +113,6 @@ function List({ displayMode, id, list, toolbar, defaultHeight, t, renderers, row
 					displayMode={displayMode}
 					defaultHeight={defaultHeight}
 					rowHeight={rowHeight}
-					t={t}
 					{...list}
 				/>
 			</div>
@@ -129,11 +123,10 @@ function List({ displayMode, id, list, toolbar, defaultHeight, t, renderers, row
 List.propTypes = {
 	...omit(ListToolbar.propTypes, 't'),
 	renderers: PropTypes.object,
-	t: PropTypes.func,
 };
 
 List.defaultProps = {
 	displayMode: 'table',
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(List);
+export default List;
