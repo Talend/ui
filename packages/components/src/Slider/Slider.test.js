@@ -19,5 +19,14 @@ describe('Slider component tests', () => {
 			// then
 			expect(result).toBe(-1);
 		});
+
+		it('should return -1 when value is undefined', () => {
+			// given
+			const icons = ['icon1', 'icon2', 'icon3', 'icon4', 'icon5'];
+			// when
+			const result = getSelectedIconPosition(icons, undefined, 0, 100);
+			// then
+			expect(result).toBe(-1);
+		});
 	});
 });
