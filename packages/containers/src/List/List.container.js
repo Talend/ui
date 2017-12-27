@@ -41,7 +41,6 @@ class List extends React.Component {
 		}),
 		list: PropTypes.shape({
 			columns: PropTypes.array,
-			noRowsLabel: PropTypes.string,
 			titleProps: PropTypes.object,
 		}),
 		toolbar: PropTypes.shape({
