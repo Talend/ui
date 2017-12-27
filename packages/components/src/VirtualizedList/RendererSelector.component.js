@@ -4,10 +4,7 @@ import { listTypes } from './utils/constants';
 import { rowDictionary } from './utils/dictionary';
 import ListTable from './ListTable';
 import ListGrid from './ListGrid';
-import CircularProgress from './../CircularProgress';
 import propTypes from './PropTypes';
-
-import theme from './VirtualizedList.scss';
 
 const { TABLE } = listTypes;
 
@@ -75,18 +72,7 @@ function RendererSelector(props) {
 		);
 	}
 
-	// FIXME [NC]: waiting for Loader component to be merged
-	function Loader() {
-		return (
-			<div aria-atomic="true" aria-busy="true" className={theme['tc-list-progress']}>
-				<CircularProgress size={'default'} />
-			</div>
-		);
-	}
-
-	return inProgress ? (
-		<Loader />
-	) : (
+	return (
 		<ListGrid
 			collection={collection}
 			height={height}
