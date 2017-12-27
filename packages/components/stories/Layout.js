@@ -239,13 +239,13 @@ storiesOf('Layout', module)
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
-	.addWithInfo('OneColumn with subheader', () => (
+	.addWithInfo('Subheader with OneColumn', () => (
 		<Layout header={header} subheader={subheader} mode="OneColumn" footer={footer}>
 			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
-	.addWithInfo('TwoColumns with subheader', () => (
+	.addWithInfo('Subheader with TwoColumns', () => (
 		<Layout header={header} subheader={subheader} one={sidePanel} mode="TwoColumns" footer={footer}>
 			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />

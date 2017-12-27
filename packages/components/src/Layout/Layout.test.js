@@ -115,7 +115,6 @@ describe('Layout', () => {
 				</Layout>,
 			)
 			.toJSON();
-
 		expect(wrapper).toMatchSnapshot();
 	});
 	it('should render layout with subheader component in TwoColumns', () => {
