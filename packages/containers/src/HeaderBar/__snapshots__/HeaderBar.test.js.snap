@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container HeaderBar should pass the props 1`] = `
+Object {
+  "deleteState": [Function],
+  "dispatch": [Function],
+  "dispatchActionCreator": [Function],
+  "getCollection": [Function],
+  "initState": [Function],
+  "renderers": Object {
+    "Action": [Function],
+    "ActionDropdown": [Function],
+  },
+  "setState": [Function],
+  "state": undefined,
+  "updateState": [Function],
+}
+`;
