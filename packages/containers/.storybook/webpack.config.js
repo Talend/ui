@@ -8,7 +8,7 @@
 const path = require('path');
 const commonConfiguration = require('../../../.storybook/webpack.config');
 
-module.exports = (storybookBaseConfig) => {
+module.exports = storybookBaseConfig => {
 	const storybookConfig = commonConfiguration(storybookBaseConfig);
 
 	storybookConfig.resolve = {

@@ -18,7 +18,9 @@ class NotificationWrapper extends React.Component {
 			this.notifications = this.notifications.concat([
 				{
 					id: 'story-1',
-					message: 'This is a feedback of your operation1, This is a feedback of your operation1',
+					type: 'error',
+					title: 'Story 1 example title',
+					message: 'This is a feedback of your operation1, This is a feedback of your operation1, This is a feedback of your operation1',
 					action: {
 						label: 'Haha',
 						icon: 'talend-undo',
@@ -33,6 +35,7 @@ class NotificationWrapper extends React.Component {
 				{
 					id: 'story-2',
 					type: 'error',
+					title: 'Story 2 example title ',
 					message: [
 						'This is a feedback of your operation2',
 						'This is a feedback of your operation1, This is a feedback of your operation1',

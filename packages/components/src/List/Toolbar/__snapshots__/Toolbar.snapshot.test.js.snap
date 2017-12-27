@@ -192,32 +192,6 @@ exports[`Toolbar should render display mode selector 1`] = `
                 Expanded
               </a>
             </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                id="my-toolbar-display-mode-tile"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-tiles"
-                  />
-                </svg>
-                Tile
-              </a>
-            </li>
           </ul>
         </li>
       </ul>

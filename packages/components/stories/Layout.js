@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
 
-import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer } from '../src/index';
+import { List, IconsProvider, Layout, SidePanel, HeaderBar, Drawer } from '../src/index';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -58,7 +58,7 @@ const dockedSidePanel = (<SidePanel
 	onToggleDock={action('Toggle dock clicked')}
 	docked
 />);
-const header = (<AppHeaderBar app="Example App Name" />);
+const header = (<HeaderBar brand={{ label: 'Example App Name' }} />);
 const footer = 'Footer content';
 
 const listItem = {
@@ -237,16 +237,6 @@ storiesOf('Layout', module)
 			one={dockedSidePanel}
 		>
 			<List {...listProps} displayMode={'large'} />
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with big Tile list', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={dockedSidePanel}
-		>
-			<List {...listProps} displayMode={'tile'} />
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))

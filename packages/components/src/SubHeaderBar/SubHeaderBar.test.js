@@ -124,7 +124,7 @@ describe('SubHeaderBar', () => {
 			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper.getNode().props.i18n).toBeDefined();
+		expect(wrapper.getElement().props.i18n).toBeDefined();
 	});
 	it('should render without i18n', () => {
 		const props = {
@@ -137,13 +137,12 @@ describe('SubHeaderBar', () => {
 			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.getNode().props.i18n).toBeFalsy();
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement().props.i18n).toBeFalsy();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render SubHeaderBarActions (default + custom)', () => {
 		const props = {
 			title: 'myTitle',
-			editMode: false,
 			componentsCenter,
 			componentsRight,
 			onGoBack: jest.fn(),
@@ -157,7 +156,6 @@ describe('SubHeaderBar', () => {
 	it('should render SubHeaderBarActions (default + right)', () => {
 		const props = {
 			title: 'myTitle',
-			editMode: false,
 			componentsRight,
 			onGoBack: jest.fn(),
 		};
@@ -169,7 +167,6 @@ describe('SubHeaderBar', () => {
 	it('should render SubHeaderBarActions (default + center)', () => {
 		const props = {
 			title: 'myTitle',
-			editMode: false,
 			componentsCenter,
 			onGoBack: jest.fn(),
 		};
@@ -181,7 +178,6 @@ describe('SubHeaderBar', () => {
 	it('should render SubHeaderBarActions (default)', () => {
 		const props = {
 			title: 'myTitle',
-			editMode: false,
 			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);

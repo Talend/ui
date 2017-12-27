@@ -27,6 +27,19 @@ const ENUMERATION_IMPORT_FILE_CLICK = 'ENUMERATION_IMPORT_FILE_CLICK';
 const ENUMERATION_IMPORT_FILE_OVERWRITE_MODE = 'ENUMERATION_IMPORT_FILE_OVERWRITE_MODE';
 const ENUMERATION_IMPORT_FILE_APPEND_MODE = 'ENUMERATION_IMPORT_FILE_APPEND_MODE';
 
+/*
+For this widget we distinguish 2 modes :
+
+- Connected mode. All items are passed via props by callee
+There are no computation of items here, all computation is done by the callee application
+
+- Non-connected Mode :
+Note: The item's index retrieved on event is different than the one in the global state list
+The items display is computed on frontend-side
+Add, Remove, Edit, Submit, Search actions imply a computation on frontend side.
+This is the case for story book for example.
+There is a special method isConnectedMode() indicating in what mode we are
+*/
 class EnumerationForm extends React.Component {
 	static getItemHeight() {
 		return ITEMS_DEFAULT_HEIGHT;
@@ -44,6 +57,10 @@ class EnumerationForm extends React.Component {
 				},
 			},
 		};
+	}
+
+	static isConnectedMode(registry) {
+		return !!(registry && registry.formContext && registry.formContext.handleAction !== undefined);
 	}
 
 	constructor(props) {
@@ -227,7 +244,7 @@ class EnumerationForm extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.setState({ items: nextProps.formData });
+		this.setState(prevState => ({ ...prevState, items: nextProps.formData }));
 	}
 
 	onImportAppendClick() {
@@ -252,7 +269,11 @@ class EnumerationForm extends React.Component {
 	onEnterEditModeItem(event, value) {
 		this.setState(prevState => {
 			let items = resetItems([...prevState.items]);
-			const item = items[value.index];
+			let item = items[value.index];
+			// if there is a search criteria, retrieve correct item from state in non-connected mode
+			if (prevState.searchCriteria && !this.constructor.isConnectedMode(this.props.registry)) {
+				item = this.getItemInSearchMode(prevState.searchCriteria, value.index, items);
+			}
 			item.displayMode = DISPLAY_MODE_EDIT;
 			// resetting errors
 			items[value.index].error = '';
@@ -300,8 +321,14 @@ class EnumerationForm extends React.Component {
 		} else {
 			this.setState(prevState => {
 				const items = resetItems([...prevState.items]);
-				items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
-				items.splice(value.index, 1);
+				let indexToRemove = value.index;
+				const sc = prevState.searchCriteria;
+				if (sc) {
+					// retrieve correct item when in non-connected mode
+					indexToRemove = this.getIndexToRemoveInSearchMode(sc, value.index, items);
+				}
+				items[indexToRemove].displayMode = DISPLAY_MODE_DEFAULT;
+				items.splice(indexToRemove, 1);
 				const countItems = items.filter(item => item.isSelected).length;
 
 				let displayMode = prevState.displayMode;
@@ -382,14 +409,19 @@ class EnumerationForm extends React.Component {
 		} else {
 			this.setState(prevState => {
 				const items = [...prevState.items];
-				items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+				let item = items[value.index];
+				if (prevState.searchCriteria) {
+					// retrieve correct item when in non-connected mode
+					item = this.getItemInSearchMode(prevState.searchCriteria, value.index, items);
+				}
+				item.displayMode = DISPLAY_MODE_DEFAULT;
 				const valueExist = this.valueAlreadyExist(value.value, prevState);
 				// if the value is empty, no value update is done
 				if (value.value && !valueExist) {
-					items[value.index].values = this.constructor.parseStringValueToArray(value.value);
+					item.values = this.constructor.parseStringValueToArray(value.value);
 				}
 				if (valueExist) {
-					items[value.index].error = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
+					item.error = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
 						defaultValue: 'This term is already in the list',
 					});
 				}
@@ -412,11 +444,10 @@ class EnumerationForm extends React.Component {
 					this.callActionHandler(
 						ENUMERATION_SEARCH_ACTION,
 						value.value,
-						this.onSearchHandler.bind(this),
+						this.onSearchHandler.bind(this, value.value),
 					)
 				) {
 					this.setState({
-						loadingSearchCriteria: value.value,
 						headerInput: this.loadingInputsActions,
 					});
 				} else {
@@ -442,12 +473,13 @@ class EnumerationForm extends React.Component {
 		});
 	}
 
-	onSearchHandler() {
+	onSearchHandler(value) {
 		this.setState(prevState => ({
 			headerInput: this.searchInputsActions,
-			searchCriteria: prevState.loadingSearchCriteria,
-			loadingSearchCriteria: '',
-			items: this.searchItems(prevState.loadingSearchCriteria),
+			searchCriteria: value,
+			// since onSearchHandler() is processed asynchronously,
+			// the line below is mandatory to refresh the items (highlight them)
+			items: [...prevState.items],
 		}));
 	}
 
@@ -462,7 +494,10 @@ class EnumerationForm extends React.Component {
 				headerDefault: this.loadingInputsActions,
 			});
 		}
-		this.setState({ displayMode: DISPLAY_MODE_DEFAULT, searchCriteria: null });
+		this.setState({
+			displayMode: DISPLAY_MODE_DEFAULT,
+			searchCriteria: null,
+		});
 	}
 
 	onConnectedAbortHandler() {
@@ -661,6 +696,21 @@ class EnumerationForm extends React.Component {
 		}
 	}
 
+	getItemSelectedInSearchMode(searchCriteria, index) {
+		const searchedItems = this.searchItems(searchCriteria);
+		return searchedItems[index];
+	}
+
+	getItemInSearchMode(searchCriteria, index, items) {
+		const selectedItem = this.getItemSelectedInSearchMode(searchCriteria, index);
+		return items.find(currentItem => currentItem.values[0] === selectedItem.values[0]);
+	}
+
+	getIndexToRemoveInSearchMode(searchCriteria, index, items) {
+		const selectedItem = this.getItemSelectedInSearchMode(searchCriteria, index);
+		return items.findIndex(currentItem => currentItem.values[0] === selectedItem.values[0]);
+	}
+
 	itemSubmitHandler() {
 		this.setState(prevState => ({
 			itemsProp: {
@@ -691,11 +741,7 @@ class EnumerationForm extends React.Component {
 	}
 
 	callActionHandler(actionName, value, successHandler, errorHandler) {
-		if (
-			this.props.registry &&
-			this.props.registry.formContext &&
-			this.props.registry.formContext.handleAction !== undefined
-		) {
+		if (this.constructor.isConnectedMode(this.props.registry)) {
 			this.props.registry.formContext.handleAction(
 				this.props.id,
 				actionName,
@@ -836,7 +882,11 @@ class EnumerationForm extends React.Component {
 	}
 
 	render() {
-		const items = this.searchItems(this.state.searchCriteria);
+		let items = this.state.items;
+		// filter items only in non-connected mode, since in connected mode items are up-to-date
+		if (!this.constructor.isConnectedMode(this.props.registry)) {
+			items = this.searchItems(this.state.searchCriteria);
+		}
 		const stateToShow = { ...this.state, items };
 
 		return (

@@ -42,7 +42,7 @@ describe('Tabs widget', () => {
 		const wrapper = shallow(<Tabs schema={schema} errors={errors} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render invalid tab', () => {
@@ -83,6 +83,6 @@ describe('Tabs widget', () => {
 		const wrapper = shallow(<Tabs schema={schema} errors={errors} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

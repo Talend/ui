@@ -16,7 +16,7 @@ $icon-size: $svg-md-size;
 	position: absolute;
 	top: 48px;
 	right: $padding-normal;
-	z-index: 10;
+	z-index: 20;
 	left: auto;
 
 	.tc-notification {
@@ -51,19 +51,29 @@ $icon-size: $svg-md-size;
 			width: $icon-size;
 		}
 
-		.tc-notification-close {
+		&-close {
 			font-size: $icon-size;
 			float: right;
 		}
 
-		.tc-notification-action {
+		&-action {
 			background-color: transparent;
 			border: none;
 			padding: 0;
 		}
 
-		.tc-notification-message {
+		&-title {
+			margin: {
+				top: 0;
+				right: $padding-larger;
+			}
+			font-size: $font-size-small;
+			font-weight: bold;
+		}
+
+		&-message {
 			margin-right: $padding-larger;
+			font-size: $font-size-small;
 
 			&:last-of-type {
 				margin-bottom: 0;
@@ -85,7 +95,7 @@ $icon-size: $svg-md-size;
 			}
 		}
 
-		.tc-notification-timer-bar {
+		&-timer-bar {
 			border-width: 2px 0 1px;
 			border-style: solid;
 			position: absolute;

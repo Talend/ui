@@ -101,12 +101,6 @@
           "name": "list-large-default",
           "selector": ".tc-list"
         }
-      ],
-      "Tile": [
-        {
-          "name": "list-tile-default",
-          "selector": ".tc-list"
-        }
       ]
     },
     "ObjectViewer": {

@@ -62,6 +62,7 @@ function VirtualizedList(props) {
 		</AutoSizer>
 	);
 }
+
 VirtualizedList.displayName = 'VirtualizedList';
 VirtualizedList.propTypes = propTypes;
 VirtualizedList.defaultProps = {

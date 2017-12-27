@@ -17,7 +17,6 @@ import ActionFile from './ActionFile';
 import ActionDropdown from './ActionDropdown';
 import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
-import AppHeaderBar from './AppHeaderBar';
 import ConfirmDialog from './ConfirmDialog';
 import FilterBar from './FilterBar';
 import Form from './Form';
@@ -29,6 +28,7 @@ import ObjectViewer from './ObjectViewer';
 import Redirect from './Redirect';
 import ShortcutManager from './ShortcutManager';
 import SelectObject from './SelectObject';
+import Slider from './Slider';
 import SidePanel from './SidePanel';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
@@ -43,7 +43,6 @@ export {
 	ActionDropdown,
 	Actions,
 	ActionSplitDropdown,
-	AppHeaderBar,
 	Breadcrumbs,
 	CircularProgress,
 	ConfirmDialog,
@@ -62,6 +61,7 @@ export {
 	Redirect,
 	ShortcutManager,
 	SelectObject,
+	Slider,
 	SidePanel,
 	SubHeaderBar,
 	TooltipTrigger,

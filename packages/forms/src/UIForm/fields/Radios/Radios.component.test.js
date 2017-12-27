@@ -27,11 +27,11 @@ describe('Radios field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render inline radios', () => {
@@ -51,11 +51,11 @@ describe('Radios field', () => {
 				onFinish={jest.fn()}
 				schema={inlineSchema}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render disabled input', () => {
@@ -75,11 +75,11 @@ describe('Radios field', () => {
 				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onChange', () => {
@@ -94,12 +94,15 @@ describe('Radios field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'toto'}
-			/>
+			/>,
 		);
 		const event = { target: { value: 'foo' } };
 
 		// when
-		wrapper.find('input[type="radio"]').at(0).simulate('change', event);
+		wrapper
+			.find('input[type="radio"]')
+			.at(0)
+			.simulate('change', event);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { schema, value: 'foo' });
@@ -117,12 +120,15 @@ describe('Radios field', () => {
 				onFinish={onFinish}
 				schema={schema}
 				value={'toto'}
-			/>
+			/>,
 		);
 		const event = { target: { value: 'foo' } };
 
 		// when
-		wrapper.find('input[type="radio"]').at(0).simulate('blur', event);
+		wrapper
+			.find('input[type="radio"]')
+			.at(0)
+			.simulate('blur', event);
 
 		// then
 		expect(onFinish).toBeCalledWith(event, { schema });

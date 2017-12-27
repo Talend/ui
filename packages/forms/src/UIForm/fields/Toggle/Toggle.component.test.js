@@ -21,11 +21,11 @@ describe('Toggle field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render autoFocused input', () => {
@@ -45,11 +45,11 @@ describe('Toggle field', () => {
 				onFinish={jest.fn()}
 				schema={autoFocusedSchema}
 				value
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render disabled input', () => {
@@ -69,11 +69,11 @@ describe('Toggle field', () => {
 				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onChange', () => {
@@ -88,7 +88,7 @@ describe('Toggle field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 
 		// when
@@ -110,7 +110,7 @@ describe('Toggle field', () => {
 				onFinish={onFinish}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 
 		// when

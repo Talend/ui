@@ -10,11 +10,11 @@ import {
 	Nav,
 	NavItem,
 	Tab,
-	AppHeaderBar,
+	HeaderBar,
 	ActionBar,
 } from '../src/index';
 
-const header = <AppHeaderBar app="Example App Name" />;
+const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
