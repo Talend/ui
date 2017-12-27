@@ -252,7 +252,7 @@ storiesOf('Layout', module)
 		</Layout>
 	))
 	.addWithInfo('Subheader alone', () => (
-		<Layout subheader={subheader} mode="OneColumns">
+		<Layout subheader={subheader} mode="OneColumn">
 			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />
 		</Layout>

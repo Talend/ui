@@ -1,5 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
+import { SubHeaderBar } from '../SubHeaderBar/SubHeaderBar.component';
 
 import Layout from './Layout.component';
 
@@ -128,14 +130,41 @@ describe('Layout', () => {
 
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should render layout with subheader alone', () => {
-		const wrapper = renderer
-			.create(
-				<Layout mode="OneColumn" one={one}>
-					{two}
-				</Layout>,
-			)
-			.toJSON();
+	it('should render layout with subheader', () => {
+		const onGoBack = jest.fn();
+		const wrapper = shallow(
+			<Layout subheader={<SubHeaderBar title="defaultTitle" onGoBack={onGoBack} />}>{one}</Layout>,
+		);
 		expect(wrapper).toMatchSnapshot();
+	});
+	it('should render layout with subheader in OneColumn mode', () => {
+		const onGoBack = jest.fn();
+		const wrapper = shallow(
+			<Layout
+				subheader={<SubHeaderBar title="defaultTitle" onGoBack={onGoBack} />}
+				mode="OneColumn"
+			>
+				{one}
+			</Layout>,
+		);
+		expect(wrapper.instance().props.subheader).toEqual(
+			<SubHeaderBar title="defaultTitle" onGoBack={onGoBack} />,
+		);
+		expect(wrapper.instance().props.mode).toEqual('OneColumn');
+	});
+	it('should render layout with subheader in TwoColumns mode', () => {
+		const onGoBack = jest.fn();
+		const wrapper = shallow(
+			<Layout
+				subheader={<SubHeaderBar title="defaultTitle" onGoBack={onGoBack} />}
+				mode="TwoColumns"
+			>
+				{one}
+			</Layout>,
+		);
+		expect(wrapper.instance().props.subheader).toEqual(
+			<SubHeaderBar title="defaultTitle" onGoBack={onGoBack} />,
+		);
+		expect(wrapper.instance().props.mode).toEqual('TwoColumns');
 	});
 });
