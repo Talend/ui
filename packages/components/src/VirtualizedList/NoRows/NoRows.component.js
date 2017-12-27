@@ -6,30 +6,24 @@ import { getDefaultTranslate } from '../../translate';
 
 import theme from './NoRows.scss';
 
-function getLabel(props) {
-	if (props.noRowsLabel !== undefined) {
-		return props.noRowsLabel;
-	}
-
-	return props.t('VIRTUALIZEDLIST_NO_RESULT', { defaultValue: 'No result found' });
-}
-
 function NoRows(props) {
 	return (
-		<span className={classNames(theme['no-result'], 'no-result')} role="status" aria-live="polite">
-			{getLabel(props)}
+		<span
+			className={classNames(theme['tc-virtualizedlist-no-result'], 'tc-virtualizedlist-no-result')}
+			role="status"
+			aria-live="polite"
+		>
+			{props.t('VIRTUALIZEDLIST_NO_RESULT', { defaultValue: 'No result found' })}
 		</span>
 	);
 }
 
 NoRows.propTypes = {
 	t: PropTypes.func,
-	noRowsLabel: PropTypes.string,
 };
 
 NoRows.defaultProps = {
 	t: getDefaultTranslate,
-	noRowsLabel: 'No result found',
 };
 
 export default NoRows;

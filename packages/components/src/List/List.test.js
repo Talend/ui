@@ -11,7 +11,6 @@ const listProps = {
 		onToggleAll: jest.fn(),
 		onToggle: jest.fn(),
 	},
-	noRowsLabel: 'No user',
 	titleProps: {
 		onClick: jest.fn(),
 	},

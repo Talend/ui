@@ -1,4 +1,5 @@
-.no-result {
+.tc-virtualizedlist-no-result,
+:global(.tc-virtualizedlist-no-result) {
 	display: flex;
 	align-items: center;
 	justify-content: center;

@@ -53,7 +53,7 @@ export function ListToVirtualizedList(props) {
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
 			type={props.displayMode.toUpperCase()}
-			noRowsLabel={props.noRowsLabel}
+			noRowsRenderer={props.noRowsRenderer}
 			t={props.t}
 		>
 			{props.columns.map((column, index) => {
@@ -95,7 +95,7 @@ ListToVirtualizedList.propTypes = {
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
 	inProgress: PropTypes.bool,
-	noRowsLabel: PropTypes.string,
+	noRowsRenderer: PropTypes.oneOf(PropTypes.element, PropTypes.func),
 	rowHeight: PropTypes.number,
 	sort: PropTypes.shape({
 		onChange: PropTypes.func,

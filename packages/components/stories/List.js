@@ -4,9 +4,18 @@ import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-d
 import talendIcons from '@talend/icons/dist/react';
 import { I18nextProvider } from 'react-i18next';
 import { cloneDeep } from 'lodash';
+import classNames from 'classnames';
 
 import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
+
+function NoRowsRenderer() {
+	return (
+		<span className={classNames('tc-virtualizedlist-no-result')} role="status" aria-live="polite">
+			I'm a custom NoRowsRenderer
+		</span>
+	);
+}
 
 const icons = {
 	'talend-apache': talendIcons['talend-apache'],
@@ -299,10 +308,10 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Empty list with custom label', () => {
+	.add('Empty list with custom NoRowsRenderer', () => {
 		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
-		emptyListProps.list.noRowsLabel = 'No data';
+		emptyListProps.list.noRowsRenderer = NoRowsRenderer;
 		return (
 			<div style={{ height: '60vh' }}>
 				<h1>List</h1>

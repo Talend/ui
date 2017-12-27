@@ -122,10 +122,6 @@ class List extends React.Component {
 			};
 		}
 
-		if (get(this.props, 'list.noRowsLabel', undefined) !== undefined) {
-			props.list.noRowsLabel = this.props.list.noRowsLabel;
-		}
-
 		// toolbar
 		if (this.props.toolbar) {
 			props.toolbar = {

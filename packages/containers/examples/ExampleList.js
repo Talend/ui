@@ -127,19 +127,5 @@ const ExampleList = {
 			</div>
 		</I18nextProvider>
 	),
-	'custom noRowLabels': () => (
-		<div>
-			<IconsProvider />
-			<div className="list-container">
-				<List
-					actions={actions}
-					list={{ ...list, noRowsLabel: 'No data' }}
-					items={items}
-					toolbar={toolbar}
-					virtualized
-				/>
-			</div>
-		</div>
-	),
 };
 export default ExampleList;

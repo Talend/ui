@@ -18,7 +18,7 @@ function VirtualizedList(props) {
 		collection,
 		children,
 		defaultHeight,
-		noRowsLabel,
+		noRowsRenderer,
 		id,
 		isActive,
 		isSelected,
@@ -48,7 +48,7 @@ function VirtualizedList(props) {
 			{({ height, width }) => (
 				<RendererSelector
 					collection={collection}
-					noRowsLabel={noRowsLabel}
+					noRowsRenderer={noRowsRenderer}
 					height={height || defaultHeight}
 					id={id}
 					isActive={isActive}

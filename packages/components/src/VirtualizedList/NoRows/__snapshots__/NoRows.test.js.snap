@@ -1,19 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NoRows should show custom label 1`] = `
-<span
-  aria-live="polite"
-  className="no-result"
-  role="status"
->
-  No users
-</span>
-`;
-
 exports[`NoRows should show no result 1`] = `
 <span
   aria-live="polite"
-  className="no-result"
+  className="tc-virtualizedlist-no-result"
   role="status"
 >
   No result found

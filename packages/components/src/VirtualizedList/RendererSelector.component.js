@@ -25,8 +25,11 @@ function getRowRenderer(type) {
 	return rowRenderer;
 }
 
-export function getNoRowsRenderer(t, noRowsLabel) {
-	return () => <NoRows t={t} noRowsLabel={noRowsLabel} />;
+export function getNoRowsRenderer(t, NoRowsRenderer) {
+	if (NoRowsRenderer) {
+		return () => <NoRowsRenderer />;
+	}
+	return () => <NoRows t={t} />;
 }
 
 /**
@@ -40,7 +43,7 @@ function RendererSelector(props) {
 		id,
 		isSelected,
 		isActive,
-		noRowsLabel,
+		noRowsRenderer,
 		onRowClick,
 		rowHeight,
 		selectionToggle,
@@ -62,7 +65,7 @@ function RendererSelector(props) {
 				id={id}
 				isActive={isActive}
 				isSelected={isSelected}
-				noRowsRenderer={getNoRowsRenderer(t, noRowsLabel)}
+				noRowsRenderer={getNoRowsRenderer(t, noRowsRenderer)}
 				onRowClick={onRowClick}
 				selectionToggle={selectionToggle}
 				sort={sort}
@@ -78,7 +81,7 @@ function RendererSelector(props) {
 	return (
 		<ListGrid
 			collection={collection}
-			noRowsRenderer={getNoRowsRenderer(t, noRowsLabel)}
+			noRowsRenderer={getNoRowsRenderer(t, noRowsRenderer)}
 			height={height}
 			id={id}
 			isActive={isActive}
@@ -97,7 +100,6 @@ RendererSelector.displayName = 'VirtualizedList(RendererSelector)';
 RendererSelector.propTypes = {
 	...propTypes,
 	height: PropTypes.number,
-	noRows: propTypes.Element,
 	width: PropTypes.number,
 };
 RendererSelector.defaultProps = {

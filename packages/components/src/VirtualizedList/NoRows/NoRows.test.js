@@ -9,10 +9,4 @@ describe('NoRows', () => {
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-
-	it('should show custom label', () => {
-		const wrapper = shallow(<NoRows noRowsLabel="No users" />);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
 });

@@ -13,7 +13,7 @@ export default {
 	// Disable header on TABLE
 	disableHeader: PropTypes.boolean,
 	// label used when the list is empty
-	noRowsLabel: PropTypes.string,
+	noRowsRenderer: PropTypes.oneOf(PropTypes.element, PropTypes.func),
 	// The id. The sub-ids will be based on the ids as prefix
 	id: PropTypes.string,
 	// Highlight row on click

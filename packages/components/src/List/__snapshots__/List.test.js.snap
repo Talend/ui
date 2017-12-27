@@ -37,7 +37,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
             "name": "Bar",
           },
         ],
-        "noRowsLabel": "No user",
         "titleProps": Object {
           "actionsKey": "actions",
           "onClick": [Function],
@@ -87,7 +86,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
           },
         ]
       }
-      noRowsLabel="No user"
       t={[Function]}
       titleProps={
         Object {
@@ -116,7 +114,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         }
         defaultHeight={250}
         isSelected={[Function]}
-        noRowsLabel="No user"
         selectionToggle={[Function]}
         sort={null}
         sortDirection="ASC"
@@ -156,7 +153,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
               }
               height={250}
               isSelected={[Function]}
-              noRowsLabel="No user"
               selectionToggle={[Function]}
               sort={null}
               sortDirection="ASC"
@@ -418,7 +414,6 @@ exports[`List should render 1`] = `
             "name": "Bar",
           },
         ],
-        "noRowsLabel": "No user",
         "titleProps": Object {
           "actionsKey": "actions",
           "onClick": [Function],
@@ -1665,7 +1660,6 @@ exports[`List should render 1`] = `
           },
         ]
       }
-      noRowsLabel="No user"
       t={[Function]}
       titleProps={
         Object {
@@ -1694,7 +1688,6 @@ exports[`List should render 1`] = `
         }
         defaultHeight={250}
         isSelected={[Function]}
-        noRowsLabel="No user"
         selectionToggle={[Function]}
         sort={null}
         sortDirection="ASC"
@@ -1734,7 +1727,6 @@ exports[`List should render 1`] = `
               }
               height={250}
               isSelected={[Function]}
-              noRowsLabel="No user"
               selectionToggle={[Function]}
               sort={null}
               sortDirection="ASC"
@@ -1997,7 +1989,6 @@ exports[`List should render id if provided 1`] = `
             "name": "Bar",
           },
         ],
-        "noRowsLabel": "No user",
         "titleProps": Object {
           "actionsKey": "actions",
           "onClick": [Function],
@@ -3293,7 +3284,6 @@ exports[`List should render id if provided 1`] = `
           },
         ]
       }
-      noRowsLabel="No user"
       t={[Function]}
       titleProps={
         Object {
@@ -3323,7 +3313,6 @@ exports[`List should render id if provided 1`] = `
         defaultHeight={250}
         id="context"
         isSelected={[Function]}
-        noRowsLabel="No user"
         selectionToggle={[Function]}
         sort={null}
         sortDirection="ASC"
@@ -3364,7 +3353,6 @@ exports[`List should render id if provided 1`] = `
               height={250}
               id="context"
               isSelected={[Function]}
-              noRowsLabel="No user"
               selectionToggle={[Function]}
               sort={null}
               sortDirection="ASC"
