@@ -83,6 +83,8 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-bootstrap': '0.31.0',
 	'react-dom': REACT_VERSION,
 	i18next: '^9.0.0',
+	'rc-slider': '8.4.1',
+	'rc-tooltip': '3.7.0',
 	'react-i18next': '^5.2.0',
 	'react-redux': '5.0.5',
 	'react-router': '3.0.5',
@@ -101,7 +103,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	// dev deps
 	'@kadira/react-storybook-addon-info': '^3.3.0',
 	'@kadira/storybook': '^2.35.0',
-	'@storybook/react': '3.1.9',
+	'@storybook/react': '3.2.18',
 	'@storybook/addon-storyshots': '^3.2.0',
 	'@storybook/addon-actions': '^3.2.0',
 	'@storybook/addon-info': '^3.2.0',
@@ -250,4 +252,3 @@ if (program.path) {
 	updateFiles(files, Object.assign(VERSIONS));
 	updateFiles(templates, Object.assign({}, VERSIONS, STACK_VERSION));
 }
-

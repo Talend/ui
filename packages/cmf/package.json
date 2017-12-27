@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
-    "hoist-non-react-statics": "^1.2.0"
+    "hoist-non-react-statics": "^1.2.0",
+    "react-immutable-proptypes": "2.1.0"
   },
   "devDependencies": {
     "babel-cli": "6.24.1",
@@ -122,5 +123,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.134.0"
+  "version": "0.136.0"
 }
