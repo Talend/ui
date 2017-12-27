@@ -97,6 +97,7 @@ exports[`ListGrid should render no-rows component 1`] = `
         tabIndex={0}
       >
         <NoRows
+          inProgress={false}
           t={[Function]}
         >
           <span

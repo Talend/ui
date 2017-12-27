@@ -8,7 +8,6 @@ import {
 import { getDefaultTranslate } from '../../translate';
 import getRowSelectionRenderer from '../RowSelection';
 import NoRows from '../NoRows';
-import CircularProgress from '../../CircularProgress';
 import { toColumns } from '../utils/tablerow';
 
 import theme from './ListTable.scss';
@@ -50,15 +49,6 @@ function ListTable(props) {
 		onRowClickCallback = ({ event, rowData }) => onRowClick(event, rowData);
 	}
 
-	// FIXME [NC]: waiting for Loader component to be merged
-	function Loader() {
-		return (
-			<div aria-atomic="true" aria-busy="true" className={theme['tc-list-progress']}>
-				<CircularProgress size={'default'} />
-			</div>
-		);
-	}
-
 	return (
 		<VirtualizedTable
 			className={`tc-list-table ${theme['tc-list-table']}`}
@@ -67,7 +57,7 @@ function ListTable(props) {
 			height={height}
 			id={id}
 			onRowClick={onRowClickCallback}
-			noRowsRenderer={() => (inProgress ? <Loader /> : <NoRows t={t} />)}
+			noRowsRenderer={() => (<NoRows t={t} inProgress={inProgress} />)}
 			rowClassName={({ index }) => classNames(...[
 				'tc-list-item',
 				rowThemes,
