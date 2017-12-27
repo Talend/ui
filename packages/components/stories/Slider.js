@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Slider, IconsProvider } from '../src/';
+import Slider from '../src/Slider';
+import IconsProvider from '../src/IconsProvider';
 
 const icons = [
 	'talend-activity',
