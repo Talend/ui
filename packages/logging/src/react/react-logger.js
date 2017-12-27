@@ -8,7 +8,9 @@ function injectLogger() {
 	const ReactTryCatchBatchingStrategy = {
 		// this is part of the BatchingStrategy API. simply pass along
 		// what the default batching strategy would do.
-		get isBatchingUpdates() { return ReactDefaultBatchingStrategy.isBatchingUpdates; },
+		get isBatchingUpdates() {
+			return ReactDefaultBatchingStrategy.isBatchingUpdates;
+		},
 
 		batchedUpdates(...args) {
 			try {
@@ -32,10 +34,9 @@ function injectLogger() {
 	ReactUpdates.injection.injectBatchingStrategy(ReactTryCatchBatchingStrategy);
 }
 
-export default function initReactLogger({ serverUrl, getState, processState = (state => state) }) {
-	initErrorTransformer(
-		serverUrl,
-		{ payloadMiddleware: getStatePayloadMiddleware(() => processState(getState())) }
-	);
+export default function initReactLogger({ serverUrl, getState, processState = state => state }) {
+	initErrorTransformer(serverUrl, {
+		payloadMiddleware: getStatePayloadMiddleware(() => processState(getState())),
+	});
 	injectLogger();
 }

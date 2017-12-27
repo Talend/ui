@@ -11,10 +11,9 @@ describe('Redux logger', () => {
 		function failedNext() {
 			throw new Error(message);
 		}
-		initErrorTransformer(
-			serverUrl,
-			{ payloadMiddleware: payload => ({ appState: { my: 'state' }, ...payload }) }
-		);
+		initErrorTransformer(serverUrl, {
+			payloadMiddleware: payload => ({ appState: { my: 'state' }, ...payload }),
+		});
 
 		// when
 		try {
