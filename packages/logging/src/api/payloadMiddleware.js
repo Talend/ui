@@ -3,6 +3,7 @@ export default function getStatePayloadMiddleware(getState) {
 		return {
 			time: new Date(),
 			appState: getState(),
+			userAgent: navigator.userAgent,
 			...payload,
 		};
 	};
