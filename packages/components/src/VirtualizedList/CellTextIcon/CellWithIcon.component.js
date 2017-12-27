@@ -8,19 +8,13 @@ import styles from './CellWithIcon.scss';
 /**
  * Cell renderer that displays text + icon
  */
-function CellWithIcon({
-	columnData,
-	rowData,
-	cellData,
-}) {
+function CellWithIcon({ columnData, rowData, cellData }) {
 	const action = columnData.getIcon(rowData);
 
 	return (
 		<div className={classnames('cell-icon-container', styles['cell-icon-container'])}>
 			<div>{cellData}</div>
-			<div>
-				{action && <Action {...action} hideLabel link />}
-			</div>
+			<div>{action && <Action {...action} hideLabel link />}</div>
 		</div>
 	);
 }
