@@ -57,12 +57,10 @@ function ListTable(props) {
 			height={height}
 			id={id}
 			onRowClick={onRowClickCallback}
-			noRowsRenderer={() => (<NoRows t={t} inProgress={inProgress} />)}
-			rowClassName={({ index }) => classNames(...[
-				'tc-list-item',
-				rowThemes,
-				collection[index] && collection[index].className,
-			])}
+			noRowsRenderer={() => <NoRows t={t} inProgress={inProgress} />}
+			rowClassName={({ index }) =>
+				classNames(...['tc-list-item', rowThemes, collection[index] && collection[index].className])
+			}
 			rowCount={inProgress ? 0 : collection.length}
 			rowGetter={({ index }) => collection[index]}
 			rowHeight={rowHeight}

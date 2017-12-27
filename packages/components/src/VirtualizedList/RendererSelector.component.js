@@ -84,7 +84,9 @@ function RendererSelector(props) {
 		);
 	}
 
-	return inProgress ? <Loader /> : (
+	return inProgress ? (
+		<Loader />
+	) : (
 		<ListGrid
 			collection={collection}
 			height={height}
