@@ -109,27 +109,6 @@ describe('Layout', () => {
 
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should render layout with subheader component in OneColumn', () => {
-		const wrapper = renderer
-			.create(
-				<Layout mode="OneColumn" one={one} header={header} tabs={tabs} footer={footer}>
-					{two}
-				</Layout>,
-			)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
-	});
-	it('should render layout with subheader component in TwoColumns', () => {
-		const wrapper = renderer
-			.create(
-				<Layout mode="TwoColumns" one={one} header={header} tabs={tabs} footer={footer}>
-					{two}
-				</Layout>,
-			)
-			.toJSON();
-
-		expect(wrapper).toMatchSnapshot();
-	});
 	it('should render layout with subheader', () => {
 		const onGoBack = jest.fn();
 		const wrapper = shallow(
