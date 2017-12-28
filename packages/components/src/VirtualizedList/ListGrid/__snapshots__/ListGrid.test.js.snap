@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ListGrid should render no-rows component 1`] = `
+exports[`ListGrid should render noRows 1`] = `
 <VirtualizedList(ListGrid)
   collection={Array []}
   height={600}
   id="my-list"
   isSelected={[Function]}
+  noRowsRenderer={[Function]}
   rowHeight={130}
   rowRenderer={[Function]}
   selectionToggle={[Function]}
-  t={[Function]}
   width={1024}
 >
   <List
@@ -96,17 +96,9 @@ exports[`ListGrid should render no-rows component 1`] = `
         }
         tabIndex={0}
       >
-        <NoRows
-          t={[Function]}
-        >
-          <span
-            aria-live="polite"
-            className="no-result"
-            role="status"
-          >
-            No result found
-          </span>
-        </NoRows>
+        <div>
+          No rows
+        </div>
       </div>
     </Grid>
   </List>

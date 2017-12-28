@@ -1,12 +1,13 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import NoRows from './NoRows.component';
 
 describe('NoRows', () => {
 	it('should show no result', () => {
-		const wrapper = shallow(<NoRows />);
+		const wrapper = mount(<NoRows />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });

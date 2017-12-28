@@ -55,7 +55,7 @@ describe('ListGrid', () => {
 		);
 	});
 
-	it('should render no-rows component', () => {
+	it('should render noRows', () => {
 		// when
 		const wrapper = mount(
 			<ListGrid
@@ -67,6 +67,7 @@ describe('ListGrid', () => {
 				rowRenderer={RowLarge}
 				selectionToggle={jest.fn()}
 				width={1024}
+				noRowsRenderer={() => <div>No rows</div>}
 			>
 				<VirtualizedList.Content label="Id" dataKey="id" />
 				<VirtualizedList.Content label="Name" dataKey="name" />
