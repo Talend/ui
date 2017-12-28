@@ -194,11 +194,3 @@ exports[`RendererSelector should render table list when requested 1`] = `
   />
 </VirtualizedList(ListTable)>
 `;
-
-exports[`RendererSelector should render the grid with the default NoRows 1`] = `<Translate(NoRows) />`;
-
-exports[`RendererSelector should render the grid with the noRowsRenderer 1`] = `<NoRowsRenderer />`;
-
-exports[`RendererSelector should render the table with the default NoRows 1`] = `<Translate(NoRows) />`;
-
-exports[`RendererSelector should render the table with the noRowsRenderer 1`] = `<NoRowsRenderer />`;

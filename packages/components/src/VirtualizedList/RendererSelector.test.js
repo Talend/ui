@@ -1,10 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 import RendererSelector from './RendererSelector.component';
 import VirtualizedList from './VirtualizedList.component';
 import { listTypes } from './utils/constants';
 import collection from './collection';
+import NoRows from './NoRows';
 
 const { TABLE, LARGE } = listTypes;
 
@@ -100,9 +101,9 @@ describe('RendererSelector', () => {
 
 	it('should render the table with the default NoRows', () => {
 		// when
-		const wrapper = shallow(
+		const wrapper = mount(
 			<RendererSelector
-				collection={collection}
+				collection={[]}
 				height={600}
 				id={'my-list-id'}
 				isActive={jest.fn()}
@@ -118,14 +119,14 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.props().noRowsRenderer()).toMatchSnapshot();
+		expect(wrapper.contains(<NoRows />)).toBe(true);
 	});
 
 	it('should render the grid with the default NoRows', () => {
 		// when
-		const wrapper = shallow(
+		const wrapper = mount(
 			<RendererSelector
-				collection={collection}
+				collection={[]}
 				height={600}
 				id={'my-list-id'}
 				isActive={jest.fn()}
@@ -133,6 +134,7 @@ describe('RendererSelector', () => {
 				onRowClick={jest.fn()}
 				rowHeight={50}
 				selectionToggle={jest.fn()}
+				type={LARGE}
 				width={1024}
 			>
 				{contentFields}
@@ -140,14 +142,14 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.props().noRowsRenderer()).toMatchSnapshot();
+		expect(wrapper.contains(<NoRows />)).toBe(true);
 	});
 
 	it('should render the table with the noRowsRenderer', () => {
 		// when
-		const wrapper = shallow(
+		const wrapper = mount(
 			<RendererSelector
-				collection={collection}
+				collection={[]}
 				noRowsRenderer={NoRowsRenderer}
 				height={600}
 				id={'my-list-id'}
@@ -166,14 +168,14 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.props().noRowsRenderer()).toMatchSnapshot();
+		expect(wrapper.contains(<NoRowsRenderer />)).toBe(true);
 	});
 
 	it('should render the grid with the noRowsRenderer', () => {
 		// when
-		const wrapper = shallow(
+		const wrapper = mount(
 			<RendererSelector
-				collection={collection}
+				collection={[]}
 				height={600}
 				id={'my-list-id'}
 				isActive={jest.fn()}
@@ -184,6 +186,7 @@ describe('RendererSelector', () => {
 				sort={jest.fn()}
 				sortBy={'name'}
 				sortDirection={'DESC'}
+				type={LARGE}
 				width={1024}
 			>
 				{contentFields}
@@ -191,6 +194,6 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.props().noRowsRenderer()).toMatchSnapshot();
+		expect(wrapper.contains(<NoRowsRenderer />)).toBe(true);
 	});
 });
