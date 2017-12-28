@@ -288,6 +288,15 @@ storiesOf('List', module)
 	.add('Empty list', () => {
 		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
+
+		const customEmptyRendererListProps = cloneDeep(props);
+		customEmptyRendererListProps.list.items = [];
+		customEmptyRendererListProps.list.noRowsRenderer = () => (
+			<span className={'tc-virtualizedlist-no-result'} role="status" aria-live="polite">
+				I'm a custom NoRowsRenderer
+			</span>
+		);
+
 		return (
 			<div style={{ height: '60vh' }}>
 				<h1>List</h1>
@@ -296,6 +305,8 @@ storiesOf('List', module)
 				<List {...emptyListProps} />
 				<h2>Large</h2>
 				<List {...emptyListProps} displayMode="large" />
+				<h2>Custom no row renderer</h2>
+				<List {...customEmptyRendererListProps} />
 			</div>
 		);
 	})

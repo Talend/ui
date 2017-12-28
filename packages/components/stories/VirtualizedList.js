@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
-import classNames from 'classnames';
 
 import { IconsProvider } from '../src/index';
 import VirtualizedList, { listTypes } from '../src/VirtualizedList';
@@ -10,7 +9,7 @@ import CellBadge from '../src/VirtualizedList/CellBadge';
 
 function NoRowsRenderer() {
 	return (
-		<span className={classNames('tc-virtualizedlist-no-result')} role="status" aria-live="polite">
+		<span className={'tc-virtualizedlist-no-result'} role="status" aria-live="polite">
 			I'm a custom NoRowsRenderer
 		</span>
 	);
