@@ -109,7 +109,6 @@ const ExampleList = {
 					items={items}
 					rowHeight={customHeight}
 					initialState={defaultListState}
-					virtualized
 				/>
 			</div>
 		</div>
@@ -122,7 +121,7 @@ const ExampleList = {
 				<button onClick={() => i18n.changeLanguage('it')}>it</button>
 				<IconsProvider />
 				<div className="list-container">
-					<List {...props} items={items} virtualized />
+					<List {...props} items={items} />
 				</div>
 			</div>
 		</I18nextProvider>
