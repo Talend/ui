@@ -1,5 +1,5 @@
 
-> @talend/react-components@0.136.0 lint:style /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.137.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
 
