@@ -1,12 +1,20 @@
 import React from 'react';
 import { storiesOf, action } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
+import classNames from 'classnames';
 
 import { IconsProvider } from '../src/index';
 import VirtualizedList, { listTypes } from '../src/VirtualizedList';
-import CellActions from '../src/VirtualizedList/CellActions';
 import CellTitle from '../src/VirtualizedList/CellTitle';
 import CellBadge from '../src/VirtualizedList/CellBadge';
+
+function NoRowsRenderer() {
+	return (
+		<span className={classNames('tc-virtualizedlist-no-result')} role="status" aria-live="polite">
+			I'm a custom NoRowsRenderer
+		</span>
+	);
+}
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -470,6 +478,21 @@ storiesOf('Virtualized List', module)
 						columnData={titleProps}
 						{...CellTitle}
 					/>
+					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
+					<VirtualizedList.Content label="Author" dataKey="author" />
+					<VirtualizedList.Content label="Created" dataKey="created" />
+					<VirtualizedList.Content label="Modified" dataKey="modified" />
+				</VirtualizedList>
+			</section>
+		</div>
+	))
+	.add('List > custom noRowsRenderer', () => (
+		<div className="virtualized-list">
+			<h1>Virtualized List</h1>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={[]} id={'my-list'} noRowsRenderer={NoRowsRenderer}>
+					<VirtualizedList.Content label="Id" dataKey="id" />
 					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Content label="Author" dataKey="author" />
 					<VirtualizedList.Content label="Created" dataKey="created" />

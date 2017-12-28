@@ -95,7 +95,7 @@ ListToolbar.propTypes = {
 }
  <List {...props}></List>
  */
-function List({ displayMode, id, list, toolbar, defaultHeight, t, renderers, rowHeight }) {
+function List({ displayMode, id, list, toolbar, defaultHeight, renderers, rowHeight }) {
 	const classnames = classNames('tc-list', theme.list);
 	return (
 		<div className={classnames}>
@@ -104,7 +104,6 @@ function List({ displayMode, id, list, toolbar, defaultHeight, t, renderers, row
 				toolbar={toolbar}
 				displayMode={displayMode}
 				list={list}
-				t={t}
 				renderers={renderers}
 			/>
 			<div className={'tc-list-display-virtualized'}>
@@ -121,7 +120,7 @@ function List({ displayMode, id, list, toolbar, defaultHeight, t, renderers, row
 }
 
 List.propTypes = {
-	...omit(ListToolbar.propTypes, 't'),
+	...ListToolbar.propTypes,
 	renderers: PropTypes.object,
 };
 
