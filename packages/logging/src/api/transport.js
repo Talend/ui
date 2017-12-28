@@ -23,9 +23,6 @@ export function sendReport(payload, transportOpts, attempt = 0) {
 }
 
 const defaultHandlers = {
-	success: response => {
-		console.info('Logging: reported', response);
-	},
 	failedTry: function failedTry(error, report, payload, transportOpts, attempt) {
 		setTimeout(() => {
 			report(payload, transportOpts, attempt + 1);
@@ -69,7 +66,6 @@ function getDefault(url) {
 
 export const getDefaultTransport = url => ({
 	send: getDefault(url),
-	successHandler: defaultHandlers.success,
 	failedTryHandler: defaultHandlers.failedTry,
 	failedReportHandler: defaultHandlers.failedReport,
 	payloadMiddleware: payload => payload,
