@@ -31,6 +31,7 @@ function ListTable(props) {
 		sortDirection,
 		width,
 		rowHeight,
+		inProgress,
 		t,
 	} = props;
 
@@ -56,14 +57,11 @@ function ListTable(props) {
 			height={height}
 			id={id}
 			onRowClick={onRowClickCallback}
-			noRowsRenderer={() => <NoRows t={t} />}
-			rowClassName={({ index }) => {
-				if (collection[index]) {
-					return classNames('tc-list-item', rowThemes, collection[index].className);
-				}
-				return classNames('tc-list-item', rowThemes);
-			}}
-			rowCount={collection.length}
+			noRowsRenderer={() => <NoRows t={t} inProgress={inProgress} />}
+			rowClassName={({ index }) =>
+				classNames(...['tc-list-item', rowThemes, collection[index] && collection[index].className])
+			}
+			rowCount={inProgress ? 0 : collection.length}
 			rowGetter={({ index }) => collection[index]}
 			rowHeight={rowHeight}
 			rowRenderer={RowTableRenderer}
@@ -86,6 +84,7 @@ ListTable.propTypes = {
 	id: PropTypes.string,
 	isActive: PropTypes.func,
 	isSelected: PropTypes.func,
+	inProgress: PropTypes.bool,
 	onRowClick: PropTypes.func,
 	rowHeight: PropTypes.number,
 	sort: PropTypes.func,

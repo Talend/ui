@@ -1,14 +1,15 @@
 import React from 'react';
 import { AutoSizer, Column } from 'react-virtualized';
 
+import { listTypes } from './utils/constants';
 import { getDefaultTranslate } from '../translate';
+import Loader from '../Loader';
 import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration } from './utils/tablerow';
-
-import Loader from './../Loader';
-
 import theme from './VirtualizedList.scss';
+
+const { LARGE } = listTypes;
 
 /**
  * Composable List based on react-virtualized
@@ -39,9 +40,10 @@ function VirtualizedList(props) {
 		selectionToggle,
 	});
 
-	if (inProgress) {
+	if (type === LARGE && inProgress) {
 		return <Loader id={id && `${id}-loader`} className={theme['tc-list-progress']} />;
 	}
+
 	return (
 		<AutoSizer>
 			{({ height, width }) => (
@@ -60,6 +62,7 @@ function VirtualizedList(props) {
 					type={type}
 					width={width}
 					disableHeader={disableHeader}
+					inProgress={inProgress}
 					t={t}
 				>
 					{contentsConfiguration}
