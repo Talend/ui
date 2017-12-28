@@ -204,168 +204,12 @@ exports[`Layout should render layout with Drawer component 1`] = `
 </div>
 `;
 
-exports[`Layout should render layout with TabBar component 1`] = `
-<div
-  className="tc-layout"
->
-  <div
-    className="tc-layout-header"
-  >
-    <h1>
-      Header
-    </h1>
-  </div>
-  <div
-    className="tc-layout-two-columns"
-  >
-    <div
-      className="tc-layout-two-columns-left"
-    >
-      <h1>
-        Column one
-      </h1>
-    </div>
-    <div
-      className="tc-layout-two-columns-main"
-    >
-      <div
-        className={undefined}
-      >
-        <nav
-          className="nav tc-tab-bar"
-        >
-          <ul
-            className="nav nav-tabs tc-tab-bar-actions"
-          >
-            <li
-              className="tc-tab-bar-action"
-            >
-              <button
-                className="btn btn-link"
-                disabled={false}
-                id="tab-bar-action-1"
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <span>
-                  Tab1
-                </span>
-              </button>
-            </li>
-            <li
-              className="tc-tab-bar-action active"
-            >
-              <button
-                className="btn btn-link"
-                disabled={false}
-                id="tab-bar-action-2"
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <span>
-                  Tab2
-                </span>
-              </button>
-            </li>
-            <li
-              className="tc-tab-bar-action"
-            >
-              <button
-                className="btn btn-link"
-                disabled={false}
-                id="tab-bar-action-3"
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <span>
-                  Tab3
-                </span>
-              </button>
-            </li>
-          </ul>
-        </nav>
-        <div
-          style={
-            Object {
-              "display": "flex",
-              "flexDirection": "column",
-              "height": "100%",
-              "overflow": "auto",
-            }
-          }
-        >
-          <h1>
-            Column two
-          </h1>
-        </div>
-        <div
-          className={undefined}
-        />
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Layout should render layout with footer component 1`] = `
-<div
-  className="tc-layout"
->
-  <div
-    className="tc-layout-header"
-  >
-    <h1>
-      Header
-    </h1>
-  </div>
-  <div
-    className="tc-layout-one-column"
-  >
-    <div
-      className={undefined}
-    >
-      <div
-        style={
-          Object {
-            "display": "flex",
-            "flexDirection": "column",
-            "height": "100%",
-            "overflow": "auto",
-          }
-        }
-      >
-        <h1>
-          Column one
-        </h1>
-      </div>
-      <div
-        className={undefined}
-      />
-    </div>
-  </div>
-  <footer
-    className="tc-layout-footer"
-    role="contentinfo"
-  >
-    <h3>
-      Footer
-    </h3>
-  </footer>
-</div>
-`;
-
-exports[`Layout should render layout with subheader 1`] = `
+exports[`Layout should render layout with SubHeader 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Layout
-    subheader={
+    subHeader={
         <SubHeaderBar
             onGoBack={[Function]}
             t={[Function]}
@@ -532,6 +376,162 @@ ShallowWrapper {
     },
   },
 }
+`;
+
+exports[`Layout should render layout with TabBar component 1`] = `
+<div
+  className="tc-layout"
+>
+  <div
+    className="tc-layout-header"
+  >
+    <h1>
+      Header
+    </h1>
+  </div>
+  <div
+    className="tc-layout-two-columns"
+  >
+    <div
+      className="tc-layout-two-columns-left"
+    >
+      <h1>
+        Column one
+      </h1>
+    </div>
+    <div
+      className="tc-layout-two-columns-main"
+    >
+      <div
+        className={undefined}
+      >
+        <nav
+          className="nav tc-tab-bar"
+        >
+          <ul
+            className="nav nav-tabs tc-tab-bar-actions"
+          >
+            <li
+              className="tc-tab-bar-action"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="tab-bar-action-1"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Tab1
+                </span>
+              </button>
+            </li>
+            <li
+              className="tc-tab-bar-action active"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="tab-bar-action-2"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Tab2
+                </span>
+              </button>
+            </li>
+            <li
+              className="tc-tab-bar-action"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="tab-bar-action-3"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Tab3
+                </span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "column",
+              "height": "100%",
+              "overflow": "auto",
+            }
+          }
+        >
+          <h1>
+            Column two
+          </h1>
+        </div>
+        <div
+          className={undefined}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Layout should render layout with footer component 1`] = `
+<div
+  className="tc-layout"
+>
+  <div
+    className="tc-layout-header"
+  >
+    <h1>
+      Header
+    </h1>
+  </div>
+  <div
+    className="tc-layout-one-column"
+  >
+    <div
+      className={undefined}
+    >
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+            "overflow": "auto",
+          }
+        }
+      >
+        <h1>
+          Column one
+        </h1>
+      </div>
+      <div
+        className={undefined}
+      />
+    </div>
+  </div>
+  <footer
+    className="tc-layout-footer"
+    role="contentinfo"
+  >
+    <h3>
+      Footer
+    </h3>
+  </footer>
+</div>
 `;
 
 exports[`Layout should render layout without header 1`] = `

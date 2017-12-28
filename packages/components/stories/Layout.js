@@ -61,7 +61,7 @@ const dockedSidePanel = (
 	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked />
 );
 const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
-const subheader = <SubHeaderBar title="MyTitle" />;
+const subHeader = <SubHeaderBar title="MyTitle" onGoBack={action('SubHeader onGoBack')} />;
 const footer = 'Footer content';
 
 const listItem = {
@@ -240,19 +240,19 @@ storiesOf('Layout', module)
 		</Layout>
 	))
 	.addWithInfo('Subheader with OneColumn', () => (
-		<Layout header={header} subheader={subheader} mode="OneColumn" footer={footer}>
+		<Layout header={header} subHeader={subHeader} mode="OneColumn" footer={footer}>
 			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('Subheader with TwoColumns', () => (
-		<Layout header={header} subheader={subheader} one={sidePanel} mode="TwoColumns" footer={footer}>
+		<Layout header={header} subHeader={subHeader} one={sidePanel} mode="TwoColumns" footer={footer}>
 			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('Subheader alone', () => (
-		<Layout subheader={subheader} mode="OneColumn">
+		<Layout subHeader={subHeader} mode="OneColumn">
 			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />
 		</Layout>

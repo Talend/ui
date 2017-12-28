@@ -109,39 +109,39 @@ describe('Layout', () => {
 
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should render layout with subheader', () => {
+	it('should render layout with SubHeader', () => {
 		const onGoBack = jest.fn();
 		const wrapper = shallow(
-			<Layout subheader={<SubHeaderBar title="defaultTitle" onGoBack={onGoBack} />}>{one}</Layout>,
+			<Layout subHeader={<SubHeaderBar title="defaultTitle" onGoBack={onGoBack} />}>{one}</Layout>,
 		);
 		expect(wrapper).toMatchSnapshot();
 	});
-	it('should render layout with subheader in OneColumn mode', () => {
+	it('should render layout with subHeader in OneColumn mode', () => {
 		const onGoBack = jest.fn();
 		const wrapper = shallow(
 			<Layout
-				subheader={<SubHeaderBar title="defaultTitle" onGoBack={onGoBack} />}
+				subHeader={<SubHeaderBar title="defaultTitle" onGoBack={onGoBack} />}
 				mode="OneColumn"
 			>
 				{one}
 			</Layout>,
 		);
-		expect(wrapper.instance().props.subheader).toEqual(
+		expect(wrapper.instance().props.subHeader).toEqual(
 			<SubHeaderBar title="defaultTitle" onGoBack={onGoBack} />,
 		);
 		expect(wrapper.instance().props.mode).toEqual('OneColumn');
 	});
-	it('should render layout with subheader in TwoColumns mode', () => {
+	it('should render layout with subHeader in TwoColumns mode', () => {
 		const onGoBack = jest.fn();
 		const wrapper = shallow(
 			<Layout
-				subheader={<SubHeaderBar title="defaultTitle" onGoBack={onGoBack} />}
+				subHeader={<SubHeaderBar title="defaultTitle" onGoBack={onGoBack} />}
 				mode="TwoColumns"
 			>
 				{one}
 			</Layout>,
 		);
-		expect(wrapper.instance().props.subheader).toEqual(
+		expect(wrapper.instance().props.subHeader).toEqual(
 			<SubHeaderBar title="defaultTitle" onGoBack={onGoBack} />,
 		);
 		expect(wrapper.instance().props.mode).toEqual('TwoColumns');
