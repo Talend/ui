@@ -115,7 +115,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         selectionToggle={[Function]}
         sort={null}
         sortDirection="ASC"
-        t={[Function]}
         type="TABLE"
       >
         <AutoSizer
@@ -5300,7 +5299,6 @@ exports[`List should render 1`] = `
         selectionToggle={[Function]}
         sort={null}
         sortDirection="ASC"
-        t={[Function]}
         type="TABLE"
       >
         <AutoSizer
@@ -10540,7 +10538,6 @@ exports[`List should render id if provided 1`] = `
         selectionToggle={[Function]}
         sort={null}
         sortDirection="ASC"
-        t={[Function]}
         type="TABLE"
       >
         <AutoSizer

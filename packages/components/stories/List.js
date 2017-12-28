@@ -373,7 +373,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('In progress', () => {
+	.add('List in progress', () => {
 		const loadingListProps = cloneDeep(props);
 		loadingListProps.list.inProgress = true;
 		return (
@@ -382,6 +382,8 @@ storiesOf('List', module)
 				<p>When the list is loading, a CircularProgress is displayed instead of the rows.</p>
 				<h2>Table</h2>
 				<List {...loadingListProps} />
+				<h2>Large</h2>
+				<List {...loadingListProps} displayMode="large" />
 			</div>
 		);
 	})

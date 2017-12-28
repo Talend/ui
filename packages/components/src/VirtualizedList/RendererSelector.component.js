@@ -6,6 +6,7 @@ import NoRows from './NoRows';
 import ListTable from './ListTable';
 import ListGrid from './ListGrid';
 import propTypes from './PropTypes';
+import Loader from '../Loader';
 
 const { TABLE } = listTypes;
 
@@ -26,12 +27,22 @@ function getRowRenderer(type) {
 }
 
 /**
+ * Select the component to display when no item is displayed.
+ * If the fetch is in progress, a loader is displayed instead.
+ */
+function getNoRowRenderer(NoRowsRenderer, inProgress) {
+	if (inProgress) {
+		return <Loader className={'tc-virtualizedlist-no-result'} />;
+	}
+	return <NoRowsRenderer />;
+}
+
+/**
  * Component that maps list types to the corresponding component
  */
 function RendererSelector(props) {
 	const {
 		children,
-		collection,
 		height,
 		id,
 		isSelected,
@@ -45,7 +56,11 @@ function RendererSelector(props) {
 		type,
 		width,
 		disableHeader,
+		inProgress,
 	} = props;
+
+	const collection = inProgress ? [] : props.collection;
+	const noRowsRenderer = () => getNoRowRenderer(props.noRowsRenderer, inProgress);
 
 	if (type === TABLE) {
 		return (
@@ -56,7 +71,7 @@ function RendererSelector(props) {
 				id={id}
 				isActive={isActive}
 				isSelected={isSelected}
-				noRowsRenderer={() => <props.noRowsRenderer />}
+				noRowsRenderer={noRowsRenderer}
 				onRowClick={onRowClick}
 				selectionToggle={selectionToggle}
 				sort={sort}
@@ -69,10 +84,11 @@ function RendererSelector(props) {
 			</ListTable>
 		);
 	}
+
 	return (
 		<ListGrid
 			collection={collection}
-			noRowsRenderer={() => <props.noRowsRenderer />}
+			noRowsRenderer={noRowsRenderer}
 			height={height}
 			id={id}
 			isActive={isActive}
