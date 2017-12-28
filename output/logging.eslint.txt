@@ -16,9 +16,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   23:16  error  Empty block statement  no-empty
 
 /home/travis/build/Talend/ui/packages/logging/src/api/transport.js
-  27:3  warning  Unexpected console statement  no-console
-  33:3  warning  Unexpected console statement  no-console
-  39:3  warning  Unexpected console statement  no-console
+  30:3  warning  Unexpected console statement  no-console
+  36:3  warning  Unexpected console statement  no-console
 
-✖ 10 problems (2 errors, 8 warnings)
+✖ 9 problems (2 errors, 7 warnings)
 
