@@ -1,6 +1,11 @@
 import has from 'lodash/has';
 import get from 'lodash/get';
-import { HTTP_METHODS, ACTION_TYPE_HTTP_REQUEST, ACTION_TYPE_HTTP_RESPONSE, ACTION_TYPE_HTTP_ERRORS } from './constants';
+import {
+	HTTP_METHODS,
+	ACTION_TYPE_HTTP_REQUEST,
+	ACTION_TYPE_HTTP_RESPONSE,
+	ACTION_TYPE_HTTP_ERRORS,
+} from './constants';
 
 export const DEFAULT_HTTP_HEADERS = {
 	Accept: 'application/json',
