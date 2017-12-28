@@ -47,13 +47,13 @@ export function ListToVirtualizedList(props) {
 			inProgress={props.inProgress}
 			onRowClick={itemProps && itemProps.onRowClick}
 			defaultHeight={props.defaultHeight}
+			noRowsRenderer={props.noRowsRenderer}
 			rowHeight={props.rowHeight}
 			selectionToggle={itemProps && itemProps.onToggle}
 			sort={adaptOnSort(sort && sort.onChange)}
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
 			type={props.displayMode.toUpperCase()}
-			t={props.t}
 		>
 			{props.columns.map((column, index) => {
 				const cProps = {
@@ -94,6 +94,7 @@ ListToVirtualizedList.propTypes = {
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
 	inProgress: PropTypes.bool,
+	noRowsRenderer: PropTypes.oneOf(PropTypes.element, PropTypes.func),
 	rowHeight: PropTypes.number,
 	sort: PropTypes.shape({
 		onChange: PropTypes.func,
@@ -105,7 +106,6 @@ ListToVirtualizedList.propTypes = {
 		presistentActionsKey: PropTypes.string,
 		key: PropTypes.string,
 	}),
-	t: PropTypes.func,
 };
 ListToVirtualizedList.defaultProps = {
 	displayMode: 'table',

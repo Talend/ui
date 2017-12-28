@@ -1,34 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Loader from '../../Loader';
+import { translate } from 'react-i18next';
 
-import { getDefaultTranslate } from '../../translate';
+import { DEFAULT_I18N } from '../../translate';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 import theme from './NoRows.scss';
 
-function NoRows({ t, inProgress }) {
-	const className = classNames(theme['no-result'], 'no-result');
-
-	if (inProgress) {
-		return <Loader className={className} />;
-	}
-
+function NoRows(props) {
 	return (
-		<span className={className} role="status" aria-live="polite">
-			{t('VIRTUALIZEDLIST_NO_RESULT', { defaultValue: 'No result found' })}
+		<span
+			className={classNames(theme['tc-virtualizedlist-no-result'], 'tc-virtualizedlist-no-result')}
+			role="status"
+			aria-live="polite"
+		>
+			{props.t('VIRTUALIZEDLIST_NO_RESULT', { defaultValue: 'No result found' })}
 		</span>
 	);
 }
 
 NoRows.propTypes = {
 	t: PropTypes.func,
-	inProgress: PropTypes.bool,
 };
 
-NoRows.defaultProps = {
-	t: getDefaultTranslate,
-	inProgress: false,
-};
-
-export default NoRows;
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(NoRows);
