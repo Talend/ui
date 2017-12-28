@@ -23,7 +23,7 @@ body > div {
  * @example
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
-function Layout({ header, subheader, footer, mode, drawers, tabs, children, ...rest }) {
+function Layout({ header, subHeader, footer, mode, drawers, tabs, children, ...rest }) {
 	const appCSS = classnames('tc-layout', theme.layout);
 	const headerCSS = classnames('tc-layout-header', theme.header);
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
@@ -41,7 +41,7 @@ function Layout({ header, subheader, footer, mode, drawers, tabs, children, ...r
 	return (
 		<div className={appCSS}>
 			{header && <div className={headerCSS}>{header}</div>}
-			{subheader}
+			{subHeader}
 			{Component && (
 				<Component drawers={drawers} tabs={tabs} {...rest}>
 					{children}
@@ -59,7 +59,7 @@ function Layout({ header, subheader, footer, mode, drawers, tabs, children, ...r
 Layout.propTypes = {
 	header: PropTypes.element,
 	footer: PropTypes.element,
-	subheader: PropTypes.element,
+	subHeader: PropTypes.element,
 	mode: PropTypes.oneOf(DISPLAY_MODES),
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	tabs: PropTypes.shape(TabBar.propTypes),
