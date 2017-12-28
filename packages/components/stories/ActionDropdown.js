@@ -2,7 +2,7 @@ import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { storiesOf, action } from '@storybook/react';
 
-import { ActionDropdown, IconsProvider } from '../src/index';
+import { ActionDropdown, IconsProvider, FilterBar, Action } from '../src/index';
 
 const myAction = {
 	id: 'context-dropdown-related-items',
@@ -22,6 +22,33 @@ const myAction = {
 			id: 'context-dropdown-item-document-2',
 			label: 'document 2',
 			onClick: action('document 2 click'),
+		},
+	],
+};
+
+const customActions = {
+	id: 'context-dropdown-custom-items',
+	label: 'related items',
+	icon: 'talend-file-xls-o',
+	items: [
+		{
+			id: 'context-dropdown-classic-item-1',
+			icon: 'talend-file-json-o',
+			label: 'document 1',
+			onClick: action('document 1 click'),
+		},
+		{
+			divider: true,
+		},
+		{
+			id: 'context-dropdown-custom-item-2',
+			component: <FilterBar dockable={false} />,
+		},
+		{
+			id: 'context-dropdown-custom-item-3',
+			component: (
+				<Action label="customAction" bsStyle="talend-bell" onClick={action('customAction')} />
+			),
 		},
 	],
 };
@@ -57,7 +84,11 @@ storiesOf('ActionDropdown', module).addWithInfo('default', () => (
 		</div>
 		<p>Type link</p>
 		<div id="typeLink">
-			<ActionDropdown {...myAction} link={true}/>
+			<ActionDropdown {...myAction} link />
+		</div>
+		<p>Custom Items</p>
+		<div id="customItems">
+			<ActionDropdown {...customActions} />
 		</div>
 		<IconsProvider />
 	</div>

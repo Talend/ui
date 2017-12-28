@@ -16,6 +16,7 @@ function getMenuItem(item, index) {
 		<MenuItem key={index} eventKey={item} {...item} onClick={wrapOnClick(item)}>
 			{item.icon && <Icon name={item.icon} />}
 			{item.label}
+			{item.component}
 		</MenuItem>
 	);
 }
