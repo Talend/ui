@@ -123,6 +123,62 @@ function getSidePanelBranding({ sidePanel, themes }) {
 	`;
 }
 
+const defaultAnimationStyle = `
+    @keyframes pulse {
+        0% {
+            transform: scale3d(1, 1, 1);
+        }
+        50% {
+            transform: scale3d(1.05, 1.05, 1.05);
+        }
+        100% {
+            transform: scale3d(1, 1, 1);
+        }
+    }
+`;
+
+const defaultLoadingStyle = `
+	animation-name: pulse;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+	animation-iteration-count: infinite;
+`;
+
+function getLoadingBranding({ loading = {} }) {
+	const { source, size = 70 } = loading;
+	let { animationStyle, loadingStyle } = loading;
+
+	if (!source) {
+		return '';
+	}
+	if (!loadingStyle) {
+		animationStyle = defaultAnimationStyle;
+		loadingStyle = defaultLoadingStyle;
+	}
+
+	// TODO : WARNING SECURITY ISSUES
+	return `
+		${animationStyle}
+		.branding-loader {
+			width: ${size}px;
+			height: ${size}px;
+			position: relative;
+		}
+		.branding-loader > * {
+			display: none;
+		}
+		.branding-loader:before {
+			background: url(${source}) no-repeat;
+			content: '';
+			position: absolute;
+			background-size: ${size}px ${size}px;
+			width: ${size}px;
+			height: ${size}px;
+			${loadingStyle};
+		}
+	`;
+}
+
 function Branding(props) {
 	return (
 		<Helmet>
@@ -130,6 +186,7 @@ function Branding(props) {
 				{
 					getHeaderBarBranding(props)
 						.concat(getSidePanelBranding(props))
+						.concat(getLoadingBranding(props))
 				}
 			</style>
 		</Helmet>
@@ -137,6 +194,10 @@ function Branding(props) {
 }
 
 Branding.propTypes = {
+	loading: PropTypes.shape({
+		source: PropTypes.string,
+		style: PropTypes.string,
+	}),
 	logo: PropTypes.shape({
 		source: PropTypes.string,
 		width: PropTypes.string,

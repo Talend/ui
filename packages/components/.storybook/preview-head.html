@@ -69,22 +69,31 @@
         margin-bottom: 10px;
     }
     .branding-configurer > * {
-        padding: 20px;
+        padding: 0 20px;
     }
     .branding-configurer section+section {
         border-left: 1px solid grey;
     }
-    .branding-configurer,
+    .branding-configurer {
+        display: flex;
+        flex-direction: column;
+    }
     .branding-configurer .branding-profiles,
     .branding-configurer .inline-group {
         display: flex;
         flex-wrap: wrap;
     }
-    .branding-configurer > *,
+    .branding-configurer .content {
+        overflow: auto;
+    }
     .branding-configurer .branding-profiles > * {
         flex: 1 0 400px;
     }
     .branding-configurer .inline-group > * {
         flex: 1;
+    }
+    .branding-configurer .branding-loader svg {
+        width: 70px;
+        height: 70px;
     }
 </style>

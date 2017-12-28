@@ -4,6 +4,7 @@
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "scripts": {
+    "jso-surge": "yarn build-storybook && cd ./storybook-static && surge -d jso.surge.sh",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",

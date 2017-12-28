@@ -46,20 +46,22 @@ function CircularProgress({ size, light, percent }) {
 	);
 
 	return (
-		<svg
-			focusable="false"
-			className={classes}
-			viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}
-		>
-			<circle
-				className={theme.path}
-				r={RADIUS}
-				cx={CENTER_POSITION}
-				cy={CENTER_POSITION}
-				fill="none"
-				style={getCircleStyle(percent)}
-			/>
-		</svg>
+		<div className="branding-loader">
+			<svg
+				focusable="false"
+				className={classes}
+				viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}
+			>
+				<circle
+					className={theme.path}
+					r={RADIUS}
+					cx={CENTER_POSITION}
+					cy={CENTER_POSITION}
+					fill="none"
+					style={getCircleStyle(percent)}
+				/>
+			</svg>
+		</div>
 	);
 }
 
