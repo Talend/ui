@@ -29,6 +29,7 @@ const icons = {
 	'talend-table': talendIcons['talend-table'],
 	'talend-tiles': talendIcons['talend-tiles'],
 	'talend-trash': talendIcons['talend-trash'],
+	'talend-warning': talendIcons['talend-warning'],
 };
 
 const selected = [
@@ -274,6 +275,68 @@ storiesOf('List', module)
 			<List {...props} />
 		</div>
 	))
+	.add('Table icons', () => {
+		const customProps = { ...props };
+
+		const okIcon = {
+			label: 'OK!',
+			icon: 'talend-star',
+			onClick: () => {},
+		};
+
+		const warningIcon = {
+			label: 'Oh no!',
+			icon: 'talend-warning',
+			onClick: () => {},
+		};
+
+		const getIcon = item => {
+			switch (item.cat) {
+				case 'fluffy' : return okIcon;
+				case 'fat' : return warningIcon;
+				default: return null;
+			}
+		};
+
+		customProps.list.columns = [
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
+			{ key: 'status', label: 'Status', type: 'texticon', data: { getIcon } },
+			{ key: 'cat', label: 'Cat' },
+		];
+
+		customProps.list.items = [
+			{
+				id: 0,
+				name: 'Title 1',
+				status: 'ok',
+				cat: 'fluffy',
+			},
+			{
+				id: 1,
+				name: 'Title 2',
+				status: 'warning',
+				cat: 'fat',
+			},
+			{
+				id: 2,
+				name: 'Title 3',
+				status: 'random',
+				cat: 'regular',
+			},
+		];
+
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					Display the list in table mode.<br />
+					This is the default mode.
+				</p>
+				<List {...customProps} />
+			</div>
+		);
+	})
 	.add('Large display', () => (
 		<div style={{ height: '60vh' }} className="virtualized-list">
 			<h1>List</h1>
@@ -299,7 +362,7 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('In progress', () => {
+	.add('List in progress', () => {
 		const loadingListProps = cloneDeep(props);
 		loadingListProps.list.inProgress = true;
 		return (
@@ -308,6 +371,8 @@ storiesOf('List', module)
 				<p>When the list is loading, a CircularProgress is displayed instead of the rows.</p>
 				<h2>Table</h2>
 				<List {...loadingListProps} />
+				<h2>Large</h2>
+				<List {...loadingListProps} displayMode="large" />
 			</div>
 		);
 	})
@@ -508,7 +573,7 @@ storiesOf('List', module)
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					Display the list with hidden header labels.<br/>
+					Display the list with hidden header labels.<br />
 					<pre>
 						const props = &#123;...&#125;;<br />
 						props.list.columns[0].hideHeader = true;<br />
@@ -519,23 +584,19 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Custom classnames', () => {
-		return (
-			<div style={{ height: '60vh' }} className="virtualized-list virtualized-list-customized-row">
-				<h1>List</h1>
-				<p>Display the list with hidden header labels.</p>
+	.add('Custom classnames', () => (
+		<div style={{ height: '60vh' }} className="virtualized-list virtualized-list-customized-row">
+			<h1>List</h1>
+			<p>Display the list with hidden header labels.</p>
+			<List {...props} />
+		</div>
+		))
+	.add('Inline parent', () => (
+		<div className="virtualized-list">
+			<h1>List</h1>
+			{/* Do not reproduce!*/}
+			<span>
 				<List {...props} />
-			</div>
-		);
-	})
-	.add('Inline parent', () => {
-		return (
-			<div className="virtualized-list">
-				<h1>List</h1>
-				{/*Do not reproduce!*/}
-				<span>
-					<List {...props} />
-				</span>
-			</div>
-		);
-	});
+			</span>
+		</div>
+		));
