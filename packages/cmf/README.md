@@ -168,6 +168,32 @@ Note onResponse and onError accept function:
 * onResponse(response)
 * onError(error)
 
+## Scripts
+
+When you have cmf in you package.json, you can run in your project scope this script :
+- cmf-settings
+
+It require a cmf.json file with this format in your webapp's project root :
+```json
+{
+	"cmf-settings": {
+    	"dev-sources":[
+			"src/settings",
+			"../../dataset/webapp/src/settings"
+		],
+		"sources": [
+			"src/settings",
+			"node_modules/@talend/dataset/lib/settings"
+    	],
+		"destination": "src/assets/cmf-settings.json"
+  	}
+}
+```
+
+Options for this script :
+- -d to use dev-sources instead of sources
+- -q to run the script in quiet mode
+
 ## Expressions
 
 Expression are registred function use to eval props.
