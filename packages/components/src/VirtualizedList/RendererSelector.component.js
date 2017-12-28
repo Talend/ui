@@ -44,6 +44,7 @@ function RendererSelector(props) {
 		type,
 		width,
 		disableHeader,
+		inProgress,
 		t,
 	} = props;
 
@@ -63,12 +64,14 @@ function RendererSelector(props) {
 				sortDirection={sortDirection}
 				rowHeight={rowHeight}
 				width={width}
+				inProgress={inProgress}
 				t={t}
 			>
 				{children}
 			</ListTable>
 		);
 	}
+
 	return (
 		<ListGrid
 			collection={collection}
