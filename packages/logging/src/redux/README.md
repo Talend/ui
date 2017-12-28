@@ -29,4 +29,6 @@ initReactLogger({
 });
 ```
 
-You need to remove the user data from app state.
+**You need to notice** that
+* user data must be removed from app state.
+* the logger middleware should be added as first middleware, so it catches the errors potentially thrown by other middlewares.
