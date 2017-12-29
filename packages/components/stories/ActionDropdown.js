@@ -26,30 +26,17 @@ const myAction = {
 	],
 };
 
-const customActions = {
+const customItems = {
 	id: 'context-dropdown-custom-items',
-	label: 'related items',
+	label: 'custom items',
 	icon: 'talend-file-xls-o',
 	items: [
-		{
-			id: 'context-dropdown-classic-item-1',
-			icon: 'talend-file-json-o',
-			label: 'document 1',
-			onClick: action('document 1 click'),
-		},
+		<Action label="customAction1" icon="talend-file-json-o" onClick={action('customAction1')} />,
 		{
 			divider: true,
 		},
-		{
-			id: 'context-dropdown-custom-item-2',
-			component: <FilterBar dockable={false} />,
-		},
-		{
-			id: 'context-dropdown-custom-item-3',
-			component: (
-				<Action label="customAction" bsStyle="talend-bell" onClick={action('customAction')} />
-			),
-		},
+		<FilterBar dockable={false} />,
+		<Action label="customAction2" bsStyle="talend-bell" onClick={action('customAction2')} />,
 	],
 };
 
@@ -88,7 +75,7 @@ storiesOf('ActionDropdown', module).addWithInfo('default', () => (
 		</div>
 		<p>Custom Items</p>
 		<div id="customItems">
-			<ActionDropdown {...customActions} />
+			<ActionDropdown {...customItems} />
 		</div>
 		<IconsProvider />
 	</div>

@@ -1,11 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { api, cmfConnect } from '@talend/react-cmf';
+import { api, cmfConnect, Inject } from '@talend/react-cmf';
 import { ActionDropdown } from '@talend/react-components';
 
 import getOnClick from '../actionOnClick';
 
-export function mapStateToProps(state, { actionId, actionIds } = {}) {
+export function getInjectedComponent(componentId, props) {
+	if (componentId) {
+		return <Inject component={componentId} {...props} />;
+	}
+	return <Inject component="Action" {...props} />;
+}
+
+export function getComponentsItems(defaultCustomItemId, customItems) {
+	return customItems.map(({ componentId, ...rest }) => {
+		if (defaultCustomItemId) {
+			return getInjectedComponent(defaultCustomItemId, rest);
+		}
+		return getInjectedComponent(componentId, rest);
+	});
+}
+
+export function mapStateToProps(state, ownProps = {}) {
 	let props = {};
 	const context = {
 		registry: api.registry.getRegistry(),
@@ -13,14 +29,14 @@ export function mapStateToProps(state, { actionId, actionIds } = {}) {
 			getState: () => state,
 		},
 	};
-	if (actionId) {
-		props = api.action.getActionInfo(context, actionId);
+	if (ownProps.actionId) {
+		props = api.action.getActionInfo(context, ownProps.actionId);
 	}
-	if (actionIds) {
-		props.actionIds = actionIds;
+	if (ownProps.actionIds) {
+		props.items = ownProps.actionIds.map(itemId => api.action.getActionInfo(context, itemId));
 	}
-	if (props.actionIds) {
-		props.items = props.actionIds.map(itemId => api.action.getActionInfo(context, itemId));
+	if (ownProps.customItems) {
+		props.componentItems = getComponentsItems(ownProps.defaultCustomItemId, ownProps.customItems);
 	}
 	return props;
 }
@@ -35,26 +51,31 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 		delete props.actionIds;
 	}
 
+	if (props.customItems) {
+		delete props.customItems;
+	}
 	return props;
 }
 
-export function ContainerActionDropdown(props) {
-	const newProps = Object.assign({}, props);
-
-	if (newProps.items) {
-		newProps.items = props.items.map(item => ({
+export function ContainerActionDropdown({ items, componentItems, ...props }) {
+	console.log('props', props);
+	if (items) {
+		const clikableItems = items.map(item => ({
 			...getOnClick(item, props),
 			...item,
 		}));
+		return <ActionDropdown items={clikableItems} {...props} />;
+	} else if (props.componentItems) {
+		return <ActionDropdown items={componentItems} {...props} />;
 	}
-
-	return <ActionDropdown {...newProps} />;
+	return <ActionDropdown {...props} />;
 }
 
 ContainerActionDropdown.displayName = 'Container(ActionDropdown)';
 
 ContainerActionDropdown.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.object),
+	componentItems: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default cmfConnect({
