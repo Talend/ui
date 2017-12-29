@@ -72,6 +72,20 @@ function TextRenderer({ propertyKey, title, properties }) {
 	);
 }
 
+function PasswordRenderer({ propertyKey, title, properties }) {
+	return (
+		<div className={classNames('text-renderer', `text-renderer-${propertyKey}`)} key={propertyKey}>
+			<dt>{title || propertyKey}</dt>
+			<dd>{'\u2022'.repeat(properties ? properties.length : 0)}</dd>
+		</div>
+	);
+}
+
+PasswordRenderer.propTypes = {
+	...RendererProptypes,
+	properties: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+};
+
 TextRenderer.propTypes = {
 	...RendererProptypes,
 	properties: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
@@ -126,6 +140,10 @@ function isHidden(uiSchema, element) {
 	return uiSchema && uiSchema[element] && uiSchema[element]['ui:widget'] === 'hidden';
 }
 
+function isPassword(uiSchema, element) {
+	return uiSchema && uiSchema[element] && uiSchema[element]['ui:widget'] === 'password';
+}
+
 /**
  * typeResolver
  *
@@ -145,6 +163,17 @@ function typeResolver(schema, uiSchema) {
 
 		const type = schema[e[0]].type;
 		const title = schema[e[0]].title;
+
+		if (isPassword(uiSchema, e[0])) {
+			return {
+				Renderer: PasswordRenderer,
+				propertyKey: e[0],
+				title,
+				properties: e[1],
+				schema,
+				uiSchema,
+			};
+		}
 
 		const renderer = registry[type];
 		if (!renderer) {
