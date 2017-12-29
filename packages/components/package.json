@@ -43,7 +43,6 @@
   },
   "dependencies": {
     "lodash": "4.17.4",
-    "rc-slider": "8.4.1",
     "rc-tooltip": "3.7.0",
     "react-autowhatever": "7.0.0",
     "react-debounce-input": "2.4.2",
@@ -90,6 +89,7 @@
     "npm-watch": "^0.1.6",
     "postcss-loader": "2.0.8",
     "prop-types": "15.5.10",
+    "rc-slider": "8.4.1",
     "react": "^15.6.2",
     "react-a11y": "^0.3.3",
     "react-addons-css-transition-group": "15.5.2",
@@ -116,6 +116,7 @@
     "invariant": "2.2.2",
     "keycode": "2.1.9",
     "prop-types": "15.5.10",
+    "rc-slider": "8.4.1",
     "react": "^15.6.2",
     "react-addons-css-transition-group": "15.5.2",
     "react-bootstrap": "0.31.0",

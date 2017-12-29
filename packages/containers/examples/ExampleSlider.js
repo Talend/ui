@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconsProvider } from '@talend/react-components';
 import { Map } from 'immutable';
-import { Slider } from '../src';
+import Slider from '../src/Slider';
 
 const icons = [
 	'talend-smiley-rating',
