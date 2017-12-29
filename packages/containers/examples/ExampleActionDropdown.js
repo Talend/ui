@@ -3,37 +3,61 @@ import { IconsProvider } from '@talend/react-components';
 import { ActionDropdown } from '../src';
 
 export default function ExampleAction() {
-	const customItemsWithId = [
-		{
-			componentId: 'Action',
-			actionId: 'menu:first',
-		},
-		{
-			componentId: 'FilterBar',
-			dockable: false,
-			docked: false,
-		},
-		{
-			componentId: 'Action',
-			actionId: 'menu:second',
-		},
-	];
+	const customItemsWithId = {
+		id: 'context-dropdown-custom-items',
+		label: 'Custom Items With Id',
+		customItems: [
+			{
+				componentId: 'Action',
+				actionId: 'menu:first',
+			},
+			{
+				componentId: 'FilterBar',
+				dockable: false,
+				docked: false,
+			},
+			{
+				componentId: 'Action',
+				actionId: 'menu:second',
+			},
+		],
+	};
+	const customItemsWithIdWithoutComponentId = {
+		id: 'context-dropdown-custom-items-without-component-id',
+		label: 'Custom Items Without component Id',
+		customItems: [
+			{
+				actionId: 'menu:first',
+			},
+			{
+				dockable: false,
+				docked: false,
+			},
+			{
+				actionId: 'menu:second',
+			},
+		],
+	};
 
-	const customItemsWithoutId = [
-		{
-			dockable: false,
-			docked: false,
-		},
-		{
-			dockable: false,
-			docked: false,
-		},
-		{
-			dockable: false,
-			docked: false,
-		},
-	];
-
+	const customItemsWithoutId = {
+		id: 'context-dropdown-custom-items-without-id',
+		label: 'Custom Items Without Id',
+		defaultCustomItemId: 'FilterBar',
+		customItems: [
+			{
+				dockable: false,
+				docked: false,
+			},
+			{
+				dockable: false,
+				docked: false,
+			},
+			{
+				dockable: false,
+				docked: false,
+			},
+		],
+	};
 
 	return (
 		<div>
@@ -46,9 +70,12 @@ export default function ExampleAction() {
 			<ActionDropdown actionId="menu:first" actionIds={['menu:first', 'menu:second']} />
 			<p>ActionDropdown from setting and a link into the items</p>
 			<ActionDropdown actionId="menu:dropdown-href" />
-			<p>ActionDropdown with custom items</p>
-			<ActionDropdown customItems={customItemsWithId} />
-			<ActionDropdown defaultCustomItemId="FilterBar" customItems={customItemsWithoutId} />
+			<p>ActionDropdown with customItems</p>
+			<ActionDropdown {...customItemsWithId} />
+			<p>ActionDropdown with customItems and defaultCustomItemId</p>
+			<ActionDropdown {...customItemsWithoutId} />
+			<p>ActionDropdown with customItems but no componentId</p>
+			<ActionDropdown {...customItemsWithIdWithoutComponentId} />
 		</div>
 	);
 }

@@ -53,19 +53,19 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 
 	if (props.customItems) {
 		delete props.customItems;
+		delete props.defaultCustomItemId;
 	}
 	return props;
 }
 
 export function ContainerActionDropdown({ items, componentItems, ...props }) {
-	console.log('props', props);
 	if (items) {
 		const clikableItems = items.map(item => ({
 			...getOnClick(item, props),
 			...item,
 		}));
 		return <ActionDropdown items={clikableItems} {...props} />;
-	} else if (props.componentItems) {
+	} else if (componentItems) {
 		return <ActionDropdown items={componentItems} {...props} />;
 	}
 	return <ActionDropdown {...props} />;

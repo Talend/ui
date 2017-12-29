@@ -9,7 +9,6 @@ import Icon from '../../Icon';
 import { wrapOnClick } from '../Action/Action.component';
 
 function getMenuItem(item, index) {
-	console.log('item', item);
 	if (item.divider) {
 		return <MenuItem key={index} divider />;
 	}
