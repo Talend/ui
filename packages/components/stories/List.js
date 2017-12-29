@@ -257,6 +257,47 @@ function getActionsProps() {
 	return columnActionsProps;
 }
 
+const okIcon = {
+	label: 'OK!',
+	icon: 'talend-star',
+	onClick: () => {},
+};
+
+const warningIcon = {
+	label: 'Oh no!',
+	icon: 'talend-warning',
+	onClick: () => {},
+};
+
+const getIcon = item => {
+	switch (item.cat) {
+		case 'fluffy' : return okIcon;
+		case 'fat' : return warningIcon;
+		default: return null;
+	}
+};
+
+const itemsForListWithIcons = [
+	{
+		id: 0,
+		name: 'Title 1',
+		status: 'ok',
+		cat: 'fluffy',
+	},
+	{
+		id: 1,
+		name: 'Title 2',
+		status: 'warning',
+		cat: 'fat',
+	},
+	{
+		id: 2,
+		name: 'Title 3',
+		status: 'random',
+		cat: 'regular',
+	},
+];
+
 storiesOf('List', module)
 	.addDecorator(story => (
 		<div>
@@ -276,27 +317,7 @@ storiesOf('List', module)
 		</div>
 	))
 	.add('Table icons', () => {
-		const customProps = { ...props };
-
-		const okIcon = {
-			label: 'OK!',
-			icon: 'talend-star',
-			onClick: () => {},
-		};
-
-		const warningIcon = {
-			label: 'Oh no!',
-			icon: 'talend-warning',
-			onClick: () => {},
-		};
-
-		const getIcon = item => {
-			switch (item.cat) {
-				case 'fluffy' : return okIcon;
-				case 'fat' : return warningIcon;
-				default: return null;
-			}
-		};
+		const customProps = cloneDeep(props);
 
 		customProps.list.columns = [
 			{ key: 'id', label: 'Id' },
@@ -305,26 +326,7 @@ storiesOf('List', module)
 			{ key: 'cat', label: 'Cat' },
 		];
 
-		customProps.list.items = [
-			{
-				id: 0,
-				name: 'Title 1',
-				status: 'ok',
-				cat: 'fluffy',
-			},
-			{
-				id: 1,
-				name: 'Title 2',
-				status: 'warning',
-				cat: 'fat',
-			},
-			{
-				id: 2,
-				name: 'Title 3',
-				status: 'random',
-				cat: 'regular',
-			},
-		];
+		customProps.list.items = itemsForListWithIcons;
 
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
@@ -348,9 +350,34 @@ storiesOf('List', module)
 			<List {...props} displayMode="large" />
 		</div>
 	))
+	.add('Large display with icons', () => {
+		const customProps = cloneDeep(props);
+		customProps.list.columns = [
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
+			{ key: 'status', label: 'Status', type: 'texticon', data: { getIcon } },
+			{ key: 'cat', label: 'Cat' },
+		];
+		customProps.list.items = itemsForListWithIcons;
+
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<List {...customProps} displayMode="large" />
+			</div>
+		);
+	})
 	.add('Empty list', () => {
 		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
+
+		const customEmptyRendererListProps = cloneDeep(props);
+		customEmptyRendererListProps.list.items = [];
+		customEmptyRendererListProps.list.noRowsRenderer = () => (
+			<span className={'tc-virtualizedlist-no-result'} role="status" aria-live="polite">
+				I'm a custom NoRowsRenderer
+			</span>
+		);
+
 		return (
 			<div style={{ height: '60vh' }}>
 				<h1>List</h1>
@@ -359,6 +386,8 @@ storiesOf('List', module)
 				<List {...emptyListProps} />
 				<h2>Large</h2>
 				<List {...emptyListProps} displayMode="large" />
+				<h2>Custom no row renderer</h2>
+				<List {...customEmptyRendererListProps} />
 			</div>
 		);
 	})
@@ -487,7 +516,6 @@ storiesOf('List', module)
 
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
-
 				<h1>List</h1>
 				<h2>Definition</h2>
 				<p>

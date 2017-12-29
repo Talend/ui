@@ -2,7 +2,6 @@ import React from 'react';
 import { AutoSizer, Column } from 'react-virtualized';
 
 import { listTypes } from './utils/constants';
-import { getDefaultTranslate } from '../translate';
 import Loader from '../Loader';
 import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
@@ -19,6 +18,7 @@ function VirtualizedList(props) {
 		collection,
 		children,
 		defaultHeight,
+		noRowsRenderer,
 		id,
 		isActive,
 		isSelected,
@@ -31,7 +31,6 @@ function VirtualizedList(props) {
 		sortDirection,
 		type,
 		disableHeader,
-		t,
 	} = props;
 
 	const contentsConfiguration = insertSelectionConfiguration({
@@ -49,6 +48,7 @@ function VirtualizedList(props) {
 			{({ height, width }) => (
 				<RendererSelector
 					collection={collection}
+					noRowsRenderer={noRowsRenderer}
 					height={height || defaultHeight}
 					id={id}
 					isActive={isActive}
@@ -63,7 +63,6 @@ function VirtualizedList(props) {
 					width={width}
 					disableHeader={disableHeader}
 					inProgress={inProgress}
-					t={t}
 				>
 					{contentsConfiguration}
 				</RendererSelector>
@@ -76,7 +75,6 @@ VirtualizedList.displayName = 'VirtualizedList';
 VirtualizedList.propTypes = propTypes;
 VirtualizedList.defaultProps = {
 	defaultHeight: 250,
-	t: getDefaultTranslate,
 };
 
 VirtualizedList.Content = Column;

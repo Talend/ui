@@ -14,7 +14,9 @@ function CellWithIcon({ columnData, rowData, cellData }) {
 	return (
 		<div className={classnames('cell-icon-container', styles['cell-icon-container'])}>
 			<div>{cellData}</div>
-			<div>{action && <Action {...action} hideLabel link />}</div>
+			<div className={classnames('icon-container', styles['icon-container'])}>
+				{action && <Action {...action} hideLabel link />}
+			</div>
 		</div>
 	);
 }
