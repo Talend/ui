@@ -1,8 +1,5 @@
 import { WebSocket, Server } from 'mock-socket';
-import SmartWebsocket, {
-	wsSend,
-	wsIsClosed,
-} from './smartWebsocket';
+import SmartWebsocket, { wsSend, wsIsClosed } from './smartWebsocket';
 
 // Set the websocket mock used by smartWebsocket middleware
 global.WebSocket = WebSocket;
@@ -118,7 +115,7 @@ describe('smart websocket tests', () => {
 			expect(result.close()).toEqual(undefined);
 		});
 
-		it('should let some time to connect', (done) => {
+		it('should let some time to connect', done => {
 			// given
 			const url = urlWS;
 			const options = {
@@ -146,7 +143,7 @@ describe('smart websocket tests', () => {
 			}, 100);
 		});
 
-		it('should send message while not connected', (done) => {
+		it('should send message while not connected', done => {
 			// given
 			const url = urlWS;
 			const options = {

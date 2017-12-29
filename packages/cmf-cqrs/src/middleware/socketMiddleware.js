@@ -3,6 +3,7 @@ import SmartWebsocket from './smartWebsocket';
 export const ACTION_TYPES = {
 	ON_OPEN: '@@SOCKET.ON_OPEN',
 	ON_CLOSE: '@@SOCKET.ON_CLOSE',
+	ON_ERROR: '@@SOCKET.ON_ERROR',
 };
 
 // if host is localhost connect directly to the localhost backend
@@ -32,7 +33,7 @@ function createWebsocketMiddleware(socketPath, actionListeners = [], socketListe
 	const urlPrefix = `${protocol}://${host}${socketPath}`;
 
 	function send() {
-		actionListeners.forEach((actionListener) => {
+		actionListeners.forEach(actionListener => {
 			buffer.forEach((entrie, key) => {
 				const { previousState, action } = entrie;
 				let nextState = entrie.nextState;
@@ -49,13 +50,16 @@ function createWebsocketMiddleware(socketPath, actionListeners = [], socketListe
 		buffer.length = 0;
 	}
 
-	return ({ getState, dispatch }) => next => (action) => {
+	return ({ getState, dispatch }) => next => action => {
 		if (!ws) {
 			ws = new SmartWebsocket(urlPrefix, {
 				onOpen: () => dispatch({ type: ACTION_TYPES.ON_OPEN }),
 				onClose: () => dispatch({ type: ACTION_TYPES.ON_CLOSE }),
-				onMessage: (messageEvent) => {
+				onMessage: messageEvent => {
 					socketListener.forEach(func => func(messageEvent, dispatch, getState));
+				},
+				onError: event => {
+					dispatch({ type: ACTION_TYPES.ON_ERROR, event });
 				},
 			});
 		}

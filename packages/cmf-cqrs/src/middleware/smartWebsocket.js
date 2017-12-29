@@ -55,7 +55,7 @@ export function startWebsocket(url, offlinebuffer, options) {
 			clearInterval(pingInterval);
 		}
 	};
-	ws.onError = function onerror(event) {
+	ws.onerror = function onerror(event) {
 		if (typeof onError === 'function') {
 			onError(event);
 		}
