@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import entries from 'lodash/entries';
+import get from 'lodash/get';
 
 import css from './JSONSchemaRenderer.scss';
 
@@ -72,7 +73,7 @@ function TextRenderer({ propertyKey, title, properties }) {
 	);
 }
 
-function PasswordRenderer({ propertyKey, title, properties }) {
+export function PasswordRenderer({ propertyKey, title, properties }) {
 	return (
 		<div className={classNames('text-renderer', `text-renderer-${propertyKey}`)} key={propertyKey}>
 			<dt>{title || propertyKey}</dt>
@@ -140,8 +141,8 @@ function isHidden(uiSchema, element) {
 	return uiSchema && uiSchema[element] && uiSchema[element]['ui:widget'] === 'hidden';
 }
 
-function isPassword(uiSchema, element) {
-	return uiSchema && uiSchema[element] && uiSchema[element]['ui:widget'] === 'password';
+export function isPassword(uiSchema, element) {
+	return get(uiSchema, [element, 'ui:widget'], '') === 'password';
 }
 
 /**
