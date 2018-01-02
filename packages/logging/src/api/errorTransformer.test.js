@@ -1,4 +1,4 @@
-import et, { TraceKit } from './errorTransformer';
+import { initErrorTransformer, TraceKit } from './errorTransformer';
 
 const someString = 'hello';
 const rethrowErrorHandler = () => {};
@@ -10,12 +10,12 @@ afterEach(() => {
 describe('ErrorTransformer', () => {
 	describe('listener', () => {
 		it('should be function on minimum config', () => {
-			expect(typeof et()).toBe('function');
+			expect(typeof initErrorTransformer()).toBe('function');
 		});
 
 		it('should call successHandler internally', () => {
 			const successHandler = t => expect(t).toBe(someString);
-			et(
+			initErrorTransformer(
 				'',
 				{
 					successHandler,
@@ -29,7 +29,7 @@ describe('ErrorTransformer', () => {
 			const failedReportHandler = e => {
 				expect(e.message).toBe(someString);
 			};
-			et(
+			initErrorTransformer(
 				'',
 				{
 					failedReportHandler,
@@ -40,7 +40,7 @@ describe('ErrorTransformer', () => {
 		});
 
 		it('should return payload', () => {
-			const returnedData = et(
+			const returnedData = initErrorTransformer(
 				'',
 				{
 					fetchOptions: { response: { text: () => someString, ok: true } },
@@ -53,7 +53,7 @@ describe('ErrorTransformer', () => {
 
 		it('should transform payload', () => {
 			const expected = { a: 'b' };
-			const returnedData = et(
+			const returnedData = initErrorTransformer(
 				'',
 				{
 					payloadMiddleware: () => expected,
@@ -81,7 +81,7 @@ describe('ErrorTransformer', () => {
 		expect(report(someString)).toBe(someString);
 
 		// when:
-		et('', {}, { rethrowErrorHandler });
+		initErrorTransformer('', {}, { rethrowErrorHandler });
 		// then:
 		expect(report()).toBe(undefined);
 	});
@@ -91,7 +91,7 @@ describe('ErrorTransformer', () => {
 			expect(p).toBe(someString);
 			sr(p, to, c + 1);
 		};
-		et(
+		initErrorTransformer(
 			'',
 			{
 				failedTryHandler,
