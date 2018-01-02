@@ -48,7 +48,6 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-
 class ObjectField extends Component {
 	static defaultProps = {
 		uiSchema: {},
@@ -158,7 +157,7 @@ class ObjectField extends Component {
 						disabled={disabled}
 						readonly={readonly}
 					/>
-					),
+				),
 				propName,
 				readonly,
 				disabled,
@@ -190,9 +189,8 @@ if (process.env.NODE_ENV !== 'production') {
 		name: PropTypes.string,
 		readonly: PropTypes.bool,
 		registry: PropTypes.shape({
-			widgets: PropTypes.objectOf(
-				PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-			).isRequired,
+			widgets: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object]))
+				.isRequired,
 			fields: PropTypes.objectOf(PropTypes.func).isRequired,
 			definitions: PropTypes.object.isRequired,
 			formContext: PropTypes.object.isRequired,

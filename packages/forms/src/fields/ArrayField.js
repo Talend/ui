@@ -37,11 +37,7 @@ function ArrayFieldDescription({ DescriptionField, idSchema, description }) {
 function IconBtn(props) {
 	const { type = 'default', icon, className, ...otherProps } = props;
 	return (
-		<button
-			type="button"
-			className={`btn btn-${type} ${className}`}
-			{...otherProps}
-		>
+		<button type="button" className={`btn btn-${type} ${className}`} {...otherProps}>
 			<i className={`glyphicon glyphicon-${icon}`} />
 		</button>
 	);
@@ -57,16 +53,11 @@ function DefaultArrayItem(props) {
 	};
 	return (
 		<div key={props.index} className={props.className}>
-			<div className={props.hasToolbar ? 'col-xs-9' : 'col-xs-12'}>
-				{props.children}
-			</div>
+			<div className={props.hasToolbar ? 'col-xs-9' : 'col-xs-12'}>{props.children}</div>
 
 			{props.hasToolbar && (
 				<div className="col-xs-3 array-item-toolbox">
-					<div
-						className="btn-group"
-						style={{ display: 'flex', justifyContent: 'space-around' }}
-					>
+					<div className="btn-group" style={{ display: 'flex', justifyContent: 'space-around' }}>
 						{(props.hasMoveUp || props.hasMoveDown) && (
 							<IconBtn
 								icon="arrow-up"
@@ -84,9 +75,7 @@ function DefaultArrayItem(props) {
 								className="array-item-move-down"
 								tabIndex="-1"
 								style={btnStyle}
-								disabled={
-									props.disabled || props.readonly || !props.hasMoveDown
-								}
+								disabled={props.disabled || props.readonly || !props.hasMoveDown}
 								onClick={props.onReorderClick(props.index, props.index + 1)}
 							/>
 						)}
@@ -121,26 +110,17 @@ function DefaultFixedArrayFieldTemplate(props) {
 			/>
 
 			{(props.uiSchema['ui:description'] || props.schema.description) && (
-				<div
-					className="field-description"
-					key={`field-description-${props.idSchema.$id}`}
-				>
+				<div className="field-description" key={`field-description-${props.idSchema.$id}`}>
 					{props.uiSchema['ui:description'] || props.schema.description}
 				</div>
 			)}
 
-			<div
-				className="row array-item-list"
-				key={`array-item-list-${props.idSchema.$id}`}
-			>
+			<div className="row array-item-list" key={`array-item-list-${props.idSchema.$id}`}>
 				{props.items && props.items.map(DefaultArrayItem)}
 			</div>
 
 			{props.canAdd && (
-				<AddButton
-					onClick={props.onAddClick}
-					disabled={props.disabled || props.readonly}
-				/>
+				<AddButton onClick={props.onAddClick} disabled={props.disabled || props.readonly} />
 			)}
 		</fieldset>
 	);
@@ -162,24 +142,16 @@ function DefaultNormalArrayFieldTemplate(props) {
 					key={`array-field-description-${props.idSchema.$id}`}
 					DescriptionField={props.DescriptionField}
 					idSchema={props.idSchema}
-					description={
-						props.uiSchema['ui:description'] || props.schema.description
-					}
+					description={props.uiSchema['ui:description'] || props.schema.description}
 				/>
 			)}
 
-			<div
-				className="row array-item-list"
-				key={`array-item-list-${props.idSchema.$id}`}
-			>
+			<div className="row array-item-list" key={`array-item-list-${props.idSchema.$id}`}>
 				{props.items && props.items.map(DefaultArrayItem)}
 			</div>
 
 			{props.canAdd && (
-				<AddButton
-					onClick={props.onAddClick}
-					disabled={props.disabled || props.readonly}
-				/>
+				<AddButton onClick={props.onAddClick} disabled={props.disabled || props.readonly} />
 			)}
 		</fieldset>
 	);
@@ -220,10 +192,9 @@ class ArrayField extends Component {
 			itemSchema = schema.additionalItems;
 		}
 		formData.forEach(item => Object.assign(item, { isClosed: true }));
-		this.props.onChange(
-			[...formData, getDefaultFormState(itemSchema, undefined, definitions)],
-			{ validate: false }
-		);
+		this.props.onChange([...formData, getDefaultFormState(itemSchema, undefined, definitions)], {
+			validate: false,
+		});
 	};
 
 	onDropIndexClick = index => event => {
@@ -231,7 +202,7 @@ class ArrayField extends Component {
 			event.preventDefault();
 		}
 		const { formData, onChange } = this.props;
-			// refs #195: revalidate to ensure properly reindexing errors
+		// refs #195: revalidate to ensure properly reindexing errors
 		onChange(formData.filter((_, i) => i !== index), { validate: true });
 	};
 
@@ -242,23 +213,23 @@ class ArrayField extends Component {
 		}
 		const { formData, onChange } = this.props;
 		onChange(
-				formData.map((item, i) => {
-					if (i === newIndex) {
-						return formData[index];
-					} else if (i === index) {
-						return formData[newIndex];
-					}
-					return item;
-				}),
-				{ validate: true }
-			);
+			formData.map((item, i) => {
+				if (i === newIndex) {
+					return formData[index];
+				} else if (i === index) {
+					return formData[newIndex];
+				}
+				return item;
+			}),
+			{ validate: true },
+		);
 	};
 
 	onChangeForIndex = index => value => {
 		const { formData, onChange } = this.props;
 		const newFormData = formData.map((item, i) => {
-				// We need to treat undefined items as nulls to have validation.
-				// See https://github.com/tdegrunt/jsonschema/issues/206
+			// We need to treat undefined items as nulls to have validation.
+			// See https://github.com/tdegrunt/jsonschema/issues/206
 			const jsonValue = typeof value === 'undefined' ? null : value;
 			return index === i ? jsonValue : item;
 		});
@@ -329,12 +300,7 @@ class ArrayField extends Component {
 				const itemSchema = retrieveSchema(schema.items, definitions, item);
 				const itemErrorSchema = errorSchema ? errorSchema[index] : undefined;
 				const itemIdPrefix = `${idSchema.$id}_${index}`;
-				const itemIdSchema = toIdSchema(
-					itemSchema,
-					itemIdPrefix,
-					definitions,
-					item
-				);
+				const itemIdSchema = toIdSchema(itemSchema, itemIdPrefix, definitions, item);
 				return this.renderArrayFieldItem({
 					index,
 					canMoveUp: index > 0,
@@ -467,7 +433,7 @@ class ArrayField extends Component {
 		const { ArrayFieldTemplate, definitions, fields } = registry;
 		const { TitleField } = fields;
 		const itemSchemas = schema.items.map((item, index) =>
-			retrieveSchema(item, definitions, formData[index])
+			retrieveSchema(item, definitions, formData[index]),
 		);
 		const additionalSchema = allowAdditionalItems(schema)
 			? retrieveSchema(schema.additionalItems, definitions, formData)
@@ -492,12 +458,7 @@ class ArrayField extends Component {
 					? retrieveSchema(schema.additionalItems, definitions, item)
 					: itemSchemas[index];
 				const itemIdPrefix = `${idSchema.$id}_${index}`;
-				const itemIdSchema = toIdSchema(
-					itemSchema,
-					itemIdPrefix,
-					definitions,
-					item
-				);
+				const itemIdSchema = toIdSchema(itemSchema, itemIdPrefix, definitions, item);
 
 				const itemErrorSchema = errorSchema ? errorSchema[index] : undefined;
 				let itemUiSchema = null;
@@ -553,12 +514,7 @@ class ArrayField extends Component {
 			onBlur,
 			onFocus,
 		} = props;
-		const {
-			disabled,
-			readonly,
-			uiSchema,
-			registry = getDefaultRegistry(),
-		} = this.props;
+		const { disabled, readonly, uiSchema, registry = getDefaultRegistry() } = this.props;
 		const { fields: { SchemaField } } = registry;
 		const { orderable, removable } = {
 			orderable: true,
@@ -605,20 +561,12 @@ class ArrayField extends Component {
 	}
 
 	render() {
-		const {
-			schema,
-			uiSchema,
-			idSchema,
-			registry = getDefaultRegistry(),
-		} = this.props;
+		const { schema, uiSchema, idSchema, registry = getDefaultRegistry() } = this.props;
 		const { definitions } = registry;
-		if (!schema.hasOwnProperty('items')) { // eslint-disable-line no-prototype-builtins
+		if (!schema.hasOwnProperty('items')) {
+			// eslint-disable-line no-prototype-builtins
 			return (
-				<UnsupportedField
-					schema={schema}
-					idSchema={idSchema}
-					reason="Missing items definition"
-				/>
+				<UnsupportedField schema={schema} idSchema={idSchema} reason="Missing items definition" />
 			);
 		}
 		if (isFixedItems(schema)) {
@@ -674,9 +622,8 @@ if (process.env.NODE_ENV !== 'production') {
 		name: PropTypes.string,
 		formContext: PropTypes.object,
 		registry: PropTypes.shape({
-			widgets: PropTypes.objectOf(
-				PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-			).isRequired,
+			widgets: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object]))
+				.isRequired,
 			fields: PropTypes.objectOf(PropTypes.func).isRequired,
 			definitions: PropTypes.object.isRequired,
 			formContext: PropTypes.object.isRequired,

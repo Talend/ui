@@ -68,9 +68,8 @@ if (process.env.NODE_ENV !== 'production') {
 		onFocus: PropTypes.func,
 		formData: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		registry: PropTypes.shape({
-			widgets: PropTypes.objectOf(
-				PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-			).isRequired,
+			widgets: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object]))
+				.isRequired,
 			fields: PropTypes.objectOf(PropTypes.func).isRequired,
 			definitions: PropTypes.object.isRequired,
 			formContext: PropTypes.object.isRequired,

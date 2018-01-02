@@ -67,8 +67,8 @@ function renderValue({ schema, value, formData, onChange, ...rest }) {
 function KeyValueWidget(props) {
 	return (
 		<dl className={theme['key-value']}>
-			<dt>{ renderKey(props) }</dt>
-			<dd>{ renderValue(props) }</dd>
+			<dt>{renderKey(props)}</dt>
+			<dd>{renderValue(props)}</dd>
 		</dl>
 	);
 }
@@ -77,10 +77,7 @@ if (process.env.NODE_ENV !== 'production') {
 	KeyValueWidget.propTypes = {
 		schema: PropTypes.object,
 		formData: PropTypes.object,
-		value: PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.number,
-		]),
+		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		onChange: PropTypes.func,
 	};
 }

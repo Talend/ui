@@ -56,20 +56,17 @@ describe('MultiSelectTagWidget', () => {
 			noAvailableMessage: 'None',
 		};
 
-		const wrapper = mount(
-			<MultiSelectTagWidget
-				options={options}
-				schema={schema}
-				value={value}
-			/>
-		);
+		const wrapper = mount(<MultiSelectTagWidget options={options} schema={schema} value={value} />);
 
 		// when
 		wrapper
 			.find('input')
 			.at(0)
 			.simulate('click');
-		wrapper.find('input').at(0).simulate('change', { target: { value: '' } });
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: '' } });
 
 		// then
 		expect(toJson(wrapper.find('.items-container'), { mode: 'deep' })).toMatchSnapshot();
@@ -96,20 +93,17 @@ describe('MultiSelectTagWidget', () => {
 			createIfNoneMatch: false,
 		};
 
-		const wrapper = mount(
-			<MultiSelectTagWidget
-				options={options}
-				schema={schema}
-				value={value}
-			/>
-		);
+		const wrapper = mount(<MultiSelectTagWidget options={options} schema={schema} value={value} />);
 
 		// when
 		wrapper
 			.find('input')
 			.at(0)
 			.simulate('focus');
-		wrapper.find('input').at(0).simulate('change', { target: { value: 'lol' } });
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: 'lol' } });
 
 		// then
 		expect(toJson(wrapper.find('.items-container'), { mode: 'deep' })).toMatchSnapshot();
@@ -147,7 +141,10 @@ describe('MultiSelectTagWidget', () => {
 
 		// when
 		wrapper.find('input').simulate('focus');
-		wrapper.find('input').at(0).simulate('change', { target: { value: '' } });
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: '' } });
 
 		// then
 		expect(toJson(wrapper.find('.items-container'), { mode: 'deep' })).toMatchSnapshot();

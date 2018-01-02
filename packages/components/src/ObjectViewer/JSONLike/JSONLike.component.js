@@ -465,7 +465,7 @@ export function JSONLike({ onSubmit, className, style, ...props }) {
 
 JSONLike.propTypes = {
 	data: PropTypes.oneOfType(
-		[...VALIDE_TYPES, ...COMPLEX_TYPES].map(t => PropTypes[t]).filter(type => type)
+		[...VALIDE_TYPES, ...COMPLEX_TYPES].map(t => PropTypes[t]).filter(type => type),
 	),
 	onSubmit: PropTypes.func,
 	className: PropTypes.string,

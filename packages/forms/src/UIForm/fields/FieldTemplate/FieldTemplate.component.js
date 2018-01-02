@@ -6,7 +6,9 @@ import Message from '../../Message';
 
 function Label(props) {
 	return (
-		<label htmlFor={props.id} className="control-label">{props.label}</label>
+		<label htmlFor={props.id} className="control-label">
+			{props.label}
+		</label>
 	);
 }
 
@@ -18,10 +20,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function FieldTemplate(props) {
-	const groupsClassNames = classNames(
-		'form-group',
-		{ 'has-error': !props.isValid }
-	);
+	const groupsClassNames = classNames('form-group', { 'has-error': !props.isValid });
 
 	return (
 		<div className={groupsClassNames}>
@@ -39,10 +38,7 @@ function FieldTemplate(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
-		children: PropTypes.oneOf([
-			PropTypes.element,
-			PropTypes.arrayOf(PropTypes.element),
-		]),
+		children: PropTypes.oneOf([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 		description: PropTypes.string,
 		errorMessage: PropTypes.string,
 		id: PropTypes.string,

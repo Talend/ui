@@ -7,12 +7,15 @@ export function mapStateToProps(state, ownProps) {
 	if (!ownProps.actionId && !ownProps.name) {
 		return {};
 	}
-	return api.action.getActionInfo({
-		registry: api.registry.getRegistry(),
-		store: {
-			getState: () => state,
+	return api.action.getActionInfo(
+		{
+			registry: api.registry.getRegistry(),
+			store: {
+				getState: () => state,
+			},
 		},
-	}, ownProps.actionId || ownProps.name);
+		ownProps.actionId || ownProps.name,
+	);
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {

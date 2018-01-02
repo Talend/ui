@@ -115,7 +115,7 @@ describe('Layout', () => {
 			.create(
 				<Layout subHeader={subHeader} mode="OneColumn">
 					{one}
-				</Layout>
+				</Layout>,
 			)
 			.toJSON();
 
