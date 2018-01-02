@@ -8679,7 +8679,7 @@ exports[`List should render 1`] = `
                               className="btn-link"
                               disabled={false}
                               eventKey="first"
-                              key=".1:0"
+                              key=".1:$first"
                               onSelect={[Function]}
                             >
                               <li
@@ -8720,7 +8720,7 @@ exports[`List should render 1`] = `
                               className="btn-link"
                               disabled={false}
                               eventKey="prev"
-                              key=".1:1"
+                              key=".1:$prev"
                               onSelect={[Function]}
                             >
                               <li
@@ -8759,7 +8759,7 @@ exports[`List should render 1`] = `
                             <NavItem
                               active={false}
                               disabled={true}
-                              key=".1:2"
+                              key=".1:$pages"
                               onSelect={[Function]}
                             >
                               <li
@@ -8799,7 +8799,7 @@ exports[`List should render 1`] = `
                               className="btn-link"
                               disabled={false}
                               eventKey="next"
-                              key=".1:3"
+                              key=".1:$next"
                               onSelect={[Function]}
                             >
                               <li
@@ -8841,7 +8841,7 @@ exports[`List should render 1`] = `
                               className="btn-link"
                               disabled={false}
                               eventKey="last"
-                              key=".1:4"
+                              key=".1:$last"
                               onSelect={[Function]}
                             >
                               <li
@@ -17646,7 +17646,7 @@ exports[`List should render id if provided 1`] = `
                               disabled={false}
                               eventKey="first"
                               id="context-pagination-nav-to-first"
-                              key=".1:0"
+                              key=".1:$first"
                               onSelect={[Function]}
                             >
                               <li
@@ -17690,7 +17690,7 @@ exports[`List should render id if provided 1`] = `
                               disabled={false}
                               eventKey="prev"
                               id="context-pagination-nav-to-prev"
-                              key=".1:1"
+                              key=".1:$prev"
                               onSelect={[Function]}
                             >
                               <li
@@ -17731,7 +17731,7 @@ exports[`List should render id if provided 1`] = `
                             <NavItem
                               active={false}
                               disabled={true}
-                              key=".1:2"
+                              key=".1:$pages"
                               onSelect={[Function]}
                             >
                               <li
@@ -17772,7 +17772,7 @@ exports[`List should render id if provided 1`] = `
                               disabled={false}
                               eventKey="next"
                               id="context-pagination-nav-to-next"
-                              key=".1:3"
+                              key=".1:$next"
                               onSelect={[Function]}
                             >
                               <li
@@ -17817,7 +17817,7 @@ exports[`List should render id if provided 1`] = `
                               disabled={false}
                               eventKey="last"
                               id="context-pagination-nav-to-last"
-                              key=".1:4"
+                              key=".1:$last"
                               onSelect={[Function]}
                             >
                               <li
