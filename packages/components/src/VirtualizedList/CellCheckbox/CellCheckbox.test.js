@@ -12,13 +12,7 @@ const columnData = {
 describe('CellActions', () => {
 	it('should render checked checkbox', () => {
 		// when
-		const wrapper = shallow(
-			<CellCheckbox
-				cellData
-				columnData={columnData}
-				rowIndex={25}
-			/>
-		);
+		const wrapper = shallow(<CellCheckbox cellData columnData={columnData} rowIndex={25} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -27,11 +21,7 @@ describe('CellActions', () => {
 	it('should render unchecked checkbox', () => {
 		// when
 		const wrapper = shallow(
-			<CellCheckbox
-				cellData={false}
-				columnData={columnData}
-				rowIndex={25}
-			/>
+			<CellCheckbox cellData={false} columnData={columnData} rowIndex={25} />,
 		);
 
 		// then
@@ -45,12 +35,7 @@ describe('CellActions', () => {
 
 		// when
 		const wrapper = shallow(
-			<CellCheckbox
-				cellData
-				columnData={columnData}
-				rowData={rowData}
-				rowIndex={25}
-			/>
+			<CellCheckbox cellData columnData={columnData} rowData={rowData} rowIndex={25} />,
 		);
 		wrapper.find('#my-checkbox-25-check').simulate('change', event);
 

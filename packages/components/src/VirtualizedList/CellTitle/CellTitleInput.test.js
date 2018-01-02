@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import keycode from 'keycode';
 
 import CellTitleInput from './CellTitleInput.component';
@@ -10,18 +11,18 @@ describe('CellTitleInput', () => {
 		const rowData = { id: 1 };
 
 		// when
-		const wrapper = shallow(
+		const wrapper = mount(
 			<CellTitleInput
 				id={'my-cell'}
 				cellData={'my value'}
 				onEditCancel={jest.fn()}
 				onEditSubmit={jest.fn()}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('should call submit callback on blur', () => {
@@ -37,20 +38,17 @@ describe('CellTitleInput', () => {
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// when
-		wrapper.find('#my-cell-input').last().simulate('blur');
+		wrapper.find('input#my-cell-input').simulate('blur');
 
 		// then
-		expect(onEditSubmit).toBeCalledWith(
-			expect.anything(),
-			{
-				value: 'my value',
-				model: rowData,
-			}
-		);
+		expect(onEditSubmit).toBeCalledWith(expect.anything(), {
+			value: 'my value',
+			model: rowData,
+		});
 	});
 
 	it('should call submit callback on form submit', () => {
@@ -66,20 +64,17 @@ describe('CellTitleInput', () => {
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// when
 		wrapper.simulate('submit');
 
 		// then
-		expect(onEditSubmit).toBeCalledWith(
-			expect.anything(),
-			{
-				value: 'my value',
-				model: rowData,
-			}
-		);
+		expect(onEditSubmit).toBeCalledWith(expect.anything(), {
+			value: 'my value',
+			model: rowData,
+		});
 	});
 
 	it('should call cancel callback on ESC keyup', () => {
@@ -96,11 +91,11 @@ describe('CellTitleInput', () => {
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// when
-		wrapper.find('#my-cell-input').last().simulate('keyUp', event);
+		wrapper.find('input#my-cell-input').simulate('keyUp', event);
 
 		// then
 		expect(onEditCancel).toBeCalledWith(expect.anything(), rowData);

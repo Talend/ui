@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider component renderers should render Slider 1`] = `
+<span
+  className="tc-slider"
+>
+  <ComponentEnhancer(undefined)
+    activeDotStyle={Object {}}
+    className="tc-slider-rc-slider"
+    disabled={false}
+    dotStyle={Object {}}
+    dots={false}
+    emptyValueLabel="no label"
+    handle={[Function]}
+    handleStyle={
+      Array [
+        Object {},
+      ]
+    }
+    id="selectable"
+    included={true}
+    marks={Object {}}
+    max={100}
+    min={0}
+    onAfterChange={[Function]}
+    onBeforeChange={[Function]}
+    onChange={[Function]}
+    prefixCls="rc-slider"
+    railStyle={Object {}}
+    step={1}
+    trackStyle={
+      Array [
+        Object {},
+      ]
+    }
+    value={undefined}
+    vertical={false}
+  />
+</span>
+`;
+
+exports[`Slider component renderers should render Slider with captionTextStepNumber 1`] = `
+<span
+  className="tc-slider"
+>
+  <ComponentEnhancer(undefined)
+    activeDotStyle={Object {}}
+    className="tc-slider-rc-slider"
+    disabled={false}
+    dotStyle={Object {}}
+    dots={false}
+    handle={[Function]}
+    handleStyle={
+      Array [
+        Object {},
+      ]
+    }
+    id="selectable"
+    included={true}
+    label="Heeey"
+    marks={Object {}}
+    max={100}
+    min={0}
+    onAfterChange={[Function]}
+    onBeforeChange={[Function]}
+    onChange={[Function]}
+    prefixCls="rc-slider"
+    railStyle={Object {}}
+    step={1}
+    trackStyle={
+      Array [
+        Object {},
+      ]
+    }
+    value={45}
+    vertical={false}
+  />
+  <div
+    className="tc-slider-text-captions"
+  >
+    <span>
+      0%
+    </span>
+    <span>
+      25%
+    </span>
+    <span>
+      50%
+    </span>
+    <span>
+      75%
+    </span>
+    <span>
+      100%
+    </span>
+  </div>
+</span>
+`;
+
+exports[`Slider component renderers should render Slider with icons on status 1`] = `
+<span
+  className="tc-slider"
+>
+  <ComponentEnhancer(undefined)
+    activeDotStyle={Object {}}
+    className="tc-slider-rc-slider"
+    disabled={false}
+    dotStyle={Object {}}
+    dots={false}
+    handle={[Function]}
+    handleStyle={
+      Array [
+        Object {},
+      ]
+    }
+    id="selectable"
+    included={true}
+    label="Heeey"
+    marks={Object {}}
+    max={100}
+    min={0}
+    onAfterChange={[Function]}
+    onBeforeChange={[Function]}
+    onChange={[Function]}
+    prefixCls="rc-slider"
+    railStyle={Object {}}
+    step={1}
+    trackStyle={
+      Array [
+        Object {},
+      ]
+    }
+    value={45}
+    vertical={false}
+  />
+  <div
+    className="tc-slider-icons"
+  >
+    <Icon
+      className=""
+      name="talend-smiley-rating"
+    />
+    <Icon
+      className=""
+      name="talend-most-trusted"
+    />
+    <Icon
+      className="undefined selected"
+      name="talend-network"
+    />
+    <Icon
+      className=""
+      name="talend-streams"
+    />
+    <Icon
+      className=""
+      name="talend-tdc-negative"
+    />
+  </div>
+</span>
+`;

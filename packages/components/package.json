@@ -43,17 +43,20 @@
   },
   "dependencies": {
     "lodash": "4.17.4",
+    "rc-slider": "8.4.1",
+    "rc-tooltip": "3.7.0",
     "react-autowhatever": "10.1.0",
     "react-debounce-input": "3.0.1",
     "react-virtualized": "9.10.1"
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
-    "@storybook/addon-info": "^3.2.16",
-    "@storybook/addon-storyshots": "^3.2.11",
-    "@storybook/react": "3.2.16",
-    "@talend/bootstrap-theme": "^0.133.0",
-    "@talend/icons": "^0.133.0",
+    "@storybook/addon-actions": "^3.3.0",
+    "@storybook/addon-info": "^3.3.0",
+    "@storybook/addon-storyshots": "^3.3.0",
+    "@storybook/react": "^3.3.0",
+    "@talend/bootstrap-theme": "^0.137.0",
+    "@talend/icons": "^0.137.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
@@ -70,7 +73,7 @@
     "codacy-coverage": "^2.0.0",
     "cpx": "1.5.0",
     "css-loader": "0.28.7",
-    "enzyme": "^3.0.0",
+    "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "1.0.0",
     "enzyme-to-json": "^3.0.0",
     "eslint": "^3.6.1",
@@ -105,8 +108,8 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^0.133.0",
-    "@talend/icons": "^0.133.0",
+    "@talend/bootstrap-theme": "^0.137.0",
+    "@talend/icons": "^0.137.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "2.2.5",
     "i18next": "10.2.1",
@@ -121,9 +124,6 @@
     "uuid": "3.0.1"
   },
   "jest": {
-    "setupFiles": [
-      "./test/setup.js"
-    ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!**/node_modules/**",
@@ -139,10 +139,11 @@
     "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
-    }
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.133.0"
+  "version": "0.137.0"
 }

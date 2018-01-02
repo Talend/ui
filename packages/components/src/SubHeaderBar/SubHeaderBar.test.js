@@ -146,7 +146,6 @@ describe('SubHeaderBar', () => {
 	it('should render SubHeaderBarActions (default + custom)', () => {
 		const props = {
 			title: 'myTitle',
-			editMode: false,
 			componentsCenter,
 			componentsRight,
 			onGoBack: jest.fn(),
@@ -160,7 +159,6 @@ describe('SubHeaderBar', () => {
 	it('should render SubHeaderBarActions (default + right)', () => {
 		const props = {
 			title: 'myTitle',
-			editMode: false,
 			componentsRight,
 			onGoBack: jest.fn(),
 		};
@@ -172,7 +170,6 @@ describe('SubHeaderBar', () => {
 	it('should render SubHeaderBarActions (default + center)', () => {
 		const props = {
 			title: 'myTitle',
-			editMode: false,
 			componentsCenter,
 			onGoBack: jest.fn(),
 		};
@@ -184,7 +181,6 @@ describe('SubHeaderBar', () => {
 	it('should render SubHeaderBarActions (default)', () => {
 		const props = {
 			title: 'myTitle',
-			editMode: false,
 			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);

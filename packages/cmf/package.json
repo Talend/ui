@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
-    "hoist-non-react-statics": "^1.2.0"
+    "hoist-non-react-statics": "^1.2.0",
+    "react-immutable-proptypes": "2.1.0"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
@@ -43,7 +44,7 @@
     "babel-preset-react": "6.24.1",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.2",
-    "enzyme": "^3.0.0",
+    "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "1.0.0",
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^11.1.0",
@@ -58,6 +59,7 @@
     "jest-cli": "20.0.3",
     "jsdoc": "^3.4.1",
     "lodash": "4.17.4",
+    "node-fetch": "^1.7.3",
     "path-to-regexp": "2.0.0",
     "prop-types": "15.5.10",
     "react": "^16.0.0",
@@ -113,12 +115,10 @@
     "transform": {
       ".*": "<rootDir>/../../node_modules/babel-jest"
     },
-    "setupFiles": [
-      "./env__tests.js"
-    ]
+    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.133.0"
+  "version": "0.137.0"
 }

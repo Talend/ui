@@ -77,9 +77,9 @@ describe('SidePanel', () => {
 		const sidePanel = <SidePanel id="test" actions={actions} />;
 		const wrapper = mount(sidePanel);
 
-		expect(wrapper.find('Button#test-nav-preparation-custom-id').text()).toEqual('Preparations');
-		expect(wrapper.find('Button#test-nav-datasets-custom-id').text()).toEqual('Datasets');
-		expect(wrapper.find('Button#test-nav-favs-custom-id').text()).toEqual('Favorites');
+		expect(wrapper.find('button#test-nav-preparation-custom-id').text()).toEqual('Preparations');
+		expect(wrapper.find('button#test-nav-datasets-custom-id').text()).toEqual('Datasets');
+		expect(wrapper.find('button#test-nav-favs-custom-id').text()).toEqual('Favorites');
 	});
 
 	it('should work even if there is no id, label, or action id', () => {

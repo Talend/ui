@@ -28,19 +28,13 @@ describe('Dialog modal props', () => {
 		expect(customProps.header).toEqual('Hello world');
 		expect(customProps.show).toEqual(true);
 
-		const wrapperNullDialogProps = shallow(
-			<Dialog {...modalPropsNullDialogProps} />
-		);
+		const wrapperNullDialogProps = shallow(<Dialog {...modalPropsNullDialogProps} />);
 		expect(wrapperNullDialogProps.getElement()).toMatchSnapshot();
 
-		const wrapperUndefinedDialogProps = shallow(
-			<Dialog {...modalUndefinedDialogProps} />
-		);
+		const wrapperUndefinedDialogProps = shallow(<Dialog {...modalUndefinedDialogProps} />);
 		expect(wrapperUndefinedDialogProps.getElement()).toMatchSnapshot();
 
-		const wrapperNoDialogPropsProps = shallow(
-			<Dialog {...modalNoDialogPropsProps} />
-		);
+		const wrapperNoDialogPropsProps = shallow(<Dialog {...modalNoDialogPropsProps} />);
 		expect(wrapperNoDialogPropsProps.getElement()).toMatchSnapshot();
 	});
 });

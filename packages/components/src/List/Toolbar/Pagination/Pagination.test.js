@@ -16,7 +16,7 @@ describe('Pagination', () => {
 		// given
 		const instance = mount(<Pagination {...props} />);
 		// when
-		instance.find('#pagination-nav-to-first').last().simulate('click');
+		instance.find('a#pagination-nav-to-first').simulate('click');
 		// then
 		expect(props.onChange).toBeCalledWith(1, 5);
 	});
@@ -25,7 +25,7 @@ describe('Pagination', () => {
 		// given
 		const instance = mount(<Pagination {...props} />);
 		// when
-		instance.find('#pagination-nav-to-prev').last().simulate('click');
+		instance.find('a#pagination-nav-to-prev').simulate('click');
 		// then
 		expect(props.onChange).toBeCalledWith(6, 5);
 	});
@@ -34,7 +34,7 @@ describe('Pagination', () => {
 		// given
 		const instance = mount(<Pagination {...props} />);
 		// when
-		instance.find('#pagination-nav-to-next').last().simulate('click');
+		instance.find('a#pagination-nav-to-next').simulate('click');
 		// then
 		expect(props.onChange).toBeCalledWith(16, 5);
 	});
@@ -43,7 +43,7 @@ describe('Pagination', () => {
 		// given
 		const instance = mount(<Pagination {...props} />);
 		// when
-		instance.find('#pagination-nav-to-last').last().simulate('click');
+		instance.find('a#pagination-nav-to-last').simulate('click');
 		// then
 		expect(props.onChange).toBeCalledWith(21, 5);
 	});

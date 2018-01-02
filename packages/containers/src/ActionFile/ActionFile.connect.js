@@ -51,8 +51,8 @@ ContainerActionFile.propTypes = {
 	actionCreator: PropTypes.string,
 	dispatch: PropTypes.func,
 	dispatchActionCreator: PropTypes.func,
-	model: PropTypes.Object,
-	payload: PropTypes.Object,
+	model: PropTypes.object,
+	payload: PropTypes.object,
 };
 
 export default cmfConnect({

@@ -15,7 +15,7 @@ describe('FieldTemplate', () => {
 				label={'My awesome label'}
 			>
 				<input id={'myAwesomeField'} />
-			</FieldTemplate>
+			</FieldTemplate>,
 		);
 
 		// then
@@ -34,7 +34,7 @@ describe('FieldTemplate', () => {
 				labelAfter
 			>
 				<input id={'myAwesomeField'} />
-			</FieldTemplate>
+			</FieldTemplate>,
 		);
 
 		// then
@@ -52,7 +52,7 @@ describe('FieldTemplate', () => {
 				label={'My awesome label'}
 			>
 				<input id={'myAwesomeField'} />
-			</FieldTemplate>
+			</FieldTemplate>,
 		);
 
 		// then

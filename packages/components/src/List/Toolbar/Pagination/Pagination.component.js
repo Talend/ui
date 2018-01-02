@@ -66,6 +66,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 	function getNavigationItems() {
 		return [(
 			<NavItem
+				key={FIRST}
 				eventKey={FIRST}
 				id={id && `${id}-nav-to-first`}
 				className={'btn-link'}
@@ -75,6 +76,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 			</NavItem>
 		), (
 			<NavItem
+				key={PREV}
 				eventKey={PREV}
 				id={id && `${id}-nav-to-prev`}
 				className={'btn-link'}
@@ -83,11 +85,12 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				<Icon {...prev} />
 			</NavItem>
 		), (
-			<NavItem disabled>
+			<NavItem key={'pages'} disabled>
 				<span className="btn-link">{currentPage}/{pagesLength}</span>
 			</NavItem>
 		), (
 			<NavItem
+				key={NEXT}
 				eventKey={NEXT}
 				id={id && `${id}-nav-to-next`}
 				className={'btn-link'}
@@ -98,6 +101,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 		), (
 			<NavItem
 				eventKey={LAST}
+				key={LAST}
 				id={id && `${id}-nav-to-last`}
 				className={'btn-link'}
 				disabled={startIndex + itemsPerPage > totalResults}

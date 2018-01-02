@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import RowSelection from './RowSelection.component';
 
 function RowRenderer(props) {
-	return (<div {...props} />);
+	return <div {...props} />;
 }
 
 const selectedRowData = { id: 0 };
@@ -32,7 +32,7 @@ describe('RowSelection', () => {
 				key={18}
 				parent={{}}
 				style={{ background: 'red' }}
-			/>
+			/>,
 		);
 
 		// then
@@ -54,7 +54,7 @@ describe('RowSelection', () => {
 				key={18}
 				parent={{}}
 				style={{ background: 'red' }}
-			/>
+			/>,
 		);
 
 		// then
@@ -76,7 +76,7 @@ describe('RowSelection', () => {
 				key={18}
 				parent={{}}
 				style={{ background: 'blue' }}
-			/>
+			/>,
 		);
 
 		// then

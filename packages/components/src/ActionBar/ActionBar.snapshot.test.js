@@ -62,9 +62,7 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = shallow(
-			<ActionBar {...props} />
-		);
+		const wrapper = shallow(<ActionBar {...props} />);
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 		const switchActions = wrapper.find(ActionBar.SwitchActions);
@@ -82,9 +80,7 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = shallow(
-			<ActionBar {...props} />
-		);
+		const wrapper = shallow(<ActionBar {...props} />);
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -98,9 +94,7 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = shallow(
-			<ActionBar {...props} />
-		);
+		const wrapper = shallow(<ActionBar {...props} />);
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -115,31 +109,30 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = shallow(
-			<ActionBar {...props} />
-		);
+		const wrapper = shallow(<ActionBar {...props} />);
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render selected count and multi-selected actions,' +
-		' count and some actions on left, the other on right', () => {
-		// given
-		const props = {
-			selected: 1,
-			actions: {},
-			multiSelectActions: {
-				left: [secondaryAction],
-				right: [secondaryAction, splitAction],
-			},
-		};
-		// when
-		const wrapper = shallow(
-			<ActionBar {...props} />
-		);
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
+	it(
+		'should render selected count and multi-selected actions,' +
+			' count and some actions on left, the other on right',
+		() => {
+			// given
+			const props = {
+				selected: 1,
+				actions: {},
+				multiSelectActions: {
+					left: [secondaryAction],
+					right: [secondaryAction, splitAction],
+				},
+			};
+			// when
+			const wrapper = shallow(<ActionBar {...props} />);
+			// then
+			expect(wrapper.getElement()).toMatchSnapshot();
+		},
+	);
 
 	it('should render selected count and multi-selected actions, all on right', () => {
 		// given
@@ -151,9 +144,7 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = shallow(
-			<ActionBar {...props} />
-		);
+		const wrapper = shallow(<ActionBar {...props} />);
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -164,21 +155,15 @@ describe('ActionBar', () => {
 				left: [btnGroupAction],
 			},
 		};
-		const wrapper = shallow(
-			<ActionBar {...props} />
-		);
+		const wrapper = shallow(<ActionBar {...props} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
 describe('ActionBar.Count', () => {
 	it('should render if selected', () => {
-		const wrapper = shallow(
-			<ActionBar.Count selected={1} />
-		);
-		const noselected = shallow(
-			<ActionBar.Count />
-		);
+		const wrapper = shallow(<ActionBar.Count selected={1} />);
+		const noselected = shallow(<ActionBar.Count />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(noselected.getElement()).toBe(null);
 	});
@@ -187,40 +172,19 @@ describe('ActionBar.Count', () => {
 describe('ActionBar.SwitchActions', () => {
 	const actions = [{ label: 'action' }];
 	it('should render one Action on navbar-left', () => {
-		const wrapper = shallow(
-			<ActionBar.SwitchActions
-				actions={actions}
-				left
-			/>
-		);
+		const wrapper = shallow(<ActionBar.SwitchActions actions={actions} left />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render one Action on navbar-right', () => {
-		const wrapper = shallow(
-			<ActionBar.SwitchActions
-				actions={actions}
-				right
-			/>
-		);
+		const wrapper = shallow(<ActionBar.SwitchActions actions={actions} right />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render one Action on navbar-left with selected', () => {
-		const wrapper = shallow(
-			<ActionBar.SwitchActions
-				selected={3}
-				actions={actions}
-				left
-			/>
-		);
+		const wrapper = shallow(<ActionBar.SwitchActions selected={3} actions={actions} left />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should not render selected on right', () => {
-		const wrapper = shallow(
-			<ActionBar.SwitchActions
-				selected={3}
-				right
-			/>
-		);
+		const wrapper = shallow(<ActionBar.SwitchActions selected={3} right />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

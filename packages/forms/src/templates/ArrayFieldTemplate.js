@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
-import { Icon, IconsProvider } from '@talend/react-components';
+import Icon from '@talend/react-components/lib/Icon';
+import IconsProvider from '@talend/react-components/lib/IconsProvider';
 
 import theme from './ArrayFieldTemplate.scss';
 
@@ -22,7 +23,7 @@ function FieldTemplate({ element, cantDelete }) {
 					>
 						<Icon name="talend-trash" />
 					</button>
-					{!element.itemData.isClosed &&
+					{!element.itemData.isClosed && (
 						<div className={theme.orderaction}>
 							<button
 								type="button"
@@ -42,12 +43,11 @@ function FieldTemplate({ element, cantDelete }) {
 							>
 								<Icon name="talend-caret-down" />
 							</button>
-						</div>}
+						</div>
+					)}
 				</div>
 			}
-			<div className={theme.element}>
-				{element.children}
-			</div>
+			<div className={theme.element}>{element.children}</div>
 		</div>
 	);
 }
@@ -59,25 +59,24 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function ArrayFieldTemplate(props) {
-	const { items, canAdd, onAddClick, minItems, maxItems } = props;
+	const { items, onAddClick, minItems, maxItems } = props;
 	const addBtnClass = classNames(theme.addBtn, 'btn', 'btn-info');
 	return (
 		<div className={theme.ArrayFieldTemplate}>
 			<IconsProvider />
-			{canAdd &&
-				<button
-					className={addBtnClass}
-					type="button"
-					name="btn-new-element"
-					disabled={items.length >= maxItems}
-					onClick={onAddClick}
-				>
-					{`NEW ${props.type}`}
-				</button>}
+			<button
+				className={addBtnClass}
+				type="button"
+				name="btn-new-element"
+				disabled={items.length >= maxItems}
+				onClick={onAddClick}
+			>
+				{`NEW ${props.type}`}
+			</button>
 			{items &&
-				items.map(element =>
+				items.map(element => (
 					<FieldTemplate element={element} cantDelete={items.length <= minItems} />
-				)}
+				))}
 		</div>
 	);
 }

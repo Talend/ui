@@ -30,7 +30,7 @@ describe('Widget component', () => {
 				properties={properties}
 				schema={schema}
 				errors={errors}
-			/>
+			/>,
 		);
 
 		// then
@@ -46,11 +46,7 @@ describe('Widget component', () => {
 
 		// when
 		const wrapper = shallow(
-			<Widget
-				properties={properties}
-				schema={unknownWidgetSchema}
-				errors={errors}
-			/>
+			<Widget properties={properties} schema={unknownWidgetSchema} errors={errors} />,
 		);
 
 		// then
@@ -61,7 +57,7 @@ describe('Widget component', () => {
 		// given
 		const widgets = {
 			customWidget() {
-				return (<div>my widget</div>);
+				return <div>my widget</div>;
 			},
 		};
 		const customWidgetSchema = {
@@ -79,7 +75,7 @@ describe('Widget component', () => {
 				schema={customWidgetSchema}
 				errors={errors}
 				widgets={widgets}
-			/>
+			/>,
 		);
 
 		// then
@@ -102,7 +98,7 @@ describe('Widget component', () => {
 				properties={properties}
 				schema={customValidationMessageSchema}
 				errors={errors}
-			/>
+			/>,
 		);
 
 		// then
@@ -119,7 +115,7 @@ describe('Widget component', () => {
 				properties={properties}
 				schema={schema}
 				errors={errors}
-			/>
+			/>,
 		);
 
 		// then

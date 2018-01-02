@@ -20,9 +20,9 @@ exports[`DatalistWidget should render "no match" message 1`] = `
   }
 >
   <Autowhatever
-    focusedItemIndex={null}
-    focusedSectionIndex={null}
     getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
     id="myWidget"
     inputProps={
       Object {
@@ -48,19 +48,18 @@ exports[`DatalistWidget should render "no match" message 1`] = `
     renderItem={[Function]}
     renderItemData={
       Object {
-        "value": "noMatchingValue",
+        "value": "",
       }
     }
     renderItemsContainer={[Function]}
     renderSectionTitle={[Function]}
-    shouldRenderSection={[Function]}
     theme={
       Object {
         "container": "form-control tf-typeahead-container",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
-        "itemFocused": undefined,
+        "itemHighlighted": undefined,
         "itemsContainer": undefined,
         "itemsList": undefined,
       }
@@ -68,6 +67,7 @@ exports[`DatalistWidget should render "no match" message 1`] = `
   >
     <div
       className="form-control tf-typeahead-container"
+      key="react-autowhatever-myWidget-container"
     >
       <div>
         <FormControl
@@ -79,6 +79,7 @@ exports[`DatalistWidget should render "no match" message 1`] = `
           autoComplete="off"
           bsClass="form-control"
           componentClass="input"
+          key="react-autowhatever-myWidget-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -115,12 +116,10 @@ exports[`DatalistWidget should render "no match" message 1`] = `
         </div>
       </div>
       <div
-        className="undefined undefined"
-      >
-        <span>
-          No match.
-        </span>
-      </div>
+        id="react-autowhatever-myWidget"
+        key="react-autowhatever-myWidget-items-container"
+        style={Object {}}
+      />
     </div>
   </Autowhatever>
 </DatalistWidget>
@@ -146,9 +145,9 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
   }
 >
   <Autowhatever
-    focusedItemIndex={null}
-    focusedSectionIndex={null}
     getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
     id="myWidget"
     inputProps={
       Object {
@@ -168,15 +167,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
         "onMouseLeave": [Function],
       }
     }
-    items={
-      Array [
-        "aze",
-        "banane",
-        "bananAze",
-        "   AzErTy   ",
-        "Toto",
-      ]
-    }
+    items={Array []}
     multiSection={false}
     renderInputComponent={[Function]}
     renderItem={[Function]}
@@ -187,14 +178,13 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
     }
     renderItemsContainer={[Function]}
     renderSectionTitle={[Function]}
-    shouldRenderSection={[Function]}
     theme={
       Object {
         "container": "form-control tf-typeahead-container",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
-        "itemFocused": undefined,
+        "itemHighlighted": undefined,
         "itemsContainer": undefined,
         "itemsList": undefined,
       }
@@ -202,6 +192,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
   >
     <div
       className="form-control tf-typeahead-container"
+      key="react-autowhatever-myWidget-container"
     >
       <div>
         <FormControl
@@ -213,6 +204,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
           autoComplete="off"
           bsClass="form-control"
           componentClass="input"
+          key="react-autowhatever-myWidget-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -250,11 +242,12 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
       </div>
       <div
         id="react-autowhatever-myWidget"
+        key="react-autowhatever-myWidget-items-container"
         style={Object {}}
       >
         <ItemsList
-          focusedItemIndex={null}
           getItemId={[Function]}
+          highlightedItemIndex={null}
           itemProps={
             Object {
               "onMouseDown": [Function],
@@ -272,7 +265,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
             ]
           }
           keyPrefix="react-autowhatever-myWidget-"
-          onFocusedItemChange={[Function]}
+          onHighlightedItemChange={[Function]}
           renderItem={[Function]}
           renderItemData={
             Object {
@@ -283,13 +276,16 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
           theme={[Function]}
         >
           <ul
+            key="react-autowhatever-myWidget-items-list"
             role="listbox"
             style={Object {}}
           >
             <Item
               id="react-autowhatever-myWidget--item-0"
+              isHighlighted={false}
               item="aze"
               itemIndex={0}
+              key="react-autowhatever-myWidget-item-0"
               onMouseDown={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
@@ -326,8 +322,10 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
             </Item>
             <Item
               id="react-autowhatever-myWidget--item-1"
+              isHighlighted={false}
               item="banane"
               itemIndex={1}
+              key="react-autowhatever-myWidget-item-1"
               onMouseDown={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
@@ -364,8 +362,10 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
             </Item>
             <Item
               id="react-autowhatever-myWidget--item-2"
+              isHighlighted={false}
               item="bananAze"
               itemIndex={2}
+              key="react-autowhatever-myWidget-item-2"
               onMouseDown={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
@@ -402,8 +402,10 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
             </Item>
             <Item
               id="react-autowhatever-myWidget--item-3"
+              isHighlighted={false}
               item="   AzErTy   "
               itemIndex={3}
+              key="react-autowhatever-myWidget-item-3"
               onMouseDown={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
@@ -440,8 +442,10 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
             </Item>
             <Item
               id="react-autowhatever-myWidget--item-4"
+              isHighlighted={false}
               item="Toto"
               itemIndex={4}
+              key="react-autowhatever-myWidget-item-4"
               onMouseDown={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
@@ -504,9 +508,9 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
   }
 >
   <Autowhatever
-    focusedItemIndex={null}
-    focusedSectionIndex={null}
     getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
     id="myWidget"
     inputProps={
       Object {
@@ -532,19 +536,18 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
     renderItem={[Function]}
     renderItemData={
       Object {
-        "value": "aze",
+        "value": "",
       }
     }
     renderItemsContainer={[Function]}
     renderSectionTitle={[Function]}
-    shouldRenderSection={[Function]}
     theme={
       Object {
         "container": "form-control tf-typeahead-container",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
-        "itemFocused": undefined,
+        "itemHighlighted": undefined,
         "itemsContainer": undefined,
         "itemsList": undefined,
       }
@@ -552,6 +555,7 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
   >
     <div
       className="form-control tf-typeahead-container"
+      key="react-autowhatever-myWidget-container"
     >
       <div>
         <FormControl
@@ -563,6 +567,7 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
           autoComplete="off"
           bsClass="form-control"
           componentClass="input"
+          key="react-autowhatever-myWidget-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -599,12 +604,10 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
         </div>
       </div>
       <div
-        className="undefined undefined"
-      >
-        <span>
-          No match.
-        </span>
-      </div>
+        id="react-autowhatever-myWidget"
+        key="react-autowhatever-myWidget-items-container"
+        style={Object {}}
+      />
     </div>
   </Autowhatever>
 </DatalistWidget>
@@ -679,9 +682,9 @@ exports[`DatalistWidget should render items under category when it has "category
   }
 >
   <Autowhatever
-    focusedItemIndex={null}
-    focusedSectionIndex={null}
     getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
     id="datawidget"
     inputProps={
       Object {
@@ -701,28 +704,7 @@ exports[`DatalistWidget should render items under category when it has "category
         "onMouseLeave": [Function],
       }
     }
-    items={
-      Array [
-        Object {
-          "items": Array [
-            Object {
-              "text": "Apple",
-              "value": "apple",
-            },
-          ],
-          "title": "fruit",
-        },
-        Object {
-          "items": Array [
-            Object {
-              "text": "Blue",
-              "value": "blue",
-            },
-          ],
-          "title": "color",
-        },
-      ]
-    }
+    items={Array []}
     multiSection={true}
     renderInputComponent={[Function]}
     renderItem={[Function]}
@@ -733,14 +715,13 @@ exports[`DatalistWidget should render items under category when it has "category
     }
     renderItemsContainer={[Function]}
     renderSectionTitle={[Function]}
-    shouldRenderSection={[Function]}
     theme={
       Object {
         "container": "form-control tf-typeahead-container",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
-        "itemFocused": undefined,
+        "itemHighlighted": undefined,
         "itemsContainer": undefined,
         "itemsList": undefined,
       }
@@ -748,6 +729,7 @@ exports[`DatalistWidget should render items under category when it has "category
   >
     <div
       className="form-control tf-typeahead-container"
+      key="react-autowhatever-datawidget-container"
     >
       <div>
         <FormControl
@@ -759,6 +741,7 @@ exports[`DatalistWidget should render items under category when it has "category
           autoComplete="off"
           bsClass="form-control"
           componentClass="input"
+          key="react-autowhatever-datawidget-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -794,9 +777,11 @@ exports[`DatalistWidget should render items under category when it has "category
       </div>
       <div
         id="react-autowhatever-datawidget"
+        key="react-autowhatever-datawidget-items-container"
         style={Object {}}
       >
         <div
+          key="react-autowhatever-datawidget-section-0-container"
           style={Object {}}
         >
           <SectionTitle
@@ -816,6 +801,7 @@ exports[`DatalistWidget should render items under category when it has "category
             theme={[Function]}
           >
             <div
+              key="react-autowhatever-datawidget-section-0-title"
               style={Object {}}
             >
               <div>
@@ -824,8 +810,8 @@ exports[`DatalistWidget should render items under category when it has "category
             </div>
           </SectionTitle>
           <ItemsList
-            focusedItemIndex={null}
             getItemId={[Function]}
+            highlightedItemIndex={null}
             itemProps={
               Object {
                 "onMouseDown": [Function],
@@ -842,7 +828,7 @@ exports[`DatalistWidget should render items under category when it has "category
               ]
             }
             keyPrefix="react-autowhatever-datawidget-"
-            onFocusedItemChange={[Function]}
+            onHighlightedItemChange={[Function]}
             renderItem={[Function]}
             renderItemData={
               Object {
@@ -853,11 +839,13 @@ exports[`DatalistWidget should render items under category when it has "category
             theme={[Function]}
           >
             <ul
+              key="react-autowhatever-datawidget-section-0-items-list"
               role="listbox"
               style={Object {}}
             >
               <Item
                 id="react-autowhatever-datawidget-section-0-item-0"
+                isHighlighted={false}
                 item={
                   Object {
                     "text": "Apple",
@@ -865,6 +853,7 @@ exports[`DatalistWidget should render items under category when it has "category
                   }
                 }
                 itemIndex={0}
+                key="react-autowhatever-datawidget-section-0-item-0"
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
@@ -903,6 +892,7 @@ exports[`DatalistWidget should render items under category when it has "category
           </ItemsList>
         </div>
         <div
+          key="react-autowhatever-datawidget-section-1-container"
           style={Object {}}
         >
           <SectionTitle
@@ -922,6 +912,7 @@ exports[`DatalistWidget should render items under category when it has "category
             theme={[Function]}
           >
             <div
+              key="react-autowhatever-datawidget-section-1-title"
               style={Object {}}
             >
               <div>
@@ -930,8 +921,8 @@ exports[`DatalistWidget should render items under category when it has "category
             </div>
           </SectionTitle>
           <ItemsList
-            focusedItemIndex={null}
             getItemId={[Function]}
+            highlightedItemIndex={null}
             itemProps={
               Object {
                 "onMouseDown": [Function],
@@ -948,7 +939,7 @@ exports[`DatalistWidget should render items under category when it has "category
               ]
             }
             keyPrefix="react-autowhatever-datawidget-"
-            onFocusedItemChange={[Function]}
+            onHighlightedItemChange={[Function]}
             renderItem={[Function]}
             renderItemData={
               Object {
@@ -959,11 +950,13 @@ exports[`DatalistWidget should render items under category when it has "category
             theme={[Function]}
           >
             <ul
+              key="react-autowhatever-datawidget-section-1-items-list"
               role="listbox"
               style={Object {}}
             >
               <Item
                 id="react-autowhatever-datawidget-section-1-item-0"
+                isHighlighted={false}
                 item={
                   Object {
                     "text": "Blue",
@@ -971,6 +964,7 @@ exports[`DatalistWidget should render items under category when it has "category
                   }
                 }
                 itemIndex={0}
+                key="react-autowhatever-datawidget-section-1-item-0"
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
@@ -1038,9 +1032,9 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
   }
 >
   <Autowhatever
-    focusedItemIndex={null}
-    focusedSectionIndex={null}
     getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
     id="myWidget"
     inputProps={
       Object {
@@ -1071,14 +1065,13 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
     }
     renderItemsContainer={[Function]}
     renderSectionTitle={[Function]}
-    shouldRenderSection={[Function]}
     theme={
       Object {
         "container": "form-control tf-typeahead-container",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
-        "itemFocused": undefined,
+        "itemHighlighted": undefined,
         "itemsContainer": undefined,
         "itemsList": undefined,
       }
@@ -1086,6 +1079,7 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
   >
     <div
       className="form-control tf-typeahead-container"
+      key="react-autowhatever-myWidget-container"
     >
       <div>
         <FormControl
@@ -1097,6 +1091,7 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
           autoComplete="off"
           bsClass="form-control"
           componentClass="input"
+          key="react-autowhatever-myWidget-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -1134,6 +1129,7 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
       </div>
       <div
         id="react-autowhatever-myWidget"
+        key="react-autowhatever-myWidget-items-container"
         style={Object {}}
       />
     </div>
@@ -1169,9 +1165,9 @@ exports[`DatalistWidget should select item under category when press enter on fo
   }
 >
   <Autowhatever
-    focusedItemIndex={null}
-    focusedSectionIndex={null}
     getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
     id="datawidget"
     inputProps={
       Object {
@@ -1202,14 +1198,13 @@ exports[`DatalistWidget should select item under category when press enter on fo
     }
     renderItemsContainer={[Function]}
     renderSectionTitle={[Function]}
-    shouldRenderSection={[Function]}
     theme={
       Object {
         "container": "form-control tf-typeahead-container",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
-        "itemFocused": undefined,
+        "itemHighlighted": undefined,
         "itemsContainer": undefined,
         "itemsList": undefined,
       }
@@ -1217,17 +1212,19 @@ exports[`DatalistWidget should select item under category when press enter on fo
   >
     <div
       className="form-control tf-typeahead-container"
+      key="react-autowhatever-datawidget-container"
     >
       <div>
         <FormControl
           aria-activedescendant={null}
           aria-autocomplete="list"
-          aria-expanded={false}
-          aria-haspopup={false}
+          aria-expanded={true}
+          aria-haspopup={true}
           aria-owns="react-autowhatever-datawidget"
           autoComplete="off"
           bsClass="form-control"
           componentClass="input"
+          key="react-autowhatever-datawidget-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -1235,13 +1232,13 @@ exports[`DatalistWidget should select item under category when press enter on fo
           role="combobox"
           style={Object {}}
           type="text"
-          value="Apple"
+          value=""
         >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
-            aria-expanded={false}
-            aria-haspopup={false}
+            aria-expanded={true}
+            aria-haspopup={true}
             aria-owns="react-autowhatever-datawidget"
             autoComplete="off"
             className="form-control"
@@ -1252,7 +1249,7 @@ exports[`DatalistWidget should select item under category when press enter on fo
             role="combobox"
             style={Object {}}
             type="text"
-            value="Apple"
+            value=""
           />
         </FormControl>
         <div>
@@ -1263,8 +1260,110 @@ exports[`DatalistWidget should select item under category when press enter on fo
       </div>
       <div
         id="react-autowhatever-datawidget"
+        key="react-autowhatever-datawidget-items-container"
         style={Object {}}
-      />
+      >
+        <div
+          key="react-autowhatever-datawidget-section-0-container"
+          style={Object {}}
+        >
+          <SectionTitle
+            renderSectionTitle={[Function]}
+            section={
+              Object {
+                "items": Array [
+                  Object {
+                    "text": "Apple",
+                    "value": "apple",
+                  },
+                ],
+                "title": "fruit",
+              }
+            }
+            sectionKeyPrefix="react-autowhatever-datawidget-section-0-"
+            theme={[Function]}
+          />
+          <ItemsList
+            getItemId={[Function]}
+            highlightedItemIndex={null}
+            itemProps={
+              Object {
+                "onMouseDown": [Function],
+                "onMouseEnter": [Function],
+                "onMouseLeave": [Function],
+              }
+            }
+            items={
+              Array [
+                Object {
+                  "text": "Apple",
+                  "value": "apple",
+                },
+              ]
+            }
+            keyPrefix="react-autowhatever-datawidget-"
+            onHighlightedItemChange={[Function]}
+            renderItem={[Function]}
+            renderItemData={
+              Object {
+                "value": "",
+              }
+            }
+            sectionIndex={0}
+            theme={[Function]}
+          />
+        </div>
+        <div
+          key="react-autowhatever-datawidget-section-1-container"
+          style={Object {}}
+        >
+          <SectionTitle
+            renderSectionTitle={[Function]}
+            section={
+              Object {
+                "items": Array [
+                  Object {
+                    "text": "Blue",
+                    "value": "blue",
+                  },
+                ],
+                "title": "color",
+              }
+            }
+            sectionKeyPrefix="react-autowhatever-datawidget-section-1-"
+            theme={[Function]}
+          />
+          <ItemsList
+            getItemId={[Function]}
+            highlightedItemIndex={null}
+            itemProps={
+              Object {
+                "onMouseDown": [Function],
+                "onMouseEnter": [Function],
+                "onMouseLeave": [Function],
+              }
+            }
+            items={
+              Array [
+                Object {
+                  "text": "Blue",
+                  "value": "blue",
+                },
+              ]
+            }
+            keyPrefix="react-autowhatever-datawidget-"
+            onHighlightedItemChange={[Function]}
+            renderItem={[Function]}
+            renderItemData={
+              Object {
+                "value": "",
+              }
+            }
+            sectionIndex={1}
+            theme={[Function]}
+          />
+        </div>
+      </div>
     </div>
   </Autowhatever>
 </DatalistWidget>
@@ -1290,9 +1389,9 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
   }
 >
   <Autowhatever
-    focusedItemIndex={null}
-    focusedSectionIndex={null}
     getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
     id="myWidget"
     inputProps={
       Object {
@@ -1323,14 +1422,13 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
     }
     renderItemsContainer={[Function]}
     renderSectionTitle={[Function]}
-    shouldRenderSection={[Function]}
     theme={
       Object {
         "container": "form-control tf-typeahead-container",
         "containerOpen": undefined,
         "highlight": undefined,
         "input": undefined,
-        "itemFocused": undefined,
+        "itemHighlighted": undefined,
         "itemsContainer": undefined,
         "itemsList": undefined,
       }
@@ -1338,17 +1436,19 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
   >
     <div
       className="form-control tf-typeahead-container"
+      key="react-autowhatever-myWidget-container"
     >
       <div>
         <FormControl
           aria-activedescendant={null}
           aria-autocomplete="list"
-          aria-expanded={false}
-          aria-haspopup={false}
+          aria-expanded={true}
+          aria-haspopup={true}
           aria-owns="react-autowhatever-myWidget"
           autoComplete="off"
           bsClass="form-control"
           componentClass="input"
+          key="react-autowhatever-myWidget-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -1357,13 +1457,13 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
           role="combobox"
           style={Object {}}
           type="text"
-          value="aze"
+          value=""
         >
           <input
             aria-activedescendant={null}
             aria-autocomplete="list"
-            aria-expanded={false}
-            aria-haspopup={false}
+            aria-expanded={true}
+            aria-haspopup={true}
             aria-owns="react-autowhatever-myWidget"
             autoComplete="off"
             className="form-control"
@@ -1375,7 +1475,7 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
             role="combobox"
             style={Object {}}
             type="text"
-            value="aze"
+            value=""
           />
         </FormControl>
         <div>
@@ -1386,8 +1486,40 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
       </div>
       <div
         id="react-autowhatever-myWidget"
+        key="react-autowhatever-myWidget-items-container"
         style={Object {}}
-      />
+      >
+        <ItemsList
+          getItemId={[Function]}
+          highlightedItemIndex={null}
+          itemProps={
+            Object {
+              "onMouseDown": [Function],
+              "onMouseEnter": [Function],
+              "onMouseLeave": [Function],
+            }
+          }
+          items={
+            Array [
+              "aze",
+              "banane",
+              "bananAze",
+              "   AzErTy   ",
+              "Toto",
+            ]
+          }
+          keyPrefix="react-autowhatever-myWidget-"
+          onHighlightedItemChange={[Function]}
+          renderItem={[Function]}
+          renderItemData={
+            Object {
+              "value": "",
+            }
+          }
+          sectionIndex={null}
+          theme={[Function]}
+        />
+      </div>
     </div>
   </Autowhatever>
 </DatalistWidget>

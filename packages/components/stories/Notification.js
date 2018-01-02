@@ -1,5 +1,7 @@
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+
 import talendIcons from '@talend/icons/dist/react';
 
 import { Notification, IconsProvider } from '../src/index';
@@ -18,7 +20,9 @@ class NotificationWrapper extends React.Component {
 			this.notifications = this.notifications.concat([
 				{
 					id: 'story-1',
-					message: 'This is a feedback of your operation1, This is a feedback of your operation1',
+					type: 'error',
+					title: 'Story 1 example title',
+					message: 'This is a feedback of your operation1, This is a feedback of your operation1, This is a feedback of your operation1',
 					action: {
 						label: 'Haha',
 						icon: 'talend-undo',
@@ -33,6 +37,7 @@ class NotificationWrapper extends React.Component {
 				{
 					id: 'story-2',
 					type: 'error',
+					title: 'Story 2 example title ',
 					message: [
 						'This is a feedback of your operation2',
 						'This is a feedback of your operation1, This is a feedback of your operation1',

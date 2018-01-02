@@ -360,6 +360,195 @@ exports[`Layout should render layout with footer component 1`] = `
 </div>
 `;
 
+exports[`Layout should render layout with subHeader in OneColumn mode 1`] = `
+<div
+  className="tc-layout"
+>
+  <header
+    className="tc-subheader"
+  >
+    <nav
+      className="tc-actionbar-container nav tc-subheader-navbar"
+    >
+      <div
+        className={undefined}
+      >
+        <div
+          className="navbar-left"
+        >
+          <button
+            className="tc-subheader-back-button btn btn-link"
+            disabled={false}
+            id="backArrow"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            onMouseOver={[Function]}
+            role={null}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="tc-svg-icon"
+              focusable="false"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-arrow-left"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          className="navbar-left"
+        >
+          <div
+            className="tc-subheader-details"
+          >
+            <div
+              className="tc-subheader-details-text"
+            >
+              <div
+                className="tc-subheader-details-text-title"
+              >
+                <h1
+                  className="tc-subheader-details-text-title-wording"
+                >
+                  defaultTitle
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div
+    className="tc-layout-one-column"
+  >
+    <div
+      className={undefined}
+    >
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+            "overflow": "auto",
+          }
+        }
+      >
+        <h1>
+          Column one
+        </h1>
+      </div>
+      <div
+        className={undefined}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Layout should render layout with subHeader in TwoColumns mode 1`] = `
+<div
+  className="tc-layout"
+>
+  <header
+    className="tc-subheader"
+  >
+    <nav
+      className="tc-actionbar-container nav tc-subheader-navbar"
+    >
+      <div
+        className={undefined}
+      >
+        <div
+          className="navbar-left"
+        >
+          <button
+            className="tc-subheader-back-button btn btn-link"
+            disabled={false}
+            id="backArrow"
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            onMouseOver={[Function]}
+            role={null}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="tc-svg-icon"
+              focusable="false"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-arrow-left"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          className="navbar-left"
+        >
+          <div
+            className="tc-subheader-details"
+          >
+            <div
+              className="tc-subheader-details-text"
+            >
+              <div
+                className="tc-subheader-details-text-title"
+              >
+                <h1
+                  className="tc-subheader-details-text-title-wording"
+                >
+                  defaultTitle
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div
+    className="tc-layout-two-columns"
+  >
+    <div
+      className="tc-layout-two-columns-left"
+    />
+    <div
+      className="tc-layout-two-columns-main"
+    >
+      <div
+        className={undefined}
+      >
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "column",
+              "height": "100%",
+              "overflow": "auto",
+            }
+          }
+        >
+          <h1>
+            Column one
+          </h1>
+        </div>
+        <div
+          className={undefined}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Layout should render layout without header 1`] = `
 <div
   className="tc-layout"

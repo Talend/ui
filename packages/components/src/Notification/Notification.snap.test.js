@@ -1,7 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 
-import Notification from './Notification.component';
+import NotificationContainer from './Notification.component';
 
 describe('Notification', () => {
 	it('should render', () => {
@@ -39,9 +39,9 @@ describe('Notification', () => {
 				message: 'This is a feedback of your operation4',
 			},
 		];
-		const wrapper = shallow(
-			<Notification notifications={notifications} leaveFn={() => {}} />
-		);
+		const wrapper = renderer
+			.create(<NotificationContainer notifications={notifications} leaveFn={() => {}} />)
+			.toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
 });

@@ -22,7 +22,7 @@ describe('Items', () => {
 		const wrapper = mount(<Items {...props} />);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJson(wrapper.find('Items'))).toMatchSnapshot();
 	});
 
 	it('should render with provided id', () => {
@@ -30,6 +30,6 @@ describe('Items', () => {
 		const wrapper = mount(<Items {...props} id={'my-widget'} />);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJson(wrapper.find('Items'))).toMatchSnapshot();
 	});
 });

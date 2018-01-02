@@ -1,6 +1,7 @@
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 import i18n, { LanguageSwitcher } from './config/i18n';
 import { SidePanel, IconsProvider, Layout } from '../src/index';
@@ -87,6 +88,46 @@ stories
 			onSelect={action('onItemSelect')}
 			onToggleDock={action('onToggleDock')}
 			selected={items[1]}
+			tooltipPlacement="top"
+		/>
+	))
+	.addWithInfo('not dockable', () => (
+		<SidePanel
+			actions={items}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			dockable={false}
+			selected={items[1]}
+			tooltipPlacement="top"
+		/>
+	))
+	.addWithInfo('with inverted style', () => (
+		<SidePanel
+			actions={items}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			selected={items[1]}
+			reverse
+			tooltipPlacement="top"
+		/>
+	))
+	.addWithInfo('with large inverted style', () => (
+		<SidePanel
+			actions={items}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			selected={items[1]}
+			reverse
+			large
+			tooltipPlacement="top"
+		/>
+	))
+	.addWithInfo('large docked', () => (
+		<SidePanel
+			actions={actions}
+			onToggleDock={action('Toggle dock clicked')}
+			docked
+			large
 			tooltipPlacement="top"
 		/>
 	))

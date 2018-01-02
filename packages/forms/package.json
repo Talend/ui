@@ -41,14 +41,14 @@
     "talend-json-schema-form-core": "1.0.2-alpha.2"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.2.0",
-    "@storybook/addon-info": "^3.2.16",
-    "@storybook/addon-knobs": "^3.2.0",
-    "@storybook/addons": "^3.2.0",
-    "@storybook/react": "3.2.16",
-    "@talend/bootstrap-theme": "^0.133.0",
-    "@talend/icons": "^0.133.0",
-    "@talend/react-components": "^0.133.0",
+    "@storybook/addon-actions": "^3.3.0",
+    "@storybook/addon-info": "^3.3.0",
+    "@storybook/addon-knobs": "^3.3.0",
+    "@storybook/addons": "^3.3.0",
+    "@storybook/react": "^3.3.0",
+    "@talend/bootstrap-theme": "^0.137.0",
+    "@talend/icons": "^0.137.0",
+    "@talend/react-components": "^0.137.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
@@ -61,7 +61,7 @@
     "bootstrap-sass": "3.3.7",
     "chokidar": "^1.6.1",
     "cpx": "1.5.0",
-    "enzyme": "^3.0.0",
+    "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "1.0.0",
     "enzyme-to-json": "^3.0.0",
     "eslint": "^3.6.1",
@@ -96,7 +96,7 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/react-components": "^0.133.0",
+    "@talend/react-components": "^0.137.0",
     "i18next": "10.2.1",
     "prop-types": "15.5.10",
     "react": "^16.0.0",
@@ -107,9 +107,6 @@
     "redux": "3.6.0"
   },
   "jest": {
-    "setupFiles": [
-      "./env__tests.js"
-    ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!**/node_modules/**",
@@ -125,10 +122,11 @@
     "testRegex": "&*\\.test\\.js$",
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
-    }
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.133.0"
+  "version": "0.137.0"
 }

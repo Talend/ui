@@ -24,7 +24,7 @@ describe('TextArea field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
@@ -48,7 +48,7 @@ describe('TextArea field', () => {
 				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
@@ -72,7 +72,7 @@ describe('TextArea field', () => {
 				onFinish={jest.fn()}
 				schema={readOnlySchema}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
@@ -96,7 +96,7 @@ describe('TextArea field', () => {
 				onFinish={jest.fn()}
 				schema={schemaWithRows}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
@@ -115,7 +115,7 @@ describe('TextArea field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'toto'}
-			/>
+			/>,
 		);
 		const value = 'totoa';
 		const event = { target: { value } };
@@ -139,7 +139,7 @@ describe('TextArea field', () => {
 				onFinish={onFinish}
 				schema={schema}
 				value={'toto'}
-			/>
+			/>,
 		);
 		const value = 'totoa';
 		const event = { target: { value } };

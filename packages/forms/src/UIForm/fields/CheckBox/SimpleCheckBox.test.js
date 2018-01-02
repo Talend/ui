@@ -12,12 +12,7 @@ describe('SimpleCheckBox field', () => {
 	it('should render input', () => {
 		// when
 		const wrapper = shallow(
-			<SimpleCheckBox
-				id={'myForm'}
-				label={'My checkbox custom label'}
-				schema={schema}
-				value
-			/>
+			<SimpleCheckBox id={'myForm'} label={'My checkbox custom label'} schema={schema} value />,
 		);
 
 		// then
@@ -38,7 +33,7 @@ describe('SimpleCheckBox field', () => {
 				label={'My checkbox custom label'}
 				schema={disabledSchema}
 				value
-			/>
+			/>,
 		);
 
 		// then
@@ -55,12 +50,15 @@ describe('SimpleCheckBox field', () => {
 				onChange={onChange}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 		const event = { target: { checked: false } };
 
 		// when
-		wrapper.find('input').at(0).simulate('change', event);
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', event);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { schema, value: false });
@@ -76,12 +74,15 @@ describe('SimpleCheckBox field', () => {
 				onFinish={onFinish}
 				schema={schema}
 				value
-			/>
+			/>,
 		);
 		const event = { target: { checked: false } };
 
 		// when
-		wrapper.find('input').at(0).simulate('blur', event);
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('blur', event);
 
 		// then
 		expect(onFinish).toBeCalledWith(event, { schema });
