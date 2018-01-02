@@ -5,16 +5,27 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
-  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  4:2  error  Unexpected require()                                                                    global-require
+  1:1   error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  1:27  error  Unable to resolve path to module '@storybook/react'                                     import/no-unresolved
+  4:2   error  Unexpected require()                                                                    global-require
+
+/home/travis/build/Talend/ui/packages/components/src/Layout/Layout.test.js
+  3:10  error  'shallow' is defined but never used  no-unused-vars
+
+/home/travis/build/Talend/ui/packages/components/src/Notification/Notification.component.js
+  3:1  error  'react-transition-group' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
   21:1  error  Line 21 exceeds the maximum line length of 100                                       max-len
   56:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/__snapshots__/config.js
-  1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-  4:2  error  Unexpected require()                                                                    global-require
+  1:1   error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  1:27  error  Unable to resolve path to module '@storybook/react'                                     import/no-unresolved
+  4:2   error  Unexpected require()                                                                    global-require
+
+/home/travis/build/Talend/ui/packages/components/src/TabBar/__snapshots__/config.js
+  3:8  error  Unable to resolve path to module '@storybook/react'  import/no-unresolved
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   40:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
@@ -22,5 +33,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 8 problems (7 errors, 1 warning)
+✖ 13 problems (12 errors, 1 warning)
 
