@@ -17,7 +17,7 @@ export function wsSend(ws, message, callback, offlinebuffer) {
  * if is closed or not defined start a new ws
  */
 export function wsIsClosed(ws) {
-	return (!ws || ws.readyState === WebSocket.CLOSED);
+	return !ws || ws.readyState === WebSocket.CLOSED;
 }
 
 /**
