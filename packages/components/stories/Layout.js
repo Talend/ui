@@ -2,7 +2,15 @@ import React from 'react';
 import { storiesOf, action } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
 
-import { List, IconsProvider, Layout, SidePanel, HeaderBar, Drawer } from '../src/index';
+import {
+	List,
+	IconsProvider,
+	Layout,
+	SidePanel,
+	HeaderBar,
+	Drawer,
+	SubHeaderBar,
+} from '../src/index';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -32,33 +40,28 @@ const actions = [
 ];
 
 const drawers = [
-	(<Drawer stacked title="Hello drawers">
+	<Drawer stacked title="Hello drawers">
 		<p>You should not being able to read this because I&apos;m first</p>
-	</Drawer>),
-	(<Drawer title="Hello drawers">
+	</Drawer>,
+	<Drawer title="Hello drawers">
 		<p>The content dictate the width</p>
-	</Drawer>),
+	</Drawer>,
 ];
 
 const content = (
 	<div>
 		<h1>Welcome to the content for testing scroll</h1>
-		<ul>
-			{[...new Array(38)].map(() => <li>one</li>)}
-		</ul>
+		<ul>{[...new Array(38)].map(() => <li>one</li>)}</ul>
 	</div>
 );
-const sidePanel = (<SidePanel
-	actions={actions}
-	onToggleDock={action('Toggle dock clicked')}
-	docked={false}
-/>);
-const dockedSidePanel = (<SidePanel
-	actions={actions}
-	onToggleDock={action('Toggle dock clicked')}
-	docked
-/>);
-const header = (<HeaderBar brand={{ label: 'Example App Name' }} />);
+const sidePanel = (
+	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked={false} />
+);
+const dockedSidePanel = (
+	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked />
+);
+const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
+const subHeader = <SubHeaderBar title="MyTitle" onGoBack={action('SubHeader onGoBack')} />;
 const footer = 'Footer content';
 
 const listItem = {
@@ -130,10 +133,7 @@ const listProps = {
 		sort: {
 			field: 'name',
 			onChange: action('sort.onChange'),
-			options: [
-				{ id: 'id', name: 'Id' },
-				{ id: 'name', name: 'Name' },
-			],
+			options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 		},
 	},
 };
@@ -162,119 +162,97 @@ const tabs = {
 
 storiesOf('Layout', module)
 	.addWithInfo('OneColumn', () => (
-		<Layout
-			header={header}
-			mode="OneColumn"
-		>
+		<Layout header={header} mode="OneColumn">
 			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('OneColumn with scroll', () => (
-		<Layout
-			header={header}
-			mode="OneColumn"
-		>
+		<Layout header={header} mode="OneColumn">
 			{content}
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('OneColumn with tabs', () => (
-		<Layout
-			header={header}
-			tabs={tabs}
-			mode="OneColumn"
-		>
+		<Layout header={header} tabs={tabs} mode="OneColumn">
 			{content}
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={sidePanel}
-		>
+		<Layout header={header} mode="TwoColumns" one={sidePanel}>
 			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with scroll', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={sidePanel}
-		>
+		<Layout header={header} mode="TwoColumns" one={sidePanel}>
 			{content}
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with tabs', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={sidePanel}
-			tabs={tabs}
-		>
+		<Layout header={header} mode="TwoColumns" one={sidePanel} tabs={tabs}>
 			{content}
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with big Table list', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={dockedSidePanel}
-		>
+		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
 			<List {...listProps} />
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with big Large list', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={dockedSidePanel}
-		>
+		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
 			<List {...listProps} displayMode={'large'} />
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
+	.addWithInfo('TwoColumns with big Tile list', () => (
+		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
+			<List {...listProps} displayMode={'tile'} />
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
 	.addWithInfo('TwoColumns docked', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={dockedSidePanel}
-		>
+		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
 			{content}
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with drawers', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={sidePanel}
-			drawers={drawers}
-		>
+		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
 			{content}
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('OneColumn with footer', () => (
-		<Layout
-			header={header}
-			mode="OneColumn"
-			footer={footer}
-		>
+		<Layout header={header} mode="OneColumn" footer={footer}>
 			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('OneColumn without header', () => (
-		<Layout
-			mode="OneColumn"
-		>
+		<Layout mode="OneColumn">
+			<h1>Hello world</h1>
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('Subheader with OneColumn', () => (
+		<Layout header={header} subHeader={subHeader} mode="OneColumn" footer={footer}>
+			<h1>Hello world</h1>
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('Subheader with TwoColumns', () => (
+		<Layout header={header} subHeader={subHeader} one={sidePanel} mode="TwoColumns" footer={footer}>
+			<h1>Hello world</h1>
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.addWithInfo('Subheader alone', () => (
+		<Layout subHeader={subHeader} >
 			<h1>Hello world</h1>
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
