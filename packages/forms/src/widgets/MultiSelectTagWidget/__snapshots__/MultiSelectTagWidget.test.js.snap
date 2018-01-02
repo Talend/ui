@@ -55,7 +55,30 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
   className="items-container"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
-/>
+>
+  <ul
+    key="react-autowhatever-42-items-list"
+    role="listbox"
+    style={Object {}}
+  >
+    <li
+      id="react-autowhatever-42--item-0"
+      onMouseDown={[Function]}
+      role="option"
+      style={Object {}}
+    >
+      <div
+        title="Bar"
+      >
+        <span>
+          <span>
+            Bar
+          </span>
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
 `;
 
 exports[`MultiSelectTagWidget should render section title when items has category 1`] = `

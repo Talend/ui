@@ -36,7 +36,7 @@
     "copy-webpack-plugin": "4.1.1",
     "css-loader": "0.28.7",
     "enzyme": "^3.1.0",
-    "enzyme-adapter-react-16": "1.0.0",
+    "enzyme-adapter-react-16": "1.1.1",
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
