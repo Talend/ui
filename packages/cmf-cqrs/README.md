@@ -102,7 +102,7 @@ the new state resulting from the action to be applied
 the value returned by the actionListener get sent trought the websocket.
 
 ```javascript
-/** an example of an action listner sending all action trought the ws **/
+/** an example of an action listener sending all action trought the ws **/
 function myActionListener(previousState, action, nextState) {
 	return JSON.stringify(action);
 }
@@ -114,7 +114,7 @@ the store.getState function in case you want to check the store state before doi
 
 
 ```javascript
-/** an example of an message listner dispatching each message recieved **/
+/** an example of an message listener dispatching each message recieved **/
 function myMessageListener(messageEvent, dispatch, getState) {
 	dispatch({type: 'MESSAGE RECIEVED', message: JSON.parse(messageEvent.data);})
 }
