@@ -103,8 +103,7 @@
       "^.+\\.js$": "<rootDir>/../../node_modules/babel-jest"
     },
     "roots": [
-      "src",
-      "__mocks__"
+      "src"
     ],
     "testRegex": "&*\\.test\\.js$",
     "setupFiles": [
