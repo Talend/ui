@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Drawer render drawer content with extra className 1`] = `
+<div
+  className="tc-drawer-content extraClass"
+>
+  <h1>
+    Hello world
+  </h1>
+</div>
+`;
+
+exports[`Drawer render drawer content without extra className 1`] = `
+<div
+  className="tc-drawer-content"
+>
+  <h1>
+    Hello world
+  </h1>
+</div>
+`;
+
 exports[`Drawer should not render if no children 1`] = `null`;
 
 exports[`Drawer should render 1`] = `
