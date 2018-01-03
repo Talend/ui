@@ -29,7 +29,7 @@ describe('CMF error middleware getErrorMiddleware', () => {
 		expect(newState.action.type).toBe(HTTP_METHODS.POST);
 		expect(newState.action.body.reduxState).toBe(store.state);
 		expect(newState.action.body.action.type).toBe('THROW');
-		expect(newState.action.body.userAgent).toMatch(/Node\.js/);
+		expect(newState.action.body.userAgent).toMatch(navigator.userAgent);
 		expect(newState.action.body.error.message).toBe('message');
 	});
 	it('should throw exception without slug', () => {

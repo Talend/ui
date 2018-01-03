@@ -27,6 +27,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   40:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
+  33:3  warning  Unexpected console statement  no-console
 
-✖ 10 problems (10 errors, 0 warnings)
+✖ 11 problems (10 errors, 1 warnings)
 
