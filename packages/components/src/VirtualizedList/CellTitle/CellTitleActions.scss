@@ -1,4 +1,5 @@
 @import '../colors';
+
 $tc-list-title-actions-color: $brand-primary-dark !default;
 
 .main-title-actions-group {
@@ -23,6 +24,22 @@ $tc-list-title-actions-color: $brand-primary-dark !default;
 
 		:global(.btn-link) {
 			color: $tc-list-title-actions-color;
+		}
+	}
+
+	// Specific case for Win7/IE11 which it cannot compute width with float
+	:global(.btn-group) {
+		:global(> .btn-group) {
+			float: none;
+		}
+
+		&,
+		&-vertical {
+			display: inline-block;
+
+			:global(> .btn) {
+				float: none;
+			}
 		}
 	}
 }
