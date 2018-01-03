@@ -22,10 +22,8 @@ const log = utils.getLogger(program.quiet);
 const cmfconfig = utils.getCmfConfig();
 
 // 2 - Get sources & destination paths
-const sources = program.dev
-	? cmfconfig['cmf-settings']['dev-sources']
-	: cmfconfig['cmf-settings'].sources;
-const destination = pathLib.join(process.cwd(), cmfconfig['cmf-settings'].destination);
+const sources = program.dev ? cmfconfig.settings['sources-dev'] : cmfconfig.settings.sources;
+const destination = pathLib.join(process.cwd(), cmfconfig.settings.destination);
 
 // 3 - Extract json from sources
 log('\nExtracting configuration from : \n');

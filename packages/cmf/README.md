@@ -177,14 +177,14 @@ It require a cmf.json file with this format in your webapp's project root :
 
 ```json
 {
-	"cmf-settings": {
-		"dev-sources": [
-			"src/settings",
-			"../../dataset/webapp/src/settings"
-		],
+	"settings": {
 		"sources": [
 			"src/settings",
 			"node_modules/@talend/dataset/lib/settings"
+		],
+		"sources-dev": [
+			"src/settings",
+			"../../dataset/webapp/src/settings"
 		],
 		"destination": "src/assets/cmf-settings.json"
 	}
