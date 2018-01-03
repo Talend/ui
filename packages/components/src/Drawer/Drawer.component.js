@@ -129,9 +129,9 @@ DrawerTitle.propTypes = {
 	children: PropTypes.node,
 };
 
-function DrawerContent({ children, ...rest }) {
+function DrawerContent({ children, className, ...rest }) {
 	return (
-		<div className={classnames('tc-drawer-content', theme['tc-drawer-content'])} {...rest}>
+		<div className={classnames('tc-drawer-content', theme['tc-drawer-content'], className)} {...rest}>
 			{children}
 		</div>
 	);
@@ -139,6 +139,7 @@ function DrawerContent({ children, ...rest }) {
 
 DrawerContent.propTypes = {
 	children: PropTypes.node,
+	className: PropTypes.string,
 };
 
 function DrawerFooter({ children }) {
