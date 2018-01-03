@@ -105,7 +105,7 @@ $toggle-button-padding: $padding-small - 1;
 			width: $tc-side-panel-large-width;
 		}
 
-		.link {
+		:global(.tc-action) {
 			:global(.tc-svg-icon) + span {
 				margin-left: $tc-side-panel-large-padding;
 			}
@@ -123,21 +123,21 @@ $toggle-button-padding: $padding-small - 1;
 			}
 
 			.nav-pills {
-				.link {
+				:global(.tc-action) {
 					padding: $padding-normal $tc-side-panel-large-padding;
 				}
 			}
 
 			.toggle-btn {
 				padding-left: $tc-side-panel-large-toggle-padding;
-				.link {
+				:global(.tc-action) {
 					padding: $padding-small $tc-side-panel-large-padding;
 				}
 			}
 		}
 	}
 
-	.link {
+	:global(.tc-action) {
 		text-align: left;
 		font-size: $font-size-small;
 		text-transform: uppercase;
@@ -155,7 +155,7 @@ $toggle-button-padding: $padding-small - 1;
 			width: $tc-side-panel-docked-width;
 		}
 		.nav-pills {
-			.link {
+			:global(.tc-action) {
 				padding: $padding-normal;
 			}
 
@@ -167,7 +167,7 @@ $toggle-button-padding: $padding-small - 1;
 		}
 
 		.toggle-btn {
-			.link {
+			:global(.tc-action) {
 				padding: $padding-small;
 			}
 		}

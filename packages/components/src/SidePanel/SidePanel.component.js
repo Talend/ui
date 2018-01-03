@@ -101,7 +101,6 @@ function SidePanel({
 					<li className={theme['toggle-btn']} title={toggleButtonTitle}>
 						<Action
 							id={id && `${id}-toggle-dock`}
-							className={theme.link}
 							bsStyle="link"
 							onClick={onToggleDock}
 							icon="talend-opener"
@@ -134,7 +133,7 @@ function SidePanel({
 							id: getActionId(id, action),
 							bsStyle: 'link',
 							role: 'link',
-							className: classNames(theme.link, action.className),
+							className: action.className,
 						},
 						extra,
 					);
@@ -152,7 +151,7 @@ function SidePanel({
 						</li>
 					);
 				})}
-				{actionsComponents && Inject.map(getComponent, actionsComponents)}
+				{actionsComponents && <li>{Inject.map(getComponent, actionsComponents)}</li>}
 			</ul>
 		</nav>
 	);
