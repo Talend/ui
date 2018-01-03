@@ -22,6 +22,7 @@ function getMenuItem(item, index) {
 		</MenuItem>
 	);
 }
+
 /**
  * @param {object} props react props
  * @example
@@ -126,4 +127,4 @@ ActionDropdown.defaultProps = {
 	items: [],
 };
 
-export default ActionDropdown;
+export { ActionDropdown as default, getMenuItem };

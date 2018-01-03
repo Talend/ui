@@ -32,8 +32,9 @@ export function mapStateToProps(state, ownProps = {}) {
 	if (ownProps.actionId) {
 		props = api.action.getActionInfo(context, ownProps.actionId);
 	}
-	if (ownProps.actionIds) {
-		props.items = ownProps.actionIds.map(itemId => api.action.getActionInfo(context, itemId));
+	const actionIds = ownProps.actionIds || props.actionIds;
+	if (actionIds) {
+		props.items = actionIds.map(itemId => api.action.getActionInfo(context, itemId));
 	}
 	if (ownProps.customItems) {
 		props.componentItems = getComponentsItems(ownProps.defaultCustomItemId, ownProps.customItems);

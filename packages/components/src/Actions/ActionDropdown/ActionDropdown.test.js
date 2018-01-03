@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import ActionDropdown from './ActionDropdown.component';
+import ActionDropdown, { getMenuItem } from './ActionDropdown.component';
 
 describe('ActionDropdown', () => {
 	it('should call onSelect callback when click on item', () => {
