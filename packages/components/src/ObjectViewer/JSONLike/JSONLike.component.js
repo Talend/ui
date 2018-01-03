@@ -50,7 +50,7 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 
-	const lineValueClasses = classNames(theme.native, theme[type], theme['line-value']);
+	const lineValueClasses = classNames(theme.native, theme[type]);
 
 	return (
 		<span

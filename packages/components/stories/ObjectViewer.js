@@ -1,4 +1,6 @@
 import React from 'react';
+import repeat from 'lodash/repeat';
+import cloneDeep from 'lodash/cloneDeep';
 import { storiesOf, action } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
 
@@ -16,7 +18,7 @@ schema
 	.set('rating', 'integer');
 const veryLongDatasetLabel =
 	"Dataset of something that I cant't imagine; Dataset of something that I cant't imagine; Dataset of something that I cant't imagine";
-const veryLongCafeName = "Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name";
+const clubName = "Betty's Cafe";
 const clubCategory = 'Club category mixology hipster';
 
 const dateTimeData = [
@@ -31,8 +33,8 @@ const dateTimeData = [
 const data = [
 	{
 		business_id: 0,
-		name: `${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName}  ${veryLongCafeName} ${veryLongCafeName}   ${veryLongCafeName} ${veryLongCafeName} `,
-		category: `${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory} ${clubCategory}`,
+		name: clubName,
+		category: clubCategory,
 		rating: 4,
 		null_value: null,
 		num_of_reviews: 2647,
@@ -66,7 +68,7 @@ const data = [
 	},
 	{
 		business_id: 1,
-		name: `${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName} ${veryLongCafeName}`,
+		name: clubName,
 		category: 'Club',
 		rating: 4,
 		null_value: null,
@@ -351,6 +353,18 @@ stories
 			<ObjectViewer data={data} {...handler} displayMode="table" />
 		</div>
 	))
+	.addWithInfo('table with long text', () => {
+		const enhancedData = cloneDeep(data);
+		enhancedData[0].name = repeat(clubName, 10);
+		enhancedData[1].name = repeat(clubName, 5);
+		enhancedData[0].category = repeat(clubCategory, 10);
+		return (
+			<div>
+				<IconsProvider defaultIcons={icons} />
+				<ObjectViewer data={enhancedData} {...handler} displayMode="table" />
+			</div>
+		);
+	})
 	.addWithInfo('flat default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
