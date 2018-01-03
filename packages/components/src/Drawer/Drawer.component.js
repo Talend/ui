@@ -131,7 +131,10 @@ DrawerTitle.propTypes = {
 
 function DrawerContent({ children, className, ...rest }) {
 	return (
-		<div className={classnames('tc-drawer-content', theme['tc-drawer-content'], className)} {...rest}>
+		<div
+			className={classnames('tc-drawer-content', theme['tc-drawer-content'], className)}
+			{...rest}
+		>
 			{children}
 		</div>
 	);
