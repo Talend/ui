@@ -2,9 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import entries from 'lodash/entries';
-import has from 'lodash/has';
-import flatten from 'lodash/flatten';
-import flatMapDeep from 'lodash/flatMapDeep';
+import get from 'lodash/get';
 
 import css from './JSONSchemaRenderer.scss';
 
@@ -166,10 +164,34 @@ function typeResolver(schema, uiSchema) {
 }
 
 /**
+ * orderProperties sorts properties based on uiSchema ui:order array
+ *
+ * @param order
+ * @param properties
+ * @returns {Array}
+ */
+function orderProperties(order, properties) {
+	if (!order) {
+		return properties;
+	}
+	return properties.sort((a, b) => {
+		const aIndex = order.indexOf(a[0]);
+		const bIndex = order.indexOf(b[0]);
+		if (aIndex < 0) {
+			return 1;
+		}
+		if (bIndex < 0) {
+			return -1;
+		}
+		return aIndex - bIndex;
+	});
+}
+
+/**
  * objectRenderer renders nested properties
  */
 function ObjectRenderer({ propertyKey, title, properties, schema, uiSchema = {} }) {
-	const flattenProperties = entries(properties);
+	const flattenProperties = orderProperties(get(uiSchema, [propertyKey, 'ui:order']), entries(properties));
 	const elements = flattenProperties.map(
 		typeResolver(schema[propertyKey].properties, uiSchema[propertyKey]),
 	);
@@ -187,46 +209,6 @@ ObjectRenderer.propTypes = {
 };
 
 /**
- * orderProperties sorts properties based on uiSchema ui:order array
- *
- * @param uiSchema
- * @param properties
- * @returns {Array}
- */
-function orderProperties(uiSchema, properties) {
-	if (!uiSchema['ui:order']) {
-		return properties;
-	}
-
-	const flatMap = flatMapDeep(uiSchema, (i) => {
-		console.log('flat', i);
-		if (has(i, 'ui:order')) {
-			return i['ui:order'];
-		}
-		return i;
-	});
-	console.log('Flatten', flatMap);
-	const order = flatten(uiSchema['ui:order'].map(i => {
-		if (has(uiSchema, i, 'ui:order')) {
-			return uiSchema[i]['ui:order'];
-		}
-		return i;
-	}));
-	console.log("ORDER", order);
-	return properties.sort((a, b) => {
-		const aIndex = order.indexOf(a[0]);
-		const bIndex = order.indexOf(b[0]);
-		if (aIndex < 0) {
-			return 1;
-		}
-		if (bIndex < 0) {
-			return -1;
-		}
-		return aIndex - bIndex;
-	});
-}
-
-/**
  * JSONSchemaRenderer renders elements based on a JSONSchema and data
  *
  * @throws {InvalidSchemaException} schema must contain a jsonSchema and
@@ -239,7 +221,7 @@ function JSONSchemaRenderer({ schema, className, ...props }) {
 	}
 	let properties = entries(schema.properties);
 	if (schema.uiSchema) {
-		properties = orderProperties(schema.uiSchema, properties);
+		properties = orderProperties(schema.uiSchema['ui:order'], properties);
 	}
 	const elements = properties.map(typeResolver(schema.jsonSchema.properties, schema.uiSchema));
 	return (

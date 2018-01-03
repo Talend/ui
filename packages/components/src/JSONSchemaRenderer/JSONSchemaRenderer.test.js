@@ -116,17 +116,7 @@ describe('JSONSchemaRenderer', () => {
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
 		expect(
-			wrapper
-				.find('dt')
-				.first()
-				.text(),
-		).toEqual('a');
-		expect(
-			wrapper
-				.find('dt')
-				.last()
-				.text(),
-		).toEqual('d');
+			wrapper.find('dt').map(item => item.text())).toEqual(['a', 'b', 'c', 'd']);
 	});
 
 	it('should handle object level order', () => {
@@ -158,8 +148,7 @@ describe('JSONSchemaRenderer', () => {
 			},
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper.find('dt').map(item => item.text()))
-			.toEqual(['a', 'c', 'b', 'd']);
+		expect(wrapper.find('dt').map(item => item.text())).toEqual(['a', 'c', 'b', 'd']);
 	});
 
 	it("shouldn't render hidden fields", () => {
