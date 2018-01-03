@@ -26,12 +26,12 @@ const cmfconfig = utils.getCmfConfig();
 const sources = program.dev
 	? cmfconfig['cmf-settings']['dev-sources']
 	: cmfconfig['cmf-settings'].sources;
-const destination = `${process.cwd()}/${cmfconfig['cmf-settings'].destination}`;
+const destination = pathLib.join(process.cwd(), cmfconfig['cmf-settings'].destination);
 
 // 3 - Extract json from sources
 log('\nExtracting configuration from : \n');
 sources.forEach(source => {
-	findJsonInFolder(`${process.cwd()}/${source}`).forEach(filePath => {
+	findJsonInFolder(pathLib.join(process.cwd(), source)).forEach(filePath => {
 		log(filePath);
 		configurations.push(require(`${filePath}`)); // eslint-disable-line global-require
 	});

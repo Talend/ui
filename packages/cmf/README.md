@@ -174,19 +174,20 @@ When you have cmf in you package.json, you can run in your project scope this sc
 - cmf-settings
 
 It require a cmf.json file with this format in your webapp's project root :
+
 ```json
 {
 	"cmf-settings": {
-    	"dev-sources":[
+		"dev-sources": [
 			"src/settings",
 			"../../dataset/webapp/src/settings"
 		],
 		"sources": [
 			"src/settings",
 			"node_modules/@talend/dataset/lib/settings"
-    	],
+		],
 		"destination": "src/assets/cmf-settings.json"
-  	}
+	}
 }
 ```
 

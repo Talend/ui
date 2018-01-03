@@ -45,7 +45,7 @@ function getLogger(quiet) {
  */
 function getCmfConfig() {
 	try {
-		return require(`${process.cwd()}/cmf.json`); // eslint-disable-line
+		return require(pathLib.join(process.cwd(), 'cmf.json')); // eslint-disable-line
 	} catch (e) {
 		console.error('cmf.json file is required to run this script');
 		process.exit();
