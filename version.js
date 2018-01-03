@@ -61,7 +61,7 @@ const ADDONS = {
 	'react-immutable-proptypes': '2.1.0',
 	'react-jsonschema-form': '1.0.0',
 	'react-tap-event-plugin': '2.0.0',
-	'react-virtualized': '9.10.1',
+	'react-virtualized': '9.15.0',
 	slugify: '1.1.0',
 	'whatwg-fetch': '2.0.3',
 };
@@ -102,8 +102,6 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	uuid: '3.0.1',  // prefer bson-objectid
 
 	// dev deps
-	'@kadira/react-storybook-addon-info': '^3.3.0',
-	'@kadira/storybook': '^2.35.0',
 	'@storybook/react': '^3.3.0',
 	'@storybook/addon-storyshots': '^3.3.0',
 	'@storybook/addon-actions': '^3.3.0',
