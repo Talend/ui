@@ -1,5 +1,5 @@
 
-> @talend/react-containers@0.135.0 lint:es /home/travis/build/Talend/ui/packages/containers
+> @talend/react-containers@0.137.0 lint:es /home/travis/build/Talend/ui/packages/containers
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
