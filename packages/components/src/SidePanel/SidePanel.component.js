@@ -7,7 +7,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 import { DEFAULT_I18N } from '../translate';
 
 import Action from '../Actions/Action';
-
+import Inject from '../Inject';
 import theme from './SidePanel.scss';
 
 /**
@@ -54,6 +54,8 @@ function SidePanel({
 	selected,
 	onSelect,
 	actions,
+	actionsComponents,
+	getComponent,
 	docked,
 	reverse,
 	large,
@@ -107,7 +109,7 @@ function SidePanel({
 						/>
 					</li>
 				)}
-				{actions.map(action => {
+				{actions && actions.map(action => {
 					const a11y = {};
 					const extra = {};
 					const isSelected = isActionSelected(action);
@@ -150,6 +152,7 @@ function SidePanel({
 						</li>
 					);
 				})}
+				{actionsComponents && Inject.map(getComponent, actionsComponents)}
 			</ul>
 		</nav>
 	);
@@ -176,6 +179,8 @@ if (process.env.NODE_ENV !== 'production') {
 	SidePanel.propTypes = {
 		id: PropTypes.string,
 		actions: PropTypes.arrayOf(actionPropType),
+		actionsComponents: PropTypes.array,
+		getComponent: PropTypes.func,
 		onSelect: PropTypes.func,
 		onToggleDock: PropTypes.func,
 		docked: PropTypes.bool,
