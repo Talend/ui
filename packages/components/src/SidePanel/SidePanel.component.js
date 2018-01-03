@@ -30,6 +30,14 @@ function getActionId(id, action) {
 	return undefined;
 }
 
+function getActionsComponents(getComponent, actionsComponents) {
+	return actionsComponents.map(({ component, ...props }) => (
+		<li>
+			<Inject getComponent={getComponent} component={component} {...props} />
+		</li>
+	));
+}
+
 /**
  * This component aims to display links as a menu.
  * @param {object} props react props
@@ -93,7 +101,6 @@ function SidePanel({
 	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand' });
 	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse' });
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
-
 	return (
 		<nav className={navCSS} role="navigation">
 			<ul className={listCSS}>
@@ -108,7 +115,7 @@ function SidePanel({
 						/>
 					</li>
 				)}
-				{actions && actions.map(action => {
+				{actions.map(action => {
 					const a11y = {};
 					const extra = {};
 					const isSelected = isActionSelected(action);
@@ -151,7 +158,7 @@ function SidePanel({
 						</li>
 					);
 				})}
-				{actionsComponents && <li>{Inject.map(getComponent, actionsComponents)}</li>}
+				{Array.isArray(actionsComponents) && getActionsComponents(getComponent, actionsComponents)}
 			</ul>
 		</nav>
 	);
@@ -195,3 +202,4 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(SidePanel);
+export { getActionsComponents };
