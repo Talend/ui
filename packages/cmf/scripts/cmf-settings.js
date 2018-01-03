@@ -57,6 +57,6 @@ if (settings.overrideActions) {
 log(`Merge to ${destination}`);
 mkdirp(pathLib.dirname(destination), () => {
 	fs.writeFile(destination, JSON.stringify(settings), () => {
-		console.log('Merged');
+		log('Merged');
 	});
 });
