@@ -9,6 +9,7 @@ const error = { message: 'MyError' };
 describe('Inject', () => {
 	it('should render', () => {
 		const wrapper = shallow(<Inject />);
+		expect(wrapper.getElement()).toEqual(null);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render an Action component', () => {
