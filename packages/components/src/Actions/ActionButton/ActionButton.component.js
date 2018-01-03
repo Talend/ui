@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import classNames from 'classnames';
 import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
 import Icon from '../../Icon';
 import getPropsFrom from '../../utils/getPropsFrom';
+import theme from './ActionButton.scss';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -110,13 +112,15 @@ function ActionButton(props) {
 	}
 
 	const buttonContent = getContent(props);
+	const btnIsDisabled = inProgress || disabled;
 
 	let btn = (
 		<Button
+			className={classNames({ [theme['btn-disabled']]: btnIsDisabled })}
 			onMouseDown={rMouseDown}
 			onClick={rClick}
 			bsStyle={style}
-			disabled={inProgress || disabled}
+			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
 			{...buttonProps}
 		>
@@ -141,7 +145,7 @@ function ActionButton(props) {
 	if (hideLabel || tooltip || tooltipLabel) {
 		btn = (
 			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-				{btn}
+				{ btnIsDisabled ? <span>{btn}</span> : btn }
 			</TooltipTrigger>
 		);
 	}
