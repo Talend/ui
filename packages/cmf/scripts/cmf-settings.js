@@ -19,7 +19,6 @@ const concatMerge = utils.concatMerge;
 const overrideRoutes = utils.overrideRoutes;
 const overrideActions = utils.overrideActions;
 const log = utils.getLogger(program.quiet);
-const configurations = [];
 const cmfconfig = utils.getCmfConfig();
 
 // 2 - Get sources & destination paths
@@ -30,12 +29,13 @@ const destination = pathLib.join(process.cwd(), cmfconfig['cmf-settings'].destin
 
 // 3 - Extract json from sources
 log('\nExtracting configuration from : \n');
-sources.forEach(source => {
-	findJsonInFolder(pathLib.join(process.cwd(), source)).forEach(filePath => {
-		log(filePath);
-		configurations.push(require(`${filePath}`)); // eslint-disable-line global-require
-	});
-});
+
+const configurations = sources.reduce(
+	(acc, source) => acc.concat([...findJsonInFolder(pathLib.join(process.cwd(), source))]),
+	[],
+);
+log(configurations);
+
 log('\n');
 
 // 4 - merge json stuff in one object / settings
