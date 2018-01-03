@@ -37,9 +37,10 @@ function RowLarge({ className, index, key, parent, style }) {
 	}
 
 	return (
-		<div
+		<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 			className={classNames('tc-list-item', rowThemes, rowData.className)}
 			key={key}
+			tabIndex={0}
 			role="button"
 			onClick={onRowClick}
 			style={style}

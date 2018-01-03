@@ -9,6 +9,7 @@ import clearNotifications from './clearNotifications';
 
 jest.mock(
 	'@talend/react-components',
+	// eslint-disable-next-line react/prop-types
 	() => ({ Notification: props => (<div className="tc-notifications" notifications={props.notifications} />) })
 );
 

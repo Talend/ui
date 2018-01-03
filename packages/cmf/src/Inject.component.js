@@ -20,8 +20,8 @@ function MyComponent(props) {
  */
 
 function NotFoundComponent({ error }) {
-	console.error(error.message);
-	return (<div className="alert alert-danger">{error.message}</div>);
+	console.error(error.message); // eslint-disable-line no-console
+	return <div className="alert alert-danger">{error.message}</div>;
 }
 NotFoundComponent.propTypes = {
 	error: PropTypes.string.isRequired,
@@ -30,9 +30,9 @@ NotFoundComponent.propTypes = {
 function Inject({ component, ...props }, context) {
 	try {
 		const Component = api.component.get(component, context);
-		return (<Component {...props} />);
+		return <Component {...props} />;
 	} catch (error) {
-		return (<NotFoundComponent error={error.message} />);
+		return <NotFoundComponent error={error.message} />;
 	}
 }
 Inject.contextTypes = {

@@ -73,7 +73,7 @@ $tc-dialog-buttons-margin: 15px !default;
 		height: 100%;
 		overflow: hidden;
 		padding: $tc-dialog-body-padding $tc-dialog-body-padding $tc-dialog-medium-padding
-			$tc-dialog-body-padding;
+			$tc-dialog-body-padding; // sass-lint:disable-line indentation
 	}
 
 	:global(.modal-footer) {

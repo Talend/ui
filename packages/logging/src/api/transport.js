@@ -27,12 +27,13 @@ const defaultHandlers = {
 		setTimeout(() => {
 			report(payload, transportOpts, attempt + 1);
 		}, transportOpts.retryTimeout);
-		console.warn(
+		console.warn( // eslint-disable-line no-console
 			'Logging: Looks like logging host is unreachable, ' +
 				`retrying in ${transportOpts.retryTimeout / 1000} seconds`,
 		);
 	},
 	failedReport: error => {
+		// eslint-disable-next-line no-console
 		console.error('Logging: unable to send reports', error);
 	},
 };

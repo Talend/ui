@@ -1,7 +1,7 @@
 import React from 'react';
 import { Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
-import { Provider, store } from '@talend/react-cmf/lib/mock';
+import { store } from '@talend/react-cmf/lib/mock';
 
 import Container, { DEFAULT_STATE } from './ACKDispatcher.container';
 import Connected, {

@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import { api, cmfConnect } from '@talend/react-cmf';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router'; // eslint-disable-line import/no-extraneous-dependencies
 import Container, { DEFAULT_STATE } from './SidePanel.container';
 
 export function mapStateToProps(state, ownProps) {
