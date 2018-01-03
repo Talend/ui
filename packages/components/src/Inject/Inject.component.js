@@ -1,12 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+function NotFoundComponent({ error }) {
+	return <div className="alert alert-danger">{error}</div>;
+}
+
+NotFoundComponent.propTypes = {
+	error: PropTypes.string.isRequired,
+};
+
 function Inject({ getComponent, component, ...props }) {
 	if (!getComponent || !component) {
 		return null;
 	}
-	const Component = getComponent(component);
-	return <Component {...props} />;
+	try {
+		const Component = getComponent(component);
+		return <Component {...props} />;
+	} catch (error) {
+		return <NotFoundComponent error={error.message} />;
+	}
 }
 
 Inject.propTypes = {
@@ -18,4 +30,4 @@ Inject.map = function injectMap(getComponent, array) {
 	return array.map(props => <Inject getComponent={getComponent} {...props} />);
 };
 
-export default Inject;
+export { Inject as default, NotFoundComponent };

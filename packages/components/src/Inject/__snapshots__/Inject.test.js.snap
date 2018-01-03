@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Inject should render 1`] = `null`;
+
+exports[`NotFoundComponent should render 1`] = `
+<div
+  className="alert alert-danger"
+>
+  MyError
+</div>
+`;
