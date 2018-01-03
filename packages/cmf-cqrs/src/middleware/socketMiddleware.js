@@ -54,7 +54,7 @@ function createWebsocketMiddleware(socketPath, actionListeners = [], socketListe
 		if (!ws) {
 			ws = new SmartWebsocket(urlPrefix, {
 				onOpen: () => dispatch({ type: ACTION_TYPES.ON_OPEN }),
-				onClose: () => dispatch({ type: ACTION_TYPES.ON_CLOSE }),
+				onClose: event => dispatch({ type: ACTION_TYPES.ON_CLOSE, event }),
 				onMessage: messageEvent => {
 					socketListener.forEach(func => func(messageEvent, dispatch, getState));
 				},
