@@ -191,7 +191,10 @@ function orderProperties(order, properties) {
  * objectRenderer renders nested properties
  */
 function ObjectRenderer({ propertyKey, title, properties, schema, uiSchema = {} }) {
-	const flattenProperties = orderProperties(get(uiSchema, [propertyKey, 'ui:order']), entries(properties));
+	const flattenProperties = orderProperties(
+		get(uiSchema, [propertyKey, 'ui:order']),
+		entries(properties),
+	);
 	const elements = flattenProperties.map(
 		typeResolver(schema[propertyKey].properties, uiSchema[propertyKey]),
 	);

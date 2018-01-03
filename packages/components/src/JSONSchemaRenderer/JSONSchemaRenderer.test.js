@@ -115,8 +115,7 @@ describe('JSONSchemaRenderer', () => {
 			},
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(
-			wrapper.find('dt').map(item => item.text())).toEqual(['a', 'b', 'c', 'd']);
+		expect(wrapper.find('dt').map(item => item.text())).toEqual(['a', 'b', 'c', 'd']);
 	});
 
 	it('should handle object level order', () => {
