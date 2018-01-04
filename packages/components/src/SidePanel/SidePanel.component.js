@@ -30,14 +30,6 @@ function getActionId(id, action) {
 	return undefined;
 }
 
-function getActionsComponents(getComponent, actionsComponents) {
-	return actionsComponents.map(({ component, ...props }) => (
-		<li>
-			<Inject getComponent={getComponent} component={component} {...props} />
-		</li>
-	));
-}
-
 /**
  * This component aims to display links as a menu.
  * @param {object} props react props
@@ -70,7 +62,6 @@ function SidePanel({
 	dockable,
 	onToggleDock,
 	t,
-	renderers,
 }) {
 	const injected = Inject.all(getComponent, components);
 	const navCSS = classNames(theme['tc-side-panel'], 'tc-side-panel', {
@@ -102,14 +93,14 @@ function SidePanel({
 	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand' });
 	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse' });
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
+	const Components = Inject.getAll(getComponent, { Action });
 	return (
 		<nav className={navCSS} role="navigation">
-			{injected.get('preul')}
+			{injected('preul')}
 			<ul className={listCSS}>
-				{injected.get('beforedock')}
 				{dockable && (
 					<li className={theme['toggle-btn']} title={toggleButtonTitle}>
-						<Action
+						<Components.Action
 							id={id && `${id}-toggle-dock`}
 							bsStyle="link"
 							onClick={onToggleDock}
@@ -118,7 +109,7 @@ function SidePanel({
 						/>
 					</li>
 				)}
-				{injected.get('beforeactions')}
+				{injected('beforeactions')}
 				{actions && actions.map(action => {
 					const a11y = {};
 					const extra = {};
@@ -158,20 +149,19 @@ function SidePanel({
 							})}
 							{...a11y}
 						>
-							<renderers.Action {...actionProps} />
+							<Components.Action {...actionProps} />
 						</li>
 					);
 				})}
-				{injected.get('actions')}
+				{injected('actions')}
 			</ul>
-			{injected.get('postul')}
+			{injected('postul')}
 		</nav>
 	);
 }
 
 SidePanel.defaultProps = {
 	actions: [],
-	renderers: { Action },
 	reverse: false,
 	large: false,
 	dockable: true,
@@ -190,7 +180,7 @@ if (process.env.NODE_ENV !== 'production') {
 	SidePanel.propTypes = {
 		id: PropTypes.string,
 		actions: PropTypes.arrayOf(actionPropType),
-		actionsComponents: PropTypes.array,
+		components: PropTypes.object,
 		getComponent: PropTypes.func,
 		onSelect: PropTypes.func,
 		onToggleDock: PropTypes.func,
@@ -200,11 +190,7 @@ if (process.env.NODE_ENV !== 'production') {
 		dockable: PropTypes.bool,
 		selected: actionPropType,
 		t: PropTypes.func,
-		renderers: PropTypes.shape({
-			Action: PropTypes.node,
-		}),
 	};
 }
 
 export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(SidePanel);
-export { getActionsComponents };

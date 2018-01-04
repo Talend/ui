@@ -36,13 +36,35 @@ Inject.map = function injectMap(getComponent, array) {
 
 Inject.all = function injectAll(getComponent, components) {
 	if (!getComponent || !components) {
-		return { get: nothing };
+		return nothing;
 	}
-	const injected = {};
-	Object.keys(components).forEach(key => {
-		injected[key] = <Inject getComponent={getComponent} {...components[key]} />;
+	return key => {
+		if (Array.isArray(components[key])) {
+			return components[key].map(props => <Inject getComponent={getComponent} {...props} />);
+		} else if (typeof components[key] === 'object') {
+			return <Inject getComponent={getComponent} {...components[key]} />;
+		}
+		return null;
+	};
+};
+
+Inject.get = function injectGet(getComponent, componentId, Component) {
+	if (!getComponent) {
+		return Component;
+	}
+	try {
+		return getComponent(componentId);
+	} catch (error) {
+		return Component;
+	}
+};
+
+Inject.getAll = function injectGetAll(getComponent, config) {
+	const components = {};
+	Object.keys(config).forEach(key => {
+		components[key] = Inject.get(getComponent, key, config[key]);
 	});
-	return { get: comp => injected[comp] || null };
+	return components;
 };
 
 export { Inject as default, NotFoundComponent };
