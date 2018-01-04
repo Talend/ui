@@ -58,52 +58,6 @@ exports[`IconsProvider should render default talend-icons 1`] = `
   xmlns="http://www.w3.org/2000/svg"
 >
   <symbol
-    id="talend-AWS-kinesis"
-  >
-    <svg
-      viewBox="0 0 16 16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        fill="none"
-      >
-        <g
-          className="ti-kinesis-brand-lighter-color"
-          fill="#86A6BF"
-          fillRule="none-zero"
-        >
-          <path
-            d="M1.364 11.516l6.634 2.204 6.793-2.204L8.01 9.883zm-.001-2.418l6.639.681 6.789-.681-6.789-.366zm12.683-1.032h-3.545V5.11l3.545-.928z"
-          />
-          <path
-            d="M10.516 8.069H3.877v-3.43l6.639-1.855z"
-          />
-          <path
-            d="M12.496 8.068H8.951l.008-2.493 3.545-.929zM8.002 0L1.364 3.403v4.666h6.638z"
-          />
-        </g>
-        <g
-          className="ti-kinesis-brand-plain-color"
-          fill="#5D88AA"
-          fillRule="none-zero"
-        >
-          <path
-            d="M8.002 13.719v2.28l6.79-3.144v-1.34zm0-3.963v2.281l6.79-1.597V9.099zm6.045-1.689h.747V4.485l-.747-.304zm-1.544 0h.902V4.949l-.902-.31zm-.93 0h-1.057V2.784l1.057.464zM8.002 0v8.068h1.34V.774z"
-          />
-        </g>
-        <g
-          className="ti-kinesis-brand-darker-color"
-          fill="#46667F"
-          fillRule="none-zero"
-        >
-          <path
-            d="M1.362 12.855L8.002 16v-2.282l-6.64-2.203zm0-2.415l6.64 1.597V9.756l-6.64-.657z"
-          />
-        </g>
-      </g>
-    </svg>
-  </symbol>
-  <symbol
     id="talend-activemq"
   >
     <svg
@@ -203,6 +157,52 @@ exports[`IconsProvider should render default talend-icons 1`] = `
       <path
         d="M1 9h10.7l-4 4 1.4 1.4L15.5 8 9.1 1.6 7.7 3l4 4H1z"
       />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-AWS-kinesis"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="none"
+      >
+        <g
+          className="ti-kinesis-brand-lighter-color"
+          fill="#86A6BF"
+          fillRule="none-zero"
+        >
+          <path
+            d="M1.364 11.516l6.634 2.204 6.793-2.204L8.01 9.883zm-.001-2.418l6.639.681 6.789-.681-6.789-.366zm12.683-1.032h-3.545V5.11l3.545-.928z"
+          />
+          <path
+            d="M10.516 8.069H3.877v-3.43l6.639-1.855z"
+          />
+          <path
+            d="M12.496 8.068H8.951l.008-2.493 3.545-.929zM8.002 0L1.364 3.403v4.666h6.638z"
+          />
+        </g>
+        <g
+          className="ti-kinesis-brand-plain-color"
+          fill="#5D88AA"
+          fillRule="none-zero"
+        >
+          <path
+            d="M8.002 13.719v2.28l6.79-3.144v-1.34zm0-3.963v2.281l6.79-1.597V9.099zm6.045-1.689h.747V4.485l-.747-.304zm-1.544 0h.902V4.949l-.902-.31zm-.93 0h-1.057V2.784l1.057.464zM8.002 0v8.068h1.34V.774z"
+          />
+        </g>
+        <g
+          className="ti-kinesis-brand-darker-color"
+          fill="#46667F"
+          fillRule="none-zero"
+        >
+          <path
+            d="M1.362 12.855L8.002 16v-2.282l-6.64-2.203zm0-2.415l6.64 1.597V9.756l-6.64-.657z"
+          />
+        </g>
+      </g>
     </svg>
   </symbol>
   <symbol
@@ -2771,52 +2771,6 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
   xmlns="http://www.w3.org/2000/svg"
 >
   <symbol
-    id="talend-AWS-kinesis"
-  >
-    <svg
-      viewBox="0 0 16 16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        fill="none"
-      >
-        <g
-          className="ti-kinesis-brand-lighter-color"
-          fill="#86A6BF"
-          fillRule="none-zero"
-        >
-          <path
-            d="M1.364 11.516l6.634 2.204 6.793-2.204L8.01 9.883zm-.001-2.418l6.639.681 6.789-.681-6.789-.366zm12.683-1.032h-3.545V5.11l3.545-.928z"
-          />
-          <path
-            d="M10.516 8.069H3.877v-3.43l6.639-1.855z"
-          />
-          <path
-            d="M12.496 8.068H8.951l.008-2.493 3.545-.929zM8.002 0L1.364 3.403v4.666h6.638z"
-          />
-        </g>
-        <g
-          className="ti-kinesis-brand-plain-color"
-          fill="#5D88AA"
-          fillRule="none-zero"
-        >
-          <path
-            d="M8.002 13.719v2.28l6.79-3.144v-1.34zm0-3.963v2.281l6.79-1.597V9.099zm6.045-1.689h.747V4.485l-.747-.304zm-1.544 0h.902V4.949l-.902-.31zm-.93 0h-1.057V2.784l1.057.464zM8.002 0v8.068h1.34V.774z"
-          />
-        </g>
-        <g
-          className="ti-kinesis-brand-darker-color"
-          fill="#46667F"
-          fillRule="none-zero"
-        >
-          <path
-            d="M1.362 12.855L8.002 16v-2.282l-6.64-2.203zm0-2.415l6.64 1.597V9.756l-6.64-.657z"
-          />
-        </g>
-      </g>
-    </svg>
-  </symbol>
-  <symbol
     id="talend-activemq"
   >
     <svg
@@ -2916,6 +2870,52 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
       <path
         d="M1 9h10.7l-4 4 1.4 1.4L15.5 8 9.1 1.6 7.7 3l4 4H1z"
       />
+    </svg>
+  </symbol>
+  <symbol
+    id="talend-AWS-kinesis"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="none"
+      >
+        <g
+          className="ti-kinesis-brand-lighter-color"
+          fill="#86A6BF"
+          fillRule="none-zero"
+        >
+          <path
+            d="M1.364 11.516l6.634 2.204 6.793-2.204L8.01 9.883zm-.001-2.418l6.639.681 6.789-.681-6.789-.366zm12.683-1.032h-3.545V5.11l3.545-.928z"
+          />
+          <path
+            d="M10.516 8.069H3.877v-3.43l6.639-1.855z"
+          />
+          <path
+            d="M12.496 8.068H8.951l.008-2.493 3.545-.929zM8.002 0L1.364 3.403v4.666h6.638z"
+          />
+        </g>
+        <g
+          className="ti-kinesis-brand-plain-color"
+          fill="#5D88AA"
+          fillRule="none-zero"
+        >
+          <path
+            d="M8.002 13.719v2.28l6.79-3.144v-1.34zm0-3.963v2.281l6.79-1.597V9.099zm6.045-1.689h.747V4.485l-.747-.304zm-1.544 0h.902V4.949l-.902-.31zm-.93 0h-1.057V2.784l1.057.464zM8.002 0v8.068h1.34V.774z"
+          />
+        </g>
+        <g
+          className="ti-kinesis-brand-darker-color"
+          fill="#46667F"
+          fillRule="none-zero"
+        >
+          <path
+            d="M1.362 12.855L8.002 16v-2.282l-6.64-2.203zm0-2.415l6.64 1.597V9.756l-6.64-.657z"
+          />
+        </g>
+      </g>
     </svg>
   </symbol>
   <symbol

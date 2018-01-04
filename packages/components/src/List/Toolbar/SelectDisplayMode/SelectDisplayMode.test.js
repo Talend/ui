@@ -12,9 +12,7 @@ const requiredProps = {
 describe('SelectDisplayMode', () => {
 	it('should render', () => {
 		// when
-		const wrapper = renderer.create(
-			<SelectDisplayMode {...requiredProps} />
-		).toJSON();
+		const wrapper = renderer.create(<SelectDisplayMode {...requiredProps} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -22,39 +20,24 @@ describe('SelectDisplayMode', () => {
 
 	it('should render with displayMode = table', () => {
 		// when
-		const wrapper = renderer.create(
-			<SelectDisplayMode mode="table" {...requiredProps} />
-		).toJSON();
+		const wrapper = renderer.create(<SelectDisplayMode mode="table" {...requiredProps} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
 	it('should render with displayMode = large', () => {
 		// when
-		const wrapper = renderer.create(
-			<SelectDisplayMode mode="large" {...requiredProps} />
-		).toJSON();
+		const wrapper = renderer.create(<SelectDisplayMode mode="large" {...requiredProps} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
-
-	it('should render with displayMode = tile', () => {
-		// when
-		const wrapper = renderer.create(
-			<SelectDisplayMode mode="tile" {...requiredProps} />
-		).toJSON();
-
-		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
 
 	it('should render id if provided', () => {
 		// when
-		const wrapper = renderer.create(
-			<SelectDisplayMode id="toolbar-display-mode" {...requiredProps} />
-		).toJSON();
+		const wrapper = renderer
+			.create(<SelectDisplayMode id="toolbar-display-mode" {...requiredProps} />)
+			.toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();

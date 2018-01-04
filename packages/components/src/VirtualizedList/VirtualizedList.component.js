@@ -1,14 +1,14 @@
 import React from 'react';
 import { AutoSizer, Column } from 'react-virtualized';
 
-import { getDefaultTranslate } from '../translate';
+import { listTypes } from './utils/constants';
+import Loader from '../Loader';
 import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration } from './utils/tablerow';
-
-import Loader from './../Loader';
-
 import theme from './VirtualizedList.scss';
+
+const { LARGE } = listTypes;
 
 /**
  * Composable List based on react-virtualized
@@ -18,6 +18,7 @@ function VirtualizedList(props) {
 		collection,
 		children,
 		defaultHeight,
+		noRowsRenderer,
 		id,
 		isActive,
 		isSelected,
@@ -30,7 +31,6 @@ function VirtualizedList(props) {
 		sortDirection,
 		type,
 		disableHeader,
-		t,
 	} = props;
 
 	const contentsConfiguration = insertSelectionConfiguration({
@@ -39,14 +39,16 @@ function VirtualizedList(props) {
 		selectionToggle,
 	});
 
-	if (inProgress) {
+	if (type === LARGE && inProgress) {
 		return <Loader id={id && `${id}-loader`} className={theme['tc-list-progress']} />;
 	}
+
 	return (
 		<AutoSizer>
 			{({ height, width }) => (
 				<RendererSelector
 					collection={collection}
+					noRowsRenderer={noRowsRenderer}
 					height={height || defaultHeight}
 					id={id}
 					isActive={isActive}
@@ -60,7 +62,7 @@ function VirtualizedList(props) {
 					type={type}
 					width={width}
 					disableHeader={disableHeader}
-					t={t}
+					inProgress={inProgress}
 				>
 					{contentsConfiguration}
 				</RendererSelector>
@@ -73,7 +75,6 @@ VirtualizedList.displayName = 'VirtualizedList';
 VirtualizedList.propTypes = propTypes;
 VirtualizedList.defaultProps = {
 	defaultHeight: 250,
-	t: getDefaultTranslate,
 };
 
 VirtualizedList.Content = Column;
