@@ -26,6 +26,9 @@ function isIconsAvailables(icons) {
  * @param {number} max - maximum value of the slider
  */
 export function getSelectedIconPosition(icons, value, min, max) {
+	if (value == null) {
+		return -1;
+	}
 	const interval = (max - min) / (icons.length - 1);
 	return Math.round(value / interval);
 }
