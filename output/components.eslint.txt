@@ -19,6 +19,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.component.js
+   66:2   error  'components' is missing in props validation                     react/prop-types
+  194:22  error  'actionsComponents' PropType is defined but prop is never used  react/no-unused-prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/SidePanel/SidePanel.snapshot.test.js
   1:28  error  Unable to resolve path to module '@storybook/addon-storyshots'  import/no-unresolved
 
@@ -31,5 +35,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 11 problems (10 errors, 1 warning)
+✖ 13 problems (12 errors, 1 warning)
 
