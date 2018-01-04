@@ -113,10 +113,10 @@ function ActionButton(props) {
 
 	const buttonContent = getContent(props);
 	const btnIsDisabled = inProgress || disabled;
+	buttonProps.className = classNames(buttonProps.className, { [theme['btn-disabled']]: btnIsDisabled });
 
 	let btn = (
 		<Button
-			className={classNames({ [theme['btn-disabled']]: btnIsDisabled })}
 			onMouseDown={rMouseDown}
 			onClick={rClick}
 			bsStyle={style}
