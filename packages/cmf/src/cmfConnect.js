@@ -51,7 +51,6 @@ const CMF_PROPS = [
 export const INJECTED_PROPS = [
 	'setState',
 	'state',
-	'getComponent',
 	'initState',
 	'getCollection',
 	'dispatch',

@@ -10,7 +10,6 @@ describe('Inject', () => {
 	it('should render', () => {
 		const wrapper = shallow(<Inject />);
 		expect(wrapper.getElement()).toEqual(null);
-		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render an Action component', () => {
 		const getComponent = jest.fn(() => Action);
@@ -22,6 +21,7 @@ describe('Inject', () => {
 		};
 		const wrapper = shallow(<Inject {...props} />);
 		expect(wrapper.getElement()).toEqual(<Action icon="MyIcon" label="MyLabel" />);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render NotFoundComponent', () => {
 		const getComponent = jest.fn(() => {
@@ -33,6 +33,7 @@ describe('Inject', () => {
 		};
 		const wrapper = shallow(<Inject {...props} />);
 		expect(wrapper.getElement()).toEqual(<NotFoundComponent error="MyError" />);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render multiple actions', () => {
 		const getComponent = jest.fn(() => Action);
