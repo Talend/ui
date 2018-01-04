@@ -1,5 +1,6 @@
 import angular from 'angular'; // eslint-disable-line import/no-unresolved
 import 'angular-mocks'; // eslint-disable-line import/no-unresolved
+import invariant from 'invariant';
 import angularLogger from './angular-logger';
 
 jest.useFakeTimers();
@@ -21,8 +22,7 @@ angular
 			try {
 				$exceptionHandler(new Error(message));
 			} catch (e) {
-				// eslint-disable-next-line no-console
-				console.error('fail in handling');
+				fail();
 			}
 		},
 	]);

@@ -54,8 +54,6 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
 	const lineValueClasses = classNames(theme.native, theme[type], theme['line-value']);
 
 	return (
-		// as it got some tabindex
-		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<span
 			className={lineValueClasses}
 			role="button"

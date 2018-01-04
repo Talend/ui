@@ -1,3 +1,5 @@
+import invariant from 'invariant';
+
 export function sendReport(payload, transportOpts, attempt = 0) {
 	const {
 		send,
@@ -27,14 +29,13 @@ const defaultHandlers = {
 		setTimeout(() => {
 			report(payload, transportOpts, attempt + 1);
 		}, transportOpts.retryTimeout);
-		console.warn( // eslint-disable-line no-console
+		console.warn(
 			'Logging: Looks like logging host is unreachable, ' +
 				`retrying in ${transportOpts.retryTimeout / 1000} seconds`,
 		);
 	},
 	failedReport: error => {
-		// eslint-disable-next-line no-console
-		console.error('Logging: unable to send reports', error);
+		invariant(false, 'Logging: unable to send reports', error);
 	},
 };
 

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import invariant from 'invariant';
 import api from './api';
 
 /**
@@ -20,7 +21,7 @@ function MyComponent(props) {
  */
 
 function NotFoundComponent({ error }) {
-	console.error(error.message); // eslint-disable-line no-console
+	invariant(process.env.NODE_ENV === 'production', error.message);
 	return <div className="alert alert-danger">{error.message}</div>;
 }
 NotFoundComponent.propTypes = {

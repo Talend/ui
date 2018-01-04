@@ -43,7 +43,7 @@ $tc-filter-bar-width: 250px !default;
 			color: $dark-silver;
 		}
 
-		&::-ms-clear { // sass-lint:disable-line no-vendor-prefixes
+		&::-ms-clear {
 			display: none;
 		}
 	}

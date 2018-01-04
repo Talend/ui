@@ -85,7 +85,7 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 		},
 	};
 	accessors.updateState = function updateState(state) {
-		console.warn('DEPRECATION WARNING: please use props.setState'); // eslint-disable-line no-console
+		console.warn('DEPRECATION WARNING: please use props.setState');
 		accessors.setState(state);
 	};
 	return accessors;

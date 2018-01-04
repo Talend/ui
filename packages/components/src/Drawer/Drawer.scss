@@ -11,7 +11,8 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 @function set-text-color($color) {
 	@if (lightness($color) > 60) {
 		@return #000; // Lighter backgorund, return dark color
-	} @else { // sass-lint:disable-line brace-style
+	}
+	@else {
 		@return #fff; // Darker background, return light color
 	}
 }

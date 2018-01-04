@@ -1,4 +1,5 @@
 import angular from 'angular'; // eslint-disable-line import/no-unresolved
+import invariant from 'invariant';
 import { initErrorTransformer, TraceKit } from '../api/errorTransformer';
 import getStatePayloadMiddleware from '../api/payloadMiddleware';
 
@@ -8,17 +9,19 @@ class talendLoggerConfiguration {
 	isInitialized = false;
 
 	init({ serverUrl, getState, processState = state => state }) {
-		if (this.isInitialized) {
-			console.error( // eslint-disable-line no-console
-				'@talend/logging : already initialized. This second initialization may not be what you want.',
-			);
-		} else if (!serverUrl) {
-			console.error( // eslint-disable-line no-console
+		invariant(
+			!this.isInitialized,
+			'@talend/logging : already initialized. This second initialization may not be what you want.',
+		);
+		if (this.isInitialized && !serverUrl) {
+			invariant(
+				false,
 				'@talend/logging : you need to initiate server URL in talendLoggerConfiguration',
 			);
 			return;
-		} else if (!getState) {
-			console.error( // eslint-disable-line no-console
+		} else if (this.isInitialized && !getState) {
+			invariant(
+				false,
 				'@talend/logging : you need to initiate the state provider in talendLoggerConfiguration',
 			);
 			return;
@@ -43,8 +46,7 @@ angular
 				($delegate, tLoggerConfig) =>
 					function talendExceptionHandler(exception, cause) {
 						if (!tLoggerConfig.isInitialized) {
-							// eslint-disable-next-line no-console
-							console.error('@talend/logging : error logger is not configured');
+							invariant(false, '@talend/logging : error logger is not configured');
 						} else {
 							TraceKit.report(exception);
 						}
