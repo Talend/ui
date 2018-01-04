@@ -54,8 +54,8 @@ function SidePanel({
 	selected,
 	onSelect,
 	actions,
-	actionsComponents,
 	getComponent,
+	components,
 	docked,
 	reverse,
 	large,
@@ -64,6 +64,7 @@ function SidePanel({
 	t,
 	renderers,
 }) {
+	const injected = Inject.all(getComponent, components);
 	const navCSS = classNames(theme['tc-side-panel'], 'tc-side-panel', {
 		[theme.docked]: docked,
 		[theme.large]: large,
@@ -96,7 +97,9 @@ function SidePanel({
 
 	return (
 		<nav className={navCSS} role="navigation">
+			{injected.get('preul')}
 			<ul className={listCSS}>
+				{injected.get('beforedock')}
 				{dockable && (
 					<li className={theme['toggle-btn']} title={toggleButtonTitle}>
 						<Action
@@ -108,6 +111,7 @@ function SidePanel({
 						/>
 					</li>
 				)}
+				{injected.get('beforeactions')}
 				{actions && actions.map(action => {
 					const a11y = {};
 					const extra = {};
@@ -151,8 +155,9 @@ function SidePanel({
 						</li>
 					);
 				})}
-				{actionsComponents && <li>{Inject.map(getComponent, actionsComponents)}</li>}
+				{injected.get('actions')}
 			</ul>
+			{injected.get('postul')}
 		</nav>
 	);
 }
