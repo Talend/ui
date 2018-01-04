@@ -22,17 +22,7 @@ export function sendReport(payload, transportOpts, attempt = 0) {
 	return transformedPayload;
 }
 
-function defaultPayloadMiddleware(payload) {
-	return {
-		time: new Date(),
-		...payload,
-	};
-}
-
 const defaultHandlers = {
-	success: response => {
-		console.info('Logging: reported', response);
-	},
 	failedTry: function failedTry(error, report, payload, transportOpts, attempt) {
 		setTimeout(() => {
 			report(payload, transportOpts, attempt + 1);
@@ -54,7 +44,7 @@ function getFetchPayload(payload, otherFetchOptions = {}) {
 			headers: { 'Content-Type': 'application/json' },
 		},
 		{
-			body: JSON.stringify({ '@message': payload }),
+			body: JSON.stringify(payload),
 			...otherFetchOptions,
 		},
 	);
@@ -76,10 +66,9 @@ function getDefault(url) {
 
 export const getDefaultTransport = url => ({
 	send: getDefault(url),
-	successHandler: defaultHandlers.success,
 	failedTryHandler: defaultHandlers.failedTry,
 	failedReportHandler: defaultHandlers.failedReport,
-	payloadMiddleware: defaultPayloadMiddleware,
+	payloadMiddleware: payload => payload,
 	retryCount: 2,
 	retryTimeout: 60 * 1000,
 });

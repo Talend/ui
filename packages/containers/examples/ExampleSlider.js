@@ -4,11 +4,11 @@ import { Map } from 'immutable';
 import { Slider } from '../src';
 
 const icons = [
-	'talend-smiley-rating',
-	'talend-most-trusted',
-	'talend-network',
-	'talend-streams',
-	'talend-tdc-negative',
+	'talend-smiley-angry',
+	'talend-smiley-unhappy',
+	'talend-smiley-neutral',
+	'talend-smiley-satisfied',
+	'talend-smiley-enthusiast',
 ];
 
 const functionToFormat = value => `${value}%`;
