@@ -1,7 +1,9 @@
 import SagaTester from 'redux-saga-tester';
-import deleteResourceConst from './deleteResource.constants';
+import { Map } from 'immutable';
 
-import deleteResourceSaga, { buildHttpDelete } from './deleteResource.sagas';
+import deleteResourceConst from './deleteResource.constants';
+import actions from './deleteResource.actions';
+import deleteResource, { buildHttpDelete } from './deleteResource.sagas';
 
 describe('buildHttpDelete', () => {
 	it('should return an http object with delete method ', () => {
@@ -32,10 +34,91 @@ describe('buildHttpDelete', () => {
 	});
 });
 
+describe('deleteConfirmationSaga simple integration test', () => {
+	const sagaTester = new SagaTester({
+		initialState: {
+			cmf: {
+				collections: new Map({
+					resourceType: new Map({
+						id: new Map({ id: 'id', label: 'label' }),
+					}),
+				}),
+			},
+		},
+	});
+
+	it('should return current location if delete is activated and canceled', () => {
+		sagaTester.reset(true);
+		// given
+		sagaTester.start(deleteResource('uri', 'resourceType'));
+		const data = {
+			model: {
+				id: 'id',
+			},
+		};
+		const redirectUrl = '/resourceType';
+		const context = {
+			router: {
+				getCurrentLocation: jest.fn(() => ({ pathname: redirectUrl })),
+			},
+		};
+		// when
+		sagaTester.dispatch(actions.open(undefined, data, context));
+		sagaTester.dispatch(actions.cancel());
+
+		// then
+		const expectedActions = sagaTester.getCalledActions();
+		expect(expectedActions[1]).toEqual({
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL,
+		});
+		expect(expectedActions[2]).toEqual({
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
+			cmf: {
+				routerReplace: redirectUrl,
+			},
+		});
+	});
+
+	it('should return current location if delete is activated and validated, and http delete action should be issued', () => {
+		sagaTester.reset(true);
+		// given
+		const uri = 'uri';
+		const resourceType = 'resourceType';
+		const id = 'id';
+		sagaTester.start(deleteResource(uri, resourceType));
+		const data = {
+			model: {
+				id,
+			},
+		};
+		const redirectUrl = '/resourceType';
+		const context = {
+			router: {
+				getCurrentLocation: jest.fn(() => ({ pathname: redirectUrl })),
+			},
+		};
+		// when
+		sagaTester.dispatch(actions.open(undefined, data, context));
+		sagaTester.dispatch(actions.validate());
+
+		// then
+		const expectedActions = sagaTester.getCalledActions();
+		// Then
+		expect(expectedActions[2]).toHaveProperty('type', 'DELETE');
+		expect(expectedActions[2]).toHaveProperty('url', `${uri}/${resourceType}/${id}`);
+		expect(expectedActions[3]).toEqual({
+			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
+			cmf: {
+				routerReplace: redirectUrl,
+			},
+		});
+	});
+});
+
 describe('deleteConfirmationSaga datastore', () => {
 	const sagaTester = new SagaTester({ initialState: {} });
 	beforeEach(() => {
-		sagaTester.start(deleteResourceSaga);
+		sagaTester.start(deleteResource('uri', 'resourceType'));
 		// Given
 		sagaTester.dispatch({
 			type: '@@router/LOCATION_CHANGE',
@@ -51,9 +134,9 @@ describe('deleteConfirmationSaga datastore', () => {
 		});
 	});
 	it('sould have received @@router/LOCATION_CHANGE', () => {
-		const actions = sagaTester.getCalledActions();
+		const expectedActions = sagaTester.getCalledActions();
 		// Then
-		expect(actions[0]).toEqual({
+		expect(expectedActions[0]).toEqual({
 			type: '@@router/LOCATION_CHANGE',
 			payload: {
 				method: 'replace',
@@ -62,9 +145,9 @@ describe('deleteConfirmationSaga datastore', () => {
 		});
 	});
 	it('should have received DIALOG_BOX_DELETE_CONFIRMATION', () => {
-		const actions = sagaTester.getCalledActions();
+		const expectedActions = sagaTester.getCalledActions();
 		// Then
-		expect(actions[1]).toEqual({
+		expect(expectedActions[1]).toEqual({
 			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE,
 			model: { id: 'modelId' },
 			redirectUrl: '/connections',
@@ -76,9 +159,9 @@ describe('deleteConfirmationSaga datastore', () => {
 		sagaTester.dispatch({
 			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL,
 		});
-		const actions = sagaTester.getCalledActions();
+		const expectedActions = sagaTester.getCalledActions();
 		// Then
-		expect(actions[actions.length - 1]).toEqual({
+		expect(expectedActions[expectedActions.length - 1]).toEqual({
 			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
 			cmf: {
 				routerReplace: '/connections',
@@ -97,8 +180,8 @@ describe('deleteConfirmationSaga datastore', () => {
 				found: false,
 			},
 		});
-		const actions = sagaTester.getCalledActions();
-		expect(actions[actions.length - 1]).toEqual({
+		const expectedActions = sagaTester.getCalledActions();
+		expect(expectedActions[expectedActions.length - 1]).toEqual({
 			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
 			cmf: {
 				routerReplace: '/connections',
@@ -117,8 +200,8 @@ describe('deleteConfirmationSaga datastore', () => {
 				found: true,
 			},
 		});
-		const actions = sagaTester.getCalledActions();
-		expect(actions[actions.length - 1]).toEqual({
+		const expectedActions = sagaTester.getCalledActions();
+		expect(expectedActions[expectedActions.length - 1]).toEqual({
 			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
 			cmf: {
 				routerReplace: '/connections',
