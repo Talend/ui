@@ -145,7 +145,7 @@ function ActionButton(props) {
 	if (hideLabel || tooltip || tooltipLabel) {
 		btn = (
 			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-				{ btnIsDisabled ? <span>{btn}</span> : btn }
+				{btnIsDisabled ? <span>{btn}</span> : btn}
 			</TooltipTrigger>
 		);
 	}
