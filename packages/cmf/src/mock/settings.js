@@ -135,9 +135,7 @@ const settings = {
 		path: '/',
 		component: 'App',
 		indexRoute: { component: 'SortableListWithSideMenu', view: 'homepage' },
-		childRoutes: [
-			{ path: 'myarticle', component: 'SortableListWithSideMenu', view: 'homepage' },
-		],
+		childRoutes: [{ path: 'myarticle', component: 'SortableListWithSideMenu', view: 'homepage' }],
 	},
 };
 export default settings;

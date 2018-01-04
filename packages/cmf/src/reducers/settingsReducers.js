@@ -75,21 +75,11 @@ function prepareSettings(originalSettings) {
 export function settingsReducers(state = defaultState, action) {
 	switch (action.type) {
 		case ACTIONS.REQUEST_OK:
-			return Object.assign(
-				{},
-				state,
-				{ initialized: true },
-				prepareSettings(action.settings),
-			);
+			return Object.assign({}, state, { initialized: true }, prepareSettings(action.settings));
 		case ACTIONS.REQUEST_KO:
 			alert(`Settings can't be loaded ${get(action, 'error.message')}`); // eslint-disable-line
 			console.error(action.error); // eslint-disable-line
-			return Object.assign(
-				{},
-				state,
-				{ initialized: true },
-				action.settings,
-			);
+			return Object.assign({}, state, { initialized: true }, action.settings);
 		default:
 			return state;
 	}
