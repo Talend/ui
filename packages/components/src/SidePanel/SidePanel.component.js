@@ -115,17 +115,17 @@ function SidePanel({
 					const extra = {};
 					const isSelected = isActionSelected(action);
 
-					if (isSelected) {
-						a11y['aria-current'] = true;
-					}
-					if (onSelect) {
-						extra.onClick = event => {
-							onSelect(event, action);
-							if (action.onClick) {
-								action.onClick(event);
-							}
-						};
-					}
+						if (isSelected) {
+							a11y['aria-current'] = true;
+						}
+						if (onSelect) {
+							extra.onClick = event => {
+								onSelect(event, action);
+								if (action.onClick) {
+									action.onClick(event);
+								}
+							};
+						}
 
 					const actionProps = Object.assign(
 						{},
