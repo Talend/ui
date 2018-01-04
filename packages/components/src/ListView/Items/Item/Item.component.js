@@ -8,7 +8,7 @@ function itemLabelClasses() {
 }
 
 function Item(props) {
-	const { id, item, searchCriteria } = props;
+	const { id, item, isSwitchBox, searchCriteria } = props;
 
 	/**
 	 * This function allow to get component rendering based on searchCriteria
@@ -23,12 +23,13 @@ function Item(props) {
 	}
 
 	const itemId = id && `checkbox-${id}`;
+	const itemSelector = isSwitchBox ? 'switch checkbox' : 'checkbox';
 
 	return (
 		<div id={id}>
 			<div className="checkbox-container">
 				<div
-					className="checkbox"
+					className={itemSelector}
 					key={item.index}
 				>
 					<label htmlFor={itemId}>
