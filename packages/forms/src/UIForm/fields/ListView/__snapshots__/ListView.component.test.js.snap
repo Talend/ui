@@ -3585,6 +3585,7 @@ exports[`ListView field render should render ListView 1`] = `
   }
   i18nLoadedAt={null}
   id="my-list-view"
+  isSwitchBox={true}
   isValid={true}
   onChange={[Function]}
   onFinish={[Function]}

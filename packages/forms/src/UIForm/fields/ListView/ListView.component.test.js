@@ -58,6 +58,7 @@ describe('ListView field', () => {
 	beforeEach(() => {
 		props = {
 			id: 'my-list-view',
+			isSwitchBox: true,
 			isValid: true,
 			errorMessage: 'This is wrong',
 			onChange: jest.fn(),
