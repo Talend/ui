@@ -346,8 +346,8 @@ storiesOf('List', module)
 			<p>
 				Display the list in large mode.<br />
 				You just need to pass the props displayMode.
-				<pre>&lt;List displayMode="large" ... &gt;</pre>
 			</p>
+			<pre>&lt;List displayMode="large" ... &gt;</pre>
 			<List {...props} displayMode="large" />
 		</div>
 	))
@@ -436,12 +436,12 @@ storiesOf('List', module)
 					You can manage selection by passing 2 props : onSelect and isSelected.<br />
 					<b>onSelect(event, item)</b> : item selection callback
 					<b>isSelected(item)</b> : returns true if the item is selected
-					<pre>
-						listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
-						listProps.itemProps.isSelected = (item) => item.id === 2;<br />
-						&lt;List ... list=&#123;listProps&#125; &gt;<br />
-					</pre>
 				</p>
+				<pre>
+					listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
+					listProps.itemProps.isSelected = (item) => item.id === 2;<br />
+					&lt;List ... list=&#123;listProps&#125; &gt;<br />
+				</pre>
 				<List {...selectedItemsProps} />
 			</div>
 		);
@@ -457,12 +457,12 @@ storiesOf('List', module)
 					You can manage selection by passing 2 props : onRowClick and isActive.<br />
 					<b>onRowClick(event, item)</b> : item selection callback<br />
 					<b>isActive(item)</b> : returns true if the item is selected
-					<pre>
-						listProps.itemProps.onRowClick = (event, rowData) => myRowClickCallback(rowData);<br />
-						listProps.itemProps.isActive = (item) => item.id === 0;<br />
-						&lt;List ... list=&#123;listProps&#125; &gt;<br />
-					</pre>
 				</p>
+				<pre>
+					listProps.itemProps.onRowClick = (event, rowData) => myRowClickCallback(rowData);<br />
+					listProps.itemProps.isActive = (item) => item.id === 0;<br />
+					&lt;List ... list=&#123;listProps&#125; &gt;<br />
+				</pre>
 				<h2>Table</h2>
 				<List {...selectedItemsProps} />
 				<h2>Large</h2>
@@ -489,14 +489,14 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>
 					You add sort management with column header click.<br />
-					<pre>
-						listProps.sort.field = 'name';<br />
-						listProps.sort.isDescending = false;<br />
-						listProps.sort.onChange = (event, &#123;field, isDescending&#125;) => sort(field,
-						isDescending);<br />
-						&lt;List ... list=&#123;listProps&#125; &gt;<br />
-					</pre>
 				</p>
+				<pre>
+					listProps.sort.field = 'name';<br />
+					listProps.sort.isDescending = false;<br />
+					listProps.sort.onChange = (event, &#123;field, isDescending&#125;) => sort(field,
+					isDescending);<br />
+					&lt;List ... list=&#123;listProps&#125; &gt;<br />
+				</pre>
 				<List {...tprops} />
 			</div>
 		);
@@ -557,11 +557,11 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>
 					You can get limited options for displayMode.<br />
-					<pre>
-						toolbarProps.display.displayModes = ['large', 'table'];<br />
-						&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;<br />
-					</pre>
 				</p>
+				<pre>
+					toolbarProps.display.displayModes = ['large', 'table'];<br />
+					&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;<br />
+				</pre>
 				<List {...tprops} />
 			</div>
 		);
@@ -583,12 +583,12 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>
 					To have not clickable titles, just don't pass any onClick callback
-					<pre>
-						const props = &#123;...&#125;;<br />
-						props.list.titleProps.onClick = null;<br />
-						&lt;List &#123;...props&#125; /&gt;
-					</pre>
 				</p>
+				<pre>
+					const props = &#123;...&#125;;<br />
+					props.list.titleProps.onClick = null;<br />
+					&lt;List &#123;...props&#125; /&gt;
+				</pre>
 				<List {...tprops} />
 			</div>
 		);
@@ -603,12 +603,12 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>
 					Display the list with hidden header labels.<br />
-					<pre>
-						const props = &#123;...&#125;;<br />
-						props.list.columns[0].hideHeader = true;<br />
-						&lt;List &#123;...props&#125; /&gt;
-					</pre>
 				</p>
+				<pre>
+					const props = &#123;...&#125;;<br />
+					props.list.columns[0].hideHeader = true;<br />
+					&lt;List &#123;...props&#125; /&gt;
+				</pre>
 				<List {...tprops} />
 			</div>
 		);
