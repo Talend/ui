@@ -1,8 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { mount } from 'enzyme';
-import SidePanel, { getActionsComponents } from './SidePanel.component';
-import Inject from '../Inject';
+import SidePanel from './SidePanel.component';
 
 describe('SidePanel', () => {
 	it('should trigger toggleDock callback on toggle click', () => {
@@ -90,38 +89,5 @@ describe('SidePanel', () => {
 		expect(() => {
 			mount(sidePanel);
 		}).not.toThrow();
-	});
-});
-
-describe('getActionsComponents', () => {
-	it('should return []', () => {
-		const getComponent = jest.fn();
-		const actionsComponents = [];
-		expect(getActionsComponents(getComponent, actionsComponents)).toEqual([]);
-	});
-	it('should return ', () => {
-		const getComponent = jest.fn();
-		const actionsComponents = [
-			{ component: 'Action', label: 'MyLabelAction1', icon: 'MyIconAction1' },
-			{ component: 'Action', label: 'MyLabelAction2', icon: 'MyIconAction2' },
-		];
-		expect(getActionsComponents(getComponent, actionsComponents)).toEqual([
-			<li>
-				<Inject
-					component="Action"
-					getComponent={getComponent}
-					icon="MyIconAction1"
-					label="MyLabelAction1"
-				/>
-			</li>,
-			<li>
-				<Inject
-					component="Action"
-					getComponent={getComponent}
-					icon="MyIconAction2"
-					label="MyLabelAction2"
-				/>
-			</li>,
-		]);
 	});
 });
