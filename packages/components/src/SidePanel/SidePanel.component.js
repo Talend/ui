@@ -119,49 +119,50 @@ function SidePanel({
 					</li>
 				)}
 				{injected.get('beforeactions')}
-				{actions && actions.map(action => {
-					const a11y = {};
-					const extra = {};
-					const isSelected = isActionSelected(action);
+				{actions &&
+					actions.map(action => {
+						const a11y = {};
+						const extra = {};
+						const isSelected = isActionSelected(action);
 
-					if (isSelected) {
-						a11y['aria-current'] = true;
-					}
-					if (onSelect) {
-						extra.onClick = event => {
-							onSelect(event, action);
-							if (action.onClick) {
-								action.onClick(event);
-							}
-						};
-					}
+						if (isSelected) {
+							a11y['aria-current'] = true;
+						}
+						if (onSelect) {
+							extra.onClick = event => {
+								onSelect(event, action);
+								if (action.onClick) {
+									action.onClick(event);
+								}
+							};
+						}
 
-					const actionProps = Object.assign(
-						{},
-						action,
-						{
-							active: undefined, // active scope is only the list item
-							id: getActionId(id, action),
-							bsStyle: 'link',
-							role: 'link',
-							className: action.className,
-						},
-						extra,
-					);
-					return (
-						<li
-							title={action.label}
-							key={action.key || action.label}
-							className={classNames(theme['tc-side-panel-list-item'], 'tc-side-panel-list-item', {
-								active: isSelected,
-								[theme.active]: isSelected,
-							})}
-							{...a11y}
-						>
-							<renderers.Action {...actionProps} />
-						</li>
-					);
-				})}
+						const actionProps = Object.assign(
+							{},
+							action,
+							{
+								active: undefined, // active scope is only the list item
+								id: getActionId(id, action),
+								bsStyle: 'link',
+								role: 'link',
+								className: action.className,
+							},
+							extra,
+						);
+						return (
+							<li
+								title={action.label}
+								key={action.key || action.label}
+								className={classNames(theme['tc-side-panel-list-item'], 'tc-side-panel-list-item', {
+									active: isSelected,
+									[theme.active]: isSelected,
+								})}
+								{...a11y}
+							>
+								<renderers.Action {...actionProps} />
+							</li>
+						);
+					})}
 				{injected.get('actions')}
 			</ul>
 			{injected.get('postul')}
