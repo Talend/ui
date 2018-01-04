@@ -18,6 +18,10 @@ const ExampleSidePanel = {
 						component: 'FilterBar',
 						docked: false,
 					},
+					{
+						component: 'Action',
+						actionId: 'dialog:delete:validate',
+					},
 				]}
 			/>
 		</div>

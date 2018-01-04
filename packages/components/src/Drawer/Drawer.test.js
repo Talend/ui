@@ -90,4 +90,26 @@ describe('Drawer', () => {
 			.toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('render drawer content without extra className', () => {
+		const wrapper = renderer
+			.create(
+				<Drawer.Content>
+					<h1>Hello world</h1>
+				</Drawer.Content>,
+			)
+			.toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('render drawer content with extra className', () => {
+		const wrapper = renderer
+			.create(
+				<Drawer.Content className="extraClass">
+					<h1>Hello world</h1>
+				</Drawer.Content>,
+			)
+			.toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
 });

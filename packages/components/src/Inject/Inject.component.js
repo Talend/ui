@@ -5,12 +5,24 @@ function nothing() {
 	return null;
 }
 
+function NotFoundComponent({ error }) {
+	return <div className="alert alert-danger">{error}</div>;
+}
+
+NotFoundComponent.propTypes = {
+	error: PropTypes.string.isRequired,
+};
+
 function Inject({ getComponent, component, ...props }) {
 	if (!getComponent || !component) {
 		return null;
 	}
-	const Component = getComponent(component);
-	return <Component {...props} />;
+	try {
+		const Component = getComponent(component);
+		return <Component {...props} />;
+	} catch (error) {
+		return <NotFoundComponent error={error.message} />;
+	}
 }
 
 Inject.propTypes = {
@@ -33,4 +45,4 @@ Inject.all = function injectAll(getComponent, components) {
 	return { get: comp => injected[comp] || null };
 };
 
-export default Inject;
+export { Inject as default, NotFoundComponent };
