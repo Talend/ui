@@ -20,7 +20,6 @@ describe('Inject', () => {
 			icon: 'MyIcon',
 		};
 		const wrapper = shallow(<Inject {...props} />);
-		expect(wrapper.getElement()).toEqual(<Action icon="MyIcon" label="MyLabel" />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render NotFoundComponent', () => {
@@ -32,10 +31,12 @@ describe('Inject', () => {
 			component: 'Action',
 		};
 		const wrapper = shallow(<Inject {...props} />);
-		expect(wrapper.getElement()).toEqual(<NotFoundComponent error="MyError" />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-	it('should render multiple actions', () => {
+});
+
+describe('Inject.map', () => {
+	it('should render inject actions', () => {
 		const getComponent = jest.fn(() => Action);
 		const array = [
 			{ component: 'Action', label: 'LabelAction1', icon: 'IconAction1' },
@@ -55,6 +56,110 @@ describe('Inject', () => {
 				label="LabelAction2"
 			/>,
 		]);
+	});
+	it('should return []', () => {
+		const getComponent = jest.fn(() => Action);
+		expect(Inject.map(getComponent, [])).toEqual([]);
+	});
+});
+
+describe('Inject.all', () => {
+	it('should return a function which return an array of inject actions', () => {
+		const getComponent = jest.fn();
+		const components = {
+			col1: [
+				{ component: 'Action', label: 'LabelAction1', icon: 'IconAction1' },
+				{ component: 'Action', label: 'LabelAction2', icon: 'IconAction2' },
+			],
+			col2: { component: 'Action', label: 'LabelAction3', icon: 'IconAction3' },
+		};
+		const ret = Inject.all(getComponent, components);
+		expect(ret('col1')).toEqual([
+			<Inject
+				component="Action"
+				getComponent={getComponent}
+				icon="IconAction1"
+				label="LabelAction1"
+			/>,
+			<Inject
+				component="Action"
+				getComponent={getComponent}
+				icon="IconAction2"
+				label="LabelAction2"
+			/>,
+		]);
+	});
+	it('should return a function which return an inject action', () => {
+		const getComponent = jest.fn();
+		const components = {
+			col1: [
+				{ component: 'Action', label: 'LabelAction1', icon: 'IconAction1' },
+				{ component: 'Action', label: 'LabelAction2', icon: 'IconAction2' },
+			],
+			col2: { component: 'Action', label: 'LabelAction3', icon: 'IconAction3' },
+		};
+		expect(Inject.all(getComponent, components)('col2')).toEqual(
+			<Inject
+				component="Action"
+				getComponent={getComponent}
+				icon="IconAction3"
+				label="LabelAction3"
+			/>,
+		);
+	});
+	it('should return a function which return null (bad key)', () => {
+		const getComponent = jest.fn();
+		const components = {
+			col1: [
+				{ component: 'Action', label: 'LabelAction1', icon: 'IconAction1' },
+				{ component: 'Action', label: 'LabelAction2', icon: 'IconAction2' },
+			],
+			col2: { component: 'Action', label: 'LabelAction3', icon: 'IconAction3' },
+		};
+		expect(Inject.all(getComponent, components)('col4')).toEqual(null);
+	});
+	it('should return a function which return null (components null)', () => {
+		const getComponent = jest.fn();
+		expect(Inject.all(getComponent, null)()).toEqual(null);
+	});
+	it('should return a function which return null (getComponent null)', () => {
+		const components = {
+			col1: [
+				{ component: 'Action', label: 'LabelAction1', icon: 'IconAction1' },
+				{ component: 'Action', label: 'LabelAction2', icon: 'IconAction2' },
+			],
+			col2: { component: 'Action', label: 'LabelAction3', icon: 'IconAction3' },
+		};
+		expect(Inject.all(null, components)()).toEqual(null);
+	});
+});
+
+describe('Inject.get', () => {
+	it('should return Component', () => {
+		expect(Inject.get(null, null, Action)).toEqual(Action);
+	});
+	it('should return an Action', () => {
+		const getComponent = jest.fn(() => Action);
+		expect(Inject.get(getComponent, null, Action)).toEqual(Action);
+	});
+	it('should return Component (catch error)', () => {
+		const getComponent = jest.fn(() => {
+			throw error;
+		});
+		expect(Inject.get(getComponent, null, Action)).toEqual(Action);
+	});
+	it('should return null', () => {
+		expect(Inject.get(null, null, null)).toEqual(null);
+	});
+});
+
+describe('Inject.getAll', () => {
+	it('should return Action', () => {
+		const getComponent = jest.fn(() => Action);
+		const config = {
+			Action,
+		};
+		expect(Inject.getAll(getComponent, config)).toEqual({ Action });
 	});
 });
 
