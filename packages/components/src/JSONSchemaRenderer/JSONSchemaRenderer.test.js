@@ -132,7 +132,7 @@ describe('JSONSchemaRenderer', () => {
 
 	it('should render bullets for properties with a password ui:schema', () => {
 		const password = 'some_very_secure_password';
-		const hidenPassword = '\u2022'.repeat(password.length);
+		const hidenPassword = '\u2022\u2022\u2022\u2022\u2022';
 		const schema = {
 			jsonSchema: {
 				properties: {
