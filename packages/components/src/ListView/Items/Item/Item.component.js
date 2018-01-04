@@ -18,7 +18,7 @@ function Item(props) {
 		const splitRegex = new RegExp(`(${searchCriteria})`, 'gi');
 		return label.split(splitRegex).map((part, index) => {
 			const higlighted = part.toLowerCase() === searchCriteria.toLowerCase() ? <b>{part}</b> : part;
-			return <span key={index}>{ higlighted }</span>;
+			return <span key={index}>{higlighted}</span>;
 		});
 	}
 
@@ -28,10 +28,7 @@ function Item(props) {
 	return (
 		<div id={id}>
 			<div className="checkbox-container">
-				<div
-					className={itemSelector}
-					key={item.index}
-				>
+				<div className={itemSelector} key={item.index}>
 					<label htmlFor={itemId}>
 						<input
 							id={itemId}
