@@ -99,7 +99,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
     className="buttons"
   >
     <button
-      className="btn btn-primary"
+      className="undefined btn btn-primary"
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
