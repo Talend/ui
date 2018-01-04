@@ -77,7 +77,7 @@ export function PasswordRenderer({ propertyKey, title, properties }) {
 	return (
 		<div className={classNames('text-renderer', `text-renderer-${propertyKey}`)} key={propertyKey}>
 			<dt>{title || propertyKey}</dt>
-			<dd>{'\u2022\u2022\u2022\u2022\u2022'}</dd>
+			<dd>{'\u2022'.repeat(5)}</dd>
 		</div>
 	);
 }
