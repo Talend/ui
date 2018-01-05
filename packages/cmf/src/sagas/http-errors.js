@@ -15,13 +15,13 @@ const HTTPErrorsCodes = [HTTP_STATUS.UNAUTHORIZED, HTTP_STATUS.FORBIDDEN, HTTP_S
  * @example
  * import { sagas, store } from '@talend/react-cmf';
  * import createSagaMiddleware from 'redux-saga'
- * sagas.getHttpErrorsSaga({
+ * const httpErrorSaga = sagas.getHttpErrorsSaga({
  *	 on401: function* on401() {...},
  * 	 on403: function* on403() {...},
  * 	 on404: function* on404() {...},
  * });
  * store.initialize({}, {}, undefined, [
- * 	 createSagaMiddleware().run(helloSaga),
+ * 	 createSagaMiddleware().run(httpErrorSaga),
  *  ]);
  *
  */
