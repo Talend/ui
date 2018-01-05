@@ -81,6 +81,7 @@ It's just a key/object registry and it's used with prefix to store the following
 Note: this may change in the futur. We will try to remove the singleton in favors of higher order components.
 
 ## Store structure
+
 cmf store structure is the following
 * root
   * cmf
@@ -110,6 +111,8 @@ Existing commands:
 * cmf.routerReplace (string or function)
 * cmf.routerPush (string or function)
 * response + cmf.collectionId -> addOrReplace
+
+[See API](src/middlewares/cmf/index.md)
 
 ### HTTP
 
@@ -155,6 +158,8 @@ Note onResponse and onError accept function:
 * onResponse(response)
 * onError(error)
 
+[See API](src/middlewares/http/index.md)
+
 ## Scripts
 
 When you have cmf in you package.json, you can run in your project scope this script :
@@ -197,6 +202,8 @@ const MySuperComponent = api.expressions.withExpression(MyComponent, ['disabled'
 
 return <MySuperComponent disabled="userDontHaveSuperPower" />
 ```
+
+[See API](src/expression.md)
 
 ## Tests & mocks
 
@@ -246,6 +253,10 @@ you may change the following using simple props:
 * [store](src/store.md)
 * [Inject](src/Inject.md)
 * [Dispatcher](src/Dispatcher.md)
+* [how to](howto/index.md)
+* [saga](src/saga.md)
+* [sagas](src/sagas/index.md)
+* [sagaRouter](src/sagaRouter/index.md)
 
 ## ROADMAP
 
