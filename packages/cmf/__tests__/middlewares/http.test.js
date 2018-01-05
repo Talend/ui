@@ -12,6 +12,7 @@ import {
 	HTTPError,
 	status,
 	handleResponse,
+	on40xError,
 } from '../../src/middlewares/http/middleware';
 import http from '../../src/middlewares/http';
 import {
@@ -291,6 +292,132 @@ describe('CMF http middleware', () => {
 		});
 	});
 
+	it('should httpMiddleware handle response promise with error 401', done => {
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			response: {
+				ok: false,
+				status: HTTP_STATUS.UNAUTHORIZED,
+				statusText: 'Internal Server Error',
+				type: 'basic',
+				url: '//foo/bar',
+				clone: () => ({
+					text: () => new Promise(resolve => resolve('{"foo":"bar"}')),
+				}),
+			},
+		};
+		const middleware = httpMiddleware(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+		newState.then(() => {
+			expect(store.dispatch.mock.calls.length).toBe(4);
+			const error401HTTPAction = store.dispatch.mock.calls[2][0];
+			expect(error401HTTPAction).toEqual({
+				type: `${ACTION_TYPE_HTTP_ERRORS}/${HTTP_STATUS.UNAUTHORIZED}`,
+			});
+			const errorHTTPAction = store.dispatch.mock.calls[3][0];
+			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
+			expect(errorHTTPAction.error.stack.status).toBe(HTTP_STATUS.UNAUTHORIZED);
+			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
+			expect(errorHTTPAction.error.stack.response).toBe('{"foo":"bar"}');
+			expect(errorHTTPAction.error.stack.messageObject).toEqual({
+				foo: 'bar',
+			});
+			done();
+		});
+	});
+
+	it('should httpMiddleware handle response promise with error 403', done => {
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			response: {
+				ok: false,
+				status: HTTP_STATUS.FORBIDDEN,
+				statusText: 'Internal Server Error',
+				type: 'basic',
+				url: '//foo/bar',
+				clone: () => ({
+					text: () => new Promise(resolve => resolve('{"foo":"bar"}')),
+				}),
+			},
+		};
+		const middleware = httpMiddleware(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+		newState.then(() => {
+			expect(store.dispatch.mock.calls.length).toBe(4);
+			const error401HTTPAction = store.dispatch.mock.calls[2][0];
+			expect(error401HTTPAction).toEqual({
+				type: `${ACTION_TYPE_HTTP_ERRORS}/${HTTP_STATUS.FORBIDDEN}`,
+			});
+			const errorHTTPAction = store.dispatch.mock.calls[3][0];
+			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
+			expect(errorHTTPAction.error.stack.status).toBe(HTTP_STATUS.FORBIDDEN);
+			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
+			expect(errorHTTPAction.error.stack.response).toBe('{"foo":"bar"}');
+			expect(errorHTTPAction.error.stack.messageObject).toEqual({
+				foo: 'bar',
+			});
+			done();
+		});
+	});
+
+	it('should httpMiddleware handle response promise with error 404', done => {
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			response: {
+				ok: false,
+				status: HTTP_STATUS.NOT_FOUND,
+				statusText: 'Internal Server Error',
+				type: 'basic',
+				url: '//foo/bar',
+				clone: () => ({
+					text: () => new Promise(resolve => resolve('{"foo":"bar"}')),
+				}),
+			},
+		};
+		const middleware = httpMiddleware(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+		newState.then(() => {
+			expect(store.dispatch.mock.calls.length).toBe(4);
+			const error401HTTPAction = store.dispatch.mock.calls[2][0];
+			expect(error401HTTPAction).toEqual({
+				type: `${ACTION_TYPE_HTTP_ERRORS}/${HTTP_STATUS.NOT_FOUND}`,
+			});
+			const errorHTTPAction = store.dispatch.mock.calls[3][0];
+			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
+			expect(errorHTTPAction.error.stack.status).toBe(HTTP_STATUS.NOT_FOUND);
+			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
+			expect(errorHTTPAction.error.stack.response).toBe('{"foo":"bar"}');
+			expect(errorHTTPAction.error.stack.messageObject).toEqual({
+				foo: 'bar',
+			});
+			done();
+		});
+	});
+
 	it('should httpMiddleware handle response promise with error same if the body is not a JSON', done => {
 		const store = {
 			dispatch: jest.fn(),
@@ -420,6 +547,14 @@ describe('json function', () => {
 		};
 		return handleResponse(response).then(r => {
 			expect(r).toMatchSnapshot();
+		});
+	});
+});
+
+describe('on40xError', () => {
+	it('should return an action with the code error', () => {
+		expect(on40xError(401)).toEqual({
+			type: `${ACTION_TYPE_HTTP_ERRORS}/401`,
 		});
 	});
 });

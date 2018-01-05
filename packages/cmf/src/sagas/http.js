@@ -119,6 +119,17 @@ export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload) {
 	const answer = yield call(httpFetch, url, config, method, payload);
 
 	if (answer instanceof Error) {
+		switch (answer.response.status) {
+			case HTTP_STATUS.UNAUTHORIZED:
+			case HTTP_STATUS.FORBIDDEN:
+			case HTTP_STATUS.NOT_FOUND:
+				yield put({
+					type: `${ACTION_TYPE_HTTP_ERRORS}/${answer.response.status}`,
+				});
+				break;
+			default:
+		}
+
 		yield put({
 			error: { message: answer.data.message, stack: { status: answer.response.status } },
 			type: ACTION_TYPE_HTTP_ERRORS,
