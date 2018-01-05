@@ -5,7 +5,7 @@ CMF uses [redux](http://redux.js.org/)
 import { store as cmfstore } from 'react-cmf';
 import appReducer from './reducers';
 
-...
+// ...
 
 const store = cmfstore.initialize(appReducer, preloadedState, enhancer, middleware);
 ```
@@ -30,8 +30,8 @@ The CMF store comes with some reducers out of the box
 The CMF store comes with some middlewares out of the box
 * router middleware from [react-router-redux](https://github.com/reactjs/react-router-redux) using `hash` history
 * [redux-thunk](https://github.com/gaearon/redux-thunk)
-* CMF [http]({{ site.baseurl }}{% link _posts/2017-02-28-middleware-http.md %}) middleware
-* CMF [internal]({{ site.baseurl }}{% link _posts/2017-02-28-middleware-cmf.md %}) middleware
+* CMF [http](middlewares/http/index.md) middleware
+* CMF [internal](middlewares/http/cmf.md) middleware
 
 **How to change router middleware ?**
 ```javascript
@@ -39,7 +39,7 @@ import { store as cmfstore } from 'react-cmf';
 import { browserHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
 
-...
+//...
 
 cmfstore.setRouterMiddleware(routerMiddleware(browserHistory));
 const store = cmfstore.initialize(appReducer, preloadedState, enhancer, middleware);

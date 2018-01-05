@@ -25,7 +25,7 @@ store.dispatch(settingsAction);
 
 ## Actions
 
-An action is a definition that holds **at least** the info to dispatch to the [store]({{ site.baseurl }}{% link _posts/2017-02-28-core-store.md %}).
+An action is a definition that holds **at least** the info to dispatch to the [store](store.md).
 
 ```json
 {
