@@ -13,6 +13,7 @@ const ExampleSidePanel = {
 		<div>
 			<IconsProvider />
 			<SidePanel
+				actionIds={['menu:first', 'menu:second', 'menu:third']}
 				components={{
 					'before-actions': [
 						{

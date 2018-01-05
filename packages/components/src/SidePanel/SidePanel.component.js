@@ -96,21 +96,21 @@ function SidePanel({
 	const Components = Inject.getAll(getComponent, { Action });
 	return (
 		<nav className={navCSS} role="navigation">
-			<ul className={listCSS}>
-				{dockable && (
-					<li className={theme['toggle-btn']} title={toggleButtonTitle}>
-						<Components.Action
-							id={id && `${id}-toggle-dock`}
-							bsStyle="link"
-							onClick={onToggleDock}
-							icon="talend-opener"
-							label=""
-						/>
-					</li>
-				)}
-				{injected('before-actions')}
-				{actions &&
-					actions.map(action => {
+			{dockable && (
+				<div className={theme['toggle-btn']} title={toggleButtonTitle}>
+					<Components.Action
+						id={id && `${id}-toggle-dock`}
+						bsStyle="link"
+						onClick={onToggleDock}
+						icon="talend-opener"
+						label=""
+					/>
+				</div>
+			)}
+			{injected('before-actions')}
+			{actions && (
+				<ul className={listCSS}>
+					{actions.map(action => {
 						const a11y = {};
 						const extra = {};
 						const isSelected = isActionSelected(action);
@@ -152,8 +152,9 @@ function SidePanel({
 							</li>
 						);
 					})}
-				{injected('actions')}
-			</ul>
+				</ul>
+			)}
+			{injected('actions')}
 		</nav>
 	);
 }

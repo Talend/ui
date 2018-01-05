@@ -3,6 +3,7 @@
 exports[`SidePanel should render 1`] = `
 <Translate(SidePanel)
   docked={false}
+  getComponent={[Function]}
   onToggleDock={[Function]}
 />
 `;
@@ -16,6 +17,7 @@ exports[`SidePanel should render provided actions as string 1`] = `
     ]
   }
   docked={false}
+  getComponent={[Function]}
   onToggleDock={[Function]}
 />
 `;
