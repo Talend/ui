@@ -56,16 +56,48 @@ const route = {
 
 **uri** : is the base url where the deletion service will make a request to delete the resource
 **resourceType** : is the name of the resource category
+**resourcePath** : optional array of string, is appended to resourceType key to deep location of a subset of a collection element
 the delete service will use it to check if the resource exist in your application state tree
+
+example with resourceType only
+```javascript
+const route = {
+	'/connections/:datastoreId/delete': DeleteResource.sagas(uri, 'resourceType'),
+};
+```
+
 ```JSON
 {
     cmf: {
         collection: {
-            resourceType: Map(<Id>, <Resource>)
+            resourceType: List<Resource>
         }
     }
 }
 ```
+
+example with resourcepath
+
+```javascript
+const route = {
+	'/connections/:datastoreId/delete': DeleteResource.sagas(uri, 'resourceType', ['data']),
+};
+```
+
+```JSON
+{
+    cmf: {
+        collection: {
+            resourceType: {
+                status: 'loaded',
+                data: List<Resource>
+            }
+        }
+    }
+}
+```
+
+
 and also use it to append to the uri to call
 ```javascript
 `${uri}/${resourceType}/${id}`

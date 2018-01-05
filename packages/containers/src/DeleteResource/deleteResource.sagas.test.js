@@ -1,5 +1,5 @@
 import SagaTester from 'redux-saga-tester';
-import { Map } from 'immutable';
+import { Map, List } from 'immutable';
 
 import deleteResourceConst from './deleteResource.constants';
 import actions from './deleteResource.actions';
@@ -39,9 +39,9 @@ describe('deleteConfirmationSaga simple integration test', () => {
 		initialState: {
 			cmf: {
 				collections: new Map({
-					resourceType: new Map({
-						id: new Map({ id: 'id', label: 'label' }),
-					}),
+					resourceType: new List([
+						new Map({ id: 'id', label: 'label' }),
+					]),
 				}),
 			},
 		},
