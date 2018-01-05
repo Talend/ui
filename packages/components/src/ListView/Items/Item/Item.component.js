@@ -8,7 +8,7 @@ function itemLabelClasses() {
 }
 
 function Item(props) {
-	const { id, item, searchCriteria } = props;
+	const { id, item, isSwitchBox, searchCriteria } = props;
 
 	/**
 	 * This function allow to get component rendering based on searchCriteria
@@ -18,19 +18,17 @@ function Item(props) {
 		const splitRegex = new RegExp(`(${searchCriteria})`, 'gi');
 		return label.split(splitRegex).map((part, index) => {
 			const higlighted = part.toLowerCase() === searchCriteria.toLowerCase() ? <b>{part}</b> : part;
-			return <span key={index}>{ higlighted }</span>;
+			return <span key={index}>{higlighted}</span>;
 		});
 	}
 
 	const itemId = id && `checkbox-${id}`;
+	const itemSelector = isSwitchBox ? 'switch checkbox' : 'checkbox';
 
 	return (
 		<div id={id}>
 			<div className="checkbox-container">
-				<div
-					className="checkbox"
-					key={item.index}
-				>
+				<div className={itemSelector} key={item.index}>
 					<label htmlFor={itemId}>
 						<input
 							id={itemId}
