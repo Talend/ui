@@ -44,3 +44,12 @@ import { routerMiddleware } from 'react-router-redux';
 cmfstore.setRouterMiddleware(routerMiddleware(browserHistory));
 const store = cmfstore.initialize(appReducer, preloadedState, enhancer, middleware);
 ```
+
+## Store layout
+
+The results is a store with the following layout:
+
+* state.cmf.settings
+* state.cmf.components (Immutable)
+* state.cmf.collections (Immutable)
+

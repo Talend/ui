@@ -45,7 +45,6 @@ We have the following objects to build a user interface:
 
 * views
 * actions
-* content types
 
 Let's talk about each of them.
 
@@ -70,18 +69,6 @@ so component state can be stored and reused later
 
 ### Collections management
 Manage a local cache of your business data
-
-### Content Types
-
-A content type defines metadata over content. For example when you display a list of article you say each item in this list are an *article* which is a content type.
-
-We are adding metadata over content type:
-
-* title
-* icon id
-* actions (by category)
-
-Status: not fully implemented and not used at the moment.
 
 ## Internals: The registry
 
