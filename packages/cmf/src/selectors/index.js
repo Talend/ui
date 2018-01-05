@@ -5,7 +5,7 @@ import { List } from 'immutable';
  * @param {Object} state
  * @param {String or Array<String>} collectionPath
  */
-export function getCollectionPath(state, collectionPath) {
+export function getCollectionFromPath(state, collectionPath) {
 	if (typeof collectionPath === 'string') {
 		return state.cmf.collections.get(collectionPath);
 	} else if (Array.isArray(collectionPath)) {
@@ -21,10 +21,9 @@ got ${collectionPath}`);
  * @param {Object} state
  * @param {String} collectionId
  * @param {String} itemId
- * @param {String} itemPath -optionnal
  */
 export function findCollectionPathListItem(state, collectionPath, itemId) {
-	const collectionOrCollectionSubset = getCollectionPath(state, collectionPath);
+	const collectionOrCollectionSubset = getCollectionFromPath(state, collectionPath);
 	if (List.isList(collectionOrCollectionSubset)) {
 		return collectionOrCollectionSubset.find(element => element && element.get('id') === itemId);
 	}

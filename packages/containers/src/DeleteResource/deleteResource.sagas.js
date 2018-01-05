@@ -27,7 +27,7 @@ export function buildHttpDelete(uri, labelResource, responseType) {
  * from a resourceType and an optionnal resourcePath, return a resource locator
  * if resourcePath is provided resourceType is prepend to resourcePath
  * @param {String} resourceType
- * @param {Array<String>} resourcePath - optionnal
+ * @param {Array<String>} [resourcePath]
  * @return {String || Array<String>}
  */
 export function getResourceLocator(resourceType, resourcePath) {
@@ -51,21 +51,17 @@ got ${resourcePath}`,
  * @param {string} uri
  * @param {string} resourceType
  * @param {string} id
- * @param {Array<String>} resourcePath- optional
+ * @param {Array<String>} [resourcePath]
  */
 export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath) {
 	yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK);
 	const resourceLocator = getResourceLocator(resourceType, resourcePath);
 	const resource = yield select(findCollectionPathListItem, resourceLocator, itemId);
-	let resourceinfo = { label: '', found: false };
 	if (resource) {
-		resourceinfo = { label: resource.get('label'), found: true };
-	}
-	if (resourceinfo.found) {
 		yield put(
 			buildHttpDelete(
 				`${uri}/${resourceType}/${itemId}`,
-				resourceinfo.label,
+				resource.get('label', ''),
 				deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
 			),
 		);
@@ -77,7 +73,7 @@ export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath)
  * Race between cancel and confirm deleting the resource.
  * @param {string} uri
  * @param {string} resourceType
- * @param {Array<String>} resourcePath- optional
+ * @param {Array<String>} [resourcePath]
  */
 export default function deleteResource(uri, resourceType, resourcePath) {
 	return function* deleteResourceSaga() {

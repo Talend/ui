@@ -1,8 +1,8 @@
 import { Map, List } from 'immutable';
 
-import { getCollectionPath, findCollectionPathListItem } from '../../src/selectors';
+import { getCollectionFromPath, findCollectionPathListItem } from '../../src/selectors';
 
-describe('getCollectionPath', () => {
+describe('getCollectionFromPath', () => {
 	const collection = new Map({ id: 'id' });
 	const collectionSubset = new Map({ subset: 'subset' });
 	const collectionWithSubset = new Map({ collectionSubset });
@@ -14,19 +14,19 @@ describe('getCollectionPath', () => {
 			}),
 		},
 	};
-	it('if collectionPath is a string, try to find the collection', () => {
-		expect(getCollectionPath(state, 'collection')).toEqual(collection);
+	it('try to find the collection if collectionPath is a string', () => {
+		expect(getCollectionFromPath(state, 'collection')).toEqual(collection);
 	});
 
-	it('if collectionPath is an array, try to find the collection subset', () => {
-		expect(getCollectionPath(state, ['collectionWithSubset', 'collectionSubset'])).toEqual(
+	it('try to find the collection subset if collectionPath is an array', () => {
+		expect(getCollectionFromPath(state, ['collectionWithSubset', 'collectionSubset'])).toEqual(
 			collectionSubset,
 		);
 	});
 
-	it('if collection path is neither a string or an array, throw an exception', () => {
+	it('throw an exception if collection path is neither a string or an array', () => {
 		expect(() => {
-			getCollectionPath(state, {});
+			getCollectionFromPath(state, {});
 		}).toThrowError(`Type mismatch: collectionPath should be a string or an array of string
 got [object Object]`);
 	});
