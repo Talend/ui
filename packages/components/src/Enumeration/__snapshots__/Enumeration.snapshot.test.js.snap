@@ -488,7 +488,7 @@ exports[`Enumeration should render with header in default state and first item i
                   onMouseOver={[Function]}
                 >
                   <button
-                    className="undefined btn btn-link"
+                    className="btn btn-link"
                     disabled={true}
                     onClick={[Function]}
                     onMouseDown={[Function]}

@@ -103,7 +103,7 @@ exports[`Item should display input value with two buttons. The validate button i
       onMouseOver={[Function]}
     >
       <button
-        className="undefined btn btn-link"
+        className="btn btn-link"
         disabled={true}
         onClick={[Function]}
         onMouseDown={[Function]}

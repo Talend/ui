@@ -146,7 +146,7 @@ exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1
     onMouseOver={[Function]}
   >
     <button
-      className="tc-badge-delete-icon undefined btn btn-default"
+      className="tc-badge-delete-icon btn btn-default"
       disabled={true}
       id="tc-badge-delete-delete"
       onClick={[Function]}
