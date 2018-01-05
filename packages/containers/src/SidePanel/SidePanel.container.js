@@ -3,6 +3,7 @@ import React from 'react';
 import { SidePanel as Component } from '@talend/react-components';
 import { componentState } from '@talend/react-cmf';
 import { Map } from 'immutable';
+import { Action } from '../Action';
 
 export const DEFAULT_STATE = new Map({
 	docked: false,
@@ -39,8 +40,18 @@ class SidePanel extends React.Component {
 			docked: state.get('docked'),
 			onToggleDock: this.onToggleDock,
 		});
-
-		return <Component {...rest} {...props} />;
+		const getComponent = key => {
+			try {
+				console.log(this.props.getComponent(key));
+				return this.props.getComponent(key);
+			} catch (error) {
+				if (key === 'Action') {
+					return Action;
+				}
+				throw error;
+			}
+		};
+		return <Component getComponent={getComponent} {...rest} {...props} />;
 	}
 }
 

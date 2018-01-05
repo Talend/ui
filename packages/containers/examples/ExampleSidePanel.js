@@ -13,16 +13,14 @@ const ExampleSidePanel = {
 		<div>
 			<IconsProvider />
 			<SidePanel
-				actionsComponents={[
-					{
-						component: 'FilterBar',
-						docked: false,
-					},
-					{
-						component: 'Action',
-						actionId: 'dialog:delete:validate',
-					},
-				]}
+				components={{
+					'before-actions': [
+						{
+							component: 'FilterBar',
+							docked: false,
+						},
+					],
+				}}
 			/>
 		</div>
 	),

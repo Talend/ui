@@ -96,7 +96,6 @@ function SidePanel({
 	const Components = Inject.getAll(getComponent, { Action });
 	return (
 		<nav className={navCSS} role="navigation">
-			{injected('preul')}
 			<ul className={listCSS}>
 				{dockable && (
 					<li className={theme['toggle-btn']} title={toggleButtonTitle}>
@@ -109,7 +108,7 @@ function SidePanel({
 						/>
 					</li>
 				)}
-				{injected('beforeactions')}
+				{injected('before-actions') && injected('before-actions').map(c => c)}
 				{actions &&
 					actions.map(action => {
 						const a11y = {};
@@ -155,7 +154,6 @@ function SidePanel({
 					})}
 				{injected('actions')}
 			</ul>
-			{injected('postul')}
 		</nav>
 	);
 }

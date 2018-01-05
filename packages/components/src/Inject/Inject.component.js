@@ -67,7 +67,7 @@ Inject.all = function injectAll(getComponent, components) {
 	}
 	return key => {
 		if (Array.isArray(components[key])) {
-			return components[key].map(props => <Inject getComponent={getComponent} {...props} />);
+			return Inject.map(getComponent, components[key]);
 		} else if (typeof components[key] === 'object') {
 			return <Inject getComponent={getComponent} {...components[key]} />;
 		}
@@ -79,16 +79,16 @@ Inject.all = function injectAll(getComponent, components) {
  * used to inject a component with componentID & fallback on a component given if not available
  * @param {function} getComponent the method used to resolve the component
  * @param {string} componentId the id to fetch with getComponent method
- * @param {object} Component The component to fallback to
+ * @param {object} DefaultComponent The component to fallback to
  */
-Inject.get = function injectGet(getComponent, componentId, Component) {
+Inject.get = function injectGet(getComponent, componentId, DefaultComponent) {
 	if (!getComponent) {
-		return Component;
+		return DefaultComponent;
 	}
 	try {
 		return getComponent(componentId);
 	} catch (error) {
-		return Component;
+		return DefaultComponent;
 	}
 };
 
