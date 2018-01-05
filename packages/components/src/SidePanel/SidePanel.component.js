@@ -136,7 +136,6 @@ function SidePanel({
 								id: getActionId(id, action),
 								bsStyle: 'link',
 								role: 'link',
-								className: action.className,
 							},
 							extra,
 						);
