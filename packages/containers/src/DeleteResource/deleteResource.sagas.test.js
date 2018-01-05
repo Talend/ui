@@ -39,9 +39,7 @@ describe('deleteConfirmationSaga simple integration test', () => {
 		initialState: {
 			cmf: {
 				collections: new Map({
-					resourceType: new List([
-						new Map({ id: 'id', label: 'label' }),
-					]),
+					resourceType: new List([new Map({ id: 'id', label: 'label' })]),
 				}),
 			},
 		},
