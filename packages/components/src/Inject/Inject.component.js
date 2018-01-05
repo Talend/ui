@@ -52,7 +52,7 @@ Inject.map = function injectMap(getComponent, array) {
 };
 
 /**
- * Thus function is used to inject components & have them in an object to resolve it in our component
+ * Used to inject components & have them in an object to resolve it in our component
  * @param {function} getComponent the method used to resolve the component
  * @param {object} components an object to represent the components
  * @example
