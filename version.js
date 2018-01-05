@@ -100,6 +100,9 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'redux-thunk': '2.2.0',
 	uuid: '3.0.1',  // prefer bson-objectid
 
+	// script dep
+	deepmerge: '1.5.1',
+
 	// dev deps
 	'@kadira/react-storybook-addon-info': '^3.3.0',
 	'@kadira/storybook': '^2.35.0',
