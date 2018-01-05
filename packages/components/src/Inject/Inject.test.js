@@ -166,7 +166,6 @@ describe('Inject.getAll', () => {
 describe('NotFoundComponent', () => {
 	it('should render', () => {
 		const wrapper = shallow(<NotFoundComponent error="MyError" />);
-		expect(wrapper.getElement()).toEqual(<div className="alert alert-danger">MyError</div>);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
