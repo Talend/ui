@@ -108,7 +108,7 @@ function SidePanel({
 						/>
 					</li>
 				)}
-				{injected('before-actions') && injected('before-actions').map(c => c)}
+				{injected('before-actions')}
 				{actions &&
 					actions.map(action => {
 						const a11y = {};
