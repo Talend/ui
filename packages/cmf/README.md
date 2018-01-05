@@ -252,13 +252,13 @@ you may change the following using simple props:
 
 ## More
 
-* [App](https://github.com/Talend/ui/blob/master/packages/cmf/src/App.md)
-* [cmfConnect](https://github.com/Talend/ui/blob/master/packages/cmf/src/cmfConnect.md)
-* [settings](https://github.com/Talend/ui/blob/master/packages/cmf/src/settings.md)
-* [api](https://github.com/Talend/ui/blob/master/packages/cmf/src/api.md)
-* [store](https://github.com/Talend/ui/blob/master/packages/cmf/src/store.md)
-* [Inject](https://github.com/Talend/ui/blob/master/packages/cmf/src/Inject.md)
-* [Dispatcher](https://github.com/Talend/ui/blob/master/packages/cmf/src/Dispatcher.md)
+* [App](src/App.md)
+* [cmfConnect](src/cmfConnect.md)
+* [settings](src/settings.md)
+* [api](src/api.md)
+* [store](src/store.md)
+* [Inject](src/Inject.md)
+* [Dispatcher](src/Dispatcher.md)
 
 ## ROADMAP
 
