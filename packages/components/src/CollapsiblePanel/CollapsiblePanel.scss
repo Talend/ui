@@ -66,6 +66,26 @@ $tc-toggle-color: #555964 !default;
 		padding-left: 1px;
 	}
 
+	&.info {
+		border-left: 4px solid $brand-info;
+		padding-left: 1px;
+	}
+
+	&.success {
+		border-left: 4px solid $brand-success;
+		padding-left: 1px;
+	}
+
+	&.danger {
+		border-left: 4px solid $brand-danger;
+		padding-left: 1px;
+	}
+
+	&.muted {
+		border-left: 4px solid $brand-muted;
+		padding-left: 1px;
+	}
+
 	.toggle svg {
 		transform-origin: center;
 	}

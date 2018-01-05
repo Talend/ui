@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Status from './Status.component';
+import { Status } from './Status.component';
 
 jest.mock('react-dom');
 
