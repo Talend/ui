@@ -33,9 +33,9 @@ const jsonFiles = sources.reduce(
 	[],
 );
 
-log('\n');
-
 log(jsonFiles);
+
+log('\n');
 
 const configurations = jsonFiles.map(path => require(`${path}`)); // eslint-disable-line global-require
 
