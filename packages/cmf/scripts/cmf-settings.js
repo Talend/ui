@@ -33,11 +33,11 @@ const jsonFiles = sources.reduce(
 	[],
 );
 
-const configurations = jsonFiles.map(path => require(`${path}`)); // eslint-disable-line global-require
-
 log('\n');
 
-log(configurations);
+log(jsonFiles);
+
+const configurations = jsonFiles.map(path => require(`${path}`)); // eslint-disable-line global-require
 
 // 4 - merge json stuff in one object / settings
 const settings = deepmerge.all(configurations, { arrayMerge: concatMerge });
