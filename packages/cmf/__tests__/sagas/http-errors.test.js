@@ -66,15 +66,15 @@ describe('#getHttpErrorsSaga', () => {
 		]);
 	});
 	it('should listens 401, 403, 404 errors', () => {
-		const on401 = function* on401() {
+		function* on401() {
 			yield;
-		};
-		const on403 = function* on403() {
+		}
+		function* on403() {
 			yield;
-		};
-		const on404 = function* on404() {
+		}
+		function* on404() {
 			yield;
-		};
+		}
 		const generator = getHttpErrorsSaga({
 			on401,
 			on403,
