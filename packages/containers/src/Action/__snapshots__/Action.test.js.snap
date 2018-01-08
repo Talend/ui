@@ -9,7 +9,6 @@ exports[`Action should render from name props keeping extra props 1`] = `
   displayMode={undefined}
   extra="foo"
   getCollection={[Function]}
-  getComponent={[Function]}
   initState={[Function]}
   name="menu:article"
   renderers={

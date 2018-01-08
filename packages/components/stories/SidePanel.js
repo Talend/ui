@@ -147,7 +147,6 @@ stories
 				]);
 				const panel = (
 					<SidePanel
-						large
 						actions={panelItems}
 						onSelect={action('onItemSelect')}
 						onToggleDock={() => this.setState({ docked: !this.state.docked })}
