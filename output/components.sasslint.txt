@@ -15,5 +15,9 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 4 problems (1 error, 3 warnings)
+src/SidePanel/SidePanel.scss
+  119:10  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  126:10  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+
+✖ 6 problems (3 errors, 3 warnings)
 
