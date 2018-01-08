@@ -48,11 +48,16 @@ class SidePanel extends React.Component {
 
 	render() {
 		const { state = DEFAULT_STATE, ...rest } = this.props;
-		const props = Object.assign({
-			docked: state.get('docked'),
-			onToggleDock: this.onToggleDock,
-			...rest,
-		});
+		const props = Object.assign(
+			{},
+			{
+				docked: state.get('docked'),
+				onToggleDock: this.onToggleDock,
+			},
+			{
+				...rest,
+			},
+		);
 		return <Component {...props} getComponent={this.getComponent} />;
 	}
 }
