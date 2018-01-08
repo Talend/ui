@@ -27,6 +27,7 @@ class SidePanel extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 		this.onToggleDock = this.onToggleDock.bind(this);
+		this.getComponent = this.getComponent.bind(this);
 	}
 
 	onToggleDock() {
@@ -34,23 +35,25 @@ class SidePanel extends React.Component {
 		this.props.setState({ docked: !state.get('docked') });
 	}
 
+	getComponent(key) {
+		try {
+			return this.props.getComponent(key);
+		} catch (error) {
+			if (key === 'Action') {
+				return Action;
+			}
+			throw error;
+		}
+	}
+
 	render() {
 		const { state = DEFAULT_STATE, ...rest } = this.props;
 		const props = Object.assign({
 			docked: state.get('docked'),
 			onToggleDock: this.onToggleDock,
+			...rest,
 		});
-		const getComponent = key => {
-			try {
-				return this.props.getComponent(key);
-			} catch (error) {
-				if (key === 'Action') {
-					return Action;
-				}
-				throw error;
-			}
-		};
-		return <Component getComponent={getComponent} {...rest} {...props} />;
+		return <Component {...props} getComponent={this.getComponent} />;
 	}
 }
 
