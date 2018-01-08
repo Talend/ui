@@ -42,7 +42,6 @@ class SidePanel extends React.Component {
 		});
 		const getComponent = key => {
 			try {
-				console.log(this.props.getComponent(key));
 				return this.props.getComponent(key);
 			} catch (error) {
 				if (key === 'Action') {
