@@ -1,8 +1,11 @@
 
-> @talend/react-components@0.138.0 lint:es /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.139.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/components/src/Actions/ActionDropdown/ActionDropdown.test.js
+  3:26  error  'getMenuItem' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -34,5 +37,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 12 problems (11 errors, 1 warning)
+✖ 13 problems (12 errors, 1 warning)
 
