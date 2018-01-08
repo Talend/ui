@@ -1,19 +1,28 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { get } from 'lodash';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
-
+import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
 import { wrapOnClick } from '../Action/Action.component';
 
+function injectMenuItem(getComponent, { component, divider, ...rest }, index) {
+	if (divider) {
+		return <MenuItem key={index} divider />;
+	}
+	return (
+		<MenuItem key={index}>
+			<Inject component={component} getComponent={getComponent} {...rest} />
+		</MenuItem>
+	);
+}
+
 function getMenuItem(item, index) {
 	if (item.divider) {
 		return <MenuItem key={index} divider />;
-	}
-	if (React.isValidElement(item)) {
-		return <MenuItem key={index}>{item}</MenuItem>;
 	}
 	return (
 		<MenuItem key={index} eventKey={item} {...item} onClick={wrapOnClick(item)}>
@@ -21,6 +30,22 @@ function getMenuItem(item, index) {
 			{item.label}
 		</MenuItem>
 	);
+}
+
+function chooseMenuItemRendering(getComponent, items, components) {
+	if (
+		getComponent &&
+		Array.isArray(get(components, 'itemsDropdown')) &&
+		components.itemsDropdown.length > 0
+	) {
+		return components.itemsDropdown.map((component, index) =>
+			injectMenuItem(getComponent, component, index),
+		);
+	}
+	if (items.length > 0) {
+		return items.map(getMenuItem);
+	}
+	return <MenuItem disabled>No options</MenuItem>;
 }
 
 /**
@@ -61,6 +86,8 @@ function ActionDropdown(props) {
 		onSelect,
 		tooltipPlacement,
 		tooltipLabel,
+		getComponent,
+		components,
 		...rest
 	} = props;
 
@@ -87,7 +114,7 @@ function ActionDropdown(props) {
 			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button')}
 			{...rest}
 		>
-			{items.length ? items.map(getMenuItem) : <MenuItem disabled>No options</MenuItem>}
+			{chooseMenuItemRendering(getComponent, items, components)}
 		</DropdownButton>
 	);
 
@@ -119,6 +146,8 @@ ActionDropdown.propTypes = {
 	onSelect: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltipLabel: PropTypes.string,
+	getComponent: PropTypes.func,
+	components: PropTypes.object,
 };
 
 ActionDropdown.defaultProps = {
