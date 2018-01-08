@@ -8,6 +8,6 @@ describe('<%= props.name %>', () => {
 		const wrapper = shallow(
 			<<%= props.name %> />
 		);
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

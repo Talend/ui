@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Slider, IconsProvider } from '../src/';
+import Slider from '../src/Slider';
+import IconsProvider from '../src/IconsProvider';
 
 const icons = [
 	'talend-activity',
@@ -29,9 +30,11 @@ storiesOf('Slider', module).addWithInfo('default', () => (
 			<p>With disabled label</p>
 			<Slider disabled />
 			<p> with default value :</p>
-			<Slider value={45} emptyValueLabel="empty value" />
+			<Slider value={45} />
 			<p> With a label:</p>
-			<Slider value={50} label="Your value :" captionIcons={icons} />
+			<Slider value={null} captionIcons={icons} />
+			<p> With a label:</p>
+			<Slider value={50} captionIcons={icons} />
 			<p>with some icons</p>
 			<Slider value={40} captionTextStepNumber={4} captionsFormat={functionFormatFloor} />
 			<p>with icon close to label</p>

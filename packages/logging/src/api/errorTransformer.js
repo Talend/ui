@@ -63,7 +63,7 @@ function safeWrapReport(rethrowErrorHandler) {
  * }
  * @returns function, redux-logger compatible middleware for messages
  **/
-export default function initErrorTransformer(logServerUrl, transport = {}, options = {}) {
+export function initErrorTransformer(logServerUrl, transport = {}, options = {}) {
 	const {
 		stackTraceLimit,
 		rethrowErrorHandler,

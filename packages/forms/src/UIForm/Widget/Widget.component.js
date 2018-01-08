@@ -24,13 +24,13 @@ export default function Widget(props) {
 	const errorMessage = validationMessage || error;
 	return (
 		<WidgetImpl
+			{...props}
 			id={id}
 			key={id}
 			errorMessage={errorMessage}
 			isValid={!error}
 			value={getValue(props.properties, key)}
 			options={options}
-			{...props}
 		/>
 	);
 }
