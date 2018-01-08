@@ -1,6 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import ActionDropdown, { getMenuItem } from './ActionDropdown.component';
+import ActionDropdown, {
+	chooseMenuItemRendering,
+	getMenuItem,
+	injectMenuItem,
+} from './ActionDropdown.component';
 
 describe('ActionDropdown', () => {
 	it('should call onSelect callback when click on item', () => {
@@ -46,5 +50,65 @@ describe('ActionDropdown', () => {
 			model: 'model',
 		});
 		expect(onItemClick.mock.calls[1][0].type).toBe('click');
+	});
+});
+
+describe('chooseMenuItemRendering', () => {
+	it('should return disabled item', () => {
+		expect(chooseMenuItemRendering(null, [], null)).toMatchSnapshot();
+	});
+	it('should return an array of MenuItem (props items)', () => {
+		const items = [{ label: 'First', icon: 'talend-streams' }];
+		expect(chooseMenuItemRendering(null, items, null)).toMatchSnapshot();
+	});
+	it('should return an array of MenuItem with divider (props items)', () => {
+		const items = [{ label: 'First', icon: 'talend-streams' }, { divider: true }];
+		expect(chooseMenuItemRendering(null, items, null)).toMatchSnapshot();
+	});
+	it('should return an array of MenuItem with components injected', () => {
+		const getComponent = jest.fn();
+		const components = {
+			itemsDropdown: [
+				{
+					component: 'Action',
+					actionId: 'menu:first',
+				},
+			],
+		};
+		expect(chooseMenuItemRendering(getComponent, null, components)).toMatchSnapshot();
+	});
+	it('should return an array of MenuItem with components injected and a divider', () => {
+		const getComponent = jest.fn();
+		const components = {
+			itemsDropdown: [
+				{
+					component: 'Action',
+					actionId: 'menu:first',
+				},
+				{ divider: true },
+			],
+		};
+		expect(chooseMenuItemRendering(getComponent, null, components)).toMatchSnapshot();
+	});
+});
+
+describe('getMenuItem', () => {
+	it('should return a MenuItem with divider', () => {
+		expect(getMenuItem({ divider: true })).toMatchSnapshot();
+	});
+	it('should return a MenuItem with icon and label', () => {
+		expect(getMenuItem({ label: 'Toto', icon: 'talend-bell' })).toMatchSnapshot();
+	});
+	it('should return a MenuItem with label', () => {
+		expect(getMenuItem({ label: 'Toto' })).toMatchSnapshot();
+	});
+});
+
+describe('injectMenuItem', () => {
+	it('should return a MenuItem with a divider', () => {
+		expect(injectMenuItem(jest.fn(), { divider: true })).toMatchSnapshot();
+	});
+	it('should return a MenuItem with an Inject', () => {
+		expect(injectMenuItem(jest.fn(), { component: 'MyInjectCmp' })).toMatchSnapshot();
 	});
 });

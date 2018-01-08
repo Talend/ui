@@ -156,4 +156,4 @@ ActionDropdown.defaultProps = {
 	items: [],
 };
 
-export { ActionDropdown as default, getMenuItem };
+export { ActionDropdown as default, chooseMenuItemRendering, getMenuItem, injectMenuItem };
