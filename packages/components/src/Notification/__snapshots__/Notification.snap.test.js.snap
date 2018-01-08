@@ -39,33 +39,37 @@ exports[`Notification should render 1`] = `
           
         </span>
       </button>
-      <p
-        className="tc-notification-message"
+      <article
+        className={undefined}
       >
-        This is a feedback of your operation1, This is a feedback of your operation1
-        <button
-          className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
-          disabled={false}
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
+        <p
+          className="tc-notification-message"
         >
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            focusable="false"
-            title={null}
+          This is a feedback of your operation1, This is a feedback of your operation1
+          <button
+            className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
+            disabled={false}
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
           >
-            <use
-              xlinkHref="#talend-undo"
-            />
-          </svg>
-          <span>
-            Haha
-          </span>
-        </button>
-      </p>
+            <svg
+              aria-hidden="true"
+              className="tc-svg-icon"
+              focusable="false"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-undo"
+              />
+            </svg>
+            <span>
+              Haha
+            </span>
+          </button>
+        </p>
+      </article>
       <div
         className="tc-notification-timer-bar"
       />
@@ -99,7 +103,9 @@ exports[`Notification should render 1`] = `
           
         </span>
       </button>
-      <article>
+      <article
+        className={undefined}
+      >
         <p
           className="tc-notification-message"
         >
@@ -163,7 +169,9 @@ exports[`Notification should render 1`] = `
           
         </span>
       </button>
-      <article>
+      <article
+        className={undefined}
+      >
         <p
           className="tc-notification-message"
         >
@@ -208,11 +216,15 @@ exports[`Notification should render 1`] = `
           
         </span>
       </button>
-      <p
-        className="tc-notification-message"
+      <article
+        className={undefined}
       >
-        This is a feedback of your operation4
-      </p>
+        <p
+          className="tc-notification-message"
+        >
+          This is a feedback of your operation4
+        </p>
+      </article>
       <div
         className="tc-notification-timer-bar"
       />

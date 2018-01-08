@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import RowSelection from './RowSelection.component';
 
 function RowRenderer(props) {
-	return (<div {...props} />);
+	return <div {...props} />;
 }
 
 const selectedRowData = { id: 0 };
@@ -32,11 +32,11 @@ describe('RowSelection', () => {
 				key={18}
 				parent={{}}
 				style={{ background: 'red' }}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should enhance classname without selection class on non selected row', () => {
@@ -54,11 +54,11 @@ describe('RowSelection', () => {
 				key={18}
 				parent={{}}
 				style={{ background: 'red' }}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should enhance classname with active class on active row', () => {
@@ -76,10 +76,10 @@ describe('RowSelection', () => {
 				key={18}
 				parent={{}}
 				style={{ background: 'blue' }}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

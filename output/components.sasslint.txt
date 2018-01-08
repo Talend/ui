@@ -1,17 +1,19 @@
 
-> @talend/react-components@0.126.0 lint:style /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.138.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
 
 src/Actions/ActionFile/ActionFile.scss
   5:12  error  Strings must use single quotes  quotes
 
-src/FilterBar/FilterBar.scss
-   3:34  warning  Hex notation should all be upper case  hex-notation
-  28:6   warning  Vendor prefixes should not be used     no-vendor-prefixes
+src/ConfirmDialog/ConfirmDialog.scss
+  76:4  warning  Expected indentation of 2 tabs but found 3  indentation
 
-src/VirtualizedList/NoRows/NoRows.scss
-  6:17  warning  No unit allowed for values of 0  zero-unit
+src/Drawer/Drawer.scss
+  14:4  warning  Statement must begin on a new line  brace-style
+
+src/FilterBar/FilterBar.scss
+  47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
 ✖ 4 problems (1 error, 3 warnings)
 

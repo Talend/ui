@@ -49,13 +49,37 @@ function getActionId(id, action) {
  />
  *
  */
-function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, renderers }) {
-	const dockedCSS = { [theme.docked]: docked };
-	const navCSS = classNames(theme['tc-side-panel'], dockedCSS, 'tc-side-panel');
+function SidePanel({
+	id,
+	selected,
+	onSelect,
+	actions,
+	docked,
+	reverse,
+	large,
+	dockable,
+	onToggleDock,
+	t,
+	renderers,
+}) {
+	const navCSS = classNames(theme['tc-side-panel'], 'tc-side-panel', {
+		[theme.docked]: docked,
+		[theme.large]: large,
+	});
 	const listCSS = classNames(
-		'nav nav-pills nav-inverse nav-stacked',
+		theme.nav,
+		'nav',
+		theme['nav-pills'],
+		'nav-pills',
+		theme['nav-stacked'],
+		'nav-stacked',
+		theme['tc-side-panel-list'],
 		'tc-side-panel-list',
 		theme['action-list'],
+		{
+			'nav-inverse': !reverse,
+			[theme['nav-inverse']]: !reverse,
+		},
 	);
 	const isActionSelected = action => {
 		if (selected) {
@@ -71,16 +95,18 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 	return (
 		<nav className={navCSS} role="navigation">
 			<ul className={listCSS}>
-				<li className={theme['toggle-btn']} title={toggleButtonTitle}>
-					<Action
-						id={id && `${id}-toggle-dock`}
-						className={theme.link}
-						bsStyle="link"
-						onClick={onToggleDock}
-						icon="talend-opener"
-						label=""
-					/>
-				</li>
+				{dockable && (
+					<li className={theme['toggle-btn']} title={toggleButtonTitle}>
+						<Action
+							id={id && `${id}-toggle-dock`}
+							className={theme.link}
+							bsStyle="link"
+							onClick={onToggleDock}
+							icon="talend-opener"
+							label=""
+						/>
+					</li>
+				)}
 				{actions.map(action => {
 					const a11y = {};
 					const extra = {};
@@ -114,8 +140,9 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 						<li
 							title={action.label}
 							key={action.key || action.label}
-							className={classNames('tc-side-panel-list-item', {
+							className={classNames(theme['tc-side-panel-list-item'], 'tc-side-panel-list-item', {
 								active: isSelected,
+								[theme.active]: isSelected,
 							})}
 							{...a11y}
 						>
@@ -131,6 +158,9 @@ function SidePanel({ id, selected, onSelect, actions, docked, onToggleDock, t, r
 SidePanel.defaultProps = {
 	actions: [],
 	renderers: { Action },
+	reverse: false,
+	large: false,
+	dockable: true,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -149,6 +179,9 @@ if (process.env.NODE_ENV !== 'production') {
 		onSelect: PropTypes.func,
 		onToggleDock: PropTypes.func,
 		docked: PropTypes.bool,
+		reverse: PropTypes.bool,
+		large: PropTypes.bool,
+		dockable: PropTypes.bool,
 		selected: actionPropType,
 		t: PropTypes.func,
 		renderers: PropTypes.shape({

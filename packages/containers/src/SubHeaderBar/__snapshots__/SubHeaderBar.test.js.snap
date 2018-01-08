@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubHeaderBar container should render 1`] = `
+<Translate(SubHeaderBar)
+  editMode={false}
+  onCancel={[Function]}
+  onChange={[Function]}
+  onEdit={[Function]}
+  onGoBack={[Function]}
+  onSubmit={[Function]}
+/>
+`;

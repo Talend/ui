@@ -18,8 +18,8 @@ function listviewClasses() {
 }
 
 function ListView(props) {
-	const noResultLabel = props.t('LISTVIEW_NO_RESULT', 'No result found.');
-	const emptyLabel = props.t('LISTVIEW_EMPTY', 'This list is empty.');
+	const noResultLabel = props.t('LISTVIEW_NO_RESULT', { defaultValue: 'No result found.' });
+	const emptyLabel = props.t('LISTVIEW_EMPTY', { defaultValue: 'This list is empty.' });
 	const label = props.displayMode === DISPLAY_MODE_SEARCH ? noResultLabel : emptyLabel;
 	return (
 		<div className={listviewClasses()}>
@@ -40,6 +40,7 @@ ListView.propTypes = {
 
 ListView.defaultProps = {
 	items: [],
+	isSwitchBox: false,
 };
 
 function ItemsListView(props) {
@@ -47,6 +48,7 @@ function ItemsListView(props) {
 		<Items
 			id={props.id}
 			items={props.items}
+			isSwitchBox={props.isSwitchBox}
 			searchCriteria={props.searchCriteria}
 			toggleAllChecked={props.toggleAllChecked}
 			onToggleAll={props.onToggleAll}
@@ -60,6 +62,7 @@ ItemsListView.propTypes = {
 	getItemHeight: PropTypes.func,
 	id: PropTypes.string,
 	items: ListView.propTypes.items,
+	isSwitchBox: PropTypes.bool,
 	onToggleAll: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,

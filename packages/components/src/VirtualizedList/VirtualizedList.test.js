@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import VirtualizedList from './VirtualizedList.component';
 import { listTypes } from './utils/constants';
@@ -40,7 +40,31 @@ describe('VirtualizedList', () => {
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should use defaultHeight if AutoSizer can not get parent element height', () => {
+		// when
+		const wrapper = mount(
+			<span>
+				<VirtualizedList
+					collection={collection}
+					id={'my-list-id'}
+					isSelected={jest.fn()}
+					rowHeight={50}
+					selectionToggle={jest.fn()}
+					sort={jest.fn()}
+					sortBy={'name'}
+					sortDirection={'DESC'}
+					type={TABLE}
+				>
+					{contentFields}
+				</VirtualizedList>
+			</span>,
+		);
+
+		// then
+		expect(wrapper.find('VirtualizedList(RendererSelector)').props().height).toBe(250);
 	});
 
 	it('should render RendererSelector', () => {
@@ -63,7 +87,7 @@ describe('VirtualizedList', () => {
 				{contentFields}
 			</VirtualizedList>,
 		);
-		const renderer = wrapper.node.props.children;
+		const renderer = wrapper.getElement().props.children;
 
 		// when
 		const rendererInstance = renderer({ height: 600, width: 300 });
@@ -94,6 +118,6 @@ describe('VirtualizedList', () => {
 			</VirtualizedList>,
 		);
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

@@ -1,12 +1,13 @@
 import actions from './deleteResource.actions';
 import deleteResourceConst from './deleteResource.constants';
 
-
 describe('deleteResource actions', () => {
 	describe('deleteResource:open', () => {
 		it('should return an action DIALOG_BOX_DELETE_RESOURCE object', () => {
 			// Given
-			const context = { router: { location: { pathname: 'currentUrl' } } };
+			const context = {
+				router: { getCurrentLocation: jest.fn(() => ({ pathname: 'currentUrl' })) },
+			};
 			const model = { id: 'modelId' };
 			const data = { model };
 			// When

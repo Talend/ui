@@ -8,8 +8,12 @@ export default {
 	children: PropTypes.arrayOf(PropTypes.element),
 	// The collection items
 	collection: PropTypes.arrayOf(PropTypes.object),
+	// Default height to render list
+	defaultHeight: PropTypes.number,
 	// Disable header on TABLE
 	disableHeader: PropTypes.boolean,
+	// label used when the list is empty
+	noRowsRenderer: PropTypes.oneOf(PropTypes.element, PropTypes.func),
 	// The id. The sub-ids will be based on the ids as prefix
 	id: PropTypes.string,
 	// Highlight row on click
@@ -35,6 +39,4 @@ export default {
 	sortDirection: PropTypes.oneOf([SORT_BY.ASC, SORT_BY.DESC]),
 	// List type ('TABLE' | 'LARGE' | ...)
 	type: PropTypes.oneOf([TABLE, LARGE]),
-	// i18next translate helper
-	t: PropTypes.func,
 };

@@ -15,11 +15,11 @@ describe('UIForm container', () => {
 		const wrapper = shallow(<UIForm data={data} {...props} />);
 
 		// then
-		expect(wrapper // eslint-disable-line no-underscore-dangle
-			.instance()
-			.state
+		expect(
+			wrapper // eslint-disable-line no-underscore-dangle
+				.instance().state,
 		).toMatchSnapshot();
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	describe('#onChange', () => {
@@ -29,14 +29,11 @@ describe('UIForm container', () => {
 			const instance = wrapper.instance();
 
 			// when
-			instance.onChange(
-				null,
-				{
-					formName: props.formName,
-					schema: mergedSchema[0],
-					value: 'toto',
-				},
-			);
+			instance.onChange(null, {
+				formName: props.formName,
+				schema: mergedSchema[0],
+				value: 'toto',
+			});
 
 			// then
 			expect(instance.state).toMatchSnapshot();
@@ -49,25 +46,19 @@ describe('UIForm container', () => {
 			const event = { target: {} };
 
 			// when
-			instance.onChange(
-				event,
-				{
-					formName: props.formName,
-					schema: mergedSchema[0],
-					value: 'toto',
-				},
-			);
+			instance.onChange(event, {
+				formName: props.formName,
+				schema: mergedSchema[0],
+				value: 'toto',
+			});
 
 			// then
-			expect(props.onChange).toBeCalledWith(
-				event,
-				{
-					formName: props.formName,
-					schema: mergedSchema[0],
-					value: 'toto',
-					properties: props.properties,
-				}
-			);
+			expect(props.onChange).toBeCalledWith(event, {
+				formName: props.formName,
+				schema: mergedSchema[0],
+				value: 'toto',
+				properties: props.properties,
+			});
 		});
 	});
 

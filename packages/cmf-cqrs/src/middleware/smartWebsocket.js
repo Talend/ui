@@ -17,7 +17,7 @@ export function wsSend(ws, message, callback, offlinebuffer) {
  * if is closed or not defined start a new ws
  */
 export function wsIsClosed(ws) {
-	return (!ws || ws.readyState === WebSocket.CLOSED);
+	return !ws || ws.readyState === WebSocket.CLOSED;
 }
 
 /**
@@ -55,7 +55,7 @@ export function startWebsocket(url, offlinebuffer, options) {
 			clearInterval(pingInterval);
 		}
 	};
-	ws.onError = function onerror(event) {
+	ws.onerror = function onerror(event) {
 		if (typeof onError === 'function') {
 			onError(event);
 		}

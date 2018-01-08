@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component SelectObject should render 1`] = `
+<div
+  className="tc-select-object undefined"
+>
+  <Connect(CMF(Container(FilterBar)))
+    className="my-custom-filter"
+    dockable={false}
+    id="my-tree"
+    navbar={false}
+  />
+  <div
+    className={undefined}
+  >
+    <Connect(CMF(Container(TreeView)))
+      className={undefined}
+      componentId="my-tree"
+      data={
+        Immutable.List [
+          Immutable.Map {
+            id: "1",
+            name: "foo",
+          },
+        ]
+      }
+      noHeader={true}
+    />
+    <JSONSchemaRenderer
+      className={undefined}
+      schema={
+        Object {
+          "jsonSchema": Object {},
+          "properties": Object {
+            "id": "1",
+            "name": "foo",
+          },
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Container SelectObject should render 1`] = `
+<SelectObject
+  breadCrumbsRootLabel="root"
+  idAttr="id"
+  nameAttr="name"
+  sourceData={
+    Immutable.List [
+    ]
+  }
+/>
+`;
