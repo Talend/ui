@@ -13,7 +13,7 @@ mkdir .static/icons
 mkdir .static/logging
 mkdir .static/theme
 cp .surge/index.html .static
-if [ "$TRAVIS_PULL_REQUEST" != 'false' ] then
+if [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
     STATIC_BRANCH_NAME=$(echo $TRAVIS_PULL_REQUEST_BRANCH | sed -e 's/\//\\\//g')
     sed -i -e 's/REPLACED_BY_CI/'$STATIC_BRANCH_NAME'/' .static/index.html
 fi
