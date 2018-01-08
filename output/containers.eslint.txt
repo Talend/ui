@@ -19,8 +19,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-/home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.container.js
-  45:5  warning  Unexpected console statement  no-console
-
-✖ 6 problems (5 errors, 1 warning)
+✖ 5 problems (5 errors, 0 warnings)
 
