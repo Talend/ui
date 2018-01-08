@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import RJSForm from 'react-jsonschema-form/lib/index';
-import { Action } from '@talend/react-components';
+import Action from '@talend/react-components/lib/Actions/Action';
 
 import UIForm from './UIForm/UIForm.component';
 import { wrapCustomWidget } from './UIForm/merge';

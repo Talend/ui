@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Action } from '@talend/react-components';
+import Action from '@talend/react-components/lib/Actions/Action';
 import classNames from 'classnames';
 
 export default function SingleButton({ className, id, onTrigger, onClick, schema }) {

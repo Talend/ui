@@ -5,11 +5,20 @@
 
 $list-item-hover-color: rgba($white, 0.12) !default;
 $list-item-active-color: rgba($white, 0.25) !default;
+$list-item-reverse-hover-color: rgba($white, 0.5) !default;
+$list-item-color: $white !default;
+$list-item-reverse-color: $brand-primary !default;
 $toggle-button-opacity: 0.75;
+$tc-side-panel-large-padding: 25px !default;
 $tc-side-panel-width: 200px !default;
+$tc-side-panel-large-width: 250px !default;
 $tc-side-panel-docked-width: 50px !default;
 $tc-side-panel-labels-width: 135px !default;
+$tc-side-panel-large-labels-width: 165px !default;
+$tc-side-panel-large-docked-width: 70px !default;
 $tc-side-panel-icons-size: 20px !default;
+$tc-side-panel-border-size: 2px !default;
+$tc-side-panel-large-toggle-padding: 4px !default;
 $toggle-button-padding: $padding-small - 1;
 
 .tc-side-panel {
@@ -17,6 +26,9 @@ $toggle-button-padding: $padding-small - 1;
 	padding: 0;
 	transition: 0.2s width ease-out;
 	width: $tc-side-panel-width;
+
+	display: flex;
+	flex-direction: column;
 
 	> ul {
 		width: $tc-side-panel-width;
@@ -28,7 +40,103 @@ $toggle-button-padding: $padding-small - 1;
 		margin: 0;
 	}
 
-	.link {
+	:global(.btn.btn-link) {
+		padding: $padding-normal;
+		text-overflow: inherit;
+	}
+
+	:global(.btn.btn-link) > span {
+		vertical-align: middle;
+		text-overflow: ellipsis;
+		width: $tc-side-panel-labels-width;
+		overflow: hidden;
+	}
+
+	&-list {
+		border-right: $tc-side-panel-border-size solid $alto;
+		background-color: $wild-sand;
+
+		.tc-side-panel-list-item.active {
+			background-color: $list-item-color;
+			color: $brand-primary;
+			&:hover {
+				:global(.tc-svg-icon) {
+					color: $brand-primary;
+				}
+			}
+			:global(.btn.btn-link) {
+				font-weight: bold;
+			}
+		}
+
+		.tc-side-panel-list-item:hover {
+			background-color: $list-item-reverse-hover-color;
+			color: $dove-gray;
+			:global(.tc-svg-icon) {
+				color: $silver;
+			}
+		}
+
+		&.nav-inverse {
+			border-right: none;
+			background-color: $list-item-reverse-color;
+
+			.tc-side-panel-list-item:hover,
+			.tc-side-panel-list-item.active {
+				color: $list-item-color;
+				:global(.tc-svg-icon) {
+					color: $list-item-color;
+				}
+			}
+			.tc-side-panel-list-item:hover {
+				background-color: $list-item-hover-color;
+			}
+
+			.tc-side-panel-list-item.active {
+				background-color: $list-item-active-color;
+			}
+		}
+	}
+
+	&.large {
+		width: $tc-side-panel-large-width;
+		> ul {
+			width: $tc-side-panel-large-width;
+		}
+
+		:global(.btn.btn-link) {
+			:global(.tc-svg-icon) + span {
+				margin-left: $tc-side-panel-large-padding;
+			}
+		}
+
+		:global(.btn.btn-link) > span {
+			width: $tc-side-panel-large-labels-width;
+		}
+
+		&.docked {
+			width: $tc-side-panel-large-docked-width;
+
+			.tc-side-panel-list-item {
+				width: $tc-side-panel-large-docked-width;
+			}
+
+			.nav-pills {
+				:global(.btn.btn-link) {
+					padding: $padding-normal $tc-side-panel-large-padding;
+				}
+			}
+
+			.toggle-btn {
+				padding-left: $tc-side-panel-large-toggle-padding;
+				:global(.btn.btn-link) {
+					padding: $padding-small $tc-side-panel-large-padding;
+				}
+			}
+		}
+	}
+
+	:global(.btn.btn-link) {
 		text-align: left;
 		font-size: $font-size-small;
 		text-transform: uppercase;
@@ -39,36 +147,13 @@ $toggle-button-padding: $padding-small - 1;
 		}
 	}
 
-	//override nav-pill a bit
-	:global(.nav-pills .btn.btn-link) {
-		padding: $padding-normal $padding-large;
-		text-overflow: inherit;
-	}
-
-	:global(.nav-pills .btn.btn-link) > span {
-		vertical-align: middle;
-		text-overflow: ellipsis;
-		width: $tc-side-panel-labels-width;
-		overflow: hidden;
-	}
-
-	:global(.tc-side-panel-list-item):hover {
-		background-color: $list-item-hover-color;
-	}
-
-	:global(.tc-side-panel-list-item.active) {
-		background-color: $list-item-active-color;
-	}
-
 	&.docked {
 		width: $tc-side-panel-docked-width;
 
-		:global(.tc-side-panel-list-item) {
+		.tc-side-panel-list-item {
 			width: $tc-side-panel-docked-width;
 		}
-
-		:global(.nav-pills) {
-			//override nav-pill a bit
+		.nav-pills {
 			:global(.btn.btn-link) {
 				padding: $padding-normal;
 			}
@@ -88,11 +173,14 @@ $toggle-button-padding: $padding-small - 1;
 	}
 
 	.toggle-btn {
-		margin-bottom: $padding-normal + $padding-large;
-		text-align: left;
+		background-color: $list-item-reverse-color;
+		padding-bottom: $padding-normal + $padding-large;
 		padding-left: $toggle-button-padding;
+		text-align: left;
 
 		:global(.btn.btn-link) {
+			color: $list-item-color;
+			line-height: 1;
 			outline: none;
 			padding: $padding-small;
 			display: inline-block;
@@ -114,10 +202,6 @@ $toggle-button-padding: $padding-small - 1;
 
 		:global(.btn.btn-link) > span {
 			display: none;
-		}
-
-		&:hover {
-			background-color: transparent;
 		}
 	}
 }

@@ -151,6 +151,7 @@ exports[`Action should render a button without an overlay component if inProgres
   block={false}
   bsClass="btn"
   bsStyle="default"
+  className=""
   disabled={true}
   onClick={null}
   onMouseDown={null}
