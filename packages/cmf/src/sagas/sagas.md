@@ -1,5 +1,7 @@
 # CMF Sagas
 
+This modules contains a set of saga ready to use in CMF to write your business code
+
 ## Use
 
 ```javascript
@@ -47,7 +49,7 @@ Set the document title when the route changed.
 
 ### Use
 
-Define on the cmf's settings, the title to use in each route.
+Define on the cmf's settings, the title to use in each route. When the route changed, the saga looking for if a documentTitle exists in the setting for the current route and set it.
 
 ```json
 "routes": [{
@@ -63,7 +65,7 @@ Define on the cmf's settings, the title to use in each route.
 
 ### Description
 
-Lauch a saga when 401, 403, 404 occurs in the application.
+Lauch a saga when the important http errors (401, 403, 404) occurs in the application. You can set a specific action when the errors is throwed.
 
 ### Use
 
