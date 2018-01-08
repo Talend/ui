@@ -87,6 +87,10 @@ class Form extends React.Component {
 		}
 	}
 
+	setErrors(formName, errors) {
+		this.props.setState({ errors });
+	}
+
 	jsonSchema() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
 		if (typeof this.props.jsonSchema === 'function') {
@@ -109,10 +113,6 @@ class Form extends React.Component {
 			return this.props.data(state.data);
 		}
 		return Object.assign({}, this.props.data, state.data);
-	}
-
-	setErrors(formName, errors) {
-		this.props.setState({ errors });
 	}
 
 	formActions() {
