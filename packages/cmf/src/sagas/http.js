@@ -1,6 +1,8 @@
 import { call, put } from 'redux-saga/effects';
 import merge from 'lodash/merge';
+import curry from 'lodash/curry';
 
+import { mergeCSRFToken } from '../middlewares/http/csrfHandling';
 import {
 	ACTION_TYPE_HTTP_ERRORS,
 	HTTP_METHODS,
@@ -142,7 +144,7 @@ export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload) {
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.post, '/foo', {foo: 42});
  */
-function* httpPost(url, payload, config) {
+export function* httpPost(url, payload, config) {
 	return yield* wrapFetch(url, config, HTTP_METHODS.POST, payload);
 }
 
@@ -157,7 +159,7 @@ function* httpPost(url, payload, config) {
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.put, '/foo', {foo: 42});
  */
-function* httpPut(url, payload, config) {
+export function* httpPut(url, payload, config) {
 	return yield* wrapFetch(url, config, HTTP_METHODS.PUT, payload);
 }
 
@@ -171,7 +173,7 @@ function* httpPut(url, payload, config) {
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.delete, '/foo');
  */
-function* httpDelete(url, config) {
+export function* httpDelete(url, config) {
 	return yield* wrapFetch(url, config, HTTP_METHODS.DELETE);
 }
 
@@ -185,13 +187,34 @@ function* httpDelete(url, config) {
  * import { call } from 'redux-saga/effects'
  * yield call(sagas.http.get, '/foo');
  */
-function* httpGet(url, config) {
+export function* httpGet(url, config) {
 	return yield* wrapFetch(url, config);
 }
+
+export const handleDefaultConfiguration = curry((defaultConfig, config) =>
+	mergeCSRFToken(defaultConfig, config),
+);
 
 export default {
 	delete: httpDelete,
 	get: httpGet,
 	post: httpPost,
 	put: httpPut,
+	create(defaultConfig = {}) {
+		const configEnhancer = handleDefaultConfiguration(defaultConfig);
+		return {
+			delete: function* configuredDelete(url, config = {}) {
+				return yield call(httpDelete, url, configEnhancer(config));
+			},
+			get: function* configuredGet(url, config = {}) {
+				return yield call(httpGet, url, configEnhancer(config));
+			},
+			post: function* configuredPost(url, payload, config = {}) {
+				return yield call(httpPost, url, HTTP_METHODS.POST, payload, configEnhancer(config));
+			},
+			put: function* configuredPut(url, payload, config = {}) {
+				return yield call(httpPut, url, HTTP_METHODS.PUT, payload, configEnhancer(config));
+			},
+		};
+	},
 };
