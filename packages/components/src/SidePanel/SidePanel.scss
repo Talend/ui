@@ -6,6 +6,8 @@
 $list-item-hover-color: rgba($white, 0.12) !default;
 $list-item-active-color: rgba($white, 0.25) !default;
 $list-item-reverse-hover-color: rgba($white, 0.5) !default;
+$list-item-color: $white !default;
+$list-item-reverse-color: $brand-primary !default;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
 $tc-side-panel-width: 200px !default;
@@ -24,6 +26,9 @@ $toggle-button-padding: $padding-small - 1;
 	padding: 0;
 	transition: 0.2s width ease-out;
 	width: $tc-side-panel-width;
+
+	display: flex;
+	flex-direction: column;
 
 	> ul {
 		width: $tc-side-panel-width;
@@ -52,14 +57,14 @@ $toggle-button-padding: $padding-small - 1;
 		background-color: $wild-sand;
 
 		.tc-side-panel-list-item.active {
-			background-color: $white;
+			background-color: $list-item-color;
 			color: $brand-primary;
 			&:hover {
 				:global(.tc-svg-icon) {
 					color: $brand-primary;
 				}
 			}
-			.link {
+			:global(.btn.btn-link) {
 				font-weight: bold;
 			}
 		}
@@ -74,13 +79,13 @@ $toggle-button-padding: $padding-small - 1;
 
 		&.nav-inverse {
 			border-right: none;
-			background-color: $brand-primary;
+			background-color: $list-item-reverse-color;
 
 			.tc-side-panel-list-item:hover,
 			.tc-side-panel-list-item.active {
-				color: $white;
+				color: $list-item-color;
 				:global(.tc-svg-icon) {
-					color: $white;
+					color: $list-item-color;
 				}
 			}
 			.tc-side-panel-list-item:hover {
@@ -89,12 +94,6 @@ $toggle-button-padding: $padding-small - 1;
 
 			.tc-side-panel-list-item.active {
 				background-color: $list-item-active-color;
-			}
-
-			.toggle-btn {
-				&:hover {
-					color: $white;
-				}
 			}
 		}
 	}
@@ -105,7 +104,7 @@ $toggle-button-padding: $padding-small - 1;
 			width: $tc-side-panel-large-width;
 		}
 
-		.link {
+		:global(.btn.btn-link) {
 			:global(.tc-svg-icon) + span {
 				margin-left: $tc-side-panel-large-padding;
 			}
@@ -123,21 +122,21 @@ $toggle-button-padding: $padding-small - 1;
 			}
 
 			.nav-pills {
-				.link {
+				:global(.btn.btn-link) {
 					padding: $padding-normal $tc-side-panel-large-padding;
 				}
 			}
 
 			.toggle-btn {
 				padding-left: $tc-side-panel-large-toggle-padding;
-				.link {
+				:global(.btn.btn-link) {
 					padding: $padding-small $tc-side-panel-large-padding;
 				}
 			}
 		}
 	}
 
-	.link {
+	:global(.btn.btn-link) {
 		text-align: left;
 		font-size: $font-size-small;
 		text-transform: uppercase;
@@ -155,7 +154,7 @@ $toggle-button-padding: $padding-small - 1;
 			width: $tc-side-panel-docked-width;
 		}
 		.nav-pills {
-			.link {
+			:global(.btn.btn-link) {
 				padding: $padding-normal;
 			}
 
@@ -167,18 +166,21 @@ $toggle-button-padding: $padding-small - 1;
 		}
 
 		.toggle-btn {
-			.link {
+			:global(.btn.btn-link) {
 				padding: $padding-small;
 			}
 		}
 	}
 
 	.toggle-btn {
-		margin-bottom: $padding-normal + $padding-large;
-		text-align: left;
+		background-color: $list-item-reverse-color;
+		padding-bottom: $padding-normal + $padding-large;
 		padding-left: $toggle-button-padding;
+		text-align: left;
 
 		:global(.btn.btn-link) {
+			color: $list-item-color;
+			line-height: 1;
 			outline: none;
 			padding: $padding-small;
 			display: inline-block;
@@ -200,11 +202,6 @@ $toggle-button-padding: $padding-small - 1;
 
 		:global(.btn.btn-link) > span {
 			display: none;
-		}
-
-		&:hover {
-			background-color: transparent;
-			color: $silver-chalice;
 		}
 	}
 }

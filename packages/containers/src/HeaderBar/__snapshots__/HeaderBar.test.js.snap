@@ -6,6 +6,7 @@ Object {
   "dispatch": [Function],
   "dispatchActionCreator": [Function],
   "getCollection": [Function],
+  "getComponent": [Function],
   "initState": [Function],
   "renderers": Object {
     "Action": [Function],
