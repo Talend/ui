@@ -5,8 +5,11 @@ import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-
+import { FilterBar, ObjectViewer, Action } from '../src/index';
+import 'focus-outline-manager';
+import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
+import { actions as actionsSubHeader, actionsCreators as actionsCreatorsSubHeader } from './subheaderbar.storybook'
 
 setAddon({ addWithCMF: cmf.addWithCMF });
 
@@ -37,9 +40,10 @@ function confirmDialog(event, data) {
 	};
 }
 
-function chooseItem1() {
+function chooseItem1(event, data) {
 	return {
 		type: 'CHOOSE_ITEM1',
+		...data,
 	};
 }
 
@@ -49,12 +53,27 @@ function chooseItem2() {
 	};
 }
 
+api.component.register('FilterBar', FilterBar);
+api.component.register('ObjectViewer', ObjectViewer);
+api.component.register('Action', Action);
+
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
 registerActionCreator('cancel:hide:dialog', hideDialog);
 registerActionCreator('confirm:dialog', confirmDialog);
 registerActionCreator('item1:action', chooseItem1);
 registerActionCreator('item2:action', chooseItem2);
+
+registerActionCreator('subheaderbar:display-sharing', actionsCreatorsSubHeader.sharingSubHeader);
+registerActionCreator('subheaderbar:display-bubbles', actionsCreatorsSubHeader.bubblesSubHeader);
+registerActionCreator('subheaderbar:submit', actionsCreatorsSubHeader.submitSubheader);
+registerActionCreator('subheaderbar:edit', actionsCreatorsSubHeader.editSubHeaderBar);
+registerActionCreator('subheaderbar:cancel', actionsCreatorsSubHeader.cancelSubHeaderBar);
+registerActionCreator('subheaderbar:change', actionsCreatorsSubHeader.changeSubHeaderBar);
+registerActionCreator('subheaderbar:goback', actionsCreatorsSubHeader.goBackSubHeaderBar);
+
+const registerComponent = api.component.register;
+registerComponent('ComponentOverlay', ComponentOverlay);
 
 const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
@@ -64,18 +83,10 @@ api.expression.register('isTrueExpression', (context, first) => {
 
 api.expression.register('getItems', () => [
 	{
-		id: {
-			actionCreator: 'item1:action',
-			property: 'item1',
-		},
 		label: 'label1',
 		actionCreator: 'item1:action',
 	},
 	{
-		id: {
-			actionCreator: 'item2:action',
-			property: 'item2',
-		},
 		label: 'label2',
 		actionCreator: 'item2:action',
 	},
@@ -91,7 +102,8 @@ function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
 		state.cmf.collections = state.cmf.collections.set(
-			'myResourceType', List([Map({ id: 'myID', label: 'myLabel' })]),
+			'myResourceType',
+			List([Map({ id: 'myID', label: 'myLabel' })]),
 		);
 		state.cmf.collections = state.cmf.collections.set(
 			'with',
@@ -100,24 +112,90 @@ function loadStories() {
 					new Map({
 						id: 1,
 						label: 'foo',
-						children: new List([new Map({ id: 11, label: 'sub foo' })]),
+						children: new List([
+							new Map({
+								id: 11,
+								label: 'sub foo',
+								author: 'Jacques',
+								created: '10/12/2013',
+								modified: '13/02/2015',
+							}),
+						]),
 					}),
 					new Map({
 						id: 2,
 						label: 'bar',
-						children: new List([new Map({ id: 21, label: 'sub bar' })]),
+						children: new List([
+							new Map({
+								id: 21,
+								label: 'sub bar',
+								author: 'Paul',
+								created: '10/12/2013',
+								modified: '13/02/2015',
+							}),
+						]),
 					}),
 					new Map({
 						id: 3,
 						label: 'baz',
-						children: new List([new Map({ id: 31, label: 'sub baz' })]),
+						children: new List([
+							new Map({
+								id: 31,
+								label: 'sub baz',
+								author: 'Boris',
+								created: '10/12/2013',
+								modified: '13/02/2015',
+							}),
+						]),
 					}),
 					new Map({
 						id: 4,
 						label: 'extra',
-						children: new List([new Map({ id: 41, label: 'sub extra' })]),
+
+						children: new List([
+							new Map({
+								id: 41,
+								label: 'sub extra',
+								children: new List([
+									new Map({
+										id: 411,
+										label: 'third level',
+										author: 'Henri',
+										created: '10/12/2013',
+										modified: '13/02/2015',
+									}),
+								]),
+							}),
+						]),
 					}),
-					new Map({ id: 5, label: 'hello world' }),
+					new Map({
+						id: 5,
+						label: 'look at me',
+						author: 'David',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+					}),
+					new Map({
+						id: 6,
+						label: 'I am famous',
+						author: 'David',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+					}),
+					new Map({
+						id: 7,
+						label: 'Strange test',
+						author: 'David',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+					}),
+					new Map({
+						id: 8,
+						label: 'Do you see me ?',
+						author: 'David',
+						created: '10/12/2013',
+						modified: '13/02/2015',
+					}),
 				]),
 			}),
 		);
@@ -244,6 +322,18 @@ function loadStories() {
 			label: 'No',
 			actionCreator: 'cancel:hide:dialog',
 		};
+		actions['action:overlay:component'] = {
+			id: 'action:overlay:component',
+			label: 'overlay with component',
+			overlayComponent: 'ComponentOverlay',
+			overlayComponentProps: {
+				customProps: 'customProps',
+			},
+			overlayPlacement: 'bottom',
+		};
+		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
+		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
+		
 
 		const story = storiesOf(example);
 

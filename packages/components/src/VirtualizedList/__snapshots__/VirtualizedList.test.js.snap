@@ -1,15 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`VirtualizedList should render CircularProgress 1`] = `
-<div
-  aria-atomic="true"
-  aria-busy="true"
-  className={undefined}
+<AutoSizer
+  disableHeight={false}
+  disableWidth={false}
+  onResize={[Function]}
 >
-  <CircularProgress
-    size="default"
-  />
-</div>
+  [Function]
+</AutoSizer>
 `;
 
 exports[`VirtualizedList should render RendererSelector 1`] = `
@@ -31,15 +29,16 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
   disableHeader={undefined}
   height={600}
   id="my-list-id"
+  inProgress={undefined}
   isActive={[Function]}
   isSelected={[Function]}
+  noRowsRenderer={[Function]}
   onRowClick={[Function]}
   rowHeight={50}
   selectionToggle={[Function]}
   sort={[Function]}
   sortBy="name"
   sortDirection="DESC"
-  t={[Function]}
   type="TABLE"
   width={300}
 >

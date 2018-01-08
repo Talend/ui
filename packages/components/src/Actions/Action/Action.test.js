@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Action, { getActionComponent } from './Action.component';
+import Action, { getActionComponent, wrapOnClick } from './Action.component';
 import ActionButton from '../ActionButton';
 import ActionFile from '../ActionFile';
 import ActionDropdown from '../ActionDropdown';
@@ -55,22 +55,52 @@ describe('getActionComponent', () => {
 describe('Action', () => {
 	it('should render ActionButton', () => {
 		const wrapper = shallow(<Action label="hello world" />);
-		expect(wrapper.getNode().type).toBe(ActionButton);
-		expect(wrapper.getNode().props.label).toBe('hello world');
+		expect(wrapper.getElement().type).toBe(ActionButton);
+		expect(wrapper.getElement().props.label).toBe('hello world');
 	});
 	it('should render ActionButton', () => {
 		const wrapper = shallow(<Action label="hello world" displayMode="file" />);
-		expect(wrapper.getNode().type).toBe(ActionFile);
-		expect(wrapper.getNode().props.label).toBe('hello world');
+		expect(wrapper.getElement().type).toBe(ActionFile);
+		expect(wrapper.getElement().props.label).toBe('hello world');
 	});
 	it('should render ActionSplitDropdown', () => {
 		const wrapper = shallow(<Action label="hello world" displayMode="splitDropdown" />);
-		expect(wrapper.getNode().type).toBe(ActionSplitDropdown);
-		expect(wrapper.getNode().props.label).toBe('hello world');
+		expect(wrapper.getElement().type).toBe(ActionSplitDropdown);
+		expect(wrapper.getElement().props.label).toBe('hello world');
 	});
 	it('should render ActionDropdown', () => {
 		const wrapper = shallow(<Action label="hello world" displayMode="dropdown" />);
-		expect(wrapper.getNode().type).toBe(ActionDropdown);
-		expect(wrapper.getNode().props.label).toBe('hello world');
+		expect(wrapper.getElement().type).toBe(ActionDropdown);
+		expect(wrapper.getElement().props.label).toBe('hello world');
+	});
+});
+
+describe('#wrapOnClick', () => {
+	it('should return onclick', () => {
+		// given
+		const onClick = jest.fn();
+		const eventFn = wrapOnClick({
+			onClick,
+			label: 'label',
+			model: {
+				id: '#model',
+			},
+		});
+
+		// when
+		eventFn({
+			type: 'click',
+		});
+
+		// then
+		expect(onClick).toHaveBeenCalledWith(
+			{
+				type: 'click',
+			},
+			{
+				action: { label: 'label' },
+				model: { id: '#model' },
+			},
+		);
 	});
 });

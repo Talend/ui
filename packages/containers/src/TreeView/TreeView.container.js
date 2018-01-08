@@ -8,6 +8,7 @@ import omit from 'lodash/omit';
 
 const OPENED_ATTR = 'opened';
 const SELECTED_ATTR = 'selectedId';
+export const DISPLAY_NAME = 'Container(TreeView)';
 export const DEFAULT_PROPS = {
 	idAttr: 'id',
 	nameAttr: 'name',
@@ -46,13 +47,13 @@ export function transform(items, props) {
 		return undefined;
 	}
 	const state = props.state || DEFAULT_STATE;
-	const selectedId = state && state.get(SELECTED_ATTR);
+	const selectedId = props[SELECTED_ATTR] || (state && state.get(SELECTED_ATTR));
 	const opened = state && state.get(OPENED_ATTR).toJS();
 	return items.map(item => ({
 		...item,
 		id: item[props.idAttr],
 		selected: item[props.idAttr] === selectedId,
-		toggled: opened.indexOf(item[props.idAttr]) !== -1,
+		toggled: item.toggled || opened.indexOf(item[props.idAttr]) !== -1,
 		name: item[props.nameAttr],
 		children: transform(item[props.childrenAttr], props),
 	}));
@@ -62,7 +63,7 @@ export function transform(items, props) {
  * The TreeView React container
  */
 class TreeView extends React.Component {
-	static displayName = 'Container(TreeView)';
+	static displayName = DISPLAY_NAME;
 	static propTypes = {
 		data: ImmutablePropTypes.List,
 		idAttr: PropTypes.string,
@@ -119,6 +120,9 @@ class TreeView extends React.Component {
 	}
 
 	render() {
+		if (!this.props.data) {
+			return null;
+		}
 		const structure = transform(this.props.data.toJS(), this.props);
 		const props = omit(this.props, cmfConnect.INJECTED_PROPS);
 		return (
@@ -131,6 +135,10 @@ export function mapStateToProps(state, ownProps) {
 	const props = {};
 	if (ownProps.collection) {
 		props.data = state.cmf.collections.getIn(ownProps.collection.split('.'));
+		if (!props.data) {
+			// eslint-disable-next-line no-console
+			console.warn('TreeView.collection not found');
+		}
 	}
 	return props;
 }

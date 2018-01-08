@@ -5,9 +5,12 @@ import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.talend.component.Component;
 
 import java.util.List;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Table - Item.
@@ -20,13 +23,11 @@ public class Item extends Component {
 
     private static final String TABLE_ITEM_TITLE_SELECTOR = TABLE_ITEM_TITLE_CONTAINER_SELECTOR + " > button";
 
-    private static final String TABLE_ITEM_ACTIONS_SELECTOR = TABLE_ITEM_TITLE_CONTAINER_SELECTOR + " > .tc-actions button";
-
-    private static final String TABLE_ITEM_ACTION_SELECTOR = TABLE_ITEM_ACTIONS_SELECTOR + "[id*=\"%s\"]";
-
     private static final String TABLE_ITEM_SELECT_CHECKBOX_SELECTOR = ".tc-list-internal-row-selector input[type=checkbox]";
 
     private static final String TABLE_ITEM_CELL_SELECTOR = ".tc-list-cell-%s";
+
+    private final WebDriverWait wait;
 
     /**
      * Constructor.
@@ -36,6 +37,7 @@ public class Item extends Component {
      */
     public Item(final WebDriver driver, final WebElement root) {
         super(driver, NAME, root);
+        this.wait = new WebDriverWait(driver, 1);
     }
 
     /**
@@ -52,13 +54,23 @@ public class Item extends Component {
     }
 
     /**
+     * Extract current row id and build a specific action selector
+     * @param actionId
+     * @return
+     */
+    private By getActionSelector(final String actionId) {
+        final String cellID = this.getElement().findElement(By.cssSelector(TABLE_ITEM_TITLE_CONTAINER_SELECTOR)).getAttribute("id");
+        return By.cssSelector(String.format("#%s #%s", cellID, actionId));
+    }
+
+    /**
      * Get the Item action, selected its id or part of its idea.
      *
      * @param actionId The action id
      * @return The action WebElement
      */
     public WebElement getAction(final String actionId) {
-        return this.getElement().findElement(By.cssSelector(String.format(TABLE_ITEM_ACTION_SELECTOR, actionId)));
+        return this.driver.findElement(getActionSelector(actionId));
     }
 
     /**
@@ -103,14 +115,38 @@ public class Item extends Component {
      * @param actionId The item action id
      */
     public void clickOnAction(final String actionId) {
-        final Actions action = new Actions(driver);
-        action
+        clickOnCellAction(null, actionId);
+    }
+
+    /**
+     * Move the mouse to the action of a column and click
+     * The column is identified by its column key
+     * The item action is identified by its id.
+     *
+     * @param columnKey The columnKey
+     * @param actionId The item action id
+     */
+    public void clickOnCellAction(final String columnKey, final String actionId) {
+        WebElement button;
+        By actionSelector;
+
+        // when columnKey is not provided, we want to click on a row action, located in title cell
+        if (columnKey == null) {
+            button = this.getAction(actionId);
+            actionSelector = getActionSelector(actionId);
+        } else {
+            button = this.getCell(columnKey).getAction(actionId);
+            actionSelector = By.cssSelector(String.format("button[id=%s]", actionId));
+        }
+
+        new Actions(driver)
                 .moveToElement(this.getElement())
-                .moveToElement(this.getAction(actionId))
+                .moveToElement(button)
                 .build()
                 .perform();
 
-        // we need to get the button element again because of TooltipTrigger that replace the element on hover ...
-        this.getAction(actionId).click();
+        wait
+                .until(elementToBeClickable(actionSelector))
+                .click();
     }
 }

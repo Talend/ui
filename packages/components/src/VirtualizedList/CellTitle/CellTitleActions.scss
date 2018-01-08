@@ -1,0 +1,28 @@
+@import '../colors';
+$tc-list-title-actions-color: $brand-primary-dark !default;
+
+.main-title-actions-group {
+	flex-grow: 0;
+	position: relative;
+	right: 0;
+	top: 0;
+
+	:global(.tc-actions) {
+		&:not(.persistent-actions) {
+			opacity: 0;
+			visibility: hidden;
+			background: linear-gradient(to right, transparent, $tc-list-row-hover-bg $padding-large);
+			position: absolute;
+			right: 100%;
+			top: 0;
+		}
+
+		flex-shrink: 0;
+		flex-grow: 0;
+		z-index: 1;
+
+		:global(.btn-link) {
+			color: $tc-list-title-actions-color;
+		}
+	}
+}

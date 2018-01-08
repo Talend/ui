@@ -9,6 +9,7 @@ import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
 
 const icons = {
+	'talend-apache': talendIcons['talend-apache'],
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
 	'talend-chevron-end': talendIcons['talend-chevron-end'],
@@ -28,6 +29,7 @@ const icons = {
 	'talend-table': talendIcons['talend-table'],
 	'talend-tiles': talendIcons['talend-tiles'],
 	'talend-trash': talendIcons['talend-trash'],
+	'talend-warning': talendIcons['talend-warning'],
 };
 
 const selected = [
@@ -73,6 +75,15 @@ const actions = [
 	},
 ];
 
+const persistentActions = [
+	{
+		id: 'edit',
+		label: 'edit',
+		icon: 'talend-apache',
+		onClick: action('onEdit'),
+	},
+];
+
 const props = {
 	id: 'talend',
 	displayMode: 'table',
@@ -97,6 +108,7 @@ const props = {
 				className: 'item-0-class',
 			},
 			{
+				persistentActions,
 				id: 1,
 				name: 'Title in input mode',
 				created: '2016-09-22',
@@ -107,6 +119,7 @@ const props = {
 				className: 'item-1-class',
 			},
 			{
+				persistentActions,
 				id: 2,
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
@@ -116,6 +129,7 @@ const props = {
 				className: 'item-2-class',
 			},
 			{
+				persistentActions,
 				id: 3,
 				name: 'Title with long long long long long long long long long long long text',
 				created: '2016-09-22',
@@ -193,77 +207,7 @@ const props = {
 		},
 	},
 };
-const columnsForItems = [
-	{ key: 'icon', label: '', type: 'icon' },
-	{ key: 'name', label: 'Name', type: 'title' },
-	{ key: 'favorite', label: 'Favorite', type: 'action' },
-	{ key: 'certify', label: 'Certify', type: 'action' },
-	{ key: 'id', label: 'ID' },
-	{ key: 'author', label: 'Author' },
-	{ key: 'created', label: 'Created' },
-	{ key: 'modified', label: 'Modified' },
-];
-const actionsForItems = [
-	{
-		key: 'favorite',
-		label: 'Favorite',
-		icon: 'talend-star',
-		className: 'favorite',
-		onClick: action('onFavoriteActionClick'),
-	},
-	{
-		key: 'certify',
-		label: 'Certify',
-		icon: 'talend-badge',
-		className: 'certify',
-		onClick: action('onCertifyActionClick'),
-	},
-	{
-		key: 'edit',
-		label: 'Edit',
-		icon: 'talend-pencil',
-		onClick: action('onEdit'),
-	},
-	{
-		key: 'delete',
-		label: 'Delete',
-		icon: 'talend-trash',
-		onClick: action('onDelete'),
-	},
-];
-const itemsForItems = [
-	{
-		id: 1,
-		name: 'Title with actions',
-		author: 'Jean-Pierre DUPONT',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		icon: 'talend-file-xls-o',
-		display: 'button',
-		className: 'item-0-class',
-	},
-	{
-		id: 2,
-		name: 'Title in input mode',
-		author: 'Jean-Pierre DUPONT',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		icon: 'talend-file-json-o',
-		favorite: false,
-		certify: true,
-		display: 'input',
-		className: 'item-1-class',
-	},
-	{
-		id: 3,
-		name: 'Super long title to trigger overflow on tile rendering',
-		author: 'Jean-Pierre DUPONT with long name',
-		created: '2016-09-22',
-		modified: '2016-09-22',
-		favorite: true,
-		certify: false,
-	},
-];
+
 const itemPropsForItems = {
 	classNameKey: 'className',
 	onOpen: action('onItemOpen'),
@@ -282,21 +226,6 @@ const sort = {
 	onChange: action('sort.onChange'),
 };
 
-function getPropsFor(displayMode) {
-	return {
-		id: props.id,
-		displayMode,
-		list: {
-			columns: columnsForItems,
-			actions: actionsForItems,
-			items: itemsForItems,
-			itemProps: itemPropsForItems,
-		},
-		toolbar: props.toolbar,
-		useContent: true,
-	};
-}
-
 function getActionsProps() {
 	const columnActionsProps = cloneDeep(props);
 	const actionsColumn = {
@@ -306,15 +235,17 @@ function getActionsProps() {
 	};
 
 	columnActionsProps.list.columns.splice(2, 0, actionsColumn);
-	columnActionsProps.list.items = columnActionsProps.list.items.map(item => ({
+	columnActionsProps.list.items = columnActionsProps.list.items.map((item, index) => ({
 		columnActions: [
 			{
+				id: `favorite-action-${index}`,
 				label: 'favorite',
 				icon: 'talend-star',
 				className: 'favorite',
 				onClick: action('onFavorite'),
 			},
 			{
+				id: `certify-action-${index}`,
 				label: 'certify',
 				icon: 'talend-badge',
 				className: 'certify',
@@ -326,6 +257,47 @@ function getActionsProps() {
 	return columnActionsProps;
 }
 
+const okIcon = {
+	label: 'OK!',
+	icon: 'talend-star',
+	onClick: () => {},
+};
+
+const warningIcon = {
+	label: 'Oh no!',
+	icon: 'talend-warning',
+	onClick: () => {},
+};
+
+const getIcon = item => {
+	switch (item.cat) {
+		case 'fluffy' : return okIcon;
+		case 'fat' : return warningIcon;
+		default: return null;
+	}
+};
+
+const itemsForListWithIcons = [
+	{
+		id: 0,
+		name: 'Title 1',
+		status: 'ok',
+		cat: 'fluffy',
+	},
+	{
+		id: 1,
+		name: 'Title 2',
+		status: 'warning',
+		cat: 'fat',
+	},
+	{
+		id: 2,
+		name: 'Title 3',
+		status: 'random',
+		cat: 'regular',
+	},
+];
+
 storiesOf('List', module)
 	.addDecorator(story => (
 		<div>
@@ -334,43 +306,40 @@ storiesOf('List', module)
 			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
 		</div>
 	))
-	.add('Tile', () => {
-		const tprops = {
-			...props,
-			displayMode: 'tile',
-		};
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display the list in tile mode</p>
-				<List {...tprops} />
-			</div>
-		);
-	})
-	.add('Tile empty list', () => {
-		const emptyListProps = cloneDeep(props);
-		emptyListProps.list.items = [];
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display an empty list</p>
-				<div className="tc-list-small-container">
-					<List {...emptyListProps} displayMode="tile" />
-				</div>
-			</div>
-		);
-	})
-	.add('Virtualized - table display', () => (
+	.add('Table display', () => (
 		<div style={{ height: '60vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>
 				Display the list in table mode.<br />
 				This is the default mode.
 			</p>
-			<List {...props} virtualized />
+			<List {...props} />
 		</div>
 	))
-	.add('Virtualized - large display', () => (
+	.add('Table icons', () => {
+		const customProps = cloneDeep(props);
+
+		customProps.list.columns = [
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
+			{ key: 'status', label: 'Status', type: 'texticon', data: { getIcon } },
+			{ key: 'cat', label: 'Cat' },
+		];
+
+		customProps.list.items = itemsForListWithIcons;
+
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					Display the list in table mode.<br />
+					This is the default mode.
+				</p>
+				<List {...customProps} />
+			</div>
+		);
+	})
+	.add('Large display', () => (
 		<div style={{ height: '60vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>
@@ -378,24 +347,51 @@ storiesOf('List', module)
 				You just need to pass the props displayMode.
 				<pre>&lt;List displayMode="large" ... &gt;</pre>
 			</p>
-			<List {...props} displayMode="large" virtualized />
+			<List {...props} displayMode="large" />
 		</div>
 	))
-	.add('Virtualized - empty list', () => {
+	.add('Large display with icons', () => {
+		const customProps = cloneDeep(props);
+		customProps.list.columns = [
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
+			{ key: 'status', label: 'Status', type: 'texticon', data: { getIcon } },
+			{ key: 'cat', label: 'Cat' },
+		];
+		customProps.list.items = itemsForListWithIcons;
+
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<List {...customProps} displayMode="large" />
+			</div>
+		);
+	})
+	.add('Empty list', () => {
 		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
+
+		const customEmptyRendererListProps = cloneDeep(props);
+		customEmptyRendererListProps.list.items = [];
+		customEmptyRendererListProps.list.noRowsRenderer = () => (
+			<span className={'tc-virtualizedlist-no-result'} role="status" aria-live="polite">
+				I'm a custom NoRowsRenderer
+			</span>
+		);
+
 		return (
 			<div style={{ height: '60vh' }}>
 				<h1>List</h1>
 				<p>When the list is empty, a message is displayed instead of the rows.</p>
 				<h2>Table</h2>
-				<List {...emptyListProps} virtualized />
+				<List {...emptyListProps} />
 				<h2>Large</h2>
-				<List {...emptyListProps} displayMode="large" virtualized />
+				<List {...emptyListProps} displayMode="large" />
+				<h2>Custom no row renderer</h2>
+				<List {...customEmptyRendererListProps} />
 			</div>
 		);
 	})
-	.add('Virtualized - list with progress', () => {
+	.add('List in progress', () => {
 		const loadingListProps = cloneDeep(props);
 		loadingListProps.list.inProgress = true;
 		return (
@@ -403,21 +399,23 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>When the list is loading, a CircularProgress is displayed instead of the rows.</p>
 				<h2>Table</h2>
-				<List {...loadingListProps} virtualized />
+				<List {...loadingListProps} />
+				<h2>Large</h2>
+				<List {...loadingListProps} displayMode="large" />
 			</div>
 		);
 	})
-	.add('Virtualized - column actions', () => {
+	.add('Column actions', () => {
 		const columnActionsProps = getActionsProps();
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>A column can contains only actions that appear on mouseover.</p>
-				<List {...columnActionsProps} virtualized />
+				<List {...columnActionsProps} />
 			</div>
 		);
 	})
-	.add('Virtualized - selection', () => {
+	.add('Selection', () => {
 		const selectedItemsProps = cloneDeep(props);
 		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
 			left: [
@@ -443,11 +441,11 @@ storiesOf('List', module)
 						&lt;List ... list=&#123;listProps&#125; &gt;<br />
 					</pre>
 				</p>
-				<List {...selectedItemsProps} virtualized />
+				<List {...selectedItemsProps} />
 			</div>
 		);
 	})
-	.add('Virtualized - activation', () => {
+	.add('Activation', () => {
 		const selectedItemsProps = cloneDeep(props);
 		selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
 		selectedItemsProps.list.itemProps.onRowClick = action('onRowClick');
@@ -465,13 +463,24 @@ storiesOf('List', module)
 					</pre>
 				</p>
 				<h2>Table</h2>
-				<List {...selectedItemsProps} virtualized />
+				<List {...selectedItemsProps} />
 				<h2>Large</h2>
-				<List {...selectedItemsProps} displayMode="large" virtualized />
+				<List {...selectedItemsProps} displayMode="large" />
 			</div>
 		);
 	})
-	.add('Virtualized - sort', () => {
+	.add('No toolbar', () => {
+		const tprops = cloneDeep(props);
+		tprops.toolbar = undefined;
+		return (
+			<div style={{ height: '60vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Table without toolbar</p>
+				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('Sort', () => {
 		const tprops = cloneDeep(props);
 		tprops.list.sort = sort;
 		return (
@@ -487,22 +496,11 @@ storiesOf('List', module)
 						&lt;List ... list=&#123;listProps&#125; &gt;<br />
 					</pre>
 				</p>
-				<List {...tprops} virtualized />
+				<List {...tprops} />
 			</div>
 		);
 	})
-	.add('Virtualized - no toolbar', () => {
-		const tprops = cloneDeep(props);
-		tprops.toolbar = undefined;
-		return (
-			<div style={{ height: '60vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>Table without toolbar</p>
-				<List {...tprops} virtualized />
-			</div>
-		);
-	})
-	.add('Virtualized - toolbar with filter', () => {
+	.add('Filter', () => {
 		const dockedProps = cloneDeep(props);
 		dockedProps.list.items = [dockedProps.list.items[0]];
 		dockedProps.toolbar.actionBar = null;
@@ -518,7 +516,6 @@ storiesOf('List', module)
 
 		return (
 			<div style={{ height: '60vh' }} className="virtualized-list">
-
 				<h1>List</h1>
 				<h2>Definition</h2>
 				<p>
@@ -527,24 +524,24 @@ storiesOf('List', module)
 				</p>
 				<h2>Docked</h2>
 				<div style={{ height: '15vh' }}>
-					<List {...dockedProps} virtualized />
+					<List {...dockedProps} />
 				</div>
 				<h2>Input</h2>
 				<div style={{ height: '15vh' }}>
-					<List {...inputProps} virtualized />
+					<List {...inputProps} />
 				</div>
 				<h2>Highlighted</h2>
 				<div style={{ height: '15vh' }}>
-					<List {...highlightedProps} virtualized />
+					<List {...highlightedProps} />
 				</div>
 				<h2>Input with 300ms debounce</h2>
 				<div style={{ height: '15vh' }}>
-					<List {...inputDebounceProps} virtualized />
+					<List {...inputDebounceProps} />
 				</div>
 			</div>
 		);
 	})
-	.add('Virtualized - toolbar with filtered DisplayMode', () => {
+	.add('Filtered DisplayMode', () => {
 		const tprops = {
 			...props,
 			toolbar: {
@@ -564,18 +561,18 @@ storiesOf('List', module)
 						&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;<br />
 					</pre>
 				</p>
-				<List {...tprops} virtualized />
+				<List {...tprops} />
 			</div>
 		);
 	})
-	.add('Virtualized - list with i18n', () => (
+	.add('i18n', () => (
 		<div>
 			<h1>List with i18n</h1>
 			<p>Change language in the toolbar</p>
-			<List {...props} virtualized />
+			<List {...props} />
 		</div>
 	))
-	.add('Virtualized - title without click', () => {
+	.add('Title without click', () => {
 		const tprops = cloneDeep(props);
 
 		tprops.list.titleProps.onClick = null;
@@ -584,244 +581,50 @@ storiesOf('List', module)
 			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					Display the list in table mode.<br />
-					This is the default mode.
+					To have not clickable titles, just don't pass any onClick callback
+					<pre>
+						const props = &#123;...&#125;;<br />
+						props.list.titleProps.onClick = null;<br />
+						&lt;List &#123;...props&#125; /&gt;
+					</pre>
 				</p>
-				<List {...tprops} virtualized />
+				<List {...tprops} />
 			</div>
 		);
 	})
-	.add('DEPRECATED - Table (migrated to virtualized)', () => (
-		<div className="display-table tc-list-fixed-name-column">
-			<h1>List</h1>
-			<p>Display a list by defining your.</p>
-			<List {...props} />
-		</div>
-	))
-	.add('DEPRECATED - Table without action on title', () => {
-		const tprops = {
-			...props,
-		};
-
-		tprops.list.titleProps.onClick = null;
-
-		return (
-			<div className="display-table tc-list-fixed-name-column">
-				<h1>List</h1>
-				<p>Display a list by defining your.</p>
-				<List {...props} />
-			</div>
-		);
-	})
-	.add('DEPRECATED - Large (migrated to virtualized)', () => {
+	.add('Hidden header labels', () => {
 		const tprops = cloneDeep(props);
-		tprops.displayMode = 'large';
-		tprops.toolbar.sort.options = [{ id: 'name', name: 'Name' }];
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display the list in large mode</p>
-				<List {...tprops} />
-			</div>
-		);
-	})
-	.add('DEPRECATED - Filtered DisplayMode', () => {
-		const tprops = {
-			...props,
-			toolbar: {
-				display: {
-					onChange: action('display.onChange'),
-					displayModes: ['large', 'table'],
-				},
-			},
-		};
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Get limited options for displayMode</p>
-				<List {...tprops} />
-			</div>
-		);
-	})
-	.add('DEPRECATED - Table empty list (migrated to virtualized)', () => {
-		const emptyListProps = cloneDeep(props);
-		emptyListProps.list.items = [];
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display an empty list</p>
-				<div className="tc-list-small-container">
-					<List {...emptyListProps} />
-				</div>
-			</div>
-		);
-	})
-	.add('DEPRECATED - Large empty list (migrated to virtualized)', () => {
-		const emptyListProps = cloneDeep(props);
-		emptyListProps.list.items = [];
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display an empty list</p>
-				<div className="tc-list-small-container">
-					<List {...emptyListProps} displayMode="large" />
-				</div>
-			</div>
-		);
-	})
-	.add('DEPRECATED - No toolbar (migrated to virtualized)', () => {
-		const tprops = {
-			...props,
-			toolbar: undefined,
-		};
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display a list without toolbar</p>
-				<div className="list-container">
-					<List {...tprops} />
-				</div>
-			</div>
-		);
-	})
-	.add('DEPRECATED - Toolbar with filter (migrated to virtualized)', () => {
-		const dockedProps = cloneDeep(props);
-		dockedProps.list.items = [dockedProps.list.items[0]];
-		dockedProps.toolbar.actionBar = null;
 
-		const inputProps = Immutable.fromJS(dockedProps).toJS();
-		inputProps.toolbar.filter.docked = false;
-
-		const highlightedProps = Immutable.fromJS(inputProps).toJS();
-		highlightedProps.toolbar.filter.highlight = true;
-
-		const inputDebounceProps = Immutable.fromJS(inputProps).toJS();
-		inputDebounceProps.toolbar.filter.debounceTimeout = 300;
+		tprops.list.columns[0].hideHeader = true;
 
 		return (
-			<div>
-				<h1>List</h1>
-				<h2>Definition</h2>
-				<p>Toolbar Filter</p>
-				<h2>Docked</h2>
-				<List {...dockedProps} />
-				<h2>Input</h2>
-				<List {...inputProps} />
-				<h2>Highlighted</h2>
-				<List {...highlightedProps} />
-				<h2>Input with 300ms debounce</h2>
-				<List {...inputDebounceProps} />
-			</div>
-		);
-	})
-	.add('DEPRECATED - Table with column actions (migrated to virtualized)', () => {
-		const columnActionsProps = getActionsProps();
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display a list with columns containing actions.</p>
-				<List {...columnActionsProps} />
-			</div>
-		);
-	})
-	.add('DEPRECATED - Table with scroll (not migrated - natively supported)', () => {
-		const tprops = {
-			...props,
-			toolbar: undefined,
-		};
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display a list in a limited container. To enable content scroll.</p>
-				<div className="tc-list-small-container">
-					<List {...tprops} />
-				</div>
-			</div>
-		);
-	})
-	.add('DEPRECATED - Table with ellipsis (not migrated - natively supported)', () => {
-		const tprops = {
-			...props,
-			toolbar: undefined,
-		};
-		return (
-			<div className="tc-list-fixed-name-column">
+			<div style={{ height: '60vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					Display a list with NAME content ellipsis. The NAME column is limited to 400px in css.
+					Display the list with hidden header labels.<br />
+					<pre>
+						const props = &#123;...&#125;;<br />
+						props.list.columns[0].hideHeader = true;<br />
+						&lt;List &#123;...props&#125; /&gt;
+					</pre>
 				</p>
 				<List {...tprops} />
 			</div>
 		);
 	})
-	.add('DEPRECATED - Table with sort header click (migrated to virtualized)', () => {
-		const tprops = cloneDeep(props);
-		tprops.toolbar = undefined;
-		tprops.list.sort = sort;
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Table with sort header click</p>
-				<List {...tprops} />
-			</div>
-		);
-	})
-	.add('DEPRECATED - Table with selected items', () => {
-		const selectedItemsProps = cloneDeep(props);
-		selectedItemsProps.toolbar.actionBar.selected = 1;
-		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
-			left: [
-				{
-					id: 'remove',
-					label: 'Delete selection',
-					icon: 'talend-trash',
-					onClick: action('remove'),
-				},
-			],
-		};
-		selectedItemsProps.list.itemProps = itemPropsForItems;
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display a list with selected items.</p>
-				<List {...selectedItemsProps} />
-			</div>
-		);
-	})
-	.add('DEPRECATED - Table with custom selected class (not migrated - not used)', () => {
-		const selectedClassProps = cloneDeep(props);
-		selectedClassProps.list.itemProps.selectedClass = 'tc-list-custom-style';
-		selectedClassProps.list.itemProps.isSelected = item =>
-			selected.find(next => next.id === item.id);
-		selectedClassProps.toolbar = undefined;
-		return (
-			<div>
-				<h1>List</h1>
-				<p>Display a list with custom selected class.</p>
-				<List {...selectedClassProps} />
-			</div>
-		);
-	})
-	.add('DEPRECATED - table of Content', () => (
-		<div>
+	.add('Custom classnames', () => (
+		<div style={{ height: '60vh' }} className="virtualized-list virtualized-list-customized-row">
 			<h1>List</h1>
-			<h2>Definition</h2>
-			<p>Display a table from Items component.</p>
-			<h2>Examples</h2>
-			<List {...getPropsFor('table')} />
+			<p>Display the list with hidden header labels.</p>
+			<List {...props} />
 		</div>
-	))
-	.add('DEPRECATED - large of Content', () => (
-		<div>
+		))
+	.add('Inline parent', () => (
+		<div className="virtualized-list">
 			<h1>List</h1>
-			<p>Display the list in large mode</p>
-			<List {...getPropsFor('large')} />
+			{/* Do not reproduce!*/}
+			<span>
+				<List {...props} />
+			</span>
 		</div>
-	))
-	.add('DEPRECATED - tile of Content', () => (
-		<div>
-			<h1>List</h1>
-			<p>Display the list in tile mode</p>
-			<List {...getPropsFor('tile')} />
-		</div>
-	));
+		));

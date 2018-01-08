@@ -1,14 +1,30 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
-import JSONSchemaRenderer, { InvalidSchemaException, UnkownTypeException } from './JSONSchemaRenderer.component';
+import JSONSchemaRenderer, {
+	InvalidSchemaException,
+	UnkownTypeException,
+	isPassword,
+} from './JSONSchemaRenderer.component';
 
 describe('JSONSchemaRenderer', () => {
 	it('should render', () => {
 		const schema = { jsonSchema: {}, properties: {} };
 		const wrapper = renderer.create(<JSONSchemaRenderer schema={schema} />).toJSON();
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should support custom className', () => {
+		const schema = { jsonSchema: {}, properties: {} };
+		const wrapper = shallow(<JSONSchemaRenderer schema={schema} className="custom-test" />);
+		expect(wrapper.props().className).toContain('custom-test');
+	});
+
+	it('should support custom props', () => {
+		const schema = { jsonSchema: {}, properties: {} };
+		const wrapper = shallow(<JSONSchemaRenderer schema={schema} extra="foo" />);
+		expect(wrapper.props().extra).toBe('foo');
 	});
 
 	it('should render strings and integers', () => {
@@ -100,8 +116,52 @@ describe('JSONSchemaRenderer', () => {
 			},
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(wrapper.find('dt').first().text()).toEqual('a');
-		expect(wrapper.find('dt').last().text()).toEqual('d');
+		expect(
+			wrapper
+				.find('dt')
+				.first()
+				.text(),
+		).toEqual('a');
+		expect(
+			wrapper
+				.find('dt')
+				.last()
+				.text(),
+		).toEqual('d');
+	});
+
+	it('should render bullets for properties with a password ui:schema', () => {
+		const password = 'some_very_secure_password';
+		const hidenPassword = '\u2022'.repeat(5);
+		const schema = {
+			jsonSchema: {
+				properties: {
+					credentials: 'string',
+				},
+			},
+			uiSchema: {
+				credentials: { 'ui:widget': 'password' },
+			},
+			properties: {
+				credentials: password,
+			},
+		};
+		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
+		expect(
+			wrapper
+				.find('dd')
+				.first()
+				.text(),
+		).toEqual(hidenPassword);
+	});
+
+	it('should detect that the "credentials" property is a password property', () => {
+		const uiSchema = {
+			credentials: { 'ui:widget': 'password' },
+		};
+
+		expect(isPassword(uiSchema, 'credentials')).toEqual(true);
+		expect(isPassword(uiSchema, 'other_property')).toEqual(false);
 	});
 
 	it("shouldn't render hidden fields", () => {
@@ -127,12 +187,22 @@ describe('JSONSchemaRenderer', () => {
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
 		expect(wrapper.find('dt')).toHaveLength(2);
-		expect(wrapper.find('dt').first().text()).toEqual('b');
-		expect(wrapper.find('dt').last().text()).toEqual('d');
+		expect(
+			wrapper
+				.find('dt')
+				.first()
+				.text(),
+		).toEqual('b');
+		expect(
+			wrapper
+				.find('dt')
+				.last()
+				.text(),
+		).toEqual('d');
 	});
 
-	it("shouldn't render properties without a schema", () 	=> {
-		const schema = 	{
+	it("shouldn't render properties without a schema", () => {
+		const schema = {
 			jsonSchema: {
 				properties: {
 					a: { type: 'string' },
@@ -145,7 +215,12 @@ describe('JSONSchemaRenderer', () => {
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
 		expect(wrapper.find('dt')).toHaveLength(1);
-		expect(wrapper.find('dt').first().text()).toEqual('a');
+		expect(
+			wrapper
+				.find('dt')
+				.first()
+				.text(),
+		).toEqual('a');
 	});
 
 	// TODO: Add $ref handling

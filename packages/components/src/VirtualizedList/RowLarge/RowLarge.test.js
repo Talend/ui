@@ -45,13 +45,7 @@ const parent = {
 		collection,
 		rowGetter: index => collection[index],
 		children: [
-			<VirtualizedList.Content
-				label="Id"
-				dataKey="id"
-				width={50}
-				flexShrink={0}
-				flexGrow={0}
-			/>,
+			<VirtualizedList.Content label="Id" dataKey="id" width={50} flexShrink={0} flexGrow={0} />,
 			<VirtualizedList.Content
 				label="Name"
 				dataKey="name"
@@ -82,10 +76,10 @@ describe('RowLarge', () => {
 				key={18}
 				parent={parent}
 				style={{ background: 'red' }}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

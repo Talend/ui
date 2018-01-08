@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Button, OverlayTrigger } from 'react-bootstrap';
+import classNames from 'classnames';
+import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
 import Icon from '../../Icon';
 import getPropsFrom from '../../utils/getPropsFrom';
+import theme from './ActionButton.scss';
 
 const LEFT = 'left';
 const RIGHT = 'right';
@@ -76,6 +78,8 @@ function ActionButton(props) {
 		model,
 		onMouseDown = noOp,
 		onClick = noOp,
+		overlayComponent,
+		overlayPlacement,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
@@ -89,41 +93,66 @@ function ActionButton(props) {
 
 	const buttonProps = getPropsFrom(Button, rest);
 	const style = link ? 'link' : bsStyle;
-	const rClick =
-		onClick &&
-		(event =>
-			onClick(event, {
+	let rClick = null;
+	let rMouseDown = null;
+
+	if (!overlayComponent) {
+		rClick =
+			onClick &&
+			(event =>
+				onClick(event, {
+					action: { label, ...rest },
+					model,
+				}));
+		rMouseDown = event =>
+			onMouseDown(event, {
 				action: { label, ...rest },
 				model,
-			}));
-
-	const rMouseDown = event =>
-		onMouseDown(event, {
-			action: { label, ...rest },
-			model,
-		});
+			});
+	}
 
 	const buttonContent = getContent(props);
+	const btnIsDisabled = inProgress || disabled;
 
-	const btn = (
+	if (btnIsDisabled) {
+		buttonProps.className = classNames(buttonProps.className, theme['btn-disabled']);
+	}
+
+	let btn = (
 		<Button
 			onMouseDown={rMouseDown}
 			onClick={rClick}
 			bsStyle={style}
-			disabled={inProgress || disabled}
+			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
 			{...buttonProps}
 		>
 			{buttonContent}
 		</Button>
 	);
+	if (!inProgress && overlayComponent) {
+		btn = (
+			// this span is here to allow the tooltip trigger to work
+			<span>
+				<OverlayTrigger
+					trigger="click"
+					rootClose
+					placement={overlayPlacement}
+					overlay={<Popover>{overlayComponent}</Popover>}
+				>
+					{btn}
+				</OverlayTrigger>
+			</span>
+		);
+	}
 	if (hideLabel || tooltip || tooltipLabel) {
-		return (
+		btn = (
 			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-				{btn}
+				{btnIsDisabled ? <span>{btn}</span> : btn}
 			</TooltipTrigger>
 		);
 	}
+
 	return btn;
 }
 
@@ -139,6 +168,8 @@ ActionButton.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
+	overlayComponent: PropTypes.element,
+	overlayPlacement: OverlayTrigger.propTypes.placement,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,

@@ -1,14 +1,15 @@
 import React from 'react';
 import { AutoSizer, Column } from 'react-virtualized';
 
-import { getDefaultTranslate } from '../translate';
+import { listTypes } from './utils/constants';
+import Loader from '../Loader';
 import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration } from './utils/tablerow';
-
-import CircularProgress from './../CircularProgress';
-
 import theme from './VirtualizedList.scss';
+
+const { LARGE } = listTypes;
+
 /**
  * Composable List based on react-virtualized
  */
@@ -16,6 +17,8 @@ function VirtualizedList(props) {
 	const {
 		collection,
 		children,
+		defaultHeight,
+		noRowsRenderer,
 		id,
 		isActive,
 		isSelected,
@@ -28,7 +31,6 @@ function VirtualizedList(props) {
 		sortDirection,
 		type,
 		disableHeader,
-		t,
 	} = props;
 
 	const contentsConfiguration = insertSelectionConfiguration({
@@ -37,19 +39,17 @@ function VirtualizedList(props) {
 		selectionToggle,
 	});
 
-	if (inProgress) {
-		return (
-			<div aria-atomic="true" aria-busy="true" className={theme['tc-list-progress']}>
-				<CircularProgress size={'default'} />
-			</div>
-		);
+	if (type === LARGE && inProgress) {
+		return <Loader id={id && `${id}-loader`} className={theme['tc-list-progress']} />;
 	}
+
 	return (
 		<AutoSizer>
 			{({ height, width }) => (
 				<RendererSelector
 					collection={collection}
-					height={height}
+					noRowsRenderer={noRowsRenderer}
+					height={height || defaultHeight}
 					id={id}
 					isActive={isActive}
 					isSelected={isSelected}
@@ -62,7 +62,7 @@ function VirtualizedList(props) {
 					type={type}
 					width={width}
 					disableHeader={disableHeader}
-					t={t}
+					inProgress={inProgress}
 				>
 					{contentsConfiguration}
 				</RendererSelector>
@@ -70,10 +70,11 @@ function VirtualizedList(props) {
 		</AutoSizer>
 	);
 }
+
 VirtualizedList.displayName = 'VirtualizedList';
 VirtualizedList.propTypes = propTypes;
 VirtualizedList.defaultProps = {
-	t: getDefaultTranslate,
+	defaultHeight: 250,
 };
 
 VirtualizedList.Content = Column;

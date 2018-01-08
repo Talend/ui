@@ -1,13 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import {
-	extractSpecialFields,
-	getId,
-	getLabel,
-	getRowData,
-	renderCell,
-} from '../utils/gridrow';
+import { extractSpecialFields, getId, getLabel, getRowData, renderCell } from '../utils/gridrow';
 
 import rowThemes from './RowThemes';
 import theme from './RowLarge.scss';
@@ -22,41 +16,40 @@ function RowLarge({ className, index, key, parent, style }) {
 	const id = parentId && `${parentId}-${index}`;
 	const titleCell = titleField && renderCell(index, parent, titleField);
 	const selectionCell = selectionField && renderCell(index, parent, selectionField);
+	const rowData = getRowData(parent, index);
 	const otherCellsListItems = otherFields.map((field, fieldIndex) => {
 		const cellContent = renderCell(index, parent, field);
 		const tooltip = typeof cellContent === 'string' ? cellContent : null;
 		const label = getLabel(field);
 		return (
 			<li key={fieldIndex}>
-				{label && (<span className={theme['field-label']}>{label}: </span>)}
-				<span className={theme['field-value']} title={tooltip}>{cellContent}</span>
+				{label && <span className={theme['field-label']}>{label}: </span>}
+				<span className={theme['field-value']} title={tooltip}>
+					{cellContent}
+				</span>
 			</li>
 		);
 	});
+
 	let onRowClick;
 	if (parent.props.onRowClick) {
-		onRowClick = event => parent.props.onRowClick(event, getRowData(parent, index));
+		onRowClick = event => parent.props.onRowClick(event, rowData);
 	}
 
 	return (
 		<div
-			className={classNames(rowThemes)}
+			className={classNames('tc-list-item', rowThemes, rowData.className)}
 			key={key}
 			role="button"
 			onClick={onRowClick}
 			style={style}
 		>
-			<div
-				className={`tc-list-large-row ${theme['inner-box']} ${className}`}
-				id={id}
-			>
+			<div className={`tc-list-large-row ${theme['inner-box']} ${className}`} id={id}>
 				<div className={theme.header}>
 					{titleCell}
 					{selectionCell}
 				</div>
-				<ul className={theme.content}>
-					{otherCellsListItems}
-				</ul>
+				<ul className={theme.content}>{otherCellsListItems}</ul>
 			</div>
 		</div>
 	);

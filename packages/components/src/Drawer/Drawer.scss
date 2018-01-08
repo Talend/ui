@@ -1,7 +1,7 @@
 // Drawer styles
 
 $tc-drawer-initial-offset: 1000px !default;
-$tc-drawer-bgcolor: #FFF !default;
+$tc-drawer-bgcolor: #fff !default;
 $tc-drawer-transition-duration: 230ms !default;
 $tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
 $tc-action-bar-background-color: $concrete !default;
@@ -11,9 +11,8 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 @function set-text-color($color) {
 	@if (lightness($color) > 60) {
 		@return #000; // Lighter backgorund, return dark color
-	}
-	@else {
-		@return #FFF; // Darker background, return light color
+	} @else {
+		@return #fff; // Darker background, return light color
 	}
 }
 

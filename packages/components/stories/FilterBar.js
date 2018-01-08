@@ -8,28 +8,30 @@ import {
 import { ActionBar, FilterBar, IconsProvider } from '../src/';
 
 const propsDockToggle = {
-	id: 'FILTER-dockAndToggle',
+	id: 'FILTER-dockAndDockable',
+	dockable: true,
 	docked: false,
 	navbar: true,
-	toggeable: true,
 	onFilter: action('onFilter'),
 	onBlur: action('onBlur'),
 	onFocus: action('onFocus'),
 	onToggle: action('onToggle'),
 	placeholder: 'My placeholder',
 	highlight: false,
+	tooltipPlacement: 'bottom',
 };
 
 const propsNoDockToggle = {
-	id: 'FILTER-noDockAndNoToggle',
+	id: 'FILTER-noDockAndNoDockable',
+	dockable: false,
 	docked: false,
 	navbar: false,
-	toggeable: false,
 	onFilter: action('onFilter'),
 	onBlur: action('onBlur'),
 	onFocus: action('onFocus'),
 	onToggle: action('onToggle'),
 	placeholder: 'My placeholder',
+	tooltipPlacement: 'bottom',
 	highlight: false,
 };
 
@@ -43,17 +45,19 @@ const divStyle = {
 };
 
 stories
-	.addWithInfo('default-dock and toggle', () => (
+	.addWithInfo('default-dock and dockable', () => (
 		<div style={divStyle}>
 			<IconsProvider />
+			<p>When not docked but dockable in an ActionBar</p>
 			<ActionBar>
 				<FilterBar {...propsDockToggle} />
 			</ActionBar>
 		</div>
 	))
-	.addWithInfo('custom-undock no toggle', () => (
+	.addWithInfo('custom-undock no dockable', () => (
 		<div>
 			<IconsProvider />
+			<p>When not docked and no dockable take full width</p>
 			<FilterBar {...propsNoDockToggle} />
 		</div>
 	));

@@ -8,8 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
-
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
 public class StorybookTest {
@@ -27,7 +25,6 @@ public class StorybookTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("http://localhost:6006/");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @AfterClass

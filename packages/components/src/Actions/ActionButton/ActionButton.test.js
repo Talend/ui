@@ -1,5 +1,4 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import ActionButton from './ActionButton.component';
 
@@ -23,7 +22,7 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton {...myAction} />);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should click on the button trigger the onclick props', () => {
@@ -47,7 +46,7 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton className="navbar-btn" notExisting {...myAction} />);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should display a Progress indicator if set', () => {
@@ -55,7 +54,7 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton className="navbar-btn" inProgress {...myAction} />);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should display a disabled Icon', () => {
@@ -63,7 +62,7 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton className="navbar-btn" disabled {...myAction} />);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should reverse icon/label', () => {
@@ -71,7 +70,7 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton iconPosition="right" {...myAction} />);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should apply transformation on icon', () => {
@@ -79,7 +78,7 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton iconTransform={'rotate-180'} {...myAction} />);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render action with html property name = props.name if set', () => {
@@ -87,7 +86,7 @@ describe('Action', () => {
 		const wrapper = shallow(<ActionButton name="custom_name" {...myAction} />);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger action if set up onMouseDown event', () => {
@@ -109,5 +108,44 @@ describe('Action', () => {
 	it('should not render action if props.available=false', () => {
 		const wrapper = shallow(<ActionButton available={false} />);
 		expect(wrapper.type()).toBe(null);
+	});
+
+	it('should render a button without an overlay component if inProgress is true', () => {
+		function OverlayComponent() {
+			return <div>OverlayComponent</div>;
+		}
+
+		const props = {
+			...myAction,
+			inProgress: true,
+			overlayComponent: OverlayComponent,
+			overlayPlacement: 'bottom',
+		};
+
+		// when
+		const wrapper = shallow(<ActionButton {...props} />);
+
+		// then
+		expect(wrapper.find('OverlayTrigger').length).toBe(0);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render a button with a overlay component', () => {
+		function OverlayComponent() {
+			return <div>OverlayComponent</div>;
+		}
+
+		const props = {
+			...myAction,
+			overlayComponent: OverlayComponent,
+			overlayPlacement: 'bottom',
+		};
+
+		// when
+		const wrapper = shallow(<ActionButton {...props} />);
+
+		// then
+		expect(wrapper.find('OverlayTrigger').length).toBe(1);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

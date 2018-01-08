@@ -3,6 +3,7 @@ import { fromJS, Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
 import expression from '../src/expression';
 import mock from '../src/mock';
+import { mapStateToViewProps } from '../src/settings';
 
 import cmfConnect, {
 	getComponentName,
@@ -11,6 +12,8 @@ import cmfConnect, {
 	getDispatchToProps,
 	getMergeProps,
 } from '../src/cmfConnect';
+
+import api from '../src/api';
 
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {
@@ -169,6 +172,7 @@ describe('cmfConnect', () => {
 				WrappedComponent: { displayName: 'TestComponent' },
 			});
 			expect(props.dispatch).toBe(dispatch);
+			expect(props.getComponent).toBe(api.component.get);
 			expect(typeof props.dispatchActionCreator).toBe('function');
 			expect(mapDispatchToProps.mock.calls[0][0]).toBe(dispatch);
 			expect(mapDispatchToProps.mock.calls[0][1]).toBe(ownProps);
@@ -184,6 +188,7 @@ describe('cmfConnect', () => {
 		it('should create a connected component', () => {
 			const TestComponent = jest.fn();
 			TestComponent.displayName = 'TestComponent';
+			mapStateToViewProps.cache.clear();
 			const CMFConnected = cmfConnect({})(TestComponent);
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);

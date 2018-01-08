@@ -2,42 +2,36 @@
 
 exports[`TreeView should render normally with all buttons and custom labels 1`] = `
 <li
-  className={undefined}
+  className="tc-treeview-item-li"
   data-hidden={undefined}
 >
   <div
-    className={undefined}
+    className="tc-treeview-item"
     data-selected={undefined}
-    id={undefined}
+    id="tc-treeview-item"
     onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
     style={
       Object {
         "paddingLeft": "20px",
       }
     }
+    tabIndex="0"
   >
-    <div
+    <Icon
       className={undefined}
-      data-toggled={true}
-    >
-      <Action
-        hideLabel={true}
-        icon="talend-caret-down"
-        id="undefined-toggle"
-        label="Collapse"
-        link={true}
-        onClick={[Function]}
-        tooltipPlacement="right"
-      />
-    </div>
+      name="talend-caret-down"
+      title="Collapse"
+      transform={undefined}
+    />
+    <Icon
+      className={undefined}
+      name="talend-folder"
+    />
     <span
-      className={undefined}
+      className="tc-treeview-item-name"
     >
-      <Icon
-        name="talend-folder"
-      />
-    </span>
-    <span>
       grandpa
     </span>
     <div
@@ -49,7 +43,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       <Action
         hideLabel={true}
         icon="talend-trash"
-        id="undefined-talend-trash"
+        id="tc-treeview-item-talend-trash"
         label="remove element"
         link={true}
         onClick={[Function]}
@@ -62,7 +56,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
   >
     <TreeViewItem
       depth={1}
-      id={undefined}
+      id="tc-treeview-item-0"
       item={
         Object {
           "children": Array [
@@ -83,7 +77,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
     />
     <TreeViewItem
       depth={1}
-      id={undefined}
+      id="tc-treeview-item-1"
       item={
         Object {
           "children": Array [

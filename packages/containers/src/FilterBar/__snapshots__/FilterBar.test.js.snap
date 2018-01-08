@@ -1,131 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Filter container should render 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
-  },
-  "length": 1,
-  "node": <FilterBar
-    collectionToFilter="myCollectionToFilter"
-    dockable={true}
-    docked={true}
-    navbar={true}
-    onFilter={[Function]}
-    onToggle={[Function]}
-    placeholder="Filter"
-    t={[Function]}
-    value=""
-/>,
-  "nodes": Array [
-    <FilterBar
-      collectionToFilter="myCollectionToFilter"
-      dockable={true}
-      docked={true}
-      navbar={true}
-      onFilter={[Function]}
-      onToggle={[Function]}
-      placeholder="Filter"
-      t={[Function]}
-      value=""
-/>,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <Container(FilterBar)
-        collectionToFilter="myCollectionToFilter"
-        dockable={true}
-        docked={false}
-        navbar={true}
-        onFilter={[Function]}
-        t={[Function]}
-/>,
-      "_debugID": 1,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": FilterBar {
-        "_reactInternalInstance": [Circular],
-        "context": Object {
-          "registry": undefined,
-          "store": undefined,
-        },
-        "onFilter": [Function],
-        "onToggle": [Function],
-        "props": Object {
-          "collectionToFilter": "myCollectionToFilter",
-          "dockable": true,
-          "docked": false,
-          "navbar": true,
-          "onFilter": [Function],
-          "t": [Function],
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 1,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <FilterBar
-          collectionToFilter="myCollectionToFilter"
-          dockable={true}
-          docked={true}
-          navbar={true}
-          onFilter={[Function]}
-          onToggle={[Function]}
-          placeholder="Filter"
-          t={[Function]}
-          value=""
-/>,
-        "_debugID": 2,
-        "_renderedOutput": <FilterBar
-          collectionToFilter="myCollectionToFilter"
-          dockable={true}
-          docked={true}
-          navbar={true}
-          onFilter={[Function]}
-          onToggle={[Function]}
-          placeholder="Filter"
-          t={[Function]}
-          value=""
-/>,
-      },
-      "_renderedNodeType": 1,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
-  },
-  "root": [Circular],
-  "unrendered": <Container(FilterBar)
-    collectionToFilter="myCollectionToFilter"
-    dockable={true}
-    docked={false}
-    navbar={true}
-    onFilter={[Function]}
-    t={[Function]}
-/>,
-}
+<FilterBar
+  autoFocus={true}
+  className=""
+  collectionToFilter="myCollectionToFilter"
+  dockable={true}
+  docked={true}
+  focus={false}
+  navbar={true}
+  onFilter={[Function]}
+  onToggle={[Function]}
+  placeholder="Filter"
+  t={[Function]}
+  value=""
+/>
 `;

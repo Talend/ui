@@ -27,9 +27,14 @@
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
+  "bin": {
+    "cmf-settings": "./scripts/cmf-settings.js"
+  },
   "dependencies": {
     "babel-polyfill": "6.26.0",
-    "hoist-non-react-statics": "^1.2.0"
+    "deepmerge": "1.5.1",
+    "hoist-non-react-statics": "^1.2.0",
+    "react-immutable-proptypes": "2.1.0"
   },
   "devDependencies": {
     "babel-cli": "6.24.1",
@@ -43,7 +48,8 @@
     "babel-preset-react": "6.16.0",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.2",
-    "enzyme": "^2.7.1",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-15": "^1.0.1",
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
@@ -57,15 +63,16 @@
     "jest-cli": "20.0.3",
     "jsdoc": "^3.4.1",
     "lodash": "4.17.4",
+    "node-fetch": "^1.7.3",
     "path-to-regexp": "2.0.0",
     "prop-types": "15.5.10",
-    "react": "^15.6.1",
+    "react": "^15.6.2",
     "react-addons-test-utils": "15.5.1",
-    "react-dom": "^15.6.1",
+    "react-dom": "^15.6.2",
     "react-redux": "5.0.5",
     "react-router": "3.0.5",
     "react-router-redux": "4.0.8",
-    "react-test-renderer": "^15.6.1",
+    "react-test-renderer": "^15.6.2",
     "redux": "3.6.0",
     "redux-batched-actions": "0.2.0",
     "redux-logger": "3.0.6",
@@ -86,8 +93,8 @@
     "lodash": "4.17.4",
     "path-to-regexp": "2.0.0",
     "prop-types": "15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
     "react-redux": "5.0.5",
     "react-router": "3.0.5",
     "react-router-redux": "4.0.8",
@@ -111,14 +118,15 @@
       "__tests__"
     ],
     "transform": {
-      ".*": "<rootDir>/node_modules/babel-jest"
+      ".*": "<rootDir>/../../node_modules/babel-jest"
     },
     "setupFiles": [
       "./env__tests.js"
-    ]
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.125.0"
+  "version": "0.138.0"
 }

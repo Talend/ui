@@ -32,11 +32,11 @@ describe('Select field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'lol'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render select multiple', () => {
@@ -61,11 +61,11 @@ describe('Select field', () => {
 				onFinish={jest.fn()}
 				schema={multipleSchema}
 				value={['foo', 'lol']}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render disabled input', () => {
@@ -85,11 +85,11 @@ describe('Select field', () => {
 				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value={'lol'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render readOnly input', () => {
@@ -109,11 +109,11 @@ describe('Select field', () => {
 				onFinish={jest.fn()}
 				schema={readOnlySchema}
 				value={'lol'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onChange', () => {
@@ -128,7 +128,7 @@ describe('Select field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'lol'}
-			/>
+			/>,
 		);
 		const event = { target: { value: 'bar' } };
 
@@ -136,10 +136,7 @@ describe('Select field', () => {
 		wrapper.find('select').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(
-			event,
-			{ schema, value: 'bar' }
-		);
+		expect(onChange).toBeCalledWith(event, { schema, value: 'bar' });
 	});
 
 	it('should trigger array onChange', () => {
@@ -154,13 +151,15 @@ describe('Select field', () => {
 				items: schema.schema,
 			},
 		};
-		const event = { target: {
-			options: [
-				{ value: 'foo', selected: true },
-				{ value: 'bar', selected: false },
-				{ value: 'lol', selected: true },
-			],
-		} };
+		const event = {
+			target: {
+				options: [
+					{ value: 'foo', selected: true },
+					{ value: 'bar', selected: false },
+					{ value: 'lol', selected: true },
+				],
+			},
+		};
 		const wrapper = shallow(
 			<Select
 				id={'mySelect'}
@@ -170,19 +169,15 @@ describe('Select field', () => {
 				onFinish={jest.fn()}
 				schema={multipleSchema}
 				value={['foo', 'lol']}
-			/>
+			/>,
 		);
 
 		// when
 		wrapper.find('select').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(
-			event,
-			{ schema: multipleSchema, value: ['foo', 'lol'] }
-		);
+		expect(onChange).toBeCalledWith(event, { schema: multipleSchema, value: ['foo', 'lol'] });
 	});
-
 
 	it('should trigger onFinish on select blur', () => {
 		// given
@@ -196,7 +191,7 @@ describe('Select field', () => {
 				onFinish={onFinish}
 				schema={schema}
 				value={'lol'}
-			/>
+			/>,
 		);
 		const event = { target: { value: 'bar' } };
 
