@@ -135,36 +135,36 @@ exports[`Storyshots SidePanel With layout (toggle interactive) 1`] = `
           className="tc-side-panel"
           role="navigation"
         >
+          <div
+            className={undefined}
+            title="Collapse"
+          >
+            <button
+              className="btn btn-link"
+              disabled={false}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                focusable="false"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-opener"
+                />
+              </svg>
+              <span>
+                
+              </span>
+            </button>
+          </div>
           <ul
             className="nav nav-pills nav-stacked tc-side-panel-list nav-inverse undefined"
           >
-            <li
-              className={undefined}
-              title="Collapse"
-            >
-              <button
-                className="btn btn-link"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-opener"
-                  />
-                </svg>
-                <span>
-                  
-                </span>
-              </button>
-            </li>
             <li
               className="tc-side-panel-list-item"
               title="Preparations"
@@ -813,37 +813,37 @@ exports[`Storyshots SidePanel default 1`] = `
     className="tc-side-panel"
     role="navigation"
   >
+    <div
+      className={undefined}
+      title="Collapse"
+    >
+      <button
+        className="btn btn-link"
+        disabled={false}
+        id="context-toggle-dock"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          focusable="false"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-opener"
+          />
+        </svg>
+        <span>
+          
+        </span>
+      </button>
+    </div>
     <ul
       className="nav nav-pills nav-stacked tc-side-panel-list nav-inverse undefined"
     >
-      <li
-        className={undefined}
-        title="Collapse"
-      >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="context-toggle-dock"
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            focusable="false"
-            title={null}
-          >
-            <use
-              xlinkHref="#talend-opener"
-            />
-          </svg>
-          <span>
-            
-          </span>
-        </button>
-      </li>
       <li
         aria-current={true}
         className="tc-side-panel-list-item active undefined"
@@ -1060,36 +1060,36 @@ exports[`Storyshots SidePanel docked 1`] = `
     className="tc-side-panel"
     role="navigation"
   >
+    <div
+      className={undefined}
+      title="Expand"
+    >
+      <button
+        className="btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          focusable="false"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-opener"
+          />
+        </svg>
+        <span>
+          
+        </span>
+      </button>
+    </div>
     <ul
       className="nav nav-pills nav-stacked tc-side-panel-list nav-inverse undefined"
     >
-      <li
-        className={undefined}
-        title="Expand"
-      >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            focusable="false"
-            title={null}
-          >
-            <use
-              xlinkHref="#talend-opener"
-            />
-          </svg>
-          <span>
-            
-          </span>
-        </button>
-      </li>
       <li
         aria-current={true}
         className="tc-side-panel-list-item active undefined"
@@ -1303,36 +1303,36 @@ exports[`Storyshots SidePanel large docked 1`] = `
     className="tc-side-panel undefined"
     role="navigation"
   >
+    <div
+      className={undefined}
+      title="Expand"
+    >
+      <button
+        className="btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          focusable="false"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-opener"
+          />
+        </svg>
+        <span>
+          
+        </span>
+      </button>
+    </div>
     <ul
       className="nav nav-pills nav-stacked tc-side-panel-list nav-inverse undefined"
     >
-      <li
-        className={undefined}
-        title="Expand"
-      >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            focusable="false"
-            title={null}
-          >
-            <use
-              xlinkHref="#talend-opener"
-            />
-          </svg>
-          <span>
-            
-          </span>
-        </button>
-      </li>
       <li
         aria-current={true}
         className="tc-side-panel-list-item active undefined"
@@ -1762,36 +1762,36 @@ exports[`Storyshots SidePanel with inverted style 1`] = `
     className="tc-side-panel"
     role="navigation"
   >
+    <div
+      className={undefined}
+      title="Collapse"
+    >
+      <button
+        className="btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          focusable="false"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-opener"
+          />
+        </svg>
+        <span>
+          
+        </span>
+      </button>
+    </div>
     <ul
       className="nav nav-pills nav-stacked tc-side-panel-list"
     >
-      <li
-        className={undefined}
-        title="Collapse"
-      >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            focusable="false"
-            title={null}
-          >
-            <use
-              xlinkHref="#talend-opener"
-            />
-          </svg>
-          <span>
-            
-          </span>
-        </button>
-      </li>
       <li
         className="tc-side-panel-list-item"
         title="Preparations"
@@ -2005,36 +2005,36 @@ exports[`Storyshots SidePanel with large inverted style 1`] = `
     className="tc-side-panel undefined"
     role="navigation"
   >
+    <div
+      className={undefined}
+      title="Collapse"
+    >
+      <button
+        className="btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          focusable="false"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-opener"
+          />
+        </svg>
+        <span>
+          
+        </span>
+      </button>
+    </div>
     <ul
       className="nav nav-pills nav-stacked tc-side-panel-list"
     >
-      <li
-        className={undefined}
-        title="Collapse"
-      >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            focusable="false"
-            title={null}
-          >
-            <use
-              xlinkHref="#talend-opener"
-            />
-          </svg>
-          <span>
-            
-          </span>
-        </button>
-      </li>
       <li
         className="tc-side-panel-list-item"
         title="Preparations"
@@ -2248,36 +2248,36 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
     className="tc-side-panel"
     role="navigation"
   >
+    <div
+      className={undefined}
+      title="Collapse"
+    >
+      <button
+        className="btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="tc-svg-icon"
+          focusable="false"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-opener"
+          />
+        </svg>
+        <span>
+          
+        </span>
+      </button>
+    </div>
     <ul
       className="nav nav-pills nav-stacked tc-side-panel-list nav-inverse undefined"
     >
-      <li
-        className={undefined}
-        title="Collapse"
-      >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="tc-svg-icon"
-            focusable="false"
-            title={null}
-          >
-            <use
-              xlinkHref="#talend-opener"
-            />
-          </svg>
-          <span>
-            
-          </span>
-        </button>
-      </li>
       <li
         className="tc-side-panel-list-item"
         title="Preparations"
