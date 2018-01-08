@@ -10,7 +10,7 @@ import createSagaMiddleware from 'redux-saga';
 // init the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
-// declare the errors to globally manage in the app
+// declare the http errors to globally manage in the app
 const httpErrorSaga = sagas.getHttpErrorsSaga({
   on401: function* on401() {...},
   on403: function* on403() {...},
