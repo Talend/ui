@@ -28,13 +28,16 @@ const destination = pathLib.join(process.cwd(), cmfconfig.settings.destination);
 // 3 - Extract json from sources
 log('\nExtracting configuration from : \n');
 
-const configurations = sources.reduce(
+const jsonFiles = sources.reduce(
 	(acc, source) => acc.concat([...findJsonInFolder(pathLib.join(process.cwd(), source))]),
 	[],
 );
-log(configurations);
+
+log(jsonFiles);
 
 log('\n');
+
+const configurations = jsonFiles.map(path => require(`${path}`)); // eslint-disable-line global-require
 
 // 4 - merge json stuff in one object / settings
 const settings = deepmerge.all(configurations, { arrayMerge: concatMerge });
