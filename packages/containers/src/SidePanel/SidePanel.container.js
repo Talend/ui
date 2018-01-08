@@ -3,13 +3,7 @@ import React from 'react';
 import { SidePanel as Component } from '@talend/react-components';
 import { componentState } from '@talend/react-cmf';
 import { Map } from 'immutable';
-
-import Action from '../Action';
-import getRenderers from '../renderers';
-
-const renderers = {
-	Action,
-};
+import { Action } from '../Action';
 
 export const DEFAULT_STATE = new Map({
 	docked: false,
@@ -33,6 +27,7 @@ class SidePanel extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 		this.onToggleDock = this.onToggleDock.bind(this);
+		this.getComponent = this.getComponent.bind(this);
 	}
 
 	onToggleDock() {
@@ -40,14 +35,30 @@ class SidePanel extends React.Component {
 		this.props.setState({ docked: !state.get('docked') });
 	}
 
+	getComponent(key) {
+		try {
+			return this.props.getComponent(key);
+		} catch (error) {
+			if (key === 'Action') {
+				return Action;
+			}
+			throw error;
+		}
+	}
+
 	render() {
 		const { state = DEFAULT_STATE, ...rest } = this.props;
-		const props = Object.assign({
-			docked: state.get('docked'),
-			onToggleDock: this.onToggleDock,
-		});
-
-		return <Component renderers={getRenderers(renderers)} {...rest} {...props} />;
+		const props = Object.assign(
+			{},
+			{
+				docked: state.get('docked'),
+				onToggleDock: this.onToggleDock,
+			},
+			{
+				...rest,
+			},
+		);
+		return <Component {...props} getComponent={this.getComponent} />;
 	}
 }
 

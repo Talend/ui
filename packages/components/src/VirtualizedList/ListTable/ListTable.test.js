@@ -80,7 +80,7 @@ describe('ListGrid', () => {
 		expect(wrapper.getElement().props.rowRenderer.displayName).toBe('RowSelection(undefined)');
 	});
 
-	it('should render no-rows component', () => {
+	it('should render noRows', () => {
 		// when
 		const wrapper = mount(
 			<ListTable
@@ -90,6 +90,7 @@ describe('ListGrid', () => {
 				isSelected={jest.fn()}
 				selectionToggle={jest.fn()}
 				width={1024}
+				noRowsRenderer={() => <div>No rows</div>}
 			>
 				<VirtualizedList.Content label="Id" dataKey="id" />
 				<VirtualizedList.Content label="Name" dataKey="name" />
