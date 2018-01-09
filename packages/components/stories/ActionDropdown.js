@@ -26,18 +26,52 @@ const myAction = {
 	],
 };
 
-const customItems = {
+// const customItems = {
+// 	id: 'context-dropdown-custom-items',
+// 	label: 'custom items',
+// 	icon: 'talend-file-xls-o',
+// 	items: [
+// 		<Action label="customAction1" icon="talend-file-json-o" onClick={action('customAction1')} />,
+// 		{
+// 			divider: true,
+// 		},
+// 		<FilterBar dockable={false} />,
+// 		<Action label="customAction2" bsStyle="talend-bell" onClick={action('customAction2')} />,
+// 	],
+// };
+
+const withComponents = {
 	id: 'context-dropdown-custom-items',
 	label: 'custom items',
 	icon: 'talend-file-xls-o',
-	items: [
-		<Action label="customAction1" icon="talend-file-json-o" onClick={action('customAction1')} />,
-		{
-			divider: true,
-		},
-		<FilterBar dockable={false} />,
-		<Action label="customAction2" bsStyle="talend-bell" onClick={action('customAction2')} />,
-	],
+	getComponent: key => {
+		if (key === 'Action') {
+			return Action;
+		} else if (key === 'FilterBar') {
+			return FilterBar;
+		}
+		return Action;
+	},
+	components: {
+		itemsDropdown: [
+			{
+				component: 'Action',
+				label: 'First item',
+			},
+			{
+				divider: true,
+			},
+			{
+				component: 'FilterBar',
+				dockable: false,
+				docked: false,
+			},
+			{
+				component: 'Action',
+				label: 'Second item',
+			},
+		],
+	},
 };
 
 const oneEventAction = {
@@ -73,9 +107,9 @@ storiesOf('ActionDropdown', module).addWithInfo('default', () => (
 		<div id="typeLink">
 			<ActionDropdown {...myAction} link />
 		</div>
-		<p>Custom Items</p>
-		<div id="customItems">
-			<ActionDropdown {...customItems} />
+		<p>Components Items</p>
+		<div id="withComponents">
+			<ActionDropdown {...withComponents} />
 		</div>
 		<IconsProvider />
 	</div>
