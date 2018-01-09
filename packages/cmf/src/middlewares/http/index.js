@@ -12,6 +12,7 @@ import {
 } from './constants';
 
 export default httpMiddleware;
+
 export {
 	OPTIONS,
 	GET,

@@ -22,7 +22,7 @@ const action = {
         ... // the optional transformation to perform on the response before dispatch
     },
     onSend: 'MY_REQUEST_SENT', // the optional action type to dispatch on fetch
-    onError: 'MY_REQUEST_ERROR', // the optional action or action creator to dispatch on fetch error
+    onError(error): { ... }, // the optional action creator to dispatch on fetch error
     onResponse: 'MY_REQUEST_RESPONSE', // the optional action or action creator to dispatch on fetch complete
 }
 dispatch(action);
@@ -49,6 +49,7 @@ dispatch(action);
 * continue the original action dispatch, enhanced with the response. This is useful with [collection management](how-to-manage-collections.md) for example.
 
 # Http actions
+
 CMF exposes utilities to ease the use of the HTTP middelware.
 
 ```javascript
@@ -57,7 +58,6 @@ import { actions } from '@talend/react-cmf';
 export function fetchDataSets() {
 	return actions.http.get('/remote/datasets', {
 		onSend: GETTING_DATASETS,
-		onError: ERROR_GETTING_DATASETS,
 		transform(data) {
 			return data.map((row) => {
 				const { datastore, ...rest } = row;
@@ -119,3 +119,35 @@ dispatch(fetchDataSets());
 |---|---|---|---|
 | url | string | The HEAD url | true |
 | config | object | The rest of action configuration. | false |
+
+# HTTP Error
+
+Most of the time the error managment is centralized. You don't want to handle
+all http error code for each request.
+
+Sometimes you want to handle one particular case. For this you have onError param.
+
+In this case we want to handle 404. If not 404 stay on global HTTP error
+
+```javascript
+import get from 'lodash/get';
+import { api } from '@talend/react-cmf';
+
+return actions.http.get('/api/may-not-exists', {
+	onError(error) {
+		if (get(error, 'stack.status') !== 404) {
+			return api.actions.http.httpError(error);
+		}
+		return {
+			type: NOT_FOUND,
+			cmf: {
+				collectionId: `my-not-found`,
+			},
+			response: true,
+		};
+	},
+	cmf: {
+		collectionId: `my-found`,
+	},
+});
+```
