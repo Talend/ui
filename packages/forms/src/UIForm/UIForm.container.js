@@ -2,21 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import UIFormComponent from './UIForm.component';
 import { formPropTypes, extractFormProps } from './utils/propTypes';
-
-import { formReducer, modelReducer, validationReducer } from './reducers';
-import { createForm, updateForm, updateFormData, setError, setErrors } from './actions';
+import { mutateValue } from './utils/properties';
 
 export default class UIForm extends React.Component {
 	constructor(props) {
 		super(props);
-
-		// const action = createForm(
-		// 	this.props.formName,
-		// 	this.props.data.jsonSchema,
-		// 	this.props.data.uiSchema,
-		// 	this.props.data.properties,
-		// );
-		// this.state = formReducer(undefined, action)[this.props.formName];
 		this.state = {
 			...this.props.data,
 			errors: [],
@@ -49,14 +39,12 @@ export default class UIForm extends React.Component {
 	 * error: The validation error
 	 */
 	onChange(event, payload) {
-		const action = updateFormData(payload.formName, payload.schema, payload.value);
 		this.setState(
-			{ properties: modelReducer(this.state.properties, action) },
-			this.props.onChange &&
-				(() => {
-					this.props.onChange(event, payload);
-				}),
+			{ properties: mutateValue(this.state.properties, payload.schema.key, payload.value) },
 		);
+		if (this.props.onChange) {
+			this.props.onChange(event, payload);
+		}
 	}
 
 	onReset(event) {
@@ -73,9 +61,11 @@ export default class UIForm extends React.Component {
 	 * @param formName the form name
 	 * @param errors the validation errors
 	 */
-	setError(formName, errors) {
-		const action = setError(formName, errors);
-		this.setState({ errors: validationReducer(this.state.errors, action) });
+	setError(formName, errors = {}) {
+		this.setState({ errors: {
+			...this.state.errors,
+			...errors,
+		} });
 	}
 
 	/**
@@ -84,8 +74,7 @@ export default class UIForm extends React.Component {
 	 * @param errors the validation errors
 	 */
 	setErrors(formName, errors) {
-		const action = setErrors(formName, errors);
-		this.setState({ errors: validationReducer(this.state.errors, action) });
+		this.setState({ errors });
 	}
 
 	/**
@@ -97,10 +86,20 @@ export default class UIForm extends React.Component {
 	 * @param errors The validation errors
 	 */
 	updateForm(formName, jsonSchema, uiSchema, properties, errors) {
-		const action = updateForm(formName, jsonSchema, uiSchema, properties, errors);
-		const nextState = formReducer({ [formName]: this.state }, action)[formName];
-
-		this.setState(nextState);
+		const newState = {};
+		if (jsonSchema) {
+			newState.jsonSchema = jsonSchema;
+		}
+		if (uiSchema) {
+			newState.uiSchema = uiSchema;
+		}
+		if (properties) {
+			newState.properties = properties;
+		}
+		if (errors) {
+			newState.errors = errors;
+		}
+		this.setState(newState);
 	}
 
 	render() {

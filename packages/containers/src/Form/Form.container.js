@@ -6,9 +6,7 @@ import ComponentForm from '@talend/react-forms';
 import ArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
 import classnames from 'classnames';
 
-export const DEFAULT_STATE = new Immutable.Map({
-	errors: new Immutable.Map(),
-});
+export const DEFAULT_STATE = new Immutable.Map({});
 
 /**
  * Because we don't want to loose form input
@@ -46,7 +44,6 @@ class Form extends React.Component {
 		this.jsonSchema = this.jsonSchema.bind(this);
 		this.uiSchema = this.uiSchema.bind(this);
 		this.data = this.data.bind(this);
-		this.setErrors = this.setErrors.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -85,10 +82,6 @@ class Form extends React.Component {
 				formData,
 			});
 		}
-	}
-
-	setErrors(formName, errors) {
-		this.props.setState({ errors });
 	}
 
 	jsonSchema() {
@@ -147,8 +140,6 @@ class Form extends React.Component {
 		};
 		if (this.props.uiform) {
 			props.uiform = true;
-			props.setErrors = this.setErrors;
-			props.errors = state.errors;
 		}
 		return <ComponentForm {...props} />;
 	}

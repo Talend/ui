@@ -4,8 +4,7 @@ import React from 'react';
 import RJSForm from 'react-jsonschema-form/lib/index';
 import Action from '@talend/react-components/lib/Actions/Action';
 
-// import UIForm from './UIForm/UIForm.component';
-import UIForm from './UIForm/UIForm.container';
+import { UIForm } from './UIForm';
 import { wrapCustomWidget } from './UIForm/merge';
 import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';
