@@ -39,9 +39,9 @@ export default class UIForm extends React.Component {
 	 * error: The validation error
 	 */
 	onChange(event, payload) {
-		this.setState(
-			{ properties: mutateValue(this.state.properties, payload.schema.key, payload.value) },
-		);
+		this.setState({
+			properties: mutateValue(this.state.properties, payload.schema.key, payload.value),
+		});
 		if (this.props.onChange) {
 			this.props.onChange(event, payload);
 		}
@@ -62,10 +62,12 @@ export default class UIForm extends React.Component {
 	 * @param errors the validation errors
 	 */
 	setError(formName, errors = {}) {
-		this.setState({ errors: {
-			...this.state.errors,
-			...errors,
-		} });
+		this.setState({
+			errors: {
+				...this.state.errors,
+				...errors,
+			},
+		});
 	}
 
 	/**
