@@ -5,7 +5,6 @@ import { SubHeaderBar } from '../src';
 const viewSubHeader = {
 	title: 'MyTitle',
 	actionCreatorCancel: 'subheaderbar:cancel',
-	actionCreatorEdit: 'subheaderbar:edit',
 	actionCreatorSubmit: 'subheaderbar:submit',
 	actionCreatorChange: 'subheaderbar:change',
 	actionCreatorGoBack: 'subheaderbar:goback',
@@ -39,30 +38,55 @@ const props = {
 };
 
 const ExampleSubHeaderBar = {
-	'only-title-no-icon': () => (
+	'with-default': () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar subTitle="mySubTitle" {...props} />
+			<SubHeaderBar {...props} />
 		</div>
 	),
-	'with-right-actions-and-icon': () => (
+	'with-subtitle': () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				subTitle="mySubTitle"
+				{...props}
+			/>
+		</div>
+	),
+	'with-icon': () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				iconId="talend-file-csv-o"
+				{...props}
+			/>
+		</div>
+	),
+	'with-editable': () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
 				{...props}
-				subTitle="mySubTitle"
-				injectedComponents={injectedComponentsRight}
-				iconId="talend-file-csv-o"
+				editable
 			/>
 		</div>
 	),
-	'with-center-actions-and-no-icon-no-subtitle': () => (
+	'with-right-actions': () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				{...props}
+				injectedComponents={injectedComponentsRight}
+			/>
+		</div>
+	),
+	'with-center-actions': () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...props} injectedComponents={injectedComponentsCenter} />
 		</div>
 	),
-	'with-center-and-right-actions': () => (
+	'with-all': () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
@@ -70,6 +94,7 @@ const ExampleSubHeaderBar = {
 				injectedComponents={Object.assign({}, injectedComponentsCenter, injectedComponentsRight)}
 				iconId="talend-file-csv-o"
 				subTitle="mySubTitle"
+				editable
 			/>
 		</div>
 	),

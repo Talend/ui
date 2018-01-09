@@ -31,11 +31,10 @@ const injectedComponentsRight = [
 	{
 		injectedComponent: (
 			<Action
-				label="action2"
+				label="Action2"
 				bsStyle="link"
 				icon="talend-activity"
 				onClick={action('return action2')}
-				hideLabel
 			/>
 		),
 	},
@@ -66,14 +65,7 @@ const componentAction = {
 
 const componentInput = {
 	tag: 'form',
-	injectedComponent: (
-		<input
-			id="inputTitle"
-			type="text"
-			onChange={action('onChange')}
-			value=""
-		/>
-	),
+	injectedComponent: <input id="inputTitle" type="text" onChange={action('onChange')} value="" />,
 };
 
 const injectedComponentsCenter = [
@@ -96,19 +88,25 @@ if (!stories.addWithInfo) {
 }
 
 stories
-	.addWithInfo('with default left components', () => (
+	.addWithInfo('with default', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('with default left components and icon file', () => (
+	.addWithInfo('with editable', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar {...viewProps} onGoBack={backAction} editable />
+		</div>
+	))
+	.addWithInfo('with icon', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} iconId="talend-file-csv-o" onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('default left components and subtitle', () => (
+	.addWithInfo('with subtitle', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} subTitle="mySubTitle" onGoBack={backAction} />
@@ -119,7 +117,6 @@ stories
 			<IconsProvider />
 			<SubHeaderBar
 				{...viewProps}
-				iconId="talend-file-csv-o"
 				onGoBack={backAction}
 				componentsRight={injectedComponentsRight}
 			/>
@@ -140,7 +137,6 @@ stories
 			<IconsProvider />
 			<SubHeaderBar
 				{...viewProps}
-				subTitle="mySubTitle"
 				onGoBack={backAction}
 				componentsCenter={[componentInput]}
 			/>
@@ -151,11 +147,23 @@ stories
 			<IconsProvider />
 			<SubHeaderBar
 				{...viewProps}
+				onGoBack={backAction}
+				componentsCenter={injectedComponentsCenter}
+				componentsRight={injectedComponentsRight}
+			/>
+		</div>
+	))
+	.addWithInfo('with all', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				{...viewProps}
 				iconId="talend-file-csv-o"
 				subTitle="mySubTitle"
 				onGoBack={backAction}
 				componentsCenter={injectedComponentsCenter}
 				componentsRight={injectedComponentsRight}
+				editable
 			/>
 		</div>
 	));

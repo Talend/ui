@@ -43,12 +43,14 @@ function getAction({ name, id, operation, componentState }) {
 
 export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 	const dispatchAction = (operation, componentState) => {
-		dispatch(getAction({
-			id,
-			name,
-			componentState,
-			operation,
-		}));
+		dispatch(
+			getAction({
+				id,
+				name,
+				componentState,
+				operation,
+			}),
+		);
 	};
 
 	const accessors = {
@@ -89,6 +91,7 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 	return accessors;
 }
 
+// DEPRECATION Warning: Please use cmfConnect.propTypes
 export const statePropTypes = {
 	state: PropTypes.object,
 	initialState: PropTypes.object,

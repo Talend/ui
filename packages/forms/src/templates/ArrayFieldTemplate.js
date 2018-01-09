@@ -3,7 +3,8 @@ import React from 'react';
 import classNames from 'classnames';
 import { StickyContainer, Sticky } from 'react-sticky';
 
-import { Icon, IconsProvider } from '@talend/react-components';
+import Icon from '@talend/react-components/lib/Icon';
+import IconsProvider from '@talend/react-components/lib/IconsProvider';
 
 import theme from './ArrayFieldTemplate.scss';
 
@@ -23,7 +24,7 @@ function FieldTemplate({ element, cantDelete }) {
 					>
 						<Icon name="talend-trash" />
 					</button>
-					{!element.itemData.isClosed &&
+					{!element.itemData.isClosed && (
 						<div className={theme.orderaction}>
 							<button
 								type="button"
@@ -43,12 +44,11 @@ function FieldTemplate({ element, cantDelete }) {
 							>
 								<Icon name="talend-caret-down" />
 							</button>
-						</div>}
+						</div>
+					)}
 				</div>
 			}
-			<div className={theme.element}>
-				{element.children}
-			</div>
+			<div className={theme.element}>{element.children}</div>
 		</div>
 	);
 }

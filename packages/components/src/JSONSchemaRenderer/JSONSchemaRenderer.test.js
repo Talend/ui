@@ -5,6 +5,7 @@ import { shallow, mount } from 'enzyme';
 import JSONSchemaRenderer, {
 	InvalidSchemaException,
 	UnkownTypeException,
+	isPassword,
 } from './JSONSchemaRenderer.component';
 
 describe('JSONSchemaRenderer', () => {
@@ -127,6 +128,40 @@ describe('JSONSchemaRenderer', () => {
 				.last()
 				.text(),
 		).toEqual('d');
+	});
+
+	it('should render bullets for properties with a password ui:schema', () => {
+		const password = 'some_very_secure_password';
+		const hidenPassword = '\u2022'.repeat(5);
+		const schema = {
+			jsonSchema: {
+				properties: {
+					credentials: 'string',
+				},
+			},
+			uiSchema: {
+				credentials: { 'ui:widget': 'password' },
+			},
+			properties: {
+				credentials: password,
+			},
+		};
+		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
+		expect(
+			wrapper
+				.find('dd')
+				.first()
+				.text(),
+		).toEqual(hidenPassword);
+	});
+
+	it('should detect that the "credentials" property is a password property', () => {
+		const uiSchema = {
+			credentials: { 'ui:widget': 'password' },
+		};
+
+		expect(isPassword(uiSchema, 'credentials')).toEqual(true);
+		expect(isPassword(uiSchema, 'other_property')).toEqual(false);
 	});
 
 	it("shouldn't render hidden fields", () => {

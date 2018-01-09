@@ -13,7 +13,7 @@ describe('Filter', () => {
 		const wrapper = shallow(<Filter onFilter={noOp} onToggle={noOp} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render id if provided', () => {
@@ -21,7 +21,7 @@ describe('Filter', () => {
 		const wrapper = shallow(<Filter id="toolbar-filter" onFilter={noOp} onToggle={noOp} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render highlighted filter', () => {
@@ -29,7 +29,7 @@ describe('Filter', () => {
 		const wrapper = shallow(<Filter highlight onFilter={noOp} onToggle={noOp} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render only toggle icon', () => {
@@ -37,7 +37,7 @@ describe('Filter', () => {
 		const wrapper = shallow(<Filter onFilter={noOp} onToggle={noOp} docked />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render filter input with given placeholder', () => {
@@ -49,7 +49,7 @@ describe('Filter', () => {
 		const wrapper = shallow(<Filter {...defaultProps} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render filter input with default placeholder', () => {
@@ -60,6 +60,6 @@ describe('Filter', () => {
 		const wrapper = shallow(<Filter {...defaultProps} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

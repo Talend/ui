@@ -83,6 +83,8 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-bootstrap': '0.31.0',
 	'react-dom': REACT_VERSION,
 	i18next: '^9.0.0',
+	'rc-slider': '8.4.1',
+	'rc-tooltip': '3.7.0',
 	'react-i18next': '^5.2.0',
 	'react-redux': '5.0.5',
 	'react-router': '3.0.5',
@@ -98,15 +100,18 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'redux-thunk': '2.2.0',
 	uuid: '3.0.1',  // prefer bson-objectid
 
+	// script dep
+	deepmerge: '1.5.1',
+
 	// dev deps
 	'@kadira/react-storybook-addon-info': '^3.3.0',
 	'@kadira/storybook': '^2.35.0',
-	'@storybook/react': '3.1.9',
-	'@storybook/addon-storyshots': '^3.2.0',
-	'@storybook/addon-actions': '^3.2.0',
-	'@storybook/addon-info': '^3.2.0',
-	'@storybook/addon-knobs': '^3.2.0',
-	'@storybook/addons': '^3.2.0',
+	'@storybook/react': '^3.3.6',
+	'@storybook/addon-storyshots': '^3.3.6',
+	'@storybook/addon-actions': '^3.3.6',
+	'@storybook/addon-info': '^3.3.6',
+	'@storybook/addon-knobs': '^3.3.6',
+	'@storybook/addons': '^3.3.6',
 	autoprefixer: '^7.1.4',
 	'babel-cli': '6.24.1',
 	'babel-core': '6.24.1',
@@ -119,7 +124,9 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'babel-preset-env': '1.6.0',
 	'babel-preset-react': '6.16.0',
 	cpx: '1.5.0',
-	enzyme: '^2.7.1',
+	enzyme: '^3.1.0',
+	'enzyme-adapter-react-15': '^1.0.1',
+	'enzyme-to-json': '^3.0.0',
 	eslint: '^3.6.1',
 	'eslint-config-airbnb': '^11.1.0',
 	'eslint-plugin-import': '^1.16.0',
@@ -205,7 +212,7 @@ function save(ppath, data) {
 			throw `error opening file: ${err}`;
 		}
 
-		fs.write(fd, data, 0, data.length, null, (err) => {
+		fs.write(fd, data, 0, data.length, null, err => {
 			if (err) {
 				throw `error writing file: ${err}`;
 			}
@@ -219,13 +226,13 @@ function save(ppath, data) {
 }
 
 function updateFiles(filesList, versions) {
-	filesList.forEach((ppath) => {
+	filesList.forEach(ppath => {
 		const packageJSON = require(ppath);
 		if (!program.quiet) {
 			console.log(`=== check ${packageJSON.name} ===`);
 		}
 
-		Object.keys(versions).forEach((dep) => {
+		Object.keys(versions).forEach(dep => {
 			checkAll(versions, packageJSON, dep);
 		});
 		if (packageJSON.modified || program.force) {
@@ -248,4 +255,3 @@ if (program.path) {
 	updateFiles(files, Object.assign(VERSIONS));
 	updateFiles(templates, Object.assign({}, VERSIONS, STACK_VERSION));
 }
-

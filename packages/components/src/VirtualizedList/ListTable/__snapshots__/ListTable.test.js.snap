@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ListGrid should render no-rows component 1`] = `
+exports[`ListGrid should render noRows 1`] = `
 <VirtualizedList(ListTable)
   collection={Array []}
   disableHeader={false}
   height={600}
   id="my-list"
   isSelected={[Function]}
+  noRowsRenderer={[Function]}
   rowHeight={50}
   selectionToggle={[Function]}
-  t={[Function]}
   width={1024}
 >
   <Table
@@ -57,6 +57,7 @@ exports[`ListGrid should render no-rows component 1`] = `
       >
         <div
           className="ReactVirtualized__Table__headerColumn tc-list-cell-id"
+          key="Header-Col0"
           role="columnheader"
           style={
             Object {
@@ -68,6 +69,7 @@ exports[`ListGrid should render no-rows component 1`] = `
         >
           <span
             className="ReactVirtualized__Table__headerTruncatedText"
+            key="label"
             title="Id"
           >
             Id
@@ -75,6 +77,7 @@ exports[`ListGrid should render no-rows component 1`] = `
         </div>
         <div
           className="ReactVirtualized__Table__headerColumn tc-list-cell-name"
+          key="Header-Col1"
           role="columnheader"
           style={
             Object {
@@ -86,6 +89,7 @@ exports[`ListGrid should render no-rows component 1`] = `
         >
           <span
             className="ReactVirtualized__Table__headerTruncatedText"
+            key="label"
             title="Name"
           >
             Name
@@ -164,17 +168,9 @@ exports[`ListGrid should render no-rows component 1`] = `
           }
           tabIndex={0}
         >
-          <NoRows
-            t={[Function]}
-          >
-            <span
-              aria-live="polite"
-              className="no-result"
-              role="status"
-            >
-              No result found
-            </span>
-          </NoRows>
+          <div>
+            No rows
+          </div>
         </div>
       </Grid>
     </div>

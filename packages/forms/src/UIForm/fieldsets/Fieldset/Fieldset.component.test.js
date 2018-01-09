@@ -26,6 +26,6 @@ describe('Fieldset widget', () => {
 		const wrapper = shallow(<Fieldset schema={schema} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
