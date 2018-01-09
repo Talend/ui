@@ -1,110 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`chooseMenuItemRendering should return an array of MenuItem (props items) 1`] = `
-Array [
-  <MenuItem
-    bsClass="dropdown"
-    disabled={false}
-    divider={false}
-    eventKey={
-        Object {
-            "icon": "talend-streams",
-            "label": "First",
-          }
-    }
-    header={false}
-    icon="talend-streams"
-    label="First"
-    onClick={[Function]}
->
-    <Icon
-        name="talend-streams"
-    />
-    First
-</MenuItem>,
-]
-`;
-
-exports[`chooseMenuItemRendering should return an array of MenuItem with components injected 1`] = `
-Array [
-  <MenuItem
-    bsClass="dropdown"
-    disabled={false}
-    divider={false}
-    header={false}
->
-    <Inject
-        actionId="menu:first"
-        component="Action"
-        getComponent={[Function]}
-    />
-</MenuItem>,
-]
-`;
-
-exports[`chooseMenuItemRendering should return an array of MenuItem with components injected and a divider 1`] = `
-Array [
-  <MenuItem
-    bsClass="dropdown"
-    disabled={false}
-    divider={false}
-    header={false}
->
-    <Inject
-        actionId="menu:first"
-        component="Action"
-        getComponent={[Function]}
-    />
-</MenuItem>,
-  <MenuItem
-    bsClass="dropdown"
-    disabled={false}
-    divider={true}
-    header={false}
-/>,
-]
-`;
-
-exports[`chooseMenuItemRendering should return an array of MenuItem with divider (props items) 1`] = `
-Array [
-  <MenuItem
-    bsClass="dropdown"
-    disabled={false}
-    divider={false}
-    eventKey={
-        Object {
-            "icon": "talend-streams",
-            "label": "First",
-          }
-    }
-    header={false}
-    icon="talend-streams"
-    label="First"
-    onClick={[Function]}
->
-    <Icon
-        name="talend-streams"
-    />
-    First
-</MenuItem>,
-  <MenuItem
-    bsClass="dropdown"
-    disabled={false}
-    divider={true}
-    header={false}
-/>,
-]
-`;
-
-exports[`chooseMenuItemRendering should return disabled item 1`] = `
+exports[`InjectDropdownMenuItem should render MenuItem with Inject 1`] = `
 <MenuItem
   bsClass="dropdown"
-  disabled={true}
+  disabled={false}
   divider={false}
   header={false}
+  stuff="MyItemProps"
 >
-  No options
+  <Inject
+    component="Action"
+    getComponent={[Function]}
+  />
 </MenuItem>
+`;
+
+exports[`InjectDropdownMenuItem should render MenuItem with props divider 1`] = `
+<MenuItem
+  bsClass="dropdown"
+  disabled={false}
+  divider={true}
+  header={false}
+  stuff="MyItemProps"
+/>
+`;
+
+exports[`InjectDropdownMenuItem should render li with Inject 1`] = `
+<li
+  role="presentation"
+  stuff="MyLiProps"
+>
+  <Inject
+    component="Action"
+    getComponent={[Function]}
+  />
+</li>
 `;
 
 exports[`getMenuItem should return a MenuItem with divider 1`] = `
@@ -154,28 +84,5 @@ exports[`getMenuItem should return a MenuItem with label 1`] = `
   onClick={[Function]}
 >
   Toto
-</MenuItem>
-`;
-
-exports[`injectMenuItem should return a MenuItem with a divider 1`] = `
-<MenuItem
-  bsClass="dropdown"
-  disabled={false}
-  divider={true}
-  header={false}
-/>
-`;
-
-exports[`injectMenuItem should return a MenuItem with an Inject 1`] = `
-<MenuItem
-  bsClass="dropdown"
-  disabled={false}
-  divider={false}
-  header={false}
->
-  <Inject
-    component="MyInjectCmp"
-    getComponent={[Function]}
-  />
 </MenuItem>
 `;

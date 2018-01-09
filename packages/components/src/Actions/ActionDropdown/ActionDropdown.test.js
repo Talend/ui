@@ -1,10 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import ActionDropdown, {
-	chooseMenuItemRendering,
-	getMenuItem,
-	injectMenuItem,
-} from './ActionDropdown.component';
+import { mount, shallow } from 'enzyme';
+import ActionDropdown, { InjectDropdownMenuItem, getMenuItem } from './ActionDropdown.component';
 
 describe('ActionDropdown', () => {
 	it('should call onSelect callback when click on item', () => {
@@ -53,45 +49,6 @@ describe('ActionDropdown', () => {
 	});
 });
 
-describe('chooseMenuItemRendering', () => {
-	it('should return disabled item', () => {
-		expect(chooseMenuItemRendering(null, [], null)).toMatchSnapshot();
-	});
-	it('should return an array of MenuItem (props items)', () => {
-		const items = [{ label: 'First', icon: 'talend-streams' }];
-		expect(chooseMenuItemRendering(null, items, null)).toMatchSnapshot();
-	});
-	it('should return an array of MenuItem with divider (props items)', () => {
-		const items = [{ label: 'First', icon: 'talend-streams' }, { divider: true }];
-		expect(chooseMenuItemRendering(null, items, null)).toMatchSnapshot();
-	});
-	it('should return an array of MenuItem with components injected', () => {
-		const getComponent = jest.fn();
-		const components = {
-			itemsDropdown: [
-				{
-					component: 'Action',
-					actionId: 'menu:first',
-				},
-			],
-		};
-		expect(chooseMenuItemRendering(getComponent, null, components)).toMatchSnapshot();
-	});
-	it('should return an array of MenuItem with components injected and a divider', () => {
-		const getComponent = jest.fn();
-		const components = {
-			itemsDropdown: [
-				{
-					component: 'Action',
-					actionId: 'menu:first',
-				},
-				{ divider: true },
-			],
-		};
-		expect(chooseMenuItemRendering(getComponent, null, components)).toMatchSnapshot();
-	});
-});
-
 describe('getMenuItem', () => {
 	it('should return a MenuItem with divider', () => {
 		expect(getMenuItem({ divider: true })).toMatchSnapshot();
@@ -104,11 +61,40 @@ describe('getMenuItem', () => {
 	});
 });
 
-describe('injectMenuItem', () => {
-	it('should return a MenuItem with a divider', () => {
-		expect(injectMenuItem(jest.fn(), { divider: true })).toMatchSnapshot();
+describe('InjectDropdownMenuItem', () => {
+	const getComponent = jest.fn();
+	it('should render MenuItem with props divider', () => {
+		const wrapper = shallow(
+			<InjectDropdownMenuItem
+				getComponent={getComponent}
+				key={0}
+				menuItemProps={{ stuff: 'MyItemProps' }}
+				divider
+			/>,
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-	it('should return a MenuItem with an Inject', () => {
-		expect(injectMenuItem(jest.fn(), { component: 'MyInjectCmp' })).toMatchSnapshot();
+	it('should render MenuItem with Inject', () => {
+		const wrapper = shallow(
+			<InjectDropdownMenuItem
+				getComponent={getComponent}
+				component="Action"
+				key={0}
+				menuItemProps={{ stuff: 'MyItemProps' }}
+				withMenuItem
+			/>,
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should render li with Inject', () => {
+		const wrapper = shallow(
+			<InjectDropdownMenuItem
+				getComponent={getComponent}
+				component="Action"
+				key={0}
+				liProps={{ stuff: 'MyLiProps' }}
+			/>,
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

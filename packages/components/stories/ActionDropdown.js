@@ -51,7 +51,7 @@ const withComponents = {
 				component: 'FilterBar',
 				dockable: false,
 				docked: false,
-				withMenuItem: false,
+				withMenuItem: true,
 			},
 			{
 				component: 'Action',
