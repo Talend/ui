@@ -13,6 +13,8 @@ import cmfConnect, {
 	getMergeProps,
 } from '../src/cmfConnect';
 
+import api from '../src/api';
+
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {
 		it('should return displayName', () => {
@@ -170,6 +172,7 @@ describe('cmfConnect', () => {
 				WrappedComponent: { displayName: 'TestComponent' },
 			});
 			expect(props.dispatch).toBe(dispatch);
+			expect(props.getComponent).toBe(api.component.get);
 			expect(typeof props.dispatchActionCreator).toBe('function');
 			expect(mapDispatchToProps.mock.calls[0][0]).toBe(dispatch);
 			expect(mapDispatchToProps.mock.calls[0][1]).toBe(ownProps);

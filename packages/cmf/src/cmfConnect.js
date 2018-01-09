@@ -139,6 +139,7 @@ export function getDispatchToProps({
 		defaultState,
 	);
 	cmfProps.dispatch = dispatch;
+	cmfProps.getComponent = api.component.get;
 	cmfProps.dispatchActionCreator = (actionId, event, data, context) => {
 		dispatch(api.action.getActionCreatorFunction(context, actionId)(event, data, context));
 	};
@@ -313,6 +314,7 @@ cmfConnect.INJECTED_PROPS = INJECTED_PROPS;
 cmfConnect.propTypes = {
 	state: ImmutablePropTypes.Map,
 	initialState: ImmutablePropTypes.Map,
+	getComponent: PropTypes.func,
 	setState: PropTypes.func,
 	initState: PropTypes.func,
 	dispatchActionCreator: PropTypes.func,
