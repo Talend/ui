@@ -364,7 +364,7 @@ describe('CMF http middleware', () => {
 		});
 	});
 
-	it('should httpMiddleware handle a specific TEXT onError', done => {
+	it('should dispatch an action defines in onError', done => {
 		const store = {
 			dispatch: jest.fn(),
 		};
