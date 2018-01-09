@@ -28,5 +28,74 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 17 problems (14 errors, 3 warnings)
+src/theme/_variables.scss
+   36:11  warning  Hex notation should all be upper case  hex-notation
+  145:19  warning  Hex notation should all be upper case  hex-notation
+  147:18  warning  Hex notation should all be upper case  hex-notation
+  151:22  warning  Hex notation should all be upper case  hex-notation
+  160:18  warning  Hex notation should all be upper case  hex-notation
+  161:22  warning  Hex notation should all be upper case  hex-notation
+  163:21  warning  Hex notation should all be upper case  hex-notation
+  167:23  warning  Hex notation should all be upper case  hex-notation
+  171:24  warning  Hex notation should all be upper case  hex-notation
+  175:21  warning  Hex notation should all be upper case  hex-notation
+  179:18  warning  Hex notation should all be upper case  hex-notation
+  183:21  warning  Hex notation should all be upper case  hex-notation
+  187:20  warning  Hex notation should all be upper case  hex-notation
+  212:16  warning  Hex notation should all be upper case  hex-notation
+  224:22  warning  Hex notation should all be upper case  hex-notation
+  242:23  warning  Hex notation should all be upper case  hex-notation
+  261:28  warning  Hex notation should all be upper case  hex-notation
+  263:23  warning  Hex notation should all be upper case  hex-notation
+  385:21  warning  Hex notation should all be upper case  hex-notation
+  394:38  warning  Hex notation should all be upper case  hex-notation
+  403:34  warning  Hex notation should all be upper case  hex-notation
+  405:38  warning  Hex notation should all be upper case  hex-notation
+  414:29  warning  Hex notation should all be upper case  hex-notation
+  424:36  warning  Hex notation should all be upper case  hex-notation
+  429:37  warning  Hex notation should all be upper case  hex-notation
+  444:25  warning  Hex notation should all be upper case  hex-notation
+  450:43  warning  Hex notation should all be upper case  hex-notation
+  452:40  warning  Hex notation should all be upper case  hex-notation
+  465:17  warning  Hex notation should all be upper case  hex-notation
+  466:21  warning  Hex notation should all be upper case  hex-notation
+  470:27  warning  Hex notation should all be upper case  hex-notation
+  472:27  warning  Hex notation should all be upper case  hex-notation
+  477:26  warning  Hex notation should all be upper case  hex-notation
+  478:30  warning  Hex notation should all be upper case  hex-notation
+  533:17  warning  Hex notation should all be upper case  hex-notation
+  548:14  warning  Hex notation should all be upper case  hex-notation
+  554:33  warning  Hex notation should all be upper case  hex-notation
+  589:15  warning  Hex notation should all be upper case  hex-notation
+  591:26  warning  Hex notation should all be upper case  hex-notation
+  617:29  warning  Hex notation should all be upper case  hex-notation
+  654:15  warning  Hex notation should all be upper case  hex-notation
+  656:22  warning  Hex notation should all be upper case  hex-notation
+  676:17  warning  Hex notation should all be upper case  hex-notation
+  678:21  warning  Hex notation should all be upper case  hex-notation
+  683:23  warning  Hex notation should all be upper case  hex-notation
+  708:12  warning  Hex notation should all be upper case  hex-notation
+  715:22  warning  Hex notation should all be upper case  hex-notation
+  716:19  warning  Hex notation should all be upper case  hex-notation
+  719:24  warning  Hex notation should all be upper case  hex-notation
+  720:28  warning  Hex notation should all be upper case  hex-notation
+  722:22  warning  Hex notation should all be upper case  hex-notation
+  751:20  warning  Hex notation should all be upper case  hex-notation
+  764:11  warning  Hex notation should all be upper case  hex-notation
+  771:15  warning  Hex notation should all be upper case  hex-notation
+  773:26  warning  Hex notation should all be upper case  hex-notation
+  779:19  warning  Hex notation should all be upper case  hex-notation
+  792:17  warning  Hex notation should all be upper case  hex-notation
+  806:26  warning  Hex notation should all be upper case  hex-notation
+  811:32  warning  Hex notation should all be upper case  hex-notation
+  812:35  warning  Hex notation should all be upper case  hex-notation
+  814:26  warning  Hex notation should all be upper case  hex-notation
+  822:29  warning  Hex notation should all be upper case  hex-notation
+  828:14  warning  Hex notation should all be upper case  hex-notation
+  829:11  warning  Hex notation should all be upper case  hex-notation
+  831:13  warning  Hex notation should all be upper case  hex-notation
+  834:10  warning  Hex notation should all be upper case  hex-notation
+  836:20  warning  Hex notation should all be upper case  hex-notation
+
+✖ 84 problems (14 errors, 70 warnings)
 
