@@ -21,7 +21,8 @@ const currentStatus = {
 			icon: 'fa fa-delete',
 			onClick: jest.fn(),
 			bsSize: 'small',
-		}],
+		},
+	],
 };
 
 const inProgressStatus = {
@@ -39,7 +40,8 @@ const inProgressStatus = {
 			icon: 'fa fa-delete',
 			onClick: jest.fn(),
 			bsSize: 'small',
-		}],
+		},
+	],
 };
 
 const inProgressStatusWithPercent = {
@@ -58,7 +60,8 @@ const inProgressStatusWithPercent = {
 			icon: 'fa fa-delete',
 			onClick: jest.fn(),
 			bsSize: 'small',
-		}],
+		},
+	],
 };
 
 describe('Status', () => {

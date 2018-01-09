@@ -47,18 +47,11 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 	switch (displayMode) {
 		case TYPE_STATUS: {
 			const { actions, ...restStatus } = headerItem;
-			const adaptActions = actions.map(
-				action => ({
-					...action,
-					onClick: getActionHandler(action.onClick, headerItem),
-				})
-			);
-			return (<Status
-				key={key}
-				actions={adaptActions}
-				{...restStatus}
-				className={css[className]}
-			/>);
+			const adaptActions = actions.map(action => ({
+				...action,
+				onClick: getActionHandler(action.onClick, headerItem),
+			}));
+			return <Status key={key} actions={adaptActions} {...restStatus} className={css[className]} />;
 		}
 		case TYPE_ACTION: {
 			const { onClick, ...restAction } = headerItem;
@@ -68,13 +61,16 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 					onClick={getActionHandler(onClick, headerItem)}
 					className={css[className]}
 					{...restAction}
-				/>);
+				/>
+			);
 		}
 		case TYPE_BADGE: {
 			const { label, tooltipPlacement, ...rest } = headerItem;
 			return (
 				<TooltipTrigger key={key} label={label} tooltipPlacement={tooltipPlacement}>
-					<Label {...rest} className={css[className]}>{label}</Label>
+					<Label {...rest} className={css[className]}>
+						{label}
+					</Label>
 				</TooltipTrigger>
 			);
 		}
@@ -92,11 +88,13 @@ renderHeaderItem.propTypes = PropTypes.oneOfType([
 	PropTypes.shape(statusPropTypes),
 	PropTypes.shape(actionPropTypes),
 	PropTypes.shape(simplePropTypes),
-	PropTypes.arrayOf(PropTypes.oneOfType([
-		PropTypes.shape(statusPropTypes),
-		PropTypes.shape(actionPropTypes),
-		PropTypes.shape(simplePropTypes),
-	])),
+	PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			PropTypes.shape(statusPropTypes),
+			PropTypes.shape(actionPropTypes),
+			PropTypes.shape(simplePropTypes),
+		]),
+	),
 ]);
 
 function renderHeader(header, content, onSelect, onToggle) {
@@ -105,17 +103,15 @@ function renderHeader(header, content, onSelect, onToggle) {
 		if (Array.isArray(headerItem)) {
 			const elements = headerItem.map(renderHeaderItem);
 			return (
-				<div
-					key={index}
-					className={classNames(css.group, css[headerColumnClass])}
-				>{elements}</div>
+				<div key={index} className={classNames(css.group, css[headerColumnClass])}>
+					{elements}
+				</div>
 			);
 		}
 		return (
-			<div
-				key={index}
-				className={classNames(css[headerItem.className], css[headerColumnClass])}
-			>{renderHeaderItem(headerItem)}</div>
+			<div key={index} className={classNames(css[headerItem.className], css[headerColumnClass])}>
+				{renderHeaderItem(headerItem)}
+			</div>
 		);
 	});
 
@@ -128,15 +124,10 @@ function renderHeader(header, content, onSelect, onToggle) {
 				key={1}
 				onClick={onSelect}
 			>
-				<div className={classNames(css['panel-title'], 'panel-title')}>
-					{headerItems}
-				</div>
+				<div className={classNames(css['panel-title'], 'panel-title')}>{headerItems}</div>
 			</Button>
 		) : (
-			<div
-				className={classNames(css['panel-title'], 'panel-title')}
-				key={1}
-			>
+			<div className={classNames(css['panel-title'], 'panel-title')} key={1}>
 				{headerItems}
 			</div>
 		),
@@ -150,10 +141,7 @@ function renderHeader(header, content, onSelect, onToggle) {
 				key={2}
 				onClick={onToggle}
 			>
-				<Icon
-					key={header.length}
-					name="talend-caret-down"
-				/>
+				<Icon key={header.length} name="talend-caret-down" />
 			</Button>
 		);
 		wrappedHeader.push(defaultCaret);
@@ -162,19 +150,18 @@ function renderHeader(header, content, onSelect, onToggle) {
 }
 
 function getKeyValueContent(content) {
-	return (<dl>
-		{content.map(
-			(item, index) => (
+	return (
+		<dl>
+			{content.map((item, index) => (
 				<div key={index} className={css.content}>
 					<dt className={css.label}>
 						<Label>{item.label}</Label>
 					</dt>
-					<dd className={css.description}>
-						{item.description}
-					</dd>
-				</div>)
-		)}
-	</dl>);
+					<dd className={css.description}>{item.description}</dd>
+				</div>
+			))}
+		</dl>
+	);
 }
 
 function getTextualContent(content) {
@@ -184,11 +171,7 @@ function getTextualContent(content) {
 				{content.head.map((item, index) => {
 					const { label, tooltipPlacement, className } = item;
 					return (
-						<TooltipTrigger
-							key={index}
-							label={label}
-							tooltipPlacement={tooltipPlacement}
-						>
+						<TooltipTrigger key={index} label={label} tooltipPlacement={tooltipPlacement}>
 							<span className={className}>{label}</span>
 						</TooltipTrigger>
 					);
@@ -219,16 +202,13 @@ function getTextualContent(content) {
  */
 function CollapsiblePanel({ header, content, onSelect, onToggle, status, expanded, theme }) {
 	const headerItems = renderHeader(header, content, onSelect, onToggle);
-	const className = classNames(
-		'panel panel-default',
-		css['tc-collapsible-panel'],
-		{
-			[css['default-panel']]: !theme,
-			[css[theme]]: !!theme,
-			[css.open]: expanded,
-			[css[getbsStyleFromStatus(status) || status]]: !!status,
-			status,
-		});
+	const className = classNames('panel panel-default', css['tc-collapsible-panel'], {
+		[css['default-panel']]: !theme,
+		[css[theme]]: !!theme,
+		[css.open]: expanded,
+		[css[getbsStyleFromStatus(status) || status]]: !!status,
+		status,
+	});
 
 	let children = null;
 	if (content) {
@@ -236,13 +216,8 @@ function CollapsiblePanel({ header, content, onSelect, onToggle, status, expande
 	}
 	return (
 		<div className={className}>
-			<div className={classNames(css['panel-heading'], 'panel-heading')}>
-				{headerItems}
-			</div>
-			<Panel
-				collapsible={!!content}
-				expanded={expanded}
-			>
+			<div className={classNames(css['panel-heading'], 'panel-heading')}>{headerItems}</div>
+			<Panel collapsible={!!content} expanded={expanded}>
 				{children}
 			</Panel>
 		</div>
@@ -257,10 +232,12 @@ CollapsiblePanel.propTypes = {
 	status: PropTypes.string,
 	theme: PropTypes.string,
 	content: PropTypes.oneOfType([
-		PropTypes.arrayOf(PropTypes.shape({
-			label: PropTypes.string,
-			description: PropTypes.string,
-		})),
+		PropTypes.arrayOf(
+			PropTypes.shape({
+				label: PropTypes.string,
+				description: PropTypes.string,
+			}),
+		),
 		PropTypes.shape({
 			head: PropTypes.arrayOf(PropTypes.shape(simplePropTypes)),
 			description: PropTypes.string,
