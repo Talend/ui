@@ -222,7 +222,7 @@ describe('#httpFetch', () => {
 				message: 'Error occured',
 			},
 			response: {
-				status: HTTP_STATUS.FORBIDDEN,
+				status: HTTP_STATUS.PAYMENT_REQUIRED,
 			},
 		});
 
@@ -234,7 +234,133 @@ describe('#httpFetch', () => {
 				error: {
 					message: 'Error occured',
 					stack: {
+						status: HTTP_STATUS.PAYMENT_REQUIRED,
+					},
+				},
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
+		expect(gen.next().value).toEqual(httpError);
+		expect(gen.next().done).toBe(true);
+	});
+
+	it('should wrap the request, notify 401 and notify errors', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+		const payload = {
+			bar: 42,
+		};
+
+		const httpError = new HTTPError({
+			data: {
+				message: 'Error occured',
+			},
+			response: {
+				status: HTTP_STATUS.UNAUTHORIZED,
+			},
+		});
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.PUT, payload);
+
+		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.PUT, payload));
+		expect(gen.next(httpError).value).toEqual(
+			put({
+				type: `${ACTION_TYPE_HTTP_ERRORS}/${HTTP_STATUS.UNAUTHORIZED}`,
+			}),
+		);
+
+		expect(gen.next().value).toEqual(
+			put({
+				error: {
+					message: 'Error occured',
+					stack: {
+						status: HTTP_STATUS.UNAUTHORIZED,
+					},
+				},
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
+		expect(gen.next().value).toEqual(httpError);
+		expect(gen.next().done).toBe(true);
+	});
+
+	it('should wrap the request, notify 403 and notify errors', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+		const payload = {
+			bar: 42,
+		};
+
+		const httpError = new HTTPError({
+			data: {
+				message: 'Error occured',
+			},
+			response: {
+				status: HTTP_STATUS.FORBIDDEN,
+			},
+		});
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.PUT, payload);
+
+		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.PUT, payload));
+		expect(gen.next(httpError).value).toEqual(
+			put({
+				type: `${ACTION_TYPE_HTTP_ERRORS}/${HTTP_STATUS.FORBIDDEN}`,
+			}),
+		);
+
+		expect(gen.next().value).toEqual(
+			put({
+				error: {
+					message: 'Error occured',
+					stack: {
 						status: HTTP_STATUS.FORBIDDEN,
+					},
+				},
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
+		expect(gen.next().value).toEqual(httpError);
+		expect(gen.next().done).toBe(true);
+	});
+
+	it('should wrap the request, notify 404 and notify errors', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+		const payload = {
+			bar: 42,
+		};
+
+		const httpError = new HTTPError({
+			data: {
+				message: 'Error occured',
+			},
+			response: {
+				status: HTTP_STATUS.NOT_FOUND,
+			},
+		});
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.PUT, payload);
+
+		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.PUT, payload));
+		expect(gen.next(httpError).value).toEqual(
+			put({
+				type: `${ACTION_TYPE_HTTP_ERRORS}/${HTTP_STATUS.NOT_FOUND}`,
+			}),
+		);
+
+		expect(gen.next().value).toEqual(
+			put({
+				error: {
+					message: 'Error occured',
+					stack: {
+						status: HTTP_STATUS.NOT_FOUND,
 					},
 				},
 				type: ACTION_TYPE_HTTP_ERRORS,

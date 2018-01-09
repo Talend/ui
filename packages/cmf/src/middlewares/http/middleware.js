@@ -2,6 +2,7 @@ import has from 'lodash/has';
 import get from 'lodash/get';
 import {
 	HTTP_METHODS,
+	HTTP_STATUS,
 	ACTION_TYPE_HTTP_REQUEST,
 	ACTION_TYPE_HTTP_RESPONSE,
 	ACTION_TYPE_HTTP_ERRORS,
@@ -84,6 +85,12 @@ export function onError(action, error) {
 	};
 }
 
+export function on40xError(statusCode) {
+	return {
+		type: `${ACTION_TYPE_HTTP_ERRORS}/${statusCode}`,
+	};
+}
+
 export function HTTPError(response) {
 	let headers = get(response, 'headers/values');
 	if (headers) {
@@ -109,6 +116,7 @@ export function status(response) {
 	if (response.status >= 200 && response.status < 300) {
 		return Promise.resolve(response);
 	}
+
 	return Promise.reject(new HTTPError(response));
 }
 
@@ -160,6 +168,15 @@ export const httpMiddleware = ({ dispatch }) => next => action => {
 						errorObject.stack.response = response;
 						errorObject.stack.messageObject = JSON.parse(response);
 					} finally {
+						switch (errorObject.stack.status) {
+							case HTTP_STATUS.UNAUTHORIZED:
+							case HTTP_STATUS.FORBIDDEN:
+							case HTTP_STATUS.NOT_FOUND:
+								dispatch(on40xError(errorObject.stack.status));
+								break;
+							default:
+						}
+
 						if (httpAction.onError) {
 							dispatch(onError(httpAction, errorObject));
 						} else {
