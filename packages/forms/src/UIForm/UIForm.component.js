@@ -140,12 +140,12 @@ export default class UIForm extends React.Component {
 	 * @param event the reset event
 	 */
 	onReset(event) {
-		// this.props.updateForm(
-		// 	this.props.formName,
-		// 	this.props.initialData.jsonSchema,
-		// 	this.props.initialData.uiSchema,
-		// 	this.props.initialData.properties,
-		// );
+		this.props.updateForm(
+			this.props.formName,
+			this.props.initialData.jsonSchema,
+			this.props.initialData.uiSchema,
+			this.props.initialData.properties,
+		);
 		this.props.setErrors(this.props.formName, {});
 
 		if (this.props.onReset) {
