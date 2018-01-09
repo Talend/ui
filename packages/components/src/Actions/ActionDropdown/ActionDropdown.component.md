@@ -139,27 +139,28 @@ function injectMenuItem(getComponent, { component, divider, ...rest }, index) {
 }
 ```
 
-## PROPS
-```javascript
-	bsStyle: string used to define DropdownButton bsStyle,
-	hideLabel: boolean that condition the used of overlay,
-	icon: string that defines the icon used in the dropdown button,
-	items: array of items displayed in the dropdown
-	label: string that defines the title used in the dropdown button,
-	link: boolean which condition the bstyle
-	onSelect: callback used when dropdown clicked,
-	tooltipPlacement: string ('up', 'down' ...) to position the tooltip overlay.
-	tooltipLabel: string label used to condition the used of overlay and label of overlay,
-	getComponent: function used to retrieve component passed by components,
-	components: itemsDropdown : an array of items that will be used in the dropdown.
-```
+## REF
+Props | Usage
+------------ | -------------
+bsStyle | string used to define DropdownButton bsStyle
+hideLabel | boolean that condition the used of overlay
+icon | string that defines the icon used in the dropdown button
+items | array of items displayed in the dropdown
+label | string that defines the title used in the dropdown button
+link | boolean which condition the bstyle
+onSelect | callback used when dropdown clicked
+tooltipPlacement | string ('up', 'down' ...) to position the tooltip overlay
+tooltipLabel | string label used to condition the used of overlay and label of overlay
+getComponent | function used to retrieve component passed by components
+components | itemsDropdown : an array of items that will be used in the dropdown
 
-## DEFAULT PROPS
-```javascript
-	bsStyle: 'default',
-	tooltipPlacement: 'top',
-	items: [],
-```
+___
+Props | default
+------------ | -------------
+bsStyle| default
+tooltipPlacement| top
+items | []
+
 
 
 
