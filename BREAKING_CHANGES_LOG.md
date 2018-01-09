@@ -2,6 +2,21 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## V0.140.0
+
+* Containers: need to be configured
+* PR [feat(containers): register all containers](https://github.com/Talend/ui/pull/XXX)
+* Changes:
+
+Before Containers was working on it's own.
+Now you need to register them in your configure.js (it's CMF)
+
+```javascript
+import { registerAllContainers } from '@talend/react-containers/lib/register';
+
+registerAllContainers();
+```
+
 ## v0.138.0
 
 * CMF: HTTP middleware
