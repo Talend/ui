@@ -210,10 +210,10 @@ export default {
 				return yield call(httpGet, url, configEnhancer(config));
 			},
 			post: function* configuredPost(url, payload, config = {}) {
-				return yield call(httpPost, url, HTTP_METHODS.POST, payload, configEnhancer(config));
+				return yield call(httpPost, url, payload, configEnhancer(config));
 			},
 			put: function* configuredPut(url, payload, config = {}) {
-				return yield call(httpPut, url, HTTP_METHODS.PUT, payload, configEnhancer(config));
+				return yield call(httpPut, url, payload, configEnhancer(config));
 			},
 		};
 	},

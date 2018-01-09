@@ -43,11 +43,13 @@ function setRouterMiddleware(middleware) {
 
 /**
  * setHttpMiddleware overwrites the default router middleware
+ * httpMiddleware NEED to be executed before cmfMiddleware
  *
  * @param middleware a router middleware
  */
 function setHttpMiddleware(middleware) {
-	middlewares.push(middleware);
+	const cmfMiddlewareIndex = middlewares.indexOf(cmfMiddleware);
+	middlewares.splice(cmfMiddlewareIndex - 1, 0, middleware);
 	defaultHttpMiddlewareOverwrite = true;
 }
 
