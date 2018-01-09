@@ -1,6 +1,7 @@
 # HTTP middleware
 
 The HTTP middleware is loaded by default. It manages the HTTP methods
+
 * OPTIONS
 * GET
 * HEAD
@@ -12,6 +13,7 @@ The HTTP middleware is loaded by default. It manages the HTTP methods
 * CONNECT
 
 It will intercept those actions, but **keep in mind that the easiest way to use it is through the `HTTP actions utility`** (see below) :
+
 ```javascript
 const action = {
     type: 'POST', // or one of the HTTP methods
@@ -77,48 +79,48 @@ dispatch(fetchDataSets());
 
 ### actions.http.get(url, config)
 
-| Argument | Type | Description | Mandatory |
-|---|---|---|---|
-| url | string | The GET url | true |
-| config | object | The rest of action configuration. | false |
+| Argument | Type   | Description                       | Mandatory |
+| -------- | ------ | --------------------------------- | --------- |
+| url      | string | The GET url                       | true      |
+| config   | object | The rest of action configuration. | false     |
 
 ### actions.http.post(url, data, config)
 
-| Argument | Type | Description | Mandatory |
-|---|---|---|---|
-| url | string | The POST url | true |
-| data | object | The POST body url | false |
-| config | object | The rest of action configuration. | false |
+| Argument | Type   | Description                       | Mandatory |
+| -------- | ------ | --------------------------------- | --------- |
+| url      | string | The POST url                      | true      |
+| data     | object | The POST body url                 | false     |
+| config   | object | The rest of action configuration. | false     |
 
 ### actions.http.delete(url, config)
 
-| Argument | Type | Description | Mandatory |
-|---|---|---|---|
-| url | string | The DELETE url | true |
-| config | object | The rest of action configuration. | false |
+| Argument | Type   | Description                       | Mandatory |
+| -------- | ------ | --------------------------------- | --------- |
+| url      | string | The DELETE url                    | true      |
+| config   | object | The rest of action configuration. | false     |
 
 ### actions.http.patch(url, data, config)
 
-| Argument | Type | Description | Mandatory |
-|---|---|---|---|
-| url | string | The PATCH url | true |
-| data | object | The PATCH body url | false |
-| config | object | The rest of action configuration. | false |
+| Argument | Type   | Description                       | Mandatory |
+| -------- | ------ | --------------------------------- | --------- |
+| url      | string | The PATCH url                     | true      |
+| data     | object | The PATCH body url                | false     |
+| config   | object | The rest of action configuration. | false     |
 
 ### actions.http.put(url, data, config)
 
-| Argument | Type | Description | Mandatory |
-|---|---|---|---|
-| url | string | The PUT url | true |
-| data | object | The PUT body url | false |
-| config | object | The rest of action configuration. | false |
+| Argument | Type   | Description                       | Mandatory |
+| -------- | ------ | --------------------------------- | --------- |
+| url      | string | The PUT url                       | true      |
+| data     | object | The PUT body url                  | false     |
+| config   | object | The rest of action configuration. | false     |
 
 ### actions.http.head(url, config)
 
-| Argument | Type | Description | Mandatory |
-|---|---|---|---|
-| url | string | The HEAD url | true |
-| config | object | The rest of action configuration. | false |
+| Argument | Type   | Description                       | Mandatory |
+| -------- | ------ | --------------------------------- | --------- |
+| url      | string | The HEAD url                      | true      |
+| config   | object | The rest of action configuration. | false     |
 
 # HTTP Error
 
@@ -127,7 +129,7 @@ all http error code for each request.
 
 Sometimes you want to handle one particular case. For this you have onError param.
 
-In this case we want to handle 404. If not 404 stay on global HTTP error
+In this case we want to handle the 404, yet the 404 is still dispatched and handled in the global error system
 
 ```javascript
 import get from 'lodash/get';
