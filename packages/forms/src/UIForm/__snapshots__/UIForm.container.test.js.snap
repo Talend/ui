@@ -2,7 +2,7 @@
 
 exports[`UIForm container #onChange should update state properties 1`] = `
 Object {
-  "errors": Object {},
+  "errors": Array [],
   "jsonSchema": Object {
     "properties": Object {
       "check": Object {},
@@ -175,7 +175,7 @@ Object {
 
 exports[`UIForm container should render form 1`] = `
 Object {
-  "errors": Object {},
+  "errors": Array [],
   "jsonSchema": Object {
     "properties": Object {
       "check": Object {},
@@ -231,7 +231,7 @@ exports[`UIForm container should render form 2`] = `
   className="my-form-class"
   customValidation={[Function]}
   encType={undefined}
-  errors={Object {}}
+  errors={Array []}
   formName="myFormName"
   id="myFormId"
   initialData={

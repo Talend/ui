@@ -229,6 +229,7 @@ export default class UIForm extends React.Component {
 						widgets={Object.assign({}, this.props.widgets, this.state.widgets)}
 					/>
 				))}
+
 				<Buttons
 					id={`${this.props.id}-${this.props.formName}-actions`}
 					onTrigger={this.onTrigger}
