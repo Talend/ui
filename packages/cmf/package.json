@@ -27,8 +27,12 @@
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
+  "bin": {
+    "cmf-settings": "./scripts/cmf-settings.js"
+  },
   "dependencies": {
     "babel-polyfill": "6.26.0",
+    "deepmerge": "1.5.1",
     "hoist-non-react-statics": "^1.2.0",
     "react-immutable-proptypes": "2.1.0"
   },
@@ -124,5 +128,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.138.0"
+  "version": "0.139.0"
 }
