@@ -26,20 +26,6 @@ const myAction = {
 	],
 };
 
-// const customItems = {
-// 	id: 'context-dropdown-custom-items',
-// 	label: 'custom items',
-// 	icon: 'talend-file-xls-o',
-// 	items: [
-// 		<Action label="customAction1" icon="talend-file-json-o" onClick={action('customAction1')} />,
-// 		{
-// 			divider: true,
-// 		},
-// 		<FilterBar dockable={false} />,
-// 		<Action label="customAction2" bsStyle="talend-bell" onClick={action('customAction2')} />,
-// 	],
-// };
-
 const withComponents = {
 	id: 'context-dropdown-custom-items',
 	label: 'custom items',
