@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { get } from 'lodash';
+// import { get } from 'lodash';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
 import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
@@ -9,15 +9,18 @@ import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
 import { wrapOnClick } from '../Action/Action.component';
 
-function injectMenuItem(getComponent, { component, divider, ...rest }, index) {
+function injectMenuItem(getComponent, { component, divider, withMenuItem, ...rest }, index) {
 	if (divider) {
 		return <MenuItem key={index} divider />;
 	}
-	return (
-		<MenuItem key={index}>
-			<Inject component={component} getComponent={getComponent} {...rest} />
-		</MenuItem>
-	);
+	if (withMenuItem) {
+		return (
+			<MenuItem key={index}>
+				<Inject component={component} getComponent={getComponent} {...rest} />
+			</MenuItem>
+		);
+	}
+	return <Inject component={component} getComponent={getComponent} {...rest} />;
 }
 
 function getMenuItem(item, index) {
@@ -32,21 +35,21 @@ function getMenuItem(item, index) {
 	);
 }
 
-function chooseMenuItemRendering(getComponent, items, components) {
-	if (
-		getComponent &&
-		Array.isArray(get(components, 'itemsDropdown')) &&
-		components.itemsDropdown.length > 0
-	) {
-		return components.itemsDropdown.map((component, index) =>
-			injectMenuItem(getComponent, component, index),
-		);
-	}
-	if (items.length > 0) {
-		return items.map(getMenuItem);
-	}
-	return <MenuItem disabled>No options</MenuItem>;
-}
+// function chooseMenuItemRendering(getComponent, items, components) {
+// 	if (
+// 		getComponent &&
+// 		Array.isArray(get(components, 'itemsDropdown')) &&
+// 		components.itemsDropdown.length > 0
+// 	) {
+// 		return components.itemsDropdown.map((component, index) =>
+// 			injectMenuItem(getComponent, component, index),
+// 		);
+// 	}
+// 	if (items.length > 0) {
+// 		return items.map(getMenuItem);
+// 	}
+// 	return <MenuItem disabled>No options</MenuItem>;
+// }
 
 /**
  * @param {object} props react props
@@ -114,7 +117,10 @@ function ActionDropdown(props) {
 			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button')}
 			{...rest}
 		>
-			{chooseMenuItemRendering(getComponent, items, components)}
+			{Inject.map(getComponent, components.beforeItemsDropdown)}
+			{items.map(getMenuItem)}
+			{components.itemsDropdown.map(component => injectMenuItem(getComponent, component))}
+			{Inject.map(getComponent, components.afterItemsDropdown)}
 		</DropdownButton>
 	);
 
@@ -147,13 +153,22 @@ ActionDropdown.propTypes = {
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltipLabel: PropTypes.string,
 	getComponent: PropTypes.func,
-	components: PropTypes.object,
+	components: PropTypes.shape({
+		beforeItemsDropdown: PropTypes.array,
+		itemsDropdown: PropTypes.array,
+		afterItemsDropdown: PropTypes.array,
+	}),
 };
 
 ActionDropdown.defaultProps = {
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
+	components: {
+		beforeItemsDropdown: [],
+		itemsDropdown: [],
+		afterItemsDropdown: [],
+	},
 	items: [],
 };
 
-export { ActionDropdown as default, chooseMenuItemRendering, getMenuItem, injectMenuItem };
+export { ActionDropdown as default, getMenuItem, injectMenuItem };
