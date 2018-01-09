@@ -1,0 +1,16 @@
+{
+    "views": {
+        "I18NextProvider#default": {
+            "activate-i18n": true,
+            "useExpression": "i18nUse",
+            "fallbackLng": "en",
+            "debug": false,
+            "detectionExpression": {
+              "id": "mergeCookieDomain",
+              "args": [{
+                "order": ["querystring"]
+              }]
+            }
+        }
+    }
+}
