@@ -1,143 +1,87 @@
+
 # ACTION DROPDOWN COMPONENT
 
 This component display a dropdown with items in it. It used react-bootstrap component DropdownButton, MenuItem.
 
-## RENDERING
+## How it works
 
-#### CORE
-The main component used DopdownButton from react-bootstrap
+The main part of the component is the list content  of the dropdown.
+To display stuff in it you have two props.
+#### 1 ) title
+The title of the ActionDropdown can be parameterized with the props icon and label/hidelabel
+ 
+#### 2 ) items 
 ```javascript
-	<DropdownButton
-			title={title}
-			bsStyle={style}
-			role="button"
-			onSelect={onItemSelect}
-			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button')}
-			{...rest}
-		>
-			{chooseMenuItemRendering(getComponent, items, components)}
-		</DropdownButton>
-```
-You can define a title, bsStyle etc...
-
-A onSelect callback can be used 
-```javascript
-	function onItemSelect(object, event) {
-		if (onSelect) {
-			onSelect(event, object);
-		}
-	}
-```
-
-#### OVERLAY
-You can add an overlay to the main dropdown button. It will used TooltipTrigger from react-bootstrap.
-```javascript
-	if (hideLabel || tooltipLabel) {
-		return (
-			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-				{dropdown}
-			</TooltipTrigger>
-		);
-	}
-```
-
-
-#### DOPDOWN ITEMS
-Will choose the right function to render dropdown items (items or components props).
-If the props are empty, the func will return a MenuItem with no options label. 
-```javascript
-    function chooseMenuItemRendering(getComponent, items, components) {
-	if (
-		getComponent &&
-		Array.isArray(get(components, 'itemsDropdown')) &&
-		components.itemsDropdown.length > 0
-	) {
-		return components.itemsDropdown.map((component, index) =>
-			injectMenuItem(getComponent, component, index),
-		);
-	}
-	if (items.length > 0) {
-		return items.map(getMenuItem);
-	}
-	return <MenuItem disabled>No options</MenuItem>;
-}
-```
-## DROPDOWN ITEMS
-
-You have two different ways to defines this items. 
-Also there is some kind of special item, the divider. It will be a simple ```javascript { divider: true } ```, it will create a divider between your items.
-##### 1 ) With items props
-```javascript
-    	items: [
+	items: [
 		{
-			id: 'context-dropdown-item-document-1',
-			icon: 'talend-file-json-o',
-			label: 'document 1',
-			onClick: action('document 1 click'),
+			icon: 'my-icon-first-item',
+			label: 'my-label-firt-item',
+			...stuff,
 		},
 		{
 			divider: true,
 		},
 		{
-			id: 'context-dropdown-item-document-2',
-			label: 'document 2',
-			onClick: action('document 2 click'),
+			label: 'my-label-second-item',
+			...stuff,
 		},
 	],
 ```
-This items will be consume by 
-```javascript
-function getMenuItem(item, index) {
-	if (item.divider) {
-		return <MenuItem key={index} divider />;
-	}
-	return (
-		<MenuItem key={index} eventKey={item} {...item} onClick={wrapOnClick(item)}>
-			{item.icon && <Icon name={item.icon} />}
-			{item.label}
-		</MenuItem>
-	);
-}
-```
-##### 2 ) With components props
+You must at least have a label in your object, also an icon can be provided.
+You can create an object with only a boolean 'divider' that will show a line separator between items. 
 
-With components you have to give a getComponent function (if you used a cmf connected container, it will be passed for), it will be used to retrieve the component you ask for.
-And a components object with the attribute itemsDropdown. ItemsDropdown key is a placeholder for the content of the dropdown. 
+#### 3 ) components
 ```javascript
-	components: {
-		itemsDropdown: [
-			{
-				component: 'Action',
-				label: 'First item',
-			},
-			{
-				divider: true,
-			},
-			{
-				component: 'FilterBar',
-				dockable: false,
-				docked: false,
-			},
-			{
-				component: 'Action',
-				label: 'Second item',
-			},
-		],
-	},
+components: {
+	beforeItemsDropdown: [] or {},
+	itemsDropdown: [] or {},
+	afterItemsDropdown: [] or {},
+}
+``` 
+They are 3 'placeholders' in the component to inject new stuff.
+'itemsDropdown' is the classic content list of the dropdown, equivalent to where the items props will be rendered.
+And you have a 'beforeItemsDropdown' and 'afterItemsDropdown' key, that will be rendered before or after the itemsDropdown in the list, if you need specific stuff that will give you more flexibility.
+
+
+The object and the items of the array must have at least a component attribute ```{ component: 'MyComponentName' }```.
+
+You can create an object with a divider and no component. It will render a line between items.
+```javascript
+<MenuItem divider />
 ```
-The components items will be consume by
+
+The components in ActionDropdown supports also a special prop 'withMenuItem' which is a boolean.
+If it's true your component will be wrapped
 ```javascript
-function injectMenuItem(getComponent, { component, divider, ...rest }, index) {
-	if (divider) {
-		return <MenuItem key={index} divider />;
-	}
-	return (
-		<MenuItem key={index}>
-			<Inject component={component} getComponent={getComponent} {...rest} />
-		</MenuItem>
-	);
+<MenuItem><YourComponent /></MenuItem>
+```
+The MenuItem component came from react-bootstrap.
+If false or undefined you will get
+```javascript
+<li><YourComponent /></li>
+```
+
+The ```<li>``` and ```<MenuItem>``` can be deeply customized with menuItemProps and liProps.
+You can add them to your component object
+```javascript
+components: {
+	itemsDropdown: [
+		{
+			component: 'MyComponent',
+			withMenuItem: true,
+			menuItemProps: {
+				className: 'MySpecialClassName',
+				...moreStuff,
+			},
+		},
+	],
 }
 ```
+#### 4 ) overlay
+You can have a overlay / tooltip on the ActionDropdown.
+
+#### 5 ) select callback
+With the onSelect props you can add a callback when an item is selected.
 
 ## REF
 Props | Usage
@@ -151,8 +95,8 @@ link | boolean which condition the bstyle
 onSelect | callback used when dropdown clicked
 tooltipPlacement | string ('up', 'down' ...) to position the tooltip overlay
 tooltipLabel | string label used to condition the used of overlay and label of overlay
-getComponent | function used to retrieve component passed by components
-components | itemsDropdown : an array of items that will be used in the dropdown
+getComponent | please see the Inject doc to have more information.
+components | beforeItemsDropdown, itemsDropdown, afterItemsDropdown : arrays of items that will be used in the dropdown.
 
 ___
 Props | default
