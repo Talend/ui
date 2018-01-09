@@ -5,14 +5,15 @@ import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import { FilterBar, ObjectViewer, Action } from '../src/index';
 import 'focus-outline-manager';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
 import { actions as actionsSubHeader, actionsCreators as actionsCreatorsSubHeader } from './subheaderbar.storybook'
+import { registerAllContainers } from '../src/register';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
 
+registerAllContainers();
 const actionLogger = action('dispatch');
 const reducer = (state = {}, a) => {
 	actionLogger(a);
@@ -52,10 +53,6 @@ function chooseItem2() {
 		type: 'CHOOSE_ITEM2',
 	};
 }
-
-api.component.register('FilterBar', FilterBar);
-api.component.register('ObjectViewer', ObjectViewer);
-api.component.register('Action', Action);
 
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
@@ -333,7 +330,7 @@ function loadStories() {
 		};
 		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
-		
+
 
 		const story = storiesOf(example);
 
