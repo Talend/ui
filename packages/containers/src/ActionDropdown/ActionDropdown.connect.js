@@ -49,7 +49,6 @@ ContainerActionDropdown.displayName = 'Container(ActionDropdown)';
 
 ContainerActionDropdown.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.object),
-	componentItems: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default cmfConnect({

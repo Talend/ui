@@ -157,7 +157,7 @@ components | itemsDropdown : an array of items that will be used in the dropdown
 ___
 Props | default
 ------------ | -------------
-bsStyle| default
+bsStyle | default
 tooltipPlacement| top
 items | []
 
