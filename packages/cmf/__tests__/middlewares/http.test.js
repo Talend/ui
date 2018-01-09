@@ -329,7 +329,7 @@ describe('CMF http middleware', () => {
 			.catch(error => console.error(error));
 	});
 
-	it('should httpMiddleware handle callback onError', done => {
+	it('should httpMiddleware handle a specific callback onError', done => {
 		const store = {
 			dispatch: jest.fn(),
 		};
@@ -360,6 +360,41 @@ describe('CMF http middleware', () => {
 			expect(store.dispatch.mock.calls.length).toBe(3);
 			const errorCallbackAction = store.dispatch.mock.calls[2][0];
 			expect(errorCallbackAction.type).toBe('CUSTOM_ACTION');
+			done();
+		});
+	});
+
+	it('should httpMiddleware handle a specific TEXT onError', done => {
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			onError: 'CUSTOM_ACTION',
+			response: {
+				ok: false,
+				status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
+				statusText: 'Internal Server Error',
+				type: 'basic',
+				url: '//foo/bar',
+				clone: () => ({
+					text: () => new Promise(resolve => resolve('invalid json')),
+				}),
+			},
+		};
+		const middleware = httpMiddleware(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+		newState.then(() => {
+			expect(store.dispatch.mock.calls.length).toBe(4);
+			const errorTextAction = store.dispatch.mock.calls[2][0];
+			expect(errorTextAction.type).toBe('CUSTOM_ACTION');
+			const errorGlobalAction = store.dispatch.mock.calls[3][0];
+			expect(errorGlobalAction.type).toBe(ACTION_TYPE_HTTP_ERRORS);
 			done();
 		});
 	});

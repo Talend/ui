@@ -162,7 +162,9 @@ export const httpMiddleware = ({ dispatch }) => next => action => {
 					} finally {
 						if (httpAction.onError) {
 							dispatch(onError(httpAction, errorObject));
-						} else {
+						}
+
+						if (typeof httpAction.onError !== 'function') {
 							dispatch(httpError(errorObject));
 						}
 					}
