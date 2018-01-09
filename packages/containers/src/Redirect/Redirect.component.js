@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { cmfConnect } from '@talend/react-cmf';
 import { CircularProgress } from '@talend/react-components';
 
 export const REDIRECT_ACTION_TYPE = 'REDIRECT';
@@ -9,7 +10,7 @@ export const REDIRECT_ACTION_TYPE = 'REDIRECT';
  * @example
 <Redirect name="Hello world"></Redirect>
  */
-function Redirect({ path }, context) {
+export function Redirect({ path }, context) {
 	context.store.dispatch({
 		type: REDIRECT_ACTION_TYPE,
 		cmf: {
@@ -31,4 +32,4 @@ Redirect.contextTypes = {
 	store: PropTypes.object.isRequired,
 };
 
-export default Redirect;
+export default cmfConnect({})(Redirect);
