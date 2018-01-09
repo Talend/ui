@@ -40,7 +40,7 @@ export function attachRefs(refs, props) {
 
 /**
  * attach reference to produce a ready to use freezed object
- * @param {object} originalSettings the full settings with `` and `ref` attribute
+ * @param {object} originalSettings the full settings with `props` and `ref` attribute
  * @return {object} frozen settings with ref computed
  */
 function prepareSettings(originalSettings) {
