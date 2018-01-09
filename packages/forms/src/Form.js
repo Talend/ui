@@ -122,9 +122,6 @@ class Form extends React.Component {
 	render() {
 		if (this.props.uiform) {
 			const props = Object.assign({}, this.props);
-			props.jsonSchema = props.data.jsonSchema;
-			props.uiSchema = props.data.uiSchema;
-			props.properties = props.data.properties;
 			props.moz = true;
 			if (props.widgets) {
 				Object.keys(props.widgets)
@@ -133,7 +130,6 @@ class Form extends React.Component {
 						props.widgets[key] = wrapCustomWidget(props.widgets[key]);
 					});
 			}
-			delete props.data;
 			return <UIForm {...props} />;
 		}
 		const schema = this.props.data && this.props.data.jsonSchema;

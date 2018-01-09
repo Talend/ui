@@ -219,6 +219,9 @@ export function migrate(jsonSchema, uiSchema) {
 
 export default (jsonSchema, uiSchema) => {
 	let props = { jsonSchema, uiSchema };
+	if (!jsonSchema) {
+		return props;
+	}
 	if (!Array.isArray(uiSchema)) {
 		props = migrate(jsonSchema, uiSchema);
 	}

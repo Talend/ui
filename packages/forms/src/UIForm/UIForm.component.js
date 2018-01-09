@@ -55,21 +55,24 @@ export default class UIForm extends React.Component {
 		} else {
 			this.props.onChange(event, payload);
 		}
+		// moving trigger in onChange implies that trigger will be triggered even if value is not valid
+		// onChange/onFinish separation was to allow widgets and fields to manage when those are called. Some widgets call onChange then onFinish on the same event.
+		// We can for example on selection widget, to trigger both, but on user typing widgets, call onFinish on blur
 		// trigger if value is correct
-		if (schema.triggers && schema.triggers.length) {
-			let formData = payload.formData;
-			let propertyName = schema.key.join('.');
-			if (this.props.moz) {
-				schema.key.forEach((key, index) => {
-					if (index !== schema.key.length - 1) {
-						formData = formData[key];
-					}
-				});
-				propertyName = schema.key[schema.key.length - 1];
-			}
-			const formId = this.props.formName || this.props.formId;
-			this.onTrigger(formData, formId, propertyName, value);
-		}
+		// if (schema.triggers && schema.triggers.length) {
+		// 	let formData = payload.formData;
+		// 	let propertyName = schema.key.join('.');
+		// 	if (this.props.moz) {
+		// 		schema.key.forEach((key, index) => {
+		// 			if (index !== schema.key.length - 1) {
+		// 				formData = formData[key];
+		// 			}
+		// 		});
+		// 		propertyName = schema.key[schema.key.length - 1];
+		// 	}
+		// 	const formId = this.props.formName || this.props.formId;
+		// 	this.onTrigger(formData, formId, propertyName, value);
+		// }
 	}
 
 	/**
@@ -116,6 +119,24 @@ export default class UIForm extends React.Component {
 			errors = widgetChangeErrors(errors);
 		}
 		this.props.setErrors(this.props.formName, errors);
+
+		if (schema.triggers && schema.triggers.length) {
+			let formData = this.props.properties;
+			if (value !== undefined) {
+				formData = mutateValue(formData, schema.key, value);
+			}
+			let propertyName = schema.key.join('.');
+			if (this.props.moz) {
+				schema.key.forEach((key, index) => {
+					if (index !== schema.key.length - 1) {
+						formData = formData[key];
+					}
+				});
+				propertyName = schema.key[schema.key.length - 1];
+			}
+			const formId = this.props.formName || this.props.formId;
+			this.onTrigger(formData, formId, propertyName, value);
+		}
 	}
 
 	/**
@@ -199,7 +220,9 @@ export default class UIForm extends React.Component {
 				widget: 'button',
 			},
 		];
-
+		if (!this.state.mergedSchema) {
+			return null;
+		}
 		return (
 			<form
 				acceptCharset={this.props.acceptCharset}
