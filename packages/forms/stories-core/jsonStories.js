@@ -1,9 +1,8 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { object } from '@storybook/addon-knobs';
-import { Tabs, Tab } from 'react-bootstrap';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
-import { UIForm, ConnectedUIForm } from '../src/UIForm';
+import { UIForm } from '../src/UIForm';
 
 const conceptsFilenames = require.context('./json/concepts', true, /.(js|json)$/);
 const fieldsetsFilenames = require.context('./json/fieldsets', true, /.(js|json)$/);
@@ -53,29 +52,10 @@ function createStory(category, sampleFilenames, filename) {
 			return (
 				<section>
 					<IconsProvider />
-
-					<Tabs id={'store-tabs'}>
-						<Tab
-							eventKey={0}
-							key={'without'}
-							title={'State'}
-						>
-							<UIForm
-								{...createCommonProps('state')}
-								data={object(name, sampleFilenames(filename))}
-							/>
-						</Tab>
-						<Tab
-							eventKey={1}
-							key={'with'}
-							title={'Redux'}
-						>
-							<ConnectedUIForm
-								{...createCommonProps('redux')}
-								data={object(name, sampleFilenames(filename))}
-							/>
-						</Tab>
-					</Tabs>
+						<UIForm
+							{...createCommonProps('state')}
+							data={object(name, sampleFilenames(filename))}
+						/>
 				</section>
 			);
 		},
