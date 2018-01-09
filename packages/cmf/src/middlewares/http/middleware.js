@@ -1,8 +1,6 @@
 import has from 'lodash/has';
 import get from 'lodash/get';
-import {
-	HTTP_METHODS,
-} from './constants';
+import { HTTP_METHODS } from './constants';
 
 import {
 	httpRequest,

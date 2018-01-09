@@ -67,7 +67,6 @@ export function onError(action, error) {
 	};
 }
 
-
 export default function http(config) {
 	const { method, url, data, ...rest } = config;
 	return {
