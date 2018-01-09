@@ -10,16 +10,19 @@ export default class UIForm extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const action = createForm(
-			this.props.formName,
-			this.props.data.jsonSchema,
-			this.props.data.uiSchema,
-			this.props.data.properties,
-		);
-		this.state = formReducer(undefined, action)[this.props.formName];
-
+		// const action = createForm(
+		// 	this.props.formName,
+		// 	this.props.data.jsonSchema,
+		// 	this.props.data.uiSchema,
+		// 	this.props.data.properties,
+		// );
+		// this.state = formReducer(undefined, action)[this.props.formName];
+		this.state = {
+			...this.props.data,
+			errors: [],
+		};
 		this.onChange = this.onChange.bind(this);
-		this.updateForm = this.updateForm.bind(this);
+		// this.updateForm = this.updateForm.bind(this);
 		this.setError = this.setError.bind(this);
 		this.setErrors = this.setErrors.bind(this);
 	}
@@ -30,13 +33,11 @@ export default class UIForm extends React.Component {
 	 * @param uiSchema
 	 */
 	componentWillReceiveProps(nextProps) {
-		this.updateForm(
-			nextProps.formName,
-			nextProps.data.jsonSchema,
-			nextProps.data.uiSchema,
-			nextProps.data.properties,
-		);
+		this.setState({
+			...nextProps.data,
+		});
 	}
+
 	/**
 	 * Update the model and validation
 	 * If onChange is provided, it is triggered
@@ -56,6 +57,15 @@ export default class UIForm extends React.Component {
 					this.props.onChange(event, payload);
 				}),
 		);
+	}
+
+	onReset(event) {
+		this.setState({
+			properties: this.props.data.properties,
+		});
+		if (this.props.onReset) {
+			this.props.onReset(event);
+		}
 	}
 
 	/**
