@@ -10,7 +10,7 @@ export const defaultState = {
 	initialized: false,
 	contentTypes: {},
 	actions: {},
-	views: {},
+	props: {},
 	routes: {},
 };
 
@@ -40,14 +40,23 @@ export function attachRefs(refs, props) {
 
 /**
  * attach reference to produce a ready to use freezed object
- * @param {object} originalSettings the full settings with `views` and `ref` attribute
+ * @param {object} originalSettings the full settings with `props` and `ref` attribute
  * @return {object} frozen settings with ref computed
  */
 function prepareSettings(originalSettings) {
 	const settings = Object.assign({}, originalSettings);
 	if (settings.views) {
+		if (process.env.NODE_ENV === 'development') {
+			console.warn('settings.view is deprecated, please use settings.props');
+		}
+		settings.props = {};
 		Object.keys(settings.views).forEach(id => {
-			settings.views[id] = attachRefs(originalSettings.ref, settings.views[id]);
+			settings.props[id] = attachRefs(originalSettings.ref, settings.views[id]);
+		});
+	}
+	if (settings.props) {
+		Object.keys(settings.props).forEach(id => {
+			settings.props[id] = attachRefs(originalSettings.ref, settings.props[id]);
 		});
 	}
 	delete settings.ref;
@@ -66,21 +75,11 @@ function prepareSettings(originalSettings) {
 export function settingsReducers(state = defaultState, action) {
 	switch (action.type) {
 		case ACTIONS.REQUEST_OK:
-			return Object.assign(
-				{},
-				state,
-				{ initialized: true },
-				prepareSettings(action.settings),
-			);
+			return Object.assign({}, state, { initialized: true }, prepareSettings(action.settings));
 		case ACTIONS.REQUEST_KO:
 			alert(`Settings can't be loaded ${get(action, 'error.message')}`); // eslint-disable-line
 			console.error(action.error); // eslint-disable-line
-			return Object.assign(
-				{},
-				state,
-				{ initialized: true },
-				action.settings,
-			);
+			return Object.assign({}, state, { initialized: true }, action.settings);
 		default:
 			return state;
 	}
