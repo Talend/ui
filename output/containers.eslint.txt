@@ -17,4 +17,3 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
 ✖ 4 problems (4 errors, 0 warnings)
-
