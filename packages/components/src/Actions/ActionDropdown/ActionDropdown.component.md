@@ -1,4 +1,5 @@
 
+
 # ACTION DROPDOWN COMPONENT
 
 This component display a dropdown with items in it. It used react-bootstrap component DropdownButton, MenuItem and TooltipTrigger.
@@ -193,12 +194,12 @@ With the onSelect props you can add a callback when an item is selected.
 ## REF
 Props | Usage
 ------------ | -------------
-bsStyle | string used to define DropdownButton bsStyle
+bsStyle | string used to define DropdownButton bsStyle (default, primary, sucess, info, warning, danger)
 hideLabel | boolean that condition the used of overlay
 icon | string that defines the icon used in the dropdown button
 items | array of items displayed in the dropdown
 label | string that defines the title used in the dropdown button or in the tooltip
-link | boolean which condition the bstyle
+link | boolean which condition the bsStyle
 onSelect | callback used when dropdown clicked
 tooltipPlacement | string ('up', 'down' ...) to position the tooltip overlay
 tooltipLabel | string label used to condition the used of overlay and label of overlay
