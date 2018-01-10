@@ -30,16 +30,17 @@ const action = {
 dispatch(action);
 ```
 
-| Argument | Type | Description | Mandatory |
-|---|---|---|---|
-| type | string | One of the supported HTTP methods. | true |
-| body | object | The body to send. | false |
-| transform | function | The transformation method to call on response, to adapt it before dispatch. | false |
-| onSend | string | The action type to dispatch before fetch. This is optional but CMF will still dispatch an `@@HTTP/REQUEST` action on every request. By providing this option, CMF will dispatch an action for your specific case after the global one. | false |
-| onError | string &#124; function | The action or action creator to dispatch on fetch error. This is optional because all http error will trigger an `@@HTTP/ERRORS` action with error details. By providing this option, CMF dispatch an action for your specific case after the global one.| false |
-| onResponse | string &#124; function | The action or action creator to dispatch on fetch complete. CMF will still dispatch an `@@HTTP/RESPONSE` action on each response, with the original response (before `transform`). | false |
+| Argument   | Type                   | Description                                                                                                                                                                                                                                               | Mandatory |
+| ---------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| type       | string                 | One of the supported HTTP methods.                                                                                                                                                                                                                        | true      |
+| body       | object                 | The body to send.                                                                                                                                                                                                                                         | false     |
+| transform  | function               | The transformation method to call on response, to adapt it before dispatch.                                                                                                                                                                               | false     |
+| onSend     | string                 | The action type to dispatch before fetch. This is optional but CMF will still dispatch an `@@HTTP/REQUEST` action on every request. By providing this option, CMF will dispatch an action for your specific case after the global one.                    | false     |
+| onError    | string &#124; function | The action or action creator to dispatch on fetch error. This is optional because all http error will trigger an `@@HTTP/ERRORS` action with error details. By providing this option, CMF dispatch an action for your specific case after the global one. | false     |
+| onResponse | string &#124; function | The action or action creator to dispatch on fetch complete. CMF will still dispatch an `@@HTTP/RESPONSE` action on each response, with the original response (before `transform`).                                                                        | false     |
 
 ## Timeline Process
+
 * dispatch `@@HTTP/REQUEST` (with the action)
 * dispatch `action.onSend` (with the action) if provided
 * execute the request with fetch api
@@ -153,3 +154,45 @@ return actions.http.get('/api/may-not-exists', {
 	},
 });
 ```
+
+# Custom configuration
+
+you may need to configure this middleware to suit special needs of your application
+
+**How to change http middleware ?**
+
+```javascript
+import { store as cmfstore, httpMiddleware } from 'react-cmf';
+
+//...
+
+cmfstore.setHttpMiddleware(httpMiddleware(httpDefaultConfig));
+const store = cmfstore.initialize(appReducer, preloadedState, enhancer, middleware);
+```
+
+## CSRF token handling
+
+overloading the http middleware automaticaly injected and configured from cmf allow you
+to change the way CSRF Token are handled.
+
+Wich is usefull, different backend platform put CSRF token in different cookie name, and wait for them with different headers name.
+
+how you do that ? by adding a security config to the httpMiddleware config.
+
+```javascript
+import { store as cmfstore, httpMiddleware } from 'react-cmf';
+
+//...
+const httpDefaultConfig = {
+	security: {
+		CSRFTokenCookieKey: 'cookieKey',
+		CSRFTokenHeaderKey: 'headerKey',
+	},
+};
+
+cmfstore.setHttpMiddleware(httpMiddleware(httpDefaultConfig));
+const store = cmfstore.initialize(appReducer, preloadedState, enhancer, middleware);
+```
+with the above configuration the http middleware for each request it will find the CSRF token into `cookieKey` cookie, and inject it into the `headerKey` header.
+
+some of you may also use `httpSaga` wich offer better control when chaining/cancelling http operation, please check httpSaga documentation and down't worry `configuration object` have the same shape.

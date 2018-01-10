@@ -156,6 +156,7 @@ function initialize(appReducer, preloadedState, enhancer, middleware) {
 export default {
 	addPreReducer,
 	setRouterMiddleware,
+	setHttpMiddleware,
 	initialize,
 	// for testing purepose only
 	getReducer,
