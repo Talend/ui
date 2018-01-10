@@ -4,6 +4,7 @@ const pathLib = require('path');
 /**
  * this function go in recursive way to get all the json in the directory
  * @param {string} fileOrFolder path to the folder or the json file
+ * @param {boolean} recursive tell if the function has to go recursive
  */
 function findJson(fileOrFolder, recursive) {
 	let jsonFiles = [];
