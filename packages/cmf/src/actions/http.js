@@ -1,5 +1,3 @@
-import has from 'lodash/has';
-
 import { HTTP_METHODS } from '../middlewares/http';
 import {
 	ACTION_TYPE_HTTP_REQUEST,
@@ -13,18 +11,14 @@ export const DEFAULT_HTTP_HEADERS = {
 	'Content-Type': 'application/json',
 };
 
-export function isHTTPRequest(action) {
-	return action.type in HTTP_METHODS || has(action, 'cmf.http');
-}
-
-export function httpError(error) {
+function onError(error) {
 	return {
 		type: ACTION_TYPE_HTTP_ERRORS,
 		error,
 	};
 }
 
-export function httpRequest(url, config) {
+function onRequest(url, config) {
 	return {
 		type: ACTION_TYPE_HTTP_REQUEST,
 		url,
@@ -32,7 +26,7 @@ export function httpRequest(url, config) {
 	};
 }
 
-export function httpReducerError(error, action) {
+function reducerError(error, action) {
 	return {
 		type: ACTION_TYPE_HTTP_REDUCER_ERROR,
 		error,
@@ -40,14 +34,14 @@ export function httpReducerError(error, action) {
 	};
 }
 
-export function httpResponse(response) {
+function onResponse(response) {
 	return {
 		type: ACTION_TYPE_HTTP_RESPONSE,
 		data: response,
 	};
 }
 
-export function onResponse(action, response) {
+function onActionResponse(action, response) {
 	if (typeof action.onResponse === 'function') {
 		return action.onResponse(response);
 	}
@@ -57,7 +51,7 @@ export function onResponse(action, response) {
 	};
 }
 
-export function onError(action, error) {
+function onActionError(action, error) {
 	if (typeof action.onError === 'function') {
 		return action.onError(error);
 	}
@@ -127,3 +121,10 @@ http.head = function head(url, config) {
 		...config,
 	});
 };
+
+http.onError = onError;
+http.onActionError = onActionError;
+http.onReducerError = reducerError;
+http.onRequest = onRequest;
+http.onResponse = onResponse;
+http.onActionResponse = onActionResponse;

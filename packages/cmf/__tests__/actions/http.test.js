@@ -1,10 +1,4 @@
-import http, {
-	httpRequest,
-	httpError,
-	httpResponse,
-	onError,
-	onResponse,
-} from '../../src/actions/http';
+import http from '../../src/actions/http';
 import {
 	HTTP_METHODS,
 	ACTION_TYPE_HTTP_REQUEST,
@@ -86,20 +80,20 @@ describe('actions.http', () => {
 	it('should httpRequest create action', () => {
 		url = '//foo/bar';
 		config = { method: 'GET' };
-		const action = httpRequest(url, config);
+		const action = http.onRequest(url, config);
 		expect(action.type).toBe(ACTION_TYPE_HTTP_REQUEST);
 		expect(action.url).toBe(url);
 		expect(action.config).toBe(config);
 	});
 	it('should httpError create action', () => {
 		const error = { message: 'something goes wrong' };
-		const action = httpError(error);
+		const action = http.onError(error);
 		expect(action.type).toBe(ACTION_TYPE_HTTP_ERRORS);
 		expect(action.error).toBe(error);
 	});
 	it('should httpResponse create action', () => {
 		const response = { id: '2312321323' };
-		const action = httpResponse(response);
+		const action = http.onResponse(response);
 		expect(action.type).toBe(ACTION_TYPE_HTTP_RESPONSE);
 		expect(action.data).toBe(response);
 	});
@@ -109,12 +103,12 @@ describe('actions.http', () => {
 			type: 'DONT_CARE',
 			onError: 'CALL_ME_BACK',
 		};
-		const newAction = onError(action, error);
+		const newAction = http.onActionError(action, error);
 		expect(newAction.type).toBe('CALL_ME_BACK');
 		expect(newAction.error).toBe(error);
 
 		action.onError = jest.fn();
-		onError(action, error);
+		http.onActionError(action, error);
 		expect(action.onError.mock.calls.length).toBe(1);
 		expect(action.onError.mock.calls[0][0]).toBe(error);
 	});
@@ -125,12 +119,12 @@ describe('actions.http', () => {
 			type: 'DONT_CARE',
 			onResponse: 'CALL_ME_BACK',
 		};
-		const newAction = onResponse(action, response);
+		const newAction = http.onActionResponse(action, response);
 		expect(newAction.type).toBe('CALL_ME_BACK');
 		expect(newAction.response).toBe(response);
 
 		action.onResponse = jest.fn();
-		onResponse(action, response);
+		http.onActionResponse(action, response);
 		expect(action.onResponse.mock.calls.length).toBe(1);
 		expect(action.onResponse.mock.calls[0][0]).toBe(response);
 	});

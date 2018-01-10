@@ -2,14 +2,7 @@ import has from 'lodash/has';
 import get from 'lodash/get';
 import { HTTP_METHODS } from './constants';
 
-import {
-	httpRequest,
-	httpError,
-	httpReducerError,
-	httpResponse,
-	onResponse,
-	onError,
-} from '../../actions/http';
+import http from '../../actions/http';
 
 export const DEFAULT_HTTP_HEADERS = {
 	Accept: 'application/json',
@@ -100,7 +93,7 @@ function getOnError(dispatch, httpAction) {
 		};
 		const clone = get(error, 'stack.response.clone');
 		if (!clone) {
-			dispatch(httpReducerError(errorObject, httpAction));
+			dispatch(http.onReducerError(errorObject, httpAction));
 		} else {
 			// clone the response object else the next call to text or json
 			// triggers an exception Already use
@@ -113,11 +106,11 @@ function getOnError(dispatch, httpAction) {
 						errorObject.stack.messageObject = JSON.parse(response);
 					} finally {
 						if (httpAction.onError) {
-							dispatch(onError(httpAction, errorObject));
+							dispatch(http.onActionError(httpAction, errorObject));
 						}
 
 						if (typeof httpAction.onError !== 'function') {
-							dispatch(httpError(errorObject));
+							dispatch(http.onError(errorObject));
 						}
 					}
 				});
@@ -131,7 +124,7 @@ export const httpMiddleware = ({ dispatch }) => next => action => {
 	}
 	const httpAction = get(action, 'cmf.http', action);
 	const config = mergeOptions(httpAction);
-	dispatch(httpRequest(httpAction.url, config));
+	dispatch(http.onRequest(httpAction.url, config));
 	if (httpAction.onSend) {
 		dispatch({
 			type: httpAction.onSend,
@@ -144,14 +137,14 @@ export const httpMiddleware = ({ dispatch }) => next => action => {
 		.then(handleResponse)
 		.then(response => {
 			const newAction = Object.assign({}, action);
-			dispatch(httpResponse(response));
+			dispatch(http.onResponse(response));
 			if (newAction.transform) {
 				newAction.response = newAction.transform(response);
 			} else {
 				newAction.response = response;
 			}
 			if (newAction.onResponse) {
-				dispatch(onResponse(newAction, newAction.response));
+				dispatch(http.onActionResponse(newAction, newAction.response));
 			}
 			return next(newAction);
 		})
