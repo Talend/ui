@@ -1,5 +1,5 @@
 {
-  "doc": "https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/README.md",
+  "doc": "CollapsibleFieldset/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Comment",

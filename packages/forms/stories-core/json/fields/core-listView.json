@@ -1,5 +1,5 @@
 {
-  "doc": "https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/fields/ListView/README.md",
+  "doc": "ListView/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "ListView",

@@ -1,5 +1,5 @@
 {
-  "doc": "https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/fields/Toggle/README.md",
+  "doc": "Toggle/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Booleans",

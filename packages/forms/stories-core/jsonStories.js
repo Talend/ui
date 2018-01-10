@@ -52,7 +52,7 @@ function createStory(category, sampleFilenames, filename) {
 			return (
 				<section>
 					<IconsProvider />
-					{doc && <a href={doc} target="_blank" rel="noopener noreferrer">Documentation</a>}
+					{doc && <a href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${category}/${doc}`} target="_blank" rel="noopener noreferrer">Documentation</a>}
 
 					<Tabs id={'store-tabs'}>
 						<Tab
