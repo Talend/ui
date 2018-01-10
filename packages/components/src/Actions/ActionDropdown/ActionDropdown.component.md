@@ -1,7 +1,114 @@
 
 # ACTION DROPDOWN COMPONENT
 
-This component display a dropdown with items in it. It used react-bootstrap component DropdownButton, MenuItem.
+This component display a dropdown with items in it. It used react-bootstrap component DropdownButton, MenuItem and TooltipTrigger.
+
+The component
+```javascript
+function ActionDropdown(props) {
+	const {
+		bsStyle,
+		hideLabel,
+		icon,
+		items,
+		label,
+		link,
+		onSelect,
+		tooltipPlacement,
+		tooltipLabel,
+		getComponent,
+		components,
+		...rest
+	} = props;
+
+	const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
+	const title = (
+		<span>
+			{icon ? <Icon name={icon} /> : null}
+			{hideLabel ? null : <span>{label}</span>}
+		</span>
+	);
+	const style = link ? 'link' : bsStyle;
+
+	function onItemSelect(object, event) {
+		if (onSelect) {
+			onSelect(event, object);
+		}
+	}
+
+	const dropdown = (
+		<DropdownButton
+			title={title}
+			bsStyle={style}
+			role="button"
+			onSelect={onItemSelect}
+			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button')}
+			{...rest}
+		>
+			{items.length <= 0 && !components && <MenuItem disabled>No options</MenuItem>}
+			{injected('beforeItemsDropdown')}
+			{items.map(getMenuItem)}
+			{injected('itemsDropdown')}
+			{injected('afterItemsDropdown')}
+		</DropdownButton>
+	);
+
+	if (hideLabel || tooltipLabel) {
+		return (
+			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+				{dropdown}
+			</TooltipTrigger>
+		);
+	}
+	return dropdown;
+}
+```
+An example of use
+```javascript
+function Example() {
+
+const items = [
+	{
+		icon: 'talend-another-icon-file',
+		label: 'item 1',
+	},
+	{
+		divider: true,
+	},
+	{
+		label: 'item 2'
+	},
+];
+const components = {
+		itemsDropdown: [
+			{
+				component: 'Action',
+				label: 'First item',
+			},
+			{
+				divider: true,
+			},			
+			{
+				component: 'Action',
+				label: 'Second item',
+			},
+		],
+	};
+return (
+	<div>
+		<ActionDropdown 
+			id="my-dropdown" 
+			label="My Dropdown" 
+			icon="talend-icon-file" 
+			items={items} 
+			components={components}
+			tooltipLabel="My tooltip label"
+			tooltipPlacement="down"
+		/>
+	</div>
+	)
+}
+```
 
 ## How it works
 
@@ -90,13 +197,13 @@ bsStyle | string used to define DropdownButton bsStyle
 hideLabel | boolean that condition the used of overlay
 icon | string that defines the icon used in the dropdown button
 items | array of items displayed in the dropdown
-label | string that defines the title used in the dropdown button
+label | string that defines the title used in the dropdown button or in the tooltip
 link | boolean which condition the bstyle
 onSelect | callback used when dropdown clicked
 tooltipPlacement | string ('up', 'down' ...) to position the tooltip overlay
 tooltipLabel | string label used to condition the used of overlay and label of overlay
-getComponent | please see the Inject doc to have more information.
-components | beforeItemsDropdown, itemsDropdown, afterItemsDropdown : arrays of items that will be used in the dropdown.
+getComponent | please see the component.md in cmf for more information.
+components | beforeItemsDropdown, itemsDropdown, afterItemsDropdown : arrays of items or simple object that will be used in the dropdown.
 
 ___
 Props | default

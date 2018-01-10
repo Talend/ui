@@ -1,76 +1,9 @@
-# ACTION DROPDOWN CONNECT
-
-Connect the ActionDropdow container.
-
-#### MAP STATE TO PROPS
-```javascript
-	let props = {};
-	const context = {
-		registry: api.registry.getRegistry(),
-		store: {
-			getState: () => state,
-		},
-	};
-	if (ownProps.actionId) {
-		props = api.action.getActionInfo(context, ownProps.actionId);
-	}
-	const actionIds = ownProps.actionIds || props.actionIds;
-	if (actionIds) {
-		props.items = actionIds.map(itemId => api.action.getActionInfo(context, itemId));
-	}
-	return props;
-```
-Some choices  here.
-```javascript
-actions = {
-'simple-action': {
-stuff,
-}
- 'simple-action-with-actions-ids': {
-	 stuff,
-	 actionIds: ['first-item', 'second-item'],
- },
- 'first-item': {
-	 stuff,
- },
-'second-item': {
-	stuff,
- },
-}
-```
-1 ) You can pass an actionId. It will be evaluate with getActionInfo and assign to props.
-If this action have actionIds they will be evaluate.
-```javascript
-<ActionDropdown actionId="simple-action-with-actions-ids" /> 
-```
-2 ) Second you can pass directly an actionIds.
-```javascript
-<ActionDropdown actionIds={['first-item', 'second-item']} /> 
-```
-3) Or you define the DropdownButton with actionId, and his MenuItem with actionIds.
-```javascript
-<ActionDropdown actionId="simple-action" actionIds={['first-item', 'second-item']} /> 
-```
-
-#### MERGE PROPS
-```javascript
-export function mergeProps(stateProps, dispatchProps, ownProps) {
-	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
-	if (props.actionId) {
-		delete props.actionId;
-	}
-	if (props.actionIds) {
-		delete props.actionIds;
-	}
-	return props;
-}
-```
-Here we just delete the unecessary props before passing them to the container.
 
 # ACTION DROPDOWN CONTAINER
 
-#### RENDER
+This container helps to create the actions that will be used in the [ActionDropdown.component](https://github.com/Talend/ui/blob/master/packages/components/src/Actions/ActionDropdown/ActionDropdown.component.js)
 
+The container
 ```javascript
 export function ContainerActionDropdown({ items, ...props }) {
 	if (items) {
@@ -83,44 +16,88 @@ export function ContainerActionDropdown({ items, ...props }) {
 	return <ActionDropdown {...props} />;
 }
 ```
-
-If we have items, we passed them to a function to attach onClick action on them if they have ActionCreator for example.
-
-##### Render with components and Inject approach
-The component support Inject approach.
-The getComponent function is given by cmfConnect.
-The components shape look like this
+An example of use
 ```javascript
-const propsInjectedItems = {
-		id: 'injected-items',
-		displayMode: 'dropdown',
-		label: 'my injected items',
-		components: {
-			itemsDropdown: [
-				{
-					component: 'Action',
-					actionId: 'menu:first',
-				},
-				{
-					divider: true,
-				},
-				{
-					component: 'FilterBar',
-					dockable: false,
-					docked: false,
-				},
-				{
-					component: 'Action',
-					actionId: 'menu:second',
-				},
-			],
-		},
+cmf.settings.actions : {
+	my-dropdown-action: {
+		label: 'My dropdown label',
+	},
+	'first-item': {
+		label: 'My First Item',
+		icon: 'talend-icon-file',
+	},
+	'second-item': {
+		label: 'Second Item',
+		icon: 'talend-icon-file',
+		hideLabel: true,
+	},
+	'third-item': {
+		label: 'Third item',
+	},
+}
+function Example() {
+const actionIds = [
+	'first-item',
+	'second-item',
+];
+const components = {
+		itemsDropdown: [
+			{
+				component: 'Action',
+				actionId: 'third:item',
+			},
+			{
+				divider: true,
+			},			
+			{
+				component: 'FilterBar',
+				dockable: false,
+				docker: false,
+			},
+		],
 	};
+return (
+	<div>
+		<ActionDropdown 
+			actionId="my-dropdown-action"
+			actionIds={actionIds}
+			components={components}
+		/>
+	</div>
+	)
+}
 ```
-'itemsDropdown' is the placeholder in ActionDropdown component of the dropdown items.
 
-#### REF
-Props | usage
+## How it works
+
+The container get the object value from the action id in the registry.
+You can pass a simple actionId
+
+ ```mySimpleAction: { label: 'MyLabel', ...stuff}```
+
+You can add actionIds to your actionId
+
+ ```myActionWithActionIds : { hideLabel: true, tooltipLabel: 'myToolTipLabel', actionIds: ['first-item', 'second-item'], ...stuff }```
+ The actions ids will be evaluated and given as items to the component.
+ 
+You can pass only actionIds
+
+```myActionIds: ['first-item', 'secondItem', ...]```
+
+You can have ActionCreator associate to the items of the dropdown, the onClick will be valorised.
+
+
+
+
+## REF
+Props | Usage
 ------------ | -------------
-items | an array of items that will render in the component ActionDropdown.
+actionId | a string that match an action in the registry
+actionIds | an array of string that match actions in the registry. They will be transform in items props for the component.
+components | see ActionDropdown.component markdown
+
+
+
+
+
 

@@ -162,9 +162,9 @@ ActionDropdown.propTypes = {
 	tooltipLabel: PropTypes.string,
 	getComponent: PropTypes.func,
 	components: PropTypes.shape({
-		beforeItemsDropdown: PropTypes.array,
-		itemsDropdown: PropTypes.array,
-		afterItemsDropdown: PropTypes.array,
+		beforeItemsDropdown: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+		itemsDropdown: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+		afterItemsDropdown: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 	}),
 };
 
