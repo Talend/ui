@@ -52,6 +52,10 @@ const noResultsSearch = {
 	items: [],
 	searchCriteria: 'nopnopnop',
 };
+const withSwitchBox = {
+	...props,
+	isSwitchBox: true,
+};
 
 storiesOf('ListView', module)
 	.addDecorator(story => (
@@ -105,6 +109,17 @@ storiesOf('ListView', module)
 		return (
 			<ListView
 				{...selectedValuesProps}
+			/>
+		);
+	})
+	.addWithInfo('with switch box', () => {
+		const selectedValuesProps = { ...props };
+
+		selectedValuesProps.items[1].checked = true;
+
+		return (
+			<ListView
+				{...withSwitchBox}
 			/>
 		);
 	});

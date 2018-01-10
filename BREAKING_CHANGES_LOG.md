@@ -50,7 +50,7 @@ function renderItemsContainer({ children, containerProps }) {
 * Component: Forms
 * PR: [chore(react): Updates to React 16(https://github.com/Talend/ui/pull/761)
 * Changes : we upgraded react-jsonSchema-form to 1.0.0. They switched their validation to ajv (https://github.com/mozilla-services/react-jsonschema-form/releases/tag/v1.0.0)
-For example the boolean required property is invalid 
+For example the boolean required property is invalid
 
 Before
 ```json
@@ -98,6 +98,31 @@ After
         }
     }
 }
+```
+
+## v0.141.0
+* Container: DeleteResource
+* PR [fix(container/deleteResource): change so keyboard shortcut can be supported ](https://github.com/Talend/ui/pull/958)
+* Changes
+
+The parameter used to properly compute resource information and how to call the URL to delete resource
+have moved from view settings to a saga factory
+
+see documentation added on how to use this peculiar container
+
+## V0.140.0
+
+* Containers: need to be configured
+* PR [feat(containers): register all containers](https://github.com/Talend/ui/pull/XXX)
+* Changes:
+
+Before Containers was working on it's own.
+Now you need to register them in your configure.js (it's CMF)
+
+```javascript
+import { registerAllContainers } from '@talend/react-containers/lib/register';
+
+registerAllContainers();
 ```
 
 ## v0.138.0

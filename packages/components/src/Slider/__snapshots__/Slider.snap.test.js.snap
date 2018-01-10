@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Slider component renderers should render Slider 1`] = `
+exports[`Slider component snaps renderers should render Slider 1`] = `
 <span
   className="tc-slider"
 >
@@ -39,7 +39,7 @@ exports[`Slider component renderers should render Slider 1`] = `
 </span>
 `;
 
-exports[`Slider component renderers should render Slider with captionTextStepNumber 1`] = `
+exports[`Slider component snaps renderers should render Slider with captionTextStepNumber 1`] = `
 <span
   className="tc-slider"
 >
@@ -97,7 +97,7 @@ exports[`Slider component renderers should render Slider with captionTextStepNum
 </span>
 `;
 
-exports[`Slider component renderers should render Slider with icons on status 1`] = `
+exports[`Slider component snaps renderers should render Slider with icons on status 1`] = `
 <span
   className="tc-slider"
 >

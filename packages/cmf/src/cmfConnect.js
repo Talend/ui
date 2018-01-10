@@ -139,12 +139,17 @@ export function getDispatchToProps({
 		defaultState,
 	);
 	cmfProps.dispatch = dispatch;
+	cmfProps.getComponent = api.component.get;
 	cmfProps.dispatchActionCreator = (actionId, event, data, context) => {
 		dispatch(api.action.getActionCreatorFunction(context, actionId)(event, data, context));
 	};
 
 	let userProps = {};
 	if (mapDispatchToProps) {
+		if (process.env.NODE_ENV === 'development') {
+			console.warn(`DEPRECATION WARNING: mapDispatchToProps will be removed from cmfConnect.
+			Please use the injectedProps dispatchActionCreator or dispatch`);
+		}
 		userProps = mapDispatchToProps(dispatch, ownProps, cmfProps);
 	}
 
@@ -309,6 +314,7 @@ cmfConnect.INJECTED_PROPS = INJECTED_PROPS;
 cmfConnect.propTypes = {
 	state: ImmutablePropTypes.Map,
 	initialState: ImmutablePropTypes.Map,
+	getComponent: PropTypes.func,
 	setState: PropTypes.func,
 	initState: PropTypes.func,
 	dispatchActionCreator: PropTypes.func,

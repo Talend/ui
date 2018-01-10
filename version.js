@@ -101,13 +101,16 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'redux-thunk': '2.2.0',
 	uuid: '3.0.1',  // prefer bson-objectid
 
+	// script dep
+	deepmerge: '1.5.1',
+
 	// dev deps
-	'@storybook/react': '^3.3.0',
-	'@storybook/addon-storyshots': '^3.3.0',
-	'@storybook/addon-actions': '^3.3.0',
-	'@storybook/addon-info': '^3.3.0',
-	'@storybook/addon-knobs': '^3.3.0',
-	'@storybook/addons': '^3.3.0',
+	'@storybook/react': '^3.3.6',
+	'@storybook/addon-storyshots': '^3.3.6',
+	'@storybook/addon-actions': '^3.3.6',
+	'@storybook/addon-info': '^3.3.6',
+	'@storybook/addon-knobs': '^3.3.6',
+	'@storybook/addons': '^3.3.6',
 	autoprefixer: '^7.1.4',
 	'babel-cli': '6.26.0',
 	'babel-core': '6.26.0',
