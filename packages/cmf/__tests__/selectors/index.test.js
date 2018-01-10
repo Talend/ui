@@ -1,5 +1,5 @@
 import { Map, List } from 'immutable';
-
+import cases from 'jest-in-case';
 import { getCollectionFromPath, findCollectionPathListItem } from '../../src/selectors';
 
 describe('getCollectionFromPath', () => {
@@ -32,56 +32,75 @@ got [object Object]`);
 	});
 });
 
-describe('findCollectionPathListItem', () => {
-	const id = 'id';
-	const item = new Map({ id });
-	const collectionSubset = new List([item]);
-	const collectionWithSubset = new Map({ collectionSubset });
-	const state = {
-		cmf: {
-			collections: new Map({
-				isList: new List([item]),
-				isNotList: new Map({ id: item }),
-				collectionWithSubset,
-			}),
+const id = 'id';
+const item = new Map({ id });
+const collectionSubset = new List([item]);
+const collectionWithSubset = new Map({ collectionSubset });
+const state = {
+	cmf: {
+		collections: new Map({
+			isList: new List([item]),
+			isNotList: new Map({ id: item }),
+			collectionWithSubset,
+		}),
+	},
+};
+
+cases(
+	'findCollectionPathListItem(state, pathDescriptor, resourceId)',
+	opts => {
+		expect(findCollectionPathListItem(opts.state, opts.pathDescriptor, opts.resourceId)).toBe(
+			opts.result,
+		);
+	},
+	[
+		{
+			name: 'work if collection path is a string',
+			state,
+			pathDescriptor: 'isList',
+			resourceId: id,
+			result: item,
 		},
-	};
+		{
+			name: 'work if collection path is a Array<String>',
+			state,
+			pathDescriptor: ['collectionWithSubset', 'collectionSubset'],
+			resourceId: id,
+			result: item,
+		},
+		{
+			name: "undefined if id doens't match",
+			state,
+			pathDescriptor: 'isList',
+			resourceId: 'notFound',
+			result: undefined,
+		},
+	],
+);
 
-	it(`if collectionPath is an existing collection
-    if this collection is an instance of List
-    and this list contains an item with a properties id equals to the given itemId
-    return said item`, () => {
-		expect(findCollectionPathListItem(state, 'isList', id)).toEqual(item);
-	});
-
-	it(`if collectionPath is an existing collection subset
-    if this collection subset is an instance of List
-    and this list contains an item with a properties id equals to the given itemId
-    return said item`, () => {
-		expect(findCollectionPathListItem(state, ['collectionWithSubset', 'collectionSubset'], id)).toEqual(item);
-	});
-
-	it(`if collectionPath is an existing collection or collection subset
-    if this collection is an instance of List
-    and this list does not contains an item with a properties id equals to the given itemId
-    return undefined`, () => {
-		expect(findCollectionPathListItem(state, 'isList', 'notFound')).toEqual(undefined);
-	});
-
-	it(`if collectionPath is an existing collection or collection subset
-    if this collection is not instance of List
-    throw an exception`, () => {
+cases(
+	'findCollectionPathListItem(state, pathDescriptor, resourceId)',
+	opts => {
 		expect(() => {
-			findCollectionPathListItem(state, 'isNotList', 'id');
-		}).toThrowError(`Type mismatch: isNotList does not resolve as an instance of Immutable.List, 
-got Map { "id": Map { "id": "id" } }`);
-	});
-
-	it(`if collectionPath is not an existing collection or collection subset
-    throw an exception`, () => {
-		expect(() => {
-			findCollectionPathListItem(state, 'notFound', 'id');
-		}).toThrowError(`Type mismatch: notFound does not resolve as an instance of Immutable.List, 
-got undefined`);
-	});
-});
+			findCollectionPathListItem(opts.state, opts.pathDescriptor, opts.resourceId);
+		}).toThrow(opts.result);
+	},
+	[
+		{
+			name: 'throw if collection path is not a List',
+			state,
+			pathDescriptor: 'isNotList',
+			resourceId: id,
+			result: `Type mismatch: isNotList does not resolve as an instance of Immutable.List, 
+got Map { "id": Map { "id": "id" } }`,
+		},
+		{
+			name: 'throw if collection can\'t be found',
+			state,
+			pathDescriptor: 'notFound',
+			resourceId: id,
+			result: `Type mismatch: notFound does not resolve as an instance of Immutable.List, 
+got undefined`,
+		},
+	],
+);
