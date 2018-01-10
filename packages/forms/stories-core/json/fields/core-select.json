@@ -1,4 +1,5 @@
 {
+  "doc": "https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/fields/Select/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Select",
