@@ -7,7 +7,7 @@ const program = require('commander'); // eslint-disable-line import/no-extraneou
 const utils = require('./utils');
 
 program
-	.version('0.0.1')
+	.version('0.0.2')
 	.option('-d, --dev', 'dev sources instead of sources')
 	.option('-q, --quiet', 'display nothing')
 	.option('-r, --recursive', 'allow recursive search for json files')
