@@ -67,6 +67,7 @@ function SidePanel({
 	const navCSS = classNames(theme['tc-side-panel'], 'tc-side-panel', {
 		[theme.docked]: docked,
 		[theme.large]: large,
+		[theme['nav-inverse']]: !reverse,
 	});
 	const listCSS = classNames(
 		theme.nav,

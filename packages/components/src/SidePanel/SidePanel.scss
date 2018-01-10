@@ -26,7 +26,7 @@ $toggle-button-padding: $padding-small - 1;
 	padding: 0;
 	transition: 0.2s width ease-out;
 	width: $tc-side-panel-width;
-
+	border-right: $tc-side-panel-border-size solid $alto;
 	display: flex;
 	flex-direction: column;
 
@@ -53,7 +53,6 @@ $toggle-button-padding: $padding-small - 1;
 	}
 
 	&-list {
-		border-right: $tc-side-panel-border-size solid $alto;
 		background-color: $wild-sand;
 
 		.tc-side-panel-list-item.active {
@@ -76,8 +75,45 @@ $toggle-button-padding: $padding-small - 1;
 				color: $silver;
 			}
 		}
+	}
 
-		&.nav-inverse {
+	.toggle-btn {
+		background-color: $wild-sand;
+		padding-bottom: $padding-normal + $padding-large;
+		padding-left: $toggle-button-padding;
+		text-align: left;
+
+		:global(.btn.btn-link) {
+			color: $dove-gray;
+			line-height: 1;
+			padding: $padding-small;
+			display: inline-block;
+			width: auto;
+			opacity: $toggle-button-opacity;
+			margin: 0 auto;
+
+			&:hover {
+				opacity: 1;
+				background-color: $list-item-hover-color;
+			}
+
+			:global(.tc-svg-icon) {
+				width: $svg-sm-size;
+				height: $svg-sm-size;
+				transition: 0.2s transform ease-out;
+			}
+		}
+
+		:global(.btn.btn-link) > span {
+			display: none;
+		}
+	}
+
+	&.nav-inverse {
+		background-color: $list-item-reverse-color;
+		border-right: none;
+
+		.tc-side-panel-list {
 			border-right: none;
 			background-color: $list-item-reverse-color;
 
@@ -96,54 +132,12 @@ $toggle-button-padding: $padding-small - 1;
 				background-color: $list-item-active-color;
 			}
 		}
-	}
 
-	&.large {
-		width: $tc-side-panel-large-width;
-		> ul {
-			width: $tc-side-panel-large-width;
-		}
-
-		:global(.btn.btn-link) {
-			:global(.tc-svg-icon) + span {
-				margin-left: $tc-side-panel-large-padding;
+		.toggle-btn {
+			background-color: $list-item-reverse-color;
+			:global(.btn.btn-link) {
+				color: $white;
 			}
-		}
-
-		:global(.btn.btn-link) > span {
-			width: $tc-side-panel-large-labels-width;
-		}
-
-		&.docked {
-			width: $tc-side-panel-large-docked-width;
-
-			.tc-side-panel-list-item {
-				width: $tc-side-panel-large-docked-width;
-			}
-
-			.nav-pills {
-				:global(.btn.btn-link) {
-					padding: $padding-normal $tc-side-panel-large-padding;
-				}
-			}
-
-			.toggle-btn {
-				padding-left: $tc-side-panel-large-toggle-padding;
-				:global(.btn.btn-link) {
-					padding: $padding-small $tc-side-panel-large-padding;
-				}
-			}
-		}
-	}
-
-	:global(.btn.btn-link) {
-		text-align: left;
-		font-size: $font-size-small;
-		text-transform: uppercase;
-
-		:global(.tc-svg-icon) + span {
-			margin-left: $padding-normal;
-			vertical-align: text-bottom;
 		}
 	}
 
@@ -172,36 +166,51 @@ $toggle-button-padding: $padding-small - 1;
 		}
 	}
 
-	.toggle-btn {
-		background-color: $list-item-reverse-color;
-		padding-bottom: $padding-normal + $padding-large;
-		padding-left: $toggle-button-padding;
-		text-align: left;
+	&.large {
+		width: $tc-side-panel-large-width;
+		> ul {
+			width: $tc-side-panel-large-width;
+		}
 
 		:global(.btn.btn-link) {
-			color: $list-item-color;
-			line-height: 1;
-			outline: none;
-			padding: $padding-small;
-			display: inline-block;
-			width: auto;
-			opacity: $toggle-button-opacity;
-			margin: 0 auto;
-
-			&:hover {
-				opacity: 1;
-				background-color: $list-item-hover-color;
-			}
-
-			:global(.tc-svg-icon) {
-				width: $svg-sm-size;
-				height: $svg-sm-size;
-				transition: 0.2s transform ease-out;
+			:global(.tc-svg-icon) + span {
+				margin-left: $tc-side-panel-large-padding;
 			}
 		}
 
 		:global(.btn.btn-link) > span {
-			display: none;
+			width: $tc-side-panel-large-labels-width;
+		}
+
+		.nav-pills {
+			:global(.btn.btn-link) {
+				padding: $padding-normal $tc-side-panel-large-padding;
+			}
+		}
+
+		.toggle-btn {
+			padding-left: $tc-side-panel-large-toggle-padding;
+			:global(.btn.btn-link) {
+				padding: $padding-small $tc-side-panel-large-padding;
+			}
+		}
+
+		&.docked {
+			width: $tc-side-panel-large-docked-width;
+			.tc-side-panel-list-item {
+				width: $tc-side-panel-large-docked-width;
+			}
+		}
+	}
+
+	:global(.btn.btn-link) {
+		text-align: left;
+		font-size: $font-size-small;
+		text-transform: uppercase;
+
+		:global(.tc-svg-icon) + span {
+			margin-left: $padding-normal;
+			vertical-align: text-bottom;
 		}
 	}
 }
