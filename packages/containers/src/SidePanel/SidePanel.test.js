@@ -3,33 +3,18 @@ import { shallow } from 'enzyme';
 import mock from '@talend/react-cmf/lib/mock';
 import SidePanel from './SidePanel.container';
 import { mapStateToProps, mergeProps } from './SidePanel.connect';
-import Action from '../Action';
 
 describe('SidePanel', () => {
 	it('should render', () => {
 		const context = mock.context();
-		const sidepanel = shallow(
-			<SidePanel />,
-			{ context }
-		);
-		expect(sidepanel.getNode()).toMatchSnapshot();
+		const sidepanel = shallow(<SidePanel />, { context });
+		expect(sidepanel.getElement()).toMatchSnapshot();
 	});
 	it('should render provided actions as string', () => {
 		const actions = ['menu:article', 'menu:demo'];
 		const context = mock.context();
-		const sidepanel = shallow(
-			<SidePanel actions={actions} />,
-			{ context }
-		);
-		expect(sidepanel.getNode()).toMatchSnapshot();
-	});
-	it('should add renderers', () => {
-		const context = mock.context();
-		const sidepanel = shallow(
-			<SidePanel />,
-			{ context }
-		);
-		expect(sidepanel.props().renderers.Action).toBe(Action);
+		const sidepanel = shallow(<SidePanel actions={actions} />, { context });
+		expect(sidepanel.getElement()).toMatchSnapshot();
 	});
 });
 

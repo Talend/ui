@@ -1,5 +1,5 @@
 
-> @talend/react-components@0.133.0 lint:es /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.139.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -7,6 +7,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
+
+/home/travis/build/Talend/ui/packages/components/src/JSONSchemaRenderer/JSONSchemaRenderer.component.js
+  76:56  error  'properties' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
   21:1  error  Line 21 exceeds the maximum line length of 100                                       max-len
@@ -19,5 +22,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   40:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 7 problems (7 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
+  33:3  warning  Unexpected console statement  no-console
+
+✖ 9 problems (8 errors, 1 warning)
 

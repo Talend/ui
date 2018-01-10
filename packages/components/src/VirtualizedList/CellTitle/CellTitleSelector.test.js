@@ -21,11 +21,11 @@ describe('CellTitleSelector', () => {
 				onEditCancel={jest.fn()}
 				onEditSubmit={jest.fn()}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render the button', () => {
@@ -41,11 +41,11 @@ describe('CellTitleSelector', () => {
 				displayMode={TITLE_MODE_TEXT}
 				onClick={jest.fn()}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger callback on button click', () => {
@@ -61,7 +61,7 @@ describe('CellTitleSelector', () => {
 				displayMode={TITLE_MODE_TEXT}
 				onClick={onClick}
 				rowData={rowData}
-			/>
+			/>,
 		);
 
 		// when
@@ -79,10 +79,10 @@ describe('CellTitleSelector', () => {
 				cellData={'my value'}
 				className={'my-title-classname'}
 				displayMode={TITLE_MODE_TEXT}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

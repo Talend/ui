@@ -27,6 +27,7 @@ import './Notification';
 import './ObjectViewer';
 import './Progress';
 import './SidePanel';
+import './Slider';
 import './Status';
 import './SubHeaderBar';
 import './TabBar';

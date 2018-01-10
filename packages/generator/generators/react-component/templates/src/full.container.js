@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import omit from 'lodash/omit';
 import { Map } from 'immutable';
-import { componentState } from 'react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 
 import Component from './<%= props.name %>.component';
 
@@ -13,7 +14,7 @@ class <%= props.name %> extends React.Component {
 	static displayName = 'Container(<%= props.name %>)';
 	static propTypes = {
 		name: PropTypes.string,
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 
 	};
 
@@ -23,9 +24,11 @@ class <%= props.name %> extends React.Component {
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
+		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS));
 		return (
 			<Component
 				name={state.name}
+				{...props}
 			/>
 		);
 	}

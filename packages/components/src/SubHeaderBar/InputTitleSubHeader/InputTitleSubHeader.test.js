@@ -19,7 +19,7 @@ describe('InputTitleSubHeader', () => {
 	it('should render', () => {
 		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} iconId="myIconId" />);
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(1);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render Icon', () => {
 		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} iconId="myIconId" />);
@@ -35,7 +35,7 @@ describe('InputTitleSubHeader', () => {
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(1);
 		expect(wrapper.find(InlineFormSubHeader)).toHaveLength(0);
 	});
-	it('should render InputTitleSubHeader', () => {
+	it('should render InlineFormSubHeader', () => {
 		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} editMode />);
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(0);
 		expect(wrapper.find(InlineFormSubHeader)).toHaveLength(1);
@@ -52,35 +52,28 @@ describe('TitleSubHeader', () => {
 	});
 	it('should render', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />);
-		expect(wrapper.find(Action)).toHaveLength(1);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.find(Action)).toHaveLength(0);
+		expect(wrapper.find('h1')).toHaveLength(1);
+		expect(wrapper.find('button')).toHaveLength(0);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render with title', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} />);
-		expect(wrapper.find('h1').getNode().props.className).toEqual(
-			'tc-subheader-details-text-title-wording',
-		);
-		expect(wrapper.find('h1').getNode().props.children).toEqual('myTitle');
+		expect(wrapper.find('h1').getElement().props.children).toEqual('myTitle');
 	});
 	it('should render with subTitle', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />).find(
 			'small',
 		);
-		expect(wrapper.getNode().props.className).toEqual('tc-subheader-details-text-subtitle');
-		expect(wrapper.getNode().props.children).toEqual('mySubTitle');
+		expect(wrapper.getElement().props.className).toEqual('tc-subheader-details-text-subtitle');
+		expect(wrapper.getElement().props.children).toEqual('mySubTitle');
 	});
-	it('should render an Action', () => {
-		const actionProps = {
-			name: 'action-edit-title',
-			label: 'edit',
-			icon: 'talend-pencil',
-			onClick: jest.fn(),
-			bsStyle: 'link',
-			className: undefined,
-			hideLabel: true,
-		};
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} onEdit={actionProps.onClick} />);
-		expect(wrapper.find(Action)).toHaveLength(1);
+	it('should render an Action with edit pencil', () => {
+		const wrapper = shallow(
+			<TitleSubHeader {...defaultProps} subTitle="mySubTitle" editable />,
+		).find(Action);
+		expect(wrapper).toHaveLength(1);
+		expect(wrapper.getElement().props.icon).toEqual('talend-pencil');
 	});
 });
 
@@ -99,7 +92,7 @@ describe('InlineFormSubHeader', () => {
 		const wrapper = shallow(<InlineFormSubHeader {...defaultProps} />);
 		expect(wrapper.find('input')).toHaveLength(1);
 		expect(wrapper.find(Action)).toHaveLength(2);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should call change value and call onChange when change event trigger', () => {
 		const event = { target: { value: 'myInputChage' } };
@@ -107,7 +100,7 @@ describe('InlineFormSubHeader', () => {
 		wrapper.find('input').simulate('change', event);
 		expect(wrapper.state('value')).toBe(event.target.value);
 		expect(defaultProps.onChange).toHaveBeenCalledWith(event);
-		expect(wrapper.find('input').getNode().props.value).toBe(event.target.value);
+		expect(wrapper.find('input').getElement().props.value).toBe(event.target.value);
 	});
 	it('should call onSubmit when submit event trigger', () => {
 		const event = { preventDefault: jest.fn() };

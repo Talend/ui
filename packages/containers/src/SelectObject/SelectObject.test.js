@@ -27,7 +27,7 @@ describe('Component SelectObject', () => {
 			},
 		};
 		const wrapper = shallow(<Component {...props} />, { context });
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
@@ -35,7 +35,7 @@ describe('Container SelectObject', () => {
 	it('should render', () => {
 		const context = mock.context();
 		const wrapper = shallow(<Container />, { context });
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should propagate extra props', () => {
 		const context = mock.context();
