@@ -4,6 +4,7 @@ import inRange from 'lodash/inRange';
 export const ACTION_TYPE_HTTP_REQUEST = '@@HTTP/REQUEST';
 export const ACTION_TYPE_HTTP_RESPONSE = '@@HTTP/RESPONSE';
 export const ACTION_TYPE_HTTP_ERRORS = '@@HTTP/ERRORS';
+export const ACTION_TYPE_HTTP_REDUCER_ERROR = 'HTTP_REDUCE_ERROR';
 
 // equal for performance reason
 export const OPTIONS = 'OPTIONS';

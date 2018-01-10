@@ -1,23 +1,18 @@
+import http from '../../src/middlewares/http';
+
 import {
 	DEFAULT_HTTP_HEADERS,
 	isHTTPRequest,
 	getMethod,
-	httpRequest,
-	httpError,
-	httpResponse,
 	mergeOptions,
-	onResponse,
-	onError,
 	httpMiddleware,
 	HTTPError,
 	status,
 	handleResponse,
 } from '../../src/middlewares/http/middleware';
-import http from '../../src/middlewares/http';
+
 import {
 	HTTP_METHODS,
-	ACTION_TYPE_HTTP_REQUEST,
-	ACTION_TYPE_HTTP_RESPONSE,
 	ACTION_TYPE_HTTP_ERRORS,
 	HTTP_STATUS,
 } from '../../src/middlewares/http/constants';
@@ -64,26 +59,7 @@ describe('CMF http middleware', () => {
 		expect(getMethod({ type: HTTP_METHODS.TRACE })).toBe('TRACE');
 		expect(getMethod({ type: HTTP_METHODS.CONNECT })).toBe('CONNECT');
 	});
-	it('should httpRequest create action', () => {
-		const url = '//foo/bar';
-		const config = { method: 'GET' };
-		const action = httpRequest(url, config);
-		expect(action.type).toBe(ACTION_TYPE_HTTP_REQUEST);
-		expect(action.url).toBe(url);
-		expect(action.config).toBe(config);
-	});
-	it('should httpError create action', () => {
-		const error = { message: 'something goes wrong' };
-		const action = httpError(error);
-		expect(action.type).toBe(ACTION_TYPE_HTTP_ERRORS);
-		expect(action.error).toBe(error);
-	});
-	it('should httpResponse create action', () => {
-		const response = { id: '2312321323' };
-		const action = httpResponse(response);
-		expect(action.type).toBe(ACTION_TYPE_HTTP_RESPONSE);
-		expect(action.data).toBe(response);
-	});
+
 	it('should mergeOptions create action with default headers/credentials', () => {
 		const action = {
 			type: HTTP_METHODS.POST,
@@ -115,36 +91,6 @@ describe('CMF http middleware', () => {
 		expect(options.credentials).toBe('omit');
 	});
 
-	it('should onResponse create action', () => {
-		const response = { msg: 'you have a response' };
-		const action = {
-			type: 'DONT_CARE',
-			onResponse: 'CALL_ME_BACK',
-		};
-		const newAction = onResponse(action, response);
-		expect(newAction.type).toBe('CALL_ME_BACK');
-		expect(newAction.response).toBe(response);
-
-		action.onResponse = jest.fn();
-		onResponse(action, response);
-		expect(action.onResponse.mock.calls.length).toBe(1);
-		expect(action.onResponse.mock.calls[0][0]).toBe(response);
-	});
-	it('should onError create action', () => {
-		const error = { message: 'something goes wrong' };
-		const action = {
-			type: 'DONT_CARE',
-			onError: 'CALL_ME_BACK',
-		};
-		const newAction = onError(action, error);
-		expect(newAction.type).toBe('CALL_ME_BACK');
-		expect(newAction.error).toBe(error);
-
-		action.onError = jest.fn();
-		onError(action, error);
-		expect(action.onError.mock.calls.length).toBe(1);
-		expect(action.onError.mock.calls[0][0]).toBe(error);
-	});
 	it('should httpMiddleware return function', () => {
 		const store = {
 			dispatch: jest.fn(),
@@ -364,6 +310,41 @@ describe('CMF http middleware', () => {
 			expect(store.dispatch.mock.calls.length).toBe(3);
 			const errorCallbackAction = store.dispatch.mock.calls[2][0];
 			expect(errorCallbackAction.type).toBe('CUSTOM_ACTION');
+			done();
+		});
+	});
+
+	it('should dispatch an action defines in onError', done => {
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			onError: 'CUSTOM_ACTION',
+			response: {
+				ok: false,
+				status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
+				statusText: 'Internal Server Error',
+				type: 'basic',
+				url: '//foo/bar',
+				clone: () => ({
+					text: () => new Promise(resolve => resolve('invalid json')),
+				}),
+			},
+		};
+		const middleware = httpMiddleware(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+		newState.then(() => {
+			expect(store.dispatch.mock.calls.length).toBe(4);
+			const errorTextAction = store.dispatch.mock.calls[2][0];
+			expect(errorTextAction.type).toBe('CUSTOM_ACTION');
+			const errorGlobalAction = store.dispatch.mock.calls[3][0];
+			expect(errorGlobalAction.type).toBe(ACTION_TYPE_HTTP_ERRORS);
 			done();
 		});
 	});

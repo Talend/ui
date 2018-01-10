@@ -1,14 +1,15 @@
 import has from 'lodash/has';
 import get from 'lodash/get';
+import { HTTP_METHODS } from './constants';
 import { mergeCSRFToken } from './csrfHandling';
 import {
-	HTTP_METHODS,
-	ACTION_TYPE_HTTP_REQUEST,
-	ACTION_TYPE_HTTP_RESPONSE,
-	ACTION_TYPE_HTTP_ERRORS,
-	HTTP_STATUS,
-	testHTTPCode,
-} from './constants';
+	httpRequest,
+	httpError,
+	httpReducerError,
+	httpResponse,
+	onResponse,
+	onError,
+} from '../../actions/http';
 
 /**
  * @typedef {Object} Action
@@ -104,38 +105,6 @@ export function getMethod(action) {
 	return HTTP_METHODS[action.type];
 }
 
-export function httpRequest(url, config) {
-	return {
-		type: ACTION_TYPE_HTTP_REQUEST,
-		url,
-		config,
-	};
-}
-
-/**
- * transform an HttpError to a dispatchable action
- * @param {HttpError} error
- * @returns {Action}
- */
-export function httpError(error) {
-	return {
-		type: ACTION_TYPE_HTTP_ERRORS,
-		error,
-	};
-}
-
-export function httpResponse(response) {
-	return {
-		type: ACTION_TYPE_HTTP_RESPONSE,
-		data: response,
-	};
-}
-
-/**
- * Merge fetch configuration from action into some default configuration
- * @param {HTTPConfig} action
- * @return {HTTPConfig}
- */
 export function mergeOptions(action) {
 	const options = Object.assign(
 		{
@@ -152,32 +121,6 @@ export function mergeOptions(action) {
 
 	delete options.type;
 	return options;
-}
-
-/**
- * @function onResponse
- */
-export function onResponse(action, response) {
-	if (typeof action.onResponse === 'function') {
-		return action.onResponse(response);
-	}
-	return {
-		type: action.onResponse,
-		response,
-	};
-}
-
-/**
- * @function onError
- */
-export function onError(action, error) {
-	if (typeof action.onError === 'function') {
-		return action.onError(error);
-	}
-	return {
-		type: action.onError,
-		error,
-	};
 }
 
 export function HTTPError(response) {
@@ -201,8 +144,31 @@ export function HTTPError(response) {
 HTTPError.prototype = Object.create(Error.prototype);
 HTTPError.prototype.constructor = HTTPError;
 
-function configureHttpErrorCallBack(dispatch, httpAction) {
-	const onHTTPError = error => {
+export function status(response) {
+	if (response.status >= 200 && response.status < 300) {
+		return Promise.resolve(response);
+	}
+	return Promise.reject(new HTTPError(response));
+}
+
+export function handleResponse(response) {
+	if (response.status === 204) {
+		return Promise.resolve({});
+	}
+	if (response.json) {
+		return response.json();
+	}
+	return Promise.reject(new HTTPError(response));
+}
+
+/**
+ * Factory to create error handler.
+ * The provided function will dispatch action with the following types
+ * @param {function} dispatch
+ * @param {Object} httpAction
+ */
+function getOnError(dispatch, httpAction) {
+	return function onHTTPError(error) {
 		const errorObject = {
 			name: error.name,
 			message: error.description || error.message,
@@ -211,11 +177,7 @@ function configureHttpErrorCallBack(dispatch, httpAction) {
 		};
 		const clone = get(error, 'stack.response.clone');
 		if (!clone) {
-			dispatch({
-				type: 'HTTP_REDUCE_ERROR',
-				error: errorObject,
-				action: httpAction,
-			});
+			dispatch(httpReducerError(errorObject, httpAction));
 		} else {
 			// clone the response object else the next call to text or json
 			// triggers an exception Already use
@@ -229,7 +191,9 @@ function configureHttpErrorCallBack(dispatch, httpAction) {
 					} finally {
 						if (httpAction.onError) {
 							dispatch(onError(httpAction, errorObject));
-						} else {
+						}
+
+						if (typeof httpAction.onError !== 'function') {
 							dispatch(httpError(errorObject));
 						}
 					}
@@ -274,7 +238,7 @@ export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
 			httpAction,
 		});
 	}
-	const onHTTPError = configureHttpErrorCallBack(dispatch, httpAction);
+	const onHTTPError = getOnError(dispatch, httpAction);
 	return fetch(httpAction.url, config)
 		.then(status)
 		.then(handleResponse)
