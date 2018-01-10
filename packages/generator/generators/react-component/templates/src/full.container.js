@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import omit from 'lodash/omit';
 import { Map } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 
@@ -23,9 +24,11 @@ class <%= props.name %> extends React.Component {
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
+		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS));
 		return (
 			<Component
 				name={state.name}
+				{...props}
 			/>
 		);
 	}

@@ -132,7 +132,7 @@ exports[`Storyshots SidePanel With layout (toggle interactive) 1`] = `
         className="tc-layout-two-columns-left"
       >
         <nav
-          className="tc-side-panel"
+          className="tc-side-panel undefined"
           role="navigation"
         >
           <div
@@ -810,7 +810,7 @@ exports[`Storyshots SidePanel default 1`] = `
     </symbol>
   </svg>
   <nav
-    className="tc-side-panel"
+    className="tc-side-panel undefined"
     role="navigation"
   >
     <div
@@ -1057,7 +1057,7 @@ exports[`Storyshots SidePanel docked 1`] = `
     </symbol>
   </svg>
   <nav
-    className="tc-side-panel"
+    className="tc-side-panel undefined"
     role="navigation"
   >
     <div
@@ -1543,7 +1543,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
     </symbol>
   </svg>
   <nav
-    className="tc-side-panel"
+    className="tc-side-panel undefined"
     role="navigation"
   >
     <ul
@@ -2002,7 +2002,7 @@ exports[`Storyshots SidePanel with large inverted style 1`] = `
     </symbol>
   </svg>
   <nav
-    className="tc-side-panel undefined"
+    className="tc-side-panel"
     role="navigation"
   >
     <div
@@ -2245,7 +2245,7 @@ exports[`Storyshots SidePanel with onSelect function 1`] = `
     </symbol>
   </svg>
   <nav
-    className="tc-side-panel"
+    className="tc-side-panel undefined"
     role="navigation"
   >
     <div
