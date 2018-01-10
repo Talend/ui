@@ -3,18 +3,22 @@ const pathLib = require('path');
 
 /**
  * this function go in recursive way to get all the json in the directory
- * @param {string} folder path to the folder
+ * @param {string} fileOrFolder path to the folder or the json file
  */
-function findJsonInFolder(folder) {
-	const jsonFiles = [];
-	fs.readdirSync(folder).forEach(path => {
-		const fullpath = pathLib.join(folder, path);
-		if (path.endsWith('.json')) {
-			jsonFiles.push(fullpath);
-		} else if (fs.lstatSync(fullpath).isDirectory()) {
-			findJsonInFolder(fullpath);
-		}
-	});
+function findJson(fileOrFolder, recursive) {
+	let jsonFiles = [];
+	if (fileOrFolder.endsWith('.json')) {
+		jsonFiles.push(fileOrFolder);
+	} else {
+		fs.readdirSync(fileOrFolder).forEach(path => {
+			const fullpath = pathLib.join(fileOrFolder, path);
+			if (path.endsWith('.json')) {
+				jsonFiles.push(fullpath);
+			} else if (recursive && fs.lstatSync(fullpath).isDirectory()) {
+				jsonFiles = jsonFiles.concat(...findJson(fullpath, recursive));
+			}
+		});
+	}
 	return jsonFiles;
 }
 
@@ -91,7 +95,7 @@ function overrideActions(id, settings) {
 }
 
 module.exports = {
-	findJsonInFolder,
+	findJson,
 	concatMerge,
 	getLogger,
 	getCmfConfig,
