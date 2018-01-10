@@ -49,16 +49,74 @@ const withComponents = {
 			},
 			{
 				component: 'FilterBar',
-				dockable: false,
-				docked: false,
-				withMenuItem: true,
-			},
-			{
-				component: 'Action',
 				label: 'Second item',
 			},
 		],
 	},
+};
+
+const mixItemsComponents = {
+	id: 'context-dropdown-mix-items',
+	label: 'mix items',
+	getComponent: key => {
+		if (key === 'Action') {
+			return Action;
+		}
+		return Action;
+	},
+	items: [
+		{
+			id: 'context-dropdown-item-document-1',
+			icon: 'talend-file-json-o',
+			label: 'document 1',
+			onClick: action('document 1 click'),
+		},
+		{
+			divider: true,
+		},
+		{
+			id: 'context-dropdown-item-document-2',
+			label: 'document 2',
+			onClick: action('document 2 click'),
+		},
+	],
+	components: {
+		itemsDropdown: [
+			{
+				component: 'Action',
+				label: 'Third item',
+			},
+			{
+				divider: true,
+			},
+			{
+				component: 'Action',
+				label: 'Fourth item',
+			},
+		],
+	},
+};
+
+const propsTooltip = {
+	id: 'context-dropdown-tooltip-items',
+	tooltipLabel: 'my tooltip',
+	label: 'Tooltip',
+	items: [
+		{
+			id: 'context-dropdown-item-document-1',
+			icon: 'talend-file-json-o',
+			label: 'document 1',
+			onClick: action('document 1 click'),
+		},
+		{
+			divider: true,
+		},
+		{
+			id: 'context-dropdown-item-document-2',
+			label: 'document 2',
+			onClick: action('document 2 click'),
+		},
+	],
 };
 
 const oneEventAction = {
@@ -97,6 +155,14 @@ storiesOf('ActionDropdown', module).addWithInfo('default', () => (
 		<p>Components Items</p>
 		<div id="withComponents">
 			<ActionDropdown {...withComponents} />
+		</div>
+		<p>Mix Items</p>
+		<div id="mixComponents">
+			<ActionDropdown {...mixItemsComponents} />
+		</div>
+		<p>Tool tip</p>
+		<div id="toolTip">
+			<ActionDropdown {...propsTooltip} />
 		</div>
 		<IconsProvider />
 	</div>
