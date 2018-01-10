@@ -2,7 +2,7 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
-## v0.139.0
+## v0.141.0
 * Container: DeleteResource
 * PR [fix(container/deleteResource): change so keyboard shortcut can be supported ](https://github.com/Talend/ui/pull/958)
 * Changes
