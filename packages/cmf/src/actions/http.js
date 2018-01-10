@@ -26,7 +26,7 @@ function onRequest(url, config) {
 	};
 }
 
-function reducerError(error, action) {
+function onJSError(error, action) {
 	return {
 		type: ACTION_TYPE_HTTP_REDUCER_ERROR,
 		error,
@@ -124,7 +124,7 @@ http.head = function head(url, config) {
 
 http.onError = onError;
 http.onActionError = onActionError;
-http.onReducerError = reducerError;
+http.onJSError = onJSError;
 http.onRequest = onRequest;
 http.onResponse = onResponse;
 http.onActionResponse = onActionResponse;

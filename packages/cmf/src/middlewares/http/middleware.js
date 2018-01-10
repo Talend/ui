@@ -93,7 +93,7 @@ function getOnError(dispatch, httpAction) {
 		};
 		const clone = get(error, 'stack.response.clone');
 		if (!clone) {
-			dispatch(http.onReducerError(errorObject, httpAction));
+			dispatch(http.onJSError(errorObject, httpAction));
 		} else {
 			// clone the response object else the next call to text or json
 			// triggers an exception Already use
