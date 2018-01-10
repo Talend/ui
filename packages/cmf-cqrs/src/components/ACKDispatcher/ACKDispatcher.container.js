@@ -62,7 +62,7 @@ class ACKDispatcher extends React.Component {
 		)({}, data, this.context);
 		action.ack = deleteACK(null, { requestId });
 		this.props.dispatch(action);
-		this.setState((oldState) => {
+		this.setState(oldState => {
 			if (oldState.dispatchedAck.includes(requestId)) {
 				return oldState;
 			}

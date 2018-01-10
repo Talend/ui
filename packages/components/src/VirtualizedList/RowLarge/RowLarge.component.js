@@ -40,6 +40,7 @@ function RowLarge({ className, index, key, parent, style }) {
 		<div
 			className={classNames('tc-list-item', rowThemes, rowData.className)}
 			key={key}
+			tabIndex={0}
 			role="button"
 			onClick={onRowClick}
 			style={style}

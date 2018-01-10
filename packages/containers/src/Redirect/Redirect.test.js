@@ -9,7 +9,7 @@ jest.mock(
 describe('Redirect', () => {
 	it('should dispatch a redirect action', () => {
 		const dispatch = jest.fn();
-		const result = Redirect(
+		const result = new Redirect(
 			{ path: '/hello-world' },
 			{ store: { dispatch } }
 		);

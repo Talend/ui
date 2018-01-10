@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import mock from '@talend/react-cmf/lib/mock';
-import { ActionSplitDropdown } from '@talend/react-components';
 import Connected, {
 	mapStateToProps,
 	ContainerActionSplitDropdown,

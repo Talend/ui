@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import invariant from 'invariant';
 import api from './api';
 
 /**
@@ -20,8 +21,8 @@ function MyComponent(props) {
  */
 
 function NotFoundComponent({ error }) {
-	console.error(error.message);
-	return (<div className="alert alert-danger">{error.message}</div>);
+	invariant(process.env.NODE_ENV === 'production', error.message);
+	return <div className="alert alert-danger">{error.message}</div>;
 }
 NotFoundComponent.propTypes = {
 	error: PropTypes.string.isRequired,
@@ -30,9 +31,9 @@ NotFoundComponent.propTypes = {
 function Inject({ component, ...props }, context) {
 	try {
 		const Component = api.component.get(component, context);
-		return (<Component {...props} />);
+		return <Component {...props} />;
 	} catch (error) {
-		return (<NotFoundComponent error={error.message} />);
+		return <NotFoundComponent error={error.message} />;
 	}
 }
 Inject.contextTypes = {

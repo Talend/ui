@@ -4,6 +4,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Column } from 'react-virtualized';
+import invariant from 'invariant';
 
 import CellCheckboxRenderer from '../CellCheckbox';
 import { internalIds } from './constants';
@@ -29,11 +30,13 @@ export function insertSelectionConfiguration({ children, isSelected, selectionTo
 			/>
 		);
 		contentsConfiguration = [toggleColumn].concat(contentsConfiguration);
-	} else if ((process.env.NODE_ENV !== 'production' && selectionToggle) || isSelected) {
-		console.warn(
+	} else {
+		invariant(
+			process.env.NODE_ENV === 'production',
 			'VirtualizedList : props.selectionToggle goes with props.isSelected. You defined only one of those props, selection is ignored.',
 		);
 	}
+
 	return contentsConfiguration;
 }
 

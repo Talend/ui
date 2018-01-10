@@ -1,3 +1,5 @@
+import invariant from 'invariant';
+
 export function sendReport(payload, transportOpts, attempt = 0) {
 	const {
 		send,
@@ -33,7 +35,7 @@ const defaultHandlers = {
 		);
 	},
 	failedReport: error => {
-		console.error('Logging: unable to send reports', error);
+		invariant(false, 'Logging: unable to send reports', error);
 	},
 };
 
