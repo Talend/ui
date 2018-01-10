@@ -124,7 +124,7 @@ function ActionDropdown(props) {
 			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button')}
 			{...rest}
 		>
-			{items.length <= 0 && !components && <MenuItem disabled>No options</MenuItem>}
+			{!items.length && !components && <MenuItem disabled>No options</MenuItem>}
 			{injected('beforeItemsDropdown')}
 			{items.map(getMenuItem)}
 			{injected('itemsDropdown')}
