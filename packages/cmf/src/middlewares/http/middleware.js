@@ -1,6 +1,10 @@
 import has from 'lodash/has';
 import get from 'lodash/get';
-import { HTTP_METHODS } from './constants';
+import {
+	HTTP_METHODS,
+	HTTP_STATUS,
+	testHTTPCode,
+} from './constants';
 import { mergeCSRFToken } from './csrfHandling';
 import {
 	httpRequest,
@@ -145,14 +149,14 @@ HTTPError.prototype = Object.create(Error.prototype);
 HTTPError.prototype.constructor = HTTPError;
 
 export function status(response) {
-	if (response.status >= 200 && response.status < 300) {
+	if (testHTTPCode.isSuccess(response.status)) {
 		return Promise.resolve(response);
 	}
 	return Promise.reject(new HTTPError(response));
 }
 
 export function handleResponse(response) {
-	if (response.status === 204) {
+	if (response.status === HTTP_STATUS.NO_CONTENT) {
 		return Promise.resolve({});
 	}
 	if (response.json) {
@@ -200,24 +204,6 @@ function getOnError(dispatch, httpAction) {
 				});
 		}
 	};
-	return onHTTPError;
-}
-
-export function status(response) {
-	if (testHTTPCode.isSuccess(response.status)) {
-		return Promise.resolve(response);
-	}
-	return Promise.reject(new HTTPError(response));
-}
-
-export function handleResponse(response) {
-	if (response.status === HTTP_STATUS.NO_CONTENT) {
-		return Promise.resolve({});
-	}
-	if (response.json) {
-		return response.json();
-	}
-	return Promise.reject(new HTTPError(response));
 }
 
 /**

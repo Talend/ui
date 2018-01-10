@@ -412,7 +412,7 @@ describe('http module with instance created', () => {
 		expect(gen.next().value).toEqual(call(httpGet, url, config));
 	});
 
-	it(`check that httpPost is called with an url, POST method, payload and empty config object 
+	it(`check that httpPost is called with an url, payload and empty config object 
     when http.post is called only with an url and a payload`, () => {
 		// given
 		const url = '/url';
@@ -421,10 +421,10 @@ describe('http module with instance created', () => {
 		// when
 		const gen = httpInstance.post(url, payload);
 		// then
-		expect(gen.next().value).toEqual(call(httpPost, url, HTTP_METHODS.POST, payload, {}));
+		expect(gen.next().value).toEqual(call(httpPost, url, payload, {}));
 	});
 
-	it(`check that httpPost is called with an url, POST method, payload and config object 
+	it(`check that httpPost is called with an url, payload and config object 
         when http.post is called with an url and a payload and a config object`, () => {
 		// given
 		const url = '/url';
@@ -440,10 +440,10 @@ describe('http module with instance created', () => {
 		// when
 		const gen = httpInstance.post(url, payload, config);
 		// then
-		expect(gen.next().value).toEqual(call(httpPost, url, HTTP_METHODS.POST, payload, config));
+		expect(gen.next().value).toEqual(call(httpPost, url, payload, config));
 	});
 
-	it(`check that httpPost is called with an url, PUT method, payload and empty config object 
+	it(`check that httpPut is called with an url, payload and empty config object 
         when http.put is called only with an url and a payload`, () => {
 		// given
 		const url = '/url';
@@ -452,10 +452,10 @@ describe('http module with instance created', () => {
 		// when
 		const gen = httpInstance.put(url, payload);
 		// then
-		expect(gen.next().value).toEqual(call(httpPut, url, HTTP_METHODS.PUT, payload, {}));
+		expect(gen.next().value).toEqual(call(httpPut, url, payload, {}));
 	});
 
-	it(`check that httpPut is called with an url, PUT method, payload and config object 
+	it(`check that httpPut is called with an url, payload and config object 
         when http.put is called with an url and a payload and a config object`, () => {
 		// given
 		const url = '/url';
@@ -471,7 +471,7 @@ describe('http module with instance created', () => {
 		// when
 		const gen = httpInstance.put(url, payload, config);
 		// then
-		expect(gen.next().value).toEqual(call(httpPut, url, HTTP_METHODS.PUT, payload, config));
+		expect(gen.next().value).toEqual(call(httpPut, url, payload, config));
 	});
 });
 
@@ -526,7 +526,7 @@ describe('http module with instance created with no CSRF handling configuration'
 		expect(value).toEqual(call(httpGet, url, expectedConfig));
 	});
 
-	it(`check that httpPost is called with an url, POST method, payload and empty config object 
+	it(`check that httpPost is called with an url, payload and empty config object 
     when http.post is called only with an url and a payload`, () => {
 		// given
 		const url = '/url';
@@ -541,11 +541,11 @@ describe('http module with instance created with no CSRF handling configuration'
 		const gen = httpInstance.post(url, payload);
 		// then
 		expect(gen.next().value).toEqual(
-			call(httpPost, url, HTTP_METHODS.POST, payload, expectedConfig),
+			call(httpPost, url, payload, expectedConfig),
 		);
 	});
 
-	it(`check that httpPost is called with an url, POST method, payload and config object 
+	it(`check that httpPost is called with an url, payload and config object 
         when http.post is called with an url and a payload and a config object`, () => {
 		// given
 		const url = '/url';
@@ -570,11 +570,11 @@ describe('http module with instance created with no CSRF handling configuration'
 		const gen = httpInstance.post(url, payload, config);
 		// then
 		expect(gen.next().value).toEqual(
-			call(httpPost, url, HTTP_METHODS.POST, payload, expectedConfig),
+			call(httpPost, url, payload, expectedConfig),
 		);
 	});
 
-	it(`check that httpPut is called with an url, PUT method, payload and empty config object 
+	it(`check that httpPut is called with an url, payload and empty config object 
         when http.put is called only with an url and a payload`, () => {
 		// given
 		const url = '/url';
@@ -589,11 +589,11 @@ describe('http module with instance created with no CSRF handling configuration'
 		const gen = httpInstance.put(url, payload, {});
 		// then
 		expect(gen.next().value).toEqual(
-			call(httpPut, url, HTTP_METHODS.PUT, payload, expectedConfig),
+			call(httpPut, url, payload, expectedConfig),
 		);
 	});
 
-	it(`check that httpPut is called with an url, PUT method, payload and config object 
+	it(`check that httpPut is called with an url, payload and config object 
         when http.put is called with an url and a payload and a config object`, () => {
 		// given
 		const url = '/url';
@@ -618,7 +618,7 @@ describe('http module with instance created with no CSRF handling configuration'
 		const gen = httpInstance.put(url, payload, config);
 		// then
 		expect(gen.next().value).toEqual(
-			call(httpPut, url, HTTP_METHODS.PUT, payload, expectedConfig),
+			call(httpPut, url, payload, expectedConfig),
 		);
 	});
 });
@@ -686,7 +686,7 @@ describe('http module with instance created with CSRF handling configuration', (
 		expect(gen.next().value).toEqual(call(httpGet, url, expectedConfig));
 	});
 
-	it(`check that httpPost is called with an url, POST method, payload and empty config object
+	it(`check that httpPost is called with an url, payload and empty config object
     when http.post is called only with an url and a payload`, () => {
 		// given
 		const url = '/url';
@@ -701,11 +701,11 @@ describe('http module with instance created with CSRF handling configuration', (
 		const gen = httpInstance.post(url, payload);
 		// then
 		expect(gen.next().value).toEqual(
-			call(httpPost, url, HTTP_METHODS.POST, payload, expectedConfig),
+			call(httpPost, url, payload, expectedConfig),
 		);
 	});
 
-	it(`check that httpPost is called with an url, POST method, payload and config object
+	it(`check that httpPost is called with an url, payload and config object
         when http.post is called with an url and a payload and a config object`, () => {
 		// given
 		const url = '/url';
@@ -730,11 +730,11 @@ describe('http module with instance created with CSRF handling configuration', (
 		const gen = httpInstance.post(url, payload, config);
 		// then
 		expect(gen.next().value).toEqual(
-			call(httpPost, url, HTTP_METHODS.POST, payload, expectedConfig),
+			call(httpPost, url, payload, expectedConfig),
 		);
 	});
 
-	it(`check that httpPut is called with an url, PUT method, payload and empty config object
+	it(`check that httpPut is called with an url, payload and empty config object
         when http.put is called only with an url and a payload`, () => {
 		// given
 		const url = '/url';
@@ -749,11 +749,11 @@ describe('http module with instance created with CSRF handling configuration', (
 		const gen = httpInstance.put(url, payload);
 		// then
 		expect(gen.next().value).toEqual(
-			call(httpPut, url, HTTP_METHODS.PUT, payload, expectedConfig),
+			call(httpPut, url, payload, expectedConfig),
 		);
 	});
 
-	it(`check that httpPut is called with an url, PUT method, payload and config object
+	it(`check that httpPut is called with an url, payload and config object
         when http.put is called with an url and a payload and a config object`, () => {
 		// given
 		const url = '/url';
@@ -778,7 +778,7 @@ describe('http module with instance created with CSRF handling configuration', (
 		const gen = httpInstance.put(url, payload, config);
 		// then
 		expect(gen.next().value).toEqual(
-			call(httpPut, url, HTTP_METHODS.PUT, payload, expectedConfig),
+			call(httpPut, url, payload, expectedConfig),
 		);
 	});
 });
