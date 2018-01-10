@@ -15,11 +15,11 @@ describe('FieldTemplate', () => {
 				label={'My awesome label'}
 			>
 				<input id={'myAwesomeField'} />
-			</FieldTemplate>
+			</FieldTemplate>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render with label after', () => {
@@ -34,11 +34,11 @@ describe('FieldTemplate', () => {
 				labelAfter
 			>
 				<input id={'myAwesomeField'} />
-			</FieldTemplate>
+			</FieldTemplate>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render invalid className', () => {
@@ -52,10 +52,10 @@ describe('FieldTemplate', () => {
 				label={'My awesome label'}
 			>
 				<input id={'myAwesomeField'} />
-			</FieldTemplate>
+			</FieldTemplate>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

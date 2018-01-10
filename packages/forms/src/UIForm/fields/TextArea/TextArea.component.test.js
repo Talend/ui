@@ -24,11 +24,11 @@ describe('TextArea field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render disabled textarea', () => {
@@ -48,11 +48,11 @@ describe('TextArea field', () => {
 				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render readonly textarea', () => {
@@ -72,11 +72,11 @@ describe('TextArea field', () => {
 				onFinish={jest.fn()}
 				schema={readOnlySchema}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render provided rows', () => {
@@ -96,11 +96,11 @@ describe('TextArea field', () => {
 				onFinish={jest.fn()}
 				schema={schemaWithRows}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onChange', () => {
@@ -115,7 +115,7 @@ describe('TextArea field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'toto'}
-			/>
+			/>,
 		);
 		const value = 'totoa';
 		const event = { target: { value } };
@@ -139,7 +139,7 @@ describe('TextArea field', () => {
 				onFinish={onFinish}
 				schema={schema}
 				value={'toto'}
-			/>
+			/>,
 		);
 		const value = 'totoa';
 		const event = { target: { value } };

@@ -30,7 +30,7 @@ describe('MultiSelectTag field', () => {
 		const wrapper = shallow(<MultiSelectTag {...props} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should update suggestion on input change', () => {
@@ -38,7 +38,10 @@ describe('MultiSelectTag field', () => {
 		const wrapper = mount(<MultiSelectTag {...props} />);
 
 		// when
-		wrapper.find('input').at(0).simulate('change', { target: { value: 'ti' } });
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: 'ti' } });
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual(['titi']);
@@ -64,7 +67,10 @@ describe('MultiSelectTag field', () => {
 		const wrapper = mount(<MultiSelectTag {...props} />);
 
 		// when
-		wrapper.find('input').at(0).simulate('change', { target: { value: 'az' } });
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: 'az' } });
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual(['az (new)']);
@@ -76,7 +82,10 @@ describe('MultiSelectTag field', () => {
 		const wrapper = mount(<MultiSelectTag {...props} schema={restrictedSchema} />);
 
 		// when
-		wrapper.find('input').at(0).simulate('change', { target: { value: 'az' } });
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: 'az' } });
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual([]);
@@ -86,11 +95,7 @@ describe('MultiSelectTag field', () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
-		const wrapper = mount(<MultiSelectTag
-			{...props}
-			onChange={onChange}
-			onFinish={onFinish}
-		/>);
+		const wrapper = mount(<MultiSelectTag {...props} onChange={onChange} onFinish={onFinish} />);
 		const input = wrapper.find('input').at(0);
 
 		// when
@@ -107,14 +112,13 @@ describe('MultiSelectTag field', () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
-		const wrapper = mount(<MultiSelectTag
-			{...props}
-			onChange={onChange}
-			onFinish={onFinish}
-		/>);
+		const wrapper = mount(<MultiSelectTag {...props} onChange={onChange} onFinish={onFinish} />);
 
 		// when
-		wrapper.find('.tc-badge-delete-icon').at(0).simulate('click');
+		wrapper
+			.find('.tc-badge-delete-icon')
+			.at(0)
+			.simulate('click');
 
 		// then
 		const payload = { schema: props.schema, value: props.value.slice(1) };

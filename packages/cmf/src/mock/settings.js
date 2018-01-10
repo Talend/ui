@@ -105,7 +105,7 @@ const settings = {
 			href: '/href',
 		},
 	},
-	views: {
+	props: {
 		appmenu: {
 			actions: ['menu:tuto', 'menu:forum', 'menu:settings'],
 			userMenuActions: ['menu:preferences', 'menu:logout'],
@@ -135,9 +135,7 @@ const settings = {
 		path: '/',
 		component: 'App',
 		indexRoute: { component: 'SortableListWithSideMenu', view: 'homepage' },
-		childRoutes: [
-			{ path: 'myarticle', component: 'SortableListWithSideMenu', view: 'homepage' },
-		],
+		childRoutes: [{ path: 'myarticle', component: 'SortableListWithSideMenu', view: 'homepage' }],
 	},
 };
 export default settings;
