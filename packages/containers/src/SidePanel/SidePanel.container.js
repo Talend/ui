@@ -1,15 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { SidePanel as Component } from '@talend/react-components';
-import { componentState } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 import { Map } from 'immutable';
-
-import Action from '../Action';
-import getRenderers from '../renderers';
-
-const renderers = {
-	Action,
-};
+import omit from 'lodash/omit';
 
 export const DEFAULT_STATE = new Map({
 	docked: false,
@@ -22,7 +16,7 @@ export const DEFAULT_STATE = new Map({
 class SidePanel extends React.Component {
 	static displayName = 'Container(SidePanel)';
 	static propTypes = {
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 	};
 	static contextTypes = {
 		store: PropTypes.object,
@@ -41,13 +35,16 @@ class SidePanel extends React.Component {
 	}
 
 	render() {
-		const { state = DEFAULT_STATE, ...rest } = this.props;
-		const props = Object.assign({
-			docked: state.get('docked'),
-			onToggleDock: this.onToggleDock,
-		});
-
-		return <Component renderers={getRenderers(renderers)} {...rest} {...props} />;
+		const { state = DEFAULT_STATE } = this.props;
+		const props = Object.assign(
+			{},
+			{
+				docked: state.get('docked'),
+				onToggleDock: this.onToggleDock,
+			},
+			omit(this.props, cmfConnect.INJECTED_PROPS),
+		);
+		return <Component {...props} />;
 	}
 }
 

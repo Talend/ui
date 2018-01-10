@@ -11,6 +11,22 @@ The parameter used to properly compute resource information and how to call the 
 have moved from view settings to a saga factory
 
 see documentation added on how to use this peculiar container
+
+## V0.140.0
+
+* Containers: need to be configured
+* PR [feat(containers): register all containers](https://github.com/Talend/ui/pull/XXX)
+* Changes:
+
+Before Containers was working on it's own.
+Now you need to register them in your configure.js (it's CMF)
+
+```javascript
+import { registerAllContainers } from '@talend/react-containers/lib/register';
+
+registerAllContainers();
+```
+
 ## v0.138.0
 
 * CMF: HTTP middleware

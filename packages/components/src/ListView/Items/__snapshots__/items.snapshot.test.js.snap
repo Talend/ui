@@ -3573,6 +3573,7 @@ exports[`Items should render 1`] = `
       }
     }
     i18nLoadedAt={null}
+    isSwitchBox={false}
     items={
       Array [
         Object {
@@ -3761,6 +3762,7 @@ exports[`Items should render 1`] = `
                     }
                   >
                     <Item
+                      isSwitchBox={false}
                       item={
                         Object {
                           "label": "Lorem ipsum dolor sit amet 0",
@@ -3804,6 +3806,7 @@ exports[`Items should render 1`] = `
                     }
                   >
                     <Item
+                      isSwitchBox={false}
                       item={
                         Object {
                           "checked": true,
@@ -3849,6 +3852,7 @@ exports[`Items should render 1`] = `
                     }
                   >
                     <Item
+                      isSwitchBox={false}
                       item={
                         Object {
                           "label": "Lorem ipsum dolor sit amet 2",
@@ -7467,6 +7471,7 @@ exports[`Items should render with provided id 1`] = `
     }
     i18nLoadedAt={null}
     id="my-widget"
+    isSwitchBox={false}
     items={
       Array [
         Object {
@@ -7656,6 +7661,7 @@ exports[`Items should render with provided id 1`] = `
                   >
                     <Item
                       id="my-widget-1-item"
+                      isSwitchBox={false}
                       item={
                         Object {
                           "label": "Lorem ipsum dolor sit amet 0",
@@ -7706,6 +7712,7 @@ exports[`Items should render with provided id 1`] = `
                   >
                     <Item
                       id="my-widget-2-item"
+                      isSwitchBox={false}
                       item={
                         Object {
                           "checked": true,
@@ -7758,6 +7765,7 @@ exports[`Items should render with provided id 1`] = `
                   >
                     <Item
                       id="my-widget-3-item"
+                      isSwitchBox={false}
                       item={
                         Object {
                           "label": "Lorem ipsum dolor sit amet 2",
