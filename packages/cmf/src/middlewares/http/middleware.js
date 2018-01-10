@@ -1,10 +1,6 @@
 import has from 'lodash/has';
 import get from 'lodash/get';
-import {
-	HTTP_METHODS,
-	HTTP_STATUS,
-	testHTTPCode,
-} from './constants';
+import { HTTP_METHODS, HTTP_STATUS, testHTTPCode } from './constants';
 import { mergeCSRFToken } from './csrfHandling';
 import {
 	httpRequest,
