@@ -1,3 +1,4 @@
+
 # Content Management Framework (aka CMF)
 
 This is a framework to help you to build configurable React App.
@@ -173,8 +174,16 @@ It require a cmf.json file with this format in your webapp's project root :
 ```json
 {
 	"settings": {
-		"sources": ["src/settings", "node_modules/@talend/dataset/lib/settings"],
-		"sources-dev": ["src/settings", "../../dataset/webapp/src/settings"],
+		"sources": [
+			"src/settings",
+			"node_modules/@talend/dataset/lib/settings",
+			"node_modules/@talend/myOtherDep/lib/file.json"
+		],
+		"sources-dev": [
+			"src/settings",
+			"../../dataset/webapp/src/settings",
+			"../../myOtherDep/lib/file.json"
+		],
 		"destination": "src/assets/cmf-settings.json"
 	}
 }
@@ -184,6 +193,7 @@ Options for this script :
 
 * -d to use dev-sources instead of sources
 * -q to run the script in quiet mode
+* -r to run the json search recursive
 
 ## Expressions
 
