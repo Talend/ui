@@ -48,12 +48,14 @@ describe('Inject.map', () => {
 				getComponent={getComponent}
 				icon="IconAction1"
 				label="LabelAction1"
+				key={0}
 			/>,
 			<Inject
 				component="Action"
 				getComponent={getComponent}
 				icon="IconAction2"
 				label="LabelAction2"
+				key={1}
 			/>,
 		]);
 	});
@@ -80,12 +82,42 @@ describe('Inject.all', () => {
 				getComponent={getComponent}
 				icon="IconAction1"
 				label="LabelAction1"
+				key={0}
 			/>,
 			<Inject
 				component="Action"
 				getComponent={getComponent}
 				icon="IconAction2"
 				label="LabelAction2"
+				key={1}
+			/>,
+		]);
+	});
+	it('should return a function which return an array of custom inject', () => {
+		const getComponent = jest.fn();
+		const components = {
+			col1: [
+				{ component: 'Action', label: 'LabelAction1', icon: 'IconAction1' },
+				{ component: 'Action', label: 'LabelAction2', icon: 'IconAction2' },
+			],
+			col2: { component: 'Action', label: 'LabelAction3', icon: 'IconAction3' },
+		};
+		const CustomInject = () => <CustomInject />;
+		const ret = Inject.all(getComponent, components, CustomInject);
+		expect(ret('col1')).toEqual([
+			<CustomInject
+				component="Action"
+				getComponent={getComponent}
+				icon="IconAction1"
+				label="LabelAction1"
+				key={0}
+			/>,
+			<CustomInject
+				component="Action"
+				getComponent={getComponent}
+				icon="IconAction2"
+				label="LabelAction2"
+				key={1}
 			/>,
 		]);
 	});

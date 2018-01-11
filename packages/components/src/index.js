@@ -110,8 +110,10 @@ import getTranslated from './TranslateWrapper';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
+import Inject from './Inject';
 
 export {
+	Inject,
 	Action,
 	ActionBar,
 	ActionButton,

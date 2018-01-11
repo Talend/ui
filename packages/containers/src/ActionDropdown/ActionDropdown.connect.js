@@ -5,7 +5,7 @@ import { ActionDropdown } from '@talend/react-components';
 
 import getOnClick from '../actionOnClick';
 
-export function mapStateToProps(state, { actionId, actionIds } = {}) {
+export function mapStateToProps(state, ownProps = {}) {
 	let props = {};
 	const context = {
 		registry: api.registry.getRegistry(),
@@ -13,14 +13,12 @@ export function mapStateToProps(state, { actionId, actionIds } = {}) {
 			getState: () => state,
 		},
 	};
-	if (actionId) {
-		props = api.action.getActionInfo(context, actionId);
+	if (ownProps.actionId) {
+		props = api.action.getActionInfo(context, ownProps.actionId);
 	}
+	const actionIds = ownProps.actionIds || props.actionIds;
 	if (actionIds) {
-		props.actionIds = actionIds;
-	}
-	if (props.actionIds) {
-		props.items = props.actionIds.map(itemId => api.action.getActionInfo(context, itemId));
+		props.items = actionIds.map(itemId => api.action.getActionInfo(context, itemId));
 	}
 	return props;
 }
@@ -30,25 +28,21 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 	if (props.actionId) {
 		delete props.actionId;
 	}
-
 	if (props.actionIds) {
 		delete props.actionIds;
 	}
-
 	return props;
 }
 
-export function ContainerActionDropdown(props) {
-	const newProps = Object.assign({}, props);
-
-	if (newProps.items) {
-		newProps.items = props.items.map(item => ({
+export function ContainerActionDropdown({ items, ...props }) {
+	if (items) {
+		const clikableItems = items.map(item => ({
 			...getOnClick(item, props),
 			...item,
 		}));
+		return <ActionDropdown items={clikableItems} {...props} />;
 	}
-
-	return <ActionDropdown {...newProps} />;
+	return <ActionDropdown {...props} />;
 }
 
 ContainerActionDropdown.displayName = 'Container(ActionDropdown)';
