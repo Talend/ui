@@ -3,8 +3,9 @@ import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Items from './Items.component';
 
-jest.mock('../../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer', () => props =>
-	<div id="autoSizer">{ props.children({ height: 30, width: 30 }) }</div> // eslint-disable-line react/prop-types
+jest.mock(
+	'../../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
+	() => props => <div id="autoSizer">{props.children({ height: 30, width: 30 })}</div>, // eslint-disable-line react/prop-types
 );
 
 describe('Items', () => {
