@@ -1,4 +1,5 @@
 {
+  "doc": "Datalist/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Datalist",
