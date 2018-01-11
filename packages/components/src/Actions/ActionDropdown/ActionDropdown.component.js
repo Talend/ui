@@ -97,15 +97,14 @@ function ActionDropdown(props) {
 		tooltipLabel,
 		getComponent,
 		components,
-		dropdownTitleProps,
 		...rest
 	} = props;
 
 	const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
 	const title = (
-		<span {...dropdownTitleProps}>
+		<span className="tc-dropdown-button-title" >
 			{icon ? <Icon name={icon} /> : null}
-			{hideLabel ? null : <span>{label}</span>}
+			{hideLabel ? null : <span className="tc-dropdown-button-title-label">{label}</span>}
 		</span>
 	);
 	const style = link ? 'link' : bsStyle;
@@ -167,7 +166,6 @@ ActionDropdown.propTypes = {
 		itemsDropdown: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 		afterItemsDropdown: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 	}),
-	dropdownTitleProps: PropTypes.object,
 };
 
 ActionDropdown.defaultProps = {
