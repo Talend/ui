@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InjectDropdownMenuItem should render MenuItem with Inject 1`] = `
+<MenuItem
+  bsClass="dropdown"
+  disabled={false}
+  divider={false}
+  header={false}
+  stuff="MyItemProps"
+>
+  <Inject
+    component="Action"
+    getComponent={[Function]}
+  />
+</MenuItem>
+`;
+
+exports[`InjectDropdownMenuItem should render MenuItem with props divider 1`] = `
+<MenuItem
+  bsClass="dropdown"
+  disabled={false}
+  divider={true}
+  header={false}
+  stuff="MyItemProps"
+/>
+`;
+
+exports[`InjectDropdownMenuItem should render li with Inject 1`] = `
+<li
+  role="presentation"
+  stuff="MyLiProps"
+>
+  <Inject
+    component="Action"
+    getComponent={[Function]}
+  />
+</li>
+`;
+
+exports[`getMenuItem should return a MenuItem with divider 1`] = `
+<MenuItem
+  bsClass="dropdown"
+  disabled={false}
+  divider={true}
+  header={false}
+/>
+`;
+
+exports[`getMenuItem should return a MenuItem with icon and label 1`] = `
+<MenuItem
+  bsClass="dropdown"
+  disabled={false}
+  divider={false}
+  eventKey={
+    Object {
+      "icon": "talend-bell",
+      "label": "Toto",
+    }
+  }
+  header={false}
+  icon="talend-bell"
+  label="Toto"
+  onClick={[Function]}
+>
+  <Icon
+    name="talend-bell"
+  />
+  Toto
+</MenuItem>
+`;
+
+exports[`getMenuItem should return a MenuItem with label 1`] = `
+<MenuItem
+  bsClass="dropdown"
+  disabled={false}
+  divider={false}
+  eventKey={
+    Object {
+      "label": "Toto",
+    }
+  }
+  header={false}
+  label="Toto"
+  onClick={[Function]}
+>
+  Toto
+</MenuItem>
+`;
