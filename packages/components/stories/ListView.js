@@ -120,7 +120,7 @@ storiesOf('ListView', module)
 	})
 	.addWithInfo('without toggleAll', () => {
 		const withoutToggleALLProps = { ...props };
-		withoutToggleALLProps.toggleAllShown = false;
+		withoutToggleALLProps.showToggleAll = false;
 
 		return (
 			<ListView
