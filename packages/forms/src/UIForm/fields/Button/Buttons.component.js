@@ -32,8 +32,8 @@ export default function Buttons({ id, onTrigger, className, schema, onClick }) {
 if (process.env.NODE_ENV !== 'production') {
 	Buttons.propTypes = {
 		id: PropTypes.string,
-		onTrigger: PropTypes.func,
 		onClick: PropTypes.func,
+		onTrigger: PropTypes.func,
 		schema: SingleButton.propTypes.schema,
 		className: PropTypes.string,
 	};

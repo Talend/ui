@@ -215,7 +215,7 @@ export default class UIForm extends React.Component {
 		const actions = this.props.actions || [
 			{
 				bsStyle: 'primary',
-				title: 'Submit',
+				label: 'Submit',
 				type: 'submit',
 				widget: 'button',
 			},
