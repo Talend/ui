@@ -39,11 +39,20 @@ export default class UIForm extends React.Component {
 	 * error: The validation error
 	 */
 	onChange(event, payload) {
-		this.setState({
-			properties: mutateValue(this.state.properties, payload.schema.key, payload.value),
-		});
-		if (this.props.onChange) {
-			this.props.onChange(event, payload);
+		if (this.props.moz) {
+			this.setState({
+				properties: mutateValue(this.state.properties, event.schema.key, event.value),
+			});
+			if (this.props.onChange) {
+				this.props.onChange(event);
+			}
+		} else {
+			this.setState({
+				properties: mutateValue(this.state.properties, payload.schema.key, payload.value),
+			});
+			if (this.props.onChange) {
+				this.props.onChange(event, payload);
+			}
 		}
 	}
 
@@ -126,6 +135,7 @@ export default class UIForm extends React.Component {
 				setErrors={this.setErrors}
 				updateForm={this.updateForm}
 				buttonBlockClass={this.props.buttonBlockClass}
+				moz={this.props.moz}
 			/>
 		);
 	}
