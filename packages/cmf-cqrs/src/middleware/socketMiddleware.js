@@ -1,16 +1,6 @@
 import SmartWebsocket from './smartWebsocket';
 import { SOCKET_ON_OPEN, SOCKET_ON_CLOSE, SOCKET_ON_ERROR } from '../constants';
 
-/*export const ACTION_TYPES = {
-	ON_OPEN: '@@SOCKET.ON_OPEN',
-	ON_CLOSE: '@@SOCKET.ON_CLOSE',
-	ON_ERROR: '@@SOCKET.ON_ERROR',
-};*/
-/*
-ACTION_TYPES.ON_OPEN
-ACTION_TYPES.ON_CLOSE
-ACTION_TYPES.ON_ERROR
-*/
 // if host is localhost connect directly to the localhost backend
 // else connect to the actual host
 const host = window.location.host;
