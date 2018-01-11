@@ -9,8 +9,12 @@ describe('React logger', () => {
 		// given
 		const serverUrl = 'http://localhost:8888/error';
 		const message = 'Error from React render';
-		function getState() { return { my: 'state' }; }
-		function processState(state) { return { myState: state, additionalInfo: 'lol' }; }
+		function getState() {
+			return { my: 'state' };
+		}
+		function processState(state) {
+			return { myState: state, additionalInfo: 'lol' };
+		}
 		function FailureComponent() {
 			throw new Error(message);
 		}
@@ -21,7 +25,7 @@ describe('React logger', () => {
 			mount(
 				<ErrorReporter serverUrl={serverUrl} getState={getState} processState={processState}>
 					<FailureComponent />
-				</ErrorReporter>
+				</ErrorReporter>,
 			);
 		} catch (e) {
 			jest.runAllTimers();
