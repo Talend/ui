@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import initReactLogger from './react-logger';
+import ErrorReporter from './react-logger';
 
 jest.useFakeTimers();
 
@@ -9,11 +9,8 @@ describe('React logger', () => {
 		// given
 		const serverUrl = 'http://localhost:8888/error';
 		const message = 'Error from React render';
-		initReactLogger({
-			serverUrl,
-			getState: () => ({ my: 'state' }),
-			processState: state => ({ myState: state, additionalInfo: 'lol' }),
-		});
+		function getState() { return { my: 'state' }; }
+		function processState(state) { return { myState: state, additionalInfo: 'lol' }; }
 		function FailureComponent() {
 			throw new Error(message);
 		}
@@ -21,7 +18,11 @@ describe('React logger', () => {
 
 		// when
 		try {
-			mount(<FailureComponent />);
+			mount(
+				<ErrorReporter serverUrl={serverUrl} getState={getState} processState={processState}>
+					<FailureComponent />
+				</ErrorReporter>
+			);
 		} catch (e) {
 			jest.runAllTimers();
 		}
