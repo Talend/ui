@@ -54,5 +54,6 @@ $tc-list-large-field-value-color: $dove-gray !default;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		flex: 1;
 	}
 }
