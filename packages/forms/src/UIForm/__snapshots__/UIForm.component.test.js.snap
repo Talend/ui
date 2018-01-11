@@ -114,7 +114,7 @@ exports[`UIForm component should render form 1`] = `
         "items": Array [
           Object {
             "bsStyle": "primary",
-            "title": "Submit",
+            "label": "Submit",
             "type": "submit",
             "widget": "button",
           },

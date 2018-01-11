@@ -301,6 +301,7 @@ exports[`UIForm container should render form 2`] = `
     }
   }
   method={undefined}
+  moz={undefined}
   noHtml5Validate={true}
   onChange={[Function]}
   onReset={[Function]}
