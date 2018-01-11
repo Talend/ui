@@ -1,6 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import ActionDropdown from './ActionDropdown.component';
+import { mount, shallow } from 'enzyme';
+import ActionDropdown, { InjectDropdownMenuItem, getMenuItem } from './ActionDropdown.component';
 
 describe('ActionDropdown', () => {
 	it('should call onSelect callback when click on item', () => {
@@ -46,5 +46,55 @@ describe('ActionDropdown', () => {
 			model: 'model',
 		});
 		expect(onItemClick.mock.calls[1][0].type).toBe('click');
+	});
+});
+
+describe('getMenuItem', () => {
+	it('should return a MenuItem with divider', () => {
+		expect(getMenuItem({ divider: true })).toMatchSnapshot();
+	});
+	it('should return a MenuItem with icon and label', () => {
+		expect(getMenuItem({ label: 'Toto', icon: 'talend-bell' })).toMatchSnapshot();
+	});
+	it('should return a MenuItem with label', () => {
+		expect(getMenuItem({ label: 'Toto' })).toMatchSnapshot();
+	});
+});
+
+describe('InjectDropdownMenuItem', () => {
+	const getComponent = jest.fn();
+	it('should render MenuItem with props divider', () => {
+		const wrapper = shallow(
+			<InjectDropdownMenuItem
+				getComponent={getComponent}
+				key={0}
+				menuItemProps={{ stuff: 'MyItemProps' }}
+				divider
+			/>,
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should render MenuItem with Inject', () => {
+		const wrapper = shallow(
+			<InjectDropdownMenuItem
+				getComponent={getComponent}
+				component="Action"
+				key={0}
+				menuItemProps={{ stuff: 'MyItemProps' }}
+				withMenuItem
+			/>,
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should render li with Inject', () => {
+		const wrapper = shallow(
+			<InjectDropdownMenuItem
+				getComponent={getComponent}
+				component="Action"
+				key={0}
+				liProps={{ stuff: 'MyLiProps' }}
+			/>,
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
