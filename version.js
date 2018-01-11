@@ -90,7 +90,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-router': '3.0.5',
 	'react-router-redux': '4.0.8',
 	'react-test-renderer': REACT_VERSION,
-	'react-virtualized': '9.10.1',
+	'react-virtualized': '9.15.0',
 	reselect: '^2.5.4',
 
 	redux: '3.6.0',
