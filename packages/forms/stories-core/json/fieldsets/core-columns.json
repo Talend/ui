@@ -1,4 +1,5 @@
 {
+  "doc": "Columns/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Comment",

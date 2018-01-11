@@ -49,9 +49,11 @@ function createStory(category, sampleFilenames, filename) {
 		category,
 		name,
 		story() {
+			const { doc, ...data } = object(name, sampleFilenames(filename));
 			return (
 				<section>
 					<IconsProvider />
+					  {doc && <a href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${category}/${doc}`} target="_blank" rel="noopener noreferrer">Documentation</a>}
 						<UIForm
 							{...createCommonProps('state')}
 							data={object(name, sampleFilenames(filename))}
@@ -64,15 +66,15 @@ function createStory(category, sampleFilenames, filename) {
 
 conceptsFilenames
 	.keys()
-	.forEach((filename) => { stories.push(createStory('concepts', conceptsFilenames, filename)); });
+	.forEach(filename => { stories.push(createStory('concepts', conceptsFilenames, filename)); });
 
 fieldsetsFilenames
 	.keys()
-	.forEach((filename) => { stories.push(createStory('fieldsets', fieldsetsFilenames, filename)); });
+	.forEach(filename => { stories.push(createStory('fieldsets', fieldsetsFilenames, filename)); });
 
 fieldsFilenames
 	.keys()
-	.forEach((filename) => { stories.push(createStory('fields', fieldsFilenames, filename)); });
+	.forEach(filename => { stories.push(createStory('fields', fieldsFilenames, filename)); });
 
 oldFilenames
 	.keys()

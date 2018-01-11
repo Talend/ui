@@ -1,3 +1,3 @@
-import Redirect from './Redirect.component';
+import Redirect from './Redirect.container';
 
 export default Redirect;
