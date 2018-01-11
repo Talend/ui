@@ -32,4 +32,12 @@ describe('Items', () => {
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
+
+	it('should render without toggleAll checkbox', () => {
+		// when
+		const wrapper = mount(<Items {...props} toggleAllShown={false} />);
+
+		// then
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
 });

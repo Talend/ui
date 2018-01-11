@@ -112,13 +112,19 @@ storiesOf('ListView', module)
 		);
 	})
 	.addWithInfo('with switch box', () => {
-		const selectedValuesProps = { ...props };
-
-		selectedValuesProps.items[1].checked = true;
-
 		return (
 			<ListView
 				{...withSwitchBox}
+			/>
+		);
+	})
+	.addWithInfo('without toggleAll', () => {
+		const withoutToggleALLProps = { ...props };
+		withoutToggleALLProps.toggleAllShown = false;
+
+		return (
+			<ListView
+				{...withoutToggleALLProps}
 			/>
 		);
 	});
