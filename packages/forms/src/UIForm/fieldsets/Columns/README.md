@@ -1,4 +1,4 @@
-# Buttons
+# Columns
 
 This widget allows you to columns containing widgets/fields.
 
