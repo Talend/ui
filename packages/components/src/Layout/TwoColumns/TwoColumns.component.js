@@ -9,7 +9,7 @@ import theme from './TwoColumns.scss';
 /**
  * @param {object} props react props
  * @example
-<TwoColumns name="Hello world"></TwoColumns>
+ <TwoColumns name="Hello world"></TwoColumns>
  */
 function TwoColumns({ one, drawers, children, tabs, ...props }) {
 	const containerCSS = classnames(
@@ -33,15 +33,15 @@ function TwoColumns({ one, drawers, children, tabs, ...props }) {
 
 	return (
 		<div className={containerCSS} {...props}>
-			<div className={sidemenuCSS}>{one}</div>
-			<div className={mainCSS}>
+			<aside className={sidemenuCSS}>{one}</aside>
+			<main className={mainCSS}>
 				<WithDrawer drawers={drawers}>
 					{tabs && <TabBar {...tabs} />}
 					<div style={style}>
 						{children}
 					</div>
 				</WithDrawer>
-			</div>
+			</main>
 		</div>
 	);
 }

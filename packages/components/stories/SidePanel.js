@@ -61,7 +61,9 @@ stories
 		<div>
 			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
-			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
+			<I18nextProvider i18n={i18n}>
+				<div style={{'background': '#999'}}>{story()}</div>
+			</I18nextProvider>
 		</div>
 	))
 	.addWithInfo('default', () => (

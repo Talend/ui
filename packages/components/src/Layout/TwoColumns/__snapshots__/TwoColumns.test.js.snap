@@ -9,14 +9,14 @@ exports[`TwoColumns should render two columns 1`] = `
     }
   }
 >
-  <div
+  <aside
     className="tc-layout-two-columns-left"
   >
     <div>
       Hello world
     </div>
-  </div>
-  <div
+  </aside>
+  <main
     className="tc-layout-two-columns-main"
   >
     <div
@@ -40,6 +40,6 @@ exports[`TwoColumns should render two columns 1`] = `
         className={undefined}
       />
     </div>
-  </div>
+  </main>
 </div>
 `;

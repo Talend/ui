@@ -1,0 +1,61 @@
+/// Define button colors based on its background
+/// @access public
+/// @param {Color} $btn-bg [$btn-default-bg] - button background color to tint
+@mixin btn-colors($btn-bg: $btn-default-bg) {
+	box-shadow: 0 (-1 * $btn-box-shadow-width) 0 rgba(0, 0, 0, 0.15) inset;
+
+	&:hover {
+		background-color: tint($btn-bg, $btn-background-tint-percent);
+		box-shadow: 0 (-1 * $btn-box-shadow-width) 0 $shadow inset;
+	}
+
+	&:active {
+		background-color: $btn-bg;
+		box-shadow: 0 (-1 * $btn-box-shadow-width) 0 rgba(0, 0, 0, 0) inset;
+	}
+}
+
+/// Dropdown caret default color
+/// @access public
+/// @content Borders and box-shadow color variation
+/// @param {Color} dropdown-caret-color - Caret color
+@mixin dropdown-caret-color($dropdown-caret-color) {
+	border-top-color: $dropdown-caret-color;
+	border-right-color: $dropdown-caret-color;
+	box-shadow: 1px -1px 0 $dropdown-caret-color;
+}
+
+/// Define gradient based webapp layouts
+/// @access public
+/// @param {Color} $brand-primary [$brand-primary] - button background color to tint
+/// @param {Color} $brand-secondary [$brand-primary] - button background color to tint
+@mixin layout-colors($brand-primary, $brand-secondary: $brand-primary) {
+	header nav {
+		$gradient-angle: "to right";
+		background: linear-gradient(
+				#{$gradient-angle},
+				$regal-blue 20%,
+				$brand-primary 80%
+		);
+	}
+
+	aside {
+		$gradient-angle: "to bottom";
+		background: linear-gradient(
+				#{$gradient-angle},
+				$st-tropaz,
+				$brand-primary 95%
+		);
+
+		li {
+			&.active {
+				$gradient-angle: "to right";
+				background: linear-gradient(
+						#{$gradient-angle},
+						$brand-secondary 55%,
+						$green-talend 115%
+				);
+			}
+		}
+	}
+}

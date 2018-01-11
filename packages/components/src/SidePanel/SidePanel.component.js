@@ -67,7 +67,7 @@ function SidePanel({
 	const navCSS = classNames(theme['tc-side-panel'], 'tc-side-panel', {
 		[theme.docked]: docked,
 		[theme.large]: large,
-		[theme['nav-inverse']]: !reverse,
+		[theme['nav-reverse']]: reverse,
 	});
 	const listCSS = classNames(
 		theme.nav,
@@ -80,8 +80,8 @@ function SidePanel({
 		'tc-side-panel-list',
 		theme['action-list'],
 		{
-			'nav-inverse': !reverse,
-			[theme['nav-inverse']]: !reverse,
+			'nav-reverse': reverse,
+			[theme['nav-reverse']]: reverse,
 		},
 	);
 	const isActionSelected = action => {

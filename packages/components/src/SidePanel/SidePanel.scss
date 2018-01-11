@@ -22,17 +22,13 @@ $tc-side-panel-large-toggle-padding: 4px !default;
 $toggle-button-padding: $padding-small - 1;
 
 .tc-side-panel {
-	overflow-x: hidden;
-	padding: 0;
-	transition: 0.2s width ease-out;
-	width: $tc-side-panel-width;
-	border-right: $tc-side-panel-border-size solid $alto;
 	display: flex;
 	flex-direction: column;
-
-	> ul {
-		width: $tc-side-panel-width;
-	}
+	padding: 0;
+	width: $tc-side-panel-width;
+	overflow-x: hidden;
+	//border-right: $tc-side-panel-border-size solid $alto;
+	transition: 0.2s width ease-out;
 
 	:global(.btn) svg:global(.tc-svg-icon) {
 		width: $tc-side-panel-icons-size;
@@ -53,38 +49,43 @@ $toggle-button-padding: $padding-small - 1;
 	}
 
 	&-list {
-		background-color: $wild-sand;
+		width: $tc-side-panel-width;
+		//background-color: $wild-sand;
 
-		.tc-side-panel-list-item.active {
-			background-color: $list-item-color;
-			color: $brand-primary;
-			&:hover {
-				:global(.tc-svg-icon) {
-					color: $brand-primary;
+		& &-item {
+			color: white;
+
+			&.active {
+				//background-color: $list-item-color;
+				//color: $brand-primary;
+				//&:hover {
+				//:global(.tc-svg-icon) {
+				//color: $brand-primary;
+				//}
+				//}
+				:global(.btn.btn-link) {
+					font-weight: bold;
 				}
 			}
-			:global(.btn.btn-link) {
-				font-weight: bold;
-			}
-		}
 
-		.tc-side-panel-list-item:hover {
-			background-color: $list-item-reverse-hover-color;
-			color: $dove-gray;
-			:global(.tc-svg-icon) {
-				color: $silver;
-			}
+			//&:hover {
+			//background-color: $list-item-reverse-hover-color;
+			//color: $dove-gray;
+			//:global(.tc-svg-icon) {
+			//color: $silver;
+			//}
+			//}
 		}
 	}
 
 	.toggle-btn {
-		background-color: $wild-sand;
+		//background-color: $wild-sand;
 		padding-bottom: $padding-normal + $padding-large;
 		padding-left: $toggle-button-padding;
 		text-align: left;
 
 		:global(.btn.btn-link) {
-			color: $dove-gray;
+			color: $white;
 			line-height: 1;
 			padding: $padding-small;
 			display: inline-block;
@@ -108,38 +109,39 @@ $toggle-button-padding: $padding-small - 1;
 			display: none;
 		}
 	}
-
-	&.nav-inverse {
-		background-color: $list-item-reverse-color;
-		border-right: none;
-
-		.tc-side-panel-list {
-			border-right: none;
+	/*
+		&.nav-reverse {
 			background-color: $list-item-reverse-color;
+			border-right: none;
 
-			.tc-side-panel-list-item:hover,
-			.tc-side-panel-list-item.active {
-				color: $list-item-color;
-				:global(.tc-svg-icon) {
+			.tc-side-panel-list {
+				border-right: none;
+				background-color: $list-item-reverse-color;
+
+				.tc-side-panel-list-item:hover,
+				.tc-side-panel-list-item.active {
 					color: $list-item-color;
+					:global(.tc-svg-icon) {
+						color: $list-item-color;
+					}
+				}
+				.tc-side-panel-list-item:hover {
+					background-color: $list-item-hover-color;
+				}
+
+				.tc-side-panel-list-item.active {
+					background-color: $list-item-active-color;
 				}
 			}
-			.tc-side-panel-list-item:hover {
-				background-color: $list-item-hover-color;
-			}
 
-			.tc-side-panel-list-item.active {
-				background-color: $list-item-active-color;
+			.toggle-btn {
+				background-color: $list-item-reverse-color;
+				:global(.btn.btn-link) {
+					color: $white;
+				}
 			}
 		}
-
-		.toggle-btn {
-			background-color: $list-item-reverse-color;
-			:global(.btn.btn-link) {
-				color: $white;
-			}
-		}
-	}
+	*/
 
 	&.docked {
 		width: $tc-side-panel-docked-width;
@@ -147,15 +149,13 @@ $toggle-button-padding: $padding-small - 1;
 		.tc-side-panel-list-item {
 			width: $tc-side-panel-docked-width;
 		}
-		.nav-pills {
-			:global(.btn.btn-link) {
-				padding: $padding-normal;
-			}
+		:global(.btn.btn-link) {
+			padding: $padding-normal;
+		}
 
-			.toggle-btn {
-				:global(.tc-svg-icon) {
-					transform: rotate(-180deg);
-				}
+		.toggle-btn {
+			:global(.tc-svg-icon) {
+				transform: rotate(-180deg);
 			}
 		}
 

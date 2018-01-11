@@ -9,7 +9,7 @@ import WithDrawer from '../../WithDrawer';
 /**
  * @param {object} props react props
  * @example
-<OneColumn name="Hello world"></OneColumn>
+ <OneColumn name="Hello world"></OneColumn>
  */
 function OneColumn({ drawers, children, tabs, ...props }) {
 	const container = classnames(
@@ -23,14 +23,14 @@ function OneColumn({ drawers, children, tabs, ...props }) {
 		flexDirection: 'column',
 	};
 	return (
-		<div className={container} {...props}>
+		<main className={container} {...props}>
 			<WithDrawer drawers={drawers}>
 				{tabs && <TabBar {...tabs} />}
 				<div style={style}>
 					{children}
 				</div>
 			</WithDrawer>
-		</div>
+		</main>
 	);
 }
 

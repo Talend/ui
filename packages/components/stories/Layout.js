@@ -12,6 +12,15 @@ import {
 	SubHeaderBar,
 } from '../src/index';
 
+const apps = [
+	'tdc',
+	'tdp',
+	'tds',
+	'tfd',
+	'tic',
+	'tmc',
+];
+
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
 	'talend-dataprep': talendIcons['talend-dataprep'],
@@ -55,13 +64,13 @@ const content = (
 	</div>
 );
 const sidePanel = (
-	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked={false} />
+	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked={false}/>
 );
 const dockedSidePanel = (
-	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked />
+	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked/>
 );
-const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
-const subHeader = <SubHeaderBar title="MyTitle" onGoBack={action('SubHeader onGoBack')} />;
+const header = <HeaderBar brand={{ label: 'Example App Name' }}/>;
+const subHeader = <SubHeaderBar title="MyTitle" onGoBack={action('SubHeader onGoBack')}/>;
 const footer = 'Footer content';
 
 const listItem = {
@@ -161,100 +170,120 @@ const tabs = {
 	selected: '2',
 };
 
-storiesOf('Layout', module)
-	.addWithInfo('OneColumn', () => (
-		<Layout header={header} mode="OneColumn">
+const stories =
+	storiesOf('Layout', module)
+		.addDecorator(story => (
+			<div>
+				<IconsProvider defaultIcons={icons}/>
+				{story()}
+			</div>
+		))
+		.addWithInfo('OneColumn', () => (
+			<Layout header={header} mode="OneColumn">
+				<h1>Hello world</h1>
+			</Layout>
+		));
+
+apps.forEach(app => stories
+	.addWithInfo(`OneColumn ${app.toUpperCase()}`, () => (
+		<Layout id={app} header={header} mode="OneColumn">
 			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
+	.addWithInfo(`OneColumn ${app.toUpperCase()} with theme`, () => (
+		<Layout id={app} hasTheme={true} header={header} mode="OneColumn">
+			<h1>Hello world</h1>
+		</Layout>
+	))
+);
+stories
 	.addWithInfo('OneColumn with scroll', () => (
 		<Layout header={header} mode="OneColumn">
 			{content}
-			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('OneColumn with tabs', () => (
 		<Layout header={header} tabs={tabs} mode="OneColumn">
 			{content}
-			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel}>
 			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	));
+
+apps.forEach(app => stories
+	.addWithInfo(`TwoColumns ${app.toUpperCase()}`, () => (
+		<Layout id={app} header={header} mode="TwoColumns" one={sidePanel}>
+			<h1>Hello world</h1>
 		</Layout>
 	))
+	.addWithInfo(`TwoColumns ${app.toUpperCase()} with theme`, () => (
+		<Layout id={app} hasTheme={true} header={header} mode="TwoColumns" one={sidePanel}>
+			<h1>Hello world</h1>
+		</Layout>
+	))
+);
+
+stories
 	.addWithInfo('TwoColumns with scroll', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel}>
 			{content}
-			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with tabs', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} tabs={tabs}>
 			{content}
-			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with big Table list', () => (
 		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
 			<List {...listProps} />
-			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with big Large list', () => (
 		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
-			<List {...listProps} displayMode={'large'} />
-			<IconsProvider defaultIcons={icons} />
+			<List {...listProps} displayMode={'large'}/>
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with big Tile list', () => (
 		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
-			<List {...listProps} displayMode={'tile'} />
-			<IconsProvider defaultIcons={icons} />
+			<List {...listProps} displayMode={'tile'}/>
 		</Layout>
 	))
 	.addWithInfo('TwoColumns docked', () => (
 		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
 			{content}
-			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('TwoColumns with drawers', () => (
 		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
 			{content}
-			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('OneColumn with footer', () => (
 		<Layout header={header} mode="OneColumn" footer={footer}>
 			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('OneColumn without header', () => (
 		<Layout mode="OneColumn">
 			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('Subheader with OneColumn', () => (
 		<Layout header={header} subHeader={subHeader} mode="OneColumn" footer={footer}>
 			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('Subheader with TwoColumns', () => (
 		<Layout header={header} subHeader={subHeader} one={sidePanel} mode="TwoColumns" footer={footer}>
 			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))
 	.addWithInfo('Subheader alone', () => (
-		<Layout subHeader={subHeader} >
+		<Layout subHeader={subHeader}>
 			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	));

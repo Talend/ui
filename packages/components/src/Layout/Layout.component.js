@@ -13,34 +13,38 @@ import { DISPLAY_MODES, DISPLAY_MODE_ONE_COLUMN, DISPLAY_MODE_TWO_COLUMNS } from
  * If the Layout is not after the body you have to
  * add some CSS
  * @example
-body > div {
-	max-height: 100vh;
-	overflow: hidden;
+ body > div {
 	display: flex;
 	width: 100vw;
+	max-height: 100vh;
+	overflow: hidden;
 }
  * @param {object} props react props
  * @example
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
-function Layout({ header, subHeader, footer, mode, drawers, tabs, children, ...rest }) {
-	const appCSS = classnames('tc-layout', theme.layout);
+function Layout({ id, header, subHeader, footer, mode, drawers, tabs, hasTheme, children, ...rest }) {
+	const attrs = {};
+	if (id) {
+		attrs.id = id;
+	}
+	const appCSS = classnames('tc-layout', theme.layout, hasTheme && theme.t7);
 	const headerCSS = classnames('tc-layout-header', theme.header);
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
 	let Component;
 	switch (mode) {
-		case DISPLAY_MODE_ONE_COLUMN:
-			Component = OneColumn;
-			break;
-		case DISPLAY_MODE_TWO_COLUMNS:
-			Component = TwoColumns;
-			break;
-		default:
-			Component = OneColumn;
+	case DISPLAY_MODE_ONE_COLUMN:
+		Component = OneColumn;
+		break;
+	case DISPLAY_MODE_TWO_COLUMNS:
+		Component = TwoColumns;
+		break;
+	default:
+		Component = OneColumn;
 	}
 	return (
-		<div className={appCSS}>
-			{header && <div className={headerCSS}>{header}</div>}
+		<div {...attrs} className={appCSS}>
+			{header && <header role="banner" className={headerCSS}>{header}</header>}
 			{subHeader}
 			{Component && (
 				<Component drawers={drawers} tabs={tabs} {...rest}>
@@ -57,12 +61,14 @@ function Layout({ header, subHeader, footer, mode, drawers, tabs, children, ...r
 }
 
 Layout.propTypes = {
+	id: PropTypes.string,
 	header: PropTypes.element,
 	footer: PropTypes.element,
 	subHeader: PropTypes.element,
 	mode: PropTypes.oneOf(DISPLAY_MODES),
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	tabs: PropTypes.shape(TabBar.propTypes),
+	hasTheme: PropTypes.bool,
 	children: PropTypes.node,
 };
 
