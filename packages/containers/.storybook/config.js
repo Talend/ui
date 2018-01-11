@@ -196,10 +196,13 @@ function loadStories() {
 				]),
 			}),
 		);
-		state.cmf.settings.views.appheaderbar = {
+		if (!state.cmf.settings.props) {
+			state.cmf.settings.props = state.cmf.settings.views;
+		}
+		state.cmf.settings.props.appheaderbar = {
 			app: 'Hello Test',
 		};
-		state.cmf.settings.views['HeaderBar#default'] = {
+		state.cmf.settings.props['HeaderBar#default'] = {
 			logo: { name: 'appheaderbar:logo', isFull: true },
 			brand: { label: 'DATA STREAMS' },
 			notification: { name: 'appheaderbar:notification' },
