@@ -102,8 +102,14 @@ export const wrapCustomWidget = Component => {
 			newProps.onChange = (event, payload) => {
 				if (!payload) {
 					onChange({}, { schema: newProps.schema, value: event });
+					if (props.onFinish) {
+						props.onFinish({}, { schema: newProps.schema, value: event });
+					}
 				} else {
 					onChange(event, payload);
+					if (props.onFinish) {
+						props.onFinish({}, payload);
+					}
 				}
 			};
 		}
