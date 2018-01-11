@@ -18,6 +18,7 @@ import httpMiddleware from './middlewares/http';
 import componentState from './componentState';
 import sagaRouter from './sagaRouter';
 import sagas from './sagas';
+import selectors from './selectors';
 
 const Dispatcher = ConnectedDispatcher;
 
@@ -50,4 +51,5 @@ export {
 	httpMiddleware,
 	sagaRouter,
 	sagas,
+	selectors,
 };

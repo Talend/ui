@@ -1,4 +1,5 @@
 {
+  "doc": "Radios/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Choice",

@@ -139,7 +139,7 @@ import { api } from '@talend/react-cmf';
 return actions.http.get('/api/may-not-exists', {
 	onError(error) {
 		if (get(error, 'stack.status') !== 404) {
-			return api.actions.http.httpError(error);
+			return api.actions.http.onError(error);
 		}
 		return {
 			type: NOT_FOUND,
