@@ -39,12 +39,17 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 				autoFocus={autoFocus}
 				className="form-control"
 				disabled={disabled}
-				onBlur={event => onFinish(event, { schema })}
 				onChange={
-					event => onChange(
-						event,
-						{ schema, value: getSelectedOptions(event.target, multiple) }
-					)
+					event => {
+						onChange(
+							event,
+							{ schema, value: getSelectedOptions(event.target, multiple) }
+						);
+						onFinish(
+							event,
+							{ schema, value: getSelectedOptions(event.target, multiple) }
+						);
+					}
 				}
 				readOnly={readOnly}
 				value={value}
