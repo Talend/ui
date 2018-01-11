@@ -2,6 +2,16 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.141.0
+* Container: DeleteResource
+* PR [fix(container/deleteResource): change so keyboard shortcut can be supported ](https://github.com/Talend/ui/pull/958)
+* Changes
+
+The parameter used to properly compute resource information and how to call the URL to delete resource
+have moved from view settings to a saga factory
+
+see documentation added on how to use this peculiar container
+
 ## V0.140.0
 
 * Containers: need to be configured

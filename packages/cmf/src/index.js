@@ -17,6 +17,7 @@ import getErrorMiddleware from './middlewares/error';
 import componentState from './componentState';
 import sagaRouter from './sagaRouter';
 import sagas from './sagas';
+import selectors from './selectors';
 
 const Dispatcher = ConnectedDispatcher;
 
@@ -48,4 +49,5 @@ export {
 	getErrorMiddleware,
 	sagaRouter,
 	sagas,
+	selectors,
 };
