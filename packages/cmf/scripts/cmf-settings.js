@@ -7,14 +7,15 @@ const program = require('commander'); // eslint-disable-line import/no-extraneou
 const utils = require('./utils');
 
 program
-	.version('0.0.1')
+	.version('0.0.2')
 	.option('-d, --dev', 'dev sources instead of sources')
 	.option('-q, --quiet', 'display nothing')
+	.option('-r, --recursive', 'allow recursive search for json files')
 	// .option('-w, --watch', 'watch files')
 	.parse(process.argv);
 
 // 1 - Init some stuff to use next
-const findJsonInFolder = utils.findJsonInFolder;
+const findJson = utils.findJson;
 const concatMerge = utils.concatMerge;
 const overrideRoutes = utils.overrideRoutes;
 const overrideActions = utils.overrideActions;
@@ -29,8 +30,9 @@ const destination = pathLib.join(process.cwd(), cmfconfig.settings.destination);
 log('\nExtracting configuration from : \n');
 
 const jsonFiles = sources.reduce(
-	(acc, source) => acc.concat([...findJsonInFolder(pathLib.join(process.cwd(), source))]),
-	[],
+	(acc, source) =>
+		acc.concat([...findJson(pathLib.join(process.cwd(), source), program.recursive)]),
+	[]
 );
 
 log(jsonFiles);
