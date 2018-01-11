@@ -1,10 +1,26 @@
 
-> @talend/bootstrap-theme@0.140.0 lint:style /home/travis/build/Talend/ui/packages/theme
+> @talend/bootstrap-theme@0.141.0 lint:style /home/travis/build/Talend/ui/packages/theme
 > sass-lint -q -v
 
 
 src/theme/_buttons.scss
   14:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
+
+src/theme/_colors.scss
+    9:16  warning  Hex notation should all be upper case  hex-notation
+   15:14  warning  Hex notation should all be upper case  hex-notation
+   27:16  warning  Hex notation should all be upper case  hex-notation
+   52:18  warning  Hex notation should all be upper case  hex-notation
+   57:10  warning  Hex notation should all be upper case  hex-notation
+   63:14  warning  Hex notation should all be upper case  hex-notation
+   69:11  warning  Hex notation should all be upper case  hex-notation
+   75:17  warning  Hex notation should all be upper case  hex-notation
+   81:20  warning  Hex notation should all be upper case  hex-notation
+   86:9   warning  Hex notation should all be upper case  hex-notation
+   91:12  warning  Hex notation should all be upper case  hex-notation
+   96:8   warning  Hex notation should all be upper case  hex-notation
+  101:11  warning  Hex notation should all be upper case  hex-notation
+  111:13  warning  Hex notation should all be upper case  hex-notation
 
 src/theme/_dropdowns.scss
   22:22  error  !important not allowed  no-important
@@ -28,5 +44,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 17 problems (14 errors, 3 warnings)
+✖ 31 problems (14 errors, 17 warnings)
 

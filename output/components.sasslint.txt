@@ -1,5 +1,5 @@
 
-> @talend/react-components@0.140.0 lint:style /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.141.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
 
@@ -15,5 +15,25 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 4 problems (1 error, 3 warnings)
+src/Layout/Layout.scss
+   82:25  error    Property `data` appears to be spelled incorrectly  no-misspelled-properties
+   82:29  warning  Space expected after `:`                           space-after-colon
+   82:35  warning  Space expected around operator                     space-around-operator
+   82:39  warning  Space expected around operator                     space-around-operator
+   82:50  warning  Commas should be followed by a space               space-after-comma
+   93:25  error    Property `data` appears to be spelled incorrectly  no-misspelled-properties
+   93:29  warning  Space expected after `:`                           space-after-colon
+   93:35  warning  Space expected around operator                     space-around-operator
+   93:39  warning  Space expected around operator                     space-around-operator
+   93:50  warning  Commas should be followed by a space               space-after-comma
+  104:25  error    Quotes around URLs are required                    url-quotes
+  115:25  error    Property `data` appears to be spelled incorrectly  no-misspelled-properties
+  115:29  warning  Space expected after `:`                           space-after-colon
+  115:35  warning  Space expected around operator                     space-around-operator
+  115:39  warning  Space expected around operator                     space-around-operator
+  115:50  warning  Commas should be followed by a space               space-after-comma
+  132:25  error    Quotes around URLs are required                    url-quotes
+  138:25  error    Quotes around URLs are required                    url-quotes
+
+✖ 22 problems (7 errors, 15 warnings)
 
