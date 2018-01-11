@@ -31,30 +31,18 @@
 /// @param {Color} $brand-secondary [$brand-primary] - button background color to tint
 @mixin layout-colors($brand-primary, $brand-secondary: $brand-primary) {
 	header nav {
-		$gradient-angle: "to right";
-		background: linear-gradient(
-				#{$gradient-angle},
-				$regal-blue 20%,
-				$brand-primary 80%
-		);
+		$gradient-angle: 'to right';
+		background: linear-gradient(#{$gradient-angle}, $regal-blue 20%, $brand-primary 80%);
 	}
 
 	aside {
-		$gradient-angle: "to bottom";
-		background: linear-gradient(
-				#{$gradient-angle},
-				$st-tropaz,
-				$brand-primary 95%
-		);
+		$gradient-angle: 'to bottom';
+		background: linear-gradient(#{$gradient-angle}, $st-tropaz, $brand-primary 95%);
 
 		li {
 			&.active {
-				$gradient-angle: "to right";
-				background: linear-gradient(
-						#{$gradient-angle},
-						$brand-secondary 55%,
-						$green-talend 115%
-				);
+				$gradient-angle: 'to right';
+				background: linear-gradient(#{$gradient-angle}, $brand-secondary 55%, $green-talend 115%);
 			}
 		}
 	}

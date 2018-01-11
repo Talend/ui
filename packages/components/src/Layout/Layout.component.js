@@ -23,7 +23,18 @@ import { DISPLAY_MODES, DISPLAY_MODE_ONE_COLUMN, DISPLAY_MODE_TWO_COLUMNS } from
  * @example
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
-function Layout({ id, header, subHeader, footer, mode, drawers, tabs, hasTheme, children, ...rest }) {
+function Layout({
+	id,
+	header,
+	subHeader,
+	footer,
+	mode,
+	drawers,
+	tabs,
+	hasTheme,
+	children,
+	...rest
+}) {
 	const attrs = {};
 	if (id) {
 		attrs.id = id;
@@ -33,18 +44,22 @@ function Layout({ id, header, subHeader, footer, mode, drawers, tabs, hasTheme, 
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
 	let Component;
 	switch (mode) {
-	case DISPLAY_MODE_ONE_COLUMN:
-		Component = OneColumn;
-		break;
-	case DISPLAY_MODE_TWO_COLUMNS:
-		Component = TwoColumns;
-		break;
-	default:
-		Component = OneColumn;
+		case DISPLAY_MODE_ONE_COLUMN:
+			Component = OneColumn;
+			break;
+		case DISPLAY_MODE_TWO_COLUMNS:
+			Component = TwoColumns;
+			break;
+		default:
+			Component = OneColumn;
 	}
 	return (
 		<div {...attrs} className={appCSS}>
-			{header && <header role="banner" className={headerCSS}>{header}</header>}
+			{header && (
+				<header role="banner" className={headerCSS}>
+					{header}
+				</header>
+			)}
 			{subHeader}
 			{Component && (
 				<Component drawers={drawers} tabs={tabs} {...rest}>
