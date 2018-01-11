@@ -38,6 +38,6 @@ describe('Items', () => {
 		const wrapper = mount(<Items {...props} toggleAllShown={false} />);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(wrapper.find('.tc-listview-toggle-all').exists()).toBeFalsy();
 	});
 });
