@@ -102,7 +102,7 @@ function ActionDropdown(props) {
 
 	const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
 	const title = (
-		<span className="tc-dropdown-button-title" >
+		<span className="tc-dropdown-button-title">
 			{icon ? <Icon name={icon} /> : null}
 			{hideLabel ? null : <span className="tc-dropdown-button-title-label">{label}</span>}
 		</span>
