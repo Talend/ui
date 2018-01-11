@@ -104,8 +104,6 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	deepmerge: '1.5.1',
 
 	// dev deps
-	'@kadira/react-storybook-addon-info': '^3.3.0',
-	'@kadira/storybook': '^2.35.0',
 	'@storybook/react': '^3.3.6',
 	'@storybook/addon-storyshots': '^3.3.6',
 	'@storybook/addon-actions': '^3.3.6',
