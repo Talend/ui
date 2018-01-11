@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import Message from '../../Message';
+import theme from './FieldTemplate.scss';
 
 function Label(props) {
 	return (
@@ -20,7 +21,11 @@ if (process.env.NODE_ENV !== 'production') {
 function FieldTemplate(props) {
 	const groupsClassNames = classNames(
 		'form-group',
-		{ 'has-error': !props.isValid }
+		theme.template,
+		{
+			'has-error': !props.isValid,
+			required: props.required,
+		}
 	);
 
 	return (
@@ -49,6 +54,7 @@ if (process.env.NODE_ENV !== 'production') {
 		isValid: PropTypes.bool,
 		label: PropTypes.string,
 		labelAfter: PropTypes.bool,
+		required: PropTypes.bool,
 	};
 }
 
