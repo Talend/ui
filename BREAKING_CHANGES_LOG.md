@@ -4,7 +4,7 @@ This document aims to ease the WIP migration from a version to another by provid
 
 ## v0.142.0
 * Container: HeaderBar
-* PR
+* PR [fix(component/containers): add number of missings displayName ](https://github.com/Talend/ui/pull/985)
 * Change
 
 Display name of this component was `HeaderBar` now `Container(HeaderBar)`
