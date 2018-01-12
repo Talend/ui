@@ -13,5 +13,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-✖ 3 problems (3 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/merge.js
+  105:16  error  'onFinish' is missing in props validation  react/prop-types
+  106:13  error  'onFinish' is missing in props validation  react/prop-types
+  110:16  error  'onFinish' is missing in props validation  react/prop-types
+  111:13  error  'onFinish' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.js
+  46:3  warning  Unexpected console statement                    no-console
+  60:1  error    Line 60 exceeds the maximum line length of 100  max-len
+  61:1  error    Line 61 exceeds the maximum line length of 100  max-len
+
+✖ 10 problems (9 errors, 1 warning)
 
