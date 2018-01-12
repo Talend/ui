@@ -116,18 +116,39 @@ describe('JSONSchemaRenderer', () => {
 			},
 		};
 		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
-		expect(
-			wrapper
-				.find('dt')
-				.first()
-				.text(),
-		).toEqual('a');
-		expect(
-			wrapper
-				.find('dt')
-				.last()
-				.text(),
-		).toEqual('d');
+		expect(wrapper.find('dt').map(item => item.text())).toEqual(['a', 'b', 'c', 'd']);
+	});
+
+	it('should handle object level order', () => {
+		const schema = {
+			jsonSchema: {
+				properties: {
+					d: { type: 'string' },
+					obj: {
+						type: 'object',
+						properties: {
+							b: { type: 'string' },
+							c: { type: 'string' },
+							a: { type: 'string' },
+						},
+					},
+				},
+			},
+			uiSchema: {
+				obj: { 'ui:order': ['a', 'c', 'b'] },
+				'ui:order': ['obj', 'd'],
+			},
+			properties: {
+				d: 'test d',
+				obj: {
+					c: 'test c',
+					a: 'test a',
+					b: 'test b',
+				},
+			},
+		};
+		const wrapper = mount(<JSONSchemaRenderer schema={schema} />);
+		expect(wrapper.find('dt').map(item => item.text())).toEqual(['a', 'c', 'b', 'd']);
 	});
 
 	it('should render bullets for properties with a password ui:schema', () => {
