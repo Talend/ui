@@ -63,7 +63,6 @@ function renderIcon(status, icon, progress) {
 }
 
 export function Status({ status, label, icon, actions, progress }) {
-
 	const rootClassnames = classNames(css['tc-status'], 'tc-status', {
 		[css.action]: actions && actions.length,
 	});

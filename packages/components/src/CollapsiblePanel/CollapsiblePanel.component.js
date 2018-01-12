@@ -51,7 +51,9 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 				...action,
 				onClick: getActionHandler(action.onClick, headerItem),
 			}));
-			return <Status key={key} actions={statusActions} {...restStatus} className={css[className]} />;
+			return (
+				<Status key={key} actions={statusActions} {...restStatus} className={css[className]} />
+			);
 		}
 		case TYPE_ACTION: {
 			const { onClick, ...restAction } = headerItem;
