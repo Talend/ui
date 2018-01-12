@@ -1,21 +1,5 @@
 # Breaking changes log
 
-## v0.141.0
-* Component: CollapsiblePanel
-* PR: [feat(components/collapsiblepanel): style update](https://github.com/Talend/ui/pull/961)
-* Changes :
-
-| Old Props | New props |
-|---|---|
-| selected | status |
-
-* Component: Status
-* PR: [feat(components/collapsiblepanel): style update](https://github.com/Talend/ui/pull/961)
-* Changes :
-Status component has no longer default export.
-import Status from '../Status'; ---> import { Status, getbsStyleFromStatus } from '../Status';
-
-
 ## v0.63.0
 * Component: Layout
 * PR: [fix(Containers): header instanciation via HomeListView](https://github.com/Talend/ui/pull/155)

@@ -2,6 +2,21 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.142.0
+* Component: CollapsiblePanel
+* PR: [feat(components/collapsiblepanel): style update](https://github.com/Talend/ui/pull/961)
+* Changes :
+
+| Old Props | New props |
+|---|---|
+| selected | status |
+
+* Component: Status
+* PR: [feat(components/collapsiblepanel): style update](https://github.com/Talend/ui/pull/961)
+* Changes :
+Status component has no longer default export.
+import Status from '../Status'; ---> import { Status, getbsStyleFromStatus } from '../Status';
+
 ## v0.141.0
 * Container: DeleteResource
 * PR [fix(container/deleteResource): change so keyboard shortcut can be supported ](https://github.com/Talend/ui/pull/958)
