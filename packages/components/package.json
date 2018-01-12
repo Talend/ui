@@ -47,6 +47,7 @@
     "rc-tooltip": "3.7.0",
     "react-autowhatever": "10.1.0",
     "react-debounce-input": "3.0.1",
+    "react-transition-group": "^1.2.1",
     "react-virtualized": "9.10.1"
   },
   "devDependencies": {
@@ -99,7 +100,6 @@
     "react-i18next": "7.0.2",
     "react-storybook-addon-props-combinations": "^0.3.0",
     "react-test-renderer": "^16.0.0",
-    "react-transition-group": "^1.2.1",
     "rimraf": "^2.6.1",
     "sass-lint": "^1.10.2",
     "sass-loader": "6.0.6",
@@ -117,7 +117,7 @@
     "keycode": "2.1.9",
     "prop-types": "15.5.10",
     "react": "^16.0.0",
-    "react-addons-css-transition-group": "^15.6.2",
+    "react-addons-css-transition-group": "15.6.2",
     "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
     "react-i18next": "7.0.2",

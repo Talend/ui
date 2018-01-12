@@ -1,5 +1,6 @@
 import 'babel-polyfill';
-import { action, storiesOf, configure, setAddon } from '@storybook/react';
+import { storiesOf, configure, setAddon } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import cmf from 'react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
@@ -196,10 +197,13 @@ function loadStories() {
 				]),
 			}),
 		);
-		state.cmf.settings.views.appheaderbar = {
+		if (!state.cmf.settings.props) {
+			state.cmf.settings.props = state.cmf.settings.views;
+		}
+		state.cmf.settings.props.appheaderbar = {
 			app: 'Hello Test',
 		};
-		state.cmf.settings.views['HeaderBar#default'] = {
+		state.cmf.settings.props['HeaderBar#default'] = {
 			logo: { name: 'appheaderbar:logo', isFull: true },
 			brand: { label: 'DATA STREAMS' },
 			notification: { name: 'appheaderbar:notification' },

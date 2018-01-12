@@ -168,21 +168,6 @@ class ArrayField extends Component {
 		autofocus: false,
 	};
 
-	canAddItem(formItems) {
-		const { schema, uiSchema } = this.props;
-		let { addable } = getUiOptions(uiSchema);
-		if (addable !== false) {
-			// if ui:options.addable was not explicitly set to false, we can add
-			// another item if we have not exceeded maxItems yet
-			if (schema.maxItems !== undefined) {
-				addable = formItems.length < schema.maxItems;
-			} else {
-				addable = true;
-			}
-		}
-		return addable;
-	}
-
 	onAddClick = event => {
 		event.preventDefault();
 		const { schema, formData, registry = getDefaultRegistry() } = this.props;
@@ -239,6 +224,21 @@ class ArrayField extends Component {
 	onSelectChange = value => {
 		this.props.onChange(value, { validate: false });
 	};
+
+	canAddItem(formItems) {
+		const { schema, uiSchema } = this.props;
+		let { addable } = getUiOptions(uiSchema);
+		if (addable !== false) {
+			// if ui:options.addable was not explicitly set to false, we can add
+			// another item if we have not exceeded maxItems yet
+			if (schema.maxItems !== undefined) {
+				addable = formItems.length < schema.maxItems;
+			} else {
+				addable = true;
+			}
+		}
+		return addable;
+	}
 
 	get itemTitle() {
 		const { schema } = this.props;
@@ -563,8 +563,8 @@ class ArrayField extends Component {
 	render() {
 		const { schema, uiSchema, idSchema, registry = getDefaultRegistry() } = this.props;
 		const { definitions } = registry;
+		// eslint-disable-next-line no-prototype-builtins
 		if (!schema.hasOwnProperty('items')) {
-			// eslint-disable-line no-prototype-builtins
 			return (
 				<UnsupportedField schema={schema} idSchema={idSchema} reason="Missing items definition" />
 			);

@@ -1,7 +1,6 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-
+import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
+import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 
 import {
@@ -209,12 +208,6 @@ storiesOf('Layout', module)
 	.addWithInfo('TwoColumns with big Large list', () => (
 		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
 			<List {...listProps} displayMode={'large'} />
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with big Tile list', () => (
-		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
-			<List {...listProps} displayMode={'tile'} />
 			<IconsProvider defaultIcons={icons} />
 		</Layout>
 	))

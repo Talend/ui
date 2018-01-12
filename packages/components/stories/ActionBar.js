@@ -2,7 +2,6 @@ import React from 'react';
 import talendIcons from '@talend/icons/dist/react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-
 import { Action, ActionBar, IconsProvider } from '../src/index';
 
 const primary = {

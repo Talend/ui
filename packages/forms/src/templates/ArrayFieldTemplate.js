@@ -59,20 +59,22 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function ArrayFieldTemplate(props) {
-	const { items, onAddClick, minItems, maxItems } = props;
+	const { items, canAdd, onAddClick, minItems, maxItems } = props;
 	const addBtnClass = classNames(theme.addBtn, 'btn', 'btn-info');
 	return (
 		<div className={theme.ArrayFieldTemplate}>
 			<IconsProvider />
-			<button
-				className={addBtnClass}
-				type="button"
-				name="btn-new-element"
-				disabled={items.length >= maxItems}
-				onClick={onAddClick}
-			>
-				{`NEW ${props.type}`}
-			</button>
+			{canAdd && (
+				<button
+					className={addBtnClass}
+					type="button"
+					name="btn-new-element"
+					disabled={items.length >= maxItems}
+					onClick={onAddClick}
+				>
+					{`NEW ${props.type}`}
+				</button>
+			)}
 			{items &&
 				items.map(element => (
 					<FieldTemplate element={element} cantDelete={items.length <= minItems} />

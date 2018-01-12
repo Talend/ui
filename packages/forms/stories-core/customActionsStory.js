@@ -1,5 +1,5 @@
 import React from 'react';
-import { action } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { Tabs, Tab } from 'react-bootstrap';
 import { ConnectedUIForm, UIForm } from '../src/UIForm';
 

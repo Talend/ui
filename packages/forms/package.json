@@ -42,7 +42,6 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.6",
-    "@storybook/addon-actions": "^3.3.6",
     "@storybook/addon-info": "^3.3.6",
     "@storybook/addon-knobs": "^3.3.6",
     "@storybook/addons": "^3.3.6",
@@ -82,7 +81,7 @@
     "react": "^16.0.0",
     "react-a11y": "^0.3.3",
     "react-ace": "5.2.0",
-    "react-addons-css-transition-group": "^15.6.2",
+    "react-addons-css-transition-group": "15.6.2",
     "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
     "react-dom": "^16.0.0",

@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
 import { SubHeaderBar } from '../SubHeaderBar/SubHeaderBar.component';
 
 import Layout from './Layout.component';
