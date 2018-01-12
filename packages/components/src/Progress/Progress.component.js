@@ -46,6 +46,8 @@ function Progress({ id, percent, tooltip, infinite, contained }) {
 	return <div id={id} className={rootClassNames}>{progress}</div>;
 }
 
+Progress.displayName = 'Progress';
+
 Progress.propTypes = {
 	id: PropTypes.string,
 	percent: PropTypes.number,

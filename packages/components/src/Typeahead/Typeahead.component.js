@@ -105,6 +105,8 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 	);
 }
 
+Typeahead.displayName = 'Typeahead';
+
 Typeahead.defaultProps = {
 	autoFocus: true,
 	disabled: false,

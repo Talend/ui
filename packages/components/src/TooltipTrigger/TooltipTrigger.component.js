@@ -25,6 +25,8 @@ const props = {
  */
 class TooltipTrigger extends React.Component {
 
+	static displayName = 'TooltipTrigger';
+
 	constructor(props) {
 		super(props);
 		this.onMouseOver = this.onMouseOver.bind(this);

@@ -63,6 +63,8 @@ function CircularProgress({ size, light, percent }) {
 	);
 }
 
+CircularProgress.displayName = 'CircularProgress';
+
 CircularProgress.propTypes = {
 	size: PropTypes.oneOf([SIZE.small, SIZE.default, SIZE.large]),
 	light: PropTypes.bool,

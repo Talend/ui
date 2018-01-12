@@ -46,6 +46,8 @@ function TwoColumns({ one, drawers, children, tabs, ...props }) {
 	);
 }
 
+TwoColumns.displayName = 'TwoColumns';
+
 TwoColumns.propTypes = {
 	one: PropTypes.element,
 	children: PropTypes.node,

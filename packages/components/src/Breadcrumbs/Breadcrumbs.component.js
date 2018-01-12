@@ -101,6 +101,8 @@ function Breadcrumbs(props) {
 	);
 }
 
+Breadcrumbs.displayName = 'Breadcrumbs';
+
 Breadcrumbs.propTypes = {
 	id: PropTypes.string,
 	items: PropTypes.arrayOf(

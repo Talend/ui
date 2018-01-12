@@ -249,6 +249,8 @@ function CollapsiblePanel({ header, content, onSelect, onToggle, selected, expan
 	);
 }
 
+CollapsiblePanel.displayName = 'CollapsiblePanel';
+
 CollapsiblePanel.propTypes = {
 	header: PropTypes.arrayOf(renderHeaderItem.propTypes).isRequired,
 	onSelect: PropTypes.func,

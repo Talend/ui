@@ -30,6 +30,8 @@ function IconsProvider({ defaultIcons, icons }) {
 	);
 }
 
+IconsProvider.displayName = 'IconsProvider';
+
 IconsProvider.propTypes = {
 	defaultIcons: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	icons: PropTypes.object, // eslint-disable-line react/forbid-prop-types

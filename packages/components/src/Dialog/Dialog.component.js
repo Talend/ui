@@ -30,6 +30,8 @@ function Dialog(props) {
 	);
 }
 
+Dialog.displayName = 'Dialog';
+
 Dialog.propTypes = {
 	header: PropTypes.string,
 	size: PropTypes.oneOf(['small', 'large']),

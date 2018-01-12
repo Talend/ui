@@ -82,6 +82,8 @@ function Actions(props) {
 	);
 }
 
+Actions.displayName = 'Actions';
+
 Actions.propTypes = {
 	actions: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.shape(Action.propTypes)])),
 	className: PropTypes.string,

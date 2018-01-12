@@ -89,6 +89,8 @@ function Status(props) {
 	);
 }
 
+Status.displayName = 'Status';
+
 Status.propTypes = {
 	status: PropTypes.oneOf([
 		STATUS.IN_PROGRESS,

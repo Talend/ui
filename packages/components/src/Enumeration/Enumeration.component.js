@@ -40,6 +40,8 @@ function Enumeration(props) {
 	);
 }
 
+Enumeration.displayName = 'Enumeration';
+
 Enumeration.propTypes = {
 	displayMode: PropTypes.oneOf([
 		DISPLAY_MODE_DEFAULT,

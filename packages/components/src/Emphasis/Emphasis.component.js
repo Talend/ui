@@ -33,6 +33,8 @@ function Emphasis(props) {
 	return <span>{emphasiseAll(props.text, props.value)}</span>;
 }
 
+Emphasis.displayName = 'Emphasis';
+
 Emphasis.propTypes = {
 	value: PropTypes.string,
 	text: PropTypes.string,

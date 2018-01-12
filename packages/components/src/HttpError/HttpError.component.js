@@ -37,6 +37,8 @@ function HttpError(props) {
 	);
 }
 
+HttpError.displayName = 'HttpError';
+
 HttpError.propTypes = {
 	status: PropTypes.number.isRequired,
 	title: PropTypes.string.isRequired,

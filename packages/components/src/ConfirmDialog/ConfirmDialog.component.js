@@ -75,6 +75,8 @@ function ConfirmDialog({
 	);
 }
 
+ConfirmDialog.displayName = 'ConfirmDialog';
+
 ConfirmDialog.propTypes = {
 	header: PropTypes.string,
 	size: PropTypes.oneOf(['small', 'large']),
