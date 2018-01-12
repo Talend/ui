@@ -9,6 +9,12 @@
 |---|---|
 | selected | status |
 
+* Component: Status
+* PR: [feat(components/collapsiblepanel): style update](https://github.com/Talend/ui/pull/961)
+* Changes :
+Status component has no longer default export.
+import Status from '../Status'; ---> import { Status, getbsStyleFromStatus } from '../Status';
+
 
 ## v0.63.0
 * Component: Layout

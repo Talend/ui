@@ -47,11 +47,11 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 	switch (displayMode) {
 		case TYPE_STATUS: {
 			const { actions, ...restStatus } = headerItem;
-			const adaptActions = actions.map(action => ({
+			const statusActions = actions.map(action => ({
 				...action,
 				onClick: getActionHandler(action.onClick, headerItem),
 			}));
-			return <Status key={key} actions={adaptActions} {...restStatus} className={css[className]} />;
+			return <Status key={key} actions={statusActions} {...restStatus} className={css[className]} />;
 		}
 		case TYPE_ACTION: {
 			const { onClick, ...restAction } = headerItem;

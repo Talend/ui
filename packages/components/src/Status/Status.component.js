@@ -62,8 +62,7 @@ function renderIcon(status, icon, progress) {
 	return icon && <Icon name={icon} />;
 }
 
-export function Status(props) {
-	const { status, label, icon, actions, progress } = props;
+export function Status({ status, label, icon, actions, progress }) {
 
 	const rootClassnames = classNames(css['tc-status'], 'tc-status', {
 		[css.action]: actions && actions.length,
