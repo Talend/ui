@@ -55,15 +55,13 @@ function ConfirmDialog({
 				bodyOverflow && theme['modal-body-overflow'],
 			)}
 		>
-			{header
-				? <Modal.Header closeButton={false}>
+			{header ? (
+				<Modal.Header closeButton={false}>
 					<Modal.Title>{header}</Modal.Title>
 				</Modal.Header>
-				: null}
+			) : null}
 			{progressValue ? <ProgressBar now={progressValue} /> : null}
-			<Modal.Body>
-				{children}
-			</Modal.Body>
+			<Modal.Body>{children}</Modal.Body>
 			<Modal.Footer>
 				<Action {...cancelAction} />
 				<div className={theme['tc-confirm-actions']}>

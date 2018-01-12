@@ -34,9 +34,9 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 		);
 	}
 
-	const sectionProps = rest.multiSection ?
-		{ getSectionItems: section => section.suggestions, renderSectionTitle } :
-		null;
+	const sectionProps = rest.multiSection
+		? { getSectionItems: section => section.suggestions, renderSectionTitle }
+		: null;
 
 	const themeProps = {
 		theme: {
@@ -51,7 +51,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			...rest.theme,
 			container: classNames(
 				theme['tc-typeahead-container'],
-				(position === 'right') && theme.right,
+				position === 'right' && theme.right,
 				rest.theme && rest.theme.container,
 				rest.className,
 			),
@@ -83,7 +83,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			rest.items,
 			rest.noResultText,
 			rest.searching,
-			rest.searchingText
+			rest.searchingText,
 		),
 		renderItemData: { value: rest.value },
 	};
@@ -100,9 +100,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 		},
 	};
 
-	return (
-		<Autowhatever {...autowhateverProps} />
-	);
+	return <Autowhatever {...autowhateverProps} />;
 }
 
 Typeahead.displayName = 'Typeahead';
@@ -169,7 +167,7 @@ Typeahead.propTypes = {
 					}),
 				),
 			}),
-		])
+		]),
 	),
 };
 

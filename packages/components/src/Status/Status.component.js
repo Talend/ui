@@ -59,17 +59,11 @@ function renderIcon(status, icon, progress) {
 		}
 		return <CircularProgress size={'small'} percent={progress} />;
 	}
-	return (icon && <Icon name={icon} />);
+	return icon && <Icon name={icon} />;
 }
 
 function Status(props) {
-	const {
-		status,
-		label,
-		icon,
-		actions,
-		progress,
-	} = props;
+	const { status, label, icon, actions, progress } = props;
 
 	const rootClassnames = classNames(
 		css['tc-status'],
@@ -79,7 +73,7 @@ function Status(props) {
 	);
 
 	return (
-		<div role="status" className={rootClassnames} >
+		<div role="status" className={rootClassnames}>
 			{renderIcon(status, icon, progress)}
 			<span className={classNames(css['tc-status-label'], 'tc-status-label')}>{label}</span>
 			<span className={classNames(css['tc-status-actions'], 'tc-status-actions')}>
@@ -92,12 +86,7 @@ function Status(props) {
 Status.displayName = 'Status';
 
 Status.propTypes = {
-	status: PropTypes.oneOf([
-		STATUS.IN_PROGRESS,
-		STATUS.SUCCESSFUL,
-		STATUS.FAILED,
-		STATUS.CANCELED,
-	]),
+	status: PropTypes.oneOf([STATUS.IN_PROGRESS, STATUS.SUCCESSFUL, STATUS.FAILED, STATUS.CANCELED]),
 	label: PropTypes.string.isRequired,
 	icon: PropTypes.string,
 	actions: Actions.propTypes.actions,

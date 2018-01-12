@@ -20,18 +20,15 @@ function Progress({ id, percent, tooltip, infinite, contained }) {
 	const normalizedPercent = infinite ? 100 : normalize(percent);
 	const style = { width: `${normalizedPercent}%` };
 
-	const rootClassNames = classNames(
-		theme.progress,
-		{
-			[theme.hidden]: normalizedPercent === 0,
-			[theme.fixed]: !contained,
-			[theme.infinite]: infinite,
-		}
-	);
+	const rootClassNames = classNames(theme.progress, {
+		[theme.hidden]: normalizedPercent === 0,
+		[theme.fixed]: !contained,
+		[theme.infinite]: infinite,
+	});
 
 	let progress = (
 		<div style={style} className={theme['progress-percent']}>
-			{ infinite && <div className={theme['infinite-indicator']} /> }
+			{infinite && <div className={theme['infinite-indicator']} />}
 		</div>
 	);
 
@@ -43,7 +40,11 @@ function Progress({ id, percent, tooltip, infinite, contained }) {
 		);
 	}
 
-	return <div id={id} className={rootClassNames}>{progress}</div>;
+	return (
+		<div id={id} className={rootClassNames}>
+			{progress}
+		</div>
+	);
 }
 
 Progress.displayName = 'Progress';

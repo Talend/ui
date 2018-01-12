@@ -12,18 +12,9 @@ import theme from './TwoColumns.scss';
 <TwoColumns name="Hello world"></TwoColumns>
  */
 function TwoColumns({ one, drawers, children, tabs, ...props }) {
-	const containerCSS = classnames(
-		'tc-layout-two-columns',
-		theme.container,
-	);
-	const sidemenuCSS = classnames(
-		'tc-layout-two-columns-left',
-		theme.sidemenu,
-	);
-	const mainCSS = classnames(
-		'tc-layout-two-columns-main',
-		theme.main,
-	);
+	const containerCSS = classnames('tc-layout-two-columns', theme.container);
+	const sidemenuCSS = classnames('tc-layout-two-columns-left', theme.sidemenu);
+	const mainCSS = classnames('tc-layout-two-columns-main', theme.main);
 	const style = {
 		overflow: 'auto',
 		height: '100%',
@@ -37,9 +28,7 @@ function TwoColumns({ one, drawers, children, tabs, ...props }) {
 			<div className={mainCSS}>
 				<WithDrawer drawers={drawers}>
 					{tabs && <TabBar {...tabs} />}
-					<div style={style}>
-						{children}
-					</div>
+					<div style={style}>{children}</div>
 				</WithDrawer>
 			</div>
 		</div>

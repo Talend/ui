@@ -23,7 +23,11 @@ function emphasiseAll(text, value) {
 		.filter(isNotEmpty)
 		.map((part, index) => {
 			if (part.toUpperCase() === value.toUpperCase()) {
-				return <em key={index} className={theme.highlight}>{part}</em>;
+				return (
+					<em key={index} className={theme.highlight}>
+						{part}
+					</em>
+				);
 			}
 			return part;
 		});

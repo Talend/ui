@@ -18,7 +18,7 @@ function getCircleStyle(percent) {
 	if (percent) {
 		return {
 			strokeDasharray: CIRCUMFERENCE,
-			strokeDashoffset: ((100 - percent) / 100) * CIRCUMFERENCE,
+			strokeDashoffset: (100 - percent) / 100 * CIRCUMFERENCE,
 		};
 	}
 	return {
@@ -33,24 +33,17 @@ function getCircleStyle(percent) {
  <CircularProgress size="large" />
  */
 function CircularProgress({ size, light, percent }) {
-	const classes = classNames(
-		theme.loader,
-		{
-			[theme.loaderlight]: light,
-			[theme.animate]: !percent,
-			[theme.fixed]: percent,
-			[theme.small]: size === SIZE.small,
-			[theme.default]: size === SIZE.default,
-			[theme.large]: size === SIZE.large,
-		},
-	);
+	const classes = classNames(theme.loader, {
+		[theme.loaderlight]: light,
+		[theme.animate]: !percent,
+		[theme.fixed]: percent,
+		[theme.small]: size === SIZE.small,
+		[theme.default]: size === SIZE.default,
+		[theme.large]: size === SIZE.large,
+	});
 
 	return (
-		<svg
-			focusable="false"
-			className={classes}
-			viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}
-		>
+		<svg focusable="false" className={classes} viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}>
 			<circle
 				className={theme.path}
 				r={RADIUS}

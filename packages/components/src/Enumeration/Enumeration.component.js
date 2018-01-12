@@ -3,10 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
-import {
-	getDefaultTranslate,
-	DEFAULT_I18N,
-} from '../translate';
+import { getDefaultTranslate, DEFAULT_I18N } from '../translate';
 import headerPropTypes from './Header/Header.propTypes';
 import ItemEditPropTypes from './Items/Item/ItemEdit.propTypes';
 import Action from '../Actions/Action';
@@ -16,7 +13,6 @@ import HeaderSelected from './Header/HeaderSelected.component';
 import Items from './Items/Items.component';
 import theme from './Enumeration.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
@@ -56,16 +52,15 @@ Enumeration.propTypes = {
 	headerDefault: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)).isRequired,
 	headerInput: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
 	headerSelected: PropTypes.arrayOf(PropTypes.shape(headerPropTypes)),
-	items: PropTypes.arrayOf(PropTypes.shape({
-		values: PropTypes.arrayOf(PropTypes.string),
-	})).isRequired,
+	items: PropTypes.arrayOf(
+		PropTypes.shape({
+			values: PropTypes.arrayOf(PropTypes.string),
+		}),
+	).isRequired,
 	searchCriteria: PropTypes.string,
 	itemsProp: PropTypes.shape({
 		key: PropTypes.string,
-		getItemHeight: PropTypes.oneOfType([
-			PropTypes.func,
-			PropTypes.number,
-		]),
+		getItemHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
 		onSubmitItem: PropTypes.func,
 		onChangeItem: PropTypes.func,
 		onSelectItem: PropTypes.func,
@@ -92,12 +87,13 @@ function hintClasses() {
 }
 
 function EmptyListPlaceholder({ displayMode, t }) {
-	return (<p className={hintClasses()}>
-		{ displayMode === DISPLAY_MODE_DEFAULT ?
-				t('ENUMERATION_EMPTY_LIST', { defaultValue: 'The list is empty' }) :
-				t('ENUMERATION_EMPTY_PLACEHOLDER_SEARCH', { defaultValue: 'No results' })
-		}
-	</p>);
+	return (
+		<p className={hintClasses()}>
+			{displayMode === DISPLAY_MODE_DEFAULT
+				? t('ENUMERATION_EMPTY_LIST', { defaultValue: 'The list is empty' })
+				: t('ENUMERATION_EMPTY_PLACEHOLDER_SEARCH', { defaultValue: 'No results' })}
+		</p>
+	);
 }
 
 EmptyListPlaceholder.propTypes = {
@@ -107,15 +103,17 @@ EmptyListPlaceholder.propTypes = {
 
 function ItemsEnumeration(props) {
 	if (props.items.length > 0) {
-		return (<Items
-			items={props.items}
-			itemsProp={props.itemsProp}
-			currentEdit={props.currentEdit}
-			searchCriteria={props.searchCriteria}
-			showCheckboxes={props.showCheckboxes}
-		/>);
+		return (
+			<Items
+				items={props.items}
+				itemsProp={props.itemsProp}
+				currentEdit={props.currentEdit}
+				searchCriteria={props.searchCriteria}
+				showCheckboxes={props.showCheckboxes}
+			/>
+		);
 	}
-	return (<EmptyListPlaceholder displayMode={props.displayMode} t={props.t} />);
+	return <EmptyListPlaceholder displayMode={props.displayMode} t={props.t} />;
 }
 
 ItemsEnumeration.propTypes = {
@@ -128,10 +126,20 @@ ItemsEnumeration.propTypes = {
 };
 
 function HeaderEnumeration({
-		displayMode, headerError, onInputChange, onAddKeyDown,
-		headerInput, headerDefault, headerSelected, items, required,
-		inputValue, inputRef, label, t,
-	}) {
+	displayMode,
+	headerError,
+	onInputChange,
+	onAddKeyDown,
+	headerInput,
+	headerDefault,
+	headerSelected,
+	items,
+	required,
+	inputValue,
+	inputRef,
+	label,
+	t,
+}) {
 	switch (displayMode) {
 		case DISPLAY_MODE_SEARCH: {
 			const propsInput = {
@@ -144,17 +152,16 @@ function HeaderEnumeration({
 			};
 			return <HeaderInput {...propsInput} />;
 		}
-		case DISPLAY_MODE_ADD : {
-			const propsInput =
-				{
-					headerInput,
-					onInputChange,
-					onAddKeyDown,
-					headerError,
-					inputRef,
-					value: inputValue,
-					inputPlaceholder: t('ENUMERATION_NEW_ENTRY', { defaultValue: 'New entry' }),
-				};
+		case DISPLAY_MODE_ADD: {
+			const propsInput = {
+				headerInput,
+				onInputChange,
+				onAddKeyDown,
+				headerError,
+				inputRef,
+				value: inputValue,
+				inputPlaceholder: t('ENUMERATION_NEW_ENTRY', { defaultValue: 'New entry' }),
+			};
 			return <HeaderInput {...propsInput} />;
 		}
 		case DISPLAY_MODE_DEFAULT: {
