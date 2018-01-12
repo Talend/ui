@@ -168,7 +168,16 @@ class ArrayField extends Component {
 		autofocus: false,
 	};
 
-	onAddClick = event => {
+	constructor(props) {
+		super(props);
+		this.onAddClick = this.onAddClick.bind(this);
+		this.onDropIndexClick = this.onDropIndexClick.bind(this);
+		this.onReorderClick = this.onReorderClick.bind(this);
+		this.onChangeForIndex = this.onChangeForIndex.bind(this);
+		this.onSelectChange = this.onSelectChange.bind(this);
+	}
+
+	onAddClick(event) {
 		event.preventDefault();
 		const { schema, formData, registry = getDefaultRegistry() } = this.props;
 		const { definitions } = registry;
@@ -180,64 +189,57 @@ class ArrayField extends Component {
 		this.props.onChange([...formData, getDefaultFormState(itemSchema, undefined, definitions)], {
 			validate: false,
 		});
-	};
+	}
 
-	onDropIndexClick = index => event => {
-		if (event) {
-			event.preventDefault();
-		}
-		const { formData, onChange } = this.props;
-		// refs #195: revalidate to ensure properly reindexing errors
-		onChange(formData.filter((_, i) => i !== index), { validate: true });
-	};
-
-	onReorderClick = (index, newIndex) => event => {
-		if (event) {
-			event.preventDefault();
-			event.target.blur();
-		}
-		const { formData, onChange } = this.props;
-		onChange(
-			formData.map((item, i) => {
-				if (i === newIndex) {
-					return formData[index];
-				} else if (i === index) {
-					return formData[newIndex];
-				}
-				return item;
-			}),
-			{ validate: true },
-		);
-	};
-
-	onChangeForIndex = index => value => {
-		const { formData, onChange } = this.props;
-		const newFormData = formData.map((item, i) => {
-			// We need to treat undefined items as nulls to have validation.
-			// See https://github.com/tdegrunt/jsonschema/issues/206
-			const jsonValue = typeof value === 'undefined' ? null : value;
-			return index === i ? jsonValue : item;
-		});
-		onChange(newFormData, { validate: false });
-	};
-
-	onSelectChange = value => {
-		this.props.onChange(value, { validate: false });
-	};
-
-	canAddItem(formItems) {
-		const { schema, uiSchema } = this.props;
-		let { addable } = getUiOptions(uiSchema);
-		if (addable !== false) {
-			// if ui:options.addable was not explicitly set to false, we can add
-			// another item if we have not exceeded maxItems yet
-			if (schema.maxItems !== undefined) {
-				addable = formItems.length < schema.maxItems;
-			} else {
-				addable = true;
+	onDropIndexClick(index) {
+		return event => {
+			if (event) {
+				event.preventDefault();
 			}
-		}
-		return addable;
+			const { formData, onChange } = this.props;
+			// refs #195: revalidate to ensure properly reindexing errors
+			onChange(formData.filter((_, i) => i !== index), { validate: true });
+		};
+	}
+
+	onReorderClick(index, newIndex) {
+		return event => {
+			if (event) {
+				event.preventDefault();
+				event.target.blur();
+			}
+			const { formData, onChange } = this.props;
+			onChange(
+				formData.map((item, i) => {
+					if (i === newIndex) {
+						return formData[index];
+					} else if (i === index) {
+						return formData[newIndex];
+					}
+					return item;
+				}),
+				{ validate: true },
+			);
+		};
+	}
+
+	onChangeForIndex(index) {
+		return value => {
+			const { formData, onChange } = this.props;
+			onChange(
+				formData.map((item, i) => {
+					// We need to treat undefined items as nulls to have validation.
+					// See https://github.com/tdegrunt/jsonschema/issues/206
+					const jsonValue = typeof value === 'undefined' ? null : value;
+					return index === i ? jsonValue : item;
+				}),
+				{ validate: false },
+			);
+		};
+	}
+
+	onSelectChange(value) {
+		this.props.onChange(value, { validate: false });
 	}
 
 	get itemTitle() {
@@ -267,8 +269,7 @@ class ArrayField extends Component {
 		const { ArrayFieldTemplate, definitions, fields, widgets } = registry;
 		const { TitleField, DescriptionField } = fields;
 		const itemsSchema = retrieveSchema(schema.items, definitions);
-		const { widget, type = 'element', ...options } = getUiOptions(uiSchema);
-
+		const { widget, addable = true, type = 'element', ...options } = getUiOptions(uiSchema);
 		if (typeof widget === 'string') {
 			if (widget === 'hidden') {
 				return null;
@@ -293,7 +294,7 @@ class ArrayField extends Component {
 
 		const arrayProps = {
 			type,
-			canAdd: this.canAddItem(formData),
+			canAdd: addable,
 			minItems: schema.minItems || 0,
 			maxItems: schema.maxItems || 999,
 			items: formData.map((item, index) => {
@@ -438,7 +439,8 @@ class ArrayField extends Component {
 		const additionalSchema = allowAdditionalItems(schema)
 			? retrieveSchema(schema.additionalItems, definitions, formData)
 			: null;
-
+		const { addable = true } = getUiOptions(uiSchema);
+		const canAdd = addable && additionalSchema;
 		if (!items || items.length < itemSchemas.length) {
 			// to make sure at least all fixed items are generated
 			items = items || [];
@@ -447,7 +449,7 @@ class ArrayField extends Component {
 
 		// These are the props passed into the render function
 		const arrayProps = {
-			canAdd: this.canAddItem(items) && additionalSchema,
+			canAdd,
 			className: 'field field-array field-array-fixed-items',
 			disabled,
 			idSchema,
