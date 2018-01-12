@@ -4,7 +4,7 @@
   "main": "lib/Form.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "rimraf lib && babel -d lib ./src/ && cpx \"./src/**/*.scss\" lib",
+    "prepublish": "rimraf lib && babel -d lib ./src/ && cpx -v \"./src/**/*.scss\" lib",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
