@@ -5,6 +5,7 @@ import { formPropTypes, extractFormProps } from './utils/propTypes';
 import { mutateValue } from './utils/properties';
 
 export default class UIForm extends React.Component {
+	static displayName = 'Container(UIForm)';
 	constructor(props) {
 		super(props);
 		this.state = {

@@ -61,5 +61,6 @@ if (process.env.NODE_ENV !== 'production') {
 FieldTemplate.defaultProps = {
 	isValid: true,
 };
+FieldTemplate.displayName = 'FieldTemplate';
 
 export default FieldTemplate;

@@ -53,3 +53,5 @@ if (process.env.NODE_ENV !== 'production') {
 Widget.defaultProps = {
 	widgets: {},
 };
+
+Widget.displayName = 'Widget';
