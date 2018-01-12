@@ -4,7 +4,7 @@
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx './src/**/*.scss' ./lib",
+    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v './src/**/*.scss' ./lib",
     "start": "start-storybook -p 6007",
     "test": "jest",
     "test:watch": "jest --watch",
