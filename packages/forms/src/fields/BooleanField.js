@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
-	defaultFieldValue,
 	getWidget,
 	getUiOptions,
 	optionsList,
@@ -10,13 +9,17 @@ import {
 } from 'react-jsonschema-form/lib/utils';
 import Toggle from '@talend/react-components/lib/Toggle';
 
-
 function buildOptions(schema) {
 	return {
-		enumOptions: optionsList(Object.assign({
-			enumNames: ['true', 'false'],
-			enum: [true, false],
-		}, { enumNames: schema.enumNames })),
+		enumOptions: optionsList(
+			Object.assign(
+				{
+					enum: [true, false],
+					enumNames: ['true', 'false'],
+				},
+				{ enumNames: schema.enumNames },
+			),
+		),
 	};
 }
 
@@ -31,6 +34,7 @@ function BooleanField(props) {
 		required,
 		disabled,
 		readonly,
+		autofocus,
 		onChange,
 		onBlur,
 	} = props;
@@ -38,6 +42,7 @@ function BooleanField(props) {
 	const { widgets, formContext } = registry;
 	const widget = uiSchema['ui:widget'];
 	const uiOptions = getUiOptions(uiSchema);
+
 	const onChangeHandler = () => {
 		onChange(!formData, uiOptions);
 	};
@@ -51,18 +56,20 @@ function BooleanField(props) {
 		id: idSchema && idSchema.$id,
 		onChange: onChangeHandler,
 		onBlur: onBlurHandler,
-		label: (title === undefined) ? name : title,
-		value: defaultFieldValue(formData, schema),
-		checked: defaultFieldValue(formData, schema),
+		label: title === undefined ? name : title,
+		value: formData,
+		checked: formData,
 		required,
 		disabled,
 		readonly,
 		registry,
 		formContext,
+		autofocus,
 	};
+
 	if (widget) {
 		const Widget = getWidget(schema, widget, widgets);
-		return <Widget options={buildOptions(schema)} {... commonProps} />;
+		return <Widget options={buildOptions(schema)} {...commonProps} />;
 	}
 	return <Toggle options={buildOptions(schema)} {...commonProps} />;
 }
@@ -72,18 +79,17 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.object.isRequired,
 		uiSchema: PropTypes.object,
 		idSchema: PropTypes.object,
+		onBlur: PropTypes.func.isRequired,
 		onChange: PropTypes.func.isRequired,
-		onBlur: PropTypes.func,
-		name: PropTypes.string,
 		formData: PropTypes.bool,
+		name: PropTypes.string,
 		required: PropTypes.bool,
 		disabled: PropTypes.bool,
 		readonly: PropTypes.bool,
+		autofocus: PropTypes.bool,
 		registry: PropTypes.shape({
-			widgets: PropTypes.objectOf(PropTypes.oneOfType([
-				PropTypes.func,
-				PropTypes.object,
-			])).isRequired,
+			widgets: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object]))
+				.isRequired,
 			fields: PropTypes.objectOf(PropTypes.func).isRequired,
 			definitions: PropTypes.object.isRequired,
 			formContext: PropTypes.object.isRequired,
@@ -96,6 +102,7 @@ BooleanField.defaultProps = {
 	registry: getDefaultRegistry(),
 	disabled: false,
 	readonly: false,
+	autofocus: false,
 };
 
 export default BooleanField;

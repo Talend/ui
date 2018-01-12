@@ -102,7 +102,7 @@ describe('Widget component', () => {
 		);
 
 		// then
-		expect(wrapper.getElement().props.errorMessage).toBe('My custom validation message');
+		expect(wrapper.props().errorMessage).toBe('My custom validation message');
 	});
 
 	it('should pass message from errors when there is no validation message in schema', () => {
@@ -119,6 +119,6 @@ describe('Widget component', () => {
 		);
 
 		// then
-		expect(wrapper.getElement().props.errorMessage).toBe('This is not ok');
+		expect(wrapper.props().errorMessage).toBe('This is not ok');
 	});
 });
