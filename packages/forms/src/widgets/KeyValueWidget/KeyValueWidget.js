@@ -80,10 +80,7 @@ if (process.env.NODE_ENV !== 'production') {
 	KeyValueWidget.propTypes = {
 		schema: PropTypes.object,
 		formData: PropTypes.object,
-		value: PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.number,
-		]),
+		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		onChange: PropTypes.func,
 	};
 }

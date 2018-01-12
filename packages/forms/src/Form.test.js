@@ -211,8 +211,7 @@ describe('<Form/>', () => {
 				wrapper
 					.find('input')
 					.first()
-					.instance()
-					.value,
+					.instance().value,
 			).toEqual('Test');
 			setTimeout(() => {
 				wrapper.setState({}, () => {
