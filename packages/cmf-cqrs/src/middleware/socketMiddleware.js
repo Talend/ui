@@ -27,7 +27,7 @@ if (window.location.protocol === 'https:') {
  * @return {object} result
  *
  */
-function createWebsocketMiddleware(socketPath, actionListeners = [], socketListener = []) {
+function createWebsocketMiddleware(socketPath, actionListeners = [], socketListener = [], socketOptions = {}) {
 	const buffer = [];
 	let ws;
 	const urlPrefix = `${protocol}://${host}${socketPath}`;
@@ -61,6 +61,7 @@ function createWebsocketMiddleware(socketPath, actionListeners = [], socketListe
 				onError: event => {
 					dispatch({ type: ACTION_TYPES.ON_ERROR, event });
 				},
+				...socketOptions,
 			});
 		}
 		const entrie = {};
