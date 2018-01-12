@@ -36,9 +36,9 @@ describe('Items', () => {
 
 	it('should render without toggleAll checkbox', () => {
 		// when
-		const wrapper = mount(<Items {...props} toggleAllShown={false} />);
+		const wrapper = mount(<Items {...props} showToggleAll={false} />);
 
 		// then
-		expect(wrapper.find('.tc-listview-toggle-all').exists()).toBeFalsy();
+		expect(wrapper.find('#tc-listview-toggle-all').exists()).toBeFalsy();
 	});
 });
