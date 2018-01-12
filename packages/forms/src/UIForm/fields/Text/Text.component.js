@@ -33,11 +33,8 @@ export default function Text(props) {
 				disabled={disabled}
 				label={title}
 				onBlur={event => onFinish(event, { schema })}
-				onChange={
-					event => onChange(
-						event,
-						{ schema, value: convertValue(type, event.target.value) }
-					)
+				onChange={event =>
+					onChange(event, { schema, value: convertValue(type, event.target.value) })
 				}
 				placeholder={placeholder}
 				readOnly={readOnly}
