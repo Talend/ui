@@ -43,6 +43,7 @@ export default class UIForm extends React.Component {
 	 * @param value The payload new value
 	 */
 	onChange(event, { schema, value }) {
+		console.log('##########@');
 		const payload = {
 			formName: this.props.formName,
 			properties: this.props.properties,
@@ -120,7 +121,7 @@ export default class UIForm extends React.Component {
 		}
 		this.props.setErrors(this.props.formName, errors);
 
-		if (schema.triggers && schema.triggers.length) {
+		if (!valueError && schema.triggers && schema.triggers.length) {
 			let formData = this.props.properties;
 			if (value !== undefined) {
 				formData = mutateValue(formData, schema.key, value);

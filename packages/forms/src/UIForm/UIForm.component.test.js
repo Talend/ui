@@ -55,9 +55,9 @@ describe('UIForm component', () => {
 			expect(props.onTrigger).not.toBeCalled();
 			expect(props.setErrors).not.toBeCalled();
 		});
-		it('should perform trigger', () => {
+		it('should not perform trigger onChange', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} properties={{ firstname: 'toto' }} />);
+			const wrapper = mount(<UIForm {...data} {...props} properties={{ firstname: 'to' }} />);
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
@@ -67,12 +67,7 @@ describe('UIForm component', () => {
 				.simulate('change', { target: { value: 'toto' } });
 
 			// then
-			expect(props.onTrigger).toBeCalledWith(
-				{ firstname: 'toto' },
-				props.formName,
-				'firstname',
-				'toto',
-			);
+			expect(props.onTrigger).not.toBeCalled();
 		});
 	});
 

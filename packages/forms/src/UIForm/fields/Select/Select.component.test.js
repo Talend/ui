@@ -179,7 +179,7 @@ describe('Select field', () => {
 		expect(onChange).toBeCalledWith(event, { schema: multipleSchema, value: ['foo', 'lol'] });
 	});
 
-	it('should trigger onFinish on select blur', () => {
+	it('should trigger onFinish on select change', () => {
 		// given
 		const onFinish = jest.fn();
 		const wrapper = shallow(
@@ -196,9 +196,9 @@ describe('Select field', () => {
 		const event = { target: { value: 'bar' } };
 
 		// when
-		wrapper.find('select').simulate('blur', event);
+		wrapper.find('select').simulate('change', event);
 
 		// then
-		expect(onFinish).toBeCalledWith(event, { schema });
+		expect(onFinish).toBeCalledWith(event, { schema, value: 'bar' });
 	});
 });
