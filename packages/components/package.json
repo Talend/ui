@@ -46,7 +46,7 @@
     "rc-slider": "8.4.1",
     "rc-tooltip": "3.7.0",
     "react-autowhatever": "7.0.0",
-    "react-debounce-input": "2.4.2",
+    "react-debounce-input": "3.1.0",
     "react-virtualized": "9.10.1"
   },
   "devDependencies": {
@@ -92,8 +92,7 @@
     "prop-types": "15.5.10",
     "react": "^15.6.2",
     "react-a11y": "^0.3.3",
-    "react-addons-css-transition-group": "15.5.2",
-    "react-addons-test-utils": "15.5.1",
+    "react-addons-css-transition-group": "15.6.2",
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
     "react-dom": "^15.6.2",
@@ -117,7 +116,7 @@
     "keycode": "2.1.9",
     "prop-types": "15.5.10",
     "react": "^15.6.2",
-    "react-addons-css-transition-group": "15.5.2",
+    "react-addons-css-transition-group": "15.6.2",
     "react-bootstrap": "0.31.0",
     "react-css-transition": "^0.7.4",
     "react-i18next": "^5.2.0",
