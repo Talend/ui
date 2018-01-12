@@ -52,7 +52,6 @@ function ItemsListView(props) {
 			searchCriteria={props.searchCriteria}
 			toggleAllChecked={props.toggleAllChecked}
 			onToggleAll={props.onToggleAll}
-			showToggleAll={props.showToggleAll}
 			getItemHeight={props.getItemHeight}
 			t={props.t}
 		/>
@@ -67,7 +66,6 @@ ItemsListView.propTypes = {
 	onToggleAll: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,
-	showToggleAll: PropTypes.bool,
 	t: PropTypes.func,
 };
 

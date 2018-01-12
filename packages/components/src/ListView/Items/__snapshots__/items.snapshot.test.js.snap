@@ -3588,7 +3588,6 @@ exports[`Items should render 1`] = `
         },
       ]
     }
-    showToggleAll={true}
     t={[Function]}
   >
     <div
@@ -7487,7 +7486,6 @@ exports[`Items should render with provided id 1`] = `
         },
       ]
     }
-    showToggleAll={true}
     t={[Function]}
   >
     <div
