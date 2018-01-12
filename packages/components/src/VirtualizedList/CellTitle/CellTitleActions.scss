@@ -12,7 +12,11 @@ $tc-list-title-actions-color: $brand-primary-dark !default;
 		&:not(.persistent-actions) {
 			opacity: 0;
 			visibility: hidden;
-			background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-row-hover-bg $padding-large);
+			background: linear-gradient(
+				to right,
+				rgba(255, 255, 255, 0),
+				$tc-list-row-hover-bg $padding-large
+			);
 			position: absolute;
 			right: 100%;
 			top: 0;
