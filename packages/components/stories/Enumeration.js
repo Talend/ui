@@ -1,6 +1,7 @@
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import { Enumeration, IconsProvider } from '../src/index';
 import i18n from './config/i18n';
