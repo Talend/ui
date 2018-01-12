@@ -1,11 +1,8 @@
 import has from 'lodash/has';
 import get from 'lodash/get';
-import {
-	HTTP_METHODS,
-	ACTION_TYPE_HTTP_REQUEST,
-	ACTION_TYPE_HTTP_RESPONSE,
-	ACTION_TYPE_HTTP_ERRORS,
-} from './constants';
+import { HTTP_METHODS } from './constants';
+
+import http from '../../actions/http';
 
 export const DEFAULT_HTTP_HEADERS = {
 	Accept: 'application/json',
@@ -24,28 +21,6 @@ export function getMethod(action) {
 	return HTTP_METHODS[action.type];
 }
 
-export function httpRequest(url, config) {
-	return {
-		type: ACTION_TYPE_HTTP_REQUEST,
-		url,
-		config,
-	};
-}
-
-export function httpError(error) {
-	return {
-		type: ACTION_TYPE_HTTP_ERRORS,
-		error,
-	};
-}
-
-export function httpResponse(response) {
-	return {
-		type: ACTION_TYPE_HTTP_RESPONSE,
-		data: response,
-	};
-}
-
 export function mergeOptions(action) {
 	const options = Object.assign(
 		{
@@ -62,26 +37,6 @@ export function mergeOptions(action) {
 
 	delete options.type;
 	return options;
-}
-
-export function onResponse(action, response) {
-	if (typeof action.onResponse === 'function') {
-		return action.onResponse(response);
-	}
-	return {
-		type: action.onResponse,
-		response,
-	};
-}
-
-export function onError(action, error) {
-	if (typeof action.onError === 'function') {
-		return action.onError(error);
-	}
-	return {
-		type: action.onError,
-		error,
-	};
 }
 
 export function HTTPError(response) {
@@ -122,20 +77,14 @@ export function handleResponse(response) {
 	return Promise.reject(new HTTPError(response));
 }
 
-export const httpMiddleware = ({ dispatch }) => next => action => {
-	if (!isHTTPRequest(action)) {
-		return next(action);
-	}
-	const httpAction = get(action, 'cmf.http', action);
-	const config = mergeOptions(httpAction);
-	dispatch(httpRequest(httpAction.url, config));
-	if (httpAction.onSend) {
-		dispatch({
-			type: httpAction.onSend,
-			httpAction,
-		});
-	}
-	const onHTTPError = error => {
+/**
+ * Factory to create error handler.
+ * The provided function will dispatch action with the following types
+ * @param {function} dispatch
+ * @param {Object} httpAction
+ */
+function getOnError(dispatch, httpAction) {
+	return function onHTTPError(error) {
 		const errorObject = {
 			name: error.name,
 			message: error.description || error.message,
@@ -144,11 +93,7 @@ export const httpMiddleware = ({ dispatch }) => next => action => {
 		};
 		const clone = get(error, 'stack.response.clone');
 		if (!clone) {
-			dispatch({
-				type: 'HTTP_REDUCE_ERROR',
-				error: errorObject,
-				action: httpAction,
-			});
+			dispatch(http.onJSError(errorObject, httpAction));
 		} else {
 			// clone the response object else the next call to text or json
 			// triggers an exception Already use
@@ -161,27 +106,45 @@ export const httpMiddleware = ({ dispatch }) => next => action => {
 						errorObject.stack.messageObject = JSON.parse(response);
 					} finally {
 						if (httpAction.onError) {
-							dispatch(onError(httpAction, errorObject));
-						} else {
-							dispatch(httpError(errorObject));
+							dispatch(http.onActionError(httpAction, errorObject));
+						}
+
+						if (typeof httpAction.onError !== 'function') {
+							dispatch(http.onError(errorObject));
 						}
 					}
 				});
 		}
 	};
+}
+
+export const httpMiddleware = ({ dispatch }) => next => action => {
+	if (!isHTTPRequest(action)) {
+		return next(action);
+	}
+	const httpAction = get(action, 'cmf.http', action);
+	const config = mergeOptions(httpAction);
+	dispatch(http.onRequest(httpAction.url, config));
+	if (httpAction.onSend) {
+		dispatch({
+			type: httpAction.onSend,
+			httpAction,
+		});
+	}
+	const onHTTPError = getOnError(dispatch, httpAction);
 	return fetch(httpAction.url, config)
 		.then(status)
 		.then(handleResponse)
 		.then(response => {
 			const newAction = Object.assign({}, action);
-			dispatch(httpResponse(response));
+			dispatch(http.onResponse(response));
 			if (newAction.transform) {
 				newAction.response = newAction.transform(response);
 			} else {
 				newAction.response = response;
 			}
 			if (newAction.onResponse) {
-				dispatch(onResponse(newAction, newAction.response));
+				dispatch(http.onActionResponse(newAction, newAction.response));
 			}
 			return next(newAction);
 		})

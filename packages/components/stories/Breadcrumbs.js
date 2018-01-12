@@ -1,5 +1,6 @@
 import React from 'react';
-import { storiesOf, setAddon, action } from '@storybook/react';
+import { storiesOf, setAddon } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import infoAddon from '@storybook/addon-info';
 import { Breadcrumbs, IconsProvider } from '../src/index';
 import talendIcons from '@talend/icons/dist/react';

@@ -139,8 +139,12 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
         role="button"
         type="button"
       >
-        <span>
-          <span>
+        <span
+          className="tc-dropdown-button-title"
+        >
+          <span
+            className="tc-dropdown-button-title-label"
+          >
             ...
           </span>
         </span>
@@ -279,8 +283,12 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
         role="button"
         type="button"
       >
-        <span>
-          <span>
+        <span
+          className="tc-dropdown-button-title"
+        >
+          <span
+            className="tc-dropdown-button-title-label"
+          >
             ...
           </span>
         </span>
@@ -406,8 +414,12 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
         role="button"
         type="button"
       >
-        <span>
-          <span>
+        <span
+          className="tc-dropdown-button-title"
+        >
+          <span
+            className="tc-dropdown-button-title-label"
+          >
             ...
           </span>
         </span>
