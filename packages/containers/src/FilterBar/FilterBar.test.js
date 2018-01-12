@@ -22,8 +22,7 @@ describe('Filter container', () => {
 			onFilter: () => jest.fn(),
 			t: () => jest.fn(),
 		};
-		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(shallow(<Container {...props} />).getElement()).toMatchSnapshot();
 	});
 	it('should call setState when onFilter event trigger', () => {
 		const setState = jest.fn();

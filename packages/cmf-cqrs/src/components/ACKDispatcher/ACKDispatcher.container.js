@@ -84,8 +84,8 @@ class ACKDispatcher extends React.Component {
 			});
 	}
 
+	// eslint-disable-next-line class-methods-use-this
 	render() {
-		// eslint-disable-line class-methods-use-this
 		return null;
 	}
 }
