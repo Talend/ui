@@ -119,6 +119,8 @@ function List({ displayMode, id, list, toolbar, defaultHeight, renderers, rowHei
 	);
 }
 
+List.displayName = 'List';
+
 List.propTypes = {
 	...ListToolbar.propTypes,
 	renderers: PropTypes.object,

@@ -263,6 +263,8 @@ function JSONSchemaRenderer({ schema, className, ...props }) {
 	);
 }
 
+JSONSchemaRenderer.displayName = 'JSONSchemaRenderer';
+
 JSONSchemaRenderer.propTypes = {
 	schema: PropTypes.shape({ ...SchemaProptypes }),
 	className: PropTypes.string,
