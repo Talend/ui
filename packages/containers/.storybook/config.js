@@ -1,5 +1,6 @@
 import 'babel-polyfill';
-import { action, storiesOf, configure, setAddon } from '@storybook/react';
+import { storiesOf, configure, setAddon } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import cmf from 'react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
