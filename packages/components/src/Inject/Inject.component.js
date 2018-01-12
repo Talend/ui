@@ -47,8 +47,10 @@ Inject.propTypes = {
  * @param {function} getComponent the method used to resolve the component
  * @param {array} array an array of components
  */
-Inject.map = function injectMap(getComponent, array) {
-	return array.map(props => <Inject getComponent={getComponent} {...props} />);
+Inject.map = function injectMap(getComponent, array, CustomInject = Inject) {
+	return array.map((props, index) => (
+		<CustomInject key={index} getComponent={getComponent} {...props} />
+	));
 };
 
 /**
@@ -61,15 +63,15 @@ Inject.map = function injectMap(getComponent, array) {
 		'aside': [{ component: 'MyConnectedSidePanel', toto: 'mdr' }],
 	}
  */
-Inject.all = function injectAll(getComponent, components) {
+Inject.all = function injectAll(getComponent, components, CustomInject = Inject) {
 	if (!getComponent || !components) {
 		return nothing;
 	}
 	return key => {
 		if (Array.isArray(components[key])) {
-			return Inject.map(getComponent, components[key]);
+			return Inject.map(getComponent, components[key], CustomInject);
 		} else if (typeof components[key] === 'object') {
-			return <Inject getComponent={getComponent} {...components[key]} />;
+			return <CustomInject getComponent={getComponent} {...components[key]} />;
 		}
 		return null;
 	};
