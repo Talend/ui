@@ -13,5 +13,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   23:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-✖ 3 problems (3 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/widgets/KeyValueWidget/KeyValueWidget.js
+  25:16  error  'schema' is missing in props validation    react/prop-types
+  25:24  error  'data' is missing in props validation      react/prop-types
+  25:30  error  'onChange' is missing in props validation  react/prop-types
+  47:18  error  'schema' is missing in props validation    react/prop-types
+  47:26  error  'data' is missing in props validation      react/prop-types
+  47:32  error  'onChange' is missing in props validation  react/prop-types
+
+✖ 9 problems (9 errors, 0 warnings)
 
