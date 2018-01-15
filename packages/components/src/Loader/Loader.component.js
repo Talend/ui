@@ -16,6 +16,8 @@ function Loader({ id, className }) {
 	);
 }
 
+Loader.displayName = 'Loader';
+
 Loader.propTypes = {
 	id: PropTypes.string,
 	className: PropTypes.string,
