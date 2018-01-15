@@ -1,6 +1,13 @@
 .tf-array-container {
 	margin-bottom: $padding-normal;
 
+	.tf-array-action-bar {
+		margin-bottom: $padding-normal;
+		z-index: 1;
+		padding: 10px 0;
+		background: $wild-sand;
+	}
+
 	.tf-array {
 		padding: 0;
 

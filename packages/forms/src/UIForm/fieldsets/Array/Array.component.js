@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { StickyContainer, Sticky } from 'react-sticky';
+
 import ArrayItem from './ArrayItem.component';
 import Message from '../../Message';
 import Widget from '../../Widget';
@@ -128,41 +130,46 @@ export default class ArrayWidget extends React.Component {
 		const canReorder = schema.reorder !== false;
 
 		return (
-			<div className={classNames(theme['tf-array-container'], 'tf-array-container')}>
-				<ol id={id} className={classNames(theme['tf-array'], 'tf-array')}>
-					{value.map((itemValue, index) => {
-						// create item schema with item index in key
-						const itemSchema = getItemSchema(schema, index, itemValue);
+			<StickyContainer>
+				<div className={classNames(theme['tf-array-container'], 'tf-array-container')}>
+					<Sticky>
+						{({ style }) =>
+							<div className={classNames(theme['tf-array-action-bar'], 'tf-array-action-bar')} style={style}>
+								<button type="button" className="btn btn-info" onClick={this.onAdd}>
+									New Element
+								</button>
+							</div>}
+					</Sticky>
+					<ol id={id} className={classNames(theme['tf-array'], 'tf-array')}>
+						{value.map((itemValue, index) => {
+							// create item schema with item index in key
+							const itemSchema = getItemSchema(schema, index, itemValue);
 
-						return (
-							<li className={theme.item} key={index}>
-								<ArrayItem
-									hasMoveDown={index < value.length - 1}
-									hasMoveUp={index > 0}
-									id={id && `${id}-control-${index}`}
-									index={index}
-									onRemove={this.onRemove}
-									onReorder={canReorder && this.onReorder}
-									value={itemValue}
-								>
-									<Widget
-										{...restProps}
-										id={id && `${id}-${index}`}
-										schema={itemSchema}
+							return (
+								<li className={theme.item} key={index}>
+									<ArrayItem
+										hasMoveDown={index < value.length - 1}
+										hasMoveUp={index > 0}
+										id={id && `${id}-control-${index}`}
+										index={index}
+										onRemove={this.onRemove}
+										onReorder={canReorder && this.onReorder}
 										value={itemValue}
-									/>
-								</ArrayItem>
-							</li>
-						);
-					})}
-				</ol>
-				<div>
-					<button type="button" className="btn btn-info" onClick={this.onAdd}>
-						New Element
-					</button>
+									>
+										<Widget
+											{...restProps}
+											id={id && `${id}-${index}`}
+											schema={itemSchema}
+											value={itemValue}
+										/>
+									</ArrayItem>
+								</li>
+							);
+						})}
+					</ol>
+					<Message errorMessage={errorMessage} description={schema.description} isValid={isValid} />
 				</div>
-				<Message errorMessage={errorMessage} description={schema.description} isValid={isValid} />
-			</div>
+			</StickyContainer>
 		);
 	}
 }
