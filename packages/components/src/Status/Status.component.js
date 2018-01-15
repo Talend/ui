@@ -84,6 +84,8 @@ export function Status({ status, label, icon, actions, progress }) {
 	);
 }
 
+Status.displayName = 'Status';
+
 Status.propTypes = {
 	status: PropTypes.oneOf([STATUS.IN_PROGRESS, STATUS.SUCCESSFUL, STATUS.FAILED, STATUS.CANCELED]),
 	label: PropTypes.string.isRequired,

@@ -12,10 +12,7 @@ import WithDrawer from '../../WithDrawer';
 <OneColumn name="Hello world"></OneColumn>
  */
 function OneColumn({ drawers, children, tabs, ...props }) {
-	const container = classnames(
-		'tc-layout-one-column',
-		theme.main,
-	);
+	const container = classnames('tc-layout-one-column', theme.main);
 	const style = {
 		overflow: 'auto',
 		height: '100%',
@@ -26,13 +23,13 @@ function OneColumn({ drawers, children, tabs, ...props }) {
 		<div className={container} {...props}>
 			<WithDrawer drawers={drawers}>
 				{tabs && <TabBar {...tabs} />}
-				<div style={style}>
-					{children}
-				</div>
+				<div style={style}>{children}</div>
 			</WithDrawer>
 		</div>
 	);
 }
+
+OneColumn.displayName = 'OneColumn';
 
 OneColumn.propTypes = {
 	children: PropTypes.node,
