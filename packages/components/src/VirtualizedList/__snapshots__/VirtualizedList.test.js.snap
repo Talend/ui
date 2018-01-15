@@ -5,6 +5,7 @@ exports[`VirtualizedList should render CircularProgress 1`] = `
   disableHeight={false}
   disableWidth={false}
   onResize={[Function]}
+  style={Object {}}
 >
   [Function]
 </AutoSizer>
@@ -106,6 +107,7 @@ exports[`VirtualizedList should use AutoSizer 1`] = `
   disableHeight={false}
   disableWidth={false}
   onResize={[Function]}
+  style={Object {}}
 >
   [Function]
 </AutoSizer>
