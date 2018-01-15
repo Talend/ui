@@ -1,7 +1,7 @@
 import { mergeCSRFToken } from '../../src/middlewares/http/csrfHandling';
 
 describe('csrf token injection', () => {
-	it('inject a HTTP_X_CSRFTOKEN headers if a csrf token is availble on a cookie', () => {
+	it('inject a X-CSRF-Token headers if a csrf token is availble on a cookie', () => {
 		// given
 		const CSRFToken = 'csrfHandling';
 		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True;`;

@@ -428,24 +428,25 @@ describe('httpMiddleware configuration', () => {
 		const newState = middleware(action);
 
 		// then
-
-		expect(global.fetch.mock.calls[0][0]).toEqual('foo');
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('body', expectedBody);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('credentials', expectedCredentials);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('headers.Accept', expectedAccept);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty(
+		const firstCall = global.fetch.mock.calls[0];
+		const firstCallSecondParam = firstCall[1];
+		expect(firstCall[0]).toEqual('foo');
+		expect(firstCallSecondParam).toHaveProperty('body', expectedBody);
+		expect(firstCallSecondParam).toHaveProperty('credentials', expectedCredentials);
+		expect(firstCallSecondParam).toHaveProperty('headers.Accept', expectedAccept);
+		expect(firstCallSecondParam).toHaveProperty(
 			'headers.Content-Type',
 			expectedContentType,
 		);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('headers.headerKey', expectedCSRFKeyValue);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('method', expectedMethod);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('onError', expectedOnError);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('onResponse', expectedOnResponse);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('onSend', expectedOnSend);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('url', expectedurl);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('response.ok', true);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('response.status', HTTP_STATUS.OK);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('response.json', json);
+		expect(firstCallSecondParam).toHaveProperty('headers.headerKey', expectedCSRFKeyValue);
+		expect(firstCallSecondParam).toHaveProperty('method', expectedMethod);
+		expect(firstCallSecondParam).toHaveProperty('onError', expectedOnError);
+		expect(firstCallSecondParam).toHaveProperty('onResponse', expectedOnResponse);
+		expect(firstCallSecondParam).toHaveProperty('onSend', expectedOnSend);
+		expect(firstCallSecondParam).toHaveProperty('url', expectedurl);
+		expect(firstCallSecondParam).toHaveProperty('response.ok', true);
+		expect(firstCallSecondParam).toHaveProperty('response.status', HTTP_STATUS.OK);
+		expect(firstCallSecondParam).toHaveProperty('response.json', json);
 
 		newState.then(() => {
 			expect(next.mock.calls.length).toBe(1);
@@ -499,27 +500,28 @@ describe('httpMiddleware configuration', () => {
 		const newState = middleware(action);
 
 		// then
-
-		expect(global.fetch.mock.calls[0][0]).toEqual('foo');
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('body', expectedBody);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('credentials', expectedCredentials);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('headers.Accept', expectedAccept);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty(
+		const firstCall = global.fetch.mock.calls[0];
+		const firstCallSecondParam = firstCall[1];
+		expect(firstCall[0]).toEqual('foo');
+		expect(firstCallSecondParam).toHaveProperty('body', expectedBody);
+		expect(firstCallSecondParam).toHaveProperty('credentials', expectedCredentials);
+		expect(firstCallSecondParam).toHaveProperty('headers.Accept', expectedAccept);
+		expect(firstCallSecondParam).toHaveProperty(
 			'headers.Content-Type',
 			expectedContentType,
 		);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty(
+		expect(firstCallSecondParam).toHaveProperty(
 			'headers.X-CSRF-Token',
 			expectedCSRFKeyValue,
 		);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('method', expectedMethod);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('onError', expectedOnError);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('onResponse', expectedOnResponse);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('onSend', expectedOnSend);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('url', expectedurl);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('response.ok', true);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('response.status', HTTP_STATUS.OK);
-		expect(global.fetch.mock.calls[0][1]).toHaveProperty('response.json', json);
+		expect(firstCallSecondParam).toHaveProperty('method', expectedMethod);
+		expect(firstCallSecondParam).toHaveProperty('onError', expectedOnError);
+		expect(firstCallSecondParam).toHaveProperty('onResponse', expectedOnResponse);
+		expect(firstCallSecondParam).toHaveProperty('onSend', expectedOnSend);
+		expect(firstCallSecondParam).toHaveProperty('url', expectedurl);
+		expect(firstCallSecondParam).toHaveProperty('response.ok', true);
+		expect(firstCallSecondParam).toHaveProperty('response.status', HTTP_STATUS.OK);
+		expect(firstCallSecondParam).toHaveProperty('response.json', json);
 
 		newState.then(() => {
 			expect(next.mock.calls.length).toBe(1);

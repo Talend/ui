@@ -175,7 +175,7 @@ const store = cmfstore.initialize(appReducer, preloadedState, enhancer, middlewa
 overloading the http middleware automaticaly injected and configured from cmf allow you
 to change the way CSRF Token are handled.
 
-Wich is usefull, different backend platform put CSRF token in different cookie name, and wait for them with different headers name.
+Which is usefull, different backend platform put CSRF token in different cookie name, and wait for them with different headers name.
 
 how you do that ? by adding a security config to the httpMiddleware config.
 
@@ -195,4 +195,4 @@ const store = cmfstore.initialize(appReducer, preloadedState, enhancer, middlewa
 ```
 with the above configuration the http middleware for each request it will find the CSRF token into `cookieKey` cookie, and inject it into the `headerKey` header.
 
-some of you may also use `httpSaga` wich offer better control when chaining/cancelling http operation, please check httpSaga documentation and down't worry `configuration object` have the same shape.
+some of you may also use `httpSaga` which offer better control when chaining/cancelling http operation, please check httpSaga documentation and don't worry `configuration object` have the same shape.
