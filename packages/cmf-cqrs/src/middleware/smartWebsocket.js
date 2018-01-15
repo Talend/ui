@@ -63,7 +63,6 @@ export function startWebsocket(url, offlinebuffer, options) {
 	ws.ping = function ping() {
 		ws.send('{"type":"PING"}');
 	};
-
 	return ws;
 }
 
