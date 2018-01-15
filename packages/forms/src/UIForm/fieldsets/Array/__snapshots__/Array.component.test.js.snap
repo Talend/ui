@@ -4,6 +4,9 @@ exports[`Array component should render array 1`] = `
 <div
   className="tf-array-container"
 >
+  <legend>
+    comments
+  </legend>
   <ol
     className="tf-array"
     id="talend-array"
@@ -312,6 +315,9 @@ exports[`Array component should render array that can't be reordered 1`] = `
 <div
   className="tf-array-container"
 >
+  <legend>
+    comments
+  </legend>
   <ol
     className="tf-array"
     id="talend-array"
