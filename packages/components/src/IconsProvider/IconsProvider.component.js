@@ -12,11 +12,7 @@ import talendIcons from '@talend/icons/dist/react';
 <IconsProvider />
  */
 function IconsProvider({ defaultIcons, icons }) {
-	const iconset = Object.assign(
-		{},
-		defaultIcons,
-		icons,
-	);
+	const iconset = Object.assign({}, defaultIcons, icons);
 	const ids = Object.keys(iconset);
 	const style = { display: 'none' };
 	return (
@@ -29,6 +25,8 @@ function IconsProvider({ defaultIcons, icons }) {
 		</svg>
 	);
 }
+
+IconsProvider.displayName = 'IconsProvider';
 
 IconsProvider.propTypes = {
 	defaultIcons: PropTypes.object, // eslint-disable-line react/forbid-prop-types

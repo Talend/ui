@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { cloneElement } from 'react';
-import {
-	OverlayTrigger,
-	Tooltip,
-} from 'react-bootstrap';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import uuid from 'uuid';
 import classNames from 'classnames';
 import theme from './TooltipTrigger.scss';
@@ -24,6 +21,7 @@ const props = {
 </TooltipTrigger>
  */
 class TooltipTrigger extends React.Component {
+	static displayName = 'TooltipTrigger';
 
 	constructor(props) {
 		super(props);
@@ -52,27 +50,23 @@ class TooltipTrigger extends React.Component {
 		if (!this.state.hovered) {
 			const child = React.Children.only(this.props.children);
 			const childProps = child.props;
-			const triggerProps = Object.assign({
-				onMouseOver: this.onMouseOver,
-				onFocus: this.onMouseOver,
-			}, childProps);
+			const triggerProps = Object.assign(
+				{
+					onMouseOver: this.onMouseOver,
+					onFocus: this.onMouseOver,
+				},
+				childProps,
+			);
 			return cloneElement(child, triggerProps);
 		}
 		const tooltip = (
-			<Tooltip
-				className={getTooltipClass()}
-				id={this.state.id}
-			>
+			<Tooltip className={getTooltipClass()} id={this.state.id}>
 				{this.props.label}
 			</Tooltip>
 		);
 		// TODO jmfrancois : render the Tooltip in a provider so use context for that.
 		return (
-			<OverlayTrigger
-				placement={this.props.tooltipPlacement}
-				overlay={tooltip}
-				delayShow={400}
-			>
+			<OverlayTrigger placement={this.props.tooltipPlacement} overlay={tooltip} delayShow={400}>
 				{this.props.children}
 			</OverlayTrigger>
 		);

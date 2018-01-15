@@ -83,6 +83,8 @@ function Icon({ className, name, title, transform, onClick }) {
 	invariant(true, 'no name provided');
 }
 
+Icon.displayName = 'Icon';
+
 Icon.propTypes = {
 	className: PropTypes.string,
 	name: PropTypes.string.isRequired,
