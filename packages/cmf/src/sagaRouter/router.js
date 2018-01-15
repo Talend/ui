@@ -163,10 +163,10 @@ export default function* sagaRouter(history, routes) {
 			}
 			index += 1;
 		}
-		for (let index = 0; index < shouldStart.length; ) {
+		for (let index = 0; index < shouldStart.length;) {
 			const { routeFragment, match } = shouldStart[index];
 			sagas[routeFragment] = {
-				saga: yield spawn(routes[routeFragment], match.params),
+				saga: yield spawn(routes[routeFragment], match.params, match.isExact),
 				match,
 			};
 			index += 1;
