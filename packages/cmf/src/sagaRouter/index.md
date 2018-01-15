@@ -46,3 +46,27 @@ const routes = {
 // router saga is forked and given router history, and route configuration
 yield fork(routerSaga, history, routes);
 ```
+
+### Match exact route
+
+```javascript
+import { sagaRouter } from '@talend/react-cmf';
+import { browserHistory as history } from 'react-router';
+
+const CANCEL_ACTION = 'CANCEL_ACTION';
+// route configuration, a url fragment match with a generator
+const routes = {
+  "/datasets/add": function* addDataset(notUsed, isExact) {
+    if (!isExact) {
+      return;
+    }
+    yield take(CANCEL_ACTION);
+    yield put({
+      type: REDIRECT_CONNECTION_ADD_DATASET_CANCEL,
+      cmf: {
+        routerReplace: `/connections/${datastoreId}/edit`
+      }
+    });
+  },
+};
+```
