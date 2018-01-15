@@ -40,8 +40,8 @@
     "yosay": "^1.0.0"
   },
   "devDependencies": {
-    "babel-core": "6.24.1",
-    "babel-eslint": "7.2.3",
+    "babel-core": "6.26.0",
+    "babel-eslint": "8.0.2",
     "babel-preset-env": "1.6.0",
     "babel-register": "^6.14.0",
     "coveralls": "^2.11.12",
@@ -51,5 +51,5 @@
     "yeoman-assert": "^2.0.0",
     "yeoman-test": "^1.0.0"
   },
-  "version": "0.141.0"
+  "version": "0.142.0"
 }
