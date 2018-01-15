@@ -213,6 +213,8 @@ function Drawer({
 	);
 }
 
+Drawer.displayName = 'Drawer';
+
 Drawer.propTypes = {
 	stacked: PropTypes.bool,
 	title: PropTypes.string,

@@ -237,6 +237,7 @@ HeaderBar.Search = Search;
 HeaderBar.Help = Help;
 HeaderBar.User = User;
 HeaderBar.Products = Products;
+HeaderBar.getDisplayName = 'Headerbar';
 
 if (process.env.NODE_ENV !== 'production') {
 	Logo.propTypes = {
