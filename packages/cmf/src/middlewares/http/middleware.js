@@ -64,8 +64,8 @@ import http from '../../actions/http';
 
 /**
  * @typedef {Object} Security
- * @property {String} CSRFTokenCookieKey - on wich value the token should be found in the cookie
- * @property {String} CSRFTokenHeaderKey - on wich header key the token should be sent
+ * @property {String} CSRFTokenCookieKey - on which value the token should be found in the cookie
+ * @property {String} CSRFTokenHeaderKey - on which header key the token should be sent
  */
 
 /**

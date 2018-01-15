@@ -106,7 +106,7 @@ only `datasetsSaga` will be executed.
 
 because the route key can be matched on any part of the url.
 
-Wich lead us to the next step
+Which lead us to the next step
 
 ### Partial route matching and parallel saga execution.
 
@@ -176,7 +176,7 @@ if the webapp url change to `localhost/datasets/51/edit`
 
 the `editDatasetsSaga` is cancelled, and when its done, restarted with the new value of the parameter.
 
-Only sagas matching on a route wich parameter change are restarted.
+Only sagas matching on a route which parameter change are restarted.
 
 ### Route matching with optionnal parameters
 Given the webapp url is `localhost/datasets/add/550`
