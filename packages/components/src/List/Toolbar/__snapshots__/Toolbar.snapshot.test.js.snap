@@ -364,6 +364,7 @@ exports[`Toolbar should render pagination 1`] = `
             href="#"
             id="my-toolbar-pagination-nav-to-first"
             onClick={[Function]}
+            onKeyDown={[Function]}
             role="button"
           >
             <svg
@@ -387,6 +388,7 @@ exports[`Toolbar should render pagination 1`] = `
             href="#"
             id="my-toolbar-pagination-nav-to-prev"
             onClick={[Function]}
+            onKeyDown={[Function]}
             role="button"
           >
             <svg
@@ -409,6 +411,7 @@ exports[`Toolbar should render pagination 1`] = `
           <a
             href="#"
             onClick={[Function]}
+            onKeyDown={[Function]}
             role="button"
             style={
               Object {
@@ -435,6 +438,7 @@ exports[`Toolbar should render pagination 1`] = `
             href="#"
             id="my-toolbar-pagination-nav-to-next"
             onClick={[Function]}
+            onKeyDown={[Function]}
             role="button"
           >
             <svg
@@ -458,6 +462,7 @@ exports[`Toolbar should render pagination 1`] = `
             href="#"
             id="my-toolbar-pagination-nav-to-last"
             onClick={[Function]}
+            onKeyDown={[Function]}
             role="button"
           >
             <svg
@@ -609,6 +614,7 @@ exports[`Toolbar should render sort selector 1`] = `
             href="#"
             id="my-toolbar-sort-order"
             onClick={[Function]}
+            onKeyDown={[Function]}
             role="button"
           >
             Descending
