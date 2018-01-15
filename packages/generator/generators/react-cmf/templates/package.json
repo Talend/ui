@@ -82,7 +82,7 @@
     "react": "^15.6.2",
     "react-ace": "5.2.0",
     "react-addons-css-transition-group": "15.6.2",
-    "react-bootstrap": "0.31.0",
+    "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
     "react-dom": "^15.6.2",
     "react-i18next": "^5.2.0",
