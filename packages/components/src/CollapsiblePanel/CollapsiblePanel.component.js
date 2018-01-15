@@ -5,7 +5,7 @@ import { Label, OverlayTrigger, Panel, Button } from 'react-bootstrap';
 
 import Action from '../Actions/Action';
 import Icon from './../Icon/Icon.component';
-import Status from '../Status';
+import { Status, getbsStyleFromStatus } from '../Status';
 import TooltipTrigger from './../TooltipTrigger';
 
 import css from './CollapsiblePanel.scss';
@@ -47,11 +47,13 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 	switch (displayMode) {
 		case TYPE_STATUS: {
 			const { actions, ...restStatus } = headerItem;
-			const adaptActions = actions.map(action => ({
+			const statusActions = actions.map(action => ({
 				...action,
 				onClick: getActionHandler(action.onClick, headerItem),
 			}));
-			return <Status key={key} actions={adaptActions} {...restStatus} className={css[className]} />;
+			return (
+				<Status key={key} actions={statusActions} {...restStatus} className={css[className]} />
+			);
 		}
 		case TYPE_ACTION: {
 			const { onClick, ...restAction } = headerItem;
@@ -192,22 +194,22 @@ function getTextualContent(content) {
  * @param onSelect optional, on header click callback function
  * @param onToggle optional, on caret click callback function
  * @param expanded optional, defines if the panel should be expanded or not
- * @param selected optional, defines if the panel is selected or not
  * @param theme optional, defines the theme of the collapsible, there is a default theme
+ * @param status optional, defines the status of the panel
  * @param content optional, defines the content of the panel's body:
  * if content is an array a key value content list is rendered otherwise it is a textual content
  *
  * @example
  * <CollapsiblePanel {...props} />
  */
-function CollapsiblePanel({ header, content, onSelect, onToggle, selected, expanded, theme }) {
+function CollapsiblePanel({ header, content, onSelect, onToggle, status, expanded, theme }) {
 	const headerItems = renderHeader(header, content, onSelect, onToggle);
 	const className = classNames('panel panel-default', css['tc-collapsible-panel'], {
 		[css['default-panel']]: !theme,
 		[css[theme]]: !!theme,
-		[css.selected]: selected,
-		selected,
 		[css.open]: expanded,
+		[css[getbsStyleFromStatus(status) || status]]: !!status,
+		status,
 	});
 
 	let children = null;
@@ -231,7 +233,7 @@ CollapsiblePanel.propTypes = {
 	onSelect: PropTypes.func,
 	onToggle: PropTypes.func,
 	expanded: PropTypes.bool,
-	selected: PropTypes.bool,
+	status: PropTypes.string,
 	theme: PropTypes.string,
 	content: PropTypes.oneOfType([
 		PropTypes.arrayOf(

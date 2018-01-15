@@ -1,3 +1,3 @@
-import Status from './Status.component';
+import { Status, getbsStyleFromStatus } from './Status.component';
 
-export default Status;
+export { Status, getbsStyleFromStatus };
