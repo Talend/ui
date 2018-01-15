@@ -2,10 +2,14 @@
 
 exports[`Status should render a label 1`] = `
 <div
-  className="tc-status text-success undefined"
+  className="tc-status undefined"
   role="status"
 >
-  
+  <span
+    className="tc-status-icon"
+  >
+    
+  </span>
   <span
     className="tc-status-label"
   >
@@ -60,15 +64,19 @@ exports[`Status should render a label 1`] = `
 
 exports[`Status should render a label with Icon 1`] = `
 <div
-  className="tc-status text-success undefined"
+  className="tc-status undefined"
   role="status"
 >
-  <i
-    aria-hidden="true"
-    className="fa fa-check"
-    focusable="false"
-    title={null}
-  />
+  <span
+    className="tc-status-icon"
+  >
+    <i
+      aria-hidden="true"
+      className="fa fa-check"
+      focusable="false"
+      title={null}
+    />
+  </span>
   <span
     className="tc-status-label"
   >
@@ -123,15 +131,19 @@ exports[`Status should render a label with Icon 1`] = `
 
 exports[`Status should render a label with Icon without actions 1`] = `
 <div
-  className="tc-status text-success"
+  className="tc-status"
   role="status"
 >
-  <i
-    aria-hidden="true"
-    className="fa fa-check"
-    focusable="false"
-    title={null}
-  />
+  <span
+    className="tc-status-icon"
+  >
+    <i
+      aria-hidden="true"
+      className="fa fa-check"
+      focusable="false"
+      title={null}
+    />
+  </span>
   <span
     className="tc-status-label"
   >
@@ -149,28 +161,32 @@ exports[`Status should render a label with Icon without actions 1`] = `
 
 exports[`Status should render a label with a continuous circular progress 1`] = `
 <div
-  className="tc-status text-info undefined"
+  className="tc-status undefined"
   role="status"
 >
-  <svg
-    className=""
-    focusable="false"
-    viewBox="0 0 50 50"
+  <span
+    className="tc-status-icon"
   >
-    <circle
-      className={undefined}
-      cx={25}
-      cy={25}
-      fill="none"
-      r={20}
-      style={
-        Object {
-          "strokeDasharray": 12.566370614359172,
-          "strokeDashoffset": 0,
+    <svg
+      className=""
+      focusable="false"
+      viewBox="0 0 50 50"
+    >
+      <circle
+        className={undefined}
+        cx={25}
+        cy={25}
+        fill="none"
+        r={20}
+        style={
+          Object {
+            "strokeDasharray": 12.566370614359172,
+            "strokeDashoffset": 0,
+          }
         }
-      }
-    />
-  </svg>
+      />
+    </svg>
+  </span>
   <span
     className="tc-status-label"
   >
@@ -225,28 +241,32 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
 
 exports[`Status should render a label with a fixed circular progress 1`] = `
 <div
-  className="tc-status text-info undefined"
+  className="tc-status undefined"
   role="status"
 >
-  <svg
-    className=""
-    focusable="false"
-    viewBox="0 0 50 50"
+  <span
+    className="tc-status-icon"
   >
-    <circle
-      className={undefined}
-      cx={25}
-      cy={25}
-      fill="none"
-      r={20}
-      style={
-        Object {
-          "strokeDasharray": 12.566370614359172,
-          "strokeDashoffset": 0,
+    <svg
+      className=""
+      focusable="false"
+      viewBox="0 0 50 50"
+    >
+      <circle
+        className={undefined}
+        cx={25}
+        cy={25}
+        fill="none"
+        r={20}
+        style={
+          Object {
+            "strokeDasharray": 12.566370614359172,
+            "strokeDashoffset": 0,
+          }
         }
-      }
-    />
-  </svg>
+      />
+    </svg>
+  </span>
   <span
     className="tc-status-label"
   >
