@@ -15,7 +15,6 @@ export default class UIForm extends React.Component {
 		super(props);
 		const { jsonSchema, uiSchema } = props;
 		this.state = merge(jsonSchema, uiSchema);
-
 		this.onChange = this.onChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
 		this.onReset = this.onReset.bind(this);
@@ -43,7 +42,6 @@ export default class UIForm extends React.Component {
 	 * @param value The payload new value
 	 */
 	onChange(event, { schema, value }) {
-		console.log('##########@');
 		const payload = {
 			formName: this.props.formName,
 			properties: this.props.properties,
@@ -56,24 +54,6 @@ export default class UIForm extends React.Component {
 		} else {
 			this.props.onChange(event, payload);
 		}
-		// moving trigger in onChange implies that trigger will be triggered even if value is not valid
-		// onChange/onFinish separation was to allow widgets and fields to manage when those are called. Some widgets call onChange then onFinish on the same event.
-		// We can for example on selection widget, to trigger both, but on user typing widgets, call onFinish on blur
-		// trigger if value is correct
-		// if (schema.triggers && schema.triggers.length) {
-		// 	let formData = payload.formData;
-		// 	let propertyName = schema.key.join('.');
-		// 	if (this.props.moz) {
-		// 		schema.key.forEach((key, index) => {
-		// 			if (index !== schema.key.length - 1) {
-		// 				formData = formData[key];
-		// 			}
-		// 		});
-		// 		propertyName = schema.key[schema.key.length - 1];
-		// 	}
-		// 	const formId = this.props.formName || this.props.formId;
-		// 	this.onTrigger(formData, formId, propertyName, value);
-		// }
 	}
 
 	/**

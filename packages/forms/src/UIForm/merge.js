@@ -22,7 +22,7 @@ function getUISchemaFromObject(schema, key) {
 	}
 	if (schema.enum && schema.enumNames) {
 		ui.titleMap = schema.enum.map((value, index) => ({ value, name: schema.enumNames[index] }));
-		delete schema.enumNames;
+		// delete schema.enumNames;
 	}
 	if (schema.type === 'object') {
 		ui.widget = 'fieldset';
@@ -123,6 +123,7 @@ export const wrapCustomWidget = Component => {
 	TFMigratedWidget.propTypes = {
 		formContext: PropTypes.object,
 		onChange: PropTypes.func,
+		onFinish: PropTypes.func,
 		schema: PropTypes.object,
 		titleMap: PropTypes.array,
 	};
