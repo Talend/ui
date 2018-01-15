@@ -33,6 +33,8 @@ function ListView(props) {
 	);
 }
 
+ListView.displayName = 'ListView';
+
 ListView.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.object),
 	t: PropTypes.func,

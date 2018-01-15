@@ -160,6 +160,8 @@ function SidePanel({
 	);
 }
 
+SidePanel.displayName = 'SidePanel';
+
 SidePanel.defaultProps = {
 	actions: [],
 	reverse: false,
