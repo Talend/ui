@@ -5,6 +5,7 @@ exports[`VirtualizedList should render CircularProgress 1`] = `
   disableHeight={false}
   disableWidth={false}
   onResize={[Function]}
+  style={Object {}}
 >
   [Function]
 </AutoSizer>
@@ -52,6 +53,7 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
       }
     }
     dataKey=""
+    defaultSortDirection="ASC"
     disableSort={true}
     flexGrow={0}
     flexShrink={0}
@@ -65,6 +67,7 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
     headerRenderer={[Function]}
@@ -76,6 +79,7 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
     headerRenderer={[Function]}
@@ -87,6 +91,7 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
     headerRenderer={[Function]}
@@ -102,6 +107,7 @@ exports[`VirtualizedList should use AutoSizer 1`] = `
   disableHeight={false}
   disableWidth={false}
   onResize={[Function]}
+  style={Object {}}
 >
   [Function]
 </AutoSizer>

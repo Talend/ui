@@ -219,6 +219,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
       }
     }
     dataKey="id"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="tc-list-cell-id"
@@ -236,6 +237,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
       }
     }
     dataKey="name"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="tc-list-cell-name"
@@ -253,6 +255,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
       }
     }
     dataKey="description"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="tc-list-cell-description"
@@ -304,6 +307,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
       }
     }
     dataKey="id"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="tc-list-cell-id"
@@ -321,6 +325,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
       }
     }
     dataKey="name"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="tc-list-cell-name"
@@ -338,6 +343,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
       }
     }
     dataKey="description"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="tc-list-cell-description"
@@ -389,6 +395,7 @@ exports[`ListGrid should render table with sort props 1`] = `
       }
     }
     dataKey="id"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="tc-list-cell-id"
@@ -406,6 +413,7 @@ exports[`ListGrid should render table with sort props 1`] = `
       }
     }
     dataKey="name"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="tc-list-cell-name"
@@ -423,6 +431,7 @@ exports[`ListGrid should render table with sort props 1`] = `
       }
     }
     dataKey="description"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="tc-list-cell-description"
