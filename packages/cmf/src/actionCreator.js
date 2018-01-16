@@ -33,11 +33,7 @@ function register(id, actionCreator, context) {
  * @param {object} actionCreators map of action creators
  * @param {object} context optional context to get the registry
  */
-function registerMany(actionCreators, context) {
-	Object.keys(actionCreators).forEach(key => {
-		register(key, actionCreators[key], context);
-	});
-}
+const registerMany = registry.getRegisterMany(register);
 
 export default {
 	get,
