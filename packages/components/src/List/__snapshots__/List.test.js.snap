@@ -121,6 +121,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
           disableHeight={false}
           disableWidth={false}
           onResize={[Function]}
+          style={Object {}}
         >
           <div
             style={
@@ -5311,6 +5312,7 @@ exports[`List should render 1`] = `
           disableHeight={false}
           disableWidth={false}
           onResize={[Function]}
+          style={Object {}}
         >
           <div
             style={
@@ -10556,6 +10558,7 @@ exports[`List should render id if provided 1`] = `
           disableHeight={false}
           disableWidth={false}
           onResize={[Function]}
+          style={Object {}}
         >
           <div
             style={

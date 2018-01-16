@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import { componentState } from '@talend/react-cmf';
 import ComponentForm from '@talend/react-forms';
-import ArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
+import DefaultArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
 import classnames from 'classnames';
 
 export const DEFAULT_STATE = new Immutable.Map({});
@@ -128,7 +128,7 @@ class Form extends React.Component {
 				dirty: state.dirty,
 				pristine: !state.dirty,
 			}),
-			ArrayFieldTemplate,
+			ArrayFieldTemplate: this.props.ArrayFieldTemplate || DefaultArrayFieldTemplate,
 			actions: this.formActions(),
 			fields: this.props.fields,
 			onChange: this.onChange,
@@ -141,7 +141,7 @@ class Form extends React.Component {
 		if (this.props.uiform) {
 			props.uiform = true;
 		}
-		return <ComponentForm {...props} />;
+		return <ComponentForm {...props} />;   
 	}
 }
 Form.defaultProps = {
