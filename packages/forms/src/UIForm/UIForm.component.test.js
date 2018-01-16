@@ -158,7 +158,7 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.setErrors).toBeCalledWith(props.formName, {
-				firstname: 'Missing required property: firstname',
+				firstname: 'Missing required field',
 			});
 		});
 

@@ -300,6 +300,38 @@ exports[`UIForm container should render form 2`] = `
       "type": "object",
     }
   }
+  language={
+    Object {
+      "ANY_OF_MISSING": "Data does not match any schemas from \\"anyOf\\"",
+      "ARRAY_ADDITIONAL_ITEMS": "Additional items not allowed",
+      "ARRAY_LENGTH_LONG": "Array is too long ({length}), maximum {maximum}",
+      "ARRAY_LENGTH_SHORT": "Array is too short ({length}), minimum {minimum}",
+      "ARRAY_UNIQUE": "Array items are not unique (indices {match1} and {match2})",
+      "CIRCULAR_REFERENCE": "Circular $refs: {urls}",
+      "ENUM_MISMATCH": "No enum match for: t({value}",
+      "FORMAT_CUSTOM": "Format validation failed ({message})",
+      "INVALID_TYPE": "Invalid type: {type} (expected {expected})",
+      "KEYWORD_CUSTOM": "Keyword failed: {key} ({message})",
+      "NOT_PASSED": "Data matches schema from \\"not\\"",
+      "NUMBER_MAXIMUM": "Value {value} is greater than maximum {maximum}",
+      "NUMBER_MAXIMUM_EXCLUSIVE": "Value {value} is equal to exclusive maximum {maximum}",
+      "NUMBER_MINIMUM": "Value {value} is less than minimum {minimum}",
+      "NUMBER_MINIMUM_EXCLUSIVE": "Value {value} is equal to exclusive minimum {minimum}",
+      "NUMBER_MULTIPLE_OF": "Value {value} is not a multiple of {multipleOf}",
+      "NUMBER_NOT_A_NUMBER": "Value {value} is not a valid number",
+      "OBJECT_ADDITIONAL_PROPERTIES": "Additional properties not allowed",
+      "OBJECT_DEPENDENCY_KEY": "Dependency failed - key must exist: {missing} due to key: {key}",
+      "OBJECT_PROPERTIES_MAXIMUM": "Too many properties defined ({propertyCount}), maximum {maximum}",
+      "OBJECT_PROPERTIES_MINIMUM": "Too few properties defined ({propertyCount}), minimum {minimum}",
+      "OBJECT_REQUIRED": "Missing required field",
+      "ONE_OF_MISSING": "Data does not match any schemas from \\"oneOf\\"",
+      "ONE_OF_MULTIPLE": "Data is valid against more than one schema from \\"oneOf\\": indices {index1} and {index2}",
+      "STRING_LENGTH_LONG": "String is too long ({length} chars), maximum {maximum}",
+      "STRING_LENGTH_SHORT": "String is too short ({length} chars), minimum {minimum}",
+      "STRING_PATTERN": "String does not match pattern: {pattern}",
+      "UNKNOWN_PROPERTY": "Unknown property (not in schema)",
+    }
+  }
   method={undefined}
   moz={undefined}
   noHtml5Validate={true}
