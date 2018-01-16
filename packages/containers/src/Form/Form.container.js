@@ -141,7 +141,7 @@ class Form extends React.Component {
 		if (this.props.uiform) {
 			props.uiform = true;
 		}
-		return <ComponentForm {...props} />;   
+		return <ComponentForm {...props} />;
 	}
 }
 Form.defaultProps = {
