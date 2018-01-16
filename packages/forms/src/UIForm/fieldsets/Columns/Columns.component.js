@@ -10,11 +10,11 @@ export default function Columns(props) {
 
 	return (
 		<div className={classNames('tf-columns', theme['tf-columns'])}>
-			{schema.title && (<legend>{schema.title}</legend>)}
+			{schema.title && <legend>{schema.title}</legend>}
 			<div className={classNames('tf-columns-items', theme.items)}>
-				{schema.items.map(
-					(colSchema, index) => (<Widget {...restProps} key={index} schema={colSchema} />)
-				)}
+				{schema.items.map((colSchema, index) => (
+					<Widget {...restProps} key={index} schema={colSchema} />
+				))}
 			</div>
 		</div>
 	);
