@@ -8,7 +8,7 @@ to do this simply pass the desired ArrayFieldTemplate to the Form#ArrayFieldTemp
 
 ```javascript
 <Container
-	ArrayFieldTemplate="ArrayFieldTemplate"
+	ArrayFieldTemplate={ArrayFieldTemplate}
 	formId="test-form"
 	jsonSchema={{ schema: true }}
 	uiSchema={{ uiSchema: true }}
