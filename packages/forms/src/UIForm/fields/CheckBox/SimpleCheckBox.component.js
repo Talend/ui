@@ -19,7 +19,9 @@ export default function SimpleCheckBox({ id, label, onChange, onFinish, schema, 
 					type="checkbox"
 					checked={value}
 				/>
-				<span className="control-label" htmlFor={id}>{label}</span>
+				<span className="control-label" htmlFor={id}>
+					{label}
+				</span>
 			</label>
 		</div>
 	);
