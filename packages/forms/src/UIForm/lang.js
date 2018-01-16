@@ -8,7 +8,9 @@ export default function getLanguage(t = defaultTranslate) {
 		ENUM_MISMATCH: t('No enum match for: t({value}'),
 		ANY_OF_MISSING: t('Data does not match any schemas from "anyOf"'),
 		ONE_OF_MISSING: t('Data does not match any schemas from "oneOf"'),
-		ONE_OF_MULTIPLE: t('Data is valid against more than one schema from "oneOf": indices {index1} and {index2}'),
+		ONE_OF_MULTIPLE: t(
+			'Data is valid against more than one schema from "oneOf": indices {index1} and {index2}',
+		),
 		NOT_PASSED: t('Data matches schema from "not"'),
 		// Numeric errors
 		NUMBER_MULTIPLE_OF: t('Value {value} is not a multiple of {multipleOf}'),
@@ -23,7 +25,9 @@ export default function getLanguage(t = defaultTranslate) {
 		STRING_PATTERN: t('String does not match pattern: {pattern}'),
 		// Object errors
 		OBJECT_PROPERTIES_MINIMUM: t('Too few properties defined ({propertyCount}), minimum {minimum}'),
-		OBJECT_PROPERTIES_MAXIMUM: t('Too many properties defined ({propertyCount}), maximum {maximum}'),
+		OBJECT_PROPERTIES_MAXIMUM: t(
+			'Too many properties defined ({propertyCount}), maximum {maximum}',
+		),
 		OBJECT_REQUIRED: t('Missing required field'),
 		OBJECT_ADDITIONAL_PROPERTIES: t('Additional properties not allowed'),
 		OBJECT_DEPENDENCY_KEY: t('Dependency failed - key must exist: {missing} due to key: {key}'),

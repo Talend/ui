@@ -25,7 +25,7 @@ export default class UIForm extends React.Component {
 		// control the tv4 language here.
 		if (!tv4.language('@talend')) {
 			tv4.addLanguage('@talend', props.language);
-			tv4.language('@talend');  // set it
+			tv4.language('@talend'); // set it
 		}
 	}
 
