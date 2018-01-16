@@ -12,10 +12,28 @@ $tc-status-space-btn-icon-label: 5px !default;
 		text-transform: uppercase;
 	}
 
-	> svg {
-		width: $tc-status-icon-size;
-		height: $tc-status-icon-size;
-		margin-right: $tc-status-space-btn-icon-label;
+	&-icon {
+		> svg {
+			width: $tc-status-icon-size;
+			height: $tc-status-icon-size;
+			margin-right: $tc-status-space-btn-icon-label;
+		}
+
+		&.info {
+			color: $brand-info;
+		}
+
+		&.success {
+			color: $brand-success;
+		}
+
+		&.danger {
+			color: $brand-danger;
+		}
+
+		&.muted {
+			color: $gray;
+		}
 	}
 
 	&-actions {
