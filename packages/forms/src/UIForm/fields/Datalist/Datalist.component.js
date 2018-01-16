@@ -190,7 +190,7 @@ class Datalist extends Component {
 			>
 				<div className={theme['tf-datalist']}>
 					<Typeahead
-						id={this.props.id}
+						id={`react-autowhatever-${this.props.id}`}
 						autoFocus={this.props.schema.autoFocus || false}
 						disabled={this.props.schema.disabled || false}
 						focusedItemIndex={this.state.focusedItemIndex}
