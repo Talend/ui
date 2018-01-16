@@ -3,6 +3,7 @@ import React from 'react';
 
 export default function SimpleCheckBox({ id, label, onChange, onFinish, schema, value }) {
 	const { autoFocus, disabled = false } = schema;
+
 	return (
 		<div className="checkbox">
 			<label>
@@ -11,8 +12,10 @@ export default function SimpleCheckBox({ id, label, onChange, onFinish, schema, 
 					autoFocus={autoFocus}
 					disabled={disabled}
 					label={label}
-					onBlur={event => onFinish(event, { schema })}
-					onChange={event => onChange(event, { schema, value: event.target.checked })}
+					onChange={event => {
+						onChange(event, { schema, value: event.target.checked });
+						onFinish(event, { schema, value: event.target.checked });
+					}}
 					type="checkbox"
 					checked={value}
 				/>
