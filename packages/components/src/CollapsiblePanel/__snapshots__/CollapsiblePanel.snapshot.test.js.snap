@@ -2,7 +2,7 @@
 
 exports[`CollapsiblePanel should render default with expanded key/value content 1`] = `
 <div
-  className="panel panel-default undefined"
+  className="panel panel-default"
 >
   <div
     className="panel-heading"
@@ -20,15 +20,19 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           className=""
         >
           <div
-            className="tc-status text-info undefined"
+            className="tc-status undefined"
             role="status"
           >
-            <i
-              aria-hidden="true"
-              className="fa fa-check"
-              focusable="false"
-              title={null}
-            />
+            <span
+              className="tc-status-icon"
+            >
+              <i
+                aria-hidden="true"
+                className="fa fa-check"
+                focusable="false"
+                title={null}
+              />
+            </span>
             <span
               className="tc-status-label"
             >
@@ -210,15 +214,19 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           className=""
         >
           <div
-            className="tc-status text-info undefined"
+            className="tc-status undefined"
             role="status"
           >
-            <i
-              aria-hidden="true"
-              className="fa fa-check"
-              focusable="false"
-              title={null}
-            />
+            <span
+              className="tc-status-icon"
+            >
+              <i
+                aria-hidden="true"
+                className="fa fa-check"
+                focusable="false"
+                title={null}
+              />
+            </span>
             <span
               className="tc-status-label"
             >
@@ -400,15 +408,19 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           className=""
         >
           <div
-            className="tc-status text-info undefined"
+            className="tc-status undefined"
             role="status"
           >
-            <i
-              aria-hidden="true"
-              className="fa fa-check"
-              focusable="false"
-              title={null}
-            />
+            <span
+              className="tc-status-icon"
+            >
+              <i
+                aria-hidden="true"
+                className="fa fa-check"
+                focusable="false"
+                title={null}
+              />
+            </span>
             <span
               className="tc-status-label"
             >
@@ -642,7 +654,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
 
 exports[`CollapsiblePanel should render themed without textual content 1`] = `
 <div
-  className="panel panel-default selected"
+  className="panel panel-default"
 >
   <div
     className="panel-heading"

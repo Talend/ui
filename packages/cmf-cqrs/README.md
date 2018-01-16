@@ -41,13 +41,13 @@ This package provides tools to deal with cqrs backend allowing websocket handlin
 
 ```javascript
 ws = new SmartWebsocket(urlPrefix, {
-	onOpen: () => dispatch({ type: ACTION_TYPES.ON_OPEN }),
-	onClose: () => dispatch({ type: ACTION_TYPES.ON_CLOSE }),
+	onOpen: () => dispatch({ type: SOCKET_ON_OPEN }),
+	onClose: () => dispatch({ type: SOCKET_ON_CLOSE }),
 	onMessage: messageEvent => {
 		dispatch({ type: onMessage, message: messageEvent });
 	},
 	onError: errorEvent => {
-		dispatch({ type: ACTION_TYPES.ON_CLOSE, event: errorEvent });
+		dispatch({ type: SOCKET_ON_CLOSE, event: errorEvent });
 	},
 });
 ```
@@ -124,20 +124,20 @@ Additionnaly the websocket middleware dispatch action on socket state change and
 
 on socket connection open success the following action get dispatched
 ```
-{ type: ACTION_TYPES.ON_OPEN }
+{ type: SOCKET_ON_OPEN }
 ```
 
 on socket connection being closed the following action get dispatched
 ```
-{ type: ACTION_TYPES.ON_CLOSE }
+{ type: SOCKET_ON_CLOSE }
 ```
 
 on socket connection being closed by an error the following action get dispatched
 ```
-{ type: ACTION_TYPES.ON_ERROR, event: errorEvent }
+{ type: SOCKET_ON_ERROR, event: errorEvent }
 ```
 
 on socket connection recieving a message the following action get dispatched
 ```
-{ type: ACTION_TYPES.ON_ERROR, event: errorEvent }
+{ type: SOCKET_ON_ERROR, event: errorEvent }
 ```

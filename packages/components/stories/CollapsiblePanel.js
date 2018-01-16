@@ -115,6 +115,56 @@ const propsCollapsiblePanel = {
 	onToggle: action('onToggle'),
 };
 
+const propsInProgressCollapsiblePanel = {
+	header: [
+		status,
+		label1,
+		label4,
+		button,
+		label3,
+	],
+	content,
+	onToggle: action('onToggle'),
+};
+
+
+const propsFailedCollapsiblePanel = {
+	header: [
+		{ ...status, status: 'failed', label: 'Failed', icon: 'talend-cross' },
+		label1,
+		label4,
+		button,
+		label3,
+	],
+	content,
+	onToggle: action('onToggle'),
+};
+
+
+const propsSuccessfulCollapsiblePanel = {
+	header: [
+		{ ...status, status: 'successful', label: 'Successful',  icon: 'talend-check' },
+		label1,
+		label4,
+		button,
+		label3,
+	],
+	content,
+	onToggle: action('onToggle'),
+};
+
+const propsCanceledCollapsiblePanel = {
+	header: [
+		{ ...status, status: 'canceled', label: 'Canceled', icon: 'talend-cross' },
+		label1,
+		label4,
+		button,
+		label3,
+	],
+	content,
+	onToggle: action('onToggle'),
+};
+
 const propsCollapsiblePanelWithHeaderGroups = {
 	header: [
 		{ ...status, status: 'failed', label: 'Failed', icon: 'talend-cross' },
@@ -186,7 +236,7 @@ const propsCollapsibleSelectablePanel = {
 const propsCollapsibleSelectedPanel = {
 	...propsCollapsibleSelectablePanel,
 	expanded: true,
-	selected: true,
+	status: 'selected',
 	theme: 'descriptive-panel',
 };
 
@@ -198,7 +248,7 @@ const propsSelectedPanelWithoutContent = {
 	onSelect: action('onselect'),
 	onToggle: action('onToggle'),
 	expanded: true,
-	selected: true,
+	status: 'selected',
 	theme: 'descriptive-panel',
 };
 
@@ -250,7 +300,7 @@ storiesOf('CollapsiblePanel', module)
 			</div>
 			<p>Panel Without readonly tag and without content:</p>
 			<div id="selectable-panel-with-content4">
-				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} selected={false} />
+				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} status={''} />
 			</div>
 		</div>
 	))
@@ -270,9 +320,22 @@ storiesOf('CollapsiblePanel', module)
 				<CollapsiblePanel {...propsSelectedPanelWithoutContent} />
 			</div>
 			<p>Selected key/Value CollapsiblePanel:</p>
-			<CollapsiblePanel {...propsCollapsiblePanel} selected/>
+			<CollapsiblePanel {...propsCollapsiblePanel} status={'selected'}/>
 			<p>Selected key/Value CollapsiblePanel without content:</p>
-			<CollapsiblePanel {...propsPanelWithoutActions} selected/>
+			<CollapsiblePanel {...propsPanelWithoutActions} status={'selected'}/>
+		</div>
+	))
+	.addWithInfo('Status Collapsible', () => (
+		<div className="col-lg-offset-1 col-lg-10">
+			<IconsProvider defaultIcons={icons}/>
+			<p>CollapsiblePanel with status info:</p>
+			<CollapsiblePanel {...propsInProgressCollapsiblePanel} status={'inProgress'}/>
+			<p>CollapsiblePanel with status successful:</p>
+			<CollapsiblePanel {...propsSuccessfulCollapsiblePanel} status={'successful'}/>
+			<p>CollapsiblePanel with status failed:</p>
+			<CollapsiblePanel {...propsFailedCollapsiblePanel} status={'failed'}/>
+			<p>CollapsiblePanel with status canceled:</p>
+			<CollapsiblePanel {...propsCanceledCollapsiblePanel} status={'canceled'}/>
 		</div>
 	))
 	.addWithInfo('Adjustment textual collapsibles', () => (
