@@ -143,7 +143,7 @@ export default class UIForm extends React.Component {
 	}
 
 	onActionClick(actionOnClick) {
-		if (actionOnClick) {
+		if (typeof actionOnClick === 'function') {
 			return (event, data) =>
 				actionOnClick(event, {
 					...data,

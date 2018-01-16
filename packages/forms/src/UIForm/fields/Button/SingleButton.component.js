@@ -15,11 +15,11 @@ export default function SingleButton({ className, id, onTrigger, onClick, schema
 
 	return (
 		<Action
+			{...props}
 			id={id}
 			className={classNames('btn', className)}
 			onClick={localOnClick}
 			type={type}
-			{...props}
 		/>
 	);
 }
