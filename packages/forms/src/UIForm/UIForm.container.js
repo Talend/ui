@@ -136,6 +136,7 @@ export default class UIForm extends React.Component {
 				setErrors={this.setErrors}
 				updateForm={this.updateForm}
 				buttonBlockClass={this.props.buttonBlockClass}
+				language={this.props.language}
 				moz={this.props.moz}
 			/>
 		);

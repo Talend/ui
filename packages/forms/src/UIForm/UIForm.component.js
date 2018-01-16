@@ -8,6 +8,8 @@ import { validateSingle, validateAll } from './utils/validation';
 import Widget from './Widget';
 import Buttons from './fields/Button/Buttons.component';
 import { getValue, mutateValue, omit } from './utils/properties';
+import tv4 from 'tv4';
+import getLanguage from './lang';
 
 export default class UIForm extends React.Component {
 	static displayName = 'TalendUIForm';
@@ -21,6 +23,11 @@ export default class UIForm extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onActionClick = this.onActionClick.bind(this);
+		// control the tv4 language here.
+		if (!tv4.language('@talend')) {
+			tv4.addLanguage('@talend', props.language);
+			tv4.language('@talend');  // set it
+		}
 	}
 
 	/**
@@ -303,4 +310,5 @@ UIForm.defaultProps = {
 	noHtml5Validate: true,
 	buttonBlockClass: 'form-actions',
 	properties: {},
+	language: getLanguage(),
 };
