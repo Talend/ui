@@ -79,7 +79,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	react: REACT_VERSION,
 	'react-ace': '5.2.0',
 	'react-addons-css-transition-group': '15.6.2',
-	'react-bootstrap': '0.31.0',
+	'react-bootstrap': '0.31.5',
 	'react-dom': REACT_VERSION,
 	i18next: '^9.0.0',
 	'rc-slider': '8.4.1',

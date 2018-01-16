@@ -4667,6 +4667,7 @@ exports[`List should render 1`] = `
                                 <a
                                   href="#"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
                                   role="button"
                                 >
                                   Ascending
@@ -4959,6 +4960,7 @@ exports[`List should render 1`] = `
                                 <a
                                   href="#"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
                                   role="button"
                                 >
                                   <Icon
@@ -4999,6 +5001,7 @@ exports[`List should render 1`] = `
                                 <a
                                   href="#"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
                                   role="button"
                                 >
                                   <Icon
@@ -5037,6 +5040,7 @@ exports[`List should render 1`] = `
                                 <a
                                   href="#"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
                                   role="button"
                                   style={
                                     Object {
@@ -5076,6 +5080,7 @@ exports[`List should render 1`] = `
                                 <a
                                   href="#"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
                                   role="button"
                                 >
                                   <Icon
@@ -5117,6 +5122,7 @@ exports[`List should render 1`] = `
                                 <a
                                   href="#"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
                                   role="button"
                                 >
                                   <Icon
@@ -9884,6 +9890,7 @@ exports[`List should render id if provided 1`] = `
                                   href="#"
                                   id="context-sort-order"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
                                   role="button"
                                 >
                                   Ascending
@@ -10183,6 +10190,7 @@ exports[`List should render id if provided 1`] = `
                                   href="#"
                                   id="context-pagination-nav-to-first"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
                                   role="button"
                                 >
                                   <Icon
@@ -10226,6 +10234,7 @@ exports[`List should render id if provided 1`] = `
                                   href="#"
                                   id="context-pagination-nav-to-prev"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
                                   role="button"
                                 >
                                   <Icon
@@ -10264,6 +10273,7 @@ exports[`List should render id if provided 1`] = `
                                 <a
                                   href="#"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
                                   role="button"
                                   style={
                                     Object {
@@ -10306,6 +10316,7 @@ exports[`List should render id if provided 1`] = `
                                   href="#"
                                   id="context-pagination-nav-to-next"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
                                   role="button"
                                 >
                                   <Icon
@@ -10350,6 +10361,7 @@ exports[`List should render id if provided 1`] = `
                                   href="#"
                                   id="context-pagination-nav-to-last"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
                                   role="button"
                                 >
                                   <Icon
