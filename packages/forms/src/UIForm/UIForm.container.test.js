@@ -91,30 +91,4 @@ describe('UIForm container', () => {
 			expect(instance.state).toMatchSnapshot();
 		});
 	});
-
-	describe('#updateForm', () => {
-		it('should update state form', () => {
-			// given
-			const wrapper = shallow(<UIForm data={data} {...props} />);
-			const instance = wrapper.instance();
-			const jsonSchema = {
-				type: 'object',
-				title: 'title',
-				properties: {
-					lastname: {
-						type: 'string',
-					},
-				},
-			};
-			const uiSchema = ['lastname'];
-			const properties = { lastname: 'lol' };
-			const errors = { lastname: 'my lastname is invalid' };
-
-			// when
-			instance.updateForm(props.formName, jsonSchema, uiSchema, properties, errors);
-
-			// then
-			expect(instance.state).toMatchSnapshot();
-		});
-	});
 });

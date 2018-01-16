@@ -13,7 +13,6 @@ export default class UIForm extends React.Component {
 			errors: [],
 		};
 		this.onChange = this.onChange.bind(this);
-		// this.updateForm = this.updateForm.bind(this);
 		this.setError = this.setError.bind(this);
 		this.setErrors = this.setErrors.bind(this);
 	}
@@ -89,31 +88,6 @@ export default class UIForm extends React.Component {
 		this.setState({ errors });
 	}
 
-	/**
-	 * Update the form, the model and errors
-	 * @param formName The form name
-	 * @param jsonSchema The model schema
-	 * @param uiSchema The UI schema
-	 * @param properties The values
-	 * @param errors The validation errors
-	 */
-	updateForm(formName, jsonSchema, uiSchema, properties, errors) {
-		const newState = {};
-		if (jsonSchema) {
-			newState.jsonSchema = jsonSchema;
-		}
-		if (uiSchema) {
-			newState.uiSchema = uiSchema;
-		}
-		if (properties) {
-			newState.properties = properties;
-		}
-		if (errors) {
-			newState.errors = errors;
-		}
-		this.setState(newState);
-	}
-
 	render() {
 		const { jsonSchema, uiSchema, properties, errors } = this.state;
 
@@ -134,7 +108,6 @@ export default class UIForm extends React.Component {
 				onSubmit={this.props.onSubmit}
 				setError={this.setError}
 				setErrors={this.setErrors}
-				updateForm={this.updateForm}
 				buttonBlockClass={this.props.buttonBlockClass}
 				language={this.props.language}
 				moz={this.props.moz}

@@ -189,49 +189,4 @@ describe('UIForm component', () => {
 			expect(props.onSubmit).toBeCalled();
 		});
 	});
-
-	describe('#onReset', () => {
-		const resetEvent = { target: {} };
-
-		it('should reset form with initial schema and data', () => {
-			// given
-			const initialData = {
-				...data,
-				properties: {
-					...data.properties,
-					changedField: 'lol',
-				},
-			};
-			const wrapper = mount(<UIForm {...data} initialData={initialData} {...props} />);
-
-			// when
-			wrapper
-				.find('form')
-				.at(0)
-				.simulate('reset', resetEvent);
-
-			// then
-			expect(props.updateForm).toBeCalledWith(
-				props.formName,
-				initialData.jsonSchema,
-				initialData.uiSchema,
-				initialData.properties,
-			);
-			expect(props.setErrors).toBeCalledWith(props.formName, {});
-		});
-
-		it('should call onReset from props', () => {
-			// given
-			const wrapper = mount(<UIForm {...data} initialData={data} {...props} />);
-
-			// when
-			wrapper
-				.find('form')
-				.at(0)
-				.simulate('reset', resetEvent);
-
-			// then
-			expect(props.onReset).toBeCalled();
-		});
-	});
 });

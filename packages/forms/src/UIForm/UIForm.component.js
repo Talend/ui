@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import tv4 from 'tv4';
 
 import merge from './merge';
 import { formPropTypes } from './utils/propTypes';
@@ -8,7 +9,6 @@ import { validateSingle, validateAll } from './utils/validation';
 import Widget from './Widget';
 import Buttons from './fields/Button/Buttons.component';
 import { getValue, mutateValue, omit } from './utils/properties';
-import tv4 from 'tv4';
 import getLanguage from './lang';
 
 export default class UIForm extends React.Component {
@@ -19,7 +19,6 @@ export default class UIForm extends React.Component {
 		this.state = merge(jsonSchema, uiSchema);
 		this.onChange = this.onChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
-		this.onReset = this.onReset.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onActionClick = this.onActionClick.bind(this);
@@ -141,25 +140,6 @@ export default class UIForm extends React.Component {
 		}
 
 		return onTrigger(formData, formId, propertyName, propertyValue);
-	}
-
-	/**
-	 * Set the original data and schema
-	 * Triggers reset callback if form is valid
-	 * @param event the reset event
-	 */
-	onReset(event) {
-		this.props.updateForm(
-			this.props.formName,
-			this.props.initialData.jsonSchema,
-			this.props.initialData.uiSchema,
-			this.props.initialData.properties,
-		);
-		this.props.setErrors(this.props.formName, {});
-
-		if (this.props.onReset) {
-			this.props.onReset(event);
-		}
 	}
 
 	onActionClick(actionOnClick) {

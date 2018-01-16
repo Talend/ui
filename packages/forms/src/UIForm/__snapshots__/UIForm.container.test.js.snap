@@ -150,29 +150,6 @@ Object {
 }
 `;
 
-exports[`UIForm container #updateForm should update state form 1`] = `
-Object {
-  "errors": Object {
-    "lastname": "my lastname is invalid",
-  },
-  "jsonSchema": Object {
-    "properties": Object {
-      "lastname": Object {
-        "type": "string",
-      },
-    },
-    "title": "title",
-    "type": "object",
-  },
-  "properties": Object {
-    "lastname": "lol",
-  },
-  "uiSchema": Array [
-    "lastname",
-  ],
-}
-`;
-
 exports[`UIForm container should render form 1`] = `
 Object {
   "errors": Array [],
@@ -369,7 +346,6 @@ exports[`UIForm container should render form 2`] = `
       },
     ]
   }
-  updateForm={[Function]}
   widgets={
     Object {
       "custom": [Function],
