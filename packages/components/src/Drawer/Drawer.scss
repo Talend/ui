@@ -25,7 +25,7 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 	right: 0;
 	bottom: 0;
 	width: 50vw;
-	// should always stay lower than dialog z-index wich is set to 1040
+	// should always stay lower than dialog z-index which is set to 1040
 	z-index: 100;
 }
 
