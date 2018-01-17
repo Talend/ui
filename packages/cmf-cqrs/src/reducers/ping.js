@@ -13,7 +13,7 @@ const DEFAULT_STATE = new Map({});
 export default function pingReducer(state = DEFAULT_STATE, action) {
 	switch (action.type) {
 		case PING_MESSAGE_TYPE:
-		// wip requestId
+			// wip requestId
 			return state.setIn([action.requestId, 'timestamp'], action.timestamp);
 		default:
 			return state;
@@ -22,15 +22,10 @@ export default function pingReducer(state = DEFAULT_STATE, action) {
 
 export function pingProcessed(state, action) {
 	if (action.type) {
-		const newState = Object.assign(
-			{},
-			state,
-			{
-				ping: pingReducer(state.ping, action),
-			},
-		);
+		const newState = Object.assign({}, state, {
+			ping: pingReducer(state.ping, action),
+		});
 		return newState;
 	}
 	return state;
 }
-

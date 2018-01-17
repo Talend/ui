@@ -1,5 +1,10 @@
 import SmartWebsocket from './smartWebsocket';
-import { SOCKET_ON_OPEN, SOCKET_ON_CLOSE, SOCKET_ON_ERROR, SOCKET_ON_PING_TIMEOUT } from '../constants';
+import {
+	SOCKET_ON_OPEN,
+	SOCKET_ON_CLOSE,
+	SOCKET_ON_ERROR,
+	SOCKET_ON_PING_TIMEOUT,
+} from '../constants';
 // SOCKET_ON_PING
 
 // if host is localhost connect directly to the localhost backend
@@ -75,7 +80,6 @@ function createWebsocketMiddleware(socketPath, actionListeners = [], socketListe
 
 					//ws.lastPingTimestamp = event.timestamp;
 				},
-
 			});
 		}
 		const entrie = {};

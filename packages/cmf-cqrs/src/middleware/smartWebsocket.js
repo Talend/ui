@@ -1,4 +1,4 @@
-import { setTimeout } from "timers";
+import { setTimeout } from 'timers';
 
 /**
  * Send message on ws if available.
