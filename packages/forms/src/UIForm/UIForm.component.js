@@ -16,7 +16,11 @@ export default class UIForm extends React.Component {
 	constructor(props) {
 		super(props);
 		const { jsonSchema, uiSchema } = props;
-		this.state = merge(jsonSchema, uiSchema);
+		if (Object.keys(jsonSchema).length) {
+			this.state = merge(jsonSchema, uiSchema);
+		} else {
+			this.state = {};
+		}
 		this.onChange = this.onChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -38,7 +42,9 @@ export default class UIForm extends React.Component {
 		if (!jsonSchema || !uiSchema) {
 			return;
 		}
-		this.setState(merge(jsonSchema, uiSchema));
+		if (Object.keys(jsonSchema).length) {
+			this.setState(merge(jsonSchema, uiSchema));
+		}
 	}
 
 	/**
