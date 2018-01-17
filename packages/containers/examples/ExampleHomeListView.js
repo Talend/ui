@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconsProvider, Drawer } from '@talend/react-components';
+import { Drawer, IconsProvider } from '@talend/react-components';
 import talendIcons from '@talend/icons/dist/react';
 import { action } from '@storybook/react';
 import Immutable from 'immutable';
@@ -118,7 +118,7 @@ const actions = {
 	items: ['object:delete'],
 };
 
-const toolbar =	{
+const toolbar = {
 	sort: {
 		field: 'id',
 		options: [
@@ -171,38 +171,70 @@ const listProps = {
 const ExampleHomeListView = {
 	default: () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider defaultIcons={icons}/>
 			<HomeListView
 				sidepanel={sidepanel}
 				list={listProps}
 			/>
 		</div>
 	),
-	drawer: () => (
+};
+
+[
+	'tdc',
+	'tdp',
+	'tds',
+	'tfd',
+	'tic',
+	'tmc',
+].forEach(app => {
+	ExampleHomeListView[`${app.toUpperCase()} default`] = () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider defaultIcons={icons}/>
 			<HomeListView
-				header={header}
+				id={app}
 				sidepanel={sidepanel}
 				list={listProps}
-			>
-				<Drawer
-					stacked title="Im stacked drawer 1"
-					footerActions={Object.assign({}, basicProps, { selected: 0 })}
-				>
-					<h1>Hello drawer 1</h1>
-					<p>You should not being able to read this because I&#39;m first</p>
-				</Drawer>
-				<Drawer
-					title="Im drawer 2"
-					footerActions={Object.assign({}, basicProps, { selected: 0 })}
-				>
-					<h1>Hello drawer 2</h1>
-					<p>The content dictate the width</p>
-				</Drawer>
-			</HomeListView>
+			/>
 		</div>
-	),
-};
+	);
+	ExampleHomeListView[`🎨 ${app.toUpperCase()} default`] = () => (
+		<div>
+			<IconsProvider defaultIcons={icons}/>
+			<HomeListView
+				id={app}
+				hasTheme={true}
+				sidepanel={sidepanel}
+				list={listProps}
+			/>
+		</div>
+	);
+});
+
+ExampleHomeListView.drawer = () => (
+	<div>
+		<IconsProvider defaultIcons={icons}/>
+		<HomeListView
+			header={header}
+			sidepanel={sidepanel}
+			list={listProps}
+		>
+			<Drawer
+				stacked title="Im stacked drawer 1"
+				footerActions={Object.assign({}, basicProps, { selected: 0 })}
+			>
+				<h1>Hello drawer 1</h1>
+				<p>You should not being able to read this because I&#39;m first</p>
+			</Drawer>
+			<Drawer
+				title="Im drawer 2"
+				footerActions={Object.assign({}, basicProps, { selected: 0 })}
+			>
+				<h1>Hello drawer 2</h1>
+				<p>The content dictate the width</p>
+			</Drawer>
+		</HomeListView>
+	</div>
+);
 
 export default ExampleHomeListView;

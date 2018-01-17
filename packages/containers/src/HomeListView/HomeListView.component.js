@@ -23,7 +23,7 @@ function wrapChildren(children) {
 	return [children];
 }
 
-function HomeListView({ sidepanel, list, header, children }) {
+function HomeListView({id, hasTheme, sidepanel, list, header, children}) {
 	if (!sidepanel || !list) {
 		return null;
 	}
@@ -34,6 +34,8 @@ function HomeListView({ sidepanel, list, header, children }) {
 
 	return (
 		<Layout
+			id={id}
+			hasTheme={hasTheme}
 			mode="TwoColumns"
 			header={getContent(HeaderBar, header)}
 			one={getContent(SidePanel, sidepanel)}
@@ -46,6 +48,8 @@ function HomeListView({ sidepanel, list, header, children }) {
 
 HomeListView.displayName = 'HomeListView';
 HomeListView.propTypes = {
+	id: PropTypes.string,
+	hasTheme: PropTypes.bool,
 	header: PropTypes.oneOfType([PropTypes.element, PropTypes.object]),
 	sidepanel: PropTypes.oneOfType([PropTypes.element, PropTypes.object]).isRequired,
 	list: PropTypes.oneOfType([PropTypes.element, PropTypes.object]).isRequired,
