@@ -147,6 +147,22 @@ describe('Container(Form)', () => {
 		});
 		expect(form.uiSchema()).toBe(uiSchema);
 	});
+
+	it('use ArrayFieldTemplate given by props over default ArrayFieldTemplate', () => {
+		const wrapper = shallow(
+			<Container
+				ArrayFieldTemplate="ArrayFieldTemplate"
+				formId="test-form"
+				jsonSchema={{ schema: true }}
+				uiSchema={{ uiSchema: true }}
+				actions={[]}
+				className="foo"
+				formProps={{ other: true }} // extra props
+			/>,
+		);
+		const props = wrapper.props();
+		expect(props).toHaveProperty('ArrayFieldTemplate', 'ArrayFieldTemplate');
+	});
 });
 
 describe('Connected Form', () => {

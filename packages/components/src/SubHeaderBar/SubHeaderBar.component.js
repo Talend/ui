@@ -90,6 +90,8 @@ function SubHeaderBar({ t, onGoBack, componentsCenter, componentsRight, classNam
 	);
 }
 
+SubHeaderBar.displayName = 'SubHeaderBar';
+
 SubHeaderBar.propTypes = {
 	onGoBack: PropTypes.func.isRequired,
 	componentsCenter: PropTypes.array,

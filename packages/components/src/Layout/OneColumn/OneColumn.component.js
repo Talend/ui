@@ -29,6 +29,8 @@ function OneColumn({ drawers, children, tabs, ...props }) {
 	);
 }
 
+OneColumn.displayName = 'OneColumn';
+
 OneColumn.propTypes = {
 	children: PropTypes.node,
 	drawers: PropTypes.arrayOf(PropTypes.node),

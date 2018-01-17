@@ -107,4 +107,6 @@ Inject.getAll = function injectGetAll(getComponent, config) {
 	return components;
 };
 
+Inject.displayName = 'Inject';
+
 export { Inject as default, NotFoundComponent };

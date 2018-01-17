@@ -149,19 +149,19 @@ $toggle-button-padding: $padding-small - 1;
 		.tc-side-panel-list-item {
 			width: $tc-side-panel-docked-width;
 		}
-		:global(.btn.btn-link) {
-			padding: $padding-normal;
-		}
 
-		.toggle-btn {
-			:global(.tc-svg-icon) {
-				transform: rotate(-180deg);
+		.nav-pills {
+			:global(.btn.btn-link) {
+				padding: $padding-normal;
 			}
 		}
 
 		.toggle-btn {
 			:global(.btn.btn-link) {
 				padding: $padding-small;
+				:global(.tc-svg-icon) {
+					transform: rotate(-180deg);
+				}
 			}
 		}
 	}

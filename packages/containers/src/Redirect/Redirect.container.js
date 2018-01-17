@@ -32,4 +32,6 @@ RedirectContainer.contextTypes = {
 	store: PropTypes.object.isRequired,
 };
 
+RedirectContainer.displayName = 'RedirectContainer';
+
 export default cmfConnect({})(RedirectContainer);

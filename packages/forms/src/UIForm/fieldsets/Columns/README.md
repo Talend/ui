@@ -38,11 +38,13 @@ This widget allows you to columns containing widgets/fields.
 |---|---|
 | widget | `columns` |
 | items | An array of field/fieldset definitions |
+| title | A title to set on top of the row of columns |
 
 ```json
 [
   {
     "widget": "columns",
+    "title": "My awesome columns",
     "items": [
       {
         "widget": "fieldset",
