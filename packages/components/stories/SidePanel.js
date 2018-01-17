@@ -1,6 +1,7 @@
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 import i18n, { LanguageSwitcher } from './config/i18n';
 import { SidePanel, IconsProvider, Layout } from '../src/index';

@@ -1,8 +1,17 @@
 import React from 'react';
-import { action, storiesOf } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
-import { Drawer, HeaderBar, IconsProvider, Layout, List, SidePanel, SubHeaderBar, } from '../src/index';
+import {
+	List,
+	IconsProvider,
+	Layout,
+	SidePanel,
+	HeaderBar,
+	Drawer,
+	SubHeaderBar,
+} from '../src/index';
 
 const apps = [
 	'tdc',

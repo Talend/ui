@@ -36,7 +36,7 @@ class Items extends React.PureComponent {
 		this.renderToggleAllOrItem = this.renderToggleAllOrItem.bind(this);
 		this.renderToggleAll = this.renderToggleAll.bind(this);
 
-		this.hasToggleAll = this.props.items.length > 1;
+		this.hasToggleAll = this.props.showToggleAll && this.props.items.length > 1;
 	}
 
 	getRowHeight({ index }) {
@@ -153,6 +153,7 @@ Items.propTypes = {
 	getItemHeight: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,
+	showToggleAll: PropTypes.bool,
 	onToggleAll: PropTypes.func,
 	t: PropTypes.func,
 };
@@ -160,6 +161,7 @@ Items.propTypes = {
 Items.defaultProps = {
 	t: getDefaultTranslate,
 	isSwitchBox: false,
+	showToggleAll: true,
 };
 
 export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Items);

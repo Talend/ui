@@ -37,7 +37,7 @@ export const STATUS = {
 	CANCELED: 'canceled',
 };
 
-function getbsStyleFromStatus(status) {
+export function getbsStyleFromStatus(status) {
 	switch (status) {
 		case STATUS.IN_PROGRESS:
 			return 'info';
@@ -59,28 +59,23 @@ function renderIcon(status, icon, progress) {
 		}
 		return <CircularProgress size={'small'} percent={progress} />;
 	}
-	return (icon && <Icon name={icon} />);
+	return icon && <Icon name={icon} />;
 }
 
-function Status(props) {
-	const {
-		status,
-		label,
-		icon,
-		actions,
-		progress,
-	} = props;
+export function Status({ status, label, icon, actions, progress }) {
+	const rootClassnames = classNames(css['tc-status'], 'tc-status', {
+		[css.action]: actions && actions.length,
+	});
 
-	const rootClassnames = classNames(
-		css['tc-status'],
-		'tc-status',
-		`text-${getbsStyleFromStatus(status)}`,
-		{ [css.action]: actions && actions.length },
+	const iconClassnames = classNames(
+		css['tc-status-icon'],
+		'tc-status-icon',
+		css[getbsStyleFromStatus(status)],
 	);
 
 	return (
-		<div role="status" className={rootClassnames} >
-			{renderIcon(status, icon, progress)}
+		<div role="status" className={rootClassnames}>
+			<span className={iconClassnames}>{renderIcon(status, icon, progress)}</span>
 			<span className={classNames(css['tc-status-label'], 'tc-status-label')}>{label}</span>
 			<span className={classNames(css['tc-status-actions'], 'tc-status-actions')}>
 				<Actions actions={actions} />
@@ -89,13 +84,10 @@ function Status(props) {
 	);
 }
 
+Status.displayName = 'Status';
+
 Status.propTypes = {
-	status: PropTypes.oneOf([
-		STATUS.IN_PROGRESS,
-		STATUS.SUCCESSFUL,
-		STATUS.FAILED,
-		STATUS.CANCELED,
-	]),
+	status: PropTypes.oneOf([STATUS.IN_PROGRESS, STATUS.SUCCESSFUL, STATUS.FAILED, STATUS.CANCELED]),
 	label: PropTypes.string.isRequired,
 	icon: PropTypes.string,
 	actions: Actions.propTypes.actions,
@@ -105,5 +97,3 @@ Status.propTypes = {
 Status.defaultProps = {
 	actions: [],
 };
-
-export default Status;

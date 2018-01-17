@@ -1,5 +1,6 @@
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { I18nextProvider } from 'react-i18next';
 
 import i18n, { LanguageSwitcher } from './config/i18n';
@@ -112,13 +113,19 @@ storiesOf('ListView', module)
 		);
 	})
 	.addWithInfo('with switch box', () => {
-		const selectedValuesProps = { ...props };
-
-		selectedValuesProps.items[1].checked = true;
-
 		return (
 			<ListView
 				{...withSwitchBox}
+			/>
+		);
+	})
+	.addWithInfo('without toggleAll', () => {
+		const withoutToggleALLProps = { ...props };
+		withoutToggleALLProps.showToggleAll = false;
+
+		return (
+			<ListView
+				{...withoutToggleALLProps}
 			/>
 		);
 	});

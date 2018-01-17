@@ -75,6 +75,8 @@ function Layout({
 	);
 }
 
+Layout.displayName = 'Layout';
+
 Layout.propTypes = {
 	id: PropTypes.string,
 	header: PropTypes.element,
