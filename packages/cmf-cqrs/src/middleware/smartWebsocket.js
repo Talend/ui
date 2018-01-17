@@ -27,10 +27,10 @@ export function wsIsClosed(ws) {
  * on open connection, try to send messages stored in offline buffer
  */
 export function startWebsocket(url, offlinebuffer, options) {
-	const { onMessage, onOpen, onClose, onError, onPing, onPongTimeout, pongTimeoutDelay } = options;
+	const { onMessage, onOpen, onClose, onError, onPing, onPingTimeout } = options;
 	const ws = new WebSocket(url);
 	let pingInterval;
-	let pongTimeoutId;
+	let pingTimeoutId;
 	ws.onopen = function onopen(event) {
 		if (typeof onOpen === 'function') {
 			onOpen(event);
@@ -65,23 +65,27 @@ export function startWebsocket(url, offlinebuffer, options) {
 	};
 	ws.ping = function ping() {
 		if (typeof onPing === 'function') {
-			//onPing(ws);
-			//penser au cas des ack lents pr show modale
-			const timestamp = Math.floor(Date.now() / 1000);
-			onPing({ timestamp });
-		}
+			// penser au cas des ack lents pr show modale pb websocket ?
+			// const timestamp = Math.floor(Date.now() / 1000);
+			if (!isNaN(options.pingTimeoutDelay)) {
+				pingTimeoutId = setTimeout(ws.onpingtimeout, options.pingTimeoutDelay);
+			}
 
-		if (!isNaN(options.pingTimeoutDelay)) {
-			pongTimeoutId = setTimeout(ws.pongTimeout, options.pongTimeoutDelay);
+			onPing({ pingTimeoutId });
+			//onPing({ ping: timestamp, pingTimeoutId });
 		}
 
 		ws.send('{"type":"PING"}');
 	};
-	ws.pongTimeout = function pongTimeout() {
-		if (typeof onPongTimeout === 'function') {
-			const timestamp = Math.floor(Date.now() / 1000);
-			onPongTimeout({ timestamp });
+	ws.onpingtimeout = function onpingtimeout() {
+		if (typeof onPingTimeout === 'function') {
+			//const timestamp = Math.floor(Date.now() / 1000);
+			//onPingTimeout({ pingTimeout: timestamp });
+			onPingTimeout();
 		}
+		// clearInterval(stop); ?? like smartWebsocket.js:123
+		ws.close();
+		// reconnection instannée possible ?
 	};
 	return ws;
 }
@@ -106,12 +110,10 @@ export default function SmartWebsocket(url, options = {}) {
 	};
 
 	start();
-	window.ws = ws;
 	const restartIfClosed = () => {
 		if (wsIsClosed(ws)) {
 			start();
 		}
-		window.ws = ws;
 	};
 
 	const stop = setInterval(restartIfClosed, options.checkInterval || 5000);

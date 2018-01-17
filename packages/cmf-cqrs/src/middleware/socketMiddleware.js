@@ -1,5 +1,6 @@
 import SmartWebsocket from './smartWebsocket';
-import { SOCKET_ON_OPEN, SOCKET_ON_CLOSE, SOCKET_ON_ERROR, SOCKET_ON_PING, SOCKET_ON_PING_PONG_TIMEOUT } from '../constants';
+import { SOCKET_ON_OPEN, SOCKET_ON_CLOSE, SOCKET_ON_ERROR, SOCKET_ON_PING_TIMEOUT } from '../constants';
+// SOCKET_ON_PING
 
 // if host is localhost connect directly to the localhost backend
 // else connect to the actual host
@@ -45,10 +46,6 @@ function createWebsocketMiddleware(socketPath, actionListeners = [], socketListe
 		buffer.length = 0;
 	}
 
-	function timeout(){
-
-	}
-
 	return ({ getState, dispatch }) => next => action => {
 		if (!ws) {
 			ws = new SmartWebsocket(urlPrefix, {
@@ -62,11 +59,20 @@ function createWebsocketMiddleware(socketPath, actionListeners = [], socketListe
 				},
 				onPing: event => {
 					//dispatch({ type: SOCKET_ON_PING, event });
-					ws.lastPingTimestamp = event.timestamp;
+					/*ws.pingpong = {
+						ping: event.timestamp,
+					};*/
+					ws.pingTimeoutId = event.pingTimeoutId;
 				},
-				onPongTimeout: event => {
-					if(event.timeStamp - ws.lastPingTimeStamp > )
-					dispatch({ type: SOCKET_ON_PING_PONG_TIMEOUT, event });
+				onPingTimeout: () => {
+					dispatch({ type: SOCKET_ON_PING_TIMEOUT });
+					/*
+					if (ws.pingpong && !ws.pingpong.pong) {
+						dispatch({ type: SOCKET_ON_PING_TIMEOUT, event });
+					}
+					*/
+					// if(event.timeStamp - ws.lastPingTimeStamp > )
+
 					//ws.lastPingTimestamp = event.timestamp;
 				},
 
