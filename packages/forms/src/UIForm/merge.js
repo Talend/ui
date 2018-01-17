@@ -29,8 +29,10 @@ function getUISchemaFromObject(schema, key) {
 		// eslint-disable-next-line no-use-before-define
 		ui.items = parseProperties(schema.properties, false, key);
 	} else if (schema.type === 'string') {
-		if (!schema.enum) {
-			ui.widget = 'text';
+		ui.widget = 'text';
+		if (schema.enum) {
+			ui.schema = schema;
+			ui.widget = 'select';
 		}
 		if (schema.format) {
 			ui.type = schema.format;
@@ -46,8 +48,9 @@ function getUISchemaFromObject(schema, key) {
 		if (schema.items.type === 'object') {
 			// eslint-disable-next-line no-use-before-define
 			ui.items = parseProperties(schema.items.properties, false, `${key}[]`);
+		} else {
+			ui.items = [getUISchemaFromObject(schema.items, key)];
 		}
-		ui.items = [getUISchemaFromObject(schema.items, key)];
 	} else if (schema.type === 'number') {
 		ui.widget = 'text';
 		ui.type = 'number';

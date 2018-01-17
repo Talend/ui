@@ -15,7 +15,17 @@
 			},
 			{
 				"key": "enum",
-				"title": "Enum"
+				"schema": {
+					"enum": [
+						"1",
+						"two",
+						"three"
+					],
+					"title": "Enum",
+					"type": "string"
+				},
+				"title": "Enum",
+				"widget": "select"
 			}
 		],
 		"title": "A registration form",

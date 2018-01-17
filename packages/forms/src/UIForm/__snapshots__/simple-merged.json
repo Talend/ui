@@ -90,6 +90,7 @@
         },
         "ngModelOptions": {},
         "type": "select",
+        "widget": "select",
         "titleMap": [
           {
             "name": "1",
