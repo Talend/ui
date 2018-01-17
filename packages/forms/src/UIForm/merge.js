@@ -118,7 +118,7 @@ export const wrapCustomWidget = Component => {
 		}
 
 		return (
-			<FieldTemplate label={props.schema.title} id={newProps.id}>
+			<FieldTemplate label={props.schema.title} id={newProps.id} required={props.schema.required}>
 				<Component {...newProps} />
 			</FieldTemplate>
 		);
