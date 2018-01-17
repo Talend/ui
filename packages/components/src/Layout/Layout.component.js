@@ -24,7 +24,18 @@ body > div {
  * @example
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
-function Layout({ header, subHeader, footer, mode, drawers, tabs, children, components, getComponent, ...rest }) {
+function Layout({
+	header,
+	subHeader,
+	footer,
+	mode,
+	drawers,
+	tabs,
+	children,
+	components,
+	getComponent,
+	...rest
+}) {
 	const injected = Inject.all(getComponent, components);
 	const appCSS = classnames('tc-layout', theme.layout);
 	const headerCSS = classnames('tc-layout-header', theme.header);
