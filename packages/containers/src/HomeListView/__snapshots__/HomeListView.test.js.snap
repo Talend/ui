@@ -44,11 +44,13 @@ exports[`Component HomeListView should render with element props 1`] = `
     </h1>,
     ]
   }
+  hasTheme={undefined}
   header={
     <div>
       hello app
     </div>
   }
+  id={undefined}
   mode="TwoColumns"
   one={
     <div>
@@ -71,11 +73,13 @@ exports[`Component HomeListView should render with object props 1`] = `
     </h1>,
     ]
   }
+  hasTheme={undefined}
   header={
     <Connect(CMF(Container(HeaderBar)))
       app="hello app"
     />
   }
+  id={undefined}
   mode="TwoColumns"
   one={
     <withRouter(Connect(CMF(Container(SidePanel))))
