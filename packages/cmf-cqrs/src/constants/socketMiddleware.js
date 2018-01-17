@@ -1,3 +1,6 @@
 export const SOCKET_ON_OPEN = '@@SOCKET.ON_OPEN';
 export const SOCKET_ON_CLOSE = '@@SOCKET.ON_CLOSE';
 export const SOCKET_ON_ERROR = '@@SOCKET.ON_ERROR';
+export const SOCKET_ON_PING = '@@SOCKET.ON_PING';
+export const SOCKET_ON_PONG = '@@SOCKET.ON_PONG';
+export const SOCKET_ON_PING_PONG_TIMEOUT = '@@SOCKET.ON_PING_PONG_TIMEOUT';

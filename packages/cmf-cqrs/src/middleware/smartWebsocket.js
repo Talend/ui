@@ -1,3 +1,5 @@
+import { setTimeout } from "timers";
+
 /**
  * Send message on ws if available.
  * feed the offlineBuffer if it is not
@@ -25,9 +27,10 @@ export function wsIsClosed(ws) {
  * on open connection, try to send messages stored in offline buffer
  */
 export function startWebsocket(url, offlinebuffer, options) {
-	const { onMessage, onOpen, onClose, onError } = options;
+	const { onMessage, onOpen, onClose, onError, onPing, onPongTimeout, pongTimeoutDelay } = options;
 	const ws = new WebSocket(url);
 	let pingInterval;
+	let pongTimeoutId;
 	ws.onopen = function onopen(event) {
 		if (typeof onOpen === 'function') {
 			onOpen(event);
@@ -40,7 +43,7 @@ export function startWebsocket(url, offlinebuffer, options) {
 			localBuffer.forEach(msg => wsSend(ws, msg.message, msg.callback, offlinebuffer));
 		}
 		ws.ping();
-		pingInterval = setInterval(ws.ping, 50000);
+		pingInterval = setInterval(ws.ping, options.pingInterval || 50000);
 	};
 	ws.onmessage = function onmessage(messageEvent) {
 		if (typeof onMessage === 'function') {
@@ -61,7 +64,24 @@ export function startWebsocket(url, offlinebuffer, options) {
 		}
 	};
 	ws.ping = function ping() {
+		if (typeof onPing === 'function') {
+			//onPing(ws);
+			//penser au cas des ack lents pr show modale
+			const timestamp = Math.floor(Date.now() / 1000);
+			onPing({ timestamp });
+		}
+
+		if (!isNaN(options.pingTimeoutDelay)) {
+			pongTimeoutId = setTimeout(ws.pongTimeout, options.pongTimeoutDelay);
+		}
+
 		ws.send('{"type":"PING"}');
+	};
+	ws.pongTimeout = function pongTimeout() {
+		if (typeof onPongTimeout === 'function') {
+			const timestamp = Math.floor(Date.now() / 1000);
+			onPongTimeout({ timestamp });
+		}
 	};
 	return ws;
 }
@@ -86,10 +106,12 @@ export default function SmartWebsocket(url, options = {}) {
 	};
 
 	start();
+	window.ws = ws;
 	const restartIfClosed = () => {
 		if (wsIsClosed(ws)) {
 			start();
 		}
+		window.ws = ws;
 	};
 
 	const stop = setInterval(restartIfClosed, options.checkInterval || 5000);
