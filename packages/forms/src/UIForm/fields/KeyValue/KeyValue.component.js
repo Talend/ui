@@ -53,6 +53,7 @@ function KeyValue({ id, isValid, errorMessage, onChange, onFinish, schema, value
 			id={id}
 			isValid={isValid}
 			label={title}
+			required={schema.required || false}
 		>
 			<dl className={theme['key-value']}>
 				<dt>

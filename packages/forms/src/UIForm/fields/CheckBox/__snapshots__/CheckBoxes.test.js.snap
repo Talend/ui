@@ -6,6 +6,7 @@ exports[`CheckBoxes field should render checkboxes 1`] = `
   errorMessage="My error message"
   isValid={true}
   label="My checkboxes title"
+  required={false}
 >
   <SimpleCheckBox
     id="myForm"
@@ -100,6 +101,7 @@ exports[`CheckBoxes field should render checkboxes with no values 1`] = `
   errorMessage="My error message"
   isValid={true}
   label="My checkboxes title"
+  required={false}
 >
   <SimpleCheckBox
     id="myForm"
@@ -194,6 +196,7 @@ exports[`CheckBoxes field should render disabled checkboxes 1`] = `
   errorMessage="My error message"
   isValid={true}
   label="My checkboxes title"
+  required={false}
 >
   <SimpleCheckBox
     id="myForm"

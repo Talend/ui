@@ -5,6 +5,7 @@ exports[`Button field should render button wrapped with field template 1`] = `
   description="Click here to trigger a trigger"
   errorMessage="This is wrong"
   isValid={true}
+  required={false}
 >
   <SingleButton
     id="myForm"

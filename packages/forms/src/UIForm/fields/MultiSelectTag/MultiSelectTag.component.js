@@ -186,6 +186,7 @@ export default class MultiSelectTag extends React.Component {
 				id={id}
 				isValid={isValid}
 				label={schema.title}
+				required={schema.required || false}
 			>
 				<div className={`${theme.wrapper} form-control`}>
 					{this.props.value.map((val, index) => {

@@ -16,6 +16,7 @@ export default function Radios({ id, isValid, errorMessage, onChange, onFinish, 
 			errorMessage={errorMessage}
 			isValid={isValid}
 			label={title}
+			required={schema.required || false}
 		>
 			{
 				schema.titleMap && schema.titleMap.map((option, index) => (

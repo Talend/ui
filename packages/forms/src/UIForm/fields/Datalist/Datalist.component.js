@@ -187,6 +187,7 @@ class Datalist extends Component {
 				id={this.props.id}
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
+				required={this.props.schema.required || false}
 			>
 				<div className={theme['tf-datalist']}>
 					<Typeahead
@@ -233,6 +234,7 @@ if (process.env.NODE_ENV !== 'production') {
 			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
+			required: PropTypes.bool,
 			restricted: PropTypes.bool,
 			title: PropTypes.string,
 			titleMap: PropTypes.arrayOf(

@@ -26,6 +26,7 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 			isValid={isValid}
 			label={title}
 			labelAfter
+			required={schema.required || false}
 		>
 			<select
 				id={id}
