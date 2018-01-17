@@ -14,6 +14,7 @@ import store from './store';
 import actions from './actions/';
 import reducers from './reducers/';
 import getErrorMiddleware from './middlewares/error';
+import httpMiddleware from './middlewares/http';
 import componentState from './componentState';
 import sagaRouter from './sagaRouter';
 import sagas from './sagas';
@@ -47,6 +48,7 @@ export {
 	RegistryProvider,
 	UIRouter,
 	getErrorMiddleware,
+	httpMiddleware,
 	sagaRouter,
 	sagas,
 	selectors,
