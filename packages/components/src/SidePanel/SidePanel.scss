@@ -151,17 +151,14 @@ $toggle-button-padding: $padding-small - 1;
 			:global(.btn.btn-link) {
 				padding: $padding-normal;
 			}
-
-			.toggle-btn {
-				:global(.tc-svg-icon) {
-					transform: rotate(-180deg);
-				}
-			}
 		}
 
 		.toggle-btn {
 			:global(.btn.btn-link) {
 				padding: $padding-small;
+				:global(.tc-svg-icon) {
+					transform: rotate(-180deg);
+				}
 			}
 		}
 	}
