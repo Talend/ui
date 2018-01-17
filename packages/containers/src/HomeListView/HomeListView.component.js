@@ -23,7 +23,7 @@ function wrapChildren(children) {
 	return [children];
 }
 
-function HomeListView({id, hasTheme, sidepanel, list, header, children}) {
+function HomeListView({ id, hasTheme, sidepanel, list, header, children }) {
 	if (!sidepanel || !list) {
 		return null;
 	}
