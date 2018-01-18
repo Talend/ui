@@ -55,8 +55,8 @@
     "@storybook/addon-info": "^3.3.6",
     "@storybook/addon-storyshots": "^3.3.6",
     "@storybook/react": "^3.3.6",
-    "@talend/bootstrap-theme": "^0.142.0",
-    "@talend/icons": "^0.142.0",
+    "@talend/bootstrap-theme": "^0.145.0",
+    "@talend/icons": "^0.145.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
@@ -94,7 +94,7 @@
     "react": "^15.6.2",
     "react-a11y": "^0.3.3",
     "react-addons-css-transition-group": "15.6.2",
-    "react-bootstrap": "0.31.0",
+    "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
     "react-dom": "^15.6.2",
     "react-i18next": "^5.2.0",
@@ -108,8 +108,8 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^0.142.0",
-    "@talend/icons": "^0.142.0",
+    "@talend/bootstrap-theme": "^0.145.0",
+    "@talend/icons": "^0.145.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "2.2.5",
     "i18next": "^9.0.0",
@@ -118,7 +118,7 @@
     "prop-types": "15.5.10",
     "react": "^15.6.2",
     "react-addons-css-transition-group": "15.6.2",
-    "react-bootstrap": "0.31.0",
+    "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
     "react-i18next": "^5.2.0",
     "uuid": "3.0.1"
@@ -145,5 +145,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.142.0"
+  "version": "0.145.0"
 }

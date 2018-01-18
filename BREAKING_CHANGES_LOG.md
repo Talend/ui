@@ -2,6 +2,21 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.143.0
+* Component: CollapsiblePanel
+* PR: [feat(components/collapsiblepanel): style update](https://github.com/Talend/ui/pull/961)
+* Changes :
+
+| Old Props | New props |
+|---|---|
+| selected | status |
+
+* Component: Status
+* PR: [feat(components/collapsiblepanel): style update](https://github.com/Talend/ui/pull/961)
+* Changes :
+Status component has no longer default export.
+import Status from '../Status'; ---> import { Status, getbsStyleFromStatus } from '../Status';
+
 ## v0.142.0
 * Container: HeaderBar
 * PR [fix(component/containers): add number of missings displayName ](https://github.com/Talend/ui/pull/985)
@@ -82,11 +97,13 @@ Some constant from CMF/middlewares/http/constants are renamed
 | toggleAllLabel    | i18next `t()` fn will do the magic trick by providing `LISTVIEW_ITEMS_TOGGLE_ALL`               |
 | searchPlaceholder | i18next `t()` fn will do the magic trick by providing `LISTVIEW_HEADERINPUT_SEARCH_PLACEHOLDER` |
 
+
 * Component: SidePanel
 * PR: [feat(components/sidepanel): accept custom action ids](https://github.com/Talend/ui/pull/846)
 * Changes :
 
 Before this, action ids were ignored. Now, if an id is provided per action, it will be used instead of the label ; so it could break some QA tests.
+
 
 ## v0.121.0
 

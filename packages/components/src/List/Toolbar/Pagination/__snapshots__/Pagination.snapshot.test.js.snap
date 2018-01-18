@@ -101,6 +101,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -130,6 +131,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -158,6 +160,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     <a
       href="#"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -184,6 +187,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
@@ -207,6 +211,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
@@ -325,6 +330,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
@@ -348,6 +354,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
@@ -370,6 +377,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     <a
       href="#"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -396,6 +404,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -425,6 +434,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -834,6 +844,7 @@ exports[`Pagination should render 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
@@ -857,6 +868,7 @@ exports[`Pagination should render 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
@@ -879,6 +891,7 @@ exports[`Pagination should render 1`] = `
     <a
       href="#"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -905,6 +918,7 @@ exports[`Pagination should render 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
@@ -928,6 +942,7 @@ exports[`Pagination should render 1`] = `
       href="#"
       id={undefined}
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
@@ -1046,6 +1061,7 @@ exports[`Pagination should render id if provided 1`] = `
       href="#"
       id="toolbar-pagination-nav-to-first"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
@@ -1069,6 +1085,7 @@ exports[`Pagination should render id if provided 1`] = `
       href="#"
       id="toolbar-pagination-nav-to-prev"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
@@ -1091,6 +1108,7 @@ exports[`Pagination should render id if provided 1`] = `
     <a
       href="#"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
       style={
         Object {
@@ -1117,6 +1135,7 @@ exports[`Pagination should render id if provided 1`] = `
       href="#"
       id="toolbar-pagination-nav-to-next"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
@@ -1140,6 +1159,7 @@ exports[`Pagination should render id if provided 1`] = `
       href="#"
       id="toolbar-pagination-nav-to-last"
       onClick={[Function]}
+      onKeyDown={[Function]}
       role="button"
     >
       <svg
