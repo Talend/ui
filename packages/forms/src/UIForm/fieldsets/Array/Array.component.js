@@ -129,6 +129,7 @@ export default class ArrayWidget extends React.Component {
 
 		return (
 			<div className={classNames(theme['tf-array-container'], 'tf-array-container')}>
+				{schema.title && <legend>{schema.title}</legend>}
 				<ol id={id} className={classNames(theme['tf-array'], 'tf-array')}>
 					{value.map((itemValue, index) => {
 						// create item schema with item index in key
