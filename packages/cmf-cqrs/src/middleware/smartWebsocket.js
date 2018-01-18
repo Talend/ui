@@ -68,7 +68,10 @@ export function startWebsocket(url, offlinebuffer, options) {
 			// penser au cas des ack lents pr show modale pb websocket ?
 			// const timestamp = Math.floor(Date.now() / 1000);
 			if (!isNaN(options.pingTimeoutDelay)) {
-				pingTimeoutId = setTimeout(ws.onpingtimeout, options.pingTimeoutDelay);
+				pingTimeoutId = window.setTimeout(ws.onpingtimeout, options.pingTimeoutDelay, {
+					pingTimeoutId,
+				});
+				console.log('PING setTimeout => ', pingTimeoutId);
 			}
 
 			onPing({ pingTimeoutId });
@@ -77,7 +80,12 @@ export function startWebsocket(url, offlinebuffer, options) {
 
 		ws.send('{"type":"PING"}');
 	};
-	ws.onpingtimeout = function onpingtimeout() {
+	ws.onpingtimeout = function onpingtimeout(pingTimeoutIdParam) {
+		if (!pingTimeoutIdParam) {
+			return;
+		}
+		console.log(`onpingtimeout called with ${pingTimeoutIdParam}`);
+		//console.log(`onpingtimeout called with ${pingTimeoutIdParam ? pingTimeoutIdParam._id : ''}`);
 		if (typeof onPingTimeout === 'function') {
 			//const timestamp = Math.floor(Date.now() / 1000);
 			//onPingTimeout({ pingTimeout: timestamp });
