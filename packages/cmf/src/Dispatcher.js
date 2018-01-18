@@ -19,7 +19,7 @@ import api from './api';
 export function checkIfActionInfoExist(props, context) {
 	api.action.getOnProps(props).forEach(name => {
 		if (typeof props[name] === 'string') {
-			api.action.getActionCreatorFunction(context, props[name]);
+			api.actionCreator.get(context, props[name]);
 		}
 	});
 }

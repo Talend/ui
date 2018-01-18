@@ -56,7 +56,7 @@ class ACKDispatcher extends React.Component {
 	}
 
 	dispatchAndUpdateAck(actionCreator, data, requestId) {
-		const action = api.action.getActionCreatorFunction(
+		const action = api.actionCreator.get(
 			this.context,
 			actionCreator,
 		)({}, data, this.context);

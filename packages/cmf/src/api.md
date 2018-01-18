@@ -7,25 +7,17 @@ import { api } from '@talend/react-cmf';
 
 The API is the most used items accessible. Here is the list of the first level access:
 
+* `actionCreator` to register your action creators
 * `action` to register your actions
 * `actions` to call basic action creator which CMF provide to you
 * `component` to register your components
 * `expression` to register your expressions
 * `saga` to use CMF in redux-saga
 
-api.action
+api.actionCreator
 --
 
-```javascript
-import { api } from '@talend/react-cmf';
-
-api.action.registerActionCreator('myaction', myactionCreator, context);
-```
-
-The `context` argument is optional. It let you provide a custom registry if you want.
-
-This should be used only in your configure.js file
-
+the can be found [here](actionCreator.md).
 
 api.actions
 --
