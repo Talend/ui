@@ -76,7 +76,9 @@ function createWebsocketMiddleware(
 					console.log(`${event.pingTimeoutId?event.pingTimeoutId._id:''} affecté à la smartwesocket qui avait déjà ${ws.pingTimeoutId?ws.pingTimeoutId._id:''}`);
 					ws.pingTimeoutId = event.pingTimeoutId;
 					*/
-					console.log(`${event.pingTimeoutId} affecté à la smartwesocket qui avait déjà ${ws.pingTimeoutId}`);
+					console.log(
+						`${event.pingTimeoutId} affecté à la smartwesocket qui avait déjà ${ws.pingTimeoutId}`,
+					);
 					ws.pingTimeoutId = event.pingTimeoutId;
 				},
 				onPingTimeout: () => {
