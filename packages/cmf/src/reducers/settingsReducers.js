@@ -43,23 +43,21 @@ export function attachRefs(refs, props) {
  * @param {object} originalSettings the full settings with `props` and `ref` attribute
  * @return {object} frozen settings with ref computed
  */
-function prepareSettings(originalSettings) {
-	const settings = Object.assign({}, originalSettings);
-	if (settings.views) {
+function prepareSettings({ views, props, ref, ...rest }) {
+	const settings = Object.assign({ props: {} }, { ...rest });
+	if (views) {
 		if (process.env.NODE_ENV === 'development') {
 			console.warn('settings.view is deprecated, please use settings.props');
 		}
-		settings.props = {};
-		Object.keys(settings.views).forEach(id => {
-			settings.props[id] = attachRefs(originalSettings.ref, settings.views[id]);
+		Object.keys(views).forEach(id => {
+			settings.props[id] = attachRefs(ref, views[id]);
 		});
 	}
-	if (settings.props) {
-		Object.keys(settings.props).forEach(id => {
-			settings.props[id] = attachRefs(originalSettings.ref, settings.props[id]);
+	if (props) {
+		Object.keys(props).forEach(id => {
+			settings.props[id] = attachRefs(ref, props[id]);
 		});
 	}
-	delete settings.ref;
 	if (typeof settings.freeze === 'function') {
 		settings.freeze();
 	}

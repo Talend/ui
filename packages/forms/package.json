@@ -46,9 +46,9 @@
     "@storybook/addon-knobs": "^3.3.6",
     "@storybook/addons": "^3.3.6",
     "@storybook/react": "^3.3.6",
-    "@talend/bootstrap-theme": "^0.144.0",
-    "@talend/icons": "^0.144.0",
-    "@talend/react-components": "^0.144.0",
+    "@talend/bootstrap-theme": "^0.145.0",
+    "@talend/icons": "^0.145.0",
+    "@talend/react-components": "^0.145.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
@@ -88,7 +88,7 @@
     "react-i18next": "^5.2.0",
     "react-redux": "5.0.5",
     "react-test-renderer": "^15.6.2",
-    "react-virtualized": "9.17.1",
+    "react-virtualized": "9.10.1",
     "redux-mock-store": "1.2.3",
     "rimraf": "^2.6.1",
     "sass-lint": "^1.10.2",
@@ -96,7 +96,7 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/react-components": "^0.144.0",
+    "@talend/react-components": "^0.145.0",
     "i18next": "^9.0.0",
     "prop-types": "15.5.10",
     "react": "^15.6.2",
@@ -128,5 +128,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.144.0"
+  "version": "0.145.0"
 }
