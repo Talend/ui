@@ -68,28 +68,10 @@ function createWebsocketMiddleware(
 					dispatch({ type: SOCKET_ON_ERROR, event });
 				},
 				onPing: event => {
-					//dispatch({ type: SOCKET_ON_PING, event });
-					/*ws.pingpong = {
-						ping: event.timestamp,
-					};*/
-					/*
-					console.log(`${event.pingTimeoutId?event.pingTimeoutId._id:''} affecté à la smartwesocket qui avait déjà ${ws.pingTimeoutId?ws.pingTimeoutId._id:''}`);
-					ws.pingTimeoutId = event.pingTimeoutId;
-					*/
-					console.log(`${event.pingTimeoutId} affecté à la smartwesocket qui avait déjà ${ws.pingTimeoutId}`);
 					ws.pingTimeoutId = event.pingTimeoutId;
 				},
 				onPingTimeout: () => {
-					console.log('onPingTimeout => dispatch({ type: SOCKET_ON_PING_TIMEOUT });');
 					dispatch({ type: SOCKET_ON_PING_TIMEOUT });
-					/*
-					if (ws.pingpong && !ws.pingpong.pong) {
-						dispatch({ type: SOCKET_ON_PING_TIMEOUT, event });
-					}
-					*/
-					// if(event.timeStamp - ws.lastPingTimeStamp > )
-
-					//ws.lastPingTimestamp = event.timestamp;
 				},
 				...socketOptions,
 			});

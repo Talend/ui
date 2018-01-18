@@ -65,33 +65,17 @@ export function startWebsocket(url, offlinebuffer, options) {
 	};
 	ws.ping = function ping() {
 		if (typeof onPing === 'function') {
-			// penser au cas des ack lents pr show modale pb websocket ?
-			// const timestamp = Math.floor(Date.now() / 1000);
 			if (!isNaN(options.pingTimeoutDelay)) {
-				pingTimeoutId = window.setTimeout(ws.onpingtimeout, options.pingTimeoutDelay, {
-					pingTimeoutId,
-				});
-				console.log('PING setTimeout => ', pingTimeoutId);
+				pingTimeoutId = setTimeout(ws.onpingtimeout, options.pingTimeoutDelay);
 			}
-
 			onPing({ pingTimeoutId });
-			//onPing({ ping: timestamp, pingTimeoutId });
 		}
-
 		ws.send('{"type":"PING"}');
 	};
-	ws.onpingtimeout = function onpingtimeout(pingTimeoutIdParam) {
-		if (!pingTimeoutIdParam) {
-			return;
-		}
-		console.log(`onpingtimeout called with ${pingTimeoutIdParam}`);
-		//console.log(`onpingtimeout called with ${pingTimeoutIdParam ? pingTimeoutIdParam._id : ''}`);
+	ws.onpingtimeout = function onpingtimeout() {
 		if (typeof onPingTimeout === 'function') {
-			//const timestamp = Math.floor(Date.now() / 1000);
-			//onPingTimeout({ pingTimeout: timestamp });
 			onPingTimeout();
 		}
-		// clearInterval(stop); ?? like smartWebsocket.js:123
 		ws.close();
 		// reconnection instannée possible ?
 	};
