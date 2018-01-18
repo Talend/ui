@@ -1,4 +1,4 @@
-# A set of best pratice to know
+# A set of best pratices for react-cmf
 
 ## Alway put a displayName to your component
 
@@ -9,7 +9,7 @@ The `displayName` is used by CMF for two things:
 
 This also may help you to debug in production.
 
-## Never use mapDispatchToProps
+## Do not use mapDispatchToProps
 
 To send action in redux you have already two props:
 
@@ -17,6 +17,8 @@ To send action in redux you have already two props:
 * `this.props.dispatchActionCreator('actionCreatorName', [event], [data], [context])`
 
 both are interesting and make the code more easy to understand than your own props
+
+We will remove it from cmfConnect API.
 
 ## Send as few actions as possible
 
@@ -45,7 +47,7 @@ of the context.
 One component can be added in multiple context so the best is to set it's action type this way
 
 
-## Use redux-saga
+## Use redux-saga and sagaRouter
 
 fetch is really easy to use but can't be canceled and it may have lot's of effect you don't want.
 A user may change screen fast, or a request can be really slow.
