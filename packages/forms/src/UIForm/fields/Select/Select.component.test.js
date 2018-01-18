@@ -142,6 +142,7 @@ describe('Select field', () => {
 	it('should trigger array onChange', () => {
 		// given
 		const onChange = jest.fn();
+		const onFinish = jest.fn();
 		const multipleSchema = {
 			...schema,
 			multiple: true,
@@ -166,7 +167,7 @@ describe('Select field', () => {
 				isValid
 				errorMessage={'My Error Message'}
 				onChange={onChange}
-				onFinish={jest.fn()}
+				onFinish={onFinish}
 				schema={multipleSchema}
 				value={['foo', 'lol']}
 			/>,
@@ -177,28 +178,6 @@ describe('Select field', () => {
 
 		// then
 		expect(onChange).toBeCalledWith(event, { schema: multipleSchema, value: ['foo', 'lol'] });
-	});
-
-	it('should trigger onFinish on select change', () => {
-		// given
-		const onFinish = jest.fn();
-		const wrapper = shallow(
-			<Select
-				id={'mySelect'}
-				isValid
-				errorMessage={'My Error Message'}
-				onChange={jest.fn()}
-				onFinish={onFinish}
-				schema={schema}
-				value={'lol'}
-			/>,
-		);
-		const event = { target: { value: 'bar' } };
-
-		// when
-		wrapper.find('select').simulate('change', event);
-
-		// then
-		expect(onFinish).toBeCalledWith(event, { schema, value: 'bar' });
+		expect(onFinish).toBeCalledWith(event, { schema: multipleSchema, value: ['foo', 'lol'] });
 	});
 });

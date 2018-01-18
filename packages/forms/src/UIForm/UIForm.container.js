@@ -13,7 +13,6 @@ export default class UIForm extends React.Component {
 			errors: [],
 		};
 		this.onChange = this.onChange.bind(this);
-		this.setError = this.setError.bind(this);
 		this.setErrors = this.setErrors.bind(this);
 	}
 
@@ -32,8 +31,7 @@ export default class UIForm extends React.Component {
 	 * Update the model and validation
 	 * If onChange is provided, it is triggered
 	 * @param event The change event
-	 * @param payload { formName, schema, value, error } The change payload
-	 * formName: The form name
+	 * @param payload { schema, value, error } The change payload
 	 * schema: The schema
 	 * value: The new value
 	 * error: The validation error
@@ -66,25 +64,10 @@ export default class UIForm extends React.Component {
 	}
 
 	/**
-	 * Set partial fields validation in state
-	 * @param formName the form name
-	 * @param errors the validation errors
-	 */
-	setError(formName, errors = {}) {
-		this.setState({
-			errors: {
-				...this.state.errors,
-				...errors,
-			},
-		});
-	}
-
-	/**
 	 * Set all fields validation in state
-	 * @param formName the form name
 	 * @param errors the validation errors
 	 */
-	setErrors(formName, errors) {
+	setErrors(errors) {
 		this.setState({ errors });
 	}
 
@@ -106,7 +89,6 @@ export default class UIForm extends React.Component {
 				onReset={this.props.onReset}
 				onChange={this.onChange}
 				onSubmit={this.props.onSubmit}
-				setError={this.setError}
 				setErrors={this.setErrors}
 				buttonBlockClass={this.props.buttonBlockClass}
 				language={this.props.language}
@@ -151,7 +133,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func,
 		/**
 		 * Trigger callback.
-		 * Prototype: function onTrigger(event, { formName, trigger, schema, properties })
+		 * Prototype: function onTrigger(event, { trigger, schema, properties })
 		 */
 		onTrigger: PropTypes.func,
 		/** Custom widgets */

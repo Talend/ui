@@ -9,7 +9,7 @@ exports[`UIForm component should render form 1`] = `
   encType={undefined}
   id="myFormId"
   method={undefined}
-  name="myFormName"
+  name={undefined}
   noValidate={true}
   onReset={undefined}
   onSubmit={[Function]}
@@ -17,7 +17,6 @@ exports[`UIForm component should render form 1`] = `
 >
   <Widget
     errors={Object {}}
-    formName="myFormName"
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -48,7 +47,6 @@ exports[`UIForm component should render form 1`] = `
   />
   <Widget
     errors={Object {}}
-    formName="myFormName"
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -80,7 +78,6 @@ exports[`UIForm component should render form 1`] = `
   />
   <Widget
     errors={Object {}}
-    formName="myFormName"
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -106,7 +103,7 @@ exports[`UIForm component should render form 1`] = `
   />
   <Buttons
     className="form-actions"
-    id="myFormId-myFormName-actions"
+    id="myFormId-myFormId-actions"
     onClick={[Function]}
     onTrigger={[Function]}
     schema={
@@ -134,7 +131,7 @@ exports[`UIForm component should render provided actions 1`] = `
   encType={undefined}
   id="myFormId"
   method={undefined}
-  name="myFormName"
+  name={undefined}
   noValidate={true}
   onReset={undefined}
   onSubmit={[Function]}
@@ -142,7 +139,6 @@ exports[`UIForm component should render provided actions 1`] = `
 >
   <Widget
     errors={Object {}}
-    formName="myFormName"
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -173,7 +169,6 @@ exports[`UIForm component should render provided actions 1`] = `
   />
   <Widget
     errors={Object {}}
-    formName="myFormName"
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -205,7 +200,6 @@ exports[`UIForm component should render provided actions 1`] = `
   />
   <Widget
     errors={Object {}}
-    formName="myFormName"
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -231,7 +225,7 @@ exports[`UIForm component should render provided actions 1`] = `
   />
   <Buttons
     className="form-actions"
-    id="myFormId-myFormName-actions"
+    id="myFormId-myFormId-actions"
     onClick={[Function]}
     onTrigger={[Function]}
     schema={

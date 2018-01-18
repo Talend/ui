@@ -46,7 +46,6 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.onChange).toBeCalledWith(expect.anything(), {
-				formName: props.formName,
 				schema: mergedSchema[0],
 				value: newValue,
 				properties: data.properties,
@@ -107,7 +106,7 @@ describe('UIForm component', () => {
 			);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(props.formName, newErrors);
+			expect(props.setErrors).toBeCalledWith(newErrors);
 		});
 	});
 
@@ -157,7 +156,7 @@ describe('UIForm component', () => {
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(props.formName, {
+			expect(props.setErrors).toBeCalledWith({
 				firstname: 'Missing required field',
 			});
 		});

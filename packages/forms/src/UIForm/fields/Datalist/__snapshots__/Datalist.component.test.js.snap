@@ -7,7 +7,7 @@ exports[`Datalist component should render typeahead 1`] = `
   id="my-datalist"
   isValid={true}
   label="My List"
-  required={false}
+  required={undefined}
 >
   <div
     className={undefined}

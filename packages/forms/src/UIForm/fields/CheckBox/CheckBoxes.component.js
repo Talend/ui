@@ -23,7 +23,7 @@ export default function CheckBoxes(props) {
 			errorMessage={errorMessage}
 			isValid={isValid}
 			label={title}
-			required={schema.required || false}
+			required={schema.required}
 		>
 			{
 				titleMap.map((item, index) => (

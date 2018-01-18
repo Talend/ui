@@ -30,7 +30,6 @@ describe('UIForm container', () => {
 
 			// when
 			instance.onChange(null, {
-				formName: props.formName,
 				schema: mergedSchema[0],
 				value: 'toto',
 			});
@@ -47,14 +46,12 @@ describe('UIForm container', () => {
 
 			// when
 			instance.onChange(event, {
-				formName: props.formName,
 				schema: mergedSchema[0],
 				value: 'toto',
 			});
 
 			// then
 			expect(props.onChange).toBeCalledWith(event, {
-				formName: props.formName,
 				schema: mergedSchema[0],
 				value: 'toto',
 				properties: props.properties,
@@ -70,22 +67,7 @@ describe('UIForm container', () => {
 			const errors = { firstname: 'my firstname is invalid' };
 
 			// when
-			instance.setErrors(props.formName, errors);
-
-			// then
-			expect(instance.state).toMatchSnapshot();
-		});
-	});
-
-	describe('#setError', () => {
-		it('should update state error', () => {
-			// given
-			const wrapper = shallow(<UIForm data={data} {...props} />);
-			const instance = wrapper.instance();
-			const errors = { firstname: 'my firstname is invalid' };
-
-			// when
-			instance.setError(props.formName, errors);
+			instance.setErrors(errors);
 
 			// then
 			expect(instance.state).toMatchSnapshot();

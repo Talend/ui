@@ -5,7 +5,7 @@ exports[`Toggle field should render autoFocused input 1`] = `
   description="my text input hint"
   errorMessage="My error message"
   isValid={true}
-  required={false}
+  required={undefined}
 >
   <Toggle
     autoFocus={true}
@@ -25,7 +25,7 @@ exports[`Toggle field should render disabled input 1`] = `
   description="my text input hint"
   errorMessage="My error message"
   isValid={true}
-  required={false}
+  required={undefined}
 >
   <Toggle
     autoFocus={undefined}
@@ -45,7 +45,7 @@ exports[`Toggle field should render input 1`] = `
   description="my text input hint"
   errorMessage="My error message"
   isValid={true}
-  required={false}
+  required={undefined}
 >
   <Toggle
     autoFocus={undefined}

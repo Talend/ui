@@ -7,7 +7,7 @@ exports[`KeyValue field should render autoFocused KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
-  required={false}
+  required={undefined}
 >
   <dl
     className={undefined}
@@ -71,7 +71,7 @@ exports[`KeyValue field should render customized KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
-  required={false}
+  required={undefined}
 >
   <dl
     className={undefined}
@@ -136,7 +136,7 @@ exports[`KeyValue field should render default KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
-  required={false}
+  required={undefined}
 >
   <dl
     className={undefined}
@@ -200,7 +200,7 @@ exports[`KeyValue field should render disabled KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
-  required={false}
+  required={undefined}
 >
   <dl
     className={undefined}
@@ -264,7 +264,7 @@ exports[`KeyValue field should render readOnly KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
-  required={false}
+  required={undefined}
 >
   <dl
     className={undefined}

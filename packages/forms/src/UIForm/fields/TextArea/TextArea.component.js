@@ -22,7 +22,7 @@ export default function TextArea({ id, isValid, errorMessage, onChange, onFinish
 			isValid={isValid}
 			label={title}
 			labelAfter
-			required={schema.required || false}
+			required={schema.required}
 		>
 			<textarea
 				id={id}

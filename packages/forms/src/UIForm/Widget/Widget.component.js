@@ -19,7 +19,7 @@ export default function Widget(props) {
 		return <p className="text-danger">Widget not found {widgetId}</p>;
 	}
 
-	const id = sfPath.name(key, '_', props.formName);
+	const id = sfPath.name(key, '_', props.id);
 	const error = props.errors[key];
 	const errorMessage = validationMessage || error;
 	return (
@@ -38,7 +38,7 @@ export default function Widget(props) {
 if (process.env.NODE_ENV !== 'production') {
 	Widget.propTypes = {
 		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-		formName: PropTypes.string,
+		id: PropTypes.string,
 		schema: PropTypes.shape({
 			key: PropTypes.array,
 			type: PropTypes.string,

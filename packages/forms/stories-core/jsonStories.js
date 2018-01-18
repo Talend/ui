@@ -53,11 +53,11 @@ function createStory(category, sampleFilenames, filename) {
 			return (
 				<section>
 					<IconsProvider />
-					  {doc && <a href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${category}/${doc}`} target="_blank" rel="noopener noreferrer">Documentation</a>}
-						<UIForm
-							{...createCommonProps('state')}
-							data={object(name, sampleFilenames(filename))}
-						/>
+					{doc && <a href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${category}/${doc}`} target="_blank" rel="noopener noreferrer">Documentation</a>}
+					<UIForm
+						{...createCommonProps('state')}
+						data={data}
+					/>
 				</section>
 			);
 		},
@@ -78,6 +78,6 @@ fieldsFilenames
 
 oldFilenames
 	.keys()
-	.forEach((filename) => { stories.push(createStory('old', oldFilenames, filename)); });
+	.forEach(filename => { stories.push(createStory('old', oldFilenames, filename)); });
 
 export default stories;

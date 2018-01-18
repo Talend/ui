@@ -50,56 +50,6 @@ Object {
 }
 `;
 
-exports[`UIForm container #setError should update state error 1`] = `
-Object {
-  "errors": Object {
-    "firstname": "my firstname is invalid",
-  },
-  "jsonSchema": Object {
-    "properties": Object {
-      "check": Object {},
-      "firstname": Object {
-        "type": "string",
-      },
-      "lastname": Object {
-        "minLength": 10,
-        "type": "string",
-      },
-    },
-    "required": Array [
-      "firstname",
-    ],
-    "title": "Comment",
-    "type": "object",
-  },
-  "properties": Object {},
-  "uiSchema": Array [
-    Object {
-      "autoFocus": true,
-      "description": "Hint: this is the last name",
-      "key": "lastname",
-      "title": "Last Name (with description)",
-    },
-    Object {
-      "key": "firstname",
-      "placeholder": "Enter your firstname here",
-      "title": "First Name (with placeholder)",
-      "triggers": Array [
-        "after",
-      ],
-    },
-    Object {
-      "key": "check",
-      "title": "Check the thing",
-      "triggers": Array [
-        "after",
-      ],
-      "widget": "button",
-    },
-  ],
-}
-`;
-
 exports[`UIForm container #setErrors should update state errors 1`] = `
 Object {
   "errors": Object {
@@ -209,7 +159,6 @@ exports[`UIForm container should render form 2`] = `
   customValidation={[Function]}
   encType={undefined}
   errors={Array []}
-  formName="myFormName"
   id="myFormId"
   initialData={
     Object {
@@ -317,7 +266,6 @@ exports[`UIForm container should render form 2`] = `
   onSubmit={[Function]}
   onTrigger={[Function]}
   properties={Object {}}
-  setError={[Function]}
   setErrors={[Function]}
   target={undefined}
   uiSchema={

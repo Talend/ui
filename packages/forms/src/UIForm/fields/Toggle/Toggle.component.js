@@ -12,7 +12,7 @@ function ToggleWidget(props) {
 			description={description}
 			errorMessage={errorMessage}
 			isValid={isValid}
-			required={schema.required || false}
+			required={schema.required}
 		>
 			<Toggle
 				autoFocus={autoFocus}

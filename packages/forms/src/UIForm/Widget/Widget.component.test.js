@@ -23,7 +23,7 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				formName={'myForm'}
+				id={'myForm'}
 				onChange={jest.fn('onChange')}
 				onFinish={jest.fn('onFinish')}
 				onTrigger={jest.fn('onTrigger')}
@@ -68,7 +68,7 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				formName={'myForm'}
+				id={'myForm'}
 				onChange={jest.fn('onChange')}
 				onTrigger={jest.fn('onTrigger')}
 				properties={properties}
@@ -92,7 +92,7 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				formName={'myForm'}
+				id={'myForm'}
 				onChange={jest.fn('onChange')}
 				onTrigger={jest.fn('onTrigger')}
 				properties={properties}
@@ -109,7 +109,7 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				formName={'myForm'}
+				id={'myForm'}
 				onChange={jest.fn('onChange')}
 				onTrigger={jest.fn('onTrigger')}
 				properties={properties}

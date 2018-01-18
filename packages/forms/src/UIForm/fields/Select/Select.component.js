@@ -26,7 +26,7 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 			isValid={isValid}
 			label={title}
 			labelAfter
-			required={schema.required || false}
+			required={schema.required}
 		>
 			<select
 				id={id}
@@ -35,8 +35,9 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 				className="form-control"
 				disabled={disabled}
 				onChange={event => {
-					onChange(event, { schema, value: getSelectedOptions(event.target, multiple) });
-					onFinish(event, { schema, value: getSelectedOptions(event.target, multiple) });
+					const payload = getSelectedOptions(event.target, multiple);
+					onChange(event, { schema, value: payload });
+					onFinish(event, { schema, value: payload });
 				}}
 				readOnly={readOnly}
 				value={value}

@@ -12,7 +12,7 @@
         "type": "string",
         "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
       },
-      "keyValue": {
+      "enumNamesDatalist": {
         "type": "string",
         "enum": [ "a", "p", "b", "c", "l", "g" ],
         "enumNames": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
@@ -37,8 +37,9 @@
       "widget": "datalist"
     },
     {
-      "key": "keyValue",
+      "key": "enumNamesDatalist",
       "title": "Datalist with named options",
+      "description": "This datalist is based on enumNames jsonSchema properties",
       "widget": "datalist"
     }
   ],

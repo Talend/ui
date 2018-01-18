@@ -55,7 +55,6 @@ export default class UIForm extends React.Component {
 	 */
 	onChange(event, { schema, value }) {
 		const payload = {
-			formName: this.props.formName,
 			properties: this.props.properties,
 			schema,
 			value,
@@ -111,7 +110,7 @@ export default class UIForm extends React.Component {
 		if (widgetChangeErrors) {
 			errors = widgetChangeErrors(errors);
 		}
-		this.props.setErrors(this.props.formName, errors);
+		this.props.setErrors(errors);
 
 		if (!valueError && schema.triggers && schema.triggers.length) {
 			let formData = this.props.properties;
@@ -127,7 +126,7 @@ export default class UIForm extends React.Component {
 				});
 				propertyName = schema.key[schema.key.length - 1];
 			}
-			const formId = this.props.formName || this.props.formId;
+			const formId = this.props.id;
 			this.onTrigger(formData, formId, propertyName, value);
 		}
 	}
@@ -170,9 +169,9 @@ export default class UIForm extends React.Component {
 		}
 
 		const { mergedSchema } = this.state;
-		const { formName, properties, customValidation } = this.props;
+		const { properties, customValidation } = this.props;
 		const errors = validateAll(mergedSchema, properties, customValidation);
-		this.props.setErrors(formName, errors);
+		this.props.setErrors(errors);
 
 		const isValid = !Object.keys(errors).length;
 		if (this.props.onSubmit && isValid) {
@@ -206,7 +205,7 @@ export default class UIForm extends React.Component {
 				encType={this.props.encType}
 				id={this.props.id}
 				method={this.props.method}
-				name={this.props.formName}
+				name={this.props.name}
 				noValidate={this.props.noHtml5Validate}
 				onReset={this.onReset}
 				onSubmit={this.onSubmit}
@@ -216,7 +215,6 @@ export default class UIForm extends React.Component {
 					<Widget
 						id={this.props.id}
 						key={index}
-						formName={this.props.formName}
 						onChange={this.onChange}
 						onFinish={this.onFinish}
 						onTrigger={this.onTrigger}
@@ -228,7 +226,7 @@ export default class UIForm extends React.Component {
 				))}
 
 				<Buttons
-					id={`${this.props.id}-${this.props.formName}-actions`}
+					id={`${this.props.id}-${this.props.id}-actions`}
 					onTrigger={this.onTrigger}
 					className={this.props.buttonBlockClass}
 					schema={{ items: actions }}
@@ -275,7 +273,7 @@ if (process.env.NODE_ENV !== 'production') {
 		customValidation: PropTypes.func,
 		/**
 		 * User callback: Trigger
-		 * Prototype: function onTrigger(event, { formName, trigger, schema, properties })
+		 * Prototype: function onTrigger(event, { trigger, schema, properties })
 		 */
 		onTrigger: PropTypes.func,
 		/** Custom widgets */
@@ -283,8 +281,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 		/** State management impl: The change callback */
 		onChange: PropTypes.func.isRequired,
-		/** State management impl: Set Partial fields validation error */
-		setError: PropTypes.func,
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
 		/** State management impl: The form update callback */

@@ -13,10 +13,6 @@ const WIDGETS_STORY = require('../../stories/json/widgets.json');
 const WIDGETS_STORY_EXPECTED = require('./__snapshots__/widgets.json');
 
 describe('migrate', () => {
-	it('should do nothing if the uischema is an array', () => {
-		const uiSchema = [];
-		expect(migrate({}, uiSchema)).toEqual({ jsonSchema: {}, uiSchema, widgets: {} });
-	});
 	it('should support no uiSchema', () => {
 		const schema = {
 			jsonSchema: {
@@ -147,14 +143,14 @@ describe('wrapCustomWidget', () => {
 });
 
 describe('default merge', () => {
-	it('should return props', () => {
+	it('should return default uiSpecs props', () => {
 		expect(merge({}, [])).toEqual({
 			jsonSchema: {},
 			uiSchema: [],
 			mergedSchema: [],
 		});
 	});
-	it('should return props', () => {
+	it('should adapt old format and merge them', () => {
 		expect(merge(SIMPLE_STORY.jsonSchema, SIMPLE_STORY.uiSchema).uiSchema).toEqual(
 			SIMPLE_STORY_MERGED_EXPECTED,
 		);

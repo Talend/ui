@@ -24,7 +24,7 @@ export default function Text(props) {
 			isValid={isValid}
 			label={title}
 			labelAfter
-			required={schema.required || false}
+			required={schema.required}
 		>
 			<input
 				id={id}

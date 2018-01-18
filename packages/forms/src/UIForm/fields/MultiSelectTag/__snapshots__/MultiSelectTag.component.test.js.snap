@@ -7,7 +7,7 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
   id="my-select-tag"
   isValid={true}
   label="Tags"
-  required={false}
+  required={undefined}
 >
   <div
     className="undefined form-control"

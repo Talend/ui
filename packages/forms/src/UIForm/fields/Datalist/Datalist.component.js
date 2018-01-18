@@ -187,7 +187,7 @@ class Datalist extends Component {
 				id={this.props.id}
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
-				required={this.props.schema.required || false}
+				required={this.props.schema.required}
 			>
 				<div className={theme['tf-datalist']}>
 					<Typeahead
