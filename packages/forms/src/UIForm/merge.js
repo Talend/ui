@@ -124,7 +124,8 @@ export const wrapCustomWidget = Component => {
 				id={props.id}
 				isValid={props.isValid}
 				label={props.schema.title}
-				required={props.schema.required} >
+				required={props.schema.required}
+			>
 				<Component {...newProps} />
 			</FieldTemplate>
 		);
