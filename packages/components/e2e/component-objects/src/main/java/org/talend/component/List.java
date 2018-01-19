@@ -36,7 +36,7 @@ public class List extends Component {
     }
 
     /**
-     * Get add button of the list.
+     * Get all buttons of the list toolbar.
      *
      * @return WebElement button
      */
