@@ -1,5 +1,3 @@
-import { setTimeout } from 'timers';
-
 /**
  * Send message on ws if available.
  * feed the offlineBuffer if it is not
@@ -29,7 +27,7 @@ export function wsIsClosed(ws) {
 export function startWebsocket(url, offlinebuffer, options) {
 	const { onMessage, onOpen, onClose, onError, onPing, onPingTimeout } = options;
 	const ws = new WebSocket(url);
-	let pingInterval;
+	let pingIntervalId;
 	let pingTimeoutId;
 	ws.onopen = function onopen(event) {
 		if (typeof onOpen === 'function') {
@@ -43,7 +41,7 @@ export function startWebsocket(url, offlinebuffer, options) {
 			localBuffer.forEach(msg => wsSend(ws, msg.message, msg.callback, offlinebuffer));
 		}
 		ws.ping();
-		pingInterval = setInterval(ws.ping, options.pingInterval || 50000);
+		pingIntervalId = setInterval(ws.ping, options.pingInterval || 50000);
 	};
 	ws.onmessage = function onmessage(messageEvent) {
 		if (typeof onMessage === 'function') {
@@ -54,11 +52,11 @@ export function startWebsocket(url, offlinebuffer, options) {
 		if (typeof onClose === 'function') {
 			onClose(closeEvent);
 		}
-		if (pingInterval) {
-			clearInterval(pingInterval);
+		if (pingIntervalId) {
+			clearInterval(pingIntervalId);
 		}
 		if (pingTimeoutId) {
-			pingTimeoutId.close();
+			clearTimeout(pingTimeoutId);
 		}
 	};
 	ws.onerror = function onerror(event) {
