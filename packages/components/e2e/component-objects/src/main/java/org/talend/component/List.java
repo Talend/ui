@@ -15,7 +15,9 @@ public class List extends Component {
 
     static final String LIST_SELECTOR = ".tc-list";
 
-    static final String ADD_BTN_SELECTOR = ".tc-actionbar-container";
+    static final String ACTIONBAR_SELECTOR = ".tc-actionbar-container";
+
+    static final String BTN_SELECTOR = ACTIONBAR_SELECTOR + " .btn";
 
     /**
      * List constructor.
@@ -32,7 +34,7 @@ public class List extends Component {
      * @return WebElement button
      */
     public WebElement getAddButton() {
-        return this.getElement().findElement(By.cssSelector(ADD_BTN_SELECTOR + " .btn-primary"));
+        return this.getButtons().get(0);
     }
 
     /**
@@ -41,7 +43,7 @@ public class List extends Component {
      * @return WebElement button
      */
     public java.util.List<WebElement> getButtons() {
-        return this.driver.findElements(By.cssSelector(ADD_BTN_SELECTOR + " .btn"));
+        return this.driver.findElements(By.cssSelector(BTN_SELECTOR));
     }
 
     /**
