@@ -178,261 +178,118 @@ const stories =
 				<IconsProvider defaultIcons={icons}/>
 				{story()}
 			</div>
-		))
-		.addWithInfo('OneColumn', () => (
-			<Layout header={header} mode="OneColumn">
-				<h1>Hello world</h1>
-			</Layout>
 		));
 
-apps.forEach(app => stories
-	.addWithInfo(`OneColumn ${app.toUpperCase()}`, () => (
-		<Layout id={app} header={header} mode="OneColumn">
-			<h1>Hello world</h1>
-		</Layout>
-	))
-	.addWithInfo(`🎨 OneColumn ${app.toUpperCase()}`, () => (
-		<Layout id={app} hasTheme={true} header={header} mode="OneColumn">
-			<h1>Hello world</h1>
-		</Layout>
-	))
+/**
+ * Generate story and its variation for <Layout/> component
+ *
+ * @param layoutStoryName Story name to display in storybook
+ * @param layoutStoryProps Props to pass to <Layout/> component
+ * @param layoutStoryContent Optional custom children
+ */
+function decorateLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
+	stories
+		.addWithInfo(layoutStoryName, () => (
+			<Layout {...layoutStoryProps}>
+				{layoutStoryContent}
+			</Layout>
+		));
+	apps
+		.forEach(app => {
+				const appStyle = require(`../src/Layout/_Layout.${app}.scss`);
+				const decoratedPropsWithTheme = {
+					...layoutStoryProps,
+					hasTheme: true,
+				};
+				stories.addWithInfo(`🎨 [${app.toUpperCase()}] ${layoutStoryName} `, () => (
+					<div className={appStyle.t7}>
+						<Layout {...decoratedPropsWithTheme}>
+							{layoutStoryContent}
+						</Layout>
+					</div>
+				));
+			}
+		);
+}
+
+decorateLayoutStory('OneColumn', {
+	header,
+	mode: 'OneColumn',
+});
+
+decorateLayoutStory('OneColumn with tabs', {
+	header,
+	tabs,
+	mode: 'OneColumn',
+});
+
+decorateLayoutStory('TwoColumns', {
+	header,
+	mode: 'TwoColumns',
+	one: sidePanel,
+});
+
+decorateLayoutStory('TwoColumns with tabs', {
+	header,
+	tabs,
+	mode: 'TwoColumns',
+	one: sidePanel,
+});
+
+decorateLayoutStory('TwoColumns with big Table list', {
+		header,
+		mode: 'TwoColumns',
+		one: sidePanel,
+	},
+	<List {...listProps} />,
 );
 
-stories
-	.addWithInfo('OneColumn with tabs', () => (
-		<Layout header={header} tabs={tabs} mode="OneColumn">
-			{content}
-		</Layout>
-	));
-
-apps.forEach(app => stories
-	.addWithInfo(`OneColumn ${app.toUpperCase()} with tabs`, () => (
-		<Layout id={app} header={header} tabs={tabs} mode="OneColumn">
-			{content}
-		</Layout>
-	))
-	.addWithInfo(`🎨 OneColumn ${app.toUpperCase()} with tabs`, () => (
-		<Layout id={app} hasTheme={true} header={header} tabs={tabs} mode="OneColumn">
-			{content}
-		</Layout>
-	))
-);
-stories
-	.addWithInfo('TwoColumns', () => (
-		<Layout header={header} mode="TwoColumns" one={sidePanel}>
-			<h1>Hello world</h1>
-		</Layout>
-	));
-
-apps.forEach(app => stories
-	.addWithInfo(`TwoColumns ${app.toUpperCase()}`, () => (
-		<Layout id={app} header={header} mode="TwoColumns" one={sidePanel}>
-			<h1>Hello world</h1>
-		</Layout>
-	))
-	.addWithInfo(`🎨 TwoColumns ${app.toUpperCase()}`, () => (
-		<Layout id={app} hasTheme={true} header={header} mode="TwoColumns" one={sidePanel}>
-			<h1>Hello world</h1>
-		</Layout>
-	))
+decorateLayoutStory('TwoColumns with big Large list', {
+		header,
+		mode: 'TwoColumns',
+		one: sidePanel,
+	},
+	<List {...listProps} displayMode={'large'}/>,
 );
 
-stories
-	.addWithInfo('TwoColumns with tabs', () => (
-		<Layout header={header} mode="TwoColumns" one={sidePanel} tabs={tabs}>
-			{content}
-		</Layout>
-	));
+decorateLayoutStory('TwoColumns docked', {
+	header,
+	mode: 'TwoColumns',
+	one: dockedSidePanel,
+});
 
-apps.forEach(app => stories
-	.addWithInfo(`TwoColumns ${app.toUpperCase()} with tabs`, () => (
-		<Layout id={app} header={header} mode="TwoColumns" one={sidePanel} tabs={tabs}>
-			{content}
-		</Layout>
-	))
-	.addWithInfo(`🎨 TwoColumns ${app.toUpperCase()} with tabs`, () => (
-		<Layout id={app} hasTheme={true} header={header} mode="TwoColumns" one={sidePanel} tabs={tabs}>
-			{content}
-		</Layout>
-	))
-);
+decorateLayoutStory('TwoColumns with drawers', {
+	header,
+	mode: 'TwoColumns',
+	one: sidePanel,
+	drawers,
+});
 
-stories
-	.addWithInfo('TwoColumns with big Table list', () => (
-		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
-			<List {...listProps} />
-		</Layout>
-	));
+decorateLayoutStory('OneColumn with footer', {
+	header,
+	mode: 'OneColumn',
+	footer,
+});
 
-apps.forEach(app => stories
-	.addWithInfo(`TwoColumns ${app.toUpperCase()} with big Table list`, () => (
-		<Layout id={app} header={header} mode="TwoColumns" one={dockedSidePanel}>
-			<List {...listProps} />
-		</Layout>
-	))
-	.addWithInfo(`🎨 TwoColumns ${app.toUpperCase()} with big Table list`, () => (
-		<Layout id={app} hasTheme={true} header={header} mode="TwoColumns" one={dockedSidePanel}>
-			<List {...listProps} />
-		</Layout>
-	))
-);
+decorateLayoutStory('OneColumn without header', {
+	mode: 'OneColumn',
+});
 
-stories
-	.addWithInfo('TwoColumns with big Large list', () => (
-		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
-			<List {...listProps} displayMode={'large'}/>
-		</Layout>
-	));
+decorateLayoutStory('OneColumn with subHeader', {
+	header,
+	subHeader,
+	mode: 'OneColumn',
+	footer,
+});
 
-apps.forEach(app => stories
-	.addWithInfo(`TwoColumns ${app.toUpperCase()} with big Large list`, () => (
-		<Layout id={app} header={header} mode="TwoColumns" one={dockedSidePanel}>
-			<List {...listProps} displayMode={'large'}/>
-		</Layout>
-	))
-	.addWithInfo(`🎨 TwoColumns ${app.toUpperCase()} with big Large list`, () => (
-		<Layout id={app} hasTheme={true} header={header} mode="TwoColumns" one={dockedSidePanel}>
-			<List {...listProps} displayMode={'large'}/>
-		</Layout>
-	))
-);
+decorateLayoutStory('TwoColumns with subHeader', {
+	header,
+	subHeader,
+	one: sidePanel,
+	mode: 'TwoColumns',
+	footer,
+});
 
-stories
-	.addWithInfo('TwoColumns docked', () => (
-		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
-			{content}
-		</Layout>
-	));
-
-apps.forEach(app => stories
-	.addWithInfo(`TwoColumns ${app.toUpperCase()} docked`, () => (
-		<Layout id={app} header={header} mode="TwoColumns" one={dockedSidePanel}>
-			{content}
-		</Layout>
-	))
-	.addWithInfo(`🎨 TwoColumns ${app.toUpperCase()} docked`, () => (
-		<Layout id={app} hasTheme={true} header={header} mode="TwoColumns" one={dockedSidePanel}>
-			{content}
-		</Layout>
-	))
-);
-
-stories
-	.addWithInfo('TwoColumns with drawers', () => (
-		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
-			{content}
-		</Layout>
-	));
-
-apps.forEach(app => stories
-	.addWithInfo(`TwoColumns ${app.toUpperCase()} with drawers`, () => (
-		<Layout id={app} header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
-			{content}
-		</Layout>
-	))
-	.addWithInfo(`🎨 TwoColumns ${app.toUpperCase()} with drawers`, () => (
-		<Layout id={app} hasTheme={true} header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
-			{content}
-		</Layout>
-	))
-);
-
-stories
-	.addWithInfo('OneColumn with footer', () => (
-		<Layout header={header} mode="OneColumn" footer={footer}>
-			{content}
-		</Layout>
-	));
-
-apps.forEach(app => stories
-	.addWithInfo(`OneColumn ${app.toUpperCase()} with footer`, () => (
-		<Layout id={app} header={header} mode="OneColumn" footer={footer}>
-			{content}
-		</Layout>
-	))
-	.addWithInfo(`🎨 OneColumn ${app.toUpperCase()} with footer`, () => (
-		<Layout id={app} hasTheme={true} header={header} mode="OneColumn" footer={footer}>
-			{content}
-		</Layout>
-	))
-);
-
-stories
-	.addWithInfo('OneColumn without header', () => (
-		<Layout mode="OneColumn">
-			<h1>Hello world</h1>
-		</Layout>
-	));
-
-apps.forEach(app => stories
-	.addWithInfo(`OneColumn ${app.toUpperCase()} without header`, () => (
-		<Layout id={app} mode="OneColumn">
-			{content}
-		</Layout>
-	))
-	.addWithInfo(`🎨 OneColumn ${app.toUpperCase()} without header`, () => (
-		<Layout id={app} hasTheme={true} mode="OneColumn">
-			{content}
-		</Layout>
-	))
-);
-
-stories
-	.addWithInfo('Subheader with OneColumn', () => (
-		<Layout header={header} subHeader={subHeader} mode="OneColumn" footer={footer}>
-			<h1>Hello world</h1>
-		</Layout>
-	));
-
-apps.forEach(app => stories
-	.addWithInfo(`Subheader ${app.toUpperCase()} with OneColumn`, () => (
-		<Layout id={app} header={header} subHeader={subHeader} mode="OneColumn" footer={footer}>
-			{content}
-		</Layout>
-	))
-	.addWithInfo(`🎨 Subheader ${app.toUpperCase()} with OneColumn`, () => (
-		<Layout id={app} hasTheme={true} header={header} subHeader={subHeader} mode="OneColumn" footer={footer}>
-			{content}
-		</Layout>
-	))
-);
-
-stories
-	.addWithInfo('Subheader with TwoColumns', () => (
-		<Layout header={header} subHeader={subHeader} one={sidePanel} mode="TwoColumns" footer={footer}>
-			{content}
-		</Layout>
-	));
-
-apps.forEach(app => stories
-	.addWithInfo(`Subheader ${app.toUpperCase()} with TwoColumns`, () => (
-		<Layout id={app} subHeader={subHeader}>
-			{content}
-		</Layout>
-	))
-	.addWithInfo(`🎨 Subheader ${app.toUpperCase()} with TwoColumns`, () => (
-		<Layout id={app} hasTheme={true} subHeader={subHeader}>
-			{content}
-		</Layout>
-	))
-);
-
-stories
-	.addWithInfo('Subheader alone', () => (
-		<Layout subHeader={subHeader}>
-			{content}
-		</Layout>
-	));
-
-apps.forEach(app => stories
-	.addWithInfo(`Subheader ${app.toUpperCase()} alone`, () => (
-		<Layout id={app} subHeader={subHeader}>
-			{content}
-		</Layout>
-	))
-	.addWithInfo(`🎨 Subheader ${app.toUpperCase()} alone`, () => (
-		<Layout id={app} hasTheme={true} subHeader={subHeader}>
-			{content}
-		</Layout>
-	))
-);
+decorateLayoutStory('Only subHeader', {
+	subHeader,
+});

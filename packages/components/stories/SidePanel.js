@@ -60,10 +60,10 @@ if (!stories.addWithInfo) {
 stories
 	.addDecorator(story => (
 		<div>
-			<LanguageSwitcher />
-			<IconsProvider defaultIcons={icons} />
+			<LanguageSwitcher/>
+			<IconsProvider defaultIcons={icons}/>
 			<I18nextProvider i18n={i18n}>
-				<div style={{'background': '#999'}}>{story()}</div>
+				<div style={{ display: 'inline-table', background: '#236192' }}>{story()}</div>
 			</I18nextProvider>
 		</div>
 	))
@@ -103,7 +103,7 @@ stories
 			tooltipPlacement="top"
 		/>
 	))
-	.addWithInfo('with inverted style', () => (
+	.addWithInfo('with reversed style', () => (
 		<SidePanel
 			actions={items}
 			onSelect={action('onItemSelect')}
@@ -113,7 +113,7 @@ stories
 			tooltipPlacement="top"
 		/>
 	))
-	.addWithInfo('with large inverted style', () => (
+	.addWithInfo('with large reverse style', () => (
 		<SidePanel
 			actions={items}
 			onSelect={action('onItemSelect')}
@@ -164,11 +164,49 @@ stories
 								.fill('This is some random content')
 								.map((item, num) => <li key={num}>{item}</li>)}
 						</ol>
-						<IconsProvider defaultIcons={icons} />
 					</Layout>
 				);
 			}
 		}
 
-		return <WithLayout />;
+		return <WithLayout/>;
+	})
+	.addWithInfo('With layout but reversed (toggle interactive)', () => {
+		class WithLayout extends React.Component {
+			constructor() {
+				super();
+				this.state = { docked: false };
+			}
+
+			render() {
+				const panelItems = items.concat([
+					{
+						key: 'longname',
+						label: 'Some super super super long name',
+						icon: 'talend-world',
+					},
+				]);
+				const panel = (
+					<SidePanel
+						actions={panelItems}
+						onSelect={action('onItemSelect')}
+						onToggleDock={() => this.setState({ docked: !this.state.docked })}
+						reverse
+						docked={this.state.docked}
+						tooltipPlacement="top"
+					/>
+				);
+				return (
+					<Layout mode="TwoColumns" one={panel}>
+						<ol>
+							{new Array(100)
+								.fill('This is some random content')
+								.map((item, num) => <li key={num}>{item}</li>)}
+						</ol>
+					</Layout>
+				);
+			}
+		}
+
+		return <WithLayout/>;
 	});

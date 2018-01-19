@@ -58,6 +58,20 @@ describe('Component HomeListView', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should be able to render theme', () => {
+		const wrapper = shallow(
+			<Component
+				hasTheme={true}
+				header={<div>hello app</div>}
+				sidepanel={<div>hello sidepanel</div>}
+				list={<div>hello list</div>}
+			>
+				<h1>Hello children</h1>
+			</Component>,
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render with element props', () => {
 		const wrapper = shallow(
 			<Component

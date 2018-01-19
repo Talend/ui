@@ -3,6 +3,7 @@
 exports[`OneColumn should render 1`] = `
 <main
   className="tc-layout-one-column"
+  role="main"
 >
   <div
     className={undefined}

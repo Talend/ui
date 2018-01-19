@@ -39,7 +39,7 @@ function Layout({
 	if (id) {
 		attrs.id = id;
 	}
-	const appCSS = classnames('tc-layout', theme.layout, hasTheme && theme.t7);
+	const appCSS = classnames('tc-layout', theme.layout);
 	const headerCSS = classnames('tc-layout-header', theme.header);
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
 	let Component;

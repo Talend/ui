@@ -9,15 +9,16 @@ exports[`TwoColumns should render two columns 1`] = `
     }
   }
 >
-  <aside
+  <div
     className="tc-layout-two-columns-left"
   >
     <div>
       Hello world
     </div>
-  </aside>
+  </div>
   <main
     className="tc-layout-two-columns-main"
+    role="main"
   >
     <div
       className={undefined}

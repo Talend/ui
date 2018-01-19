@@ -14,6 +14,7 @@ exports[`Layout should render Layout OneColumn 1`] = `
   </header>
   <main
     className="tc-layout-one-column"
+    role="main"
   >
     <div
       className={undefined}
@@ -55,15 +56,16 @@ exports[`Layout should render Layout TwoColumns 1`] = `
   <div
     className="tc-layout-two-columns"
   >
-    <aside
+    <div
       className="tc-layout-two-columns-left"
     >
       <h1>
         Column one
       </h1>
-    </aside>
+    </div>
     <main
       className="tc-layout-two-columns-main"
+      role="main"
     >
       <div
         className={undefined}
@@ -106,15 +108,16 @@ exports[`Layout should render layout with Drawer component 1`] = `
   <div
     className="tc-layout-two-columns"
   >
-    <aside
+    <div
       className="tc-layout-two-columns-left"
     >
       <h1>
         Column one
       </h1>
-    </aside>
+    </div>
     <main
       className="tc-layout-two-columns-main"
+      role="main"
     >
       <div
         className={undefined}
@@ -494,15 +497,16 @@ exports[`Layout should render layout with TabBar component 1`] = `
   <div
     className="tc-layout-two-columns"
   >
-    <aside
+    <div
       className="tc-layout-two-columns-left"
     >
       <h1>
         Column one
       </h1>
-    </aside>
+    </div>
     <main
       className="tc-layout-two-columns-main"
+      role="main"
     >
       <div
         className={undefined}
@@ -603,6 +607,7 @@ exports[`Layout should render layout with footer component 1`] = `
   </header>
   <main
     className="tc-layout-one-column"
+    role="main"
   >
     <div
       className={undefined}
@@ -643,6 +648,7 @@ exports[`Layout should render layout without header 1`] = `
 >
   <main
     className="tc-layout-one-column"
+    role="main"
   >
     <div
       className={undefined}

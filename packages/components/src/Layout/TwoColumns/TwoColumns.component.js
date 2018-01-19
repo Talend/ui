@@ -24,8 +24,8 @@ function TwoColumns({ one, drawers, children, tabs, ...props }) {
 
 	return (
 		<div className={containerCSS} {...props}>
-			<aside className={sidemenuCSS}>{one}</aside>
-			<main className={mainCSS}>
+			<div className={sidemenuCSS}>{one}</div>
+			<main role="main" className={mainCSS}>
 				<WithDrawer drawers={drawers}>
 					{tabs && <TabBar {...tabs} />}
 					<div style={style}>{children}</div>

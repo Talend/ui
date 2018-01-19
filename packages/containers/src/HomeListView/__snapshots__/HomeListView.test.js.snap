@@ -1,5 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Component HomeListView should be able to render theme 1`] = `
+<Layout
+  drawers={
+    Array [
+      <h1>
+        Hello children
+    </h1>,
+    ]
+  }
+  hasTheme={true}
+  header={
+    <div>
+      hello app
+    </div>
+  }
+  id={undefined}
+  mode="TwoColumns"
+  one={
+    <div>
+      hello sidepanel
+    </div>
+  }
+>
+  <div>
+    hello list
+  </div>
+</Layout>
+`;
+
 exports[`Component HomeListView should children transformed as array in props.drawer 1`] = `
 Array [
   Object {
