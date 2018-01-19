@@ -3,8 +3,8 @@ import { shallow, mount } from 'enzyme';
 import { Dispatcher, checkIfActionInfoExist } from '../src/Dispatcher';
 
 jest.mock('../src/api', () => ({
-	action: {
-		getActionCreatorFunction(context, id) {
+	actionCreator: {
+		get(context, id) {
 			if (id !== 'existingActionCreator:id'
 				&& id !== 'actionCreator:id'
 				&& id !== 'noOp'
@@ -12,6 +12,8 @@ jest.mock('../src/api', () => ({
 				throw new Error(`action not found id: ${id}`);
 			}
 		},
+	},
+	action: {
 		getOnProps() {
 			return ['onClick', 'onStuff'];
 		},
@@ -66,7 +68,7 @@ describe('Testing <Dispatcher />', () => {
 		expect(instance.onEvent).toHaveBeenCalledWith(undefined, 'onClick');
 	});
 
-	it('should call getActionCreatorFunction and reThrow at mount time'
+	it('should call api.actionCreator.get and reThrow at mount time'
 		+ 'if action info bind onto on[eventName] can\'t be found in settings', () => {
 		expect(() => {
 			mount(
@@ -77,7 +79,7 @@ describe('Testing <Dispatcher />', () => {
 		}).toThrowError('action not found id: error:actionCreator:id');
 	});
 
-	it('should call getActionCreatorFunction and reThrow at willreceivePropsTime'
+	it('should call api.actionCreator.get and reThrow at willreceivePropsTime'
 		+ 'if action info bind onto on[eventName] can\'t be found in settings', () => {
 		const wrapper = mount(
 			<Dispatcher onClick="existingActionCreator:id" onStuff="existingActionCreator:id">
