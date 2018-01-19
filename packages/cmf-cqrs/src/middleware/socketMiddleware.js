@@ -5,7 +5,6 @@ import {
 	SOCKET_ON_ERROR,
 	SOCKET_ON_PING_TIMEOUT,
 } from '../constants';
-// SOCKET_ON_PING
 
 // if host is localhost connect directly to the localhost backend
 // else connect to the actual host
