@@ -1,0 +1,5 @@
+.template {
+	&:global(.required) :global(.control-label):after {
+		content: '*';
+	}
+}

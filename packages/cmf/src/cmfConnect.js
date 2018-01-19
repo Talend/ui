@@ -28,6 +28,7 @@ export default cmfConnect({
 	mapStateToProps,
 });
  */
+import invariant from 'invariant';
 import PropTypes from 'prop-types';
 import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
@@ -220,6 +221,9 @@ export default function cmfConnect({
 	...rest
 }) {
 	return function wrapWithCMF(WrappedComponent) {
+		if (!WrappedComponent.displayName) {
+			invariant(true, `${WrappedComponent.name} has no displayName`);
+		}
 		class CMFContainer extends React.Component {
 			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 			static propTypes = {

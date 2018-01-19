@@ -38,10 +38,7 @@ function getPartSchema(parentSchema, part) {
 }
 
 function KeyValue({ id, isValid, errorMessage, onChange, onFinish, schema, value, ...restProps }) {
-	const {
-		description,
-		title,
-	} = schema;
+	const { description, title } = schema;
 
 	const keySchema = getPartSchema(schema, 'key');
 	const valueSchema = getPartSchema(schema, 'value');
@@ -53,6 +50,7 @@ function KeyValue({ id, isValid, errorMessage, onChange, onFinish, schema, value
 			id={id}
 			isValid={isValid}
 			label={title}
+			required={schema.required}
 		>
 			<dl className={theme['key-value']}>
 				<dt>
