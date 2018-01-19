@@ -17,7 +17,6 @@ export default class UIForm extends React.Component {
 			errors: {},
 		};
 		this.onChange = this.onChange.bind(this);
-		this.onReset = this.onReset.bind(this);
 		this.setErrors = this.setErrors.bind(this);
 	}
 
@@ -59,15 +58,6 @@ export default class UIForm extends React.Component {
 		}
 	}
 
-	onReset(event) {
-		this.setState({
-			properties: this.props.data.properties,
-		});
-		if (this.props.onReset) {
-			this.props.onReset(event);
-		}
-	}
-
 	/**
 	 * Set all fields validation in state
 	 * @param errors the validation errors
@@ -83,7 +73,6 @@ export default class UIForm extends React.Component {
 			<UIFormComponent
 				initialData={this.props.data}
 				onChange={this.onChange}
-				onReset={this.onReset}
 				setErrors={this.setErrors}
 				{...this.state}
 				{...props}
