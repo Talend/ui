@@ -40,7 +40,7 @@ public class List extends Component {
     /**
      * Get all buttons of the list toolbar.
      *
-     * @return WebElement button
+     * @return java.util.List<WebElement> buttons
      */
     public java.util.List<WebElement> getButtons() {
         return this.driver.findElements(By.cssSelector(BTN_SELECTOR));
