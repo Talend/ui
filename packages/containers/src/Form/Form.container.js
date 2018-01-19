@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Map } from 'immutable';
+import Immutable from 'immutable';
 import { componentState } from '@talend/react-cmf';
 import ComponentForm from '@talend/react-forms';
 import DefaultArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
 import classnames from 'classnames';
 
-export const DEFAULT_STATE = new Map({});
+export const DEFAULT_STATE = new Immutable.Map({});
 
 /**
  * Because we don't want to loose form input
@@ -32,7 +32,7 @@ class Form extends React.Component {
 	 * @return {[type]}        [description]
 	 */
 	static getFormData(state, formId) {
-		return state.cmf.components.getIn(['Container(Form)', formId, 'data'], Map());
+		return state.cmf.components.getIn(['Container(Form)', formId, 'data'], new Immutable.Map());
 	}
 
 	constructor(props) {
@@ -54,6 +54,8 @@ class Form extends React.Component {
 			if (!nextProps.state) {
 				nextProps.initState();
 			}
+		} else if (nextProps.properties !== this.props.properties) {
+			this.props.setState({ data: nextProps.data });
 		}
 	}
 
@@ -82,14 +84,6 @@ class Form extends React.Component {
 		}
 	}
 
-	formActions() {
-		if (typeof this.props.actions === 'function') {
-			const state = (this.props.state || DEFAULT_STATE).toJS();
-			return this.props.actions(state.data || this.props.data);
-		}
-		return this.props.actions;
-	}
-
 	jsonSchema() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
 		if (typeof this.props.jsonSchema === 'function') {
@@ -114,34 +108,40 @@ class Form extends React.Component {
 		return Object.assign({}, this.props.data, state.data);
 	}
 
+	formActions() {
+		if (typeof this.props.actions === 'function') {
+			const state = (this.props.state || DEFAULT_STATE).toJS();
+			return this.props.actions(state.data || this.props.data);
+		}
+		return this.props.actions;
+	}
+
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
-		const data = {
-			jsonSchema: this.jsonSchema(),
-			uiSchema: this.uiSchema(),
-			properties: this.data(),
+		const props = {
+			data: {
+				jsonSchema: this.jsonSchema(),
+				uiSchema: this.uiSchema(),
+				properties: this.data(),
+			},
+			className: classnames('tc-form', 'rjsf', this.props.className, {
+				dirty: state.dirty,
+				pristine: !state.dirty,
+			}),
+			ArrayFieldTemplate: this.props.ArrayFieldTemplate || DefaultArrayFieldTemplate,
+			actions: this.formActions(),
+			fields: this.props.fields,
+			onChange: this.onChange,
+			onTrigger: this.onTrigger,
+			onSubmit: this.onSubmit,
+			buttonBlockClass: this.props.buttonBlockClass,
+			children: this.props.children,
+			...this.props.formProps,
 		};
-		const className = classnames('tc-form', 'rjsf', this.props.className, {
-			dirty: state.dirty,
-			pristine: !state.dirty,
-		});
-		const ArrayFieldTemplate = this.props.ArrayFieldTemplate || DefaultArrayFieldTemplate;
-		return (
-			<ComponentForm
-				ArrayFieldTemplate={ArrayFieldTemplate}
-				className={className}
-				data={data}
-				actions={this.formActions()}
-				fields={this.props.fields}
-				onTrigger={this.onTrigger}
-				onChange={this.onChange}
-				onSubmit={this.onSubmit}
-				buttonBlockClass={this.props.buttonBlockClass}
-				{...this.props.formProps}
-			>
-				{this.props.children}
-			</ComponentForm>
-		);
+		if (this.props.uiform) {
+			props.uiform = true;
+		}
+		return <ComponentForm {...props}>{this.props.children}</ComponentForm>;
 	}
 }
 Form.defaultProps = {
