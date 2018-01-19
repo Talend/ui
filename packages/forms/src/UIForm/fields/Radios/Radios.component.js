@@ -18,8 +18,8 @@ export default function Radios({ id, isValid, errorMessage, onChange, onFinish, 
 			label={title}
 			required={schema.required}
 		>
-			{
-				schema.titleMap && schema.titleMap.map((option, index) => (
+			{schema.titleMap &&
+				schema.titleMap.map((option, index) => (
 					<div className={radioClassNames} key={index}>
 						<label>
 							<input
@@ -36,8 +36,7 @@ export default function Radios({ id, isValid, errorMessage, onChange, onFinish, 
 							<span>{option.name}</span>
 						</label>
 					</div>
-				))
-			}
+				))}
 		</FieldTemplate>
 	);
 }
@@ -55,10 +54,12 @@ if (process.env.NODE_ENV !== 'production') {
 			disabled: PropTypes.bool,
 			inline: PropTypes.bool,
 			title: PropTypes.string,
-			titleMap: PropTypes.arrayOf(PropTypes.shape({
-				name: PropTypes.string.isRequired,
-				value: PropTypes.string.isRequired,
-			})),
+			titleMap: PropTypes.arrayOf(
+				PropTypes.shape({
+					name: PropTypes.string.isRequired,
+					value: PropTypes.string.isRequired,
+				}),
+			),
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};

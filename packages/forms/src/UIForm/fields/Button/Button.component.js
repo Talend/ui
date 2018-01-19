@@ -13,11 +13,7 @@ export default function Button(props) {
 			isValid={isValid}
 			required={schema.required}
 		>
-			<SingleButton
-				id={id}
-				onTrigger={onTrigger}
-				schema={schema}
-			/>
+			<SingleButton id={id} onTrigger={onTrigger} schema={schema} />
 		</FieldTemplate>
 	);
 }

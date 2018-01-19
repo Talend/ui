@@ -12,11 +12,7 @@ describe('ArrayField', () => {
 		};
 		const uiSchema = { 'ui:widget': 'hidden' };
 		const wrapper = shallow(
-			<ArrayField
-				schema={schema}
-				uiSchema={uiSchema}
-				onChange={jest.fn()}
-			/>
+			<ArrayField schema={schema} uiSchema={uiSchema} onChange={jest.fn()} />,
 		);
 		expect(wrapper.getElement()).toBe(null);
 	});
