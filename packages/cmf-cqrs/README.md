@@ -134,12 +134,12 @@ the socketListener recieve for each message
 the messageEvent containing all information about the message recieved
 the store.dispatch function so you can dispatch an action
 the store.getState function in case you want to check the store state before doing anything
-the smartWebsocket itself so a pongListener can access to the timeoutId and clear it before it's execution
+the smartWebSocket itself so the listener can access to the websocket itself (eg: datastreams pong socket listener that get timeoutId and clear it before it's execution)
 
 
 ```javascript
 /** an example of an message listener dispatching each message recieved **/
-function myMessageListener(messageEvent, dispatch, getState) {
+function myMessageListener(messageEvent, dispatch, getState, smartWebSocket) {
 	dispatch({type: 'MESSAGE RECIEVED', message: JSON.parse(messageEvent.data);})
 }
 ```
