@@ -66,6 +66,10 @@ const coreFieldsStories = storiesOf('Core fields', module)
 	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
 
+const oldStories = storiesOf('Migration', module)
+	.addDecorator(withKnobs)
+	.addDecorator(forStoryDecorator);
+
 jsonStories.forEach(({ category, name, story }) => {
 	switch (category) {
 	case 'concepts':
@@ -76,6 +80,9 @@ jsonStories.forEach(({ category, name, story }) => {
 		break;
 	case 'fields':
 		coreFieldsStories.add(name, story);
+		break;
+	case 'old':
+		oldStories.add(name, story);
 		break;
 	default:
 		console.error(`No category ${category} found for story ${name}`);
