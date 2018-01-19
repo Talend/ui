@@ -16,8 +16,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.js
   4:1  error  'tv4' should be listed in the project's dependencies. Run 'npm i -S tv4' to add it  import/no-extraneous-dependencies
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.js
-  6:25  error  'extractFormProps' is defined but never used  no-unused-vars
-
-✖ 5 problems (5 errors, 0 warnings)
+✖ 4 problems (4 errors, 0 warnings)
 

@@ -97,10 +97,7 @@ if (process.env.NODE_ENV !== 'production') {
 		index: PropTypes.number.isRequired,
 		onRemove: PropTypes.func.isRequired,
 		onReorder: PropTypes.func.isRequired,
-		value: PropTypes.oneOfType([
-			PropTypes.object,
-			PropTypes.string,
-		]),
+		value: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 	};
 }
 
