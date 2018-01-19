@@ -210,6 +210,7 @@ function updateWidgets(items, uiSchema, widgets, prefix) {
  * migrate from react-jsonschema-form to UISchema
  * @param {Object} jsonSchema
  * @param {Object} uiSchema
+ * @return {Object} props
  */
 export function migrate(jsonSchema, uiSchema) {
 	const safeUISchema = parseProperties(jsonSchema, true);
