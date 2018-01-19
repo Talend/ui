@@ -22,7 +22,7 @@ export const DEFAULT_STATE = new Map({});
 class ACKDispatcher extends React.Component {
 	static displayName = 'Container(ACKDispatcher)';
 	static propTypes = {
-		acks: PropTypes.object,  // eslint-disable-line react/forbid-prop-types
+		acks: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		...componentState.propTypes,
 	};
 	static contextTypes = {
@@ -44,7 +44,6 @@ class ACKDispatcher extends React.Component {
 		}
 	}
 
-
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.acks) {
 			this.processACK(nextProps.acks);
@@ -56,13 +55,10 @@ class ACKDispatcher extends React.Component {
 	}
 
 	dispatchAndUpdateAck(actionCreator, data, requestId) {
-		const action = api.action.getActionCreatorFunction(
-			this.context,
-			actionCreator,
-		)({}, data, this.context);
+		const action = api.actionCreator.get(this.context, actionCreator)({}, data, this.context);
 		action.ack = deleteACK(null, { requestId });
 		this.props.dispatch(action);
-		this.setState((oldState) => {
+		this.setState(oldState => {
 			if (oldState.dispatchedAck.includes(requestId)) {
 				return oldState;
 			}
@@ -82,7 +78,8 @@ class ACKDispatcher extends React.Component {
 			});
 	}
 
-	render() { // eslint-disable-line class-methods-use-this
+	render() {
+		// eslint-disable-line class-methods-use-this
 		return null;
 	}
 }

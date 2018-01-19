@@ -142,7 +142,7 @@ export function getDispatchToProps({
 	cmfProps.dispatch = dispatch;
 	cmfProps.getComponent = api.component.get;
 	cmfProps.dispatchActionCreator = (actionId, event, data, context) => {
-		dispatch(api.action.getActionCreatorFunction(context, actionId)(event, data, context));
+		dispatch(api.actionCreator.get(context, actionId)(event, data, context));
 	};
 
 	let userProps = {};
