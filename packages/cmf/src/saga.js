@@ -9,7 +9,7 @@ api.saga.putActionCreator('myaction', {}, {});
  */
 
 import { put, select } from 'redux-saga/effects';
-import action from './action';
+import actionCreatorAPI from './actionCreator';
 import registry from './registry';
 
 function* putActionCreator(actionCreatorId, event, data, optContext) {
@@ -20,7 +20,7 @@ function* putActionCreator(actionCreatorId, event, data, optContext) {
 			getState: () => state,
 		},
 	};
-	const actionCreator = action.getActionCreatorFunction(context, actionCreatorId);
+	const actionCreator = actionCreatorAPI.get(context, actionCreatorId);
 	yield put(actionCreator(event, data, context));
 }
 
