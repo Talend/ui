@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import UIFormComponent from './UIForm.component';
-import { formPropTypes, extractFormProps } from './utils/propTypes';
+import { formPropTypes } from './utils/propTypes';
 import { mutateValue } from './utils/properties';
 
 const OMIT_PROPS = ['data', 'onChange', 'onTrigger', 'onReset'];
