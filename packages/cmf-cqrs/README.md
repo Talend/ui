@@ -44,13 +44,34 @@ ws = new SmartWebsocket(urlPrefix, {
 	onOpen: () => dispatch({ type: SOCKET_ON_OPEN }),
 	onClose: () => dispatch({ type: SOCKET_ON_CLOSE }),
 	onMessage: messageEvent => {
-		dispatch({ type: onMessage, message: messageEvent });
+		socketListener.forEach(func => func(messageEvent, dispatch, getState, ws));
 	},
 	onError: errorEvent => {
 		dispatch({ type: SOCKET_ON_CLOSE, event: errorEvent });
 	},
+	onPing: event => {
+		ws.pingTimeoutId = event.pingTimeoutId;
+	},
+	onPingTimeout: () => {
+		dispatch({ type: SOCKET_ON_PING_TIMEOUT });
+	},
+	...socketOptions,
 });
 ```
+
+socketOptions is optionnal but allows websocket configuration from middleware instanciation within your application.
+```javascript
+{
+	checkInterval: 5000,
+	pingInterval: 10000,
+	pingTimeoutDelay: SOCKET_ON_PING_TIMEOUT_DELAY,
+}
+```
+
+* checkInterval : max duration between 2 websocket connections trials if closed
+* pingInterval : duration between ping message from the webapp to the server, like a heartbeat of the connection
+* pingTimeoutDelay : duration after which a PING message not being answered by a PONG will trigger a SOCKET_ON_PING_TIMEOUT and force close of the current connection
+
 
 In onMessage event, you should get middleware handlers as well.
 
@@ -77,6 +98,7 @@ const websocketMiddleware = cqrsMiddlewares.createWebsocketMiddleware(
 	API['stream-websocket'],
 	[...actionListeners],
 	[...socketListener],
+	{...socketOptions },
 );
 const store = createStore(reducer, initialState, applyMiddleware(websocketMiddleware));
 ```
@@ -89,6 +111,7 @@ const websocketMiddleware = cqrsMiddlewares.createWebsocketMiddleware(
 	API['stream-websocket'],
 	[...actionListeners],
 	[...socketListener],
+	{...socketOptions},
 );
 
 const store = cmfstore.initialize(reducer, initialState, enhancer, [websocketMiddleware]);
@@ -111,6 +134,7 @@ the socketListener recieve for each message
 the messageEvent containing all information about the message recieved
 the store.dispatch function so you can dispatch an action
 the store.getState function in case you want to check the store state before doing anything
+the smartWebsocket itself so a pongListener can access to the timeoutId and clear it before it's execution
 
 
 ```javascript
@@ -137,7 +161,9 @@ on socket connection being closed by an error the following action get dispatche
 { type: SOCKET_ON_ERROR, event: errorEvent }
 ```
 
-on socket connection recieving a message the following action get dispatched
+on socket connection receiving a message, no action get dispatched but socketListeners are called which will take care of dispactching action or not or even do something else
+
+on socket connection timeout reached, the following action get dispatched
 ```
-{ type: SOCKET_ON_ERROR, event: errorEvent }
+{ type: SOCKET_ON_PING_TIMEOUT }
 ```
