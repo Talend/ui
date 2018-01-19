@@ -80,7 +80,6 @@ export function startWebsocket(url, offlinebuffer, options) {
 			onPingTimeout();
 		}
 		ws.close();
-		// reconnection instannée possible ?
 	};
 	return ws;
 }
