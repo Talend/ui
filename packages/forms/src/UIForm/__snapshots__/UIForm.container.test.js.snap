@@ -2,7 +2,7 @@
 
 exports[`UIForm container #onChange should update state properties 1`] = `
 Object {
-  "errors": Array [],
+  "errors": Object {},
   "jsonSchema": Object {
     "properties": Object {
       "check": Object {},
@@ -102,7 +102,7 @@ Object {
 
 exports[`UIForm container should render form 1`] = `
 Object {
-  "errors": Array [],
+  "errors": Object {},
   "jsonSchema": Object {
     "properties": Object {
       "check": Object {},
@@ -150,15 +150,12 @@ Object {
 
 exports[`UIForm container should render form 2`] = `
 <TalendUIForm
-  acceptCharset={undefined}
-  action={undefined}
-  actions={undefined}
   autoComplete="off"
   buttonBlockClass="form-actions"
   className="my-form-class"
   customValidation={[Function]}
-  encType={undefined}
-  errors={Array []}
+  errors={Object {}}
+  formName="myFormName"
   id="myFormId"
   initialData={
     Object {
@@ -258,16 +255,12 @@ exports[`UIForm container should render form 2`] = `
       "UNKNOWN_PROPERTY": "Unknown property (not in schema)",
     }
   }
-  method={undefined}
-  moz={undefined}
   noHtml5Validate={true}
   onChange={[Function]}
   onReset={[Function]}
   onSubmit={[Function]}
-  onTrigger={[Function]}
   properties={Object {}}
   setErrors={[Function]}
-  target={undefined}
   uiSchema={
     Array [
       Object {

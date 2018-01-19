@@ -12,7 +12,14 @@ describe('SimpleCheckBox field', () => {
 	it('should render input', () => {
 		// when
 		const wrapper = shallow(
-			<SimpleCheckBox id={'myForm'} label={'My checkbox custom label'} schema={schema} value />,
+			<SimpleCheckBox
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				id={'myForm'}
+				label={'My checkbox custom label'}
+				schema={schema}
+				value
+			/>,
 		);
 
 		// then
@@ -29,6 +36,8 @@ describe('SimpleCheckBox field', () => {
 		// when
 		const wrapper = shallow(
 			<SimpleCheckBox
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				id={'myForm'}
 				label={'My checkbox custom label'}
 				schema={disabledSchema}

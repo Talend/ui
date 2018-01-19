@@ -207,7 +207,7 @@ export default class UIForm extends React.Component {
 				method={this.props.method}
 				name={this.props.name}
 				noValidate={this.props.noHtml5Validate}
-				onReset={this.onReset}
+				onReset={this.props.onReset}
 				onSubmit={this.onSubmit}
 				target={this.props.target}
 			>
@@ -224,7 +224,7 @@ export default class UIForm extends React.Component {
 						widgets={Object.assign({}, this.props.widgets, this.state.widgets)}
 					/>
 				))}
-
+				{this.props.children}
 				<Buttons
 					id={`${this.props.id}-${this.props.id}-actions`}
 					onTrigger={this.onTrigger}

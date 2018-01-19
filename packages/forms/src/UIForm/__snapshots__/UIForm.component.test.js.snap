@@ -11,7 +11,7 @@ exports[`UIForm component should render form 1`] = `
   method={undefined}
   name={undefined}
   noValidate={true}
-  onReset={undefined}
+  onReset={[Function]}
   onSubmit={[Function]}
   target={undefined}
 >
@@ -133,7 +133,7 @@ exports[`UIForm component should render provided actions 1`] = `
   method={undefined}
   name={undefined}
   noValidate={true}
-  onReset={undefined}
+  onReset={[Function]}
   onSubmit={[Function]}
   target={undefined}
 >

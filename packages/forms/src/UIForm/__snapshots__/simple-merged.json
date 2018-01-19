@@ -5,6 +5,7 @@
     "widget": "fieldset",
     "items": [
       {
+        "autoFocus": true,
         "key": [
           "firstName"
         ],

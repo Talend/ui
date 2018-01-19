@@ -1,8 +1,12 @@
+import omit from 'lodash/omit';
 import PropTypes from 'prop-types';
 import React from 'react';
+
 import UIFormComponent from './UIForm.component';
 import { formPropTypes, extractFormProps } from './utils/propTypes';
 import { mutateValue } from './utils/properties';
+
+const OMIT_PROPS = ['data', 'onChange', 'onTrigger', 'onReset'];
 
 export default class UIForm extends React.Component {
 	static displayName = 'Container(UIForm)';
@@ -10,9 +14,10 @@ export default class UIForm extends React.Component {
 		super(props);
 		this.state = {
 			...this.props.data,
-			errors: [],
+			errors: {},
 		};
 		this.onChange = this.onChange.bind(this);
+		this.onReset = this.onReset.bind(this);
 		this.setErrors = this.setErrors.bind(this);
 	}
 
@@ -72,28 +77,20 @@ export default class UIForm extends React.Component {
 	}
 
 	render() {
-		const { jsonSchema, uiSchema, properties, errors } = this.state;
+		const props = omit(this.props, OMIT_PROPS);
 
 		return (
 			<UIFormComponent
-				{...extractFormProps(this.props)}
-				jsonSchema={jsonSchema}
-				uiSchema={uiSchema}
-				properties={properties}
-				errors={errors}
 				initialData={this.props.data}
-				actions={this.props.actions}
-				customValidation={this.props.customValidation}
-				onTrigger={this.props.onTrigger}
-				widgets={this.props.widgets}
-				onReset={this.props.onReset}
 				onChange={this.onChange}
-				onSubmit={this.props.onSubmit}
+				onReset={this.onReset}
 				setErrors={this.setErrors}
-				buttonBlockClass={this.props.buttonBlockClass}
-				language={this.props.language}
-				moz={this.props.moz}
-			/>
+
+				{...this.state}
+				{...props}
+			>
+				{this.props.children}
+			</UIFormComponent>
 		);
 	}
 }
