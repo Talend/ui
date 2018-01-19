@@ -193,27 +193,6 @@ function typeResolver(schema, uiSchema) {
 }
 
 /**
- * objectRenderer renders nested properties
- */
-function ObjectRenderer({ propertyKey, title, properties, schema, uiSchema = {} }) {
-	const flattenProperties = entries(properties);
-	const elements = flattenProperties.map(
-		typeResolver(schema[propertyKey].properties, uiSchema[propertyKey]),
-	);
-	return (
-		<div className={classNames(css.object, `object-renderer-${propertyKey}`)} key={propertyKey}>
-			<h2>{title || propertyKey}</h2>
-			<div>{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}</div>
-		</div>
-	);
-}
-
-ObjectRenderer.propTypes = {
-	...RendererProptypes,
-	schema: PropTypes.shape(SchemaProptypes),
-};
-
-/**
  * orderProperties sorts properties based on uiSchema ui:order array
  *
  * @param order
@@ -238,6 +217,30 @@ function orderProperties(order, properties) {
 }
 
 /**
+ * objectRenderer renders nested properties
+ */
+function ObjectRenderer({ propertyKey, title, properties, schema, uiSchema = {} }) {
+	const flattenProperties = orderProperties(
+		get(uiSchema, [propertyKey, 'ui:order']),
+		entries(properties),
+	);
+	const elements = flattenProperties.map(
+		typeResolver(schema[propertyKey].properties, uiSchema[propertyKey]),
+	);
+	return (
+		<div className={classNames(css.object, `object-renderer-${propertyKey}`)} key={propertyKey}>
+			<h2>{title || propertyKey}</h2>
+			<div>{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}</div>
+		</div>
+	);
+}
+
+ObjectRenderer.propTypes = {
+	...RendererProptypes,
+	schema: PropTypes.shape(SchemaProptypes),
+};
+
+/**
  * JSONSchemaRenderer renders elements based on a JSONSchema and data
  *
  * @throws {InvalidSchemaException} schema must contain a jsonSchema and
@@ -259,6 +262,8 @@ function JSONSchemaRenderer({ schema, className, ...props }) {
 		</dl>
 	);
 }
+
+JSONSchemaRenderer.displayName = 'JSONSchemaRenderer';
 
 JSONSchemaRenderer.propTypes = {
 	schema: PropTypes.shape({ ...SchemaProptypes }),

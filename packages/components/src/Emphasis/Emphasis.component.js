@@ -23,7 +23,11 @@ function emphasiseAll(text, value) {
 		.filter(isNotEmpty)
 		.map((part, index) => {
 			if (part.toUpperCase() === value.toUpperCase()) {
-				return <em key={index} className={theme.highlight}>{part}</em>;
+				return (
+					<em key={index} className={theme.highlight}>
+						{part}
+					</em>
+				);
 			}
 			return part;
 		});
@@ -32,6 +36,8 @@ function emphasiseAll(text, value) {
 function Emphasis(props) {
 	return <span>{emphasiseAll(props.text, props.value)}</span>;
 }
+
+Emphasis.displayName = 'Emphasis';
 
 Emphasis.propTypes = {
 	value: PropTypes.string,

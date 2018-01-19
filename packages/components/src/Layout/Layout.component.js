@@ -56,6 +56,8 @@ function Layout({ header, subHeader, footer, mode, drawers, tabs, children, ...r
 	);
 }
 
+Layout.displayName = 'Layout';
+
 Layout.propTypes = {
 	header: PropTypes.element,
 	footer: PropTypes.element,

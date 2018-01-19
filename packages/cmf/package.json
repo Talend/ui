@@ -37,15 +37,15 @@
     "react-immutable-proptypes": "2.1.0"
   },
   "devDependencies": {
-    "babel-cli": "6.24.1",
-    "babel-core": "6.24.1",
-    "babel-eslint": "7.2.3",
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
+    "babel-eslint": "8.0.2",
     "babel-jest": "20.0.3",
     "babel-loader": "7.1.2",
-    "babel-plugin-transform-class-properties": "6.23.0",
-    "babel-plugin-transform-object-rest-spread": "6.20.2",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-preset-env": "1.6.0",
-    "babel-preset-react": "6.16.0",
+    "babel-preset-react": "6.24.1",
     "classnames": "2.2.5",
     "codacy-coverage": "^2.0.2",
     "enzyme": "^3.1.0",
@@ -68,10 +68,9 @@
     "path-to-regexp": "2.0.0",
     "prop-types": "15.5.10",
     "react": "^15.6.2",
-    "react-addons-test-utils": "15.5.1",
     "react-dom": "^15.6.2",
     "react-redux": "5.0.5",
-    "react-router": "3.0.5",
+    "react-router": "3.2.0",
     "react-router-redux": "4.0.8",
     "react-test-renderer": "^15.6.2",
     "redux": "3.6.0",
@@ -97,7 +96,7 @@
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-redux": "5.0.5",
-    "react-router": "3.0.5",
+    "react-router": "3.2.0",
     "react-router-redux": "4.0.8",
     "redux": "3.6.0",
     "redux-batched-actions": "0.2.0",
@@ -129,5 +128,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.141.0"
+  "version": "0.145.0"
 }
