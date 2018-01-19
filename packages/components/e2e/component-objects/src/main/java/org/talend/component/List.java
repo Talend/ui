@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component.
  *
@@ -33,7 +32,7 @@ public class List extends Component {
      * @return WebElement button
      */
     public WebElement getAddButton() {
-        return this.getElement().findElement(By.cssSelector(ADD_BTN_SELECTOR+ " .btn-primary"));
+        return this.getElement().findElement(By.cssSelector(ADD_BTN_SELECTOR + " .btn-primary"));
     }
 
     /**
@@ -42,7 +41,7 @@ public class List extends Component {
      * @return WebElement button
      */
     public java.util.List<WebElement> getButtons() {
-        return this.driver.findElements(By.cssSelector(ADD_BTN_SELECTOR+ " .btn"));
+        return this.driver.findElements(By.cssSelector(ADD_BTN_SELECTOR + " .btn"));
     }
 
     /**
