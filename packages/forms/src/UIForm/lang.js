@@ -36,7 +36,7 @@ export default function getLanguage(t = defaultTranslate) {
 		ARRAY_LENGTH_LONG: t('Array is too long ({length}), maximum {maximum}'),
 		ARRAY_UNIQUE: t('Array items are not unique (indices {match1} and {match2})'),
 		ARRAY_ADDITIONAL_ITEMS: t('Additional items not allowed'),
-		// Format errors
+		// Format errors²
 		FORMAT_CUSTOM: t('Format validation failed ({message})'),
 		KEYWORD_CUSTOM: t('Keyword failed: {key} ({message})'),
 		// Schema structure

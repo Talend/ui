@@ -36,7 +36,7 @@ describe('Buttons field', () => {
 			<Buttons
 				id={'myForm'}
 				onTrigger={jest.fn()}
-				onClick={jest.fn(onClick => onClick && onClick())}
+				onClick={jest.fn()}
 				schema={schema}
 				className="extra"
 			/>,

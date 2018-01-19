@@ -35,9 +35,9 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 				className="form-control"
 				disabled={disabled}
 				onChange={event => {
-					const payload = getSelectedOptions(event.target, multiple);
-					onChange(event, { schema, value: payload });
-					onFinish(event, { schema, value: payload });
+					const payload = { schema, value: getSelectedOptions(event.target, multiple) };
+					onChange(event, payload);
+					onFinish(event, payload);
 				}}
 				readOnly={readOnly}
 				value={value}

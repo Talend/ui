@@ -257,7 +257,6 @@ exports[`UIForm container should render form 2`] = `
   }
   noHtml5Validate={true}
   onChange={[Function]}
-  onReset={[Function]}
   onSubmit={[Function]}
   properties={Object {}}
   setErrors={[Function]}

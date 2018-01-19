@@ -23,7 +23,6 @@ function getUISchemaFromObject(schema, key) {
 	}
 	if (schema.enum && schema.enumNames) {
 		ui.titleMap = schema.enum.map((value, index) => ({ value, name: schema.enumNames[index] }));
-		// delete schema.enumNames;
 	}
 	if (schema.type === 'object') {
 		ui.widget = 'fieldset';
@@ -119,13 +118,22 @@ export const wrapCustomWidget = Component => {
 		}
 
 		return (
-			<FieldTemplate label={props.schema.title} id={newProps.id} required={props.schema.required}>
+			<FieldTemplate
+				description={props.schema.description}
+				errorMessage={props.errorMessage}
+				id={props.id}
+				isValid={props.isValid}
+				label={props.schema.title}
+				required={props.schema.required} >
 				<Component {...newProps} />
 			</FieldTemplate>
 		);
 	}
 	TFMigratedWidget.propTypes = {
+		errorMessage: PropTypes.string,
 		formContext: PropTypes.object,
+		id: PropTypes.string,
+		isValid: PropTypes.bool,
 		onChange: PropTypes.func,
 		onFinish: PropTypes.func,
 		schema: PropTypes.object,
@@ -202,7 +210,6 @@ function updateWidgets(items, uiSchema, widgets, prefix) {
  * migrate from react-jsonschema-form to UISchema
  * @param {Object} jsonSchema
  * @param {Object} uiSchema
- * @return {Object} props
  */
 export function migrate(jsonSchema, uiSchema) {
 	const safeUISchema = parseProperties(jsonSchema, true);
