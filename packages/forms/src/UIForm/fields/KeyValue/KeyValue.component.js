@@ -38,10 +38,7 @@ function getPartSchema(parentSchema, part) {
 }
 
 function KeyValue({ id, isValid, errorMessage, onChange, onFinish, schema, value, ...restProps }) {
-	const {
-		description,
-		title,
-	} = schema;
+	const { description, title } = schema;
 
 	const keySchema = getPartSchema(schema, 'key');
 	const valueSchema = getPartSchema(schema, 'value');

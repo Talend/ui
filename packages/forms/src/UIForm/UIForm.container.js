@@ -85,7 +85,6 @@ export default class UIForm extends React.Component {
 				onChange={this.onChange}
 				onReset={this.onReset}
 				setErrors={this.setErrors}
-
 				{...this.state}
 				{...props}
 			>
