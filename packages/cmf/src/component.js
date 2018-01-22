@@ -2,6 +2,7 @@ import invariant from 'invariant';
 import action from './action';
 import expression from './expression';
 import registry from './registry';
+import schema from './schema';
 import CONST from './constant';
 
 /**
@@ -44,6 +45,11 @@ function register(id, component, context) {
 	if (component.expressions) {
 		Object.keys(component.expressions).forEach(key => {
 			expression.register(key, component.expressions[key], context);
+		});
+	}
+	if (component.schema) {
+		Object.keys(component.schema).forEach(key => {
+			schema.register(key, component.schema, context)
 		});
 	}
 }

@@ -29,12 +29,14 @@ import actionCreator from './actionCreator';
 import expression from './expression';
 import saga from './saga';
 import component from './component';
+import schema from './schema';
 
 export default {
 	action,
 	actions,
 	actionCreator,
 	component,
+	schema,
 	expression,
 	route,
 	registry,
