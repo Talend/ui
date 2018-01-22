@@ -1,7 +1,7 @@
 .t7,
 :global(.t7) {
-	$brand-primary-t7: #00a1b3;
-	$brand-secondary-t7: #168aa6;
+	$brand-primary-t7: #00a1b3 !default;
+	$brand-secondary-t7: #168aa6 !default;
 	@include layout-colors($brand-primary-t7, $brand-secondary-t7);
 
 	[role='banner'] [role='heading'] span {
