@@ -1,0 +1,87 @@
+{
+	"schema": {
+		"name": "User",
+		"fields": [
+			{ "name": "firstName", "doc": "FirstName", "type": "string" },
+			{ "name": "age", "doc": "Age", "type": "string" },
+			{
+				"name": "address",
+				"doc": "Address",
+        "type": "record",
+				"fields": [
+					{ "name": "streetNumber", "doc": "Street Number", "type": "int" },
+					{ "name": "street", "doc": "Street", "type": "string" }
+				]
+			}
+		]
+	},
+	"dataset": {
+		"rows": [
+			{
+				"firstName": "Dupont",
+				"age": 20,
+				"address": {
+					"streetNumber": "21 rue",
+					"street": "Boulevard de la prairie au duc"
+				},
+				"@metadata@": {
+					"address": {
+            "streetNumber":{
+              "quality": -1
+            }
+					}
+				}
+			},
+			{
+				"firstName": 30,
+				"age": 30,
+				"@metadata@": {
+					"firstName": {
+						"quality": -1
+					}
+				}
+			}
+		],
+		"@metadata@": [
+			{
+				"firstName": {
+					"quality": {
+						"1": 50,
+						"0": 0,
+						"-1": 50
+					}
+				},
+				"age": {
+					"quality": {
+						"1": 100,
+						"0": 0,
+						"-1": 0
+					}
+				},
+				"address": {
+          "@metadata@": {
+						"quality": {
+							"1": 50,
+							"0": 0,
+							"-1": 50
+						}
+					},
+					"streetNumber": {
+						"quality": {
+							"1": 50,
+							"0": 0,
+							"-1": 50
+						}
+					},
+					"street": {
+						"quality": {
+							"1": 100,
+							"0": 0,
+							"-1": 0
+						}
+					}
+				}
+			}
+		]
+	}
+}
