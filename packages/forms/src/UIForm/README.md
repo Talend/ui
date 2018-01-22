@@ -356,7 +356,7 @@ We want
           "description": "This should be visible only for humans and animals"
         }
       ]
-    },
+    }
   ]
 }
 ```
@@ -375,11 +375,11 @@ class MyComponent extends React.Component {
 	}
 
 	onChange(event, { properties, schema, value, formData }) {
-		...
+		
 	}
 
 	onTrigger(formData, formId, propertyName, propertyValue) {
-		...
+		
 	}
 
 	render() {
