@@ -33,7 +33,7 @@
 	$logo-size: 31rem !default;
 
 	[role='banner'] {
-		> * {
+		nav {
 			$gradient-angle: 'to right';
 			background: linear-gradient(#{$gradient-angle}, $regal-blue 20%, $brand-primary 80%);
 		}
