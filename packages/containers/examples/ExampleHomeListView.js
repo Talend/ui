@@ -223,4 +223,34 @@ ExampleHomeListView.drawer = () => (
 	</div>
 );
 
+apps.forEach(app => {
+	ExampleHomeListView[`🎨 ${app.toUpperCase()} drawer`] = () => {
+		const appStyle = require(`@talend/react-components/lib/Layout/_Layout.${app}.scss`);
+		return (
+			<div className={appStyle[TALEND_T7_THEME_CLASSNAME]}>
+				<IconsProvider defaultIcons={icons}/>
+				<HomeListView
+					header={header}
+					sidepanel={sidepanel}
+					list={listProps}
+				>
+					<Drawer
+						stacked title="Im stacked drawer 1"
+						footerActions={Object.assign({}, basicProps, { selected: 0 })}
+					>
+						<h1>Hello drawer 1</h1>
+						<p>You should not being able to read this because I&#39;m first</p>
+					</Drawer>
+					<Drawer
+						title="Im drawer 2"
+						footerActions={Object.assign({}, basicProps, { selected: 0 })}
+					>
+						<h1>Hello drawer 2</h1>
+						<p>The content dictate the width</p>
+					</Drawer>
+				</HomeListView>
+			</div>
+		);
+	};
+});
 export default ExampleHomeListView;
