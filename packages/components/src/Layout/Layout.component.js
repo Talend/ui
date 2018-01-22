@@ -5,11 +5,12 @@ import TabBar from '../TabBar';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
 import theme from './Layout.scss';
-import { DISPLAY_MODES, DISPLAY_MODE_ONE_COLUMN, DISPLAY_MODE_TWO_COLUMNS } from './constants';
-
-export const TALEND_T7_THEME_CLASSNAME = 't7';
-
-export const TALEND_APPS_TRIGRAM = ['tdc', 'tdp', 'tds', 'tfd', 'tic', 'tmc'];
+import {
+	DISPLAY_MODES,
+	DISPLAY_MODE_ONE_COLUMN,
+	DISPLAY_MODE_TWO_COLUMNS,
+	TALEND_T7_THEME_CLASSNAME,
+} from './constants';
 
 /**
  * The Layout component is a container
@@ -28,17 +29,17 @@ export const TALEND_APPS_TRIGRAM = ['tdc', 'tdp', 'tds', 'tfd', 'tic', 'tmc'];
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
 function Layout({
-	id,
-	header,
-	subHeader,
-	footer,
-	mode,
-	drawers,
-	tabs,
-	hasTheme,
-	children,
-	...rest
-}) {
+	                id,
+	                header,
+	                subHeader,
+	                footer,
+	                mode,
+	                drawers,
+	                tabs,
+	                hasTheme,
+	                children,
+	                ...rest
+                }) {
 	const attrs = {};
 	if (id) {
 		attrs.id = id;
@@ -48,14 +49,14 @@ function Layout({
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
 	let Component;
 	switch (mode) {
-		case DISPLAY_MODE_ONE_COLUMN:
-			Component = OneColumn;
-			break;
-		case DISPLAY_MODE_TWO_COLUMNS:
-			Component = TwoColumns;
-			break;
-		default:
-			Component = OneColumn;
+	case DISPLAY_MODE_ONE_COLUMN:
+		Component = OneColumn;
+		break;
+	case DISPLAY_MODE_TWO_COLUMNS:
+		Component = TwoColumns;
+		break;
+	default:
+		Component = OneColumn;
 	}
 	return (
 		<div {...attrs} className={appCSS}>
