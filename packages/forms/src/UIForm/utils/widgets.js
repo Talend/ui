@@ -17,6 +17,11 @@ import Text from '../fields/Text';
 import TextArea from '../fields/TextArea';
 import Toggle from '../fields/Toggle';
 
+import Code from '../../widgets/CodeWidget';
+import { wrapCustomWidget } from '../merge';
+
+const WrappedCode = wrapCustomWidget(Code);
+
 const widgets = {
 	// fieldsets
 	array: ArrayWidget,
@@ -40,6 +45,7 @@ const widgets = {
 	// widgets
 	buttons: Buttons,
 	checkboxes: CheckBoxes,
+	code: WrappedCode,
 	datalist: Datalist,
 	keyValue: KeyValue,
 	listView: ListView,

@@ -32,21 +32,7 @@ describe('CMF action', () => {
 		expect(Array.isArray(actions)).toBe(true);
 		expect(actions.length === 0).toBe(true);
 	});
-	it('getActionCreatorFunction should return a function', () => {
-		const id = 'myactioncreator';
 
-		function creator() {}
-		context.registry = {};
-		context.registry[`actionCreator:${id}`] = creator;
-		const actionCreator = actionAPI.getActionCreatorFunction(context, id);
-		expect(typeof actionCreator).toBe('function');
-	});
-	it('getActionCreatorFunction should throw an error', () => {
-		const id = 'myactioncreator';
-		context.registry = {};
-		const test = () => actionAPI.getActionCreatorFunction(context, id);
-		expect(test).toThrowError(`actionCreator not found in the registry: ${id}`);
-	});
 	it('getActionInfo should return an object', () => {
 		const id = 'menu:article';
 		const action = actionAPI.getActionInfo(context, id);
@@ -92,9 +78,12 @@ describe('CMF action', () => {
 		};
 		context.registry = {};
 		context.registry['actionCreator:myActionCreator'] = function creator() {
-			return Object.assign({
-				data: true,
-			}, settings.actions.myaction);
+			return Object.assign(
+				{
+					data: true,
+				},
+				settings.actions.myaction,
+			);
 		};
 		const id = 'myaction';
 		const action = actionAPI.getActionObject(context, id);

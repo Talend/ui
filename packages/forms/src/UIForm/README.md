@@ -134,7 +134,7 @@ For simple inputs with nothing special, you can only pass the key from jsonSchem
 ]
 ```
 
-For more complicated inputs, you can pass objects with additional properties 
+For more complicated inputs, you can pass objects with additional properties
 ```json
 [
   "user.lastname",
@@ -261,7 +261,7 @@ For example, it transforms the user lastname jsonSchema/uiSchema into this merge
     "type": "string"
   },
   "title": "Last Name (with description)",
-  "type": "text" 
+  "type": "text"
 }
 ```
 
@@ -278,7 +278,7 @@ As the user type, the value is validated by :
 * the static validation (ex: pattern, required, etc)
 * the provided customValidation function if the static validation pass.
 
-Those validations change the `errors` object accordingly. 
+Those validations change the `errors` object accordingly.
 
 **Triggers**
 
@@ -307,11 +307,11 @@ Triggers are concepts introduced with Daikkon. The goal is to write an `onTrigge
 ```javascript
 function onTrigger(type, properties, schema, value) {
 	...
-	
+
 	return new Promise(() => ({
-	    jsonSchema: {}, // the new jsonSchema 
-	    uiSchema: [], // the new uiSchema 
-	    properties: {}, // the new properties 
+	    jsonSchema: {}, // the new jsonSchema
+	    uiSchema: [], // the new uiSchema
+	    properties: {}, // the new properties
 	    errors: {}, // the errors to add/alter to the current errors
 	}))
 }
@@ -348,19 +348,19 @@ class MyComponent extends React.Component {
 	customValidation(schema, value, properties) {
 		return `The field ${schema.key} is not valid. Value: ${value}`;
 	}
-	
+
 	onChange(schema, value, properties) {
 		...
 	}
-	
+
 	onTrigger(type, schema, value, properties) {
 		...
 	}
-	
+
 	render() {
 		return (<UIForm
 		    {...props}
-		    formName={'my-unique-form-id'}
+		    id={'my-unique-form-id'}
 		/>);
 	}
 }
@@ -392,23 +392,23 @@ class MyComponent extends React.Component {
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 	}
-	
+
 	customValidation(schema, value, properties) {
 		return `The field ${schema.key} is not valid. Value: ${value}`;
 	}
-	
+
 	onChange(schema, value, properties) {
 		...
 	}
-	
+
 	onTrigger(type, schema, value, properties) {
 		...
 	}
-	
+
 	onSubmit(event, properties) {
 		... // properties is the model values
 	}
-	
+
 	render() {
 		return (<ConnectedUIForm
 		    data={{
@@ -417,7 +417,7 @@ class MyComponent extends React.Component {
 		    	properties,
 		    	errors
 		    }}
-		    formName={'my-unique-form-id'}
+		    id={'my-unique-form-id'}
 		    customValidation={this.customValidation}
 		    onChange={this.onChange}
 		    onTrigger={this.onTrigger}

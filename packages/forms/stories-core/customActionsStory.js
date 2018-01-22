@@ -1,7 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Tabs, Tab } from 'react-bootstrap';
-import { ConnectedUIForm, UIForm } from '../src/UIForm';
+import { UIForm } from '../src/UIForm';
 
 function story() {
 	const actions = [
@@ -54,34 +53,13 @@ function story() {
 	};
 	return (
 		<section>
-			<Tabs id={'store-tabs'}>
-				<Tab
-					eventKey={0}
-					key={'without'}
-					title={'State'}
-				>
-					<UIForm
-						actions={actions}
-						data={schema}
-						onReset={action('onReset')}
-						onSubmit={action('onSubmit')}
-						onTrigger={action('onTrigger')}
-					/>
-				</Tab>
-				<Tab
-					eventKey={1}
-					key={'with'}
-					title={'Redux'}
-				>
-					<ConnectedUIForm
-						actions={actions}
-						data={schema}
-						onReset={action('onReset')}
-						onSubmit={action('onSubmit')}
-						onTrigger={action('onTrigger')}
-					/>
-				</Tab>
-			</Tabs>
+			<UIForm
+				actions={actions}
+				data={schema}
+				onReset={action('onReset')}
+				onSubmit={action('onSubmit')}
+				onTrigger={action('onTrigger')}
+			/>
 		</section>
 	);
 }

@@ -8,6 +8,7 @@ exports[`Select field should render disabled input 1`] = `
   isValid={true}
   label="My Select title"
   labelAfter={true}
+  required={undefined}
 >
   <select
     autoFocus={true}
@@ -15,7 +16,6 @@ exports[`Select field should render disabled input 1`] = `
     disabled={true}
     id="mySelect"
     multiple={false}
-    onBlur={[Function]}
     onChange={[Function]}
     readOnly={false}
     value="lol"
@@ -52,6 +52,7 @@ exports[`Select field should render readOnly input 1`] = `
   isValid={true}
   label="My Select title"
   labelAfter={true}
+  required={undefined}
 >
   <select
     autoFocus={true}
@@ -59,7 +60,6 @@ exports[`Select field should render readOnly input 1`] = `
     disabled={false}
     id="mySelect"
     multiple={false}
-    onBlur={[Function]}
     onChange={[Function]}
     readOnly={true}
     value="lol"
@@ -96,6 +96,7 @@ exports[`Select field should render select multiple 1`] = `
   isValid={true}
   label="My Select title"
   labelAfter={true}
+  required={undefined}
 >
   <select
     autoFocus={true}
@@ -103,7 +104,6 @@ exports[`Select field should render select multiple 1`] = `
     disabled={false}
     id="mySelect"
     multiple={true}
-    onBlur={[Function]}
     onChange={[Function]}
     readOnly={false}
     value={
@@ -145,6 +145,7 @@ exports[`Select field should render simple select 1`] = `
   isValid={true}
   label="My Select title"
   labelAfter={true}
+  required={undefined}
 >
   <select
     autoFocus={true}
@@ -152,7 +153,6 @@ exports[`Select field should render simple select 1`] = `
     disabled={false}
     id="mySelect"
     multiple={false}
-    onBlur={[Function]}
     onChange={[Function]}
     readOnly={false}
     value="lol"
