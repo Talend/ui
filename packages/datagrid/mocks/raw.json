@@ -1,0 +1,18 @@
+[
+	{
+		"firstName": "Dupont",
+		"age": null,
+		"address": {
+			"value": "21 rue",
+			"street": "Boulevard de la prairie au duc"
+		}
+	},
+	{
+		"firstName": "Romain",
+		"age": "32 ans",
+		"address": {
+			"value": 8,
+			"street": "Boulevard de la prairie au duc"
+		}
+	}
+]

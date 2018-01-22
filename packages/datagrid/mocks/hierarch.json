@@ -1,16 +1,62 @@
 {
+  "@talend-quality@": {
+    "1": 80,
+    "0": 10,
+    "-1": 10
+  },
 	"schema": {
 		"name": "User",
 		"fields": [
-			{ "name": "firstName", "doc": "FirstName", "type": "string" },
-			{ "name": "age", "doc": "Age", "type": "string" },
+			{
+				"name": "firstName",
+				"doc": "FirstName",
+				"type": "string",
+				"@talend-quality@": {
+					"1": 100,
+					"0": 0,
+					"-1": 0
+				}
+			},
+			{
+				"name": "age",
+				"doc": "Age",
+				"type": "string",
+				"@talend-quality@": {
+					"1": 0,
+					"0": 50,
+					"-1": 50
+				}
+			},
 			{
 				"name": "address",
 				"doc": "Address",
-        "type": "record",
+				"type": "record",
+				"@talend-quality@": {
+					"1": 50,
+					"0": 0,
+					"-1": 50
+				},
 				"fields": [
-					{ "name": "streetNumber", "doc": "Street Number", "type": "int" },
-					{ "name": "street", "doc": "Street", "type": "string" }
+					{
+						"name": "streetNumber",
+						"doc": "Street Number",
+						"type": "int",
+						"@talend-quality@": {
+							"1": 50,
+							"0": 0,
+							"-1": 50
+						}
+					},
+					{
+						"name": "street",
+						"doc": "Street",
+						"type": "string",
+						"@talend-quality@": {
+							"1": 100,
+							"0": 0,
+							"-1": 0
+						}
+					}
 				]
 			}
 		]
@@ -18,69 +64,31 @@
 	"dataset": {
 		"rows": [
 			{
-				"firstName": "Dupont",
-				"age": 20,
-				"address": {
-					"streetNumber": "21 rue",
-					"street": "Boulevard de la prairie au duc"
-				},
-				"@metadata@": {
+				"value": {
+					"firstName": { "value": "Dupont" },
+					"age": { "value": null, "quality": 0 },
 					"address": {
-            "streetNumber":{
-              "quality": -1
-            }
-					}
-				}
-			},
-			{
-				"firstName": 30,
-				"age": 30,
-				"@metadata@": {
-					"firstName": {
+						"value": {
+							"streetNumber": { "value": "21 rue", "quality": -1 },
+							"street": { "value": "Boulevard de la prairie au duc" }
+						},
 						"quality": -1
 					}
-				}
-			}
-		],
-		"@metadata@": [
-			{
-				"firstName": {
-					"quality": {
-						"1": 50,
-						"0": 0,
-						"-1": 50
+				},
+				"quality": -1
+      },
+      {
+				"value": {
+					"firstName": { "value": "Romain" },
+					"age": { "value": "32 ans", "quality": -1 },
+					"address": {
+						"value": {
+							"streetNumber": { "value": 8 },
+							"street": { "value": "Boulevard de la prairie au duc" }
+						}
 					}
 				},
-				"age": {
-					"quality": {
-						"1": 100,
-						"0": 0,
-						"-1": 0
-					}
-				},
-				"address": {
-          "@metadata@": {
-						"quality": {
-							"1": 50,
-							"0": 0,
-							"-1": 50
-						}
-					},
-					"streetNumber": {
-						"quality": {
-							"1": 50,
-							"0": 0,
-							"-1": 50
-						}
-					},
-					"street": {
-						"quality": {
-							"1": 100,
-							"0": 0,
-							"-1": 0
-						}
-					}
-				}
+				"quality": -1
 			}
 		]
 	}
