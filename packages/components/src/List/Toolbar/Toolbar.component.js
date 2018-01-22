@@ -15,6 +15,7 @@ import ActionBar from '../../ActionBar';
 import theme from './Toolbar.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { DEFAULT_I18N } from '../../translate';
+import Inject from '../../Inject';
 
 function adaptActionsIds(actions, parentId) {
 	return (
@@ -61,8 +62,14 @@ function Toolbar({
 	pagination,
 	filter,
 	t,
-	renderers,
+	getComponent,
+	components,
 }) {
+	const Components = Inject.getAll(getComponent, {
+		ActionBar,
+		FilterBar,
+	});
+	const injected = Inject.all(getComponent, components);
 	let actionBarProps = actionBar;
 	if (id && actionBar) {
 		const { actions, multiSelectActions } = actionBar;
@@ -77,10 +84,15 @@ function Toolbar({
 
 	return (
 		<div className="tc-list-toolbar">
-			{actionBar && <renderers.ActionBar {...actionBarProps} />}
+			{injected('before-actionbar')}
+			{actionBar && <Components.ActionBar {...actionBarProps} />}
+			{injected('after-actionbar')}
 			{hasToolbarItem && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
+					{injected('before-selectall')}
 					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
+					{injected('after-selectall')}
+					{injected('before-display')}
 					{display && (
 						<Label
 							text={t('LIST_TOOLBAR_DISPLAY', { defaultValue: 'Display:' })}
@@ -88,6 +100,8 @@ function Toolbar({
 						/>
 					)}
 					{display && <SelectDisplayMode id={displayModeId} {...display} t={t} />}
+					{injected('after-display')}
+					{injected('before-sort')}
 					{sort && (
 						<Label
 							text={t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
@@ -95,6 +109,8 @@ function Toolbar({
 						/>
 					)}
 					{sort && <SelectSortBy id={id && `${id}-sort`} {...sort} t={t} />}
+					{injected('after-sort')}
+					{injected('before-pagination')}
 					{pagination && (
 						<Label
 							text={t('LIST_TOOLBAR_PAGINATION_SHOW', { defaultValue: 'Show:' })}
@@ -102,8 +118,10 @@ function Toolbar({
 						/>
 					)}
 					{pagination && <Pagination id={id && `${id}-pagination`} {...pagination} />}
+					{injected('after-pagination')}
+					{injected('before-filter')}
 					{filter && (
-						<FilterBar
+						<Components.FilterBar
 							id={id && `${id}-filter`}
 							{...filter}
 							t={t}
@@ -111,6 +129,7 @@ function Toolbar({
 							className="navbar-right"
 						/>
 					)}
+					{injected('after-filter')}
 				</Navbar>
 			)}
 		</div>
@@ -126,15 +145,8 @@ Toolbar.propTypes = {
 	pagination: PropTypes.shape(Pagination.propTypes),
 	filter: PropTypes.shape(omit(FilterBar.propTypes, 't')),
 	t: PropTypes.func.isRequired,
-	renderers: PropTypes.shape({
-		ActionBar: PropTypes.element,
-	}),
-};
-
-Toolbar.defaultProps = {
-	renderers: {
-		ActionBar,
-	},
+	getComponent: PropTypes.func,
+	components: PropTypes.object,
 };
 
 export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Toolbar);

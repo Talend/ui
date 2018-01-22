@@ -6,17 +6,18 @@ import omit from 'lodash/omit';
 import Toolbar from './Toolbar';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
+import Inject from '../Inject';
 
-function ListToolbar({ id, toolbar, displayMode, list, renderers }) {
+function ListToolbar({ id, toolbar, displayMode, list, getComponent, components = {} }) {
 	if (!toolbar) {
 		return null;
 	}
-
 	const shouldHideSortOptions = !!(displayMode === 'table' && list.sort);
 	const toolbarProps = {
 		...toolbar,
 		id,
-		renderers,
+		getComponent,
+		components,
 	};
 
 	if (toolbar.display) {
@@ -32,7 +33,14 @@ function ListToolbar({ id, toolbar, displayMode, list, renderers }) {
 		};
 	}
 
-	return <Toolbar {...toolbarProps} sort={!shouldHideSortOptions && toolbarProps.sort} />;
+	return (
+		<Toolbar
+			{...toolbarProps}
+			sort={!shouldHideSortOptions && toolbarProps.sort}
+			getComponent={getComponent}
+			components={components}
+		/>
+	);
 }
 
 ListToolbar.propTypes = {
@@ -95,26 +103,36 @@ ListToolbar.propTypes = {
 }
  <List {...props}></List>
  */
-function List({ displayMode, id, list, toolbar, defaultHeight, renderers, rowHeight }) {
+function List({ displayMode, id, list, toolbar, defaultHeight, rowHeight, getComponent, components = {} }) {
 	const classnames = classNames('tc-list', theme.list);
+	const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
+
 	return (
 		<div className={classnames}>
+			{injected('before-toolbar')}
 			<ListToolbar
 				id={id}
 				toolbar={toolbar}
 				displayMode={displayMode}
 				list={list}
-				renderers={renderers}
+				getComponent={getComponent}
+				components={components.toolbar}
 			/>
+			{injected('after-toolbar')}
 			<div className={'tc-list-display-virtualized'}>
+				{injected('before-list')}
 				<ListToVirtualizedList
 					id={id}
 					displayMode={displayMode}
 					defaultHeight={defaultHeight}
 					rowHeight={rowHeight}
+					getComponent={getComponent}
+					components={components.list}
 					{...list}
 				/>
+				{injected('after-list')}
 			</div>
+			{injected('after-list-wrap')}
 		</div>
 	);
 }

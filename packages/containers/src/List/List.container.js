@@ -3,7 +3,8 @@ import React from 'react';
 import { Map } from 'immutable';
 import { List as Component } from '@talend/react-components';
 import get from 'lodash/get';
-import { componentState } from '@talend/react-cmf';
+import omit from 'lodash/omit';
+import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
 
@@ -52,7 +53,7 @@ class List extends React.Component {
 		}),
 		displayMode: PropTypes.string,
 		items: PropTypes.arrayOf(PropTypes.object).isRequired,
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 	};
 
 	static contextTypes = {
@@ -95,26 +96,28 @@ class List extends React.Component {
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
 		const items = getItems(this.context, this.props);
-		const props = {
-			displayMode: this.props.displayMode || state.displayMode,
-			list: {
-				id: get(this.props, 'list.id', 'list'),
-				items,
-				columns: get(this.props, 'list.columns', []),
-				sort: {
-					field: state.sortOn,
-					isDescending: !state.sortAsc,
-					onChange: this.onSelectSortBy,
-				},
-			},
-			virtualized: this.props.virtualized,
-			renderers: this.props.renderers,
+		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS));
+		if (!props.displayMode) {
+			props.displayMode = state.displayMode;
+		}
+		if (!props.list) {
+			props.list = {};
+		}
+		if (!props.list.id) {
+			props.list.id = 'list';
+		}
+		props.list.items = items;
+		if (!props.list.columns) {
+			props.list.columns = [];
+		}
+		props.list.sort = {
+			field: state.sortOn,
+			isDescending: !state.sortAsc,
+			onChange: this.onSelectSortBy,
 		};
 		if (this.props.rowHeight) {
 			props.rowHeight = this.props.rowHeight[props.displayMode];
 		}
-		props.list.titleProps = get(this.props, 'list.titleProps');
-
 		if (props.list.titleProps && this.props.actions.title) {
 			props.list.titleProps.onClick = (event, data) => {
 				this.props.dispatchActionCreator(this.props.actions.title, event, data, this.context);
@@ -122,16 +125,13 @@ class List extends React.Component {
 		}
 
 		// toolbar
-		if (this.props.toolbar) {
-			props.toolbar = {
-				display: {
-					...this.props.toolbar.display,
-					onChange: (e, p) => {
-						this.onSelectDisplayMode(e, p);
-					},
+		if (props.toolbar) {
+			props.toolbar.display = {
+				...props.toolbar.display,
+				onChange: (e, p) => {
+					this.onSelectDisplayMode(e, p);
 				},
 			};
-			props.toolbar.sort = this.props.toolbar.sort;
 			if (props.toolbar.sort) {
 				props.toolbar.sort.isDescending = !state.sortAsc;
 				props.toolbar.sort.field = state.sortOn;
@@ -140,7 +140,6 @@ class List extends React.Component {
 				};
 			}
 
-			props.toolbar.filter = this.props.toolbar.filter;
 			if (props.toolbar.filter) {
 				props.toolbar.filter.onToggle = (event, data) => {
 					this.onToggle(event, data);
@@ -163,17 +162,17 @@ class List extends React.Component {
 				}
 			}
 
-			const pagination = this.props.toolbar.pagination;
-			if (pagination) {
-				props.toolbar.pagination = {
-					...pagination,
-					onChange: (event, data) => {
-						this.props.dispatchActionCreator(pagination.onChange, event, data, this.context);
-					},
+			if (props.toolbar.pagination) {
+				props.toolbar.pagination.onChange = (event, data) => {
+					this.props.dispatchActionCreator(
+						props.toolbar.pagination.onChange,
+						event,
+						data,
+						this.context
+					);
 				};
 			}
 		}
-
 		return <Component {...props} />;
 	}
 }

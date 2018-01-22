@@ -2,12 +2,6 @@ import get from 'lodash/get';
 import { cmfConnect } from '@talend/react-cmf';
 import Container, { DEFAULT_STATE } from './List.container';
 import { configureGetFilteredItems, configureGetPagination } from './selector';
-import ActionBar from '../ActionBar';
-import getRenderers from '../renderers';
-
-const renderers = {
-	ActionBar,
-};
 
 function componentId(ownProps) {
 	return ownProps.collectionId;
@@ -41,7 +35,6 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 		);
 	}
 
-	props.renderers = getRenderers(renderers);
 	return props;
 }
 
