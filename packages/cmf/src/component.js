@@ -49,7 +49,7 @@ function register(id, component, context) {
 	}
 	if (component.schema) {
 		Object.keys(component.schema).forEach(key => {
-			schema.register(key, component.schema, context)
+			schema.register(key, component.schema, context);
 		});
 	}
 }
