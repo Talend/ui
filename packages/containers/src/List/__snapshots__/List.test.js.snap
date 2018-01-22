@@ -31,9 +31,6 @@ Object {
       "name": "Title with actions",
     },
   ],
-  "renderers": Object {
-    "ActionBar": [Function],
-  },
 }
 `;
 
@@ -68,9 +65,6 @@ Object {
       "name": "Title with actions",
     },
   ],
-  "renderers": Object {
-    "ActionBar": [Function],
-  },
 }
 `;
 
@@ -105,15 +99,44 @@ Object {
       "name": "Title with actions",
     },
   ],
-  "renderers": Object {
-    "ActionBar": [Function],
-  },
 }
 `;
 
 exports[`Container List should put default props 1`] = `
 Object {
+  "actions": Object {
+    "title": "object:open",
+  },
   "displayMode": "table",
+  "items": Array [
+    Object {
+      "author": "Jean-Pierre DUPONT",
+      "className": "item-0-class",
+      "created": "2016-09-22",
+      "display": "text",
+      "icon": "fa fa-file-excel-o",
+      "id": 1,
+      "modified": "2016-09-22",
+      "name": "Title with actions",
+    },
+    Object {
+      "author": "Jean-Pierre DUPONT",
+      "className": "item-1-class",
+      "created": "2016-09-22",
+      "display": "input",
+      "icon": "fa fa-file-pdf-o",
+      "id": 2,
+      "modified": "2016-09-22",
+      "name": "Title in input mode",
+    },
+    Object {
+      "author": "Jean-Pierre DUPONT with super long name",
+      "created": "2016-09-22",
+      "id": 3,
+      "modified": "2016-09-22",
+      "name": "Super long title to trigger overflow on some rendering",
+    },
+  ],
   "list": Object {
     "columns": Array [
       Object {
@@ -180,7 +203,6 @@ Object {
       "onClick": [Function],
     },
   },
-  "renderers": undefined,
   "toolbar": Object {
     "actionBar": Object {
       "actions": Object {},
@@ -217,6 +239,5 @@ Object {
       ],
     },
   },
-  "virtualized": undefined,
 }
 `;

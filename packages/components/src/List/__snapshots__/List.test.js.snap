@@ -452,6 +452,7 @@ exports[`List should render 1`] = `
     }
   >
     <Translate(Toolbar)
+      components={Object {}}
       display={
         Object {
           "mode": "table",
@@ -511,6 +512,7 @@ exports[`List should render 1`] = `
       }
     >
       <Toolbar
+        components={Object {}}
         display={
           Object {
             "mode": "table",
@@ -4084,11 +4086,6 @@ exports[`List should render 1`] = `
             "totalResults": 13,
           }
         }
-        renderers={
-          Object {
-            "ActionBar": [Function],
-          }
-        }
         selectAllCheckbox={
           Object {
             "id": undefined,
@@ -5643,6 +5640,7 @@ exports[`List should render id if provided 1`] = `
     }
   >
     <Translate(Toolbar)
+      components={Object {}}
       display={
         Object {
           "mode": "table",
@@ -5703,6 +5701,7 @@ exports[`List should render id if provided 1`] = `
       }
     >
       <Toolbar
+        components={Object {}}
         display={
           Object {
             "mode": "table",
@@ -9278,11 +9277,6 @@ exports[`List should render id if provided 1`] = `
             "onChange": [Function],
             "startIndex": 6,
             "totalResults": 13,
-          }
-        }
-        renderers={
-          Object {
-            "ActionBar": [Function],
           }
         }
         selectAllCheckbox={
