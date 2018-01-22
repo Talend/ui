@@ -4,12 +4,10 @@ exports[`SingleButton field should render button 1`] = `
 <Action
   bsStyle="primary"
   className="btn"
-  disabled={false}
   id="myForm"
-  inProgress={undefined}
-  label="Boom !"
   name="my-button"
-  onClick={undefined}
+  onClick={[Function]}
+  title="Boom !"
   type="button"
 />
 `;
@@ -20,10 +18,9 @@ exports[`SingleButton field should render disabled button 1`] = `
   className="btn"
   disabled={true}
   id="myForm"
-  inProgress={undefined}
-  label="Boom !"
   name="my-button"
-  onClick={undefined}
+  onClick={[Function]}
+  title="Boom !"
   type="button"
 />
 `;
@@ -34,10 +31,9 @@ exports[`SingleButton field should render inProgress button 1`] = `
   className="btn"
   disabled={true}
   id="myForm"
-  inProgress={undefined}
-  label="Boom !"
   name="my-button"
-  onClick={undefined}
+  onClick={[Function]}
+  title="Boom !"
   type="button"
 />
 `;
@@ -46,12 +42,10 @@ exports[`SingleButton field should render reset button 1`] = `
 <Action
   bsStyle="primary"
   className="btn"
-  disabled={false}
   id="myForm"
-  inProgress={undefined}
-  label="Boom !"
   name="my-button"
-  onClick={undefined}
+  onClick={[Function]}
+  title="Boom !"
   type="reset"
 />
 `;
@@ -60,12 +54,10 @@ exports[`SingleButton field should render submit button 1`] = `
 <Action
   bsStyle="primary"
   className="btn"
-  disabled={false}
   id="myForm"
-  inProgress={undefined}
-  label="Boom !"
   name="my-button"
-  onClick={undefined}
+  onClick={[Function]}
+  title="Boom !"
   type="submit"
 />
 `;

@@ -5,6 +5,7 @@ exports[`CheckBox field should render disabled input 1`] = `
   description="my checkbox input hint"
   errorMessage="My error message"
   isValid={true}
+  required={undefined}
 >
   <SimpleCheckBox
     id="myForm"
@@ -30,6 +31,7 @@ exports[`CheckBox field should render input 1`] = `
   description="my checkbox input hint"
   errorMessage="My error message"
   isValid={true}
+  required={undefined}
 >
   <SimpleCheckBox
     id="myForm"

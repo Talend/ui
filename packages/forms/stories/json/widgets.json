@@ -87,7 +87,7 @@
   },
   "uiSchema": {
     "enumeration": {
-      "ui.widget": "enumeration"
+      "ui:widget": "enumeration"
     },
     "boolean": {
       "radio": {
