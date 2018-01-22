@@ -1,5 +1,6 @@
 import React from 'react';
 import { Drawer, IconsProvider } from '@talend/react-components';
+import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '@talend/react-components/lib/Layout/constants';
 import talendIcons from '@talend/icons/dist/react';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable';
@@ -180,35 +181,30 @@ const ExampleHomeListView = {
 	),
 };
 
-[
-	'tdc',
-	'tdp',
-	'tds',
-	'tfd',
-	'tic',
-	'tmc',
-].forEach(app => {
-	ExampleHomeListView[`${app.toUpperCase()} default`] = () => (
-		<div>
-			<IconsProvider defaultIcons={icons}/>
-			<HomeListView
-				id={app}
-				sidepanel={sidepanel}
-				list={listProps}
-			/>
-		</div>
-	);
-	ExampleHomeListView[`🎨 ${app.toUpperCase()} default`] = () => (
-		<div>
-			<IconsProvider defaultIcons={icons}/>
-			<HomeListView
-				id={app}
-				hasTheme={true}
-				sidepanel={sidepanel}
-				list={listProps}
-			/>
-		</div>
-	);
+ExampleHomeListView[`${app.toUpperCase()} default`] = () => (
+	<div>
+		<IconsProvider defaultIcons={icons}/>
+		<HomeListView
+			sidepanel={sidepanel}
+			list={listProps}
+		/>
+	</div>
+);
+
+apps.forEach(app => {
+	ExampleHomeListView[`🎨 ${app.toUpperCase()} default`] = () => {
+		const appStyle = require(`@talend/react-components/lib/Layout/_Layout.${app}.scss`);
+		return (
+			<div className={appStyle[TALEND_T7_THEME_CLASSNAME]}>
+				<IconsProvider defaultIcons={icons}/>
+				<HomeListView
+					// hasTheme - option must be set if you import one and only one theme
+					sidepanel={sidepanel}
+					list={listProps}
+				/>
+			</div>
+		);
+	};
 });
 
 ExampleHomeListView.drawer = () => (

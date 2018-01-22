@@ -61,7 +61,7 @@ describe('Component HomeListView', () => {
 	it('should be able to render theme', () => {
 		const wrapper = shallow(
 			<Component
-				hasTheme={true}
+				hasTheme
 				header={<div>hello app</div>}
 				sidepanel={<div>hello sidepanel</div>}
 				list={<div>hello list</div>}

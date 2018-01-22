@@ -13,7 +13,7 @@ import {
 	SubHeaderBar,
 } from '../src/index';
 
-import { TALEND_APPS_TRIGRAM as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/Layout.component';
+import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],

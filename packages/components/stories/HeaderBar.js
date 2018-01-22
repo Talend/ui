@@ -10,7 +10,7 @@ import i18n from './config/i18n';
 
 import { HeaderBar, IconsProvider } from '../src';
 
-import { TALEND_APPS_TRIGRAM as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/Layout.component';
+import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
 
 const icons = {
 	'talend-burger': talendIcons['talend-burger'],

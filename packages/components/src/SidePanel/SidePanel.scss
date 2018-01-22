@@ -79,7 +79,7 @@ $toggle-button-padding: $padding-small - 1;
 				margin: -1px;
 				overflow: hidden;
 				clip: rect(0, 0, 0, 0);
-				border: 0;
+				border: none;
 			}
 
 			&:hover {
