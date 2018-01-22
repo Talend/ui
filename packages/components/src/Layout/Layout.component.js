@@ -7,6 +7,17 @@ import TwoColumns from './TwoColumns';
 import theme from './Layout.scss';
 import { DISPLAY_MODES, DISPLAY_MODE_ONE_COLUMN, DISPLAY_MODE_TWO_COLUMNS } from './constants';
 
+export const TALEND_T7_THEME_CLASSNAME = 't7';
+
+export const TALEND_APPS_TRIGRAM = [
+	'tdc',
+	'tdp',
+	'tds',
+	'tfd',
+	'tic',
+	'tmc',
+];
+
 /**
  * The Layout component is a container
  * that should follow the body of your App.
@@ -39,7 +50,7 @@ function Layout({
 	if (id) {
 		attrs.id = id;
 	}
-	const appCSS = classnames('tc-layout', theme.layout);
+	const appCSS = classnames('tc-layout', theme.layout, hasTheme && TALEND_T7_THEME_CLASSNAME);
 	const headerCSS = classnames('tc-layout-header', theme.header);
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
 	let Component;

@@ -13,14 +13,7 @@ import {
 	SubHeaderBar,
 } from '../src/index';
 
-const apps = [
-	'tdc',
-	'tdp',
-	'tds',
-	'tfd',
-	'tic',
-	'tmc',
-];
+import { TALEND_APPS_TRIGRAM as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/Layout.component';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -181,28 +174,39 @@ const stories =
 		));
 
 /**
- * Generate story and its variation for <Layout/> component
+ * Generate story for <Layout/> component
  *
  * @param layoutStoryName Story name to display in storybook
  * @param layoutStoryProps Props to pass to <Layout/> component
  * @param layoutStoryContent Optional custom children
  */
-function decorateLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
+function layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
 	stories
 		.addWithInfo(layoutStoryName, () => (
 			<Layout {...layoutStoryProps}>
 				{layoutStoryContent}
 			</Layout>
 		));
+}
+
+/**
+ * Generate story and its variations for <Layout/> component
+ *
+ * @param layoutStoryName Story name to display in storybook
+ * @param layoutStoryProps Props to pass to <Layout/> component
+ * @param layoutStoryContent Optional custom children
+ */
+function decoratedLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
+	layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent);
 	apps
 		.forEach(app => {
 				const appStyle = require(`../src/Layout/_Layout.${app}.scss`);
 				const decoratedPropsWithTheme = {
 					...layoutStoryProps,
-					hasTheme: true,
+					// hasTheme: true, should be enabled if we have one and only one Layout theme scss import
 				};
 				stories.addWithInfo(`🎨 [${app.toUpperCase()}] ${layoutStoryName} `, () => (
-					<div className={appStyle.t7}>
+					<div className={appStyle[TALEND_T7_THEME_CLASSNAME]}>
 						<Layout {...decoratedPropsWithTheme}>
 							{layoutStoryContent}
 						</Layout>
@@ -212,31 +216,31 @@ function decorateLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryConte
 		);
 }
 
-decorateLayoutStory('OneColumn', {
+decoratedLayoutStory('OneColumn', {
 	header,
 	mode: 'OneColumn',
 });
 
-decorateLayoutStory('OneColumn with tabs', {
+decoratedLayoutStory('OneColumn with tabs', {
 	header,
 	tabs,
 	mode: 'OneColumn',
 });
 
-decorateLayoutStory('TwoColumns', {
+decoratedLayoutStory('TwoColumns', {
 	header,
 	mode: 'TwoColumns',
 	one: sidePanel,
 });
 
-decorateLayoutStory('TwoColumns with tabs', {
+decoratedLayoutStory('TwoColumns with tabs', {
 	header,
 	tabs,
 	mode: 'TwoColumns',
 	one: sidePanel,
 });
 
-decorateLayoutStory('TwoColumns with big Table list', {
+decoratedLayoutStory('TwoColumns with big Table list', {
 		header,
 		mode: 'TwoColumns',
 		one: sidePanel,
@@ -244,7 +248,7 @@ decorateLayoutStory('TwoColumns with big Table list', {
 	<List {...listProps} />,
 );
 
-decorateLayoutStory('TwoColumns with big Large list', {
+decoratedLayoutStory('TwoColumns with big Large list', {
 		header,
 		mode: 'TwoColumns',
 		one: sidePanel,
@@ -252,37 +256,37 @@ decorateLayoutStory('TwoColumns with big Large list', {
 	<List {...listProps} displayMode={'large'}/>,
 );
 
-decorateLayoutStory('TwoColumns docked', {
+decoratedLayoutStory('TwoColumns docked', {
 	header,
 	mode: 'TwoColumns',
 	one: dockedSidePanel,
 });
 
-decorateLayoutStory('TwoColumns with drawers', {
+decoratedLayoutStory('TwoColumns with drawers', {
 	header,
 	mode: 'TwoColumns',
 	one: sidePanel,
 	drawers,
 });
 
-decorateLayoutStory('OneColumn with footer', {
+decoratedLayoutStory('OneColumn with footer', {
 	header,
 	mode: 'OneColumn',
 	footer,
 });
 
-decorateLayoutStory('OneColumn without header', {
+layoutStory('OneColumn without header', {
 	mode: 'OneColumn',
 });
 
-decorateLayoutStory('OneColumn with subHeader', {
+decoratedLayoutStory('OneColumn with subHeader', {
 	header,
 	subHeader,
 	mode: 'OneColumn',
 	footer,
 });
 
-decorateLayoutStory('TwoColumns with subHeader', {
+decoratedLayoutStory('TwoColumns with subHeader', {
 	header,
 	subHeader,
 	one: sidePanel,
@@ -290,6 +294,6 @@ decorateLayoutStory('TwoColumns with subHeader', {
 	footer,
 });
 
-decorateLayoutStory('Only subHeader', {
+layoutStory('Only subHeader', {
 	subHeader,
 });

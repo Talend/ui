@@ -6,6 +6,8 @@ import talendIcons from '@talend/icons/dist/react';
 import i18n, { LanguageSwitcher } from './config/i18n';
 import { SidePanel, IconsProvider, Layout } from '../src/index';
 
+import { TALEND_APPS_TRIGRAM as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/Layout.component';
+
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
 	'talend-dataprep': talendIcons['talend-dataprep'],
@@ -210,3 +212,21 @@ stories
 
 		return <WithLayout/>;
 	});
+
+apps.forEach(app => {
+		const appStyle = require(`../src/Layout/_Layout.${app}.scss`);
+		stories
+			.addWithInfo(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
+					<div className={appStyle[TALEND_T7_THEME_CLASSNAME]} style={{ height: '100vh' }}>
+						<SidePanel
+							id="context"
+							actions={actions}
+							onToggleDock={action('Toggle dock clicked')}
+							docked={false}
+							tooltipPlacement="top"
+						/>
+					</div>
+				)
+			);
+	}
+);

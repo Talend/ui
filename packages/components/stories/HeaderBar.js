@@ -2,13 +2,15 @@ import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
 
-import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
+import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 
 import { I18nextProvider } from 'react-i18next';
 import i18n from './config/i18n';
 
 import { HeaderBar, IconsProvider } from '../src';
+
+import { TALEND_APPS_TRIGRAM as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/Layout.component';
 
 const icons = {
 	'talend-burger': talendIcons['talend-burger'],
@@ -150,8 +152,8 @@ const decoratedStories = storiesOf('HeaderBar', module)
 		<I18nextProvider i18n={i18n}>
 			<div>
 				{story()}
-				<div className="container" style={{ paddingTop: 40 }} />
-				<IconsProvider defaultIcons={icons} />
+				<div className="container" style={{ paddingTop: 40 }}/>
+				<IconsProvider defaultIcons={icons}/>
 			</div>
 		</I18nextProvider>
 	));
@@ -257,4 +259,19 @@ decoratedStories
 		};
 		return <HeaderBar {...headerProps} />;
 	})
-	.addWithInfo('barebone', () => <HeaderBar />);
+	.addWithInfo('barebone', () => <HeaderBar/>);
+
+apps.forEach(app => {
+	const appStyle = require(`../src/Layout/_Layout.${app}.scss`);
+	const headerProps = Immutable.fromJS(props).toJS();
+	headerProps.logo.isFull = true;
+	decoratedStories
+		.addWithInfo(`🎨 [${app.toUpperCase()}] HeaderBar`, () => (
+				<div className={appStyle[TALEND_T7_THEME_CLASSNAME]}>
+					<div role="banner">
+						<HeaderBar {...headerProps} />
+					</div>
+				</div>
+			)
+		);
+});

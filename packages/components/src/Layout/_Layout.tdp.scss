@@ -1,7 +1,8 @@
-.t7 {
-	$brand-primary: #00a1b3;
-	$brand-secondary: #168aa6;
-	@include layout-colors($brand-primary, $brand-secondary);
+.t7,
+:global(.t7) {
+	$brand-primary-t7: #00a1b3;
+	$brand-secondary-t7: #168aa6;
+	@include layout-colors($brand-primary-t7, $brand-secondary-t7);
 
 	[role="navigation"]:before {
 		background-position: -87.62px bottom;

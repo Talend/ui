@@ -7445,3 +7445,3927 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
   </svg>
 </div>
 `;
+
+exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
+<div>
+  <div
+    className={undefined}
+  >
+    <div
+      role="banner"
+    >
+      <nav
+        className="tc-header-bar navbar"
+      >
+        <ul
+          className={undefined}
+        >
+          <li
+            className=""
+          >
+            <button
+              className="undefined btn btn-link"
+              disabled={false}
+              id="header-logo"
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseDown={[Function]}
+              onMouseOver={[Function]}
+              role={null}
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                focusable="false"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-logo"
+                />
+              </svg>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <span>
+                Example App Name
+              </span>
+            </button>
+          </li>
+        </ul>
+        <ul
+          className=""
+        >
+          <li
+            className=""
+          >
+            <form
+              className="navbar-form navbar-right"
+              role="search"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                onMouseOver={[Function]}
+                role={null}
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="tc-svg-icon"
+                  focusable="false"
+                  title={null}
+                >
+                  <use
+                    xlinkHref="#talend-search"
+                  />
+                </svg>
+              </button>
+            </form>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="header-help"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                focusable="false"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-question-circle"
+                />
+              </svg>
+              <span>
+                Help
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <div
+              className="dropdown btn-group btn-group-link"
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="tc-dropdown-button dropdown-toggle btn btn-link"
+                disabled={false}
+                id="header-user"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseOver={[Function]}
+                role="button"
+                type="button"
+              >
+                <span
+                  className="tc-dropdown-button-title"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
+                  </span>
+                </span>
+                 
+                <span
+                  className="caret"
+                />
+              </button>
+              <ul
+                aria-labelledby="header-user"
+                className="dropdown-menu dropdown-menu-right"
+                role="menu"
+              >
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-cog"
+                    label="Settings"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-cog"
+                      />
+                    </svg>
+                    Settings
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            className={undefined}
+          >
+            <div
+              className="dropdown btn-group btn-group-link"
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="dropdown-toggle btn btn-link"
+                disabled={false}
+                id="header-products"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseOver={[Function]}
+                role="button"
+                type="button"
+              >
+                <span
+                  className="tc-dropdown-button-title"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-launcher"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <ul
+                aria-labelledby="header-products"
+                className="dropdown-menu dropdown-menu-right"
+                role="menu"
+              >
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-dp"
+                    label="Data Preparation"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-dp"
+                      />
+                    </svg>
+                    Data Preparation
+                  </a>
+                </li>
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-ic"
+                    label="Integration Cloud"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-ic"
+                      />
+                    </svg>
+                    Integration Cloud
+                  </a>
+                </li>
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-mc"
+                    label="Management Console"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-mc"
+                      />
+                    </svg>
+                    Management Console
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="container"
+    style={
+      Object {
+        "paddingTop": 40,
+      }
+    }
+  />
+  <svg
+    focusable="false"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h16v2.3H0zm0 6.9h16v2.3H0zm0 6.8h16V16H0z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-cog"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 10.907a2.927 2.927 0 0 1-2.93-2.923A2.927 2.927 0 0 1 8 5.06a2.927 2.927 0 0 1 2.932 2.923A2.927 2.927 0 0 1 8 10.907zm8-1.997V6.97l-2.32-.449-.024.002A5.79 5.79 0 0 0 13 4.97l1.32-1.962-1.361-1.373-1.955 1.337-.011.01a5.832 5.832 0 0 0-1.583-.654L8.969 0H7.043L6.6 2.324a5.83 5.83 0 0 0-1.557.639l-.047-.042-1.955-1.338L1.68 2.956l1.326 1.971.014.011a5.759 5.759 0 0 0-.673 1.584L2.32 6.52 0 6.97v1.94l2.318.447c.142.585.375 1.13.679 1.633L1.68 12.944l1.362 1.373 1.955-1.336c.485.29 1.012.512 1.574.654l.002.025.444 2.34h1.926l.444-2.34-.001-.012a5.796 5.796 0 0 0 1.62-.67l.018.015 1.955 1.338 1.362-1.373-1.327-1.971-.006-.005a5.76 5.76 0 0 0 .674-1.625L16 8.91z"
+          fillRule="evenodd"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-environment"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4h8v2H4zm0 3h8v2H4zm0 3h8v2H4zm-2 3V3L0 1v14zm14 2V1l-2 2v10zM3 2h10l2-2H1zM1 16h14l-2-2H3z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-filter"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16 1.825L10 8v8H8l-2-4V8L0 1.822V0h16v1.825z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-launcher"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4H0V0h4zm6-4H6v4h4zm6 0h-4v4h4zM4 16H0v-4h4zm6-4H6v4h4zm6 0h-4v4h4zM4 10H0V6h4zm6-4H6v4h4zm6 0h-4v4h4z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo"
+    >
+      <svg
+        className="talend-logo"
+        viewBox="0 0 134 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          className="talend-logo value5"
+        >
+          <path
+            className="talend-logo line5"
+            d="M16.65 30.743l-.263-.205 11.376-14.09.263.206L16.65 30.743z"
+          />
+          <path
+            className="talend-logo circle5"
+            d="M15.541 31.6a1.4 1.4 0 0 0 1.96.001 1.347 1.347 0 0 0 0-1.929 1.405 1.405 0 0 0-1.961.002 1.346 1.346 0 0 0 .001 1.926z"
+          />
+        </g>
+        <g
+          className="talend-logo value4"
+        >
+          <path
+            className="talend-logo line4"
+            d="M18.871 20.827l-.141-.299 9.098-4.137.141.3-9.098 4.136z"
+          />
+          <path
+            className="talend-logo circle4"
+            d="M17.816 19.716a1.402 1.402 0 0 1 1.959 0 1.343 1.343 0 0 1 0 1.927 1.4 1.4 0 0 1-1.961-.002 1.347 1.347 0 0 1 .002-1.925z"
+          />
+        </g>
+        <g
+          className="talend-logo value3"
+        >
+          <path
+            className="talend-logo line3"
+            d="M11.538 16.369h16.329v.33H11.538z"
+          />
+          <path
+            className="talend-logo circle3"
+            d="M10.555 15.572a1.4 1.4 0 0 1 1.96-.001 1.347 1.347 0 0 1 0 1.928 1.404 1.404 0 0 1-1.962 0 1.345 1.345 0 0 1 .002-1.927z"
+          />
+        </g>
+        <g
+          className="talend-logo value2"
+        >
+          <path
+            className="talend-logo line2"
+            d="M27.828 16.684L1.305 4.635l.141-.3 26.523 12.05-.141.299z"
+          />
+          <path
+            className="talend-logo circle2"
+            d="M.406 3.525a1.404 1.404 0 0 1 1.96-.002 1.346 1.346 0 0 1 0 1.928 1.401 1.401 0 0 1-1.962-.002 1.346 1.346 0 0 1 .002-1.924z"
+          />
+        </g>
+        <g
+          className="talend-logo value1"
+        >
+          <path
+            className="talend-logo line1"
+            d="M27.763 16.624L19.559 6.461l.263-.205 8.204 10.163-.263.205z"
+          />
+          <path
+            className="talend-logo circle1"
+            d="M18.713 5.4a1.4 1.4 0 0 1 1.96-.002 1.347 1.347 0 0 1 0 1.929 1.405 1.405 0 0 1-1.962-.002 1.346 1.346 0 0 1 .002-1.926z"
+          />
+        </g>
+        <path
+          className="talend-logo text-talend"
+          d="M58.8 19.043a6.671 6.671 0 0 0-3.027.627 2.494 2.494 0 0 0-1.317 2.35 2.767 2.767 0 0 0 3.07 2.863 6.32 6.32 0 0 0 4.104-1.764v-4.193zm3.11 6.819a7.844 7.844 0 0 1-5.5 2.273c-3.546 0-6.14-2.313-6.14-5.878a5.258 5.258 0 0 1 3.15-5.016 11.688 11.688 0 0 1 4.822-.98l3.388-.118v-.782c0-2.431-1.555-3.45-3.786-3.45a10.192 10.192 0 0 0-5.022 1.373l-1.436-2.705a14.31 14.31 0 0 1 7.096-1.842c4.664 0 7.295 2.118 7.295 6.624v7.13a10.565 10.565 0 0 0 .959 5.25h-4.15zM38.756 9.208v-4.27L42.9 3.682v5.526h5.66l-1.033 3.213H42.9v10.032c0 1.682.638 2.35 1.875 2.35a5.359 5.359 0 0 0 2.883-.897 5.699 5.699 0 0 0 1.108 2.943 10.162 10.162 0 0 1-4.987 1.286c-3.15 0-5.022-1.765-5.022-4.781V9.208zm51.15 7.366c-.08-2.352-1.234-4.662-3.905-4.662-2.513 0-3.986 2.155-4.025 4.662zm-7.89 2.9a5.262 5.262 0 0 0 5.618 5.409 9.55 9.55 0 0 0 4.744-1.256l1.236 2.785a12.125 12.125 0 0 1-6.419 1.723c-6.574 0-9.404-4.585-9.404-9.72 0-5.602 3.149-9.678 8.25-9.678 5.141 0 8.092 3.763 8.092 9.758v.978zm-3.957 7.61a11.245 11.245 0 0 1-4.597.931c-2.908 0-4.345-1.488-4.345-4.191V1.49L73.263 0v22.687c0 1.373.478 1.763 1.396 1.763a10.391 10.391 0 0 0 1.4-.264 7.652 7.652 0 0 0 2.001 2.899zM96.905 9.209h3.805l-.054 2.367a11.165 11.165 0 0 1 6.69-2.837c2.989 0 5.897 1.568 5.897 6.663v12.34h-4.142V16.693c0-2.43-.56-4.389-3.07-4.389a8.219 8.219 0 0 0-4.982 2.234V27.74h-4.144zM133.04 22.49V.04l-.003.012V0l-4.145 1.49v7.523a13.115 13.115 0 0 0-2.75-.275c-5.725 0-10.012 3.909-10.151 9.631l-.003.036c0 .029-.003.065-.003.108-.002.046-.008.09-.008.138 0 .027.004.055.004.083-.01 1.357.234 5.702 3.563 8.065l.06.042c.13.091.265.178.405.262.034.02.065.04.096.06a7.536 7.536 0 0 0 .837.424c.021.01.043.018.066.027.162.069.327.131.496.185a.132.132 0 0 1 .023.007c.151.049.306.091.464.13.063.018.127.028.189.042.108.023.215.045.324.063.111.016.22.031.33.042a3.367 3.367 0 0 0 .425.034c.138.008.273.018.415.018a7.84 7.84 0 0 0 5.5-2.273l.677 1.88H134a10.548 10.548 0 0 1-.96-5.252zm-8.966 2.33a3.76 3.76 0 0 1-1.274-.461 3.497 3.497 0 0 1-.076-.043c-.03-.018-.06-.033-.088-.053a4.85 4.85 0 0 1-.51-.354c-.103-.098-.192-.198-.283-.299a2.442 2.442 0 0 1-.18-.194 5.262 5.262 0 0 1-.63-.903c-.043-.08-.078-.16-.118-.238-.02-.042-.044-.083-.064-.126a7.98 7.98 0 0 1-.582-4.224 8.121 8.121 0 0 1 .127-.941c.005-.025.007-.052.01-.075a7.393 7.393 0 0 1 .302-1.039 5.78 5.78 0 0 1 5.673-3.723 9.336 9.336 0 0 1 2.5.31V23.12a6.126 6.126 0 0 1-4.092 1.764 2.458 2.458 0 0 1-.715-.063z"
+        />
+        <ellipse
+          className="talend-logo big-circle"
+          cx="27.896"
+          cy="16.536"
+          rx="5.932"
+          ry="5.831"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-dp"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M25.559 15.924a1.452 1.452 0 0 1 .97-1.364 10.635 10.635 0 0 0-8.921-8.936 1.476 1.476 0 0 1-2.737-.055 10.628 10.628 0 0 0-9.364 9.004 1.444 1.444 0 0 1-.049 2.719 10.62 10.62 0 0 0 9.344 9.392 1.473 1.473 0 0 1 2.884-.06 10.624 10.624 0 0 0 8.892-9.32 1.454 1.454 0 0 1-1.02-1.38zm-5.837-6.058a.933.933 0 1 1-.93.934.931.931 0 0 1 .93-.934zM16.465 8a1.4 1.4 0 1 1-1.396 1.4A1.397 1.397 0 0 1 16.465 8zm-4.187.933a.933.933 0 1 1-.93.933.931.931 0 0 1 .93-.933zm9.305 13.999H10.417c-.512 0-.727-.368-.479-.817l3.749-6.768a1.531 1.531 0 0 1 .452-.47v-1.51a.882.882 0 0 1-.93-.817.881.881 0 0 1 .93-.817h3.722a.881.881 0 0 1 .93.817.882.882 0 0 1-.93.816v1.511a1.532 1.532 0 0 1 .452.47l3.749 6.768c.248.449.033.817-.479.817zm-2.481-3.733l1.034 1.866h-8.272l1.034-1.866zM16 1a15 15 0 1 0 0 30h15V16A15 15 0 0 0 16 1zm11.46 16.312a11.504 11.504 0 0 1-9.867 10.21 1.477 1.477 0 0 1-2.659.057A11.503 11.503 0 0 1 4.58 17.322a1.446 1.446 0 0 1 .055-2.81 11.504 11.504 0 0 1 10.197-9.82 1.474 1.474 0 0 1 2.853.06 11.505 11.505 0 0 1 9.721 9.77 1.446 1.446 0 0 1 .055 2.79z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-ic"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M26.46 17.33a10.54 10.54 0 0 1-9.118 9.113 1.41 1.41 0 0 0-.964-.9v-5.772l3.757.004a3.063 3.063 0 0 0 0-6.123 2.845 2.845 0 0 0-.412.033 3.828 3.828 0 0 0-7.118-.99 1.676 1.676 0 0 0-.331-.038 1.755 1.755 0 0 0-1.732 1.778 1.805 1.805 0 0 0 .135.687 2.347 2.347 0 0 0 .413 4.644l4.518.004v5.784a1.409 1.409 0 0 0-.928.886 10.54 10.54 0 0 1-9.094-9.12 1.407 1.407 0 0 0 .004-2.661 10.54 10.54 0 0 1 9.1-9.088 1.409 1.409 0 0 0 2.643-.004 10.54 10.54 0 0 1 9.123 9.082 1.406 1.406 0 0 0 .004 2.682zm4.546-1.341v15h-15a15 15 0 1 1 15-15zm-2.7 0a1.414 1.414 0 0 0-1.077-1.37 11.312 11.312 0 0 0-9.831-9.82 1.414 1.414 0 0 0-2.775.004 11.312 11.312 0 0 0-9.803 9.804 1.413 1.413 0 0 0-.005 2.762 11.312 11.312 0 0 0 9.816 9.84 1.413 1.413 0 0 0 2.758.004 11.312 11.312 0 0 0 9.844-9.855 1.413 1.413 0 0 0 1.072-1.369z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-mc"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.072 15.68h-2.751v-2.753h2.32a10.848 10.848 0 0 1 .431 2.752zm-6.298 0h2.905v-2.753h-2.474a10.844 10.844 0 0 0-.43 2.752zm4.228-5.958a6.404 6.404 0 0 0-.681-.07v2.655h2.115a9.226 9.226 0 0 0-1.434-2.585zm-3.799 9.344h2.476v-2.745h-2.905a10.845 10.845 0 0 0 .43 2.745zm.208-6.76h2.268V9.652a6.425 6.425 0 0 0-.859.103 9.243 9.243 0 0 0-1.41 2.553zm1.41 9.94a6.42 6.42 0 0 0 .858.103v-2.662h-2.27a9.24 9.24 0 0 0 1.411 2.56zm-2.668-5.925H9.65a6.313 6.313 0 0 0 .782 2.745h2.124a11.509 11.509 0 0 1-.404-2.745zm.406-3.394h-2.122a6.312 6.312 0 0 0-.786 2.752h2.502a11.508 11.508 0 0 1 .406-2.752zM31 16v15H16a15 15 0 1 1 15-15zm-3 0a1.377 1.377 0 0 0-1.05-1.333 11.023 11.023 0 0 0-9.592-9.557 1.38 1.38 0 0 0-2.707.003 11.023 11.023 0 0 0-9.564 9.543 1.375 1.375 0 0 0-.005 2.688 11.024 11.024 0 0 0 9.576 9.577 1.38 1.38 0 0 0 2.692.004 11.023 11.023 0 0 0 9.604-9.593A1.376 1.376 0 0 0 28 16.001zm-17.175 3.687a6.388 6.388 0 0 0 3.044 2.302 10.09 10.09 0 0 1-1.122-2.302zm7.108-9.743a10.078 10.078 0 0 1 1.163 2.363h2.075a6.384 6.384 0 0 0-3.238-2.363zm1.139 6.377h-2.751v2.745h2.322a10.851 10.851 0 0 0 .429-2.745zm7.128.985a10.27 10.27 0 0 1-8.896 8.869 1.52 1.52 0 0 0-1.297-.952 1.418 1.418 0 0 0-1.3.95 10.271 10.271 0 0 1-8.873-8.877 1.369 1.369 0 0 0 .004-2.59 10.271 10.271 0 0 1 8.878-8.846 1.375 1.375 0 0 0 2.579-.003 10.272 10.272 0 0 1 8.9 8.839 1.368 1.368 0 0 0 .005 2.61zM23 16a7 7 0 1 0-7 7 7.008 7.008 0 0 0 7-7zm-3.306-.32h2.655a6.313 6.313 0 0 0-.786-2.752h-2.276a11.505 11.505 0 0 1 .407 2.751zm-5.826-5.669a6.388 6.388 0 0 0-3.038 2.296h1.92a10.095 10.095 0 0 1 1.118-2.296zm5.421 9.055h2.278a6.313 6.313 0 0 0 .782-2.745h-2.655a11.506 11.506 0 0 1-.405 2.745zm-2.968.621v2.662a6.41 6.41 0 0 0 .68-.07 9.225 9.225 0 0 0 1.437-2.592zm1.612 2.37a6.383 6.383 0 0 0 3.242-2.37h-2.077a10.077 10.077 0 0 1-1.165 2.37z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-square"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M26.524 10.48a5.512 5.512 0 0 0-3.348 1.081l-3.54-4.407a1.274 1.274 0 0 0-.081-1.719 1.32 1.32 0 0 0-1.853.001l-.016.016a1.284 1.284 0 0 0 .014 1.815 1.313 1.313 0 0 0 1.493.238l3.545 4.414a5.551 5.551 0 0 0-1.209 1.573L2.571 4.837a1.263 1.263 0 0 0-.332-1.184 1.324 1.324 0 0 0-1.855.002l-.014.014a1.284 1.284 0 0 0 .012 1.815 1.321 1.321 0 0 0 1.857.002l.016-.017a1.2 1.2 0 0 0 .078-.12l18.964 8.658a5.517 5.517 0 0 0-.371 1.733h-8.759a1.25 1.25 0 0 0-.328-.634 1.321 1.321 0 0 0-1.855.002l-.016.016a1.283 1.283 0 0 0 .015 1.815 1.324 1.324 0 0 0 1.856 0l.015-.016a1.249 1.249 0 0 0 .314-.62h8.758a5.514 5.514 0 0 0 .37 1.743l-2.494 1.14a1.202 1.202 0 0 0-.096-.14 1.321 1.321 0 0 0-1.853.001l-.013.013a1.285 1.285 0 0 0 .011 1.817 1.32 1.32 0 0 0 1.855.002l.022-.021a1.259 1.259 0 0 0 .312-1.161l2.488-1.136a5.56 5.56 0 0 0 1.21 1.568l-6.545 8.146a1.313 1.313 0 0 0-1.493.238l-.016.016a1.284 1.284 0 0 0 .017 1.815 1.32 1.32 0 0 0 1.854.002l.016-.016a1.272 1.272 0 0 0 .064-1.7l6.54-8.143a5.512 5.512 0 0 0 3.213 1.08 5.544 5.544 0 0 0 .136-11.087z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-question-circle"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.64 2.366A7.69 7.69 0 0 0 7.98 0a7.69 7.69 0 0 0-5.658 2.366A7.549 7.549 0 0 0 0 8a7.69 7.69 0 0 0 2.323 5.671A7.8 7.8 0 0 0 7.981 16a7.8 7.8 0 0 0 5.658-2.329A7.725 7.725 0 0 0 16 8a7.582 7.582 0 0 0-2.36-5.634zM9 14H7v-2h2zm2.108-6.75a3.727 3.727 0 0 1-.46.797 6.536 6.536 0 0 1-.582.67 7.383 7.383 0 0 0-.567.642 2.903 2.903 0 0 0-.413.726 1.998 1.998 0 0 0-.107.915H7.017a2.594 2.594 0 0 1 .039-1.08 3.312 3.312 0 0 1 .359-.859 3.802 3.802 0 0 1 .529-.688c.2-.205.385-.405.56-.599a4.376 4.376 0 0 0 .443-.579 1.162 1.162 0 0 0 .185-.634 1.08 1.08 0 0 0-.323-.86 1.19 1.19 0 0 0-.812-.28 1.524 1.524 0 0 0-.843.235 4.045 4.045 0 0 0-.72.597L5.179 4.896a4.633 4.633 0 0 1 1.303-1.178 3.167 3.167 0 0 1 1.67-.453 4.123 4.123 0 0 1 1.233.18 2.727 2.727 0 0 1 .996.553 2.66 2.66 0 0 1 .667.924 3.197 3.197 0 0 1 .245 1.296 2.648 2.648 0 0 1-.184 1.032z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-search"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.5 14C3.9 14 1 11.1 1 7.5S3.9 1 7.5 1 14 3.9 14 7.5 11.1 14 7.5 14zm0-11C5 3 3 5 3 7.5S5 12 7.5 12 12 10 12 7.5 10 3 7.5 3zm6 9c-.4.6-.9 1.1-1.5 1.5l2.5 2.5 1.5-1.5-2.5-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-share-alt"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 11c-.7 0-1.4.3-1.8.8l-4.8-3c0-.2.1-.5.1-.8s-.1-.6-.2-.8l4.8-3c.5.5 1.2.8 1.9.8C13.9 5 15 3.9 15 2.5S13.9 0 12.5 0 10 1.1 10 2.5c0 .3.1.6.2.8l-4.8 3c-.5-.5-1.2-.8-1.9-.8C2.1 5.5 1 6.6 1 8s1.1 2.5 2.5 2.5c.7 0 1.4-.3 1.8-.8l4.8 3c-.1.3-.2.5-.2.8 0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5c.1-1.4-1-2.5-2.4-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-star"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 0l2.5 5 5.5.8-4 3.9.9 5.5L8 12.6l-4.9 2.6.9-5.5-4-3.9L5.5 5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-user-circle"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="8"
+          cy="6"
+          r="3"
+        />
+        <path
+          d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm3 8.6c-.7.9-1.8 1.4-3 1.4s-2.3-.5-3-1.4c-1.3.5-2.4 1.4-3.3 2.5-.4-.9-.7-2-.7-3.1 0-3.9 3.1-7 7-7s7 3.1 7 7c0 1.1-.3 2.2-.7 3.1-.9-1.1-2-2-3.3-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-board"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 3h14v8H1zM0 0h16v2H0zm5.6 12l-2.1 2.1 1.4 1.4L8 12.4l3.1 3.1 1.4-1.4-2.1-2.1z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-bell"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.615 14.345a1.408 1.408 0 1 0 2.769 0H6.615zm5.915-4.183V5.206s.083-2.375-2.999-3.332c-.429-.166-.583-.5-.583-1.167 0-.612-.601-.704-.938-.707h-.02c-.337.003-.938.095-.938.707 0 .667-.155 1.001-.583 1.167-3.082.957-2.999 3.332-2.999 3.332v4.956c0 2.04-2.124 2.582-2.124 2.582v1.207l6.644.042h.02l6.644-.042v-1.207s-2.124-.542-2.124-2.582z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-bell-notification"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          className="ti-badge"
+          d="M16 3.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0"
+          fill="#E96065"
+        />
+        <path
+          className="ti-bell"
+          d="M12.53 10.162V8h-.004a4.505 4.505 0 0 1-4.5-4.5c0-1.02.354-1.95.928-2.707 0-.03-.006-.053-.006-.086 0-.612-.6-.704-.938-.707h-.02c-.337.003-.939.095-.939.707 0 .667-.153 1.001-.583 1.167-3.08.957-2.998 3.332-2.998 3.332v4.956c0 2.04-2.124 2.582-2.124 2.582v1.208l6.644.041h.02l6.644-.04v-1.209s-2.124-.542-2.124-2.582m-5.915 4.183a1.407 1.407 0 1 0 2.769 0H6.615z"
+        />
+      </svg>
+    </symbol>
+  </svg>
+</div>
+`;
+
+exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
+<div>
+  <div
+    className={undefined}
+  >
+    <div
+      role="banner"
+    >
+      <nav
+        className="tc-header-bar navbar"
+      >
+        <ul
+          className={undefined}
+        >
+          <li
+            className=""
+          >
+            <button
+              className="undefined btn btn-link"
+              disabled={false}
+              id="header-logo"
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseDown={[Function]}
+              onMouseOver={[Function]}
+              role={null}
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                focusable="false"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-logo"
+                />
+              </svg>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <span>
+                Example App Name
+              </span>
+            </button>
+          </li>
+        </ul>
+        <ul
+          className=""
+        >
+          <li
+            className=""
+          >
+            <form
+              className="navbar-form navbar-right"
+              role="search"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                onMouseOver={[Function]}
+                role={null}
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="tc-svg-icon"
+                  focusable="false"
+                  title={null}
+                >
+                  <use
+                    xlinkHref="#talend-search"
+                  />
+                </svg>
+              </button>
+            </form>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="header-help"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                focusable="false"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-question-circle"
+                />
+              </svg>
+              <span>
+                Help
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <div
+              className="dropdown btn-group btn-group-link"
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="tc-dropdown-button dropdown-toggle btn btn-link"
+                disabled={false}
+                id="header-user"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseOver={[Function]}
+                role="button"
+                type="button"
+              >
+                <span
+                  className="tc-dropdown-button-title"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
+                  </span>
+                </span>
+                 
+                <span
+                  className="caret"
+                />
+              </button>
+              <ul
+                aria-labelledby="header-user"
+                className="dropdown-menu dropdown-menu-right"
+                role="menu"
+              >
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-cog"
+                    label="Settings"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-cog"
+                      />
+                    </svg>
+                    Settings
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            className={undefined}
+          >
+            <div
+              className="dropdown btn-group btn-group-link"
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="dropdown-toggle btn btn-link"
+                disabled={false}
+                id="header-products"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseOver={[Function]}
+                role="button"
+                type="button"
+              >
+                <span
+                  className="tc-dropdown-button-title"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-launcher"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <ul
+                aria-labelledby="header-products"
+                className="dropdown-menu dropdown-menu-right"
+                role="menu"
+              >
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-dp"
+                    label="Data Preparation"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-dp"
+                      />
+                    </svg>
+                    Data Preparation
+                  </a>
+                </li>
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-ic"
+                    label="Integration Cloud"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-ic"
+                      />
+                    </svg>
+                    Integration Cloud
+                  </a>
+                </li>
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-mc"
+                    label="Management Console"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-mc"
+                      />
+                    </svg>
+                    Management Console
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="container"
+    style={
+      Object {
+        "paddingTop": 40,
+      }
+    }
+  />
+  <svg
+    focusable="false"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h16v2.3H0zm0 6.9h16v2.3H0zm0 6.8h16V16H0z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-cog"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 10.907a2.927 2.927 0 0 1-2.93-2.923A2.927 2.927 0 0 1 8 5.06a2.927 2.927 0 0 1 2.932 2.923A2.927 2.927 0 0 1 8 10.907zm8-1.997V6.97l-2.32-.449-.024.002A5.79 5.79 0 0 0 13 4.97l1.32-1.962-1.361-1.373-1.955 1.337-.011.01a5.832 5.832 0 0 0-1.583-.654L8.969 0H7.043L6.6 2.324a5.83 5.83 0 0 0-1.557.639l-.047-.042-1.955-1.338L1.68 2.956l1.326 1.971.014.011a5.759 5.759 0 0 0-.673 1.584L2.32 6.52 0 6.97v1.94l2.318.447c.142.585.375 1.13.679 1.633L1.68 12.944l1.362 1.373 1.955-1.336c.485.29 1.012.512 1.574.654l.002.025.444 2.34h1.926l.444-2.34-.001-.012a5.796 5.796 0 0 0 1.62-.67l.018.015 1.955 1.338 1.362-1.373-1.327-1.971-.006-.005a5.76 5.76 0 0 0 .674-1.625L16 8.91z"
+          fillRule="evenodd"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-environment"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4h8v2H4zm0 3h8v2H4zm0 3h8v2H4zm-2 3V3L0 1v14zm14 2V1l-2 2v10zM3 2h10l2-2H1zM1 16h14l-2-2H3z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-filter"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16 1.825L10 8v8H8l-2-4V8L0 1.822V0h16v1.825z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-launcher"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4H0V0h4zm6-4H6v4h4zm6 0h-4v4h4zM4 16H0v-4h4zm6-4H6v4h4zm6 0h-4v4h4zM4 10H0V6h4zm6-4H6v4h4zm6 0h-4v4h4z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo"
+    >
+      <svg
+        className="talend-logo"
+        viewBox="0 0 134 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          className="talend-logo value5"
+        >
+          <path
+            className="talend-logo line5"
+            d="M16.65 30.743l-.263-.205 11.376-14.09.263.206L16.65 30.743z"
+          />
+          <path
+            className="talend-logo circle5"
+            d="M15.541 31.6a1.4 1.4 0 0 0 1.96.001 1.347 1.347 0 0 0 0-1.929 1.405 1.405 0 0 0-1.961.002 1.346 1.346 0 0 0 .001 1.926z"
+          />
+        </g>
+        <g
+          className="talend-logo value4"
+        >
+          <path
+            className="talend-logo line4"
+            d="M18.871 20.827l-.141-.299 9.098-4.137.141.3-9.098 4.136z"
+          />
+          <path
+            className="talend-logo circle4"
+            d="M17.816 19.716a1.402 1.402 0 0 1 1.959 0 1.343 1.343 0 0 1 0 1.927 1.4 1.4 0 0 1-1.961-.002 1.347 1.347 0 0 1 .002-1.925z"
+          />
+        </g>
+        <g
+          className="talend-logo value3"
+        >
+          <path
+            className="talend-logo line3"
+            d="M11.538 16.369h16.329v.33H11.538z"
+          />
+          <path
+            className="talend-logo circle3"
+            d="M10.555 15.572a1.4 1.4 0 0 1 1.96-.001 1.347 1.347 0 0 1 0 1.928 1.404 1.404 0 0 1-1.962 0 1.345 1.345 0 0 1 .002-1.927z"
+          />
+        </g>
+        <g
+          className="talend-logo value2"
+        >
+          <path
+            className="talend-logo line2"
+            d="M27.828 16.684L1.305 4.635l.141-.3 26.523 12.05-.141.299z"
+          />
+          <path
+            className="talend-logo circle2"
+            d="M.406 3.525a1.404 1.404 0 0 1 1.96-.002 1.346 1.346 0 0 1 0 1.928 1.401 1.401 0 0 1-1.962-.002 1.346 1.346 0 0 1 .002-1.924z"
+          />
+        </g>
+        <g
+          className="talend-logo value1"
+        >
+          <path
+            className="talend-logo line1"
+            d="M27.763 16.624L19.559 6.461l.263-.205 8.204 10.163-.263.205z"
+          />
+          <path
+            className="talend-logo circle1"
+            d="M18.713 5.4a1.4 1.4 0 0 1 1.96-.002 1.347 1.347 0 0 1 0 1.929 1.405 1.405 0 0 1-1.962-.002 1.346 1.346 0 0 1 .002-1.926z"
+          />
+        </g>
+        <path
+          className="talend-logo text-talend"
+          d="M58.8 19.043a6.671 6.671 0 0 0-3.027.627 2.494 2.494 0 0 0-1.317 2.35 2.767 2.767 0 0 0 3.07 2.863 6.32 6.32 0 0 0 4.104-1.764v-4.193zm3.11 6.819a7.844 7.844 0 0 1-5.5 2.273c-3.546 0-6.14-2.313-6.14-5.878a5.258 5.258 0 0 1 3.15-5.016 11.688 11.688 0 0 1 4.822-.98l3.388-.118v-.782c0-2.431-1.555-3.45-3.786-3.45a10.192 10.192 0 0 0-5.022 1.373l-1.436-2.705a14.31 14.31 0 0 1 7.096-1.842c4.664 0 7.295 2.118 7.295 6.624v7.13a10.565 10.565 0 0 0 .959 5.25h-4.15zM38.756 9.208v-4.27L42.9 3.682v5.526h5.66l-1.033 3.213H42.9v10.032c0 1.682.638 2.35 1.875 2.35a5.359 5.359 0 0 0 2.883-.897 5.699 5.699 0 0 0 1.108 2.943 10.162 10.162 0 0 1-4.987 1.286c-3.15 0-5.022-1.765-5.022-4.781V9.208zm51.15 7.366c-.08-2.352-1.234-4.662-3.905-4.662-2.513 0-3.986 2.155-4.025 4.662zm-7.89 2.9a5.262 5.262 0 0 0 5.618 5.409 9.55 9.55 0 0 0 4.744-1.256l1.236 2.785a12.125 12.125 0 0 1-6.419 1.723c-6.574 0-9.404-4.585-9.404-9.72 0-5.602 3.149-9.678 8.25-9.678 5.141 0 8.092 3.763 8.092 9.758v.978zm-3.957 7.61a11.245 11.245 0 0 1-4.597.931c-2.908 0-4.345-1.488-4.345-4.191V1.49L73.263 0v22.687c0 1.373.478 1.763 1.396 1.763a10.391 10.391 0 0 0 1.4-.264 7.652 7.652 0 0 0 2.001 2.899zM96.905 9.209h3.805l-.054 2.367a11.165 11.165 0 0 1 6.69-2.837c2.989 0 5.897 1.568 5.897 6.663v12.34h-4.142V16.693c0-2.43-.56-4.389-3.07-4.389a8.219 8.219 0 0 0-4.982 2.234V27.74h-4.144zM133.04 22.49V.04l-.003.012V0l-4.145 1.49v7.523a13.115 13.115 0 0 0-2.75-.275c-5.725 0-10.012 3.909-10.151 9.631l-.003.036c0 .029-.003.065-.003.108-.002.046-.008.09-.008.138 0 .027.004.055.004.083-.01 1.357.234 5.702 3.563 8.065l.06.042c.13.091.265.178.405.262.034.02.065.04.096.06a7.536 7.536 0 0 0 .837.424c.021.01.043.018.066.027.162.069.327.131.496.185a.132.132 0 0 1 .023.007c.151.049.306.091.464.13.063.018.127.028.189.042.108.023.215.045.324.063.111.016.22.031.33.042a3.367 3.367 0 0 0 .425.034c.138.008.273.018.415.018a7.84 7.84 0 0 0 5.5-2.273l.677 1.88H134a10.548 10.548 0 0 1-.96-5.252zm-8.966 2.33a3.76 3.76 0 0 1-1.274-.461 3.497 3.497 0 0 1-.076-.043c-.03-.018-.06-.033-.088-.053a4.85 4.85 0 0 1-.51-.354c-.103-.098-.192-.198-.283-.299a2.442 2.442 0 0 1-.18-.194 5.262 5.262 0 0 1-.63-.903c-.043-.08-.078-.16-.118-.238-.02-.042-.044-.083-.064-.126a7.98 7.98 0 0 1-.582-4.224 8.121 8.121 0 0 1 .127-.941c.005-.025.007-.052.01-.075a7.393 7.393 0 0 1 .302-1.039 5.78 5.78 0 0 1 5.673-3.723 9.336 9.336 0 0 1 2.5.31V23.12a6.126 6.126 0 0 1-4.092 1.764 2.458 2.458 0 0 1-.715-.063z"
+        />
+        <ellipse
+          className="talend-logo big-circle"
+          cx="27.896"
+          cy="16.536"
+          rx="5.932"
+          ry="5.831"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-dp"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M25.559 15.924a1.452 1.452 0 0 1 .97-1.364 10.635 10.635 0 0 0-8.921-8.936 1.476 1.476 0 0 1-2.737-.055 10.628 10.628 0 0 0-9.364 9.004 1.444 1.444 0 0 1-.049 2.719 10.62 10.62 0 0 0 9.344 9.392 1.473 1.473 0 0 1 2.884-.06 10.624 10.624 0 0 0 8.892-9.32 1.454 1.454 0 0 1-1.02-1.38zm-5.837-6.058a.933.933 0 1 1-.93.934.931.931 0 0 1 .93-.934zM16.465 8a1.4 1.4 0 1 1-1.396 1.4A1.397 1.397 0 0 1 16.465 8zm-4.187.933a.933.933 0 1 1-.93.933.931.931 0 0 1 .93-.933zm9.305 13.999H10.417c-.512 0-.727-.368-.479-.817l3.749-6.768a1.531 1.531 0 0 1 .452-.47v-1.51a.882.882 0 0 1-.93-.817.881.881 0 0 1 .93-.817h3.722a.881.881 0 0 1 .93.817.882.882 0 0 1-.93.816v1.511a1.532 1.532 0 0 1 .452.47l3.749 6.768c.248.449.033.817-.479.817zm-2.481-3.733l1.034 1.866h-8.272l1.034-1.866zM16 1a15 15 0 1 0 0 30h15V16A15 15 0 0 0 16 1zm11.46 16.312a11.504 11.504 0 0 1-9.867 10.21 1.477 1.477 0 0 1-2.659.057A11.503 11.503 0 0 1 4.58 17.322a1.446 1.446 0 0 1 .055-2.81 11.504 11.504 0 0 1 10.197-9.82 1.474 1.474 0 0 1 2.853.06 11.505 11.505 0 0 1 9.721 9.77 1.446 1.446 0 0 1 .055 2.79z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-ic"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M26.46 17.33a10.54 10.54 0 0 1-9.118 9.113 1.41 1.41 0 0 0-.964-.9v-5.772l3.757.004a3.063 3.063 0 0 0 0-6.123 2.845 2.845 0 0 0-.412.033 3.828 3.828 0 0 0-7.118-.99 1.676 1.676 0 0 0-.331-.038 1.755 1.755 0 0 0-1.732 1.778 1.805 1.805 0 0 0 .135.687 2.347 2.347 0 0 0 .413 4.644l4.518.004v5.784a1.409 1.409 0 0 0-.928.886 10.54 10.54 0 0 1-9.094-9.12 1.407 1.407 0 0 0 .004-2.661 10.54 10.54 0 0 1 9.1-9.088 1.409 1.409 0 0 0 2.643-.004 10.54 10.54 0 0 1 9.123 9.082 1.406 1.406 0 0 0 .004 2.682zm4.546-1.341v15h-15a15 15 0 1 1 15-15zm-2.7 0a1.414 1.414 0 0 0-1.077-1.37 11.312 11.312 0 0 0-9.831-9.82 1.414 1.414 0 0 0-2.775.004 11.312 11.312 0 0 0-9.803 9.804 1.413 1.413 0 0 0-.005 2.762 11.312 11.312 0 0 0 9.816 9.84 1.413 1.413 0 0 0 2.758.004 11.312 11.312 0 0 0 9.844-9.855 1.413 1.413 0 0 0 1.072-1.369z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-mc"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.072 15.68h-2.751v-2.753h2.32a10.848 10.848 0 0 1 .431 2.752zm-6.298 0h2.905v-2.753h-2.474a10.844 10.844 0 0 0-.43 2.752zm4.228-5.958a6.404 6.404 0 0 0-.681-.07v2.655h2.115a9.226 9.226 0 0 0-1.434-2.585zm-3.799 9.344h2.476v-2.745h-2.905a10.845 10.845 0 0 0 .43 2.745zm.208-6.76h2.268V9.652a6.425 6.425 0 0 0-.859.103 9.243 9.243 0 0 0-1.41 2.553zm1.41 9.94a6.42 6.42 0 0 0 .858.103v-2.662h-2.27a9.24 9.24 0 0 0 1.411 2.56zm-2.668-5.925H9.65a6.313 6.313 0 0 0 .782 2.745h2.124a11.509 11.509 0 0 1-.404-2.745zm.406-3.394h-2.122a6.312 6.312 0 0 0-.786 2.752h2.502a11.508 11.508 0 0 1 .406-2.752zM31 16v15H16a15 15 0 1 1 15-15zm-3 0a1.377 1.377 0 0 0-1.05-1.333 11.023 11.023 0 0 0-9.592-9.557 1.38 1.38 0 0 0-2.707.003 11.023 11.023 0 0 0-9.564 9.543 1.375 1.375 0 0 0-.005 2.688 11.024 11.024 0 0 0 9.576 9.577 1.38 1.38 0 0 0 2.692.004 11.023 11.023 0 0 0 9.604-9.593A1.376 1.376 0 0 0 28 16.001zm-17.175 3.687a6.388 6.388 0 0 0 3.044 2.302 10.09 10.09 0 0 1-1.122-2.302zm7.108-9.743a10.078 10.078 0 0 1 1.163 2.363h2.075a6.384 6.384 0 0 0-3.238-2.363zm1.139 6.377h-2.751v2.745h2.322a10.851 10.851 0 0 0 .429-2.745zm7.128.985a10.27 10.27 0 0 1-8.896 8.869 1.52 1.52 0 0 0-1.297-.952 1.418 1.418 0 0 0-1.3.95 10.271 10.271 0 0 1-8.873-8.877 1.369 1.369 0 0 0 .004-2.59 10.271 10.271 0 0 1 8.878-8.846 1.375 1.375 0 0 0 2.579-.003 10.272 10.272 0 0 1 8.9 8.839 1.368 1.368 0 0 0 .005 2.61zM23 16a7 7 0 1 0-7 7 7.008 7.008 0 0 0 7-7zm-3.306-.32h2.655a6.313 6.313 0 0 0-.786-2.752h-2.276a11.505 11.505 0 0 1 .407 2.751zm-5.826-5.669a6.388 6.388 0 0 0-3.038 2.296h1.92a10.095 10.095 0 0 1 1.118-2.296zm5.421 9.055h2.278a6.313 6.313 0 0 0 .782-2.745h-2.655a11.506 11.506 0 0 1-.405 2.745zm-2.968.621v2.662a6.41 6.41 0 0 0 .68-.07 9.225 9.225 0 0 0 1.437-2.592zm1.612 2.37a6.383 6.383 0 0 0 3.242-2.37h-2.077a10.077 10.077 0 0 1-1.165 2.37z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-square"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M26.524 10.48a5.512 5.512 0 0 0-3.348 1.081l-3.54-4.407a1.274 1.274 0 0 0-.081-1.719 1.32 1.32 0 0 0-1.853.001l-.016.016a1.284 1.284 0 0 0 .014 1.815 1.313 1.313 0 0 0 1.493.238l3.545 4.414a5.551 5.551 0 0 0-1.209 1.573L2.571 4.837a1.263 1.263 0 0 0-.332-1.184 1.324 1.324 0 0 0-1.855.002l-.014.014a1.284 1.284 0 0 0 .012 1.815 1.321 1.321 0 0 0 1.857.002l.016-.017a1.2 1.2 0 0 0 .078-.12l18.964 8.658a5.517 5.517 0 0 0-.371 1.733h-8.759a1.25 1.25 0 0 0-.328-.634 1.321 1.321 0 0 0-1.855.002l-.016.016a1.283 1.283 0 0 0 .015 1.815 1.324 1.324 0 0 0 1.856 0l.015-.016a1.249 1.249 0 0 0 .314-.62h8.758a5.514 5.514 0 0 0 .37 1.743l-2.494 1.14a1.202 1.202 0 0 0-.096-.14 1.321 1.321 0 0 0-1.853.001l-.013.013a1.285 1.285 0 0 0 .011 1.817 1.32 1.32 0 0 0 1.855.002l.022-.021a1.259 1.259 0 0 0 .312-1.161l2.488-1.136a5.56 5.56 0 0 0 1.21 1.568l-6.545 8.146a1.313 1.313 0 0 0-1.493.238l-.016.016a1.284 1.284 0 0 0 .017 1.815 1.32 1.32 0 0 0 1.854.002l.016-.016a1.272 1.272 0 0 0 .064-1.7l6.54-8.143a5.512 5.512 0 0 0 3.213 1.08 5.544 5.544 0 0 0 .136-11.087z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-question-circle"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.64 2.366A7.69 7.69 0 0 0 7.98 0a7.69 7.69 0 0 0-5.658 2.366A7.549 7.549 0 0 0 0 8a7.69 7.69 0 0 0 2.323 5.671A7.8 7.8 0 0 0 7.981 16a7.8 7.8 0 0 0 5.658-2.329A7.725 7.725 0 0 0 16 8a7.582 7.582 0 0 0-2.36-5.634zM9 14H7v-2h2zm2.108-6.75a3.727 3.727 0 0 1-.46.797 6.536 6.536 0 0 1-.582.67 7.383 7.383 0 0 0-.567.642 2.903 2.903 0 0 0-.413.726 1.998 1.998 0 0 0-.107.915H7.017a2.594 2.594 0 0 1 .039-1.08 3.312 3.312 0 0 1 .359-.859 3.802 3.802 0 0 1 .529-.688c.2-.205.385-.405.56-.599a4.376 4.376 0 0 0 .443-.579 1.162 1.162 0 0 0 .185-.634 1.08 1.08 0 0 0-.323-.86 1.19 1.19 0 0 0-.812-.28 1.524 1.524 0 0 0-.843.235 4.045 4.045 0 0 0-.72.597L5.179 4.896a4.633 4.633 0 0 1 1.303-1.178 3.167 3.167 0 0 1 1.67-.453 4.123 4.123 0 0 1 1.233.18 2.727 2.727 0 0 1 .996.553 2.66 2.66 0 0 1 .667.924 3.197 3.197 0 0 1 .245 1.296 2.648 2.648 0 0 1-.184 1.032z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-search"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.5 14C3.9 14 1 11.1 1 7.5S3.9 1 7.5 1 14 3.9 14 7.5 11.1 14 7.5 14zm0-11C5 3 3 5 3 7.5S5 12 7.5 12 12 10 12 7.5 10 3 7.5 3zm6 9c-.4.6-.9 1.1-1.5 1.5l2.5 2.5 1.5-1.5-2.5-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-share-alt"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 11c-.7 0-1.4.3-1.8.8l-4.8-3c0-.2.1-.5.1-.8s-.1-.6-.2-.8l4.8-3c.5.5 1.2.8 1.9.8C13.9 5 15 3.9 15 2.5S13.9 0 12.5 0 10 1.1 10 2.5c0 .3.1.6.2.8l-4.8 3c-.5-.5-1.2-.8-1.9-.8C2.1 5.5 1 6.6 1 8s1.1 2.5 2.5 2.5c.7 0 1.4-.3 1.8-.8l4.8 3c-.1.3-.2.5-.2.8 0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5c.1-1.4-1-2.5-2.4-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-star"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 0l2.5 5 5.5.8-4 3.9.9 5.5L8 12.6l-4.9 2.6.9-5.5-4-3.9L5.5 5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-user-circle"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="8"
+          cy="6"
+          r="3"
+        />
+        <path
+          d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm3 8.6c-.7.9-1.8 1.4-3 1.4s-2.3-.5-3-1.4c-1.3.5-2.4 1.4-3.3 2.5-.4-.9-.7-2-.7-3.1 0-3.9 3.1-7 7-7s7 3.1 7 7c0 1.1-.3 2.2-.7 3.1-.9-1.1-2-2-3.3-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-board"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 3h14v8H1zM0 0h16v2H0zm5.6 12l-2.1 2.1 1.4 1.4L8 12.4l3.1 3.1 1.4-1.4-2.1-2.1z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-bell"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.615 14.345a1.408 1.408 0 1 0 2.769 0H6.615zm5.915-4.183V5.206s.083-2.375-2.999-3.332c-.429-.166-.583-.5-.583-1.167 0-.612-.601-.704-.938-.707h-.02c-.337.003-.938.095-.938.707 0 .667-.155 1.001-.583 1.167-3.082.957-2.999 3.332-2.999 3.332v4.956c0 2.04-2.124 2.582-2.124 2.582v1.207l6.644.042h.02l6.644-.042v-1.207s-2.124-.542-2.124-2.582z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-bell-notification"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          className="ti-badge"
+          d="M16 3.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0"
+          fill="#E96065"
+        />
+        <path
+          className="ti-bell"
+          d="M12.53 10.162V8h-.004a4.505 4.505 0 0 1-4.5-4.5c0-1.02.354-1.95.928-2.707 0-.03-.006-.053-.006-.086 0-.612-.6-.704-.938-.707h-.02c-.337.003-.939.095-.939.707 0 .667-.153 1.001-.583 1.167-3.08.957-2.998 3.332-2.998 3.332v4.956c0 2.04-2.124 2.582-2.124 2.582v1.208l6.644.041h.02l6.644-.04v-1.209s-2.124-.542-2.124-2.582m-5.915 4.183a1.407 1.407 0 1 0 2.769 0H6.615z"
+        />
+      </svg>
+    </symbol>
+  </svg>
+</div>
+`;
+
+exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
+<div>
+  <div
+    className={undefined}
+  >
+    <div
+      role="banner"
+    >
+      <nav
+        className="tc-header-bar navbar"
+      >
+        <ul
+          className={undefined}
+        >
+          <li
+            className=""
+          >
+            <button
+              className="undefined btn btn-link"
+              disabled={false}
+              id="header-logo"
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseDown={[Function]}
+              onMouseOver={[Function]}
+              role={null}
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                focusable="false"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-logo"
+                />
+              </svg>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <span>
+                Example App Name
+              </span>
+            </button>
+          </li>
+        </ul>
+        <ul
+          className=""
+        >
+          <li
+            className=""
+          >
+            <form
+              className="navbar-form navbar-right"
+              role="search"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                onMouseOver={[Function]}
+                role={null}
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="tc-svg-icon"
+                  focusable="false"
+                  title={null}
+                >
+                  <use
+                    xlinkHref="#talend-search"
+                  />
+                </svg>
+              </button>
+            </form>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="header-help"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                focusable="false"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-question-circle"
+                />
+              </svg>
+              <span>
+                Help
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <div
+              className="dropdown btn-group btn-group-link"
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="tc-dropdown-button dropdown-toggle btn btn-link"
+                disabled={false}
+                id="header-user"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseOver={[Function]}
+                role="button"
+                type="button"
+              >
+                <span
+                  className="tc-dropdown-button-title"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
+                  </span>
+                </span>
+                 
+                <span
+                  className="caret"
+                />
+              </button>
+              <ul
+                aria-labelledby="header-user"
+                className="dropdown-menu dropdown-menu-right"
+                role="menu"
+              >
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-cog"
+                    label="Settings"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-cog"
+                      />
+                    </svg>
+                    Settings
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            className={undefined}
+          >
+            <div
+              className="dropdown btn-group btn-group-link"
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="dropdown-toggle btn btn-link"
+                disabled={false}
+                id="header-products"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseOver={[Function]}
+                role="button"
+                type="button"
+              >
+                <span
+                  className="tc-dropdown-button-title"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-launcher"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <ul
+                aria-labelledby="header-products"
+                className="dropdown-menu dropdown-menu-right"
+                role="menu"
+              >
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-dp"
+                    label="Data Preparation"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-dp"
+                      />
+                    </svg>
+                    Data Preparation
+                  </a>
+                </li>
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-ic"
+                    label="Integration Cloud"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-ic"
+                      />
+                    </svg>
+                    Integration Cloud
+                  </a>
+                </li>
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-mc"
+                    label="Management Console"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-mc"
+                      />
+                    </svg>
+                    Management Console
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="container"
+    style={
+      Object {
+        "paddingTop": 40,
+      }
+    }
+  />
+  <svg
+    focusable="false"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h16v2.3H0zm0 6.9h16v2.3H0zm0 6.8h16V16H0z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-cog"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 10.907a2.927 2.927 0 0 1-2.93-2.923A2.927 2.927 0 0 1 8 5.06a2.927 2.927 0 0 1 2.932 2.923A2.927 2.927 0 0 1 8 10.907zm8-1.997V6.97l-2.32-.449-.024.002A5.79 5.79 0 0 0 13 4.97l1.32-1.962-1.361-1.373-1.955 1.337-.011.01a5.832 5.832 0 0 0-1.583-.654L8.969 0H7.043L6.6 2.324a5.83 5.83 0 0 0-1.557.639l-.047-.042-1.955-1.338L1.68 2.956l1.326 1.971.014.011a5.759 5.759 0 0 0-.673 1.584L2.32 6.52 0 6.97v1.94l2.318.447c.142.585.375 1.13.679 1.633L1.68 12.944l1.362 1.373 1.955-1.336c.485.29 1.012.512 1.574.654l.002.025.444 2.34h1.926l.444-2.34-.001-.012a5.796 5.796 0 0 0 1.62-.67l.018.015 1.955 1.338 1.362-1.373-1.327-1.971-.006-.005a5.76 5.76 0 0 0 .674-1.625L16 8.91z"
+          fillRule="evenodd"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-environment"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4h8v2H4zm0 3h8v2H4zm0 3h8v2H4zm-2 3V3L0 1v14zm14 2V1l-2 2v10zM3 2h10l2-2H1zM1 16h14l-2-2H3z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-filter"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16 1.825L10 8v8H8l-2-4V8L0 1.822V0h16v1.825z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-launcher"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4H0V0h4zm6-4H6v4h4zm6 0h-4v4h4zM4 16H0v-4h4zm6-4H6v4h4zm6 0h-4v4h4zM4 10H0V6h4zm6-4H6v4h4zm6 0h-4v4h4z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo"
+    >
+      <svg
+        className="talend-logo"
+        viewBox="0 0 134 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          className="talend-logo value5"
+        >
+          <path
+            className="talend-logo line5"
+            d="M16.65 30.743l-.263-.205 11.376-14.09.263.206L16.65 30.743z"
+          />
+          <path
+            className="talend-logo circle5"
+            d="M15.541 31.6a1.4 1.4 0 0 0 1.96.001 1.347 1.347 0 0 0 0-1.929 1.405 1.405 0 0 0-1.961.002 1.346 1.346 0 0 0 .001 1.926z"
+          />
+        </g>
+        <g
+          className="talend-logo value4"
+        >
+          <path
+            className="talend-logo line4"
+            d="M18.871 20.827l-.141-.299 9.098-4.137.141.3-9.098 4.136z"
+          />
+          <path
+            className="talend-logo circle4"
+            d="M17.816 19.716a1.402 1.402 0 0 1 1.959 0 1.343 1.343 0 0 1 0 1.927 1.4 1.4 0 0 1-1.961-.002 1.347 1.347 0 0 1 .002-1.925z"
+          />
+        </g>
+        <g
+          className="talend-logo value3"
+        >
+          <path
+            className="talend-logo line3"
+            d="M11.538 16.369h16.329v.33H11.538z"
+          />
+          <path
+            className="talend-logo circle3"
+            d="M10.555 15.572a1.4 1.4 0 0 1 1.96-.001 1.347 1.347 0 0 1 0 1.928 1.404 1.404 0 0 1-1.962 0 1.345 1.345 0 0 1 .002-1.927z"
+          />
+        </g>
+        <g
+          className="talend-logo value2"
+        >
+          <path
+            className="talend-logo line2"
+            d="M27.828 16.684L1.305 4.635l.141-.3 26.523 12.05-.141.299z"
+          />
+          <path
+            className="talend-logo circle2"
+            d="M.406 3.525a1.404 1.404 0 0 1 1.96-.002 1.346 1.346 0 0 1 0 1.928 1.401 1.401 0 0 1-1.962-.002 1.346 1.346 0 0 1 .002-1.924z"
+          />
+        </g>
+        <g
+          className="talend-logo value1"
+        >
+          <path
+            className="talend-logo line1"
+            d="M27.763 16.624L19.559 6.461l.263-.205 8.204 10.163-.263.205z"
+          />
+          <path
+            className="talend-logo circle1"
+            d="M18.713 5.4a1.4 1.4 0 0 1 1.96-.002 1.347 1.347 0 0 1 0 1.929 1.405 1.405 0 0 1-1.962-.002 1.346 1.346 0 0 1 .002-1.926z"
+          />
+        </g>
+        <path
+          className="talend-logo text-talend"
+          d="M58.8 19.043a6.671 6.671 0 0 0-3.027.627 2.494 2.494 0 0 0-1.317 2.35 2.767 2.767 0 0 0 3.07 2.863 6.32 6.32 0 0 0 4.104-1.764v-4.193zm3.11 6.819a7.844 7.844 0 0 1-5.5 2.273c-3.546 0-6.14-2.313-6.14-5.878a5.258 5.258 0 0 1 3.15-5.016 11.688 11.688 0 0 1 4.822-.98l3.388-.118v-.782c0-2.431-1.555-3.45-3.786-3.45a10.192 10.192 0 0 0-5.022 1.373l-1.436-2.705a14.31 14.31 0 0 1 7.096-1.842c4.664 0 7.295 2.118 7.295 6.624v7.13a10.565 10.565 0 0 0 .959 5.25h-4.15zM38.756 9.208v-4.27L42.9 3.682v5.526h5.66l-1.033 3.213H42.9v10.032c0 1.682.638 2.35 1.875 2.35a5.359 5.359 0 0 0 2.883-.897 5.699 5.699 0 0 0 1.108 2.943 10.162 10.162 0 0 1-4.987 1.286c-3.15 0-5.022-1.765-5.022-4.781V9.208zm51.15 7.366c-.08-2.352-1.234-4.662-3.905-4.662-2.513 0-3.986 2.155-4.025 4.662zm-7.89 2.9a5.262 5.262 0 0 0 5.618 5.409 9.55 9.55 0 0 0 4.744-1.256l1.236 2.785a12.125 12.125 0 0 1-6.419 1.723c-6.574 0-9.404-4.585-9.404-9.72 0-5.602 3.149-9.678 8.25-9.678 5.141 0 8.092 3.763 8.092 9.758v.978zm-3.957 7.61a11.245 11.245 0 0 1-4.597.931c-2.908 0-4.345-1.488-4.345-4.191V1.49L73.263 0v22.687c0 1.373.478 1.763 1.396 1.763a10.391 10.391 0 0 0 1.4-.264 7.652 7.652 0 0 0 2.001 2.899zM96.905 9.209h3.805l-.054 2.367a11.165 11.165 0 0 1 6.69-2.837c2.989 0 5.897 1.568 5.897 6.663v12.34h-4.142V16.693c0-2.43-.56-4.389-3.07-4.389a8.219 8.219 0 0 0-4.982 2.234V27.74h-4.144zM133.04 22.49V.04l-.003.012V0l-4.145 1.49v7.523a13.115 13.115 0 0 0-2.75-.275c-5.725 0-10.012 3.909-10.151 9.631l-.003.036c0 .029-.003.065-.003.108-.002.046-.008.09-.008.138 0 .027.004.055.004.083-.01 1.357.234 5.702 3.563 8.065l.06.042c.13.091.265.178.405.262.034.02.065.04.096.06a7.536 7.536 0 0 0 .837.424c.021.01.043.018.066.027.162.069.327.131.496.185a.132.132 0 0 1 .023.007c.151.049.306.091.464.13.063.018.127.028.189.042.108.023.215.045.324.063.111.016.22.031.33.042a3.367 3.367 0 0 0 .425.034c.138.008.273.018.415.018a7.84 7.84 0 0 0 5.5-2.273l.677 1.88H134a10.548 10.548 0 0 1-.96-5.252zm-8.966 2.33a3.76 3.76 0 0 1-1.274-.461 3.497 3.497 0 0 1-.076-.043c-.03-.018-.06-.033-.088-.053a4.85 4.85 0 0 1-.51-.354c-.103-.098-.192-.198-.283-.299a2.442 2.442 0 0 1-.18-.194 5.262 5.262 0 0 1-.63-.903c-.043-.08-.078-.16-.118-.238-.02-.042-.044-.083-.064-.126a7.98 7.98 0 0 1-.582-4.224 8.121 8.121 0 0 1 .127-.941c.005-.025.007-.052.01-.075a7.393 7.393 0 0 1 .302-1.039 5.78 5.78 0 0 1 5.673-3.723 9.336 9.336 0 0 1 2.5.31V23.12a6.126 6.126 0 0 1-4.092 1.764 2.458 2.458 0 0 1-.715-.063z"
+        />
+        <ellipse
+          className="talend-logo big-circle"
+          cx="27.896"
+          cy="16.536"
+          rx="5.932"
+          ry="5.831"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-dp"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M25.559 15.924a1.452 1.452 0 0 1 .97-1.364 10.635 10.635 0 0 0-8.921-8.936 1.476 1.476 0 0 1-2.737-.055 10.628 10.628 0 0 0-9.364 9.004 1.444 1.444 0 0 1-.049 2.719 10.62 10.62 0 0 0 9.344 9.392 1.473 1.473 0 0 1 2.884-.06 10.624 10.624 0 0 0 8.892-9.32 1.454 1.454 0 0 1-1.02-1.38zm-5.837-6.058a.933.933 0 1 1-.93.934.931.931 0 0 1 .93-.934zM16.465 8a1.4 1.4 0 1 1-1.396 1.4A1.397 1.397 0 0 1 16.465 8zm-4.187.933a.933.933 0 1 1-.93.933.931.931 0 0 1 .93-.933zm9.305 13.999H10.417c-.512 0-.727-.368-.479-.817l3.749-6.768a1.531 1.531 0 0 1 .452-.47v-1.51a.882.882 0 0 1-.93-.817.881.881 0 0 1 .93-.817h3.722a.881.881 0 0 1 .93.817.882.882 0 0 1-.93.816v1.511a1.532 1.532 0 0 1 .452.47l3.749 6.768c.248.449.033.817-.479.817zm-2.481-3.733l1.034 1.866h-8.272l1.034-1.866zM16 1a15 15 0 1 0 0 30h15V16A15 15 0 0 0 16 1zm11.46 16.312a11.504 11.504 0 0 1-9.867 10.21 1.477 1.477 0 0 1-2.659.057A11.503 11.503 0 0 1 4.58 17.322a1.446 1.446 0 0 1 .055-2.81 11.504 11.504 0 0 1 10.197-9.82 1.474 1.474 0 0 1 2.853.06 11.505 11.505 0 0 1 9.721 9.77 1.446 1.446 0 0 1 .055 2.79z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-ic"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M26.46 17.33a10.54 10.54 0 0 1-9.118 9.113 1.41 1.41 0 0 0-.964-.9v-5.772l3.757.004a3.063 3.063 0 0 0 0-6.123 2.845 2.845 0 0 0-.412.033 3.828 3.828 0 0 0-7.118-.99 1.676 1.676 0 0 0-.331-.038 1.755 1.755 0 0 0-1.732 1.778 1.805 1.805 0 0 0 .135.687 2.347 2.347 0 0 0 .413 4.644l4.518.004v5.784a1.409 1.409 0 0 0-.928.886 10.54 10.54 0 0 1-9.094-9.12 1.407 1.407 0 0 0 .004-2.661 10.54 10.54 0 0 1 9.1-9.088 1.409 1.409 0 0 0 2.643-.004 10.54 10.54 0 0 1 9.123 9.082 1.406 1.406 0 0 0 .004 2.682zm4.546-1.341v15h-15a15 15 0 1 1 15-15zm-2.7 0a1.414 1.414 0 0 0-1.077-1.37 11.312 11.312 0 0 0-9.831-9.82 1.414 1.414 0 0 0-2.775.004 11.312 11.312 0 0 0-9.803 9.804 1.413 1.413 0 0 0-.005 2.762 11.312 11.312 0 0 0 9.816 9.84 1.413 1.413 0 0 0 2.758.004 11.312 11.312 0 0 0 9.844-9.855 1.413 1.413 0 0 0 1.072-1.369z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-mc"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.072 15.68h-2.751v-2.753h2.32a10.848 10.848 0 0 1 .431 2.752zm-6.298 0h2.905v-2.753h-2.474a10.844 10.844 0 0 0-.43 2.752zm4.228-5.958a6.404 6.404 0 0 0-.681-.07v2.655h2.115a9.226 9.226 0 0 0-1.434-2.585zm-3.799 9.344h2.476v-2.745h-2.905a10.845 10.845 0 0 0 .43 2.745zm.208-6.76h2.268V9.652a6.425 6.425 0 0 0-.859.103 9.243 9.243 0 0 0-1.41 2.553zm1.41 9.94a6.42 6.42 0 0 0 .858.103v-2.662h-2.27a9.24 9.24 0 0 0 1.411 2.56zm-2.668-5.925H9.65a6.313 6.313 0 0 0 .782 2.745h2.124a11.509 11.509 0 0 1-.404-2.745zm.406-3.394h-2.122a6.312 6.312 0 0 0-.786 2.752h2.502a11.508 11.508 0 0 1 .406-2.752zM31 16v15H16a15 15 0 1 1 15-15zm-3 0a1.377 1.377 0 0 0-1.05-1.333 11.023 11.023 0 0 0-9.592-9.557 1.38 1.38 0 0 0-2.707.003 11.023 11.023 0 0 0-9.564 9.543 1.375 1.375 0 0 0-.005 2.688 11.024 11.024 0 0 0 9.576 9.577 1.38 1.38 0 0 0 2.692.004 11.023 11.023 0 0 0 9.604-9.593A1.376 1.376 0 0 0 28 16.001zm-17.175 3.687a6.388 6.388 0 0 0 3.044 2.302 10.09 10.09 0 0 1-1.122-2.302zm7.108-9.743a10.078 10.078 0 0 1 1.163 2.363h2.075a6.384 6.384 0 0 0-3.238-2.363zm1.139 6.377h-2.751v2.745h2.322a10.851 10.851 0 0 0 .429-2.745zm7.128.985a10.27 10.27 0 0 1-8.896 8.869 1.52 1.52 0 0 0-1.297-.952 1.418 1.418 0 0 0-1.3.95 10.271 10.271 0 0 1-8.873-8.877 1.369 1.369 0 0 0 .004-2.59 10.271 10.271 0 0 1 8.878-8.846 1.375 1.375 0 0 0 2.579-.003 10.272 10.272 0 0 1 8.9 8.839 1.368 1.368 0 0 0 .005 2.61zM23 16a7 7 0 1 0-7 7 7.008 7.008 0 0 0 7-7zm-3.306-.32h2.655a6.313 6.313 0 0 0-.786-2.752h-2.276a11.505 11.505 0 0 1 .407 2.751zm-5.826-5.669a6.388 6.388 0 0 0-3.038 2.296h1.92a10.095 10.095 0 0 1 1.118-2.296zm5.421 9.055h2.278a6.313 6.313 0 0 0 .782-2.745h-2.655a11.506 11.506 0 0 1-.405 2.745zm-2.968.621v2.662a6.41 6.41 0 0 0 .68-.07 9.225 9.225 0 0 0 1.437-2.592zm1.612 2.37a6.383 6.383 0 0 0 3.242-2.37h-2.077a10.077 10.077 0 0 1-1.165 2.37z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-square"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M26.524 10.48a5.512 5.512 0 0 0-3.348 1.081l-3.54-4.407a1.274 1.274 0 0 0-.081-1.719 1.32 1.32 0 0 0-1.853.001l-.016.016a1.284 1.284 0 0 0 .014 1.815 1.313 1.313 0 0 0 1.493.238l3.545 4.414a5.551 5.551 0 0 0-1.209 1.573L2.571 4.837a1.263 1.263 0 0 0-.332-1.184 1.324 1.324 0 0 0-1.855.002l-.014.014a1.284 1.284 0 0 0 .012 1.815 1.321 1.321 0 0 0 1.857.002l.016-.017a1.2 1.2 0 0 0 .078-.12l18.964 8.658a5.517 5.517 0 0 0-.371 1.733h-8.759a1.25 1.25 0 0 0-.328-.634 1.321 1.321 0 0 0-1.855.002l-.016.016a1.283 1.283 0 0 0 .015 1.815 1.324 1.324 0 0 0 1.856 0l.015-.016a1.249 1.249 0 0 0 .314-.62h8.758a5.514 5.514 0 0 0 .37 1.743l-2.494 1.14a1.202 1.202 0 0 0-.096-.14 1.321 1.321 0 0 0-1.853.001l-.013.013a1.285 1.285 0 0 0 .011 1.817 1.32 1.32 0 0 0 1.855.002l.022-.021a1.259 1.259 0 0 0 .312-1.161l2.488-1.136a5.56 5.56 0 0 0 1.21 1.568l-6.545 8.146a1.313 1.313 0 0 0-1.493.238l-.016.016a1.284 1.284 0 0 0 .017 1.815 1.32 1.32 0 0 0 1.854.002l.016-.016a1.272 1.272 0 0 0 .064-1.7l6.54-8.143a5.512 5.512 0 0 0 3.213 1.08 5.544 5.544 0 0 0 .136-11.087z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-question-circle"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.64 2.366A7.69 7.69 0 0 0 7.98 0a7.69 7.69 0 0 0-5.658 2.366A7.549 7.549 0 0 0 0 8a7.69 7.69 0 0 0 2.323 5.671A7.8 7.8 0 0 0 7.981 16a7.8 7.8 0 0 0 5.658-2.329A7.725 7.725 0 0 0 16 8a7.582 7.582 0 0 0-2.36-5.634zM9 14H7v-2h2zm2.108-6.75a3.727 3.727 0 0 1-.46.797 6.536 6.536 0 0 1-.582.67 7.383 7.383 0 0 0-.567.642 2.903 2.903 0 0 0-.413.726 1.998 1.998 0 0 0-.107.915H7.017a2.594 2.594 0 0 1 .039-1.08 3.312 3.312 0 0 1 .359-.859 3.802 3.802 0 0 1 .529-.688c.2-.205.385-.405.56-.599a4.376 4.376 0 0 0 .443-.579 1.162 1.162 0 0 0 .185-.634 1.08 1.08 0 0 0-.323-.86 1.19 1.19 0 0 0-.812-.28 1.524 1.524 0 0 0-.843.235 4.045 4.045 0 0 0-.72.597L5.179 4.896a4.633 4.633 0 0 1 1.303-1.178 3.167 3.167 0 0 1 1.67-.453 4.123 4.123 0 0 1 1.233.18 2.727 2.727 0 0 1 .996.553 2.66 2.66 0 0 1 .667.924 3.197 3.197 0 0 1 .245 1.296 2.648 2.648 0 0 1-.184 1.032z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-search"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.5 14C3.9 14 1 11.1 1 7.5S3.9 1 7.5 1 14 3.9 14 7.5 11.1 14 7.5 14zm0-11C5 3 3 5 3 7.5S5 12 7.5 12 12 10 12 7.5 10 3 7.5 3zm6 9c-.4.6-.9 1.1-1.5 1.5l2.5 2.5 1.5-1.5-2.5-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-share-alt"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 11c-.7 0-1.4.3-1.8.8l-4.8-3c0-.2.1-.5.1-.8s-.1-.6-.2-.8l4.8-3c.5.5 1.2.8 1.9.8C13.9 5 15 3.9 15 2.5S13.9 0 12.5 0 10 1.1 10 2.5c0 .3.1.6.2.8l-4.8 3c-.5-.5-1.2-.8-1.9-.8C2.1 5.5 1 6.6 1 8s1.1 2.5 2.5 2.5c.7 0 1.4-.3 1.8-.8l4.8 3c-.1.3-.2.5-.2.8 0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5c.1-1.4-1-2.5-2.4-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-star"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 0l2.5 5 5.5.8-4 3.9.9 5.5L8 12.6l-4.9 2.6.9-5.5-4-3.9L5.5 5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-user-circle"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="8"
+          cy="6"
+          r="3"
+        />
+        <path
+          d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm3 8.6c-.7.9-1.8 1.4-3 1.4s-2.3-.5-3-1.4c-1.3.5-2.4 1.4-3.3 2.5-.4-.9-.7-2-.7-3.1 0-3.9 3.1-7 7-7s7 3.1 7 7c0 1.1-.3 2.2-.7 3.1-.9-1.1-2-2-3.3-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-board"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 3h14v8H1zM0 0h16v2H0zm5.6 12l-2.1 2.1 1.4 1.4L8 12.4l3.1 3.1 1.4-1.4-2.1-2.1z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-bell"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.615 14.345a1.408 1.408 0 1 0 2.769 0H6.615zm5.915-4.183V5.206s.083-2.375-2.999-3.332c-.429-.166-.583-.5-.583-1.167 0-.612-.601-.704-.938-.707h-.02c-.337.003-.938.095-.938.707 0 .667-.155 1.001-.583 1.167-3.082.957-2.999 3.332-2.999 3.332v4.956c0 2.04-2.124 2.582-2.124 2.582v1.207l6.644.042h.02l6.644-.042v-1.207s-2.124-.542-2.124-2.582z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-bell-notification"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          className="ti-badge"
+          d="M16 3.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0"
+          fill="#E96065"
+        />
+        <path
+          className="ti-bell"
+          d="M12.53 10.162V8h-.004a4.505 4.505 0 0 1-4.5-4.5c0-1.02.354-1.95.928-2.707 0-.03-.006-.053-.006-.086 0-.612-.6-.704-.938-.707h-.02c-.337.003-.939.095-.939.707 0 .667-.153 1.001-.583 1.167-3.08.957-2.998 3.332-2.998 3.332v4.956c0 2.04-2.124 2.582-2.124 2.582v1.208l6.644.041h.02l6.644-.04v-1.209s-2.124-.542-2.124-2.582m-5.915 4.183a1.407 1.407 0 1 0 2.769 0H6.615z"
+        />
+      </svg>
+    </symbol>
+  </svg>
+</div>
+`;
+
+exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
+<div>
+  <div
+    className={undefined}
+  >
+    <div
+      role="banner"
+    >
+      <nav
+        className="tc-header-bar navbar"
+      >
+        <ul
+          className={undefined}
+        >
+          <li
+            className=""
+          >
+            <button
+              className="undefined btn btn-link"
+              disabled={false}
+              id="header-logo"
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseDown={[Function]}
+              onMouseOver={[Function]}
+              role={null}
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                focusable="false"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-logo"
+                />
+              </svg>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <span>
+                Example App Name
+              </span>
+            </button>
+          </li>
+        </ul>
+        <ul
+          className=""
+        >
+          <li
+            className=""
+          >
+            <form
+              className="navbar-form navbar-right"
+              role="search"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                onMouseOver={[Function]}
+                role={null}
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="tc-svg-icon"
+                  focusable="false"
+                  title={null}
+                >
+                  <use
+                    xlinkHref="#talend-search"
+                  />
+                </svg>
+              </button>
+            </form>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="header-help"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                focusable="false"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-question-circle"
+                />
+              </svg>
+              <span>
+                Help
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <div
+              className="dropdown btn-group btn-group-link"
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="tc-dropdown-button dropdown-toggle btn btn-link"
+                disabled={false}
+                id="header-user"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseOver={[Function]}
+                role="button"
+                type="button"
+              >
+                <span
+                  className="tc-dropdown-button-title"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
+                  </span>
+                </span>
+                 
+                <span
+                  className="caret"
+                />
+              </button>
+              <ul
+                aria-labelledby="header-user"
+                className="dropdown-menu dropdown-menu-right"
+                role="menu"
+              >
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-cog"
+                    label="Settings"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-cog"
+                      />
+                    </svg>
+                    Settings
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            className={undefined}
+          >
+            <div
+              className="dropdown btn-group btn-group-link"
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="dropdown-toggle btn btn-link"
+                disabled={false}
+                id="header-products"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseOver={[Function]}
+                role="button"
+                type="button"
+              >
+                <span
+                  className="tc-dropdown-button-title"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-launcher"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <ul
+                aria-labelledby="header-products"
+                className="dropdown-menu dropdown-menu-right"
+                role="menu"
+              >
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-dp"
+                    label="Data Preparation"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-dp"
+                      />
+                    </svg>
+                    Data Preparation
+                  </a>
+                </li>
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-ic"
+                    label="Integration Cloud"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-ic"
+                      />
+                    </svg>
+                    Integration Cloud
+                  </a>
+                </li>
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-mc"
+                    label="Management Console"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-mc"
+                      />
+                    </svg>
+                    Management Console
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="container"
+    style={
+      Object {
+        "paddingTop": 40,
+      }
+    }
+  />
+  <svg
+    focusable="false"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h16v2.3H0zm0 6.9h16v2.3H0zm0 6.8h16V16H0z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-cog"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 10.907a2.927 2.927 0 0 1-2.93-2.923A2.927 2.927 0 0 1 8 5.06a2.927 2.927 0 0 1 2.932 2.923A2.927 2.927 0 0 1 8 10.907zm8-1.997V6.97l-2.32-.449-.024.002A5.79 5.79 0 0 0 13 4.97l1.32-1.962-1.361-1.373-1.955 1.337-.011.01a5.832 5.832 0 0 0-1.583-.654L8.969 0H7.043L6.6 2.324a5.83 5.83 0 0 0-1.557.639l-.047-.042-1.955-1.338L1.68 2.956l1.326 1.971.014.011a5.759 5.759 0 0 0-.673 1.584L2.32 6.52 0 6.97v1.94l2.318.447c.142.585.375 1.13.679 1.633L1.68 12.944l1.362 1.373 1.955-1.336c.485.29 1.012.512 1.574.654l.002.025.444 2.34h1.926l.444-2.34-.001-.012a5.796 5.796 0 0 0 1.62-.67l.018.015 1.955 1.338 1.362-1.373-1.327-1.971-.006-.005a5.76 5.76 0 0 0 .674-1.625L16 8.91z"
+          fillRule="evenodd"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-environment"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4h8v2H4zm0 3h8v2H4zm0 3h8v2H4zm-2 3V3L0 1v14zm14 2V1l-2 2v10zM3 2h10l2-2H1zM1 16h14l-2-2H3z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-filter"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16 1.825L10 8v8H8l-2-4V8L0 1.822V0h16v1.825z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-launcher"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4H0V0h4zm6-4H6v4h4zm6 0h-4v4h4zM4 16H0v-4h4zm6-4H6v4h4zm6 0h-4v4h4zM4 10H0V6h4zm6-4H6v4h4zm6 0h-4v4h4z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo"
+    >
+      <svg
+        className="talend-logo"
+        viewBox="0 0 134 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          className="talend-logo value5"
+        >
+          <path
+            className="talend-logo line5"
+            d="M16.65 30.743l-.263-.205 11.376-14.09.263.206L16.65 30.743z"
+          />
+          <path
+            className="talend-logo circle5"
+            d="M15.541 31.6a1.4 1.4 0 0 0 1.96.001 1.347 1.347 0 0 0 0-1.929 1.405 1.405 0 0 0-1.961.002 1.346 1.346 0 0 0 .001 1.926z"
+          />
+        </g>
+        <g
+          className="talend-logo value4"
+        >
+          <path
+            className="talend-logo line4"
+            d="M18.871 20.827l-.141-.299 9.098-4.137.141.3-9.098 4.136z"
+          />
+          <path
+            className="talend-logo circle4"
+            d="M17.816 19.716a1.402 1.402 0 0 1 1.959 0 1.343 1.343 0 0 1 0 1.927 1.4 1.4 0 0 1-1.961-.002 1.347 1.347 0 0 1 .002-1.925z"
+          />
+        </g>
+        <g
+          className="talend-logo value3"
+        >
+          <path
+            className="talend-logo line3"
+            d="M11.538 16.369h16.329v.33H11.538z"
+          />
+          <path
+            className="talend-logo circle3"
+            d="M10.555 15.572a1.4 1.4 0 0 1 1.96-.001 1.347 1.347 0 0 1 0 1.928 1.404 1.404 0 0 1-1.962 0 1.345 1.345 0 0 1 .002-1.927z"
+          />
+        </g>
+        <g
+          className="talend-logo value2"
+        >
+          <path
+            className="talend-logo line2"
+            d="M27.828 16.684L1.305 4.635l.141-.3 26.523 12.05-.141.299z"
+          />
+          <path
+            className="talend-logo circle2"
+            d="M.406 3.525a1.404 1.404 0 0 1 1.96-.002 1.346 1.346 0 0 1 0 1.928 1.401 1.401 0 0 1-1.962-.002 1.346 1.346 0 0 1 .002-1.924z"
+          />
+        </g>
+        <g
+          className="talend-logo value1"
+        >
+          <path
+            className="talend-logo line1"
+            d="M27.763 16.624L19.559 6.461l.263-.205 8.204 10.163-.263.205z"
+          />
+          <path
+            className="talend-logo circle1"
+            d="M18.713 5.4a1.4 1.4 0 0 1 1.96-.002 1.347 1.347 0 0 1 0 1.929 1.405 1.405 0 0 1-1.962-.002 1.346 1.346 0 0 1 .002-1.926z"
+          />
+        </g>
+        <path
+          className="talend-logo text-talend"
+          d="M58.8 19.043a6.671 6.671 0 0 0-3.027.627 2.494 2.494 0 0 0-1.317 2.35 2.767 2.767 0 0 0 3.07 2.863 6.32 6.32 0 0 0 4.104-1.764v-4.193zm3.11 6.819a7.844 7.844 0 0 1-5.5 2.273c-3.546 0-6.14-2.313-6.14-5.878a5.258 5.258 0 0 1 3.15-5.016 11.688 11.688 0 0 1 4.822-.98l3.388-.118v-.782c0-2.431-1.555-3.45-3.786-3.45a10.192 10.192 0 0 0-5.022 1.373l-1.436-2.705a14.31 14.31 0 0 1 7.096-1.842c4.664 0 7.295 2.118 7.295 6.624v7.13a10.565 10.565 0 0 0 .959 5.25h-4.15zM38.756 9.208v-4.27L42.9 3.682v5.526h5.66l-1.033 3.213H42.9v10.032c0 1.682.638 2.35 1.875 2.35a5.359 5.359 0 0 0 2.883-.897 5.699 5.699 0 0 0 1.108 2.943 10.162 10.162 0 0 1-4.987 1.286c-3.15 0-5.022-1.765-5.022-4.781V9.208zm51.15 7.366c-.08-2.352-1.234-4.662-3.905-4.662-2.513 0-3.986 2.155-4.025 4.662zm-7.89 2.9a5.262 5.262 0 0 0 5.618 5.409 9.55 9.55 0 0 0 4.744-1.256l1.236 2.785a12.125 12.125 0 0 1-6.419 1.723c-6.574 0-9.404-4.585-9.404-9.72 0-5.602 3.149-9.678 8.25-9.678 5.141 0 8.092 3.763 8.092 9.758v.978zm-3.957 7.61a11.245 11.245 0 0 1-4.597.931c-2.908 0-4.345-1.488-4.345-4.191V1.49L73.263 0v22.687c0 1.373.478 1.763 1.396 1.763a10.391 10.391 0 0 0 1.4-.264 7.652 7.652 0 0 0 2.001 2.899zM96.905 9.209h3.805l-.054 2.367a11.165 11.165 0 0 1 6.69-2.837c2.989 0 5.897 1.568 5.897 6.663v12.34h-4.142V16.693c0-2.43-.56-4.389-3.07-4.389a8.219 8.219 0 0 0-4.982 2.234V27.74h-4.144zM133.04 22.49V.04l-.003.012V0l-4.145 1.49v7.523a13.115 13.115 0 0 0-2.75-.275c-5.725 0-10.012 3.909-10.151 9.631l-.003.036c0 .029-.003.065-.003.108-.002.046-.008.09-.008.138 0 .027.004.055.004.083-.01 1.357.234 5.702 3.563 8.065l.06.042c.13.091.265.178.405.262.034.02.065.04.096.06a7.536 7.536 0 0 0 .837.424c.021.01.043.018.066.027.162.069.327.131.496.185a.132.132 0 0 1 .023.007c.151.049.306.091.464.13.063.018.127.028.189.042.108.023.215.045.324.063.111.016.22.031.33.042a3.367 3.367 0 0 0 .425.034c.138.008.273.018.415.018a7.84 7.84 0 0 0 5.5-2.273l.677 1.88H134a10.548 10.548 0 0 1-.96-5.252zm-8.966 2.33a3.76 3.76 0 0 1-1.274-.461 3.497 3.497 0 0 1-.076-.043c-.03-.018-.06-.033-.088-.053a4.85 4.85 0 0 1-.51-.354c-.103-.098-.192-.198-.283-.299a2.442 2.442 0 0 1-.18-.194 5.262 5.262 0 0 1-.63-.903c-.043-.08-.078-.16-.118-.238-.02-.042-.044-.083-.064-.126a7.98 7.98 0 0 1-.582-4.224 8.121 8.121 0 0 1 .127-.941c.005-.025.007-.052.01-.075a7.393 7.393 0 0 1 .302-1.039 5.78 5.78 0 0 1 5.673-3.723 9.336 9.336 0 0 1 2.5.31V23.12a6.126 6.126 0 0 1-4.092 1.764 2.458 2.458 0 0 1-.715-.063z"
+        />
+        <ellipse
+          className="talend-logo big-circle"
+          cx="27.896"
+          cy="16.536"
+          rx="5.932"
+          ry="5.831"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-dp"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M25.559 15.924a1.452 1.452 0 0 1 .97-1.364 10.635 10.635 0 0 0-8.921-8.936 1.476 1.476 0 0 1-2.737-.055 10.628 10.628 0 0 0-9.364 9.004 1.444 1.444 0 0 1-.049 2.719 10.62 10.62 0 0 0 9.344 9.392 1.473 1.473 0 0 1 2.884-.06 10.624 10.624 0 0 0 8.892-9.32 1.454 1.454 0 0 1-1.02-1.38zm-5.837-6.058a.933.933 0 1 1-.93.934.931.931 0 0 1 .93-.934zM16.465 8a1.4 1.4 0 1 1-1.396 1.4A1.397 1.397 0 0 1 16.465 8zm-4.187.933a.933.933 0 1 1-.93.933.931.931 0 0 1 .93-.933zm9.305 13.999H10.417c-.512 0-.727-.368-.479-.817l3.749-6.768a1.531 1.531 0 0 1 .452-.47v-1.51a.882.882 0 0 1-.93-.817.881.881 0 0 1 .93-.817h3.722a.881.881 0 0 1 .93.817.882.882 0 0 1-.93.816v1.511a1.532 1.532 0 0 1 .452.47l3.749 6.768c.248.449.033.817-.479.817zm-2.481-3.733l1.034 1.866h-8.272l1.034-1.866zM16 1a15 15 0 1 0 0 30h15V16A15 15 0 0 0 16 1zm11.46 16.312a11.504 11.504 0 0 1-9.867 10.21 1.477 1.477 0 0 1-2.659.057A11.503 11.503 0 0 1 4.58 17.322a1.446 1.446 0 0 1 .055-2.81 11.504 11.504 0 0 1 10.197-9.82 1.474 1.474 0 0 1 2.853.06 11.505 11.505 0 0 1 9.721 9.77 1.446 1.446 0 0 1 .055 2.79z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-ic"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M26.46 17.33a10.54 10.54 0 0 1-9.118 9.113 1.41 1.41 0 0 0-.964-.9v-5.772l3.757.004a3.063 3.063 0 0 0 0-6.123 2.845 2.845 0 0 0-.412.033 3.828 3.828 0 0 0-7.118-.99 1.676 1.676 0 0 0-.331-.038 1.755 1.755 0 0 0-1.732 1.778 1.805 1.805 0 0 0 .135.687 2.347 2.347 0 0 0 .413 4.644l4.518.004v5.784a1.409 1.409 0 0 0-.928.886 10.54 10.54 0 0 1-9.094-9.12 1.407 1.407 0 0 0 .004-2.661 10.54 10.54 0 0 1 9.1-9.088 1.409 1.409 0 0 0 2.643-.004 10.54 10.54 0 0 1 9.123 9.082 1.406 1.406 0 0 0 .004 2.682zm4.546-1.341v15h-15a15 15 0 1 1 15-15zm-2.7 0a1.414 1.414 0 0 0-1.077-1.37 11.312 11.312 0 0 0-9.831-9.82 1.414 1.414 0 0 0-2.775.004 11.312 11.312 0 0 0-9.803 9.804 1.413 1.413 0 0 0-.005 2.762 11.312 11.312 0 0 0 9.816 9.84 1.413 1.413 0 0 0 2.758.004 11.312 11.312 0 0 0 9.844-9.855 1.413 1.413 0 0 0 1.072-1.369z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-mc"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.072 15.68h-2.751v-2.753h2.32a10.848 10.848 0 0 1 .431 2.752zm-6.298 0h2.905v-2.753h-2.474a10.844 10.844 0 0 0-.43 2.752zm4.228-5.958a6.404 6.404 0 0 0-.681-.07v2.655h2.115a9.226 9.226 0 0 0-1.434-2.585zm-3.799 9.344h2.476v-2.745h-2.905a10.845 10.845 0 0 0 .43 2.745zm.208-6.76h2.268V9.652a6.425 6.425 0 0 0-.859.103 9.243 9.243 0 0 0-1.41 2.553zm1.41 9.94a6.42 6.42 0 0 0 .858.103v-2.662h-2.27a9.24 9.24 0 0 0 1.411 2.56zm-2.668-5.925H9.65a6.313 6.313 0 0 0 .782 2.745h2.124a11.509 11.509 0 0 1-.404-2.745zm.406-3.394h-2.122a6.312 6.312 0 0 0-.786 2.752h2.502a11.508 11.508 0 0 1 .406-2.752zM31 16v15H16a15 15 0 1 1 15-15zm-3 0a1.377 1.377 0 0 0-1.05-1.333 11.023 11.023 0 0 0-9.592-9.557 1.38 1.38 0 0 0-2.707.003 11.023 11.023 0 0 0-9.564 9.543 1.375 1.375 0 0 0-.005 2.688 11.024 11.024 0 0 0 9.576 9.577 1.38 1.38 0 0 0 2.692.004 11.023 11.023 0 0 0 9.604-9.593A1.376 1.376 0 0 0 28 16.001zm-17.175 3.687a6.388 6.388 0 0 0 3.044 2.302 10.09 10.09 0 0 1-1.122-2.302zm7.108-9.743a10.078 10.078 0 0 1 1.163 2.363h2.075a6.384 6.384 0 0 0-3.238-2.363zm1.139 6.377h-2.751v2.745h2.322a10.851 10.851 0 0 0 .429-2.745zm7.128.985a10.27 10.27 0 0 1-8.896 8.869 1.52 1.52 0 0 0-1.297-.952 1.418 1.418 0 0 0-1.3.95 10.271 10.271 0 0 1-8.873-8.877 1.369 1.369 0 0 0 .004-2.59 10.271 10.271 0 0 1 8.878-8.846 1.375 1.375 0 0 0 2.579-.003 10.272 10.272 0 0 1 8.9 8.839 1.368 1.368 0 0 0 .005 2.61zM23 16a7 7 0 1 0-7 7 7.008 7.008 0 0 0 7-7zm-3.306-.32h2.655a6.313 6.313 0 0 0-.786-2.752h-2.276a11.505 11.505 0 0 1 .407 2.751zm-5.826-5.669a6.388 6.388 0 0 0-3.038 2.296h1.92a10.095 10.095 0 0 1 1.118-2.296zm5.421 9.055h2.278a6.313 6.313 0 0 0 .782-2.745h-2.655a11.506 11.506 0 0 1-.405 2.745zm-2.968.621v2.662a6.41 6.41 0 0 0 .68-.07 9.225 9.225 0 0 0 1.437-2.592zm1.612 2.37a6.383 6.383 0 0 0 3.242-2.37h-2.077a10.077 10.077 0 0 1-1.165 2.37z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-square"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M26.524 10.48a5.512 5.512 0 0 0-3.348 1.081l-3.54-4.407a1.274 1.274 0 0 0-.081-1.719 1.32 1.32 0 0 0-1.853.001l-.016.016a1.284 1.284 0 0 0 .014 1.815 1.313 1.313 0 0 0 1.493.238l3.545 4.414a5.551 5.551 0 0 0-1.209 1.573L2.571 4.837a1.263 1.263 0 0 0-.332-1.184 1.324 1.324 0 0 0-1.855.002l-.014.014a1.284 1.284 0 0 0 .012 1.815 1.321 1.321 0 0 0 1.857.002l.016-.017a1.2 1.2 0 0 0 .078-.12l18.964 8.658a5.517 5.517 0 0 0-.371 1.733h-8.759a1.25 1.25 0 0 0-.328-.634 1.321 1.321 0 0 0-1.855.002l-.016.016a1.283 1.283 0 0 0 .015 1.815 1.324 1.324 0 0 0 1.856 0l.015-.016a1.249 1.249 0 0 0 .314-.62h8.758a5.514 5.514 0 0 0 .37 1.743l-2.494 1.14a1.202 1.202 0 0 0-.096-.14 1.321 1.321 0 0 0-1.853.001l-.013.013a1.285 1.285 0 0 0 .011 1.817 1.32 1.32 0 0 0 1.855.002l.022-.021a1.259 1.259 0 0 0 .312-1.161l2.488-1.136a5.56 5.56 0 0 0 1.21 1.568l-6.545 8.146a1.313 1.313 0 0 0-1.493.238l-.016.016a1.284 1.284 0 0 0 .017 1.815 1.32 1.32 0 0 0 1.854.002l.016-.016a1.272 1.272 0 0 0 .064-1.7l6.54-8.143a5.512 5.512 0 0 0 3.213 1.08 5.544 5.544 0 0 0 .136-11.087z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-question-circle"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.64 2.366A7.69 7.69 0 0 0 7.98 0a7.69 7.69 0 0 0-5.658 2.366A7.549 7.549 0 0 0 0 8a7.69 7.69 0 0 0 2.323 5.671A7.8 7.8 0 0 0 7.981 16a7.8 7.8 0 0 0 5.658-2.329A7.725 7.725 0 0 0 16 8a7.582 7.582 0 0 0-2.36-5.634zM9 14H7v-2h2zm2.108-6.75a3.727 3.727 0 0 1-.46.797 6.536 6.536 0 0 1-.582.67 7.383 7.383 0 0 0-.567.642 2.903 2.903 0 0 0-.413.726 1.998 1.998 0 0 0-.107.915H7.017a2.594 2.594 0 0 1 .039-1.08 3.312 3.312 0 0 1 .359-.859 3.802 3.802 0 0 1 .529-.688c.2-.205.385-.405.56-.599a4.376 4.376 0 0 0 .443-.579 1.162 1.162 0 0 0 .185-.634 1.08 1.08 0 0 0-.323-.86 1.19 1.19 0 0 0-.812-.28 1.524 1.524 0 0 0-.843.235 4.045 4.045 0 0 0-.72.597L5.179 4.896a4.633 4.633 0 0 1 1.303-1.178 3.167 3.167 0 0 1 1.67-.453 4.123 4.123 0 0 1 1.233.18 2.727 2.727 0 0 1 .996.553 2.66 2.66 0 0 1 .667.924 3.197 3.197 0 0 1 .245 1.296 2.648 2.648 0 0 1-.184 1.032z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-search"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.5 14C3.9 14 1 11.1 1 7.5S3.9 1 7.5 1 14 3.9 14 7.5 11.1 14 7.5 14zm0-11C5 3 3 5 3 7.5S5 12 7.5 12 12 10 12 7.5 10 3 7.5 3zm6 9c-.4.6-.9 1.1-1.5 1.5l2.5 2.5 1.5-1.5-2.5-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-share-alt"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 11c-.7 0-1.4.3-1.8.8l-4.8-3c0-.2.1-.5.1-.8s-.1-.6-.2-.8l4.8-3c.5.5 1.2.8 1.9.8C13.9 5 15 3.9 15 2.5S13.9 0 12.5 0 10 1.1 10 2.5c0 .3.1.6.2.8l-4.8 3c-.5-.5-1.2-.8-1.9-.8C2.1 5.5 1 6.6 1 8s1.1 2.5 2.5 2.5c.7 0 1.4-.3 1.8-.8l4.8 3c-.1.3-.2.5-.2.8 0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5c.1-1.4-1-2.5-2.4-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-star"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 0l2.5 5 5.5.8-4 3.9.9 5.5L8 12.6l-4.9 2.6.9-5.5-4-3.9L5.5 5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-user-circle"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="8"
+          cy="6"
+          r="3"
+        />
+        <path
+          d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm3 8.6c-.7.9-1.8 1.4-3 1.4s-2.3-.5-3-1.4c-1.3.5-2.4 1.4-3.3 2.5-.4-.9-.7-2-.7-3.1 0-3.9 3.1-7 7-7s7 3.1 7 7c0 1.1-.3 2.2-.7 3.1-.9-1.1-2-2-3.3-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-board"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 3h14v8H1zM0 0h16v2H0zm5.6 12l-2.1 2.1 1.4 1.4L8 12.4l3.1 3.1 1.4-1.4-2.1-2.1z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-bell"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.615 14.345a1.408 1.408 0 1 0 2.769 0H6.615zm5.915-4.183V5.206s.083-2.375-2.999-3.332c-.429-.166-.583-.5-.583-1.167 0-.612-.601-.704-.938-.707h-.02c-.337.003-.938.095-.938.707 0 .667-.155 1.001-.583 1.167-3.082.957-2.999 3.332-2.999 3.332v4.956c0 2.04-2.124 2.582-2.124 2.582v1.207l6.644.042h.02l6.644-.042v-1.207s-2.124-.542-2.124-2.582z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-bell-notification"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          className="ti-badge"
+          d="M16 3.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0"
+          fill="#E96065"
+        />
+        <path
+          className="ti-bell"
+          d="M12.53 10.162V8h-.004a4.505 4.505 0 0 1-4.5-4.5c0-1.02.354-1.95.928-2.707 0-.03-.006-.053-.006-.086 0-.612-.6-.704-.938-.707h-.02c-.337.003-.939.095-.939.707 0 .667-.153 1.001-.583 1.167-3.08.957-2.998 3.332-2.998 3.332v4.956c0 2.04-2.124 2.582-2.124 2.582v1.208l6.644.041h.02l6.644-.04v-1.209s-2.124-.542-2.124-2.582m-5.915 4.183a1.407 1.407 0 1 0 2.769 0H6.615z"
+        />
+      </svg>
+    </symbol>
+  </svg>
+</div>
+`;
+
+exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
+<div>
+  <div
+    className={undefined}
+  >
+    <div
+      role="banner"
+    >
+      <nav
+        className="tc-header-bar navbar"
+      >
+        <ul
+          className={undefined}
+        >
+          <li
+            className=""
+          >
+            <button
+              className="undefined btn btn-link"
+              disabled={false}
+              id="header-logo"
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseDown={[Function]}
+              onMouseOver={[Function]}
+              role={null}
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                focusable="false"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-logo"
+                />
+              </svg>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <span>
+                Example App Name
+              </span>
+            </button>
+          </li>
+        </ul>
+        <ul
+          className=""
+        >
+          <li
+            className=""
+          >
+            <form
+              className="navbar-form navbar-right"
+              role="search"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                onMouseOver={[Function]}
+                role={null}
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="tc-svg-icon"
+                  focusable="false"
+                  title={null}
+                >
+                  <use
+                    xlinkHref="#talend-search"
+                  />
+                </svg>
+              </button>
+            </form>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="header-help"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                focusable="false"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-question-circle"
+                />
+              </svg>
+              <span>
+                Help
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <div
+              className="dropdown btn-group btn-group-link"
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="tc-dropdown-button dropdown-toggle btn btn-link"
+                disabled={false}
+                id="header-user"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseOver={[Function]}
+                role="button"
+                type="button"
+              >
+                <span
+                  className="tc-dropdown-button-title"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
+                  </span>
+                </span>
+                 
+                <span
+                  className="caret"
+                />
+              </button>
+              <ul
+                aria-labelledby="header-user"
+                className="dropdown-menu dropdown-menu-right"
+                role="menu"
+              >
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-cog"
+                    label="Settings"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-cog"
+                      />
+                    </svg>
+                    Settings
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            className={undefined}
+          >
+            <div
+              className="dropdown btn-group btn-group-link"
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="dropdown-toggle btn btn-link"
+                disabled={false}
+                id="header-products"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseOver={[Function]}
+                role="button"
+                type="button"
+              >
+                <span
+                  className="tc-dropdown-button-title"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-launcher"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <ul
+                aria-labelledby="header-products"
+                className="dropdown-menu dropdown-menu-right"
+                role="menu"
+              >
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-dp"
+                    label="Data Preparation"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-dp"
+                      />
+                    </svg>
+                    Data Preparation
+                  </a>
+                </li>
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-ic"
+                    label="Integration Cloud"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-ic"
+                      />
+                    </svg>
+                    Integration Cloud
+                  </a>
+                </li>
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-mc"
+                    label="Management Console"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-mc"
+                      />
+                    </svg>
+                    Management Console
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="container"
+    style={
+      Object {
+        "paddingTop": 40,
+      }
+    }
+  />
+  <svg
+    focusable="false"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h16v2.3H0zm0 6.9h16v2.3H0zm0 6.8h16V16H0z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-cog"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 10.907a2.927 2.927 0 0 1-2.93-2.923A2.927 2.927 0 0 1 8 5.06a2.927 2.927 0 0 1 2.932 2.923A2.927 2.927 0 0 1 8 10.907zm8-1.997V6.97l-2.32-.449-.024.002A5.79 5.79 0 0 0 13 4.97l1.32-1.962-1.361-1.373-1.955 1.337-.011.01a5.832 5.832 0 0 0-1.583-.654L8.969 0H7.043L6.6 2.324a5.83 5.83 0 0 0-1.557.639l-.047-.042-1.955-1.338L1.68 2.956l1.326 1.971.014.011a5.759 5.759 0 0 0-.673 1.584L2.32 6.52 0 6.97v1.94l2.318.447c.142.585.375 1.13.679 1.633L1.68 12.944l1.362 1.373 1.955-1.336c.485.29 1.012.512 1.574.654l.002.025.444 2.34h1.926l.444-2.34-.001-.012a5.796 5.796 0 0 0 1.62-.67l.018.015 1.955 1.338 1.362-1.373-1.327-1.971-.006-.005a5.76 5.76 0 0 0 .674-1.625L16 8.91z"
+          fillRule="evenodd"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-environment"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4h8v2H4zm0 3h8v2H4zm0 3h8v2H4zm-2 3V3L0 1v14zm14 2V1l-2 2v10zM3 2h10l2-2H1zM1 16h14l-2-2H3z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-filter"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16 1.825L10 8v8H8l-2-4V8L0 1.822V0h16v1.825z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-launcher"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4H0V0h4zm6-4H6v4h4zm6 0h-4v4h4zM4 16H0v-4h4zm6-4H6v4h4zm6 0h-4v4h4zM4 10H0V6h4zm6-4H6v4h4zm6 0h-4v4h4z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo"
+    >
+      <svg
+        className="talend-logo"
+        viewBox="0 0 134 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          className="talend-logo value5"
+        >
+          <path
+            className="talend-logo line5"
+            d="M16.65 30.743l-.263-.205 11.376-14.09.263.206L16.65 30.743z"
+          />
+          <path
+            className="talend-logo circle5"
+            d="M15.541 31.6a1.4 1.4 0 0 0 1.96.001 1.347 1.347 0 0 0 0-1.929 1.405 1.405 0 0 0-1.961.002 1.346 1.346 0 0 0 .001 1.926z"
+          />
+        </g>
+        <g
+          className="talend-logo value4"
+        >
+          <path
+            className="talend-logo line4"
+            d="M18.871 20.827l-.141-.299 9.098-4.137.141.3-9.098 4.136z"
+          />
+          <path
+            className="talend-logo circle4"
+            d="M17.816 19.716a1.402 1.402 0 0 1 1.959 0 1.343 1.343 0 0 1 0 1.927 1.4 1.4 0 0 1-1.961-.002 1.347 1.347 0 0 1 .002-1.925z"
+          />
+        </g>
+        <g
+          className="talend-logo value3"
+        >
+          <path
+            className="talend-logo line3"
+            d="M11.538 16.369h16.329v.33H11.538z"
+          />
+          <path
+            className="talend-logo circle3"
+            d="M10.555 15.572a1.4 1.4 0 0 1 1.96-.001 1.347 1.347 0 0 1 0 1.928 1.404 1.404 0 0 1-1.962 0 1.345 1.345 0 0 1 .002-1.927z"
+          />
+        </g>
+        <g
+          className="talend-logo value2"
+        >
+          <path
+            className="talend-logo line2"
+            d="M27.828 16.684L1.305 4.635l.141-.3 26.523 12.05-.141.299z"
+          />
+          <path
+            className="talend-logo circle2"
+            d="M.406 3.525a1.404 1.404 0 0 1 1.96-.002 1.346 1.346 0 0 1 0 1.928 1.401 1.401 0 0 1-1.962-.002 1.346 1.346 0 0 1 .002-1.924z"
+          />
+        </g>
+        <g
+          className="talend-logo value1"
+        >
+          <path
+            className="talend-logo line1"
+            d="M27.763 16.624L19.559 6.461l.263-.205 8.204 10.163-.263.205z"
+          />
+          <path
+            className="talend-logo circle1"
+            d="M18.713 5.4a1.4 1.4 0 0 1 1.96-.002 1.347 1.347 0 0 1 0 1.929 1.405 1.405 0 0 1-1.962-.002 1.346 1.346 0 0 1 .002-1.926z"
+          />
+        </g>
+        <path
+          className="talend-logo text-talend"
+          d="M58.8 19.043a6.671 6.671 0 0 0-3.027.627 2.494 2.494 0 0 0-1.317 2.35 2.767 2.767 0 0 0 3.07 2.863 6.32 6.32 0 0 0 4.104-1.764v-4.193zm3.11 6.819a7.844 7.844 0 0 1-5.5 2.273c-3.546 0-6.14-2.313-6.14-5.878a5.258 5.258 0 0 1 3.15-5.016 11.688 11.688 0 0 1 4.822-.98l3.388-.118v-.782c0-2.431-1.555-3.45-3.786-3.45a10.192 10.192 0 0 0-5.022 1.373l-1.436-2.705a14.31 14.31 0 0 1 7.096-1.842c4.664 0 7.295 2.118 7.295 6.624v7.13a10.565 10.565 0 0 0 .959 5.25h-4.15zM38.756 9.208v-4.27L42.9 3.682v5.526h5.66l-1.033 3.213H42.9v10.032c0 1.682.638 2.35 1.875 2.35a5.359 5.359 0 0 0 2.883-.897 5.699 5.699 0 0 0 1.108 2.943 10.162 10.162 0 0 1-4.987 1.286c-3.15 0-5.022-1.765-5.022-4.781V9.208zm51.15 7.366c-.08-2.352-1.234-4.662-3.905-4.662-2.513 0-3.986 2.155-4.025 4.662zm-7.89 2.9a5.262 5.262 0 0 0 5.618 5.409 9.55 9.55 0 0 0 4.744-1.256l1.236 2.785a12.125 12.125 0 0 1-6.419 1.723c-6.574 0-9.404-4.585-9.404-9.72 0-5.602 3.149-9.678 8.25-9.678 5.141 0 8.092 3.763 8.092 9.758v.978zm-3.957 7.61a11.245 11.245 0 0 1-4.597.931c-2.908 0-4.345-1.488-4.345-4.191V1.49L73.263 0v22.687c0 1.373.478 1.763 1.396 1.763a10.391 10.391 0 0 0 1.4-.264 7.652 7.652 0 0 0 2.001 2.899zM96.905 9.209h3.805l-.054 2.367a11.165 11.165 0 0 1 6.69-2.837c2.989 0 5.897 1.568 5.897 6.663v12.34h-4.142V16.693c0-2.43-.56-4.389-3.07-4.389a8.219 8.219 0 0 0-4.982 2.234V27.74h-4.144zM133.04 22.49V.04l-.003.012V0l-4.145 1.49v7.523a13.115 13.115 0 0 0-2.75-.275c-5.725 0-10.012 3.909-10.151 9.631l-.003.036c0 .029-.003.065-.003.108-.002.046-.008.09-.008.138 0 .027.004.055.004.083-.01 1.357.234 5.702 3.563 8.065l.06.042c.13.091.265.178.405.262.034.02.065.04.096.06a7.536 7.536 0 0 0 .837.424c.021.01.043.018.066.027.162.069.327.131.496.185a.132.132 0 0 1 .023.007c.151.049.306.091.464.13.063.018.127.028.189.042.108.023.215.045.324.063.111.016.22.031.33.042a3.367 3.367 0 0 0 .425.034c.138.008.273.018.415.018a7.84 7.84 0 0 0 5.5-2.273l.677 1.88H134a10.548 10.548 0 0 1-.96-5.252zm-8.966 2.33a3.76 3.76 0 0 1-1.274-.461 3.497 3.497 0 0 1-.076-.043c-.03-.018-.06-.033-.088-.053a4.85 4.85 0 0 1-.51-.354c-.103-.098-.192-.198-.283-.299a2.442 2.442 0 0 1-.18-.194 5.262 5.262 0 0 1-.63-.903c-.043-.08-.078-.16-.118-.238-.02-.042-.044-.083-.064-.126a7.98 7.98 0 0 1-.582-4.224 8.121 8.121 0 0 1 .127-.941c.005-.025.007-.052.01-.075a7.393 7.393 0 0 1 .302-1.039 5.78 5.78 0 0 1 5.673-3.723 9.336 9.336 0 0 1 2.5.31V23.12a6.126 6.126 0 0 1-4.092 1.764 2.458 2.458 0 0 1-.715-.063z"
+        />
+        <ellipse
+          className="talend-logo big-circle"
+          cx="27.896"
+          cy="16.536"
+          rx="5.932"
+          ry="5.831"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-dp"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M25.559 15.924a1.452 1.452 0 0 1 .97-1.364 10.635 10.635 0 0 0-8.921-8.936 1.476 1.476 0 0 1-2.737-.055 10.628 10.628 0 0 0-9.364 9.004 1.444 1.444 0 0 1-.049 2.719 10.62 10.62 0 0 0 9.344 9.392 1.473 1.473 0 0 1 2.884-.06 10.624 10.624 0 0 0 8.892-9.32 1.454 1.454 0 0 1-1.02-1.38zm-5.837-6.058a.933.933 0 1 1-.93.934.931.931 0 0 1 .93-.934zM16.465 8a1.4 1.4 0 1 1-1.396 1.4A1.397 1.397 0 0 1 16.465 8zm-4.187.933a.933.933 0 1 1-.93.933.931.931 0 0 1 .93-.933zm9.305 13.999H10.417c-.512 0-.727-.368-.479-.817l3.749-6.768a1.531 1.531 0 0 1 .452-.47v-1.51a.882.882 0 0 1-.93-.817.881.881 0 0 1 .93-.817h3.722a.881.881 0 0 1 .93.817.882.882 0 0 1-.93.816v1.511a1.532 1.532 0 0 1 .452.47l3.749 6.768c.248.449.033.817-.479.817zm-2.481-3.733l1.034 1.866h-8.272l1.034-1.866zM16 1a15 15 0 1 0 0 30h15V16A15 15 0 0 0 16 1zm11.46 16.312a11.504 11.504 0 0 1-9.867 10.21 1.477 1.477 0 0 1-2.659.057A11.503 11.503 0 0 1 4.58 17.322a1.446 1.446 0 0 1 .055-2.81 11.504 11.504 0 0 1 10.197-9.82 1.474 1.474 0 0 1 2.853.06 11.505 11.505 0 0 1 9.721 9.77 1.446 1.446 0 0 1 .055 2.79z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-ic"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M26.46 17.33a10.54 10.54 0 0 1-9.118 9.113 1.41 1.41 0 0 0-.964-.9v-5.772l3.757.004a3.063 3.063 0 0 0 0-6.123 2.845 2.845 0 0 0-.412.033 3.828 3.828 0 0 0-7.118-.99 1.676 1.676 0 0 0-.331-.038 1.755 1.755 0 0 0-1.732 1.778 1.805 1.805 0 0 0 .135.687 2.347 2.347 0 0 0 .413 4.644l4.518.004v5.784a1.409 1.409 0 0 0-.928.886 10.54 10.54 0 0 1-9.094-9.12 1.407 1.407 0 0 0 .004-2.661 10.54 10.54 0 0 1 9.1-9.088 1.409 1.409 0 0 0 2.643-.004 10.54 10.54 0 0 1 9.123 9.082 1.406 1.406 0 0 0 .004 2.682zm4.546-1.341v15h-15a15 15 0 1 1 15-15zm-2.7 0a1.414 1.414 0 0 0-1.077-1.37 11.312 11.312 0 0 0-9.831-9.82 1.414 1.414 0 0 0-2.775.004 11.312 11.312 0 0 0-9.803 9.804 1.413 1.413 0 0 0-.005 2.762 11.312 11.312 0 0 0 9.816 9.84 1.413 1.413 0 0 0 2.758.004 11.312 11.312 0 0 0 9.844-9.855 1.413 1.413 0 0 0 1.072-1.369z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-mc"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.072 15.68h-2.751v-2.753h2.32a10.848 10.848 0 0 1 .431 2.752zm-6.298 0h2.905v-2.753h-2.474a10.844 10.844 0 0 0-.43 2.752zm4.228-5.958a6.404 6.404 0 0 0-.681-.07v2.655h2.115a9.226 9.226 0 0 0-1.434-2.585zm-3.799 9.344h2.476v-2.745h-2.905a10.845 10.845 0 0 0 .43 2.745zm.208-6.76h2.268V9.652a6.425 6.425 0 0 0-.859.103 9.243 9.243 0 0 0-1.41 2.553zm1.41 9.94a6.42 6.42 0 0 0 .858.103v-2.662h-2.27a9.24 9.24 0 0 0 1.411 2.56zm-2.668-5.925H9.65a6.313 6.313 0 0 0 .782 2.745h2.124a11.509 11.509 0 0 1-.404-2.745zm.406-3.394h-2.122a6.312 6.312 0 0 0-.786 2.752h2.502a11.508 11.508 0 0 1 .406-2.752zM31 16v15H16a15 15 0 1 1 15-15zm-3 0a1.377 1.377 0 0 0-1.05-1.333 11.023 11.023 0 0 0-9.592-9.557 1.38 1.38 0 0 0-2.707.003 11.023 11.023 0 0 0-9.564 9.543 1.375 1.375 0 0 0-.005 2.688 11.024 11.024 0 0 0 9.576 9.577 1.38 1.38 0 0 0 2.692.004 11.023 11.023 0 0 0 9.604-9.593A1.376 1.376 0 0 0 28 16.001zm-17.175 3.687a6.388 6.388 0 0 0 3.044 2.302 10.09 10.09 0 0 1-1.122-2.302zm7.108-9.743a10.078 10.078 0 0 1 1.163 2.363h2.075a6.384 6.384 0 0 0-3.238-2.363zm1.139 6.377h-2.751v2.745h2.322a10.851 10.851 0 0 0 .429-2.745zm7.128.985a10.27 10.27 0 0 1-8.896 8.869 1.52 1.52 0 0 0-1.297-.952 1.418 1.418 0 0 0-1.3.95 10.271 10.271 0 0 1-8.873-8.877 1.369 1.369 0 0 0 .004-2.59 10.271 10.271 0 0 1 8.878-8.846 1.375 1.375 0 0 0 2.579-.003 10.272 10.272 0 0 1 8.9 8.839 1.368 1.368 0 0 0 .005 2.61zM23 16a7 7 0 1 0-7 7 7.008 7.008 0 0 0 7-7zm-3.306-.32h2.655a6.313 6.313 0 0 0-.786-2.752h-2.276a11.505 11.505 0 0 1 .407 2.751zm-5.826-5.669a6.388 6.388 0 0 0-3.038 2.296h1.92a10.095 10.095 0 0 1 1.118-2.296zm5.421 9.055h2.278a6.313 6.313 0 0 0 .782-2.745h-2.655a11.506 11.506 0 0 1-.405 2.745zm-2.968.621v2.662a6.41 6.41 0 0 0 .68-.07 9.225 9.225 0 0 0 1.437-2.592zm1.612 2.37a6.383 6.383 0 0 0 3.242-2.37h-2.077a10.077 10.077 0 0 1-1.165 2.37z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-square"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M26.524 10.48a5.512 5.512 0 0 0-3.348 1.081l-3.54-4.407a1.274 1.274 0 0 0-.081-1.719 1.32 1.32 0 0 0-1.853.001l-.016.016a1.284 1.284 0 0 0 .014 1.815 1.313 1.313 0 0 0 1.493.238l3.545 4.414a5.551 5.551 0 0 0-1.209 1.573L2.571 4.837a1.263 1.263 0 0 0-.332-1.184 1.324 1.324 0 0 0-1.855.002l-.014.014a1.284 1.284 0 0 0 .012 1.815 1.321 1.321 0 0 0 1.857.002l.016-.017a1.2 1.2 0 0 0 .078-.12l18.964 8.658a5.517 5.517 0 0 0-.371 1.733h-8.759a1.25 1.25 0 0 0-.328-.634 1.321 1.321 0 0 0-1.855.002l-.016.016a1.283 1.283 0 0 0 .015 1.815 1.324 1.324 0 0 0 1.856 0l.015-.016a1.249 1.249 0 0 0 .314-.62h8.758a5.514 5.514 0 0 0 .37 1.743l-2.494 1.14a1.202 1.202 0 0 0-.096-.14 1.321 1.321 0 0 0-1.853.001l-.013.013a1.285 1.285 0 0 0 .011 1.817 1.32 1.32 0 0 0 1.855.002l.022-.021a1.259 1.259 0 0 0 .312-1.161l2.488-1.136a5.56 5.56 0 0 0 1.21 1.568l-6.545 8.146a1.313 1.313 0 0 0-1.493.238l-.016.016a1.284 1.284 0 0 0 .017 1.815 1.32 1.32 0 0 0 1.854.002l.016-.016a1.272 1.272 0 0 0 .064-1.7l6.54-8.143a5.512 5.512 0 0 0 3.213 1.08 5.544 5.544 0 0 0 .136-11.087z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-question-circle"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.64 2.366A7.69 7.69 0 0 0 7.98 0a7.69 7.69 0 0 0-5.658 2.366A7.549 7.549 0 0 0 0 8a7.69 7.69 0 0 0 2.323 5.671A7.8 7.8 0 0 0 7.981 16a7.8 7.8 0 0 0 5.658-2.329A7.725 7.725 0 0 0 16 8a7.582 7.582 0 0 0-2.36-5.634zM9 14H7v-2h2zm2.108-6.75a3.727 3.727 0 0 1-.46.797 6.536 6.536 0 0 1-.582.67 7.383 7.383 0 0 0-.567.642 2.903 2.903 0 0 0-.413.726 1.998 1.998 0 0 0-.107.915H7.017a2.594 2.594 0 0 1 .039-1.08 3.312 3.312 0 0 1 .359-.859 3.802 3.802 0 0 1 .529-.688c.2-.205.385-.405.56-.599a4.376 4.376 0 0 0 .443-.579 1.162 1.162 0 0 0 .185-.634 1.08 1.08 0 0 0-.323-.86 1.19 1.19 0 0 0-.812-.28 1.524 1.524 0 0 0-.843.235 4.045 4.045 0 0 0-.72.597L5.179 4.896a4.633 4.633 0 0 1 1.303-1.178 3.167 3.167 0 0 1 1.67-.453 4.123 4.123 0 0 1 1.233.18 2.727 2.727 0 0 1 .996.553 2.66 2.66 0 0 1 .667.924 3.197 3.197 0 0 1 .245 1.296 2.648 2.648 0 0 1-.184 1.032z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-search"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.5 14C3.9 14 1 11.1 1 7.5S3.9 1 7.5 1 14 3.9 14 7.5 11.1 14 7.5 14zm0-11C5 3 3 5 3 7.5S5 12 7.5 12 12 10 12 7.5 10 3 7.5 3zm6 9c-.4.6-.9 1.1-1.5 1.5l2.5 2.5 1.5-1.5-2.5-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-share-alt"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 11c-.7 0-1.4.3-1.8.8l-4.8-3c0-.2.1-.5.1-.8s-.1-.6-.2-.8l4.8-3c.5.5 1.2.8 1.9.8C13.9 5 15 3.9 15 2.5S13.9 0 12.5 0 10 1.1 10 2.5c0 .3.1.6.2.8l-4.8 3c-.5-.5-1.2-.8-1.9-.8C2.1 5.5 1 6.6 1 8s1.1 2.5 2.5 2.5c.7 0 1.4-.3 1.8-.8l4.8 3c-.1.3-.2.5-.2.8 0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5c.1-1.4-1-2.5-2.4-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-star"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 0l2.5 5 5.5.8-4 3.9.9 5.5L8 12.6l-4.9 2.6.9-5.5-4-3.9L5.5 5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-user-circle"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="8"
+          cy="6"
+          r="3"
+        />
+        <path
+          d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm3 8.6c-.7.9-1.8 1.4-3 1.4s-2.3-.5-3-1.4c-1.3.5-2.4 1.4-3.3 2.5-.4-.9-.7-2-.7-3.1 0-3.9 3.1-7 7-7s7 3.1 7 7c0 1.1-.3 2.2-.7 3.1-.9-1.1-2-2-3.3-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-board"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 3h14v8H1zM0 0h16v2H0zm5.6 12l-2.1 2.1 1.4 1.4L8 12.4l3.1 3.1 1.4-1.4-2.1-2.1z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-bell"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.615 14.345a1.408 1.408 0 1 0 2.769 0H6.615zm5.915-4.183V5.206s.083-2.375-2.999-3.332c-.429-.166-.583-.5-.583-1.167 0-.612-.601-.704-.938-.707h-.02c-.337.003-.938.095-.938.707 0 .667-.155 1.001-.583 1.167-3.082.957-2.999 3.332-2.999 3.332v4.956c0 2.04-2.124 2.582-2.124 2.582v1.207l6.644.042h.02l6.644-.042v-1.207s-2.124-.542-2.124-2.582z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-bell-notification"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          className="ti-badge"
+          d="M16 3.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0"
+          fill="#E96065"
+        />
+        <path
+          className="ti-bell"
+          d="M12.53 10.162V8h-.004a4.505 4.505 0 0 1-4.5-4.5c0-1.02.354-1.95.928-2.707 0-.03-.006-.053-.006-.086 0-.612-.6-.704-.938-.707h-.02c-.337.003-.939.095-.939.707 0 .667-.153 1.001-.583 1.167-3.08.957-2.998 3.332-2.998 3.332v4.956c0 2.04-2.124 2.582-2.124 2.582v1.208l6.644.041h.02l6.644-.04v-1.209s-2.124-.542-2.124-2.582m-5.915 4.183a1.407 1.407 0 1 0 2.769 0H6.615z"
+        />
+      </svg>
+    </symbol>
+  </svg>
+</div>
+`;
+
+exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
+<div>
+  <div
+    className={undefined}
+  >
+    <div
+      role="banner"
+    >
+      <nav
+        className="tc-header-bar navbar"
+      >
+        <ul
+          className={undefined}
+        >
+          <li
+            className=""
+          >
+            <button
+              className="undefined btn btn-link"
+              disabled={false}
+              id="header-logo"
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseDown={[Function]}
+              onMouseOver={[Function]}
+              role={null}
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                focusable="false"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-logo"
+                />
+              </svg>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <span>
+                Example App Name
+              </span>
+            </button>
+          </li>
+        </ul>
+        <ul
+          className=""
+        >
+          <li
+            className=""
+          >
+            <form
+              className="navbar-form navbar-right"
+              role="search"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                onMouseOver={[Function]}
+                role={null}
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="tc-svg-icon"
+                  focusable="false"
+                  title={null}
+                >
+                  <use
+                    xlinkHref="#talend-search"
+                  />
+                </svg>
+              </button>
+            </form>
+          </li>
+          <li
+            className=""
+          >
+            <button
+              className="btn btn-link"
+              disabled={false}
+              id="header-help"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              role={null}
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                className="tc-svg-icon"
+                focusable="false"
+                title={null}
+              >
+                <use
+                  xlinkHref="#talend-question-circle"
+                />
+              </svg>
+              <span>
+                Help
+              </span>
+            </button>
+          </li>
+          <li
+            className=""
+          >
+            <div
+              className="dropdown btn-group btn-group-link"
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="tc-dropdown-button dropdown-toggle btn btn-link"
+                disabled={false}
+                id="header-user"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseOver={[Function]}
+                role="button"
+                type="button"
+              >
+                <span
+                  className="tc-dropdown-button-title"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-user-circle"
+                    />
+                  </svg>
+                  <span
+                    className="tc-dropdown-button-title-label"
+                  >
+                    <span
+                      className="user-name"
+                    >
+                      <span
+                        className="user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
+                  </span>
+                </span>
+                 
+                <span
+                  className="caret"
+                />
+              </button>
+              <ul
+                aria-labelledby="header-user"
+                className="dropdown-menu dropdown-menu-right"
+                role="menu"
+              >
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-cog"
+                    label="Settings"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-cog"
+                      />
+                    </svg>
+                    Settings
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            className={undefined}
+          >
+            <div
+              className="dropdown btn-group btn-group-link"
+            >
+              <button
+                aria-expanded={false}
+                aria-haspopup={true}
+                className="dropdown-toggle btn btn-link"
+                disabled={false}
+                id="header-products"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMouseOver={[Function]}
+                role="button"
+                type="button"
+              >
+                <span
+                  className="tc-dropdown-button-title"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-launcher"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <ul
+                aria-labelledby="header-products"
+                className="dropdown-menu dropdown-menu-right"
+                role="menu"
+              >
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-dp"
+                    label="Data Preparation"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-dp"
+                      />
+                    </svg>
+                    Data Preparation
+                  </a>
+                </li>
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-ic"
+                    label="Integration Cloud"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-ic"
+                      />
+                    </svg>
+                    Integration Cloud
+                  </a>
+                </li>
+                <li
+                  className=""
+                  role="presentation"
+                  style={undefined}
+                >
+                  <a
+                    href="#"
+                    icon="talend-logo-mc"
+                    label="Management Console"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="menuitem"
+                    tabIndex="-1"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-logo-mc"
+                      />
+                    </svg>
+                    Management Console
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="container"
+    style={
+      Object {
+        "paddingTop": 40,
+      }
+    }
+  />
+  <svg
+    focusable="false"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-burger"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h16v2.3H0zm0 6.9h16v2.3H0zm0 6.8h16V16H0z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-cog"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 10.907a2.927 2.927 0 0 1-2.93-2.923A2.927 2.927 0 0 1 8 5.06a2.927 2.927 0 0 1 2.932 2.923A2.927 2.927 0 0 1 8 10.907zm8-1.997V6.97l-2.32-.449-.024.002A5.79 5.79 0 0 0 13 4.97l1.32-1.962-1.361-1.373-1.955 1.337-.011.01a5.832 5.832 0 0 0-1.583-.654L8.969 0H7.043L6.6 2.324a5.83 5.83 0 0 0-1.557.639l-.047-.042-1.955-1.338L1.68 2.956l1.326 1.971.014.011a5.759 5.759 0 0 0-.673 1.584L2.32 6.52 0 6.97v1.94l2.318.447c.142.585.375 1.13.679 1.633L1.68 12.944l1.362 1.373 1.955-1.336c.485.29 1.012.512 1.574.654l.002.025.444 2.34h1.926l.444-2.34-.001-.012a5.796 5.796 0 0 0 1.62-.67l.018.015 1.955 1.338 1.362-1.373-1.327-1.971-.006-.005a5.76 5.76 0 0 0 .674-1.625L16 8.91z"
+          fillRule="evenodd"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-environment"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4h8v2H4zm0 3h8v2H4zm0 3h8v2H4zm-2 3V3L0 1v14zm14 2V1l-2 2v10zM3 2h10l2-2H1zM1 16h14l-2-2H3z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-filter"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16 1.825L10 8v8H8l-2-4V8L0 1.822V0h16v1.825z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-launcher"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4H0V0h4zm6-4H6v4h4zm6 0h-4v4h4zM4 16H0v-4h4zm6-4H6v4h4zm6 0h-4v4h4zM4 10H0V6h4zm6-4H6v4h4zm6 0h-4v4h4z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo"
+    >
+      <svg
+        className="talend-logo"
+        viewBox="0 0 134 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          className="talend-logo value5"
+        >
+          <path
+            className="talend-logo line5"
+            d="M16.65 30.743l-.263-.205 11.376-14.09.263.206L16.65 30.743z"
+          />
+          <path
+            className="talend-logo circle5"
+            d="M15.541 31.6a1.4 1.4 0 0 0 1.96.001 1.347 1.347 0 0 0 0-1.929 1.405 1.405 0 0 0-1.961.002 1.346 1.346 0 0 0 .001 1.926z"
+          />
+        </g>
+        <g
+          className="talend-logo value4"
+        >
+          <path
+            className="talend-logo line4"
+            d="M18.871 20.827l-.141-.299 9.098-4.137.141.3-9.098 4.136z"
+          />
+          <path
+            className="talend-logo circle4"
+            d="M17.816 19.716a1.402 1.402 0 0 1 1.959 0 1.343 1.343 0 0 1 0 1.927 1.4 1.4 0 0 1-1.961-.002 1.347 1.347 0 0 1 .002-1.925z"
+          />
+        </g>
+        <g
+          className="talend-logo value3"
+        >
+          <path
+            className="talend-logo line3"
+            d="M11.538 16.369h16.329v.33H11.538z"
+          />
+          <path
+            className="talend-logo circle3"
+            d="M10.555 15.572a1.4 1.4 0 0 1 1.96-.001 1.347 1.347 0 0 1 0 1.928 1.404 1.404 0 0 1-1.962 0 1.345 1.345 0 0 1 .002-1.927z"
+          />
+        </g>
+        <g
+          className="talend-logo value2"
+        >
+          <path
+            className="talend-logo line2"
+            d="M27.828 16.684L1.305 4.635l.141-.3 26.523 12.05-.141.299z"
+          />
+          <path
+            className="talend-logo circle2"
+            d="M.406 3.525a1.404 1.404 0 0 1 1.96-.002 1.346 1.346 0 0 1 0 1.928 1.401 1.401 0 0 1-1.962-.002 1.346 1.346 0 0 1 .002-1.924z"
+          />
+        </g>
+        <g
+          className="talend-logo value1"
+        >
+          <path
+            className="talend-logo line1"
+            d="M27.763 16.624L19.559 6.461l.263-.205 8.204 10.163-.263.205z"
+          />
+          <path
+            className="talend-logo circle1"
+            d="M18.713 5.4a1.4 1.4 0 0 1 1.96-.002 1.347 1.347 0 0 1 0 1.929 1.405 1.405 0 0 1-1.962-.002 1.346 1.346 0 0 1 .002-1.926z"
+          />
+        </g>
+        <path
+          className="talend-logo text-talend"
+          d="M58.8 19.043a6.671 6.671 0 0 0-3.027.627 2.494 2.494 0 0 0-1.317 2.35 2.767 2.767 0 0 0 3.07 2.863 6.32 6.32 0 0 0 4.104-1.764v-4.193zm3.11 6.819a7.844 7.844 0 0 1-5.5 2.273c-3.546 0-6.14-2.313-6.14-5.878a5.258 5.258 0 0 1 3.15-5.016 11.688 11.688 0 0 1 4.822-.98l3.388-.118v-.782c0-2.431-1.555-3.45-3.786-3.45a10.192 10.192 0 0 0-5.022 1.373l-1.436-2.705a14.31 14.31 0 0 1 7.096-1.842c4.664 0 7.295 2.118 7.295 6.624v7.13a10.565 10.565 0 0 0 .959 5.25h-4.15zM38.756 9.208v-4.27L42.9 3.682v5.526h5.66l-1.033 3.213H42.9v10.032c0 1.682.638 2.35 1.875 2.35a5.359 5.359 0 0 0 2.883-.897 5.699 5.699 0 0 0 1.108 2.943 10.162 10.162 0 0 1-4.987 1.286c-3.15 0-5.022-1.765-5.022-4.781V9.208zm51.15 7.366c-.08-2.352-1.234-4.662-3.905-4.662-2.513 0-3.986 2.155-4.025 4.662zm-7.89 2.9a5.262 5.262 0 0 0 5.618 5.409 9.55 9.55 0 0 0 4.744-1.256l1.236 2.785a12.125 12.125 0 0 1-6.419 1.723c-6.574 0-9.404-4.585-9.404-9.72 0-5.602 3.149-9.678 8.25-9.678 5.141 0 8.092 3.763 8.092 9.758v.978zm-3.957 7.61a11.245 11.245 0 0 1-4.597.931c-2.908 0-4.345-1.488-4.345-4.191V1.49L73.263 0v22.687c0 1.373.478 1.763 1.396 1.763a10.391 10.391 0 0 0 1.4-.264 7.652 7.652 0 0 0 2.001 2.899zM96.905 9.209h3.805l-.054 2.367a11.165 11.165 0 0 1 6.69-2.837c2.989 0 5.897 1.568 5.897 6.663v12.34h-4.142V16.693c0-2.43-.56-4.389-3.07-4.389a8.219 8.219 0 0 0-4.982 2.234V27.74h-4.144zM133.04 22.49V.04l-.003.012V0l-4.145 1.49v7.523a13.115 13.115 0 0 0-2.75-.275c-5.725 0-10.012 3.909-10.151 9.631l-.003.036c0 .029-.003.065-.003.108-.002.046-.008.09-.008.138 0 .027.004.055.004.083-.01 1.357.234 5.702 3.563 8.065l.06.042c.13.091.265.178.405.262.034.02.065.04.096.06a7.536 7.536 0 0 0 .837.424c.021.01.043.018.066.027.162.069.327.131.496.185a.132.132 0 0 1 .023.007c.151.049.306.091.464.13.063.018.127.028.189.042.108.023.215.045.324.063.111.016.22.031.33.042a3.367 3.367 0 0 0 .425.034c.138.008.273.018.415.018a7.84 7.84 0 0 0 5.5-2.273l.677 1.88H134a10.548 10.548 0 0 1-.96-5.252zm-8.966 2.33a3.76 3.76 0 0 1-1.274-.461 3.497 3.497 0 0 1-.076-.043c-.03-.018-.06-.033-.088-.053a4.85 4.85 0 0 1-.51-.354c-.103-.098-.192-.198-.283-.299a2.442 2.442 0 0 1-.18-.194 5.262 5.262 0 0 1-.63-.903c-.043-.08-.078-.16-.118-.238-.02-.042-.044-.083-.064-.126a7.98 7.98 0 0 1-.582-4.224 8.121 8.121 0 0 1 .127-.941c.005-.025.007-.052.01-.075a7.393 7.393 0 0 1 .302-1.039 5.78 5.78 0 0 1 5.673-3.723 9.336 9.336 0 0 1 2.5.31V23.12a6.126 6.126 0 0 1-4.092 1.764 2.458 2.458 0 0 1-.715-.063z"
+        />
+        <ellipse
+          className="talend-logo big-circle"
+          cx="27.896"
+          cy="16.536"
+          rx="5.932"
+          ry="5.831"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-dp"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M25.559 15.924a1.452 1.452 0 0 1 .97-1.364 10.635 10.635 0 0 0-8.921-8.936 1.476 1.476 0 0 1-2.737-.055 10.628 10.628 0 0 0-9.364 9.004 1.444 1.444 0 0 1-.049 2.719 10.62 10.62 0 0 0 9.344 9.392 1.473 1.473 0 0 1 2.884-.06 10.624 10.624 0 0 0 8.892-9.32 1.454 1.454 0 0 1-1.02-1.38zm-5.837-6.058a.933.933 0 1 1-.93.934.931.931 0 0 1 .93-.934zM16.465 8a1.4 1.4 0 1 1-1.396 1.4A1.397 1.397 0 0 1 16.465 8zm-4.187.933a.933.933 0 1 1-.93.933.931.931 0 0 1 .93-.933zm9.305 13.999H10.417c-.512 0-.727-.368-.479-.817l3.749-6.768a1.531 1.531 0 0 1 .452-.47v-1.51a.882.882 0 0 1-.93-.817.881.881 0 0 1 .93-.817h3.722a.881.881 0 0 1 .93.817.882.882 0 0 1-.93.816v1.511a1.532 1.532 0 0 1 .452.47l3.749 6.768c.248.449.033.817-.479.817zm-2.481-3.733l1.034 1.866h-8.272l1.034-1.866zM16 1a15 15 0 1 0 0 30h15V16A15 15 0 0 0 16 1zm11.46 16.312a11.504 11.504 0 0 1-9.867 10.21 1.477 1.477 0 0 1-2.659.057A11.503 11.503 0 0 1 4.58 17.322a1.446 1.446 0 0 1 .055-2.81 11.504 11.504 0 0 1 10.197-9.82 1.474 1.474 0 0 1 2.853.06 11.505 11.505 0 0 1 9.721 9.77 1.446 1.446 0 0 1 .055 2.79z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-ic"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M26.46 17.33a10.54 10.54 0 0 1-9.118 9.113 1.41 1.41 0 0 0-.964-.9v-5.772l3.757.004a3.063 3.063 0 0 0 0-6.123 2.845 2.845 0 0 0-.412.033 3.828 3.828 0 0 0-7.118-.99 1.676 1.676 0 0 0-.331-.038 1.755 1.755 0 0 0-1.732 1.778 1.805 1.805 0 0 0 .135.687 2.347 2.347 0 0 0 .413 4.644l4.518.004v5.784a1.409 1.409 0 0 0-.928.886 10.54 10.54 0 0 1-9.094-9.12 1.407 1.407 0 0 0 .004-2.661 10.54 10.54 0 0 1 9.1-9.088 1.409 1.409 0 0 0 2.643-.004 10.54 10.54 0 0 1 9.123 9.082 1.406 1.406 0 0 0 .004 2.682zm4.546-1.341v15h-15a15 15 0 1 1 15-15zm-2.7 0a1.414 1.414 0 0 0-1.077-1.37 11.312 11.312 0 0 0-9.831-9.82 1.414 1.414 0 0 0-2.775.004 11.312 11.312 0 0 0-9.803 9.804 1.413 1.413 0 0 0-.005 2.762 11.312 11.312 0 0 0 9.816 9.84 1.413 1.413 0 0 0 2.758.004 11.312 11.312 0 0 0 9.844-9.855 1.413 1.413 0 0 0 1.072-1.369z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-mc"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.072 15.68h-2.751v-2.753h2.32a10.848 10.848 0 0 1 .431 2.752zm-6.298 0h2.905v-2.753h-2.474a10.844 10.844 0 0 0-.43 2.752zm4.228-5.958a6.404 6.404 0 0 0-.681-.07v2.655h2.115a9.226 9.226 0 0 0-1.434-2.585zm-3.799 9.344h2.476v-2.745h-2.905a10.845 10.845 0 0 0 .43 2.745zm.208-6.76h2.268V9.652a6.425 6.425 0 0 0-.859.103 9.243 9.243 0 0 0-1.41 2.553zm1.41 9.94a6.42 6.42 0 0 0 .858.103v-2.662h-2.27a9.24 9.24 0 0 0 1.411 2.56zm-2.668-5.925H9.65a6.313 6.313 0 0 0 .782 2.745h2.124a11.509 11.509 0 0 1-.404-2.745zm.406-3.394h-2.122a6.312 6.312 0 0 0-.786 2.752h2.502a11.508 11.508 0 0 1 .406-2.752zM31 16v15H16a15 15 0 1 1 15-15zm-3 0a1.377 1.377 0 0 0-1.05-1.333 11.023 11.023 0 0 0-9.592-9.557 1.38 1.38 0 0 0-2.707.003 11.023 11.023 0 0 0-9.564 9.543 1.375 1.375 0 0 0-.005 2.688 11.024 11.024 0 0 0 9.576 9.577 1.38 1.38 0 0 0 2.692.004 11.023 11.023 0 0 0 9.604-9.593A1.376 1.376 0 0 0 28 16.001zm-17.175 3.687a6.388 6.388 0 0 0 3.044 2.302 10.09 10.09 0 0 1-1.122-2.302zm7.108-9.743a10.078 10.078 0 0 1 1.163 2.363h2.075a6.384 6.384 0 0 0-3.238-2.363zm1.139 6.377h-2.751v2.745h2.322a10.851 10.851 0 0 0 .429-2.745zm7.128.985a10.27 10.27 0 0 1-8.896 8.869 1.52 1.52 0 0 0-1.297-.952 1.418 1.418 0 0 0-1.3.95 10.271 10.271 0 0 1-8.873-8.877 1.369 1.369 0 0 0 .004-2.59 10.271 10.271 0 0 1 8.878-8.846 1.375 1.375 0 0 0 2.579-.003 10.272 10.272 0 0 1 8.9 8.839 1.368 1.368 0 0 0 .005 2.61zM23 16a7 7 0 1 0-7 7 7.008 7.008 0 0 0 7-7zm-3.306-.32h2.655a6.313 6.313 0 0 0-.786-2.752h-2.276a11.505 11.505 0 0 1 .407 2.751zm-5.826-5.669a6.388 6.388 0 0 0-3.038 2.296h1.92a10.095 10.095 0 0 1 1.118-2.296zm5.421 9.055h2.278a6.313 6.313 0 0 0 .782-2.745h-2.655a11.506 11.506 0 0 1-.405 2.745zm-2.968.621v2.662a6.41 6.41 0 0 0 .68-.07 9.225 9.225 0 0 0 1.437-2.592zm1.612 2.37a6.383 6.383 0 0 0 3.242-2.37h-2.077a10.077 10.077 0 0 1-1.165 2.37z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-logo-square"
+    >
+      <svg
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M26.524 10.48a5.512 5.512 0 0 0-3.348 1.081l-3.54-4.407a1.274 1.274 0 0 0-.081-1.719 1.32 1.32 0 0 0-1.853.001l-.016.016a1.284 1.284 0 0 0 .014 1.815 1.313 1.313 0 0 0 1.493.238l3.545 4.414a5.551 5.551 0 0 0-1.209 1.573L2.571 4.837a1.263 1.263 0 0 0-.332-1.184 1.324 1.324 0 0 0-1.855.002l-.014.014a1.284 1.284 0 0 0 .012 1.815 1.321 1.321 0 0 0 1.857.002l.016-.017a1.2 1.2 0 0 0 .078-.12l18.964 8.658a5.517 5.517 0 0 0-.371 1.733h-8.759a1.25 1.25 0 0 0-.328-.634 1.321 1.321 0 0 0-1.855.002l-.016.016a1.283 1.283 0 0 0 .015 1.815 1.324 1.324 0 0 0 1.856 0l.015-.016a1.249 1.249 0 0 0 .314-.62h8.758a5.514 5.514 0 0 0 .37 1.743l-2.494 1.14a1.202 1.202 0 0 0-.096-.14 1.321 1.321 0 0 0-1.853.001l-.013.013a1.285 1.285 0 0 0 .011 1.817 1.32 1.32 0 0 0 1.855.002l.022-.021a1.259 1.259 0 0 0 .312-1.161l2.488-1.136a5.56 5.56 0 0 0 1.21 1.568l-6.545 8.146a1.313 1.313 0 0 0-1.493.238l-.016.016a1.284 1.284 0 0 0 .017 1.815 1.32 1.32 0 0 0 1.854.002l.016-.016a1.272 1.272 0 0 0 .064-1.7l6.54-8.143a5.512 5.512 0 0 0 3.213 1.08 5.544 5.544 0 0 0 .136-11.087z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-question-circle"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.64 2.366A7.69 7.69 0 0 0 7.98 0a7.69 7.69 0 0 0-5.658 2.366A7.549 7.549 0 0 0 0 8a7.69 7.69 0 0 0 2.323 5.671A7.8 7.8 0 0 0 7.981 16a7.8 7.8 0 0 0 5.658-2.329A7.725 7.725 0 0 0 16 8a7.582 7.582 0 0 0-2.36-5.634zM9 14H7v-2h2zm2.108-6.75a3.727 3.727 0 0 1-.46.797 6.536 6.536 0 0 1-.582.67 7.383 7.383 0 0 0-.567.642 2.903 2.903 0 0 0-.413.726 1.998 1.998 0 0 0-.107.915H7.017a2.594 2.594 0 0 1 .039-1.08 3.312 3.312 0 0 1 .359-.859 3.802 3.802 0 0 1 .529-.688c.2-.205.385-.405.56-.599a4.376 4.376 0 0 0 .443-.579 1.162 1.162 0 0 0 .185-.634 1.08 1.08 0 0 0-.323-.86 1.19 1.19 0 0 0-.812-.28 1.524 1.524 0 0 0-.843.235 4.045 4.045 0 0 0-.72.597L5.179 4.896a4.633 4.633 0 0 1 1.303-1.178 3.167 3.167 0 0 1 1.67-.453 4.123 4.123 0 0 1 1.233.18 2.727 2.727 0 0 1 .996.553 2.66 2.66 0 0 1 .667.924 3.197 3.197 0 0 1 .245 1.296 2.648 2.648 0 0 1-.184 1.032z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-search"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.5 14C3.9 14 1 11.1 1 7.5S3.9 1 7.5 1 14 3.9 14 7.5 11.1 14 7.5 14zm0-11C5 3 3 5 3 7.5S5 12 7.5 12 12 10 12 7.5 10 3 7.5 3zm6 9c-.4.6-.9 1.1-1.5 1.5l2.5 2.5 1.5-1.5-2.5-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-share-alt"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 11c-.7 0-1.4.3-1.8.8l-4.8-3c0-.2.1-.5.1-.8s-.1-.6-.2-.8l4.8-3c.5.5 1.2.8 1.9.8C13.9 5 15 3.9 15 2.5S13.9 0 12.5 0 10 1.1 10 2.5c0 .3.1.6.2.8l-4.8 3c-.5-.5-1.2-.8-1.9-.8C2.1 5.5 1 6.6 1 8s1.1 2.5 2.5 2.5c.7 0 1.4-.3 1.8-.8l4.8 3c-.1.3-.2.5-.2.8 0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5c.1-1.4-1-2.5-2.4-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-star"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 0l2.5 5 5.5.8-4 3.9.9 5.5L8 12.6l-4.9 2.6.9-5.5-4-3.9L5.5 5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-user-circle"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="8"
+          cy="6"
+          r="3"
+        />
+        <path
+          d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm3 8.6c-.7.9-1.8 1.4-3 1.4s-2.3-.5-3-1.4c-1.3.5-2.4 1.4-3.3 2.5-.4-.9-.7-2-.7-3.1 0-3.9 3.1-7 7-7s7 3.1 7 7c0 1.1-.3 2.2-.7 3.1-.9-1.1-2-2-3.3-2.5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-board"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 3h14v8H1zM0 0h16v2H0zm5.6 12l-2.1 2.1 1.4 1.4L8 12.4l3.1 3.1 1.4-1.4-2.1-2.1z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-bell"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.615 14.345a1.408 1.408 0 1 0 2.769 0H6.615zm5.915-4.183V5.206s.083-2.375-2.999-3.332c-.429-.166-.583-.5-.583-1.167 0-.612-.601-.704-.938-.707h-.02c-.337.003-.938.095-.938.707 0 .667-.155 1.001-.583 1.167-3.082.957-2.999 3.332-2.999 3.332v4.956c0 2.04-2.124 2.582-2.124 2.582v1.207l6.644.042h.02l6.644-.042v-1.207s-2.124-.542-2.124-2.582z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-bell-notification"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          className="ti-badge"
+          d="M16 3.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0"
+          fill="#E96065"
+        />
+        <path
+          className="ti-bell"
+          d="M12.53 10.162V8h-.004a4.505 4.505 0 0 1-4.5-4.5c0-1.02.354-1.95.928-2.707 0-.03-.006-.053-.006-.086 0-.612-.6-.704-.938-.707h-.02c-.337.003-.939.095-.939.707 0 .667-.153 1.001-.583 1.167-3.08.957-2.998 3.332-2.998 3.332v4.956c0 2.04-2.124 2.582-2.124 2.582v1.208l6.644.041h.02l6.644-.04v-1.209s-2.124-.542-2.124-2.582m-5.915 4.183a1.407 1.407 0 1 0 2.769 0H6.615z"
+        />
+      </svg>
+    </symbol>
+  </svg>
+</div>
+`;
