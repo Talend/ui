@@ -369,19 +369,23 @@ exports[`Storyshots HeaderBar default 1`] = `
         className=""
         role="presentation"
       >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="header-brand"
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
+        <span
+          role="heading"
         >
-          <span>
-            Example App Name
-          </span>
-        </button>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="header-brand"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <span>
+              Example App Name
+            </span>
+          </button>
+        </span>
       </li>
     </ul>
     <ul
@@ -1021,19 +1025,23 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         className=""
         role="presentation"
       >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="header-brand"
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
+        <span
+          role="heading"
         >
-          <span>
-            Example App Name
-          </span>
-        </button>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="header-brand"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <span>
+              Example App Name
+            </span>
+          </button>
+        </span>
       </li>
     </ul>
     <ul
@@ -1722,19 +1730,23 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         className="undefined"
         role="presentation"
       >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="header-brand"
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
+        <span
+          role="heading"
         >
-          <span>
-            Example App Name
-          </span>
-        </button>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="header-brand"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <span>
+              Example App Name
+            </span>
+          </button>
+        </span>
       </li>
       <li
         className={undefined}
@@ -2440,19 +2452,23 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         className=""
         role="presentation"
       >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="header-brand"
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
+        <span
+          role="heading"
         >
-          <span>
-            Example App Name
-          </span>
-        </button>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="header-brand"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <span>
+              Example App Name
+            </span>
+          </button>
+        </span>
       </li>
     </ul>
     <ul
@@ -3092,19 +3108,23 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         className=""
         role="presentation"
       >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="header-brand"
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
+        <span
+          role="heading"
         >
-          <span>
-            Example App Name
-          </span>
-        </button>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="header-brand"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <span>
+              Example App Name
+            </span>
+          </button>
+        </span>
       </li>
     </ul>
     <ul
@@ -3834,19 +3854,23 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         className=""
         role="presentation"
       >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="header-brand"
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
+        <span
+          role="heading"
         >
-          <span>
-            Example App Name
-          </span>
-        </button>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="header-brand"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <span>
+              Example App Name
+            </span>
+          </button>
+        </span>
       </li>
     </ul>
     <ul
@@ -4515,19 +4539,23 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         className=""
         role="presentation"
       >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="header-brand"
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
+        <span
+          role="heading"
         >
-          <span>
-            Example App Name
-          </span>
-        </button>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="header-brand"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <span>
+              Example App Name
+            </span>
+          </button>
+        </span>
       </li>
     </ul>
     <ul
@@ -5193,19 +5221,23 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         className=""
         role="presentation"
       >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="header-brand"
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
+        <span
+          role="heading"
         >
-          <span>
-            Example App Name
-          </span>
-        </button>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="header-brand"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <span>
+              Example App Name
+            </span>
+          </button>
+        </span>
       </li>
     </ul>
     <ul
@@ -5867,19 +5899,23 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         className=""
         role="presentation"
       >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="header-brand"
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
+        <span
+          role="heading"
         >
-          <span>
-            Example App Name
-          </span>
-        </button>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="header-brand"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <span>
+              Example App Name
+            </span>
+          </button>
+        </span>
       </li>
     </ul>
     <ul
@@ -6870,19 +6906,23 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         className=""
         role="presentation"
       >
-        <button
-          className="btn btn-link"
-          disabled={false}
-          id="header-brand"
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          role={null}
-          type="button"
+        <span
+          role="heading"
         >
-          <span>
-            Example App Name
-          </span>
-        </button>
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="header-brand"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <span>
+              Example App Name
+            </span>
+          </button>
+        </span>
       </li>
     </ul>
     <ul
@@ -7524,11 +7564,11 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
           className={undefined}
         >
           <li
-            className=""
+            className="undefined"
             role="presentation"
           >
             <button
-              className="undefined btn btn-link"
+              className="btn btn-link"
               disabled={false}
               id="header-logo"
               onClick={[Function]}
@@ -7545,7 +7585,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                 title={null}
               >
                 <use
-                  xlinkHref="#talend-logo"
+                  xlinkHref="#talend-logo-square"
                 />
               </svg>
             </button>
@@ -7554,19 +7594,23 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
             className=""
             role="presentation"
           >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-brand"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+            <span
+              role="heading"
             >
-              <span>
-                Example App Name
-              </span>
-            </button>
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-brand"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Example App Name
+                </span>
+              </button>
+            </span>
           </li>
         </ul>
         <ul
@@ -8184,11 +8228,11 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
           className={undefined}
         >
           <li
-            className=""
+            className="undefined"
             role="presentation"
           >
             <button
-              className="undefined btn btn-link"
+              className="btn btn-link"
               disabled={false}
               id="header-logo"
               onClick={[Function]}
@@ -8205,7 +8249,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                 title={null}
               >
                 <use
-                  xlinkHref="#talend-logo"
+                  xlinkHref="#talend-logo-square"
                 />
               </svg>
             </button>
@@ -8214,19 +8258,23 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
             className=""
             role="presentation"
           >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-brand"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+            <span
+              role="heading"
             >
-              <span>
-                Example App Name
-              </span>
-            </button>
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-brand"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Example App Name
+                </span>
+              </button>
+            </span>
           </li>
         </ul>
         <ul
@@ -8844,11 +8892,11 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
           className={undefined}
         >
           <li
-            className=""
+            className="undefined"
             role="presentation"
           >
             <button
-              className="undefined btn btn-link"
+              className="btn btn-link"
               disabled={false}
               id="header-logo"
               onClick={[Function]}
@@ -8865,7 +8913,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                 title={null}
               >
                 <use
-                  xlinkHref="#talend-logo"
+                  xlinkHref="#talend-logo-square"
                 />
               </svg>
             </button>
@@ -8874,19 +8922,23 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
             className=""
             role="presentation"
           >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-brand"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+            <span
+              role="heading"
             >
-              <span>
-                Example App Name
-              </span>
-            </button>
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-brand"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Example App Name
+                </span>
+              </button>
+            </span>
           </li>
         </ul>
         <ul
@@ -9504,11 +9556,11 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
           className={undefined}
         >
           <li
-            className=""
+            className="undefined"
             role="presentation"
           >
             <button
-              className="undefined btn btn-link"
+              className="btn btn-link"
               disabled={false}
               id="header-logo"
               onClick={[Function]}
@@ -9525,7 +9577,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                 title={null}
               >
                 <use
-                  xlinkHref="#talend-logo"
+                  xlinkHref="#talend-logo-square"
                 />
               </svg>
             </button>
@@ -9534,19 +9586,23 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
             className=""
             role="presentation"
           >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-brand"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+            <span
+              role="heading"
             >
-              <span>
-                Example App Name
-              </span>
-            </button>
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-brand"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Example App Name
+                </span>
+              </button>
+            </span>
           </li>
         </ul>
         <ul
@@ -10164,11 +10220,11 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
           className={undefined}
         >
           <li
-            className=""
+            className="undefined"
             role="presentation"
           >
             <button
-              className="undefined btn btn-link"
+              className="btn btn-link"
               disabled={false}
               id="header-logo"
               onClick={[Function]}
@@ -10185,7 +10241,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                 title={null}
               >
                 <use
-                  xlinkHref="#talend-logo"
+                  xlinkHref="#talend-logo-square"
                 />
               </svg>
             </button>
@@ -10194,19 +10250,23 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
             className=""
             role="presentation"
           >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-brand"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+            <span
+              role="heading"
             >
-              <span>
-                Example App Name
-              </span>
-            </button>
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-brand"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Example App Name
+                </span>
+              </button>
+            </span>
           </li>
         </ul>
         <ul
@@ -10824,11 +10884,11 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
           className={undefined}
         >
           <li
-            className=""
+            className="undefined"
             role="presentation"
           >
             <button
-              className="undefined btn btn-link"
+              className="btn btn-link"
               disabled={false}
               id="header-logo"
               onClick={[Function]}
@@ -10845,7 +10905,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                 title={null}
               >
                 <use
-                  xlinkHref="#talend-logo"
+                  xlinkHref="#talend-logo-square"
                 />
               </svg>
             </button>
@@ -10854,19 +10914,23 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
             className=""
             role="presentation"
           >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-brand"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+            <span
+              role="heading"
             >
-              <span>
-                Example App Name
-              </span>
-            </button>
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-brand"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Example App Name
+                </span>
+              </button>
+            </span>
           </li>
         </ul>
         <ul

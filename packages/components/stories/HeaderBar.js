@@ -264,7 +264,6 @@ decoratedStories
 apps.forEach(app => {
 	const appStyle = require(`../src/Layout/_Layout.${app}.scss`);
 	const headerProps = Immutable.fromJS(props).toJS();
-	headerProps.logo.isFull = true;
 	decoratedStories
 		.addWithInfo(`🎨 [${app.toUpperCase()}] HeaderBar`, () => (
 				<div className={appStyle[TALEND_T7_THEME_CLASSNAME]}>

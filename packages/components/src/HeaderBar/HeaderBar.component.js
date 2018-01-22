@@ -55,13 +55,15 @@ function Brand({ label, isSeparated, renderers, ...props }) {
 
 	return (
 		<li role="presentation" className={className}>
-			<renderers.Action
-				bsStyle="link"
-				className={theme['tc-header-bar-brand']}
-				tooltipPlacement="bottom"
-				label={label}
-				{...props}
-			/>
+			<span role="heading">
+				<renderers.Action
+					bsStyle="link"
+					className={theme['tc-header-bar-brand']}
+					tooltipPlacement="bottom"
+					label={label}
+					{...props}
+				/>
+			</span>
 		</li>
 	);
 }
@@ -209,21 +211,21 @@ function HeaderBar(props) {
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar', 'navbar')}>
 			<ul className={theme['tc-header-bar-actions']}>
-				{props.logo && <Components.Logo renderers={renderers} {...props.logo} t={props.t} />}
+				{props.logo && <Components.Logo renderers={renderers} {...props.logo} t={props.t}/>}
 				{props.brand && (
-					<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env} />
+					<Components.Brand renderers={renderers} {...props.brand} isSeparated={!!props.env}/>
 				)}
 				{props.env && <Components.Environment renderers={renderers} {...props.env} />}
 			</ul>
 			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
 				{props.search && <Components.Search renderers={renderers} {...props.search} />}
-				{props.help && <Components.Help renderers={renderers} {...props.help} t={props.t} />}
+				{props.help && <Components.Help renderers={renderers} {...props.help} t={props.t}/>}
 				{props.user && <Components.User renderers={renderers} {...props.user} />}
 				{props.notification && (
-					<Components.AppNotification renderers={renderers} {...props.notification} t={props.t} />
+					<Components.AppNotification renderers={renderers} {...props.notification} t={props.t}/>
 				)}
 				{props.products && (
-					<Components.Products renderers={renderers} {...props.products} t={props.t} />
+					<Components.Products renderers={renderers} {...props.products} t={props.t}/>
 				)}
 			</ul>
 		</nav>
