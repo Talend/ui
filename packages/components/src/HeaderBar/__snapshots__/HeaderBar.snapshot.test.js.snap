@@ -340,6 +340,7 @@ exports[`Storyshots HeaderBar default 1`] = `
     >
       <li
         className="undefined"
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -366,6 +367,7 @@ exports[`Storyshots HeaderBar default 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -387,6 +389,7 @@ exports[`Storyshots HeaderBar default 1`] = `
     >
       <li
         className=""
+        role="presentation"
       >
         <form
           className="navbar-form navbar-right"
@@ -417,6 +420,7 @@ exports[`Storyshots HeaderBar default 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -444,6 +448,7 @@ exports[`Storyshots HeaderBar default 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -535,6 +540,7 @@ exports[`Storyshots HeaderBar default 1`] = `
       </li>
       <li
         className={undefined}
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -986,6 +992,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
     >
       <li
         className="undefined"
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -1012,6 +1019,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -1033,6 +1041,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
     >
       <li
         className=""
+        role="presentation"
       >
         <form
           className="navbar-form navbar-right"
@@ -1112,6 +1121,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -1139,6 +1149,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -1230,6 +1241,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       </li>
       <li
         className={undefined}
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -1681,6 +1693,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
     >
       <li
         className="undefined"
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -1707,6 +1720,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       </li>
       <li
         className="undefined"
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -1724,6 +1738,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       </li>
       <li
         className={undefined}
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -1793,6 +1808,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
     >
       <li
         className=""
+        role="presentation"
       >
         <form
           className="navbar-form navbar-right"
@@ -1823,6 +1839,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -1850,6 +1867,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -1941,6 +1959,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       </li>
       <li
         className={undefined}
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -2392,6 +2411,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
     >
       <li
         className=""
+        role="presentation"
       >
         <button
           className="undefined btn btn-link"
@@ -2418,6 +2438,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -2439,6 +2460,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
     >
       <li
         className=""
+        role="presentation"
       >
         <form
           className="navbar-form navbar-right"
@@ -2469,6 +2491,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -2496,6 +2519,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -2587,6 +2611,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       </li>
       <li
         className={undefined}
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -3038,6 +3063,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
     >
       <li
         className="undefined"
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -3064,6 +3090,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -3085,6 +3112,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
     >
       <li
         className=""
+        role="presentation"
       >
         <form
           className="navbar-form navbar-right"
@@ -3115,6 +3143,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -3232,6 +3261,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -3323,6 +3353,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
       </li>
       <li
         className={undefined}
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -3774,6 +3805,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
     >
       <li
         className="undefined"
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -3800,6 +3832,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -3821,6 +3854,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
     >
       <li
         className=""
+        role="presentation"
       >
         <form
           className="navbar-form navbar-right"
@@ -3880,6 +3914,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -3907,6 +3942,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -3998,6 +4034,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       </li>
       <li
         className={undefined}
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -4449,6 +4486,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
     >
       <li
         className="undefined"
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -4475,6 +4513,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -4496,6 +4535,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
     >
       <li
         className=""
+        role="presentation"
       >
         <form
           className="navbar-form navbar-right"
@@ -4526,6 +4566,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -4553,6 +4594,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -4644,6 +4686,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -4669,6 +4712,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       </li>
       <li
         className={undefined}
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -5120,6 +5164,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
     >
       <li
         className="undefined"
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -5146,6 +5191,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -5167,6 +5213,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
     >
       <li
         className=""
+        role="presentation"
       >
         <form
           className="navbar-form navbar-right"
@@ -5219,6 +5266,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -5246,6 +5294,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -5337,6 +5386,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       </li>
       <li
         className={undefined}
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -5788,6 +5838,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
     >
       <li
         className="undefined"
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -5814,6 +5865,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -5835,6 +5887,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
     >
       <li
         className=""
+        role="presentation"
       >
         <form
           className="navbar-form navbar-right"
@@ -6216,6 +6269,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -6243,6 +6297,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -6334,6 +6389,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       </li>
       <li
         className={undefined}
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -6785,6 +6841,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
     >
       <li
         className="undefined"
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -6811,6 +6868,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -6832,6 +6890,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
     >
       <li
         className=""
+        role="presentation"
       >
         <form
           className="navbar-form navbar-right"
@@ -6862,6 +6921,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -6889,6 +6949,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -6980,6 +7041,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       </li>
       <li
         className=""
+        role="presentation"
       >
         <button
           className="btn btn-link"
@@ -7005,6 +7067,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       </li>
       <li
         className={undefined}
+        role="presentation"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -7462,6 +7525,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
         >
           <li
             className=""
+            role="presentation"
           >
             <button
               className="undefined btn btn-link"
@@ -7488,6 +7552,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <button
               className="btn btn-link"
@@ -7509,6 +7574,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
         >
           <li
             className=""
+            role="presentation"
           >
             <form
               className="navbar-form navbar-right"
@@ -7539,6 +7605,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <button
               className="btn btn-link"
@@ -7566,6 +7633,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <div
               className="dropdown btn-group btn-group-link"
@@ -7657,6 +7725,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
           </li>
           <li
             className={undefined}
+            role="presentation"
           >
             <div
               className="dropdown btn-group btn-group-link"
@@ -8116,6 +8185,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
         >
           <li
             className=""
+            role="presentation"
           >
             <button
               className="undefined btn btn-link"
@@ -8142,6 +8212,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <button
               className="btn btn-link"
@@ -8163,6 +8234,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
         >
           <li
             className=""
+            role="presentation"
           >
             <form
               className="navbar-form navbar-right"
@@ -8193,6 +8265,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <button
               className="btn btn-link"
@@ -8220,6 +8293,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <div
               className="dropdown btn-group btn-group-link"
@@ -8311,6 +8385,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
           </li>
           <li
             className={undefined}
+            role="presentation"
           >
             <div
               className="dropdown btn-group btn-group-link"
@@ -8770,6 +8845,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
         >
           <li
             className=""
+            role="presentation"
           >
             <button
               className="undefined btn btn-link"
@@ -8796,6 +8872,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <button
               className="btn btn-link"
@@ -8817,6 +8894,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
         >
           <li
             className=""
+            role="presentation"
           >
             <form
               className="navbar-form navbar-right"
@@ -8847,6 +8925,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <button
               className="btn btn-link"
@@ -8874,6 +8953,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <div
               className="dropdown btn-group btn-group-link"
@@ -8965,6 +9045,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
           </li>
           <li
             className={undefined}
+            role="presentation"
           >
             <div
               className="dropdown btn-group btn-group-link"
@@ -9424,6 +9505,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
         >
           <li
             className=""
+            role="presentation"
           >
             <button
               className="undefined btn btn-link"
@@ -9450,6 +9532,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <button
               className="btn btn-link"
@@ -9471,6 +9554,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
         >
           <li
             className=""
+            role="presentation"
           >
             <form
               className="navbar-form navbar-right"
@@ -9501,6 +9585,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <button
               className="btn btn-link"
@@ -9528,6 +9613,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <div
               className="dropdown btn-group btn-group-link"
@@ -9619,6 +9705,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
           </li>
           <li
             className={undefined}
+            role="presentation"
           >
             <div
               className="dropdown btn-group btn-group-link"
@@ -10078,6 +10165,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
         >
           <li
             className=""
+            role="presentation"
           >
             <button
               className="undefined btn btn-link"
@@ -10104,6 +10192,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <button
               className="btn btn-link"
@@ -10125,6 +10214,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
         >
           <li
             className=""
+            role="presentation"
           >
             <form
               className="navbar-form navbar-right"
@@ -10155,6 +10245,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <button
               className="btn btn-link"
@@ -10182,6 +10273,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <div
               className="dropdown btn-group btn-group-link"
@@ -10273,6 +10365,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
           </li>
           <li
             className={undefined}
+            role="presentation"
           >
             <div
               className="dropdown btn-group btn-group-link"
@@ -10732,6 +10825,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
         >
           <li
             className=""
+            role="presentation"
           >
             <button
               className="undefined btn btn-link"
@@ -10758,6 +10852,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <button
               className="btn btn-link"
@@ -10779,6 +10874,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
         >
           <li
             className=""
+            role="presentation"
           >
             <form
               className="navbar-form navbar-right"
@@ -10809,6 +10905,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <button
               className="btn btn-link"
@@ -10836,6 +10933,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
           </li>
           <li
             className=""
+            role="presentation"
           >
             <div
               className="dropdown btn-group btn-group-link"
@@ -10927,6 +11025,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
           </li>
           <li
             className={undefined}
+            role="presentation"
           >
             <div
               className="dropdown btn-group btn-group-link"

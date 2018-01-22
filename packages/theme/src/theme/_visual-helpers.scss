@@ -35,6 +35,24 @@
 	[role='banner'] > * {
 		$gradient-angle: 'to right';
 		background: linear-gradient(#{$gradient-angle}, $regal-blue 20%, $brand-primary 80%);
+
+		[role='presentation'] {
+			// Sorry, Bootstrap customization sucks
+			:global(.btn),
+			:global(.btn.open),
+			:global(.dropdown.open .btn) {
+				&,
+				&:hover {
+					background: none;
+				}
+			}
+
+			:global(.btn) {
+				&:hover {
+					box-shadow: 0 200px 100px -100px rgba(255, 255, 255, 0.12) inset;
+				}
+			}
+		}
 	}
 
 	[role="navigation"] {

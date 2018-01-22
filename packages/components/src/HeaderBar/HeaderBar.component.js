@@ -34,7 +34,7 @@ function Logo({ isFull, renderers, t, ...props }) {
 	});
 
 	return (
-		<li className={itemClassName}>
+		<li role="presentation" className={itemClassName}>
 			<renderers.Action
 				bsStyle="link"
 				className={actionClassName}
@@ -54,7 +54,7 @@ function Brand({ label, isSeparated, renderers, ...props }) {
 	});
 
 	return (
-		<li className={className}>
+		<li role="presentation" className={className}>
 			<renderers.Action
 				bsStyle="link"
 				className={theme['tc-header-bar-brand']}
@@ -68,7 +68,7 @@ function Brand({ label, isSeparated, renderers, ...props }) {
 
 function Environment({ renderers, ...props }) {
 	return (
-		<li className={theme['tc-header-bar-action']}>
+		<li role="presentation" className={theme['tc-header-bar-action']}>
 			<renderers.ActionDropdown
 				bsStyle="link"
 				icon="talend-environment"
@@ -88,7 +88,7 @@ function Search({ renderers, ...props }) {
 	);
 
 	return (
-		<li className={className}>
+		<li role="presentation" className={className}>
 			<form className="navbar-form navbar-right" role="search">
 				<renderers.Typeahead {...props} />
 			</form>
@@ -107,7 +107,7 @@ function Help({ renderers, t, ...props }) {
 	const className = classNames(theme['tc-header-bar-action'], theme.separated);
 
 	return (
-		<li className={className}>
+		<li role="presentation" className={className}>
 			{props.items && props.items.length ? (
 				<renderers.ActionSplitDropdown pullRight {...global} />
 			) : (
@@ -141,7 +141,7 @@ function User({ name, firstName, lastName, renderers, ...rest }) {
 	}
 
 	return (
-		<li className={className}>
+		<li role="presentation" className={className}>
 			<renderers.ActionDropdown
 				bsStyle="link"
 				icon="talend-user-circle"
@@ -166,7 +166,7 @@ function AppNotification({ renderers, hasUnread, t, ...props }) {
 		...props,
 	};
 	return (
-		<li className={className}>
+		<li role="presentation" className={className}>
 			<renderers.Action {...global} />
 		</li>
 	);
@@ -174,7 +174,7 @@ function AppNotification({ renderers, hasUnread, t, ...props }) {
 
 function Products({ renderers, t, ...props }) {
 	return (
-		<li className={theme['tc-header-bar-action']}>
+		<li role="presentation" className={theme['tc-header-bar-action']}>
 			<renderers.ActionDropdown
 				bsStyle="link"
 				className={theme['tc-header-bar-products']}
