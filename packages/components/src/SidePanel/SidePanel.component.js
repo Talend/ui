@@ -50,19 +50,19 @@ function getActionId(id, action) {
  *
  */
 function SidePanel({
-	                   id,
-	                   selected,
-	                   onSelect,
-	                   actions,
-	                   getComponent,
-	                   components,
-	                   docked,
-	                   reverse,
-	                   large,
-	                   dockable,
-	                   onToggleDock,
-	                   t,
-                   }) {
+	id,
+	selected,
+	onSelect,
+	actions,
+	getComponent,
+	components,
+	docked,
+	reverse,
+	large,
+	dockable,
+	onToggleDock,
+	t,
+}) {
 	const injected = Inject.all(getComponent, components);
 	const navCSS = classNames(
 		theme['tc-side-panel'],
