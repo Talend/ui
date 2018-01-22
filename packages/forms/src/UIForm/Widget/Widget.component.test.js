@@ -141,11 +141,7 @@ describe('Widget component', () => {
 			],
 		};
 		const wrapper = shallow(
-			<Widget
-				schema={withConditions}
-				properties={properties}
-				errors={errors}
-			/>
+			<Widget schema={withConditions} properties={properties} errors={errors} />,
 		);
 
 		// then
@@ -162,11 +158,7 @@ describe('Widget component', () => {
 			],
 		};
 		const wrapper = shallow(
-			<Widget
-				schema={withConditions}
-				properties={properties}
-				errors={errors}
-			/>
+			<Widget schema={withConditions} properties={properties} errors={errors} />,
 		);
 
 		// then

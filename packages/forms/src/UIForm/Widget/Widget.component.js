@@ -8,10 +8,13 @@ import defaultWidgets from '../utils/widgets';
 import { getValue } from '../utils/properties';
 
 function shouldRender(conditions, properties) {
-	return !conditions || conditions.every(cond => {
-		const value = get(properties, cond.path);
-		return includes(cond.values, value);
-	});
+	return (
+		!conditions ||
+		conditions.every(cond => {
+			const value = get(properties, cond.path);
+			return includes(cond.values, value);
+		})
+	);
 }
 
 export default function Widget(props) {
@@ -49,10 +52,12 @@ if (process.env.NODE_ENV !== 'production') {
 		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		id: PropTypes.string,
 		schema: PropTypes.shape({
-			conditions: PropTypes.arrayOf(PropTypes.shape({
-				path: PropTypes.string,
-				values: PropTypes.array,
-			})),
+			conditions: PropTypes.arrayOf(
+				PropTypes.shape({
+					path: PropTypes.string,
+					values: PropTypes.array,
+				}),
+			),
 			key: PropTypes.array,
 			options: PropTypes.object,
 			type: PropTypes.string,
