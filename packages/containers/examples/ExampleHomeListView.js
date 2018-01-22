@@ -181,16 +181,6 @@ const ExampleHomeListView = {
 	),
 };
 
-ExampleHomeListView[`${app.toUpperCase()} default`] = () => (
-	<div>
-		<IconsProvider defaultIcons={icons}/>
-		<HomeListView
-			sidepanel={sidepanel}
-			list={listProps}
-		/>
-	</div>
-);
-
 apps.forEach(app => {
 	ExampleHomeListView[`🎨 ${app.toUpperCase()} default`] = () => {
 		const appStyle = require(`@talend/react-components/lib/Layout/_Layout.${app}.scss`);
