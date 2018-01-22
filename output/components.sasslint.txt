@@ -15,8 +15,5 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-src/SidePanel/SidePanel.scss
-  82:13  error  A value of `0` is not allowed. `none` must be used  border-zero
-
-✖ 5 problems (2 errors, 3 warnings)
+✖ 4 problems (1 error, 3 warnings)
 
