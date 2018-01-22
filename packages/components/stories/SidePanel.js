@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 import i18n, { LanguageSwitcher } from './config/i18n';
-import { SidePanel, IconsProvider, Layout } from '../src/index';
+import { IconsProvider, Layout, SidePanel } from '../src/index';
 
 import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
 
@@ -65,77 +65,76 @@ stories
 			<LanguageSwitcher/>
 			<IconsProvider defaultIcons={icons}/>
 			<I18nextProvider i18n={i18n}>
-				<div style={{ display: 'inline-table', background: '#236192' }}>{story()}</div>
+				{story()}
 			</I18nextProvider>
 		</div>
 	))
 	.addWithInfo('default', () => (
-		<SidePanel
-			id="context"
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked={false}
-			tooltipPlacement="top"
-		/>
+		<div style={{ display: 'inline-table', background: '#236192' }}>
+			<SidePanel
+				id="context"
+				actions={actions}
+				onSelect={action('onItemSelect')}
+				onToggleDock={action('onToggleDock')}
+				tooltipPlacement="top"
+			/>
+		</div>
 	))
 	.addWithInfo('docked', () => (
-		<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
-			tooltipPlacement="top"
-		/>
-	))
-	.addWithInfo('with onSelect function', () => (
-		<SidePanel
-			actions={items}
-			onSelect={action('onItemSelect')}
-			onToggleDock={action('onToggleDock')}
-			selected={items[1]}
-			tooltipPlacement="top"
-		/>
+		<div style={{ display: 'inline-table', background: '#236192' }}>
+			<SidePanel
+				actions={actions}
+				onToggleDock={action('Toggle dock clicked')}
+				docked
+				tooltipPlacement="top"
+			/>
+		</div>
 	))
 	.addWithInfo('not dockable', () => (
-		<SidePanel
-			actions={items}
-			onSelect={action('onItemSelect')}
-			onToggleDock={action('onToggleDock')}
-			dockable={false}
-			selected={items[1]}
-			tooltipPlacement="top"
-		/>
-	))
-	.addWithInfo('with reversed style', () => (
-		<SidePanel
-			actions={items}
-			onSelect={action('onItemSelect')}
-			onToggleDock={action('onToggleDock')}
-			selected={items[1]}
-			reverse
-			tooltipPlacement="top"
-		/>
-	))
-	.addWithInfo('with large reverse style', () => (
-		<SidePanel
-			actions={items}
-			onSelect={action('onItemSelect')}
-			onToggleDock={action('onToggleDock')}
-			selected={items[1]}
-			reverse
-			large
-			tooltipPlacement="top"
-		/>
+		<div style={{ display: 'inline-table', background: '#236192' }}>
+			<SidePanel
+				actions={items}
+				onSelect={action('onItemSelect')}
+				onToggleDock={action('onToggleDock')}
+				dockable={false}
+				selected={items[1]}
+				tooltipPlacement="top"
+			/>
+		</div>
 	))
 	.addWithInfo('large docked', () => (
+		<div style={{ display: 'inline-table', background: '#236192' }}>
+			<SidePanel
+				actions={actions}
+				onToggleDock={action('Toggle dock clicked')}
+				docked
+				large
+				tooltipPlacement="top"
+			/>
+		</div>
+	))
+	.addWithInfo('reverse', () => (
 		<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			docked
+			actions={items}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			selected={items[1]}
+			reverse
+			tooltipPlacement="top"
+		/>
+	))
+	.addWithInfo('large reverse', () => (
+		<SidePanel
+			actions={items}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			selected={items[1]}
+			reverse
 			large
 			tooltipPlacement="top"
 		/>
 	))
-	.addWithInfo('With layout (toggle interactive)', () => {
+	.addWithInfo('with layout (toggle interactive)', () => {
 		class WithLayout extends React.Component {
 			constructor() {
 				super();
@@ -173,7 +172,7 @@ stories
 
 		return <WithLayout/>;
 	})
-	.addWithInfo('With layout but reversed (toggle interactive)', () => {
+	.addWithInfo('reverse with layout (toggle interactive)', () => {
 		class WithLayout extends React.Component {
 			constructor() {
 				super();
