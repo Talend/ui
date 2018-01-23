@@ -52,7 +52,6 @@ exports[`NoRows should show no result 1`] = `
             "nonExplicitWhitelist": false,
             "ns": Array [
               "translation",
-              "tui-components",
             ],
             "nsSeparator": ":",
             "overloadTranslationOptionHandler": [Function],
@@ -116,7 +115,6 @@ exports[`NoRows should show no result 1`] = `
           "nonExplicitWhitelist": false,
           "ns": Array [
             "translation",
-            "tui-components",
           ],
           "nsSeparator": ":",
           "overloadTranslationOptionHandler": [Function],
@@ -178,7 +176,6 @@ exports[`NoRows should show no result 1`] = `
                   "nonExplicitWhitelist": false,
                   "ns": Array [
                     "translation",
-                    "tui-components",
                   ],
                   "nsSeparator": ":",
                   "overloadTranslationOptionHandler": [Function],
@@ -229,7 +226,6 @@ exports[`NoRows should show no result 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
-                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -288,7 +284,6 @@ exports[`NoRows should show no result 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
-                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -347,7 +342,6 @@ exports[`NoRows should show no result 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
-                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -410,7 +404,6 @@ exports[`NoRows should show no result 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
-                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -466,7 +459,6 @@ exports[`NoRows should show no result 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
-                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -531,7 +523,6 @@ exports[`NoRows should show no result 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
-                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -586,7 +577,6 @@ exports[`NoRows should show no result 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
-                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -651,7 +641,6 @@ exports[`NoRows should show no result 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
-                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -702,7 +691,6 @@ exports[`NoRows should show no result 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
-                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -761,7 +749,6 @@ exports[`NoRows should show no result 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
-                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -822,7 +809,6 @@ exports[`NoRows should show no result 1`] = `
                   "nonExplicitWhitelist": false,
                   "ns": Array [
                     "translation",
-                    "tui-components",
                   ],
                   "nsSeparator": ":",
                   "overloadTranslationOptionHandler": [Function],
@@ -873,7 +859,6 @@ exports[`NoRows should show no result 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
-                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -932,7 +917,6 @@ exports[`NoRows should show no result 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
-                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -1920,7 +1904,6 @@ exports[`NoRows should show no result 1`] = `
                   "nonExplicitWhitelist": false,
                   "ns": Array [
                     "translation",
-                    "tui-components",
                   ],
                   "nsSeparator": ":",
                   "overloadTranslationOptionHandler": [Function],
@@ -1971,7 +1954,6 @@ exports[`NoRows should show no result 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
-                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -2030,7 +2012,6 @@ exports[`NoRows should show no result 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
-                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -2089,7 +2070,6 @@ exports[`NoRows should show no result 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
-                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -2155,7 +2135,6 @@ exports[`NoRows should show no result 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
-                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -2210,7 +2189,6 @@ exports[`NoRows should show no result 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
-                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -2275,7 +2253,6 @@ exports[`NoRows should show no result 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
-                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -2326,7 +2303,6 @@ exports[`NoRows should show no result 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
-                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -2385,7 +2361,6 @@ exports[`NoRows should show no result 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
-                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -2441,7 +2416,6 @@ exports[`NoRows should show no result 1`] = `
             "nonExplicitWhitelist": false,
             "ns": Array [
               "translation",
-              "tui-components",
             ],
             "nsSeparator": ":",
             "overloadTranslationOptionHandler": [Function],
@@ -2500,7 +2474,6 @@ exports[`NoRows should show no result 1`] = `
                   "nonExplicitWhitelist": false,
                   "ns": Array [
                     "translation",
-                    "tui-components",
                   ],
                   "nsSeparator": ":",
                   "overloadTranslationOptionHandler": [Function],
@@ -2551,7 +2524,6 @@ exports[`NoRows should show no result 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
-                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -2610,7 +2582,6 @@ exports[`NoRows should show no result 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
-                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
