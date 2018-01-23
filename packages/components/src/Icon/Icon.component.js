@@ -48,14 +48,17 @@ function Icon({ className, name, title, transform, onClick, src }) {
 			'tc-icon',
 			className
 		);
+
+		const Image = (<img className={classNames} src={src} alt="" />);
+
 		if (onClick) {
 			return (
-				<a xlinkHref="#" onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
-					<img className={classNames} src={src} alt={title || src} />
-				</a>
+				<button onClick={onClick} className={classnames('tc-svg-anchor', theme.link)} title={title}>
+					{Image}
+				</button>
 			);
 		}
-		return <img className={classNames} src={src} alt={title || src} />;
+		return Image;
 	}
 	if (name.startsWith('fa-')) {
 		const classes = classnames('fa', name, className, transform && FA_TRANSFORMS[transform]);
@@ -75,11 +78,11 @@ function Icon({ className, name, title, transform, onClick, src }) {
 		return (
 			// eslint doesn't recognizes the xlinkHref mention
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-			<a xlinkHref="#" onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
+			<button onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
 				<svg className={classname} {...accessibility}>
 					<use xlinkHref={`#${name}`} />
 				</svg>
-			</a>
+			</button>
 		);
 	}
 	if (name) {
