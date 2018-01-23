@@ -51,10 +51,10 @@ function Icon({ className, name, title, transform, onClick, src }) {
 				className
 			)
 		};
-		if (!!onClick) {
+		if (onClick) {
 			props.onClick = onClick;
 		}
-		if (!!title) {
+		if (title) {
 			props.title = title;
 		}
 		return <img {...props} />;
