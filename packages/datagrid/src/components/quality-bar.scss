@@ -1,0 +1,22 @@
+.quality-bar {
+	height: 13px;
+	width: 100%;
+}
+
+.quality-bar-valid {
+	background-color: green;
+	display: inline-block;
+	height: 100%;
+}
+
+.quality-bar-empty {
+	background-color: gray;
+	display: inline-block;
+	height: 100%;
+}
+
+.quality-bar-invalid {
+	background-color: red;
+	display: inline-block;
+	height: 100%;
+}

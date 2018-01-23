@@ -1,0 +1,20 @@
+.grid {
+	:global(.ag-pinned-left-header) {
+		border: #e6e6e6 1px solid;
+	}
+
+	:global(.ag-body) {
+		background-color: #fafafa;
+	}
+
+	:global(.ag-cell) {
+		border-right: #f6f6f6 1px solid;
+		border-bottom: #f6f6f6 1px solid;
+	}
+
+	:global(.index-cell) {
+		padding: 9px;
+		color: #202020;
+		border-color: #e6e6e6;
+	}
+}

@@ -1,0 +1,23 @@
+.header-component {
+	color: #555;
+	border-right: #e6e6e6 1px solid;
+
+	.header {
+		padding: 8px;
+
+		&-first-line {
+			font-weight: bold;
+			display: flex;
+			color: #202020;
+		}
+
+		&-column-label {
+			flex: 1 0 auto;
+		}
+
+		&-other-actions,
+		&-second-line {
+			color: #919191;
+		}
+	}
+}
