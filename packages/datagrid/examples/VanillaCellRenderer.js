@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Grid from '../src/components/grid.component';
+import HeaderGrid from '../src/components/header-grid.component';
 import { rowData, columnDefs } from './config';
 
 class SimpleCellRenderer {
@@ -21,6 +22,9 @@ class SimpleCellRenderer {
 }
 
 export default function VanillaCellRenderer() {
+	const renderers = {
+		headerGrid: HeaderGrid,
+	};
 	const columnReactDefs = columnDefs.map(columnDefefition => ({
 		...columnDefefition,
 		cellRenderer: SimpleCellRenderer,
@@ -28,7 +32,7 @@ export default function VanillaCellRenderer() {
 
 	return (
 		<div>
-			<Grid rowData={rowData} columnDefs={columnReactDefs} />
+			<Grid rowData={rowData} columnDefs={columnReactDefs} renderers={renderers} />
 		</div>
 	);
 }

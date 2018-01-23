@@ -1,0 +1,24 @@
+.cell {
+	padding: 9px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	&-number {
+		text-align: right;
+	}
+
+	.invisible-char {
+		display: inline-block;
+		width: 20px;
+		height: 10px;
+		background-image: repeating-linear-gradient(-20deg, white, white 2px, gray 2px, gray 4px);
+	}
+
+	.invisible-char:last-child {
+		margin-left: 5px;
+	}
+
+	.invisible-char:first-child {
+		margin-right: 5px;
+	}
+}

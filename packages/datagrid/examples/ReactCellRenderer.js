@@ -1,20 +1,21 @@
 import React from 'react';
 
 import Grid from '../src/components/grid.component';
+import HeaderGrid from '../src/components/header-grid.component';
+import CellRenderer from '../src/components/cell-renderer.component';
 import { rowData, columnDefs } from './config';
-
-function DataGridCell(params) {
-	return <b>{params.value}</b>;
-}
 
 export default function ReactCellRenderer() {
 	const renderers = {
-		cellRenderer: DataGridCell,
+		cellRenderer: CellRenderer,
+		headerGrid: HeaderGrid,
 	};
 
-	const columnReactDefs = columnDefs.map(columnDefefition => ({
-		...columnDefefition,
-		cellRenderer: 'cellRenderer',
+	const columnReactDefs = columnDefs.map(columnDefinition => ({
+		...columnDefinition,
+		...(columnDefinition.field.includes('col')
+			? { cellRenderer: 'cellRenderer' }
+			: { cellClass: 'index-cell' }),
 	}));
 
 	return (
