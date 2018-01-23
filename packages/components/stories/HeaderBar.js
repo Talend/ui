@@ -261,14 +261,17 @@ decoratedStories
 	})
 	.addWithInfo('barebone', () => <HeaderBar/>);
 
+const appStyle = require(`./config/Layout.scss`);
+
 apps.forEach(app => {
-	const appStyle = require(`../src/Layout/_Layout.${app}.scss`);
 	const headerProps = Immutable.fromJS(props).toJS();
 	decoratedStories
 		.addWithInfo(`🎨 [${app.toUpperCase()}] HeaderBar`, () => (
-				<div className={appStyle[TALEND_T7_THEME_CLASSNAME]}>
-					<div role="banner">
-						<HeaderBar {...headerProps} />
+				<div className={appStyle[app]}>
+					<div className={TALEND_T7_THEME_CLASSNAME}>
+						<div role="banner">
+							<HeaderBar {...headerProps} />
+						</div>
 					</div>
 				</div>
 			)

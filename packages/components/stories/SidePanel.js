@@ -212,18 +212,21 @@ stories
 		return <WithLayout/>;
 	});
 
+const appStyle = require(`./config/Layout.scss`);
+
 apps.forEach(app => {
-		const appStyle = require(`../src/Layout/_Layout.${app}.scss`);
 		stories
 			.addWithInfo(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
-					<div className={appStyle[TALEND_T7_THEME_CLASSNAME]} style={{ height: '100vh' }}>
-						<SidePanel
-							id="context"
-							actions={actions}
-							onToggleDock={action('Toggle dock clicked')}
-							docked={false}
-							tooltipPlacement="top"
-						/>
+					<div className={appStyle[app]}>
+						<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
+							<SidePanel
+								id="context"
+								actions={actions}
+								onToggleDock={action('Toggle dock clicked')}
+								docked={false}
+								tooltipPlacement="top"
+							/>
+						</div>
 					</div>
 				)
 			);

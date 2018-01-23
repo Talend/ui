@@ -7588,78 +7588,25 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
     className={undefined}
   >
     <div
-      role="banner"
+      className="t7"
     >
-      <nav
-        className="tc-header-bar navbar"
+      <div
+        role="banner"
       >
-        <ul
-          className={undefined}
+        <nav
+          className="tc-header-bar navbar"
         >
-          <li
-            className="undefined"
-            role="presentation"
+          <ul
+            className={undefined}
           >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-logo"
-              onClick={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              onMouseOver={[Function]}
-              role={null}
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-logo-square"
-                />
-              </svg>
-            </button>
-          </li>
-          <li
-            className=""
-            role="presentation"
-          >
-            <span
-              role="heading"
+            <li
+              className="undefined"
+              role="presentation"
             >
               <button
                 className="btn btn-link"
                 disabled={false}
-                id="header-brand"
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <span>
-                  Example App Name
-                </span>
-              </button>
-            </span>
-          </li>
-        </ul>
-        <ul
-          className=""
-        >
-          <li
-            className=""
-            role="presentation"
-          >
-            <form
-              className="navbar-form navbar-right"
-              role="search"
-            >
-              <button
-                className="btn btn-link"
-                disabled={false}
+                id="header-logo"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
@@ -7674,62 +7621,54 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                   title={null}
                 >
                   <use
-                    xlinkHref="#talend-search"
+                    xlinkHref="#talend-logo-square"
                   />
                 </svg>
               </button>
-            </form>
-          </li>
-          <li
-            className=""
-            role="presentation"
-          >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-help"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+            </li>
+            <li
+              className=""
+              role="presentation"
             >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
+              <span
+                role="heading"
               >
-                <use
-                  xlinkHref="#talend-question-circle"
-                />
-              </svg>
-              <span>
-                Help
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  id="header-brand"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <span>
+                    Example App Name
+                  </span>
+                </button>
               </span>
-            </button>
-          </li>
-          <li
+            </li>
+          </ul>
+          <ul
             className=""
-            role="presentation"
           >
-            <div
-              className="dropdown btn-group btn-group-link"
+            <li
+              className=""
+              role="presentation"
             >
-              <button
-                aria-expanded={false}
-                aria-haspopup={true}
-                className="tc-dropdown-button dropdown-toggle btn btn-link"
-                disabled={false}
-                id="header-user"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseOver={[Function]}
-                role="button"
-                type="button"
+              <form
+                className="navbar-form navbar-right"
+                role="search"
               >
-                <span
-                  className="tc-dropdown-button-title"
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
                   <svg
                     aria-hidden="true"
@@ -7738,121 +7677,154 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                     title={null}
                   >
                     <use
-                      xlinkHref="#talend-user-circle"
+                      xlinkHref="#talend-search"
                     />
                   </svg>
+                </button>
+              </form>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-help"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="tc-svg-icon"
+                  focusable="false"
+                  title={null}
+                >
+                  <use
+                    xlinkHref="#talend-question-circle"
+                  />
+                </svg>
+                <span>
+                  Help
+                </span>
+              </button>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <div
+                className="dropdown btn-group btn-group-link"
+              >
+                <button
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="tc-dropdown-button dropdown-toggle btn btn-link"
+                  disabled={false}
+                  id="header-user"
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="button"
+                  type="button"
+                >
                   <span
-                    className="tc-dropdown-button-title-label"
+                    className="tc-dropdown-button-title"
                   >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-user-circle"
+                      />
+                    </svg>
                     <span
-                      className="user-name"
+                      className="tc-dropdown-button-title-label"
                     >
                       <span
-                        className="user-firstname"
+                        className="user-name"
                       >
-                        John
-                      </span>
-                      <span
-                        className="user-lastname"
-                      >
-                        Doe
+                        <span
+                          className="user-firstname"
+                        >
+                          John
+                        </span>
+                        <span
+                          className="user-lastname"
+                        >
+                          Doe
+                        </span>
                       </span>
                     </span>
                   </span>
-                </span>
-                 
-                <span
-                  className="caret"
-                />
-              </button>
-              <ul
-                aria-labelledby="header-user"
-                className="dropdown-menu dropdown-menu-right"
-                role="menu"
-              >
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
+                   
+                  <span
+                    className="caret"
+                  />
+                </button>
+                <ul
+                  aria-labelledby="header-user"
+                  className="dropdown-menu dropdown-menu-right"
+                  role="menu"
                 >
-                  <a
-                    href="#"
-                    icon="talend-cog"
-                    label="Settings"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-cog"
+                      label="Settings"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-cog"
-                      />
-                    </svg>
-                    Settings
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li
-            className={undefined}
-            role="presentation"
-          >
-            <div
-              className="dropdown btn-group btn-group-link"
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-cog"
+                        />
+                      </svg>
+                      Settings
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              className={undefined}
+              role="presentation"
             >
-              <button
-                aria-expanded={false}
-                aria-haspopup={true}
-                className="dropdown-toggle btn btn-link"
-                disabled={false}
-                id="header-products"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseOver={[Function]}
-                role="button"
-                type="button"
+              <div
+                className="dropdown btn-group btn-group-link"
               >
-                <span
-                  className="tc-dropdown-button-title"
+                <button
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="dropdown-toggle btn btn-link"
+                  disabled={false}
+                  id="header-products"
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="button"
+                  type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="tc-svg-icon"
-                    focusable="false"
-                    title={null}
-                  >
-                    <use
-                      xlinkHref="#talend-launcher"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <ul
-                aria-labelledby="header-products"
-                className="dropdown-menu dropdown-menu-right"
-                role="menu"
-              >
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
-                >
-                  <a
-                    href="#"
-                    icon="talend-logo-dp"
-                    label="Data Preparation"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <span
+                    className="tc-dropdown-button-title"
                   >
                     <svg
                       aria-hidden="true"
@@ -7861,71 +7833,103 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                       title={null}
                     >
                       <use
-                        xlinkHref="#talend-logo-dp"
+                        xlinkHref="#talend-launcher"
                       />
                     </svg>
-                    Data Preparation
-                  </a>
-                </li>
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
+                  </span>
+                </button>
+                <ul
+                  aria-labelledby="header-products"
+                  className="dropdown-menu dropdown-menu-right"
+                  role="menu"
                 >
-                  <a
-                    href="#"
-                    icon="talend-logo-ic"
-                    label="Integration Cloud"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-logo-dp"
+                      label="Data Preparation"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-logo-ic"
-                      />
-                    </svg>
-                    Integration Cloud
-                  </a>
-                </li>
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
-                >
-                  <a
-                    href="#"
-                    icon="talend-logo-mc"
-                    label="Management Console"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-dp"
+                        />
+                      </svg>
+                      Data Preparation
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-logo-ic"
+                      label="Integration Cloud"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-logo-mc"
-                      />
-                    </svg>
-                    Management Console
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </nav>
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-ic"
+                        />
+                      </svg>
+                      Integration Cloud
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
+                  >
+                    <a
+                      href="#"
+                      icon="talend-logo-mc"
+                      label="Management Console"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-mc"
+                        />
+                      </svg>
+                      Management Console
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
   <div
@@ -8255,78 +8259,25 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
     className={undefined}
   >
     <div
-      role="banner"
+      className="t7"
     >
-      <nav
-        className="tc-header-bar navbar"
+      <div
+        role="banner"
       >
-        <ul
-          className={undefined}
+        <nav
+          className="tc-header-bar navbar"
         >
-          <li
-            className="undefined"
-            role="presentation"
+          <ul
+            className={undefined}
           >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-logo"
-              onClick={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              onMouseOver={[Function]}
-              role={null}
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-logo-square"
-                />
-              </svg>
-            </button>
-          </li>
-          <li
-            className=""
-            role="presentation"
-          >
-            <span
-              role="heading"
+            <li
+              className="undefined"
+              role="presentation"
             >
               <button
                 className="btn btn-link"
                 disabled={false}
-                id="header-brand"
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <span>
-                  Example App Name
-                </span>
-              </button>
-            </span>
-          </li>
-        </ul>
-        <ul
-          className=""
-        >
-          <li
-            className=""
-            role="presentation"
-          >
-            <form
-              className="navbar-form navbar-right"
-              role="search"
-            >
-              <button
-                className="btn btn-link"
-                disabled={false}
+                id="header-logo"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
@@ -8341,62 +8292,54 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                   title={null}
                 >
                   <use
-                    xlinkHref="#talend-search"
+                    xlinkHref="#talend-logo-square"
                   />
                 </svg>
               </button>
-            </form>
-          </li>
-          <li
-            className=""
-            role="presentation"
-          >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-help"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+            </li>
+            <li
+              className=""
+              role="presentation"
             >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
+              <span
+                role="heading"
               >
-                <use
-                  xlinkHref="#talend-question-circle"
-                />
-              </svg>
-              <span>
-                Help
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  id="header-brand"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <span>
+                    Example App Name
+                  </span>
+                </button>
               </span>
-            </button>
-          </li>
-          <li
+            </li>
+          </ul>
+          <ul
             className=""
-            role="presentation"
           >
-            <div
-              className="dropdown btn-group btn-group-link"
+            <li
+              className=""
+              role="presentation"
             >
-              <button
-                aria-expanded={false}
-                aria-haspopup={true}
-                className="tc-dropdown-button dropdown-toggle btn btn-link"
-                disabled={false}
-                id="header-user"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseOver={[Function]}
-                role="button"
-                type="button"
+              <form
+                className="navbar-form navbar-right"
+                role="search"
               >
-                <span
-                  className="tc-dropdown-button-title"
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
                   <svg
                     aria-hidden="true"
@@ -8405,121 +8348,154 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                     title={null}
                   >
                     <use
-                      xlinkHref="#talend-user-circle"
+                      xlinkHref="#talend-search"
                     />
                   </svg>
+                </button>
+              </form>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-help"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="tc-svg-icon"
+                  focusable="false"
+                  title={null}
+                >
+                  <use
+                    xlinkHref="#talend-question-circle"
+                  />
+                </svg>
+                <span>
+                  Help
+                </span>
+              </button>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <div
+                className="dropdown btn-group btn-group-link"
+              >
+                <button
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="tc-dropdown-button dropdown-toggle btn btn-link"
+                  disabled={false}
+                  id="header-user"
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="button"
+                  type="button"
+                >
                   <span
-                    className="tc-dropdown-button-title-label"
+                    className="tc-dropdown-button-title"
                   >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-user-circle"
+                      />
+                    </svg>
                     <span
-                      className="user-name"
+                      className="tc-dropdown-button-title-label"
                     >
                       <span
-                        className="user-firstname"
+                        className="user-name"
                       >
-                        John
-                      </span>
-                      <span
-                        className="user-lastname"
-                      >
-                        Doe
+                        <span
+                          className="user-firstname"
+                        >
+                          John
+                        </span>
+                        <span
+                          className="user-lastname"
+                        >
+                          Doe
+                        </span>
                       </span>
                     </span>
                   </span>
-                </span>
-                 
-                <span
-                  className="caret"
-                />
-              </button>
-              <ul
-                aria-labelledby="header-user"
-                className="dropdown-menu dropdown-menu-right"
-                role="menu"
-              >
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
+                   
+                  <span
+                    className="caret"
+                  />
+                </button>
+                <ul
+                  aria-labelledby="header-user"
+                  className="dropdown-menu dropdown-menu-right"
+                  role="menu"
                 >
-                  <a
-                    href="#"
-                    icon="talend-cog"
-                    label="Settings"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-cog"
+                      label="Settings"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-cog"
-                      />
-                    </svg>
-                    Settings
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li
-            className={undefined}
-            role="presentation"
-          >
-            <div
-              className="dropdown btn-group btn-group-link"
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-cog"
+                        />
+                      </svg>
+                      Settings
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              className={undefined}
+              role="presentation"
             >
-              <button
-                aria-expanded={false}
-                aria-haspopup={true}
-                className="dropdown-toggle btn btn-link"
-                disabled={false}
-                id="header-products"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseOver={[Function]}
-                role="button"
-                type="button"
+              <div
+                className="dropdown btn-group btn-group-link"
               >
-                <span
-                  className="tc-dropdown-button-title"
+                <button
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="dropdown-toggle btn btn-link"
+                  disabled={false}
+                  id="header-products"
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="button"
+                  type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="tc-svg-icon"
-                    focusable="false"
-                    title={null}
-                  >
-                    <use
-                      xlinkHref="#talend-launcher"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <ul
-                aria-labelledby="header-products"
-                className="dropdown-menu dropdown-menu-right"
-                role="menu"
-              >
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
-                >
-                  <a
-                    href="#"
-                    icon="talend-logo-dp"
-                    label="Data Preparation"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <span
+                    className="tc-dropdown-button-title"
                   >
                     <svg
                       aria-hidden="true"
@@ -8528,71 +8504,103 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                       title={null}
                     >
                       <use
-                        xlinkHref="#talend-logo-dp"
+                        xlinkHref="#talend-launcher"
                       />
                     </svg>
-                    Data Preparation
-                  </a>
-                </li>
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
+                  </span>
+                </button>
+                <ul
+                  aria-labelledby="header-products"
+                  className="dropdown-menu dropdown-menu-right"
+                  role="menu"
                 >
-                  <a
-                    href="#"
-                    icon="talend-logo-ic"
-                    label="Integration Cloud"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-logo-dp"
+                      label="Data Preparation"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-logo-ic"
-                      />
-                    </svg>
-                    Integration Cloud
-                  </a>
-                </li>
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
-                >
-                  <a
-                    href="#"
-                    icon="talend-logo-mc"
-                    label="Management Console"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-dp"
+                        />
+                      </svg>
+                      Data Preparation
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-logo-ic"
+                      label="Integration Cloud"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-logo-mc"
-                      />
-                    </svg>
-                    Management Console
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </nav>
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-ic"
+                        />
+                      </svg>
+                      Integration Cloud
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
+                  >
+                    <a
+                      href="#"
+                      icon="talend-logo-mc"
+                      label="Management Console"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-mc"
+                        />
+                      </svg>
+                      Management Console
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
   <div
@@ -8922,78 +8930,25 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
     className={undefined}
   >
     <div
-      role="banner"
+      className="t7"
     >
-      <nav
-        className="tc-header-bar navbar"
+      <div
+        role="banner"
       >
-        <ul
-          className={undefined}
+        <nav
+          className="tc-header-bar navbar"
         >
-          <li
-            className="undefined"
-            role="presentation"
+          <ul
+            className={undefined}
           >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-logo"
-              onClick={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              onMouseOver={[Function]}
-              role={null}
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-logo-square"
-                />
-              </svg>
-            </button>
-          </li>
-          <li
-            className=""
-            role="presentation"
-          >
-            <span
-              role="heading"
+            <li
+              className="undefined"
+              role="presentation"
             >
               <button
                 className="btn btn-link"
                 disabled={false}
-                id="header-brand"
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <span>
-                  Example App Name
-                </span>
-              </button>
-            </span>
-          </li>
-        </ul>
-        <ul
-          className=""
-        >
-          <li
-            className=""
-            role="presentation"
-          >
-            <form
-              className="navbar-form navbar-right"
-              role="search"
-            >
-              <button
-                className="btn btn-link"
-                disabled={false}
+                id="header-logo"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
@@ -9008,62 +8963,54 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                   title={null}
                 >
                   <use
-                    xlinkHref="#talend-search"
+                    xlinkHref="#talend-logo-square"
                   />
                 </svg>
               </button>
-            </form>
-          </li>
-          <li
-            className=""
-            role="presentation"
-          >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-help"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+            </li>
+            <li
+              className=""
+              role="presentation"
             >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
+              <span
+                role="heading"
               >
-                <use
-                  xlinkHref="#talend-question-circle"
-                />
-              </svg>
-              <span>
-                Help
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  id="header-brand"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <span>
+                    Example App Name
+                  </span>
+                </button>
               </span>
-            </button>
-          </li>
-          <li
+            </li>
+          </ul>
+          <ul
             className=""
-            role="presentation"
           >
-            <div
-              className="dropdown btn-group btn-group-link"
+            <li
+              className=""
+              role="presentation"
             >
-              <button
-                aria-expanded={false}
-                aria-haspopup={true}
-                className="tc-dropdown-button dropdown-toggle btn btn-link"
-                disabled={false}
-                id="header-user"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseOver={[Function]}
-                role="button"
-                type="button"
+              <form
+                className="navbar-form navbar-right"
+                role="search"
               >
-                <span
-                  className="tc-dropdown-button-title"
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
                   <svg
                     aria-hidden="true"
@@ -9072,121 +9019,154 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                     title={null}
                   >
                     <use
-                      xlinkHref="#talend-user-circle"
+                      xlinkHref="#talend-search"
                     />
                   </svg>
+                </button>
+              </form>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-help"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="tc-svg-icon"
+                  focusable="false"
+                  title={null}
+                >
+                  <use
+                    xlinkHref="#talend-question-circle"
+                  />
+                </svg>
+                <span>
+                  Help
+                </span>
+              </button>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <div
+                className="dropdown btn-group btn-group-link"
+              >
+                <button
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="tc-dropdown-button dropdown-toggle btn btn-link"
+                  disabled={false}
+                  id="header-user"
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="button"
+                  type="button"
+                >
                   <span
-                    className="tc-dropdown-button-title-label"
+                    className="tc-dropdown-button-title"
                   >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-user-circle"
+                      />
+                    </svg>
                     <span
-                      className="user-name"
+                      className="tc-dropdown-button-title-label"
                     >
                       <span
-                        className="user-firstname"
+                        className="user-name"
                       >
-                        John
-                      </span>
-                      <span
-                        className="user-lastname"
-                      >
-                        Doe
+                        <span
+                          className="user-firstname"
+                        >
+                          John
+                        </span>
+                        <span
+                          className="user-lastname"
+                        >
+                          Doe
+                        </span>
                       </span>
                     </span>
                   </span>
-                </span>
-                 
-                <span
-                  className="caret"
-                />
-              </button>
-              <ul
-                aria-labelledby="header-user"
-                className="dropdown-menu dropdown-menu-right"
-                role="menu"
-              >
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
+                   
+                  <span
+                    className="caret"
+                  />
+                </button>
+                <ul
+                  aria-labelledby="header-user"
+                  className="dropdown-menu dropdown-menu-right"
+                  role="menu"
                 >
-                  <a
-                    href="#"
-                    icon="talend-cog"
-                    label="Settings"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-cog"
+                      label="Settings"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-cog"
-                      />
-                    </svg>
-                    Settings
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li
-            className={undefined}
-            role="presentation"
-          >
-            <div
-              className="dropdown btn-group btn-group-link"
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-cog"
+                        />
+                      </svg>
+                      Settings
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              className={undefined}
+              role="presentation"
             >
-              <button
-                aria-expanded={false}
-                aria-haspopup={true}
-                className="dropdown-toggle btn btn-link"
-                disabled={false}
-                id="header-products"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseOver={[Function]}
-                role="button"
-                type="button"
+              <div
+                className="dropdown btn-group btn-group-link"
               >
-                <span
-                  className="tc-dropdown-button-title"
+                <button
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="dropdown-toggle btn btn-link"
+                  disabled={false}
+                  id="header-products"
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="button"
+                  type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="tc-svg-icon"
-                    focusable="false"
-                    title={null}
-                  >
-                    <use
-                      xlinkHref="#talend-launcher"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <ul
-                aria-labelledby="header-products"
-                className="dropdown-menu dropdown-menu-right"
-                role="menu"
-              >
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
-                >
-                  <a
-                    href="#"
-                    icon="talend-logo-dp"
-                    label="Data Preparation"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <span
+                    className="tc-dropdown-button-title"
                   >
                     <svg
                       aria-hidden="true"
@@ -9195,71 +9175,103 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                       title={null}
                     >
                       <use
-                        xlinkHref="#talend-logo-dp"
+                        xlinkHref="#talend-launcher"
                       />
                     </svg>
-                    Data Preparation
-                  </a>
-                </li>
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
+                  </span>
+                </button>
+                <ul
+                  aria-labelledby="header-products"
+                  className="dropdown-menu dropdown-menu-right"
+                  role="menu"
                 >
-                  <a
-                    href="#"
-                    icon="talend-logo-ic"
-                    label="Integration Cloud"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-logo-dp"
+                      label="Data Preparation"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-logo-ic"
-                      />
-                    </svg>
-                    Integration Cloud
-                  </a>
-                </li>
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
-                >
-                  <a
-                    href="#"
-                    icon="talend-logo-mc"
-                    label="Management Console"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-dp"
+                        />
+                      </svg>
+                      Data Preparation
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-logo-ic"
+                      label="Integration Cloud"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-logo-mc"
-                      />
-                    </svg>
-                    Management Console
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </nav>
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-ic"
+                        />
+                      </svg>
+                      Integration Cloud
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
+                  >
+                    <a
+                      href="#"
+                      icon="talend-logo-mc"
+                      label="Management Console"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-mc"
+                        />
+                      </svg>
+                      Management Console
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
   <div
@@ -9589,78 +9601,25 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
     className={undefined}
   >
     <div
-      role="banner"
+      className="t7"
     >
-      <nav
-        className="tc-header-bar navbar"
+      <div
+        role="banner"
       >
-        <ul
-          className={undefined}
+        <nav
+          className="tc-header-bar navbar"
         >
-          <li
-            className="undefined"
-            role="presentation"
+          <ul
+            className={undefined}
           >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-logo"
-              onClick={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              onMouseOver={[Function]}
-              role={null}
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-logo-square"
-                />
-              </svg>
-            </button>
-          </li>
-          <li
-            className=""
-            role="presentation"
-          >
-            <span
-              role="heading"
+            <li
+              className="undefined"
+              role="presentation"
             >
               <button
                 className="btn btn-link"
                 disabled={false}
-                id="header-brand"
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <span>
-                  Example App Name
-                </span>
-              </button>
-            </span>
-          </li>
-        </ul>
-        <ul
-          className=""
-        >
-          <li
-            className=""
-            role="presentation"
-          >
-            <form
-              className="navbar-form navbar-right"
-              role="search"
-            >
-              <button
-                className="btn btn-link"
-                disabled={false}
+                id="header-logo"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
@@ -9675,62 +9634,54 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                   title={null}
                 >
                   <use
-                    xlinkHref="#talend-search"
+                    xlinkHref="#talend-logo-square"
                   />
                 </svg>
               </button>
-            </form>
-          </li>
-          <li
-            className=""
-            role="presentation"
-          >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-help"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+            </li>
+            <li
+              className=""
+              role="presentation"
             >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
+              <span
+                role="heading"
               >
-                <use
-                  xlinkHref="#talend-question-circle"
-                />
-              </svg>
-              <span>
-                Help
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  id="header-brand"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <span>
+                    Example App Name
+                  </span>
+                </button>
               </span>
-            </button>
-          </li>
-          <li
+            </li>
+          </ul>
+          <ul
             className=""
-            role="presentation"
           >
-            <div
-              className="dropdown btn-group btn-group-link"
+            <li
+              className=""
+              role="presentation"
             >
-              <button
-                aria-expanded={false}
-                aria-haspopup={true}
-                className="tc-dropdown-button dropdown-toggle btn btn-link"
-                disabled={false}
-                id="header-user"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseOver={[Function]}
-                role="button"
-                type="button"
+              <form
+                className="navbar-form navbar-right"
+                role="search"
               >
-                <span
-                  className="tc-dropdown-button-title"
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
                   <svg
                     aria-hidden="true"
@@ -9739,121 +9690,154 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                     title={null}
                   >
                     <use
-                      xlinkHref="#talend-user-circle"
+                      xlinkHref="#talend-search"
                     />
                   </svg>
+                </button>
+              </form>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-help"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="tc-svg-icon"
+                  focusable="false"
+                  title={null}
+                >
+                  <use
+                    xlinkHref="#talend-question-circle"
+                  />
+                </svg>
+                <span>
+                  Help
+                </span>
+              </button>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <div
+                className="dropdown btn-group btn-group-link"
+              >
+                <button
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="tc-dropdown-button dropdown-toggle btn btn-link"
+                  disabled={false}
+                  id="header-user"
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="button"
+                  type="button"
+                >
                   <span
-                    className="tc-dropdown-button-title-label"
+                    className="tc-dropdown-button-title"
                   >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-user-circle"
+                      />
+                    </svg>
                     <span
-                      className="user-name"
+                      className="tc-dropdown-button-title-label"
                     >
                       <span
-                        className="user-firstname"
+                        className="user-name"
                       >
-                        John
-                      </span>
-                      <span
-                        className="user-lastname"
-                      >
-                        Doe
+                        <span
+                          className="user-firstname"
+                        >
+                          John
+                        </span>
+                        <span
+                          className="user-lastname"
+                        >
+                          Doe
+                        </span>
                       </span>
                     </span>
                   </span>
-                </span>
-                 
-                <span
-                  className="caret"
-                />
-              </button>
-              <ul
-                aria-labelledby="header-user"
-                className="dropdown-menu dropdown-menu-right"
-                role="menu"
-              >
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
+                   
+                  <span
+                    className="caret"
+                  />
+                </button>
+                <ul
+                  aria-labelledby="header-user"
+                  className="dropdown-menu dropdown-menu-right"
+                  role="menu"
                 >
-                  <a
-                    href="#"
-                    icon="talend-cog"
-                    label="Settings"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-cog"
+                      label="Settings"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-cog"
-                      />
-                    </svg>
-                    Settings
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li
-            className={undefined}
-            role="presentation"
-          >
-            <div
-              className="dropdown btn-group btn-group-link"
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-cog"
+                        />
+                      </svg>
+                      Settings
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              className={undefined}
+              role="presentation"
             >
-              <button
-                aria-expanded={false}
-                aria-haspopup={true}
-                className="dropdown-toggle btn btn-link"
-                disabled={false}
-                id="header-products"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseOver={[Function]}
-                role="button"
-                type="button"
+              <div
+                className="dropdown btn-group btn-group-link"
               >
-                <span
-                  className="tc-dropdown-button-title"
+                <button
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="dropdown-toggle btn btn-link"
+                  disabled={false}
+                  id="header-products"
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="button"
+                  type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="tc-svg-icon"
-                    focusable="false"
-                    title={null}
-                  >
-                    <use
-                      xlinkHref="#talend-launcher"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <ul
-                aria-labelledby="header-products"
-                className="dropdown-menu dropdown-menu-right"
-                role="menu"
-              >
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
-                >
-                  <a
-                    href="#"
-                    icon="talend-logo-dp"
-                    label="Data Preparation"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <span
+                    className="tc-dropdown-button-title"
                   >
                     <svg
                       aria-hidden="true"
@@ -9862,71 +9846,103 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                       title={null}
                     >
                       <use
-                        xlinkHref="#talend-logo-dp"
+                        xlinkHref="#talend-launcher"
                       />
                     </svg>
-                    Data Preparation
-                  </a>
-                </li>
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
+                  </span>
+                </button>
+                <ul
+                  aria-labelledby="header-products"
+                  className="dropdown-menu dropdown-menu-right"
+                  role="menu"
                 >
-                  <a
-                    href="#"
-                    icon="talend-logo-ic"
-                    label="Integration Cloud"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-logo-dp"
+                      label="Data Preparation"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-logo-ic"
-                      />
-                    </svg>
-                    Integration Cloud
-                  </a>
-                </li>
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
-                >
-                  <a
-                    href="#"
-                    icon="talend-logo-mc"
-                    label="Management Console"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-dp"
+                        />
+                      </svg>
+                      Data Preparation
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-logo-ic"
+                      label="Integration Cloud"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-logo-mc"
-                      />
-                    </svg>
-                    Management Console
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </nav>
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-ic"
+                        />
+                      </svg>
+                      Integration Cloud
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
+                  >
+                    <a
+                      href="#"
+                      icon="talend-logo-mc"
+                      label="Management Console"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-mc"
+                        />
+                      </svg>
+                      Management Console
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
   <div
@@ -10256,78 +10272,25 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
     className={undefined}
   >
     <div
-      role="banner"
+      className="t7"
     >
-      <nav
-        className="tc-header-bar navbar"
+      <div
+        role="banner"
       >
-        <ul
-          className={undefined}
+        <nav
+          className="tc-header-bar navbar"
         >
-          <li
-            className="undefined"
-            role="presentation"
+          <ul
+            className={undefined}
           >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-logo"
-              onClick={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              onMouseOver={[Function]}
-              role={null}
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-logo-square"
-                />
-              </svg>
-            </button>
-          </li>
-          <li
-            className=""
-            role="presentation"
-          >
-            <span
-              role="heading"
+            <li
+              className="undefined"
+              role="presentation"
             >
               <button
                 className="btn btn-link"
                 disabled={false}
-                id="header-brand"
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <span>
-                  Example App Name
-                </span>
-              </button>
-            </span>
-          </li>
-        </ul>
-        <ul
-          className=""
-        >
-          <li
-            className=""
-            role="presentation"
-          >
-            <form
-              className="navbar-form navbar-right"
-              role="search"
-            >
-              <button
-                className="btn btn-link"
-                disabled={false}
+                id="header-logo"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
@@ -10342,62 +10305,54 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                   title={null}
                 >
                   <use
-                    xlinkHref="#talend-search"
+                    xlinkHref="#talend-logo-square"
                   />
                 </svg>
               </button>
-            </form>
-          </li>
-          <li
-            className=""
-            role="presentation"
-          >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-help"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+            </li>
+            <li
+              className=""
+              role="presentation"
             >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
+              <span
+                role="heading"
               >
-                <use
-                  xlinkHref="#talend-question-circle"
-                />
-              </svg>
-              <span>
-                Help
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  id="header-brand"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <span>
+                    Example App Name
+                  </span>
+                </button>
               </span>
-            </button>
-          </li>
-          <li
+            </li>
+          </ul>
+          <ul
             className=""
-            role="presentation"
           >
-            <div
-              className="dropdown btn-group btn-group-link"
+            <li
+              className=""
+              role="presentation"
             >
-              <button
-                aria-expanded={false}
-                aria-haspopup={true}
-                className="tc-dropdown-button dropdown-toggle btn btn-link"
-                disabled={false}
-                id="header-user"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseOver={[Function]}
-                role="button"
-                type="button"
+              <form
+                className="navbar-form navbar-right"
+                role="search"
               >
-                <span
-                  className="tc-dropdown-button-title"
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
                   <svg
                     aria-hidden="true"
@@ -10406,121 +10361,154 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                     title={null}
                   >
                     <use
-                      xlinkHref="#talend-user-circle"
+                      xlinkHref="#talend-search"
                     />
                   </svg>
+                </button>
+              </form>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-help"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="tc-svg-icon"
+                  focusable="false"
+                  title={null}
+                >
+                  <use
+                    xlinkHref="#talend-question-circle"
+                  />
+                </svg>
+                <span>
+                  Help
+                </span>
+              </button>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <div
+                className="dropdown btn-group btn-group-link"
+              >
+                <button
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="tc-dropdown-button dropdown-toggle btn btn-link"
+                  disabled={false}
+                  id="header-user"
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="button"
+                  type="button"
+                >
                   <span
-                    className="tc-dropdown-button-title-label"
+                    className="tc-dropdown-button-title"
                   >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-user-circle"
+                      />
+                    </svg>
                     <span
-                      className="user-name"
+                      className="tc-dropdown-button-title-label"
                     >
                       <span
-                        className="user-firstname"
+                        className="user-name"
                       >
-                        John
-                      </span>
-                      <span
-                        className="user-lastname"
-                      >
-                        Doe
+                        <span
+                          className="user-firstname"
+                        >
+                          John
+                        </span>
+                        <span
+                          className="user-lastname"
+                        >
+                          Doe
+                        </span>
                       </span>
                     </span>
                   </span>
-                </span>
-                 
-                <span
-                  className="caret"
-                />
-              </button>
-              <ul
-                aria-labelledby="header-user"
-                className="dropdown-menu dropdown-menu-right"
-                role="menu"
-              >
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
+                   
+                  <span
+                    className="caret"
+                  />
+                </button>
+                <ul
+                  aria-labelledby="header-user"
+                  className="dropdown-menu dropdown-menu-right"
+                  role="menu"
                 >
-                  <a
-                    href="#"
-                    icon="talend-cog"
-                    label="Settings"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-cog"
+                      label="Settings"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-cog"
-                      />
-                    </svg>
-                    Settings
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li
-            className={undefined}
-            role="presentation"
-          >
-            <div
-              className="dropdown btn-group btn-group-link"
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-cog"
+                        />
+                      </svg>
+                      Settings
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              className={undefined}
+              role="presentation"
             >
-              <button
-                aria-expanded={false}
-                aria-haspopup={true}
-                className="dropdown-toggle btn btn-link"
-                disabled={false}
-                id="header-products"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseOver={[Function]}
-                role="button"
-                type="button"
+              <div
+                className="dropdown btn-group btn-group-link"
               >
-                <span
-                  className="tc-dropdown-button-title"
+                <button
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="dropdown-toggle btn btn-link"
+                  disabled={false}
+                  id="header-products"
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="button"
+                  type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="tc-svg-icon"
-                    focusable="false"
-                    title={null}
-                  >
-                    <use
-                      xlinkHref="#talend-launcher"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <ul
-                aria-labelledby="header-products"
-                className="dropdown-menu dropdown-menu-right"
-                role="menu"
-              >
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
-                >
-                  <a
-                    href="#"
-                    icon="talend-logo-dp"
-                    label="Data Preparation"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <span
+                    className="tc-dropdown-button-title"
                   >
                     <svg
                       aria-hidden="true"
@@ -10529,71 +10517,103 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                       title={null}
                     >
                       <use
-                        xlinkHref="#talend-logo-dp"
+                        xlinkHref="#talend-launcher"
                       />
                     </svg>
-                    Data Preparation
-                  </a>
-                </li>
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
+                  </span>
+                </button>
+                <ul
+                  aria-labelledby="header-products"
+                  className="dropdown-menu dropdown-menu-right"
+                  role="menu"
                 >
-                  <a
-                    href="#"
-                    icon="talend-logo-ic"
-                    label="Integration Cloud"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-logo-dp"
+                      label="Data Preparation"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-logo-ic"
-                      />
-                    </svg>
-                    Integration Cloud
-                  </a>
-                </li>
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
-                >
-                  <a
-                    href="#"
-                    icon="talend-logo-mc"
-                    label="Management Console"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-dp"
+                        />
+                      </svg>
+                      Data Preparation
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-logo-ic"
+                      label="Integration Cloud"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-logo-mc"
-                      />
-                    </svg>
-                    Management Console
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </nav>
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-ic"
+                        />
+                      </svg>
+                      Integration Cloud
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
+                  >
+                    <a
+                      href="#"
+                      icon="talend-logo-mc"
+                      label="Management Console"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-mc"
+                        />
+                      </svg>
+                      Management Console
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
   <div
@@ -10923,78 +10943,25 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
     className={undefined}
   >
     <div
-      role="banner"
+      className="t7"
     >
-      <nav
-        className="tc-header-bar navbar"
+      <div
+        role="banner"
       >
-        <ul
-          className={undefined}
+        <nav
+          className="tc-header-bar navbar"
         >
-          <li
-            className="undefined"
-            role="presentation"
+          <ul
+            className={undefined}
           >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-logo"
-              onClick={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              onMouseOver={[Function]}
-              role={null}
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-logo-square"
-                />
-              </svg>
-            </button>
-          </li>
-          <li
-            className=""
-            role="presentation"
-          >
-            <span
-              role="heading"
+            <li
+              className="undefined"
+              role="presentation"
             >
               <button
                 className="btn btn-link"
                 disabled={false}
-                id="header-brand"
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <span>
-                  Example App Name
-                </span>
-              </button>
-            </span>
-          </li>
-        </ul>
-        <ul
-          className=""
-        >
-          <li
-            className=""
-            role="presentation"
-          >
-            <form
-              className="navbar-form navbar-right"
-              role="search"
-            >
-              <button
-                className="btn btn-link"
-                disabled={false}
+                id="header-logo"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
@@ -11009,62 +10976,54 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                   title={null}
                 >
                   <use
-                    xlinkHref="#talend-search"
+                    xlinkHref="#talend-logo-square"
                   />
                 </svg>
               </button>
-            </form>
-          </li>
-          <li
-            className=""
-            role="presentation"
-          >
-            <button
-              className="btn btn-link"
-              disabled={false}
-              id="header-help"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+            </li>
+            <li
+              className=""
+              role="presentation"
             >
-              <svg
-                aria-hidden="true"
-                className="tc-svg-icon"
-                focusable="false"
-                title={null}
+              <span
+                role="heading"
               >
-                <use
-                  xlinkHref="#talend-question-circle"
-                />
-              </svg>
-              <span>
-                Help
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  id="header-brand"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <span>
+                    Example App Name
+                  </span>
+                </button>
               </span>
-            </button>
-          </li>
-          <li
+            </li>
+          </ul>
+          <ul
             className=""
-            role="presentation"
           >
-            <div
-              className="dropdown btn-group btn-group-link"
+            <li
+              className=""
+              role="presentation"
             >
-              <button
-                aria-expanded={false}
-                aria-haspopup={true}
-                className="tc-dropdown-button dropdown-toggle btn btn-link"
-                disabled={false}
-                id="header-user"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseOver={[Function]}
-                role="button"
-                type="button"
+              <form
+                className="navbar-form navbar-right"
+                role="search"
               >
-                <span
-                  className="tc-dropdown-button-title"
+                <button
+                  className="btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOver={[Function]}
+                  role={null}
+                  type="button"
                 >
                   <svg
                     aria-hidden="true"
@@ -11073,121 +11032,154 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                     title={null}
                   >
                     <use
-                      xlinkHref="#talend-user-circle"
+                      xlinkHref="#talend-search"
                     />
                   </svg>
+                </button>
+              </form>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <button
+                className="btn btn-link"
+                disabled={false}
+                id="header-help"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="tc-svg-icon"
+                  focusable="false"
+                  title={null}
+                >
+                  <use
+                    xlinkHref="#talend-question-circle"
+                  />
+                </svg>
+                <span>
+                  Help
+                </span>
+              </button>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <div
+                className="dropdown btn-group btn-group-link"
+              >
+                <button
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="tc-dropdown-button dropdown-toggle btn btn-link"
+                  disabled={false}
+                  id="header-user"
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="button"
+                  type="button"
+                >
                   <span
-                    className="tc-dropdown-button-title-label"
+                    className="tc-dropdown-button-title"
                   >
+                    <svg
+                      aria-hidden="true"
+                      className="tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-user-circle"
+                      />
+                    </svg>
                     <span
-                      className="user-name"
+                      className="tc-dropdown-button-title-label"
                     >
                       <span
-                        className="user-firstname"
+                        className="user-name"
                       >
-                        John
-                      </span>
-                      <span
-                        className="user-lastname"
-                      >
-                        Doe
+                        <span
+                          className="user-firstname"
+                        >
+                          John
+                        </span>
+                        <span
+                          className="user-lastname"
+                        >
+                          Doe
+                        </span>
                       </span>
                     </span>
                   </span>
-                </span>
-                 
-                <span
-                  className="caret"
-                />
-              </button>
-              <ul
-                aria-labelledby="header-user"
-                className="dropdown-menu dropdown-menu-right"
-                role="menu"
-              >
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
+                   
+                  <span
+                    className="caret"
+                  />
+                </button>
+                <ul
+                  aria-labelledby="header-user"
+                  className="dropdown-menu dropdown-menu-right"
+                  role="menu"
                 >
-                  <a
-                    href="#"
-                    icon="talend-cog"
-                    label="Settings"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-cog"
+                      label="Settings"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-cog"
-                      />
-                    </svg>
-                    Settings
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li
-            className={undefined}
-            role="presentation"
-          >
-            <div
-              className="dropdown btn-group btn-group-link"
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-cog"
+                        />
+                      </svg>
+                      Settings
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              className={undefined}
+              role="presentation"
             >
-              <button
-                aria-expanded={false}
-                aria-haspopup={true}
-                className="dropdown-toggle btn btn-link"
-                disabled={false}
-                id="header-products"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onMouseOver={[Function]}
-                role="button"
-                type="button"
+              <div
+                className="dropdown btn-group btn-group-link"
               >
-                <span
-                  className="tc-dropdown-button-title"
+                <button
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  className="dropdown-toggle btn btn-link"
+                  disabled={false}
+                  id="header-products"
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseOver={[Function]}
+                  role="button"
+                  type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="tc-svg-icon"
-                    focusable="false"
-                    title={null}
-                  >
-                    <use
-                      xlinkHref="#talend-launcher"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <ul
-                aria-labelledby="header-products"
-                className="dropdown-menu dropdown-menu-right"
-                role="menu"
-              >
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
-                >
-                  <a
-                    href="#"
-                    icon="talend-logo-dp"
-                    label="Data Preparation"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <span
+                    className="tc-dropdown-button-title"
                   >
                     <svg
                       aria-hidden="true"
@@ -11196,71 +11188,103 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                       title={null}
                     >
                       <use
-                        xlinkHref="#talend-logo-dp"
+                        xlinkHref="#talend-launcher"
                       />
                     </svg>
-                    Data Preparation
-                  </a>
-                </li>
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
+                  </span>
+                </button>
+                <ul
+                  aria-labelledby="header-products"
+                  className="dropdown-menu dropdown-menu-right"
+                  role="menu"
                 >
-                  <a
-                    href="#"
-                    icon="talend-logo-ic"
-                    label="Integration Cloud"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-logo-dp"
+                      label="Data Preparation"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-logo-ic"
-                      />
-                    </svg>
-                    Integration Cloud
-                  </a>
-                </li>
-                <li
-                  className=""
-                  role="presentation"
-                  style={undefined}
-                >
-                  <a
-                    href="#"
-                    icon="talend-logo-mc"
-                    label="Management Console"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    role="menuitem"
-                    tabIndex="-1"
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-dp"
+                        />
+                      </svg>
+                      Data Preparation
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="tc-svg-icon"
-                      focusable="false"
-                      title={null}
+                    <a
+                      href="#"
+                      icon="talend-logo-ic"
+                      label="Integration Cloud"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
                     >
-                      <use
-                        xlinkHref="#talend-logo-mc"
-                      />
-                    </svg>
-                    Management Console
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </nav>
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-ic"
+                        />
+                      </svg>
+                      Integration Cloud
+                    </a>
+                  </li>
+                  <li
+                    className=""
+                    role="presentation"
+                    style={undefined}
+                  >
+                    <a
+                      href="#"
+                      icon="talend-logo-mc"
+                      label="Management Console"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      role="menuitem"
+                      tabIndex="-1"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="tc-svg-icon"
+                        focusable="false"
+                        title={null}
+                      >
+                        <use
+                          xlinkHref="#talend-logo-mc"
+                        />
+                      </svg>
+                      Management Console
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
   <div

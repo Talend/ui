@@ -173,6 +173,8 @@ const stories =
 			</div>
 		));
 
+const appStyle = require(`./config/Layout.scss`);
+
 /**
  * Generate story for <Layout/> component
  *
@@ -200,16 +202,17 @@ function decoratedLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryCont
 	layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent);
 	apps
 		.forEach(app => {
-				const appStyle = require(`../src/Layout/_Layout.${app}.scss`);
 				const decoratedPropsWithTheme = {
 					...layoutStoryProps,
 					// hasTheme: true, should be enabled if we have one and only one Layout theme scss import
 				};
 				stories.addWithInfo(`🎨 [${app.toUpperCase()}] ${layoutStoryName} `, () => (
-					<div className={appStyle[TALEND_T7_THEME_CLASSNAME]}>
-						<Layout {...decoratedPropsWithTheme}>
-							{layoutStoryContent}
-						</Layout>
+					<div className={appStyle[app]}>
+						<div className={TALEND_T7_THEME_CLASSNAME}>
+							<Layout {...decoratedPropsWithTheme}>
+								{layoutStoryContent}
+							</Layout>
+						</div>
 					</div>
 				));
 			}
