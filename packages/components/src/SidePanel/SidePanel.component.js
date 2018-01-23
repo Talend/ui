@@ -64,15 +64,11 @@ function SidePanel({
 	t,
 }) {
 	const injected = Inject.all(getComponent, components);
-	const navCSS = classNames(
-		theme['tc-side-panel'],
-		'tc-side-panel',
-		{
-			[theme.docked]: docked,
-			[theme.large]: large,
-			[theme.reverse]: reverse,
-		},
-	);
+	const navCSS = classNames(theme['tc-side-panel'], 'tc-side-panel', {
+		[theme.docked]: docked,
+		[theme.large]: large,
+		[theme.reverse]: reverse,
+	});
 	const listCSS = classNames(
 		'nav',
 		'nav-pills',
