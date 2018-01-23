@@ -1,3 +1,5 @@
-import Datagrid from './Datagrid';
+import DataGrid from './containers/datagrid.connect';
 
-export { Datagrid };
+console.log(DataGrid);
+
+export { DataGrid };

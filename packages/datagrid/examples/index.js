@@ -1,5 +1,9 @@
-import DatagridExemple from './ExampleDatagrid';
+import ReactCellRenderer from './ReactCellRenderer';
+import VanillaCellRenderer from './VanillaCellRenderer';
+import AGGridPure from './AgGridPure';
 
 export default {
-	DatagridExemple,
+	AGGridPure,
+	ReactCellRenderer,
+	VanillaCellRenderer,
 };

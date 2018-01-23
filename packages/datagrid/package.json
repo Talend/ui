@@ -5,14 +5,14 @@
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v './src/**/*.scss' ./lib",
-    "start": "start-storybook -p 601O",
+    "start": "start-storybook -p 6010",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es",
     "watch": "npm-watch",
-    "storybook": "start-storybook -p 601O",
+    "storybook": "start-storybook -p 6010",
     "build-storybook": "build-storybook"
   },
   "watch": {
@@ -144,6 +144,9 @@
   },
   "version": "0.145.0",
   "dependencies": {
+    "ag-grid": "^15.0.0",
+    "ag-grid-react": "^15.0.0",
+    "react-dom-factories": "^1.0.2",
     "react-immutable-proptypes": "2.1.0"
   }
 }
