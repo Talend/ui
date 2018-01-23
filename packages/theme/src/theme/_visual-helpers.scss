@@ -43,10 +43,11 @@
 			align-items: center;
 
 			&:before {
+				display: block;
 				content: '';
+				margin-right: $padding-small;
 				height: $svg-md-size;
 				width: $svg-md-size;
-				padding-right: $padding-large;
 				background-repeat: no-repeat;
 			}
 		}
