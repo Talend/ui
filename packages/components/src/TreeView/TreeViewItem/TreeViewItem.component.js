@@ -137,7 +137,11 @@ class TreeViewItem extends React.Component {
 		const paddingLeft = `${depth * PADDING_NORMAL + PADDING_LARGE}px`;
 
 		let iconProps = !icon || typeof icon.toString() === icon ? { name: getItemIcon(icon, toggled) } : icon;
-		iconProps.className = !!iconProps.className ? [ css['tc-treeview-folder'], iconProps.className ].join(' ') : css['tc-treeview-folder'];
+		if (iconProps.className) {
+			iconProps.className = [ css['tc-treeview-folder'], iconProps.className ].join(' ');
+		} else {
+			iconProps.className = css['tc-treeview-folder'];
+		}
 
 		return (
 			<li className={classNames('tc-treeview-item-li', css['tc-treeview-li'])} data-hidden={hidden}>
