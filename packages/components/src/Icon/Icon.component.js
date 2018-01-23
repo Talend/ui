@@ -36,12 +36,29 @@ export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
  * @example
 <Icon name="fa-bars"></Icon>
  */
-function Icon({ className, name, title, transform, onClick }) {
+function Icon({ className, name, title, transform, onClick, href }) {
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
 		title: title || null,
 	};
+	if (!!href) {
+		let props = {
+			src: href,
+			className: classnames(
+				theme['tc-icon'],
+				'tc-icon',
+				className
+			)
+		};
+		if (!!onClick) {
+			props.onClick = onClick;
+		}
+		if (!!title) {
+			props.title = title;
+		}
+		return <img {...props} />;
+	}
 	if (name.startsWith('fa-')) {
 		const classes = classnames('fa', name, className, transform && FA_TRANSFORMS[transform]);
 		return <i className={classes} {...accessibility} />;
@@ -88,6 +105,7 @@ Icon.displayName = 'Icon';
 Icon.propTypes = {
 	className: PropTypes.string,
 	name: PropTypes.string.isRequired,
+	href: PropTypes.string,
 	title: PropTypes.string,
 	transform: PropTypes.oneOf(TRANSFORMS),
 	onClick: PropTypes.func,
