@@ -899,7 +899,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
   </svg>
   <nav
     aria-expanded={true}
-    className="tc-side-panel"
+    className="tc-side-panel undefined"
     id={undefined}
     role="navigation"
   >
@@ -1377,7 +1377,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
   </svg>
   <nav
     aria-expanded={true}
-    className="tc-side-panel"
+    className="tc-side-panel undefined"
     id={undefined}
     role="navigation"
   >
@@ -1634,7 +1634,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
       >
         <nav
           aria-expanded={true}
-          className="tc-side-panel"
+          className="tc-side-panel undefined"
           id={undefined}
           role="navigation"
         >
@@ -1783,9 +1783,8 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
           </ul>
         </nav>
       </div>
-      <main
+      <div
         className="tc-layout-two-columns-main"
-        role="main"
       >
         <div
           className={undefined}
@@ -2107,7 +2106,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
             className={undefined}
           />
         </div>
-      </main>
+      </div>
     </div>
   </div>
 </div>
@@ -2395,9 +2394,8 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
           </ul>
         </nav>
       </div>
-      <main
+      <div
         className="tc-layout-two-columns-main"
-        role="main"
       >
         <div
           className={undefined}
@@ -2719,7 +2717,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
             className={undefined}
           />
         </div>
-      </main>
+      </div>
     </div>
   </div>
 </div>

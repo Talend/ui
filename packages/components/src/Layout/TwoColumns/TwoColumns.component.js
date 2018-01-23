@@ -25,12 +25,12 @@ function TwoColumns({ one, drawers, children, tabs, ...props }) {
 	return (
 		<div className={containerCSS} {...props}>
 			<div className={sidemenuCSS}>{one}</div>
-			<main role="main" className={mainCSS}>
+			<div className={mainCSS}>
 				<WithDrawer drawers={drawers}>
 					{tabs && <TabBar {...tabs} />}
 					<div style={style}>{children}</div>
 				</WithDrawer>
-			</main>
+			</div>
 		</div>
 	);
 }

@@ -67,9 +67,11 @@ function SidePanel({
 	const navCSS = classNames(
 		theme['tc-side-panel'],
 		'tc-side-panel',
-		docked && theme.docked,
-		large && theme.large,
-		reverse && theme.reverse,
+		{
+			[theme.docked]: docked,
+			[theme.large]: large,
+			[theme.reverse]: reverse,
+		},
 	);
 	const listCSS = classNames(
 		'nav',

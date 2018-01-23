@@ -12,9 +12,8 @@ exports[`Layout should render Layout OneColumn 1`] = `
       Header
     </h1>
   </header>
-  <main
+  <div
     className="tc-layout-one-column"
-    role="main"
   >
     <div
       className={undefined}
@@ -37,7 +36,7 @@ exports[`Layout should render Layout OneColumn 1`] = `
         className={undefined}
       />
     </div>
-  </main>
+  </div>
 </div>
 `;
 
@@ -63,9 +62,8 @@ exports[`Layout should render Layout TwoColumns 1`] = `
         Column one
       </h1>
     </div>
-    <main
+    <div
       className="tc-layout-two-columns-main"
-      role="main"
     >
       <div
         className={undefined}
@@ -88,7 +86,7 @@ exports[`Layout should render Layout TwoColumns 1`] = `
           className={undefined}
         />
       </div>
-    </main>
+    </div>
   </div>
 </div>
 `;
@@ -115,9 +113,8 @@ exports[`Layout should render layout with Drawer component 1`] = `
         Column one
       </h1>
     </div>
-    <main
+    <div
       className="tc-layout-two-columns-main"
-      role="main"
     >
       <div
         className={undefined}
@@ -205,7 +202,7 @@ exports[`Layout should render layout with Drawer component 1`] = `
           </div>
         </div>
       </div>
-    </main>
+    </div>
   </div>
 </div>
 `;
@@ -504,9 +501,8 @@ exports[`Layout should render layout with TabBar component 1`] = `
         Column one
       </h1>
     </div>
-    <main
+    <div
       className="tc-layout-two-columns-main"
-      role="main"
     >
       <div
         className={undefined}
@@ -588,7 +584,7 @@ exports[`Layout should render layout with TabBar component 1`] = `
           className={undefined}
         />
       </div>
-    </main>
+    </div>
   </div>
 </div>
 `;
@@ -605,9 +601,8 @@ exports[`Layout should render layout with footer component 1`] = `
       Header
     </h1>
   </header>
-  <main
+  <div
     className="tc-layout-one-column"
-    role="main"
   >
     <div
       className={undefined}
@@ -630,7 +625,7 @@ exports[`Layout should render layout with footer component 1`] = `
         className={undefined}
       />
     </div>
-  </main>
+  </div>
   <footer
     className="tc-layout-footer"
     role="contentinfo"
@@ -646,9 +641,8 @@ exports[`Layout should render layout without header 1`] = `
 <div
   className="tc-layout"
 >
-  <main
+  <div
     className="tc-layout-one-column"
-    role="main"
   >
     <div
       className={undefined}
@@ -671,6 +665,6 @@ exports[`Layout should render layout without header 1`] = `
         className={undefined}
       />
     </div>
-  </main>
+  </div>
 </div>
 `;

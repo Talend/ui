@@ -20,12 +20,12 @@ function OneColumn({ drawers, children, tabs, ...props }) {
 		flexDirection: 'column',
 	};
 	return (
-		<main role="main" className={container} {...props}>
+		<div className={container} {...props}>
 			<WithDrawer drawers={drawers}>
 				{tabs && <TabBar {...tabs} />}
 				<div style={style}>{children}</div>
 			</WithDrawer>
-		</main>
+		</div>
 	);
 }
 

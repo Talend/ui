@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OneColumn should render 1`] = `
-<main
+<div
   className="tc-layout-one-column"
-  role="main"
 >
   <div
     className={undefined}
@@ -26,5 +25,5 @@ exports[`OneColumn should render 1`] = `
       className={undefined}
     />
   </div>
-</main>
+</div>
 `;

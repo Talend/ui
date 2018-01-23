@@ -16,9 +16,8 @@ exports[`TwoColumns should render two columns 1`] = `
       Hello world
     </div>
   </div>
-  <main
+  <div
     className="tc-layout-two-columns-main"
-    role="main"
   >
     <div
       className={undefined}
@@ -41,6 +40,6 @@ exports[`TwoColumns should render two columns 1`] = `
         className={undefined}
       />
     </div>
-  </main>
+  </div>
 </div>
 `;
