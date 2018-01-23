@@ -43,21 +43,19 @@ function Icon({ className, name, title, transform, onClick, src }) {
 		title: title || null,
 	};
 	if (src) {
-		let props = {
-			src: src,
-			className: classnames(
-				theme['tc-icon'],
-				'tc-icon',
-				className
-			)
-		};
+		const classNames = classnames(
+			theme['tc-icon'],
+			'tc-icon',
+			className
+		);
 		if (onClick) {
-			props.onClick = onClick;
+			return (
+				<a xlinkHref="#" onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
+					<img className={classNames} src={src} alt={title || src} />
+				</a>
+			);
 		}
-		if (title) {
-			props.title = title;
-		}
-		return <img {...props} />;
+		return <img className={classNames} src={src} alt={title || src} />;
 	}
 	if (name.startsWith('fa-')) {
 		const classes = classnames('fa', name, className, transform && FA_TRANSFORMS[transform]);
