@@ -12,6 +12,7 @@ export default function CheckBox(props) {
 			description={description}
 			errorMessage={errorMessage}
 			isValid={isValid}
+			required={schema.required}
 		>
 			<SimpleCheckBox
 				id={id}

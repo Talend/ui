@@ -16,8 +16,6 @@ export const formPropTypes = {
 	className: PropTypes.string,
 	/** Form definition: encoding type */
 	encType: PropTypes.string,
-	/** Form definition: form name. This is also used to create input ids */
-	formName: PropTypes.string,
 	/** Form definition: form id */
 	id: PropTypes.string,
 	/**

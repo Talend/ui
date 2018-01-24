@@ -23,7 +23,7 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				formName={'myForm'}
+				id={'myForm'}
 				onChange={jest.fn('onChange')}
 				onFinish={jest.fn('onFinish')}
 				onTrigger={jest.fn('onTrigger')}
@@ -68,7 +68,7 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				formName={'myForm'}
+				id={'myForm'}
 				onChange={jest.fn('onChange')}
 				onTrigger={jest.fn('onTrigger')}
 				properties={properties}
@@ -92,7 +92,7 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				formName={'myForm'}
+				id={'myForm'}
 				onChange={jest.fn('onChange')}
 				onTrigger={jest.fn('onTrigger')}
 				properties={properties}
@@ -109,7 +109,7 @@ describe('Widget component', () => {
 		// when
 		const wrapper = shallow(
 			<Widget
-				formName={'myForm'}
+				id={'myForm'}
 				onChange={jest.fn('onChange')}
 				onTrigger={jest.fn('onTrigger')}
 				properties={properties}
@@ -120,5 +120,13 @@ describe('Widget component', () => {
 
 		// then
 		expect(wrapper.getElement().props.errorMessage).toBe('This is not ok');
+	});
+	it("should render null if widgetId is 'hidden'", () => {
+		// when
+		const hidden = { ...schema, widget: 'hidden' };
+		const wrapper = shallow(<Widget schema={hidden} />);
+
+		// then
+		expect(wrapper.getElement()).toBe(null);
 	});
 });

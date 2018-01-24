@@ -58,7 +58,7 @@ describe('Datalist component', () => {
 		wrapper
 			.find('input')
 			.at(0)
-			.simulate('change', { target: { value: 'fo' } });
+			.simulate('change', { target: { value: 'foo' } });
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual(['foo', 'foobar']);
