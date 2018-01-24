@@ -66,7 +66,7 @@ import {
 	Well,
 } from 'react-bootstrap';
 
-import I18N_DOMAIN_COMPONENTS from './constants';
+import { I18N_DOMAIN_COMPONENTS, CIRCULAR_PROGRESS_SIZE } from './constants';
 
 import {
 	Action,
@@ -221,4 +221,5 @@ export {
 	Tooltip,
 	Well,
 	I18N_DOMAIN_COMPONENTS,
+	CIRCULAR_PROGRESS_SIZE,
 };
