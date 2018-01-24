@@ -171,7 +171,7 @@ const stories = storiesOf('Layout', module).addDecorator(story => (
 	</div>
 ));
 
-const appStyle = require(`./config/themes.scss`);
+const appStyle = require('./config/themes.scss');
 
 /**
  * Generate story for <Layout/> component

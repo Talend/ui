@@ -43,13 +43,11 @@ const typeaheadItems = [
 		suggestions: [
 			{
 				title: 'le title 1',
-				description:
-					'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
+				description: 'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
 			},
 			{
 				title: 'title 2 les elephants elementaires ont des aile ',
-				description:
-					'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
+				description: 'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
 			},
 		],
 	},
@@ -62,8 +60,7 @@ const typeaheadItems = [
 		suggestions: [
 			{
 				title: 'title 3',
-				description:
-					'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
+				description: 'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
 			},
 		],
 	},
@@ -76,18 +73,15 @@ const typeaheadItems = [
 		suggestions: [
 			{
 				title: 'title 4',
-				description:
-					'description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.',
+				description: 'description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.',
 			},
 			{
 				title: 'title 5',
-				description:
-					'description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.',
+				description: 'description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.',
 			},
 			{
 				title: 'title 6',
-				description:
-					'description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.',
+				description: 'description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.',
 			},
 		],
 	},
@@ -153,15 +147,16 @@ const props = {
 	},
 };
 
-const decoratedStories = storiesOf('HeaderBar', module).addDecorator(story => (
-	<I18nextProvider i18n={i18n}>
-		<div>
-			{story()}
-			<div className="container" style={{ paddingTop: 40 }} />
-			<IconsProvider defaultIcons={icons} />
-		</div>
-	</I18nextProvider>
-));
+const decoratedStories = storiesOf('HeaderBar', module)
+	.addDecorator(story => (
+		<I18nextProvider i18n={i18n}>
+			<div>
+				{story()}
+				<div className="container" style={{ paddingTop: 40 }} />
+				<IconsProvider defaultIcons={icons} />
+			</div>
+		</I18nextProvider>
+	));
 
 if (!decoratedStories.addWithInfo) {
 	decoratedStories.addWithInfo = decoratedStories.add;
@@ -266,17 +261,19 @@ decoratedStories
 	})
 	.addWithInfo('barebone', () => <HeaderBar />);
 
-const appStyle = require(`./config/themes.scss`);
+const appStyle = require('./config/themes.scss');
 
 apps.forEach(app => {
 	const headerProps = Immutable.fromJS(props).toJS();
-	decoratedStories.addWithInfo(`🎨 [${app.toUpperCase()}] HeaderBar`, () => (
-		<div className={appStyle[app]}>
-			<div className={TALEND_T7_THEME_CLASSNAME}>
-				<div role="banner">
-					<HeaderBar {...headerProps} />
+	decoratedStories
+		.addWithInfo(`🎨 [${app.toUpperCase()}] HeaderBar`, () => (
+			<div className={appStyle[app]}>
+				<div className={TALEND_T7_THEME_CLASSNAME}>
+					<div role="banner">
+						<HeaderBar {...headerProps} />
+					</div>
 				</div>
 			</div>
-		</div>
-	));
+		)
+	);
 });

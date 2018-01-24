@@ -175,23 +175,21 @@ const ExampleHomeListView = {
 	),
 };
 
-const appStyle = require(`./config/themes.scss`);
+const appStyle = require('./config/themes.scss');
 
 apps.forEach(app => {
-	ExampleHomeListView[`🎨 ${app.toUpperCase()} default`] = () => {
-		return (
-			<div className={appStyle[app]}>
-				<div className={TALEND_T7_THEME_CLASSNAME}>
-					<IconsProvider defaultIcons={icons} />
-					<HomeListView
-						// hasTheme - option must be set if you import one and only one theme
-						sidepanel={sidepanel}
-						list={listProps}
-					/>
-				</div>
+	ExampleHomeListView[`🎨 ${app.toUpperCase()} default`] = () => (
+		<div className={appStyle[app]}>
+			<div className={TALEND_T7_THEME_CLASSNAME}>
+				<IconsProvider defaultIcons={icons} />
+				<HomeListView
+					// hasTheme - option must be set if you import one and only one theme
+					sidepanel={sidepanel}
+					list={listProps}
+				/>
 			</div>
-		);
-	};
+		</div>
+	);
 });
 
 ExampleHomeListView.drawer = () => (
@@ -215,31 +213,29 @@ ExampleHomeListView.drawer = () => (
 );
 
 apps.forEach(app => {
-	ExampleHomeListView[`🎨 ${app.toUpperCase()} drawer`] = () => {
-		return (
-			<div className={appStyle[app]}>
-				<div className={TALEND_T7_THEME_CLASSNAME}>
-					<IconsProvider defaultIcons={icons} />
-					<HomeListView header={header} sidepanel={sidepanel} list={listProps}>
-						<Drawer
-							stacked
-							title="Im stacked drawer 1"
-							footerActions={Object.assign({}, basicProps, { selected: 0 })}
-						>
-							<h1>Hello drawer 1</h1>
-							<p>You should not being able to read this because I&#39;m first</p>
-						</Drawer>
-						<Drawer
-							title="Im drawer 2"
-							footerActions={Object.assign({}, basicProps, { selected: 0 })}
-						>
-							<h1>Hello drawer 2</h1>
-							<p>The content dictate the width</p>
-						</Drawer>
-					</HomeListView>
-				</div>
+	ExampleHomeListView[`🎨 ${app.toUpperCase()} drawer`] = () => (
+		<div className={appStyle[app]}>
+			<div className={TALEND_T7_THEME_CLASSNAME}>
+				<IconsProvider defaultIcons={icons} />
+				<HomeListView header={header} sidepanel={sidepanel} list={listProps}>
+					<Drawer
+						stacked
+						title="Im stacked drawer 1"
+						footerActions={Object.assign({}, basicProps, { selected: 0 })}
+					>
+						<h1>Hello drawer 1</h1>
+						<p>You should not being able to read this because I&#39;m first</p>
+					</Drawer>
+					<Drawer
+						title="Im drawer 2"
+						footerActions={Object.assign({}, basicProps, { selected: 0 })}
+					>
+						<h1>Hello drawer 2</h1>
+						<p>The content dictate the width</p>
+					</Drawer>
+				</HomeListView>
 			</div>
-		);
-	};
+		</div>
+	);
 });
 export default ExampleHomeListView;
