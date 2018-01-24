@@ -164,7 +164,7 @@ class MultiSelectTagWidget extends React.Component {
 		} else {
 			input.focus();
 		}
-		this.setState({ isFocused: !this.state.isFocused });
+		this.setState(state => ({ isFocused: !state.isFocused }));
 	}
 
 	setComponentRef(component) {
@@ -279,12 +279,12 @@ class MultiSelectTagWidget extends React.Component {
 
 		return (
 			<div className="dropdown" ref={component => this.setComponentRef(component)}>
-				<a
+				<button
 					onClick={this.onCaretClick}
 					className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}
 				>
 					<span className="caret" />
-				</a>
+				</button>
 				<div className={`${theme.wrapper} form-control`}>
 					{value.map((val, index) => {
 						badgeValue = valueToLabel[val] || val;

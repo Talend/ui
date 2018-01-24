@@ -11,6 +11,8 @@ $tf-typeahead-section-border-color: #e0e0e0 !default;
 	transform: translateY(-50%);
 	cursor: pointer;
 	z-index: 10;
+	background: transparent;
+	border: none;
 }
 
 .wrapper {
