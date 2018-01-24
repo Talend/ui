@@ -84,6 +84,7 @@
     "packages/cmf-cqrs",
     "packages/components",
     "packages/containers",
+    "packages/datagrid",
     "packages/forms",
     "packages/generator",
     "packages/icons",
