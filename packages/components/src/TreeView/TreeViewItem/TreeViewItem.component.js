@@ -136,9 +136,14 @@ class TreeViewItem extends React.Component {
 
 		const paddingLeft = `${depth * PADDING_NORMAL + PADDING_LARGE}px`;
 
-		const iconProps = (typeof icon === 'object') && (icon !== null) ?
-			Object.assign({}, icon, { className: classNames(css['tc-treeview-folder'], icon.className) }) : // immutability concern
-			{ name: getItemIcon(icon, toggled), className: css['tc-treeview-folder'] };
+		let iconProps = {};
+		if ((typeof icon === 'object') && (icon !== null)) {
+				iconProps = Object.assign({}, icon); // immutability of icon!
+				iconProps.className = classNames(css['tc-treeview-folder'], icon.className);
+		} else {
+				iconProps.name = getItemIcon(icon, toggled);
+				iconProps.className = css['tc-treeview-folder'];
+		}
 
 		return (
 			<li className={classNames('tc-treeview-item-li', css['tc-treeview-li'])} data-hidden={hidden}>
