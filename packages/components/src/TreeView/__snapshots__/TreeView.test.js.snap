@@ -2,11 +2,11 @@
 
 exports[`TreeView should render normally with all buttons and custom labels 1`] = `
 <div
-  className="tc-treeview"
+  className="tc-treeview tc-treeview"
   style={undefined}
 >
   <header
-    className={undefined}
+    className="tc-treeview-header"
   >
     <span>
       some elements
@@ -22,10 +22,10 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
     />
   </header>
   <nav
-    className={undefined}
+    className="tc-treeview-nav"
   >
     <ul
-      className={undefined}
+      className="tc-treeview-ul"
     >
       <TreeViewItem
         depth={0}

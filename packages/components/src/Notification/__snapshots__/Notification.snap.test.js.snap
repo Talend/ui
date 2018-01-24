@@ -2,7 +2,7 @@
 
 exports[`Notification should render 1`] = `
 <div
-  className="tc-notification-container"
+  className="tc-notification-container tc-notification-container"
 >
   <div
     className="react-addons-css-transition-group"
@@ -18,7 +18,7 @@ exports[`Notification should render 1`] = `
       role="status"
     >
       <button
-        className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
+        className="tc-notification-action tc-notification-action tc-notification-close .tc-notification-close tc-notification-action tc-notification-action tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -27,7 +27,7 @@ exports[`Notification should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="tc-svg-icon"
+          className="tc-svg-icon tc-svg-icon"
           focusable="false"
           title={null}
         >
@@ -40,14 +40,14 @@ exports[`Notification should render 1`] = `
         </span>
       </button>
       <article
-        className={undefined}
+        className="article"
       >
         <p
-          className="tc-notification-message"
+          className="tc-notification-message tc-notification-message"
         >
           This is a feedback of your operation1, This is a feedback of your operation1
           <button
-            className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
+            className="tc-notification-action tc-notification-action tc-notification-message-action tc-notification-message-action tc-notification-action tc-notification-action tc-notification-message-action tc-notification-message-action-default"
             disabled={false}
             onClick={[Function]}
             onMouseDown={[Function]}
@@ -56,7 +56,7 @@ exports[`Notification should render 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -71,18 +71,18 @@ exports[`Notification should render 1`] = `
         </p>
       </article>
       <div
-        className="tc-notification-timer-bar"
+        className="tc-notification-timer-bar tc-notification-timer-bar"
       />
     </div>
     <div
-      className="undefined tc-notification tc-notification-error"
+      className="tc-notification tc-notification-error"
       onClick={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="status"
     >
       <button
-        className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
+        className="tc-notification-action tc-notification-action tc-notification-close .tc-notification-close tc-notification-action tc-notification-action tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -91,7 +91,7 @@ exports[`Notification should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="tc-svg-icon"
+          className="tc-svg-icon tc-svg-icon"
           focusable="false"
           title={null}
         >
@@ -104,19 +104,19 @@ exports[`Notification should render 1`] = `
         </span>
       </button>
       <article
-        className={undefined}
+        className="article"
       >
         <p
-          className="tc-notification-message"
+          className="tc-notification-message tc-notification-message"
         >
           This is a feedback of your operation2
         </p>
         <p
-          className="tc-notification-message"
+          className="tc-notification-message tc-notification-message"
         >
           This is a feedback of your operation1, This is a feedback of your operation1
           <button
-            className="tc-notification-action tc-notification-message-action tc-notification-action tc-notification-message-action-default"
+            className="tc-notification-action tc-notification-action tc-notification-message-action tc-notification-message-action tc-notification-action tc-notification-action tc-notification-message-action tc-notification-message-action-default"
             disabled={false}
             onClick={[Function]}
             onMouseDown={[Function]}
@@ -125,7 +125,7 @@ exports[`Notification should render 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -148,7 +148,7 @@ exports[`Notification should render 1`] = `
       role="status"
     >
       <button
-        className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
+        className="tc-notification-action tc-notification-action tc-notification-close .tc-notification-close tc-notification-action tc-notification-action tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -157,7 +157,7 @@ exports[`Notification should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="tc-svg-icon"
+          className="tc-svg-icon tc-svg-icon"
           focusable="false"
           title={null}
         >
@@ -170,21 +170,21 @@ exports[`Notification should render 1`] = `
         </span>
       </button>
       <article
-        className={undefined}
+        className="article"
       >
         <p
-          className="tc-notification-message"
+          className="tc-notification-message tc-notification-message"
         >
           This is a feedback of your operation3
         </p>
         <p
-          className="tc-notification-message"
+          className="tc-notification-message tc-notification-message"
         >
           details
         </p>
       </article>
       <div
-        className="tc-notification-timer-bar"
+        className="tc-notification-timer-bar tc-notification-timer-bar"
       />
     </div>
     <div
@@ -195,7 +195,7 @@ exports[`Notification should render 1`] = `
       role="status"
     >
       <button
-        className="tc-notification-action .tc-notification-close tc-notification-action .tc-notification-close-default"
+        className="tc-notification-action tc-notification-action tc-notification-close .tc-notification-close tc-notification-action tc-notification-action tc-notification-close .tc-notification-close-default"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -204,7 +204,7 @@ exports[`Notification should render 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="tc-svg-icon"
+          className="tc-svg-icon tc-svg-icon"
           focusable="false"
           title={null}
         >
@@ -217,16 +217,16 @@ exports[`Notification should render 1`] = `
         </span>
       </button>
       <article
-        className={undefined}
+        className="article"
       >
         <p
-          className="tc-notification-message"
+          className="tc-notification-message tc-notification-message"
         >
           This is a feedback of your operation4
         </p>
       </article>
       <div
-        className="tc-notification-timer-bar"
+        className="tc-notification-timer-bar tc-notification-timer-bar"
       />
     </div>
   </div>

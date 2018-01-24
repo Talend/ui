@@ -2,11 +2,11 @@
 
 exports[`Slider component snaps renderers should render Slider 1`] = `
 <span
-  className="tc-slider"
+  className="tc-slider tc-slider"
 >
   <ComponentEnhancer(undefined)
     activeDotStyle={Object {}}
-    className="tc-slider-rc-slider"
+    className="tc-slider-rc-slider tc-slider-rc-slider"
     disabled={false}
     dotStyle={Object {}}
     dots={false}
@@ -41,11 +41,11 @@ exports[`Slider component snaps renderers should render Slider 1`] = `
 
 exports[`Slider component snaps renderers should render Slider with captionTextStepNumber 1`] = `
 <span
-  className="tc-slider"
+  className="tc-slider tc-slider"
 >
   <ComponentEnhancer(undefined)
     activeDotStyle={Object {}}
-    className="tc-slider-rc-slider"
+    className="tc-slider-rc-slider tc-slider-rc-slider"
     disabled={false}
     dotStyle={Object {}}
     dots={false}
@@ -76,7 +76,7 @@ exports[`Slider component snaps renderers should render Slider with captionTextS
     vertical={false}
   />
   <div
-    className="tc-slider-text-captions"
+    className="tc-slider-captions tc-slider-text-captions"
   >
     <span>
       0%
@@ -99,11 +99,11 @@ exports[`Slider component snaps renderers should render Slider with captionTextS
 
 exports[`Slider component snaps renderers should render Slider with icons on status 1`] = `
 <span
-  className="tc-slider"
+  className="tc-slider tc-slider"
 >
   <ComponentEnhancer(undefined)
     activeDotStyle={Object {}}
-    className="tc-slider-rc-slider"
+    className="tc-slider-rc-slider tc-slider-rc-slider"
     disabled={false}
     dotStyle={Object {}}
     dots={false}
@@ -134,7 +134,7 @@ exports[`Slider component snaps renderers should render Slider with icons on sta
     vertical={false}
   />
   <div
-    className="tc-slider-icons"
+    className="tc-slider-captions tc-slider-icons"
   >
     <Icon
       className=""
@@ -145,7 +145,7 @@ exports[`Slider component snaps renderers should render Slider with icons on sta
       name="talend-most-trusted"
     />
     <Icon
-      className="undefined selected"
+      className="selected selected"
       name="talend-network"
     />
     <Icon

@@ -2,12 +2,12 @@
 
 exports[`CellTitle actions should NOT render the actions when no actions key is provided 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={undefined}
@@ -60,12 +60,12 @@ exports[`CellTitle actions should NOT render the actions when no actions key is 
 
 exports[`CellTitle actions should NOT render the actions when rowData has no actions 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={undefined}
@@ -96,12 +96,12 @@ exports[`CellTitle actions should NOT render the actions when rowData has no act
 
 exports[`CellTitle actions should render the actions 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={undefined}
@@ -154,12 +154,12 @@ exports[`CellTitle actions should render the actions 1`] = `
 
 exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={undefined}
@@ -190,12 +190,12 @@ exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1
 
 exports[`CellTitle icon should NOT render the icon when the rowData has no icon value 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={undefined}
@@ -226,16 +226,16 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
 
 exports[`CellTitle icon should render the icon 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title tc-list-title"
   id="my-title-1-title-cell"
 >
   <Icon
-    className={undefined}
+    className="icon"
     name="talend-file-o"
   />
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={undefined}
@@ -266,12 +266,12 @@ exports[`CellTitle icon should render the icon 1`] = `
 
 exports[`CellTitle should render title selector component 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={[Function]}

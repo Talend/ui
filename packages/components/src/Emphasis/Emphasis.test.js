@@ -13,7 +13,7 @@ describe('Emphasis', () => {
 		const wrapper = shallow(<Emphasis {...props} value="brown" />);
 
 		// then
-		expect(wrapper.html()).toBe('<span>The lazy quick <em>brown</em> fox jumps over the lazy dog</span>');
+		expect(wrapper.html()).toBe('<span>The lazy quick <em class="highlight">brown</em> fox jumps over the lazy dog</span>');
 	});
 
 	it('should be case insensitive', () => {

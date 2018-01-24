@@ -2,7 +2,7 @@
 
 exports[`ActionBar should render a btn-group 1`] = `
 <nav
-  className="tc-actionbar-container nav"
+  className="tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
     actions={
@@ -35,7 +35,7 @@ exports[`ActionBar should render a btn-group 1`] = `
 
 exports[`ActionBar should render no-selected actions, all on left  1`] = `
 <nav
-  className="tc-actionbar-container nav"
+  className="tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
     actions={
@@ -79,7 +79,7 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
 
 exports[`ActionBar should render no-selected actions, all on right 1`] = `
 <nav
-  className="tc-actionbar-container nav"
+  className="tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
     actions={
@@ -123,7 +123,7 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
 
 exports[`ActionBar should render no-selected actions, some on left, the other on right 1`] = `
 <nav
-  className="tc-actionbar-container nav"
+  className="tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
     actions={
@@ -176,7 +176,7 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
 
 exports[`ActionBar should render selected count and multi-selected actions, all on left 1`] = `
 <nav
-  className="tc-actionbar-container nav"
+  className="tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
     actions={
@@ -219,7 +219,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
 
 exports[`ActionBar should render selected count and multi-selected actions, all on right 1`] = `
 <nav
-  className="tc-actionbar-container nav"
+  className="tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
     actions={Array []}
@@ -268,7 +268,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
 
 exports[`ActionBar should render selected count and multi-selected actions, count and some actions on left, the other on right 1`] = `
 <nav
-  className="tc-actionbar-container nav"
+  className="tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
     actions={
@@ -320,7 +320,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
 
 exports[`ActionBar.Count should render if selected 1`] = `
 <span
-  className="tc-actionbar-selected-count"
+  className="tc-actionbar-selected-count tc-actionbar-selected-count"
 >
   1
    selected

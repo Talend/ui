@@ -12,6 +12,7 @@ function Loader({ id, className, size = SIZE.default }) {
 
 	return (
 		<div id={id} aria-atomic="true" aria-busy="true" className={loaderClassNames}>
+			wehs : {size}
 			<CircularProgress size={size} />
 		</div>
 	);

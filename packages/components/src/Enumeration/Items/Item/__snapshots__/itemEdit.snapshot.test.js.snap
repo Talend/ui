@@ -2,18 +2,18 @@
 
 exports[`Item should display input value with error 1`] = `
 <li
-  className="undefined tc-enumeration-item has-error"
+  className="tc-enumeration-item has-error"
   id="0-item"
 >
   <input
     autoFocus={true}
-    className="undefined tc-enumeration-item-label"
+    className="tc-enumeration-item-label"
     onChange={[Function]}
     onKeyDown={[Function]}
     type="text"
   />
   <div
-    className="undefined tc-enumeration-item-actions"
+    className="tc-enumeration-item-actions"
   >
     <button
       className="btn btn-link"
@@ -37,7 +37,7 @@ exports[`Item should display input value with error 1`] = `
     />
   </div>
   <div
-    className="undefined tc-enumeration-item-error"
+    className="tc-enumeration-item-error"
   >
     an error occured
   </div>
@@ -46,18 +46,18 @@ exports[`Item should display input value with error 1`] = `
 
 exports[`Item should display input value with two buttons 1`] = `
 <li
-  className="undefined tc-enumeration-item"
+  className="tc-enumeration-item"
   id="0-item"
 >
   <input
     autoFocus={true}
-    className="undefined tc-enumeration-item-label"
+    className="tc-enumeration-item-label"
     onChange={[Function]}
     onKeyDown={[Function]}
     type="text"
   />
   <div
-    className="undefined tc-enumeration-item-actions"
+    className="tc-enumeration-item-actions"
   >
     <button
       className="btn btn-link"
@@ -85,25 +85,25 @@ exports[`Item should display input value with two buttons 1`] = `
 
 exports[`Item should display input value with two buttons. The validate button is disabled 1`] = `
 <li
-  className="undefined tc-enumeration-item"
+  className="tc-enumeration-item"
   id="0-item"
 >
   <input
     autoFocus={true}
-    className="undefined tc-enumeration-item-label"
+    className="tc-enumeration-item-label"
     onChange={[Function]}
     onKeyDown={[Function]}
     type="text"
   />
   <div
-    className="undefined tc-enumeration-item-actions"
+    className="tc-enumeration-item-actions"
   >
     <span
       onFocus={[Function]}
       onMouseOver={[Function]}
     >
       <button
-        className="btn btn-link"
+        className="btn-disabled btn btn-link"
         disabled={true}
         onClick={[Function]}
         onMouseDown={[Function]}

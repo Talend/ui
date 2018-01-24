@@ -2,12 +2,12 @@
 
 exports[`CircularProgress should render as light if set 1`] = `
 <svg
-  className=""
+  className="loader loaderlight animate default"
   focusable="false"
   viewBox="0 0 50 50"
 >
   <circle
-    className={undefined}
+    className="path"
     cx={25}
     cy={25}
     fill="none"
@@ -24,12 +24,12 @@ exports[`CircularProgress should render as light if set 1`] = `
 
 exports[`CircularProgress should render at large size if set 1`] = `
 <svg
-  className="undefined"
+  className="loader animate large"
   focusable="false"
   viewBox="0 0 50 50"
 >
   <circle
-    className={undefined}
+    className="path"
     cx={25}
     cy={25}
     fill="none"
@@ -46,12 +46,12 @@ exports[`CircularProgress should render at large size if set 1`] = `
 
 exports[`CircularProgress should render at small size if set 1`] = `
 <svg
-  className=""
+  className="loader animate small"
   focusable="false"
   viewBox="0 0 50 50"
 >
   <circle
-    className={undefined}
+    className="path"
     cx={25}
     cy={25}
     fill="none"
@@ -68,12 +68,12 @@ exports[`CircularProgress should render at small size if set 1`] = `
 
 exports[`CircularProgress should render by default at default size 1`] = `
 <svg
-  className=""
+  className="loader animate default"
   focusable="false"
   viewBox="0 0 50 50"
 >
   <circle
-    className={undefined}
+    className="path"
     cx={25}
     cy={25}
     fill="none"
@@ -90,12 +90,12 @@ exports[`CircularProgress should render by default at default size 1`] = `
 
 exports[`CircularProgress should render with percent if set 1`] = `
 <svg
-  className=""
+  className="loader fixed default"
   focusable="false"
   viewBox="0 0 50 50"
 >
   <circle
-    className={undefined}
+    className="path"
     cx={25}
     cy={25}
     fill="none"

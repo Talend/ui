@@ -5,7 +5,7 @@ exports[`SelectAll should be unchecked when there is no items 1`] = `
   className="navbar-form navbar-left"
 >
   <div
-    className="checkbox-inline navbar-text"
+    className="checkbox-inline navbar-text tc-list-toolbar-select-all"
   >
     <label
       className="tc-list-toolbar-select-all"
@@ -31,7 +31,7 @@ exports[`SelectAll should render 1`] = `
   className="navbar-form navbar-left"
 >
   <div
-    className="checkbox-inline navbar-text"
+    className="checkbox-inline navbar-text tc-list-toolbar-select-all"
   >
     <label
       className="tc-list-toolbar-select-all"
@@ -57,7 +57,7 @@ exports[`SelectAll should render id if provided 1`] = `
   className="navbar-form navbar-left"
 >
   <div
-    className="checkbox-inline navbar-text"
+    className="checkbox-inline navbar-text tc-list-toolbar-select-all"
   >
     <label
       className="tc-list-toolbar-select-all"

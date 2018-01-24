@@ -2,7 +2,7 @@
 
 exports[`Notification should render null if type === error 1`] = `
 <div
-  className="undefined tc-notification tc-notification-error"
+  className="tc-notification tc-notification-error"
   onClick={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}

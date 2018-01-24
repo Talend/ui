@@ -2,11 +2,11 @@
 
 exports[`TreeView should render normally with all buttons and custom labels 1`] = `
 <li
-  className="tc-treeview-item-li"
+  className="tc-treeview-item-li tc-treeview-li"
   data-hidden={undefined}
 >
   <div
-    className="tc-treeview-item"
+    className="tc-treeview-item tc-treeview-item"
     data-selected={undefined}
     id="tc-treeview-item"
     onClick={[Function]}
@@ -20,13 +20,13 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
     tabIndex="0"
   >
     <Icon
-      className={undefined}
+      className="tc-treeview-toggle"
       name="talend-caret-down"
       title="Collapse"
       transform={undefined}
     />
     <Icon
-      className={undefined}
+      className="tc-treeview-folder"
       name="talend-folder"
     />
     <span
@@ -35,7 +35,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       grandpa
     </span>
     <div
-      className={undefined}
+      className="tc-treeview-item-ctrl"
     >
       <Translate(Badge)
         label="101"
@@ -52,7 +52,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
     </div>
   </div>
   <ul
-    className={undefined}
+    className="tc-treeview-ul"
   >
     <TreeViewItem
       depth={1}

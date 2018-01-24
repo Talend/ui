@@ -2,21 +2,21 @@
 
 exports[`Status should render a label 1`] = `
 <div
-  className="tc-status undefined"
+  className="tc-status tc-status action"
   role="status"
 >
   <span
-    className="tc-status-icon"
+    className="tc-status-icon tc-status-icon success"
   >
     
   </span>
   <span
-    className="tc-status-label"
+    className="tc-status-label tc-status-label"
   >
     Successful
   </span>
   <span
-    className="tc-status-actions"
+    className="tc-status-actions tc-status-actions"
   >
     <div
       className="tc-actions btn-group"
@@ -64,11 +64,11 @@ exports[`Status should render a label 1`] = `
 
 exports[`Status should render a label with Icon 1`] = `
 <div
-  className="tc-status undefined"
+  className="tc-status tc-status action"
   role="status"
 >
   <span
-    className="tc-status-icon"
+    className="tc-status-icon tc-status-icon success"
   >
     <i
       aria-hidden="true"
@@ -78,12 +78,12 @@ exports[`Status should render a label with Icon 1`] = `
     />
   </span>
   <span
-    className="tc-status-label"
+    className="tc-status-label tc-status-label"
   >
     Successful
   </span>
   <span
-    className="tc-status-actions"
+    className="tc-status-actions tc-status-actions"
   >
     <div
       className="tc-actions btn-group"
@@ -131,11 +131,11 @@ exports[`Status should render a label with Icon 1`] = `
 
 exports[`Status should render a label with Icon without actions 1`] = `
 <div
-  className="tc-status"
+  className="tc-status tc-status"
   role="status"
 >
   <span
-    className="tc-status-icon"
+    className="tc-status-icon tc-status-icon success"
   >
     <i
       aria-hidden="true"
@@ -145,12 +145,12 @@ exports[`Status should render a label with Icon without actions 1`] = `
     />
   </span>
   <span
-    className="tc-status-label"
+    className="tc-status-label tc-status-label"
   >
     Successful
   </span>
   <span
-    className="tc-status-actions"
+    className="tc-status-actions tc-status-actions"
   >
     <div
       className="tc-actions btn-group"
@@ -161,19 +161,19 @@ exports[`Status should render a label with Icon without actions 1`] = `
 
 exports[`Status should render a label with a continuous circular progress 1`] = `
 <div
-  className="tc-status undefined"
+  className="tc-status tc-status action"
   role="status"
 >
   <span
-    className="tc-status-icon"
+    className="tc-status-icon tc-status-icon info"
   >
     <svg
-      className=""
+      className="loader animate small"
       focusable="false"
       viewBox="0 0 50 50"
     >
       <circle
-        className={undefined}
+        className="path"
         cx={25}
         cy={25}
         fill="none"
@@ -188,12 +188,12 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
     </svg>
   </span>
   <span
-    className="tc-status-label"
+    className="tc-status-label tc-status-label"
   >
     In Progress
   </span>
   <span
-    className="tc-status-actions"
+    className="tc-status-actions tc-status-actions"
   >
     <div
       className="tc-actions btn-group"
@@ -241,19 +241,19 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
 
 exports[`Status should render a label with a fixed circular progress 1`] = `
 <div
-  className="tc-status undefined"
+  className="tc-status tc-status action"
   role="status"
 >
   <span
-    className="tc-status-icon"
+    className="tc-status-icon tc-status-icon info"
   >
     <svg
-      className=""
+      className="loader animate small"
       focusable="false"
       viewBox="0 0 50 50"
     >
       <circle
-        className={undefined}
+        className="path"
         cx={25}
         cy={25}
         fill="none"
@@ -268,12 +268,12 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
     </svg>
   </span>
   <span
-    className="tc-status-label"
+    className="tc-status-label tc-status-label"
   >
     In Progress
   </span>
   <span
-    className="tc-status-actions"
+    className="tc-status-actions tc-status-actions"
   >
     <div
       className="tc-actions btn-group"

@@ -65,7 +65,7 @@ describe('TitleSubHeader', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />).find(
 			'small',
 		);
-		expect(wrapper.getElement().props.className).toEqual('tc-subheader-details-text-subtitle');
+		expect(wrapper.getElement().props.className).toEqual('tc-subheader-details-text-subtitle tc-subheader-details-text-subtitle');
 		expect(wrapper.getElement().props.children).toEqual('mySubTitle');
 	});
 	it('should render an Action with edit pencil', () => {

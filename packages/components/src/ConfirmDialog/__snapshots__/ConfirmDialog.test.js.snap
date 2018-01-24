@@ -3,7 +3,7 @@
 exports[`ConfirmDialog should render with a large container 1`] = `
 <div
   bsSize="large"
-  className="Modal"
+  className="tc-confirm-dialog modal-body-overflow Modal"
   keyboard={true}
   show={true}
 >
@@ -40,7 +40,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
       </span>
     </button>
     <div
-      className={undefined}
+      className="tc-confirm-actions"
     >
       <button
         className="btn btn-default"
@@ -62,7 +62,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
 exports[`ConfirmDialog should render with a progress bar 1`] = `
 <div
   bsSize="large"
-  className="Modal"
+  className="tc-confirm-dialog modal-body-overflow Modal"
   keyboard={true}
   show={true}
 >
@@ -103,7 +103,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
       </span>
     </button>
     <div
-      className={undefined}
+      className="tc-confirm-actions"
     >
       <button
         className="btn btn-default"
@@ -125,7 +125,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
 exports[`ConfirmDialog should render with a small container 1`] = `
 <div
   bsSize="small"
-  className="Modal"
+  className="tc-confirm-dialog modal-body-overflow Modal"
   keyboard={true}
   show={true}
 >
@@ -162,7 +162,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
       </span>
     </button>
     <div
-      className={undefined}
+      className="tc-confirm-actions"
     >
       <button
         className="btn btn-default"
@@ -184,7 +184,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
 exports[`ConfirmDialog should render with additional actions 1`] = `
 <div
   bsSize={undefined}
-  className="Modal"
+  className="tc-confirm-dialog modal-body-overflow Modal"
   keyboard={true}
   show={true}
 >
@@ -221,7 +221,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
       </span>
     </button>
     <div
-      className={undefined}
+      className="tc-confirm-actions"
     >
       <button
         className="btn btn-info"
@@ -255,7 +255,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
 exports[`ConfirmDialog should render with defaults values 1`] = `
 <div
   bsSize={undefined}
-  className="Modal"
+  className="tc-confirm-dialog modal-body-overflow Modal"
   keyboard={true}
   show={true}
 >
@@ -292,7 +292,7 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
       </span>
     </button>
     <div
-      className={undefined}
+      className="tc-confirm-actions"
     >
       <button
         className="btn btn-default"
@@ -314,7 +314,7 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
 exports[`ConfirmDialog should render without header 1`] = `
 <div
   bsSize={undefined}
-  className="Modal"
+  className="tc-confirm-dialog modal-body-overflow Modal"
   keyboard={true}
   show={true}
 >
@@ -341,7 +341,7 @@ exports[`ConfirmDialog should render without header 1`] = `
       </span>
     </button>
     <div
-      className={undefined}
+      className="tc-confirm-actions"
     >
       <button
         className="btn btn-default"

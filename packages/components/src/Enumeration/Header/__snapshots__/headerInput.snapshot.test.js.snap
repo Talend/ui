@@ -2,7 +2,7 @@
 
 exports[`Header should render header input with error 1`] = `
 <header
-  className="undefined tc-enumeration-header has-error"
+  className="tc-enumeration-header has-error"
 >
   <input
     autoFocus={true}
@@ -13,7 +13,7 @@ exports[`Header should render header input with error 1`] = `
     value={undefined}
   />
   <div
-    className="undefined tc-enumeration-header-error"
+    className="tc-enumeration-header-error"
   >
     duplicate value
   </div>
@@ -29,7 +29,7 @@ exports[`Header should render header input with error 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="tc-svg-icon tc-svg-icon"
       focusable="false"
       title={null}
     >
@@ -50,7 +50,7 @@ exports[`Header should render header input with error 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="tc-svg-icon tc-svg-icon"
       focusable="false"
       title={null}
     >
@@ -64,7 +64,7 @@ exports[`Header should render header input with error 1`] = `
 
 exports[`Header should render header input with two buttons 1`] = `
 <header
-  className="undefined tc-enumeration-header"
+  className="tc-enumeration-header"
 >
   <input
     autoFocus={true}
@@ -86,7 +86,7 @@ exports[`Header should render header input with two buttons 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="tc-svg-icon tc-svg-icon"
       focusable="false"
       title={null}
     >
@@ -107,7 +107,7 @@ exports[`Header should render header input with two buttons 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="tc-svg-icon tc-svg-icon"
       focusable="false"
       title={null}
     >

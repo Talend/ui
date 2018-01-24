@@ -2,7 +2,7 @@
 
 exports[`ObjectViewer.List should render List with props data as an array 1`] = `
 <ul
-  className="undefined tc-object-viewer list-unstyled"
+  className="container tc-object-viewer list-unstyled"
 >
   <li>
     <JSONLike
@@ -31,7 +31,7 @@ exports[`ObjectViewer.List should render List with props data as an array 1`] = 
 
 exports[`ObjectViewer.List should render List with props data as an object 1`] = `
 <ul
-  className="undefined tc-object-viewer list-unstyled"
+  className="container tc-object-viewer list-unstyled"
 >
   <li>
     <JSONLike

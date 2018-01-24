@@ -2,29 +2,29 @@
 
 exports[`CollapsiblePanel should render default with expanded key/value content 1`] = `
 <div
-  className="panel panel-default"
+  className="panel panel-default tc-collapsible-panel default-panel open"
 >
   <div
-    className="panel-heading"
+    className="panel-heading panel-heading"
   >
     <button
-      className="panel-title btn btn-link"
+      className="panel-title panel-title btn btn-link"
       disabled={false}
       onClick={[Function]}
       type="button"
     >
       <div
-        className="panel-title"
+        className="panel-title panel-title"
       >
         <div
-          className=""
+          className="undefined col-4"
         >
           <div
-            className="tc-status undefined"
+            className="tc-status tc-status action"
             role="status"
           >
             <span
-              className="tc-status-icon"
+              className="tc-status-icon tc-status-icon info"
             >
               <i
                 aria-hidden="true"
@@ -34,12 +34,12 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
               />
             </span>
             <span
-              className="tc-status-label"
+              className="tc-status-label tc-status-label"
             >
               inProgress
             </span>
             <span
-              className="tc-status-actions"
+              className="tc-status-actions tc-status-actions"
             >
               <div
                 className="tc-actions btn-group"
@@ -85,10 +85,10 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           </div>
         </div>
         <div
-          className=""
+          className="undefined col-4"
         >
           <button
-            className="btn btn-link"
+            className="undefined btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -106,10 +106,10 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           </button>
         </div>
         <div
-          className=""
+          className="undefined col-4"
         >
           <span
-            className={undefined}
+            className="undefined"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
@@ -117,17 +117,17 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           </span>
         </div>
         <div
-          className=""
+          className="group col-4"
         >
           <span
-            className={undefined}
+            className="undefined"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
             on TDP
           </span>
           <span
-            className="label label-default"
+            className="undefined label label-default"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
@@ -137,14 +137,14 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       </div>
     </button>
     <button
-      className="toggle btn btn-link"
+      className="toggle toggle btn btn-link"
       disabled={false}
       onClick={[Function]}
       type="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -170,10 +170,10 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       >
         <dl>
           <div
-            className={undefined}
+            className="content"
           >
             <dt
-              className={undefined}
+              className="label"
             >
               <span
                 className="label label-default"
@@ -182,7 +182,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
               </span>
             </dt>
             <dd
-              className={undefined}
+              className="description"
             >
               Description3
             </dd>
@@ -196,29 +196,29 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
 
 exports[`CollapsiblePanel should render default with key/value content 1`] = `
 <div
-  className="panel panel-default"
+  className="panel panel-default tc-collapsible-panel default-panel"
 >
   <div
-    className="panel-heading"
+    className="panel-heading panel-heading"
   >
     <button
-      className="panel-title btn btn-link"
+      className="panel-title panel-title btn btn-link"
       disabled={false}
       onClick={[Function]}
       type="button"
     >
       <div
-        className="panel-title"
+        className="panel-title panel-title"
       >
         <div
-          className=""
+          className="undefined col-4"
         >
           <div
-            className="tc-status undefined"
+            className="tc-status tc-status action"
             role="status"
           >
             <span
-              className="tc-status-icon"
+              className="tc-status-icon tc-status-icon info"
             >
               <i
                 aria-hidden="true"
@@ -228,12 +228,12 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
               />
             </span>
             <span
-              className="tc-status-label"
+              className="tc-status-label tc-status-label"
             >
               inProgress
             </span>
             <span
-              className="tc-status-actions"
+              className="tc-status-actions tc-status-actions"
             >
               <div
                 className="tc-actions btn-group"
@@ -279,10 +279,10 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           </div>
         </div>
         <div
-          className=""
+          className="undefined col-4"
         >
           <button
-            className="btn btn-link"
+            className="undefined btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -300,10 +300,10 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           </button>
         </div>
         <div
-          className=""
+          className="undefined col-4"
         >
           <span
-            className={undefined}
+            className="undefined"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
@@ -311,17 +311,17 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           </span>
         </div>
         <div
-          className=""
+          className="group col-4"
         >
           <span
-            className={undefined}
+            className="undefined"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
             on TDP
           </span>
           <span
-            className="label label-default"
+            className="undefined label label-default"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
@@ -331,14 +331,14 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       </div>
     </button>
     <button
-      className="toggle btn btn-link"
+      className="toggle toggle btn btn-link"
       disabled={false}
       onClick={[Function]}
       type="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -364,10 +364,10 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       >
         <dl>
           <div
-            className={undefined}
+            className="content"
           >
             <dt
-              className={undefined}
+              className="label"
             >
               <span
                 className="label label-default"
@@ -376,7 +376,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
               </span>
             </dt>
             <dd
-              className={undefined}
+              className="description"
             >
               Description3
             </dd>
@@ -390,29 +390,29 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
 
 exports[`CollapsiblePanel should render default without content 1`] = `
 <div
-  className="panel panel-default"
+  className="panel panel-default tc-collapsible-panel default-panel"
 >
   <div
-    className="panel-heading"
+    className="panel-heading panel-heading"
   >
     <button
-      className="panel-title btn btn-link"
+      className="panel-title panel-title btn btn-link"
       disabled={false}
       onClick={[Function]}
       type="button"
     >
       <div
-        className="panel-title"
+        className="panel-title panel-title"
       >
         <div
-          className=""
+          className="undefined col-4"
         >
           <div
-            className="tc-status undefined"
+            className="tc-status tc-status action"
             role="status"
           >
             <span
-              className="tc-status-icon"
+              className="tc-status-icon tc-status-icon info"
             >
               <i
                 aria-hidden="true"
@@ -422,12 +422,12 @@ exports[`CollapsiblePanel should render default without content 1`] = `
               />
             </span>
             <span
-              className="tc-status-label"
+              className="tc-status-label tc-status-label"
             >
               inProgress
             </span>
             <span
-              className="tc-status-actions"
+              className="tc-status-actions tc-status-actions"
             >
               <div
                 className="tc-actions btn-group"
@@ -473,10 +473,10 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           </div>
         </div>
         <div
-          className=""
+          className="undefined col-4"
         >
           <button
-            className="btn btn-link"
+            className="undefined btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -494,10 +494,10 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           </button>
         </div>
         <div
-          className=""
+          className="undefined col-4"
         >
           <span
-            className={undefined}
+            className="undefined"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
@@ -505,17 +505,17 @@ exports[`CollapsiblePanel should render default without content 1`] = `
           </span>
         </div>
         <div
-          className=""
+          className="group col-4"
         >
           <span
-            className={undefined}
+            className="undefined"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
             on TDP
           </span>
           <span
-            className="label label-default"
+            className="undefined label label-default"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
@@ -534,32 +534,32 @@ exports[`CollapsiblePanel should render default without content 1`] = `
 
 exports[`CollapsiblePanel should render themed with textual content 1`] = `
 <div
-  className="panel panel-default"
+  className="panel panel-default tc-collapsible-panel descriptive-panel"
 >
   <div
-    className="panel-heading"
+    className="panel-heading panel-heading"
   >
     <button
-      className="panel-title btn btn-link"
+      className="panel-title panel-title btn btn-link"
       disabled={false}
       onClick={[Function]}
       type="button"
     >
       <div
-        className="panel-title"
+        className="panel-title panel-title"
       >
         <div
-          className=""
+          className="group col-2"
         >
           <span
-            className={undefined}
+            className="undefined"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
             Version 1 Version 1
           </span>
           <span
-            className={undefined}
+            className="undefined"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
@@ -567,10 +567,10 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
           </span>
         </div>
         <div
-          className=""
+          className="undefined col-2"
         >
           <span
-            className={undefined}
+            className="undefined"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
@@ -580,14 +580,14 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
       </div>
     </button>
     <button
-      className="toggle btn btn-link"
+      className="toggle toggle btn btn-link"
       disabled={false}
       onClick={[Function]}
       type="button"
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -612,10 +612,10 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
         className="panel-body"
       >
         <div
-          className={undefined}
+          className="content"
         >
           <div
-            className={undefined}
+            className="head"
           >
             <span
               className={undefined}
@@ -633,7 +633,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
             </span>
           </div>
           <div
-            className="content-description"
+            className="content-description content-description"
           >
             Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
             		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
@@ -654,32 +654,32 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
 
 exports[`CollapsiblePanel should render themed without textual content 1`] = `
 <div
-  className="panel panel-default"
+  className="panel panel-default tc-collapsible-panel default-panel"
 >
   <div
-    className="panel-heading"
+    className="panel-heading panel-heading"
   >
     <button
-      className="panel-title btn btn-link"
+      className="panel-title panel-title btn btn-link"
       disabled={false}
       onClick={[Function]}
       type="button"
     >
       <div
-        className="panel-title"
+        className="panel-title panel-title"
       >
         <div
-          className=""
+          className="group col-2"
         >
           <span
-            className={undefined}
+            className="undefined"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
             Version 1 Version 1
           </span>
           <span
-            className={undefined}
+            className="undefined"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >
@@ -687,10 +687,10 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
           </span>
         </div>
         <div
-          className=""
+          className="undefined col-2"
         >
           <span
-            className={undefined}
+            className="undefined"
             onFocus={[Function]}
             onMouseOver={[Function]}
           >

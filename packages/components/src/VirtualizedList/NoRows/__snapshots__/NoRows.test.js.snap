@@ -3560,7 +3560,7 @@ exports[`NoRows should show no result 1`] = `
   >
     <span
       aria-live="polite"
-      className="tc-virtualizedlist-no-result"
+      className="tc-virtualizedlist-no-result tc-virtualizedlist-no-result"
       role="status"
     >
       No result found

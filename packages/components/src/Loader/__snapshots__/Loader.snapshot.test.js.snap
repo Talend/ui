@@ -1,19 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loader should render a large loader 1`] = `
+exports[`Loader should render a default loader 1`] = `
 <div
   aria-atomic="true"
   aria-busy="true"
-  className="tc-loader"
+  className="tc-loader tc-loader"
   id={undefined}
 >
+  wehs : 
+  default
   <svg
-    className=""
+    className="loader animate default"
     focusable="false"
     viewBox="0 0 50 50"
   >
     <circle
-      className={undefined}
+      className="path"
       cx={25}
       cy={25}
       fill="none"
@@ -29,20 +31,53 @@ exports[`Loader should render a large loader 1`] = `
 </div>
 `;
 
-exports[`Loader should render a loader 1`] = `
+exports[`Loader should render a default loader if size is not specified 1`] = `
 <div
   aria-atomic="true"
   aria-busy="true"
-  className="tc-loader"
+  className="tc-loader tc-loader"
   id={undefined}
 >
+  wehs : 
+  default
   <svg
-    className=""
+    className="loader animate default"
     focusable="false"
     viewBox="0 0 50 50"
   >
     <circle
-      className={undefined}
+      className="path"
+      cx={25}
+      cy={25}
+      fill="none"
+      r={20}
+      style={
+        Object {
+          "strokeDasharray": 12.566370614359172,
+          "strokeDashoffset": 0,
+        }
+      }
+    />
+  </svg>
+</div>
+`;
+
+exports[`Loader should render a large loader 1`] = `
+<div
+  aria-atomic="true"
+  aria-busy="true"
+  className="tc-loader tc-loader"
+  id={undefined}
+>
+  wehs : 
+  large
+  <svg
+    className="loader animate large"
+    focusable="false"
+    viewBox="0 0 50 50"
+  >
+    <circle
+      className="path"
       cx={25}
       cy={25}
       fill="none"
@@ -62,16 +97,18 @@ exports[`Loader should render a small loader 1`] = `
 <div
   aria-atomic="true"
   aria-busy="true"
-  className="tc-loader"
+  className="tc-loader tc-loader"
   id={undefined}
 >
+  wehs : 
+  small
   <svg
-    className=""
+    className="loader animate small"
     focusable="false"
     viewBox="0 0 50 50"
   >
     <circle
-      className={undefined}
+      className="path"
       cx={25}
       cy={25}
       fill="none"

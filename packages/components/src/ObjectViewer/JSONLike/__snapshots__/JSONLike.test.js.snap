@@ -2,7 +2,7 @@
 
 exports[`JSONLike should render 1`] = `
 <div
-  className="tc-object-viewer"
+  className="tc-object-viewer container"
   style={undefined}
 >
   <Item

@@ -9,7 +9,7 @@ exports[`Storyshots TabBar default 1`] = `
     id="default"
   >
     <nav
-      className="nav tc-tab-bar"
+      className="nav tc-tab-bar tc-tab-bar"
     >
       <ul
         className="nav nav-tabs tc-tab-bar-actions"
