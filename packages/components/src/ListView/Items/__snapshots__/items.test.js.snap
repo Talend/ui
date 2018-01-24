@@ -69,6 +69,7 @@ exports[`Items should render 1`] = `
             "nonExplicitWhitelist": false,
             "ns": Array [
               "translation",
+              "tui-components",
             ],
             "nsSeparator": ":",
             "overloadTranslationOptionHandler": [Function],
@@ -132,6 +133,7 @@ exports[`Items should render 1`] = `
           "nonExplicitWhitelist": false,
           "ns": Array [
             "translation",
+            "tui-components",
           ],
           "nsSeparator": ":",
           "overloadTranslationOptionHandler": [Function],
@@ -193,6 +195,7 @@ exports[`Items should render 1`] = `
                   "nonExplicitWhitelist": false,
                   "ns": Array [
                     "translation",
+                    "tui-components",
                   ],
                   "nsSeparator": ":",
                   "overloadTranslationOptionHandler": [Function],
@@ -243,6 +246,7 @@ exports[`Items should render 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -301,6 +305,7 @@ exports[`Items should render 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -359,6 +364,7 @@ exports[`Items should render 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -421,6 +427,7 @@ exports[`Items should render 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -476,6 +483,7 @@ exports[`Items should render 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -540,6 +548,7 @@ exports[`Items should render 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -594,6 +603,7 @@ exports[`Items should render 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -658,6 +668,7 @@ exports[`Items should render 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -708,6 +719,7 @@ exports[`Items should render 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -766,6 +778,7 @@ exports[`Items should render 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -826,6 +839,7 @@ exports[`Items should render 1`] = `
                   "nonExplicitWhitelist": false,
                   "ns": Array [
                     "translation",
+                    "tui-components",
                   ],
                   "nsSeparator": ":",
                   "overloadTranslationOptionHandler": [Function],
@@ -876,6 +890,7 @@ exports[`Items should render 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -934,6 +949,7 @@ exports[`Items should render 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -1921,6 +1937,7 @@ exports[`Items should render 1`] = `
                   "nonExplicitWhitelist": false,
                   "ns": Array [
                     "translation",
+                    "tui-components",
                   ],
                   "nsSeparator": ":",
                   "overloadTranslationOptionHandler": [Function],
@@ -1971,6 +1988,7 @@ exports[`Items should render 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -2029,6 +2047,7 @@ exports[`Items should render 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -2087,6 +2106,7 @@ exports[`Items should render 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -2152,6 +2172,7 @@ exports[`Items should render 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -2206,6 +2227,7 @@ exports[`Items should render 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -2270,6 +2292,7 @@ exports[`Items should render 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -2320,6 +2343,7 @@ exports[`Items should render 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -2378,6 +2402,7 @@ exports[`Items should render 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -2433,6 +2458,7 @@ exports[`Items should render 1`] = `
             "nonExplicitWhitelist": false,
             "ns": Array [
               "translation",
+              "tui-components",
             ],
             "nsSeparator": ":",
             "overloadTranslationOptionHandler": [Function],
@@ -2491,6 +2517,7 @@ exports[`Items should render 1`] = `
                   "nonExplicitWhitelist": false,
                   "ns": Array [
                     "translation",
+                    "tui-components",
                   ],
                   "nsSeparator": ":",
                   "overloadTranslationOptionHandler": [Function],
@@ -2541,6 +2568,7 @@ exports[`Items should render 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -2599,6 +2627,7 @@ exports[`Items should render 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -3935,6 +3964,7 @@ exports[`Items should render with provided id 1`] = `
             "nonExplicitWhitelist": false,
             "ns": Array [
               "translation",
+              "tui-components",
             ],
             "nsSeparator": ":",
             "overloadTranslationOptionHandler": [Function],
@@ -4001,6 +4031,7 @@ exports[`Items should render with provided id 1`] = `
           "nonExplicitWhitelist": false,
           "ns": Array [
             "translation",
+            "tui-components",
           ],
           "nsSeparator": ":",
           "overloadTranslationOptionHandler": [Function],
@@ -4062,6 +4093,7 @@ exports[`Items should render with provided id 1`] = `
                   "nonExplicitWhitelist": false,
                   "ns": Array [
                     "translation",
+                    "tui-components",
                   ],
                   "nsSeparator": ":",
                   "overloadTranslationOptionHandler": [Function],
@@ -4112,6 +4144,7 @@ exports[`Items should render with provided id 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -4170,6 +4203,7 @@ exports[`Items should render with provided id 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -4228,6 +4262,7 @@ exports[`Items should render with provided id 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -4290,6 +4325,7 @@ exports[`Items should render with provided id 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -4345,6 +4381,7 @@ exports[`Items should render with provided id 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -4409,6 +4446,7 @@ exports[`Items should render with provided id 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -4463,6 +4501,7 @@ exports[`Items should render with provided id 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -4527,6 +4566,7 @@ exports[`Items should render with provided id 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -4577,6 +4617,7 @@ exports[`Items should render with provided id 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -4635,6 +4676,7 @@ exports[`Items should render with provided id 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -4695,6 +4737,7 @@ exports[`Items should render with provided id 1`] = `
                   "nonExplicitWhitelist": false,
                   "ns": Array [
                     "translation",
+                    "tui-components",
                   ],
                   "nsSeparator": ":",
                   "overloadTranslationOptionHandler": [Function],
@@ -4745,6 +4788,7 @@ exports[`Items should render with provided id 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -4803,6 +4847,7 @@ exports[`Items should render with provided id 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -5790,6 +5835,7 @@ exports[`Items should render with provided id 1`] = `
                   "nonExplicitWhitelist": false,
                   "ns": Array [
                     "translation",
+                    "tui-components",
                   ],
                   "nsSeparator": ":",
                   "overloadTranslationOptionHandler": [Function],
@@ -5840,6 +5886,7 @@ exports[`Items should render with provided id 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -5898,6 +5945,7 @@ exports[`Items should render with provided id 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -5956,6 +6004,7 @@ exports[`Items should render with provided id 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -6021,6 +6070,7 @@ exports[`Items should render with provided id 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -6075,6 +6125,7 @@ exports[`Items should render with provided id 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -6139,6 +6190,7 @@ exports[`Items should render with provided id 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -6189,6 +6241,7 @@ exports[`Items should render with provided id 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -6247,6 +6300,7 @@ exports[`Items should render with provided id 1`] = `
               "nonExplicitWhitelist": false,
               "ns": Array [
                 "translation",
+                "tui-components",
               ],
               "nsSeparator": ":",
               "overloadTranslationOptionHandler": [Function],
@@ -6302,6 +6356,7 @@ exports[`Items should render with provided id 1`] = `
             "nonExplicitWhitelist": false,
             "ns": Array [
               "translation",
+              "tui-components",
             ],
             "nsSeparator": ":",
             "overloadTranslationOptionHandler": [Function],
@@ -6360,6 +6415,7 @@ exports[`Items should render with provided id 1`] = `
                   "nonExplicitWhitelist": false,
                   "ns": Array [
                     "translation",
+                    "tui-components",
                   ],
                   "nsSeparator": ":",
                   "overloadTranslationOptionHandler": [Function],
@@ -6410,6 +6466,7 @@ exports[`Items should render with provided id 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
@@ -6468,6 +6525,7 @@ exports[`Items should render with provided id 1`] = `
                 "nonExplicitWhitelist": false,
                 "ns": Array [
                   "translation",
+                  "tui-components",
                 ],
                 "nsSeparator": ":",
                 "overloadTranslationOptionHandler": [Function],
