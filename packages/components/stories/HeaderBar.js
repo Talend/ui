@@ -261,7 +261,7 @@ decoratedStories
 	})
 	.addWithInfo('barebone', () => <HeaderBar/>);
 
-const appStyle = require(`./config/Layout.scss`);
+const appStyle = require(`./config/themes.scss`);
 
 apps.forEach(app => {
 	const headerProps = Immutable.fromJS(props).toJS();

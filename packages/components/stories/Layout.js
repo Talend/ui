@@ -173,7 +173,7 @@ const stories =
 			</div>
 		));
 
-const appStyle = require(`./config/Layout.scss`);
+const appStyle = require(`./config/themes.scss`);
 
 /**
  * Generate story for <Layout/> component

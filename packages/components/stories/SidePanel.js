@@ -212,7 +212,7 @@ stories
 		return <WithLayout/>;
 	});
 
-const appStyle = require(`./config/Layout.scss`);
+const appStyle = require(`./config/themes.scss`);
 
 apps.forEach(app => {
 		stories
