@@ -62,11 +62,9 @@ if (!stories.addWithInfo) {
 stories
 	.addDecorator(story => (
 		<div>
-			<LanguageSwitcher/>
-			<IconsProvider defaultIcons={icons}/>
-			<I18nextProvider i18n={i18n}>
-				{story()}
-			</I18nextProvider>
+			<LanguageSwitcher />
+			<IconsProvider defaultIcons={icons} />
+			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
 		</div>
 	))
 	.addWithInfo('default', () => (
@@ -170,7 +168,7 @@ stories
 			}
 		}
 
-		return <WithLayout/>;
+		return <WithLayout />;
 	})
 	.addWithInfo('reverse with layout (toggle interactive)', () => {
 		class WithLayout extends React.Component {
@@ -209,26 +207,23 @@ stories
 			}
 		}
 
-		return <WithLayout/>;
+		return <WithLayout />;
 	});
 
 const appStyle = require(`./config/themes.scss`);
 
 apps.forEach(app => {
-		stories
-			.addWithInfo(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
-					<div className={appStyle[app]}>
-						<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
-							<SidePanel
-								id="context"
-								actions={actions}
-								onToggleDock={action('Toggle dock clicked')}
-								docked={false}
-								tooltipPlacement="top"
-							/>
-						</div>
-					</div>
-				)
-			);
-	}
-);
+	stories.addWithInfo(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
+		<div className={appStyle[app]}>
+			<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
+				<SidePanel
+					id="context"
+					actions={actions}
+					onToggleDock={action('Toggle dock clicked')}
+					docked={false}
+					tooltipPlacement="top"
+				/>
+			</div>
+		</div>
+	));
+});

@@ -1,6 +1,9 @@
 import React from 'react';
 import { Drawer, IconsProvider } from '@talend/react-components';
-import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '@talend/react-components/lib/Layout/constants';
+import {
+	TALEND_T7_THEME_APPS as apps,
+	TALEND_T7_THEME_CLASSNAME,
+} from '@talend/react-components/lib/Layout/constants';
 import talendIcons from '@talend/icons/dist/react';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable';
@@ -25,10 +28,7 @@ const connect = {
 
 const panelActions = {
 	left: [cancel],
-	right: [
-		connect,
-		primary,
-	],
+	right: [connect, primary],
 };
 
 const multi3 = {
@@ -122,10 +122,7 @@ const actions = {
 const toolbar = {
 	sort: {
 		field: 'id',
-		options: [
-			{ id: 'id', name: 'Id' },
-			{ id: 'label', name: 'Name' },
-		],
+		options: [{ id: 'id', name: 'Id' }, { id: 'label', name: 'Name' }],
 	},
 	filter: {
 		placeholder: 'find an object',
@@ -172,11 +169,8 @@ const listProps = {
 const ExampleHomeListView = {
 	default: () => (
 		<div>
-			<IconsProvider defaultIcons={icons}/>
-			<HomeListView
-				sidepanel={sidepanel}
-				list={listProps}
-			/>
+			<IconsProvider defaultIcons={icons} />
+			<HomeListView sidepanel={sidepanel} list={listProps} />
 		</div>
 	),
 };
@@ -188,7 +182,7 @@ apps.forEach(app => {
 		return (
 			<div className={appStyle[app]}>
 				<div className={TALEND_T7_THEME_CLASSNAME}>
-					<IconsProvider defaultIcons={icons}/>
+					<IconsProvider defaultIcons={icons} />
 					<HomeListView
 						// hasTheme - option must be set if you import one and only one theme
 						sidepanel={sidepanel}
@@ -202,23 +196,17 @@ apps.forEach(app => {
 
 ExampleHomeListView.drawer = () => (
 	<div>
-		<IconsProvider defaultIcons={icons}/>
-		<HomeListView
-			header={header}
-			sidepanel={sidepanel}
-			list={listProps}
-		>
+		<IconsProvider defaultIcons={icons} />
+		<HomeListView header={header} sidepanel={sidepanel} list={listProps}>
 			<Drawer
-				stacked title="Im stacked drawer 1"
+				stacked
+				title="Im stacked drawer 1"
 				footerActions={Object.assign({}, basicProps, { selected: 0 })}
 			>
 				<h1>Hello drawer 1</h1>
 				<p>You should not being able to read this because I&#39;m first</p>
 			</Drawer>
-			<Drawer
-				title="Im drawer 2"
-				footerActions={Object.assign({}, basicProps, { selected: 0 })}
-			>
+			<Drawer title="Im drawer 2" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
 				<h1>Hello drawer 2</h1>
 				<p>The content dictate the width</p>
 			</Drawer>
@@ -231,14 +219,11 @@ apps.forEach(app => {
 		return (
 			<div className={appStyle[app]}>
 				<div className={TALEND_T7_THEME_CLASSNAME}>
-					<IconsProvider defaultIcons={icons}/>
-					<HomeListView
-						header={header}
-						sidepanel={sidepanel}
-						list={listProps}
-					>
+					<IconsProvider defaultIcons={icons} />
+					<HomeListView header={header} sidepanel={sidepanel} list={listProps}>
 						<Drawer
-							stacked title="Im stacked drawer 1"
+							stacked
+							title="Im stacked drawer 1"
 							footerActions={Object.assign({}, basicProps, { selected: 0 })}
 						>
 							<h1>Hello drawer 1</h1>

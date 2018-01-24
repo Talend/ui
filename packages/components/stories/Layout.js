@@ -58,13 +58,13 @@ const content = (
 	</div>
 );
 const sidePanel = (
-	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked={false}/>
+	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked={false} />
 );
 const dockedSidePanel = (
-	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked/>
+	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked />
 );
-const header = <HeaderBar brand={{ label: 'Example App Name' }}/>;
-const subHeader = <SubHeaderBar title="MyTitle" onGoBack={action('SubHeader onGoBack')}/>;
+const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
+const subHeader = <SubHeaderBar title="MyTitle" onGoBack={action('SubHeader onGoBack')} />;
 const footer = 'Footer content';
 
 const listItem = {
@@ -164,14 +164,12 @@ const tabs = {
 	selected: '2',
 };
 
-const stories =
-	storiesOf('Layout', module)
-		.addDecorator(story => (
-			<div>
-				<IconsProvider defaultIcons={icons}/>
-				{story()}
-			</div>
-		));
+const stories = storiesOf('Layout', module).addDecorator(story => (
+	<div>
+		<IconsProvider defaultIcons={icons} />
+		{story()}
+	</div>
+));
 
 const appStyle = require(`./config/themes.scss`);
 
@@ -183,12 +181,9 @@ const appStyle = require(`./config/themes.scss`);
  * @param layoutStoryContent Optional custom children
  */
 function layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
-	stories
-		.addWithInfo(layoutStoryName, () => (
-			<Layout {...layoutStoryProps}>
-				{layoutStoryContent}
-			</Layout>
-		));
+	stories.addWithInfo(layoutStoryName, () => (
+		<Layout {...layoutStoryProps}>{layoutStoryContent}</Layout>
+	));
 }
 
 /**
@@ -200,23 +195,19 @@ function layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = con
  */
 function decoratedLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
 	layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent);
-	apps
-		.forEach(app => {
-				const decoratedPropsWithTheme = {
-					...layoutStoryProps,
-					// hasTheme: true, should be enabled if we have one and only one Layout theme scss import
-				};
-				stories.addWithInfo(`🎨 [${app.toUpperCase()}] ${layoutStoryName} `, () => (
-					<div className={appStyle[app]}>
-						<div className={TALEND_T7_THEME_CLASSNAME}>
-							<Layout {...decoratedPropsWithTheme}>
-								{layoutStoryContent}
-							</Layout>
-						</div>
-					</div>
-				));
-			}
-		);
+	apps.forEach(app => {
+		const decoratedPropsWithTheme = {
+			...layoutStoryProps,
+			// hasTheme: true, should be enabled if we have one and only one Layout theme scss import
+		};
+		stories.addWithInfo(`🎨 [${app.toUpperCase()}] ${layoutStoryName} `, () => (
+			<div className={appStyle[app]}>
+				<div className={TALEND_T7_THEME_CLASSNAME}>
+					<Layout {...decoratedPropsWithTheme}>{layoutStoryContent}</Layout>
+				</div>
+			</div>
+		));
+	});
 }
 
 decoratedLayoutStory('OneColumn', {
@@ -243,7 +234,9 @@ decoratedLayoutStory('TwoColumns with tabs', {
 	one: sidePanel,
 });
 
-decoratedLayoutStory('TwoColumns with big Table list', {
+decoratedLayoutStory(
+	'TwoColumns with big Table list',
+	{
 		header,
 		mode: 'TwoColumns',
 		one: sidePanel,
@@ -251,12 +244,14 @@ decoratedLayoutStory('TwoColumns with big Table list', {
 	<List {...listProps} />,
 );
 
-decoratedLayoutStory('TwoColumns with big Large list', {
+decoratedLayoutStory(
+	'TwoColumns with big Large list',
+	{
 		header,
 		mode: 'TwoColumns',
 		one: sidePanel,
 	},
-	<List {...listProps} displayMode={'large'}/>,
+	<List {...listProps} displayMode={'large'} />,
 );
 
 decoratedLayoutStory('TwoColumns docked', {
