@@ -7,26 +7,22 @@ import { Loader, CIRCULAR_PROGRESS_SIZE as SIZE } from '../src/';
 
 const containerStyle = {
 	border: '1px solid black',
-	width: '500px',
-	height: '500px',
+	width: '100vw',
+	height: '100vh',
 	display: 'flex',
 	'justify-content': 'center',
 	'align-items': 'center',
 };
 
-storiesOf('Loader', module)
-	.addWithInfo('default', () => (
+
+const decoratedStories = storiesOf('Loader', module)
+	.addDecorator(story => (
 		<div style={containerStyle}>
-			<Loader />
-		</div>
-	))
-	.addWithInfo('small', () => (
-		<div style={containerStyle}>
-			<Loader size={SIZE.small} />
-		</div>
-	))
-	.addWithInfo('large', () => (
-		<div style={containerStyle}>
-			<Loader size={SIZE.large} />
+			{story()}
 		</div>
 	));
+
+decoratedStories
+	.addWithInfo('default', () => <Loader />)
+	.addWithInfo('small', () => <Loader size={SIZE.small} />)
+	.addWithInfo('large', () => <Loader size={SIZE.large} />);
