@@ -46,6 +46,7 @@ class MultiSelectTagWidget extends React.Component {
 		this.withCategory = typeof props.options.groupBy !== 'undefined';
 		this.state = {
 			filterText: '',
+			isFocused: false,
 		};
 		this.theme = {
 			container: theme.typeahead,
@@ -56,6 +57,7 @@ class MultiSelectTagWidget extends React.Component {
 		this.onSelect = this.onSelect.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onChange = this.onChange.bind(this);
+		this.onCaretClick = this.onCaretClick.bind(this);
 		this.getDropdownItems = this.getDropdownItems.bind(this);
 		this.updateSuggestions = this.updateSuggestions.bind(this);
 		this.resetSuggestions = this.resetSuggestions.bind(this);
@@ -153,6 +155,16 @@ class MultiSelectTagWidget extends React.Component {
 
 	onChange(event, { value }) {
 		this.updateSuggestions(value);
+	}
+
+	onCaretClick() {
+		const input = this.component.querySelector('input');
+		if (this.state.isFocused) {
+			input.blur();
+		} else {
+			input.focus();
+		}
+		this.setState({ isFocused: !this.state.isFocused });
 	}
 
 	setComponentRef(component) {
@@ -267,7 +279,8 @@ class MultiSelectTagWidget extends React.Component {
 
 		return (
 			<div className="dropdown" ref={component => this.setComponentRef(component)}>
-				<div className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}>
+				<div onClick={this.onCaretClick}
+				     className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}>
 					<span className="caret" />
 				</div>
 				<div className={`${theme.wrapper} form-control`}>
@@ -313,6 +326,7 @@ class MultiSelectTagWidget extends React.Component {
 if (process.env.NODE_ENV !== 'production') {
 	MultiSelectTagWidget.propTypes = {
 		id: PropTypes.string,
+		isFocused: PropTypes.bool,
 		value: PropTypes.array, //eslint-disable-line
 		options: PropTypes.shape({
 			enumOptions: PropTypes.array,
