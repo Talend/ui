@@ -1,17 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
 
 import theme from './CircularProgress.scss';
 
 const RADIUS = 20;
 const DIAMETER = 50;
 const CENTER_POSITION = 25;
-const SIZE = {
-	small: 'small',
-	default: 'default',
-	large: 'large',
-};
 const CIRCUMFERENCE = Math.PI * (RADIUS * 2);
 
 function getCircleStyle(percent) {
@@ -59,7 +55,7 @@ function CircularProgress({ size, light, percent }) {
 CircularProgress.displayName = 'CircularProgress';
 
 CircularProgress.propTypes = {
-	size: PropTypes.oneOf([SIZE.small, SIZE.default, SIZE.large]),
+	size: PropTypes.oneOf(SIZE),
 	light: PropTypes.bool,
 	percent: PropTypes.number,
 };
