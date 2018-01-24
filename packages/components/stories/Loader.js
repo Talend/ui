@@ -6,12 +6,11 @@ import { Loader, CIRCULAR_PROGRESS_SIZE as SIZE } from '../src/';
 
 
 const containerStyle = {
-	border: '1px solid black',
-	width: '100vw',
-	height: '100vh',
 	display: 'flex',
-	'justify-content': 'center',
-	'align-items': 'center',
+	alignItems: 'center',
+	justifyContent: 'center',
+	height: '100vh',
+	width: '100vw',
 };
 
 

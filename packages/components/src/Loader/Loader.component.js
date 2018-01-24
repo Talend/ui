@@ -7,12 +7,12 @@ import { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
 
 import theme from './Loader.scss';
 
-function Loader({ id, className, size }) {
+function Loader({ id, className, size = SIZE.default }) {
 	const loaderClassNames = classNames('tc-loader', theme['tc-loader'], className);
 
 	return (
 		<div id={id} aria-atomic="true" aria-busy="true" className={loaderClassNames}>
-			<CircularProgress size={size || SIZE.default} />
+			<CircularProgress size={size} />
 		</div>
 	);
 }
