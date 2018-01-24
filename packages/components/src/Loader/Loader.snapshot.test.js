@@ -6,7 +6,6 @@ import { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
 
 jest.mock('react-dom');
 
-
 describe('Loader', () => {
 	it('should render a loader', () => {
 		const wrapper = renderer.create(<Loader />).toJSON();
