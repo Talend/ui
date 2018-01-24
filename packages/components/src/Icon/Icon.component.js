@@ -103,10 +103,20 @@ function Icon({ className, name, title, transform, onClick, src }) {
 
 Icon.displayName = 'Icon';
 
+function hasNameOrSrc (props, propName, componentName) {
+    if (!props.name && !props.src) {
+        return new Error(`name or src should be specified on ${componentName} and have type string`);
+    }
+    if (props.name) {
+        return PropTypes.checkPropTypes({ name: PropTypes.string.isRequired }, props, propName, componentName);
+    }
+    return PropTypes.checkPropTypes({ src: PropTypes.string.isRequired }, props, propName, componentName);
+}
+
 Icon.propTypes = {
 	className: PropTypes.string,
-	name: PropTypes.string.isRequired,
-	src: PropTypes.string,
+	name: hasNameOrSrc,
+	src: hasNameOrSrc,
 	title: PropTypes.string,
 	transform: PropTypes.oneOf(TRANSFORMS),
 	onClick: PropTypes.func,
