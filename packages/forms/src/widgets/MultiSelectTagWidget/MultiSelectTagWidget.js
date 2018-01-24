@@ -279,10 +279,12 @@ class MultiSelectTagWidget extends React.Component {
 
 		return (
 			<div className="dropdown" ref={component => this.setComponentRef(component)}>
-				<div onClick={this.onCaretClick}
-				     className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}>
+				<a
+					onClick={this.onCaretClick}
+					className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}
+				>
 					<span className="caret" />
-				</div>
+				</a>
 				<div className={`${theme.wrapper} form-control`}>
 					{value.map((val, index) => {
 						badgeValue = valueToLabel[val] || val;
@@ -326,7 +328,6 @@ class MultiSelectTagWidget extends React.Component {
 if (process.env.NODE_ENV !== 'production') {
 	MultiSelectTagWidget.propTypes = {
 		id: PropTypes.string,
-		isFocused: PropTypes.bool,
 		value: PropTypes.array, //eslint-disable-line
 		options: PropTypes.shape({
 			enumOptions: PropTypes.array,
