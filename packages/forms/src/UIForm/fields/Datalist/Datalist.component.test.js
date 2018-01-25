@@ -224,4 +224,26 @@ describe('Datalist component', () => {
 		// then
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
+
+	it('should set value on props value update', () => {
+		// given
+		const wrapper = shallow(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				errorMessage={'This should be correct'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={schema}
+				value={'foo'}
+			/>,
+		);
+		expect(wrapper.find(Typeahead).props().value).toBe('foo');
+
+		// when
+		wrapper.setProps({ value: 'bar' });
+
+		// then
+		expect(wrapper.update().find(Typeahead).props().value).toBe('bar');
+	});
 });
