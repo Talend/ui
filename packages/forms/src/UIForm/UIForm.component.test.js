@@ -122,14 +122,11 @@ describe('UIForm component', () => {
 				.simulate('click');
 
 			// then
-			expect(props.onTrigger).toBeCalledWith(
-				expect.anything(),
-				{
-					properties: {},
-					trigger: 'after',
-					schema: mergedSchema[2],
-				},
-			);
+			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
+				properties: {},
+				trigger: 'after',
+				schema: mergedSchema[2],
+			});
 		});
 	});
 

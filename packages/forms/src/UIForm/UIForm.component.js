@@ -149,12 +149,7 @@ export default class UIForm extends React.Component {
 		}
 
 		if (this.props.moz) {
-			return onTrigger(
-				payload.formData,
-				payload.formId,
-				payload.propertyName,
-				payload.value
-			);
+			return onTrigger(payload.formData, payload.formId, payload.propertyName, payload.value);
 		}
 		return onTrigger(event, {
 			properties: this.props.properties,
