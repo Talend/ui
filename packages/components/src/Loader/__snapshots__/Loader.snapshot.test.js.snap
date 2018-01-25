@@ -7,8 +7,6 @@ exports[`Loader should render a default loader 1`] = `
   className="tc-loader tc-loader"
   id={undefined}
 >
-  wehs : 
-  default
   <svg
     className="loader animate default"
     focusable="false"
@@ -38,8 +36,6 @@ exports[`Loader should render a default loader if size is not specified 1`] = `
   className="tc-loader tc-loader"
   id={undefined}
 >
-  wehs : 
-  default
   <svg
     className="loader animate default"
     focusable="false"
@@ -69,8 +65,6 @@ exports[`Loader should render a large loader 1`] = `
   className="tc-loader tc-loader"
   id={undefined}
 >
-  wehs : 
-  large
   <svg
     className="loader animate large"
     focusable="false"
@@ -100,8 +94,6 @@ exports[`Loader should render a small loader 1`] = `
   className="tc-loader tc-loader"
   id={undefined}
 >
-  wehs : 
-  small
   <svg
     className="loader animate small"
     focusable="false"
