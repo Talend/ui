@@ -244,6 +244,11 @@ describe('Datalist component', () => {
 		wrapper.setProps({ value: 'bar' });
 
 		// then
-		expect(wrapper.update().find(Typeahead).props().value).toBe('bar');
+		expect(
+			wrapper
+				.update()
+				.find(Typeahead)
+				.props().value,
+		).toBe('bar');
 	});
 });
