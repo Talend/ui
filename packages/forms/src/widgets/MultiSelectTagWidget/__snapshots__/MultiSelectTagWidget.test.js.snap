@@ -37,13 +37,14 @@ exports[`MultiSelectTagWidget - with category should render section title when i
   <div
     className="dropdown"
   >
-    <div
+    <button
       className="dropdown-toggle"
+      onClick={[Function]}
     >
       <span
         className="caret"
       />
-    </div>
+    </button>
     <div
       className="undefined form-control"
     >
@@ -4070,13 +4071,14 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
   <div
     className="dropdown"
   >
-    <div
+    <button
       className="dropdown-toggle"
+      onClick={[Function]}
     >
       <span
         className="caret"
       />
-    </div>
+    </button>
     <div
       className="undefined form-control"
     >
@@ -8013,13 +8015,14 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget without dropdow
 <div
   className="dropdown"
 >
-  <div
+  <button
     className="dropdown-toggle"
+    onClick={[Function]}
   >
     <span
       className="caret"
     />
-  </div>
+  </button>
   <div
     className="undefined form-control"
   >
@@ -8088,13 +8091,14 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
   <div
     className="dropdown"
   >
-    <div
+    <button
       className="dropdown-toggle"
+      onClick={[Function]}
     >
       <span
         className="caret"
       />
-    </div>
+    </button>
     <div
       className="undefined form-control"
     >
