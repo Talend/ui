@@ -252,12 +252,6 @@ if (process.env.NODE_ENV !== 'production') {
 		properties: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		/** Form definition: The forms errors { [fieldKey]: errorMessage } */
 		errors: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-		/** Form definition: The forms initial data */
-		initialData: PropTypes.shape({
-			jsonSchema: PropTypes.object,
-			uiSchema: PropTypes.array,
-			properties: PropTypes.object,
-		}),
 
 		/**
 		 * Actions buttons to display at the bottom of the form.

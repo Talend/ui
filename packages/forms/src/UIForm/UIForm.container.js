@@ -6,8 +6,6 @@ import UIFormComponent from './UIForm.component';
 import { formPropTypes } from './utils/propTypes';
 import { mutateValue } from './utils/properties';
 
-const OMIT_PROPS = ['data', 'onChange', 'onTrigger', 'onReset'];
-
 export default class UIForm extends React.Component {
 	static displayName = 'Container(UIForm)';
 	constructor(props) {
@@ -67,15 +65,12 @@ export default class UIForm extends React.Component {
 	}
 
 	render() {
-		const props = omit(this.props, OMIT_PROPS);
-
 		return (
 			<UIFormComponent
-				initialData={this.props.data}
+				{...this.state}
+				{...this.props}
 				onChange={this.onChange}
 				setErrors={this.setErrors}
-				{...this.state}
-				{...props}
 			>
 				{this.props.children}
 			</UIFormComponent>
