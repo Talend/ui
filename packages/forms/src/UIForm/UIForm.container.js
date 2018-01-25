@@ -65,10 +65,12 @@ export default class UIForm extends React.Component {
 	}
 
 	render() {
+		const props = omit(this.props, 'data');
+
 		return (
 			<UIFormComponent
 				{...this.state}
-				{...this.props}
+				{...props}
 				onChange={this.onChange}
 				setErrors={this.setErrors}
 			>

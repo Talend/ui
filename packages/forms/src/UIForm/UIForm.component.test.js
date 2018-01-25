@@ -125,11 +125,10 @@ describe('UIForm component', () => {
 			expect(props.onTrigger).toBeCalledWith(
 				expect.anything(),
 				{
+					properties: {},
 					trigger: 'after',
 					schema: mergedSchema[2],
 				},
-				undefined,
-				undefined,
 			);
 		});
 	});
