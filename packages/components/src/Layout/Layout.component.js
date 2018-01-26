@@ -40,10 +40,6 @@ function Layout({
 	children,
 	...rest
 }) {
-	const attrs = {};
-	if (id) {
-		attrs.id = id;
-	}
 	const appCSS = classnames('tc-layout', theme.layout, hasTheme && TALEND_T7_THEME_CLASSNAME);
 	const headerCSS = classnames('tc-layout-header', theme.header);
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
@@ -59,7 +55,7 @@ function Layout({
 			Component = OneColumn;
 	}
 	return (
-		<div {...attrs} className={appCSS}>
+		<div id={id} className={appCSS}>
 			{header && (
 				<header role="banner" className={headerCSS}>
 					{header}

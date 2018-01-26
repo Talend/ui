@@ -1625,6 +1625,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
   </svg>
   <div
     className="tc-layout"
+    id={undefined}
   >
     <div
       className="tc-layout-two-columns"
@@ -2236,6 +2237,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
   </svg>
   <div
     className="tc-layout"
+    id={undefined}
   >
     <div
       className="tc-layout-two-columns"

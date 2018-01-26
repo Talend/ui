@@ -3,6 +3,7 @@
 exports[`Layout should render Layout OneColumn 1`] = `
 <div
   className="tc-layout"
+  id={undefined}
 >
   <header
     className="tc-layout-header"
@@ -43,6 +44,7 @@ exports[`Layout should render Layout OneColumn 1`] = `
 exports[`Layout should render Layout TwoColumns 1`] = `
 <div
   className="tc-layout"
+  id={undefined}
 >
   <header
     className="tc-layout-header"
@@ -94,6 +96,7 @@ exports[`Layout should render Layout TwoColumns 1`] = `
 exports[`Layout should render layout with Drawer component 1`] = `
 <div
   className="tc-layout"
+  id={undefined}
 >
   <header
     className="tc-layout-header"
@@ -482,6 +485,7 @@ ShallowWrapper {
 exports[`Layout should render layout with TabBar component 1`] = `
 <div
   className="tc-layout"
+  id={undefined}
 >
   <header
     className="tc-layout-header"
@@ -592,6 +596,7 @@ exports[`Layout should render layout with TabBar component 1`] = `
 exports[`Layout should render layout with footer component 1`] = `
 <div
   className="tc-layout"
+  id={undefined}
 >
   <header
     className="tc-layout-header"
@@ -640,6 +645,7 @@ exports[`Layout should render layout with footer component 1`] = `
 exports[`Layout should render layout without header 1`] = `
 <div
   className="tc-layout"
+  id={undefined}
 >
   <div
     className="tc-layout-one-column"
