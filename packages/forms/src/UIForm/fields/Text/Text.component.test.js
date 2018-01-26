@@ -132,6 +132,7 @@ describe('Text field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={onChange}
+				onFinish={jest.fn()}
 				schema={numberSchema}
 				value={2}
 			/>,

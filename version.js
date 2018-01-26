@@ -79,7 +79,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	react: REACT_VERSION,
 	'react-ace': '5.2.0',
 	'react-addons-css-transition-group': '15.6.2',
-	'react-bootstrap': '0.31.0',
+	'react-bootstrap': '0.31.5',
 	'react-dom': REACT_VERSION,
 	i18next: '^9.0.0',
 	'rc-slider': '8.4.1',
@@ -98,6 +98,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'redux-mock-store': '1.2.3',
 	'redux-thunk': '2.2.0',
 	uuid: '3.0.1',  // prefer bson-objectid
+	tv4: '^1.2.7',
 
 	// script dep
 	deepmerge: '1.5.1',
