@@ -55,7 +55,7 @@ function CircularProgress({ size, light, percent }) {
 CircularProgress.displayName = 'CircularProgress';
 
 CircularProgress.propTypes = {
-	size: PropTypes.oneOf(SIZE),
+	size: PropTypes.oneOf(Object.keys(SIZE).map(key => SIZE[key])),
 	light: PropTypes.bool,
 	percent: PropTypes.number,
 };
