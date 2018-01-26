@@ -1,5 +1,6 @@
+import omit from 'lodash/omit';
 import { validate } from 'talend-json-schema-form-core';
-import { getValue, omitAll } from '../utils/properties';
+import { getValue } from '../utils/properties';
 
 /**
  * Adapt merged schema from jsfc with additional rules
@@ -247,7 +248,7 @@ export function shiftArrayErrorsKeys(
 	const arrayErrorsToShiftOrRemove = filterArrayErrorsKeys(oldErrors, arrayKey, minIndex, maxIndex);
 
 	// get all errors except those to remove or shift
-	const errors = omitAll(oldErrors, arrayErrorsToShiftOrRemove);
+	const errors = omit(oldErrors, arrayErrorsToShiftOrRemove);
 
 	const indexPositionInKey = arrayKey.length;
 	arrayErrorsToShiftOrRemove

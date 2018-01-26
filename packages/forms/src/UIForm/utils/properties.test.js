@@ -36,48 +36,6 @@ describe('Properties utils', () => {
 		});
 	});
 
-	describe('#omit', () => {
-		it('should copy all properties except the omitted one', () => {
-			// given
-			const properties = {
-				toKeep: 'toto',
-				toBeOmitted: 'tata',
-				other: 'titi',
-			};
-
-			// when
-			const result = omit(properties, 'toBeOmitted');
-
-			// then
-			expect(result).toEqual({
-				toKeep: 'toto',
-				other: 'titi',
-			});
-		});
-	});
-
-	describe('#omitAll', () => {
-		it('should copy all properties except the omitted ones', () => {
-			// given
-			const properties = {
-				toKeep: 'toto',
-				toBeOmitted: 'tata',
-				toBeOmittedBis: 'tata',
-				toBeOmittedTer: 'tata',
-				other: 'titi',
-			};
-
-			// when
-			const result = omitAll(properties, ['toBeOmitted', 'toBeOmittedBis', 'toBeOmittedTer']);
-
-			// then
-			expect(result).toEqual({
-				toKeep: 'toto',
-				other: 'titi',
-			});
-		});
-	});
-
 	describe('#convertValue', () => {
 		it('should return the original value', () => {
 			// given
