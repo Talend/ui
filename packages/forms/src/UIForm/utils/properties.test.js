@@ -1,4 +1,4 @@
-import { convertValue, getValue, mutateValue, omit, omitAll } from './properties';
+import { convertValue, getValue, mutateValue } from './properties';
 
 describe('Properties utils', () => {
 	describe('#getValue', () => {
