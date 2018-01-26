@@ -2,7 +2,7 @@
 
 exports[`Header should render header with one button 1`] = `
 <header
-  className="undefined tc-enumeration-header"
+  className="theme-tc-enumeration-header tc-enumeration-header"
 >
   <span>
     Values
@@ -22,7 +22,7 @@ exports[`Header should render header with one button 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -37,7 +37,7 @@ exports[`Header should render header with one button 1`] = `
 
 exports[`Header should render header with one button and indicate the component is required 1`] = `
 <header
-  className="undefined tc-enumeration-header"
+  className="theme-tc-enumeration-header tc-enumeration-header"
 >
   <span>
     Values
@@ -58,7 +58,7 @@ exports[`Header should render header with one button and indicate the component 
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -73,7 +73,7 @@ exports[`Header should render header with one button and indicate the component 
 
 exports[`Header should render header with one dropdown and two items 1`] = `
 <header
-  className="undefined tc-enumeration-header"
+  className="theme-tc-enumeration-header tc-enumeration-header"
 >
   <span>
     Values
@@ -88,7 +88,7 @@ exports[`Header should render header with one dropdown and two items 1`] = `
         aria-expanded={false}
         aria-haspopup={true}
         btooltipPlacement="bottom"
-        className="tc-dropdown-button dropdown-toggle btn btn-link"
+        className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
         disabled={false}
         id={undefined}
         inProgress={undefined}
@@ -104,7 +104,7 @@ exports[`Header should render header with one dropdown and two items 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >

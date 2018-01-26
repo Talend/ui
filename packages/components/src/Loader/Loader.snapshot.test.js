@@ -7,20 +7,16 @@ import { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
 jest.mock('react-dom');
 
 describe('Loader', () => {
-	it('should render a loader', () => {
+	Object.keys(SIZE).forEach(size => {
+		it(`should render a ${size} loader`, () => {
+			const wrapper = renderer.create(<Loader size={SIZE[size]} />).toJSON();
+
+			expect(wrapper).toMatchSnapshot();
+		});
+	});
+
+	it('should render a default loader if size is not specified', () => {
 		const wrapper = renderer.create(<Loader />).toJSON();
-
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render a small loader', () => {
-		const wrapper = renderer.create(<Loader size={SIZE.SMALL} />).toJSON();
-
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render a large loader', () => {
-		const wrapper = renderer.create(<Loader size={SIZE.LARGE} />).toJSON();
 
 		expect(wrapper).toMatchSnapshot();
 	});
