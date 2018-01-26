@@ -37,7 +37,10 @@ if (process.env.NODE_ENV !== 'production') {
 			inProgress: PropTypes.bool,
 			name: PropTypes.string,
 			label: PropTypes.string,
-			triggers: PropTypes.arrayOf(PropTypes.string),
+			triggers: PropTypes.arrayOf(PropTypes.oneOfType([
+				PropTypes.object,
+				PropTypes.string,
+			])),
 			type: PropTypes.string,
 		}),
 	};
