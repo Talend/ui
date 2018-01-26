@@ -282,7 +282,7 @@ class MultiSelectTagWidget extends React.Component {
 				<button
 					onClick={this.onCaretClick}
 					className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}
-				    type="button"
+					type="button"
 				>
 					<span className="caret" />
 				</button>
