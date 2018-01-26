@@ -2,16 +2,16 @@
 
 exports[`BadgeSpec should render Badge 1`] = `
 <div
-  className="tc-badge tc-badge tc-badge-readonly tc-badge-readonly"
+  className="tc-badge theme-tc-badge tc-badge-readonly theme-tc-badge-readonly"
   style={undefined}
 >
   <button
-    className="tc-badge-button tc-badge-button"
+    className="tc-badge-button theme-tc-badge-button"
     disabled={false}
     onClick={undefined}
   >
     <span
-      className="tc-badge-label tc-badge-label"
+      className="tc-badge-label theme-tc-badge-label"
     >
       Label
     </span>
@@ -21,27 +21,27 @@ exports[`BadgeSpec should render Badge 1`] = `
 
 exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
 <div
-  className="tc-badge tc-badge"
+  className="tc-badge theme-tc-badge"
   style={undefined}
 >
   <button
-    className="tc-badge-button tc-badge-button"
+    className="tc-badge-button theme-tc-badge-button"
     disabled={false}
     onClick={undefined}
   >
     <span
-      className="tc-badge-category tc-badge-category"
+      className="tc-badge-category theme-tc-badge-category"
     >
       Category
     </span>
     <span
-      className="tc-badge-label tc-badge-label"
+      className="tc-badge-label theme-tc-badge-label"
     >
       Label
     </span>
   </button>
   <button
-    className="tc-badge-delete-icon tc-badge-delete-icon btn btn-default"
+    className="tc-badge-delete-icon theme-tc-badge-delete-icon btn btn-default"
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -52,7 +52,7 @@ exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
       title={null}
     >
@@ -66,22 +66,22 @@ exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
 
 exports[`BadgeSpec should render Badge with delete icon 1`] = `
 <div
-  className="tc-badge tc-badge"
+  className="tc-badge theme-tc-badge"
   style={undefined}
 >
   <button
-    className="tc-badge-button tc-badge-button"
+    className="tc-badge-button theme-tc-badge-button"
     disabled={false}
     onClick={undefined}
   >
     <span
-      className="tc-badge-label tc-badge-label"
+      className="tc-badge-label theme-tc-badge-label"
     >
       Label
     </span>
   </button>
   <button
-    className="tc-badge-delete-icon tc-badge-delete-icon btn btn-default"
+    className="tc-badge-delete-icon theme-tc-badge-delete-icon btn btn-default"
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -92,7 +92,7 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
       title={null}
     >
@@ -106,17 +106,17 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
 
 exports[`BadgeSpec should render Badge with selection handler and select id 1`] = `
 <div
-  className="tc-badge tc-badge tc-badge-readonly tc-badge-readonly"
+  className="tc-badge theme-tc-badge tc-badge-readonly theme-tc-badge-readonly"
   style={undefined}
 >
   <button
-    className="tc-badge-button tc-badge-button"
+    className="tc-badge-button theme-tc-badge-button"
     disabled={false}
     id="tc-badge-select-select"
     onClick={[Function]}
   >
     <span
-      className="tc-badge-label tc-badge-label"
+      className="tc-badge-label theme-tc-badge-label"
     >
       Label
     </span>
@@ -126,17 +126,17 @@ exports[`BadgeSpec should render Badge with selection handler and select id 1`] 
 
 exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1`] = `
 <div
-  className="tc-badge tc-badge tc-badge-disabled tc-badge-disabled"
+  className="tc-badge theme-tc-badge tc-badge-disabled theme-tc-badge-disabled"
   style={undefined}
 >
   <button
-    className="tc-badge-button tc-badge-button"
+    className="tc-badge-button theme-tc-badge-button"
     disabled={true}
     id="tc-badge-select-delete"
     onClick={undefined}
   >
     <span
-      className="tc-badge-label tc-badge-label"
+      className="tc-badge-label theme-tc-badge-label"
     >
       Label
     </span>
@@ -146,7 +146,7 @@ exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1
     onMouseOver={[Function]}
   >
     <button
-      className="tc-badge-delete-icon tc-badge-delete-icon btn-disabled btn btn-default"
+      className="tc-badge-delete-icon theme-tc-badge-delete-icon theme-btn-disabled btn btn-default"
       disabled={true}
       id="tc-badge-delete-delete"
       onClick={[Function]}
@@ -156,7 +156,7 @@ exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -171,22 +171,22 @@ exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1
 
 exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
 <div
-  className="tc-badge tc-badge tc-badge-selected tc-badge-selected"
+  className="tc-badge theme-tc-badge tc-badge-selected theme-tc-badge-selected"
   style={undefined}
 >
   <button
-    className="tc-badge-button tc-badge-button"
+    className="tc-badge-button theme-tc-badge-button"
     disabled={false}
     onClick={undefined}
   >
     <span
-      className="tc-badge-label tc-badge-label"
+      className="tc-badge-label theme-tc-badge-label"
     >
       Label
     </span>
   </button>
   <button
-    className="tc-badge-delete-icon tc-badge-delete-icon btn btn-default"
+    className="tc-badge-delete-icon theme-tc-badge-delete-icon btn btn-default"
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -197,7 +197,7 @@ exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
       title={null}
     >

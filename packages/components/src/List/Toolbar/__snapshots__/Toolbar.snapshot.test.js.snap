@@ -5,10 +5,10 @@ exports[`Toolbar should render actions toolbar 1`] = `
   className="tc-list-toolbar"
 >
   <nav
-    className="tc-actionbar-container tc-actionbar-container nav"
+    className="theme-tc-actionbar-container tc-actionbar-container nav"
   >
     <div
-      className="navbar-left"
+      className="theme-navbar-left navbar-left"
     >
       <button
         className="btn btn-primary"
@@ -21,7 +21,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="tc-svg-icon tc-svg-icon"
+          className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
           title={null}
         >
@@ -43,13 +43,13 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
   className="tc-list-toolbar"
 >
   <nav
-    className="tc-actionbar-container tc-actionbar-container nav"
+    className="theme-tc-actionbar-container tc-actionbar-container nav"
   >
     <div
-      className="navbar-left"
+      className="theme-navbar-left navbar-left"
     >
       <span
-        className="tc-actionbar-selected-count tc-actionbar-selected-count"
+        className="theme-tc-actionbar-selected-count tc-actionbar-selected-count"
       >
         1
          selected
@@ -65,7 +65,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="tc-svg-icon tc-svg-icon"
+          className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
           title={null}
         >
@@ -87,7 +87,7 @@ exports[`Toolbar should render display mode selector 1`] = `
   className="tc-list-toolbar"
 >
   <div
-    className="tc-list-toolbar navbar navbar-default"
+    className="theme-tc-list-toolbar navbar navbar-default"
     role="toolbar"
   >
     <div
@@ -122,7 +122,7 @@ exports[`Toolbar should render display mode selector 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -155,7 +155,7 @@ exports[`Toolbar should render display mode selector 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -181,7 +181,7 @@ exports[`Toolbar should render display mode selector 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -211,7 +211,7 @@ exports[`Toolbar should render filter form 1`] = `
   className="tc-list-toolbar"
 >
   <div
-    className="tc-list-toolbar navbar navbar-default"
+    className="theme-tc-list-toolbar navbar navbar-default"
     role="toolbar"
   >
     <div
@@ -230,7 +230,7 @@ exports[`Toolbar should render filter form 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="tc-svg-icon tc-svg-icon"
+          className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
           title={null}
         >
@@ -249,7 +249,7 @@ exports[`Toolbar should render pagination 1`] = `
   className="tc-list-toolbar"
 >
   <div
-    className="tc-list-toolbar navbar navbar-default"
+    className="theme-tc-list-toolbar navbar navbar-default"
     role="toolbar"
   >
     <div
@@ -265,7 +265,7 @@ exports[`Toolbar should render pagination 1`] = `
         </label>
       </p>
       <ul
-        className="tc-pagination nav navbar-nav"
+        className="theme-tc-pagination nav navbar-nav"
         role={null}
       >
         <li
@@ -369,7 +369,7 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -393,7 +393,7 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -443,7 +443,7 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon tc-svg-icon rotate-180"
+              className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
               focusable="false"
               title={null}
             >
@@ -467,7 +467,7 @@ exports[`Toolbar should render pagination 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon tc-svg-icon rotate-180"
+              className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
               focusable="false"
               title={null}
             >
@@ -488,7 +488,7 @@ exports[`Toolbar should render select all checkbox 1`] = `
   className="tc-list-toolbar"
 >
   <div
-    className="tc-list-toolbar navbar navbar-default"
+    className="theme-tc-list-toolbar navbar navbar-default"
     role="toolbar"
   >
     <div
@@ -498,7 +498,7 @@ exports[`Toolbar should render select all checkbox 1`] = `
         className="navbar-form navbar-left"
       >
         <div
-          className="checkbox-inline navbar-text tc-list-toolbar-select-all"
+          className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
         >
           <label
             className="tc-list-toolbar-select-all"
@@ -527,7 +527,7 @@ exports[`Toolbar should render sort selector 1`] = `
   className="tc-list-toolbar"
 >
   <div
-    className="tc-list-toolbar navbar navbar-default"
+    className="theme-tc-list-toolbar navbar navbar-default"
     role="toolbar"
   >
     <div
@@ -543,11 +543,11 @@ exports[`Toolbar should render sort selector 1`] = `
         </label>
       </p>
       <ul
-        className="tc-list-toolbar-sort-by nav navbar-nav"
+        className="theme-tc-list-toolbar-sort-by nav navbar-nav"
         role={null}
       >
         <li
-          className="sort-by-items dropdown"
+          className="theme-sort-by-items dropdown"
           style={undefined}
         >
           <a

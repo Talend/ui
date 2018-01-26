@@ -21,7 +21,7 @@ exports[`SelectDisplayMode should render 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -54,7 +54,7 @@ exports[`SelectDisplayMode should render 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -80,7 +80,7 @@ exports[`SelectDisplayMode should render 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -117,7 +117,7 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -150,7 +150,7 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -176,7 +176,7 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -213,7 +213,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -246,7 +246,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -272,7 +272,7 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -309,7 +309,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -342,7 +342,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -368,7 +368,7 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >

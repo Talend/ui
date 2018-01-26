@@ -2,11 +2,11 @@
 
 exports[`Progress should normalize percent to 0 when prop is < 0 1`] = `
 <div
-  className="progress hidden fixed"
+  className="theme-progress theme-hidden theme-fixed"
   id="my-progress"
 >
   <div
-    className="progress-percent"
+    className="theme-progress-percent"
     style={
       Object {
         "width": "0%",
@@ -18,11 +18,11 @@ exports[`Progress should normalize percent to 0 when prop is < 0 1`] = `
 
 exports[`Progress should normalize percent to 100 when prop is > 100 1`] = `
 <div
-  className="progress fixed"
+  className="theme-progress theme-fixed"
   id="my-progress"
 >
   <div
-    className="progress-percent"
+    className="theme-progress-percent"
     style={
       Object {
         "width": "100%",
@@ -34,11 +34,11 @@ exports[`Progress should normalize percent to 100 when prop is > 100 1`] = `
 
 exports[`Progress should render a contained progress 1`] = `
 <div
-  className="progress"
+  className="theme-progress"
   id="my-progress"
 >
   <div
-    className="progress-percent"
+    className="theme-progress-percent"
     style={
       Object {
         "width": "60%",
@@ -50,11 +50,11 @@ exports[`Progress should render a contained progress 1`] = `
 
 exports[`Progress should render an infinite progress with tooltip 1`] = `
 <div
-  className="progress fixed infinite"
+  className="theme-progress theme-fixed theme-infinite"
   id="my-progress"
 >
   <div
-    className="progress-percent"
+    className="theme-progress-percent"
     onFocus={[Function]}
     onMouseOver={[Function]}
     style={
@@ -64,7 +64,7 @@ exports[`Progress should render an infinite progress with tooltip 1`] = `
     }
   >
     <div
-      className="infinite-indicator"
+      className="theme-infinite-indicator"
     />
   </div>
 </div>
@@ -72,11 +72,11 @@ exports[`Progress should render an infinite progress with tooltip 1`] = `
 
 exports[`Progress should render hidden progress at 0% 1`] = `
 <div
-  className="progress hidden fixed"
+  className="theme-progress theme-hidden theme-fixed"
   id="my-progress"
 >
   <div
-    className="progress-percent"
+    className="theme-progress-percent"
     style={
       Object {
         "width": "0%",
@@ -88,11 +88,11 @@ exports[`Progress should render hidden progress at 0% 1`] = `
 
 exports[`Progress should render progress with given percentage 1`] = `
 <div
-  className="progress fixed"
+  className="theme-progress theme-fixed"
   id="my-progress"
 >
   <div
-    className="progress-percent"
+    className="theme-progress-percent"
     style={
       Object {
         "width": "60%",
@@ -104,11 +104,11 @@ exports[`Progress should render progress with given percentage 1`] = `
 
 exports[`Progress should render progress with tooltip 1`] = `
 <div
-  className="progress fixed"
+  className="theme-progress theme-fixed"
   id="my-progress"
 >
   <div
-    className="progress-percent"
+    className="theme-progress-percent"
     onFocus={[Function]}
     onMouseOver={[Function]}
     style={

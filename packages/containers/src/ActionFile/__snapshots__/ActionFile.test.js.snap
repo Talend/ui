@@ -3,7 +3,7 @@
 exports[`Connected ActionFile should render 1`] = `
 <span>
   <input
-    className="action-file-label"
+    className="theme-action-file-label"
     disabled={false}
     id="42"
     name={undefined}
@@ -11,7 +11,7 @@ exports[`Connected ActionFile should render 1`] = `
     type="file"
   />
   <label
-    className="btn btn-file"
+    className="btn theme-btn-file"
     htmlFor="42"
   >
     <span />

@@ -2,18 +2,18 @@
 
 exports[`Item should display input value with error 1`] = `
 <li
-  className="tc-enumeration-item has-error"
+  className="theme-tc-enumeration-item tc-enumeration-item has-error"
   id="0-item"
 >
   <input
     autoFocus={true}
-    className="tc-enumeration-item-label"
+    className="theme-tc-enumeration-item-label tc-enumeration-item-label"
     onChange={[Function]}
     onKeyDown={[Function]}
     type="text"
   />
   <div
-    className="tc-enumeration-item-actions"
+    className="theme-tc-enumeration-item-actions tc-enumeration-item-actions"
   >
     <button
       className="btn btn-link"
@@ -37,7 +37,7 @@ exports[`Item should display input value with error 1`] = `
     />
   </div>
   <div
-    className="tc-enumeration-item-error"
+    className="theme-tc-enumeration-item-error tc-enumeration-item-error"
   >
     an error occured
   </div>
@@ -46,18 +46,18 @@ exports[`Item should display input value with error 1`] = `
 
 exports[`Item should display input value with two buttons 1`] = `
 <li
-  className="tc-enumeration-item"
+  className="theme-tc-enumeration-item tc-enumeration-item"
   id="0-item"
 >
   <input
     autoFocus={true}
-    className="tc-enumeration-item-label"
+    className="theme-tc-enumeration-item-label tc-enumeration-item-label"
     onChange={[Function]}
     onKeyDown={[Function]}
     type="text"
   />
   <div
-    className="tc-enumeration-item-actions"
+    className="theme-tc-enumeration-item-actions tc-enumeration-item-actions"
   >
     <button
       className="btn btn-link"
@@ -85,25 +85,25 @@ exports[`Item should display input value with two buttons 1`] = `
 
 exports[`Item should display input value with two buttons. The validate button is disabled 1`] = `
 <li
-  className="tc-enumeration-item"
+  className="theme-tc-enumeration-item tc-enumeration-item"
   id="0-item"
 >
   <input
     autoFocus={true}
-    className="tc-enumeration-item-label"
+    className="theme-tc-enumeration-item-label tc-enumeration-item-label"
     onChange={[Function]}
     onKeyDown={[Function]}
     type="text"
   />
   <div
-    className="tc-enumeration-item-actions"
+    className="theme-tc-enumeration-item-actions tc-enumeration-item-actions"
   >
     <span
       onFocus={[Function]}
       onMouseOver={[Function]}
     >
       <button
-        className="btn-disabled btn btn-link"
+        className="theme-btn-disabled btn btn-link"
         disabled={true}
         onClick={[Function]}
         onMouseDown={[Function]}

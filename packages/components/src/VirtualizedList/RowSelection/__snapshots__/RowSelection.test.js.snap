@@ -2,7 +2,7 @@
 
 exports[`RowSelection should enhance classname with active class on active row 1`] = `
 <RowRenderer
-  className="my-class-names row-selection active active"
+  className="my-class-names theme-row-selection theme-active active"
   index={1}
   parent={Object {}}
   style={
@@ -15,7 +15,7 @@ exports[`RowSelection should enhance classname with active class on active row 1
 
 exports[`RowSelection should enhance classname with selection class on selected row 1`] = `
 <RowRenderer
-  className="my-class-names row-selection selected selected"
+  className="my-class-names theme-row-selection theme-selected selected"
   index={1}
   parent={Object {}}
   style={
@@ -28,7 +28,7 @@ exports[`RowSelection should enhance classname with selection class on selected 
 
 exports[`RowSelection should enhance classname without selection class on non selected row 1`] = `
 <RowRenderer
-  className="my-class-names row-selection"
+  className="my-class-names theme-row-selection"
   index={1}
   parent={Object {}}
   style={

@@ -64,7 +64,7 @@ exports[`Actions should render actions 1`] = `
     <button
       aria-expanded={false}
       aria-haspopup={true}
-      className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
+      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
       disabled={false}
       id="dropdown-id"
       onClick={[Function]}
@@ -135,7 +135,7 @@ exports[`Actions should render actions 1`] = `
     className="dropdown btn-group"
   >
     <button
-      className="tc-split-dropdown btn btn-default"
+      className="theme-tc-split-dropdown btn btn-default"
       disabled={false}
       hideLabel={false}
       link={false}
@@ -278,7 +278,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
     <button
       aria-expanded={false}
       aria-haspopup={true}
-      className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
       disabled={false}
       id="dropdown-id"
       onClick={[Function]}
@@ -349,7 +349,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
     className="dropdown btn-group"
   >
     <button
-      className="tc-split-dropdown btn btn-default"
+      className="theme-tc-split-dropdown btn btn-default"
       disabled={false}
       hideLabel={false}
       link={true}
@@ -489,7 +489,7 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     <button
       aria-expanded={false}
       aria-haspopup={true}
-      className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
       disabled={false}
       id="dropdown-id"
       onClick={[Function]}
@@ -557,7 +557,7 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     className="dropdown btn-group"
   >
     <button
-      className="tc-split-dropdown btn btn-default"
+      className="theme-tc-split-dropdown btn btn-default"
       disabled={false}
       hideLabel={true}
       link={true}
@@ -697,7 +697,7 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     <button
       aria-expanded={false}
       aria-haspopup={true}
-      className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
+      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
       disabled={false}
       id="dropdown-id"
       onClick={[Function]}
@@ -765,7 +765,7 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     className="dropdown btn-group"
   >
     <button
-      className="tc-split-dropdown btn btn-default"
+      className="theme-tc-split-dropdown btn btn-default"
       disabled={false}
       hideLabel={true}
       link={false}

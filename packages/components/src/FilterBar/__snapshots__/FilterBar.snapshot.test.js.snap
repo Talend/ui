@@ -15,15 +15,15 @@ exports[`Filter should render 1`] = `
 
 exports[`Filter should render filter input with default placeholder 1`] = `
 <form
-  className="filter navbar"
+  className="theme-filter theme-navbar"
   onSubmit={[Function]}
   role="search"
 >
   <div
-    className="form-group animate"
+    className="form-group theme-animate"
   >
     <Icon
-      className="search-icon"
+      className="theme-search-icon"
       name="talend-search"
     />
     <FilterInput
@@ -41,7 +41,7 @@ exports[`Filter should render filter input with default placeholder 1`] = `
     />
     <Action
       bsStyle="link"
-      className="remove"
+      className="theme-remove"
       hideLabel={true}
       icon="talend-cross"
       id={undefined}
@@ -55,15 +55,15 @@ exports[`Filter should render filter input with default placeholder 1`] = `
 
 exports[`Filter should render filter input with given placeholder 1`] = `
 <form
-  className="filter navbar"
+  className="theme-filter theme-navbar"
   onSubmit={[Function]}
   role="search"
 >
   <div
-    className="form-group animate"
+    className="form-group theme-animate"
   >
     <Icon
-      className="search-icon"
+      className="theme-search-icon"
       name="talend-search"
     />
     <FilterInput
@@ -81,7 +81,7 @@ exports[`Filter should render filter input with given placeholder 1`] = `
     />
     <Action
       bsStyle="link"
-      className="remove"
+      className="theme-remove"
       hideLabel={true}
       icon="talend-cross"
       id={undefined}

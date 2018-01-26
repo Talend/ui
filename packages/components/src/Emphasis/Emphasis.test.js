@@ -13,7 +13,7 @@ describe('Emphasis', () => {
 
 		// then
 		expect(wrapper.html()).toBe(
-			'<span>The lazy quick <em class="highlight">brown</em> fox jumps over the lazy dog</span>',
+			'<span>The lazy quick <em class="theme-highlight">brown</em> fox jumps over the lazy dog</span>',
 		);
 	});
 

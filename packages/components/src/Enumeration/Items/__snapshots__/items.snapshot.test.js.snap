@@ -2,7 +2,7 @@
 
 exports[`Items should display one item in edit mode and the other in default 1`] = `
 <ul
-  className="tc-enumeration-items"
+  className="theme-tc-enumeration-items tc-enumeration-items"
   onScroll={[Function]}
 >
   <div
@@ -11,7 +11,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
     <div
       aria-label="grid"
       aria-readonly={true}
-      className="ReactVirtualized__Grid ReactVirtualized__List tc-list-items"
+      className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items"
       id={undefined}
       onScroll={[Function]}
       role="grid"
@@ -46,7 +46,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
         }
       >
         <div
-          className="tc-item-container"
+          className="theme-tc-item-container tc-item-container"
           style={
             Object {
               "height": 42,
@@ -58,18 +58,18 @@ exports[`Items should display one item in edit mode and the other in default 1`]
           }
         >
           <li
-            className="tc-enumeration-item"
+            className="theme-tc-enumeration-item tc-enumeration-item"
             id="0-item"
           >
             <input
               autoFocus={true}
-              className="tc-enumeration-item-label"
+              className="theme-tc-enumeration-item-label tc-enumeration-item-label"
               onChange={[Function]}
               onKeyDown={[Function]}
               type="text"
             />
             <div
-              className="tc-enumeration-item-actions"
+              className="theme-tc-enumeration-item-actions tc-enumeration-item-actions"
             >
               <button
                 className="btn btn-link"
@@ -83,7 +83,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -96,7 +96,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
           </li>
         </div>
         <div
-          className="tc-item-container"
+          className="theme-tc-item-container tc-item-container"
           style={
             Object {
               "height": 42,
@@ -108,11 +108,11 @@ exports[`Items should display one item in edit mode and the other in default 1`]
           }
         >
           <li
-            className="tc-enumeration-item"
+            className="theme-tc-enumeration-item tc-enumeration-item"
             id="1-item"
           >
             <button
-              className="tc-enumeration-item-label btn btn-default"
+              className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
               disabled={false}
               onClick={[Function]}
               type="button"
@@ -122,7 +122,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               </span>
             </button>
             <div
-              className="tc-enumeration-item-actions editable"
+              className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
             >
               <button
                 className="btn btn-link"
@@ -136,7 +136,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -157,7 +157,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -170,7 +170,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
           </li>
         </div>
         <div
-          className="tc-item-container"
+          className="theme-tc-item-container tc-item-container"
           style={
             Object {
               "height": 42,
@@ -182,11 +182,11 @@ exports[`Items should display one item in edit mode and the other in default 1`]
           }
         >
           <li
-            className="tc-enumeration-item"
+            className="theme-tc-enumeration-item tc-enumeration-item"
             id="2-item"
           >
             <button
-              className="tc-enumeration-item-label btn btn-default"
+              className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
               disabled={false}
               onClick={[Function]}
               type="button"
@@ -196,7 +196,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               </span>
             </button>
             <div
-              className="tc-enumeration-item-actions editable"
+              className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
             >
               <button
                 className="btn btn-link"
@@ -210,7 +210,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -231,7 +231,7 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >

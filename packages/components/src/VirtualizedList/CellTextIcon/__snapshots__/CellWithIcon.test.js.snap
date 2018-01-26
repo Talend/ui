@@ -2,13 +2,13 @@
 
 exports[`CellWithIcon should render with icon 1`] = `
 <div
-  className="cell-icon-container cell-icon-container"
+  className="cell-icon-container theme-cell-icon-container"
 >
   <div>
     Test label
   </div>
   <div
-    className="icon-container icon-container"
+    className="icon-container theme-icon-container"
   >
     <Action
       hideLabel={true}
@@ -23,13 +23,13 @@ exports[`CellWithIcon should render with icon 1`] = `
 
 exports[`CellWithIcon should render without icon 1`] = `
 <div
-  className="cell-icon-container cell-icon-container"
+  className="cell-icon-container theme-cell-icon-container"
 >
   <div>
     Test label 2
   </div>
   <div
-    className="icon-container icon-container"
+    className="icon-container theme-icon-container"
   />
 </div>
 `;

@@ -4,16 +4,16 @@ exports[`Loader should render a default loader 1`] = `
 <div
   aria-atomic="true"
   aria-busy="true"
-  className="tc-loader tc-loader"
+  className="tc-loader theme-tc-loader"
   id={undefined}
 >
   <svg
-    className="loader animate default"
+    className="theme-loader theme-animate theme-default"
     focusable="false"
     viewBox="0 0 50 50"
   >
     <circle
-      className="path"
+      className="theme-path"
       cx={25}
       cy={25}
       fill="none"
@@ -33,16 +33,16 @@ exports[`Loader should render a default loader if size is not specified 1`] = `
 <div
   aria-atomic="true"
   aria-busy="true"
-  className="tc-loader tc-loader"
+  className="tc-loader theme-tc-loader"
   id={undefined}
 >
   <svg
-    className="loader animate default"
+    className="theme-loader theme-animate theme-default"
     focusable="false"
     viewBox="0 0 50 50"
   >
     <circle
-      className="path"
+      className="theme-path"
       cx={25}
       cy={25}
       fill="none"
@@ -62,16 +62,16 @@ exports[`Loader should render a large loader 1`] = `
 <div
   aria-atomic="true"
   aria-busy="true"
-  className="tc-loader tc-loader"
+  className="tc-loader theme-tc-loader"
   id={undefined}
 >
   <svg
-    className="loader animate large"
+    className="theme-loader theme-animate theme-large"
     focusable="false"
     viewBox="0 0 50 50"
   >
     <circle
-      className="path"
+      className="theme-path"
       cx={25}
       cy={25}
       fill="none"
@@ -91,16 +91,16 @@ exports[`Loader should render a small loader 1`] = `
 <div
   aria-atomic="true"
   aria-busy="true"
-  className="tc-loader tc-loader"
+  className="tc-loader theme-tc-loader"
   id={undefined}
 >
   <svg
-    className="loader animate small"
+    className="theme-loader theme-animate theme-small"
     focusable="false"
     viewBox="0 0 50 50"
   >
     <circle
-      className="path"
+      className="theme-path"
       cx={25}
       cy={25}
       fill="none"

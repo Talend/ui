@@ -2,22 +2,22 @@
 
 exports[`InlineFormSubHeader should render 1`] = `
 <form
-  className="tc-subheader-details-form tc-subheader-details-form"
+  className="theme-tc-subheader-details-form tc-subheader-details-form"
   onSubmit={[Function]}
 >
   <input
-    className="tc-subheader-details-form-input tc-subheader-details-form-input form-control"
+    className="theme-tc-subheader-details-form-input tc-subheader-details-form-input form-control"
     id="inputTitle"
     onChange={[Function]}
     type="text"
     value="myTitle"
   />
   <div
-    className="tc-subheader-details-form-buttons tc-subheader-details-form-buttons"
+    className="theme-tc-subheader-details-form-buttons tc-subheader-details-form-buttons"
   >
     <Action
       bsStyle="link"
-      className="tc-subheader-details-form-buttons-icon tc-subheader-details-form-buttons-icon"
+      className="theme-tc-subheader-details-form-buttons-icon tc-subheader-details-form-buttons-icon"
       hideLabel={true}
       icon="talend-check"
       label={undefined}
@@ -27,7 +27,7 @@ exports[`InlineFormSubHeader should render 1`] = `
     />
     <Action
       bsStyle="link"
-      className="tc-subheader-details-form-buttons-icon tc-subheader-details-form-buttons-icon"
+      className="theme-tc-subheader-details-form-buttons-icon tc-subheader-details-form-buttons-icon"
       hideLabel={true}
       icon="talend-cross"
       label={undefined}
@@ -40,10 +40,10 @@ exports[`InlineFormSubHeader should render 1`] = `
 
 exports[`InputTitleSubHeader should render 1`] = `
 <div
-  className="tc-subheader-details tc-subheader-details"
+  className="theme-tc-subheader-details tc-subheader-details"
 >
   <Icon
-    className="tc-subheader-details-icon tc-subheader-details-icon"
+    className="theme-tc-subheader-details-icon tc-subheader-details-icon"
     name="myIconId"
   />
   <TitleSubHeader
@@ -58,19 +58,19 @@ exports[`InputTitleSubHeader should render 1`] = `
 
 exports[`TitleSubHeader should render 1`] = `
 <div
-  className="tc-subheader-details-text tc-subheader-details-text"
+  className="theme-tc-subheader-details-text tc-subheader-details-text"
 >
   <div
-    className="tc-subheader-details-text-title tc-subheader-details-text-title"
+    className="theme-tc-subheader-details-text-title tc-subheader-details-text-title"
   >
     <h1
-      className="tc-subheader-details-text-title-wording tc-subheader-details-text-title-wording"
+      className="theme-tc-subheader-details-text-title-wording tc-subheader-details-text-title-wording"
     >
       myTitle
     </h1>
   </div>
   <small
-    className="tc-subheader-details-text-subtitle tc-subheader-details-text-subtitle"
+    className="theme-tc-subheader-details-text-subtitle tc-subheader-details-text-subtitle"
   >
     mySubTitle
   </small>

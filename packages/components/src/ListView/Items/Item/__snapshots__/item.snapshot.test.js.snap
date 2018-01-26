@@ -20,7 +20,7 @@ exports[`Item should display a selected item 1`] = `
           type="checkbox"
         />
         <span
-          className="tc-listview-item-label tc-listview-item-label"
+          className="theme-tc-listview-item-label tc-listview-item-label"
         >
           toto
         </span>

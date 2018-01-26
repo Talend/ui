@@ -2,11 +2,11 @@
 
 exports[`HttpError should render a forbidden http error message 1`] = `
 <div
-  className="http-error http-error"
+  className="theme-http-error http-error"
   data-status={403}
 >
   <div
-    className="http-error-content http-error-content http-error-403"
+    className="theme-http-error-content http-error-content http-error-403"
     style={undefined}
   >
     <h1>

@@ -16,7 +16,7 @@ exports[`ActionTooltip should render tooltip when focus the children 1`] = `
   overlay={
     <Tooltip
       bsClass="tooltip"
-      className="tooltip-container"
+      className="theme-tooltip-container tooltip-container"
       id={42}
       placement="right"
     >
@@ -44,7 +44,7 @@ exports[`ActionTooltip should render tooltip when hover the children 1`] = `
   overlay={
     <Tooltip
       bsClass="tooltip"
-      className="tooltip-container"
+      className="theme-tooltip-container tooltip-container"
       id={42}
       placement="right"
     >

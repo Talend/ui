@@ -3,13 +3,13 @@
 exports[`Storyshots HeaderBar barebone 1`] = `
 <div>
   <nav
-    className="tc-header-bar tc-header-bar navbar"
+    className="theme-tc-header-bar tc-header-bar navbar"
   >
     <ul
-      className="tc-header-bar-actions"
+      className="theme-tc-header-bar-actions"
     />
     <ul
-      className="tc-header-bar-actions right"
+      className="theme-tc-header-bar-actions theme-right"
     />
   </nav>
   <div
@@ -336,16 +336,16 @@ exports[`Storyshots HeaderBar barebone 1`] = `
 exports[`Storyshots HeaderBar default 1`] = `
 <div>
   <nav
-    className="tc-header-bar tc-header-bar navbar"
+    className="theme-tc-header-bar tc-header-bar navbar"
   >
     <ul
-      className="tc-header-bar-actions"
+      className="theme-tc-header-bar-actions"
     >
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
-          className="tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -357,7 +357,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -368,10 +368,10 @@ exports[`Storyshots HeaderBar default 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <button
-          className="tc-header-bar-brand btn btn-link"
+          className="theme-tc-header-bar-brand btn btn-link"
           disabled={false}
           id="header-brand"
           onClick={[Function]}
@@ -386,17 +386,17 @@ exports[`Storyshots HeaderBar default 1`] = `
       </li>
     </ul>
     <ul
-      className="tc-header-bar-actions right"
+      className="theme-tc-header-bar-actions theme-right"
     >
       <li
-        className="tc-header-bar-action tc-header-bar-search separated flex"
+        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
       >
         <form
           className="navbar-form navbar-right"
           role="search"
         >
           <button
-            className="only-icon-cls btn btn-link"
+            className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -407,7 +407,7 @@ exports[`Storyshots HeaderBar default 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -419,7 +419,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         </form>
       </li>
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
           className="btn btn-link"
@@ -432,7 +432,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -446,7 +446,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action tc-header-bar-user separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -454,7 +454,7 @@ exports[`Storyshots HeaderBar default 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -469,7 +469,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -481,15 +481,15 @@ exports[`Storyshots HeaderBar default 1`] = `
                 className="tc-dropdown-button-title-label"
               >
                 <span
-                  className="user-name user-name"
+                  className="theme-user-name user-name"
                 >
                   <span
-                    className="user-firstname user-firstname"
+                    className="theme-user-firstname user-firstname"
                   >
                     John
                   </span>
                   <span
-                    className="user-lastname user-lastname"
+                    className="theme-user-lastname user-lastname"
                   >
                     Doe
                   </span>
@@ -522,7 +522,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -537,7 +537,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         </div>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -545,7 +545,7 @@ exports[`Storyshots HeaderBar default 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-header-bar-products dropdown-toggle btn btn-link"
+            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
             disabled={false}
             id="header-products"
             onClick={[Function]}
@@ -560,7 +560,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -591,7 +591,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -618,7 +618,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -645,7 +645,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -985,16 +985,16 @@ exports[`Storyshots HeaderBar default 1`] = `
 exports[`Storyshots HeaderBar while searching 1`] = `
 <div>
   <nav
-    className="tc-header-bar tc-header-bar navbar"
+    className="theme-tc-header-bar tc-header-bar navbar"
   >
     <ul
-      className="tc-header-bar-actions"
+      className="theme-tc-header-bar-actions"
     >
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
-          className="tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -1006,7 +1006,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -1017,10 +1017,10 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <button
-          className="tc-header-bar-brand btn btn-link"
+          className="theme-tc-header-bar-brand btn btn-link"
           disabled={false}
           id="header-brand"
           onClick={[Function]}
@@ -1035,20 +1035,20 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       </li>
     </ul>
     <ul
-      className="tc-header-bar-actions right"
+      className="theme-tc-header-bar-actions theme-right"
     >
       <li
-        className="tc-header-bar-action tc-header-bar-search separated flex"
+        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
       >
         <form
           className="navbar-form navbar-right"
           role="search"
         >
           <div
-            className="tc-typeahead-container right"
+            className="theme-tc-typeahead-container theme-right"
           >
             <div
-              className="typeahead-input-icon"
+              className="theme-typeahead-input-icon"
             >
               <label
                 className="control-label sr-only"
@@ -1064,7 +1064,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 aria-owns="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
-                className="typeahead-input form-control"
+                className="theme-typeahead-input form-control"
                 disabled={false}
                 id="react-autowhatever-42-input"
                 onBlur={[Function]}
@@ -1082,7 +1082,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               id="react-autowhatever-42"
             >
               <div
-                className="items-container is-searching"
+                className="theme-items-container theme-is-searching"
               >
                 <span
                   className="is-searching"
@@ -1091,12 +1091,12 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 </span>
                  
                 <svg
-                  className="loader animate default"
+                  className="theme-loader theme-animate theme-default"
                   focusable="false"
                   viewBox="0 0 50 50"
                 >
                   <circle
-                    className="path"
+                    className="theme-path"
                     cx={25}
                     cy={25}
                     fill="none"
@@ -1115,7 +1115,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         </form>
       </li>
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
           className="btn btn-link"
@@ -1128,7 +1128,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -1142,7 +1142,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action tc-header-bar-user separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -1150,7 +1150,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -1165,7 +1165,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -1177,15 +1177,15 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 className="tc-dropdown-button-title-label"
               >
                 <span
-                  className="user-name user-name"
+                  className="theme-user-name user-name"
                 >
                   <span
-                    className="user-firstname user-firstname"
+                    className="theme-user-firstname user-firstname"
                   >
                     John
                   </span>
                   <span
-                    className="user-lastname user-lastname"
+                    className="theme-user-lastname user-lastname"
                   >
                     Doe
                   </span>
@@ -1218,7 +1218,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -1233,7 +1233,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         </div>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -1241,7 +1241,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-header-bar-products dropdown-toggle btn btn-link"
+            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
             disabled={false}
             id="header-products"
             onClick={[Function]}
@@ -1256,7 +1256,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -1287,7 +1287,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -1314,7 +1314,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -1341,7 +1341,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -1681,16 +1681,16 @@ exports[`Storyshots HeaderBar while searching 1`] = `
 exports[`Storyshots HeaderBar with environment dropdown 1`] = `
 <div>
   <nav
-    className="tc-header-bar tc-header-bar navbar"
+    className="theme-tc-header-bar tc-header-bar navbar"
   >
     <ul
-      className="tc-header-bar-actions"
+      className="theme-tc-header-bar-actions"
     >
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
-          className="tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -1702,7 +1702,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -1713,10 +1713,10 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
-          className="tc-header-bar-brand btn btn-link"
+          className="theme-tc-header-bar-brand btn btn-link"
           disabled={false}
           id="header-brand"
           onClick={[Function]}
@@ -1730,7 +1730,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -1738,7 +1738,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-environment"
             onClick={[Function]}
@@ -1751,7 +1751,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -1796,17 +1796,17 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       </li>
     </ul>
     <ul
-      className="tc-header-bar-actions right"
+      className="theme-tc-header-bar-actions theme-right"
     >
       <li
-        className="tc-header-bar-action tc-header-bar-search separated flex"
+        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
       >
         <form
           className="navbar-form navbar-right"
           role="search"
         >
           <button
-            className="only-icon-cls btn btn-link"
+            className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1817,7 +1817,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -1829,7 +1829,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         </form>
       </li>
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
           className="btn btn-link"
@@ -1842,7 +1842,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -1856,7 +1856,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action tc-header-bar-user separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -1864,7 +1864,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -1879,7 +1879,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -1891,15 +1891,15 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 className="tc-dropdown-button-title-label"
               >
                 <span
-                  className="user-name user-name"
+                  className="theme-user-name user-name"
                 >
                   <span
-                    className="user-firstname user-firstname"
+                    className="theme-user-firstname user-firstname"
                   >
                     John
                   </span>
                   <span
-                    className="user-lastname user-lastname"
+                    className="theme-user-lastname user-lastname"
                   >
                     Doe
                   </span>
@@ -1932,7 +1932,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -1947,7 +1947,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         </div>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -1955,7 +1955,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-header-bar-products dropdown-toggle btn btn-link"
+            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
             disabled={false}
             id="header-products"
             onClick={[Function]}
@@ -1970,7 +1970,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -2001,7 +2001,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -2028,7 +2028,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -2055,7 +2055,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -2395,16 +2395,16 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
 exports[`Storyshots HeaderBar with full logo 1`] = `
 <div>
   <nav
-    className="tc-header-bar tc-header-bar navbar"
+    className="theme-tc-header-bar tc-header-bar navbar"
   >
     <ul
-      className="tc-header-bar-actions"
+      className="theme-tc-header-bar-actions"
     >
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <button
-          className="tc-header-bar-logo full btn btn-link"
+          className="theme-tc-header-bar-logo theme-full btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -2416,7 +2416,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -2427,10 +2427,10 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <button
-          className="tc-header-bar-brand btn btn-link"
+          className="theme-tc-header-bar-brand btn btn-link"
           disabled={false}
           id="header-brand"
           onClick={[Function]}
@@ -2445,17 +2445,17 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       </li>
     </ul>
     <ul
-      className="tc-header-bar-actions right"
+      className="theme-tc-header-bar-actions theme-right"
     >
       <li
-        className="tc-header-bar-action tc-header-bar-search separated flex"
+        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
       >
         <form
           className="navbar-form navbar-right"
           role="search"
         >
           <button
-            className="only-icon-cls btn btn-link"
+            className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -2466,7 +2466,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -2478,7 +2478,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         </form>
       </li>
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
           className="btn btn-link"
@@ -2491,7 +2491,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -2505,7 +2505,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action tc-header-bar-user separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -2513,7 +2513,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -2528,7 +2528,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -2540,15 +2540,15 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 className="tc-dropdown-button-title-label"
               >
                 <span
-                  className="user-name user-name"
+                  className="theme-user-name user-name"
                 >
                   <span
-                    className="user-firstname user-firstname"
+                    className="theme-user-firstname user-firstname"
                   >
                     John
                   </span>
                   <span
-                    className="user-lastname user-lastname"
+                    className="theme-user-lastname user-lastname"
                   >
                     Doe
                   </span>
@@ -2581,7 +2581,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -2596,7 +2596,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         </div>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -2604,7 +2604,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-header-bar-products dropdown-toggle btn btn-link"
+            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
             disabled={false}
             id="header-products"
             onClick={[Function]}
@@ -2619,7 +2619,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -2650,7 +2650,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -2677,7 +2677,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -2704,7 +2704,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -3044,16 +3044,16 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
 exports[`Storyshots HeaderBar with help split dropdown 1`] = `
 <div>
   <nav
-    className="tc-header-bar tc-header-bar navbar"
+    className="theme-tc-header-bar tc-header-bar navbar"
   >
     <ul
-      className="tc-header-bar-actions"
+      className="theme-tc-header-bar-actions"
     >
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
-          className="tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -3065,7 +3065,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -3076,10 +3076,10 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <button
-          className="tc-header-bar-brand btn btn-link"
+          className="theme-tc-header-bar-brand btn btn-link"
           disabled={false}
           id="header-brand"
           onClick={[Function]}
@@ -3094,17 +3094,17 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
       </li>
     </ul>
     <ul
-      className="tc-header-bar-actions right"
+      className="theme-tc-header-bar-actions theme-right"
     >
       <li
-        className="tc-header-bar-action tc-header-bar-search separated flex"
+        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
       >
         <form
           className="navbar-form navbar-right"
           role="search"
         >
           <button
-            className="only-icon-cls btn btn-link"
+            className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -3115,7 +3115,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -3127,13 +3127,13 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         </form>
       </li>
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <div
           className="dropdown btn-group btn-group-link"
         >
           <button
-            className="tc-split-dropdown btn btn-link"
+            className="theme-tc-split-dropdown btn btn-link"
             disabled={false}
             onClick={[Function]}
             tooltipPlacement="bottom"
@@ -3142,7 +3142,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             <span>
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3202,7 +3202,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -3229,7 +3229,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -3244,7 +3244,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         </div>
       </li>
       <li
-        className="tc-header-bar-action tc-header-bar-user separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -3252,7 +3252,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -3267,7 +3267,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3279,15 +3279,15 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 className="tc-dropdown-button-title-label"
               >
                 <span
-                  className="user-name user-name"
+                  className="theme-user-name user-name"
                 >
                   <span
-                    className="user-firstname user-firstname"
+                    className="theme-user-firstname user-firstname"
                   >
                     John
                   </span>
                   <span
-                    className="user-lastname user-lastname"
+                    className="theme-user-lastname user-lastname"
                   >
                     Doe
                   </span>
@@ -3320,7 +3320,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -3335,7 +3335,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         </div>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -3343,7 +3343,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-header-bar-products dropdown-toggle btn btn-link"
+            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
             disabled={false}
             id="header-products"
             onClick={[Function]}
@@ -3358,7 +3358,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3389,7 +3389,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -3416,7 +3416,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -3443,7 +3443,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -3783,16 +3783,16 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
 exports[`Storyshots HeaderBar with no search result 1`] = `
 <div>
   <nav
-    className="tc-header-bar tc-header-bar navbar"
+    className="theme-tc-header-bar tc-header-bar navbar"
   >
     <ul
-      className="tc-header-bar-actions"
+      className="theme-tc-header-bar-actions"
     >
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
-          className="tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -3804,7 +3804,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -3815,10 +3815,10 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <button
-          className="tc-header-bar-brand btn btn-link"
+          className="theme-tc-header-bar-brand btn btn-link"
           disabled={false}
           id="header-brand"
           onClick={[Function]}
@@ -3833,20 +3833,20 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       </li>
     </ul>
     <ul
-      className="tc-header-bar-actions right"
+      className="theme-tc-header-bar-actions theme-right"
     >
       <li
-        className="tc-header-bar-action tc-header-bar-search separated flex"
+        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
       >
         <form
           className="navbar-form navbar-right"
           role="search"
         >
           <div
-            className="tc-typeahead-container right"
+            className="theme-tc-typeahead-container theme-right"
           >
             <div
-              className="typeahead-input-icon"
+              className="theme-typeahead-input-icon"
             >
               <label
                 className="control-label sr-only"
@@ -3862,7 +3862,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 aria-owns="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
-                className="typeahead-input form-control"
+                className="theme-typeahead-input form-control"
                 disabled={false}
                 id="react-autowhatever-42-input"
                 onBlur={[Function]}
@@ -3880,7 +3880,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               id="react-autowhatever-42"
             >
               <div
-                className="items-container no-result"
+                className="theme-items-container theme-no-result"
               >
                 <span
                   className="no-result"
@@ -3893,7 +3893,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         </form>
       </li>
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
           className="btn btn-link"
@@ -3906,7 +3906,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -3920,7 +3920,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action tc-header-bar-user separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -3928,7 +3928,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -3943,7 +3943,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3955,15 +3955,15 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 className="tc-dropdown-button-title-label"
               >
                 <span
-                  className="user-name user-name"
+                  className="theme-user-name user-name"
                 >
                   <span
-                    className="user-firstname user-firstname"
+                    className="theme-user-firstname user-firstname"
                   >
                     John
                   </span>
                   <span
-                    className="user-lastname user-lastname"
+                    className="theme-user-lastname user-lastname"
                   >
                     Doe
                   </span>
@@ -3996,7 +3996,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -4011,7 +4011,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         </div>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -4019,7 +4019,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-header-bar-products dropdown-toggle btn btn-link"
+            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
             disabled={false}
             id="header-products"
             onClick={[Function]}
@@ -4034,7 +4034,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -4065,7 +4065,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -4092,7 +4092,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -4119,7 +4119,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -4459,16 +4459,16 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
 exports[`Storyshots HeaderBar with read notifications 1`] = `
 <div>
   <nav
-    className="tc-header-bar tc-header-bar navbar"
+    className="theme-tc-header-bar tc-header-bar navbar"
   >
     <ul
-      className="tc-header-bar-actions"
+      className="theme-tc-header-bar-actions"
     >
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
-          className="tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -4480,7 +4480,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -4491,10 +4491,10 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <button
-          className="tc-header-bar-brand btn btn-link"
+          className="theme-tc-header-bar-brand btn btn-link"
           disabled={false}
           id="header-brand"
           onClick={[Function]}
@@ -4509,17 +4509,17 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       </li>
     </ul>
     <ul
-      className="tc-header-bar-actions right"
+      className="theme-tc-header-bar-actions theme-right"
     >
       <li
-        className="tc-header-bar-action tc-header-bar-search separated flex"
+        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
       >
         <form
           className="navbar-form navbar-right"
           role="search"
         >
           <button
-            className="only-icon-cls btn btn-link"
+            className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -4530,7 +4530,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -4542,7 +4542,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         </form>
       </li>
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
           className="btn btn-link"
@@ -4555,7 +4555,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -4569,7 +4569,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action tc-header-bar-user separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -4577,7 +4577,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -4592,7 +4592,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -4604,15 +4604,15 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                 className="tc-dropdown-button-title-label"
               >
                 <span
-                  className="user-name user-name"
+                  className="theme-user-name user-name"
                 >
                   <span
-                    className="user-firstname user-firstname"
+                    className="theme-user-firstname user-firstname"
                   >
                     John
                   </span>
                   <span
-                    className="user-lastname user-lastname"
+                    className="theme-user-lastname user-lastname"
                   >
                     Doe
                   </span>
@@ -4645,7 +4645,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -4660,7 +4660,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         </div>
       </li>
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
           className="btn btn-link"
@@ -4674,7 +4674,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -4685,7 +4685,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -4693,7 +4693,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-header-bar-products dropdown-toggle btn btn-link"
+            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
             disabled={false}
             id="header-products"
             onClick={[Function]}
@@ -4708,7 +4708,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -4739,7 +4739,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -4766,7 +4766,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -4793,7 +4793,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -5133,16 +5133,16 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
 exports[`Storyshots HeaderBar with search input 1`] = `
 <div>
   <nav
-    className="tc-header-bar tc-header-bar navbar"
+    className="theme-tc-header-bar tc-header-bar navbar"
   >
     <ul
-      className="tc-header-bar-actions"
+      className="theme-tc-header-bar-actions"
     >
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
-          className="tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -5154,7 +5154,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -5165,10 +5165,10 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <button
-          className="tc-header-bar-brand btn btn-link"
+          className="theme-tc-header-bar-brand btn btn-link"
           disabled={false}
           id="header-brand"
           onClick={[Function]}
@@ -5183,20 +5183,20 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       </li>
     </ul>
     <ul
-      className="tc-header-bar-actions right"
+      className="theme-tc-header-bar-actions theme-right"
     >
       <li
-        className="tc-header-bar-action tc-header-bar-search separated flex"
+        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
       >
         <form
           className="navbar-form navbar-right"
           role="search"
         >
           <div
-            className="tc-typeahead-container"
+            className="theme-tc-typeahead-container"
           >
             <div
-              className="typeahead-input-icon"
+              className="theme-typeahead-input-icon"
             >
               <label
                 className="control-label sr-only"
@@ -5212,7 +5212,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 aria-owns="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
-                className="typeahead-input form-control"
+                className="theme-typeahead-input form-control"
                 disabled={false}
                 id="react-autowhatever-42-input"
                 onBlur={[Function]}
@@ -5230,14 +5230,14 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               id="react-autowhatever-42"
             >
               <div
-                className="items-container"
+                className="theme-items-container"
               />
             </div>
           </div>
         </form>
       </li>
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
           className="btn btn-link"
@@ -5250,7 +5250,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -5264,7 +5264,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action tc-header-bar-user separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -5272,7 +5272,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -5287,7 +5287,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -5299,15 +5299,15 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 className="tc-dropdown-button-title-label"
               >
                 <span
-                  className="user-name user-name"
+                  className="theme-user-name user-name"
                 >
                   <span
-                    className="user-firstname user-firstname"
+                    className="theme-user-firstname user-firstname"
                   >
                     John
                   </span>
                   <span
-                    className="user-lastname user-lastname"
+                    className="theme-user-lastname user-lastname"
                   >
                     Doe
                   </span>
@@ -5340,7 +5340,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -5355,7 +5355,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         </div>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -5363,7 +5363,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-header-bar-products dropdown-toggle btn btn-link"
+            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
             disabled={false}
             id="header-products"
             onClick={[Function]}
@@ -5378,7 +5378,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -5409,7 +5409,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -5436,7 +5436,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -5463,7 +5463,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -5803,16 +5803,16 @@ exports[`Storyshots HeaderBar with search input 1`] = `
 exports[`Storyshots HeaderBar with search results 1`] = `
 <div>
   <nav
-    className="tc-header-bar tc-header-bar navbar"
+    className="theme-tc-header-bar tc-header-bar navbar"
   >
     <ul
-      className="tc-header-bar-actions"
+      className="theme-tc-header-bar-actions"
     >
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
-          className="tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -5824,7 +5824,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -5835,10 +5835,10 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <button
-          className="tc-header-bar-brand btn btn-link"
+          className="theme-tc-header-bar-brand btn btn-link"
           disabled={false}
           id="header-brand"
           onClick={[Function]}
@@ -5853,20 +5853,20 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       </li>
     </ul>
     <ul
-      className="tc-header-bar-actions right"
+      className="theme-tc-header-bar-actions theme-right"
     >
       <li
-        className="tc-header-bar-action tc-header-bar-search separated flex"
+        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
       >
         <form
           className="navbar-form navbar-right"
           role="search"
         >
           <div
-            className="tc-typeahead-container right container-open"
+            className="theme-tc-typeahead-container theme-right theme-container-open"
           >
             <div
-              className="typeahead-input-icon"
+              className="theme-typeahead-input-icon"
             >
               <label
                 className="control-label sr-only"
@@ -5882,7 +5882,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 aria-owns="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
-                className="typeahead-input form-control"
+                className="theme-typeahead-input form-control"
                 disabled={false}
                 id="react-autowhatever-42-input"
                 onBlur={[Function]}
@@ -5900,20 +5900,20 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               id="react-autowhatever-42"
             >
               <div
-                className="items-container"
+                className="theme-items-container"
               >
                 <div
-                  className="section-container"
+                  className="theme-section-container"
                 >
                   <div
                     style={Object {}}
                   >
                     <div
-                      className="section-header"
+                      className="theme-section-header"
                     >
                       <svg
                         aria-hidden="true"
-                        className="tc-svg-icon tc-svg-icon"
+                        className="theme-tc-svg-icon tc-svg-icon"
                         focusable="false"
                         title="icon"
                       >
@@ -5922,14 +5922,14 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         />
                       </svg>
                       <span
-                        className="section-header-title"
+                        className="theme-section-header-title"
                       >
                         category 1
                       </span>
                     </div>
                   </div>
                   <ul
-                    className="items"
+                    className="theme-items"
                     role="listbox"
                   >
                     <li
@@ -5939,21 +5939,21 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       style={Object {}}
                     >
                       <div
-                        className="item"
+                        className="theme-item"
                         title="le title 1"
                       >
                         <span
-                          className="item-title"
+                          className="theme-item-title"
                         >
                           <span>
                             <em
-                              className="highlight"
+                              className="theme-highlight"
                             >
                               le
                             </em>
                              tit
                             <em
-                              className="highlight"
+                              className="theme-highlight"
                             >
                               le
                             </em>
@@ -5961,12 +5961,12 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           </span>
                         </span>
                         <p
-                          className="item-description"
+                          className="theme-item-description"
                         >
                           <span>
                             description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
                             <em
-                              className="highlight"
+                              className="theme-highlight"
                             >
                               le
                             </em>
@@ -5982,47 +5982,47 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       style={Object {}}
                     >
                       <div
-                        className="item"
+                        className="theme-item"
                         title="title 2 les elephants elementaires ont des aile"
                       >
                         <span
-                          className="item-title"
+                          className="theme-item-title"
                         >
                           <span>
                             tit
                             <em
-                              className="highlight"
+                              className="theme-highlight"
                             >
                               le
                             </em>
                              2 
                             <em
-                              className="highlight"
+                              className="theme-highlight"
                             >
                               le
                             </em>
                             s e
                             <em
-                              className="highlight"
+                              className="theme-highlight"
                             >
                               le
                             </em>
                             phants e
                             <em
-                              className="highlight"
+                              className="theme-highlight"
                             >
                               le
                             </em>
                             mentaires ont des ai
                             <em
-                              className="highlight"
+                              className="theme-highlight"
                             >
                               le
                             </em>
                           </span>
                         </span>
                         <p
-                          className="item-description"
+                          className="theme-item-description"
                         >
                           <span>
                             description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
@@ -6033,17 +6033,17 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                   </ul>
                 </div>
                 <div
-                  className="section-container"
+                  className="theme-section-container"
                 >
                   <div
                     style={Object {}}
                   >
                     <div
-                      className="section-header"
+                      className="theme-section-header"
                     >
                       <svg
                         aria-hidden="true"
-                        className="tc-svg-icon tc-svg-icon"
+                        className="theme-tc-svg-icon tc-svg-icon"
                         focusable="false"
                         title="icon"
                       >
@@ -6052,14 +6052,14 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         />
                       </svg>
                       <span
-                        className="section-header-title"
+                        className="theme-section-header-title"
                       >
                         category 2
                       </span>
                     </div>
                   </div>
                   <ul
-                    className="items"
+                    className="theme-items"
                     role="listbox"
                   >
                     <li
@@ -6069,16 +6069,16 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       style={Object {}}
                     >
                       <div
-                        className="item"
+                        className="theme-item"
                         title="title 3"
                       >
                         <span
-                          className="item-title"
+                          className="theme-item-title"
                         >
                           <span>
                             tit
                             <em
-                              className="highlight"
+                              className="theme-highlight"
                             >
                               le
                             </em>
@@ -6086,12 +6086,12 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           </span>
                         </span>
                         <p
-                          className="item-description"
+                          className="theme-item-description"
                         >
                           <span>
                             description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
                             <em
-                              className="highlight"
+                              className="theme-highlight"
                             >
                               le
                             </em>
@@ -6103,17 +6103,17 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                   </ul>
                 </div>
                 <div
-                  className="section-container"
+                  className="theme-section-container"
                 >
                   <div
                     style={Object {}}
                   >
                     <div
-                      className="section-header"
+                      className="theme-section-header"
                     >
                       <svg
                         aria-hidden="true"
-                        className="tc-svg-icon tc-svg-icon"
+                        className="theme-tc-svg-icon tc-svg-icon"
                         focusable="false"
                         title="icon"
                       >
@@ -6122,14 +6122,14 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         />
                       </svg>
                       <span
-                        className="section-header-title"
+                        className="theme-section-header-title"
                       >
                         category 3
                       </span>
                     </div>
                   </div>
                   <ul
-                    className="items"
+                    className="theme-items"
                     role="listbox"
                   >
                     <li
@@ -6139,16 +6139,16 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       style={Object {}}
                     >
                       <div
-                        className="item"
+                        className="theme-item"
                         title="title 4"
                       >
                         <span
-                          className="item-title"
+                          className="theme-item-title"
                         >
                           <span>
                             tit
                             <em
-                              className="highlight"
+                              className="theme-highlight"
                             >
                               le
                             </em>
@@ -6156,7 +6156,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           </span>
                         </span>
                         <p
-                          className="item-description"
+                          className="theme-item-description"
                         >
                           <span>
                             description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.
@@ -6171,16 +6171,16 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       style={Object {}}
                     >
                       <div
-                        className="item"
+                        className="theme-item"
                         title="title 5"
                       >
                         <span
-                          className="item-title"
+                          className="theme-item-title"
                         >
                           <span>
                             tit
                             <em
-                              className="highlight"
+                              className="theme-highlight"
                             >
                               le
                             </em>
@@ -6188,7 +6188,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           </span>
                         </span>
                         <p
-                          className="item-description"
+                          className="theme-item-description"
                         >
                           <span>
                             description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.
@@ -6203,16 +6203,16 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                       style={Object {}}
                     >
                       <div
-                        className="item"
+                        className="theme-item"
                         title="title 6"
                       >
                         <span
-                          className="item-title"
+                          className="theme-item-title"
                         >
                           <span>
                             tit
                             <em
-                              className="highlight"
+                              className="theme-highlight"
                             >
                               le
                             </em>
@@ -6220,7 +6220,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           </span>
                         </span>
                         <p
-                          className="item-description"
+                          className="theme-item-description"
                         >
                           <span>
                             description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.
@@ -6236,7 +6236,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         </form>
       </li>
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
           className="btn btn-link"
@@ -6249,7 +6249,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -6263,7 +6263,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action tc-header-bar-user separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -6271,7 +6271,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -6286,7 +6286,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -6298,15 +6298,15 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 className="tc-dropdown-button-title-label"
               >
                 <span
-                  className="user-name user-name"
+                  className="theme-user-name user-name"
                 >
                   <span
-                    className="user-firstname user-firstname"
+                    className="theme-user-firstname user-firstname"
                   >
                     John
                   </span>
                   <span
-                    className="user-lastname user-lastname"
+                    className="theme-user-lastname user-lastname"
                   >
                     Doe
                   </span>
@@ -6339,7 +6339,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -6354,7 +6354,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         </div>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -6362,7 +6362,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-header-bar-products dropdown-toggle btn btn-link"
+            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
             disabled={false}
             id="header-products"
             onClick={[Function]}
@@ -6377,7 +6377,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -6408,7 +6408,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -6435,7 +6435,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -6462,7 +6462,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -6802,16 +6802,16 @@ exports[`Storyshots HeaderBar with search results 1`] = `
 exports[`Storyshots HeaderBar with unread notifications 1`] = `
 <div>
   <nav
-    className="tc-header-bar tc-header-bar navbar"
+    className="theme-tc-header-bar tc-header-bar navbar"
   >
     <ul
-      className="tc-header-bar-actions"
+      className="theme-tc-header-bar-actions"
     >
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
-          className="tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -6823,7 +6823,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -6834,10 +6834,10 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <button
-          className="tc-header-bar-brand btn btn-link"
+          className="theme-tc-header-bar-brand btn btn-link"
           disabled={false}
           id="header-brand"
           onClick={[Function]}
@@ -6852,17 +6852,17 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       </li>
     </ul>
     <ul
-      className="tc-header-bar-actions right"
+      className="theme-tc-header-bar-actions theme-right"
     >
       <li
-        className="tc-header-bar-action tc-header-bar-search separated flex"
+        className="theme-tc-header-bar-action theme-tc-header-bar-search theme-separated theme-flex"
       >
         <form
           className="navbar-form navbar-right"
           role="search"
         >
           <button
-            className="only-icon-cls btn btn-link"
+            className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -6873,7 +6873,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -6885,7 +6885,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         </form>
       </li>
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
           className="btn btn-link"
@@ -6898,7 +6898,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -6912,7 +6912,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action tc-header-bar-user separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -6920,7 +6920,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
             onClick={[Function]}
@@ -6935,7 +6935,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -6947,15 +6947,15 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                 className="tc-dropdown-button-title-label"
               >
                 <span
-                  className="user-name user-name"
+                  className="theme-user-name user-name"
                 >
                   <span
-                    className="user-firstname user-firstname"
+                    className="theme-user-firstname user-firstname"
                   >
                     John
                   </span>
                   <span
-                    className="user-lastname user-lastname"
+                    className="theme-user-lastname user-lastname"
                   >
                     Doe
                   </span>
@@ -6988,7 +6988,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -7003,7 +7003,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         </div>
       </li>
       <li
-        className="tc-header-bar-action separated"
+        className="theme-tc-header-bar-action theme-separated"
       >
         <button
           className="btn btn-link"
@@ -7017,7 +7017,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -7028,7 +7028,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         </button>
       </li>
       <li
-        className="tc-header-bar-action"
+        className="theme-tc-header-bar-action"
       >
         <div
           className="dropdown btn-group btn-group-link"
@@ -7036,7 +7036,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
-            className="tc-header-bar-products dropdown-toggle btn btn-link"
+            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
             disabled={false}
             id="header-products"
             onClick={[Function]}
@@ -7051,7 +7051,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -7082,7 +7082,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -7109,7 +7109,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -7136,7 +7136,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
