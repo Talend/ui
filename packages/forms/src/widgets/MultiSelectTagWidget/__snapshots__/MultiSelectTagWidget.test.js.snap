@@ -38,7 +38,7 @@ exports[`MultiSelectTagWidget - with category should render section title when i
     className="dropdown"
   >
     <button
-      className="dropdown-toggle"
+      className="theme-dropdown-toggle dropdown-toggle"
       onClick={[Function]}
     >
       <span
@@ -46,7 +46,7 @@ exports[`MultiSelectTagWidget - with category should render section title when i
       />
     </button>
     <div
-      className="undefined form-control"
+      className="theme-wrapper form-control"
     >
       <Translate(Badge)
         group="fruit"
@@ -3625,20 +3625,20 @@ exports[`MultiSelectTagWidget - with category should render section title when i
           value="apple"
         >
           <div
-            className="tc-badge tc-badge-selected"
+            className="tc-badge theme-tc-badge tc-badge-selected theme-tc-badge-selected"
           >
             <button
-              className="tc-badge-button"
+              className="tc-badge-button theme-tc-badge-button"
               disabled={false}
             >
               <span
-                className="tc-badge-label"
+                className="tc-badge-label theme-tc-badge-label"
               >
                 Apple
               </span>
             </button>
             <Action
-              className="tc-badge-delete-icon"
+              className="tc-badge-delete-icon theme-tc-badge-delete-icon"
               disabled={false}
               hideLabel={true}
               icon="talend-cross"
@@ -3648,7 +3648,7 @@ exports[`MultiSelectTagWidget - with category should render section title when i
               <ActionButton
                 available={true}
                 bsStyle="default"
-                className="tc-badge-delete-icon"
+                className="tc-badge-delete-icon theme-tc-badge-delete-icon"
                 disabled={false}
                 hideLabel={true}
                 icon="talend-cross"
@@ -3666,7 +3666,7 @@ exports[`MultiSelectTagWidget - with category should render section title when i
                     block={false}
                     bsClass="btn"
                     bsStyle="default"
-                    className="tc-badge-delete-icon"
+                    className="tc-badge-delete-icon theme-tc-badge-delete-icon"
                     disabled={false}
                     onClick={[Function]}
                     onFocus={[Function]}
@@ -3675,7 +3675,7 @@ exports[`MultiSelectTagWidget - with category should render section title when i
                     role={null}
                   >
                     <button
-                      className="tc-badge-delete-icon btn btn-default"
+                      className="tc-badge-delete-icon theme-tc-badge-delete-icon btn btn-default"
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
@@ -3690,7 +3690,7 @@ exports[`MultiSelectTagWidget - with category should render section title when i
                       >
                         <svg
                           aria-hidden="true"
-                          className="tc-svg-icon"
+                          className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
                           title={null}
                         >
@@ -3741,8 +3741,8 @@ exports[`MultiSelectTagWidget - with category should render section title when i
         searchingText="Searching for matches…"
         theme={
           Object {
-            "container": undefined,
-            "itemsContainer": "items-container",
+            "container": "theme-typeahead",
+            "itemsContainer": "theme-items-container items-container",
           }
         }
         value=""
@@ -3813,23 +3813,25 @@ exports[`MultiSelectTagWidget - with category should render section title when i
           shouldRenderSection={[Function]}
           theme={
             Object {
-              "container": "",
-              "containerOpen": undefined,
-              "highlight": undefined,
-              "input": undefined,
-              "itemFocused": undefined,
-              "itemsContainer": "items-container",
-              "itemsList": undefined,
-              "sectionContainer": undefined,
+              "container": "theme-tc-typeahead-container theme-typeahead",
+              "containerOpen": "theme-container-open",
+              "highlight": "theme-highlight-match",
+              "input": "theme-typeahead-input",
+              "itemFocused": "theme-item-focused",
+              "itemsContainer": "theme-items-container items-container",
+              "itemsList": "theme-items",
+              "sectionContainer": "theme-section-container",
             }
           }
           value=""
         >
           <div
+            className="theme-tc-typeahead-container theme-typeahead theme-container-open"
             key="react-autowhatever-42-container"
-            style={Object {}}
           >
-            <div>
+            <div
+              className="theme-typeahead-input-icon"
+            >
               <ControlLabel
                 bsClass="control-label"
                 htmlFor="react-autowhatever-42-input"
@@ -3851,6 +3853,7 @@ exports[`MultiSelectTagWidget - with category should render section title when i
                 autoComplete="off"
                 autoFocus={false}
                 bsClass="form-control"
+                className="theme-typeahead-input"
                 componentClass="input"
                 disabled={false}
                 id="react-autowhatever-42-input"
@@ -3860,7 +3863,6 @@ exports[`MultiSelectTagWidget - with category should render section title when i
                 onKeyDown={[Function]}
                 readOnly={false}
                 role="combobox"
-                style={Object {}}
                 type="text"
                 value=""
               >
@@ -3872,7 +3874,7 @@ exports[`MultiSelectTagWidget - with category should render section title when i
                   aria-owns="react-autowhatever-42"
                   autoComplete="off"
                   autoFocus={false}
-                  className="form-control"
+                  className="theme-typeahead-input form-control"
                   disabled={false}
                   id="react-autowhatever-42-input"
                   onBlur={[Function]}
@@ -3881,7 +3883,6 @@ exports[`MultiSelectTagWidget - with category should render section title when i
                   onKeyDown={[Function]}
                   readOnly={false}
                   role="combobox"
-                  style={Object {}}
                   type="text"
                   value=""
                 />
@@ -3892,7 +3893,7 @@ exports[`MultiSelectTagWidget - with category should render section title when i
               key="react-autowhatever-42-items-container"
             >
               <ItemContainer
-                className="items-container"
+                className="theme-items-container items-container"
                 items={
                   Array [
                     Object {
@@ -3913,11 +3914,11 @@ exports[`MultiSelectTagWidget - with category should render section title when i
                 searchingText="Searching for matches…"
               >
                 <div
-                  className="items-container"
+                  className="theme-items-container items-container"
                 >
                   <div
+                    className="theme-section-container"
                     key="react-autowhatever-42-section-0-container"
-                    style={Object {}}
                   >
                     <SectionTitle
                       renderSectionTitle={[Function]}
@@ -3941,8 +3942,12 @@ exports[`MultiSelectTagWidget - with category should render section title when i
                         key="react-autowhatever-42-section-0-title"
                         style={Object {}}
                       >
-                        <div>
-                          <span>
+                        <div
+                          className="theme-section-header"
+                        >
+                          <span
+                            className="theme-section-header-title"
+                          >
                             pet
                           </span>
                         </div>
@@ -3978,11 +3983,12 @@ exports[`MultiSelectTagWidget - with category should render section title when i
                       theme={[Function]}
                     >
                       <ul
+                        className="theme-items"
                         key="react-autowhatever-42-section-0-items-list"
                         role="listbox"
-                        style={Object {}}
                       >
                         <Item
+                          className="theme-item-focused"
                           id="react-autowhatever-42-section-0-item-0"
                           item={
                             Object {
@@ -4002,18 +4008,20 @@ exports[`MultiSelectTagWidget - with category should render section title when i
                             }
                           }
                           sectionIndex={0}
-                          style={Object {}}
                         >
                           <li
+                            className="theme-item-focused"
                             id="react-autowhatever-42-section-0-item-0"
                             onMouseDown={[Function]}
                             role="option"
-                            style={Object {}}
                           >
                             <div
+                              className="theme-item"
                               title="Puppy"
                             >
-                              <span>
+                              <span
+                                className="theme-item-title"
+                              >
                                 <Emphasis
                                   text="Puppy"
                                   value=""
@@ -4072,7 +4080,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
     className="dropdown"
   >
     <button
-      className="dropdown-toggle"
+      className="theme-dropdown-toggle dropdown-toggle"
       onClick={[Function]}
     >
       <span
@@ -4080,7 +4088,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
       />
     </button>
     <div
-      className="undefined form-control"
+      className="theme-wrapper form-control"
     >
       <Translate(Badge)
         key="0"
@@ -7651,20 +7659,20 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
           value="foo-1"
         >
           <div
-            className="tc-badge"
+            className="tc-badge theme-tc-badge"
           >
             <button
-              className="tc-badge-button"
+              className="tc-badge-button theme-tc-badge-button"
               disabled={false}
             >
               <span
-                className="tc-badge-label"
+                className="tc-badge-label theme-tc-badge-label"
               >
                 Foo
               </span>
             </button>
             <Action
-              className="tc-badge-delete-icon"
+              className="tc-badge-delete-icon theme-tc-badge-delete-icon"
               disabled={false}
               hideLabel={true}
               icon="talend-cross"
@@ -7674,7 +7682,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
               <ActionButton
                 available={true}
                 bsStyle="default"
-                className="tc-badge-delete-icon"
+                className="tc-badge-delete-icon theme-tc-badge-delete-icon"
                 disabled={false}
                 hideLabel={true}
                 icon="talend-cross"
@@ -7692,7 +7700,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
                     block={false}
                     bsClass="btn"
                     bsStyle="default"
-                    className="tc-badge-delete-icon"
+                    className="tc-badge-delete-icon theme-tc-badge-delete-icon"
                     disabled={false}
                     onClick={[Function]}
                     onFocus={[Function]}
@@ -7701,7 +7709,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
                     role={null}
                   >
                     <button
-                      className="tc-badge-delete-icon btn btn-default"
+                      className="tc-badge-delete-icon theme-tc-badge-delete-icon btn btn-default"
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
@@ -7716,7 +7724,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
                       >
                         <svg
                           aria-hidden="true"
-                          className="tc-svg-icon"
+                          className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
                           title={null}
                         >
@@ -7760,8 +7768,8 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
         searchingText="Searching for matches…"
         theme={
           Object {
-            "container": undefined,
-            "itemsContainer": "items-container",
+            "container": "theme-typeahead",
+            "itemsContainer": "theme-items-container items-container",
           }
         }
         value=""
@@ -7826,23 +7834,25 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
           shouldRenderSection={[Function]}
           theme={
             Object {
-              "container": "",
-              "containerOpen": undefined,
-              "highlight": undefined,
-              "input": undefined,
-              "itemFocused": undefined,
-              "itemsContainer": "items-container",
-              "itemsList": undefined,
-              "sectionContainer": undefined,
+              "container": "theme-tc-typeahead-container theme-typeahead",
+              "containerOpen": "theme-container-open",
+              "highlight": "theme-highlight-match",
+              "input": "theme-typeahead-input",
+              "itemFocused": "theme-item-focused",
+              "itemsContainer": "theme-items-container items-container",
+              "itemsList": "theme-items",
+              "sectionContainer": "theme-section-container",
             }
           }
           value=""
         >
           <div
+            className="theme-tc-typeahead-container theme-typeahead theme-container-open"
             key="react-autowhatever-42-container"
-            style={Object {}}
           >
-            <div>
+            <div
+              className="theme-typeahead-input-icon"
+            >
               <ControlLabel
                 bsClass="control-label"
                 htmlFor="react-autowhatever-42-input"
@@ -7864,6 +7874,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
                 autoComplete="off"
                 autoFocus={false}
                 bsClass="form-control"
+                className="theme-typeahead-input"
                 componentClass="input"
                 disabled={false}
                 id="react-autowhatever-42-input"
@@ -7873,7 +7884,6 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
                 onKeyDown={[Function]}
                 readOnly={false}
                 role="combobox"
-                style={Object {}}
                 type="text"
                 value=""
               >
@@ -7885,7 +7895,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
                   aria-owns="react-autowhatever-42"
                   autoComplete="off"
                   autoFocus={false}
-                  className="form-control"
+                  className="theme-typeahead-input form-control"
                   disabled={false}
                   id="react-autowhatever-42-input"
                   onBlur={[Function]}
@@ -7894,7 +7904,6 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
                   onKeyDown={[Function]}
                   readOnly={false}
                   role="combobox"
-                  style={Object {}}
                   type="text"
                   value=""
                 />
@@ -7905,7 +7914,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
               key="react-autowhatever-42-items-container"
             >
               <ItemContainer
-                className="items-container"
+                className="theme-items-container items-container"
                 items={
                   Array [
                     Object {
@@ -7920,7 +7929,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
                 searchingText="Searching for matches…"
               >
                 <div
-                  className="items-container"
+                  className="theme-items-container items-container"
                 >
                   <ItemsList
                     focusedItemIndex={0}
@@ -7951,11 +7960,12 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
                     theme={[Function]}
                   >
                     <ul
+                      className="theme-items"
                       key="react-autowhatever-42-items-list"
                       role="listbox"
-                      style={Object {}}
                     >
                       <Item
+                        className="theme-item-focused"
                         id="react-autowhatever-42--item-0"
                         item={
                           Object {
@@ -7974,18 +7984,20 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
                           }
                         }
                         sectionIndex={null}
-                        style={Object {}}
                       >
                         <li
+                          className="theme-item-focused"
                           id="react-autowhatever-42--item-0"
                           onMouseDown={[Function]}
                           role="option"
-                          style={Object {}}
                         >
                           <div
+                            className="theme-item"
                             title="Bar"
                           >
-                            <span>
+                            <span
+                              className="theme-item-title"
+                            >
                               <Emphasis
                                 text="Bar"
                                 value=""
@@ -8016,7 +8028,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget without dropdow
   className="dropdown"
 >
   <button
-    className="dropdown-toggle"
+    className="theme-dropdown-toggle dropdown-toggle"
     onClick={[Function]}
   >
     <span
@@ -8024,7 +8036,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget without dropdow
     />
   </button>
   <div
-    className="undefined form-control"
+    className="theme-wrapper form-control"
   >
     <Translate(Badge)
       key="0"
@@ -8051,8 +8063,8 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget without dropdow
       searchingText="Searching for matches…"
       theme={
         Object {
-          "container": undefined,
-          "itemsContainer": "items-container",
+          "container": "theme-typeahead",
+          "itemsContainer": "theme-items-container items-container",
         }
       }
       value=""
@@ -8092,7 +8104,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
     className="dropdown"
   >
     <button
-      className="dropdown-toggle"
+      className="theme-dropdown-toggle dropdown-toggle"
       onClick={[Function]}
     >
       <span
@@ -8100,7 +8112,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
       />
     </button>
     <div
-      className="undefined form-control"
+      className="theme-wrapper form-control"
     >
       <Translate(Badge)
         key="0"
@@ -11674,20 +11686,20 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
           value="foo-1"
         >
           <div
-            className="tc-badge"
+            className="tc-badge theme-tc-badge"
           >
             <button
-              className="tc-badge-button"
+              className="tc-badge-button theme-tc-badge-button"
               disabled={false}
             >
               <span
-                className="tc-badge-label"
+                className="tc-badge-label theme-tc-badge-label"
               >
                 Foo
               </span>
             </button>
             <Action
-              className="tc-badge-delete-icon"
+              className="tc-badge-delete-icon theme-tc-badge-delete-icon"
               disabled={false}
               hideLabel={true}
               icon="talend-cross"
@@ -11697,7 +11709,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
               <ActionButton
                 available={true}
                 bsStyle="default"
-                className="tc-badge-delete-icon"
+                className="tc-badge-delete-icon theme-tc-badge-delete-icon"
                 disabled={false}
                 hideLabel={true}
                 icon="talend-cross"
@@ -11715,7 +11727,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
                     block={false}
                     bsClass="btn"
                     bsStyle="default"
-                    className="tc-badge-delete-icon"
+                    className="tc-badge-delete-icon theme-tc-badge-delete-icon"
                     disabled={false}
                     onClick={[Function]}
                     onFocus={[Function]}
@@ -11724,7 +11736,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
                     role={null}
                   >
                     <button
-                      className="tc-badge-delete-icon btn btn-default"
+                      className="tc-badge-delete-icon theme-tc-badge-delete-icon btn btn-default"
                       disabled={false}
                       onClick={[Function]}
                       onFocus={[Function]}
@@ -11739,7 +11751,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
                       >
                         <svg
                           aria-hidden="true"
-                          className="tc-svg-icon"
+                          className="theme-tc-svg-icon tc-svg-icon"
                           focusable="false"
                           title={null}
                         >
@@ -11783,8 +11795,8 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
         searchingText="Searching for matches…"
         theme={
           Object {
-            "container": undefined,
-            "itemsContainer": "items-container",
+            "container": "theme-typeahead",
+            "itemsContainer": "theme-items-container items-container",
           }
         }
         value=""
@@ -11849,23 +11861,25 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
           shouldRenderSection={[Function]}
           theme={
             Object {
-              "container": "",
-              "containerOpen": undefined,
-              "highlight": undefined,
-              "input": undefined,
-              "itemFocused": undefined,
-              "itemsContainer": "items-container",
-              "itemsList": undefined,
-              "sectionContainer": undefined,
+              "container": "theme-tc-typeahead-container theme-typeahead",
+              "containerOpen": "theme-container-open",
+              "highlight": "theme-highlight-match",
+              "input": "theme-typeahead-input",
+              "itemFocused": "theme-item-focused",
+              "itemsContainer": "theme-items-container items-container",
+              "itemsList": "theme-items",
+              "sectionContainer": "theme-section-container",
             }
           }
           value=""
         >
           <div
+            className="theme-tc-typeahead-container theme-typeahead theme-container-open"
             key="react-autowhatever-42-container"
-            style={Object {}}
           >
-            <div>
+            <div
+              className="theme-typeahead-input-icon"
+            >
               <ControlLabel
                 bsClass="control-label"
                 htmlFor="react-autowhatever-42-input"
@@ -11887,6 +11901,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
                 autoComplete="off"
                 autoFocus={false}
                 bsClass="form-control"
+                className="theme-typeahead-input"
                 componentClass="input"
                 disabled={false}
                 id="react-autowhatever-42-input"
@@ -11896,7 +11911,6 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
                 onKeyDown={[Function]}
                 readOnly={false}
                 role="combobox"
-                style={Object {}}
                 type="text"
                 value=""
               >
@@ -11908,7 +11922,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
                   aria-owns="react-autowhatever-42"
                   autoComplete="off"
                   autoFocus={false}
-                  className="form-control"
+                  className="theme-typeahead-input form-control"
                   disabled={false}
                   id="react-autowhatever-42-input"
                   onBlur={[Function]}
@@ -11917,7 +11931,6 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
                   onKeyDown={[Function]}
                   readOnly={false}
                   role="combobox"
-                  style={Object {}}
                   type="text"
                   value=""
                 />
@@ -11928,7 +11941,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
               key="react-autowhatever-42-items-container"
             >
               <ItemContainer
-                className="items-container"
+                className="theme-items-container items-container"
                 items={
                   Array [
                     Object {
@@ -11943,7 +11956,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
                 searchingText="Searching for matches…"
               >
                 <div
-                  className="items-container"
+                  className="theme-items-container items-container"
                 >
                   <ItemsList
                     focusedItemIndex={0}
@@ -11974,11 +11987,12 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
                     theme={[Function]}
                   >
                     <ul
+                      className="theme-items"
                       key="react-autowhatever-42-items-list"
                       role="listbox"
-                      style={Object {}}
                     >
                       <Item
+                        className="theme-item-focused"
                         id="react-autowhatever-42--item-0"
                         item={
                           Object {
@@ -11997,18 +12011,20 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
                           }
                         }
                         sectionIndex={null}
-                        style={Object {}}
                       >
                         <li
+                          className="theme-item-focused"
                           id="react-autowhatever-42--item-0"
                           onMouseDown={[Function]}
                           role="option"
-                          style={Object {}}
                         >
                           <div
+                            className="theme-item"
                             title="Bar"
                           >
-                            <span>
+                            <span
+                              className="theme-item-title"
+                            >
                               <Emphasis
                                 text="Bar"
                                 value=""

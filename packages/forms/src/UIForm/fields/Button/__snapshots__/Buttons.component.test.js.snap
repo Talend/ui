@@ -2,10 +2,10 @@
 
 exports[`Buttons field should render buttons 1`] = `
 <div
-  className="tf-buttons extra"
+  className="theme-tf-buttons tf-buttons extra"
 >
   <SingleButton
-    className={undefined}
+    className="theme-undefined"
     id="myForm-0"
     onClick={undefined}
     onTrigger={[Function]}
@@ -18,7 +18,7 @@ exports[`Buttons field should render buttons 1`] = `
     }
   />
   <SingleButton
-    className={undefined}
+    className="theme-right"
     id="myForm-1"
     onClick={undefined}
     onTrigger={[Function]}
@@ -35,7 +35,7 @@ exports[`Buttons field should render buttons 1`] = `
     }
   />
   <SingleButton
-    className={undefined}
+    className="theme-undefined"
     id="myForm-2"
     onClick={undefined}
     onTrigger={[Function]}
