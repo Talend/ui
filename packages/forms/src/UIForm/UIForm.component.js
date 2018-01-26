@@ -7,7 +7,8 @@ import merge from './merge';
 import { formPropTypes } from './utils/propTypes';
 import { validateSingle, validateAll } from './utils/validation';
 import Widget from './Widget';
-import Buttons from './fields/Button/Buttons.component';import { getValue, mutateValue } from './utils/properties';
+import Buttons from './fields/Button/Buttons.component';
+import { getValue, mutateValue } from './utils/properties';
 import { removeError, addError } from './utils/errors';
 import getLanguage from './lang';
 

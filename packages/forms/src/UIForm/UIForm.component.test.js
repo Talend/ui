@@ -154,10 +154,7 @@ describe('UIForm component', () => {
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(
-				submitEvent,
-				{ firstname: 'Missing required field' }
-			);
+			expect(props.setErrors).toBeCalledWith(submitEvent, { firstname: 'Missing required field' });
 		});
 
 		it('should not call submit callback when form is invalid', () => {
