@@ -2,11 +2,11 @@
 
 exports[`SelectSortBy should render 1`] = `
 <ul
-  className="nav"
+  className="theme-tc-list-toolbar-sort-by nav"
   role={null}
 >
   <li
-    className="dropdown"
+    className="theme-sort-by-items dropdown"
     style={undefined}
   >
     <a
@@ -84,11 +84,11 @@ exports[`SelectSortBy should render 1`] = `
 
 exports[`SelectSortBy should render id if provided 1`] = `
 <ul
-  className="nav"
+  className="theme-tc-list-toolbar-sort-by nav"
   role={null}
 >
   <li
-    className="dropdown"
+    className="theme-sort-by-items dropdown"
     style={undefined}
   >
     <a
@@ -166,7 +166,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
 
 exports[`SelectSortBy should render with no dropdown 1`] = `
 <ul
-  className="nav"
+  className="theme-tc-list-toolbar-sort-by nav"
   role={null}
 >
   <li
@@ -198,11 +198,11 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
 
 exports[`SelectSortBy should render without field selected 1`] = `
 <ul
-  className="nav"
+  className="theme-tc-list-toolbar-sort-by nav"
   role={null}
 >
   <li
-    className="dropdown"
+    className="theme-sort-by-items dropdown"
     style={undefined}
   >
     <a
