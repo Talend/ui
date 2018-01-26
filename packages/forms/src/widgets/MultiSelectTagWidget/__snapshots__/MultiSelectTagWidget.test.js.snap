@@ -3630,6 +3630,7 @@ exports[`MultiSelectTagWidget - with category should render section title when i
             <button
               className="tc-badge-button theme-tc-badge-button"
               disabled={false}
+              type="button"
             >
               <span
                 className="tc-badge-label theme-tc-badge-label"
@@ -7664,6 +7665,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
             <button
               className="tc-badge-button theme-tc-badge-button"
               disabled={false}
+              type="button"
             >
               <span
                 className="tc-badge-label theme-tc-badge-label"
@@ -11691,6 +11693,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
             <button
               className="tc-badge-button theme-tc-badge-button"
               disabled={false}
+              type="button"
             >
               <span
                 className="tc-badge-label theme-tc-badge-label"

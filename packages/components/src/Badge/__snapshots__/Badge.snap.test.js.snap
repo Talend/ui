@@ -9,6 +9,7 @@ exports[`BadgeSpec should render Badge 1`] = `
     className="tc-badge-button theme-tc-badge-button"
     disabled={false}
     onClick={undefined}
+    type="button"
   >
     <span
       className="tc-badge-label theme-tc-badge-label"
@@ -28,6 +29,7 @@ exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
     className="tc-badge-button theme-tc-badge-button"
     disabled={false}
     onClick={undefined}
+    type="button"
   >
     <span
       className="tc-badge-category theme-tc-badge-category"
@@ -73,6 +75,7 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
     className="tc-badge-button theme-tc-badge-button"
     disabled={false}
     onClick={undefined}
+    type="button"
   >
     <span
       className="tc-badge-label theme-tc-badge-label"
@@ -114,6 +117,7 @@ exports[`BadgeSpec should render Badge with selection handler and select id 1`] 
     disabled={false}
     id="tc-badge-select-select"
     onClick={[Function]}
+    type="button"
   >
     <span
       className="tc-badge-label theme-tc-badge-label"
@@ -134,6 +138,7 @@ exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1
     disabled={true}
     id="tc-badge-select-delete"
     onClick={undefined}
+    type="button"
   >
     <span
       className="tc-badge-label theme-tc-badge-label"
@@ -178,6 +183,7 @@ exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
     className="tc-badge-button theme-tc-badge-button"
     disabled={false}
     onClick={undefined}
+    type="button"
   >
     <span
       className="tc-badge-label theme-tc-badge-label"
