@@ -283,7 +283,11 @@ describe('sagaRouter configurations', () => {
 		const routes = {
 			'/resources': {
 				restartOnRouteChange: true,
-				saga: function* resourcesSaga(params) {},
+				saga: function* resourcesSaga(params, isExact) {
+					if (isExact) {
+						yield take('SOMETHING');
+					}
+				},
 			},
 			'/resources/action': function* resourcesActionSaga(params) {},
 		};

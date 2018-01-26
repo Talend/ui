@@ -47,39 +47,14 @@ const routes = {
 yield fork(routerSaga, history, routes);
 ```
 ## Matching pattern
-
-### Match exact route
-
-```javascript
-import { sagaRouter } from '@talend/react-cmf';
-import { browserHistory as history } from 'react-router';
-
-const CANCEL_ACTION = 'CANCEL_ACTION';
-// route configuration, a url fragment match with a generator
-const routes = {
-  "/datasets/add": function* addDataset(notUsed, isExact) {
-    if (!isExact) {
-      return;
-    }
-    yield take(CANCEL_ACTION);
-    yield put({
-      type: REDIRECT_CONNECTION_ADD_DATASET_CANCEL,
-      cmf: {
-        routerReplace: `/connections/${datastoreId}/edit`
-      }
-    });
-  },
-};
-```
-
 ```javascript
 const routes = {
   "/datasets/add": saga1,
-  "/connections/:datastoreId/edit/add-dataset": saga2
+  "/connections/:datastoreid/edit/add-dataset": saga2
 };
 ```
 
-Keys of the saga object are matched against the current webapp url.
+keys of the saga object are matched against the current webapp url.
 
 ### Simple matching
 
@@ -113,6 +88,45 @@ only `datasetsSaga` will be executed.
 Now the route is changed to `localhost/connections/add`
 
 `datasetsSaga` is canceled if it is still running and connectionsSaga is started.
+
+### Match exact route
+
+Given the webapp url is `localhost/datasets`,
+then `isExact` will be passed to saga generator as true, because it's an exact match.
+
+when route changes to `localhost/datasets/add`, saga of `/datasets` will be restarted,
+and `isExact` will be passed to saga generator as false, because it's a partial match.
+
+To achieve this, you also need to pass a configuration `restartOnRouteChange` which is set to true,
+so saga of `/datasets` will be restarted when route changes.
+
+
+```javascript
+import { sagaRouter } from '@talend/react-cmf';
+import { browserHistory as history } from 'react-router';
+
+const CANCEL_ACTION = 'CANCEL_ACTION';
+// route configuration, a url fragment match with a generator
+const routes = {
+  '/datasets': {
+    restartOnRouteChange: true,
+    saga: function* datasets(notUsed, isExact) {
+      if (!isExact) {
+        return;
+      }
+      yield take(CANCEL_ACTION);
+      yield put({
+        type: REDIRECT_CONNECTION_ADD_DATASET_CANCEL,
+        cmf: {
+          routerReplace: `/connections/${datastoreId}/edit`,
+        },
+      });
+    },
+  },
+  '/datasets/add': function* addDataset() {}
+};
+```
+
 
 ### Partial route matching
 
