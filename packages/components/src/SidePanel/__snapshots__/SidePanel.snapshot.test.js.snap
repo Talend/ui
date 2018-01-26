@@ -132,12 +132,12 @@ exports[`Storyshots SidePanel default 1`] = `
   >
     <nav
       aria-expanded={true}
-      className="tc-side-panel"
+      className="theme-tc-side-panel tc-side-panel"
       id="context"
       role="navigation"
     >
       <div
-        className={undefined}
+        className="theme-toggle-btn"
         title="Collapse"
       >
         <button
@@ -151,7 +151,7 @@ exports[`Storyshots SidePanel default 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -165,11 +165,11 @@ exports[`Storyshots SidePanel default 1`] = `
         </button>
       </div>
       <ul
-        className="nav nav-pills nav-stacked tc-side-panel-list"
+        className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
       >
         <li
           aria-current={true}
-          className="tc-side-panel-list-item active undefined"
+          className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
           role="presentation"
           title="Preparations"
         >
@@ -184,7 +184,7 @@ exports[`Storyshots SidePanel default 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -198,7 +198,7 @@ exports[`Storyshots SidePanel default 1`] = `
           </button>
         </li>
         <li
-          className="tc-side-panel-list-item"
+          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
           role="presentation"
           title="Datasets"
         >
@@ -213,7 +213,7 @@ exports[`Storyshots SidePanel default 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -227,7 +227,7 @@ exports[`Storyshots SidePanel default 1`] = `
           </button>
         </li>
         <li
-          className="tc-side-panel-list-item"
+          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
           role="presentation"
           title="Favorites"
         >
@@ -242,7 +242,7 @@ exports[`Storyshots SidePanel default 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -393,12 +393,12 @@ exports[`Storyshots SidePanel docked 1`] = `
   >
     <nav
       aria-expanded={false}
-      className="tc-side-panel"
+      className="theme-tc-side-panel tc-side-panel theme-docked"
       id={undefined}
       role="navigation"
     >
       <div
-        className={undefined}
+        className="theme-toggle-btn"
         title="Expand"
       >
         <button
@@ -411,7 +411,7 @@ exports[`Storyshots SidePanel docked 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -425,11 +425,11 @@ exports[`Storyshots SidePanel docked 1`] = `
         </button>
       </div>
       <ul
-        className="nav nav-pills nav-stacked tc-side-panel-list"
+        className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
       >
         <li
           aria-current={true}
-          className="tc-side-panel-list-item active undefined"
+          className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
           role="presentation"
           title="Preparations"
         >
@@ -443,7 +443,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -457,7 +457,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           </button>
         </li>
         <li
-          className="tc-side-panel-list-item"
+          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
           role="presentation"
           title="Datasets"
         >
@@ -471,7 +471,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -485,7 +485,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           </button>
         </li>
         <li
-          className="tc-side-panel-list-item"
+          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
           role="presentation"
           title="Favorites"
         >
@@ -499,7 +499,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -650,12 +650,12 @@ exports[`Storyshots SidePanel large docked 1`] = `
   >
     <nav
       aria-expanded={false}
-      className="tc-side-panel"
+      className="theme-tc-side-panel tc-side-panel theme-docked theme-large"
       id={undefined}
       role="navigation"
     >
       <div
-        className={undefined}
+        className="theme-toggle-btn"
         title="Expand"
       >
         <button
@@ -668,7 +668,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -682,11 +682,11 @@ exports[`Storyshots SidePanel large docked 1`] = `
         </button>
       </div>
       <ul
-        className="nav nav-pills nav-stacked tc-side-panel-list"
+        className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
       >
         <li
           aria-current={true}
-          className="tc-side-panel-list-item active undefined"
+          className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
           role="presentation"
           title="Preparations"
         >
@@ -700,7 +700,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -714,7 +714,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
           </button>
         </li>
         <li
-          className="tc-side-panel-list-item"
+          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
           role="presentation"
           title="Datasets"
         >
@@ -728,7 +728,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -742,7 +742,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
           </button>
         </li>
         <li
-          className="tc-side-panel-list-item"
+          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
           role="presentation"
           title="Favorites"
         >
@@ -756,7 +756,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -899,12 +899,12 @@ exports[`Storyshots SidePanel large reverse 1`] = `
   </svg>
   <nav
     aria-expanded={true}
-    className="tc-side-panel undefined"
+    className="theme-tc-side-panel tc-side-panel theme-large theme-reverse"
     id={undefined}
     role="navigation"
   >
     <div
-      className={undefined}
+      className="theme-toggle-btn"
       title="Collapse"
     >
       <button
@@ -917,7 +917,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="tc-svg-icon"
+          className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
           title={null}
         >
@@ -931,10 +931,10 @@ exports[`Storyshots SidePanel large reverse 1`] = `
       </button>
     </div>
     <ul
-      className="nav nav-pills nav-stacked tc-side-panel-list"
+      className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
     >
       <li
-        className="tc-side-panel-list-item"
+        className="theme-tc-side-panel-list-item tc-side-panel-list-item"
         role="presentation"
         title="Preparations"
       >
@@ -948,7 +948,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -963,7 +963,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
       </li>
       <li
         aria-current={true}
-        className="tc-side-panel-list-item active undefined"
+        className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
         role="presentation"
         title="Datasets"
       >
@@ -977,7 +977,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -991,7 +991,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         </button>
       </li>
       <li
-        className="tc-side-panel-list-item"
+        className="theme-tc-side-panel-list-item tc-side-panel-list-item"
         role="presentation"
         title="Favorites"
       >
@@ -1005,7 +1005,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -1155,15 +1155,15 @@ exports[`Storyshots SidePanel not dockable 1`] = `
   >
     <nav
       aria-expanded={true}
-      className="tc-side-panel"
+      className="theme-tc-side-panel tc-side-panel"
       id={undefined}
       role="navigation"
     >
       <ul
-        className="nav nav-pills nav-stacked tc-side-panel-list"
+        className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
       >
         <li
-          className="tc-side-panel-list-item"
+          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
           role="presentation"
           title="Preparations"
         >
@@ -1177,7 +1177,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -1192,7 +1192,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         </li>
         <li
           aria-current={true}
-          className="tc-side-panel-list-item active undefined"
+          className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
           role="presentation"
           title="Datasets"
         >
@@ -1206,7 +1206,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -1220,7 +1220,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
           </button>
         </li>
         <li
-          className="tc-side-panel-list-item"
+          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
           role="presentation"
           title="Favorites"
         >
@@ -1234,7 +1234,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -1377,12 +1377,12 @@ exports[`Storyshots SidePanel reverse 1`] = `
   </svg>
   <nav
     aria-expanded={true}
-    className="tc-side-panel undefined"
+    className="theme-tc-side-panel tc-side-panel theme-reverse"
     id={undefined}
     role="navigation"
   >
     <div
-      className={undefined}
+      className="theme-toggle-btn"
       title="Collapse"
     >
       <button
@@ -1395,7 +1395,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="tc-svg-icon"
+          className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
           title={null}
         >
@@ -1409,10 +1409,10 @@ exports[`Storyshots SidePanel reverse 1`] = `
       </button>
     </div>
     <ul
-      className="nav nav-pills nav-stacked tc-side-panel-list"
+      className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
     >
       <li
-        className="tc-side-panel-list-item"
+        className="theme-tc-side-panel-list-item tc-side-panel-list-item"
         role="presentation"
         title="Preparations"
       >
@@ -1426,7 +1426,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -1441,7 +1441,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
       </li>
       <li
         aria-current={true}
-        className="tc-side-panel-list-item active undefined"
+        className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
         role="presentation"
         title="Datasets"
       >
@@ -1455,7 +1455,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -1469,7 +1469,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
         </button>
       </li>
       <li
-        className="tc-side-panel-list-item"
+        className="theme-tc-side-panel-list-item tc-side-panel-list-item"
         role="presentation"
         title="Favorites"
       >
@@ -1483,7 +1483,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon"
             focusable="false"
             title={null}
           >
@@ -1624,23 +1624,23 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
     </symbol>
   </svg>
   <div
-    className="tc-layout"
+    className="tc-layout theme-layout"
     id={undefined}
   >
     <div
-      className="tc-layout-two-columns"
+      className="tc-layout-two-columns theme-container"
     >
       <div
-        className="tc-layout-two-columns-left"
+        className="tc-layout-two-columns-left theme-sidemenu"
       >
         <nav
           aria-expanded={true}
-          className="tc-side-panel undefined"
+          className="theme-tc-side-panel tc-side-panel theme-reverse"
           id={undefined}
           role="navigation"
         >
           <div
-            className={undefined}
+            className="theme-toggle-btn"
             title="Collapse"
           >
             <button
@@ -1653,7 +1653,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -1667,10 +1667,10 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
             </button>
           </div>
           <ul
-            className="nav nav-pills nav-stacked tc-side-panel-list"
+            className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
           >
             <li
-              className="tc-side-panel-list-item"
+              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
               role="presentation"
               title="Preparations"
             >
@@ -1684,7 +1684,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -1698,7 +1698,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               </button>
             </li>
             <li
-              className="tc-side-panel-list-item"
+              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
               role="presentation"
               title="Datasets"
             >
@@ -1712,7 +1712,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -1726,7 +1726,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               </button>
             </li>
             <li
-              className="tc-side-panel-list-item"
+              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
               role="presentation"
               title="Favorites"
             >
@@ -1740,7 +1740,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -1754,7 +1754,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               </button>
             </li>
             <li
-              className="tc-side-panel-list-item"
+              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
               role="presentation"
               title="Some super super super long name"
             >
@@ -1768,7 +1768,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -1785,10 +1785,10 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
         </nav>
       </div>
       <div
-        className="tc-layout-two-columns-main"
+        className="tc-layout-two-columns-main theme-main"
       >
         <div
-          className={undefined}
+          className="theme-tc-with-drawer"
         >
           <div
             style={
@@ -2104,7 +2104,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
             </ol>
           </div>
           <div
-            className={undefined}
+            className="theme-tc-with-drawer-container"
           />
         </div>
       </div>
@@ -2236,23 +2236,23 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
     </symbol>
   </svg>
   <div
-    className="tc-layout"
+    className="tc-layout theme-layout"
     id={undefined}
   >
     <div
-      className="tc-layout-two-columns"
+      className="tc-layout-two-columns theme-container"
     >
       <div
-        className="tc-layout-two-columns-left"
+        className="tc-layout-two-columns-left theme-sidemenu"
       >
         <nav
           aria-expanded={true}
-          className="tc-side-panel"
+          className="theme-tc-side-panel tc-side-panel"
           id={undefined}
           role="navigation"
         >
           <div
-            className={undefined}
+            className="theme-toggle-btn"
             title="Collapse"
           >
             <button
@@ -2265,7 +2265,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -2279,10 +2279,10 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
             </button>
           </div>
           <ul
-            className="nav nav-pills nav-stacked tc-side-panel-list"
+            className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
           >
             <li
-              className="tc-side-panel-list-item"
+              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
               role="presentation"
               title="Preparations"
             >
@@ -2296,7 +2296,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -2310,7 +2310,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               </button>
             </li>
             <li
-              className="tc-side-panel-list-item"
+              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
               role="presentation"
               title="Datasets"
             >
@@ -2324,7 +2324,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -2338,7 +2338,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               </button>
             </li>
             <li
-              className="tc-side-panel-list-item"
+              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
               role="presentation"
               title="Favorites"
             >
@@ -2352,7 +2352,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -2366,7 +2366,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               </button>
             </li>
             <li
-              className="tc-side-panel-list-item"
+              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
               role="presentation"
               title="Some super super super long name"
             >
@@ -2380,7 +2380,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="tc-svg-icon"
+                  className="theme-tc-svg-icon tc-svg-icon"
                   focusable="false"
                   title={null}
                 >
@@ -2397,10 +2397,10 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
         </nav>
       </div>
       <div
-        className="tc-layout-two-columns-main"
+        className="tc-layout-two-columns-main theme-main"
       >
         <div
-          className={undefined}
+          className="theme-tc-with-drawer"
         >
           <div
             style={
@@ -2716,7 +2716,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
             </ol>
           </div>
           <div
-            className={undefined}
+            className="theme-tc-with-drawer-container"
           />
         </div>
       </div>
@@ -2848,7 +2848,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
     </symbol>
   </svg>
   <div
-    className={undefined}
+    className="theme-tdc"
   >
     <div
       className="t7"
@@ -2860,12 +2860,12 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
     >
       <nav
         aria-expanded={true}
-        className="tc-side-panel"
+        className="theme-tc-side-panel tc-side-panel"
         id="context"
         role="navigation"
       >
         <div
-          className={undefined}
+          className="theme-toggle-btn"
           title="Collapse"
         >
           <button
@@ -2879,7 +2879,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -2893,11 +2893,11 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="tc-side-panel-list-item active undefined"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -2912,7 +2912,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -2926,7 +2926,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="tc-side-panel-list-item"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -2941,7 +2941,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -2955,7 +2955,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="tc-side-panel-list-item"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
             role="presentation"
             title="Favorites"
           >
@@ -2970,7 +2970,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3113,7 +3113,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
     </symbol>
   </svg>
   <div
-    className={undefined}
+    className="theme-tdp"
   >
     <div
       className="t7"
@@ -3125,12 +3125,12 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
     >
       <nav
         aria-expanded={true}
-        className="tc-side-panel"
+        className="theme-tc-side-panel tc-side-panel"
         id="context"
         role="navigation"
       >
         <div
-          className={undefined}
+          className="theme-toggle-btn"
           title="Collapse"
         >
           <button
@@ -3144,7 +3144,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -3158,11 +3158,11 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="tc-side-panel-list-item active undefined"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -3177,7 +3177,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3191,7 +3191,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="tc-side-panel-list-item"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -3206,7 +3206,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3220,7 +3220,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="tc-side-panel-list-item"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
             role="presentation"
             title="Favorites"
           >
@@ -3235,7 +3235,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3378,7 +3378,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
     </symbol>
   </svg>
   <div
-    className={undefined}
+    className="theme-tds"
   >
     <div
       className="t7"
@@ -3390,12 +3390,12 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
     >
       <nav
         aria-expanded={true}
-        className="tc-side-panel"
+        className="theme-tc-side-panel tc-side-panel"
         id="context"
         role="navigation"
       >
         <div
-          className={undefined}
+          className="theme-toggle-btn"
           title="Collapse"
         >
           <button
@@ -3409,7 +3409,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -3423,11 +3423,11 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="tc-side-panel-list-item active undefined"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -3442,7 +3442,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3456,7 +3456,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="tc-side-panel-list-item"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -3471,7 +3471,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3485,7 +3485,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="tc-side-panel-list-item"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
             role="presentation"
             title="Favorites"
           >
@@ -3500,7 +3500,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3643,7 +3643,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
     </symbol>
   </svg>
   <div
-    className={undefined}
+    className="theme-tfd"
   >
     <div
       className="t7"
@@ -3655,12 +3655,12 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
     >
       <nav
         aria-expanded={true}
-        className="tc-side-panel"
+        className="theme-tc-side-panel tc-side-panel"
         id="context"
         role="navigation"
       >
         <div
-          className={undefined}
+          className="theme-toggle-btn"
           title="Collapse"
         >
           <button
@@ -3674,7 +3674,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -3688,11 +3688,11 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="tc-side-panel-list-item active undefined"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -3707,7 +3707,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3721,7 +3721,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="tc-side-panel-list-item"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -3736,7 +3736,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3750,7 +3750,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="tc-side-panel-list-item"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
             role="presentation"
             title="Favorites"
           >
@@ -3765,7 +3765,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3908,7 +3908,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
     </symbol>
   </svg>
   <div
-    className={undefined}
+    className="theme-tic"
   >
     <div
       className="t7"
@@ -3920,12 +3920,12 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
     >
       <nav
         aria-expanded={true}
-        className="tc-side-panel"
+        className="theme-tc-side-panel tc-side-panel"
         id="context"
         role="navigation"
       >
         <div
-          className={undefined}
+          className="theme-toggle-btn"
           title="Collapse"
         >
           <button
@@ -3939,7 +3939,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -3953,11 +3953,11 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="tc-side-panel-list-item active undefined"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -3972,7 +3972,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -3986,7 +3986,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="tc-side-panel-list-item"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -4001,7 +4001,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -4015,7 +4015,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="tc-side-panel-list-item"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
             role="presentation"
             title="Favorites"
           >
@@ -4030,7 +4030,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -4173,7 +4173,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
     </symbol>
   </svg>
   <div
-    className={undefined}
+    className="theme-tmc"
   >
     <div
       className="t7"
@@ -4185,12 +4185,12 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
     >
       <nav
         aria-expanded={true}
-        className="tc-side-panel"
+        className="theme-tc-side-panel tc-side-panel"
         id="context"
         role="navigation"
       >
         <div
-          className={undefined}
+          className="theme-toggle-btn"
           title="Collapse"
         >
           <button
@@ -4204,7 +4204,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="tc-svg-icon"
+              className="theme-tc-svg-icon tc-svg-icon"
               focusable="false"
               title={null}
             >
@@ -4218,11 +4218,11 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="tc-side-panel-list-item active undefined"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -4237,7 +4237,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -4251,7 +4251,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="tc-side-panel-list-item"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -4266,7 +4266,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >
@@ -4280,7 +4280,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="tc-side-panel-list-item"
+            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
             role="presentation"
             title="Favorites"
           >
@@ -4295,7 +4295,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="tc-svg-icon"
+                className="theme-tc-svg-icon tc-svg-icon"
                 focusable="false"
                 title={null}
               >

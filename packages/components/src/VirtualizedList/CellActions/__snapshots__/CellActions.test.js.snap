@@ -2,7 +2,7 @@
 
 exports[`CellActions should render actions 1`] = `
 <div
-  className="tc-list-actions"
+  className="tc-list-actions theme-tc-list-actions theme-tc-list-actions"
 >
   <Actions
     actions={

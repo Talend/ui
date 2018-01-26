@@ -2,11 +2,11 @@
 
 exports[`Item should display a selected item 1`] = `
 <li
-  className="undefined tc-enumeration-item selected-item"
+  className="theme-tc-enumeration-item theme-selected-item tc-enumeration-item selected-item"
   id="0-item"
 >
   <button
-    className="undefined tc-enumeration-item-label btn btn-default"
+    className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
     disabled={false}
     onClick={[Function]}
     type="button"
@@ -16,18 +16,18 @@ exports[`Item should display a selected item 1`] = `
     </span>
   </button>
   <div
-    className="undefined tc-enumeration-item-actions"
+    className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
   />
 </li>
 `;
 
 exports[`Item should display value with three buttons 1`] = `
 <li
-  className="tc-enumeration-item"
+  className="theme-tc-enumeration-item tc-enumeration-item"
   id="0-item"
 >
   <button
-    className="undefined tc-enumeration-item-label btn btn-default"
+    className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
     disabled={false}
     onClick={[Function]}
     type="button"
@@ -37,7 +37,7 @@ exports[`Item should display value with three buttons 1`] = `
     </span>
   </button>
   <div
-    className="undefined tc-enumeration-item-actions"
+    className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
   >
     <button
       className="btn btn-link"

@@ -21,7 +21,7 @@ exports[`Icon should render from custom font 1`] = `
 exports[`Icon should render from svg 1`] = `
 <svg
   aria-hidden="true"
-  className="tc-svg-icon"
+  className="theme-tc-svg-icon tc-svg-icon"
   focusable="false"
   title={null}
 >
@@ -34,7 +34,7 @@ exports[`Icon should render from svg 1`] = `
 exports[`Icon should render with provided className 1`] = `
 <svg
   aria-hidden="true"
-  className="tc-svg-icon custom-class"
+  className="theme-tc-svg-icon tc-svg-icon custom-class"
   focusable="false"
   title={null}
 >
