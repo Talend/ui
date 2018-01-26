@@ -112,7 +112,6 @@ export default class UIForm extends React.Component {
 		}
 		this.props.setErrors(errors);
 
-		// run trigger
 		if (!valueError && schema.triggers && schema.triggers.length) {
 			let formData = this.props.properties;
 			if (value !== undefined) {
@@ -126,11 +125,15 @@ export default class UIForm extends React.Component {
 					}
 				});
 				propertyName = schema.key[schema.key.length - 1];
-				const formId = this.props.id;
-				this.onTrigger(event, { formData, formId, propertyName, value });
+				this.onTrigger(
+					event,
+					{ formData, formId: this.props.id, propertyName, value }
+				);
 			} else {
-				const payload = { trigger: schema.triggers[0], schema, properties: formData };
-				this.onTrigger(event, payload);
+				this.onTrigger(
+					event,
+					{ trigger: schema.triggers[0], schema, properties: formData }
+				);
 			}
 		}
 	}
