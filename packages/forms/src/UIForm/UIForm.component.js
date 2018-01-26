@@ -7,8 +7,8 @@ import merge from './merge';
 import { formPropTypes } from './utils/propTypes';
 import { validateSingle, validateAll } from './utils/validation';
 import Widget from './Widget';
-import Buttons from './fields/Button/Buttons.component';
-import { getValue, mutateValue, omit } from './utils/properties';
+import Buttons from './fields/Button/Buttons.component';import { getValue, mutateValue } from './utils/properties';
+import { removeError, addError } from './utils/errors';
 import getLanguage from './lang';
 
 export default class UIForm extends React.Component {
@@ -54,17 +54,14 @@ export default class UIForm extends React.Component {
 	 * @param value The payload new value
 	 */
 	onChange(event, { schema, value }) {
-		const payload = {
-			properties: this.props.properties,
+		const newProperties = mutateValue(this.props.properties, schema, value);
+		this.props.onChange(event, {
 			schema,
 			value,
-			formData: mutateValue(this.props.properties, schema.key, value),
-		};
-		if (this.props.moz) {
-			this.props.onChange(payload);
-		} else {
-			this.props.onChange(event, payload);
-		}
+			oldProperties: this.props.properties,
+			properties: newProperties,
+			formData: newProperties,
+		});
 	}
 
 	/**
@@ -85,7 +82,7 @@ export default class UIForm extends React.Component {
 		if (value !== undefined) {
 			newValue = value;
 		} else {
-			newValue = getValue(this.props.properties, schema.key);
+			newValue = getValue(this.props.properties, schema);
 		}
 
 		// validate value
@@ -100,22 +97,19 @@ export default class UIForm extends React.Component {
 		// update errors map
 		let errors;
 		if (valueError) {
-			errors = {
-				...this.props.errors,
-				[schema.key]: valueError,
-			};
+			errors = addError(this.props.errors, schema, valueError);
 		} else {
-			errors = omit(this.props.errors, schema.key.toString());
+			errors = removeError(this.props.errors, schema);
 		}
 		if (widgetChangeErrors) {
 			errors = widgetChangeErrors(errors);
 		}
-		this.props.setErrors(errors);
+		this.props.setErrors(event, errors);
 
 		if (!valueError && schema.triggers && schema.triggers.length) {
 			let formData = this.props.properties;
 			if (value !== undefined) {
-				formData = mutateValue(formData, schema.key, value);
+				formData = mutateValue(formData, schema, value);
 			}
 			let propertyName = schema.key.join('.');
 			if (this.props.moz) {
@@ -178,7 +172,7 @@ export default class UIForm extends React.Component {
 		const { mergedSchema } = this.state;
 		const { properties, customValidation } = this.props;
 		const errors = validateAll(mergedSchema, properties, customValidation);
-		this.props.setErrors(errors);
+		this.props.setErrors(event, errors);
 
 		const isValid = !Object.keys(errors).length;
 		if (this.props.onSubmit && isValid) {
@@ -284,8 +278,6 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
-		/** State management impl: The form update callback */
-		updateForm: PropTypes.func.isRequired,
 	};
 }
 

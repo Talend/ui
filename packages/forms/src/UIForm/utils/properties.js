@@ -1,14 +1,15 @@
 /**
  * Get a value stored in properties, identified by key
  * @param {object} properties The properties store
- * @param {array} key The key chain (array of strings) to access to the value
+ * @param {object} schema The schema containing the key chain (array of strings)
+ * to access to the value
  */
-export function getValue(properties, key) {
-	if (!key) {
+export function getValue(properties, schema) {
+	if (!schema.key) {
 		return undefined;
 	}
 
-	return key.reduce((accu, nextKey) => accu && accu[nextKey], properties);
+	return schema.key.reduce((accu, nextKey) => accu && accu[nextKey], properties);
 }
 
 /**
@@ -58,16 +59,16 @@ export function convertValue(type, value) {
  * @param {object | array} properties The original properties store
  * @param {array} key The key chain (array of strings) to identify the path
  * @param {any} value The value to set
- * @returns {object} The new mutated properties store.
+ * @returns {object} The new mutated properties.
  */
-export function mutateValue(properties = {}, key, value) {
+export function mutateValueFromKey(properties = {}, key, value) {
 	if (!key || !key.length) {
 		return value;
 	}
 
 	const nextKey = key[0];
 	const restKeys = key.slice(1);
-	const nextValue = mutateValue(properties[nextKey], restKeys, value);
+	const nextValue = mutateValueFromKey(properties[nextKey], restKeys, value);
 
 	let nextProperties;
 	if (properties instanceof Array) {
@@ -78,4 +79,15 @@ export function mutateValue(properties = {}, key, value) {
 
 	nextProperties[nextKey] = nextValue;
 	return nextProperties;
+}
+
+/**
+ * Mutate the properties, setting the value in the input identified by schema
+ * @param {object | array} properties The original properties store
+ * @param {object} schema The input schema
+ * @param {any} value The value to set
+ * @returns {object} The new mutated properties.
+ */
+export function mutateValue(properties, schema, value) {
+	return mutateValueFromKey(properties, schema.key, value);
 }

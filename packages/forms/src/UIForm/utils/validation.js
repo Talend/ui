@@ -169,8 +169,7 @@ export function validateSingle(
 export function validateAll(mergedSchema, properties, customValidationFn) {
 	const results = {};
 	mergedSchema.forEach(schema => {
-		const { key } = schema;
-		const value = key && getValue(properties, key);
+		const value = getValue(properties, schema);
 		const subResults = validateSingle(
 			schema,
 			value,

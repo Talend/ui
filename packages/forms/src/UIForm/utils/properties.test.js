@@ -12,7 +12,7 @@ describe('Properties utils', () => {
 			};
 
 			// when
-			const value = getValue(properties, null);
+			const value = getValue(properties, {});
 
 			// then
 			expect(value).toBeUndefined();
@@ -29,7 +29,7 @@ describe('Properties utils', () => {
 			const key = ['user', 'firstname'];
 
 			// when
-			const value = getValue(properties, key);
+			const value = getValue(properties, { key });
 
 			// then
 			expect(value).toBe('toto');
@@ -114,7 +114,7 @@ describe('Properties utils', () => {
 			const key = ['user', 'firstname'];
 
 			// when
-			const value = mutateValue(properties, key, 'titi');
+			const value = mutateValue(properties, { key }, 'titi');
 
 			// then
 			expect(value).toEqual({
@@ -130,7 +130,7 @@ describe('Properties utils', () => {
 			const key = ['user', 'firstname'];
 
 			// when
-			const value = mutateValue(undefined, key, 'titi');
+			const value = mutateValue(undefined, { key }, 'titi');
 
 			// then
 			expect(value).toEqual({
