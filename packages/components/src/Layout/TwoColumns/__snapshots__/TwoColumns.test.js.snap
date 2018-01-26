@@ -2,7 +2,7 @@
 
 exports[`TwoColumns should render two columns 1`] = `
 <div
-  className="tc-layout-two-columns"
+  className="tc-layout-two-columns theme-container"
   style={
     Object {
       "display": "flex",
@@ -10,17 +10,17 @@ exports[`TwoColumns should render two columns 1`] = `
   }
 >
   <div
-    className="tc-layout-two-columns-left"
+    className="tc-layout-two-columns-left theme-sidemenu"
   >
     <div>
       Hello world
     </div>
   </div>
   <div
-    className="tc-layout-two-columns-main"
+    className="tc-layout-two-columns-main theme-main"
   >
     <div
-      className={undefined}
+      className="theme-tc-with-drawer"
     >
       <div
         style={
@@ -37,7 +37,7 @@ exports[`TwoColumns should render two columns 1`] = `
         </span>
       </div>
       <div
-        className={undefined}
+        className="theme-tc-with-drawer-container"
       />
     </div>
   </div>
