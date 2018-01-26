@@ -176,6 +176,40 @@ describe('sagaRouter RouteChange', () => {
 		const anotherExpectedCancelYield = cancel(mockTask);
 		expect(anotherGen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(anotherExpectedCancelYield);
 	});
+
+	it('saga will NOT be restarted when change to another matching location', () => {
+		const mockTask = createMockTask();
+		function getMockedHistory() {
+			let count = 0;
+			return {
+				getCurrentLocation() {
+					if (count === 0) {
+						count = 1;
+						return {
+							pathname: '/resources',
+						};
+					}
+					return {
+						pathname: '/resources/action',
+					};
+				},
+			};
+		}
+		const routes = {
+			'/resources': function* resourcesSaga(params) {},
+			'/resources/action': function* resourcesActionSaga(params) {},
+		};
+		const gen = sagaRouter(getMockedHistory(), routes);
+		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
+		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
+			spawn(routes['/resources'], {}, true),
+		);
+		expect(gen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
+		// if saga restarted, next value would be cancel saga.
+		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
+			spawn(routes['/resources/action'], {}, true),
+		);
+	});
 });
 
 describe('sagaRouter route and route params', () => {
@@ -240,5 +274,43 @@ describe('sagaRouter route and route params', () => {
 		const expectedCancelYield = cancel(mockTask);
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(expectedCancelYield);
 		expect(gen.next().value).toEqual(spawn(routes['/matchingroute/:id'], { id: 'anotherId' }, true));
+	});
+});
+
+describe('sagaRouter configurations', () => {
+	it('with restartOnRouteChange set to true, saga will be restarted when change to a matching route', () => {
+		const mockTask = createMockTask();
+		const routes = {
+			'/resources': {
+				restartOnRouteChange: true,
+				saga: function* resourcesSaga(params) {},
+			},
+			'/resources/action': function* resourcesActionSaga(params) {},
+		};
+		function getMockedHistory() {
+			let count = 0;
+			return {
+				getCurrentLocation() {
+					if (count === 0) {
+						count = 1;
+						return {
+							pathname: '/resources',
+						};
+					}
+					return {
+						pathname: '/resources/action',
+					};
+				},
+			};
+		}
+		const gen = sagaRouter(getMockedHistory(), routes);
+		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
+		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
+			spawn(routes['/resources'].saga, {}, true),
+		);
+		expect(gen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
+		// if saga restarted, next value would be cancel saga.
+		const expectedCancelYield = cancel(mockTask);
+		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(expectedCancelYield);
 	});
 });
