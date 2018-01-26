@@ -32,6 +32,10 @@ class Datalist extends Component {
 		this.state = { previousValue: props.value, value: props.value };
 	}
 
+	componentWillReceiveProps({ value }) {
+		this.setState({ previousValue: value, value });
+	}
+
 	/**
 	 * Persist the value (if not already persisted) and remove the suggestions on blur event
 	 * @param event The blur event
