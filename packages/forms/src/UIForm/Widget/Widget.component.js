@@ -8,12 +8,7 @@ import defaultWidgets from '../utils/widgets';
 import { getValue } from '../utils/properties';
 
 function shouldRender(conditions, properties) {
-	return (
-		!conditions ||
-		conditions.every(
-			cond => includes(cond.values, get(properties, cond.path))
-		)
-	);
+	return !conditions || conditions.every(cond => includes(cond.values, get(properties, cond.path)));
 }
 
 export default function Widget(props) {
