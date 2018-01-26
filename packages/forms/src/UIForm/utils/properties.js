@@ -31,7 +31,7 @@ export function convertValue(type, value) {
  * @param {any} value The value to set
  * @returns {object} The new mutated properties.
  */
-export function mutateValueFromKey(properties = {}, key, value) {
+function mutateValueFromKey(properties = {}, key, value) {
 	if (!key || !key.length) {
 		return value;
 	}
