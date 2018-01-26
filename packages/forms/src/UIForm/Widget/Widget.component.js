@@ -10,10 +10,9 @@ import { getValue } from '../utils/properties';
 function shouldRender(conditions, properties) {
 	return (
 		!conditions ||
-		conditions.every(cond => {
-			const value = get(properties, cond.path);
-			return includes(cond.values, value);
-		})
+		conditions.every(
+			cond => includes(cond.values, get(properties, cond.path))
+		)
 	);
 }
 
