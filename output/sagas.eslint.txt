@@ -1,5 +1,5 @@
 
-> @talend/react-sagas@0.148.0 lint:es /home/travis/build/Talend/ui/packages/sagas
+> @talend/react-sagas@0.149.0 lint:es /home/travis/build/Talend/ui/packages/sagas
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.

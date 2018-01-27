@@ -125,9 +125,10 @@ export default class UIForm extends React.Component {
 					}
 				});
 				propertyName = schema.key[schema.key.length - 1];
+				this.onTrigger(event, { formData, formId: this.props.id, propertyName, value });
+			} else {
+				this.onTrigger(event, { trigger: schema.triggers[0], schema, properties: formData });
 			}
-			const formId = this.props.id;
-			this.onTrigger(formData, formId, propertyName, value);
 		}
 	}
 
@@ -138,13 +139,19 @@ export default class UIForm extends React.Component {
 	 * trigger The type of trigger
 	 * schema The field schema
 	 */
-	onTrigger(formData, formId, propertyName, propertyValue) {
+	onTrigger(event, payload) {
 		const { onTrigger } = this.props;
 		if (!onTrigger) {
 			return null;
 		}
 
-		return onTrigger(formData, formId, propertyName, propertyValue);
+		if (this.props.moz) {
+			return onTrigger(payload.formData, payload.formId, payload.propertyName, payload.value);
+		}
+		return onTrigger(event, {
+			properties: this.props.properties,
+			...payload,
+		});
 	}
 
 	onActionClick(actionOnClick) {
