@@ -40,6 +40,7 @@ exports[`MultiSelectTagWidget - with category should render section title when i
     <button
       className="theme-dropdown-toggle dropdown-toggle"
       onClick={[Function]}
+      type="button"
     >
       <span
         className="caret"
@@ -4083,6 +4084,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget with dropdown 1
     <button
       className="theme-dropdown-toggle dropdown-toggle"
       onClick={[Function]}
+      type="button"
     >
       <span
         className="caret"
@@ -8032,6 +8034,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget without dropdow
   <button
     className="theme-dropdown-toggle dropdown-toggle"
     onClick={[Function]}
+    type="button"
   >
     <span
       className="caret"
@@ -8108,6 +8111,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
     <button
       className="theme-dropdown-toggle dropdown-toggle"
       onClick={[Function]}
+      type="button"
     >
       <span
         className="caret"
