@@ -1,5 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Array component #renderItem should render item at given index 1`] = `
+<Widget
+  description="My array description"
+  errorMessage="This array is not correct"
+  id="talend-array-1"
+  isValid={true}
+  items={Array []}
+  schema={
+    Object {
+      "items": Array [
+        Object {
+          "key": Array [
+            "comments",
+            1,
+            "name",
+          ],
+          "required": true,
+          "schema": Object {
+            "title": "Name",
+            "type": "string",
+          },
+          "title": "Name",
+          "type": "text",
+        },
+        Object {
+          "description": "Email will be used for evil.",
+          "key": Array [
+            "comments",
+            1,
+            "email",
+          ],
+          "schema": Object {
+            "description": "Email will be used for evil.",
+            "pattern": "^\\\\S+@\\\\S+$",
+            "title": "Email",
+            "type": "string",
+          },
+          "title": "Email",
+          "type": "text",
+        },
+        Object {
+          "key": Array [
+            "comments",
+            1,
+            "comment",
+          ],
+          "maxlength": 20,
+          "rows": 3,
+          "schema": Object {
+            "maxLength": 20,
+            "title": "Comment",
+            "type": "string",
+            "validationMessage": "Don't be greedy!",
+          },
+          "title": "Comment",
+          "type": "textarea",
+          "validationMessage": "Don't be greedy!",
+        },
+      ],
+      "key": Array [
+        "comments",
+        1,
+      ],
+      "widget": "fieldset",
+    }
+  }
+  templates={Object {}}
+  value={
+    Object {
+      "comment": "Let's do that instead",
+      "email": "jm@lol.com",
+      "name": "JM",
+    }
+  }
+  widgets={Object {}}
+/>
+`;
+
 exports[`Array component should render array 1`] = `
 <div
   className="theme-tf-array-container tf-array-container"

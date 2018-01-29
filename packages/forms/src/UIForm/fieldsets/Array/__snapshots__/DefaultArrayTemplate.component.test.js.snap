@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Default Array Template component should render default array template 1`] = `
+<div>
+  <legend>
+    comments
+  </legend>
+  <ol
+    className="theme-tf-array tf-array"
+    id="my-template"
+  >
+    <li
+      className="theme-item"
+    >
+      <ArrayItem
+        hasMoveDown={true}
+        hasMoveUp={false}
+        id="my-template-control-0"
+        index={0}
+        isClosed={undefined}
+        onRemove={[Function]}
+        onReorder={[Function]}
+      >
+        <div>
+          Render item 
+          0
+        </div>
+      </ArrayItem>
+    </li>
+    <li
+      className="theme-item"
+    >
+      <ArrayItem
+        hasMoveDown={true}
+        hasMoveUp={true}
+        id="my-template-control-1"
+        index={1}
+        isClosed={undefined}
+        onRemove={[Function]}
+        onReorder={[Function]}
+      >
+        <div>
+          Render item 
+          1
+        </div>
+      </ArrayItem>
+    </li>
+    <li
+      className="theme-item"
+    >
+      <ArrayItem
+        hasMoveDown={false}
+        hasMoveUp={true}
+        id="my-template-control-2"
+        index={2}
+        isClosed={undefined}
+        onRemove={[Function]}
+        onReorder={[Function]}
+      >
+        <div>
+          Render item 
+          2
+        </div>
+      </ArrayItem>
+    </li>
+  </ol>
+  <div>
+    <button
+      className="btn btn-info"
+      onClick={[Function]}
+      type="button"
+    >
+      New Element
+    </button>
+  </div>
+</div>
+`;
