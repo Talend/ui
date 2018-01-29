@@ -24,9 +24,9 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
       className="theme-typeahead-input form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
@@ -36,10 +36,11 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
       className="theme-items-container"
+      id="react-autowhatever-my-search"
     >
       <div
         className="theme-section-container"
@@ -262,9 +263,9 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
       className="theme-typeahead-input form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
@@ -274,10 +275,11 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
       className="theme-items-container"
+      id="react-autowhatever-my-search"
     >
       <div
         className="theme-section-container"
@@ -442,9 +444,9 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
       className="theme-typeahead-input form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
@@ -454,10 +456,11 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
       className="theme-items-container"
+      id="react-autowhatever-my-search"
     >
       <ul
         className="theme-items"
@@ -531,9 +534,9 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       className="theme-typeahead-input form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
@@ -543,10 +546,11 @@ exports[`Typeahead items should render typeahead without items 1`] = `
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
       className="theme-items-container theme-no-result"
+      id="react-autowhatever-my-search"
     >
       <span
         className="no-result"
@@ -582,9 +586,9 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       className="theme-typeahead-input form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
@@ -594,10 +598,11 @@ exports[`Typeahead position should render search bar on the right 1`] = `
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
       className="theme-items-container"
+      id="react-autowhatever-my-search"
     />
   </div>
 </div>

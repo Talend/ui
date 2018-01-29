@@ -1069,7 +1069,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 id="react-autowhatever-42-input"
                 onBlur={[Function]}
                 onChange={[Function]}
-                onFocus={undefined}
+                onFocus={[Function]}
                 onKeyDown={undefined}
                 placeholder={undefined}
                 readOnly={false}
@@ -1079,10 +1079,11 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               />
             </div>
             <div
-              id="react-autowhatever-42"
+              id={undefined}
             >
               <div
                 className="theme-items-container theme-is-searching"
+                id="react-autowhatever-42"
               >
                 <span
                   className="is-searching"
@@ -3867,7 +3868,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 id="react-autowhatever-42-input"
                 onBlur={[Function]}
                 onChange={[Function]}
-                onFocus={undefined}
+                onFocus={[Function]}
                 onKeyDown={undefined}
                 placeholder={undefined}
                 readOnly={false}
@@ -3877,10 +3878,11 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               />
             </div>
             <div
-              id="react-autowhatever-42"
+              id={undefined}
             >
               <div
                 className="theme-items-container theme-no-result"
+                id="react-autowhatever-42"
               >
                 <span
                   className="no-result"
@@ -5217,7 +5219,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 id="react-autowhatever-42-input"
                 onBlur={[Function]}
                 onChange={[Function]}
-                onFocus={undefined}
+                onFocus={[Function]}
                 onKeyDown={undefined}
                 placeholder="Search..."
                 readOnly={false}
@@ -5227,10 +5229,11 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               />
             </div>
             <div
-              id="react-autowhatever-42"
+              id={undefined}
             >
               <div
                 className="theme-items-container"
+                id="react-autowhatever-42"
               />
             </div>
           </div>
@@ -5887,7 +5890,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 id="react-autowhatever-42-input"
                 onBlur={[Function]}
                 onChange={[Function]}
-                onFocus={undefined}
+                onFocus={[Function]}
                 onKeyDown={undefined}
                 placeholder={undefined}
                 readOnly={false}
@@ -5897,10 +5900,11 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               />
             </div>
             <div
-              id="react-autowhatever-42"
+              id={undefined}
             >
               <div
                 className="theme-items-container"
+                id="react-autowhatever-42"
               >
                 <div
                   className="theme-section-container"

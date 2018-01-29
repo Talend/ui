@@ -56,7 +56,7 @@ const ADDONS = {
 	'redux-undo': 'beta',
 	'redux-saga': '0.15.4',
 	'react-addons-perf': '15.4.2',
-	'react-autowhatever': '7.0.0',
+	'react-autowhatever': '10.1.0',
 	'react-debounce-input': '3.1.0',
 	'react-immutable-proptypes': '2.1.0',
 	'react-jsonschema-form': '0.42.0',

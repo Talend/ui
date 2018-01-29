@@ -8983,10 +8983,11 @@ react-addons-css-transition-group@15.6.2:
   dependencies:
     react-transition-group "^1.2.0"
 
-react-autowhatever@7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/react-autowhatever/-/react-autowhatever-7.0.0.tgz#7ea19f8024183acf1568fc8e4b76c0d0cc250d00"
+react-autowhatever@10.1.0:
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/react-autowhatever/-/react-autowhatever-10.1.0.tgz#41f6d69382437d3447a0a3c8913bb8ca2feaabc1"
   dependencies:
+    prop-types "^15.5.8"
     react-themeable "^1.1.0"
     section-iterator "^2.0.0"
 
