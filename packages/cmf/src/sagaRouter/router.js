@@ -79,10 +79,14 @@ import matchPath from './matchPath';
  *
  * @param {MaybeSaga} maybeSaga
  * @param {Match} match
+ * @param {RouteSaga} routeSaga
  */
-function shouldStartSaga(maybeSaga, match) {
+function shouldStartSaga(maybeSaga, match, routeSaga) {
 	if (match) {
 		if (!maybeSaga || (maybeSaga && maybeSaga.saga && !maybeSaga.saga.isRunning())) {
+			if (routeSaga.restartOnRouteChange === true) {
+				return match.isExact;
+			}
 			return true;
 		}
 	}
@@ -94,6 +98,7 @@ function shouldStartSaga(maybeSaga, match) {
  *
  * @param {MaybeSaga} maybeSaga
  * @param {Match} match
+ * @param {RouteSaga} routeSaga
  */
 function shouldCancelSaga(maybeSaga, match) {
 	if (maybeSaga && maybeSaga.saga.isRunning()) {
@@ -163,7 +168,7 @@ export default function* sagaRouter(history, routes) {
 			} else if (shouldRestartSaga(maybeSaga, match, routeSaga)) {
 				yield cancel(maybeSaga.saga);
 				shouldStart.push({ routeFragment, match });
-			} else if (shouldStartSaga(maybeSaga, match)) {
+			} else if (shouldStartSaga(maybeSaga, match, routeSaga)) {
 				shouldStart.push({ routeFragment, match });
 			}
 			index += 1;
