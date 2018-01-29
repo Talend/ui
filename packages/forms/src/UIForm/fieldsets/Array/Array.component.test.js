@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ArrayWidget from './Array.component';
+import defaultTemplates from '../../utils/templates';
 
 const schema = {
 	key: ['comments'],
@@ -97,6 +98,7 @@ describe('Array component', () => {
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={schema}
+				templates={defaultTemplates}
 				value={value}
 			/>,
 		);
@@ -122,6 +124,7 @@ describe('Array component', () => {
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={nonReorderSchema}
+				templates={defaultTemplates}
 				value={value}
 			/>,
 		);
@@ -145,6 +148,7 @@ describe('Array component', () => {
 					onChange={onChange}
 					onFinish={onFinish}
 					schema={schema}
+					templates={defaultTemplates}
 					value={value}
 				/>,
 			);
@@ -172,6 +176,7 @@ describe('Array component', () => {
 					onChange={onChange}
 					onFinish={onFinish}
 					schema={{ ...schema, itemWidget: 'collapsibleFieldset' }}
+					templates={defaultTemplates}
 					value={value}
 				/>,
 			);
@@ -206,6 +211,7 @@ describe('Array component', () => {
 					onChange={onChange}
 					onFinish={onFinish}
 					schema={schema}
+					templates={defaultTemplates}
 					value={value}
 				/>,
 			);
@@ -232,6 +238,7 @@ describe('Array component', () => {
 					onChange={jest.fn()}
 					onFinish={onFinish}
 					schema={schema}
+					templates={defaultTemplates}
 					value={value}
 				/>,
 			);
@@ -273,6 +280,7 @@ describe('Array component', () => {
 					onChange={onChange}
 					onFinish={onFinish}
 					schema={schema}
+					templates={defaultTemplates}
 					value={value}
 				/>,
 			);
@@ -299,6 +307,7 @@ describe('Array component', () => {
 					onChange={jest.fn()}
 					onFinish={onFinish}
 					schema={schema}
+					templates={defaultTemplates}
 					value={value}
 				/>,
 			);

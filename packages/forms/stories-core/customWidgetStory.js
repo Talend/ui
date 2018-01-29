@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { UIForm } from '../src/UIForm';
 
 function CustomWidget(props) {
@@ -18,7 +19,7 @@ function CustomWidget(props) {
 }
 
 CustomWidget.propTypes = {
-	value: React.PropTypes.string,
+	value: PropTypes.string,
 };
 
 function story() {

@@ -118,7 +118,9 @@ if (process.env.NODE_ENV !== 'production') {
 		 * Prototype: function onTrigger(event, { trigger, schema, properties })
 		 */
 		onTrigger: PropTypes.func,
+		/** Custom templates */
+		templates: PropTypes.object,
 		/** Custom widgets */
-		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		widgets: PropTypes.object,
 	};
 }
