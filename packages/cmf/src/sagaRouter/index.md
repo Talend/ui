@@ -76,7 +76,7 @@ only `datasets` and `datasetsSaga` will be executed.
 
 Note: The sagaRouter is updated each time an action of the type `@@router/LOCATION_CHANGE`
 is sent to redux to decide if he has to start, restart or cancel a saga.
-If you want your saga to be runned once you have to make it un finishable.
+If you want your saga to be run once you have to make it unfinishable.
 By convention we use the following task:
 
 ```javascript
