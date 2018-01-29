@@ -104,6 +104,10 @@ Array of objects
 ]
 ```
 
+**Result**
+
+![Array](screenshot.jpg)
+
 **Custom Array template**
 
 You can customize array template, by providing your template in UIForm `props.templates`.
@@ -175,8 +179,3 @@ Custom Array Template props
 | renderItem | `function` | `renderItem(index)` function to call to render an element. |
 | schema | `object` | The merged schema. |
 | value | `any` | The array value. |
-
-
-**Result**
-
-![Array](screenshot.jpg)

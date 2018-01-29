@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import Widget from '../../Widget';
 import Message from '../../Message';
 import { shiftArrayErrorsKeys } from '../../utils/validation';
+import defaultTemplates from '../../utils/templates';
+import defaultWidgets from '../../utils/widgets';
 
 import theme from './Array.scss';
 
@@ -63,7 +65,8 @@ export default class ArrayWidget extends React.Component {
 		const defaultValue = arrayMergedSchema.schema.items.type === 'object' ? {} : '';
 
 		let currentValue = this.props.value;
-		const itemWidget = this.props.widgets[this.props.schema.itemWidget];
+		const widgetId = this.props.schema.itemWidget;
+		const itemWidget = this.props.widgets[widgetId] || defaultWidgets[widgetId];
 		if (itemWidget && itemWidget.isCloseable) {
 			currentValue = currentValue.map(item => ({ ...item, isClosed: true }));
 		}
@@ -137,7 +140,8 @@ export default class ArrayWidget extends React.Component {
 		const { errorMessage, isValid, schema } = this.props;
 		const canReorder = schema.reorder !== false;
 
-		const ArrayTemplate = this.props.templates.array;
+		const templateId = 'array';
+		const ArrayTemplate = this.props.templates[templateId] || defaultTemplates[templateId];
 
 		return (
 			<div className={classNames(theme['tf-array-container'], 'tf-array-container')}>
@@ -158,6 +162,8 @@ export default class ArrayWidget extends React.Component {
 ArrayWidget.defaultProps = {
 	items: [],
 	value: [],
+	templates: {},
+	widgets: {},
 };
 
 if (process.env.NODE_ENV !== 'production') {

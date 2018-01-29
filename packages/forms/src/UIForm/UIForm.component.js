@@ -11,9 +11,6 @@ import Buttons from './fields/Button/Buttons.component';
 import { getValue, mutateValue, omit } from './utils/properties';
 import getLanguage from './lang';
 
-import defaultTemplates from './utils/templates';
-import defaultWidgets from './utils/widgets';
-
 export default class UIForm extends React.Component {
 	static displayName = 'TalendUIForm';
 	constructor(props) {
@@ -24,8 +21,7 @@ export default class UIForm extends React.Component {
 		if (Object.keys(jsonSchema).length) {
 			Object.assign(state, merge(jsonSchema, uiSchema));
 		}
-		state.templates = { ...defaultTemplates, ...props.templates };
-		state.widgets = { ...defaultWidgets, ...state.widgets, ...props.widgets };
+		state.widgets = { ...state.widgets, ...props.widgets };
 		this.state = state;
 
 		this.onChange = this.onChange.bind(this);
@@ -54,7 +50,6 @@ export default class UIForm extends React.Component {
 			this.setState({
 				...merged,
 				widgets: {
-					...defaultWidgets,
 					...merged.widgets,
 					...this.props.widgets,
 				},
@@ -243,7 +238,7 @@ export default class UIForm extends React.Component {
 						schema={nextSchema}
 						properties={this.props.properties}
 						errors={this.props.errors}
-						templates={this.state.templates}
+						templates={this.props.templates}
 						widgets={this.state.widgets}
 					/>
 				))}

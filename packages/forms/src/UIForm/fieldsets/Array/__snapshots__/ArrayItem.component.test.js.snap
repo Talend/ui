@@ -75,7 +75,6 @@ exports[`Array Item component should disable moveDown 1`] = `
       index={3}
       onRemove={[Function]}
       onReorder={[Function]}
-      value={Object {}}
     >
       <span>
         This is the item content
@@ -89,7 +88,6 @@ exports[`Array Item component should disable moveDown 1`] = `
       isMoveDown={true}
       onRemove={[Function]}
       onReorder={[Function]}
-      value={Object {}}
     >
       <span>
         This is the item content
@@ -127,7 +125,6 @@ exports[`Array Item component should disable moveUp 1`] = `
       index={3}
       onRemove={[Function]}
       onReorder={[Function]}
-      value={Object {}}
     >
       <span>
         This is the item content
@@ -141,7 +138,6 @@ exports[`Array Item component should disable moveUp 1`] = `
       isMoveDown={true}
       onRemove={[Function]}
       onReorder={[Function]}
-      value={Object {}}
     >
       <span>
         This is the item content
@@ -179,7 +175,6 @@ exports[`Array Item component should render control panel with item content 1`] 
       index={3}
       onRemove={[Function]}
       onReorder={[Function]}
-      value={Object {}}
     >
       <span>
         This is the item content
@@ -193,7 +188,6 @@ exports[`Array Item component should render control panel with item content 1`] 
       isMoveDown={true}
       onRemove={[Function]}
       onReorder={[Function]}
-      value={Object {}}
     >
       <span>
         This is the item content

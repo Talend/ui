@@ -4,6 +4,7 @@ import get from 'lodash/get';
 import includes from 'lodash/includes';
 import { sfPath } from 'talend-json-schema-form-core';
 
+import defaultWidgets from '../utils/widgets';
 import { getValue } from '../utils/properties';
 
 function shouldRender(conditions, properties) {
@@ -18,7 +19,8 @@ export default function Widget(props) {
 		return null;
 	}
 
-	const WidgetImpl = props.widgets[widgetId];
+	const WidgetImpl = props.widgets[widgetId] || defaultWidgets[widgetId];
+
 	if (!WidgetImpl) {
 		return <p className="text-danger">Widget not found {widgetId}</p>;
 	}
