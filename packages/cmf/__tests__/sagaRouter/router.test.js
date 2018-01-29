@@ -181,45 +181,7 @@ describe('sagaRouter RouteChange', () => {
 		);
 	});
 
-	it('saga will NOT be restarted when change to another matching location', () => {
-		const mockTask = createMockTask();
-		function getMockedHistory() {
-			let count = 0;
-			return {
-				getCurrentLocation() {
-					if (count === 0) {
-						count = 1;
-						return {
-							pathname: '/resources',
-						};
-					}
-					return {
-						pathname: '/resources/action',
-					};
-				},
-			};
-		}
-		const routes = {
-			'/resources': function* resourcesSaga() {
-				yield take('SOMETHING');
-			},
-			'/resources/action': function* resourcesActionSaga() {
-				yield take('SOMETHING');
-			},
-		};
-		const gen = sagaRouter(getMockedHistory(), routes);
-		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
-		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
-			spawn(routes['/resources'], {}, true),
-		);
-		expect(gen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
-		// if saga restarted, next value would be cancel saga.
-		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
-			spawn(routes['/resources/action'], {}, true),
-		);
-	});
-
-	it(`does not start the configured saga with 'restartOntRouteChange' parameter,
+	it(`does not start the configured saga with 'restartOnRouteChange' parameter,
 	if route is a fragment of current location`, () => {
 		const mockHistory = {
 			getCurrentLocation() {
@@ -246,7 +208,7 @@ describe('sagaRouter RouteChange', () => {
 		);
 	});
 
-	it('restart a saga with `restartOntRouteChange` parameter if the route it was matched on is now a subset of another location', () => {
+	it('restart a saga with `restartOnRouteChange` parameter if the route it was matched on is now a subset of another location', () => {
 		// GIVEN
 		const mockTask = createMockTask();
 		const routes = {
