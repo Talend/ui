@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 import QualityBar from './quality-bar.component';
-
 import theme from './header-grid.scss';
 
 export default function CustomHeader(params) {

@@ -2,10 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 
 import QualityIndicator from './quality-indicator.component';
+import theme from './default-cell-renderer.scss';
 
-import theme from './cell-renderer.scss';
-
-export default function CustomHeader(params) {
+export default function DefaultCellRenderer(params) {
 	return (
 		<div
 			className={classNames(theme.cell, {
