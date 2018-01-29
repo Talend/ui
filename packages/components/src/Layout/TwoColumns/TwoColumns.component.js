@@ -9,7 +9,7 @@ import theme from './TwoColumns.scss';
 /**
  * @param {object} props react props
  * @example
-<TwoColumns name="Hello world"></TwoColumns>
+ <TwoColumns name="Hello world"></TwoColumns>
  */
 function TwoColumns({ one, drawers, children, tabs, ...props }) {
 	const containerCSS = classnames('tc-layout-two-columns', theme.container);
