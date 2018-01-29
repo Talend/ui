@@ -2,9 +2,9 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
-## Next //TODO
+## 0.150.0
 * Component: Typeahead
-* PR: [](https://github.com/Talend/ui/pull/????)
+* PR: [chore: upgrade react-autowhatever](https://github.com/Talend/ui/pull/1022)
 * Changes : we upgraded React-autowhatever from 7.0.0 to 10.1.0. We ensured old props compatibility, but overriding some props have been changed.
 
 | Before | After |
@@ -39,12 +39,12 @@ function CustomDatalist() {
 After
 ```javascript
 function renderItemsContainer({ children, containerProps }) {
-		return (
-			<div {...containerProps}>
-				{children}
-			</div>
-		);
-	}
+    return (
+        <div {...containerProps}>
+            {children}
+        </div>
+    );
+}
 ```
  
 ## v0.143.0
