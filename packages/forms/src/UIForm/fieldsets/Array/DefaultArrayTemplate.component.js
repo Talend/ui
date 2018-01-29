@@ -6,16 +6,7 @@ import ArrayItem from './ArrayItem.component';
 import theme from './Array.scss';
 
 export default function DefaultArrayTemplate(props) {
-	const {
-		canReorder,
-		id,
-		onAdd,
-		onRemove,
-		onReorder,
-		renderItem,
-		schema,
-		value,
-	} = props;
+	const { canReorder, id, onAdd, onRemove, onReorder, renderItem, schema, value } = props;
 	return (
 		<div>
 			{schema.title && <legend>{schema.title}</legend>}
