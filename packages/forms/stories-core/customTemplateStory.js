@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { action } from '@storybook/addon-actions';
 import { IconsProvider, Actions } from '@talend/react-components';
 import { UIForm } from '../src/UIForm';
 
@@ -113,7 +114,12 @@ function story() {
 	return (
 		<div>
 			<IconsProvider />
-			<UIForm templates={templates} data={schema} />
+			<UIForm
+				templates={templates}
+				data={schema}
+				onChange={action('Change')}
+				onSubmit={action('onSubmit')}
+			/>
 		</div>
 	);
 }
