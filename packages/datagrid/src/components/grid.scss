@@ -17,4 +17,12 @@
 		color: #202020;
 		border-color: #e6e6e6;
 	}
+
+	:global(.ag-row-selected) {
+		background-color: DeepSkyBlue;
+	}
+
+	:global(.ag-cell-focus) {
+		background-color: white;
+	}
 }

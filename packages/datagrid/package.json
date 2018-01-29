@@ -134,8 +134,8 @@
   },
   "version": "0.145.0",
   "dependencies": {
-    "ag-grid": "^15.0.0",
-    "ag-grid-react": "^15.0.0",
+    "ag-grid": "^16.0.0",
+    "ag-grid-react": "^16.0.0",
     "faker": "^4.1.0",
     "react-dom-factories": "^1.0.2",
     "react-immutable-proptypes": "2.1.0"

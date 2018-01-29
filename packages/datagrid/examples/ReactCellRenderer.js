@@ -20,7 +20,12 @@ export default function ReactCellRenderer() {
 
 	return (
 		<div>
-			<Grid rowData={rowData} columnDefs={columnReactDefs} renderers={renderers} />
+			<Grid
+				rowData={rowData}
+				columnDefs={columnReactDefs}
+				renderers={renderers}
+				rowSelection="multiple"
+			/>
 		</div>
 	);
 }

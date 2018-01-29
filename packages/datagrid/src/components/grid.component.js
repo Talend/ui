@@ -14,11 +14,14 @@ export default function Grid(props) {
 		height: 800,
 	};
 
+	// by default, ag-grid hide the column when the user drag outside the column
 	const agGridOptions = {
 		columnDefs: props.columnDefs,
 		headerHeight: props.headerHeight,
 		rowData: props.rowData,
 		rowHeight: props.rowHeight,
+		suppressDragLeaveHidesColumns: true,
+		rowSelection: props.rowSelection,
 	};
 
 	if (props.renderers) {
@@ -37,6 +40,7 @@ export default function Grid(props) {
 }
 
 Grid.propTypes = {
+	rowSelection: PropTypes.string,
 	headerHeight: PropTypes.number,
 	rowHeight: PropTypes.number,
 	renderers: PropTypes.object,

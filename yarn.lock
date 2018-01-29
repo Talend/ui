@@ -374,13 +374,15 @@ add-stream@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/add-stream/-/add-stream-1.0.0.tgz#6a7990437ca736d5e1288db92bd3266d5f5cb2aa"
 
-ag-grid-react@^15.0.0:
-  version "15.0.0"
-  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-15.0.0.tgz#582859325b524a1fdf48ac05198b25429e3c11b0"
+ag-grid-react@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-16.0.0.tgz#885c89eafb856f2b715576e954af8eaaf036ecc4"
+  dependencies:
+    prop-types "15.6.0"
 
-ag-grid@^15.0.0:
-  version "15.0.0"
-  resolved "https://registry.yarnpkg.com/ag-grid/-/ag-grid-15.0.0.tgz#73048d812a43547494d43dc7f5cba533463fcc3e"
+ag-grid@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/ag-grid/-/ag-grid-16.0.0.tgz#efb4bd633b02bb9562ec51dc01b653b4ded3f7d6"
 
 airbnb-js-shims@^1.4.0:
   version "1.4.0"
@@ -9111,7 +9113,7 @@ prop-types@15.5.10:
     fbjs "^0.8.9"
     loose-envify "^1.3.1"
 
-prop-types@15.x, prop-types@^15, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0:
+prop-types@15.6.0, prop-types@15.x, prop-types@^15, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:

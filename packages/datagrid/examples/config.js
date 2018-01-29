@@ -53,14 +53,16 @@ function getValue(columnIndex) {
 
 const columnDefs = [
 	{
-		field: 'index',
+		lockPosition: true,
 		pinned: 'left',
+		field: 'index',
 		width: 100,
 	},
 ].concat(
 	Array(COLUMNS_NUMBER)
 		.fill()
 		.map((item, index) => ({
+			lockPinned: true,
 			field: `col${index}`,
 			headerComponent: 'headerGrid',
 			valueGetter: enchancedCell,
