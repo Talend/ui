@@ -28,5 +28,8 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 17 problems (14 errors, 3 warnings)
+src/theme/theme.scss
+  18:2  error  File extensions are not allowed  clean-import-paths
+
+✖ 18 problems (15 errors, 3 warnings)
 
