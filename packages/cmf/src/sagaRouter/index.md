@@ -46,6 +46,7 @@ const routes = {
 // router saga is forked and given router history, and route configuration
 yield fork(routerSaga, history, routes);
 ```
+
 ## Matching pattern
 
 ```javascript
@@ -65,12 +66,22 @@ and that we have the following configuration
 
 ```javascript
 const routes = {
+  "/datasets": datasets,
   "/datasets/add": datasetsSaga,
   "/connections/add": connectionsSaga
 };
 ```
 
-only datasetsSagawill be executed.
+only `datasets` and `datasetsSaga` will be executed.
+
+Note: The sagaRouter is updated each time an action of the type `@@router/LOCATION_CHANGE`
+is sent to redux to decide if he has to start, restart or cancel a saga.
+If you want your saga to be run once you have to make it unfinishable.
+By convention we use the following task:
+
+```javascript
+yield take('DO_NOT_QUIT');
+```
 
 ### Simple matching with route change
 
