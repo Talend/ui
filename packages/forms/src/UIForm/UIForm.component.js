@@ -1,26 +1,36 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { merge } from 'talend-json-schema-form-core';
+import classNames from 'classnames';
+import tv4 from 'tv4';
 
+import merge from './merge';
 import { formPropTypes } from './utils/propTypes';
 import { validateSingle, validateAll } from './utils/validation';
 import Widget from './Widget';
 import Buttons from './fields/Button/Buttons.component';
 import { getValue, mutateValue, omit } from './utils/properties';
+import getLanguage from './lang';
 
 export default class UIForm extends React.Component {
+	static displayName = 'TalendUIForm';
 	constructor(props) {
 		super(props);
 		const { jsonSchema, uiSchema } = props;
-		this.state = {
-			mergedSchema: merge(jsonSchema, uiSchema),
-		};
-
+		if (Object.keys(jsonSchema).length) {
+			this.state = merge(jsonSchema, uiSchema);
+		} else {
+			this.state = {};
+		}
 		this.onChange = this.onChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
-		this.onReset = this.onReset.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
+		this.onActionClick = this.onActionClick.bind(this);
+		// control the tv4 language here.
+		if (!tv4.language('@talend')) {
+			tv4.addLanguage('@talend', props.language);
+			tv4.language('@talend'); // set it
+		}
 	}
 
 	/**
@@ -32,9 +42,9 @@ export default class UIForm extends React.Component {
 		if (!jsonSchema || !uiSchema) {
 			return;
 		}
-		this.setState({
-			mergedSchema: merge(jsonSchema, uiSchema),
-		});
+		if (Object.keys(jsonSchema).length) {
+			this.setState(merge(jsonSchema, uiSchema));
+		}
 	}
 
 	/**
@@ -45,12 +55,16 @@ export default class UIForm extends React.Component {
 	 */
 	onChange(event, { schema, value }) {
 		const payload = {
-			formName: this.props.formName,
 			properties: this.props.properties,
 			schema,
 			value,
+			formData: mutateValue(this.props.properties, schema.key, value),
 		};
-		this.props.onChange(event, payload);
+		if (this.props.moz) {
+			this.props.onChange(payload);
+		} else {
+			this.props.onChange(event, payload);
+		}
 	}
 
 	/**
@@ -80,7 +94,7 @@ export default class UIForm extends React.Component {
 			newValue,
 			this.props.properties,
 			this.props.customValidation,
-			deepValidation
+			deepValidation,
 		)[schema.key];
 
 		// update errors map
@@ -96,19 +110,25 @@ export default class UIForm extends React.Component {
 		if (widgetChangeErrors) {
 			errors = widgetChangeErrors(errors);
 		}
-		this.props.setErrors(this.props.formName, errors);
+		this.props.setErrors(errors);
 
-		// trigger if value is correct
 		if (!valueError && schema.triggers && schema.triggers.length) {
-			const payload = { trigger: schema.triggers[0], schema };
+			let formData = this.props.properties;
 			if (value !== undefined) {
-				payload.properties = mutateValue(this.props.properties, schema.key, value);
+				formData = mutateValue(formData, schema.key, value);
 			}
-
-			this.onTrigger(
-				event,
-				payload
-			);
+			let propertyName = schema.key.join('.');
+			if (this.props.moz) {
+				schema.key.forEach((key, index) => {
+					if (index !== schema.key.length - 1) {
+						formData = formData[key];
+					}
+				});
+				propertyName = schema.key[schema.key.length - 1];
+				this.onTrigger(event, { formData, formId: this.props.id, propertyName, value });
+			} else {
+				this.onTrigger(event, { trigger: schema.triggers[0], schema, properties: formData });
+			}
 		}
 	}
 
@@ -120,46 +140,30 @@ export default class UIForm extends React.Component {
 	 * schema The field schema
 	 */
 	onTrigger(event, payload) {
-		const { formName, updateForm, onTrigger, setError, properties } = this.props;
+		const { onTrigger } = this.props;
 		if (!onTrigger) {
 			return null;
 		}
 
-		return onTrigger(
-			event,
-			{
-				formName,
-				properties,
-				...payload,
-			}
-		)
-			.then(newForm => updateForm(
-				formName,
-				newForm.jsonSchema,
-				newForm.uiSchema,
-				newForm.properties,
-				newForm.errors)
-			)
-			.catch(({ errors }) => setError(formName, errors));
+		if (this.props.moz) {
+			return onTrigger(payload.formData, payload.formId, payload.propertyName, payload.value);
+		}
+		return onTrigger(event, {
+			properties: this.props.properties,
+			...payload,
+		});
 	}
 
-	/**
-	 * Set the original data and schema
-	 * Triggers reset callback if form is valid
-	 * @param event the reset event
-	 */
-	onReset(event) {
-		this.props.updateForm(
-			this.props.formName,
-			this.props.initialData.jsonSchema,
-			this.props.initialData.uiSchema,
-			this.props.initialData.properties
-		);
-		this.props.setErrors(this.props.formName, {});
-
-		if (this.props.onReset) {
-			this.props.onReset(event);
+	onActionClick(actionOnClick) {
+		if (typeof actionOnClick === 'function') {
+			return (event, data) =>
+				actionOnClick(event, {
+					...data,
+					formData: this.props.properties,
+					properties: this.props.properties,
+				});
 		}
+		return () => {};
 	}
 
 	/**
@@ -172,61 +176,68 @@ export default class UIForm extends React.Component {
 		}
 
 		const { mergedSchema } = this.state;
-		const { formName, properties, customValidation } = this.props;
+		const { properties, customValidation } = this.props;
 		const errors = validateAll(mergedSchema, properties, customValidation);
-		this.props.setErrors(formName, errors);
+		this.props.setErrors(errors);
 
 		const isValid = !Object.keys(errors).length;
 		if (this.props.onSubmit && isValid) {
-			this.props.onSubmit(event, properties);
+			if (this.props.moz) {
+				this.props.onSubmit({ formData: properties });
+			} else {
+				this.props.onSubmit(event, properties);
+			}
 		}
-
 		return isValid;
 	}
 
 	render() {
-		const actions = this.props.actions || [{
-			bsStyle: 'primary',
-			title: 'Submit',
-			type: 'submit',
-			widget: 'button',
-		}];
-
+		const actions = this.props.actions || [
+			{
+				bsStyle: 'primary',
+				label: 'Submit',
+				type: 'submit',
+				widget: 'button',
+			},
+		];
+		if (!this.state.mergedSchema) {
+			return null;
+		}
 		return (
 			<form
 				acceptCharset={this.props.acceptCharset}
 				action={this.props.action}
 				autoComplete={this.props.autoComplete}
-				className={this.props.className}
+				className={classNames('tf-uiform', this.props.className)}
 				encType={this.props.encType}
 				id={this.props.id}
 				method={this.props.method}
-				name={this.props.formName}
+				name={this.props.name}
 				noValidate={this.props.noHtml5Validate}
-				onReset={this.onReset}
+				onReset={this.props.onReset}
 				onSubmit={this.onSubmit}
 				target={this.props.target}
 			>
-				{
-					this.state.mergedSchema.map((nextSchema, index) => (
-						<Widget
-							id={this.props.id}
-							key={index}
-							formName={this.props.formName}
-							onChange={this.onChange}
-							onFinish={this.onFinish}
-							onTrigger={this.onTrigger}
-							schema={nextSchema}
-							properties={this.props.properties}
-							errors={this.props.errors}
-							widgets={this.props.widgets}
-						/>
-					))
-				}
+				{this.state.mergedSchema.map((nextSchema, index) => (
+					<Widget
+						id={this.props.id}
+						key={index}
+						onChange={this.onChange}
+						onFinish={this.onFinish}
+						onTrigger={this.onTrigger}
+						schema={nextSchema}
+						properties={this.props.properties}
+						errors={this.props.errors}
+						widgets={Object.assign({}, this.props.widgets, this.state.widgets)}
+					/>
+				))}
+				{this.props.children}
 				<Buttons
-					id={`${this.props.id}-${this.props.formName}-actions`}
+					id={`${this.props.id}-${this.props.id}-actions`}
 					onTrigger={this.onTrigger}
+					className={this.props.buttonBlockClass}
 					schema={{ items: actions }}
+					onClick={this.onActionClick}
 				/>
 			</form>
 		);
@@ -248,12 +259,6 @@ if (process.env.NODE_ENV !== 'production') {
 		properties: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		/** Form definition: The forms errors { [fieldKey]: errorMessage } */
 		errors: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-		/** Form definition: The forms initial data */
-		initialData: PropTypes.shape({
-			jsonSchema: PropTypes.object,
-			uiSchema: PropTypes.array,
-			properties: PropTypes.object,
-		}),
 
 		/**
 		 * Actions buttons to display at the bottom of the form.
@@ -269,7 +274,7 @@ if (process.env.NODE_ENV !== 'production') {
 		customValidation: PropTypes.func,
 		/**
 		 * User callback: Trigger
-		 * Prototype: function onTrigger(event, { formName, trigger, schema, properties })
+		 * Prototype: function onTrigger(event, { trigger, schema, properties })
 		 */
 		onTrigger: PropTypes.func,
 		/** Custom widgets */
@@ -277,8 +282,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 		/** State management impl: The change callback */
 		onChange: PropTypes.func.isRequired,
-		/** State management impl: Set Partial fields validation error */
-		setError: PropTypes.func,
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
 		/** State management impl: The form update callback */
@@ -288,4 +291,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 UIForm.defaultProps = {
 	noHtml5Validate: true,
+	buttonBlockClass: 'form-actions',
+	properties: {},
+	language: getLanguage(),
 };

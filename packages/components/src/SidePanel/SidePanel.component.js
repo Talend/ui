@@ -13,9 +13,9 @@ import theme from './SidePanel.scss';
 /**
  * return the formatted action id
  * if there is no action id, it is generated from the action label
- * @param  {string} id		sidepanel id
- * @param  {string} action 	current action
- * @return {string}        	formatted id
+ * @param  {string} id        sidepanel id
+ * @param  {string} action    current action
+ * @return {string}            formatted id
  */
 function getActionId(id, action) {
 	if (action.id || action.label) {
@@ -36,16 +36,16 @@ function getActionId(id, action) {
  *
  @example
  const actions = [
-	 { label: 'Preparations', icon: 'fa fa-asterisk', onClick: action('Preparations clicked') },
-	 { label: 'Datasets', icon: 'fa fa-file-excel-o', onClick: action('Datasets clicked') },
-	 { label: 'Favorites', icon: 'fa fa-star', onClick: action('Favorites clicked') }
+ { label: 'Preparations', icon: 'fa fa-asterisk', onClick: action('Preparations clicked') },
+ { label: 'Datasets', icon: 'fa fa-file-excel-o', onClick: action('Datasets clicked') },
+ { label: 'Favorites', icon: 'fa fa-star', onClick: action('Favorites clicked') }
  ];
  <SidePanel
-	 actions={ actions }
-	 docked={ isDocked }
-	 selected= { selectedItem }
-	 onToggleDock={ action('Toggle dock clicked') }
-	 onSelect={ action('onItemSelect') }
+ actions={ actions }
+ docked={ isDocked }
+ selected= { selectedItem }
+ onToggleDock={ action('Toggle dock clicked') }
+ onSelect={ action('onItemSelect') }
  />
  *
  */
@@ -67,22 +67,14 @@ function SidePanel({
 	const navCSS = classNames(theme['tc-side-panel'], 'tc-side-panel', {
 		[theme.docked]: docked,
 		[theme.large]: large,
-		[theme['nav-inverse']]: !reverse,
+		[theme.reverse]: reverse,
 	});
 	const listCSS = classNames(
-		theme.nav,
 		'nav',
-		theme['nav-pills'],
 		'nav-pills',
-		theme['nav-stacked'],
 		'nav-stacked',
 		theme['tc-side-panel-list'],
 		'tc-side-panel-list',
-		theme['action-list'],
-		{
-			'nav-inverse': !reverse,
-			[theme['nav-inverse']]: !reverse,
-		},
 	);
 	const isActionSelected = action => {
 		if (selected) {
@@ -96,7 +88,7 @@ function SidePanel({
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action });
 	return (
-		<nav className={navCSS} role="navigation">
+		<nav id={id} className={navCSS} role="navigation" aria-expanded={!(dockable && docked)}>
 			{dockable && (
 				<div className={theme['toggle-btn']} title={toggleButtonTitle}>
 					<Components.Action
@@ -105,6 +97,7 @@ function SidePanel({
 						onClick={onToggleDock}
 						icon="talend-opener"
 						label=""
+						aria-controls={id}
 					/>
 				</div>
 			)}
@@ -112,11 +105,14 @@ function SidePanel({
 			{actions && (
 				<ul className={listCSS}>
 					{actions.map(action => {
-						const a11y = {};
+						const a11y = {
+							role: 'presentation',
+						};
 						const extra = {};
 						const isSelected = isActionSelected(action);
 
 						if (isSelected) {
+							// @see https://tink.uk/using-the-aria-current-attribute/
 							a11y['aria-current'] = true;
 						}
 						if (onSelect) {
@@ -159,6 +155,8 @@ function SidePanel({
 		</nav>
 	);
 }
+
+SidePanel.displayName = 'SidePanel';
 
 SidePanel.defaultProps = {
 	actions: [],

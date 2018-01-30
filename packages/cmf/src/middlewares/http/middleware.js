@@ -1,14 +1,91 @@
 import has from 'lodash/has';
 import get from 'lodash/get';
-import { HTTP_METHODS } from './constants';
-
+import { HTTP_METHODS, HTTP_STATUS, testHTTPCode } from './constants';
+import { mergeCSRFToken } from './csrfHandling';
 import http from '../../actions/http';
+
+/**
+ * @typedef {Object} Action
+ * @property {string} type - Action type
+ */
+
+/**
+ * @typedef {Object} Response
+ * @property {string} status
+ * @property {string} statusText
+ * @property {string} ok
+ * @property {string} redirected
+ * @property {string} type
+ * @property {string} url
+ */
+
+/**
+ * @typedef {Object} Stack
+ * @property {Object} response
+ * @property {Object} message
+ */
+
+/**
+ * @typedef {Object} HttpError
+ * @property {string} name
+ * @property {string} message
+ * @property {string} number
+ * @property {Stack} stack
+ */
+
+/**
+ * @typedef {Object.<string, string>} Headers
+ */
+
+/**
+ * @callback onError
+ * @param {HTTPConfig} action
+ * @param {HttpError} error
+ * @return {Action}
+ */
+
+/**
+ * @callback onResponse
+ * @param {HTTPConfig} action
+ * @param {Object} response
+ * @return {Action}
+ */
+
+/**
+ * @typedef {Object} HTTPConfig
+ * @property {string} body
+ * @property {string} credentials
+ * @property {Headers} headers
+ * @property {string} method - See ./constants.js for a list of suitable method
+ * @property {onError | string} onError
+ * @property {onResponse | string} onResponse
+ * @property {string} onSend - a redux action type
+ */
+
+/**
+ * @typedef {Object} Security
+ * @property {String} CSRFTokenCookieKey - on which value the token should be found in the cookie
+ * @property {String} CSRFTokenHeaderKey - on which header key the token should be sent
+ */
+
+/**
+ * @typedef {Object} Config
+ * @property {Security} security
+ */
 
 export const DEFAULT_HTTP_HEADERS = {
 	Accept: 'application/json',
 	'Content-Type': 'application/json',
 };
 
+/**
+ * check if the provided redux action contain element relative to a
+ * fetch side effect.
+ * If the Action contain nested keys 'cmf.http' it is a fetch descriptor
+ * thus return True
+ * @param {Action} action
+ * @returns {bool}
+ */
 export function isHTTPRequest(action) {
 	return action.type in HTTP_METHODS || has(action, 'cmf.http');
 }
@@ -61,14 +138,14 @@ HTTPError.prototype = Object.create(Error.prototype);
 HTTPError.prototype.constructor = HTTPError;
 
 export function status(response) {
-	if (response.status >= 200 && response.status < 300) {
+	if (testHTTPCode.isSuccess(response.status)) {
 		return Promise.resolve(response);
 	}
 	return Promise.reject(new HTTPError(response));
 }
 
 export function handleResponse(response) {
-	if (response.status === 204) {
+	if (response.status === HTTP_STATUS.NO_CONTENT) {
 		return Promise.resolve({});
 	}
 	if (response.json) {
@@ -118,12 +195,17 @@ function getOnError(dispatch, httpAction) {
 	};
 }
 
-export const httpMiddleware = ({ dispatch }) => next => action => {
+/**
+ * @param {Config} middlewareDefaultConfig
+ */
+export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
+	dispatch,
+}) => next => action => {
 	if (!isHTTPRequest(action)) {
 		return next(action);
 	}
 	const httpAction = get(action, 'cmf.http', action);
-	const config = mergeOptions(httpAction);
+	const config = mergeCSRFToken(middlewareDefaultConfig, mergeOptions(httpAction));
 	dispatch(http.onRequest(httpAction.url, config));
 	if (httpAction.onSend) {
 		dispatch({

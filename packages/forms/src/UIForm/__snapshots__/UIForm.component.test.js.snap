@@ -5,11 +5,11 @@ exports[`UIForm component should render form 1`] = `
   acceptCharset={undefined}
   action={undefined}
   autoComplete="off"
-  className="my-form-class"
+  className="tf-uiform my-form-class"
   encType={undefined}
   id="myFormId"
   method={undefined}
-  name="myFormName"
+  name={undefined}
   noValidate={true}
   onReset={[Function]}
   onSubmit={[Function]}
@@ -17,7 +17,6 @@ exports[`UIForm component should render form 1`] = `
 >
   <Widget
     errors={Object {}}
-    formName="myFormName"
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -48,7 +47,6 @@ exports[`UIForm component should render form 1`] = `
   />
   <Widget
     errors={Object {}}
-    formName="myFormName"
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -80,7 +78,6 @@ exports[`UIForm component should render form 1`] = `
   />
   <Widget
     errors={Object {}}
-    formName="myFormName"
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -105,14 +102,16 @@ exports[`UIForm component should render form 1`] = `
     }
   />
   <Buttons
-    id="myFormId-myFormName-actions"
+    className="form-actions"
+    id="myFormId-myFormId-actions"
+    onClick={[Function]}
     onTrigger={[Function]}
     schema={
       Object {
         "items": Array [
           Object {
             "bsStyle": "primary",
-            "title": "Submit",
+            "label": "Submit",
             "type": "submit",
             "widget": "button",
           },
@@ -128,11 +127,11 @@ exports[`UIForm component should render provided actions 1`] = `
   acceptCharset={undefined}
   action={undefined}
   autoComplete="off"
-  className="my-form-class"
+  className="tf-uiform my-form-class"
   encType={undefined}
   id="myFormId"
   method={undefined}
-  name="myFormName"
+  name={undefined}
   noValidate={true}
   onReset={[Function]}
   onSubmit={[Function]}
@@ -140,7 +139,6 @@ exports[`UIForm component should render provided actions 1`] = `
 >
   <Widget
     errors={Object {}}
-    formName="myFormName"
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -171,7 +169,6 @@ exports[`UIForm component should render provided actions 1`] = `
   />
   <Widget
     errors={Object {}}
-    formName="myFormName"
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -203,7 +200,6 @@ exports[`UIForm component should render provided actions 1`] = `
   />
   <Widget
     errors={Object {}}
-    formName="myFormName"
     id="myFormId"
     onChange={[Function]}
     onFinish={[Function]}
@@ -228,7 +224,9 @@ exports[`UIForm component should render provided actions 1`] = `
     }
   />
   <Buttons
-    id="myFormId-myFormName-actions"
+    className="form-actions"
+    id="myFormId-myFormId-actions"
+    onClick={[Function]}
     onTrigger={[Function]}
     schema={
       Object {

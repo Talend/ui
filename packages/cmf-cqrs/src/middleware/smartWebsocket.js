@@ -25,9 +25,10 @@ export function wsIsClosed(ws) {
  * on open connection, try to send messages stored in offline buffer
  */
 export function startWebsocket(url, offlinebuffer, options) {
-	const { onMessage, onOpen, onClose, onError } = options;
+	const { onMessage, onOpen, onClose, onError, onPing, onPingTimeout } = options;
 	const ws = new WebSocket(url);
-	let pingInterval;
+	let pingIntervalId;
+	let pingTimeoutId;
 	ws.onopen = function onopen(event) {
 		if (typeof onOpen === 'function') {
 			onOpen(event);
@@ -40,7 +41,7 @@ export function startWebsocket(url, offlinebuffer, options) {
 			localBuffer.forEach(msg => wsSend(ws, msg.message, msg.callback, offlinebuffer));
 		}
 		ws.ping();
-		pingInterval = setInterval(ws.ping, 50000);
+		pingIntervalId = setInterval(ws.ping, options.pingInterval || 50000);
 	};
 	ws.onmessage = function onmessage(messageEvent) {
 		if (typeof onMessage === 'function') {
@@ -51,8 +52,11 @@ export function startWebsocket(url, offlinebuffer, options) {
 		if (typeof onClose === 'function') {
 			onClose(closeEvent);
 		}
-		if (pingInterval) {
-			clearInterval(pingInterval);
+		if (pingIntervalId) {
+			clearInterval(pingIntervalId);
+		}
+		if (pingTimeoutId) {
+			clearTimeout(pingTimeoutId);
 		}
 	};
 	ws.onerror = function onerror(event) {
@@ -61,7 +65,19 @@ export function startWebsocket(url, offlinebuffer, options) {
 		}
 	};
 	ws.ping = function ping() {
+		if (typeof onPing === 'function') {
+			if (!isNaN(options.pingTimeoutDelay)) {
+				pingTimeoutId = setTimeout(ws.onpingtimeout, options.pingTimeoutDelay);
+			}
+			onPing({ pingTimeoutId });
+		}
 		ws.send('{"type":"PING"}');
+	};
+	ws.onpingtimeout = function onpingtimeout() {
+		if (typeof onPingTimeout === 'function') {
+			onPingTimeout();
+		}
+		ws.close();
 	};
 	return ws;
 }

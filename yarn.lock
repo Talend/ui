@@ -8990,18 +8990,18 @@ react-autowhatever@7.0.0:
     react-themeable "^1.1.0"
     section-iterator "^2.0.0"
 
-react-bootstrap@0.31.0:
-  version "0.31.0"
-  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-0.31.0.tgz#bbca804c0404d9c640102b2b656ae4cd5bea35c8"
+react-bootstrap@0.31.5:
+  version "0.31.5"
+  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-0.31.5.tgz#57040fa8b1274e1e074803c21a1b895fdabea05a"
   dependencies:
     babel-runtime "^6.11.6"
     classnames "^2.2.5"
     dom-helpers "^3.2.0"
     invariant "^2.2.1"
     keycode "^2.1.2"
-    prop-types "^15.5.6"
-    react-overlays "^0.7.0"
-    react-prop-types "^0.4.0"
+    prop-types "^15.5.10"
+    prop-types-extra "^1.0.1"
+    react-overlays "^0.7.4"
     uncontrollable "^4.1.0"
     warning "^3.0.0"
 
@@ -9125,7 +9125,7 @@ react-onclickoutside@^6.5.0:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.7.0.tgz#997a4d533114c9a0a104913638aa26afc084f75c"
 
-react-overlays@^0.7.0:
+react-overlays@^0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.7.4.tgz#ef2ec652c3444ab8aa014262b18f662068e56d5c"
   dependencies:
@@ -9133,12 +9133,6 @@ react-overlays@^0.7.0:
     dom-helpers "^3.2.1"
     prop-types "^15.5.10"
     prop-types-extra "^1.0.1"
-    warning "^3.0.0"
-
-react-prop-types@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/react-prop-types/-/react-prop-types-0.4.0.tgz#f99b0bfb4006929c9af2051e7c1414a5c75b93d0"
-  dependencies:
     warning "^3.0.0"
 
 react-redux@5.0.5:
@@ -9156,18 +9150,6 @@ react-redux@5.0.5:
 react-router-redux@4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-4.0.8.tgz#227403596b5151e182377dab835b5d45f0f8054e"
-
-react-router@3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/react-router/-/react-router-3.0.5.tgz#c3b7873758045a8bbc9562aef4ff4bc8cce7c136"
-  dependencies:
-    create-react-class "^15.5.1"
-    history "^3.0.0"
-    hoist-non-react-statics "^1.2.0"
-    invariant "^2.2.1"
-    loose-envify "^1.2.0"
-    prop-types "^15.5.6"
-    warning "^3.0.0"
 
 react-router@3.2.0:
   version "3.2.0"
@@ -11105,7 +11087,7 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
-tv4@^1.3.0:
+tv4@^1.2.7, tv4@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/tv4/-/tv4-1.3.0.tgz#d020c846fadd50c855abb25ebaecc68fc10f7963"
 
