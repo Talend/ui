@@ -47,26 +47,24 @@ storiesOf('Action Icon Toggle', module)
 			<p>You can customize a specific icon toggle using a sass mixin</p>
 			<pre>
 				{
-`// sass file
+					`// sass file
 @import '~@talend/react-components/lib/Actions/ActionIconToggle/ActionIconToggle.scss'
 $my-btn-size: 4rem;
 $my-btn-icon-size: 2.5rem;
 .tc-icon-toggle.my-custom-icon-toggle {
 	@include btn-icon-toggle($my-btn-size, $my-btn-icon-size);
-}
-
-// component file
+}`
+				}
+			</pre>
+			<pre>
+				{
+`// component file
 <ActionIconToggle
 	className={'my-custom-icon-toggle'}
-	icon={'talend-panel-opener-right'}
-	id={'my-inactive-action'}
-	label={"Click me, I'm inactive"}
-	onClick={action('You clicked the inactive button')}
-	tooltipPlacement={'top'}
+	{...otherProps}
 />`
 				}
 			</pre>
-			<hr />
 
 			<style>
 				{
