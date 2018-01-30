@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Default Array Template component should render default array template 1`] = `
-<div>
+<fieldset>
   <legend>
     comments
   </legend>
@@ -65,13 +65,11 @@ exports[`Default Array Template component should render default array template 1
     </li>
   </ol>
   <div>
-    <button
-      className="btn btn-info"
+    <Action
+      bsStyle="info"
+      label="New Element"
       onClick={[Function]}
-      type="button"
-    >
-      New Element
-    </button>
+    />
   </div>
-</div>
+</fieldset>
 `;

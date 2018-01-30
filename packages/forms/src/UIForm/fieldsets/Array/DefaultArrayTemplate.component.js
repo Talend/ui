@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
+import { Action } from '@talend/react-components/lib/Actions';
 import ArrayItem from './ArrayItem.component';
+import I18N_DOMAIN_FORMS from '../../../constants';
+import { DEFAULT_I18N, getDefaultTranslate } from '../../../translate';
 
 import theme from './Array.scss';
 
-export default function DefaultArrayTemplate(props) {
-	const { canReorder, id, onAdd, onRemove, onReorder, renderItem, schema, value } = props;
+export function DefaultArrayTemplate(props) {
+	const { canReorder, id, onAdd, onRemove, onReorder, renderItem, schema, t, value } = props;
 	return (
-		<div>
+		<fieldset>
 			{schema.title && <legend>{schema.title}</legend>}
 			<ol id={id} className={classNames(theme['tf-array'], 'tf-array')}>
 				{value.map((itemValue, index) => (
@@ -28,13 +32,19 @@ export default function DefaultArrayTemplate(props) {
 				))}
 			</ol>
 			<div>
-				<button type="button" className="btn btn-info" onClick={onAdd}>
-					New Element
-				</button>
+				<Action
+					bsStyle={'info'}
+					onClick={onAdd}
+					label={t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
+				/>
 			</div>
-		</div>
+		</fieldset>
 	);
 }
+
+DefaultArrayTemplate.defaultProps = {
+	t: getDefaultTranslate,
+};
 
 if (process.env.NODE_ENV !== 'production') {
 	DefaultArrayTemplate.propTypes = {
@@ -46,5 +56,8 @@ if (process.env.NODE_ENV !== 'production') {
 		renderItem: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired,
 		value: PropTypes.arrayOf(PropTypes.object).isRequired,
+		t: PropTypes.func.isRequired,
 	};
 }
+
+export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(DefaultArrayTemplate);

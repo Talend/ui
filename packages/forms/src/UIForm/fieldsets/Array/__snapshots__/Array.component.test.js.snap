@@ -82,7 +82,7 @@ exports[`Array component should render array 1`] = `
 <div
   className="theme-tf-array-container tf-array-container"
 >
-  <DefaultArrayTemplate
+  <Translate(DefaultArrayTemplate)
     canReorder={true}
     description="My array description"
     errorMessage="This array is not correct"
@@ -218,7 +218,7 @@ exports[`Array component should render array that can't be reordered 1`] = `
 <div
   className="theme-tf-array-container tf-array-container"
 >
-  <DefaultArrayTemplate
+  <Translate(DefaultArrayTemplate)
     canReorder={false}
     description="My array description"
     errorMessage="This array is not correct"
