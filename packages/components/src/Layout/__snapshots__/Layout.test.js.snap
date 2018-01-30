@@ -3,14 +3,16 @@
 exports[`Layout should render Layout OneColumn 1`] = `
 <div
   className="tc-layout theme-layout"
+  id={undefined}
 >
-  <div
+  <header
     className="tc-layout-header theme-header"
+    role="banner"
   >
     <h1>
       Header
     </h1>
-  </div>
+  </header>
   <div
     className="tc-layout-one-column theme-main"
   >
@@ -42,14 +44,16 @@ exports[`Layout should render Layout OneColumn 1`] = `
 exports[`Layout should render Layout TwoColumns 1`] = `
 <div
   className="tc-layout theme-layout"
+  id={undefined}
 >
-  <div
+  <header
     className="tc-layout-header theme-header"
+    role="banner"
   >
     <h1>
       Header
     </h1>
-  </div>
+  </header>
   <div
     className="tc-layout-two-columns theme-container"
   >
@@ -92,14 +96,16 @@ exports[`Layout should render Layout TwoColumns 1`] = `
 exports[`Layout should render layout with Drawer component 1`] = `
 <div
   className="tc-layout theme-layout"
+  id={undefined}
 >
-  <div
+  <header
     className="tc-layout-header theme-header"
+    role="banner"
   >
     <h1>
       Header
     </h1>
-  </div>
+  </header>
   <div
     className="tc-layout-two-columns theme-container"
   >
@@ -479,14 +485,16 @@ ShallowWrapper {
 exports[`Layout should render layout with TabBar component 1`] = `
 <div
   className="tc-layout theme-layout"
+  id={undefined}
 >
-  <div
+  <header
     className="tc-layout-header theme-header"
+    role="banner"
   >
     <h1>
       Header
     </h1>
-  </div>
+  </header>
   <div
     className="tc-layout-two-columns theme-container"
   >
@@ -588,14 +596,16 @@ exports[`Layout should render layout with TabBar component 1`] = `
 exports[`Layout should render layout with footer component 1`] = `
 <div
   className="tc-layout theme-layout"
+  id={undefined}
 >
-  <div
+  <header
     className="tc-layout-header theme-header"
+    role="banner"
   >
     <h1>
       Header
     </h1>
-  </div>
+  </header>
   <div
     className="tc-layout-one-column theme-main"
   >
@@ -635,6 +645,7 @@ exports[`Layout should render layout with footer component 1`] = `
 exports[`Layout should render layout without header 1`] = `
 <div
   className="tc-layout theme-layout"
+  id={undefined}
 >
   <div
     className="tc-layout-one-column theme-main"
