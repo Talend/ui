@@ -76,40 +76,46 @@
 		padding: 0 $padding-smaller;
 	}
 
-	&-active-icon {
-		background-color: unset;
-		border: 1px solid #333;
-		border-radius: 12px;
-		box-shadow: none;
-		color: #333;
+	&-icon-toggle {
+		background-color: $white;
+		border: 1px solid $gray;
+		color: $gray;
+
 		height: 24px;
-		line-height: unset;
-		opacity: 0.5;
-		padding: 0;
 		width: 24px;
+		border-radius: 12px;
+
+		box-shadow: none;
+		line-height: unset;
+		padding: 0;
 
 		&:hover,
 		&:active,
 		&:focus {
-			background-color: unset;
 			box-shadow: none;
-		}
-
-		&:hover {
-			opacity: 0.75;
-		}
-
-		svg {
-			height: 14px;
-			margin: 4px;
-			width: 14px;
+			background-color: $white;
+			border-color: $scooter;
+			color: $scooter;
 		}
 
 		&.active {
 			background-color: $brand-primary;
-			border: 1px solid $brand-primary;
-			color: white;
-			opacity: 1;
+			border-color: $brand-primary;
+			color: $white;
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $scooter;
+				border-color: $scooter;
+				color: $white;
+			}
+		}
+
+		svg {
+			height: 14px;
+			width: 14px;
+			margin: 4px; // (size - (border x 2)) / 2
 		}
 	}
 
