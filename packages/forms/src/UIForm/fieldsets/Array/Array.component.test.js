@@ -325,4 +325,26 @@ describe('Array component', () => {
 			});
 		});
 	});
+
+	describe('#renderItem', () => {
+		it('should render item at given index', () => {
+			// given
+			const wrapper = shallow(
+				<ArrayWidget
+					description={'My array description'}
+					errorMessage={'This array is not correct'}
+					id={'talend-array'}
+					isValid
+					schema={schema}
+					value={value}
+				/>,
+			);
+
+			// when
+			const item = wrapper.instance().renderItem(1);
+
+			// then
+			expect(item).toMatchSnapshot();
+		});
+	});
 });

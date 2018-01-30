@@ -1,308 +1,211 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Array component #renderItem should render item at given index 1`] = `
+<Widget
+  description="My array description"
+  errorMessage="This array is not correct"
+  id="talend-array-1"
+  isValid={true}
+  items={Array []}
+  schema={
+    Object {
+      "items": Array [
+        Object {
+          "key": Array [
+            "comments",
+            1,
+            "name",
+          ],
+          "required": true,
+          "schema": Object {
+            "title": "Name",
+            "type": "string",
+          },
+          "title": "Name",
+          "type": "text",
+        },
+        Object {
+          "description": "Email will be used for evil.",
+          "key": Array [
+            "comments",
+            1,
+            "email",
+          ],
+          "schema": Object {
+            "description": "Email will be used for evil.",
+            "pattern": "^\\\\S+@\\\\S+$",
+            "title": "Email",
+            "type": "string",
+          },
+          "title": "Email",
+          "type": "text",
+        },
+        Object {
+          "key": Array [
+            "comments",
+            1,
+            "comment",
+          ],
+          "maxlength": 20,
+          "rows": 3,
+          "schema": Object {
+            "maxLength": 20,
+            "title": "Comment",
+            "type": "string",
+            "validationMessage": "Don't be greedy!",
+          },
+          "title": "Comment",
+          "type": "textarea",
+          "validationMessage": "Don't be greedy!",
+        },
+      ],
+      "key": Array [
+        "comments",
+        1,
+      ],
+      "widget": "fieldset",
+    }
+  }
+  templates={Object {}}
+  value={
+    Object {
+      "comment": "Let's do that instead",
+      "email": "jm@lol.com",
+      "name": "JM",
+    }
+  }
+  widgets={Object {}}
+/>
+`;
+
 exports[`Array component should render array 1`] = `
 <div
   className="theme-tf-array-container tf-array-container"
 >
-  <legend>
-    comments
-  </legend>
-  <ol
-    className="theme-tf-array tf-array"
+  <Translate(DefaultArrayTemplate)
+    canReorder={true}
+    description="My array description"
+    errorMessage="This array is not correct"
     id="talend-array"
-  >
-    <li
-      className="theme-item"
-    >
-      <ArrayItem
-        hasMoveDown={true}
-        hasMoveUp={false}
-        id="talend-array-control-0"
-        index={0}
-        onRemove={[Function]}
-        onReorder={[Function]}
-        value={
+    isValid={true}
+    items={Array []}
+    onAdd={[Function]}
+    onChange={[Function]}
+    onFinish={[Function]}
+    onRemove={[Function]}
+    onReorder={[Function]}
+    renderItem={[Function]}
+    schema={
+      Object {
+        "items": Array [
           Object {
-            "comment": "Let's do this",
-            "email": "jimmy@lol.com",
-            "name": "Jimmy",
-          }
-        }
-      >
-        <Widget
-          description="My array description"
-          id="talend-array-0"
-          items={Array []}
-          onChange={[Function]}
-          onFinish={[Function]}
-          schema={
-            Object {
-              "items": Array [
-                Object {
-                  "key": Array [
-                    "comments",
-                    0,
-                    "name",
-                  ],
-                  "required": true,
-                  "schema": Object {
-                    "title": "Name",
-                    "type": "string",
-                  },
-                  "title": "Name",
-                  "type": "text",
-                },
-                Object {
-                  "description": "Email will be used for evil.",
-                  "key": Array [
-                    "comments",
-                    0,
-                    "email",
-                  ],
-                  "schema": Object {
-                    "description": "Email will be used for evil.",
-                    "pattern": "^\\\\S+@\\\\S+$",
-                    "title": "Email",
-                    "type": "string",
-                  },
-                  "title": "Email",
-                  "type": "text",
-                },
-                Object {
-                  "key": Array [
-                    "comments",
-                    0,
-                    "comment",
-                  ],
-                  "maxlength": 20,
-                  "rows": 3,
-                  "schema": Object {
-                    "maxLength": 20,
-                    "title": "Comment",
-                    "type": "string",
-                    "validationMessage": "Don't be greedy!",
-                  },
-                  "title": "Comment",
-                  "type": "textarea",
-                  "validationMessage": "Don't be greedy!",
-                },
-              ],
-              "key": Array [
-                "comments",
-                0,
-              ],
-              "widget": "fieldset",
-            }
-          }
-          value={
-            Object {
-              "comment": "Let's do this",
-              "email": "jimmy@lol.com",
-              "name": "Jimmy",
-            }
-          }
-          widgets={Object {}}
-        />
-      </ArrayItem>
-    </li>
-    <li
-      className="theme-item"
-    >
-      <ArrayItem
-        hasMoveDown={true}
-        hasMoveUp={true}
-        id="talend-array-control-1"
-        index={1}
-        onRemove={[Function]}
-        onReorder={[Function]}
-        value={
+            "key": Array [
+              "comments",
+              "",
+              "name",
+            ],
+            "required": true,
+            "schema": Object {
+              "title": "Name",
+              "type": "string",
+            },
+            "title": "Name",
+            "type": "text",
+          },
           Object {
-            "comment": "Let's do that instead",
-            "email": "jm@lol.com",
-            "name": "JM",
-          }
-        }
-      >
-        <Widget
-          description="My array description"
-          id="talend-array-1"
-          items={Array []}
-          onChange={[Function]}
-          onFinish={[Function]}
-          schema={
-            Object {
-              "items": Array [
-                Object {
-                  "key": Array [
-                    "comments",
-                    1,
-                    "name",
-                  ],
-                  "required": true,
-                  "schema": Object {
-                    "title": "Name",
-                    "type": "string",
-                  },
-                  "title": "Name",
-                  "type": "text",
-                },
-                Object {
-                  "description": "Email will be used for evil.",
-                  "key": Array [
-                    "comments",
-                    1,
-                    "email",
-                  ],
-                  "schema": Object {
-                    "description": "Email will be used for evil.",
-                    "pattern": "^\\\\S+@\\\\S+$",
-                    "title": "Email",
-                    "type": "string",
-                  },
-                  "title": "Email",
-                  "type": "text",
-                },
-                Object {
-                  "key": Array [
-                    "comments",
-                    1,
-                    "comment",
-                  ],
-                  "maxlength": 20,
-                  "rows": 3,
-                  "schema": Object {
-                    "maxLength": 20,
-                    "title": "Comment",
-                    "type": "string",
-                    "validationMessage": "Don't be greedy!",
-                  },
-                  "title": "Comment",
-                  "type": "textarea",
-                  "validationMessage": "Don't be greedy!",
-                },
-              ],
-              "key": Array [
-                "comments",
-                1,
-              ],
-              "widget": "fieldset",
-            }
-          }
-          value={
-            Object {
-              "comment": "Let's do that instead",
-              "email": "jm@lol.com",
-              "name": "JM",
-            }
-          }
-          widgets={Object {}}
-        />
-      </ArrayItem>
-    </li>
-    <li
-      className="theme-item"
-    >
-      <ArrayItem
-        hasMoveDown={false}
-        hasMoveUp={true}
-        id="talend-array-control-2"
-        index={2}
-        onRemove={[Function]}
-        onReorder={[Function]}
-        value={
+            "description": "Email will be used for evil.",
+            "key": Array [
+              "comments",
+              "",
+              "email",
+            ],
+            "schema": Object {
+              "description": "Email will be used for evil.",
+              "pattern": "^\\\\S+@\\\\S+$",
+              "title": "Email",
+              "type": "string",
+            },
+            "title": "Email",
+            "type": "text",
+          },
           Object {
-            "comment": "Don't user ternary !",
-            "email": "geoffroy@lol.com",
-            "name": "Goeffroy",
-          }
-        }
-      >
-        <Widget
-          description="My array description"
-          id="talend-array-2"
-          items={Array []}
-          onChange={[Function]}
-          onFinish={[Function]}
-          schema={
-            Object {
-              "items": Array [
-                Object {
-                  "key": Array [
-                    "comments",
-                    2,
-                    "name",
-                  ],
-                  "required": true,
-                  "schema": Object {
-                    "title": "Name",
-                    "type": "string",
-                  },
-                  "title": "Name",
-                  "type": "text",
-                },
-                Object {
-                  "description": "Email will be used for evil.",
-                  "key": Array [
-                    "comments",
-                    2,
-                    "email",
-                  ],
-                  "schema": Object {
-                    "description": "Email will be used for evil.",
-                    "pattern": "^\\\\S+@\\\\S+$",
-                    "title": "Email",
-                    "type": "string",
-                  },
-                  "title": "Email",
-                  "type": "text",
-                },
-                Object {
-                  "key": Array [
-                    "comments",
-                    2,
-                    "comment",
-                  ],
-                  "maxlength": 20,
-                  "rows": 3,
-                  "schema": Object {
-                    "maxLength": 20,
-                    "title": "Comment",
-                    "type": "string",
-                    "validationMessage": "Don't be greedy!",
-                  },
-                  "title": "Comment",
-                  "type": "textarea",
-                  "validationMessage": "Don't be greedy!",
-                },
-              ],
-              "key": Array [
-                "comments",
-                2,
-              ],
-              "widget": "fieldset",
-            }
-          }
-          value={
-            Object {
-              "comment": "Don't user ternary !",
-              "email": "geoffroy@lol.com",
-              "name": "Goeffroy",
-            }
-          }
-          widgets={Object {}}
-        />
-      </ArrayItem>
-    </li>
-  </ol>
-  <div>
-    <button
-      className="btn btn-info"
-      onClick={[Function]}
-      type="button"
-    >
-      New Element
-    </button>
-  </div>
+            "key": Array [
+              "comments",
+              "",
+              "comment",
+            ],
+            "maxlength": 20,
+            "rows": 3,
+            "schema": Object {
+              "maxLength": 20,
+              "title": "Comment",
+              "type": "string",
+              "validationMessage": "Don't be greedy!",
+            },
+            "title": "Comment",
+            "type": "textarea",
+            "validationMessage": "Don't be greedy!",
+          },
+        ],
+        "key": Array [
+          "comments",
+        ],
+        "required": true,
+        "schema": Object {
+          "items": Object {
+            "properties": Object {
+              "comment": Object {
+                "maxLength": 20,
+                "title": "Comment",
+                "type": "string",
+                "validationMessage": "Don't be greedy!",
+              },
+              "email": Object {
+                "description": "Email will be used for evil.",
+                "pattern": "^\\\\S+@\\\\S+$",
+                "title": "Email",
+                "type": "string",
+              },
+              "name": Object {
+                "title": "Name",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "name",
+              "comment",
+            ],
+            "type": "object",
+          },
+          "maxItems": 2,
+          "type": "array",
+        },
+        "title": "comments",
+        "type": "array",
+      }
+    }
+    templates={Object {}}
+    value={
+      Array [
+        Object {
+          "comment": "Let's do this",
+          "email": "jimmy@lol.com",
+          "name": "Jimmy",
+        },
+        Object {
+          "comment": "Let's do that instead",
+          "email": "jm@lol.com",
+          "name": "JM",
+        },
+        Object {
+          "comment": "Don't user ternary !",
+          "email": "geoffroy@lol.com",
+          "name": "Goeffroy",
+        },
+      ]
+    }
+    widgets={Object {}}
+  />
   <Message
     description={undefined}
     errorMessage="This array is not correct"
@@ -315,305 +218,131 @@ exports[`Array component should render array that can't be reordered 1`] = `
 <div
   className="theme-tf-array-container tf-array-container"
 >
-  <legend>
-    comments
-  </legend>
-  <ol
-    className="theme-tf-array tf-array"
+  <Translate(DefaultArrayTemplate)
+    canReorder={false}
+    description="My array description"
+    errorMessage="This array is not correct"
     id="talend-array"
-  >
-    <li
-      className="theme-item"
-    >
-      <ArrayItem
-        hasMoveDown={true}
-        hasMoveUp={false}
-        id="talend-array-control-0"
-        index={0}
-        onRemove={[Function]}
-        onReorder={false}
-        value={
+    isValid={true}
+    items={Array []}
+    onAdd={[Function]}
+    onChange={[Function]}
+    onFinish={[Function]}
+    onRemove={[Function]}
+    onReorder={[Function]}
+    renderItem={[Function]}
+    schema={
+      Object {
+        "items": Array [
           Object {
-            "comment": "Let's do this",
-            "email": "jimmy@lol.com",
-            "name": "Jimmy",
-          }
-        }
-      >
-        <Widget
-          description="My array description"
-          id="talend-array-0"
-          items={Array []}
-          onChange={[Function]}
-          onFinish={[Function]}
-          schema={
-            Object {
-              "items": Array [
-                Object {
-                  "key": Array [
-                    "comments",
-                    0,
-                    "name",
-                  ],
-                  "required": true,
-                  "schema": Object {
-                    "title": "Name",
-                    "type": "string",
-                  },
-                  "title": "Name",
-                  "type": "text",
-                },
-                Object {
-                  "description": "Email will be used for evil.",
-                  "key": Array [
-                    "comments",
-                    0,
-                    "email",
-                  ],
-                  "schema": Object {
-                    "description": "Email will be used for evil.",
-                    "pattern": "^\\\\S+@\\\\S+$",
-                    "title": "Email",
-                    "type": "string",
-                  },
-                  "title": "Email",
-                  "type": "text",
-                },
-                Object {
-                  "key": Array [
-                    "comments",
-                    0,
-                    "comment",
-                  ],
-                  "maxlength": 20,
-                  "rows": 3,
-                  "schema": Object {
-                    "maxLength": 20,
-                    "title": "Comment",
-                    "type": "string",
-                    "validationMessage": "Don't be greedy!",
-                  },
-                  "title": "Comment",
-                  "type": "textarea",
-                  "validationMessage": "Don't be greedy!",
-                },
-              ],
-              "key": Array [
-                "comments",
-                0,
-              ],
-              "widget": "fieldset",
-            }
-          }
-          value={
-            Object {
-              "comment": "Let's do this",
-              "email": "jimmy@lol.com",
-              "name": "Jimmy",
-            }
-          }
-          widgets={Object {}}
-        />
-      </ArrayItem>
-    </li>
-    <li
-      className="theme-item"
-    >
-      <ArrayItem
-        hasMoveDown={true}
-        hasMoveUp={true}
-        id="talend-array-control-1"
-        index={1}
-        onRemove={[Function]}
-        onReorder={false}
-        value={
+            "key": Array [
+              "comments",
+              "",
+              "name",
+            ],
+            "required": true,
+            "schema": Object {
+              "title": "Name",
+              "type": "string",
+            },
+            "title": "Name",
+            "type": "text",
+          },
           Object {
-            "comment": "Let's do that instead",
-            "email": "jm@lol.com",
-            "name": "JM",
-          }
-        }
-      >
-        <Widget
-          description="My array description"
-          id="talend-array-1"
-          items={Array []}
-          onChange={[Function]}
-          onFinish={[Function]}
-          schema={
-            Object {
-              "items": Array [
-                Object {
-                  "key": Array [
-                    "comments",
-                    1,
-                    "name",
-                  ],
-                  "required": true,
-                  "schema": Object {
-                    "title": "Name",
-                    "type": "string",
-                  },
-                  "title": "Name",
-                  "type": "text",
-                },
-                Object {
-                  "description": "Email will be used for evil.",
-                  "key": Array [
-                    "comments",
-                    1,
-                    "email",
-                  ],
-                  "schema": Object {
-                    "description": "Email will be used for evil.",
-                    "pattern": "^\\\\S+@\\\\S+$",
-                    "title": "Email",
-                    "type": "string",
-                  },
-                  "title": "Email",
-                  "type": "text",
-                },
-                Object {
-                  "key": Array [
-                    "comments",
-                    1,
-                    "comment",
-                  ],
-                  "maxlength": 20,
-                  "rows": 3,
-                  "schema": Object {
-                    "maxLength": 20,
-                    "title": "Comment",
-                    "type": "string",
-                    "validationMessage": "Don't be greedy!",
-                  },
-                  "title": "Comment",
-                  "type": "textarea",
-                  "validationMessage": "Don't be greedy!",
-                },
-              ],
-              "key": Array [
-                "comments",
-                1,
-              ],
-              "widget": "fieldset",
-            }
-          }
-          value={
-            Object {
-              "comment": "Let's do that instead",
-              "email": "jm@lol.com",
-              "name": "JM",
-            }
-          }
-          widgets={Object {}}
-        />
-      </ArrayItem>
-    </li>
-    <li
-      className="theme-item"
-    >
-      <ArrayItem
-        hasMoveDown={false}
-        hasMoveUp={true}
-        id="talend-array-control-2"
-        index={2}
-        onRemove={[Function]}
-        onReorder={false}
-        value={
+            "description": "Email will be used for evil.",
+            "key": Array [
+              "comments",
+              "",
+              "email",
+            ],
+            "schema": Object {
+              "description": "Email will be used for evil.",
+              "pattern": "^\\\\S+@\\\\S+$",
+              "title": "Email",
+              "type": "string",
+            },
+            "title": "Email",
+            "type": "text",
+          },
           Object {
-            "comment": "Don't user ternary !",
-            "email": "geoffroy@lol.com",
-            "name": "Goeffroy",
-          }
-        }
-      >
-        <Widget
-          description="My array description"
-          id="talend-array-2"
-          items={Array []}
-          onChange={[Function]}
-          onFinish={[Function]}
-          schema={
-            Object {
-              "items": Array [
-                Object {
-                  "key": Array [
-                    "comments",
-                    2,
-                    "name",
-                  ],
-                  "required": true,
-                  "schema": Object {
-                    "title": "Name",
-                    "type": "string",
-                  },
-                  "title": "Name",
-                  "type": "text",
-                },
-                Object {
-                  "description": "Email will be used for evil.",
-                  "key": Array [
-                    "comments",
-                    2,
-                    "email",
-                  ],
-                  "schema": Object {
-                    "description": "Email will be used for evil.",
-                    "pattern": "^\\\\S+@\\\\S+$",
-                    "title": "Email",
-                    "type": "string",
-                  },
-                  "title": "Email",
-                  "type": "text",
-                },
-                Object {
-                  "key": Array [
-                    "comments",
-                    2,
-                    "comment",
-                  ],
-                  "maxlength": 20,
-                  "rows": 3,
-                  "schema": Object {
-                    "maxLength": 20,
-                    "title": "Comment",
-                    "type": "string",
-                    "validationMessage": "Don't be greedy!",
-                  },
-                  "title": "Comment",
-                  "type": "textarea",
-                  "validationMessage": "Don't be greedy!",
-                },
-              ],
-              "key": Array [
-                "comments",
-                2,
-              ],
-              "widget": "fieldset",
-            }
-          }
-          value={
-            Object {
-              "comment": "Don't user ternary !",
-              "email": "geoffroy@lol.com",
-              "name": "Goeffroy",
-            }
-          }
-          widgets={Object {}}
-        />
-      </ArrayItem>
-    </li>
-  </ol>
-  <div>
-    <button
-      className="btn btn-info"
-      onClick={[Function]}
-      type="button"
-    >
-      New Element
-    </button>
-  </div>
+            "key": Array [
+              "comments",
+              "",
+              "comment",
+            ],
+            "maxlength": 20,
+            "rows": 3,
+            "schema": Object {
+              "maxLength": 20,
+              "title": "Comment",
+              "type": "string",
+              "validationMessage": "Don't be greedy!",
+            },
+            "title": "Comment",
+            "type": "textarea",
+            "validationMessage": "Don't be greedy!",
+          },
+        ],
+        "key": Array [
+          "comments",
+        ],
+        "reorder": false,
+        "required": true,
+        "schema": Object {
+          "items": Object {
+            "properties": Object {
+              "comment": Object {
+                "maxLength": 20,
+                "title": "Comment",
+                "type": "string",
+                "validationMessage": "Don't be greedy!",
+              },
+              "email": Object {
+                "description": "Email will be used for evil.",
+                "pattern": "^\\\\S+@\\\\S+$",
+                "title": "Email",
+                "type": "string",
+              },
+              "name": Object {
+                "title": "Name",
+                "type": "string",
+              },
+            },
+            "required": Array [
+              "name",
+              "comment",
+            ],
+            "type": "object",
+          },
+          "maxItems": 2,
+          "type": "array",
+        },
+        "title": "comments",
+        "type": "array",
+      }
+    }
+    templates={Object {}}
+    value={
+      Array [
+        Object {
+          "comment": "Let's do this",
+          "email": "jimmy@lol.com",
+          "name": "Jimmy",
+        },
+        Object {
+          "comment": "Let's do that instead",
+          "email": "jm@lol.com",
+          "name": "JM",
+        },
+        Object {
+          "comment": "Don't user ternary !",
+          "email": "geoffroy@lol.com",
+          "name": "Goeffroy",
+        },
+      ]
+    }
+    widgets={Object {}}
+  />
   <Message
     description={undefined}
     errorMessage="This array is not correct"

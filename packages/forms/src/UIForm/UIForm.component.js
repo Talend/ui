@@ -17,11 +17,14 @@ export default class UIForm extends React.Component {
 	constructor(props) {
 		super(props);
 		const { jsonSchema, uiSchema } = props;
+
+		const state = {};
 		if (Object.keys(jsonSchema).length) {
-			this.state = merge(jsonSchema, uiSchema);
-		} else {
-			this.state = {};
+			Object.assign(state, merge(jsonSchema, uiSchema));
 		}
+		state.widgets = { ...state.widgets, ...props.widgets };
+		this.state = state;
+
 		this.onChange = this.onChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -44,7 +47,14 @@ export default class UIForm extends React.Component {
 			return;
 		}
 		if (Object.keys(jsonSchema).length) {
-			this.setState(merge(jsonSchema, uiSchema));
+			const merged = merge(jsonSchema, uiSchema);
+			this.setState({
+				...merged,
+				widgets: {
+					...merged.widgets,
+					...this.props.widgets,
+				},
+			});
 		}
 	}
 
@@ -223,7 +233,8 @@ export default class UIForm extends React.Component {
 						schema={nextSchema}
 						properties={this.props.properties}
 						errors={this.props.errors}
-						widgets={Object.assign({}, this.props.widgets, this.state.widgets)}
+						templates={this.props.templates}
+						widgets={this.state.widgets}
 					/>
 				))}
 				{this.props.children}
@@ -272,6 +283,8 @@ if (process.env.NODE_ENV !== 'production') {
 		 * Prototype: function onTrigger(event, { trigger, schema, properties })
 		 */
 		onTrigger: PropTypes.func,
+		/** Custom templates */
+		templates: PropTypes.object,
 		/** Custom widgets */
 		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 
