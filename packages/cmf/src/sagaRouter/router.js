@@ -84,7 +84,7 @@ import matchPath from './matchPath';
 function shouldStartSaga(maybeSaga, match, routeSaga) {
 	if (match) {
 		if (!maybeSaga || (maybeSaga && maybeSaga.saga && !maybeSaga.saga.isRunning())) {
-			if (routeSaga.restartOnRouteChange === true) {
+			if (routeSaga.runOnExactMatch === true) {
 				return match.isExact;
 			}
 			return true;
@@ -100,9 +100,9 @@ function shouldStartSaga(maybeSaga, match, routeSaga) {
  * @param {Match} match
  * @param {RouteSaga} routeSaga
  */
-function shouldCancelSaga(maybeSaga, match) {
+function shouldCancelSaga(maybeSaga, match, routeSaga) {
 	if (maybeSaga && maybeSaga.saga.isRunning()) {
-		if (!match) {
+		if (!match || routeSaga.runOnExactMatch === true) {
 			return true;
 		}
 	}
@@ -114,6 +114,7 @@ function shouldCancelSaga(maybeSaga, match) {
  *
  * @param {MaybeSaga} maybeSaga
  * @param {Match} match
+ * @param {RouteSaga} routeSaga
  */
 function shouldRestartSaga(maybeSaga, match, routeSaga) {
 	if (match) {
@@ -163,7 +164,7 @@ export default function* sagaRouter(history, routes) {
 			const routeFragment = routeFragments[index];
 			const routeSaga = routes[routeFragment];
 			const { match, maybeSaga } = parseSagaState(routeFragment, sagas, currentLocation);
-			if (shouldCancelSaga(maybeSaga, match)) {
+			if (shouldCancelSaga(maybeSaga, match, routeSaga)) {
 				yield cancel(maybeSaga.saga);
 			} else if (shouldRestartSaga(maybeSaga, match, routeSaga)) {
 				yield cancel(maybeSaga.saga);

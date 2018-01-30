@@ -92,6 +92,7 @@ describe('sagaRouter RouteChange', () => {
 			take('@@router/LOCATION_CHANGE'),
 		);
 	});
+
 	it("stop the saga if its route don't match the current location", () => {
 		const mockTask = createMockTask();
 		function getMockedHistory() {
@@ -181,7 +182,51 @@ describe('sagaRouter RouteChange', () => {
 		);
 	});
 
-	it(`does not start the configured saga with 'restartOnRouteChange' parameter,
+	it(`stop a saga with 'runOnExactMatch' parameter if its route is a fragment of the new route`, () => {
+		// GIVEN
+		const mockTask = createMockTask();
+		const routes = {
+			'/resources': {
+				runOnExactMatch: true,
+				saga: function* resourcesSaga(params, isExact) {
+					if (isExact) {
+						yield take('SOMETHING');
+					}
+				},
+			},
+			'/resources/action': function* resourcesActionSaga() {
+				yield take('SOMETHING');
+			},
+		};
+		function getMockedHistory() {
+			let count = 0;
+			return {
+				getCurrentLocation() {
+					if (count === 0) {
+						count = 1;
+						return {
+							pathname: '/resources',
+						};
+					}
+					return {
+						pathname: '/resources/action',
+					};
+				},
+			};
+		}
+		// WHEN
+		const gen = sagaRouter(getMockedHistory(), routes);
+		// EXPECT
+		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
+		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
+				spawn(routes['/resources'].saga, {}, true),
+		);
+		expect(gen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
+		const expectedCancelYield = cancel(mockTask);
+		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(expectedCancelYield);
+	});
+
+	it(`does not start the configured saga with 'runOnExactMatch' parameter,
 	if route is a fragment of current location`, () => {
 		const mockHistory = {
 			getCurrentLocation() {
@@ -192,7 +237,7 @@ describe('sagaRouter RouteChange', () => {
 		};
 		const routes = {
 			'/matchingroute': {
-				restartOnRouteChange: true,
+				runOnExactMatch: true,
 				saga: function* matchingSaga(notused, isExact) {
 					if (isExact) {
 						yield take({ type: 'NOT_DISPATCHED' });
@@ -248,9 +293,12 @@ describe('sagaRouter RouteChange', () => {
 			spawn(routes['/resources'].saga, {}, true),
 		);
 		expect(gen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
-		// if saga restarted, next value would be cancel saga.
+		// if saga restarted, it will cancel it first and then start it.
 		const expectedCancelYield = cancel(mockTask);
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(expectedCancelYield);
+		expect(gen.next().value).toEqual(
+				spawn(routes['/resources'].saga, {}, false),
+		);
 	});
 });
 

@@ -91,14 +91,19 @@ Now the route is changed to `localhost/connections/add`
 
 ### Match exact route
 
+You can check if it's an exact match in saga generator by `isExact`, which is passed as the second parameter,
+
 Given the webapp url is `localhost/datasets`,
 then `isExact` will be passed to saga generator as true, because it's an exact match.
 
 when route changes to `localhost/datasets/add`, saga of `/datasets` will be restarted,
 and `isExact` will be passed to saga generator as false, because it's a partial match.
 
-To achieve this, you also need to pass a configuration `restartOnRouteChange` which is set to true,
+To achieve this, you need to pass a configuration `restartOnRouteChange` as true,
 so saga of `/datasets` will be restarted when route changes.
+
+Optionally, if you want to run a saga only on exact match, you can pass a configuration `runOnExactMatch` as true,
+then saga will be started when its route exactly match current location, and will be stopped when change to any other route.
 
 
 ```javascript
@@ -109,6 +114,7 @@ const CANCEL_ACTION = 'CANCEL_ACTION';
 // route configuration, a url fragment match with a generator
 const routes = {
   '/datasets': {
+    // runOnExactMatch: true,
     restartOnRouteChange: true,
     saga: function* datasets(notUsed, isExact) {
       if (!isExact) {
