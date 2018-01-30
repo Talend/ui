@@ -52,7 +52,7 @@ storiesOf('Action Icon Toggle', module)
 $my-btn-size: 4rem;
 $my-btn-icon-size: 2.5rem;
 .tc-icon-toggle.my-custom-icon-toggle {
-	@include btn-icon-toggle($my-btn-size, $my-btn-icon-size);
+	@include tc-icon-toggle($my-btn-size, $my-btn-icon-size);
 }`
 				}
 			</pre>

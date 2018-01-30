@@ -1,7 +1,7 @@
 $tc-icon-toggle-size: 2.4rem !default;
 $tc-icon-toggle-icon-size: $svg-sm-size !default;
 
-@mixin btn-icon-toggle($btn-size: $tc-icon-toggle-size, $icon-size: $tc-icon-toggle-icon-size) {
+@mixin tc-icon-toggle($btn-size: $tc-icon-toggle-size, $icon-size: $tc-icon-toggle-icon-size) {
 	height: $btn-size;
 	width: $btn-size;
 	border-radius: $btn-size / 2;
@@ -13,7 +13,7 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 }
 
 .tc-icon-toggle {
-	@include btn-icon-toggle();
+	@include tc-icon-toggle();
 
 	display: flex;
 	justify-content: center;
