@@ -94,7 +94,7 @@ ListToVirtualizedList.propTypes = {
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
 	inProgress: PropTypes.bool,
-	noRowsRenderer: PropTypes.oneOf(PropTypes.element, PropTypes.func),
+	noRowsRenderer: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 	rowHeight: PropTypes.number,
 	sort: PropTypes.shape({
 		onChange: PropTypes.func,
