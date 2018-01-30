@@ -4,7 +4,8 @@
 
 
 src/theme/_buttons.scss
-  14:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
+  14:2   error  The keyword `all` should not be used with the property `transition`  no-transition-all
+  80:27  error  Parenthesis should be removed                                        empty-args
 
 src/theme/_dropdowns.scss
   22:22  error  !important not allowed  no-important
@@ -28,5 +29,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 17 problems (14 errors, 3 warnings)
+✖ 18 problems (15 errors, 3 warnings)
 
