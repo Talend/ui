@@ -35,7 +35,7 @@ export default function Widget(props) {
 			key={id}
 			errorMessage={errorMessage}
 			isValid={!error}
-			value={getValue(props.properties, key)}
+			value={getValue(props.properties, props.schema)}
 			options={options}
 		/>
 	);

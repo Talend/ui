@@ -374,11 +374,19 @@ class MyComponent extends React.Component {
 		return `The field ${schema.key} is not valid. Value: ${value}`;
 	}
 
-	onChange(event, { properties, schema, value, formData }) {
+	onChange(event, { schema, value, oldProperties, properties }) {
+		
+	}
+	
+	onErrors(event, errors) {
 		
 	}
 
-	onTrigger(formData, formId, propertyName, propertyValue) {
+	onTrigger(event, { trigger, schema, properties }) {
+		
+	}
+	
+	onSubmit(event, properties) {
 		
 	}
 
@@ -386,8 +394,49 @@ class MyComponent extends React.Component {
 		return (<UIForm
 		    {...props}
 		    id={'my-unique-form-id'}
-		    data={{ jsonSchema, uiSchema, properties }}
+		    data={{ jsonSchema, uiSchema, properties, errors }}
 		/>);
 	}
 }
 ```
+
+UIForms manage its own state based on its `props.data`. But if you need to manage this state from outside, please read next sections.
+
+### How to synchronize data
+
+You have 2 states changed internally, that you can synchronize : `properties` (the forms data), and `errors`.
+
+```javascript
+import React from 'react';
+import { UIForm } from '@talend/react-forms/lib/UIForm';
+
+class MyComponent extends React.Component {
+
+	onChange(event, { schema, value, oldProperties, properties }) {
+		// save properties in your app state
+	}
+	
+	onErrors(event, errors) {
+		// save errors in your app state
+	}
+
+	render() {
+		// get properties and errors from your app state
+		// inject them back to the forms
+		const properties = myAppState.properties;
+		const errors = myAppState.errors;
+		
+		return (<UIForm
+		    {...props}
+		    id={'my-unique-form-id'}
+		    data={{ jsonSchema, uiSchema, properties, errors }}
+		    onErrors={this.onErrors.bind(this)}
+		    onChange={this.onChange.bind(this)}
+		/>);
+	}
+}
+```
+
+Changing UIForm's `props.data` will replace the existing pieces in the form.
+
+So you need to synchronize the UIForm's state with your own stat system

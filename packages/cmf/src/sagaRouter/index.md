@@ -48,15 +48,14 @@ yield fork(routerSaga, history, routes);
 ```
 
 ## Matching pattern
-
 ```javascript
 const routes = {
   "/datasets/add": saga1,
-  "/connections/:datastoreId/edit/add-dataset": saga2
+  "/connections/:datastoreid/edit/add-dataset": saga2
 };
 ```
 
-Keys of the saga object are matched against the current webapp url.
+keys of the saga object are matched against the current webapp url.
 
 ### Simple matching
 
@@ -100,6 +99,51 @@ only `datasetsSaga` will be executed.
 Now the route is changed to `localhost/connections/add`
 
 `datasetsSaga` is canceled if it is still running and connectionsSaga is started.
+
+### Match exact route
+
+You can check if it's an exact match in saga generator by `isExact`, which is passed as the second parameter,
+
+Given the webapp url is `localhost/datasets`,
+then `isExact` will be passed to saga generator as true, because it's an exact match.
+
+when route changes to `localhost/datasets/add`, saga of `/datasets` will be restarted,
+and `isExact` will be passed to saga generator as false, because it's a partial match.
+
+To achieve this, you need to pass a configuration `restartOnRouteChange` as true,
+so saga of `/datasets` will be restarted when route changes.
+
+Optionally, if you want to run a saga only on exact match, you can pass a configuration `runOnExactMatch` as true,
+then saga will be started when its route exactly match current location, and will be stopped when change to any other route.
+
+
+```javascript
+import { sagaRouter } from '@talend/react-cmf';
+import { browserHistory as history } from 'react-router';
+
+const CANCEL_ACTION = 'CANCEL_ACTION';
+// route configuration, a url fragment match with a generator
+const routes = {
+  '/datasets': {
+    // runOnExactMatch: true,
+    restartOnRouteChange: true,
+    saga: function* datasets(notUsed, isExact) {
+      if (!isExact) {
+        return;
+      }
+      yield take(CANCEL_ACTION);
+      yield put({
+        type: REDIRECT_CONNECTION_ADD_DATASET_CANCEL,
+        cmf: {
+          routerReplace: `/connections/${datastoreId}/edit`,
+        },
+      });
+    },
+  },
+  '/datasets/add': function* addDataset() {}
+};
+```
+
 
 ### Partial route matching
 

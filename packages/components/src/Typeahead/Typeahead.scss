@@ -137,7 +137,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		color: $tc-typeahead-item-description-color;
 	}
 
-	&-focused {
+	&-highlighted {
 		background-color: $tc-typeahead-focused-item-background-color;
 	}
 }
