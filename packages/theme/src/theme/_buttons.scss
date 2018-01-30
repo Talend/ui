@@ -77,13 +77,10 @@
 	}
 
 	&-icon-toggle {
+		@include btn-icon-toggle();
 		background-color: $white;
 		border: 1px solid $gray;
 		color: $gray;
-
-		height: 24px;
-		width: 24px;
-		border-radius: 12px;
 
 		box-shadow: none;
 		line-height: unset;
@@ -110,12 +107,6 @@
 				border-color: $scooter;
 				color: $white;
 			}
-		}
-
-		svg {
-			height: 14px;
-			width: 14px;
-			margin: 4px; // (size - (border x 2)) / 2
 		}
 	}
 
