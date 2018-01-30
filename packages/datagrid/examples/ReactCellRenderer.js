@@ -13,9 +13,7 @@ export default function ReactCellRenderer() {
 
 	const columnReactDefs = columnDefs.map(columnDefinition => ({
 		...columnDefinition,
-		...(columnDefinition.field.includes('col')
-			? { cellRenderer: 'cellRenderer' }
-			: { cellClass: 'index-cell' }),
+		...(columnDefinition.field.includes('col') ? { cellRenderer: 'cellRenderer' } : {}),
 	}));
 
 	return (
@@ -24,7 +22,9 @@ export default function ReactCellRenderer() {
 				rowData={rowData}
 				columnDefs={columnReactDefs}
 				renderers={renderers}
-				rowSelection="multiple"
+				rowSelection="single"
+				onFocusChanged={event => console.log(event)}
+				onFocusColumnChanged={event => console.log(event)}
 			/>
 		</div>
 	);

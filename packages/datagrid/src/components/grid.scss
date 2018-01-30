@@ -12,17 +12,21 @@
 		border-bottom: #f6f6f6 1px solid;
 	}
 
-	:global(.index-cell) {
+	:global(.ag-row-selected) {
+		background-color: DeepSkyBlue;
+	}
+
+	:global(.ag-cell.ag-cell-focus:not(.ag-cell-last-left-pinned)) {
+		background-color: white;
+	}
+
+	:global(.ag-cell.ag-cell-last-left-pinned) {
 		padding: 9px;
 		color: #202020;
 		border-color: #e6e6e6;
 	}
 
-	:global(.ag-row-selected) {
-		background-color: DeepSkyBlue;
-	}
-
-	:global(.ag-cell-focus) {
-		background-color: white;
+	:global(.column-focus) {
+		background-color: violet;
 	}
 }
