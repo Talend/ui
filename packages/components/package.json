@@ -45,7 +45,7 @@
     "lodash": "4.17.4",
     "rc-slider": "8.4.1",
     "rc-tooltip": "3.7.0",
-    "react-autowhatever": "7.0.0",
+    "react-autowhatever": "10.1.0",
     "react-debounce-input": "3.1.0",
     "react-virtualized": "9.10.1"
   },
