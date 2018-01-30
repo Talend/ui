@@ -2,14 +2,17 @@
 
 exports[`Array component should render array 1`] = `
 <div
-  className="tf-array-container"
+  className="theme-tf-array-container tf-array-container"
 >
+  <legend>
+    comments
+  </legend>
   <ol
-    className="tf-array"
+    className="theme-tf-array tf-array"
     id="talend-array"
   >
     <li
-      className={undefined}
+      className="theme-item"
     >
       <ArrayItem
         hasMoveDown={true}
@@ -103,7 +106,7 @@ exports[`Array component should render array 1`] = `
       </ArrayItem>
     </li>
     <li
-      className={undefined}
+      className="theme-item"
     >
       <ArrayItem
         hasMoveDown={true}
@@ -197,7 +200,7 @@ exports[`Array component should render array 1`] = `
       </ArrayItem>
     </li>
     <li
-      className={undefined}
+      className="theme-item"
     >
       <ArrayItem
         hasMoveDown={false}
@@ -310,14 +313,17 @@ exports[`Array component should render array 1`] = `
 
 exports[`Array component should render array that can't be reordered 1`] = `
 <div
-  className="tf-array-container"
+  className="theme-tf-array-container tf-array-container"
 >
+  <legend>
+    comments
+  </legend>
   <ol
-    className="tf-array"
+    className="theme-tf-array tf-array"
     id="talend-array"
   >
     <li
-      className={undefined}
+      className="theme-item"
     >
       <ArrayItem
         hasMoveDown={true}
@@ -411,7 +417,7 @@ exports[`Array component should render array that can't be reordered 1`] = `
       </ArrayItem>
     </li>
     <li
-      className={undefined}
+      className="theme-item"
     >
       <ArrayItem
         hasMoveDown={true}
@@ -505,7 +511,7 @@ exports[`Array component should render array that can't be reordered 1`] = `
       </ArrayItem>
     </li>
     <li
-      className={undefined}
+      className="theme-item"
     >
       <ArrayItem
         hasMoveDown={false}

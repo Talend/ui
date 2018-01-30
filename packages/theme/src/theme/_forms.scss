@@ -27,14 +27,14 @@ form {
 		textarea,
 		textarea.form-control,
 		input.form-control,
-		input[type=text],
-		input[type=password],
-		input[type=email],
-		input[type=number],
-		[type=text].form-control,
-		[type=password].form-control,
-		[type=email].form-control,
-		[type=tel].form-control,
+		input[type='text'],
+		input[type='password'],
+		input[type='email'],
+		input[type='number'],
+		[type='text'].form-control,
+		[type='password'].form-control,
+		[type='email'].form-control,
+		[type='tel'].form-control,
 		[contenteditable].form-control {
 			&:focus:not([readonly]) + label {
 				color: $scooter;
@@ -45,14 +45,14 @@ form {
 	textarea,
 	textarea.form-control,
 	input.form-control,
-	input[type=text],
-	input[type=password],
-	input[type=email],
-	input[type=number],
-	[type=text].form-control,
-	[type=password].form-control,
-	[type=email].form-control,
-	[type=tel].form-control,
+	input[type='text'],
+	input[type='password'],
+	input[type='email'],
+	input[type='number'],
+	[type='text'].form-control,
+	[type='password'].form-control,
+	[type='email'].form-control,
+	[type='tel'].form-control,
 	[contenteditable].form-control {
 		@include box-shadow($form-shadow);
 		padding: 0;
@@ -63,7 +63,6 @@ form {
 
 		&:focus {
 			@include box-shadow($form-focus-shadow);
-
 		}
 
 		&[disabled] {
@@ -108,7 +107,8 @@ form {
 		font-weight: $form-base-font-weight;
 		line-height: 1.5;
 
-		&::-ms-expand { // sass-lint:disable-line no-vendor-prefixes
+		&::-ms-expand {
+			// sass-lint:disable-line no-vendor-prefixes
 			display: none;
 		}
 
@@ -153,7 +153,6 @@ form {
 	input[type='radio'],
 	.radio input[type='radio'],
 	.radio-inline input[type='radio'] {
-
 		&:focus {
 			outline: none;
 		}
@@ -212,7 +211,6 @@ form {
 	input[type='checkbox'],
 	.checkbox input[type='checkbox'],
 	.checkbox-inline input[type='checkbox'] {
-
 		&:before,
 		&:after,
 		+ *:before,
@@ -277,12 +275,12 @@ form {
 	}
 
 	.has-warning {
-		input:not([type=checkbox]),
+		input:not([type='checkbox']),
 		.form-control,
 		input.form-control[readonly],
-		input[type=text][readonly],
-		[type=text].form-control[readonly],
-		input:not([type=checkbox]):focus,
+		input[type='text'][readonly],
+		[type='text'].form-control[readonly],
+		input:not([type='checkbox']):focus,
 		.form-control:focus {
 			@include box-shadow(inset 0 -2px 0 $brand-warning);
 			border-bottom: none;
@@ -290,15 +288,12 @@ form {
 	}
 
 	.has-error {
-		font-size: $font-size-small;
-		color: $chestnut-rose;
-
-		input:not([type=checkbox]),
+		input:not([type='checkbox']),
 		.form-control,
 		input.form-control[readonly],
-		input[type=text][readonly],
-		[type=text].form-control[readonly],
-		input:not([type=checkbox]):focus,
+		input[type='text'][readonly],
+		[type='text'].form-control[readonly],
+		input:not([type='checkbox']):focus,
 		.form-control:focus {
 			@include box-shadow(inset 0 -2px 0 $brand-danger);
 			border-bottom: none;
@@ -314,12 +309,12 @@ form {
 	}
 
 	.has-success {
-		input:not([type=checkbox]),
+		input:not([type='checkbox']),
 		.form-control,
 		input.form-control[readonly],
-		input[type=text][readonly],
-		[type=text].form-control[readonly],
-		input:not([type=checkbox]):focus,
+		input[type='text'][readonly],
+		[type='text'].form-control[readonly],
+		input:not([type='checkbox']):focus,
 		.form-control:focus {
 			@include box-shadow(inset 0 -2px 0 $brand-success);
 			border-bottom: none;
@@ -348,7 +343,8 @@ form {
 .form {
 	&-group {
 		position: relative;
-		padding-top: 20px;
+		padding-top: $padding-normal;
+		margin-bottom: $padding-normal;
 
 		select {
 			padding: 0;
@@ -358,7 +354,7 @@ form {
 	&-control {
 		+ label {
 			position: absolute;
-			top: 28px;
+			top: 23px;
 			left: 0;
 			color: $dove-gray;
 			font-size: $font-size-base;
@@ -374,7 +370,6 @@ form {
 			top: 2.6rem;
 			font-size: $font-size-large;
 		}
-
 	}
 
 	&-control:focus,
@@ -393,7 +388,7 @@ form {
 	}
 
 	&-control:disabled,
-	&-control[value]:not([value='']):disabled  {
+	&-control[value]:not([value='']):disabled {
 		color: $silver-chalice;
 
 		+ label {

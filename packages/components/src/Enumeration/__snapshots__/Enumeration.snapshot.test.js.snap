@@ -2,10 +2,10 @@
 
 exports[`Enumeration should render with EmptyListPlaceholder in default mode when there's no items in list 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="theme-tc-enumeration tc-enumeration"
 >
   <header
-    className="undefined tc-enumeration-header"
+    className="theme-tc-enumeration-header tc-enumeration-header"
   >
     <span>
       Values
@@ -15,7 +15,7 @@ exports[`Enumeration should render with EmptyListPlaceholder in default mode whe
     />
   </header>
   <p
-    className="undefined tc-enumeration-hint"
+    className="theme-tc-enumeration-hint tc-enumeration-hint"
   >
     The list is empty
   </p>
@@ -24,10 +24,10 @@ exports[`Enumeration should render with EmptyListPlaceholder in default mode whe
 
 exports[`Enumeration should render with EmptyListPlaceholder in search mode when there's no items in list 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="theme-tc-enumeration tc-enumeration"
 >
   <header
-    className="undefined tc-enumeration-header"
+    className="theme-tc-enumeration-header tc-enumeration-header"
   >
     <input
       autoFocus={true}
@@ -39,7 +39,7 @@ exports[`Enumeration should render with EmptyListPlaceholder in search mode when
     />
   </header>
   <p
-    className="undefined tc-enumeration-hint"
+    className="theme-tc-enumeration-hint tc-enumeration-hint"
   >
     No results
   </p>
@@ -48,10 +48,10 @@ exports[`Enumeration should render with EmptyListPlaceholder in search mode when
 
 exports[`Enumeration should render with header in add state and list in default state 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="theme-tc-enumeration tc-enumeration"
 >
   <header
-    className="undefined tc-enumeration-header"
+    className="theme-tc-enumeration-header tc-enumeration-header"
   >
     <input
       autoFocus={true}
@@ -73,7 +73,7 @@ exports[`Enumeration should render with header in add state and list in default 
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -94,7 +94,7 @@ exports[`Enumeration should render with header in add state and list in default 
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -105,7 +105,7 @@ exports[`Enumeration should render with header in add state and list in default 
     </button>
   </header>
   <ul
-    className="undefined tc-enumeration-items"
+    className="theme-tc-enumeration-items tc-enumeration-items"
     onScroll={[Function]}
   >
     <div
@@ -114,7 +114,7 @@ exports[`Enumeration should render with header in add state and list in default 
       <div
         aria-label="grid"
         aria-readonly={true}
-        className="ReactVirtualized__Grid ReactVirtualized__List undefined"
+        className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items"
         id={undefined}
         onScroll={[Function]}
         role="grid"
@@ -149,7 +149,7 @@ exports[`Enumeration should render with header in add state and list in default 
           }
         >
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -161,11 +161,11 @@ exports[`Enumeration should render with header in add state and list in default 
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="0-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -175,7 +175,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -189,7 +189,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -210,7 +210,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -223,7 +223,7 @@ exports[`Enumeration should render with header in add state and list in default 
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -235,11 +235,11 @@ exports[`Enumeration should render with header in add state and list in default 
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="1-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -249,7 +249,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -263,7 +263,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -284,7 +284,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -297,7 +297,7 @@ exports[`Enumeration should render with header in add state and list in default 
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -309,11 +309,11 @@ exports[`Enumeration should render with header in add state and list in default 
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="2-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -323,7 +323,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -337,7 +337,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -358,7 +358,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -379,10 +379,10 @@ exports[`Enumeration should render with header in add state and list in default 
 
 exports[`Enumeration should render with header in default state and first item in edit mode, validate button disabled is disabled 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="theme-tc-enumeration tc-enumeration"
 >
   <header
-    className="undefined tc-enumeration-header"
+    className="theme-tc-enumeration-header tc-enumeration-header"
   >
     <span>
       Values
@@ -402,7 +402,7 @@ exports[`Enumeration should render with header in default state and first item i
       >
         <svg
           aria-hidden="true"
-          className="tc-svg-icon"
+          className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
           title={null}
         >
@@ -414,7 +414,7 @@ exports[`Enumeration should render with header in default state and first item i
     </div>
   </header>
   <ul
-    className="undefined tc-enumeration-items"
+    className="theme-tc-enumeration-items tc-enumeration-items"
     onScroll={[Function]}
   >
     <div
@@ -423,7 +423,7 @@ exports[`Enumeration should render with header in default state and first item i
       <div
         aria-label="grid"
         aria-readonly={true}
-        className="ReactVirtualized__Grid ReactVirtualized__List undefined"
+        className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items"
         id={undefined}
         onScroll={[Function]}
         role="grid"
@@ -458,7 +458,7 @@ exports[`Enumeration should render with header in default state and first item i
           }
         >
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -470,40 +470,43 @@ exports[`Enumeration should render with header in default state and first item i
             }
           >
             <li
-              className="undefined tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="0-item"
             >
               <input
                 autoFocus={true}
-                className="undefined tc-enumeration-item-label"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label"
                 onChange={[Function]}
                 onKeyDown={[Function]}
                 type="text"
               />
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions"
               >
-                <button
-                  className="btn btn-link"
-                  disabled={true}
-                  onClick={[Function]}
+                <span
                   onFocus={[Function]}
-                  onMouseDown={[Function]}
                   onMouseOver={[Function]}
-                  role="link"
-                  type="button"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="tc-svg-icon"
-                    focusable="false"
-                    title={null}
+                  <button
+                    className="theme-btn-disabled btn btn-link"
+                    disabled={true}
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                    role="link"
+                    type="button"
                   >
-                    <use
-                      xlinkHref="#talend-check"
-                    />
-                  </svg>
-                </button>
+                    <svg
+                      aria-hidden="true"
+                      className="theme-tc-svg-icon tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-check"
+                      />
+                    </svg>
+                  </button>
+                </span>
                 <button
                   className="btn btn-link"
                   disabled={false}
@@ -516,7 +519,7 @@ exports[`Enumeration should render with header in default state and first item i
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -529,7 +532,7 @@ exports[`Enumeration should render with header in default state and first item i
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -541,11 +544,11 @@ exports[`Enumeration should render with header in default state and first item i
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="1-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -555,7 +558,7 @@ exports[`Enumeration should render with header in default state and first item i
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -569,7 +572,7 @@ exports[`Enumeration should render with header in default state and first item i
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -590,7 +593,7 @@ exports[`Enumeration should render with header in default state and first item i
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -603,7 +606,7 @@ exports[`Enumeration should render with header in default state and first item i
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -615,11 +618,11 @@ exports[`Enumeration should render with header in default state and first item i
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="2-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -629,7 +632,7 @@ exports[`Enumeration should render with header in default state and first item i
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -643,7 +646,7 @@ exports[`Enumeration should render with header in default state and first item i
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -664,7 +667,7 @@ exports[`Enumeration should render with header in default state and first item i
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -685,10 +688,10 @@ exports[`Enumeration should render with header in default state and first item i
 
 exports[`Enumeration should render with header in default state with custom label 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="theme-tc-enumeration tc-enumeration"
 >
   <header
-    className="undefined tc-enumeration-header"
+    className="theme-tc-enumeration-header tc-enumeration-header"
   >
     <span>
       Users
@@ -709,7 +712,7 @@ exports[`Enumeration should render with header in default state with custom labe
       >
         <svg
           aria-hidden="true"
-          className="tc-svg-icon"
+          className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
           title={null}
         >
@@ -721,7 +724,7 @@ exports[`Enumeration should render with header in default state with custom labe
     </div>
   </header>
   <ul
-    className="undefined tc-enumeration-items"
+    className="theme-tc-enumeration-items tc-enumeration-items"
     onScroll={[Function]}
   >
     <div
@@ -730,7 +733,7 @@ exports[`Enumeration should render with header in default state with custom labe
       <div
         aria-label="grid"
         aria-readonly={true}
-        className="ReactVirtualized__Grid ReactVirtualized__List undefined"
+        className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items"
         id={undefined}
         onScroll={[Function]}
         role="grid"
@@ -765,7 +768,7 @@ exports[`Enumeration should render with header in default state with custom labe
           }
         >
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -777,11 +780,11 @@ exports[`Enumeration should render with header in default state with custom labe
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="0-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -791,7 +794,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -805,7 +808,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -826,7 +829,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -839,7 +842,7 @@ exports[`Enumeration should render with header in default state with custom labe
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -851,11 +854,11 @@ exports[`Enumeration should render with header in default state with custom labe
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="1-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -865,7 +868,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -879,7 +882,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -900,7 +903,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -913,7 +916,7 @@ exports[`Enumeration should render with header in default state with custom labe
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -925,11 +928,11 @@ exports[`Enumeration should render with header in default state with custom labe
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="2-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -939,7 +942,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -953,7 +956,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -974,7 +977,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -995,10 +998,10 @@ exports[`Enumeration should render with header in default state with custom labe
 
 exports[`Enumeration should render with header in default state, list in default state and required component 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="theme-tc-enumeration tc-enumeration"
 >
   <header
-    className="undefined tc-enumeration-header"
+    className="theme-tc-enumeration-header tc-enumeration-header"
   >
     <span>
       Values
@@ -1019,7 +1022,7 @@ exports[`Enumeration should render with header in default state, list in default
       >
         <svg
           aria-hidden="true"
-          className="tc-svg-icon"
+          className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
           title={null}
         >
@@ -1031,7 +1034,7 @@ exports[`Enumeration should render with header in default state, list in default
     </div>
   </header>
   <ul
-    className="undefined tc-enumeration-items"
+    className="theme-tc-enumeration-items tc-enumeration-items"
     onScroll={[Function]}
   >
     <div
@@ -1040,7 +1043,7 @@ exports[`Enumeration should render with header in default state, list in default
       <div
         aria-label="grid"
         aria-readonly={true}
-        className="ReactVirtualized__Grid ReactVirtualized__List undefined"
+        className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items"
         id={undefined}
         onScroll={[Function]}
         role="grid"
@@ -1075,7 +1078,7 @@ exports[`Enumeration should render with header in default state, list in default
           }
         >
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -1087,11 +1090,11 @@ exports[`Enumeration should render with header in default state, list in default
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="0-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -1101,7 +1104,7 @@ exports[`Enumeration should render with header in default state, list in default
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -1115,7 +1118,7 @@ exports[`Enumeration should render with header in default state, list in default
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1136,7 +1139,7 @@ exports[`Enumeration should render with header in default state, list in default
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1149,7 +1152,7 @@ exports[`Enumeration should render with header in default state, list in default
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -1161,11 +1164,11 @@ exports[`Enumeration should render with header in default state, list in default
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="1-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -1175,7 +1178,7 @@ exports[`Enumeration should render with header in default state, list in default
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -1189,7 +1192,7 @@ exports[`Enumeration should render with header in default state, list in default
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1210,7 +1213,7 @@ exports[`Enumeration should render with header in default state, list in default
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1223,7 +1226,7 @@ exports[`Enumeration should render with header in default state, list in default
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -1235,11 +1238,11 @@ exports[`Enumeration should render with header in default state, list in default
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="2-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -1249,7 +1252,7 @@ exports[`Enumeration should render with header in default state, list in default
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -1263,7 +1266,7 @@ exports[`Enumeration should render with header in default state, list in default
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1284,7 +1287,7 @@ exports[`Enumeration should render with header in default state, list in default
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1305,10 +1308,10 @@ exports[`Enumeration should render with header in default state, list in default
 
 exports[`Enumeration should render with header in search state and list in default state 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="theme-tc-enumeration tc-enumeration"
 >
   <header
-    className="undefined tc-enumeration-header"
+    className="theme-tc-enumeration-header tc-enumeration-header"
   >
     <input
       autoFocus={true}
@@ -1330,7 +1333,7 @@ exports[`Enumeration should render with header in search state and list in defau
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -1351,7 +1354,7 @@ exports[`Enumeration should render with header in search state and list in defau
     >
       <svg
         aria-hidden="true"
-        className="tc-svg-icon"
+        className="theme-tc-svg-icon tc-svg-icon"
         focusable="false"
         title={null}
       >
@@ -1362,7 +1365,7 @@ exports[`Enumeration should render with header in search state and list in defau
     </button>
   </header>
   <ul
-    className="undefined tc-enumeration-items"
+    className="theme-tc-enumeration-items tc-enumeration-items"
     onScroll={[Function]}
   >
     <div
@@ -1371,7 +1374,7 @@ exports[`Enumeration should render with header in search state and list in defau
       <div
         aria-label="grid"
         aria-readonly={true}
-        className="ReactVirtualized__Grid ReactVirtualized__List undefined"
+        className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items"
         id={undefined}
         onScroll={[Function]}
         role="grid"
@@ -1406,7 +1409,7 @@ exports[`Enumeration should render with header in search state and list in defau
           }
         >
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -1418,11 +1421,11 @@ exports[`Enumeration should render with header in search state and list in defau
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="0-item"
             >
               <button
-                className="undefined tc-enumeration-item-label"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label"
                 disabled="disabled"
               >
                 <span>
@@ -1435,7 +1438,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -1449,7 +1452,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1470,7 +1473,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1483,7 +1486,7 @@ exports[`Enumeration should render with header in search state and list in defau
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -1495,11 +1498,11 @@ exports[`Enumeration should render with header in search state and list in defau
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="1-item"
             >
               <button
-                className="undefined tc-enumeration-item-label"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label"
                 disabled="disabled"
               >
                 <span>
@@ -1512,7 +1515,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -1526,7 +1529,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1547,7 +1550,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1560,7 +1563,7 @@ exports[`Enumeration should render with header in search state and list in defau
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -1572,11 +1575,11 @@ exports[`Enumeration should render with header in search state and list in defau
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="2-item"
             >
               <button
-                className="undefined tc-enumeration-item-label"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label"
                 disabled="disabled"
               >
                 <span>
@@ -1589,7 +1592,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -1603,7 +1606,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1624,7 +1627,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1645,10 +1648,10 @@ exports[`Enumeration should render with header in search state and list in defau
 
 exports[`Enumeration should render with header in selected state with trash icon, and two items in selected mode 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="theme-tc-enumeration tc-enumeration"
 >
   <header
-    className="undefined tc-enumeration-header"
+    className="theme-tc-enumeration-header tc-enumeration-header"
   >
     <span>
       2 selected values
@@ -1665,7 +1668,7 @@ exports[`Enumeration should render with header in selected state with trash icon
     />
   </header>
   <ul
-    className="undefined tc-enumeration-items"
+    className="theme-tc-enumeration-items tc-enumeration-items"
     onScroll={[Function]}
   >
     <div
@@ -1674,7 +1677,7 @@ exports[`Enumeration should render with header in selected state with trash icon
       <div
         aria-label="grid"
         aria-readonly={true}
-        className="ReactVirtualized__Grid ReactVirtualized__List undefined"
+        className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items"
         id={undefined}
         onScroll={[Function]}
         role="grid"
@@ -1709,7 +1712,7 @@ exports[`Enumeration should render with header in selected state with trash icon
           }
         >
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -1721,11 +1724,11 @@ exports[`Enumeration should render with header in selected state with trash icon
             }
           >
             <li
-              className="undefined tc-enumeration-item selected-item"
+              className="theme-tc-enumeration-item theme-selected-item tc-enumeration-item selected-item"
               id="0-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -1735,7 +1738,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -1749,7 +1752,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1770,7 +1773,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1783,7 +1786,7 @@ exports[`Enumeration should render with header in selected state with trash icon
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -1795,11 +1798,11 @@ exports[`Enumeration should render with header in selected state with trash icon
             }
           >
             <li
-              className="undefined tc-enumeration-item selected-item"
+              className="theme-tc-enumeration-item theme-selected-item tc-enumeration-item selected-item"
               id="1-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -1809,7 +1812,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -1823,7 +1826,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1844,7 +1847,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1857,7 +1860,7 @@ exports[`Enumeration should render with header in selected state with trash icon
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -1869,11 +1872,11 @@ exports[`Enumeration should render with header in selected state with trash icon
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="2-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -1883,7 +1886,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -1897,7 +1900,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1918,7 +1921,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -1939,10 +1942,10 @@ exports[`Enumeration should render with header in selected state with trash icon
 
 exports[`Enumeration should render with header in selected state with trash icon, and two items in selected mode with checkboxes 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="theme-tc-enumeration tc-enumeration"
 >
   <header
-    className="undefined tc-enumeration-header"
+    className="theme-tc-enumeration-header tc-enumeration-header"
   >
     <span>
       2 selected values
@@ -1959,7 +1962,7 @@ exports[`Enumeration should render with header in selected state with trash icon
     />
   </header>
   <ul
-    className="undefined tc-enumeration-items"
+    className="theme-tc-enumeration-items tc-enumeration-items"
     onScroll={[Function]}
   >
     <div
@@ -1968,7 +1971,7 @@ exports[`Enumeration should render with header in selected state with trash icon
       <div
         aria-label="grid"
         aria-readonly={true}
-        className="ReactVirtualized__Grid ReactVirtualized__List undefined"
+        className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items"
         id={undefined}
         onScroll={[Function]}
         role="grid"
@@ -2003,7 +2006,7 @@ exports[`Enumeration should render with header in selected state with trash icon
           }
         >
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -2015,17 +2018,17 @@ exports[`Enumeration should render with header in selected state with trash icon
             }
           >
             <li
-              className="undefined tc-enumeration-item selected-item"
+              className="theme-tc-enumeration-item theme-selected-item tc-enumeration-item selected-item"
               id="0-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
               >
                 <div
-                  className="checkbox tc-toggle tc-enumeration-checkbox"
+                  className="checkbox tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
                 >
                   <label
                     htmlFor={undefined}
@@ -2047,7 +2050,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -2061,7 +2064,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -2082,7 +2085,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -2095,7 +2098,7 @@ exports[`Enumeration should render with header in selected state with trash icon
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -2107,17 +2110,17 @@ exports[`Enumeration should render with header in selected state with trash icon
             }
           >
             <li
-              className="undefined tc-enumeration-item selected-item"
+              className="theme-tc-enumeration-item theme-selected-item tc-enumeration-item selected-item"
               id="1-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
               >
                 <div
-                  className="checkbox tc-toggle tc-enumeration-checkbox"
+                  className="checkbox tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
                 >
                   <label
                     htmlFor={undefined}
@@ -2139,7 +2142,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -2153,7 +2156,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -2174,7 +2177,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -2187,7 +2190,7 @@ exports[`Enumeration should render with header in selected state with trash icon
             </li>
           </div>
           <div
-            className="undefined tc-item-container"
+            className="theme-tc-item-container tc-item-container"
             style={
               Object {
                 "height": 42,
@@ -2199,17 +2202,17 @@ exports[`Enumeration should render with header in selected state with trash icon
             }
           >
             <li
-              className="tc-enumeration-item"
+              className="theme-tc-enumeration-item tc-enumeration-item"
               id="2-item"
             >
               <button
-                className="undefined tc-enumeration-item-label btn btn-default"
+                className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-default"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
               >
                 <div
-                  className="checkbox tc-toggle tc-enumeration-checkbox"
+                  className="checkbox tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
                 >
                   <label
                     htmlFor={undefined}
@@ -2231,7 +2234,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 </span>
               </button>
               <div
-                className="undefined tc-enumeration-item-actions"
+                className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
               >
                 <button
                   className="btn btn-link"
@@ -2245,7 +2248,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -2266,7 +2269,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 >
                   <svg
                     aria-hidden="true"
-                    className="tc-svg-icon"
+                    className="theme-tc-svg-icon tc-svg-icon"
                     focusable="false"
                     title={null}
                   >
@@ -2287,10 +2290,10 @@ exports[`Enumeration should render with header in selected state with trash icon
 
 exports[`Enumeration should render with header without items 1`] = `
 <div
-  className="undefined tc-enumeration"
+  className="theme-tc-enumeration tc-enumeration"
 >
   <header
-    className="undefined tc-enumeration-header"
+    className="theme-tc-enumeration-header tc-enumeration-header"
   >
     <span>
       Values
@@ -2310,7 +2313,7 @@ exports[`Enumeration should render with header without items 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="tc-svg-icon"
+          className="theme-tc-svg-icon tc-svg-icon"
           focusable="false"
           title={null}
         >
@@ -2322,7 +2325,7 @@ exports[`Enumeration should render with header without items 1`] = `
     </div>
   </header>
   <p
-    className="undefined tc-enumeration-hint"
+    className="theme-tc-enumeration-hint tc-enumeration-hint"
   >
     The list is empty
   </p>

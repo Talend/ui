@@ -1,8 +1,8 @@
 import invariant from 'invariant';
-import { take, put, race, call } from 'redux-saga/effects';
+import { take, put, race, call, select } from 'redux-saga/effects';
 import { actions } from '@talend/react-cmf';
+import { findCollectionPathListItem } from '@talend/react-cmf/lib/selectors';
 import deleteResourceConst from './deleteResource.constants';
-
 
 /**
  * Wil be deprecated with the new http saga api.
@@ -24,21 +24,44 @@ export function buildHttpDelete(uri, labelResource, responseType) {
 }
 
 /**
+ * from a resourceType and an optionnal resourcePath, return a resource locator
+ * if resourcePath is provided resourceType is prepend to resourcePath
+ * @param {String} resourceType
+ * @param {Array<String>} [resourcePath]
+ * @return {String || Array<String>}
+ */
+export function getResourceLocator(resourceType, resourcePath) {
+	if (resourcePath) {
+		if (Array.isArray(resourcePath)) {
+			return [resourceType, ...resourcePath];
+		}
+		throw Error(
+			`Optional parameter resourcePath should be an arrray of string,
+got ${resourcePath}`,
+		);
+	}
+	return resourceType;
+}
+
+/**
  * Waiting for confirmation event.
+ * Resolve the resource to delete.
  * Call the requested uri.
  * Redirect the user.
- * @param {string} labelResource
  * @param {string} uri
- * @param {string} redirectUrl
+ * @param {string} resourceType
+ * @param {string} id
+ * @param {Array<String>} [resourcePath]
  */
-export function* deleteResourceValidate(requestId) {
-	const { resourceInfo } = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK);
-	const { id, found, resourceType, label, uri } = resourceInfo;
-	if (found && requestId === id) {
+export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath) {
+	yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK);
+	const resourceLocator = getResourceLocator(resourceType, resourcePath);
+	const resource = yield select(findCollectionPathListItem, resourceLocator, itemId);
+	if (resource) {
 		yield put(
 			buildHttpDelete(
-				`${uri}/${resourceType}/${id}`,
-				label,
+				`${uri}/${resourceType}/${itemId}`,
+				resource.get('label', ''),
 				deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
 			),
 		);
@@ -46,27 +69,38 @@ export function* deleteResourceValidate(requestId) {
 }
 
 /**
- * Saga for delete resource confirmation dialog box.
+ * Return a saga for delete resource confirmation dialog box.
  * Race between cancel and confirm deleting the resource.
+ * @param {string} uri
+ * @param {string} resourceType
+ * @param {Array<String>} [resourcePath]
  */
-export default function* deleteResourceSaga() {
-	const { redirectUrl, model } = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE);
-	const { id } = model;
-	try {
-		yield race({
-			deleteConfirmationValidate: call(deleteResourceValidate, id),
-			deleteConfirmationCancel: call(function* deleteResourceCancel() {
-				yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL);
-			}),
-		});
-	} catch (error) {
-		invariant(true, `DeleteResource race failed :${error}`);
-	} finally {
-		yield put({
-			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
-			cmf: {
-				routerReplace: redirectUrl,
-			},
-		});
-	}
+export default function deleteResource(uri, resourceType, resourcePath) {
+	return function* deleteResourceSaga() {
+		const { redirectUrl, model } = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE);
+		const { id } = model;
+		try {
+			yield race({
+				deleteConfirmationValidate: call(
+					deleteResourceValidate,
+					uri,
+					resourceType,
+					id,
+					resourcePath,
+				),
+				deleteConfirmationCancel: call(function* deleteResourceCancel() {
+					yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CANCEL);
+				}),
+			});
+		} catch (error) {
+			invariant(true, `DeleteResource race failed :${error}`);
+		} finally {
+			yield put({
+				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
+				cmf: {
+					routerReplace: redirectUrl,
+				},
+			});
+		}
+	};
 }

@@ -1,5 +1,4 @@
 @import '../colors';
-$tc-list-title-actions-color: $brand-primary-dark !default;
 $tc-list-title-color: $black !default;
 $tc-list-title-icon-size: $svg-lg-size !default;
 
@@ -21,6 +20,8 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	}
 
 	.main-title {
+		flex-grow: 1;
+
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -32,6 +33,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		font-weight: 600;
 		letter-spacing: inherit;
 		text-transform: none;
+		text-align: left;
 
 		&:first-child {
 			padding-left: 0;
@@ -42,31 +44,12 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 			text-decoration: none;
 		}
 	}
-
-	:global(.tc-actions) {
-		flex-shrink: 0;
-		flex-grow: 0;
-		opacity: 0;
-		visibility: hidden;
-		z-index: 1;
-
-		position: absolute;
-		right: 0;
-		top: 0;
-		background: linear-gradient(to right, transparent, $tc-list-row-hover-bg $padding-large);
-
-		:global(.btn-link) {
-			color: $tc-list-title-actions-color;
-		}
-	}
 }
 
 // manage actions display on row hover
-
 :global(.tc-list-large-row):hover :global(.tc-list-title .tc-actions),
 :global(.ReactVirtualized__Table__row):hover :global(.tc-list-title .tc-actions) {
 	opacity: 1;
-	padding-left: $padding-large;
 	transition: opacity 0.15s ease-in;
 	visibility: visible;
 }
@@ -84,7 +67,6 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 // START : hack to allow actions dropdown to display
 // there are important to override some inline styles injected by react-virtualized... sorry !
 // sass-lint:disable no-important
-
 :global(.ReactVirtualized__Grid__innerScrollContainer):hover,
 :global(.ReactVirtualized__Table__row):hover,
 :global(.tc-list-title-cell),

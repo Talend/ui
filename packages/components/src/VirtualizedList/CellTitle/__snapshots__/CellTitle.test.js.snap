@@ -2,17 +2,40 @@
 
 exports[`CellTitle actions should NOT render the actions when no actions key is provided 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title theme-tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="theme-main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={undefined}
     onEditCancel={undefined}
     onEditSubmit={undefined}
+    rowData={
+      Object {
+        "actions": Array [
+          Object {
+            "icon": "talend-pencil",
+            "label": "edit",
+            "onClick": [Function],
+          },
+          Object {
+            "icon": "talend-trash",
+            "label": "delete",
+            "onClick": [Function],
+          },
+        ],
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+  <VirtualizedList(CellTitleActions)
+    actionsKey={undefined}
+    displayMode="text"
+    persistentActionsKey={undefined}
     rowData={
       Object {
         "actions": Array [
@@ -37,12 +60,12 @@ exports[`CellTitle actions should NOT render the actions when no actions key is 
 
 exports[`CellTitle actions should NOT render the actions when rowData has no actions 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title theme-tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="theme-main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={undefined}
@@ -56,17 +79,29 @@ exports[`CellTitle actions should NOT render the actions when rowData has no act
       }
     }
   />
+  <VirtualizedList(CellTitleActions)
+    actionsKey="actions"
+    displayMode="text"
+    persistentActionsKey={undefined}
+    rowData={
+      Object {
+        "actions": undefined,
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
 </div>
 `;
 
 exports[`CellTitle actions should render the actions 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title theme-tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="theme-main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={undefined}
@@ -91,26 +126,26 @@ exports[`CellTitle actions should render the actions 1`] = `
       }
     }
   />
-  <Actions
-    actions={
-      Array [
-        Object {
-          "icon": "talend-pencil",
-          "label": "edit",
-          "onClick": [Function],
-        },
-        Object {
-          "icon": "talend-trash",
-          "label": "delete",
-          "onClick": [Function],
-        },
-      ]
-    }
-    hideLabel={true}
-    link={true}
-    renderers={
+  <VirtualizedList(CellTitleActions)
+    actionsKey="actions"
+    displayMode="text"
+    persistentActionsKey={undefined}
+    rowData={
       Object {
-        "Action": [Function],
+        "actions": Array [
+          Object {
+            "icon": "talend-pencil",
+            "label": "edit",
+            "onClick": [Function],
+          },
+          Object {
+            "icon": "talend-trash",
+            "label": "delete",
+            "onClick": [Function],
+          },
+        ],
+        "id": 1,
+        "title": "my awesome title",
       }
     }
   />
@@ -119,17 +154,29 @@ exports[`CellTitle actions should render the actions 1`] = `
 
 exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title theme-tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="theme-main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={undefined}
     onEditCancel={undefined}
     onEditSubmit={undefined}
+    rowData={
+      Object {
+        "icon": "talend-file-o",
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+  <VirtualizedList(CellTitleActions)
+    actionsKey={undefined}
+    displayMode="text"
+    persistentActionsKey={undefined}
     rowData={
       Object {
         "icon": "talend-file-o",
@@ -143,12 +190,12 @@ exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1
 
 exports[`CellTitle icon should NOT render the icon when the rowData has no icon value 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title theme-tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="theme-main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={undefined}
@@ -162,21 +209,33 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
       }
     }
   />
+  <VirtualizedList(CellTitleActions)
+    actionsKey={undefined}
+    displayMode="text"
+    persistentActionsKey={undefined}
+    rowData={
+      Object {
+        "icon": undefined,
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
 </div>
 `;
 
 exports[`CellTitle icon should render the icon 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title theme-tc-list-title"
   id="my-title-1-title-cell"
 >
   <Icon
-    className={undefined}
+    className="theme-icon"
     name="talend-file-o"
   />
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="theme-main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={undefined}
@@ -190,22 +249,47 @@ exports[`CellTitle icon should render the icon 1`] = `
       }
     }
   />
+  <VirtualizedList(CellTitleActions)
+    actionsKey={undefined}
+    displayMode="text"
+    persistentActionsKey={undefined}
+    rowData={
+      Object {
+        "icon": "talend-file-o",
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
 </div>
 `;
 
 exports[`CellTitle should render title selector component 1`] = `
 <div
-  className="tc-list-title"
+  className="tc-list-title theme-tc-list-title"
   id="my-title-1-title-cell"
 >
   <CellTitleSelector
     cellData="my awesome title"
-    className={undefined}
+    className="theme-main-title"
     displayMode="text"
     id="my-title-1-title-cell"
     onClick={[Function]}
     onEditCancel={[Function]}
     onEditSubmit={[Function]}
+    rowData={
+      Object {
+        "displayMode": "text",
+        "icon": "talend-file-o",
+        "id": 1,
+        "title": "my awesome title",
+      }
+    }
+  />
+  <VirtualizedList(CellTitleActions)
+    actionsKey={undefined}
+    displayMode="text"
+    persistentActionsKey={undefined}
     rowData={
       Object {
         "displayMode": "text",

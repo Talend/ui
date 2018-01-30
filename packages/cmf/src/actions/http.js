@@ -1,4 +1,65 @@
 import { HTTP_METHODS } from '../middlewares/http';
+import {
+	ACTION_TYPE_HTTP_REQUEST,
+	ACTION_TYPE_HTTP_RESPONSE,
+	ACTION_TYPE_HTTP_ERRORS,
+	ACTION_TYPE_HTTP_REDUCER_ERROR,
+} from '../middlewares/http/constants';
+
+export const DEFAULT_HTTP_HEADERS = {
+	Accept: 'application/json',
+	'Content-Type': 'application/json',
+};
+
+function onError(error) {
+	return {
+		type: ACTION_TYPE_HTTP_ERRORS,
+		error,
+	};
+}
+
+function onRequest(url, config) {
+	return {
+		type: ACTION_TYPE_HTTP_REQUEST,
+		url,
+		config,
+	};
+}
+
+function onJSError(error, action) {
+	return {
+		type: ACTION_TYPE_HTTP_REDUCER_ERROR,
+		error,
+		action,
+	};
+}
+
+function onResponse(response) {
+	return {
+		type: ACTION_TYPE_HTTP_RESPONSE,
+		data: response,
+	};
+}
+
+function onActionResponse(action, response) {
+	if (typeof action.onResponse === 'function') {
+		return action.onResponse(response);
+	}
+	return {
+		type: action.onResponse,
+		response,
+	};
+}
+
+function onActionError(action, error) {
+	if (typeof action.onError === 'function') {
+		return action.onError(error);
+	}
+	return {
+		type: action.onError,
+		error,
+	};
+}
 
 export default function http(config) {
 	const { method, url, data, ...rest } = config;
@@ -60,3 +121,10 @@ http.head = function head(url, config) {
 		...config,
 	});
 };
+
+http.onError = onError;
+http.onActionError = onActionError;
+http.onJSError = onJSError;
+http.onRequest = onRequest;
+http.onResponse = onResponse;
+http.onActionResponse = onActionResponse;

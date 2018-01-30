@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InlineFormSubHeader should render 1`] = `
+<form
+  className="theme-tc-subheader-details-form tc-subheader-details-form"
+  onSubmit={[Function]}
+>
+  <input
+    className="theme-tc-subheader-details-form-input tc-subheader-details-form-input form-control"
+    id="inputTitle"
+    onChange={[Function]}
+    type="text"
+    value="myTitle"
+  />
+  <div
+    className="theme-tc-subheader-details-form-buttons tc-subheader-details-form-buttons"
+  >
+    <Action
+      bsStyle="link"
+      className="theme-tc-subheader-details-form-buttons-icon tc-subheader-details-form-buttons-icon"
+      hideLabel={true}
+      icon="talend-check"
+      label={undefined}
+      name="action-submit-title"
+      onClick={[Function]}
+      type="submit"
+    />
+    <Action
+      bsStyle="link"
+      className="theme-tc-subheader-details-form-buttons-icon tc-subheader-details-form-buttons-icon"
+      hideLabel={true}
+      icon="talend-cross"
+      label={undefined}
+      name="action-cancel-title"
+      onClick={[Function]}
+    />
+  </div>
+</form>
+`;
+
+exports[`InputTitleSubHeader should render 1`] = `
+<div
+  className="theme-tc-subheader-details tc-subheader-details"
+>
+  <Icon
+    className="theme-tc-subheader-details-icon tc-subheader-details-icon"
+    name="myIconId"
+  />
+  <TitleSubHeader
+    editable={false}
+    onEdit={[Function]}
+    onSubmit={[Function]}
+    t={[Function]}
+    title="myTitle"
+  />
+</div>
+`;
+
+exports[`TitleSubHeader should render 1`] = `
+<div
+  className="theme-tc-subheader-details-text tc-subheader-details-text"
+>
+  <div
+    className="theme-tc-subheader-details-text-title tc-subheader-details-text-title"
+  >
+    <h1
+      className="theme-tc-subheader-details-text-title-wording tc-subheader-details-text-title-wording"
+    >
+      myTitle
+    </h1>
+  </div>
+  <small
+    className="theme-tc-subheader-details-text-subtitle tc-subheader-details-text-subtitle"
+  >
+    mySubTitle
+  </small>
+</div>
+`;

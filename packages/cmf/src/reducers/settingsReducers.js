@@ -10,7 +10,7 @@ export const defaultState = {
 	initialized: false,
 	contentTypes: {},
 	actions: {},
-	views: {},
+	props: {},
 	routes: {},
 };
 
@@ -40,17 +40,24 @@ export function attachRefs(refs, props) {
 
 /**
  * attach reference to produce a ready to use freezed object
- * @param {object} originalSettings the full settings with `views` and `ref` attribute
+ * @param {object} originalSettings the full settings with `props` and `ref` attribute
  * @return {object} frozen settings with ref computed
  */
-function prepareSettings(originalSettings) {
-	const settings = Object.assign({}, originalSettings);
-	if (settings.views) {
-		Object.keys(settings.views).forEach(id => {
-			settings.views[id] = attachRefs(originalSettings.ref, settings.views[id]);
+function prepareSettings({ views, props, ref, ...rest }) {
+	const settings = Object.assign({ props: {} }, { ...rest });
+	if (views) {
+		if (process.env.NODE_ENV === 'development') {
+			console.warn('settings.view is deprecated, please use settings.props');
+		}
+		Object.keys(views).forEach(id => {
+			settings.props[id] = attachRefs(ref, views[id]);
 		});
 	}
-	delete settings.ref;
+	if (props) {
+		Object.keys(props).forEach(id => {
+			settings.props[id] = attachRefs(ref, props[id]);
+		});
+	}
 	if (typeof settings.freeze === 'function') {
 		settings.freeze();
 	}
@@ -66,21 +73,11 @@ function prepareSettings(originalSettings) {
 export function settingsReducers(state = defaultState, action) {
 	switch (action.type) {
 		case ACTIONS.REQUEST_OK:
-			return Object.assign(
-				{},
-				state,
-				{ initialized: true },
-				prepareSettings(action.settings),
-			);
+			return Object.assign({}, state, { initialized: true }, prepareSettings(action.settings));
 		case ACTIONS.REQUEST_KO:
 			alert(`Settings can't be loaded ${get(action, 'error.message')}`); // eslint-disable-line
 			console.error(action.error); // eslint-disable-line
-			return Object.assign(
-				{},
-				state,
-				{ initialized: true },
-				action.settings,
-			);
+			return Object.assign({}, state, { initialized: true }, action.settings);
 		default:
 			return state;
 	}

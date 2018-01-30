@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Badge, Typeahead } from '@talend/react-components';
+import Badge from '@talend/react-components/lib/Badge';
+import Typeahead from '@talend/react-components/lib/Typeahead';
 import classNames from 'classnames';
 import keycode from 'keycode';
 import theme from './MultiSelectTagWidget.scss';
@@ -45,6 +46,7 @@ class MultiSelectTagWidget extends React.Component {
 		this.withCategory = typeof props.options.groupBy !== 'undefined';
 		this.state = {
 			filterText: '',
+			isFocused: false,
 		};
 		this.theme = {
 			container: theme.typeahead,
@@ -55,6 +57,7 @@ class MultiSelectTagWidget extends React.Component {
 		this.onSelect = this.onSelect.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onChange = this.onChange.bind(this);
+		this.onCaretClick = this.onCaretClick.bind(this);
 		this.getDropdownItems = this.getDropdownItems.bind(this);
 		this.updateSuggestions = this.updateSuggestions.bind(this);
 		this.resetSuggestions = this.resetSuggestions.bind(this);
@@ -154,6 +157,16 @@ class MultiSelectTagWidget extends React.Component {
 		this.updateSuggestions(value);
 	}
 
+	onCaretClick() {
+		const input = this.component.querySelector('input');
+		if (this.state.isFocused) {
+			input.blur();
+		} else {
+			input.focus();
+		}
+		this.setState(state => ({ isFocused: !state.isFocused }));
+	}
+
 	setComponentRef(component) {
 		this.component = component;
 	}
@@ -162,9 +175,7 @@ class MultiSelectTagWidget extends React.Component {
 		const { value, options } = this.props;
 		return options.enumOptions
 			.filter(option => value.indexOf(option.value) < 0)
-			.filter(
-				item => item.label.toUpperCase().indexOf(this.state.filterText.toUpperCase()) > -1,
-			);
+			.filter(item => item.label.toUpperCase().indexOf(this.state.filterText.toUpperCase()) > -1);
 	}
 
 	getDropdownItems(suggestions) {
@@ -268,9 +279,13 @@ class MultiSelectTagWidget extends React.Component {
 
 		return (
 			<div className="dropdown" ref={component => this.setComponentRef(component)}>
-				<div className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}>
+				<button
+					onClick={this.onCaretClick}
+					className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}
+					type="button"
+				>
 					<span className="caret" />
-				</div>
+				</button>
 				<div className={`${theme.wrapper} form-control`}>
 					{value.map((val, index) => {
 						badgeValue = valueToLabel[val] || val;

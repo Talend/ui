@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubHeaderBar should render without i18n 1`] = `
+<header
+  className="theme-tc-subheader tc-subheader myClassName"
+>
+  <ActionBar
+    className="theme-tc-subheader-navbar tc-subheader-navbar"
+  >
+    <SubHeaderBarActions
+      center={false}
+      className="theme-tc-subheader-navbar-left"
+      components={
+        Array [
+          Object {
+            "injectedComponent": <Action
+              bsStyle="link"
+              className="theme-tc-subheader-back-button tc-subheader-back-button"
+              hideLabel={true}
+              icon="talend-arrow-left"
+              id="backArrow"
+              label="Go Back"
+              onClick={[Function]}
+        />,
+          },
+          Object {
+            "injectedComponent": <InputTitleSubHeader
+              center={true}
+              components={
+                    Array [
+                          Object {
+                            "injectedComponent": <Action
+                              bsStyle="link"
+                              hideLabel={true}
+                              icon="talend-share-alt"
+                              label="action1"
+                              onClick={[Function]}
+                    />,
+                          },
+                          Object {
+                            "injectedComponent": <Action
+                              bsStyle="link"
+                              hideLabel={true}
+                              icon="talend-activity"
+                              label="action2"
+                              onClick={[Function]}
+                    />,
+                          },
+                          Object {
+                            "injectedComponent": <Icon
+                              name="talend-bell"
+                    />,
+                          },
+                        ]
+              }
+              editMode={false}
+              left={false}
+              right={false}
+              t={[Function]}
+              title="myTitle"
+        />,
+          },
+        ]
+      }
+      left={true}
+      right={false}
+    />
+  </ActionBar>
+</header>
+`;

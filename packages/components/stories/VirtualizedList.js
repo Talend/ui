@@ -1,12 +1,20 @@
 import React from 'react';
-import { storiesOf, action } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
+import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
+import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
 import { IconsProvider } from '../src/index';
 import VirtualizedList, { listTypes } from '../src/VirtualizedList';
-import CellActions from '../src/VirtualizedList/CellActions';
 import CellTitle from '../src/VirtualizedList/CellTitle';
 import CellBadge from '../src/VirtualizedList/CellBadge';
+
+function NoRowsRenderer() {
+	return (
+		<span className={'tc-virtualizedlist-no-result'} role="status" aria-live="polite">
+			I'm a custom NoRowsRenderer
+		</span>
+	);
+}
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -31,6 +39,7 @@ const icons = {
 const titleProps = {
 	onClick: action('onTitleClick'),
 	actionsKey: 'titleActions',
+	persistentActionsKey: 'persistentActions',
 	displayModeKey: 'display',
 	iconKey: 'icon',
 	onEditCancel: action('cancel-edit'),
@@ -69,7 +78,7 @@ const titleActions = [
 	},
 ];
 
-const actions = [
+const persistentActions = [
 	{
 		label: 'favorite',
 		icon: 'talend-star',
@@ -96,7 +105,7 @@ const collection = [
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-0-class',
-		actions,
+		persistentActions,
 		titleActions,
 	},
 	{
@@ -110,7 +119,7 @@ const collection = [
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-0-class',
-		actions,
+		persistentActions,
 	},
 	{
 		id: 2,
@@ -122,7 +131,7 @@ const collection = [
 		author: 'Jean-Pierre DUPONT',
 		display: 'text',
 		className: 'item-0-class',
-		actions,
+		persistentActions,
 		titleActions,
 	},
 	{
@@ -136,7 +145,7 @@ const collection = [
 		icon: 'talend-file-json-o',
 		display: 'input',
 		className: 'item-1-class',
-		actions,
+		persistentActions,
 		titleActions,
 	},
 	{
@@ -150,7 +159,7 @@ const collection = [
 			'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
 		icon: 'talend-file-json-o',
 		className: 'item-2-class',
-		actions,
+		persistentActions,
 		titleActions,
 	},
 	{
@@ -164,7 +173,7 @@ const collection = [
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-3-class',
-		actions,
+		persistentActions,
 		titleActions,
 	},
 	{
@@ -178,7 +187,7 @@ const collection = [
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-3-class',
-		actions,
+		persistentActions,
 		titleActions,
 	},
 ];
@@ -195,7 +204,7 @@ for (let i = collection.length; i < 100; i += 1) {
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-0-class',
-		actions,
+		persistentActions,
 		titleActions,
 	});
 }
@@ -231,7 +240,6 @@ storiesOf('Virtualized List', module)
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
 					<VirtualizedList.Content
 						label="Tag"
 						dataKey="tag"
@@ -269,7 +277,6 @@ storiesOf('Virtualized List', module)
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="" dataKey="actions" disableSort {...CellActions} />
 					<VirtualizedList.Content
 						label="Description (non sortable)"
 						dataKey="description"
@@ -305,7 +312,6 @@ storiesOf('Virtualized List', module)
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
 					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Content label="Author" dataKey="author" />
 					<VirtualizedList.Content label="Created" dataKey="created" />
@@ -337,7 +343,6 @@ storiesOf('Virtualized List', module)
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
 					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Content label="Author" dataKey="author" />
 					<VirtualizedList.Content label="Created" dataKey="created" />
@@ -370,7 +375,6 @@ storiesOf('Virtualized List', module)
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
 					<VirtualizedList.Content label="Description" dataKey="description" />
 					<VirtualizedList.Content label="Author" dataKey="author" />
 					<VirtualizedList.Content label="Created" dataKey="created" />
@@ -404,7 +408,6 @@ storiesOf('Virtualized List', module)
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
 					<VirtualizedList.Content label="Description" dataKey="description" />
 					<VirtualizedList.Content label="Author" dataKey="author" />
 					<VirtualizedList.Content label="Created" dataKey="created" />
@@ -438,7 +441,6 @@ storiesOf('Virtualized List', module)
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
 					<VirtualizedList.Content label="Description" dataKey="description" />
 					<VirtualizedList.Content label="Author" dataKey="author" />
 					<VirtualizedList.Content label="Created" dataKey="created" />
@@ -476,7 +478,21 @@ storiesOf('Virtualized List', module)
 						columnData={titleProps}
 						{...CellTitle}
 					/>
-					<VirtualizedList.Content label="" dataKey="actions" {...CellActions} />
+					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
+					<VirtualizedList.Content label="Author" dataKey="author" />
+					<VirtualizedList.Content label="Created" dataKey="created" />
+					<VirtualizedList.Content label="Modified" dataKey="modified" />
+				</VirtualizedList>
+			</section>
+		</div>
+	))
+	.add('List > custom noRowsRenderer', () => (
+		<div className="virtualized-list">
+			<h1>Virtualized List</h1>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={[]} id={'my-list'} noRowsRenderer={NoRowsRenderer}>
+					<VirtualizedList.Content label="Id" dataKey="id" />
 					<VirtualizedList.Content label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Content label="Author" dataKey="author" />
 					<VirtualizedList.Content label="Created" dataKey="created" />

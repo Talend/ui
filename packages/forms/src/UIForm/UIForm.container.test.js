@@ -15,11 +15,11 @@ describe('UIForm container', () => {
 		const wrapper = shallow(<UIForm data={data} {...props} />);
 
 		// then
-		expect(wrapper // eslint-disable-line no-underscore-dangle
-			.instance()
-			.state
+		expect(
+			wrapper // eslint-disable-line no-underscore-dangle
+				.instance().state,
 		).toMatchSnapshot();
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	describe('#onChange', () => {
@@ -29,14 +29,10 @@ describe('UIForm container', () => {
 			const instance = wrapper.instance();
 
 			// when
-			instance.onChange(
-				null,
-				{
-					formName: props.formName,
-					schema: mergedSchema[0],
-					value: 'toto',
-				},
-			);
+			instance.onChange(null, {
+				schema: mergedSchema[0],
+				value: 'toto',
+			});
 
 			// then
 			expect(instance.state).toMatchSnapshot();
@@ -49,25 +45,17 @@ describe('UIForm container', () => {
 			const event = { target: {} };
 
 			// when
-			instance.onChange(
-				event,
-				{
-					formName: props.formName,
-					schema: mergedSchema[0],
-					value: 'toto',
-				},
-			);
+			instance.onChange(event, {
+				schema: mergedSchema[0],
+				value: 'toto',
+			});
 
 			// then
-			expect(props.onChange).toBeCalledWith(
-				event,
-				{
-					formName: props.formName,
-					schema: mergedSchema[0],
-					value: 'toto',
-					properties: props.properties,
-				}
-			);
+			expect(props.onChange).toBeCalledWith(event, {
+				schema: mergedSchema[0],
+				value: 'toto',
+				properties: props.properties,
+			});
 		});
 	});
 
@@ -79,48 +67,7 @@ describe('UIForm container', () => {
 			const errors = { firstname: 'my firstname is invalid' };
 
 			// when
-			instance.setErrors(props.formName, errors);
-
-			// then
-			expect(instance.state).toMatchSnapshot();
-		});
-	});
-
-	describe('#setError', () => {
-		it('should update state error', () => {
-			// given
-			const wrapper = shallow(<UIForm data={data} {...props} />);
-			const instance = wrapper.instance();
-			const errors = { firstname: 'my firstname is invalid' };
-
-			// when
-			instance.setError(props.formName, errors);
-
-			// then
-			expect(instance.state).toMatchSnapshot();
-		});
-	});
-
-	describe('#updateForm', () => {
-		it('should update state form', () => {
-			// given
-			const wrapper = shallow(<UIForm data={data} {...props} />);
-			const instance = wrapper.instance();
-			const jsonSchema = {
-				type: 'object',
-				title: 'title',
-				properties: {
-					lastname: {
-						type: 'string',
-					},
-				},
-			};
-			const uiSchema = ['lastname'];
-			const properties = { lastname: 'lol' };
-			const errors = { lastname: 'my lastname is invalid' };
-
-			// when
-			instance.updateForm(props.formName, jsonSchema, uiSchema, properties, errors);
+			instance.setErrors(errors);
 
 			// then
 			expect(instance.state).toMatchSnapshot();

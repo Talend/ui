@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Layout } from '@talend/react-components';
 
-import AppHeaderBar from '../AppHeaderBar';
+import HeaderBar from '../HeaderBar';
 import List from '../List';
 import SidePanel from '../SidePanel';
 
@@ -10,7 +10,7 @@ function getContent(Component, props) {
 	if (React.isValidElement(props)) {
 		return props;
 	}
-	return (<Component {...props} />);
+	return <Component {...props} />;
 }
 
 function wrapChildren(children) {
@@ -23,7 +23,7 @@ function wrapChildren(children) {
 	return [children];
 }
 
-function HomeListView({ sidepanel, list, header, children }) {
+function HomeListView({ id, hasTheme, sidepanel, list, header, children }) {
 	if (!sidepanel || !list) {
 		return null;
 	}
@@ -34,8 +34,10 @@ function HomeListView({ sidepanel, list, header, children }) {
 
 	return (
 		<Layout
+			id={id}
+			hasTheme={hasTheme}
 			mode="TwoColumns"
-			header={getContent(AppHeaderBar, header)}
+			header={getContent(HeaderBar, header)}
 			one={getContent(SidePanel, sidepanel)}
 			drawers={drawers}
 		>
@@ -46,18 +48,11 @@ function HomeListView({ sidepanel, list, header, children }) {
 
 HomeListView.displayName = 'HomeListView';
 HomeListView.propTypes = {
-	header: PropTypes.oneOfType([
-		PropTypes.element,
-		PropTypes.object,
-	]),
-	sidepanel: PropTypes.oneOfType([
-		PropTypes.element,
-		PropTypes.object,
-	]).isRequired,
-	list: PropTypes.oneOfType([
-		PropTypes.element,
-		PropTypes.object,
-	]).isRequired,
+	id: PropTypes.string,
+	hasTheme: PropTypes.bool,
+	header: PropTypes.oneOfType([PropTypes.element, PropTypes.object]),
+	sidepanel: PropTypes.oneOfType([PropTypes.element, PropTypes.object]).isRequired,
+	list: PropTypes.oneOfType([PropTypes.element, PropTypes.object]).isRequired,
 	children: PropTypes.node,
 };
 

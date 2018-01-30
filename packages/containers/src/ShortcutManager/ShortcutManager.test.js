@@ -10,7 +10,7 @@ import Connected from './ShortcutManager.connect';
 describe('Container ShortcutManager', () => {
 	it('should render', () => {
 		const wrapper = shallow(<Container />);
-		expect(wrapper.node).toBeNull();
+		expect(wrapper.getElement()).toBeNull();
 	});
 });
 
@@ -23,7 +23,7 @@ describe('Connected ShortcutManager', () => {
 
 describe('handles routes', () => {
 	const state = mock.state();
-	state.cmf.settings.views.shortcuts = {
+	state.cmf.settings.props.shortcuts = {
 		redirectMap: {},
 	};
 	state.cmf.components = new Map();

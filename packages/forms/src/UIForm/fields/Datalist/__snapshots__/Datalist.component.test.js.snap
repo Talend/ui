@@ -7,9 +7,10 @@ exports[`Datalist component should render typeahead 1`] = `
   id="my-datalist"
   isValid={true}
   label="My List"
+  required={undefined}
 >
   <div
-    className={undefined}
+    className="theme-tf-datalist"
   >
     <Typeahead
       autoFocus={true}
@@ -31,15 +32,15 @@ exports[`Datalist component should render typeahead 1`] = `
       searchingText="Searching for matches…"
       theme={
         Object {
-          "container": "tf-datalist-container",
-          "itemsContainer": undefined,
-          "itemsList": undefined,
+          "container": "theme-container tf-datalist-container",
+          "itemsContainer": "theme-items-container",
+          "itemsList": "theme-items",
         }
       }
       value="foo"
     />
     <div
-      className={undefined}
+      className="theme-toggle"
     >
       <span
         className="caret"

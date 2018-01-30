@@ -1,8 +1,8 @@
 import React from 'react';
 import talendIcons from '@talend/icons/dist/react';
-import { storiesOf, action } from '@storybook/react';
-
-import { Action, Icon, ActionBar, IconsProvider } from '../src/index';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { Action, ActionBar, IconsProvider } from '../src/index';
 
 const primary = {
 	label: 'Primary',
@@ -86,6 +86,13 @@ const multiSelectActions = {
 			onClick: action('You clicked me'),
 		},
 	],
+	center: [
+		{
+			label: 'multi5',
+			icon: 'talend-cog',
+			onClick: action('You clicked me'),
+		},
+	],
 	right: [
 		multi3,
 		{
@@ -151,6 +158,31 @@ const btnGroupActions = {
 			],
 		},
 	],
+	center: [
+		{
+			displayMode: ActionBar.DISPLAY_MODES.BTN_GROUP,
+			actions: [
+				{
+					label: 'go to dataprep',
+					icon: 'talend-dataprep',
+					hideLabel: true,
+					onClick: action('dataprep'),
+				},
+				{
+					label: 'go to elastic',
+					icon: 'talend-elastic',
+					hideLabel: true,
+					onClick: action('elastic'),
+				},
+				{
+					label: 'go to cloud engine',
+					icon: 'talend-cloud-engine',
+					hideLabel: true,
+					onClick: action('cloud-engine'),
+				},
+			],
+		},
+	],
 	right: [
 		{
 			displayMode: ActionBar.DISPLAY_MODES.BTN_GROUP,
@@ -169,7 +201,6 @@ const btnGroupActions = {
 				},
 			],
 		},
-
 	],
 };
 
@@ -189,6 +220,9 @@ const icons = {
 	'talend-table': talendIcons['talend-table'],
 	'talend-trash': talendIcons['talend-trash'],
 	'talend-upload': talendIcons['talend-upload'],
+	'talend-dataprep': talendIcons['talend-dataprep'],
+	'talend-elastic': talendIcons['talend-elastic'],
+	'talend-cloud-engine': talendIcons['talend-cloud-engine'],
 };
 
 storiesOf('ActionBar', module)
@@ -199,7 +233,7 @@ storiesOf('ActionBar', module)
 			<div id="default">
 				<ActionBar {...Object.assign({}, basicProps, { selected: 0 })} />
 			</div>
-			<p>1 Selected, Layout: Left Space Right</p>
+			<p>1 Selected, Layout: Left Center Right</p>
 			<div id="selected">
 				<ActionBar {...Object.assign({}, basicProps, { selected: 1 })} />
 			</div>
@@ -212,11 +246,9 @@ storiesOf('ActionBar', module)
 					multiSelectActions={{ right: [multi3] }}
 				/>
 			</div>
-			<p>Toolbar with btn-group and only icons</p>
+			<p>Toolbar with btn-group and only icons/ Layout: left, center, right</p>
 			<div id="btn-group">
-				<ActionBar
-					actions={btnGroupActions}
-				/>
+				<ActionBar actions={btnGroupActions} />
 			</div>
 		</nav>
 	))
@@ -232,20 +264,18 @@ storiesOf('ActionBar', module)
 						Hello button
 					</ActionBar.Content>
 					<ActionBar.Content left>
-						<Action
-							label="hello Action"
-							icon="talend-trash"
-							onClick={action('onClick')}
-						/>
+						<Action label="hello Action" icon="talend-trash" onClick={action('onClick')} />
 					</ActionBar.Content>
-					<ActionBar.Content tag="p" right>
-						Hello paragraph
-					</ActionBar.Content>
-					<ActionBar.Content tag="form" role="search" right>
+					<ActionBar.Content tag="form" role="search" center>
 						<div className="form-group">
 							<input type="text" className="form-control" placeholder="Search" />
 						</div>
-						<button type="submit" className="btn btn-default">Submit</button>
+						<button type="submit" className="btn btn-default">
+							Submit
+						</button>
+					</ActionBar.Content>
+					<ActionBar.Content tag="p" right>
+						Hello paragraph
 					</ActionBar.Content>
 				</ActionBar>
 			</div>

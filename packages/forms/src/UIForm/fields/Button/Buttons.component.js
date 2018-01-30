@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import FieldTemplate from '../FieldTemplate';
 import SingleButton from './SingleButton.component';
 
 import theme from './Buttons.scss';
 
-function getButtonsList(id, buttons, onTrigger) {
+function getButtonsList(id, buttons, onTrigger, onClick) {
 	if (!buttons) {
 		return null;
 	}
@@ -14,28 +13,29 @@ function getButtonsList(id, buttons, onTrigger) {
 		<SingleButton
 			className={theme[itemSchema.position]}
 			key={index}
-			id={`${id}-${index}`}
+			id={itemSchema.id || `${id}-${index}`}
 			onTrigger={onTrigger}
+			onClick={onClick && onClick(itemSchema.onClick)}
 			schema={itemSchema}
 		/>
 	));
 }
 
-export default function Buttons({ id, onTrigger, schema }) {
+export default function Buttons({ id, onTrigger, className, schema, onClick }) {
 	return (
-		<FieldTemplate description={schema.description}>
-			<div className={classNames(theme['tf-buttons'], 'tf-buttons')}>
-				{getButtonsList(id, schema.items, onTrigger)}
-			</div>
-		</FieldTemplate>
+		<div className={classNames(theme['tf-buttons'], 'tf-buttons', className)}>
+			{getButtonsList(id, schema.items, onTrigger, onClick)}
+		</div>
 	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	Buttons.propTypes = {
 		id: PropTypes.string,
+		onClick: PropTypes.func,
 		onTrigger: PropTypes.func,
 		schema: SingleButton.propTypes.schema,
+		className: PropTypes.string,
 	};
 }
 

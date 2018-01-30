@@ -29,7 +29,7 @@ if (program.debug) {
 	console.log(`use stack version ${stack_version}`);
 }
 
-const REACT_VERSION = '^15.6.1';
+const REACT_VERSION = '^15.6.2';
 const JEST_VERSION = '20.0.3';
 
 const STACK_VERSION = {
@@ -57,7 +57,7 @@ const ADDONS = {
 	'redux-saga': '0.15.4',
 	'react-addons-perf': '15.4.2',
 	'react-autowhatever': '7.0.0',
-	'react-debounce-input': '2.4.2',
+	'react-debounce-input': '3.1.0',
 	'react-immutable-proptypes': '2.1.0',
 	'react-jsonschema-form': '0.42.0',
 	'react-tap-event-plugin': '2.0.0',
@@ -78,14 +78,15 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'prop-types': '15.5.10',
 	react: REACT_VERSION,
 	'react-ace': '5.2.0',
-	'react-addons-test-utils': '15.5.1',
-	'react-addons-css-transition-group': '15.5.2',
-	'react-bootstrap': '0.31.0',
+	'react-addons-css-transition-group': '15.6.2',
+	'react-bootstrap': '0.31.5',
 	'react-dom': REACT_VERSION,
 	i18next: '^9.0.0',
+	'rc-slider': '8.4.1',
+	'rc-tooltip': '3.7.0',
 	'react-i18next': '^5.2.0',
 	'react-redux': '5.0.5',
-	'react-router': '3.0.5',
+	'react-router': '3.2.0',
 	'react-router-redux': '4.0.8',
 	'react-test-renderer': REACT_VERSION,
 	'react-virtualized': '9.10.1',
@@ -97,29 +98,33 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'redux-mock-store': '1.2.3',
 	'redux-thunk': '2.2.0',
 	uuid: '3.0.1',  // prefer bson-objectid
+	tv4: '^1.2.7',
+
+	// script dep
+	deepmerge: '1.5.1',
 
 	// dev deps
-	'@kadira/react-storybook-addon-info': '^3.3.0',
-	'@kadira/storybook': '^2.35.0',
-	'@storybook/react': '3.1.9',
-	'@storybook/addon-storyshots': '^3.2.0',
-	'@storybook/addon-actions': '^3.2.0',
-	'@storybook/addon-info': '^3.2.0',
-	'@storybook/addon-knobs': '^3.2.0',
-	'@storybook/addons': '^3.2.0',
+	'@storybook/react': '^3.3.6',
+	'@storybook/addon-storyshots': '^3.3.6',
+	'@storybook/addon-actions': '^3.3.6',
+	'@storybook/addon-info': '^3.3.6',
+	'@storybook/addon-knobs': '^3.3.6',
+	'@storybook/addons': '^3.3.6',
 	autoprefixer: '^7.1.4',
-	'babel-cli': '6.24.1',
-	'babel-core': '6.24.1',
-	'babel-eslint': '7.2.3',
+	'babel-cli': '6.26.0',
+	'babel-core': '6.26.0',
+	'babel-eslint': '8.0.2',
 	'babel-jest': JEST_VERSION,
-	'babel-plugin-transform-class-properties': '6.23.0',
+	'babel-plugin-transform-class-properties': '6.24.1',
 	'babel-plugin-transform-export-extensions': '6.22.0',
 	'babel-plugin-transform-object-assign': '6.22.0',
-	'babel-plugin-transform-object-rest-spread': '6.20.2',
+	'babel-plugin-transform-object-rest-spread': '6.26.0',
 	'babel-preset-env': '1.6.0',
-	'babel-preset-react': '6.16.0',
+	'babel-preset-react': '6.24.1',
 	cpx: '1.5.0',
-	enzyme: '^2.7.1',
+	enzyme: '^3.1.0',
+	'enzyme-adapter-react-15': '^1.0.1',
+	'enzyme-to-json': '^3.0.0',
 	eslint: '^3.6.1',
 	'eslint-config-airbnb': '^11.1.0',
 	'eslint-plugin-import': '^1.16.0',
@@ -128,7 +133,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
 	'jest-in-case': '^1.0.2',
-	'react-storybook-cmf': '^0.1.3',
+	'react-storybook-cmf': '^0.2.0',
 	'react-stub-context': '^0.7.0',
 	rimraf: '^2.6.1',
 	storyshots: '3.2.2',
@@ -153,13 +158,14 @@ const VERSIONS = Object.assign({}, ADDONS, {
 
 const files = [
 	'./packages/cmf/package.json',
-	'./packages/sagas/package.json',
+	'./packages/cmf-cqrs/package.json',
 	'./packages/components/package.json',
 	'./packages/containers/package.json',
 	'./packages/forms/package.json',
 	'./packages/generator/package.json',
 	'./packages/icons/package.json',
 	'./packages/logging/package.json',
+	'./packages/sagas/package.json',
 	'./packages/theme/package.json',
 ];
 
@@ -205,7 +211,7 @@ function save(ppath, data) {
 			throw `error opening file: ${err}`;
 		}
 
-		fs.write(fd, data, 0, data.length, null, (err) => {
+		fs.write(fd, data, 0, data.length, null, err => {
 			if (err) {
 				throw `error writing file: ${err}`;
 			}
@@ -219,13 +225,13 @@ function save(ppath, data) {
 }
 
 function updateFiles(filesList, versions) {
-	filesList.forEach((ppath) => {
+	filesList.forEach(ppath => {
 		const packageJSON = require(ppath);
 		if (!program.quiet) {
 			console.log(`=== check ${packageJSON.name} ===`);
 		}
 
-		Object.keys(versions).forEach((dep) => {
+		Object.keys(versions).forEach(dep => {
 			checkAll(versions, packageJSON, dep);
 		});
 		if (packageJSON.modified || program.force) {
@@ -248,4 +254,3 @@ if (program.path) {
 	updateFiles(files, Object.assign(VERSIONS));
 	updateFiles(templates, Object.assign({}, VERSIONS, STACK_VERSION));
 }
-

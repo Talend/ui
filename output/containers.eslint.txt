@@ -1,5 +1,5 @@
 
-> @talend/react-containers@0.129.0 lint:es /home/travis/build/Talend/ui/packages/containers
+> @talend/react-containers@0.149.0 lint:es /home/travis/build/Talend/ui/packages/containers
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -10,8 +10,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   12:90  error  'notifications' is missing in props validation  react/prop-types
 
-/home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.test.js
-  12:18  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+/home/travis/build/Talend/ui/packages/containers/src/register.js
+  35:1  error  Prefer default export  import/prefer-default-export
 
 /home/travis/build/Talend/ui/packages/containers/src/renderers.js
   5:33  error  Unexpected parentheses around single function argument  arrow-parens

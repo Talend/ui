@@ -1,6 +1,6 @@
 import get from 'lodash/get';
-import registry from './registry';
-import CONST from './constant';
+import deprecated from './deprecated';
+import actionCreatorAPI from './actionCreator';
 
 /**
  * This module provide low level api to register and handle action in a CMF App.
@@ -28,20 +28,6 @@ function getActionsById(context) {
 function getContentTypeActions(context, contentType, category) {
 	const state = context.store.getState();
 	return get(state, `cmf.settings.contentTypes[${contentType}.actions[${category}]`, []);
-}
-
-/**
- * return a function from the registry
- * @param  {object} context
- * @param  {string} id the id of the action creator
- * @return {function}
- */
-function getActionCreatorFunction(context, id) {
-	const creator = context.registry[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:${id}`];
-	if (!creator) {
-		throw new Error(`actionCreator not found in the registry: ${id}`);
-	}
-	return creator;
 }
 
 /**
@@ -74,7 +60,7 @@ function getActionObject(context, action, event, data) {
 		actionInfo = action;
 	}
 	if (actionInfo.actionCreator) {
-		const actionCreator = getActionCreatorFunction(context, actionInfo.actionCreator);
+		const actionCreator = actionCreatorAPI.get(context, actionInfo.actionCreator);
 		return actionCreator(event, data, {
 			getState: context.store.getState,
 			router: context.router,
@@ -119,18 +105,15 @@ function mapDispatchToProps(dispatch, props) {
 	return Object.assign({}, props, resolvedActions);
 }
 
-/**
- * register your action creator. The action creator is a function with
- * the following arguments:
- * - event which trigger this action
- * - data attached to the action (could contains anything)
- * - context of the current react app (could contains registry, getState, ...)
- * @param  {String} id
- * @param  {Function} actionCreator (event, data, context)
- */
-function registerActionCreator(id, actionCreator, context) {
-	registry.addToRegistry(`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:${id}`, actionCreator, context);
-}
+const registerActionCreator = deprecated(
+	(id, actionCreator, context) => actionCreatorAPI.register(id, actionCreator, context),
+	'stop use api.action.registerActionCreator. please use api.actionCreator.register',
+);
+
+const getActionCreatorFunction = deprecated(
+	(context, id) => actionCreatorAPI.get(context, id),
+	'stop use api.action.getActionCreatorFunction. please use api.actionCreator.get',
+);
 
 export default {
 	getActionsById,

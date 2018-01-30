@@ -12,15 +12,13 @@ import Action from '../Actions/Action';
 function Dialog(props) {
 	const modalProps = { bsSize: props.size, show: props.show, ...props.bsDialogProps };
 	return (
-		<Modal {...modalProps} >
+		<Modal {...modalProps}>
 			{props.header && (
 				<Modal.Header closeButton>
 					<Modal.Title>{props.header}</Modal.Title>
 				</Modal.Header>
 			)}
-			<Modal.Body>
-				{props.children}
-			</Modal.Body>
+			<Modal.Body>{props.children}</Modal.Body>
 			{props.action && (
 				<Modal.Footer>
 					<Action {...props.action} />
@@ -29,6 +27,8 @@ function Dialog(props) {
 		</Modal>
 	);
 }
+
+Dialog.displayName = 'Dialog';
 
 Dialog.propTypes = {
 	header: PropTypes.string,

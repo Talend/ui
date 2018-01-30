@@ -1,34 +1,25 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Action } from '@talend/react-components';
+import Action from '@talend/react-components/lib/Actions/Action';
 import classNames from 'classnames';
 
-export default function SingleButton({ className, id, onTrigger, schema }) {
-	const {
-		bsStyle,
-		disabled = false,
-		inProgress,
-		name,
-		title,
-		triggers,
-		type = 'button',
-	} = schema;
+export default function SingleButton({ className, id, onTrigger, onClick, schema }) {
+	const { triggers, type = 'button', title, label, ...props } = schema;
 
-	let onClick;
+	let localOnClick;
 	if (type === 'button' && triggers) {
-		onClick = event => onTrigger(event, { trigger: triggers[0], schema });
+		localOnClick = event => onTrigger(event, { trigger: triggers[0], schema });
+	} else {
+		localOnClick = event => onClick(event, schema);
 	}
 
 	return (
 		<Action
+			{...props}
 			id={id}
-			bsStyle={bsStyle}
 			className={classNames('btn', className)}
-			disabled={disabled}
-			inProgress={inProgress}
-			label={title}
-			name={name}
-			onClick={onClick}
+			label={label || title}
+			onClick={localOnClick}
 			type={type}
 		/>
 	);
@@ -39,13 +30,14 @@ if (process.env.NODE_ENV !== 'production') {
 		className: PropTypes.string,
 		id: PropTypes.string,
 		onTrigger: PropTypes.func,
+		onClick: PropTypes.func,
 		schema: PropTypes.shape({
 			bsStyle: PropTypes.string,
 			disabled: PropTypes.bool,
 			inProgress: PropTypes.bool,
 			name: PropTypes.string,
-			title: PropTypes.string,
-			triggers: PropTypes.arrayOf(PropTypes.string),
+			label: PropTypes.string,
+			triggers: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.string])),
 			type: PropTypes.string,
 		}),
 	};

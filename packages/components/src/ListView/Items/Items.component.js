@@ -36,7 +36,7 @@ class Items extends React.PureComponent {
 		this.renderToggleAllOrItem = this.renderToggleAllOrItem.bind(this);
 		this.renderToggleAll = this.renderToggleAll.bind(this);
 
-		this.hasToggleAll = this.props.items.length > 1;
+		this.hasToggleAll = this.props.showToggleAll && this.props.items.length > 1;
 	}
 
 	getRowHeight({ index }) {
@@ -77,10 +77,11 @@ class Items extends React.PureComponent {
 	}
 
 	renderToggleAll() {
-		const { id, toggleAllChecked, onToggleAll, t } = this.props;
+		const { id, isSwitchBox, toggleAllChecked, onToggleAll, t } = this.props;
 		const toggleAllId = `${id || 'tc-listview'}-toggle-all`;
+		const toggleAllSelector = isSwitchBox ? 'switch checkbox' : 'checkbox';
 		return (
-			<div className="checkbox">
+			<div className={toggleAllSelector}>
 				<label htmlFor={toggleAllId}>
 					<input
 						id={toggleAllId}
@@ -106,6 +107,7 @@ class Items extends React.PureComponent {
 				key={computedId}
 				id={computedId}
 				item={item}
+				isSwitchBox={this.props.isSwitchBox}
 				searchCriteria={this.props.searchCriteria}
 			/>
 		);
@@ -147,15 +149,19 @@ Items.propTypes = {
 			index: PropTypes.number,
 		}),
 	),
+	isSwitchBox: PropTypes.bool,
 	getItemHeight: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,
+	showToggleAll: PropTypes.bool,
 	onToggleAll: PropTypes.func,
 	t: PropTypes.func,
 };
 
 Items.defaultProps = {
 	t: getDefaultTranslate,
+	isSwitchBox: false,
+	showToggleAll: true,
 };
 
 export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Items);

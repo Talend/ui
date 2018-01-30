@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Icon } from '@talend/react-components';
+import Icon from '@talend/react-components/lib/Icon';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
@@ -97,7 +97,7 @@ if (process.env.NODE_ENV !== 'production') {
 		index: PropTypes.number.isRequired,
 		onRemove: PropTypes.func.isRequired,
 		onReorder: PropTypes.func.isRequired,
-		value: PropTypes.func.isRequired,
+		value: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 	};
 }
 
