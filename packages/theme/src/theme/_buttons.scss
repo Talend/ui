@@ -76,40 +76,6 @@
 		padding: 0 $padding-smaller;
 	}
 
-	&-icon-toggle {
-		@include btn-icon-toggle();
-		background-color: $white;
-		border: 1px solid $gray;
-		color: $gray;
-
-		box-shadow: none;
-		line-height: unset;
-		padding: 0;
-
-		&:hover,
-		&:active,
-		&:focus {
-			box-shadow: none;
-			background-color: $white;
-			border-color: $scooter;
-			color: $scooter;
-		}
-
-		&.active {
-			background-color: $brand-primary;
-			border-color: $brand-primary;
-			color: $white;
-
-			&:hover,
-			&:active,
-			&:focus {
-				background-color: $scooter;
-				border-color: $scooter;
-				color: $white;
-			}
-		}
-	}
-
 	&-xs {
 		align-items: baseline;
 		padding: 0 $padding-xs-horizontal;
