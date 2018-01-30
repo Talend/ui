@@ -7,7 +7,7 @@ const inactiveIconToggle = {
 	className: 'my-icon-toggle',
 	icon: 'talend-panel-opener-right',
 	id: 'my-inactive-action',
-	label: 'Click me, I\'m inactive',
+	label: "Click me, I'm inactive",
 	onClick: jest.fn(),
 	tooltipPlacement: 'top',
 };
