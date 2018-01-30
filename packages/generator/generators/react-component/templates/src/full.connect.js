@@ -8,15 +8,8 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 	return props;
 }
 
-export function mapDispatchToProps(dispatch, ownProps, cmfProps) {
-	// cmfProps.updateState, initState, deleteState, dispatch, dispatchActionCreator
-	const props = {};
-	return props;
-}
-
 export default cmfConnect({
 	componentId: '<%= props.name %>',  // can be a function
 	defaultState: DEFAULT_STATE,
 	mapStateToProps,
-	mapDispatchToProps,
 })(Container);

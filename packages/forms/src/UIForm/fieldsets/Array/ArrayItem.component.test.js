@@ -13,14 +13,13 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
-				value={{}}
 			>
 				<span>This is the item content</span>
 			</ArrayItem>,
 		);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should NOT render reorder control panel when value.isClosed is true', () => {
@@ -31,16 +30,16 @@ describe('Array Item component', () => {
 				hasMoveUp
 				id={'talend-control-3'}
 				index={3}
+				isClosed
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
-				value={{ isClosed: true }}
 			>
 				<span>This is the item content</span>
 			</ArrayItem>,
 		);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should NOT render moveUp/moveDown with no reorder callback', () => {
@@ -52,14 +51,13 @@ describe('Array Item component', () => {
 				id={'talend-control-3'}
 				index={3}
 				onRemove={jest.fn()}
-				value={{}}
 			>
 				<span>This is the item content</span>
 			</ArrayItem>,
 		);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should disable moveDown', () => {
@@ -72,14 +70,13 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
-				value={{}}
 			>
 				<span>This is the item content</span>
 			</ArrayItem>,
 		);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should disable moveUp', () => {
@@ -92,14 +89,13 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={jest.fn()}
-				value={{}}
 			>
 				<span>This is the item content</span>
 			</ArrayItem>,
 		);
 
 		// then
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onRemove when remove button is clicked', () => {
@@ -113,7 +109,6 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={onRemove}
 				onReorder={jest.fn()}
-				value={{}}
 			>
 				<span>This is the item content</span>
 			</ArrayItem>,
@@ -137,7 +132,6 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={onReorder}
-				value={{}}
 			>
 				<span>This is the item content</span>
 			</ArrayItem>,
@@ -161,7 +155,6 @@ describe('Array Item component', () => {
 				index={3}
 				onRemove={jest.fn()}
 				onReorder={onReorder}
-				value={{}}
 			>
 				<span>This is the item content</span>
 			</ArrayItem>,

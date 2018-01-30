@@ -1,8 +1,19 @@
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
-import { List, IconsProvider, Layout, SidePanel, AppHeaderBar, Drawer } from '../src/index';
+import {
+	List,
+	IconsProvider,
+	Layout,
+	SidePanel,
+	HeaderBar,
+	Drawer,
+	SubHeaderBar,
+} from '../src/index';
+
+import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
@@ -32,33 +43,28 @@ const actions = [
 ];
 
 const drawers = [
-	(<Drawer stacked title="Hello drawers">
+	<Drawer stacked title="Hello drawers">
 		<p>You should not being able to read this because I&apos;m first</p>
-	</Drawer>),
-	(<Drawer title="Hello drawers">
+	</Drawer>,
+	<Drawer title="Hello drawers">
 		<p>The content dictate the width</p>
-	</Drawer>),
+	</Drawer>,
 ];
 
 const content = (
 	<div>
 		<h1>Welcome to the content for testing scroll</h1>
-		<ul>
-			{[...new Array(38)].map(() => <li>one</li>)}
-		</ul>
+		<ul>{[...new Array(38)].map(() => <li>one</li>)}</ul>
 	</div>
 );
-const sidePanel = (<SidePanel
-	actions={actions}
-	onToggleDock={action('Toggle dock clicked')}
-	docked={false}
-/>);
-const dockedSidePanel = (<SidePanel
-	actions={actions}
-	onToggleDock={action('Toggle dock clicked')}
-	docked
-/>);
-const header = (<AppHeaderBar app="Example App Name" />);
+const sidePanel = (
+	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked={false} />
+);
+const dockedSidePanel = (
+	<SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} docked />
+);
+const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
+const subHeader = <SubHeaderBar title="MyTitle" onGoBack={action('SubHeader onGoBack')} />;
 const footer = 'Footer content';
 
 const listItem = {
@@ -94,6 +100,7 @@ const listProps = {
 			onSelect: action('onSelect'),
 			onToggle: action('onToggle'),
 			onToggleAll: action('onToggleAll'),
+			isSelected: () => false,
 		},
 	},
 	toolbar: {
@@ -130,10 +137,7 @@ const listProps = {
 		sort: {
 			field: 'name',
 			onChange: action('sort.onChange'),
-			options: [
-				{ id: 'id', name: 'Id' },
-				{ id: 'name', name: 'Name' },
-			],
+			options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 		},
 	},
 };
@@ -160,132 +164,134 @@ const tabs = {
 	selected: '2',
 };
 
-storiesOf('Layout', module)
-	.addWithInfo('OneColumn', () => (
-		<Layout
-			header={header}
-			mode="OneColumn"
-		>
-			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('OneColumn with scroll', () => (
-		<Layout
-			header={header}
-			mode="OneColumn"
-		>
-			{content}
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('OneColumn with tabs', () => (
-		<Layout
-			header={header}
-			tabs={tabs}
-			mode="OneColumn"
-		>
-			{content}
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={sidePanel}
-		>
-			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with scroll', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={sidePanel}
-		>
-			{content}
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with tabs', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={sidePanel}
-			tabs={tabs}
-		>
-			{content}
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with big Table list', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={dockedSidePanel}
-		>
-			<List {...listProps} />
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with big Large list', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={dockedSidePanel}
-		>
-			<List {...listProps} displayMode={'large'} />
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with big Tile list', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={dockedSidePanel}
-		>
-			<List {...listProps} displayMode={'tile'} />
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns docked', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={dockedSidePanel}
-		>
-			{content}
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with drawers', () => (
-		<Layout
-			header={header}
-			mode="TwoColumns"
-			one={sidePanel}
-			drawers={drawers}
-		>
-			{content}
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('OneColumn with footer', () => (
-		<Layout
-			header={header}
-			mode="OneColumn"
-			footer={footer}
-		>
-			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('OneColumn without header', () => (
-		<Layout
-			mode="OneColumn"
-		>
-			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
+const stories = storiesOf('Layout', module).addDecorator(story => (
+	<div>
+		<IconsProvider defaultIcons={icons} />
+		{story()}
+	</div>
+));
+
+const appStyle = require('./config/themes.scss');
+
+/**
+ * Generate story for <Layout/> component
+ *
+ * @param layoutStoryName Story name to display in storybook
+ * @param layoutStoryProps Props to pass to <Layout/> component
+ * @param layoutStoryContent Optional custom children
+ */
+function layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
+	stories.addWithInfo(layoutStoryName, () => (
+		<Layout {...layoutStoryProps}>{layoutStoryContent}</Layout>
 	));
+}
+
+/**
+ * Generate story and its variations for <Layout/> component
+ *
+ * @param layoutStoryName Story name to display in storybook
+ * @param layoutStoryProps Props to pass to <Layout/> component
+ * @param layoutStoryContent Optional custom children
+ */
+function decoratedLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
+	layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent);
+	apps.forEach(app => {
+		const decoratedPropsWithTheme = {
+			...layoutStoryProps,
+			// hasTheme: true, should be enabled if we have one and only one Layout theme scss import
+		};
+		stories.addWithInfo(`🎨 [${app.toUpperCase()}] ${layoutStoryName} `, () => (
+			<div className={appStyle[app]}>
+				<div className={TALEND_T7_THEME_CLASSNAME}>
+					<Layout {...decoratedPropsWithTheme}>{layoutStoryContent}</Layout>
+				</div>
+			</div>
+		));
+	});
+}
+
+decoratedLayoutStory('OneColumn', {
+	header,
+	mode: 'OneColumn',
+});
+
+decoratedLayoutStory('OneColumn with tabs', {
+	header,
+	tabs,
+	mode: 'OneColumn',
+});
+
+decoratedLayoutStory('TwoColumns', {
+	header,
+	mode: 'TwoColumns',
+	one: sidePanel,
+});
+
+decoratedLayoutStory('TwoColumns with tabs', {
+	header,
+	tabs,
+	mode: 'TwoColumns',
+	one: sidePanel,
+});
+
+decoratedLayoutStory(
+	'TwoColumns with big Table list',
+	{
+		header,
+		mode: 'TwoColumns',
+		one: sidePanel,
+	},
+	<List {...listProps} />,
+);
+
+decoratedLayoutStory(
+	'TwoColumns with big Large list',
+	{
+		header,
+		mode: 'TwoColumns',
+		one: sidePanel,
+	},
+	<List {...listProps} displayMode={'large'} />,
+);
+
+decoratedLayoutStory('TwoColumns docked', {
+	header,
+	mode: 'TwoColumns',
+	one: dockedSidePanel,
+});
+
+decoratedLayoutStory('TwoColumns with drawers', {
+	header,
+	mode: 'TwoColumns',
+	one: sidePanel,
+	drawers,
+});
+
+decoratedLayoutStory('OneColumn with footer', {
+	header,
+	mode: 'OneColumn',
+	footer,
+});
+
+layoutStory('OneColumn without header', {
+	mode: 'OneColumn',
+});
+
+decoratedLayoutStory('OneColumn with subHeader', {
+	header,
+	subHeader,
+	mode: 'OneColumn',
+	footer,
+});
+
+decoratedLayoutStory('TwoColumns with subHeader', {
+	header,
+	subHeader,
+	one: sidePanel,
+	mode: 'TwoColumns',
+	footer,
+});
+
+layoutStory('Only subHeader', {
+	subHeader,
+});

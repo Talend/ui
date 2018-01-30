@@ -13,6 +13,8 @@ import cmfConnect, {
 	getMergeProps,
 } from '../src/cmfConnect';
 
+import api from '../src/api';
+
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {
 		it('should return displayName', () => {
@@ -86,9 +88,9 @@ describe('cmfConnect', () => {
 		it('should inject view settings using displayName and componentId', () => {
 			const state = mock.state();
 			state.cmf.components = fromJS({});
-			state.cmf.settings.views['TestComponent#default'] = { foo: 'from-displayName' };
-			state.cmf.settings.views['TestComponent#props-id'] = { foo: 'from-props-componentId' };
-			state.cmf.settings.views['TestComponent#connect-id'] = { foo: 'from-connect-componentId' };
+			state.cmf.settings.props['TestComponent#default'] = { foo: 'from-displayName' };
+			state.cmf.settings.props['TestComponent#props-id'] = { foo: 'from-props-componentId' };
+			state.cmf.settings.props['TestComponent#connect-id'] = { foo: 'from-connect-componentId' };
 			let props = getStateToProps({
 				componentId: 'connect-id',
 				ownProps: {},
@@ -110,9 +112,9 @@ describe('cmfConnect', () => {
 				WrappedComponent: { displayName: 'TestComponent' },
 			});
 			expect(props.foo).toBe('from-displayName');
-			delete state.cmf.settings.views['TestComponent#default'];
-			delete state.cmf.settings.views['TestComponent#props-id'];
-			delete state.cmf.settings.views['TestComponent#connect-id'];
+			delete state.cmf.settings.props['TestComponent#default'];
+			delete state.cmf.settings.props['TestComponent#props-id'];
+			delete state.cmf.settings.props['TestComponent#connect-id'];
 		});
 		it('should evaluate expression using all props', () => {
 			const state = mock.state();
@@ -170,6 +172,7 @@ describe('cmfConnect', () => {
 				WrappedComponent: { displayName: 'TestComponent' },
 			});
 			expect(props.dispatch).toBe(dispatch);
+			expect(props.getComponent).toBe(api.component.get);
 			expect(typeof props.dispatchActionCreator).toBe('function');
 			expect(mapDispatchToProps.mock.calls[0][0]).toBe(dispatch);
 			expect(mapDispatchToProps.mock.calls[0][1]).toBe(ownProps);

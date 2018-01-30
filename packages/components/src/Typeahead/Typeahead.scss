@@ -1,17 +1,17 @@
 $tc-typeahead-input-color: #000 !default;
 $tc-typeahead-input-width: 262px !default;
 
-$tc-typeahead-opened-items-container-color: #AAA !default;
-$tc-typeahead-opened-items-container-background-color: #FFF !default;
+$tc-typeahead-opened-items-container-color: #aaa !default;
+$tc-typeahead-opened-items-container-background-color: #fff !default;
 
-$tc-typeahead-focused-item-background-color: #F7F7F7 !default;
-$tc-typeahead-item-description-color: #C0C0C0 !default;
+$tc-typeahead-focused-item-background-color: #f7f7f7 !default;
+$tc-typeahead-item-description-color: #c0c0c0 !default;
 
-$tc-typeahead-section-border-color: #E0E0E0 !default;
+$tc-typeahead-section-border-color: #e0e0e0 !default;
 
-$tc-typeahead-icon-color: #CCC !default;
-$tc-typeahead-only-icon-color: #CCC !default;
-$tc-typeahead-section-header-color: #63AEBD !default;
+$tc-typeahead-icon-color: #ccc !default;
+$tc-typeahead-only-icon-color: #ccc !default;
+$tc-typeahead-section-header-color: #63aebd !default;
 
 $tc-typeahead-items-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
 $tc-typeahead-items-border-radius: $border-radius-base !default;
@@ -29,6 +29,8 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		position: absolute;
 		margin-top: $padding-smaller;
 		top: 100%;
+		left: 0;
+		right: 0;
 		max-height: 70vh;
 		min-width: $tc-typeahead-input-width;
 		font-size: $tc-typeahead-items-font-size;
@@ -42,7 +44,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		align-items: flex-end;
 
 		.items-container {
-			right: 0;
+			left: auto;
 		}
 	}
 
@@ -52,6 +54,11 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		display: block;
 		padding-top: 1px;
 		padding-bottom: 1px;
+	}
+
+	.is-searching,
+	.no-result {
+		display: flex;
 	}
 }
 
@@ -130,7 +137,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		color: $tc-typeahead-item-description-color;
 	}
 
-	&-focused {
+	&-highlighted {
 		background-color: $tc-typeahead-focused-item-background-color;
 	}
 }

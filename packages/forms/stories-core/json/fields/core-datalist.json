@@ -1,4 +1,5 @@
 {
+  "doc": "Datalist/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Datalist",
@@ -10,6 +11,11 @@
       "restrictedDatalist": {
         "type": "string",
         "enum": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
+      },
+      "enumNamesDatalist": {
+        "type": "string",
+        "enum": [ "a", "p", "b", "c", "l", "g" ],
+        "enumNames": [ "Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit" ]
       }
     },
     "required": [
@@ -28,6 +34,12 @@
       "key": "restrictedDatalist",
       "title": "Datalist with restricted options",
       "description": "This datalist does not allow other values than the possible choices",
+      "widget": "datalist"
+    },
+    {
+      "key": "enumNamesDatalist",
+      "title": "Datalist with named options",
+      "description": "This datalist is based on enumNames jsonSchema properties",
       "widget": "datalist"
     }
   ],

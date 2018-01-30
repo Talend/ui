@@ -33,11 +33,11 @@ describe('Datalist component', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should update suggestions on value change', () => {
@@ -51,11 +51,14 @@ describe('Datalist component', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
-			/>
+			/>,
 		);
 
 		// when
-		wrapper.find('input').at(0).simulate('change', { target: { value: 'fo' } });
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: 'foo' } });
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual(['foo', 'foobar']);
@@ -74,7 +77,7 @@ describe('Datalist component', () => {
 				onFinish={onFinish}
 				schema={schema}
 				value={'foo'}
-			/>
+			/>,
 		);
 		const input = wrapper.find('input').at(0);
 		input.simulate('change', { target: { value: 'fo' } });
@@ -101,18 +104,18 @@ describe('Datalist component', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
-			/>
+			/>,
 		);
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 
 		// when
-		wrapper.find('input').at(0).simulate('focus');
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('focus');
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual([
-			'foo',
-			'foobar',
-		]);
+		expect(wrapper.find(Typeahead).props().items).toEqual(['foo', 'foobar']);
 	});
 
 	it('should reset previous value on ESC keydown', () => {
@@ -126,14 +129,20 @@ describe('Datalist component', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
-			/>
+			/>,
 		);
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
-		wrapper.find('input').at(0).simulate('change', { target: { value: 'newValue' } });
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: 'newValue' } });
 		expect(wrapper.find(Typeahead).props().value).toBe('newValue');
 
 		// when
-		wrapper.find('input').at(0).simulate('keydown', { which: keycode.codes.esc });
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('keydown', { which: keycode.codes.esc });
 
 		// then
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
@@ -150,12 +159,15 @@ describe('Datalist component', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
-			/>
+			/>,
 		);
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 
 		// when
-		wrapper.find('input').at(0).simulate('keydown', { which: keycode.codes.down });
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('keydown', { which: keycode.codes.down });
 
 		// then
 		expect(wrapper.find(Typeahead).props().items.length).toBe(4);
@@ -174,7 +186,7 @@ describe('Datalist component', () => {
 				onFinish={onFinish}
 				schema={schema}
 				value={'foo'}
-			/>
+			/>,
 		);
 		const input = wrapper.find('input').at(0);
 		input.simulate('change', { target: { value: 'fo' } });
@@ -200,7 +212,7 @@ describe('Datalist component', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'foo'}
-			/>
+			/>,
 		);
 		const input = wrapper.find('input').at(0);
 		input.simulate('change', { target: { value: 'fo' } });
@@ -211,5 +223,32 @@ describe('Datalist component', () => {
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
+	});
+
+	it('should set value on props value update', () => {
+		// given
+		const wrapper = shallow(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				errorMessage={'This should be correct'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={schema}
+				value={'foo'}
+			/>,
+		);
+		expect(wrapper.find(Typeahead).props().value).toBe('foo');
+
+		// when
+		wrapper.setProps({ value: 'bar' });
+
+		// then
+		expect(
+			wrapper
+				.update()
+				.find(Typeahead)
+				.props().value,
+		).toBe('bar');
 	});
 });

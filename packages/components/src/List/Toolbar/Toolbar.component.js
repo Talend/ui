@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import omit from 'lodash/omit';
+import { translate } from 'react-i18next';
 
 import SelectAll from './SelectAll';
 import SelectDisplayMode from './SelectDisplayMode';
@@ -12,7 +13,8 @@ import Label from './Label';
 import ActionBar from '../../ActionBar';
 
 import theme from './Toolbar.scss';
-import { getDefaultTranslate } from '../../translate';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
+import { DEFAULT_I18N } from '../../translate';
 
 function adaptActionsIds(actions, parentId) {
 	return (
@@ -130,10 +132,9 @@ Toolbar.propTypes = {
 };
 
 Toolbar.defaultProps = {
-	t: getDefaultTranslate,
 	renderers: {
 		ActionBar,
 	},
 };
 
-export default Toolbar;
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Toolbar);

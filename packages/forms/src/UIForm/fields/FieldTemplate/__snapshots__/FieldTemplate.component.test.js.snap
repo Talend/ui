@@ -2,7 +2,7 @@
 
 exports[`FieldTemplate should render invalid className 1`] = `
 <div
-  className="form-group has-error"
+  className="form-group theme-template has-error"
 >
   <Label
     id="myAwesomeField"
@@ -21,7 +21,7 @@ exports[`FieldTemplate should render invalid className 1`] = `
 
 exports[`FieldTemplate should render with label after 1`] = `
 <div
-  className="form-group"
+  className="form-group theme-template"
 >
   <input
     id="myAwesomeField"
@@ -40,7 +40,7 @@ exports[`FieldTemplate should render with label after 1`] = `
 
 exports[`FieldTemplate should render with label before 1`] = `
 <div
-  className="form-group"
+  className="form-group theme-template"
 >
   <Label
     id="myAwesomeField"

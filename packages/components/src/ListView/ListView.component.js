@@ -33,6 +33,8 @@ function ListView(props) {
 	);
 }
 
+ListView.displayName = 'ListView';
+
 ListView.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.object),
 	t: PropTypes.func,
@@ -40,6 +42,7 @@ ListView.propTypes = {
 
 ListView.defaultProps = {
 	items: [],
+	isSwitchBox: false,
 };
 
 function ItemsListView(props) {
@@ -47,9 +50,11 @@ function ItemsListView(props) {
 		<Items
 			id={props.id}
 			items={props.items}
+			isSwitchBox={props.isSwitchBox}
 			searchCriteria={props.searchCriteria}
 			toggleAllChecked={props.toggleAllChecked}
 			onToggleAll={props.onToggleAll}
+			showToggleAll={props.showToggleAll}
 			getItemHeight={props.getItemHeight}
 			t={props.t}
 		/>
@@ -60,9 +65,11 @@ ItemsListView.propTypes = {
 	getItemHeight: PropTypes.func,
 	id: PropTypes.string,
 	items: ListView.propTypes.items,
+	isSwitchBox: PropTypes.bool,
 	onToggleAll: PropTypes.func,
 	searchCriteria: PropTypes.string,
 	toggleAllChecked: PropTypes.bool,
+	showToggleAll: PropTypes.bool,
 	t: PropTypes.func,
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { action as stAction } from '@storybook/react';
+import { action as stAction } from '@storybook/addon-actions';
 import { IconsProvider } from '@talend/react-components';
 import { Action } from '../src';
 
@@ -57,6 +57,10 @@ export default function ExampleAction() {
 				label="should not be displayed: model without label"
 				availableExpression="modelHasLabel"
 				model={{ id: 'bar' }}
+			/>
+			<p>Using actions with overlay</p>
+			<Action
+				actionId="action:overlay:component"
 			/>
 		</div>
 	);

@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import keycode from 'keycode';
+import get from 'lodash/get';
+
 import Typeahead from '@talend/react-components/lib/Typeahead';
+
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './Datalist.scss';
@@ -21,15 +24,16 @@ class Datalist extends Component {
 		this.onSelect = this.onSelect.bind(this);
 
 		this.theme = {
-			container: classNames(
-				theme.container,
-				'tf-datalist-container'
-			),
+			container: classNames(theme.container, 'tf-datalist-container'),
 			itemsContainer: theme['items-container'],
 			itemsList: theme.items,
 		};
 
 		this.state = { previousValue: props.value, value: props.value };
+	}
+
+	componentWillReceiveProps({ value }) {
+		this.setState({ previousValue: value, value });
 	}
 
 	/**
@@ -68,10 +72,10 @@ class Datalist extends Component {
 	 * ENTER: select a suggestion, persist the value, or submit the form
 	 * UP/DOWN: update the active suggestion index
 	 * @param event The keydown event
-	 * @param focusedItemIndex The previous focused suggestion index
-	 * @param newFocusedItemIndex The new focused suggestion index
+	 * @param highlightedItemIndex The previous focused suggestion index
+	 * @param newHighlightedItemIndex The new focused suggestion index
 	 */
-	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
+	onKeyDown(event, { highlightedItemIndex, newHighlightedItemIndex }) {
 		switch (event.which) {
 			case keycode.codes.esc:
 				event.preventDefault();
@@ -82,9 +86,9 @@ class Datalist extends Component {
 					break;
 				}
 				event.preventDefault();
-				if (Number.isInteger(focusedItemIndex)) {
+				if (Number.isInteger(highlightedItemIndex)) {
 					// suggestions are displayed and an item has the focus : we select it
-					this.onSelect(event, { itemIndex: focusedItemIndex });
+					this.onSelect(event, { itemIndex: highlightedItemIndex });
 				} else if (this.state.value !== this.state.previousValue) {
 					// there is no focused item and the current value is not persisted
 					// we persist it
@@ -98,11 +102,11 @@ class Datalist extends Component {
 					// display all suggestions when they are not displayed
 					this.updateSuggestions();
 				}
-				this.setState({ focusedItemIndex: newFocusedItemIndex });
+				this.setState({ focusedItemIndex: newHighlightedItemIndex });
 				break;
 			case keycode.codes.up:
 				event.preventDefault();
-				this.setState({ focusedItemIndex: newFocusedItemIndex });
+				this.setState({ focusedItemIndex: newHighlightedItemIndex });
 				break;
 			default:
 				break;
@@ -130,7 +134,8 @@ class Datalist extends Component {
 		const previousValue = persist ? value : this.state.previousValue;
 		this.setState({ value, previousValue });
 		if (persist) {
-			const payload = { schema: this.props.schema, value };
+			const enumValue = this.props.schema.titleMap.find(item => item.name === value);
+			const payload = { schema: this.props.schema, value: get(enumValue, 'value', value) };
 			this.props.onChange(event, payload);
 			this.props.onFinish(event, payload);
 		}
@@ -158,7 +163,7 @@ class Datalist extends Component {
 			return;
 		}
 
-		let suggestions = this.props.schema.titleMap.map(item => item.value);
+		let suggestions = this.props.schema.titleMap.map(item => item.name);
 		if (value) {
 			const escapedValue = escapeRegexCharacters(value.trim());
 			const regex = new RegExp(escapedValue, 'i');
@@ -186,10 +191,11 @@ class Datalist extends Component {
 				id={this.props.id}
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
+				required={this.props.schema.required}
 			>
 				<div className={theme['tf-datalist']}>
 					<Typeahead
-						id={this.props.id}
+						id={`${this.props.id}`}
 						autoFocus={this.props.schema.autoFocus || false}
 						disabled={this.props.schema.disabled || false}
 						focusedItemIndex={this.state.focusedItemIndex}
@@ -232,12 +238,15 @@ if (process.env.NODE_ENV !== 'production') {
 			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
+			required: PropTypes.bool,
 			restricted: PropTypes.bool,
 			title: PropTypes.string,
-			titleMap: PropTypes.arrayOf(PropTypes.shape({
-				name: PropTypes.string.isRequired,
-				value: PropTypes.string.isRequired,
-			})),
+			titleMap: PropTypes.arrayOf(
+				PropTypes.shape({
+					name: PropTypes.string.isRequired,
+					value: PropTypes.string.isRequired,
+				}),
+			),
 		}),
 		value: PropTypes.string,
 	};

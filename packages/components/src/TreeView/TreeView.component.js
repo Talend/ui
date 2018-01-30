@@ -82,7 +82,7 @@ function TreeView({
 							tooltipPlacement="right"
 							hideLabel
 							link
-							id={`${id}-add`}
+							id={id && `${id}-add`}
 							key={addActionLabel}
 						/>
 					)}
@@ -92,7 +92,7 @@ function TreeView({
 				<ul className={theme['tc-treeview-ul']}>
 					{structure.map((item, i) => (
 						<TreeViewItem
-							id={`${id}-${i}`}
+							id={id && `${id}-${i}`}
 							item={item}
 							onSelect={onSelect || itemSelectCallback}
 							onClick={onClick || itemToggleCallback}
@@ -104,6 +104,8 @@ function TreeView({
 		</div>
 	);
 }
+
+TreeView.displayName = 'TreeView';
 
 TreeView.propTypes = {
 	id: PropTypes.string,

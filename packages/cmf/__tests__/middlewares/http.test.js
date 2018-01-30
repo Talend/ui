@@ -1,27 +1,27 @@
+import http from '../../src/middlewares/http';
+
 import {
 	DEFAULT_HTTP_HEADERS,
 	isHTTPRequest,
 	getMethod,
-	httpRequest,
-	httpError,
-	httpResponse,
 	mergeOptions,
-	onResponse,
-	onError,
 	httpMiddleware,
 	HTTPError,
 	status,
 	handleResponse,
 } from '../../src/middlewares/http/middleware';
-import http from '../../src/middlewares/http';
+
 import {
 	HTTP_METHODS,
-	HTTP_REQUEST,
-	HTTP_RESPONSE,
-	HTTP_ERRORS,
+	ACTION_TYPE_HTTP_ERRORS,
+	HTTP_STATUS,
 } from '../../src/middlewares/http/constants';
 
 describe('CMF http middleware', () => {
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
+
 	it('should be available from middlewares/http', () => {
 		expect(http).toBe(httpMiddleware);
 	});
@@ -59,26 +59,7 @@ describe('CMF http middleware', () => {
 		expect(getMethod({ type: HTTP_METHODS.TRACE })).toBe('TRACE');
 		expect(getMethod({ type: HTTP_METHODS.CONNECT })).toBe('CONNECT');
 	});
-	it('should httpRequest create action', () => {
-		const url = '//foo/bar';
-		const config = { method: 'GET' };
-		const action = httpRequest(url, config);
-		expect(action.type).toBe(HTTP_REQUEST);
-		expect(action.url).toBe(url);
-		expect(action.config).toBe(config);
-	});
-	it('should httpError create action', () => {
-		const error = { message: 'something goes wrong' };
-		const action = httpError(error);
-		expect(action.type).toBe(HTTP_ERRORS);
-		expect(action.error).toBe(error);
-	});
-	it('should httpResponse create action', () => {
-		const response = { id: '2312321323' };
-		const action = httpResponse(response);
-		expect(action.type).toBe(HTTP_RESPONSE);
-		expect(action.data).toBe(response);
-	});
+
 	it('should mergeOptions create action with default headers/credentials', () => {
 		const action = {
 			type: HTTP_METHODS.POST,
@@ -110,36 +91,6 @@ describe('CMF http middleware', () => {
 		expect(options.credentials).toBe('omit');
 	});
 
-	it('should onResponse create action', () => {
-		const response = { msg: 'you have a response' };
-		const action = {
-			type: 'DONT_CARE',
-			onResponse: 'CALL_ME_BACK',
-		};
-		const newAction = onResponse(action, response);
-		expect(newAction.type).toBe('CALL_ME_BACK');
-		expect(newAction.response).toBe(response);
-
-		action.onResponse = jest.fn();
-		onResponse(action, response);
-		expect(action.onResponse.mock.calls.length).toBe(1);
-		expect(action.onResponse.mock.calls[0][0]).toBe(response);
-	});
-	it('should onError create action', () => {
-		const error = { message: 'something goes wrong' };
-		const action = {
-			type: 'DONT_CARE',
-			onError: 'CALL_ME_BACK',
-		};
-		const newAction = onError(action, error);
-		expect(newAction.type).toBe('CALL_ME_BACK');
-		expect(newAction.error).toBe(error);
-
-		action.onError = jest.fn();
-		onError(action, error);
-		expect(action.onError.mock.calls.length).toBe(1);
-		expect(action.onError.mock.calls[0][0]).toBe(error);
-	});
 	it('should httpMiddleware return function', () => {
 		const store = {
 			dispatch: jest.fn(),
@@ -149,7 +100,7 @@ describe('CMF http middleware', () => {
 		expect(typeof middleware).toBe('function');
 	});
 
-	it('should httpMiddleware handle response promise', (done) => {
+	it('return a promise when is given an action', done => {
 		function json() {
 			return new Promise(resolve => resolve({ foo: 'bar' }));
 		}
@@ -167,11 +118,11 @@ describe('CMF http middleware', () => {
 			onError: 'CALL_ME_BACK on error',
 			response: {
 				ok: true,
-				status: 200,
+				status: HTTP_STATUS.OK,
 				json,
 			},
 		};
-		const middleware = httpMiddleware(store)(next);
+		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
 		const config = {
@@ -184,16 +135,13 @@ describe('CMF http middleware', () => {
 			onSend: 'CALL_ME_BACK on send',
 			response: {
 				ok: true,
-				status: 200,
+				status: HTTP_STATUS.OK,
 				json,
 			},
 			url: 'foo',
 		};
 
-		expect(global.fetch.mock.calls[0]).toEqual([
-			'foo',
-			config,
-		]);
+		expect(global.fetch.mock.calls[0]).toEqual(['foo', config]);
 
 		newState.then(() => {
 			expect(next.mock.calls.length).toBe(1);
@@ -203,7 +151,7 @@ describe('CMF http middleware', () => {
 		});
 	});
 
-	it('should httpMiddleware with formData', (done) => {
+	it('pass FormData to the fetch function without tempering if given as action body', done => {
 		function json() {
 			return new Promise(resolve => resolve({ foo: 'bar' }));
 		}
@@ -222,11 +170,11 @@ describe('CMF http middleware', () => {
 			onError: 'CALL_ME_BACK on error',
 			response: {
 				ok: true,
-				status: 200,
+				status: HTTP_STATUS.OK,
 				json,
 			},
 		};
-		const middleware = httpMiddleware(store)(next);
+		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
 		const config = {
@@ -239,16 +187,13 @@ describe('CMF http middleware', () => {
 			onSend: 'CALL_ME_BACK on send',
 			response: {
 				ok: true,
-				status: 200,
+				status: HTTP_STATUS.OK,
 				json,
 			},
 			url: 'foo',
 		};
 
-		expect(global.fetch.mock.calls[1]).toEqual([
-			'foo',
-			config,
-		]);
+		expect(global.fetch.mock.calls[0]).toEqual(['foo', config]);
 
 		newState.then(() => {
 			expect(next.mock.calls.length).toBe(1);
@@ -258,7 +203,7 @@ describe('CMF http middleware', () => {
 		});
 	});
 
-	it('should httpMiddleware handle response promise with error', (done) => {
+	it('should httpMiddleware handle response promise with error', done => {
 		const store = {
 			dispatch: jest.fn(),
 		};
@@ -270,7 +215,7 @@ describe('CMF http middleware', () => {
 			onResponse: 'CALL_ME_BACK on response',
 			response: {
 				ok: false,
-				status: 500,
+				status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
 				statusText: 'Internal Server Error',
 				type: 'basic',
 				url: '//foo/bar',
@@ -279,14 +224,14 @@ describe('CMF http middleware', () => {
 				}),
 			},
 		};
-		const middleware = httpMiddleware(store)(next);
+		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
 		newState.then(() => {
 			expect(store.dispatch.mock.calls.length).toBe(3);
 			const errorHTTPAction = store.dispatch.mock.calls[2][0];
 			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
-			expect(errorHTTPAction.error.stack.status).toBe(500);
+			expect(errorHTTPAction.error.stack.status).toBe(HTTP_STATUS.INTERNAL_SERVER_ERROR);
 			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
 			expect(errorHTTPAction.error.stack.response).toBe('{"foo":"bar"}');
 			expect(errorHTTPAction.error.stack.messageObject).toEqual({
@@ -296,7 +241,7 @@ describe('CMF http middleware', () => {
 		});
 	});
 
-	it('should httpMiddleware handle response promise with error same if the body is not a JSON', (done) => {
+	it('should httpMiddleware handle response promise with error same if the body is not a JSON', done => {
 		const store = {
 			dispatch: jest.fn(),
 		};
@@ -308,7 +253,7 @@ describe('CMF http middleware', () => {
 			onResponse: 'CALL_ME_BACK on response',
 			response: {
 				ok: false,
-				status: 500,
+				status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
 				statusText: 'Internal Server Error',
 				type: 'basic',
 				url: '//foo/bar',
@@ -317,22 +262,24 @@ describe('CMF http middleware', () => {
 				}),
 			},
 		};
-		const middleware = httpMiddleware(store)(next);
+		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
-		newState.then(() => {
-			expect(store.dispatch.mock.calls.length).toBe(3);
-			const errorHTTPAction = store.dispatch.mock.calls[2][0];
-			expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
-			expect(errorHTTPAction.error.stack.status).toBe(500);
-			expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
-			expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
-			expect(errorHTTPAction.error.stack.response).toBe('invalid json');
-			done();
-		}).catch(error => console.error(error));
+		newState
+			.then(() => {
+				expect(store.dispatch.mock.calls.length).toBe(3);
+				const errorHTTPAction = store.dispatch.mock.calls[2][0];
+				expect(errorHTTPAction.type).toBe('@@HTTP/ERRORS');
+				expect(errorHTTPAction.error.stack.status).toBe(HTTP_STATUS.INTERNAL_SERVER_ERROR);
+				expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
+				expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
+				expect(errorHTTPAction.error.stack.response).toBe('invalid json');
+				done();
+			})
+			.catch(error => console.error(error));
 	});
 
-	it('should httpMiddleware handle callback onError', (done) => {
+	it('should handle onError callback if this action property is a typeof function', done => {
 		const store = {
 			dispatch: jest.fn(),
 		};
@@ -347,7 +294,7 @@ describe('CMF http middleware', () => {
 			}),
 			response: {
 				ok: false,
-				status: 500,
+				status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
 				statusText: 'Internal Server Error',
 				type: 'basic',
 				url: '//foo/bar',
@@ -356,7 +303,7 @@ describe('CMF http middleware', () => {
 				}),
 			},
 		};
-		const middleware = httpMiddleware(store)(next);
+		const middleware = httpMiddleware()(store)(next);
 		expect(typeof middleware).toBe('function');
 		const newState = middleware(action);
 		newState.then(() => {
@@ -371,7 +318,7 @@ describe('CMF http middleware', () => {
 describe('HTTPError', () => {
 	it('should create a new instance', () => {
 		const response = {
-			status: 500,
+			status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
 			statusText: 'Internal Server Error',
 			ok: false,
 		};
@@ -383,17 +330,17 @@ describe('HTTPError', () => {
 describe('status function', () => {
 	it('should reject if status >= 300', () => {
 		const response = {
-			status: 500,
+			status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
 		};
-		return status(response).catch((err) => {
+		return status(response).catch(err => {
 			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
 		});
 	});
-	it('should resolve if status >= 200 & < 300', () => {
+	it('should resolve if status >= HTTP_STATUS.OK & < 300', () => {
 		const response = {
-			status: 204,
+			status: HTTP_STATUS.NO_CONTENT,
 		};
-		return status(response).then((r) => {
+		return status(response).then(r => {
 			expect(r).toBe(response);
 		});
 	});
@@ -402,27 +349,185 @@ describe('status function', () => {
 describe('json function', () => {
 	it('should reject if no json function on response', () => {
 		const response = {
-			status: 502,
+			status: HTTP_STATUS.BAD_GATEWAY,
 		};
-		return handleResponse(response).catch((err) => {
+		return handleResponse(response).catch(err => {
 			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
 		});
 	});
 	it('should resolve if attr json is on response', () => {
 		const response = {
-			status: 200,
+			status: HTTP_STATUS.OK,
 			json: () => new Promise(resolve => resolve({ foo: 'bar' })),
 		};
-		return handleResponse(response).then((r) => {
+		return handleResponse(response).then(r => {
 			expect(r).toMatchSnapshot();
 		});
 	});
-	it('should resolve status 204 but without json function', () => {
+	it('should resolve status HTTP_STATUS.NO_CONTENT but without json function', () => {
 		const response = {
-			status: 204,
+			status: HTTP_STATUS.NO_CONTENT,
 		};
-		return handleResponse(response).then((r) => {
+		return handleResponse(response).then(r => {
 			expect(r).toMatchSnapshot();
+		});
+	});
+});
+
+describe('httpMiddleware configuration', () => {
+	beforeEach(() => {
+		jest.clearAllMocks();
+	});
+
+	it('should use its parameter for CSRF handling if a security configuration is given', done => {
+		// given
+		function json() {
+			return new Promise(resolve => resolve({ foo: 'bar' }));
+		}
+		const httpDefaultConfig = {
+			security: {
+				CSRFTokenCookieKey: 'cookieKey',
+				CSRFTokenHeaderKey: 'headerKey',
+			},
+		};
+
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			url: 'foo',
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			onError: 'CALL_ME_BACK on error',
+			response: {
+				ok: true,
+				status: HTTP_STATUS.OK,
+				json,
+			},
+		};
+
+		const expectedBody = '{"label":"great test"}';
+		const expectedCredentials = 'same-origin';
+		const expectedMethod = 'POST';
+		const expectedOnError = 'CALL_ME_BACK on error';
+		const expectedOnResponse = 'CALL_ME_BACK on response';
+		const expectedOnSend = 'CALL_ME_BACK on send';
+		const expectedurl = 'foo';
+		const expectedAccept = 'application/json';
+		const expectedContentType = 'application/json';
+		const expectedCSRFKeyValue = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
+
+		document.cookie = `cookieKey=${expectedCSRFKeyValue}; dwf_section_edit=True;`;
+
+		// when
+		const middleware = httpMiddleware(httpDefaultConfig)(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+
+		// then
+		const firstCall = global.fetch.mock.calls[0];
+		const firstCallSecondParam = firstCall[1];
+		expect(firstCall[0]).toEqual('foo');
+		expect(firstCallSecondParam).toHaveProperty('body', expectedBody);
+		expect(firstCallSecondParam).toHaveProperty('credentials', expectedCredentials);
+		expect(firstCallSecondParam).toHaveProperty('headers.Accept', expectedAccept);
+		expect(firstCallSecondParam).toHaveProperty(
+			'headers.Content-Type',
+			expectedContentType,
+		);
+		expect(firstCallSecondParam).toHaveProperty('headers.headerKey', expectedCSRFKeyValue);
+		expect(firstCallSecondParam).toHaveProperty('method', expectedMethod);
+		expect(firstCallSecondParam).toHaveProperty('onError', expectedOnError);
+		expect(firstCallSecondParam).toHaveProperty('onResponse', expectedOnResponse);
+		expect(firstCallSecondParam).toHaveProperty('onSend', expectedOnSend);
+		expect(firstCallSecondParam).toHaveProperty('url', expectedurl);
+		expect(firstCallSecondParam).toHaveProperty('response.ok', true);
+		expect(firstCallSecondParam).toHaveProperty('response.status', HTTP_STATUS.OK);
+		expect(firstCallSecondParam).toHaveProperty('response.json', json);
+
+		newState.then(() => {
+			expect(next.mock.calls.length).toBe(1);
+			const newAction = next.mock.calls[0][0];
+			expect(newAction.response.foo).toBe('bar');
+			done();
+		});
+		document.cookie = `cookieKey=${expectedCSRFKeyValue}; dwf_section_edit=True; Max-Age=0`;
+	});
+
+	it('should use defaults CSRF handling parameter if no security configuration is given', done => {
+		// given
+		function json() {
+			return new Promise(resolve => resolve({ foo: 'bar' }));
+		}
+
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			url: 'foo',
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			onSend: 'CALL_ME_BACK on send',
+			onResponse: 'CALL_ME_BACK on response',
+			onError: 'CALL_ME_BACK on error',
+			response: {
+				ok: true,
+				status: HTTP_STATUS.OK,
+				json,
+			},
+		};
+
+		const expectedBody = '{"label":"great test"}';
+		const expectedCredentials = 'same-origin';
+		const expectedMethod = 'POST';
+		const expectedOnError = 'CALL_ME_BACK on error';
+		const expectedOnResponse = 'CALL_ME_BACK on response';
+		const expectedOnSend = 'CALL_ME_BACK on send';
+		const expectedurl = 'foo';
+		const expectedAccept = 'application/json';
+		const expectedContentType = 'application/json';
+		const expectedCSRFKeyValue = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
+
+		document.cookie = `csrfToken=${expectedCSRFKeyValue}; dwf_section_edit=True;`;
+
+		// when
+		const middleware = httpMiddleware()(store)(next);
+		expect(typeof middleware).toBe('function');
+		const newState = middleware(action);
+
+		// then
+		const firstCall = global.fetch.mock.calls[0];
+		const firstCallSecondParam = firstCall[1];
+		expect(firstCall[0]).toEqual('foo');
+		expect(firstCallSecondParam).toHaveProperty('body', expectedBody);
+		expect(firstCallSecondParam).toHaveProperty('credentials', expectedCredentials);
+		expect(firstCallSecondParam).toHaveProperty('headers.Accept', expectedAccept);
+		expect(firstCallSecondParam).toHaveProperty(
+			'headers.Content-Type',
+			expectedContentType,
+		);
+		expect(firstCallSecondParam).toHaveProperty(
+			'headers.X-CSRF-Token',
+			expectedCSRFKeyValue,
+		);
+		expect(firstCallSecondParam).toHaveProperty('method', expectedMethod);
+		expect(firstCallSecondParam).toHaveProperty('onError', expectedOnError);
+		expect(firstCallSecondParam).toHaveProperty('onResponse', expectedOnResponse);
+		expect(firstCallSecondParam).toHaveProperty('onSend', expectedOnSend);
+		expect(firstCallSecondParam).toHaveProperty('url', expectedurl);
+		expect(firstCallSecondParam).toHaveProperty('response.ok', true);
+		expect(firstCallSecondParam).toHaveProperty('response.status', HTTP_STATUS.OK);
+		expect(firstCallSecondParam).toHaveProperty('response.json', json);
+
+		newState.then(() => {
+			expect(next.mock.calls.length).toBe(1);
+			const newAction = next.mock.calls[0][0];
+			expect(newAction.response.foo).toBe('bar');
+			done();
 		});
 	});
 });

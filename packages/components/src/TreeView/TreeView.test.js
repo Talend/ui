@@ -42,7 +42,7 @@ describe('TreeView', () => {
 	});
 	it('should render normally with all buttons and custom labels', () => {
 		const wrapper = shallow(<TreeView {...defaultProps} />);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('when a user click on the add Action it should call props.addAction', () => {
 		const props = {

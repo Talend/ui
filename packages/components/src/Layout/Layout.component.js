@@ -9,6 +9,7 @@ import {
 	DISPLAY_MODES,
 	DISPLAY_MODE_ONE_COLUMN,
 	DISPLAY_MODE_TWO_COLUMNS,
+	TALEND_T7_THEME_CLASSNAME,
 } from './constants';
 
 /**
@@ -17,29 +18,31 @@ import {
  * If the Layout is not after the body you have to
  * add some CSS
  * @example
-body > div {
-	max-height: 100vh;
-	overflow: hidden;
+ body > div {
 	display: flex;
 	width: 100vw;
+	max-height: 100vh;
+	overflow: hidden;
 }
  * @param {object} props react props
  * @example
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
-function Layout({ header, footer, mode, drawers, tabs, children, ...rest }) {
-	const appCSS = classnames(
-		'tc-layout',
-		theme.layout,
-	);
-	const headerCSS = classnames(
-		'tc-layout-header',
-		theme.header,
-	);
-	const footerCSS = classnames(
-		'tc-layout-footer',
-		theme.footer,
-	);
+function Layout({
+	id,
+	header,
+	subHeader,
+	footer,
+	mode,
+	drawers,
+	tabs,
+	hasTheme,
+	children,
+	...rest
+}) {
+	const appCSS = classnames('tc-layout', theme.layout, hasTheme && TALEND_T7_THEME_CLASSNAME);
+	const headerCSS = classnames('tc-layout-header', theme.header);
+	const footerCSS = classnames('tc-layout-footer', theme.footer);
 	let Component;
 	switch (mode) {
 		case DISPLAY_MODE_ONE_COLUMN:
@@ -52,26 +55,38 @@ function Layout({ header, footer, mode, drawers, tabs, children, ...rest }) {
 			Component = OneColumn;
 	}
 	return (
-		<div className={appCSS}>
-			{header &&
-				<div className={headerCSS}>{header}</div>
-			}
-			{Component &&
-				<Component drawers={drawers} tabs={tabs} {...rest}>{children}</Component>
-			}
-			{footer &&
-				<footer role="contentinfo" className={footerCSS}>{footer}</footer>
-			}
+		<div id={id} className={appCSS}>
+			{header && (
+				<header role="banner" className={headerCSS}>
+					{header}
+				</header>
+			)}
+			{subHeader}
+			{Component && (
+				<Component drawers={drawers} tabs={tabs} {...rest}>
+					{children}
+				</Component>
+			)}
+			{footer && (
+				<footer role="contentinfo" className={footerCSS}>
+					{footer}
+				</footer>
+			)}
 		</div>
 	);
 }
 
+Layout.displayName = 'Layout';
+
 Layout.propTypes = {
+	id: PropTypes.string,
 	header: PropTypes.element,
 	footer: PropTypes.element,
+	subHeader: PropTypes.element,
 	mode: PropTypes.oneOf(DISPLAY_MODES),
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	tabs: PropTypes.shape(TabBar.propTypes),
+	hasTheme: PropTypes.bool,
 	children: PropTypes.node,
 };
 

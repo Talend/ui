@@ -20,24 +20,15 @@ describe('ListGrid', () => {
 				onRowClick={jest.fn()}
 				width={1024}
 			>
-				<VirtualizedList.Content
-					label="Id"
-					dataKey="id"
-				/>
-				<VirtualizedList.Content
-					label="Name"
-					dataKey="name"
-				/>
-				<VirtualizedList.Content
-					label=""
-					dataKey="description"
-				/>
-			</ListGrid>
+				<VirtualizedList.Content label="Id" dataKey="id" />
+				<VirtualizedList.Content label="Name" dataKey="name" />
+				<VirtualizedList.Content label="" dataKey="description" />
+			</ListGrid>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
-		expect(wrapper.node.props.rowRenderer.displayName).toBe('VirtualizedList(RowLarge)');
+		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.getElement().props.rowRenderer.displayName).toBe('VirtualizedList(RowLarge)');
 	});
 
 	it('should enhance the rowRenderer with selection Higher Order renderer', () => {
@@ -53,22 +44,18 @@ describe('ListGrid', () => {
 				selectionToggle={jest.fn()}
 				width={1024}
 			>
-				<VirtualizedList.Content
-					label="Id"
-					dataKey="id"
-				/>
-				<VirtualizedList.Content
-					label="Name"
-					dataKey="name"
-				/>
-			</ListGrid>
+				<VirtualizedList.Content label="Id" dataKey="id" />
+				<VirtualizedList.Content label="Name" dataKey="name" />
+			</ListGrid>,
 		);
 
 		// then
-		expect(wrapper.node.props.rowRenderer.displayName).toBe('RowSelection(VirtualizedList(RowLarge))');
+		expect(wrapper.getElement().props.rowRenderer.displayName).toBe(
+			'RowSelection(VirtualizedList(RowLarge))',
+		);
 	});
 
-	it('should render no-rows component', () => {
+	it('should render noRows', () => {
 		// when
 		const wrapper = mount(
 			<ListGrid
@@ -80,16 +67,11 @@ describe('ListGrid', () => {
 				rowRenderer={RowLarge}
 				selectionToggle={jest.fn()}
 				width={1024}
+				noRowsRenderer={() => <div>No rows</div>}
 			>
-				<VirtualizedList.Content
-					label="Id"
-					dataKey="id"
-				/>
-				<VirtualizedList.Content
-					label="Name"
-					dataKey="name"
-				/>
-			</ListGrid>
+				<VirtualizedList.Content label="Id" dataKey="id" />
+				<VirtualizedList.Content label="Name" dataKey="name" />
+			</ListGrid>,
 		);
 
 		// then

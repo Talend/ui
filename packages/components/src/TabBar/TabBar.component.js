@@ -38,6 +38,8 @@ function TabBar({ items, onSelect, selected, className }) {
 	);
 }
 
+TabBar.displayName = 'TabBar';
+
 TabBar.propTypes = {
 	items: PropTypes.arrayOf(
 		PropTypes.shape({

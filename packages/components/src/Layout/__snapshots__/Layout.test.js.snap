@@ -2,20 +2,22 @@
 
 exports[`Layout should render Layout OneColumn 1`] = `
 <div
-  className="tc-layout"
+  className="tc-layout theme-layout"
+  id={undefined}
 >
-  <div
-    className="tc-layout-header"
+  <header
+    className="tc-layout-header theme-header"
+    role="banner"
   >
     <h1>
       Header
     </h1>
-  </div>
+  </header>
   <div
-    className="tc-layout-one-column"
+    className="tc-layout-one-column theme-main"
   >
     <div
-      className={undefined}
+      className="theme-tc-with-drawer"
     >
       <div
         style={
@@ -32,7 +34,7 @@ exports[`Layout should render Layout OneColumn 1`] = `
         </h1>
       </div>
       <div
-        className={undefined}
+        className="theme-tc-with-drawer-container"
       />
     </div>
   </div>
@@ -41,30 +43,32 @@ exports[`Layout should render Layout OneColumn 1`] = `
 
 exports[`Layout should render Layout TwoColumns 1`] = `
 <div
-  className="tc-layout"
+  className="tc-layout theme-layout"
+  id={undefined}
 >
-  <div
-    className="tc-layout-header"
+  <header
+    className="tc-layout-header theme-header"
+    role="banner"
   >
     <h1>
       Header
     </h1>
-  </div>
+  </header>
   <div
-    className="tc-layout-two-columns"
+    className="tc-layout-two-columns theme-container"
   >
     <div
-      className="tc-layout-two-columns-left"
+      className="tc-layout-two-columns-left theme-sidemenu"
     >
       <h1>
         Column one
       </h1>
     </div>
     <div
-      className="tc-layout-two-columns-main"
+      className="tc-layout-two-columns-main theme-main"
     >
       <div
-        className={undefined}
+        className="theme-tc-with-drawer"
       >
         <div
           style={
@@ -81,7 +85,7 @@ exports[`Layout should render Layout TwoColumns 1`] = `
           </h1>
         </div>
         <div
-          className={undefined}
+          className="theme-tc-with-drawer-container"
         />
       </div>
     </div>
@@ -91,30 +95,32 @@ exports[`Layout should render Layout TwoColumns 1`] = `
 
 exports[`Layout should render layout with Drawer component 1`] = `
 <div
-  className="tc-layout"
+  className="tc-layout theme-layout"
+  id={undefined}
 >
-  <div
-    className="tc-layout-header"
+  <header
+    className="tc-layout-header theme-header"
+    role="banner"
   >
     <h1>
       Header
     </h1>
-  </div>
+  </header>
   <div
-    className="tc-layout-two-columns"
+    className="tc-layout-two-columns theme-container"
   >
     <div
-      className="tc-layout-two-columns-left"
+      className="tc-layout-two-columns-left theme-sidemenu"
     >
       <h1>
         Column one
       </h1>
     </div>
     <div
-      className="tc-layout-two-columns-main"
+      className="tc-layout-two-columns-main theme-main"
     >
       <div
-        className={undefined}
+        className="theme-tc-with-drawer"
       >
         <div
           style={
@@ -131,7 +137,7 @@ exports[`Layout should render layout with Drawer component 1`] = `
           </h1>
         </div>
         <div
-          className={undefined}
+          className="theme-tc-with-drawer-container"
         >
           <div
             className="tc-with-drawer-wrapper"
@@ -204,35 +210,309 @@ exports[`Layout should render layout with Drawer component 1`] = `
 </div>
 `;
 
+exports[`Layout should render layout with SubHeader 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SubHeaderBar
+    onGoBack={[Function]}
+    t={[Function]}
+    title="defaultTitle"
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <ActionBar
+        className="theme-tc-subheader-navbar tc-subheader-navbar"
+>
+        <SubHeaderBarActions
+                center={false}
+                className="theme-tc-subheader-navbar-left"
+                components={
+                        Array [
+                                Object {
+                                  "injectedComponent": <Action
+                                    bsStyle="link"
+                                    className="theme-tc-subheader-back-button tc-subheader-back-button"
+                                    hideLabel={true}
+                                    icon="talend-arrow-left"
+                                    id="backArrow"
+                                    label="Go Back"
+                                    onClick={[Function]}
+                        />,
+                                },
+                                Object {
+                                  "injectedComponent": <InputTitleSubHeader
+                                    editMode={false}
+                                    t={[Function]}
+                                    title="defaultTitle"
+                        />,
+                                },
+                              ]
+                }
+                left={true}
+                right={false}
+        />
+</ActionBar>,
+      "className": "theme-tc-subheader tc-subheader",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <SubHeaderBarActions
+            center={false}
+            className="theme-tc-subheader-navbar-left"
+            components={
+                        Array [
+                                    Object {
+                                      "injectedComponent": <Action
+                                        bsStyle="link"
+                                        className="theme-tc-subheader-back-button tc-subheader-back-button"
+                                        hideLabel={true}
+                                        icon="talend-arrow-left"
+                                        id="backArrow"
+                                        label="Go Back"
+                                        onClick={[Function]}
+                        />,
+                                    },
+                                    Object {
+                                      "injectedComponent": <InputTitleSubHeader
+                                        editMode={false}
+                                        t={[Function]}
+                                        title="defaultTitle"
+                        />,
+                                    },
+                                  ]
+            }
+            left={true}
+            right={false}
+/>,
+          false,
+          false,
+        ],
+        "className": "theme-tc-subheader-navbar tc-subheader-navbar",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "center": false,
+            "className": "theme-tc-subheader-navbar-left",
+            "components": Array [
+              Object {
+                "injectedComponent": <Action
+                  bsStyle="link"
+                  className="theme-tc-subheader-back-button tc-subheader-back-button"
+                  hideLabel={true}
+                  icon="talend-arrow-left"
+                  id="backArrow"
+                  label="Go Back"
+                  onClick={[Function]}
+/>,
+              },
+              Object {
+                "injectedComponent": <InputTitleSubHeader
+                  editMode={false}
+                  t={[Function]}
+                  title="defaultTitle"
+/>,
+              },
+            ],
+            "left": true,
+            "right": false,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        false,
+        false,
+      ],
+      "type": [Function],
+    },
+    "type": "header",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <ActionBar
+          className="theme-tc-subheader-navbar tc-subheader-navbar"
+>
+          <SubHeaderBarActions
+                    center={false}
+                    className="theme-tc-subheader-navbar-left"
+                    components={
+                              Array [
+                                        Object {
+                                          "injectedComponent": <Action
+                                            bsStyle="link"
+                                            className="theme-tc-subheader-back-button tc-subheader-back-button"
+                                            hideLabel={true}
+                                            icon="talend-arrow-left"
+                                            id="backArrow"
+                                            label="Go Back"
+                                            onClick={[Function]}
+                              />,
+                                        },
+                                        Object {
+                                          "injectedComponent": <InputTitleSubHeader
+                                            editMode={false}
+                                            t={[Function]}
+                                            title="defaultTitle"
+                              />,
+                                        },
+                                      ]
+                    }
+                    left={true}
+                    right={false}
+          />
+</ActionBar>,
+        "className": "theme-tc-subheader tc-subheader",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <SubHeaderBarActions
+              center={false}
+              className="theme-tc-subheader-navbar-left"
+              components={
+                            Array [
+                                          Object {
+                                            "injectedComponent": <Action
+                                              bsStyle="link"
+                                              className="theme-tc-subheader-back-button tc-subheader-back-button"
+                                              hideLabel={true}
+                                              icon="talend-arrow-left"
+                                              id="backArrow"
+                                              label="Go Back"
+                                              onClick={[Function]}
+                            />,
+                                          },
+                                          Object {
+                                            "injectedComponent": <InputTitleSubHeader
+                                              editMode={false}
+                                              t={[Function]}
+                                              title="defaultTitle"
+                            />,
+                                          },
+                                        ]
+              }
+              left={true}
+              right={false}
+/>,
+            false,
+            false,
+          ],
+          "className": "theme-tc-subheader-navbar tc-subheader-navbar",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "center": false,
+              "className": "theme-tc-subheader-navbar-left",
+              "components": Array [
+                Object {
+                  "injectedComponent": <Action
+                    bsStyle="link"
+                    className="theme-tc-subheader-back-button tc-subheader-back-button"
+                    hideLabel={true}
+                    icon="talend-arrow-left"
+                    id="backArrow"
+                    label="Go Back"
+                    onClick={[Function]}
+/>,
+                },
+                Object {
+                  "injectedComponent": <InputTitleSubHeader
+                    editMode={false}
+                    t={[Function]}
+                    title="defaultTitle"
+/>,
+                },
+              ],
+              "left": true,
+              "right": false,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          false,
+          false,
+        ],
+        "type": [Function],
+      },
+      "type": "header",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
 exports[`Layout should render layout with TabBar component 1`] = `
 <div
-  className="tc-layout"
+  className="tc-layout theme-layout"
+  id={undefined}
 >
-  <div
-    className="tc-layout-header"
+  <header
+    className="tc-layout-header theme-header"
+    role="banner"
   >
     <h1>
       Header
     </h1>
-  </div>
+  </header>
   <div
-    className="tc-layout-two-columns"
+    className="tc-layout-two-columns theme-container"
   >
     <div
-      className="tc-layout-two-columns-left"
+      className="tc-layout-two-columns-left theme-sidemenu"
     >
       <h1>
         Column one
       </h1>
     </div>
     <div
-      className="tc-layout-two-columns-main"
+      className="tc-layout-two-columns-main theme-main"
     >
       <div
-        className={undefined}
+        className="theme-tc-with-drawer"
       >
         <nav
-          className="nav tc-tab-bar"
+          className="nav tc-tab-bar theme-tc-tab-bar"
         >
           <ul
             className="nav nav-tabs tc-tab-bar-actions"
@@ -305,7 +585,7 @@ exports[`Layout should render layout with TabBar component 1`] = `
           </h1>
         </div>
         <div
-          className={undefined}
+          className="theme-tc-with-drawer-container"
         />
       </div>
     </div>
@@ -315,20 +595,22 @@ exports[`Layout should render layout with TabBar component 1`] = `
 
 exports[`Layout should render layout with footer component 1`] = `
 <div
-  className="tc-layout"
+  className="tc-layout theme-layout"
+  id={undefined}
 >
-  <div
-    className="tc-layout-header"
+  <header
+    className="tc-layout-header theme-header"
+    role="banner"
   >
     <h1>
       Header
     </h1>
-  </div>
+  </header>
   <div
-    className="tc-layout-one-column"
+    className="tc-layout-one-column theme-main"
   >
     <div
-      className={undefined}
+      className="theme-tc-with-drawer"
     >
       <div
         style={
@@ -345,12 +627,12 @@ exports[`Layout should render layout with footer component 1`] = `
         </h1>
       </div>
       <div
-        className={undefined}
+        className="theme-tc-with-drawer-container"
       />
     </div>
   </div>
   <footer
-    className="tc-layout-footer"
+    className="tc-layout-footer theme-footer"
     role="contentinfo"
   >
     <h3>
@@ -362,13 +644,14 @@ exports[`Layout should render layout with footer component 1`] = `
 
 exports[`Layout should render layout without header 1`] = `
 <div
-  className="tc-layout"
+  className="tc-layout theme-layout"
+  id={undefined}
 >
   <div
-    className="tc-layout-one-column"
+    className="tc-layout-one-column theme-main"
   >
     <div
-      className={undefined}
+      className="theme-tc-with-drawer"
     >
       <div
         style={
@@ -385,7 +668,7 @@ exports[`Layout should render layout without header 1`] = `
         </h1>
       </div>
       <div
-        className={undefined}
+        className="theme-tc-with-drawer-container"
       />
     </div>
   </div>

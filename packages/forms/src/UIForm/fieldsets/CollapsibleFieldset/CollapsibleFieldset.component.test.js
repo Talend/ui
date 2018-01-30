@@ -47,7 +47,7 @@ describe('CollapsibleFieldset', () => {
 			);
 
 			// then
-			expect(wrapper.getNode()).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		},
 		{
 			'a full fieldset (header and body)': { isClosed: false },

@@ -2,7 +2,7 @@
 
 exports[`RowLarge should render large row 1`] = `
 <div
-  className="tc-list-large"
+  className="tc-list-item tc-list-large theme-tc-list-large theme-row"
   onClick={undefined}
   role="button"
   style={
@@ -12,19 +12,19 @@ exports[`RowLarge should render large row 1`] = `
   }
 >
   <div
-    className="tc-list-large-row undefined my-class-names"
+    className="tc-list-large-row theme-inner-box my-class-names"
     id="my-list-1"
   >
     <div
-      className={undefined}
+      className="theme-header"
     >
       <div
-        className="tc-list-title"
+        className="tc-list-title theme-tc-list-title"
         id="my-list-1-title-cell"
       >
         <CellTitleSelector
           cellData="Title from second item"
-          className={undefined}
+          className="theme-main-title"
           displayMode="text"
           id="my-list-1-title-cell"
           onClick={undefined}
@@ -50,43 +50,44 @@ exports[`RowLarge should render large row 1`] = `
             }
           }
         />
-        <Actions
-          actions={
-            Array [
-              Object {
-                "icon": "talend-pencil",
-                "label": "edit",
-                "onClick": [Function],
-              },
-              Object {
-                "icon": "talend-trash",
-                "label": "delete",
-                "onClick": [Function],
-              },
-            ]
-          }
-          hideLabel={true}
-          link={true}
-          renderers={
+        <VirtualizedList(CellTitleActions)
+          actionsKey="titleActions"
+          displayMode="text"
+          persistentActionsKey={undefined}
+          rowData={
             Object {
-              "Action": [Function],
+              "description": "This comes from second element in collection",
+              "id": 1,
+              "name": "Title from second item",
+              "titleActions": Array [
+                Object {
+                  "icon": "talend-pencil",
+                  "label": "edit",
+                  "onClick": [Function],
+                },
+                Object {
+                  "icon": "talend-trash",
+                  "label": "delete",
+                  "onClick": [Function],
+                },
+              ],
             }
           }
         />
       </div>
     </div>
     <ul
-      className={undefined}
+      className="theme-content"
     >
       <li>
         <span
-          className={undefined}
+          className="theme-field-label"
         >
           Id
           : 
         </span>
         <span
-          className={undefined}
+          className="theme-field-value"
           title="1"
         >
           1
@@ -94,13 +95,13 @@ exports[`RowLarge should render large row 1`] = `
       </li>
       <li>
         <span
-          className={undefined}
+          className="theme-field-label"
         >
           Description
           : 
         </span>
         <span
-          className={undefined}
+          className="theme-field-value"
           title="Title from second item"
         >
           Title from second item

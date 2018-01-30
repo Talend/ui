@@ -5,6 +5,7 @@ import keycode from 'keycode';
 import TreeViewItem, { getItemIcon } from './TreeViewItem.component';
 
 const defaultProps = {
+	id: 'tc-treeview-item',
 	item: {
 		name: 'grandpa',
 		actions: [
@@ -48,7 +49,7 @@ describe('getItemIcon', () => {
 describe('TreeView', () => {
 	it('should render normally with all buttons and custom labels', () => {
 		const wrapper = shallow(<TreeViewItem {...defaultProps} />);
-		expect(wrapper.getNode()).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('when the user click the item it should get focus and call props.onClick and props.onSelect', () => {
 		const props = {

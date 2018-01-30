@@ -4,12 +4,14 @@ import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
 import { I18nextProvider } from 'react-i18next';
 
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { withKnobs, object } from '@storybook/addon-knobs';
 
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
-import { Action, Dialog } from '@talend/react-components';
+import Action from '@talend/react-components/lib/Actions/Action';
+import Dialog from '@talend/react-components/lib/Dialog';
 
 import i18n from './config/i18n';
 import Form from '../src/Form';

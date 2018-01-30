@@ -1,5 +1,6 @@
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
 import { Action, IconsProvider } from '../src/index';
@@ -13,6 +14,8 @@ const myAction = {
 	icon: 'talend-dataprep',
 	onClick: action('You clicked me'),
 };
+
+const OverlayComponent = <div>I am an overlay</div>;
 
 const mouseDownAction = {
 	label: 'Click me',
@@ -32,44 +35,35 @@ storiesOf('Action', module)
 			<p>By default :</p>
 			<Action id="default" {...myAction} />
 			<p>With hideLabel option</p>
+			<Action id="hidelabel" {...myAction} hideLabel />
+			<p>In progress</p>
+			<Action id="inprogress" {...myAction} inProgress />
+			<p>Disabled</p>
+			<Action id="disabled" {...myAction} disabled />
+			<p>Reverse display</p>
+			<Action id="reverseDisplay" {...myAction} iconPosition="right" />
+			<p>Transform icon</p>
+			<Action id="reverseDisplay" {...myAction} iconTransform={'rotate-180'} />
+			<p>Custom tooltip</p>
+			<Action id="default" {...myAction} tooltipLabel={'Custom label here'} />
+			<p>onMouse down handler</p>
+			<Action id="hidelabel" {...mouseDownAction} hideLabel />
+			<p>Action with popover</p>
 			<Action
 				id="hidelabel"
-				{...myAction}
+				overlayComponent={OverlayComponent}
+				overlayPlacement="top"
+				tooltipPlacement="left"
+				{...mouseDownAction}
 				hideLabel
 			/>
-			<p>In progress</p>
-			<Action
-				id="inprogress"
-				{...myAction}
-				inProgress
-			/>
-			<p>Disabled</p>
-			<Action
-				id="disabled"
-				{...myAction}
-				disabled
-			/>
-			<p>Reverse display</p>
-			<Action
-				id="reverseDisplay"
-				{...myAction}
-				iconPosition="right"
-			/>
-			<p>Transform icon</p>
-			<Action
-				id="reverseDisplay"
-				{...myAction}
-				iconTransform={'rotate-180'}
-			/>
-			<p>Custom tooltip</p>
-			<Action
-				id="default"
-				{...myAction}
-				tooltipLabel={'Custom label here'}
-			/>
-			<p>onMouse down handler</p>
+			<p>Action with popover</p>
 			<Action
 				id="hidelabel"
+				inProgress="true"
+				overlayComponent={OverlayComponent}
+				overlayPlacement="top"
+				tooltipPlacement="left"
 				{...mouseDownAction}
 				hideLabel
 			/>

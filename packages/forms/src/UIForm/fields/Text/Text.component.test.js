@@ -23,11 +23,11 @@ describe('Text field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render password input', () => {
@@ -41,11 +41,11 @@ describe('Text field', () => {
 				onFinish={jest.fn()}
 				schema={{ ...schema, type: 'password' }}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render disabled input', () => {
@@ -65,11 +65,11 @@ describe('Text field', () => {
 				onFinish={jest.fn()}
 				schema={disabledSchema}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render readonly input', () => {
@@ -89,11 +89,11 @@ describe('Text field', () => {
 				onFinish={jest.fn()}
 				schema={readOnlySchema}
 				value={'toto'}
-			/>
+			/>,
 		);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onChange', () => {
@@ -108,7 +108,7 @@ describe('Text field', () => {
 				onFinish={jest.fn()}
 				schema={schema}
 				value={'toto'}
-			/>
+			/>,
 		);
 		const event = { target: { value: 'totoa' } };
 
@@ -132,9 +132,10 @@ describe('Text field', () => {
 				isValid
 				errorMessage={'My error message'}
 				onChange={onChange}
+				onFinish={jest.fn()}
 				schema={numberSchema}
 				value={2}
-			/>
+			/>,
 		);
 		const event = { target: { value: '25' } };
 
@@ -157,7 +158,7 @@ describe('Text field', () => {
 				onFinish={onFinish}
 				schema={schema}
 				value={'toto'}
-			/>
+			/>,
 		);
 		const event = { target: { value: 'totoa' } };
 

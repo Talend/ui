@@ -1,81 +1,66 @@
 # Talend-log - error logging library
 
-A small library that provides redux-logger middleware for error logging to be applied as errorTransformer.
-
-Exports redux-logger compatible error logging middleware.
+A small library that provides a centralized error logger.
 
 #### Minimum-config usage:
 
-your configStore.js file:
-
-    import { createStore, applyMiddleware } from 'redux';
-    import thunkMiddleware from 'redux-thunk';
-    import promise from 'redux-promise-middleware';
-    import createLogger from 'redux-logger';
-    import LOGGING_SERVER_URL from 'somewhere';
-    import initErrorTransformer, { TraceKit } from '@talend/log';
-
-    // important part:
-    const logger = createLogger({ errorTransformer: initErrorTransformer(LOGGING_SERVER_URL) });
-    // :end of important part
-
-    const createStoreWithMiddleware = applyMiddleware(thunkMiddleware, promise(), logger)(createStore);
-    export default function configureStore(reducer, initialState) {
-        const store = createStoreWithMiddleware(reducer, initialState);
-        // drop a reference to store instance for later use in errorLogging reportMiddleware
-        TraceKit.store = store;
-        return store;
-    }
+* AngularJS [documentation](./src/angular)
+* React [documentation](./src/react)
+* Redux [documentation](./src/redux)
+* Framework free: see next section
 
 #### Advanced config
 Look in ./src/errorTransformer.js for jsDoc on each parameter
-
+```javascript
     import LOGGING_SERVER_URL from 'somewhere';
-    import initErrorTransformer from '@talend/log';
+    import { initErrorTransformer, TraceKit } from '@talend/log';
 
-    const logger = createLogger({
-        errorTransformer: initErrorTransformer(
-            LOGGING_SERVER_URL, {
-                send: (payload, fetchOptions) => fetch(LOGGING_SERVER_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        '@message': payload
-                    }),
-                    ...fetchOptions,
+    initErrorTransformer(
+        LOGGING_SERVER_URL, {
+            send: (payload, fetchOptions) => fetch(LOGGING_SERVER_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    '@message': payload
                 }),
-                payloadMiddleware: payload => Object.assign({
-                    state: TraceKit.store.getState()
-                }, payload),
-                fetchOptions: {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        custom: 'customData'
-                    }
-                },
-                successHandler: (responseText) => {
-                    alert('yay! ' + responseText)
-                },
-                retryCount: 5,
-                retryTimeout: 3000,
-                failedTryHandler: function failedTry(error, payload, transportOpts, attempt) {
-                    alert('Oh no! ' + error);
-                    transportOpts.send(transportOpts.payloadMiddleware(payload), transportOpts.fetchOptions, attempt + 1);
-                },
-                failedReportHandler: (errorResponse) => {
-                    alert('oh no! ' + errorResponse)
-                },
-            }, {
-                stackTraceLimit: 100,
-                linesOfContext: 13,
-                rethrowErrorHandler: () => {},
-                remoteFetching: true,
-                collectWindowErrors: true,
-            }
-        )
-    });
+                ...fetchOptions,
+            }),
+            payloadMiddleware: payload => Object.assign({
+                state: TraceKit.store.getState()
+            }, payload),
+            fetchOptions: {
+                headers: {
+                    'Content-Type': 'application/json',
+                    custom: 'customData'
+                }
+            },
+            successHandler: (responseText) => {
+                alert('yay! ' + responseText)
+            },
+            retryCount: 5,
+            retryTimeout: 3000,
+            failedTryHandler: function failedTry(error, payload, transportOpts, attempt) {
+                alert('Oh no! ' + error);
+                transportOpts.send(transportOpts.payloadMiddleware(payload), transportOpts.fetchOptions, attempt + 1);
+            },
+            failedReportHandler: (errorResponse) => {
+                alert('oh no! ' + errorResponse)
+            },
+        }, {
+            stackTraceLimit: 100,
+            linesOfContext: 13,
+            rethrowErrorHandler: () => {},
+            remoteFetching: true,
+            collectWindowErrors: true,
+        }
+    );
+    
+    ...
+    
+    TraceKit.report(new Error('My error'));
+```
 
 Notable details:
  - Once initErrorTransformer is called, listener function is created and registered in TraceKit, then returned.

@@ -64,7 +64,7 @@ exports[`Actions should render actions 1`] = `
     <button
       aria-expanded={false}
       aria-haspopup={true}
-      className="dropdown-toggle btn btn-default"
+      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
       disabled={false}
       id="dropdown-id"
       onClick={[Function]}
@@ -72,14 +72,18 @@ exports[`Actions should render actions 1`] = `
       role="button"
       type="button"
     >
-      <span>
+      <span
+        className="tc-dropdown-button-title"
+      >
         <i
           aria-hidden="true"
           className="fa fa-file-excel-o"
           focusable="false"
           title={null}
         />
-        <span>
+        <span
+          className="tc-dropdown-button-title-label"
+        >
           related items
         </span>
       </span>
@@ -131,7 +135,7 @@ exports[`Actions should render actions 1`] = `
     className="dropdown btn-group"
   >
     <button
-      className="btn btn-default"
+      className="theme-tc-split-dropdown btn btn-default"
       disabled={false}
       hideLabel={false}
       link={false}
@@ -274,7 +278,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
     <button
       aria-expanded={false}
       aria-haspopup={true}
-      className="dropdown-toggle btn btn-link"
+      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
       disabled={false}
       id="dropdown-id"
       onClick={[Function]}
@@ -282,14 +286,18 @@ exports[`Actions should render actions with "link" theme 1`] = `
       role="button"
       type="button"
     >
-      <span>
+      <span
+        className="tc-dropdown-button-title"
+      >
         <i
           aria-hidden="true"
           className="fa fa-file-excel-o"
           focusable="false"
           title={null}
         />
-        <span>
+        <span
+          className="tc-dropdown-button-title-label"
+        >
           related items
         </span>
       </span>
@@ -341,7 +349,7 @@ exports[`Actions should render actions with "link" theme 1`] = `
     className="dropdown btn-group"
   >
     <button
-      className="btn btn-default"
+      className="theme-tc-split-dropdown btn btn-default"
       disabled={false}
       hideLabel={false}
       link={true}
@@ -481,7 +489,7 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     <button
       aria-expanded={false}
       aria-haspopup={true}
-      className="dropdown-toggle btn btn-link"
+      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
       disabled={false}
       id="dropdown-id"
       onClick={[Function]}
@@ -491,7 +499,9 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
       role="button"
       type="button"
     >
-      <span>
+      <span
+        className="tc-dropdown-button-title"
+      >
         <i
           aria-hidden="true"
           className="fa fa-file-excel-o"
@@ -547,7 +557,7 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     className="dropdown btn-group"
   >
     <button
-      className="btn btn-default"
+      className="theme-tc-split-dropdown btn btn-default"
       disabled={false}
       hideLabel={true}
       link={true}
@@ -687,7 +697,7 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     <button
       aria-expanded={false}
       aria-haspopup={true}
-      className="dropdown-toggle btn btn-default"
+      className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
       disabled={false}
       id="dropdown-id"
       onClick={[Function]}
@@ -697,7 +707,9 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
       role="button"
       type="button"
     >
-      <span>
+      <span
+        className="tc-dropdown-button-title"
+      >
         <i
           aria-hidden="true"
           className="fa fa-file-excel-o"
@@ -753,7 +765,7 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     className="dropdown btn-group"
   >
     <button
-      className="btn btn-default"
+      className="theme-tc-split-dropdown btn btn-default"
       disabled={false}
       hideLabel={true}
       link={false}

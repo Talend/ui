@@ -1,0 +1,34 @@
+[
+	{
+		"description": "A simple form example.",
+		"items": [
+			{ "autoFocus": true, "key": "firstName", "title": "First name", "widget": "text" },
+			{ "key": "lastName", "title": "Last name", "widget": "text" },
+			{ "key": "age", "title": "Age", "type": "number", "widget": "text" },
+			{ "key": "bio", "title": "Bio", "widget": "textarea" },
+			{
+				"key": "password",
+				"title": "Password",
+				"widget": "text",
+				"type": "password",
+				"helpvalue": "Hint: Make it strong!"
+			},
+			{
+				"key": "enum",
+				"schema": {
+					"enum": [
+						"1",
+						"two",
+						"three"
+					],
+					"title": "Enum",
+					"type": "string"
+				},
+				"title": "Enum",
+				"widget": "select"
+			}
+		],
+		"title": "A registration form",
+		"widget": "fieldset"
+	}
+]

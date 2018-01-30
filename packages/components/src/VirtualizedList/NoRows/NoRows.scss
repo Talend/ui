@@ -1,7 +1,8 @@
-.no-result {
+.tc-virtualizedlist-no-result,
+:global(.tc-virtualizedlist-no-result) {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	height: 100%;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }

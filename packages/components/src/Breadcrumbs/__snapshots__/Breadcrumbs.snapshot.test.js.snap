@@ -2,14 +2,14 @@
 
 exports[`Breadcrumbs should do nothing if items property is empty 1`] = `
 <ol
-  className="breadcrumb tc-breadcrumb"
+  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="42"
 />
 `;
 
 exports[`Breadcrumbs should not render dropdown because all items are shown 1`] = `
 <ol
-  className="breadcrumb tc-breadcrumb"
+  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="42"
 >
   <li
@@ -26,7 +26,7 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -49,7 +49,7 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -72,7 +72,7 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -95,7 +95,7 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -118,12 +118,12 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
 
 exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
 <ol
-  className="breadcrumb tc-breadcrumb"
+  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="42"
 >
   <li
     aria-hidden="true"
-    className=""
+    className="theme-dots"
   >
     <div
       className="dropdown btn-group btn-group-link"
@@ -131,7 +131,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
       <button
         aria-expanded={false}
         aria-haspopup={true}
-        className="dropdown-toggle btn btn-link"
+        className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
         disabled={false}
         id="42-ellipsis"
         onClick={[Function]}
@@ -139,8 +139,12 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
         role="button"
         type="button"
       >
-        <span>
-          <span>
+        <span
+          className="tc-dropdown-button-title"
+        >
+          <span
+            className="tc-dropdown-button-title-label"
+          >
             ...
           </span>
         </span>
@@ -212,7 +216,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -235,7 +239,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -258,12 +262,12 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
 
 exports[`Breadcrumbs should render items ids when provided 1`] = `
 <ol
-  className="breadcrumb tc-breadcrumb"
+  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="my-breadcrumb"
 >
   <li
     aria-hidden="true"
-    className=""
+    className="theme-dots"
   >
     <div
       className="dropdown btn-group btn-group-link"
@@ -271,7 +275,7 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
       <button
         aria-expanded={false}
         aria-haspopup={true}
-        className="dropdown-toggle btn btn-link"
+        className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
         disabled={false}
         id="my-breadcrumb-ellipsis"
         onClick={[Function]}
@@ -279,8 +283,12 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
         role="button"
         type="button"
       >
-        <span>
-          <span>
+        <span
+          className="tc-dropdown-button-title"
+        >
+          <span
+            className="tc-dropdown-button-title-label"
+          >
             ...
           </span>
         </span>
@@ -316,7 +324,7 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -339,7 +347,7 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -362,7 +370,7 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -385,12 +393,12 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
 
 exports[`Breadcrumbs should render items with ellipsis and 3 visible items by default 1`] = `
 <ol
-  className="breadcrumb tc-breadcrumb"
+  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="42"
 >
   <li
     aria-hidden="true"
-    className=""
+    className="theme-dots"
   >
     <div
       className="dropdown btn-group btn-group-link"
@@ -398,7 +406,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
       <button
         aria-expanded={false}
         aria-haspopup={true}
-        className="dropdown-toggle btn btn-link"
+        className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
         disabled={false}
         id="42-ellipsis"
         onClick={[Function]}
@@ -406,8 +414,12 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
         role="button"
         type="button"
       >
-        <span>
-          <span>
+        <span
+          className="tc-dropdown-button-title"
+        >
+          <span
+            className="tc-dropdown-button-title-label"
+          >
             ...
           </span>
         </span>
@@ -443,7 +455,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -466,7 +478,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -489,7 +501,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -512,7 +524,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
 
 exports[`Breadcrumbs should render list of items without ellipsis when set enough max items to display 1`] = `
 <ol
-  className="breadcrumb tc-breadcrumb"
+  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="42"
 >
   <li
@@ -529,7 +541,7 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -552,7 +564,7 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -575,7 +587,7 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -598,7 +610,7 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -621,7 +633,7 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
 
 exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
 <ol
-  className="breadcrumb tc-breadcrumb"
+  className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
   id="42"
 >
   <li
@@ -638,7 +650,7 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >
@@ -661,7 +673,7 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
       focusable="false"
       title={null}
     >

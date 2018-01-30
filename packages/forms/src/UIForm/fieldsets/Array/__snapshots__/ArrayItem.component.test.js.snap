@@ -2,13 +2,13 @@
 
 exports[`Array Item component should NOT render moveUp/moveDown with no reorder callback 1`] = `
 <div
-  className="tf-array-item"
+  className="theme-tf-array-item tf-array-item"
 >
   <div
-    className={undefined}
+    className="theme-control"
   >
     <button
-      className={undefined}
+      className="theme-delete"
       id="talend-control-3-delete"
       onClick={[Function]}
       title="Delete"
@@ -27,13 +27,13 @@ exports[`Array Item component should NOT render moveUp/moveDown with no reorder 
 
 exports[`Array Item component should NOT render reorder control panel when value.isClosed is true 1`] = `
 <div
-  className="tf-array-item"
+  className="theme-tf-array-item tf-array-item"
 >
   <div
-    className={undefined}
+    className="theme-control"
   >
     <button
-      className={undefined}
+      className="theme-delete"
       id="talend-control-3-delete"
       onClick={[Function]}
       title="Delete"
@@ -52,13 +52,13 @@ exports[`Array Item component should NOT render reorder control panel when value
 
 exports[`Array Item component should disable moveDown 1`] = `
 <div
-  className="tf-array-item"
+  className="theme-tf-array-item tf-array-item"
 >
   <div
-    className={undefined}
+    className="theme-control"
   >
     <button
-      className={undefined}
+      className="theme-delete"
       id="talend-control-3-delete"
       onClick={[Function]}
       title="Delete"
@@ -75,7 +75,6 @@ exports[`Array Item component should disable moveDown 1`] = `
       index={3}
       onRemove={[Function]}
       onReorder={[Function]}
-      value={Object {}}
     >
       <span>
         This is the item content
@@ -89,7 +88,6 @@ exports[`Array Item component should disable moveDown 1`] = `
       isMoveDown={true}
       onRemove={[Function]}
       onReorder={[Function]}
-      value={Object {}}
     >
       <span>
         This is the item content
@@ -104,13 +102,13 @@ exports[`Array Item component should disable moveDown 1`] = `
 
 exports[`Array Item component should disable moveUp 1`] = `
 <div
-  className="tf-array-item"
+  className="theme-tf-array-item tf-array-item"
 >
   <div
-    className={undefined}
+    className="theme-control"
   >
     <button
-      className={undefined}
+      className="theme-delete"
       id="talend-control-3-delete"
       onClick={[Function]}
       title="Delete"
@@ -127,7 +125,6 @@ exports[`Array Item component should disable moveUp 1`] = `
       index={3}
       onRemove={[Function]}
       onReorder={[Function]}
-      value={Object {}}
     >
       <span>
         This is the item content
@@ -141,7 +138,6 @@ exports[`Array Item component should disable moveUp 1`] = `
       isMoveDown={true}
       onRemove={[Function]}
       onReorder={[Function]}
-      value={Object {}}
     >
       <span>
         This is the item content
@@ -156,13 +152,13 @@ exports[`Array Item component should disable moveUp 1`] = `
 
 exports[`Array Item component should render control panel with item content 1`] = `
 <div
-  className="tf-array-item"
+  className="theme-tf-array-item tf-array-item"
 >
   <div
-    className={undefined}
+    className="theme-control"
   >
     <button
-      className={undefined}
+      className="theme-delete"
       id="talend-control-3-delete"
       onClick={[Function]}
       title="Delete"
@@ -179,7 +175,6 @@ exports[`Array Item component should render control panel with item content 1`] 
       index={3}
       onRemove={[Function]}
       onReorder={[Function]}
-      value={Object {}}
     >
       <span>
         This is the item content
@@ -193,7 +188,6 @@ exports[`Array Item component should render control panel with item content 1`] 
       isMoveDown={true}
       onRemove={[Function]}
       onReorder={[Function]}
-      value={Object {}}
     >
       <span>
         This is the item content

@@ -1,12 +1,16 @@
 import React from 'react';
-import { storiesOf, action } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
-import Immutable from 'immutable';  // eslint-disable-line import/no-extraneous-dependencies
+import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
+import { action } from '@storybook/addon-actions';
+
+import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 
 import { I18nextProvider } from 'react-i18next';
 import i18n from './config/i18n';
 
 import { HeaderBar, IconsProvider } from '../src';
+
+import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
 
 const icons = {
 	'talend-burger': talendIcons['talend-burger'],
@@ -256,3 +260,20 @@ decoratedStories
 		return <HeaderBar {...headerProps} />;
 	})
 	.addWithInfo('barebone', () => <HeaderBar />);
+
+const appStyle = require('./config/themes.scss');
+
+apps.forEach(app => {
+	const headerProps = Immutable.fromJS(props).toJS();
+	decoratedStories
+		.addWithInfo(`🎨 [${app.toUpperCase()}] HeaderBar`, () => (
+			<div className={appStyle[app]}>
+				<div className={TALEND_T7_THEME_CLASSNAME}>
+					<div role="banner">
+						<HeaderBar {...headerProps} />
+					</div>
+				</div>
+			</div>
+		)
+	);
+});

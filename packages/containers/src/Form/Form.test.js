@@ -15,7 +15,7 @@ describe('Container(Form)', () => {
 				actions={[]}
 				className="foo"
 				formProps={{ other: true }} // extra props
-			/>
+			/>,
 		);
 		const props = wrapper.props();
 		expect(props).toMatchSnapshot();
@@ -29,9 +29,9 @@ describe('Container(Form)', () => {
 				uiSchema={{ uiSchema: true }}
 				actions={[]}
 				formProps={{ other: true }} // extra props
-			/>
+			/>,
 		);
-		expect(wrapper.root.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should use props.onSubmit', () => {
@@ -146,6 +146,22 @@ describe('Container(Form)', () => {
 			uiSchema: uiSchemaFunc,
 		});
 		expect(form.uiSchema()).toBe(uiSchema);
+	});
+
+	it('use ArrayFieldTemplate given by props over default ArrayFieldTemplate', () => {
+		const wrapper = shallow(
+			<Container
+				ArrayFieldTemplate="ArrayFieldTemplate"
+				formId="test-form"
+				jsonSchema={{ schema: true }}
+				uiSchema={{ uiSchema: true }}
+				actions={[]}
+				className="foo"
+				formProps={{ other: true }} // extra props
+			/>,
+		);
+		const props = wrapper.props();
+		expect(props).toHaveProperty('ArrayFieldTemplate', 'ArrayFieldTemplate');
 	});
 });
 

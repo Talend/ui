@@ -49,12 +49,13 @@ describe('Columns widget', () => {
 		const schema = {
 			widget: 'columns',
 			items: columns,
+			title: 'My awesome columns',
 		};
 
 		// when
 		const wrapper = shallow(<Columns schema={schema} />);
 
 		// then
-		expect(wrapper.node).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

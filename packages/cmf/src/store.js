@@ -19,7 +19,7 @@ import cmfMiddleware from './middlewares/cmf';
 
 const preReducers = [];
 const enhancers = [];
-const middlewares = [thunk, httpMiddleware, cmfMiddleware];
+const middlewares = [thunk, cmfMiddleware];
 const hashHistory = createHashHistory();
 
 if (window) {
@@ -30,6 +30,7 @@ if (window) {
 
 // Indicated wether or not the default router was overwritten
 let defaultRouterOverwrite = false;
+let defaultHttpMiddlewareOverwrite = false;
 
 /**
  * setRouterMiddleware overwrites the default router middleware
@@ -39,6 +40,18 @@ let defaultRouterOverwrite = false;
 function setRouterMiddleware(middleware) {
 	middlewares.push(middleware);
 	defaultRouterOverwrite = true;
+}
+
+/**
+ * setHttpMiddleware overwrites the default router middleware
+ * httpMiddleware NEED to be executed before cmfMiddleware
+ *
+ * @param middleware a router middleware
+ */
+function setHttpMiddleware(middleware) {
+	const cmfMiddlewareIndex = middlewares.indexOf(cmfMiddleware);
+	middlewares.splice(cmfMiddlewareIndex - 1, 0, middleware);
+	defaultHttpMiddlewareOverwrite = true;
 }
 
 function addPreReducer(reducers) {
@@ -106,6 +119,9 @@ function getMiddlewares(middleware) {
 	if (!defaultRouterOverwrite) {
 		setRouterMiddleware(routerMiddleware(hashHistory));
 	}
+	if (!defaultHttpMiddlewareOverwrite) {
+		setHttpMiddleware(httpMiddleware());
+	}
 	return middlewares;
 }
 
@@ -141,6 +157,7 @@ function initialize(appReducer, preloadedState, enhancer, middleware) {
 export default {
 	addPreReducer,
 	setRouterMiddleware,
+	setHttpMiddleware,
 	initialize,
 	// for testing purepose only
 	getReducer,

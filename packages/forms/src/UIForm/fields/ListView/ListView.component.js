@@ -175,6 +175,7 @@ class ListViewWidget extends React.Component {
 				errorMessage={this.props.errorMessage}
 				id={this.props.id}
 				isValid={this.props.isValid}
+				required={this.props.schema.required}
 			>
 				<ListView
 					{...this.state}

@@ -2,20 +2,41 @@
 
 exports[`Component SelectObject should render 1`] = `
 <div
-  className="tc-select-object undefined"
+  className="tc-select-object theme-wrapper"
 >
   <Connect(CMF(Container(FilterBar)))
+    className="my-custom-filter theme-filter"
     dockable={false}
-    id={undefined}
+    id="my-tree"
     navbar={false}
   />
   <div
-    className={undefined}
+    className="theme-container"
   >
-    <Connect(CMF(Container(List)))
-      className={undefined}
-      data={undefined}
-      id="undefined-list"
+    <Connect(CMF(Container(TreeView)))
+      className="theme-tree"
+      componentId="my-tree"
+      data={
+        Immutable.List [
+          Immutable.Map {
+            id: "1",
+            name: "foo",
+          },
+        ]
+      }
+      noHeader={true}
+    />
+    <JSONSchemaRenderer
+      className="theme-preview"
+      schema={
+        Object {
+          "jsonSchema": Object {},
+          "properties": Object {
+            "id": "1",
+            "name": "foo",
+          },
+        }
+      }
     />
   </div>
 </div>
@@ -23,8 +44,12 @@ exports[`Component SelectObject should render 1`] = `
 
 exports[`Container SelectObject should render 1`] = `
 <SelectObject
-  filteredData={Array []}
-  preview={undefined}
-  sourceData={Array []}
+  breadCrumbsRootLabel="root"
+  idAttr="id"
+  nameAttr="name"
+  sourceData={
+    Immutable.List [
+    ]
+  }
 />
 `;

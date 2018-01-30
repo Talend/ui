@@ -10,369 +10,57 @@ exports[`ActionTooltip should render only the children 1`] = `
 `;
 
 exports[`ActionTooltip should render tooltip when focus the children 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
-  },
-  "length": 1,
-  "node": <OverlayTrigger
-    defaultOverlayShown={false}
-    delayShow={400}
-    overlay={
-        <Tooltip
-            bsClass="tooltip"
-            className="undefined tooltip-container"
-            id={42}
-            placement="right"
-        >
-            toto
-        </Tooltip>
-    }
-    placement="right"
-    trigger={
-        Array [
-            "hover",
-            "focus",
-          ]
-    }
->
-    <div>
-        Action
-    </div>
-</OverlayTrigger>,
-  "nodes": Array [
-    <OverlayTrigger
-      defaultOverlayShown={false}
-      delayShow={400}
-      overlay={
-            <Tooltip
-                  bsClass="tooltip"
-                  className="undefined tooltip-container"
-                  id={42}
-                  placement="right"
-            >
-                  toto
-            </Tooltip>
-      }
+<OverlayTrigger
+  defaultOverlayShown={false}
+  delayShow={400}
+  overlay={
+    <Tooltip
+      bsClass="tooltip"
+      className="theme-tooltip-container tooltip-container"
+      id={42}
       placement="right"
-      trigger={
-            Array [
-                  "hover",
-                  "focus",
-                ]
-      }
+    >
+      toto
+    </Tooltip>
+  }
+  placement="right"
+  trigger={
+    Array [
+      "hover",
+      "focus",
+    ]
+  }
 >
-      <div>
-            Action
-      </div>
-</OverlayTrigger>,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <TooltipTrigger
-        label="toto"
-        tooltipPlacement="right"
->
-        <div>
-                Action
-        </div>
-</TooltipTrigger>,
-      "_debugID": 4,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": TooltipTrigger {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "onMouseOver": [Function],
-        "props": Object {
-          "children": <div>
-            Action
-</div>,
-          "label": "toto",
-          "tooltipPlacement": "right",
-        },
-        "refs": Object {},
-        "state": Object {
-          "hovered": true,
-          "id": 42,
-        },
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 1,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <OverlayTrigger
-          defaultOverlayShown={false}
-          delayShow={400}
-          overlay={
-                    <Tooltip
-                              bsClass="tooltip"
-                              className="undefined tooltip-container"
-                              id={42}
-                              placement="right"
-                    >
-                              toto
-                    </Tooltip>
-          }
-          placement="right"
-          trigger={
-                    Array [
-                              "hover",
-                              "focus",
-                            ]
-          }
->
-          <div>
-                    Action
-          </div>
-</OverlayTrigger>,
-        "_debugID": 6,
-        "_renderedOutput": <OverlayTrigger
-          defaultOverlayShown={false}
-          delayShow={400}
-          overlay={
-                    <Tooltip
-                              bsClass="tooltip"
-                              className="undefined tooltip-container"
-                              id={42}
-                              placement="right"
-                    >
-                              toto
-                    </Tooltip>
-          }
-          placement="right"
-          trigger={
-                    Array [
-                              "hover",
-                              "focus",
-                            ]
-          }
->
-          <div>
-                    Action
-          </div>
-</OverlayTrigger>,
-      },
-      "_renderedNodeType": 1,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
-  },
-  "root": [Circular],
-  "unrendered": <TooltipTrigger
-    label="toto"
-    tooltipPlacement="right"
->
-    <div>
-        Action
-    </div>
-</TooltipTrigger>,
-}
+  <div>
+    Action
+  </div>
+</OverlayTrigger>
 `;
 
 exports[`ActionTooltip should render tooltip when hover the children 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
-  },
-  "length": 1,
-  "node": <OverlayTrigger
-    defaultOverlayShown={false}
-    delayShow={400}
-    overlay={
-        <Tooltip
-            bsClass="tooltip"
-            className="undefined tooltip-container"
-            id={42}
-            placement="right"
-        >
-            toto
-        </Tooltip>
-    }
-    placement="right"
-    trigger={
-        Array [
-            "hover",
-            "focus",
-          ]
-    }
->
-    <div>
-        Action
-    </div>
-</OverlayTrigger>,
-  "nodes": Array [
-    <OverlayTrigger
-      defaultOverlayShown={false}
-      delayShow={400}
-      overlay={
-            <Tooltip
-                  bsClass="tooltip"
-                  className="undefined tooltip-container"
-                  id={42}
-                  placement="right"
-            >
-                  toto
-            </Tooltip>
-      }
+<OverlayTrigger
+  defaultOverlayShown={false}
+  delayShow={400}
+  overlay={
+    <Tooltip
+      bsClass="tooltip"
+      className="theme-tooltip-container tooltip-container"
+      id={42}
       placement="right"
-      trigger={
-            Array [
-                  "hover",
-                  "focus",
-                ]
-      }
+    >
+      toto
+    </Tooltip>
+  }
+  placement="right"
+  trigger={
+    Array [
+      "hover",
+      "focus",
+    ]
+  }
 >
-      <div>
-            Action
-      </div>
-</OverlayTrigger>,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <TooltipTrigger
-        label="toto"
-        tooltipPlacement="right"
->
-        <div>
-                Action
-        </div>
-</TooltipTrigger>,
-      "_debugID": 7,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": TooltipTrigger {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "onMouseOver": [Function],
-        "props": Object {
-          "children": <div>
-            Action
-</div>,
-          "label": "toto",
-          "tooltipPlacement": "right",
-        },
-        "refs": Object {},
-        "state": Object {
-          "hovered": true,
-          "id": 42,
-        },
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 2,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <OverlayTrigger
-          defaultOverlayShown={false}
-          delayShow={400}
-          overlay={
-                    <Tooltip
-                              bsClass="tooltip"
-                              className="undefined tooltip-container"
-                              id={42}
-                              placement="right"
-                    >
-                              toto
-                    </Tooltip>
-          }
-          placement="right"
-          trigger={
-                    Array [
-                              "hover",
-                              "focus",
-                            ]
-          }
->
-          <div>
-                    Action
-          </div>
-</OverlayTrigger>,
-        "_debugID": 9,
-        "_renderedOutput": <OverlayTrigger
-          defaultOverlayShown={false}
-          delayShow={400}
-          overlay={
-                    <Tooltip
-                              bsClass="tooltip"
-                              className="undefined tooltip-container"
-                              id={42}
-                              placement="right"
-                    >
-                              toto
-                    </Tooltip>
-          }
-          placement="right"
-          trigger={
-                    Array [
-                              "hover",
-                              "focus",
-                            ]
-          }
->
-          <div>
-                    Action
-          </div>
-</OverlayTrigger>,
-      },
-      "_renderedNodeType": 1,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
-  },
-  "root": [Circular],
-  "unrendered": <TooltipTrigger
-    label="toto"
-    tooltipPlacement="right"
->
-    <div>
-        Action
-    </div>
-</TooltipTrigger>,
-}
+  <div>
+    Action
+  </div>
+</OverlayTrigger>
 `;
