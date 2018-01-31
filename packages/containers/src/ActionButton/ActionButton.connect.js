@@ -89,10 +89,10 @@ ContainerActionButton.propTypes = {
 	actionCreator: PropTypes.string,
 	dispatch: PropTypes.func,
 	dispatchActionCreator: PropTypes.func,
-	model: PropTypes.Object,
+	model: PropTypes.object,
 	overlayComponent: PropTypes.string,
 	overlayComponentProps: PropTypes.object,
-	payload: PropTypes.Object,
+	payload: PropTypes.object,
 };
 
 export default cmfConnect({

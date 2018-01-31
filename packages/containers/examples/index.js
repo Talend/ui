@@ -1,6 +1,7 @@
 import ActionExample from './ExampleAction';
 import ActionBarExample from './ExampleActionBar';
 import ActionDropdown from './ExampleActionDropdown';
+import ActionIconToggle from './ExampleActionIconToggle';
 import ActionSplitDropdown from './ExampleActionSplitDropdown';
 import ActionsExample from './ExampleActions';
 import DeleteResource from './ExampleDeleteResource';
@@ -21,6 +22,7 @@ export default {
 	ActionExample,
 	ActionBarExample,
 	ActionDropdown,
+	ActionIconToggle,
 	ActionSplitDropdown,
 	ActionsExample,
 	ConfirmDialogExample,

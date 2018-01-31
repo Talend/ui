@@ -13,8 +13,9 @@ import actionAPI from './actionAPI';
 import Action from './Action';
 import ActionBar from './ActionBar';
 import ActionButton from './ActionButton';
-import ActionFile from './ActionFile';
 import ActionDropdown from './ActionDropdown';
+import ActionFile from './ActionFile';
+import ActionIconToggle from './ActionIconToggle';
 import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
 import ConfirmDialog from './ConfirmDialog';
@@ -38,8 +39,9 @@ export {
 	Action,
 	ActionBar,
 	ActionButton,
-	ActionFile,
 	ActionDropdown,
+	ActionFile,
+	ActionIconToggle,
 	Actions,
 	ActionSplitDropdown,
 	Breadcrumbs,

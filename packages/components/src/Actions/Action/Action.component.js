@@ -5,10 +5,12 @@ import ActionButton from '../ActionButton';
 import ActionFile from '../ActionFile';
 import ActionSplitDropdown from '../ActionSplitDropdown';
 import ActionDropdown from '../ActionDropdown';
+import ActionIconToggle from '../ActionIconToggle';
 
 const TYPE_FILE = 'file';
 const TYPE_DROPDOWN = 'dropdown';
 const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
+const TYPE_ICON_TOGGLE = 'iconToggle';
 
 /**
  * @typedef {(Object|Function)} Component
@@ -16,7 +18,7 @@ const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
 
 /**
  * @typedef {Object} ActionProps
- * @property {TYPE_DROPDOWN | TYPE_SPLIT_DROPDOWN | false} displayMode
+ * @property {TYPE_DROPDOWN | TYPE_SPLIT_DROPDOWN | TYPE_ICON_TOGGLE | TYPE_FILE} displayMode
  * @property {Object.<String, Component>} renderers
  */
 
@@ -49,6 +51,8 @@ export function getActionComponent({ displayMode, renderers = {} }) {
 			return renderers.ActionDropdown || ActionDropdown;
 		case TYPE_SPLIT_DROPDOWN:
 			return renderers.ActionSplitDropdown || ActionSplitDropdown;
+		case TYPE_ICON_TOGGLE:
+			return renderers.ActionIconToggle || ActionIconToggle;
 		default:
 			return renderers.ActionButton || ActionButton;
 	}
