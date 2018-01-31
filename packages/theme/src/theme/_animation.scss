@@ -1,0 +1,23 @@
+@mixin heartbeat($animation-name) {
+	animation: $animation-name 1.5s ease infinite;
+}
+
+@keyframes object-blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+}
+
+@keyframes skeleton-blink {
+	0%,
+	100% {
+		opacity: 0.1;
+	}
+	50% {
+		opacity: 0.25;
+	}
+}

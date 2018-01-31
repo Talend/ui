@@ -57,11 +57,9 @@ class ACKDispatcher extends React.Component {
 	}
 
 	dispatchAndUpdateAck(actionCreator, data, requestId) {
-		const action = api.action.getActionCreatorFunction(this.context, actionCreator)(
-			{},
-			data,
+		const action = api.actionCreator.get(
 			this.context,
-		);
+			actionCreator)({}, data, this.context,);
 		action.ack = deleteACK(null, { requestId });
 		this.props.dispatch(action);
 		this.setState(oldState => {

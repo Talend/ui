@@ -2,7 +2,7 @@
 
 exports[`Drawer render drawer content with extra className 1`] = `
 <div
-  className="tc-drawer-content extraClass"
+  className="tc-drawer-content theme-tc-drawer-content extraClass"
 >
   <h1>
     Hello world
@@ -12,7 +12,7 @@ exports[`Drawer render drawer content with extra className 1`] = `
 
 exports[`Drawer render drawer content without extra className 1`] = `
 <div
-  className="tc-drawer-content"
+  className="tc-drawer-content theme-tc-drawer-content"
 >
   <h1>
     Hello world
@@ -24,11 +24,11 @@ exports[`Drawer should not render if no children 1`] = `null`;
 
 exports[`Drawer should render 1`] = `
 <div
-  className="tc-drawer undefined tc-drawer-transition"
+  className="theme-tc-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition"
   style={undefined}
 >
   <div
-    className="tc-drawer-container"
+    className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
       style={
@@ -41,17 +41,17 @@ exports[`Drawer should render 1`] = `
       }
     >
       <div
-        className="tc-drawer-content"
+        className="tc-drawer-content theme-tc-drawer-content"
       >
         <h1>
           Hello world
         </h1>
       </div>
       <div
-        className="tc-drawer-actionbar-container"
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
       >
         <nav
-          className="tc-actionbar-container nav tc-drawer-actionbar"
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
         />
       </div>
     </div>
@@ -61,11 +61,11 @@ exports[`Drawer should render 1`] = `
 
 exports[`Drawer should render stacked 1`] = `
 <div
-  className="tc-drawer undefined tc-drawer-transition undefined stacked"
+  className="theme-tc-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition theme-drawer-stacked stacked"
   style={undefined}
 >
   <div
-    className="tc-drawer-container"
+    className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
       style={
@@ -78,17 +78,17 @@ exports[`Drawer should render stacked 1`] = `
       }
     >
       <div
-        className="tc-drawer-content"
+        className="tc-drawer-content theme-tc-drawer-content"
       >
         <h1>
           Hello world
         </h1>
       </div>
       <div
-        className="tc-drawer-actionbar-container"
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
       >
         <nav
-          className="tc-actionbar-container nav tc-drawer-actionbar"
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
         />
       </div>
     </div>
@@ -98,11 +98,11 @@ exports[`Drawer should render stacked 1`] = `
 
 exports[`Drawer should render using custom className 1`] = `
 <div
-  className="my-custom-drawer tc-drawer undefined tc-drawer-transition"
+  className="theme-tc-drawer my-custom-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition"
   style={undefined}
 >
   <div
-    className="tc-drawer-container"
+    className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
       style={
@@ -115,17 +115,17 @@ exports[`Drawer should render using custom className 1`] = `
       }
     >
       <div
-        className="tc-drawer-content"
+        className="tc-drawer-content theme-tc-drawer-content"
       >
         <h1>
           Hello world
         </h1>
       </div>
       <div
-        className="tc-drawer-actionbar-container"
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
       >
         <nav
-          className="tc-actionbar-container nav tc-drawer-actionbar"
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
         />
       </div>
     </div>
@@ -135,7 +135,7 @@ exports[`Drawer should render using custom className 1`] = `
 
 exports[`Drawer should render using custom styles 1`] = `
 <div
-  className="tc-drawer undefined tc-drawer-transition"
+  className="theme-tc-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition"
   style={
     Object {
       "top": 45,
@@ -143,7 +143,7 @@ exports[`Drawer should render using custom styles 1`] = `
   }
 >
   <div
-    className="tc-drawer-container"
+    className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
       style={
@@ -156,17 +156,17 @@ exports[`Drawer should render using custom styles 1`] = `
       }
     >
       <div
-        className="tc-drawer-content"
+        className="tc-drawer-content theme-tc-drawer-content"
       >
         <h1>
           Hello world
         </h1>
       </div>
       <div
-        className="tc-drawer-actionbar-container"
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
       >
         <nav
-          className="tc-actionbar-container nav tc-drawer-actionbar"
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
         />
       </div>
     </div>
@@ -176,17 +176,17 @@ exports[`Drawer should render using custom styles 1`] = `
 
 exports[`Drawer should render with tabs 1`] = `
 <div
-  className="tc-drawer undefined tc-drawer-transition"
+  className="theme-tc-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition"
   style={undefined}
 >
   <div
-    className="tc-drawer-container"
+    className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
-      className="tc-drawer-tabs-container"
+      className="tc-drawer-tabs-container theme-tc-drawer-tabs-container"
     >
       <nav
-        className="nav tc-tab-bar tc-drawer-tabs"
+        className="nav tc-tab-bar tc-drawer-tabs theme-tc-drawer-tabs theme-tc-tab-bar"
       >
         <ul
           className="nav nav-tabs tc-tab-bar-actions"
@@ -237,17 +237,17 @@ exports[`Drawer should render with tabs 1`] = `
       }
     >
       <div
-        className="tc-drawer-content"
+        className="tc-drawer-content theme-tc-drawer-content"
       >
         <h1>
           Hello world
         </h1>
       </div>
       <div
-        className="tc-drawer-actionbar-container"
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
       >
         <nav
-          className="tc-actionbar-container nav tc-drawer-actionbar"
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
         />
       </div>
     </div>
@@ -257,11 +257,11 @@ exports[`Drawer should render with tabs 1`] = `
 
 exports[`Drawer should render without tc-drawer-transition class 1`] = `
 <div
-  className="tc-drawer"
+  className="theme-tc-drawer tc-drawer"
   style={undefined}
 >
   <div
-    className="tc-drawer-container"
+    className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
       style={
@@ -274,17 +274,17 @@ exports[`Drawer should render without tc-drawer-transition class 1`] = `
       }
     >
       <div
-        className="tc-drawer-content"
+        className="tc-drawer-content theme-tc-drawer-content"
       >
         <h1>
           Hello world
         </h1>
       </div>
       <div
-        className="tc-drawer-actionbar-container"
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
       >
         <nav
-          className="tc-actionbar-container nav tc-drawer-actionbar"
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
         />
       </div>
     </div>

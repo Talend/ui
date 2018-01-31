@@ -4,15 +4,17 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
 <div
   className="dropdown"
 >
-  <div
-    className="dropdown-toggle"
+  <button
+    className="theme-dropdown-toggle dropdown-toggle"
+    onClick={[Function]}
+    type="button"
   >
     <span
       className="caret"
     />
-  </div>
+  </button>
   <div
-    className="undefined form-control"
+    className="theme-wrapper form-control"
   >
     <Translate(Badge)
       label="Foo"
@@ -40,8 +42,8 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
       searchingText="Searching for matches…"
       theme={
         Object {
-          "container": undefined,
-          "itemsContainer": "items-container",
+          "container": "theme-typeahead",
+          "itemsContainer": "theme-items-container items-container",
         }
       }
       value=""
@@ -52,25 +54,28 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
 
 exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = `
 <div
-  className="items-container"
+  className="theme-items-container items-container"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
 >
   <ul
+    className="theme-items"
     key="react-autowhatever-42-items-list"
     role="listbox"
-    style={Object {}}
   >
     <li
+      className="theme-item-highlighted"
       id="react-autowhatever-42--item-0"
       onMouseDown={[Function]}
       role="option"
-      style={Object {}}
     >
       <div
+        className="theme-item"
         title="Bar"
       >
-        <span>
+        <span
+          className="theme-item-title"
+        >
           <span>
             Bar
           </span>
@@ -83,39 +88,46 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
 
 exports[`MultiSelectTagWidget should render section title when items has category 1`] = `
 <div
-  className="items-container"
+  className="theme-items-container items-container"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
 >
   <div
+    className="theme-section-container"
     key="react-autowhatever-42-section-0-container"
-    style={Object {}}
   >
     <div
       key="react-autowhatever-42-section-0-title"
       style={Object {}}
     >
-      <div>
-        <span>
+      <div
+        className="theme-section-header"
+      >
+        <span
+          className="theme-section-header-title"
+        >
           pet
         </span>
       </div>
     </div>
     <ul
+      className="theme-items"
       key="react-autowhatever-42-section-0-items-list"
       role="listbox"
-      style={Object {}}
     >
       <li
+        className="theme-item-highlighted"
         id="react-autowhatever-42-section-0-item-0"
         onMouseDown={[Function]}
         role="option"
-        style={Object {}}
       >
         <div
+          className="theme-item"
           title="Puppy"
         >
-          <span>
+          <span
+            className="theme-item-title"
+          >
             <span>
               Puppy
             </span>
@@ -129,7 +141,7 @@ exports[`MultiSelectTagWidget should render section title when items has categor
 
 exports[`MultiSelectTagWidget should take default message when there isnt items 1`] = `
 <div
-  className="items-container undefined"
+  className="theme-items-container items-container theme-no-result"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
 >

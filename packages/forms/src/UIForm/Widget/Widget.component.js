@@ -1,37 +1,42 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import get from 'lodash/get';
+import includes from 'lodash/includes';
 import { sfPath } from 'talend-json-schema-form-core';
 
 import defaultWidgets from '../utils/widgets';
 import { getValue } from '../utils/properties';
 
-export default function Widget(props) {
-	const { errors, formName, properties, schema } = props;
-	const { key, type, validationMessage, widget } = schema;
-	const widgetId = widget || type;
-	const WidgetImpl = props.widgets[widgetId] || defaultWidgets[widgetId];
+function shouldRender(conditions, properties) {
+	return !conditions || conditions.every(cond => includes(cond.values, get(properties, cond.path)));
+}
 
-	if (!WidgetImpl) {
+export default function Widget(props) {
+	const { conditions, key, options, type, validationMessage, widget } = props.schema;
+	const widgetId = widget || type;
+
+	if (widgetId === 'hidden' || !shouldRender(conditions, props.properties)) {
 		return null;
 	}
 
-	const id = sfPath.name(key, '-', formName);
-	const error = errors[key];
+	const WidgetImpl = props.widgets[widgetId] || defaultWidgets[widgetId];
+
+	if (!WidgetImpl) {
+		return <p className="text-danger">Widget not found {widgetId}</p>;
+	}
+
+	const id = sfPath.name(key, '_', props.id);
+	const error = props.errors[key];
 	const errorMessage = validationMessage || error;
 	return (
 		<WidgetImpl
+			{...props}
 			id={id}
 			key={id}
 			errorMessage={errorMessage}
-			formName={formName}
 			isValid={!error}
-			onChange={props.onChange}
-			onFinish={props.onFinish}
-			onTrigger={props.onTrigger}
-			properties={properties}
-			schema={schema}
-			errors={errors}
-			value={getValue(properties, key)}
+			value={getValue(props.properties, props.schema)}
+			options={options}
 		/>
 	);
 }
@@ -39,12 +44,16 @@ export default function Widget(props) {
 if (process.env.NODE_ENV !== 'production') {
 	Widget.propTypes = {
 		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-		formName: PropTypes.string,
-		onChange: PropTypes.func,
-		onFinish: PropTypes.func,
-		onTrigger: PropTypes.func,
+		id: PropTypes.string,
 		schema: PropTypes.shape({
+			conditions: PropTypes.arrayOf(
+				PropTypes.shape({
+					path: PropTypes.string,
+					values: PropTypes.array,
+				}),
+			),
 			key: PropTypes.array,
+			options: PropTypes.object,
 			type: PropTypes.string,
 			validationMessage: PropTypes.string,
 			widget: PropTypes.string,
@@ -57,3 +66,5 @@ if (process.env.NODE_ENV !== 'production') {
 Widget.defaultProps = {
 	widgets: {},
 };
+
+Widget.displayName = 'Widget';

@@ -109,6 +109,8 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 	return <Autowhatever {...autowhateverProps} />;
 }
 
+Typeahead.displayName = 'Typeahead';
+
 Typeahead.defaultProps = {
 	autoFocus: true,
 	disabled: false,

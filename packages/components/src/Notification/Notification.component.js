@@ -227,6 +227,8 @@ TimerBar.propTypes = {
 	autoLeaveError: PropTypes.bool,
 };
 
+Notification.displayName = 'Notification';
+
 Notification.propTypes = {
 	notification: PropTypes.shape(notificationShape).isRequired,
 	leaveFn: PropTypes.func.isRequired,
@@ -236,6 +238,8 @@ Notification.propTypes = {
 	onMouseOut: PropTypes.func,
 	onClick: PropTypes.func,
 };
+
+NotificationsContainer.displayName = 'NotificationsContainer';
 
 NotificationsContainer.propTypes = {
 	enterTimeout: PropTypes.number,

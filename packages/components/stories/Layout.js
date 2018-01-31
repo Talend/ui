@@ -13,6 +13,8 @@ import {
 	SubHeaderBar,
 } from '../src/index';
 
+import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
+
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
 	'talend-dataprep': talendIcons['talend-dataprep'],
@@ -162,94 +164,134 @@ const tabs = {
 	selected: '2',
 };
 
-storiesOf('Layout', module)
-	.addWithInfo('OneColumn', () => (
-		<Layout header={header} mode="OneColumn">
-			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('OneColumn with scroll', () => (
-		<Layout header={header} mode="OneColumn">
-			{content}
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('OneColumn with tabs', () => (
-		<Layout header={header} tabs={tabs} mode="OneColumn">
-			{content}
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns', () => (
-		<Layout header={header} mode="TwoColumns" one={sidePanel}>
-			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with scroll', () => (
-		<Layout header={header} mode="TwoColumns" one={sidePanel}>
-			{content}
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with tabs', () => (
-		<Layout header={header} mode="TwoColumns" one={sidePanel} tabs={tabs}>
-			{content}
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with big Table list', () => (
-		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
-			<List {...listProps} />
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with big Large list', () => (
-		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
-			<List {...listProps} displayMode={'large'} />
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns docked', () => (
-		<Layout header={header} mode="TwoColumns" one={dockedSidePanel}>
-			{content}
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('TwoColumns with drawers', () => (
-		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
-			{content}
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('OneColumn with footer', () => (
-		<Layout header={header} mode="OneColumn" footer={footer}>
-			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('OneColumn without header', () => (
-		<Layout mode="OneColumn">
-			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('Subheader with OneColumn', () => (
-		<Layout header={header} subHeader={subHeader} mode="OneColumn" footer={footer}>
-			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('Subheader with TwoColumns', () => (
-		<Layout header={header} subHeader={subHeader} one={sidePanel} mode="TwoColumns" footer={footer}>
-			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
-	))
-	.addWithInfo('Subheader alone', () => (
-		<Layout subHeader={subHeader} >
-			<h1>Hello world</h1>
-			<IconsProvider defaultIcons={icons} />
-		</Layout>
+const stories = storiesOf('Layout', module).addDecorator(story => (
+	<div>
+		<IconsProvider defaultIcons={icons} />
+		{story()}
+	</div>
+));
+
+const appStyle = require('./config/themes.scss');
+
+/**
+ * Generate story for <Layout/> component
+ *
+ * @param layoutStoryName Story name to display in storybook
+ * @param layoutStoryProps Props to pass to <Layout/> component
+ * @param layoutStoryContent Optional custom children
+ */
+function layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
+	stories.addWithInfo(layoutStoryName, () => (
+		<Layout {...layoutStoryProps}>{layoutStoryContent}</Layout>
 	));
+}
+
+/**
+ * Generate story and its variations for <Layout/> component
+ *
+ * @param layoutStoryName Story name to display in storybook
+ * @param layoutStoryProps Props to pass to <Layout/> component
+ * @param layoutStoryContent Optional custom children
+ */
+function decoratedLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
+	layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent);
+	apps.forEach(app => {
+		const decoratedPropsWithTheme = {
+			...layoutStoryProps,
+			// hasTheme: true, should be enabled if we have one and only one Layout theme scss import
+		};
+		stories.addWithInfo(`🎨 [${app.toUpperCase()}] ${layoutStoryName} `, () => (
+			<div className={appStyle[app]}>
+				<div className={TALEND_T7_THEME_CLASSNAME}>
+					<Layout {...decoratedPropsWithTheme}>{layoutStoryContent}</Layout>
+				</div>
+			</div>
+		));
+	});
+}
+
+decoratedLayoutStory('OneColumn', {
+	header,
+	mode: 'OneColumn',
+});
+
+decoratedLayoutStory('OneColumn with tabs', {
+	header,
+	tabs,
+	mode: 'OneColumn',
+});
+
+decoratedLayoutStory('TwoColumns', {
+	header,
+	mode: 'TwoColumns',
+	one: sidePanel,
+});
+
+decoratedLayoutStory('TwoColumns with tabs', {
+	header,
+	tabs,
+	mode: 'TwoColumns',
+	one: sidePanel,
+});
+
+decoratedLayoutStory(
+	'TwoColumns with big Table list',
+	{
+		header,
+		mode: 'TwoColumns',
+		one: sidePanel,
+	},
+	<List {...listProps} />,
+);
+
+decoratedLayoutStory(
+	'TwoColumns with big Large list',
+	{
+		header,
+		mode: 'TwoColumns',
+		one: sidePanel,
+	},
+	<List {...listProps} displayMode={'large'} />,
+);
+
+decoratedLayoutStory('TwoColumns docked', {
+	header,
+	mode: 'TwoColumns',
+	one: dockedSidePanel,
+});
+
+decoratedLayoutStory('TwoColumns with drawers', {
+	header,
+	mode: 'TwoColumns',
+	one: sidePanel,
+	drawers,
+});
+
+decoratedLayoutStory('OneColumn with footer', {
+	header,
+	mode: 'OneColumn',
+	footer,
+});
+
+layoutStory('OneColumn without header', {
+	mode: 'OneColumn',
+});
+
+decoratedLayoutStory('OneColumn with subHeader', {
+	header,
+	subHeader,
+	mode: 'OneColumn',
+	footer,
+});
+
+decoratedLayoutStory('TwoColumns with subHeader', {
+	header,
+	subHeader,
+	one: sidePanel,
+	mode: 'TwoColumns',
+	footer,
+});
+
+layoutStory('Only subHeader', {
+	subHeader,
+});

@@ -99,6 +99,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'redux-mock-store': '1.2.3',
 	'redux-thunk': '2.2.0',
 	uuid: '3.0.1',  // prefer bson-objectid
+	tv4: '^1.2.7',
 
 	// script dep
 	deepmerge: '1.5.1',

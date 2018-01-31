@@ -15,6 +15,7 @@ import i18n from './../stories/config/i18n';
 import { formReducer } from '../src/UIForm';
 
 import jsonStories from './jsonStories';
+import customTemplateStory from './customTemplateStory';
 import customWidgetStory from './customWidgetStory';
 import customActionsStory from './customActionsStory';
 
@@ -66,21 +67,29 @@ const coreFieldsStories = storiesOf('Core fields', module)
 	.addDecorator(withKnobs)
 	.addDecorator(forStoryDecorator);
 
+const oldStories = storiesOf('Migration', module)
+	.addDecorator(withKnobs)
+	.addDecorator(forStoryDecorator);
+
 jsonStories.forEach(({ category, name, story }) => {
 	switch (category) {
-	case 'concepts':
-		coreConceptsStories.add(name, story);
-		break;
-	case 'fieldsets':
-		coreFieldsetsStories.add(name, story);
-		break;
-	case 'fields':
-		coreFieldsStories.add(name, story);
-		break;
-	default:
-		console.error(`No category ${category} found for story ${name}`);
+		case 'concepts':
+			coreConceptsStories.add(name, story);
+			break;
+		case 'fieldsets':
+			coreFieldsetsStories.add(name, story);
+			break;
+		case 'fields':
+			coreFieldsStories.add(name, story);
+			break;
+		case 'old':
+			oldStories.add(name, story);
+			break;
+		default:
+			console.error(`No category ${category} found for story ${name}`);
 	}
 });
 
+coreConceptsStories.add(customTemplateStory.name, customTemplateStory.story);
 coreConceptsStories.add(customWidgetStory.name, customWidgetStory.story);
 coreConceptsStories.add(customActionsStory.name, customActionsStory.story);

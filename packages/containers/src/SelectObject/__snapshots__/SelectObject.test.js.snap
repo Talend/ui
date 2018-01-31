@@ -2,19 +2,19 @@
 
 exports[`Component SelectObject should render 1`] = `
 <div
-  className="tc-select-object undefined"
+  className="tc-select-object theme-wrapper"
 >
   <Connect(CMF(Container(FilterBar)))
-    className="my-custom-filter"
+    className="my-custom-filter theme-filter"
     dockable={false}
     id="my-tree"
     navbar={false}
   />
   <div
-    className={undefined}
+    className="theme-container"
   >
     <Connect(CMF(Container(TreeView)))
-      className={undefined}
+      className="theme-tree"
       componentId="my-tree"
       data={
         Immutable.List [
@@ -27,7 +27,7 @@ exports[`Component SelectObject should render 1`] = `
       noHeader={true}
     />
     <JSONSchemaRenderer
-      className={undefined}
+      className="theme-preview"
       schema={
         Object {
           "jsonSchema": Object {},

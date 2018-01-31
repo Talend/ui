@@ -178,7 +178,7 @@ class DatalistWidget extends React.Component {
 				break;
 			case keycode.codes.enter:
 				// could be null in case of no match
-				if (highlightedItemIndex != null) {
+				if (highlightedItemIndex !== null) {
 					this.selectItem(highlightedSectionIndex, highlightedItemIndex);
 				}
 				event.preventDefault();

@@ -1,11 +1,11 @@
 
-> @talend/react-cmf@0.141.0 lint:es /home/travis/build/Talend/ui/packages/cmf
+> @talend/react-cmf@0.150.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config ../../.eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
-  150:4  warning  Unexpected console statement  no-console
+  151:4  warning  Unexpected console statement  no-console
 
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   88:3  warning  Unexpected console statement  no-console
@@ -17,8 +17,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   50:4  warning  Unexpected console statement  no-console
 
 /home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
-  153:54  error  There should be no spaces inside this paren  space-in-parens
-  166:51  error  There should be no spaces inside this paren  space-in-parens
+  158:2   warning  Unexpected constant condition                no-constant-condition
+  163:54  error    There should be no spaces inside this paren  space-in-parens
+  177:51  error    There should be no spaces inside this paren  space-in-parens
 
-✖ 6 problems (2 errors, 4 warnings)
+✖ 7 problems (2 errors, 5 warnings)
 

@@ -3636,7 +3636,7 @@ exports[`ListView field render should render ListView 1`] = `
 
 exports[`ListView field render should render no items message 1`] = `
 <div
-  className="tc-listview"
+  className="theme-tc-listview tc-listview"
 >
   <HeaderListView
     displayMode="DISPLAY_MODE_DEFAULT"
@@ -7312,7 +7312,7 @@ exports[`ListView field render should render no items message 1`] = `
     toggleAllChecked={true}
   />
   <span
-    className={undefined}
+    className="theme-empty-message"
   >
     This list is empty.
   </span>

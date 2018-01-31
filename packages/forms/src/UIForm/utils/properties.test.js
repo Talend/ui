@@ -1,4 +1,4 @@
-import { convertValue, getValue, mutateValue, omit, omitAll } from './properties';
+import { convertValue, getValue, mutateValue } from './properties';
 
 describe('Properties utils', () => {
 	describe('#getValue', () => {
@@ -12,7 +12,7 @@ describe('Properties utils', () => {
 			};
 
 			// when
-			const value = getValue(properties, null);
+			const value = getValue(properties, {});
 
 			// then
 			expect(value).toBeUndefined();
@@ -29,52 +29,10 @@ describe('Properties utils', () => {
 			const key = ['user', 'firstname'];
 
 			// when
-			const value = getValue(properties, key);
+			const value = getValue(properties, { key });
 
 			// then
 			expect(value).toBe('toto');
-		});
-	});
-
-	describe('#omit', () => {
-		it('should copy all properties except the omitted one', () => {
-			// given
-			const properties = {
-				toKeep: 'toto',
-				toBeOmitted: 'tata',
-				other: 'titi',
-			};
-
-			// when
-			const result = omit(properties, 'toBeOmitted');
-
-			// then
-			expect(result).toEqual({
-				toKeep: 'toto',
-				other: 'titi',
-			});
-		});
-	});
-
-	describe('#omitAll', () => {
-		it('should copy all properties except the omitted ones', () => {
-			// given
-			const properties = {
-				toKeep: 'toto',
-				toBeOmitted: 'tata',
-				toBeOmittedBis: 'tata',
-				toBeOmittedTer: 'tata',
-				other: 'titi',
-			};
-
-			// when
-			const result = omitAll(properties, ['toBeOmitted', 'toBeOmittedBis', 'toBeOmittedTer']);
-
-			// then
-			expect(result).toEqual({
-				toKeep: 'toto',
-				other: 'titi',
-			});
 		});
 	});
 
@@ -114,7 +72,7 @@ describe('Properties utils', () => {
 			const key = ['user', 'firstname'];
 
 			// when
-			const value = mutateValue(properties, key, 'titi');
+			const value = mutateValue(properties, { key }, 'titi');
 
 			// then
 			expect(value).toEqual({
@@ -130,7 +88,7 @@ describe('Properties utils', () => {
 			const key = ['user', 'firstname'];
 
 			// when
-			const value = mutateValue(undefined, key, 'titi');
+			const value = mutateValue(undefined, { key }, 'titi');
 
 			// then
 			expect(value).toEqual({
