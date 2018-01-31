@@ -2,7 +2,7 @@ import React from 'react';
 import { IconsProvider } from '@talend/react-components';
 
 import DataGrid from '../src/components/datagrid.component';
-import { columnDefs, rowData, pinnedColumnDefs } from './config';
+import { columnDefs, rowData, pinnedColumnDefs, valueGetter } from './config';
 
 export default function ReactCellRenderer() {
 	return (
@@ -16,6 +16,7 @@ export default function ReactCellRenderer() {
 				onFocusedCell={event => console.log(event)}
 				onFocusedColumn={event => console.log(event)}
 				onRowsSelected={event => console.log(event)}
+				valueGetter={valueGetter}
 			/>
 		</div>
 	);

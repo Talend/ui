@@ -95,6 +95,7 @@ export default function DataGrid(props) {
 	if (props.columnDefs) {
 		const columnsDefs = props.columnDefs.map(columnDefinition => ({
 			lockPinned: true,
+			valueGetter: props.valueGetter,
 			...columnDefinition,
 			[AG_GRID_CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
 			[AG_GRID_CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
@@ -145,6 +146,7 @@ DataGrid.propTypes = {
 	rowSelection: PropTypes.string,
 	rowHeight: PropTypes.number,
 	rowData: PropTypes.arrayOf(PropTypes.object),
+	valueGetter: PropTypes.func.isRequired,
 };
 
 DataGrid.defaultProps = {

@@ -26,7 +26,7 @@ const schema = {
 	col19: 'date',
 };
 
-function enchancedCell({ colDef, data }) {
+export function valueGetter({ colDef, data }) {
 	return {
 		quality: Math.random() < 0.05 ? -1 : 1,
 		value: data[colDef.field],
@@ -62,7 +62,6 @@ const columnDefs = Array(COLUMNS_NUMBER)
 	.fill()
 	.map((item, index) => ({
 		field: `col${index}`,
-		valueGetter: enchancedCell,
 	}));
 
 const rowData = Array(ROWS_NUMBER)

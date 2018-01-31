@@ -1,7 +1,7 @@
 import React from 'react';
 
 import DataGrid from '../src/components/datagrid.component';
-import { columnDefs, pinnedColumnDefs, rowData } from './config';
+import { columnDefs, pinnedColumnDefs, rowData, valueGetter } from './config';
 
 class CellRenderer {
 	init(params) {
@@ -28,6 +28,7 @@ export default function VanillaCellRenderer() {
 				columnDefs={columnDefs}
 				pinnedColumnDefs={pinnedColumnDefs}
 				cellRenderer={CellRenderer}
+				valueGetter={valueGetter}
 			/>
 		</div>
 	);
