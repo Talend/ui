@@ -25,7 +25,7 @@ describe('UIForm component', () => {
 
 	it('should render provided actions', () => {
 		// when
-		const wrapper = shallow(<UIForm {...data} {...props} actions={actions}/>);
+		const wrapper = shallow(<UIForm {...data} {...props} actions={actions} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -58,7 +58,7 @@ describe('UIForm component', () => {
 
 		it('should not perform trigger onChange', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} properties={{ firstname: 'to' }}/>);
+			const wrapper = mount(<UIForm {...data} {...props} properties={{ firstname: 'to' }} />);
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
@@ -89,24 +89,21 @@ describe('UIForm component', () => {
 				.simulate('blur');
 
 			// then
-			expect(props.onTrigger).toBeCalledWith(
-				expect.anything(),
-				{
-					trigger: 'after',
-					schema: {
-						key: ['firstname'],
-						title: 'First Name (with placeholder)',
-						placeholder: 'Enter your firstname here',
-						triggers: ['after'],
-						required: true,
-						schema: { type: 'string' },
-						ngModelOptions: {},
-						type: 'text',
-					},
-					properties: validData.properties,
-					errors: validData.errors,
-				}
-			);
+			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
+				trigger: 'after',
+				schema: {
+					key: ['firstname'],
+					title: 'First Name (with placeholder)',
+					placeholder: 'Enter your firstname here',
+					triggers: ['after'],
+					required: true,
+					schema: { type: 'string' },
+					ngModelOptions: {},
+					type: 'text',
+				},
+				properties: validData.properties,
+				errors: validData.errors,
+			});
 		});
 
 		it('should NOT perform trigger when field has errors', () => {
@@ -211,7 +208,7 @@ describe('UIForm component', () => {
 				lastname: 'This has at least 10 characters',
 				firstname: 'This is required',
 			};
-			const wrapper = shallow(<UIForm {...data} {...props} properties={validProperties}/>);
+			const wrapper = shallow(<UIForm {...data} {...props} properties={validProperties} />);
 
 			// when
 			wrapper.instance().onSubmit(submitEvent);
