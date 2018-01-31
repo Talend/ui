@@ -95,6 +95,9 @@ function getReducer(appReducer) {
 	if (!reducerObject.cmf) {
 		reducerObject.cmf = cmfReducers;
 	}
+	if (!reducerObject.routing) {
+		reducerObject.routing = routerReducer;
+	}
 	if (!reducerObject.router) {
 		reducerObject.router = routerReducer;
 	}

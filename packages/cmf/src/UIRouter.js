@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import api from './api';
 
 function getComponent(view, componentName, context) {
-	const component = api.route.getComponentFromRegistry(context, componentName);
+	const component = api.component.get(componentName, context);
 	if (view && !component.CMFContainer) {
 		return api.route.connectView(context, component, view);
 	}
