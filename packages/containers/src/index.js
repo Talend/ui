@@ -19,7 +19,6 @@ import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
 import ConfirmDialog from './ConfirmDialog';
 import FilterBar from './FilterBar';
-import Form from './Form';
 import HeaderBar from './HeaderBar';
 import HomeListView from './HomeListView';
 import List from './List';
@@ -48,7 +47,6 @@ export {
 	Drawer,
 	DeleteResource,
 	FilterBar,
-	Form,
 	HeaderBar,
 	HomeListView,
 	Icon,
