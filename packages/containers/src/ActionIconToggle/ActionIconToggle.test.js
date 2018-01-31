@@ -40,8 +40,8 @@ describe('Action Icon Toggle', () => {
 				payload={{ type: 'TOGGLE-MY-AWESOME-ACTION' }}
 				active
 			/>,
-			{ context }
-			);
+			{ context },
+		);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -64,7 +64,7 @@ describe('Action Icon Toggle', () => {
 				active
 				dispatch={dispatch}
 			/>,
-			{ context }
+			{ context },
 		);
 
 		// when
