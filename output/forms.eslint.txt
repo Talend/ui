@@ -4,15 +4,8 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/forms/src/fields/ArrayField.js
-  171:2   error  canAddItem should be placed after onSelectChange                           react/sort-comp
-  566:15  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
-
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   80:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
-
-/home/travis/build/Talend/ui/packages/forms/src/templates/ArrayFieldTemplate.js
-  87:11  error  'canAdd' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
   9:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
@@ -33,5 +26,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   47:39  error  'formData' is missing in props validation  react/prop-types
   47:49  error  'onChange' is missing in props validation  react/prop-types
 
-✖ 15 problems (15 errors, 0 warnings)
+✖ 12 problems (12 errors, 0 warnings)
 
