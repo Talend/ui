@@ -12,11 +12,11 @@ import DefaultPinHeaderRenderer, {
 
 import theme from './datagrid.scss';
 
-let gridAPI;
-let currentColId;
-
 const AG_GRID_CUSTOM_HEADER_KEY = 'headerComponent';
 const AG_GRID_CUSTOM_CELL_KEY = 'cellRenderer';
+
+let gridAPI;
+let currentColId;
 
 function removeFocusColumn() {
 	const focusedCells = document.querySelectorAll('.column-focus');
@@ -48,7 +48,11 @@ export default function DataGrid(props) {
 			if (!nextCellDef) {
 				return null;
 			}
-			gridAPI && gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
+
+			if (gridAPI) {
+				gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
+			}
+
 			return nextCellDef;
 		},
 		onViewportChanged: () => setFocusColumn(currentColId),
