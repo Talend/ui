@@ -4,17 +4,22 @@ import classNames from 'classnames';
 import QualityIndicator from './quality-indicator.component';
 import theme from './default-cell-renderer.scss';
 
-export default function DefaultCellRenderer(params) {
+export const CELL_RENDERER_COMPONENT = 'cellRenderer';
+
+export default function DefaultCellRenderer({ colDef, column, value }) {
+	if (column.pinned) {
+		return <div>{value}</div>;
+	}
 	return (
 		<div
 			className={classNames(theme.cell, {
-				[theme['cell-number']]: params.value.type === 'number',
+				[theme['cell-number']]: value.type === 'number',
 			})}
 		>
-			{params.value.qualityIndicator <= 0 && <QualityIndicator tooltip="Incorrect value" />}
-			{params.value.type === 'string' && <span className={classNames(theme['invisible-char'])} />}
-			<span>{params.value.value}</span>
-			{params.value.type === 'string' && <span className={classNames(theme['invisible-char'])} />}
+			{value.qualityIndicator <= 0 && <QualityIndicator tooltip="Incorrect value" />}
+			{value.type === 'string' && <span className={classNames(theme['invisible-char'])} />}
+			<span>{value.value}</span>
+			{value.type === 'string' && <span className={classNames(theme['invisible-char'])} />}
 		</div>
 	);
 }

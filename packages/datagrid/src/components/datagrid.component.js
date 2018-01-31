@@ -2,9 +2,12 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { AgGridReact } from 'ag-grid-react';
-
 import 'ag-grid/dist/styles/ag-grid.css';
-import theme from './grid.scss';
+
+import DefaultHeaderGrid, { HEADER_RENDERER_COMPONENT } from './default-header-renderer';
+import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from './default-cell-renderer';
+
+import theme from './datagrid.scss';
 
 let gridAPI;
 let currentColId;
@@ -21,7 +24,11 @@ function setFocusColumn(colId) {
 	}
 }
 
-export default function Grid(props) {
+function enchancedHeaderRenderer(HeaderRenderer, onFocusedColumn) {
+	return props => <HeaderRenderer {...props} onFocusedColumn={onFocusedColumn} />;
+}
+
+export default function DataGrid(props) {
 	const containerStyle = {
 		height: 800,
 	};
@@ -33,7 +40,6 @@ export default function Grid(props) {
 		},
 		onViewportChanged: () => setFocusColumn(currentColId),
 		onVirtualColumnsChanged: () => setFocusColumn(currentColId),
-		columnDefs: props.columnDefs,
 		headerHeight: props.headerHeight,
 		rowData: props.rowData,
 		rowHeight: props.rowHeight,
@@ -68,11 +74,22 @@ export default function Grid(props) {
 		},
 	};
 
-	if (props.renderers) {
-		agGridOptions.frameworkComponents = {
-			...props.renderers,
-		};
+	if (props.columnDefs) {
+		agGridOptions.columnDefs = props.columnDefs.map(columnDefinition => ({
+			...columnDefinition,
+			[CELL_RENDERER_COMPONENT]: CELL_RENDERER_COMPONENT,
+		}));
 	}
+
+	agGridOptions.frameworkComponents = {
+		[CELL_RENDERER_COMPONENT]: props.cellRenderer,
+		[HEADER_RENDERER_COMPONENT]: enchancedHeaderRenderer(props.headerRenderer, colId => {
+			const focusedCell = gridAPI.getFocusedCell();
+			gridAPI.setFocusedCell(focusedCell.rowIndex, colId);
+			setFocusColumn(colId);
+			props.onFocusedColumn(colId);
+		}),
+	};
 
 	return (
 		<div>
@@ -83,13 +100,14 @@ export default function Grid(props) {
 	);
 }
 
-Grid.propTypes = {
+DataGrid.propTypes = {
+	headerRenderer: PropTypes.oneOfType([PropTypes.func, PropTypes.Element]),
+	cellRenderer: PropTypes.oneOfType([PropTypes.func, PropTypes.Element]),
 	onFocusedColumn: PropTypes.func,
 	onFocusedCell: PropTypes.func,
 	rowSelection: PropTypes.string,
 	headerHeight: PropTypes.number,
 	rowHeight: PropTypes.number,
-	renderers: PropTypes.object,
 	rowData: PropTypes.arrayOf(PropTypes.object),
 	columnDefs: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -98,9 +116,11 @@ Grid.propTypes = {
 	),
 };
 
-Grid.defaultProps = {
+DataGrid.defaultProps = {
 	headerHeight: 69,
 	rowHeight: 39,
 	rowsData: [],
 	columnDefs: [],
+	headerRenderer: DefaultHeaderGrid,
+	cellRenderer: DefaultCellRenderer,
 };

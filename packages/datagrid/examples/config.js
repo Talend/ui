@@ -31,7 +31,7 @@ function enchancedCell({ colDef, data }) {
 		qualityIndicator: Math.random() < 0.05 ? -1 : 1,
 		value: data[colDef.field],
 		valueFormatted: data[colDef.field],
-		comments: ['my comment'],
+		comments: ['my comment 1', 'my comment 2'],
 		type: schema[colDef.field],
 	};
 }

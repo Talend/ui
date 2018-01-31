@@ -12,6 +12,10 @@
 		border-bottom: #f6f6f6 1px solid;
 	}
 
+	:global(.ag-row-focus) {
+		background-color: DeepSkyBlue;
+	}
+
 	:global(.ag-row-selected) {
 		background-color: DeepSkyBlue;
 	}

@@ -1,10 +1,9 @@
 import React from 'react';
 
-import Grid from '../src/components/grid.component';
-import HeaderGrid from '../src/components/default-header-renderer';
+import DataGrid from '../src/components/datagrid.component';
 import { rowData, columnDefs } from './config';
 
-class SimpleCellRenderer {
+class CellRenderer {
 	init(params) {
 		const div = document.createElement('div');
 
@@ -22,17 +21,9 @@ class SimpleCellRenderer {
 }
 
 export default function VanillaCellRenderer() {
-	const renderers = {
-		headerGrid: HeaderGrid,
-	};
-	const columnReactDefs = columnDefs.map(columnDefefition => ({
-		...columnDefefition,
-		cellRenderer: SimpleCellRenderer,
-	}));
-
 	return (
 		<div>
-			<Grid rowData={rowData} columnDefs={columnReactDefs} renderers={renderers} />
+			<DataGrid rowData={rowData} columnDefs={columnDefs} cellRenderer={CellRenderer} />
 		</div>
 	);
 }
