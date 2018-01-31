@@ -6,7 +6,7 @@ import { columnDefs, rowData, pinnedColumnDefs, valueGetter } from './config';
 
 export default function ReactCellRenderer() {
 	return (
-		<div>
+		<div style={{ height: '100vh' }}>
 			<IconsProvider />
 			<DataGrid
 				rowData={rowData}

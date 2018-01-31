@@ -38,10 +38,6 @@ function enchancedHeaderRenderer(HeaderRenderer, onFocusedColumn) {
 }
 
 export default function DataGrid(props) {
-	const containerStyle = {
-		height: 800,
-	};
-
 	const agGridOptions = {
 		headerHeight: props.headerHeight,
 		navigateToNextCell: ({ nextCellDef }) => {
@@ -122,10 +118,8 @@ export default function DataGrid(props) {
 	};
 
 	return (
-		<div>
-			<div style={containerStyle} className={classNames(theme.grid)}>
-				<AgGridReact {...agGridOptions} />
-			</div>
+		<div className={classNames(theme.grid)}>
+			<AgGridReact {...agGridOptions} />
 		</div>
 	);
 }
