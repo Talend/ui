@@ -159,7 +159,7 @@ export default function* sagaRouter(history, routes) {
 		// eslint-disable-line no-constant-condition
 		yield take('@@router/LOCATION_CHANGE');
 		const shouldStart = [];
-		const currentLocation = history.getCurrentLocation();
+		const currentLocation = history.location;
 		for (let index = 0; index < routeFragments.length; ) {
 			const routeFragment = routeFragments[index];
 			const routeSaga = routes[routeFragment];

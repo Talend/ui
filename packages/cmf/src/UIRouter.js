@@ -31,8 +31,9 @@ function CMFRoute(props, context) {
 	// Warning: You should not use <Route component> and <Route children>
 	// in the same route; <Route children> will be ignored
 	function SubComponent(subprops) {
+		// Backward compat: add props.params
 		return (
-			<Component view={view} {...subprops}>
+			<Component view={view} {...subprops} params={subprops.match.params}>
 				{childRoutes ? childRoutes.map((route, index) => (
 					<CMFRoute key={index} {...route} cmfParentPath={safePath} />
 				)) : null}
@@ -42,13 +43,14 @@ function CMFRoute(props, context) {
 	return (
 		<Route
 			path={safePath}
-			exact
+			exact={props.exact}
 			component={SubComponent}
 		/>
 	);
 }
 
 CMFRoute.propTypes = {
+	exact: PropTypes.bool,
 	cmfParentPath: PropTypes.string,
 	path: PropTypes.string,
 	component: PropTypes.string,
@@ -133,7 +135,7 @@ CMFRouter.propTypes = {
 function mapStateToProps(state) {
 	return {
 		routes: state.cmf.settings.routes,
-		router: state.router,  // force re render on router change
+		// router: state.router,  // force re render on router change
 	};
 }
 
