@@ -5,6 +5,7 @@ import includes from 'lodash/includes';
 import { sfPath } from 'talend-json-schema-form-core';
 
 import defaultWidgets from '../utils/widgets';
+import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
 
 function shouldRender(conditions, properties) {
@@ -26,7 +27,7 @@ export default function Widget(props) {
 	}
 
 	const id = sfPath.name(key, '_', props.id);
-	const error = props.errors[key];
+	const error = getError(props.errors, props.schema);
 	const errorMessage = validationMessage || error;
 	return (
 		<WidgetImpl
