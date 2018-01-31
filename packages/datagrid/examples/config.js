@@ -28,7 +28,7 @@ const schema = {
 
 function enchancedCell({ colDef, data }) {
 	return {
-		qualityIndicator: Math.random() < 0.05 ? -1 : 1,
+		quality: Math.random() < 0.05 ? -1 : 1,
 		value: data[colDef.field],
 		valueFormatted: data[colDef.field],
 		comments: ['my comment 1', 'my comment 2'],
@@ -51,23 +51,19 @@ function getValue(columnIndex) {
 	}
 }
 
-const columnDefs = [
+const pinnedColumnDefs = [
 	{
-		lockPosition: true,
-		pinned: 'left',
 		field: 'index',
 		width: 100,
 	},
-].concat(
-	Array(COLUMNS_NUMBER)
-		.fill()
-		.map((item, index) => ({
-			lockPinned: true,
-			field: `col${index}`,
-			headerComponent: 'headerGrid',
-			valueGetter: enchancedCell,
-		})),
-);
+];
+
+const columnDefs = Array(COLUMNS_NUMBER)
+	.fill()
+	.map((item, index) => ({
+		field: `col${index}`,
+		valueGetter: enchancedCell,
+	}));
 
 const rowData = Array(ROWS_NUMBER)
 	.fill()
@@ -85,4 +81,4 @@ const rowData = Array(ROWS_NUMBER)
 			),
 	}));
 
-export { rowData, columnDefs };
+export { columnDefs, rowData, pinnedColumnDefs };

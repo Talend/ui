@@ -37,17 +37,17 @@ Features:
 
 The DataGrid componnent provides 3 default renderers:
 * defaultHeaderRenderer
+* defaultPinHeaderRenderer
 * defaultCellRenderer
-* defaultPinRenderer
 
 The grid is composed like this :
 
-|headerCellRenderer|headerCellRenderer|headerCellRenderer
+|PinHeaderRenderer|headerRenderer|headerRenderer
 | --- | --- | ---
-| pinCellRenderer | CellRenderer | cellRenderer
-| pinCellRenderer | CellRenderer | cellRenderer
-| pinCellRenderer | CellRenderer | cellRenderer
-| pinCellRenderer | CellRenderer | cellRenderer
+| raw ag-grid renderer | CellRenderer | cellRenderer
+| raw ag-grid renderer | CellRenderer | cellRenderer
+| raw ag-grid renderer | CellRenderer | cellRenderer
+| raw ag-grid renderer | CellRenderer | cellRenderer
 
 ## Issue solved with ag-grid
 

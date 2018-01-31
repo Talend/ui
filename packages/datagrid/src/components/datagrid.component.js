@@ -6,18 +6,27 @@ import 'ag-grid/dist/styles/ag-grid.css';
 
 import DefaultHeaderGrid, { HEADER_RENDERER_COMPONENT } from './default-header-renderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from './default-cell-renderer';
+import DefaultPinHeaderRenderer, {
+	PIN_HEADER_RENDERER_COMPONENT,
+} from './default-pin-header-renderer';
 
 import theme from './datagrid.scss';
 
 let gridAPI;
 let currentColId;
 
-function setFocusColumn(colId) {
+const AG_GRID_CUSTOM_HEADER_KEY = 'headerComponent';
+const AG_GRID_CUSTOM_CELL_KEY = 'cellRenderer';
+
+function removeFocusColumn() {
 	const focusedCells = document.querySelectorAll('.column-focus');
 	for (const focusedCell of focusedCells) {
 		focusedCell.classList.remove('column-focus');
 	}
+}
 
+function setFocusColumn(colId) {
+	removeFocusColumn();
 	const columnsCells = document.querySelectorAll(`[col-id="${colId}"]`);
 	for (const columnCell of columnsCells) {
 		columnCell.classList.add('column-focus');
@@ -33,18 +42,8 @@ export default function DataGrid(props) {
 		height: 800,
 	};
 
-	// by default, ag-grid hide the column when the user drag outside the column
 	const agGridOptions = {
-		onGridReady: ({ api }) => {
-			gridAPI = api;
-		},
-		onViewportChanged: () => setFocusColumn(currentColId),
-		onVirtualColumnsChanged: () => setFocusColumn(currentColId),
 		headerHeight: props.headerHeight,
-		rowData: props.rowData,
-		rowHeight: props.rowHeight,
-		suppressDragLeaveHidesColumns: true,
-		rowSelection: props.rowSelection,
 		navigateToNextCell: ({ nextCellDef }) => {
 			if (!nextCellDef) {
 				return null;
@@ -52,12 +51,19 @@ export default function DataGrid(props) {
 			gridAPI && gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
 			return nextCellDef;
 		},
+		onViewportChanged: () => setFocusColumn(currentColId),
+		onVirtualColumnsChanged: () => setFocusColumn(currentColId),
+		rowData: props.rowData,
+		rowHeight: props.rowHeight,
+		rowSelection: props.rowSelection,
+		suppressDragLeaveHidesColumns: true,
 		onCellFocused: ({ column, ...rest }) => {
 			if (!column) {
 				return;
 			}
 
 			if (column.pinned) {
+				removeFocusColumn();
 				return;
 			}
 
@@ -72,23 +78,42 @@ export default function DataGrid(props) {
 				});
 			}
 		},
+		onGridReady: ({ api }) => {
+			gridAPI = api;
+		},
 	};
 
-	if (props.columnDefs) {
-		agGridOptions.columnDefs = props.columnDefs.map(columnDefinition => ({
-			...columnDefinition,
-			[CELL_RENDERER_COMPONENT]: CELL_RENDERER_COMPONENT,
+	if (props.pinnedColumnDefs) {
+		agGridOptions.columnDefs = props.pinnedColumnDefs.map(pinnedColumnDefinition => ({
+			lockPosition: true,
+			pinned: 'left',
+			...pinnedColumnDefinition,
+			[AG_GRID_CUSTOM_HEADER_KEY]: PIN_HEADER_RENDERER_COMPONENT,
 		}));
+	}
+
+	if (props.columnDefs) {
+		const columnsDefs = props.columnDefs.map(columnDefinition => ({
+			lockPinned: true,
+			...columnDefinition,
+			[AG_GRID_CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
+			[AG_GRID_CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
+		}));
+		agGridOptions.columnDefs = [...agGridOptions.columnDefs, ...columnsDefs];
 	}
 
 	agGridOptions.frameworkComponents = {
 		[CELL_RENDERER_COMPONENT]: props.cellRenderer,
 		[HEADER_RENDERER_COMPONENT]: enchancedHeaderRenderer(props.headerRenderer, colId => {
-			const focusedCell = gridAPI.getFocusedCell();
-			gridAPI.setFocusedCell(focusedCell.rowIndex, colId);
+			let rowIndex = 0;
+			if (gridAPI.getFocusedCell()) {
+				rowIndex = gridAPI.getFocusedCell().rowIndex;
+			}
+			gridAPI.setFocusedCell(rowIndex, colId);
 			setFocusColumn(colId);
 			props.onFocusedColumn(colId);
 		}),
+		[PIN_HEADER_RENDERER_COMPONENT]: props.pinHeaderRenderer,
 	};
 
 	return (
@@ -101,26 +126,34 @@ export default function DataGrid(props) {
 }
 
 DataGrid.propTypes = {
-	headerRenderer: PropTypes.oneOfType([PropTypes.func, PropTypes.Element]),
 	cellRenderer: PropTypes.oneOfType([PropTypes.func, PropTypes.Element]),
-	onFocusedColumn: PropTypes.func,
-	onFocusedCell: PropTypes.func,
-	rowSelection: PropTypes.string,
-	headerHeight: PropTypes.number,
-	rowHeight: PropTypes.number,
-	rowData: PropTypes.arrayOf(PropTypes.object),
 	columnDefs: PropTypes.arrayOf(
 		PropTypes.shape({
-			field: PropTypes.string,
+			field: PropTypes.string.isRequired,
 		}),
 	),
+	headerHeight: PropTypes.number,
+	headerRenderer: PropTypes.oneOfType([PropTypes.func, PropTypes.Element]),
+	onFocusedCell: PropTypes.func,
+	onFocusedColumn: PropTypes.func,
+	pinnedColumnDefs: PropTypes.arrayOf(
+		PropTypes.shape({
+			field: PropTypes.string.isRequired,
+		}),
+	),
+	pinHeaderRenderer: PropTypes.oneOfType([PropTypes.func, PropTypes.Element]),
+	rowSelection: PropTypes.string,
+	rowHeight: PropTypes.number,
+	rowData: PropTypes.arrayOf(PropTypes.object),
 };
 
 DataGrid.defaultProps = {
+	cellRenderer: DefaultCellRenderer,
+	pinHeaderRenderer: DefaultPinHeaderRenderer,
+	columnDefs: [],
 	headerHeight: 69,
+	headerRenderer: DefaultHeaderGrid,
+	pinnedColumnDefs: [],
 	rowHeight: 39,
 	rowsData: [],
-	columnDefs: [],
-	headerRenderer: DefaultHeaderGrid,
-	cellRenderer: DefaultCellRenderer,
 };

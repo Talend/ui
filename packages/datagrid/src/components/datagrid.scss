@@ -1,8 +1,26 @@
 .grid {
+	/* ==== PIN ==== */
 	:global(.ag-pinned-left-header) {
 		border: #e6e6e6 1px solid;
 	}
 
+	:global(.ag-pinned-left-header .ag-react-container) {
+		height: 100%;
+	}
+
+	:global(.ag-cell.ag-cell-last-left-pinned) {
+		padding: 9px;
+		color: #202020;
+		border-color: #e6e6e6;
+	}
+
+	/* ==== COLUMN ====  */
+
+	:global(.column-focus) {
+		background-color: violet;
+	}
+
+	/* ==== BODY ==== */
 	:global(.ag-body) {
 		background-color: #fafafa;
 	}
@@ -22,15 +40,5 @@
 
 	:global(.ag-cell.ag-cell-focus:not(.ag-cell-last-left-pinned)) {
 		background-color: white;
-	}
-
-	:global(.ag-cell.ag-cell-last-left-pinned) {
-		padding: 9px;
-		color: #202020;
-		border-color: #e6e6e6;
-	}
-
-	:global(.column-focus) {
-		background-color: violet;
 	}
 }
