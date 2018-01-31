@@ -31,11 +31,11 @@ dispatch(insertAction);
 ```javascript
 import { actions } from '@talend/react-cmf';
 
-const insertAction = actions.collectionsActions.addOrReplaceCollection('datastores', []);
+const insertAction = actions.collectionsActions.addOrReplace('datastores', []);
 dispatch(insertAction);
 ```
 
-addOrReplaceCollection(collectionId, data)
+addOrReplace(collectionId, data)
 
 | Argument | Type | Description | Mandatory |
 |---|---|---|---|
@@ -49,11 +49,11 @@ The example will remove the collection `state.cmf.collections.datastores`.
 ```javascript
 import { actions } from '@talend/react-cmf';
 
-const removeAction = actions.collectionsActions.removeCollection('datastores');
+const removeAction = actions.collectionsActions.remove('datastores');
 dispatch(removeAction);
 ```
 
-removeCollection(collectionId)
+remove(collectionId)
 
 | Argument | Type | Description | Mandatory |
 |---|---|---|---|
@@ -66,7 +66,7 @@ The example will mutate the collection in `state.cmf.collections.datastores`.
 ```javascript
 import { actions } from '@talend/react-cmf';
 
-const mutationAction = actions.collectionsActions.mutateCollection('datastores', {
+const mutationAction = actions.collectionsActions.mutate('datastores', {
     add: [{ id: 'new_element_id', ... }, { id: 'next_new_element_id', ... }],
     delete: ['old_element_id'],
     update: { 'existing_element_id': {id: 'existing_element_id', ... }, ... }
@@ -74,7 +74,7 @@ const mutationAction = actions.collectionsActions.mutateCollection('datastores',
 dispatch(mutationAction);
 ```
 
-removeCollection(collectionId, operations)
+remove(collectionId, operations)
 
 | Argument | Type | Description | Mandatory |
 |---|---|---|---|
