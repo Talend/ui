@@ -88,7 +88,10 @@ export function startWebsocket(url, offlinebuffer, options) {
 		clearInterval(wsCreationIntervalId);
 	}
 
-	wsCreationIntervalId = setInterval(wsStillNotYetOpened, options.pingTimeoutDelay);
+	if (!isNaN(options.pingTimeoutDelay)) {
+		wsCreationIntervalId = setInterval(wsStillNotYetOpened, options.pingTimeoutDelay);
+	}
+
 	return ws;
 }
 
