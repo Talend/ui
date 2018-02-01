@@ -172,7 +172,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
         <g
           className="ti-kinesis-brand-lighter-color"
           fill="#86A6BF"
-          fillRule="none-zero"
+          fillRule="nonzero"
         >
           <path
             d="M1.364 11.516l6.634 2.204 6.793-2.204L8.01 9.883zm-.001-2.418l6.639.681 6.789-.681-6.789-.366zm12.683-1.032h-3.545V5.11l3.545-.928z"
@@ -187,7 +187,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
         <g
           className="ti-kinesis-brand-plain-color"
           fill="#5D88AA"
-          fillRule="none-zero"
+          fillRule="nonzero"
         >
           <path
             d="M8.002 13.719v2.28l6.79-3.144v-1.34zm0-3.963v2.281l6.79-1.597V9.099zm6.045-1.689h.747V4.485l-.747-.304zm-1.544 0h.902V4.949l-.902-.31zm-.93 0h-1.057V2.784l1.057.464zM8.002 0v8.068h1.34V.774z"
@@ -196,7 +196,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
         <g
           className="ti-kinesis-brand-darker-color"
           fill="#46667F"
-          fillRule="none-zero"
+          fillRule="nonzero"
         >
           <path
             d="M1.362 12.855L8.002 16v-2.282l-6.64-2.203zm0-2.415l6.64 1.597V9.756l-6.64-.657z"
@@ -2956,7 +2956,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
         <g
           className="ti-kinesis-brand-lighter-color"
           fill="#86A6BF"
-          fillRule="none-zero"
+          fillRule="nonzero"
         >
           <path
             d="M1.364 11.516l6.634 2.204 6.793-2.204L8.01 9.883zm-.001-2.418l6.639.681 6.789-.681-6.789-.366zm12.683-1.032h-3.545V5.11l3.545-.928z"
@@ -2971,7 +2971,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
         <g
           className="ti-kinesis-brand-plain-color"
           fill="#5D88AA"
-          fillRule="none-zero"
+          fillRule="nonzero"
         >
           <path
             d="M8.002 13.719v2.28l6.79-3.144v-1.34zm0-3.963v2.281l6.79-1.597V9.099zm6.045-1.689h.747V4.485l-.747-.304zm-1.544 0h.902V4.949l-.902-.31zm-.93 0h-1.057V2.784l1.057.464zM8.002 0v8.068h1.34V.774z"
@@ -2980,7 +2980,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
         <g
           className="ti-kinesis-brand-darker-color"
           fill="#46667F"
-          fillRule="none-zero"
+          fillRule="nonzero"
         >
           <path
             d="M1.362 12.855L8.002 16v-2.282l-6.64-2.203zm0-2.415l6.64 1.597V9.756l-6.64-.657z"
