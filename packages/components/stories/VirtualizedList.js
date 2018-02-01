@@ -432,6 +432,7 @@ storiesOf('Virtualized List', module)
 					id={'my-list'}
 					isActive={item => item.id === 6}
 					onRowClick={action('onRowClick')}
+					onRowDoubleClick={action('onRowDoubleClick')}
 					rowHeight={135}
 					type={listTypes.LARGE}
 				>
