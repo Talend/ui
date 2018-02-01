@@ -8,7 +8,8 @@ import { formPropTypes } from './utils/propTypes';
 import { validateSingle, validateAll } from './utils/validation';
 import Widget from './Widget';
 import Buttons from './fields/Button/Buttons.component';
-import { getValue, mutateValue, omit } from './utils/properties';
+import { getValue, mutateValue } from './utils/properties';
+import { removeError, addError } from './utils/errors';
 import getLanguage from './lang';
 
 export default class UIForm extends React.Component {
@@ -16,11 +17,14 @@ export default class UIForm extends React.Component {
 	constructor(props) {
 		super(props);
 		const { jsonSchema, uiSchema } = props;
+
+		const state = {};
 		if (Object.keys(jsonSchema).length) {
-			this.state = merge(jsonSchema, uiSchema);
-		} else {
-			this.state = {};
+			Object.assign(state, merge(jsonSchema, uiSchema));
 		}
+		state.widgets = { ...state.widgets, ...props.widgets };
+		this.state = state;
+
 		this.onChange = this.onChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -43,7 +47,14 @@ export default class UIForm extends React.Component {
 			return;
 		}
 		if (Object.keys(jsonSchema).length) {
-			this.setState(merge(jsonSchema, uiSchema));
+			const merged = merge(jsonSchema, uiSchema);
+			this.setState({
+				...merged,
+				widgets: {
+					...merged.widgets,
+					...this.props.widgets,
+				},
+			});
 		}
 	}
 
@@ -54,17 +65,14 @@ export default class UIForm extends React.Component {
 	 * @param value The payload new value
 	 */
 	onChange(event, { schema, value }) {
-		const payload = {
-			properties: this.props.properties,
+		const newProperties = mutateValue(this.props.properties, schema, value);
+		this.props.onChange(event, {
 			schema,
 			value,
-			formData: mutateValue(this.props.properties, schema.key, value),
-		};
-		if (this.props.moz) {
-			this.props.onChange(payload);
-		} else {
-			this.props.onChange(event, payload);
-		}
+			oldProperties: this.props.properties,
+			properties: newProperties,
+			formData: newProperties,
+		});
 	}
 
 	/**
@@ -85,7 +93,7 @@ export default class UIForm extends React.Component {
 		if (value !== undefined) {
 			newValue = value;
 		} else {
-			newValue = getValue(this.props.properties, schema.key);
+			newValue = getValue(this.props.properties, schema);
 		}
 
 		// validate value
@@ -100,22 +108,19 @@ export default class UIForm extends React.Component {
 		// update errors map
 		let errors;
 		if (valueError) {
-			errors = {
-				...this.props.errors,
-				[schema.key]: valueError,
-			};
+			errors = addError(this.props.errors, schema, valueError);
 		} else {
-			errors = omit(this.props.errors, schema.key.toString());
+			errors = removeError(this.props.errors, schema);
 		}
 		if (widgetChangeErrors) {
 			errors = widgetChangeErrors(errors);
 		}
-		this.props.setErrors(errors);
+		this.props.setErrors(event, errors);
 
 		if (!valueError && schema.triggers && schema.triggers.length) {
 			let formData = this.props.properties;
 			if (value !== undefined) {
-				formData = mutateValue(formData, schema.key, value);
+				formData = mutateValue(formData, schema, value);
 			}
 			let propertyName = schema.key.join('.');
 			if (this.props.moz) {
@@ -125,9 +130,10 @@ export default class UIForm extends React.Component {
 					}
 				});
 				propertyName = schema.key[schema.key.length - 1];
+				this.onTrigger(event, { formData, formId: this.props.id, propertyName, value });
+			} else {
+				this.onTrigger(event, { trigger: schema.triggers[0], schema, properties: formData });
 			}
-			const formId = this.props.id;
-			this.onTrigger(formData, formId, propertyName, value);
 		}
 	}
 
@@ -138,13 +144,19 @@ export default class UIForm extends React.Component {
 	 * trigger The type of trigger
 	 * schema The field schema
 	 */
-	onTrigger(formData, formId, propertyName, propertyValue) {
+	onTrigger(event, payload) {
 		const { onTrigger } = this.props;
 		if (!onTrigger) {
 			return null;
 		}
 
-		return onTrigger(formData, formId, propertyName, propertyValue);
+		if (this.props.moz) {
+			return onTrigger(payload.formData, payload.formId, payload.propertyName, payload.value);
+		}
+		return onTrigger(event, {
+			properties: this.props.properties,
+			...payload,
+		});
 	}
 
 	onActionClick(actionOnClick) {
@@ -171,7 +183,7 @@ export default class UIForm extends React.Component {
 		const { mergedSchema } = this.state;
 		const { properties, customValidation } = this.props;
 		const errors = validateAll(mergedSchema, properties, customValidation);
-		this.props.setErrors(errors);
+		this.props.setErrors(event, errors);
 
 		const isValid = !Object.keys(errors).length;
 		if (this.props.onSubmit && isValid) {
@@ -221,7 +233,8 @@ export default class UIForm extends React.Component {
 						schema={nextSchema}
 						properties={this.props.properties}
 						errors={this.props.errors}
-						widgets={Object.assign({}, this.props.widgets, this.state.widgets)}
+						templates={this.props.templates}
+						widgets={this.state.widgets}
 					/>
 				))}
 				{this.props.children}
@@ -252,12 +265,6 @@ if (process.env.NODE_ENV !== 'production') {
 		properties: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		/** Form definition: The forms errors { [fieldKey]: errorMessage } */
 		errors: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-		/** Form definition: The forms initial data */
-		initialData: PropTypes.shape({
-			jsonSchema: PropTypes.object,
-			uiSchema: PropTypes.array,
-			properties: PropTypes.object,
-		}),
 
 		/**
 		 * Actions buttons to display at the bottom of the form.
@@ -276,6 +283,8 @@ if (process.env.NODE_ENV !== 'production') {
 		 * Prototype: function onTrigger(event, { trigger, schema, properties })
 		 */
 		onTrigger: PropTypes.func,
+		/** Custom templates */
+		templates: PropTypes.object,
 		/** Custom widgets */
 		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 
@@ -283,8 +292,6 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
-		/** State management impl: The form update callback */
-		updateForm: PropTypes.func.isRequired,
 	};
 }
 

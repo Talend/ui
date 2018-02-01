@@ -1,10 +1,13 @@
 
-> @talend/react-components@0.146.0 lint:style /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.150.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
 
 src/Actions/ActionFile/ActionFile.scss
   5:12  error  Strings must use single quotes  quotes
+
+src/Actions/ActionIconToggle/ActionIconToggle.scss
+  16:25  error  Parenthesis should be removed  empty-args
 
 src/ConfirmDialog/ConfirmDialog.scss
   76:4  warning  Expected indentation of 2 tabs but found 3  indentation
@@ -15,5 +18,5 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 4 problems (1 error, 3 warnings)
+✖ 5 problems (2 errors, 3 warnings)
 

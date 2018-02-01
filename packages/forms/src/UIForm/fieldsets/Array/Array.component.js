@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import ArrayItem from './ArrayItem.component';
-import Message from '../../Message';
 import Widget from '../../Widget';
+import Message from '../../Message';
 import { shiftArrayErrorsKeys } from '../../utils/validation';
-import widgets from '../../utils/widgets';
+import defaultTemplates from '../../utils/templates';
+import defaultWidgets from '../../utils/widgets';
 
 import theme from './Array.scss';
 
@@ -57,6 +57,7 @@ export default class ArrayWidget extends React.Component {
 		this.onAdd = this.onAdd.bind(this);
 		this.onRemove = this.onRemove.bind(this);
 		this.onReorder = this.onReorder.bind(this);
+		this.renderItem = this.renderItem.bind(this);
 	}
 
 	onAdd(event) {
@@ -64,7 +65,8 @@ export default class ArrayWidget extends React.Component {
 		const defaultValue = arrayMergedSchema.schema.items.type === 'object' ? {} : '';
 
 		let currentValue = this.props.value;
-		const itemWidget = widgets[this.props.schema.itemWidget];
+		const widgetId = this.props.schema.itemWidget;
+		const itemWidget = this.props.widgets[widgetId] || defaultWidgets[widgetId];
 		if (itemWidget && itemWidget.isCloseable) {
 			currentValue = currentValue.map(item => ({ ...item, isClosed: true }));
 		}
@@ -123,45 +125,34 @@ export default class ArrayWidget extends React.Component {
 		this.props.onFinish(event, payload, { widgetChangeErrors });
 	}
 
+	renderItem(index) {
+		return (
+			<Widget
+				{...this.props}
+				id={this.props.id && `${this.props.id}-${index}`}
+				schema={getItemSchema(this.props.schema, index)}
+				value={this.props.value[index]}
+			/>
+		);
+	}
+
 	render() {
-		const { errorMessage, id, isValid, schema, value, ...restProps } = this.props;
+		const { errorMessage, isValid, schema } = this.props;
 		const canReorder = schema.reorder !== false;
+
+		const templateId = 'array';
+		const ArrayTemplate = this.props.templates[templateId] || defaultTemplates[templateId];
 
 		return (
 			<div className={classNames(theme['tf-array-container'], 'tf-array-container')}>
-				{schema.title && <legend>{schema.title}</legend>}
-				<ol id={id} className={classNames(theme['tf-array'], 'tf-array')}>
-					{value.map((itemValue, index) => {
-						// create item schema with item index in key
-						const itemSchema = getItemSchema(schema, index, itemValue);
-
-						return (
-							<li className={theme.item} key={index}>
-								<ArrayItem
-									hasMoveDown={index < value.length - 1}
-									hasMoveUp={index > 0}
-									id={id && `${id}-control-${index}`}
-									index={index}
-									onRemove={this.onRemove}
-									onReorder={canReorder && this.onReorder}
-									value={itemValue}
-								>
-									<Widget
-										{...restProps}
-										id={id && `${id}-${index}`}
-										schema={itemSchema}
-										value={itemValue}
-									/>
-								</ArrayItem>
-							</li>
-						);
-					})}
-				</ol>
-				<div>
-					<button type="button" className="btn btn-info" onClick={this.onAdd}>
-						New Element
-					</button>
-				</div>
+				<ArrayTemplate
+					{...this.props}
+					canReorder={canReorder}
+					onAdd={this.onAdd}
+					onReorder={this.onReorder}
+					onRemove={this.onRemove}
+					renderItem={this.renderItem}
+				/>
 				<Message errorMessage={errorMessage} description={schema.description} isValid={isValid} />
 			</div>
 		);
@@ -171,17 +162,20 @@ export default class ArrayWidget extends React.Component {
 ArrayWidget.defaultProps = {
 	items: [],
 	value: [],
+	templates: {},
+	widgets: {},
 };
 
 if (process.env.NODE_ENV !== 'production') {
 	ArrayWidget.propTypes = {
-		description: PropTypes.string,
 		errorMessage: PropTypes.string,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
-		schema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+		schema: PropTypes.object.isRequired,
+		templates: PropTypes.object.isRequired,
 		value: PropTypes.arrayOf(PropTypes.object).isRequired,
+		widgets: PropTypes.object.isRequired,
 	};
 }
