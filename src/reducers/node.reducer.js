@@ -9,6 +9,7 @@ import {
 	FLOWDESIGNER_NODE_MOVE,
 	FLOWDESIGNER_NODE_APPLY_MOVEMENT,
 	FLOWDESIGNER_NODE_MOVE_END,
+	FLOWDESIGNER_NODE_SET_TYPE,
 	FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES,
 	FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES,
 	FLOWDESIGNER_NODE_SET_DATA,
@@ -96,6 +97,14 @@ const nodeReducer = (state = defaultState, action) => {
 				['nodes', action.nodeId, 'graphicalAttributes', 'nodeSize'],
 				new SizeRecord(action.nodeSize),
 			);
+		case FLOWDESIGNER_NODE_SET_TYPE:
+			if (!state.getIn(['nodes', action.nodeId])) {
+				invariant(
+					false,
+					`Can't set node.type on node ${action.nodeid} since it doesn't exist`,
+				);
+			}
+			return state.setIn(['nodes', action.nodeId, 'type'], action.nodeType);
 		case FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES:
 			if (!state.getIn(['nodes', action.nodeId])) {
 				invariant(

@@ -556,6 +556,74 @@ Object {
 }
 `;
 
+exports[`Check node reducer FLOWDESIGNER_NODE_SET_TYPE update node type 1`] = `
+Object {
+  "childrens": Object {},
+  "in": Object {},
+  "links": Object {},
+  "nodeTypes": Object {},
+  "nodes": Object {
+    "id1": Object {
+      "data": Object {
+        "type": "test",
+      },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
+      "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": Object {},
+      },
+      "id": "id1",
+      "type": "nodetype",
+    },
+    "id2": Object {
+      "data": Object {
+        "type": "test",
+      },
+      "getNodeType": [Function],
+      "getPosition": [Function],
+      "getSize": [Function],
+      "graphicalAttributes": Object {
+        "description": "",
+        "label": "",
+        "nodeSize": Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        "nodeType": undefined,
+        "position": Object {
+          "x": 10,
+          "y": 10,
+        },
+        "properties": Object {},
+      },
+      "id": "id2",
+      "type": "type2",
+    },
+  },
+  "out": Object {},
+  "parents": Object {},
+  "ports": Object {},
+  "transform": Object {
+    "k": 1,
+    "x": 0,
+    "y": 0,
+  },
+  "transformToApply": undefined,
+}
+`;
+
 exports[`FLOWDESIGNER_NODE_APPLY_MOVEMENT should apply the same relative movement to each node listed 1`] = `
 Object {
   "childrens": Object {},

@@ -3,6 +3,7 @@ import {
 	FLOWDESIGNER_NODE_MOVE,
 	FLOWDESIGNER_NODE_MOVE_END,
 	FLOWDESIGNER_NODE_ADD,
+	FLOWDESIGNER_NODE_SET_TYPE,
 	FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES,
 	FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES,
 	FLOWDESIGNER_NODE_SET_DATA,
@@ -80,6 +81,20 @@ export const setNodeSize = (nodeId, nodeSize) => ({
 	nodeId,
 	nodeSize,
 });
+
+/**
+ * Ask for node creation and injection into current dataflow
+ * @param {string} nodeId
+ * @param {string} nodeType
+ * @return {Object}
+ */
+export function setNodeType(nodeId, nodeType) {
+	return {
+		type: FLOWDESIGNER_NODE_SET_TYPE,
+		nodeId,
+		nodeType,
+	};
+}
 
 /**
  * Give the ability to a graphical attribute onto the node

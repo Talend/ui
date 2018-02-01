@@ -7,6 +7,7 @@ import {
 	PositionRecord,
 	NodeGraphicalAttributes,
 } from '../constants/flowdesigner.model';
+import { FLOWDESIGNER_NODE_SET_TYPE } from '../constants/flowdesigner.constants';
 
 describe('Check node reducer', () => {
 	const initialState = defaultState
@@ -79,6 +80,19 @@ describe('Check node reducer', () => {
 				type: 'FLOWDESIGNER_NODE_SET_SIZE',
 				nodeId: 'id1',
 				nodeSize: { height: 200, width: 200 },
+			}),
+		).toMatchSnapshot();
+	});
+
+	it('FLOWDESIGNER_NODE_SET_TYPE update node type', () => {
+		const nodeId = 'id1';
+		const nodeType = 'nodetype';
+
+		expect(
+			nodeReducer(initialState, {
+				type: FLOWDESIGNER_NODE_SET_TYPE,
+				nodeId,
+				nodeType,
 			}),
 		).toMatchSnapshot();
 	});
