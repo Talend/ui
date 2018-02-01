@@ -45,6 +45,7 @@ ListToolbar.propTypes = {
 			isActive: PropTypes.func,
 			isSelected: PropTypes.func,
 			onRowClick: PropTypes.func,
+			onRowDoubleClick: PropTypes.func,
 			onSelect: PropTypes.func,
 			onToggle: PropTypes.func,
 			onToggleAll: PropTypes.func,

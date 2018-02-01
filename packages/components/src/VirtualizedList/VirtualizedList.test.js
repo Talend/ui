@@ -77,6 +77,7 @@ describe('VirtualizedList', () => {
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
+				onRowDoubleClick={jest.fn()}
 				rowHeight={50}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}
@@ -107,6 +108,7 @@ describe('VirtualizedList', () => {
 				isSelected={jest.fn()}
 				inProgress
 				onRowClick={jest.fn()}
+				onRowDoubleClick={jest.fn()}
 				rowHeight={50}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}

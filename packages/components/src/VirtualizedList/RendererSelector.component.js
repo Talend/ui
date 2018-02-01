@@ -48,6 +48,7 @@ function RendererSelector(props) {
 		isSelected,
 		isActive,
 		onRowClick,
+		onRowDoubleClick,
 		rowHeight,
 		selectionToggle,
 		sort,
@@ -73,6 +74,7 @@ function RendererSelector(props) {
 				isSelected={isSelected}
 				noRowsRenderer={noRowsRenderer}
 				onRowClick={onRowClick}
+				onRowDoubleClick={onRowDoubleClick}
 				selectionToggle={selectionToggle}
 				sort={sort}
 				sortBy={sortBy}
@@ -94,6 +96,7 @@ function RendererSelector(props) {
 			isActive={isActive}
 			isSelected={isSelected}
 			onRowClick={onRowClick}
+			onRowDoubleClick={onRowDoubleClick}
 			rowHeight={rowHeight}
 			rowRenderer={getRowRenderer(type)}
 			selectionToggle={selectionToggle}

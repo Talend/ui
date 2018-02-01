@@ -20,6 +20,7 @@ function ListGrid(props) {
 		isSelected,
 		noRowsRenderer,
 		onRowClick,
+		onRowDoubleClick,
 		rowHeight,
 		rowRenderer,
 		width,
@@ -42,6 +43,7 @@ function ListGrid(props) {
 			height={height}
 			overscanRowCount={10}
 			onRowClick={onRowClick}
+			onRowDoubleClick={onRowDoubleClick}
 			noRowsRenderer={noRowsRenderer}
 			rowCount={collection.length}
 			rowHeight={rowHeight}
@@ -64,6 +66,7 @@ ListGrid.propTypes = {
 	isSelected: PropTypes.func,
 	noRowsRenderer: PropTypes.func,
 	onRowClick: PropTypes.func,
+	onRowDoubleClick: PropTypes.func,
 	rowHeight: PropTypes.number,
 	rowRenderer: PropTypes.func,
 	width: PropTypes.number,

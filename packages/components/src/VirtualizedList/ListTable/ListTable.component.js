@@ -25,6 +25,7 @@ function ListTable(props) {
 		isSelected,
 		noRowsRenderer,
 		onRowClick,
+		onRowDoubleClick,
 		sort,
 		sortBy,
 		sortDirection,
@@ -42,8 +43,12 @@ function ListTable(props) {
 	}
 
 	let onRowClickCallback;
+	let onRowDoubleClickCallback;
 	if (onRowClick) {
 		onRowClickCallback = ({ event, rowData }) => onRowClick(event, rowData);
+	}
+	if (onRowDoubleClick) {
+		onRowDoubleClickCallback = ({ event, rowData }) => onRowDoubleClick(event, rowData);
 	}
 
 	return (
@@ -54,6 +59,7 @@ function ListTable(props) {
 			height={height}
 			id={id}
 			onRowClick={onRowClickCallback}
+			onRowDoubleClick={onRowDoubleClickCallback}
 			noRowsRenderer={noRowsRenderer}
 			rowClassName={({ index }) =>
 				classNames(...['tc-list-item', rowThemes, collection[index] && collection[index].className])
@@ -83,6 +89,7 @@ ListTable.propTypes = {
 	isSelected: PropTypes.func,
 	noRowsRenderer: PropTypes.func,
 	onRowClick: PropTypes.func,
+	onRowDoubleClick: PropTypes.func,
 	rowHeight: PropTypes.number,
 	sort: PropTypes.func,
 	sortBy: PropTypes.string,

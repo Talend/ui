@@ -18,6 +18,7 @@ describe('ListGrid', () => {
 				rowHeight={130}
 				rowRenderer={RowLarge}
 				onRowClick={jest.fn()}
+				onRowDoubleClick={jest.fn()}
 				width={1024}
 			>
 				<VirtualizedList.Content label="Id" dataKey="id" />

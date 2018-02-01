@@ -334,6 +334,7 @@ storiesOf('Virtualized List', module)
 					collection={collection}
 					id={'my-list'}
 					onRowClick={action('onRowClick')}
+					onRowDoubleClick={action('onRowDoubleClick')}
 					isActive={item => item.id === 6}
 				>
 					<VirtualizedList.Content label="Id" dataKey="id" />
