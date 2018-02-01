@@ -106,6 +106,7 @@ class List extends React.Component {
 					isDescending: !state.sortAsc,
 					onChange: this.onSelectSortBy,
 				},
+				inProgress: get(this.props, 'list.inProgress', false),
 			},
 			virtualized: this.props.virtualized,
 			renderers: this.props.renderers,
