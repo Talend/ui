@@ -16,7 +16,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "watch": "npm-watch",
-    "cpx": "cpx './src/**/*.scss' ./lib"
+    "cpx": "cpx './src/**/*.scss' ./lib",
+    "parse-i18n": "i18next ./src -r -o ../../i18n/components --fileFilter '*.js' --default-values"
   },
   "watch": {
     "prepublish": {
@@ -83,6 +84,7 @@
     "eslint-plugin-react": "^6.3.0",
     "focus-outline-manager": "^1.0.2",
     "i18next": "^9.0.0",
+    "i18next-parser": "^0.13.0",
     "immutable": "3.8.1",
     "invariant": "2.2.2",
     "jest": "20.0.3",

@@ -30,14 +30,14 @@ class ListViewWidget extends React.Component {
 		this.defaultHeaderActions = [
 			{
 				...search,
-				label: t('LISTVIEW_WIDGET_SEARCH', 'Search for specific values'),
+				label: t('LISTVIEW_WIDGET_SEARCH', { defaultValue: 'Search for specific values' }),
 				onClick: this.changeDisplayToSearchMode.bind(this),
 			},
 		];
 		this.searchInputsActions = [
 			{
 				...abort,
-				label: t('LISTVIEW_WIDGET_ABORT', 'Abort'),
+				label: t('LISTVIEW_WIDGET_ABORT', { defaultValue: 'Abort' }),
 				onClick: onAbortHandler.bind(this),
 			},
 		];
