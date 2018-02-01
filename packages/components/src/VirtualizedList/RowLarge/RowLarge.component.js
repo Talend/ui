@@ -32,8 +32,12 @@ function RowLarge({ className, index, key, parent, style }) {
 	});
 
 	let onRowClick;
+	let onRowDoubleClick;
 	if (parent.props.onRowClick) {
 		onRowClick = event => parent.props.onRowClick(event, rowData);
+	}
+	if (titleField) {
+		onRowDoubleClick = event => titleField.props.columnData.onClick(event, rowData);
 	}
 
 	return (
@@ -42,6 +46,7 @@ function RowLarge({ className, index, key, parent, style }) {
 			key={key}
 			role="button"
 			onClick={onRowClick}
+			onDoubleClick={onRowDoubleClick}
 			style={style}
 		>
 			<div className={`tc-list-large-row ${theme['inner-box']} ${className}`} id={id}>
