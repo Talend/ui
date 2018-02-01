@@ -110,8 +110,25 @@ function Help({ renderers, t, ...props }) {
 
 	return (
 		<li role="presentation" className={className}>
+			<renderers.Action {...global} />
+		</li>
+	);
+}
+
+function Information({ renderers, t, ...props }) {
+	const global = {
+		bsStyle: 'link',
+		icon: 'talend-info-circle',
+		label: t('HEADERBAR_INFO', { defaultValue: '' }),
+		tooltipPlacement: 'bottom',
+		...props,
+	};
+	const className = classNames(theme['tc-header-bar-action'], theme.separated);
+
+	return (
+		<li role="presentation" className={className}>
 			{props.items && props.items.length ? (
-				<renderers.ActionSplitDropdown pullRight {...global} />
+				<renderers.ActionDropdown pullRight noCaret hideLabel {...global} />
 			) : (
 				<renderers.Action {...global} />
 			)}
@@ -201,6 +218,7 @@ function HeaderBar(props) {
 			Environment,
 			Search,
 			User,
+			Information,
 			Help,
 			Products,
 			AppNotification,
@@ -219,11 +237,13 @@ function HeaderBar(props) {
 			</ul>
 			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
 				{props.search && <Components.Search renderers={renderers} {...props.search} />}
-				{props.help && <Components.Help renderers={renderers} {...props.help} t={props.t} />}
-				{props.user && <Components.User renderers={renderers} {...props.user} />}
 				{props.notification && (
 					<Components.AppNotification renderers={renderers} {...props.notification} t={props.t} />
 				)}
+				{props.help && <Components.Help renderers={renderers} {...props.help} t={props.t} />}
+				{!props.user && <Components.Information renderers={renderers} {...props.information} t={props.t} />}
+				{props.user && <Components.User renderers={renderers} {...props.user} />}
+
 				{props.products && (
 					<Components.Products renderers={renderers} {...props.products} t={props.t} />
 				)}
@@ -237,6 +257,7 @@ HeaderBar.Brand = Brand;
 HeaderBar.Environment = Environment;
 HeaderBar.Search = Search;
 HeaderBar.Help = Help;
+HeaderBar.Information = Information;
 HeaderBar.User = User;
 HeaderBar.Products = Products;
 HeaderBar.getDisplayName = 'Headerbar';
@@ -278,11 +299,20 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func.isRequired,
 	};
 
+	Information.propTypes = {
+		renderers: PropTypes.shape({
+			ActionSplitDropdown: PropTypes.func,
+			Action: PropTypes.func,
+		}),
+		t: PropTypes.func.isRequired,
+	};
+
 	User.propTypes = {
 		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
 		name: PropTypes.string.isRequired,
 		firstName: PropTypes.string,
 		lastName: PropTypes.string,
+		t: PropTypes.func.isRequired,
 	};
 
 	AppNotification.propTypes = {
@@ -302,6 +332,7 @@ if (process.env.NODE_ENV !== 'production') {
 		env: PropTypes.shape(Environment.propTypes),
 		search: PropTypes.shape(Search.propTypes),
 		help: PropTypes.shape(omit(Help.propTypes, 't')),
+		information: PropTypes.shape(omit(Information.propTypes, 't')),
 		user: PropTypes.shape(User.propTypes),
 		notification: PropTypes.shape(AppNotification.propTypes, 't'),
 		products: PropTypes.shape(omit(Products.propTypes, 't')),
@@ -311,6 +342,7 @@ if (process.env.NODE_ENV !== 'production') {
 			Environment: PropTypes.func,
 			Search: PropTypes.func,
 			User: PropTypes.func,
+			Information: PropTypes.func,
 			Products: PropTypes.func,
 		}),
 		t: PropTypes.func,
