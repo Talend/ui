@@ -74,7 +74,7 @@
     "jsdoc": "^3.4.1",
     "keycode": "2.1.9",
     "lodash": "4.17.4",
-    "node-sass": "4.5.3",
+    "node-sass": "4.7.2",
     "prop-types": "15.5.10",
     "react": "^15.6.2",
     "react-ace": "5.2.0",

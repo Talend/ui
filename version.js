@@ -145,7 +145,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'extract-text-webpack-plugin': '3.0.2',
 	'file-loader': '1.1.5',
 	'fontgen-loader': '0.2.1',
-	'node-sass': '4.5.3',
+	'node-sass': '4.7.2',
 	'postcss-loader': '2.0.8',
 	'sass-loader': '6.0.6',
 	'style-loader': '0.19.0',
