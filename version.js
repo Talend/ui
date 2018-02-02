@@ -82,6 +82,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'react-bootstrap': '0.31.5',
 	'react-dom': REACT_VERSION,
 	i18next: '^9.0.0',
+	'i18next-parser': '^0.13.0',
 	'rc-slider': '8.4.1',
 	'rc-tooltip': '3.7.0',
 	'react-i18next': '^5.2.0',
