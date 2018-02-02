@@ -12,15 +12,14 @@ import theme from './Array.scss';
 export function DefaultArrayTemplate(props) {
 	const { canReorder, id, onAdd, onRemove, onReorder, renderItem, schema, t, value } = props;
 	return (
-		<fieldset>
+		<fieldset className={classNames(theme['tf-array-fieldset'], 'tf-array-fieldset')} data-content={schema.title}>
 			{schema.title && <legend>{schema.title}</legend>}
-			<div>
-				<Action
-					bsStyle={'info'}
-					onClick={onAdd}
-					label={t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
-				/>
-			</div>
+			<Action
+				className={classNames(theme['tf-array-add'], 'tf-array-add')}
+				bsStyle={'info'}
+				onClick={onAdd}
+				label={t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
+			/>
 			<ol id={id} className={classNames(theme['tf-array'], 'tf-array')}>
 				{value.map((itemValue, index) => (
 					<li className={theme.item} key={index}>

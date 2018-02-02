@@ -1,8 +1,28 @@
 .tf-array-container {
 	margin-bottom: $padding-normal;
+	display: flex;
+	flex-direction: column;
+
+	.tf-array-fieldset::before {
+		content: attr(data-content);
+		display: inline-block;
+		text-transform: uppercase;
+		margin: 10px 0;
+	  }
+
 	legend {
-		font-size: 1em;
-		font-weight: 600;
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0,0,0,0);
+		border: 0;
+	}
+
+	.tf-array-add {
+		float: right;
 	}
 
 	.tf-array {
