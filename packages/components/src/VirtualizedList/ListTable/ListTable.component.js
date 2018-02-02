@@ -7,6 +7,7 @@ import {
 } from 'react-virtualized';
 import getRowSelectionRenderer from '../RowSelection';
 import { toColumns } from '../utils/tablerow';
+import { extractTitleField } from '../utils/gridrow';
 
 import theme from './ListTable.scss';
 import rowThemes from './RowThemes';
@@ -31,6 +32,7 @@ function ListTable(props) {
 		width,
 		rowHeight,
 	} = props;
+	const titleField = extractTitleField(children);
 
 	let RowTableRenderer = DefaultTableRowRenderer;
 	if (isActive || isSelected) {
@@ -42,8 +44,12 @@ function ListTable(props) {
 	}
 
 	let onRowClickCallback;
+	let onRowDoubleClickCallback;
 	if (onRowClick) {
 		onRowClickCallback = ({ event, rowData }) => onRowClick(event, rowData);
+	}
+	if (titleField) {
+		onRowDoubleClickCallback = ({ event, rowData }) => titleField.props.columnData.onClick(event, rowData);
 	}
 
 	return (
@@ -54,6 +60,7 @@ function ListTable(props) {
 			height={height}
 			id={id}
 			onRowClick={onRowClickCallback}
+			onRowDoubleClick={onRowDoubleClickCallback}
 			noRowsRenderer={noRowsRenderer}
 			rowClassName={({ index }) =>
 				classNames(...['tc-list-item', rowThemes, collection[index] && collection[index].className])
