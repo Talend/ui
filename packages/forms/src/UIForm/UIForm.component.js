@@ -132,7 +132,12 @@ export default class UIForm extends React.Component {
 				propertyName = schema.key[schema.key.length - 1];
 				this.onTrigger(event, { formData, formId: this.props.id, propertyName, value });
 			} else {
-				this.onTrigger(event, { trigger: schema.triggers[0], schema, properties: formData });
+				this.onTrigger(event, {
+					trigger: schema.triggers[0],
+					schema,
+					properties: formData,
+					errors,
+				});
 			}
 		}
 	}
