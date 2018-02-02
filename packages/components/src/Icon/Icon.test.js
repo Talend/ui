@@ -19,6 +19,11 @@ describe('Icon', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
+	it('should render from src', () => {
+		const wrapper = renderer.create(<Icon src="/foo/bar.png" />).toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
+
 	it('should fails if no id found', () => {
 		expect(Icon).toThrowError(Error, 'Invariant Violation: no id provided');
 	});

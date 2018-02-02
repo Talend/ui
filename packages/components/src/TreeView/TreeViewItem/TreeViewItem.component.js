@@ -45,7 +45,7 @@ class TreeViewItem extends React.Component {
 			toggled: PropTypes.bool,
 			selected: PropTypes.bool,
 			children: PropTypes.arrayOf(PropTypes.object),
-			icon: PropTypes.string,
+			icon: PropTypes.oneOfType([ PropTypes.string, PropTypes.object ]),
 			actions: PropTypes.arrayOf(
 				PropTypes.shape({
 					action: PropTypes.func,
@@ -136,6 +136,15 @@ class TreeViewItem extends React.Component {
 
 		const paddingLeft = `${depth * PADDING_NORMAL + PADDING_LARGE}px`;
 
+		let iconProps = {};
+		if ((typeof icon === 'object') && (icon !== null)) {
+				iconProps = Object.assign({}, icon); // immutability of icon!
+				iconProps.className = classNames(css['tc-treeview-folder'], icon.className);
+		} else {
+				iconProps.name = getItemIcon(icon, toggled);
+				iconProps.className = css['tc-treeview-folder'];
+		}
+
 		return (
 			<li className={classNames('tc-treeview-item-li', css['tc-treeview-li'])} data-hidden={hidden}>
 				<div // eslint-disable-line jsx-a11y/no-static-element-interactions
@@ -159,7 +168,7 @@ class TreeViewItem extends React.Component {
 							title={toggleIconLabel}
 						/>
 					)}
-					<Icon name={getItemIcon(icon, toggled)} className={css['tc-treeview-folder']} />
+					<Icon {...iconProps} />
 					<span className="tc-treeview-item-name">{name}</span>
 					<div className={css['tc-treeview-item-ctrl']}>
 						{showCounter && <Badge label={counter.toString()} />}

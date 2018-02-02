@@ -36,12 +36,30 @@ export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
  * @example
 <Icon name="fa-bars"></Icon>
  */
-function Icon({ className, name, title, transform, onClick }) {
+function Icon({ className, name, title, transform, onClick, src }) {
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
 		title: title || null,
 	};
+	if (src) {
+		const classNames = classnames(
+			theme['tc-icon'],
+			'tc-icon',
+			className
+		);
+
+		const Image = (<img className={classNames} src={src} alt="" />);
+
+		if (onClick) {
+			return (
+				<button onClick={onClick} className={classnames('tc-svg-anchor', theme.link)} title={title}>
+					{Image}
+				</button>
+			);
+		}
+		return Image;
+	}
 	if (name.startsWith('fa-')) {
 		const classes = classnames('fa', name, className, transform && FA_TRANSFORMS[transform]);
 		return <i className={classes} {...accessibility} />;
@@ -60,11 +78,11 @@ function Icon({ className, name, title, transform, onClick }) {
 		return (
 			// eslint doesn't recognizes the xlinkHref mention
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-			<a xlinkHref="#" onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
+			<button onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
 				<svg className={classname} {...accessibility}>
 					<use xlinkHref={`#${name}`} />
 				</svg>
-			</a>
+			</button>
 		);
 	}
 	if (name) {
@@ -85,9 +103,20 @@ function Icon({ className, name, title, transform, onClick }) {
 
 Icon.displayName = 'Icon';
 
+function hasNameOrSrc (props, propName, componentName) {
+    if (!props.name && !props.src) {
+        return new Error(`name or src should be specified on ${componentName} and have type string`);
+    }
+    if (props.name) {
+        return PropTypes.checkPropTypes({ name: PropTypes.string.isRequired }, props, propName, componentName);
+    }
+    return PropTypes.checkPropTypes({ src: PropTypes.string.isRequired }, props, propName, componentName);
+}
+
 Icon.propTypes = {
 	className: PropTypes.string,
-	name: PropTypes.string.isRequired,
+	name: hasNameOrSrc,
+	src: hasNameOrSrc,
 	title: PropTypes.string,
 	transform: PropTypes.oneOf(TRANSFORMS),
 	onClick: PropTypes.func,
