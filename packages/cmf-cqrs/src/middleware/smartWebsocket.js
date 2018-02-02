@@ -27,7 +27,7 @@ export function wsIsClosed(ws) {
 export function startWebsocket(url, offlinebuffer, options) {
 	const { onMessage, onOpen, onClose, onError, onPing, onPingTimeout } = options;
 	const ws = new WebSocket(url);
-	let wsCreationIntervalId;
+	let wsCreationTimeoutId;
 	let pingIntervalId;
 	let pingTimeoutId;
 	ws.onopen = function onopen(event) {
@@ -85,11 +85,11 @@ export function startWebsocket(url, offlinebuffer, options) {
 		if (ws.readyState === WebSocket.CONNECTING) {
 			ws.onpingtimeout();
 		}
-		clearInterval(wsCreationIntervalId);
+		clearTimeout(wsCreationTimeoutId);
 	}
 
 	if (!isNaN(options.pingTimeoutDelay)) {
-		wsCreationIntervalId = setInterval(wsStillNotYetOpened, options.pingTimeoutDelay);
+		wsCreationTimeoutId = setTimeout(wsStillNotYetOpened, options.pingTimeoutDelay);
 	}
 
 	return ws;
