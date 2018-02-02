@@ -138,6 +138,7 @@ Object {
       },
     ],
     "id": "list",
+    "inProgress": false,
     "items": Array [
       Object {
         "actions": Array [],
