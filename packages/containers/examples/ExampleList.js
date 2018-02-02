@@ -93,17 +93,62 @@ const ExampleList = {
 			</div>
 		</div>
 	),
+	pagination: () => {
+		const propsPg = cloneDeep(props);
+		const itemsPg = items.concat(
+			Immutable.fromJS([
+				{
+					id: 'id4',
+					label: 'Title with actions',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+					icon: 'fa fa-file-excel-o',
+					display: 'text',
+					className: 'item-0-class',
+				},
+				{
+					id: 'ID5',
+					label: 'Title in input mode',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+					icon: 'fa fa-file-pdf-o',
+					display: 'input',
+					className: 'item-1-class',
+				},
+				{
+					id: 'iD6',
+					label: 'Super long title to trigger overflow on some rendering',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT with super long name',
+				},
+			]),
+		);
+		propsPg.toolbar.pagination = {
+			itemsPerPage: 5,
+		};
+		return (
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List {...propsPg} items={itemsPg} />
+				</div>
+			</div>
+		);
+	},
 	'in progress': () => {
 		const props2 = cloneDeep(props);
 		props2.list.inProgress = true;
 		return (
-				<div>
-					<IconsProvider />
-					<div className="list-container">
-						<List {...props2} items={items} />
-					</div>
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List {...props2} items={items} />
 				</div>
-		)
+			</div>
+		);
 	},
 	'no toolbar': () => (
 		<div>
@@ -117,12 +162,7 @@ const ExampleList = {
 		<div>
 			<IconsProvider />
 			<div className="list-container">
-				<List
-					{...props}
-					items={items}
-					rowHeight={customHeight}
-					initialState={defaultListState}
-				/>
+				<List {...props} items={items} rowHeight={customHeight} initialState={defaultListState} />
 			</div>
 		</div>
 	),

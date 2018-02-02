@@ -102,8 +102,20 @@ export function configureGetFilteredItems(configure) {
 		},
 	);
 
-	return createSelector(
+	const getCurrentPageList = createSelector(
 		[getSortedList, getComponentState],
-		items => items,
+		(items, componentState) => {
+			let results = items;
+			if (componentState) {
+				const offset = componentState.get('offset');
+				const limit = componentState.get('limit');
+				if (limit > 0 && offset > 0) {
+					results = results.slice(offset - 1, Math.min(offset + limit - 1, results.size));
+				}
+			}
+			return results;
+		},
 	);
+
+	return createSelector([getCurrentPageList, getComponentState], items => items);
 }

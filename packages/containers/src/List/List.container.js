@@ -67,8 +67,8 @@ class List extends React.Component {
 		this.onFilter = this.onFilter.bind(this);
 		this.onToggle = this.onToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
+		this.onChangePage = this.onChangePage.bind(this);
 	}
-
 	onSelectSortBy(event, payload) {
 		this.props.setState({
 			sortOn: payload.field,
@@ -78,6 +78,10 @@ class List extends React.Component {
 
 	onFilter(event, payload) {
 		this.props.setState({ searchQuery: payload });
+	}
+
+	onChangePage(offset, limit) {
+		this.props.setState({ offset, limit });
 	}
 
 	onToggle() {
@@ -168,8 +172,18 @@ class List extends React.Component {
 			if (pagination) {
 				props.toolbar.pagination = {
 					...pagination,
-					onChange: (event, data) => {
-						this.props.dispatchActionCreator(pagination.onChange, event, data, this.context);
+					itemsPerPage: state.limit,
+					startIndex: state.offset,
+					onChange: (offset, limit) => {
+						this.onChangePage(offset, limit);
+						if (pagination.onChange) {
+							this.props.dispatchActionCreator(
+								pagination.onChange,
+								event,
+								{ offset, limit },
+								this.context,
+							);
+						}
 					},
 				};
 			}
