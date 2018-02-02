@@ -195,9 +195,7 @@ describe('ListToVirtualizedList', () => {
 		// given
 		props.titleProps.onClick = jest.fn();
 		const event = { target: {} };
-		const virtualizedProps = shallow(
-			<ListToVirtualizedList {...props} />,
-		).props();
+		const virtualizedProps = shallow(<ListToVirtualizedList {...props} />).props();
 
 		// when
 		virtualizedProps.onRowDoubleClick(event, props.items[0]);
