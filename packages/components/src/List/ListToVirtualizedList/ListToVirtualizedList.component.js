@@ -46,6 +46,7 @@ export function ListToVirtualizedList(props) {
 			isSelected={itemProps && itemProps.isSelected}
 			inProgress={props.inProgress}
 			onRowClick={itemProps && itemProps.onRowClick}
+			onRowDoubleClick={itemProps && itemProps.onRowDoubleClick}
 			defaultHeight={props.defaultHeight}
 			noRowsRenderer={props.noRowsRenderer}
 			rowHeight={props.rowHeight}
@@ -90,6 +91,7 @@ ListToVirtualizedList.propTypes = {
 		isActive: PropTypes.func,
 		isSelected: PropTypes.func,
 		onRowClick: PropTypes.func,
+		onRowDoubleClick: PropTypes.func,
 		onToggle: PropTypes.func,
 	}),
 	items: PropTypes.arrayOf(PropTypes.object),
