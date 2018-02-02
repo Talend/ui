@@ -71,7 +71,7 @@
     "keycode": "2.1.9",
     "lodash": "4.17.4",
     "node-sass": "4.5.3",
-    "prop-types": "15.5.10",
+    "prop-types": "^15.6.0",
     "react": "^15.6.2",
     "react-ace": "5.2.0",
     "react-addons-css-transition-group": "15.6.2",
@@ -99,8 +99,9 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/icons": "^0.146.0",
-    "@talend/react-components": "^0.146.0",
+    "@talend/icons": "^0.150.0",
+    "@talend/react-cmf": "^0.150.0",
+    "@talend/react-components": "^0.150.0",
     "bson-objectid": "1.1.5",
     "classnames": "2.2.5",
     "immutable": "3.8.1",

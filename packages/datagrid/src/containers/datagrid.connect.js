@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { cmfConnect } from '@talend/react-cmf';
 
-import Grid from '../components/grid.component';
+import Container, { DEFAULT_STATE } from './datagrid.container';
 
-export default function DataGrid() {
-	return <Grid rowData={rowData} columnDefs={columnDefs} />;
-}
+export default cmfConnect({
+	defaultState: DEFAULT_STATE,
+	componentId: ownProps => ownProps.id || 'DataGrid',
+})(Container);

@@ -40,6 +40,14 @@ function enchancedHeaderRenderer(HeaderRenderer, onFocusedColumn) {
 export default function DataGrid(props) {
 	const agGridOptions = {
 		headerHeight: props.headerHeight,
+		tabToNextCell: ({ nextCellDef, previousCellDef }) => {
+			if (previousCellDef.rowIndex !== nextCellDef.rowIndex) {
+				if (gridAPI) {
+					gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
+				}
+			}
+			return nextCellDef;
+		},
 		navigateToNextCell: ({ nextCellDef }) => {
 			if (!nextCellDef) {
 				return null;
@@ -87,6 +95,7 @@ export default function DataGrid(props) {
 		agGridOptions.columnDefs = props.pinnedColumnDefs.map(pinnedColumnDefinition => ({
 			lockPosition: true,
 			pinned: 'left',
+			valueGetter: props.valueGetter,
 			...pinnedColumnDefinition,
 			[AG_GRID_CUSTOM_HEADER_KEY]: PIN_HEADER_RENDERER_COMPONENT,
 		}));

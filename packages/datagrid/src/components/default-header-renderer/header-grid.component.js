@@ -4,8 +4,11 @@ import classNames from 'classnames';
 import QualityBar from './quality-bar.component';
 import theme from './header-grid.scss';
 
+const TALEND_QUALITY_KEY = '@talend-quality@';
+const TALEND_QUALITY_INVALID_KEY = -1;
+const TALEND_QUALITY_EMPTY_KEY = 0;
+const TALEND_QUALITY_VALID_KEY = 1;
 export const HEADER_RENDERER_COMPONENT = 'headerGrid';
-
 export default function CustomHeader(params) {
 	return (
 		<div
@@ -17,9 +20,13 @@ export default function CustomHeader(params) {
 					<span className={classNames(theme['header-column-label'])}>{params.displayName}</span>
 					<span className={classNames(theme['header-other-actions'])}>...</span>
 				</div>
-				<div className={classNames(theme['header-second-line'])}>type</div>
+				<div className={classNames(theme['header-second-line'])}>{params.column.colDef.type}</div>
 			</button>
-			<QualityBar invalid={33} empty={33} valid={34} />
+			<QualityBar
+				invalid={params.column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_INVALID_KEY]}
+				empty={params.column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_EMPTY_KEY]}
+				valid={params.column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_VALID_KEY]}
+			/>
 		</div>
 	);
 }

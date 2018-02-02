@@ -2,7 +2,14 @@
 	position: absolute;
 	top: 0;
 	right: 0;
-	background-color: red;
 	width: 5px;
 	height: 100%;
+}
+
+.quality-indicator-bad {
+	background-color: red;
+}
+
+.quality-indicator-empty {
+	background-color: gray;
 }

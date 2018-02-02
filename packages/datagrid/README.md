@@ -67,13 +67,13 @@ Ag-Grid Events to update the active column style:
 
 ### Current Row selected
 
- Ag-grid set the current cell selected by a click. If we naviguate with the keyboard, ag-grid sent a new event onCellFocused but the cell isn't selected. AgGrid allows to change this behavior by adding a method *navigateToNextCell* on theses options. Each times that we move to a next cell, this cell is selected. The current selected rows is hightlight by the class *.ag-row-focus*. This class can be overrided by the class *.ag-row-focus* is many row is selected.
+ Ag-grid set the current cell selected by a click. If we naviguate with the keyboard, ag-grid sent a new event onCellFocused but the cell isn't selected. AgGrid allows to change this behavior by adding a method *navigateToNextCell* on theses options. Each times that we move to a next cell, this cell is selected. The current selected rows is hightlight by the class *.ag-row-focus*. This class can be overrided by the class *.ag-row-selected* is many row is selected.
 
  ## Ag-Grid Configuration
 
  ### global configuration
 
-  * suppressDragLeaveHidesColumns: Set to false to avoid, by default, ag-grid deletes a column when we drag an column outside the grid, ag-grid
+  * suppressDragLeaveHidesColumns: Set to false to avoid, by default, ag-grid deletes a column when we drag an column outside the grid.
 
 ### columns definition
 
