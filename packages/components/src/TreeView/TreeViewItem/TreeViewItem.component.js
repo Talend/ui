@@ -32,13 +32,11 @@ export function getItemIcon(iconName = 'talend-folder', toggled) {
  */
 function TreeViewIcon({ icon, toggled }) {
 	const isObject = typeof icon === 'object';
-	const iconConfig = isObject ?
-		{ ...icon, className: classNames(css['tc-treeview-img'], icon.className) } :
-		{ name: getItemIcon(icon, toggled), className: css['tc-treeview-folder'] };
+	const iconConfig = isObject
+		? { ...icon, className: classNames(css['tc-treeview-img'], icon.className) }
+		: { name: getItemIcon(icon, toggled), className: css['tc-treeview-folder'] };
 
-	return (
-		<Icon {...iconConfig} />
-	);
+	return <Icon {...iconConfig} />;
 }
 TreeViewIcon.propTypes = {
 	icon: PropTypes.oneOfType([PropTypes.string, PropTypes.shape(Icon.propTypes)]),

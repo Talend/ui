@@ -43,11 +43,7 @@ function Icon({ className, name, title, transform, onClick, src }) {
 		title: title || null,
 	};
 	if (src) {
-		const classNames = classnames(
-			theme['tc-icon'],
-			'tc-icon',
-			className
-		);
+		const classNames = classnames(theme['tc-icon'], 'tc-icon', className);
 
 		return <img className={classNames} src={src} alt={title} {...accessibility} />;
 	}
@@ -103,14 +99,14 @@ function hasNameOrSrc(props, propName, componentName) {
 			{ name: PropTypes.string.isRequired },
 			props,
 			propName,
-			componentName
+			componentName,
 		);
 	}
 	return PropTypes.checkPropTypes(
 		{ src: PropTypes.string.isRequired },
 		props,
 		propName,
-		componentName
+		componentName,
 	);
 }
 
