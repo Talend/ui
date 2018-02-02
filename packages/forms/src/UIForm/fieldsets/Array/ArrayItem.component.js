@@ -67,25 +67,25 @@ function ArrayItem(props) {
 
 	return (
 		<div className={classNames(theme['tf-array-item'], 'tf-array-item')}>
-			{
-				<div className={theme.control}>
-					<button
-						className={theme.delete}
-						id={id && `${id}-delete`}
-						onClick={event => onRemove(event, index)}
-						title="Delete"
-						type="button"
-					>
-						<Icon name="talend-trash" />
-					</button>
-					{!isClosed &&
-						onReorder && [
-							<TranslatedReorderButton {...props} index={index} />,
-							<TranslatedReorderButton {...props} index={index} isMoveDown />,
-						]}
-				</div>
-			}
+			<div className={theme.control}>
+				{!isClosed &&
+					onReorder && [
+						<TranslatedReorderButton {...props} index={index} />,
+						<TranslatedReorderButton {...props} index={index} isMoveDown />,
+					]}
+			</div>
 			{children}
+			<div className={theme.control}>
+				<button
+					className={theme.delete}
+					id={id && `${id}-delete`}
+					onClick={event => onRemove(event, index)}
+					title="Delete"
+					type="button"
+				>
+					<Icon name="talend-cross" />
+				</button>
+			</div>
 		</div>
 	);
 }

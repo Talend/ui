@@ -466,6 +466,95 @@ decoratedStories.add('Custom array', () => {
 	return <FormDemo schema={schema} onTrigger={() => console.log(arguments)} />;
 });
 
+decoratedStories.add('Custom double array', () => {
+	const schema = {
+		jsonSchema: {
+			title: 'A filter form',
+			description: '',
+			type: 'object',
+			properties: {
+				groupBy: {
+					type: 'array',
+					title: 'A list of strings',
+					minItems: 1,
+					maxItems: 5,
+					items: {
+						type: 'object',
+						properties: {
+							fieldName: {
+								type: 'string',
+								enum: ['First Field', 'Second Field', 'Third Field'],
+							},
+						},
+					},
+				},
+				operations: {
+					type: 'array',
+					title: 'A list of strings',
+					minItems: 1,
+					maxItems: 5,
+					items: {
+						type: 'object',
+						properties: {
+							fieldName: {
+								type: 'string',
+								enum: ['First Field', 'Second Field', 'Third Field'],
+							},
+							operation: {
+								type: 'string',
+								enum: ['First Operation', 'Second Operation', 'Third Operation'],
+							},
+						},
+					},
+				},
+			},
+		},
+		uiSchema: {
+			groupBy: {
+				'ui:trigger': ['after'],
+				items: {
+					fieldName: {
+						'ui:widget': 'select',
+					},
+				},
+			},
+			operations: {
+				'ui:trigger': ['after'],
+				items: {
+					'ui:widget': 'columns',
+					fieldName: {
+						'ui:widget': 'select',
+					},
+					operation: {
+						'ui:widget': 'select',
+					},
+				},
+			},
+		},
+		properties: {
+			groupBy: [
+				{
+					fieldName: 'First Field',
+				},
+				{
+					fieldName: 'Second Field',
+				},
+			],
+			operations: [
+				{
+					fieldName: 'First Field',
+					operation: 'First Operation',
+				},
+				{
+					fieldName: 'Second Field',
+					operation: 'First Operation',
+				},
+			],
+		},
+	};
+	return <FormDemo schema={schema} onTrigger={() => console.log(arguments)} />;
+});
+
 decoratedStories.add('Form Children', () => {
 	const schema = {
 		jsonSchema: {

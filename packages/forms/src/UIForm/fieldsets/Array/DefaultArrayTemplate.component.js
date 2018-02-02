@@ -14,6 +14,13 @@ export function DefaultArrayTemplate(props) {
 	return (
 		<fieldset>
 			{schema.title && <legend>{schema.title}</legend>}
+			<div>
+				<Action
+					bsStyle={'info'}
+					onClick={onAdd}
+					label={t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
+				/>
+			</div>
 			<ol id={id} className={classNames(theme['tf-array'], 'tf-array')}>
 				{value.map((itemValue, index) => (
 					<li className={theme.item} key={index}>
@@ -31,13 +38,6 @@ export function DefaultArrayTemplate(props) {
 					</li>
 				))}
 			</ol>
-			<div>
-				<Action
-					bsStyle={'info'}
-					onClick={onAdd}
-					label={t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
-				/>
-			</div>
 		</fieldset>
 	);
 }

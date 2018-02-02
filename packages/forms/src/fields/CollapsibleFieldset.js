@@ -75,7 +75,7 @@ function createCollapsibleFieldset(title) {
 			const iconTransform = !formData.isClosed ? 'flip-vertical' : '';
 			return (
 				<fieldset>
-					<div onDoubleClick={this.toggle} id={`${idSchema.$id}__title_bar`} role="button">
+					<div className="" onDoubleClick={this.toggle} id={`${idSchema.$id}__title_bar`} role="button">
 						{title && (
 							<div onClick={this.toggle} id={`${idSchema.$id}__title_wrapper`} role="button">
 								<TitleField
