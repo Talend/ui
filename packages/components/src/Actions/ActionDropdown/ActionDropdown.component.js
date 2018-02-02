@@ -92,8 +92,6 @@ function ActionDropdown(props) {
 	const {
 		bsStyle,
 		hideLabel,
-		noCaret,
-		pullRight,
 		icon,
 		items,
 		label,
