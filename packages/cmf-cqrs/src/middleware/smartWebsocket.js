@@ -27,7 +27,6 @@ export function wsIsClosed(ws) {
 export function startWebsocket(url, offlinebuffer, options) {
 	const { onMessage, onOpen, onClose, onError, onPing, onPingTimeout } = options;
 	const ws = new WebSocket(url);
-	let wsCreationTimeoutId;
 	let pingIntervalId;
 	let pingTimeoutId;
 	ws.onopen = function onopen(event) {
@@ -85,11 +84,10 @@ export function startWebsocket(url, offlinebuffer, options) {
 		if (ws.readyState === WebSocket.CONNECTING) {
 			ws.onpingtimeout();
 		}
-		clearTimeout(wsCreationTimeoutId);
 	}
 
 	if (!isNaN(options.pingTimeoutDelay)) {
-		wsCreationTimeoutId = setTimeout(wsStillNotYetOpened, options.pingTimeoutDelay);
+		setTimeout(wsStillNotYetOpened, options.pingTimeoutDelay);
 	}
 
 	return ws;
@@ -99,7 +97,7 @@ export function startWebsocket(url, offlinebuffer, options) {
  * create a new smart websocket featuring
  * automatic reconnection
  * message pooling in case of connection loss
- * @param ulr
+ * @param url
  * @param options
  */
 export default function SmartWebsocket(url, options = {}) {

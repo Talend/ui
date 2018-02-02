@@ -7,15 +7,11 @@ import SmartWebsocket, { wsSend, wsIsClosed } from './smartWebsocket';
 global.WebSocket = WebSocket;
 // Set the fake websocket server
 const urlWS = 'ws://localhost:8092/';
-const badUrlWS = 'ws://localhost:8093/';
-const noServerAtAllUrlWS = 'ws://localhost:8093/';
 const mockServer = new Server(urlWS);
-const mockServerFail = new Server(badUrlWS);
 // bind event on the websocket connection
 mockServer.on('connection', () => {
 	mockServer.send('test message 1');
 });
-mockServerFail.on('connection', () => {});
 
 describe('smart websocket tests', () => {
 	describe('wsSend function', () => {
@@ -148,112 +144,7 @@ describe('smart websocket tests', () => {
 				}, 10);
 			}, 100);
 		});
-		it('should trigger a timeout on connect after a while and readyState still on CONNECTING, classic syntax', done => {
-			// given
-			const url = badUrlWS;
-			const options = {
-				onMessage: jest.fn(),
-				onOpen: jest.fn(),
-				onClose: jest.fn(),
-				onError: jest.fn(),
-				onPingTimeout: jest.fn(),
-				checkInterval: 70,
-				pingTimeoutDelay: 200,
-			};
-			// when
-			const result = SmartWebsocket(url, options); // eslint-disable-line
-			// then
-			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
-			expect(result.getBufferedAmount()).toBe(undefined);
-			expect(result.getUrl()).toEqual(badUrlWS);
-			setTimeout(() => {
-				expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
-				setTimeout(() => {
-					expect(result.getReadyState()).toEqual(WebSocket.CLOSED);
-				}, 150);
-			}, 100);
-		});
-		it('should trigger a timeout on connect after a while and readyState still on CONNECTING, JEST syntax', done => {
-			// given
-			const url = badUrlWS;
-			const options = {
-				onMessage: jest.fn(),
-				onOpen: jest.fn(),
-				onClose: jest.fn(),
-				onError: jest.fn(),
-				onPingTimeout: jest.fn(),
-				checkInterval: 70,
-				pingTimeoutDelay: 200,
-			};
-			// when
-			const result = SmartWebsocket(url, options); // eslint-disable-line
-			// then
-			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
-			expect(result.getBufferedAmount()).toBe(undefined);
-			expect(result.getUrl()).toEqual(badUrlWS);
-			jest.runTimersToTime(100);
-			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
-			jest.runTimersToTime(100);
-			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
-			jest.runTimersToTime(50);
-			expect(options.onPingTimeout).toHaveBeenCalled();
-			expect(options.onClose).toHaveBeenCalled();
-			done();
-			expect(result.getReadyState()).toEqual(WebSocket.CLOSED);
-		});
-		it('should trigger a timeout on connect after a while and readyState still on CONNECTING, case without any server and classic syntax', done => {
-			// given
-			const url = noServerAtAllUrlWS;
-			const options = {
-				onMessage: jest.fn(),
-				onOpen: jest.fn(),
-				onClose: jest.fn(),
-				onError: jest.fn(),
-				onPingTimeout: jest.fn(),
-				checkInterval: 70,
-				pingTimeoutDelay: 200,
-			};
-			// when
-			const result = SmartWebsocket(url, options); // eslint-disable-line
-			// then
-			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
-			expect(result.getBufferedAmount()).toBe(undefined);
-			expect(result.getUrl()).toEqual(noServerAtAllUrlWS);
-			setTimeout(() => {
-				expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
-				setTimeout(() => {
-					expect(result.getReadyState()).toEqual(WebSocket.CLOSED);
-				}, 150);
-			}, 100);
-		});
-		it('should trigger a timeout on connect after a while and readyState still on CONNECTING, , case without any server and JEST syntax', done => {
-			// given
-			const url = noServerAtAllUrlWS;
-			const options = {
-				onMessage: jest.fn(),
-				onOpen: jest.fn(),
-				onClose: jest.fn(),
-				onError: jest.fn(),
-				onPingTimeout: jest.fn(),
-				checkInterval: 70,
-				pingTimeoutDelay: 200,
-			};
-			// when
-			const result = SmartWebsocket(url, options); // eslint-disable-line
-			// then
-			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
-			expect(result.getBufferedAmount()).toBe(undefined);
-			expect(result.getUrl()).toEqual(noServerAtAllUrlWS);
-			jest.runTimersToTime(100);
-			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
-			jest.runTimersToTime(100);
-			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
-			jest.runTimersToTime(50);
-			expect(options.onPingTimeout).toHaveBeenCalled();
-			expect(options.onClose).toHaveBeenCalled();
-			done();
-			expect(result.getReadyState()).toEqual(WebSocket.CLOSED);
-		});
+
 		it('should send message while not connected', done => {
 			// given
 			const url = urlWS;
@@ -295,6 +186,34 @@ describe('smart websocket tests', () => {
 				expect(options.onClose).toHaveBeenCalled();
 				done();
 			}, 100);
+		});
+
+		it('should trigger a timeout on connect after pingTimeoutDelay', () => {
+			// given
+			jest.useFakeTimers();
+			const url = urlWS;
+			const options = {
+				onMessage: jest.fn(),
+				onOpen: jest.fn(),
+				onClose: jest.fn(),
+				onError: jest.fn(),
+				onPingTimeout: jest.fn(),
+				checkInterval: 70,
+				// < 4ms, that is the delay from ws mock to send
+				// smartWebStocket send a ping on connect, so to test the connect timeout
+				// we need to trigger timeout before any send delay
+				pingTimeoutDelay: 1,
+			};
+
+			// when
+			const result = SmartWebsocket(url, options); // eslint-disable-line
+			result.send = () => {};
+			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
+			jest.runTimersToTime(1);
+
+			// then
+			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
+			expect(options.onPingTimeout).toBeCalled();
 		});
 	});
 });
