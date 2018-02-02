@@ -36,15 +36,15 @@ export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
  * @example
  <Icon name="fa-bars"></Icon>
  */
-function Icon({ className, name, title, transform, onClick, src }) {
+function Icon({ className, name, title, transform, onClick }) {
 	const accessibility = {
 		focusable: 'false', // IE11
 		'aria-hidden': 'true',
 		title: title || null,
 	};
-	if (src) {
+	if (name.startsWith('src-')) {
 		const classNames = classnames(theme['tc-icon'], 'tc-icon', className);
-		return <img className={classNames} src={src} alt={title || ''} aria-hidden />;
+		return <img className={classNames} src={name.substring(4)} alt={title || ''} aria-hidden />;
 	}
 	if (name.startsWith('fa-')) {
 		const classes = classnames('fa', name, className, transform && FA_TRANSFORMS[transform]);
@@ -89,30 +89,9 @@ function Icon({ className, name, title, transform, onClick, src }) {
 
 Icon.displayName = 'Icon';
 
-function hasNameOrSrc(props, propName, componentName) {
-	if (!props.name && !props.src) {
-		return new Error(`name or src should be specified on ${componentName} and have type string`);
-	}
-	if (props.name) {
-		return PropTypes.checkPropTypes(
-			{ name: PropTypes.string.isRequired },
-			props,
-			propName,
-			componentName,
-		);
-	}
-	return PropTypes.checkPropTypes(
-		{ src: PropTypes.string.isRequired },
-		props,
-		propName,
-		componentName,
-	);
-}
-
 Icon.propTypes = {
 	className: PropTypes.string,
-	name: hasNameOrSrc,
-	src: hasNameOrSrc,
+	name: PropTypes.string,
 	title: PropTypes.string,
 	transform: PropTypes.oneOf(TRANSFORMS),
 	onClick: PropTypes.func,

@@ -20,7 +20,7 @@ describe('Icon', () => {
 	});
 
 	it('should render from src', () => {
-		const wrapper = renderer.create(<Icon src="/foo/bar.png" />).toJSON();
+		const wrapper = renderer.create(<Icon name="src-/foo/bar.png" />).toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
 

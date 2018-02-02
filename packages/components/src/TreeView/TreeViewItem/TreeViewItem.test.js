@@ -35,7 +35,10 @@ const propsWithIcons = {
 	id: 'tc-treeview-item',
 	item: {
 		name: 'grandpa',
-		icon: { src: 'http://static.pokemonpets.com/images/monsters-images-300-300/106-Hitmonlee.png' },
+		icon: {
+			name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/106-Hitmonlee.png',
+			title: 'A pokemon',
+		},
 		actions: [
 			{
 				action: () => 'itemRemoveCallback',
