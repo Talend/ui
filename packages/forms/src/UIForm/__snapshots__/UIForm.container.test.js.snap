@@ -184,7 +184,7 @@ exports[`UIForm container should render form 2`] = `
       "ARRAY_LENGTH_SHORT": "Array is too short ({length}), minimum {minimum}",
       "ARRAY_UNIQUE": "Array items are not unique (indices {match1} and {match2})",
       "CIRCULAR_REFERENCE": "Circular $refs: {urls}",
-      "ENUM_MISMATCH": "No enum match for: t({value}",
+      "ENUM_MISMATCH": "No enum match for: {value}",
       "FORMAT_CUSTOM": "Format validation failed ({message})",
       "INVALID_TYPE": "Invalid type: {type} (expected {expected})",
       "KEYWORD_CUSTOM": "Keyword failed: {key} ({message})",
