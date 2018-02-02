@@ -31,12 +31,21 @@ export function getItemIcon(iconName = 'talend-folder', toggled) {
  * @param toggled if the treeview is toggled
  */
 function TreeViewIcon({ icon, toggled }) {
-	const isObject = typeof icon === 'object';
-	const iconConfig = isObject
-		? { ...icon, className: classNames(css['tc-treeview-img'], icon.className) }
-		: { name: getItemIcon(icon, toggled), className: css['tc-treeview-folder'] };
+	if (typeof icon === 'object') {
+		return (
+			<Icon
+				{...icon}
+				className={classNames(css['tc-treeview-img'], icon.className)}
+			/>
+		);
+	}
 
-	return <Icon {...iconConfig} />;
+	return (
+		<Icon
+			name={getItemIcon(icon, toggled)}
+			className={classNames(css['tc-treeview-folder'])}
+		/>
+	);
 }
 TreeViewIcon.propTypes = {
 	icon: PropTypes.oneOfType([PropTypes.string, PropTypes.shape(Icon.propTypes)]),
