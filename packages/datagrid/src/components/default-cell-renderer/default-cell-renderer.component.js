@@ -14,9 +14,7 @@ export default function DefaultCellRenderer({ value }) {
 			})}
 		>
 			{value.quality <= 0 && <QualityIndicator tooltip="Incorrect value" value={value.quality} />}
-			{value.type === 'string' && <span className={classNames(theme['invisible-char'])} />}
 			<span>{value.value}</span>
-			{value.type === 'string' && <span className={classNames(theme['invisible-char'])} />}
 		</div>
 	);
 }

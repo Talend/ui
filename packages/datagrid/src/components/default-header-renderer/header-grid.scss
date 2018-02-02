@@ -1,25 +1,26 @@
 .header-component {
-	color: #555;
 	border-right: #e6e6e6 1px solid;
+
+	> button {
+		background-color: inherit;
+		border: none;
+	}
 
 	.header {
 		width: 100%;
-		padding: 8px;
+		height: 6.6rem;
 		text-align: left;
 
 		&-first-line {
 			font-weight: bold;
 			display: flex;
-			color: #202020;
 		}
 
 		&-column-label {
-			flex: 1 0 auto;
-		}
-
-		&-other-actions,
-		&-second-line {
-			color: #919191;
+			flex-grow: 1;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 	}
 }

@@ -27,6 +27,11 @@ function removeFocusColumn() {
 
 function setFocusColumn(colId) {
 	removeFocusColumn();
+
+	if (colId === 'index.index') {
+		return;
+	}
+
 	const columnsCells = document.querySelectorAll(`[col-id="${colId}"]`);
 	for (const columnCell of columnsCells) {
 		columnCell.classList.add('column-focus');
@@ -70,12 +75,11 @@ export default function DataGrid(props) {
 				return;
 			}
 
+			currentColId = column.colId;
 			if (column.pinned) {
 				removeFocusColumn();
 				return;
 			}
-
-			currentColId = column.colId;
 
 			setFocusColumn(currentColId);
 

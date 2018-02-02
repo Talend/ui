@@ -2,14 +2,14 @@
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 5px;
+	width: 0.2rem;
 	height: 100%;
 }
 
-.quality-indicator-bad {
-	background-color: red;
+.quality-indicator-invalid {
+	background-color: $lightning-yellow;
 }
 
 .quality-indicator-empty {
-	background-color: gray;
+	background-color: $silver-chalice;
 }

@@ -10,14 +10,17 @@ export default function QualityBar(props) {
 			<span
 				className={classNames(theme['quality-bar-invalid'])}
 				style={{ width: `${props.invalid}%` }}
+				title={`${props.invalid}%`}
 			/>
 			<span
 				className={classNames(theme['quality-bar-empty'])}
 				style={{ width: `${props.empty}%` }}
+				title={`${props.empty}%`}
 			/>
 			<span
 				className={classNames(theme['quality-bar-valid'])}
 				style={{ width: `${props.valid}%` }}
+				title={`${props.valid}%`}
 			/>
 		</div>
 	);

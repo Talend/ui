@@ -8,7 +8,7 @@ export default function QualityIndicator(props) {
 	return (
 		<div
 			className={classNames(theme['quality-indicator'], {
-				[theme['quality-indicator-bad']]: props.value < 0,
+				[theme['quality-indicator-invalid']]: props.value < 0,
 				[theme['quality-indicator-empty']]: props.value === 0,
 			})}
 			title={props.tooltip}

@@ -1,22 +1,24 @@
 .quality-bar {
-	height: 13px;
+	display: flex;
+	height: 0.3rem;
 	width: 100%;
+	padding: 0 0.2rem;
+	position: absolute;
+	bottom: 0px;
+
+	&:hover {
+		height: 1.2rem;
+	}
 }
 
 .quality-bar-valid {
-	background-color: green;
-	display: inline-block;
-	height: 100%;
+	background-color: $rio-grande;
 }
 
 .quality-bar-empty {
-	background-color: gray;
-	display: inline-block;
-	height: 100%;
+	background-color: $silver-chalice;
 }
 
 .quality-bar-invalid {
-	background-color: red;
-	display: inline-block;
-	height: 100%;
+	background-color: $lightning-yellow;
 }
