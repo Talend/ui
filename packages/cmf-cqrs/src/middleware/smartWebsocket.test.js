@@ -204,11 +204,11 @@ describe('smart websocket tests', () => {
 				// we need to trigger timeout before any send delay
 				pingTimeoutDelay: 1,
 			};
+			const result = SmartWebsocket(url, options); // eslint-disable-line
+			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
+			expect(options.onPingTimeout).not.toBeCalled();
 
 			// when
-			const result = SmartWebsocket(url, options); // eslint-disable-line
-			result.send = () => {};
-			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
 			jest.runTimersToTime(1);
 
 			// then
