@@ -32,19 +32,11 @@ export function getItemIcon(iconName = 'talend-folder', toggled) {
  */
 function TreeViewIcon({ icon, toggled }) {
 	if (typeof icon === 'object') {
-		return (
-			<Icon
-				{...icon}
-				className={classNames(css['tc-treeview-img'], icon.className)}
-			/>
-		);
+		return <Icon {...icon} className={classNames(css['tc-treeview-img'], icon.className)} />;
 	}
 
 	return (
-		<Icon
-			name={getItemIcon(icon, toggled)}
-			className={classNames(css['tc-treeview-folder'])}
-		/>
+		<Icon name={getItemIcon(icon, toggled)} className={classNames(css['tc-treeview-folder'])} />
 	);
 }
 TreeViewIcon.propTypes = {
