@@ -49,7 +49,8 @@ function ListTable(props) {
 		onRowClickCallback = ({ event, rowData }) => onRowClick(event, rowData);
 	}
 	if (titleField) {
-		onRowDoubleClickCallback = ({ event, rowData }) => titleField.props.columnData.onClick(event, rowData);
+		onRowDoubleClickCallback = ({ event, rowData }) =>
+			titleField.props.columnData.onClick(event, rowData);
 	}
 
 	return (
