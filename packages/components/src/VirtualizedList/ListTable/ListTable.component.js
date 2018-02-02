@@ -7,7 +7,6 @@ import {
 } from 'react-virtualized';
 import getRowSelectionRenderer from '../RowSelection';
 import { toColumns } from '../utils/tablerow';
-import { extractTitleField } from '../utils/gridrow';
 
 import theme from './ListTable.scss';
 import rowThemes from './RowThemes';
@@ -26,13 +25,13 @@ function ListTable(props) {
 		isSelected,
 		noRowsRenderer,
 		onRowClick,
+		onRowDoubleClick,
 		sort,
 		sortBy,
 		sortDirection,
 		width,
 		rowHeight,
 	} = props;
-	const titleField = extractTitleField(children);
 
 	let RowTableRenderer = DefaultTableRowRenderer;
 	if (isActive || isSelected) {
@@ -48,9 +47,8 @@ function ListTable(props) {
 	if (onRowClick) {
 		onRowClickCallback = ({ event, rowData }) => onRowClick(event, rowData);
 	}
-	if (titleField) {
-		onRowDoubleClickCallback = ({ event, rowData }) =>
-			titleField.props.columnData.onClick(event, rowData);
+	if (onRowDoubleClick) {
+		onRowDoubleClickCallback = ({ event, rowData }) => onRowDoubleClick(event, rowData);
 	}
 
 	return (
@@ -91,6 +89,7 @@ ListTable.propTypes = {
 	isSelected: PropTypes.func,
 	noRowsRenderer: PropTypes.func,
 	onRowClick: PropTypes.func,
+	onRowDoubleClick: PropTypes.func,
 	rowHeight: PropTypes.number,
 	sort: PropTypes.func,
 	sortBy: PropTypes.string,

@@ -36,8 +36,8 @@ function RowLarge({ className, index, key, parent, style }) {
 	if (parent.props.onRowClick) {
 		onRowClick = event => parent.props.onRowClick(event, rowData);
 	}
-	if (titleField) {
-		onRowDoubleClick = event => titleField.props.columnData.onClick(event, rowData);
+	if (parent.props.onRowDoubleClick) {
+		onRowDoubleClick = event => parent.props.onRowDoubleClick(event, rowData);
 	}
 
 	return (

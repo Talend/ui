@@ -77,20 +77,12 @@ export function getCellData(field, parent, index) {
 }
 
 /**
- * Extract the title field from the other ones
- * @param children The row children
- */
-export function extractTitleField(children) {
-	return children.find(field => getCellRenderer(field) === CellTitle);
-}
-
-/**
  * Extract the title VirtualizedList.Content from the other ones
  * @param parent The row parent
  */
 export function extractSpecialFields(parent) {
 	const children = React.Children.toArray(parent.props.children);
-	const titleField = extractTitleField(children);
+	const titleField = children.find(field => getCellRenderer(field) === CellTitle);
 	const selectionField = children.find(field => field.props.id === internalIds.rowSelector);
 	const otherFields = children.filter(field => field !== titleField && field !== selectionField);
 
