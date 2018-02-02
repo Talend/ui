@@ -20,9 +20,12 @@ exports[`Icon should render from custom font 1`] = `
 
 exports[`Icon should render from src 1`] = `
 <img
-  alt="/foo/bar.png"
-  className="tc-icon"
+  alt={undefined}
+  aria-hidden="true"
+  className="theme-tc-icon tc-icon"
+  focusable="false"
   src="/foo/bar.png"
+  title={null}
 />
 `;
 

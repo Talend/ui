@@ -25,6 +25,45 @@ const structure = [
 	},
 ];
 
+const structureWithIcons = [
+	{
+		name: 'hitmonlee',
+		children: [{ name: 'Hitmonchan' }],
+		toggled: false,
+		icon: { src: 'http://static.pokemonpets.com/images/monsters-images-300-300/106-Hitmonlee.png' },
+	},
+	{
+		name: 'pikachu',
+		children: [
+			{
+				name: 'raichu',
+				icon: { src: 'http://static.pokemonpets.com/images/monsters-images-300-300/2026-Shiny-Raichu.png' },
+			},
+		],
+		toggled: true,
+		icon: { src: 'http://static.pokemonpets.com/images/monsters-images-300-300/2025-Shiny-Pikachu.png' },
+	},
+	{
+		name: 'Abra',
+		icon: { src: 'http://static.pokemonpets.com/images/monsters-images-300-300/63-Abra.png' },
+		toggled: true,
+		selected: true,
+		children: [
+			{
+				name: 'Kadabra',
+				icon: { src: 'http://static.pokemonpets.com/images/monsters-images-300-300/64-Kadabra.png' },
+				toggled: true,
+				children: [
+					{
+						name: 'Alakazam',
+						icon: { src: 'http://static.pokemonpets.com/images/monsters-images-300-300/65-Alakazam.png' },
+					},
+				],
+			},
+		],
+	},
+];
+
 const removeAction = [{
 	action: action('itemRemoveCallback'),
 	icon: 'talend-trash',
@@ -189,6 +228,19 @@ storiesOf('TreeView', module)
 			<div style={style}>
 				<IconsProvider />
 				<TreeView {...withAddAction} />
+			</div>
+		</div>
+	))
+	.addWithInfo('with custom icons', () => (
+		<div>
+			<h1>TreeView</h1>
+			<h3>Definition</h3>
+			<p>
+				The icons can be customized, passign the Icon components props
+			</p>
+			<div style={style}>
+				<IconsProvider />
+				<TreeView {...withAddAction} structure={structureWithIcons} />
 			</div>
 		</div>
 	))

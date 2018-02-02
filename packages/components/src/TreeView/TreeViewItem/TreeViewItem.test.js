@@ -31,6 +31,26 @@ const defaultProps = {
 	onClick: () => null,
 };
 
+const propsWithIcons = {
+	id: 'tc-treeview-item',
+	item: {
+		name: 'grandpa',
+		icon: { src: 'http://static.pokemonpets.com/images/monsters-images-300-300/106-Hitmonlee.png' },
+		actions: [
+			{
+				action: () => 'itemRemoveCallback',
+				icon: 'talend-trash',
+				label: 'remove element',
+			},
+		],
+		toggled: true,
+		counter: 101,
+		showCounter: true,
+	},
+	onSelect: () => null,
+	onClick: () => null,
+};
+
 describe('getItemIcon', () => {
 	it('should return given icon when toggled', () => {
 		expect(getItemIcon('my', true)).toBe('my');
@@ -49,6 +69,10 @@ describe('getItemIcon', () => {
 describe('TreeView', () => {
 	it('should render normally with all buttons and custom labels', () => {
 		const wrapper = shallow(<TreeViewItem {...defaultProps} />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should render items with icon', () => {
+		const wrapper = shallow(<TreeViewItem {...propsWithIcons} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('when the user click the item it should get focus and call props.onClick and props.onSelect', () => {
