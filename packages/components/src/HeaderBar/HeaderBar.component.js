@@ -219,11 +219,11 @@ function HeaderBar(props) {
 			</ul>
 			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
 				{props.search && <Components.Search renderers={renderers} {...props.search} />}
+				{props.help && <Components.Help renderers={renderers} {...props.help} t={props.t} />}
+				{props.user && <Components.User renderers={renderers} {...props.user} />}
 				{props.notification && (
 					<Components.AppNotification renderers={renderers} {...props.notification} t={props.t} />
 				)}
-				{props.help && <Components.Help renderers={renderers} {...props.help} t={props.t} />}
-				{props.user && <Components.User renderers={renderers} {...props.user} />}
 				{props.products && (
 					<Components.Products renderers={renderers} {...props.products} t={props.t} />
 				)}
