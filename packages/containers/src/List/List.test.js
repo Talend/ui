@@ -178,6 +178,7 @@ describe('Container List', () => {
 		// given
 		const dispatchActionCreator = jest.fn();
 		const actionCreator = jest.fn();
+		const setState = jest.fn();
 		const context = {
 			registry: {
 				'actionCreator:pagination:change': actionCreator,
@@ -188,6 +189,7 @@ describe('Container List', () => {
 				{...cloneDeep(settings)}
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
+				setState={setState}
 			/>,
 			{
 				lifecycleExperimental: true,
@@ -195,13 +197,13 @@ describe('Container List', () => {
 			},
 		);
 		const props = wrapper.props();
-		const event = {};
-		const data = { foo: 'bar' };
+		const event = null;
+		const data = { startIndex: 1, itemsPerPage: 5 };
 
 		expect(dispatchActionCreator).not.toBeCalled();
 
 		// when
-		props.toolbar.pagination.onChange(event, data);
+		props.toolbar.pagination.onChange(data.startIndex, data.itemsPerPage);
 
 		// then
 		expect(dispatchActionCreator).toBeCalledWith('pagination:change', event, data, context);

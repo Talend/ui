@@ -10,8 +10,9 @@ import { getActionsProps } from '../actionAPI';
 export const DEFAULT_STATE = new Map({
 	displayMode: 'table',
 	searchQuery: '',
-	limit: 0,
-	offset: 0,
+	itemsPerPage: 0,
+	startIndex: 0,
+	totalResults: 0,
 	sortOn: 'name',
 	sortAsc: true,
 	filterDocked: true,
@@ -80,8 +81,8 @@ class List extends React.Component {
 		this.props.setState({ searchQuery: payload });
 	}
 
-	onChangePage(offset, limit) {
-		this.props.setState({ offset, limit });
+	onChangePage(startIndex, itemsPerPage) {
+		this.props.setState({ startIndex, itemsPerPage });
 	}
 
 	onToggle() {
@@ -172,17 +173,19 @@ class List extends React.Component {
 			if (pagination) {
 				props.toolbar.pagination = {
 					...pagination,
-					itemsPerPage: state.limit,
-					startIndex: state.offset,
-					onChange: (offset, limit) => {
-						this.onChangePage(offset, limit);
+					totalResults: state.totalResults,
+					itemsPerPage: state.itemsPerPage,
+					startIndex: state.startIndex,
+					onChange: (startIndex, itemsPerPage) => {
 						if (pagination.onChange) {
 							this.props.dispatchActionCreator(
 								pagination.onChange,
-								event,
-								{ offset, limit },
+								null,
+								{ startIndex, itemsPerPage },
 								this.context,
 							);
+						} else {
+							this.onChangePage(startIndex, itemsPerPage);
 						}
 					},
 				};

@@ -44,8 +44,8 @@ describe('List Selector tests', () => {
 				default: {
 					displayMode: 'large',
 					searchQuery: '',
-					limit: 0,
-					offset: 0,
+					itemsPerPage: 0,
+					startIndex: 0,
 					sortOn: 'name',
 					sortAsc: true,
 					filterDocked: true,
@@ -63,8 +63,8 @@ describe('List Selector tests', () => {
 				default: {
 					displayMode: 'large',
 					searchQuery: 'value2',
-					limit: 0,
-					offset: 0,
+					itemsPerPage: 0,
+					startIndex: 0,
 					sortOn: 'name',
 					sortAsc: true,
 					filterDocked: true,
@@ -82,8 +82,8 @@ describe('List Selector tests', () => {
 				default: {
 					displayMode: 'large',
 					searchQuery: 'text',
-					limit: 0,
-					offset: 0,
+					itemsPerPage: 0,
+					startIndex: 0,
 					sortOn: 'name',
 					sortAsc: true,
 					filterDocked: true,

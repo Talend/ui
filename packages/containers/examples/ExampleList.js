@@ -128,6 +128,7 @@ const ExampleList = {
 		);
 		propsPg.toolbar.pagination = {
 			itemsPerPage: 5,
+			startIndex: 1,
 		};
 		return (
 			<div>
