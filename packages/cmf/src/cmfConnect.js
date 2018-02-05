@@ -316,8 +316,8 @@ export default function cmfConnect({
 cmfConnect.INJECTED_PROPS = INJECTED_PROPS;
 
 cmfConnect.propTypes = {
-	state: ImmutablePropTypes.Map,
-	initialState: ImmutablePropTypes.Map,
+	state: ImmutablePropTypes.map,
+	initialState: ImmutablePropTypes.map,
 	getComponent: PropTypes.func,
 	setState: PropTypes.func,
 	initState: PropTypes.func,
