@@ -12,7 +12,7 @@ exports[`Storyshots HeaderBar barebone 1`] = `
       className="theme-tc-header-bar-actions theme-right"
     >
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-action theme-separated"
         role="presentation"
       >
         <button
