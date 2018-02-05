@@ -34,7 +34,7 @@ export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
  * http://svgicons.sparkk.fr/
  * @param {object} props react props
  * @example
-<Icon name="fa-bars"></Icon>
+ <Icon name="fa-bars"></Icon>
  */
 function Icon({ className, name, title, transform, onClick }) {
 	const accessibility = {
@@ -42,6 +42,10 @@ function Icon({ className, name, title, transform, onClick }) {
 		'aria-hidden': 'true',
 		title: title || null,
 	};
+	if (name.startsWith('src-')) {
+		const classNames = classnames(theme['tc-icon'], 'tc-icon', className);
+		return <img className={classNames} src={name.substring(4)} alt={''} aria-hidden />;
+	}
 	if (name.startsWith('fa-')) {
 		const classes = classnames('fa', name, className, transform && FA_TRANSFORMS[transform]);
 		return <i className={classes} {...accessibility} />;
@@ -60,11 +64,11 @@ function Icon({ className, name, title, transform, onClick }) {
 		return (
 			// eslint doesn't recognizes the xlinkHref mention
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-			<a xlinkHref="#" onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
+			<button onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
 				<svg className={classname} {...accessibility}>
 					<use xlinkHref={`#${name}`} />
 				</svg>
-			</a>
+			</button>
 		);
 	}
 	if (name) {
@@ -87,7 +91,7 @@ Icon.displayName = 'Icon';
 
 Icon.propTypes = {
 	className: PropTypes.string,
-	name: PropTypes.string.isRequired,
+	name: PropTypes.string,
 	title: PropTypes.string,
 	transform: PropTypes.oneOf(TRANSFORMS),
 	onClick: PropTypes.func,
