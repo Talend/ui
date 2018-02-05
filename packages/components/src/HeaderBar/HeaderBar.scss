@@ -17,12 +17,12 @@ $background-color-on-hover: shade($brand-primary, 30);
 	width: 100%;
 	z-index: 1030;
 
-	& ul li {
+	& {
+		svg {
+			margin: 0;
+		}
 		a svg {
 			margin: 0 $padding-smaller;
-		}
-		div button span svg {
-			margin: 0;
 		}
 	}
 
