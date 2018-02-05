@@ -123,7 +123,11 @@ function Information({ renderers, t, ...props }) {
 		tooltipPlacement: 'bottom',
 		...props,
 	};
-	const className = classNames(theme['tc-header-bar-action'], 'tc-header-bar-action', theme.separated);
+	const className = classNames(
+		theme['tc-header-bar-action'],
+		'tc-header-bar-action',
+		theme.separated,
+	);
 
 	return (
 		<li role="presentation" className={className}>
