@@ -68,6 +68,7 @@ describe('ListGrid', () => {
 				isActive={jest.fn()}
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
+				onRowDoubleClick={jest.fn()}
 				selectionToggle={jest.fn()}
 				width={1024}
 			>
