@@ -1,8 +1,6 @@
 import { store } from '@talend/react-cmf/lib/mock';
 import { fromJS } from 'immutable';
-import {
-	mapStateToProps,
-} from './List.connect';
+import { mapStateToProps } from './List.connect';
 
 const localConfig = {
 	collectionId: 'default',
@@ -19,20 +17,14 @@ const localConfig = {
 		},
 	],
 	list: {
-		columns: [
-			{ key: 'id', name: 'ID' },
-			{ key: 'value', name: 'Value' },
-		],
+		columns: [{ key: 'id', name: 'ID' }, { key: 'value', name: 'Value' }],
 	},
 };
 
 const state = store.state();
 state.cmf.collections = fromJS({
 	default: {
-		columns: [
-			{ key: 'id', name: 'ID' },
-			{ key: 'value', name: 'Value' },
-		],
+		columns: [{ key: 'id', name: 'ID' }, { key: 'value', name: 'Value' }],
 		items: localConfig.items,
 	},
 });
