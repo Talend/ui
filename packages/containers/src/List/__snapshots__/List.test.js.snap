@@ -197,10 +197,10 @@ Object {
       "value": "",
     },
     "pagination": Object {
-      "itemsPerPage": 25,
+      "itemsPerPage": 10,
       "onChange": [Function],
       "startIndex": 1,
-      "totalResults": 36,
+      "totalResults": 0,
     },
     "sort": Object {
       "field": "name",
