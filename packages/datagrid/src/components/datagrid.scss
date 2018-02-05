@@ -3,6 +3,16 @@
 	height: 100%;
 	width: 100%;
 
+	&-focus-row {
+		:global(.ag-row-focus) {
+			background-color: violet;
+		}
+
+		:global(.ag-row-selected) {
+			background-color: violet;
+		}
+	}
+
 	/* ==== HEADER ==== */
 	:global(.ag-header-container) {
 		background-color: $white;
@@ -40,14 +50,6 @@
 	:global(.ag-cell) {
 		border-right: #f6f6f6 1px solid;
 		border-bottom: #f6f6f6 1px solid;
-	}
-
-	:global(.ag-row-focus) {
-		background-color: inherit;
-	}
-
-	:global(.ag-row-selected) {
-		background-color: inherit;
 	}
 
 	:global(.ag-cell.ag-cell-focus:not(.ag-cell-last-left-pinned)) {

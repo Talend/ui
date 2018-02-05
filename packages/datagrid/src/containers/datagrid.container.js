@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DataGrid from '../components/datagrid.component';
+import Component from '../components/datagrid.component';
 
 const NAMESPACE_INDEX = 'index.';
 const NAMESPACE_SAMPLE = 'sample.';
@@ -30,6 +30,7 @@ function getRowData(sample) {
 					quality: row.value[key].quality,
 					comments: [],
 					type: 'string',
+					avro: {},
 				},
 			}),
 			{
@@ -48,18 +49,19 @@ function getPinnedColumnDefs() {
 	];
 }
 
-export default function ContainerDataGrid({ sample }) {
-	console.log(getRowData(sample));
+export default function DataGrid(props) {
+	console.log(props);
 	return (
-		<DataGrid
-			rowData={getRowData(sample)}
-			pinnedColumnDefs={getPinnedColumnDefs()}
-			columnDefs={getColumnDefs(sample)}
-			rowSelection="single"
+		<Component
+			columnDefs={getColumnDefs(props.sample)}
 			onFocusedCell={event => console.log(event)}
 			onFocusedColumn={event => console.log(event)}
-			onRowsSelected={event => console.log(event)}
+			pinnedColumnDefs={getPinnedColumnDefs()}
+			rowData={getRowData(props.sample)}
+			rowSelection="single"
 			valueGetter={valueGetter}
 		/>
 	);
 }
+
+DataGrid.displayName = 'Container(DataGrid)';

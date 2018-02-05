@@ -131,7 +131,7 @@ export default function DataGrid(props) {
 	};
 
 	return (
-		<div className={classNames(theme.grid)}>
+		<div className={classNames(theme.grid, theme[props.theme])}>
 			<AgGridReact {...agGridOptions} />
 		</div>
 	);
@@ -157,6 +157,7 @@ DataGrid.propTypes = {
 	rowSelection: PropTypes.string,
 	rowHeight: PropTypes.number,
 	rowData: PropTypes.arrayOf(PropTypes.object),
+	theme: PropTypes.string,
 	valueGetter: PropTypes.func.isRequired,
 };
 
