@@ -13,7 +13,6 @@ import {
 	Drawer,
 	DeleteResource,
 	FilterBar,
-	Form,
 	HeaderBar,
 	HomeListView,
 	Icon,
@@ -31,6 +30,8 @@ import {
 	TreeView,
 	Typeahead,
 } from './index';
+
+import Form from './Form';
 
 export function registerAllContainers() {
 	api.component.register('Action', Action);
