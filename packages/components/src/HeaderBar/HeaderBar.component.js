@@ -119,7 +119,7 @@ function Information({ renderers, t, ...props }) {
 	const global = {
 		bsStyle: 'link',
 		icon: 'talend-info-circle',
-		label: t('HEADERBAR_INFO', { defaultValue: '' }),
+		label: t('HEADERBAR_INFO', { defaultValue: 'Information' }),
 		tooltipPlacement: 'bottom',
 		...props,
 	};
@@ -130,7 +130,7 @@ function Information({ renderers, t, ...props }) {
 			{props.items && props.items.length ? (
 				<renderers.ActionDropdown pullRight noCaret hideLabel {...global} />
 			) : (
-				<renderers.Action {...global} />
+				<renderers.Action hideLabel {...global} />
 			)}
 		</li>
 	);

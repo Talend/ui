@@ -19,7 +19,9 @@ exports[`Storyshots HeaderBar barebone 1`] = `
           className="btn btn-link"
           disabled={false}
           onClick={[Function]}
+          onFocus={[Function]}
           onMouseDown={[Function]}
+          onMouseOver={[Function]}
           role={null}
           type="button"
         >
@@ -33,9 +35,6 @@ exports[`Storyshots HeaderBar barebone 1`] = `
               xlinkHref="#talend-info-circle"
             />
           </svg>
-          <span>
-            
-          </span>
         </button>
       </li>
     </ul>
