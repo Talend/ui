@@ -24,12 +24,12 @@ $toggle-button-padding: $padding-small - 1;
 .tc-side-panel {
 	display: flex;
 	flex-direction: column;
-	transition: 0.2s width ease-out;
 	overflow-x: hidden;
 
 	&,
 	> ul {
 		width: $tc-side-panel-width;
+		transition: 0.2s width ease-out;
 	}
 
 	:global(.btn.btn-link) {
@@ -45,6 +45,7 @@ $toggle-button-padding: $padding-small - 1;
 			vertical-align: middle;
 			text-overflow: ellipsis;
 			overflow: hidden;
+			transition: 0.1s opacity ease-out;
 		}
 	}
 
@@ -122,9 +123,11 @@ $toggle-button-padding: $padding-small - 1;
 			width: $tc-side-panel-docked-width;
 		}
 
-		.nav-pills {
-			:global(.btn.btn-link) {
-				padding: $padding-normal;
+		:global(.btn.btn-link) {
+			padding: $padding-normal;
+
+			> span {
+				opacity: 0;
 			}
 		}
 

@@ -73,6 +73,39 @@ describe('UIForm component', () => {
 	});
 
 	describe('#onFinish', () => {
+		it('should perform trigger', () => {
+			// given
+			const validData = {
+				...data,
+				properties: { firstname: 'toto' },
+			};
+			const wrapper = mount(<UIForm {...validData} {...props} />);
+			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
+
+			// when
+			wrapper
+				.find('input')
+				.at(1)
+				.simulate('blur');
+
+			// then
+			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
+				trigger: 'after',
+				schema: {
+					key: ['firstname'],
+					title: 'First Name (with placeholder)',
+					placeholder: 'Enter your firstname here',
+					triggers: ['after'],
+					required: true,
+					schema: { type: 'string' },
+					ngModelOptions: {},
+					type: 'text',
+				},
+				properties: validData.properties,
+				errors: validData.errors,
+			});
+		});
+
 		it('should NOT perform trigger when field has errors', () => {
 			// given: required firstname is empty
 			const wrapper = mount(<UIForm {...data} {...props} />);
