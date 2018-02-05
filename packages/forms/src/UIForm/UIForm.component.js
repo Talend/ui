@@ -160,6 +160,7 @@ export default class UIForm extends React.Component {
 		}
 		return onTrigger(event, {
 			properties: this.props.properties,
+			errors: this.props.errors,
 			...payload,
 		});
 	}
