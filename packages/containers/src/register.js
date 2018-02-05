@@ -31,8 +31,6 @@ import {
 	Typeahead,
 } from './index';
 
-import Form from './Form';
-
 export function registerAllContainers() {
 	api.component.register('Action', Action);
 	api.component.register('ActionBar', ActionBar);
@@ -47,7 +45,6 @@ export function registerAllContainers() {
 	api.component.register('Drawer', Drawer);
 	api.component.register('DeleteResource', DeleteResource);
 	api.component.register('FilterBar', FilterBar);
-	api.component.register('Form', Form);
 	api.component.register('HeaderBar', HeaderBar);
 	api.component.register('HomeListView', HomeListView);
 	api.component.register('Icon', Icon);
