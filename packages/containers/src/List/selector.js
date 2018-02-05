@@ -109,8 +109,6 @@ export function configureGetPagedItems(configure) {
 	const getPagedList = createSelector(
 		[getSortedList, getComponentState(configure.collectionId)],
 		(items, componentState) => {
-			debugger
-
 			let results = items;
 			if (componentState) {
 				const startIndex = componentState.get('startIndex');
