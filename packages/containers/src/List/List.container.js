@@ -10,8 +10,8 @@ import { getActionsProps } from '../actionAPI';
 export const DEFAULT_STATE = new Map({
 	displayMode: 'table',
 	searchQuery: '',
-	itemsPerPage: 0,
-	startIndex: 0,
+	itemsPerPage: 10,
+	startIndex: 1,
 	totalResults: 0,
 	sortOn: 'name',
 	sortAsc: true,

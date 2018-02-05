@@ -61,14 +61,6 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 				configureGetPagination(state, config),
 			);
 		}
-		if (ownProps.toolbar && ownProps.toolbar.pagination) {
-			if (props.state.getIn(['startIndex']) === 0) {
-				props.state = props.state.setIn(['startIndex'], ownProps.toolbar.pagination.startIndex || 0);
-			}
-			if (props.state.getIn(['itemsPerPage']) === 0) {
-				props.state = props.state.setIn(['itemsPerPage'], ownProps.toolbar.pagination.itemsPerPage || 0);
-			}
-		}
 	}
 
 	props.renderers = getRenderers(renderers);
