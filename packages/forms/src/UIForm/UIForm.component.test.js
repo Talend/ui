@@ -159,6 +159,7 @@ describe('UIForm component', () => {
 			// then
 			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
 				properties: {},
+				errors: {},
 				trigger: 'after',
 				schema: mergedSchema[2],
 			});
