@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Icon, Action, ActionBar } from '../index';
-import Container, { SubHeaderBar, SubHeaderBarActions } from './SubHeaderBar.component';
+import Container, { SubHeaderBar, SubHeaderBarActions, CustomInject } from './SubHeaderBar.component';
 
 function getComponent(name) {
 	if (name === 'Action') {
@@ -179,10 +179,10 @@ describe('SubHeaderBar', () => {
 			onGoBack: jest.fn(),
 		};
 		const wrapper = shallow(<SubHeaderBar {...props} />);
-		expect(wrapper.find('CustomInject')).toHaveLength(3);
-		expect(wrapper.find('CustomInject').get(0).props.foo).toBe('bar');
-		expect(wrapper.find('CustomInject').get(1).props.foo).toBe('baz');
-		expect(wrapper.find('CustomInject').get(2).props.foo).toBe('bat');
+		expect(wrapper.find(CustomInject)).toHaveLength(3);
+		expect(wrapper.find(CustomInject).get(0).props.foo).toBe('bar');
+		expect(wrapper.find(CustomInject).get(1).props.foo).toBe('baz');
+		expect(wrapper.find(CustomInject).get(2).props.foo).toBe('bat');
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
 		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toBeTruthy();
 	});
@@ -216,5 +216,43 @@ describe('SubHeaderBar', () => {
 		const wrapper = shallow(<SubHeaderBar {...props} />);
 		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
 		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toBeTruthy();
+	});
+});
+
+describe('CustomInject', () => {
+	it('should render wrapped Inject in SubHeaderBarActions', () => {
+		const props = {
+			component: 'Action',
+			getComponent: jest.fn(getComponent),
+			left: true,
+			extra: 'foo',
+		};
+		const wrapper = shallow(<CustomInject {...props} />);
+		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(1);
+		expect(wrapper.find(SubHeaderBarActions).get(0).props.left).toBeTruthy();
+		expect(wrapper.find(SubHeaderBarActions).get(0).props.children).toBeDefined();
+		expect(wrapper.find('Inject')).toHaveLength(1);
+		expect(wrapper.find('Inject').get(0).props).toEqual({
+			extra: props.extra,
+			component: props.component,
+			getComponent: props.getComponent,
+		});
+	});
+	it('should render nowrapped Inject if nowrap props', () => {
+		const props = {
+			component: 'Action',
+			getComponent: jest.fn(getComponent),
+			left: true,
+			nowrap: true,
+			extra: 'foo',
+		};
+		const wrapper = shallow(<CustomInject {...props} />);
+		expect(wrapper.find(SubHeaderBarActions)).toHaveLength(0);
+		expect(wrapper.find('Inject')).toHaveLength(1);
+		expect(wrapper.find('Inject').get(0).props).toEqual({
+			extra: props.extra,
+			component: props.component,
+			getComponent: props.getComponent,
+		});
 	});
 });

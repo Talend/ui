@@ -155,4 +155,4 @@ SubHeaderBar.defaultProps = {
 SubHeaderBar.Content = SubHeaderBarActions;
 
 export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(SubHeaderBar);
-export { SubHeaderBar, SubHeaderBarActions };
+export { SubHeaderBar, SubHeaderBarActions, CustomInject };
