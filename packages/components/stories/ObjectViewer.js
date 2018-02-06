@@ -1,7 +1,8 @@
 import React from 'react';
 import repeat from 'lodash/repeat';
 import cloneDeep from 'lodash/cloneDeep';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
 import { ObjectViewer, IconsProvider } from '../src/index';
@@ -268,7 +269,7 @@ stories
 	.addWithInfo('array tree with datetime', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
-			<ObjectViewer data={dateTimeData} {...rootOpenedTypeHandler} showType={showType}/>
+			<ObjectViewer data={dateTimeData} {...rootOpenedTypeHandler} showType={showType} />
 		</div>
 	))
 	.addWithInfo('primitive array tree', () => (

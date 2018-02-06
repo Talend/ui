@@ -13,6 +13,7 @@ exports[`Actions should render 1`] = `
   dispatch={[Function]}
   dispatchActionCreator={[Function]}
   getCollection={[Function]}
+  getComponent={[Function]}
   initState={[Function]}
   renderers={
     Object {

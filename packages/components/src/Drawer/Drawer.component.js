@@ -32,7 +32,6 @@ class DrawerAnimation extends React.Component {
 				defaultStyle={{ transform: 'translateX(100%)' }}
 				enterStyle={{ transform: transit('translateX(0%)', transitionDuration, 'ease-in-out') }}
 				leaveStyle={{ transform: transit('translateX(100%)', transitionDuration, 'ease-in-out') }}
-				activeStyle={{ transform: 'translateX(0%)' }}
 			>
 				{React.cloneElement(children, this.state)}
 			</CSSTransition>
@@ -212,6 +211,8 @@ function Drawer({
 		</DrawerContainer>
 	);
 }
+
+Drawer.displayName = 'Drawer';
 
 Drawer.propTypes = {
 	stacked: PropTypes.bool,

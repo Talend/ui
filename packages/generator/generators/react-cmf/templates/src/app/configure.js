@@ -1,5 +1,5 @@
 import { api } from '@talend/react-cmf';
-import { Redirect, HomeListView } from '@talend/react-containers';
+import { registerAllContainers } from '@talend/react-containers/lib/register';
 import redirect from './actions/redirect';
 import { fetchDataSets } from './actions/dataset';
 import { fetchDataStores } from './actions/datastore';
@@ -14,9 +14,8 @@ export default {
 		/**
 		 * Register components in CMF Components dictionary
 		 */
+		registerAllContainers();
 		registerComponent('App', App);
-		registerComponent('HomeListView', HomeListView);
-		registerComponent('Redirect', Redirect);
 
 		/**
 		 * Register action creators in CMF Actions dictionary

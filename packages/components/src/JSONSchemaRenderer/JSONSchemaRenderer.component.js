@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import entries from 'lodash/entries';
+import get from 'lodash/get';
 
 import css from './JSONSchemaRenderer.scss';
 
@@ -72,6 +73,20 @@ function TextRenderer({ propertyKey, title, properties }) {
 	);
 }
 
+export function PasswordRenderer({ propertyKey, title, properties }) {
+	return (
+		<div className={classNames('text-renderer', `text-renderer-${propertyKey}`)} key={propertyKey}>
+			<dt>{title || propertyKey}</dt>
+			<dd>{'\u2022'.repeat(5)}</dd>
+		</div>
+	);
+}
+
+PasswordRenderer.propTypes = {
+	...RendererProptypes,
+	properties: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+};
+
 TextRenderer.propTypes = {
 	...RendererProptypes,
 	properties: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
@@ -126,6 +141,10 @@ function isHidden(uiSchema, element) {
 	return uiSchema && uiSchema[element] && uiSchema[element]['ui:widget'] === 'hidden';
 }
 
+export function isPassword(uiSchema, element) {
+	return get(uiSchema, [element, 'ui:widget'], '') === 'password';
+}
+
 /**
  * typeResolver
  *
@@ -146,6 +165,17 @@ function typeResolver(schema, uiSchema) {
 		const type = schema[e[0]].type;
 		const title = schema[e[0]].title;
 
+		if (isPassword(uiSchema, e[0])) {
+			return {
+				Renderer: PasswordRenderer,
+				propertyKey: e[0],
+				title,
+				properties: e[1],
+				schema,
+				uiSchema,
+			};
+		}
+
 		const renderer = registry[type];
 		if (!renderer) {
 			throw new UnkownTypeException(type);
@@ -161,27 +191,6 @@ function typeResolver(schema, uiSchema) {
 		};
 	};
 }
-
-/**
- * objectRenderer renders nested properties
- */
-function ObjectRenderer({ propertyKey, title, properties, schema, uiSchema = {} }) {
-	const flattenProperties = entries(properties);
-	const elements = flattenProperties.map(
-		typeResolver(schema[propertyKey].properties, uiSchema[propertyKey]),
-	);
-	return (
-		<div className={classNames(css.object, `object-renderer-${propertyKey}`)} key={propertyKey}>
-			<h2>{title || propertyKey}</h2>
-			<div>{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}</div>
-		</div>
-	);
-}
-
-ObjectRenderer.propTypes = {
-	...RendererProptypes,
-	schema: PropTypes.shape(SchemaProptypes),
-};
 
 /**
  * orderProperties sorts properties based on uiSchema ui:order array
@@ -208,6 +217,30 @@ function orderProperties(order, properties) {
 }
 
 /**
+ * objectRenderer renders nested properties
+ */
+function ObjectRenderer({ propertyKey, title, properties, schema, uiSchema = {} }) {
+	const flattenProperties = orderProperties(
+		get(uiSchema, [propertyKey, 'ui:order']),
+		entries(properties),
+	);
+	const elements = flattenProperties.map(
+		typeResolver(schema[propertyKey].properties, uiSchema[propertyKey]),
+	);
+	return (
+		<div className={classNames(css.object, `object-renderer-${propertyKey}`)} key={propertyKey}>
+			<h2>{title || propertyKey}</h2>
+			<div>{elements.map(({ Renderer, ...rest }) => <Renderer {...rest} />)}</div>
+		</div>
+	);
+}
+
+ObjectRenderer.propTypes = {
+	...RendererProptypes,
+	schema: PropTypes.shape(SchemaProptypes),
+};
+
+/**
  * JSONSchemaRenderer renders elements based on a JSONSchema and data
  *
  * @throws {InvalidSchemaException} schema must contain a jsonSchema and
@@ -229,6 +262,8 @@ function JSONSchemaRenderer({ schema, className, ...props }) {
 		</dl>
 	);
 }
+
+JSONSchemaRenderer.displayName = 'JSONSchemaRenderer';
 
 JSONSchemaRenderer.propTypes = {
 	schema: PropTypes.shape({ ...SchemaProptypes }),

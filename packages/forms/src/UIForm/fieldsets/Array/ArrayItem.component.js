@@ -63,7 +63,7 @@ if (process.env.NODE_ENV !== 'production') {
 const TranslatedReorderButton = translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ReorderButton);
 
 function ArrayItem(props) {
-	const { children, id, index, onRemove, onReorder, value } = props;
+	const { children, id, index, onRemove, onReorder, isClosed } = props;
 
 	return (
 		<div className={classNames(theme['tf-array-item'], 'tf-array-item')}>
@@ -78,7 +78,7 @@ function ArrayItem(props) {
 					>
 						<Icon name="talend-trash" />
 					</button>
-					{!value.isClosed &&
+					{!isClosed &&
 						onReorder && [
 							<TranslatedReorderButton {...props} index={index} />,
 							<TranslatedReorderButton {...props} index={index} isMoveDown />,
@@ -95,9 +95,9 @@ if (process.env.NODE_ENV !== 'production') {
 		children: PropTypes.node,
 		id: PropTypes.string,
 		index: PropTypes.number.isRequired,
+		isClosed: PropTypes.bool,
 		onRemove: PropTypes.func.isRequired,
 		onReorder: PropTypes.func.isRequired,
-		value: PropTypes.func.isRequired,
 	};
 }
 

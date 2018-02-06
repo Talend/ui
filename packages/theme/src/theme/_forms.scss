@@ -288,9 +288,6 @@ form {
 	}
 
 	.has-error {
-		font-size: $font-size-small;
-		color: $chestnut-rose;
-
 		input:not([type='checkbox']),
 		.form-control,
 		input.form-control[readonly],

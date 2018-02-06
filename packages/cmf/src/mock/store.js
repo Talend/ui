@@ -17,6 +17,7 @@ const notInitializedState = {
 			contentTypes: {},
 			actions: {},
 			views: {},
+			props: {},
 		},
 	},
 };

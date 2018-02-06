@@ -1,4 +1,5 @@
 {
+  "doc": "MultiSelectTag/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "MultiSelectTag",

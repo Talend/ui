@@ -34,16 +34,16 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 		);
 	}
 
-	const sectionProps = rest.multiSection ?
-		{ getSectionItems: section => section.suggestions, renderSectionTitle } :
-		null;
+	const sectionProps = rest.multiSection
+		? { getSectionItems: section => section.suggestions, renderSectionTitle }
+		: null;
 
 	const themeProps = {
 		theme: {
 			containerOpen: theme['container-open'],
 			highlight: theme['highlight-match'],
 			input: theme['typeahead-input'],
-			itemFocused: theme['item-focused'],
+			itemHighlighted: theme['item-highlighted'],
 			itemsContainer: theme['items-container'],
 			itemsList: theme.items,
 			sectionContainer: theme['section-container'],
@@ -51,7 +51,7 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			...rest.theme,
 			container: classNames(
 				theme['tc-typeahead-container'],
-				(position === 'right') && theme.right,
+				position === 'right' && theme.right,
 				rest.theme && rest.theme.container,
 				rest.className,
 			),
@@ -83,14 +83,20 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 			rest.items,
 			rest.noResultText,
 			rest.searching,
-			rest.searchingText
+			rest.searchingText,
 		),
 		renderItemData: { value: rest.value },
+	};
+
+	const compatibilityProps = {
+		highlightedSectionIndex: rest.focusedSectionIndex,
+		highlightedItemIndex: rest.focusedItemIndex,
 	};
 
 	const autowhateverProps = {
 		...defaultRenderersProps,
 		...rest,
+		...compatibilityProps,
 		...sectionProps,
 		...themeProps,
 		...inputProps,
@@ -100,10 +106,10 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 		},
 	};
 
-	return (
-		<Autowhatever {...autowhateverProps} />
-	);
+	return <Autowhatever {...autowhateverProps} />;
 }
+
+Typeahead.displayName = 'Typeahead';
 
 Typeahead.defaultProps = {
 	autoFocus: true,
@@ -167,7 +173,7 @@ Typeahead.propTypes = {
 					}),
 				),
 			}),
-		])
+		]),
 	),
 };
 

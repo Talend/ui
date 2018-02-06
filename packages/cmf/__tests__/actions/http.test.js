@@ -1,5 +1,10 @@
 import http from '../../src/actions/http';
-import { HTTP_METHODS } from '../../src/middlewares/http/constants';
+import {
+	HTTP_METHODS,
+	ACTION_TYPE_HTTP_REQUEST,
+	ACTION_TYPE_HTTP_RESPONSE,
+	ACTION_TYPE_HTTP_ERRORS,
+} from '../../src/middlewares/http/constants';
 
 describe('actions.http', () => {
 	let url;
@@ -71,5 +76,56 @@ describe('actions.http', () => {
 		expect(action.type).toBe(HTTP_METHODS.HEAD);
 		expect(action.url).toBe(url);
 		expect(action.Accept).toBe('json');
+	});
+	it('should httpRequest create action', () => {
+		url = '//foo/bar';
+		config = { method: 'GET' };
+		const action = http.onRequest(url, config);
+		expect(action.type).toBe(ACTION_TYPE_HTTP_REQUEST);
+		expect(action.url).toBe(url);
+		expect(action.config).toBe(config);
+	});
+	it('should httpError create action', () => {
+		const error = { message: 'something goes wrong' };
+		const action = http.onError(error);
+		expect(action.type).toBe(ACTION_TYPE_HTTP_ERRORS);
+		expect(action.error).toBe(error);
+	});
+	it('should httpResponse create action', () => {
+		const response = { id: '2312321323' };
+		const action = http.onResponse(response);
+		expect(action.type).toBe(ACTION_TYPE_HTTP_RESPONSE);
+		expect(action.data).toBe(response);
+	});
+	it('should onError create action', () => {
+		const error = { message: 'something goes wrong' };
+		const action = {
+			type: 'DONT_CARE',
+			onError: 'CALL_ME_BACK',
+		};
+		const newAction = http.onActionError(action, error);
+		expect(newAction.type).toBe('CALL_ME_BACK');
+		expect(newAction.error).toBe(error);
+
+		action.onError = jest.fn();
+		http.onActionError(action, error);
+		expect(action.onError.mock.calls.length).toBe(1);
+		expect(action.onError.mock.calls[0][0]).toBe(error);
+	});
+
+	it('should onResponse create action', () => {
+		const response = { msg: 'you have a response' };
+		const action = {
+			type: 'DONT_CARE',
+			onResponse: 'CALL_ME_BACK',
+		};
+		const newAction = http.onActionResponse(action, response);
+		expect(newAction.type).toBe('CALL_ME_BACK');
+		expect(newAction.response).toBe(response);
+
+		action.onResponse = jest.fn();
+		http.onActionResponse(action, response);
+		expect(action.onResponse.mock.calls.length).toBe(1);
+		expect(action.onResponse.mock.calls[0][0]).toBe(response);
 	});
 });

@@ -36,6 +36,8 @@ function Toggle({ id, onChange, onBlur, label, checked, autoFocus, disabled, cla
 	);
 }
 
+Toggle.displayName = 'Toggle';
+
 Toggle.defaultProps = {
 	disabled: false,
 	checked: false,

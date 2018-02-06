@@ -56,6 +56,7 @@ function Badge({
 		className: badgeClasses,
 		onClick: onSelect,
 		disabled,
+		type: 'button',
 	};
 
 	if (id) {

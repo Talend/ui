@@ -2,7 +2,7 @@
 
 exports[`Header should render header with trash icon in case of multiple selection 1`] = `
 <header
-  className="undefined tc-enumeration-header"
+  className="theme-tc-enumeration-header tc-enumeration-header"
 >
   <span>
     2 selected values
@@ -19,7 +19,7 @@ exports[`Header should render header with trash icon in case of multiple selecti
   >
     <svg
       aria-hidden="true"
-      className="tc-svg-icon"
+      className="theme-tc-svg-icon tc-svg-icon"
       focusable="false"
       title={null}
     >

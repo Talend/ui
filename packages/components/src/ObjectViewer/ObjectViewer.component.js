@@ -31,6 +31,8 @@ export default function ObjectViewer({ displayMode, ...props }) {
 	}
 }
 
+ObjectViewer.displayName = 'ObjectViewer';
+
 ObjectViewer.propTypes = {
 	displayMode: PropTypes.oneOf(Object.keys(DISPLAY_MODES).map(key => DISPLAY_MODES[key])),
 	tupleLabel: PropTypes.string,

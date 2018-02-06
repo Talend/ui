@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Emphasis from './Emphasis.component';
 
-
 describe('Emphasis', () => {
 	const props = {
 		text: 'The lazy quick brown fox jumps over the lazy dog',
@@ -13,7 +12,9 @@ describe('Emphasis', () => {
 		const wrapper = shallow(<Emphasis {...props} value="brown" />);
 
 		// then
-		expect(wrapper.html()).toBe('<span>The lazy quick <em>brown</em> fox jumps over the lazy dog</span>');
+		expect(wrapper.html()).toBe(
+			'<span>The lazy quick <em class="theme-highlight">brown</em> fox jumps over the lazy dog</span>',
+		);
 	});
 
 	it('should be case insensitive', () => {

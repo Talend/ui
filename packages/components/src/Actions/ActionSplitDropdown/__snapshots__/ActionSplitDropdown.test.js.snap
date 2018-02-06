@@ -2,7 +2,7 @@
 
 exports[`ActionSplitDropdown should render "no option" item when items array is empty 1`] = `
 <SplitButton
-  className=""
+  className="theme-tc-split-dropdown"
   id={42}
   onClick={[Function]}
   title={
@@ -29,7 +29,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
 
 exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
 <SplitButton
-  className=""
+  className="theme-tc-split-dropdown"
   id={42}
   onClick={[Function]}
   title={
@@ -68,7 +68,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
 
 exports[`ActionSplitDropdown should render a button with label 1`] = `
 <SplitButton
-  className=""
+  className="theme-tc-split-dropdown"
   id={42}
   onClick={[Function]}
   title={
@@ -104,7 +104,7 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
 
 exports[`ActionSplitDropdown should render items with icons 1`] = `
 <SplitButton
-  className=""
+  className="theme-tc-split-dropdown"
   id={42}
   onClick={[Function]}
   title={

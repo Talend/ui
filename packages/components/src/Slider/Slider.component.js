@@ -129,6 +129,8 @@ function getHandle(captionsFormat) {
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Slider extends React.Component {
+	static displayName = 'Slider';
+
 	static propTypes = {
 		id: PropTypes.string,
 		value: PropTypes.number,

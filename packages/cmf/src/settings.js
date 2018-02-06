@@ -34,8 +34,8 @@ export function nonMemoized(state, ownProps, componentName, componentId) {
 
 	viewId = generateDefaultViewId(viewId, componentName, componentId);
 
-	if (viewId && state.cmf.settings.views[viewId]) {
-		viewProps = state.cmf.settings.views[viewId] || {};
+	if (viewId && state.cmf.settings.props[viewId]) {
+		viewProps = state.cmf.settings.props[viewId] || {};
 	}
 	return viewProps;
 }

@@ -29,6 +29,8 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		position: absolute;
 		margin-top: $padding-smaller;
 		top: 100%;
+		left: 0;
+		right: 0;
 		max-height: 70vh;
 		min-width: $tc-typeahead-input-width;
 		font-size: $tc-typeahead-items-font-size;
@@ -42,7 +44,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		align-items: flex-end;
 
 		.items-container {
-			right: 0;
+			left: auto;
 		}
 	}
 
@@ -52,6 +54,11 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		display: block;
 		padding-top: 1px;
 		padding-bottom: 1px;
+	}
+
+	.is-searching,
+	.no-result {
+		display: flex;
 	}
 }
 
@@ -130,7 +137,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		color: $tc-typeahead-item-description-color;
 	}
 
-	&-focused {
+	&-highlighted {
 		background-color: $tc-typeahead-focused-item-background-color;
 	}
 }

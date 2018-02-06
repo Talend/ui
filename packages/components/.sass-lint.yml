@@ -53,9 +53,7 @@ rules:
     -
       style: 'short'
   hex-notation:
-    - 1
-    -
-      style: 'lowercase'
+    - 0
   id-name-format:
     - 2
     -

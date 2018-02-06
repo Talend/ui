@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Inject should render NotFoundComponent 1`] = `
+<NotFoundComponent
+  error="MyError"
+/>
+`;
+
+exports[`Inject should render an Action component 1`] = `
+<Action
+  icon="MyIcon"
+  label="MyLabel"
+/>
+`;
+
+exports[`NotFoundComponent should render 1`] = `
+<div
+  className="alert alert-danger"
+>
+  MyError
+</div>
+`;

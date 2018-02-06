@@ -3585,6 +3585,7 @@ exports[`ListView field render should render ListView 1`] = `
   }
   i18nLoadedAt={null}
   id="my-list-view"
+  isSwitchBox={true}
   isValid={true}
   onChange={[Function]}
   onFinish={[Function]}
@@ -3626,7 +3627,7 @@ exports[`ListView field render should render ListView 1`] = `
 
 exports[`ListView field render should render no items message 1`] = `
 <div
-  className="tc-listview"
+  className="theme-tc-listview tc-listview"
 >
   <HeaderListView
     displayMode="DISPLAY_MODE_DEFAULT"
@@ -7236,6 +7237,7 @@ exports[`ListView field render should render no items message 1`] = `
     }
     i18nLoadedAt={null}
     id="my-list-view"
+    isSwitchBox={false}
     items={Array []}
     noResultLabel={undefined}
     onAddKeyDown={[Function]}
@@ -7248,7 +7250,7 @@ exports[`ListView field render should render no items message 1`] = `
     toggleAllChecked={true}
   />
   <span
-    className={undefined}
+    className="theme-empty-message"
   >
     This list is empty.
   </span>

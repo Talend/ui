@@ -15,4 +15,6 @@ function HeaderBar(props) {
 	return <PureHeaderBar renderers={getRenderers(renderers)} {...props} />;
 }
 
+HeaderBar.displayName = 'Container(HeaderBar)';
+
 export default cmfConnect({})(HeaderBar);

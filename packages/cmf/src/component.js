@@ -48,11 +48,7 @@ function register(id, component, context) {
 	}
 }
 
-function registerMany(components, context) {
-	Object.keys(components).forEach(key => {
-		register(key, components[key], context);
-	});
-}
+const registerMany = registry.getRegisterMany(register);
 
 function has(id, context) {
 	return (

@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import RJSForm from 'react-jsonschema-form/lib/index';
-
 import Action from '@talend/react-components/lib/Actions/Action';
 
+import { UIForm } from './UIForm';
+import { wrapCustomWidget } from './UIForm/merge';
 import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';
 import StringField from './fields/StringField';
@@ -119,6 +120,18 @@ class Form extends React.Component {
 	}
 
 	render() {
+		if (this.props.uiform) {
+			const props = Object.assign({}, this.props);
+			props.moz = true;
+			if (props.widgets) {
+				Object.keys(props.widgets)
+					.filter(key => props.widgets[key].displayName !== 'TFMigratedWidget')
+					.forEach(key => {
+						props.widgets[key] = wrapCustomWidget(props.widgets[key]);
+					});
+			}
+			return <UIForm {...props} />;
+		}
 		const schema = this.props.data && this.props.data.jsonSchema;
 		if (!schema) {
 			throw Error('You must provide data with valid JSON Schema');
@@ -186,6 +199,7 @@ export const ActionsPropTypes = PropTypes.arrayOf(
 
 if (process.env.NODE_ENV !== 'production') {
 	Form.propTypes = {
+		uiform: PropTypes.bool,
 		data: DataPropTypes.isRequired,
 		onChange: PropTypes.func,
 		onTrigger: PropTypes.func,

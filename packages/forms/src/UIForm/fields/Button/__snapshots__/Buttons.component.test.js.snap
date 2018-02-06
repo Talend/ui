@@ -1,54 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Buttons field should render buttons 1`] = `
-<FieldTemplate
-  description="My buttons"
-  isValid={true}
+<div
+  className="theme-tf-buttons tf-buttons extra"
 >
-  <div
-    className="tf-buttons"
-  >
-    <SingleButton
-      className={undefined}
-      id="myForm-0"
-      onTrigger={[Function]}
-      schema={
-        Object {
-          "title": "Reset",
-          "type": "reset",
-          "widget": "button",
-        }
+  <SingleButton
+    className="theme-undefined"
+    id="myForm-0"
+    onClick={undefined}
+    onTrigger={[Function]}
+    schema={
+      Object {
+        "title": "Reset",
+        "type": "reset",
+        "widget": "button",
       }
-    />
-    <SingleButton
-      className={undefined}
-      id="myForm-1"
-      onTrigger={[Function]}
-      schema={
-        Object {
-          "position": "right",
-          "title": "Test",
-          "triggers": Array [
-            "test",
-          ],
-          "type": "button",
-          "widget": "button",
-        }
+    }
+  />
+  <SingleButton
+    className="theme-right"
+    id="myForm-1"
+    onClick={undefined}
+    onTrigger={[Function]}
+    schema={
+      Object {
+        "position": "right",
+        "title": "Test",
+        "triggers": Array [
+          "test",
+        ],
+        "type": "button",
+        "widget": "button",
       }
-    />
-    <SingleButton
-      className={undefined}
-      id="myForm-2"
-      onTrigger={[Function]}
-      schema={
-        Object {
-          "bsStyle": "primary",
-          "title": "Submit",
-          "type": "submit",
-          "widget": "button",
-        }
+    }
+  />
+  <SingleButton
+    className="theme-undefined"
+    id="myForm-2"
+    onClick={undefined}
+    onTrigger={[Function]}
+    schema={
+      Object {
+        "bsStyle": "primary",
+        "title": "Submit",
+        "type": "submit",
+        "widget": "button",
       }
-    />
-  </div>
-</FieldTemplate>
+    }
+  />
+</div>
 `;

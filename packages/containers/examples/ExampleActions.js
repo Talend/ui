@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconsProvider } from '@talend/react-components';
-import { action } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { Actions } from '../src';
 
 const infos = [

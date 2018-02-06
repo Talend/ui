@@ -1,6 +1,7 @@
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
+import { action } from '@storybook/addon-actions';
 
 import { ActionSplitDropdown, IconsProvider } from '../src/index';
 

@@ -31,7 +31,7 @@ describe('CMF registry', () => {
 		}
 		expect(addUndefined).toThrow(
 			`CMF: you can't register undefined in 'undefined'.
-			You may have an import error in your configuration`
+			You may have an import error in your configuration`,
 		);
 	});
 
@@ -58,8 +58,8 @@ describe('CMF registry', () => {
 
 		// then
 		expect(console.warn).not.toBeCalledWith(
-			'CMF: The \'key\' object is registered, overriding and existing \'key\' object. ' +
-			'Please check your CMF configuration, you might not want that.'
+			"CMF: The 'key' object is registered, overriding and existing 'key' object. " +
+				'Please check your CMF configuration, you might not want that.',
 		);
 	});
 
@@ -69,8 +69,19 @@ describe('CMF registry', () => {
 
 		// when / then
 		expect(() => registry.addToRegistry('locked', 'value')).toThrow(
-			'CMF: The registry is locked, you cannot therefore add \'locked\' in it. ' +
-			'Please check your CMF configuration, it should not move after the initial configuration before bootstrap.'
+			"CMF: The registry is locked, you cannot therefore add 'locked' in it. " +
+				'Please check your CMF configuration, it should not move after the initial configuration before bootstrap.',
 		);
+	});
+
+	it('should test the registerMany function', () => {
+		const register = jest.fn();
+		const registerMany = registry.getRegisterMany(register);
+
+		const context = { registry: {} };
+		const itemsToRegister = [{ item1: 'test' }, { item2: 'test' }];
+
+		registerMany(itemsToRegister, context);
+		expect(register).toHaveBeenCalledTimes(2);
 	});
 });

@@ -36,6 +36,7 @@ describe('ListView field', () => {
 	const alternativeSchema = {
 		description: 'This is the ListView field',
 		disabled: true,
+		isSwitchBox: false,
 		required: true,
 		title: 'Some countries',
 		titleMap: [
@@ -50,6 +51,7 @@ describe('ListView field', () => {
 	const noItemsSchema = {
 		description: 'This is the ListView field',
 		disabled: false,
+		isSwitchBox: false,
 		required: true,
 		title: 'Countries',
 		titleMap: [],
@@ -58,6 +60,7 @@ describe('ListView field', () => {
 	beforeEach(() => {
 		props = {
 			id: 'my-list-view',
+			isSwitchBox: true,
 			isValid: true,
 			errorMessage: 'This is wrong',
 			onChange: jest.fn(),

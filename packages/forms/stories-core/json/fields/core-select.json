@@ -1,4 +1,5 @@
 {
+  "doc": "Select/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Select",

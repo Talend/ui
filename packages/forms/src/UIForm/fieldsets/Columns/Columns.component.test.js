@@ -49,6 +49,7 @@ describe('Columns widget', () => {
 		const schema = {
 			widget: 'columns',
 			items: columns,
+			title: 'My awesome columns',
 		};
 
 		// when

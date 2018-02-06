@@ -1,4 +1,5 @@
 {
+  "doc": "Button/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Comment",

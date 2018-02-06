@@ -21,10 +21,9 @@ function deleteResource(event, data, context) {
 /**
  * Action to delete a resource and close the confirm dialog.
  */
-function validate(event, data) {
+function validate() {
 	return {
 		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_OK,
-		resourceInfo: data.model.resourceInfo,
 	};
 }
 

@@ -5,7 +5,12 @@ import TabBar from '../TabBar';
 import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
 import theme from './Layout.scss';
-import { DISPLAY_MODES, DISPLAY_MODE_ONE_COLUMN, DISPLAY_MODE_TWO_COLUMNS } from './constants';
+import {
+	DISPLAY_MODES,
+	DISPLAY_MODE_ONE_COLUMN,
+	DISPLAY_MODE_TWO_COLUMNS,
+	TALEND_T7_THEME_CLASSNAME,
+} from './constants';
 
 /**
  * The Layout component is a container
@@ -13,18 +18,29 @@ import { DISPLAY_MODES, DISPLAY_MODE_ONE_COLUMN, DISPLAY_MODE_TWO_COLUMNS } from
  * If the Layout is not after the body you have to
  * add some CSS
  * @example
-body > div {
-	max-height: 100vh;
-	overflow: hidden;
+ body > div {
 	display: flex;
 	width: 100vw;
+	max-height: 100vh;
+	overflow: hidden;
 }
  * @param {object} props react props
  * @example
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
-function Layout({ header, subHeader, footer, mode, drawers, tabs, children, ...rest }) {
-	const appCSS = classnames('tc-layout', theme.layout);
+function Layout({
+	id,
+	header,
+	subHeader,
+	footer,
+	mode,
+	drawers,
+	tabs,
+	hasTheme,
+	children,
+	...rest
+}) {
+	const appCSS = classnames('tc-layout', theme.layout, hasTheme && TALEND_T7_THEME_CLASSNAME);
 	const headerCSS = classnames('tc-layout-header', theme.header);
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
 	let Component;
@@ -39,8 +55,12 @@ function Layout({ header, subHeader, footer, mode, drawers, tabs, children, ...r
 			Component = OneColumn;
 	}
 	return (
-		<div className={appCSS}>
-			{header && <div className={headerCSS}>{header}</div>}
+		<div id={id} className={appCSS}>
+			{header && (
+				<header role="banner" className={headerCSS}>
+					{header}
+				</header>
+			)}
 			{subHeader}
 			{Component && (
 				<Component drawers={drawers} tabs={tabs} {...rest}>
@@ -56,13 +76,17 @@ function Layout({ header, subHeader, footer, mode, drawers, tabs, children, ...r
 	);
 }
 
+Layout.displayName = 'Layout';
+
 Layout.propTypes = {
+	id: PropTypes.string,
 	header: PropTypes.element,
 	footer: PropTypes.element,
 	subHeader: PropTypes.element,
 	mode: PropTypes.oneOf(DISPLAY_MODES),
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	tabs: PropTypes.shape(TabBar.propTypes),
+	hasTheme: PropTypes.bool,
 	children: PropTypes.node,
 };
 

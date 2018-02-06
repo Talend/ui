@@ -2,17 +2,21 @@
 
 exports[`Status should render a label 1`] = `
 <div
-  className="tc-status text-success undefined"
+  className="theme-tc-status tc-status theme-action"
   role="status"
 >
-  
   <span
-    className="tc-status-label"
+    className="theme-tc-status-icon tc-status-icon theme-success"
+  >
+    
+  </span>
+  <span
+    className="theme-tc-status-label tc-status-label"
   >
     Successful
   </span>
   <span
-    className="tc-status-actions"
+    className="theme-tc-status-actions tc-status-actions"
   >
     <div
       className="tc-actions btn-group"
@@ -60,22 +64,26 @@ exports[`Status should render a label 1`] = `
 
 exports[`Status should render a label with Icon 1`] = `
 <div
-  className="tc-status text-success undefined"
+  className="theme-tc-status tc-status theme-action"
   role="status"
 >
-  <i
-    aria-hidden="true"
-    className="fa fa-check"
-    focusable="false"
-    title={null}
-  />
   <span
-    className="tc-status-label"
+    className="theme-tc-status-icon tc-status-icon theme-success"
+  >
+    <i
+      aria-hidden="true"
+      className="fa fa-check"
+      focusable="false"
+      title={null}
+    />
+  </span>
+  <span
+    className="theme-tc-status-label tc-status-label"
   >
     Successful
   </span>
   <span
-    className="tc-status-actions"
+    className="theme-tc-status-actions tc-status-actions"
   >
     <div
       className="tc-actions btn-group"
@@ -123,22 +131,26 @@ exports[`Status should render a label with Icon 1`] = `
 
 exports[`Status should render a label with Icon without actions 1`] = `
 <div
-  className="tc-status text-success"
+  className="theme-tc-status tc-status"
   role="status"
 >
-  <i
-    aria-hidden="true"
-    className="fa fa-check"
-    focusable="false"
-    title={null}
-  />
   <span
-    className="tc-status-label"
+    className="theme-tc-status-icon tc-status-icon theme-success"
+  >
+    <i
+      aria-hidden="true"
+      className="fa fa-check"
+      focusable="false"
+      title={null}
+    />
+  </span>
+  <span
+    className="theme-tc-status-label tc-status-label"
   >
     Successful
   </span>
   <span
-    className="tc-status-actions"
+    className="theme-tc-status-actions tc-status-actions"
   >
     <div
       className="tc-actions btn-group"
@@ -149,35 +161,39 @@ exports[`Status should render a label with Icon without actions 1`] = `
 
 exports[`Status should render a label with a continuous circular progress 1`] = `
 <div
-  className="tc-status text-info undefined"
+  className="theme-tc-status tc-status theme-action"
   role="status"
 >
-  <svg
-    className=""
-    focusable="false"
-    viewBox="0 0 50 50"
-  >
-    <circle
-      className={undefined}
-      cx={25}
-      cy={25}
-      fill="none"
-      r={20}
-      style={
-        Object {
-          "strokeDasharray": 12.566370614359172,
-          "strokeDashoffset": 0,
-        }
-      }
-    />
-  </svg>
   <span
-    className="tc-status-label"
+    className="theme-tc-status-icon tc-status-icon theme-info"
+  >
+    <svg
+      className="theme-loader theme-animate theme-small"
+      focusable="false"
+      viewBox="0 0 50 50"
+    >
+      <circle
+        className="theme-path"
+        cx={25}
+        cy={25}
+        fill="none"
+        r={20}
+        style={
+          Object {
+            "strokeDasharray": 12.566370614359172,
+            "strokeDashoffset": 0,
+          }
+        }
+      />
+    </svg>
+  </span>
+  <span
+    className="theme-tc-status-label tc-status-label"
   >
     In Progress
   </span>
   <span
-    className="tc-status-actions"
+    className="theme-tc-status-actions tc-status-actions"
   >
     <div
       className="tc-actions btn-group"
@@ -225,35 +241,39 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
 
 exports[`Status should render a label with a fixed circular progress 1`] = `
 <div
-  className="tc-status text-info undefined"
+  className="theme-tc-status tc-status theme-action"
   role="status"
 >
-  <svg
-    className=""
-    focusable="false"
-    viewBox="0 0 50 50"
-  >
-    <circle
-      className={undefined}
-      cx={25}
-      cy={25}
-      fill="none"
-      r={20}
-      style={
-        Object {
-          "strokeDasharray": 12.566370614359172,
-          "strokeDashoffset": 0,
-        }
-      }
-    />
-  </svg>
   <span
-    className="tc-status-label"
+    className="theme-tc-status-icon tc-status-icon theme-info"
+  >
+    <svg
+      className="theme-loader theme-animate theme-small"
+      focusable="false"
+      viewBox="0 0 50 50"
+    >
+      <circle
+        className="theme-path"
+        cx={25}
+        cy={25}
+        fill="none"
+        r={20}
+        style={
+          Object {
+            "strokeDasharray": 12.566370614359172,
+            "strokeDashoffset": 0,
+          }
+        }
+      />
+    </svg>
+  </span>
+  <span
+    className="theme-tc-status-label tc-status-label"
   >
     In Progress
   </span>
   <span
-    className="tc-status-actions"
+    className="theme-tc-status-actions tc-status-actions"
   >
     <div
       className="tc-actions btn-group"

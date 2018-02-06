@@ -23,7 +23,7 @@ describe('Connected ShortcutManager', () => {
 
 describe('handles routes', () => {
 	const state = mock.state();
-	state.cmf.settings.views.shortcuts = {
+	state.cmf.settings.props.shortcuts = {
 		redirectMap: {},
 	};
 	state.cmf.components = new Map();

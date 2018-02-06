@@ -2,16 +2,16 @@
 
 exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`] = `
 <fieldset
-  className="form-group collapsible-panel"
+  className="form-group theme-collapsible-panel collapsible-panel"
 >
   <div
-    className={undefined}
+    className="theme-title-bar"
     id="my-fieldset__title_bar"
     onDoubleClick={[Function]}
     role="button"
   >
     <div
-      className={undefined}
+      className="theme-title"
       id="my-fieldset__title_wrapper"
       onClick={[Function]}
       role="button"
@@ -23,7 +23,7 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
       </legend>
     </div>
     <button
-      className={undefined}
+      className="theme-toggle"
       id="my-fieldset__collapse"
       onClick={[Function]}
       title="Collapse"
@@ -40,16 +40,16 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
 
 exports[`CollapsibleFieldset should render a custom title 1`] = `
 <fieldset
-  className="form-group collapsible-panel"
+  className="form-group theme-collapsible-panel collapsible-panel"
 >
   <div
-    className={undefined}
+    className="theme-title-bar"
     id="my-fieldset__title_bar"
     onDoubleClick={[Function]}
     role="button"
   >
     <div
-      className={undefined}
+      className="theme-title"
       id="my-fieldset__title_wrapper"
       onClick={[Function]}
       role="button"
@@ -61,7 +61,7 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
       </legend>
     </div>
     <button
-      className={undefined}
+      className="theme-toggle"
       id="my-fieldset__collapse"
       onClick={[Function]}
       title="Collapse"
@@ -74,7 +74,7 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
     </button>
   </div>
   <div
-    className={undefined}
+    className="theme-body"
   >
     <Widget
       id="my-fieldset"
@@ -128,16 +128,16 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
 
 exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`] = `
 <fieldset
-  className="form-group collapsible-panel"
+  className="form-group theme-collapsible-panel collapsible-panel"
 >
   <div
-    className={undefined}
+    className="theme-title-bar"
     id="my-fieldset__title_bar"
     onDoubleClick={[Function]}
     role="button"
   >
     <div
-      className={undefined}
+      className="theme-title"
       id="my-fieldset__title_wrapper"
       onClick={[Function]}
       role="button"
@@ -149,7 +149,7 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
       </legend>
     </div>
     <button
-      className={undefined}
+      className="theme-toggle"
       id="my-fieldset__collapse"
       onClick={[Function]}
       title="Collapse"
@@ -162,7 +162,7 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
     </button>
   </div>
   <div
-    className={undefined}
+    className="theme-body"
   >
     <Widget
       id="my-fieldset"

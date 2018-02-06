@@ -1,4 +1,5 @@
 {
+  "doc": "KeyValue/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Key/Value",

@@ -7,9 +7,10 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
   id="my-select-tag"
   isValid={true}
   label="Tags"
+  required={undefined}
 >
   <div
-    className="undefined form-control"
+    className="theme-wrapper form-control"
   >
     <Translate(Badge)
       label="aze"
@@ -39,15 +40,15 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
       searchingText="Searching for matches…"
       theme={
         Object {
-          "container": undefined,
-          "itemsContainer": undefined,
-          "itemsList": undefined,
+          "container": "theme-typeahead",
+          "itemsContainer": "theme-items-container",
+          "itemsList": "theme-items",
         }
       }
       value=""
     />
     <div
-      className={undefined}
+      className="theme-caret"
     >
       <span
         className="caret"

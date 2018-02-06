@@ -51,7 +51,7 @@ renderInputComponent.propTypes = {
 };
 
 function ItemContainer(props) {
-	const { items, noResultText, searching, searchingText, ...containerProps } = props;
+	const { items, noResultText, searching, searchingText, containerProps, children } = props;
 	const { className, ...restProps } = containerProps;
 	if (searching) {
 		return (
@@ -67,10 +67,13 @@ function ItemContainer(props) {
 			</div>
 		);
 	}
-	return <div {...containerProps} />;
+	return <div {...containerProps} children={children} />;
 }
 ItemContainer.propTypes = {
-	className: PropTypes.string,
+	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+	containerProps: PropTypes.shape({
+		className: PropTypes.string,
+	}),
 	items: PropTypes.arrayOf(
 		PropTypes.oneOfType([
 			PropTypes.string,

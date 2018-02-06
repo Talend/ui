@@ -3,10 +3,13 @@ import React from 'react';
 import classNames from 'classnames';
 
 import Message from '../../Message';
+import theme from './FieldTemplate.scss';
 
 function Label(props) {
 	return (
-		<label htmlFor={props.id} className="control-label">{props.label}</label>
+		<label htmlFor={props.id} className="control-label">
+			{props.label}
+		</label>
 	);
 }
 
@@ -18,10 +21,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function FieldTemplate(props) {
-	const groupsClassNames = classNames(
-		'form-group',
-		{ 'has-error': !props.isValid }
-	);
+	const groupsClassNames = classNames('form-group', theme.template, {
+		'has-error': !props.isValid,
+		required: props.required,
+	});
 
 	return (
 		<div className={groupsClassNames}>
@@ -39,21 +42,20 @@ function FieldTemplate(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
-		children: PropTypes.oneOf(
-			PropTypes.element,
-			PropTypes.arrayOf(PropTypes.element)
-		),
+		children: PropTypes.node,
 		description: PropTypes.string,
 		errorMessage: PropTypes.string,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		label: PropTypes.string,
 		labelAfter: PropTypes.bool,
+		required: PropTypes.bool,
 	};
 }
 
 FieldTemplate.defaultProps = {
 	isValid: true,
 };
+FieldTemplate.displayName = 'FieldTemplate';
 
 export default FieldTemplate;

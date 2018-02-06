@@ -1,23 +1,42 @@
 import 'babel-polyfill';
-import { action, storiesOf, configure, setAddon } from '@storybook/react';
+import { storiesOf, configure, setAddon } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import cmf from 'react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import { FilterBar, ObjectViewer, Action } from '../src/index';
 import 'focus-outline-manager';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
-import { actions as actionsSubHeader, actionsCreators as actionsCreatorsSubHeader } from './subheaderbar.storybook'
+import {
+	actions as actionsSubHeader,
+	actionsCreators as actionsCreatorsSubHeader,
+} from './subheaderbar.storybook';
+import { registerAllContainers } from '../src/register';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
 
+registerAllContainers();
 const actionLogger = action('dispatch');
-const reducer = (state = {}, a) => {
-	actionLogger(a);
+
+const TOGGLE_FLAG_TYPE = 'TOGGLE_FLAG_TYPE';
+function flagToggleReducer(state = {}, { type, flagId }) {
+	if (type === TOGGLE_FLAG_TYPE) {
+		return {
+			...state,
+			[flagId]: !state[flagId],
+		};
+	}
 	return state;
-};
+}
+
+function reducer(state = {}, action) {
+	actionLogger(action);
+	return {
+		flags: flagToggleReducer(state.flags, action),
+	};
+}
 
 function objectView(event, data) {
 	return {
@@ -53,10 +72,6 @@ function chooseItem2() {
 	};
 }
 
-api.component.register('FilterBar', FilterBar);
-api.component.register('ObjectViewer', ObjectViewer);
-api.component.register('Action', Action);
-
 const registerActionCreator = api.action.registerActionCreator;
 registerActionCreator('object:view', objectView);
 registerActionCreator('cancel:hide:dialog', hideDialog);
@@ -79,6 +94,13 @@ const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
 	isTrueExpressionAction(context, first);
 	return !!first;
+});
+
+const isFlagExpressionAction = action('isFlagExpression');
+api.expression.register('isFlagExpression', (config, flagId) => {
+	const flagStatus = config.context.store.getState().app.flags[flagId];
+	isFlagExpressionAction(config, flagId, flagStatus);
+	return flagStatus;
 });
 
 api.expression.register('getItems', () => [
@@ -199,10 +221,13 @@ function loadStories() {
 				]),
 			}),
 		);
-		state.cmf.settings.views.appheaderbar = {
+		if (!state.cmf.settings.props) {
+			state.cmf.settings.props = state.cmf.settings.views;
+		}
+		state.cmf.settings.props.appheaderbar = {
 			app: 'Hello Test',
 		};
-		state.cmf.settings.views['HeaderBar#default'] = {
+		state.cmf.settings.props['Container(HeaderBar)#default'] = {
 			logo: { name: 'appheaderbar:logo', isFull: true },
 			brand: { label: 'DATA STREAMS' },
 			notification: { name: 'appheaderbar:notification' },
@@ -331,9 +356,16 @@ function loadStories() {
 			},
 			overlayPlacement: 'bottom',
 		};
+		actions['action:icon:toggle'] = {
+			icon: 'talend-panel-opener-right',
+			id: 'action:icon:toggle',
+			label: 'Click me to toggle',
+			tooltipPlacement: 'top',
+			activeExpression: { id: 'isFlagExpression', args: ['action:icon:creator:flag'] },
+			payload: { type: 'TOGGLE_FLAG_TYPE', flagId: 'action:icon:creator:flag' },
+		};
 		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
-		
 
 		const story = storiesOf(example);
 

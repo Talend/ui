@@ -73,11 +73,13 @@ const schema = {
 		'ui:order': [
 			'firstName',
 			'lastName',
+			'nested',
 			'age',
 			'bio',
 			'password',
 		],
 		nested: {
+			'ui:order': ['nestedInteger', 'nestedElement'],
 			nestedHidden: {
 				'ui:widget': 'hidden',
 			},

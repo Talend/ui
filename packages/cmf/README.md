@@ -1,3 +1,4 @@
+
 # Content Management Framework (aka CMF)
 
 This is a framework to help you to build configurable React App.
@@ -13,7 +14,6 @@ It provides a set of base APIs and patterns.
 [npm-url]: https://npmjs.org/package/@talend/react-cmf
 [travis-ci-image]: https://travis-ci.org/Talend/ui.svg?branch=master
 [travis-ci-url]: https://travis-ci.org/Talend/ui
-
 [dependencies-image]: https://david-dm.org/Talend/ui/status.svg?path=packages/cmf
 [dependencies-url]: https://david-dm.org/Talend/ui?path=packages/cmf
 [devdependencies-image]: https://david-dm.org/Talend/ui/dev-status.svg?path=packages/cmf
@@ -26,7 +26,7 @@ You will find a [list of breaking changes here](https://github.com/Talend/react-
 
 ## Definition
 
-*CMF* definition from wikipedia:
+_CMF_ definition from wikipedia:
 
 ```
 A content management framework (CMF) is a system that facilitates the use of reusable components or customized software for managing Web content. It shares aspects of a Web application framework and a content management system
@@ -36,7 +36,7 @@ It fits with our goal, this is why this add-on has been named that way.
 
 ## Paradigm
 
-A *user* interact with a *view* using mouse and/or keyboard which send *events* from a *content* and that interaction *dispatch* an *action*.
+A _user_ interact with a _view_ using mouse and/or keyboard which send _events_ from a _content_ and that interaction _dispatch_ an _action_.
 That action may change the current view or the content displayed.
 
 ## Definitions
@@ -45,7 +45,6 @@ We have the following objects to build a user interface:
 
 * views
 * actions
-* content types
 
 Let's talk about each of them.
 
@@ -65,23 +64,13 @@ Then view will be composed of react components that can get their props.
 Actions are [redux actions](http://redux.js.org/docs/basics/Actions.html).
 
 ### ComponentState Management
+
 Component state can be easily stored in cmf state, each are identified by their name and an unique key,
 so component state can be stored and reused later
 
 ### Collections management
+
 Manage a local cache of your business data
-
-### Content Types
-
-A content type defines metadata over content. For example when you display a list of article you say each item in this list are an *article* which is a content type.
-
-We are adding metadata over content type:
-
-* title
-* icon id
-* actions (by category)
-
-Status: not fully implemented and not used at the moment.
 
 ## Internals: The registry
 
@@ -94,7 +83,9 @@ It's just a key/object registry and it's used with prefix to store the following
 Note: this may change in the futur. We will try to remove the singleton in favors of higher order components.
 
 ## Store structure
+
 cmf store structure is the following
+
 * root
   * cmf
     * collections
@@ -123,6 +114,8 @@ Existing commands:
 * cmf.routerReplace (string or function)
 * cmf.routerPush (string or function)
 * response + cmf.collectionId -> addOrReplace
+
+[See API](src/middlewares/cmf/index.md)
 
 ### HTTP
 
@@ -168,6 +161,40 @@ Note onResponse and onError accept function:
 * onResponse(response)
 * onError(error)
 
+[See API](src/middlewares/http/index.md)
+
+## Scripts
+
+When you have cmf in you package.json, you can run in your project scope this script :
+
+* cmf-settings
+
+It require a cmf.json file with this format in your webapp's project root :
+
+```json
+{
+	"settings": {
+		"sources": [
+			"src/settings",
+			"node_modules/@talend/dataset/lib/settings",
+			"node_modules/@talend/myOtherDep/lib/file.json"
+		],
+		"sources-dev": [
+			"src/settings",
+			"../../dataset/webapp/src/settings",
+			"../../myOtherDep/lib/file.json"
+		],
+		"destination": "src/assets/cmf-settings.json"
+	}
+}
+```
+
+Options for this script :
+
+* -d to use dev-sources instead of sources
+* -q to run the script in quiet mode
+* -r to run the json search recursive
+
 ## Expressions
 
 Expression are registred function use to eval props.
@@ -181,8 +208,10 @@ import MyComponent from './MyComponent';
 
 const MySuperComponent = api.expressions.withExpression(MyComponent, ['disabled']);
 
-return <MySuperComponent disabled="userDontHaveSuperPower" />
+return <MySuperComponent disabled="userDontHaveSuperPower" />;
 ```
+
+[See API](src/expression.md)
 
 ## Tests & mocks
 
@@ -200,11 +229,13 @@ import MyComponent from './My.component';
 
 describe('App', () => {
 	it('should render the app container', () => {
-		const wrapper = renderer.create(
-			<Provider>
-				<MyComponent />
-			</Provider>
-		).toJSON();
+		const wrapper = renderer
+			.create(
+				<Provider>
+					<MyComponent />
+				</Provider>,
+			)
+			.toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
 });
@@ -223,12 +254,26 @@ you may change the following using simple props:
 * router
 * registry
 
+## More
+
+* [App](src/App.md)
+* [cmfConnect](src/cmfConnect.md)
+* [settings](src/settings.md)
+* [api](src/api.md)
+* [store](src/store.md)
+* [Inject](src/Inject.md)
+* [Dispatcher](src/Dispatcher.md)
+* [how to](howto/index.md)
+* [saga](src/saga.md)
+* [sagas](src/sagas/index.md)
+* [sagaRouter](src/sagaRouter/index.md)
+
 ## ROADMAP
 
 For 1.0
 
-- [x] embedable apps
-- [ ] react-router v4
-- [ ] i18n
-- [x] generator
-- [x] actionCreator should become first class
+* [x] embedable apps
+* [ ] react-router v4
+* [ ] i18n
+* [x] generator
+* [x] actionCreator should become first class

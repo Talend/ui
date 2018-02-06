@@ -1,8 +1,7 @@
 import { WebSocket, Server } from 'mock-socket';
-import SmartWebsocket, {
-	wsSend,
-	wsIsClosed,
-} from './smartWebsocket';
+// fixme
+import { setTimeout } from 'timers';
+import SmartWebsocket, { wsSend, wsIsClosed } from './smartWebsocket';
 
 // Set the websocket mock used by smartWebsocket middleware
 global.WebSocket = WebSocket;
@@ -69,7 +68,7 @@ describe('smart websocket tests', () => {
 	});
 
 	describe('wsIsClosed function', () => {
-		it('should test without ws', () => {
+		it('without ws connection given should return true', () => {
 			// given
 			// when
 			const isClosed = wsIsClosed(null);
@@ -77,7 +76,7 @@ describe('smart websocket tests', () => {
 			expect(isClosed).toBe(true);
 		});
 
-		it('should test with ws closed', () => {
+		it('with ws closed connection given should return true', () => {
 			// given
 			const ws = {
 				readyState: WebSocket.CLOSED,
@@ -88,7 +87,7 @@ describe('smart websocket tests', () => {
 			expect(isClosed).toBe(true);
 		});
 
-		it('should test with ws opened', () => {
+		it('with ws open connection given should return false', () => {
 			// given
 			const ws = {
 				readyState: WebSocket.OPEN,
@@ -118,7 +117,7 @@ describe('smart websocket tests', () => {
 			expect(result.close()).toEqual(undefined);
 		});
 
-		it('should let some time to connect', (done) => {
+		it('should let some time to connect', done => {
 			// given
 			const url = urlWS;
 			const options = {
@@ -146,7 +145,7 @@ describe('smart websocket tests', () => {
 			}, 100);
 		});
 
-		it('should send message while not connected', (done) => {
+		it('should send message while not connected', done => {
 			// given
 			const url = urlWS;
 			const options = {
@@ -166,6 +165,55 @@ describe('smart websocket tests', () => {
 				result.close();
 				done();
 			}, 100);
+		});
+
+		it('when ws close, onClose  callback should be fired', done => {
+			// given
+			const options = {
+				onMessage: jest.fn(),
+				onOpen: jest.fn(),
+				onClose: jest.fn(),
+				onError: jest.fn(),
+			};
+			// when
+			const result = SmartWebsocket('/test/', options); // eslint-disable-line
+			// then
+			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
+			expect(result.getBufferedAmount()).toBe(undefined);
+			expect(result.getUrl()).toEqual('/test/');
+			expect(result.close()).toEqual(undefined);
+			setTimeout(() => {
+				expect(options.onClose).toHaveBeenCalled();
+				done();
+			}, 100);
+		});
+
+		it('should trigger a timeout on connect after pingTimeoutDelay', () => {
+			// given
+			jest.useFakeTimers();
+			const url = urlWS;
+			const options = {
+				onMessage: jest.fn(),
+				onOpen: jest.fn(),
+				onClose: jest.fn(),
+				onError: jest.fn(),
+				onPingTimeout: jest.fn(),
+				checkInterval: 70,
+				// < 4ms, that is the delay from ws mock to send
+				// smartWebStocket send a ping on connect, so to test the connect timeout
+				// we need to trigger timeout before any send delay
+				pingTimeoutDelay: 1,
+			};
+			const result = SmartWebsocket(url, options); // eslint-disable-line
+			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
+			expect(options.onPingTimeout).not.toBeCalled();
+
+			// when
+			jest.runTimersToTime(1);
+
+			// then
+			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
+			expect(options.onPingTimeout).toBeCalled();
 		});
 	});
 });

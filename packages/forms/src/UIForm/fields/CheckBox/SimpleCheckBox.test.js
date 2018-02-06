@@ -12,7 +12,14 @@ describe('SimpleCheckBox field', () => {
 	it('should render input', () => {
 		// when
 		const wrapper = shallow(
-			<SimpleCheckBox id={'myForm'} label={'My checkbox custom label'} schema={schema} value />,
+			<SimpleCheckBox
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				id={'myForm'}
+				label={'My checkbox custom label'}
+				schema={schema}
+				value
+			/>,
 		);
 
 		// then
@@ -29,6 +36,8 @@ describe('SimpleCheckBox field', () => {
 		// when
 		const wrapper = shallow(
 			<SimpleCheckBox
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				id={'myForm'}
 				label={'My checkbox custom label'}
 				schema={disabledSchema}
@@ -43,11 +52,13 @@ describe('SimpleCheckBox field', () => {
 	it('should trigger onChange', () => {
 		// given
 		const onChange = jest.fn();
+		const onFinish = jest.fn();
 		const wrapper = shallow(
 			<SimpleCheckBox
 				id={'myForm'}
 				label={'My checkbox custom label'}
 				onChange={onChange}
+				onFinish={onFinish}
 				schema={schema}
 				value
 			/>,
@@ -64,13 +75,15 @@ describe('SimpleCheckBox field', () => {
 		expect(onChange).toBeCalledWith(event, { schema, value: false });
 	});
 
-	it('should trigger onFinish on checkbox blur', () => {
+	it('should trigger onFinish on checkbox change', () => {
 		// given
+		const onChange = jest.fn();
 		const onFinish = jest.fn();
 		const wrapper = shallow(
 			<SimpleCheckBox
 				id={'myForm'}
 				label={'My checkbox custom label'}
+				onChange={onChange}
 				onFinish={onFinish}
 				schema={schema}
 				value
@@ -82,9 +95,9 @@ describe('SimpleCheckBox field', () => {
 		wrapper
 			.find('input')
 			.at(0)
-			.simulate('blur', event);
+			.simulate('change', event);
 
 		// then
-		expect(onFinish).toBeCalledWith(event, { schema });
+		expect(onFinish).toBeCalledWith(event, { schema, value: false });
 	});
 });

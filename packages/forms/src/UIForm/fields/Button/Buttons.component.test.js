@@ -32,7 +32,15 @@ describe('Buttons field', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Buttons id={'myForm'} onTrigger={jest.fn()} schema={schema} />);
+		const wrapper = shallow(
+			<Buttons
+				id={'myForm'}
+				onTrigger={jest.fn()}
+				onClick={jest.fn()}
+				schema={schema}
+				className="extra"
+			/>,
+		);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

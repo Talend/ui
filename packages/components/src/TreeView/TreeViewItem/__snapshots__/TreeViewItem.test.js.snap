@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TreeView should render normally with all buttons and custom labels 1`] = `
+exports[`TreeView should render items with icon 1`] = `
 <li
-  className="tc-treeview-item-li"
+  className="tc-treeview-item-li theme-tc-treeview-li"
   data-hidden={undefined}
 >
   <div
-    className="tc-treeview-item"
+    className="tc-treeview-item theme-tc-treeview-item"
     data-selected={undefined}
     id="tc-treeview-item"
     onClick={[Function]}
@@ -19,15 +19,15 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
     }
     tabIndex="0"
   >
-    <Icon
-      className={undefined}
-      name="talend-caret-down"
-      title="Collapse"
-      transform={undefined}
-    />
-    <Icon
-      className={undefined}
-      name="talend-folder"
+    true
+    <TreeViewIcon
+      icon={
+        Object {
+          "name": "src-http://static.pokemonpets.com/images/monsters-images-300-300/106-Hitmonlee.png",
+          "title": "A pokemon",
+        }
+      }
+      toggled={true}
     />
     <span
       className="tc-treeview-item-name"
@@ -35,7 +35,7 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
       grandpa
     </span>
     <div
-      className={undefined}
+      className="theme-tc-treeview-item-ctrl"
     >
       <Translate(Badge)
         label="101"
@@ -52,7 +52,66 @@ exports[`TreeView should render normally with all buttons and custom labels 1`] 
     </div>
   </div>
   <ul
-    className={undefined}
+    className="theme-tc-treeview-ul"
+  >
+    
+  </ul>
+</li>
+`;
+
+exports[`TreeView should render normally with all buttons and custom labels 1`] = `
+<li
+  className="tc-treeview-item-li theme-tc-treeview-li"
+  data-hidden={undefined}
+>
+  <div
+    className="tc-treeview-item theme-tc-treeview-item"
+    data-selected={undefined}
+    id="tc-treeview-item"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    style={
+      Object {
+        "paddingLeft": "20px",
+      }
+    }
+    tabIndex="0"
+  >
+    <Icon
+      className="theme-tc-treeview-toggle"
+      name="talend-caret-down"
+      title="Collapse"
+      transform={undefined}
+    />
+    <TreeViewIcon
+      icon={undefined}
+      toggled={true}
+    />
+    <span
+      className="tc-treeview-item-name"
+    >
+      grandpa
+    </span>
+    <div
+      className="theme-tc-treeview-item-ctrl"
+    >
+      <Translate(Badge)
+        label="101"
+      />
+      <Action
+        hideLabel={true}
+        icon="talend-trash"
+        id="tc-treeview-item-talend-trash"
+        label="remove element"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="right"
+      />
+    </div>
+  </div>
+  <ul
+    className="theme-tc-treeview-ul"
   >
     <TreeViewItem
       depth={1}

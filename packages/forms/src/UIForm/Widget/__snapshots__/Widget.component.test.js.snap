@@ -8,12 +8,11 @@ exports[`Widget component should render custom widget 1`] = `
       "user,firstname": "This is not ok",
     }
   }
-  formName="myForm"
-  id="myForm-user-firstname"
+  id="myForm_user_firstname"
   isValid={false}
   onChange={[Function]}
-  onFinish={undefined}
   onTrigger={[Function]}
+  options={undefined}
   properties={
     Object {
       "comment": "",
@@ -33,10 +32,22 @@ exports[`Widget component should render custom widget 1`] = `
     }
   }
   value="my firstname"
+  widgets={
+    Object {
+      "customWidget": [Function],
+    }
+  }
 />
 `;
 
-exports[`Widget component should render nothing if widget does not exist 1`] = `null`;
+exports[`Widget component should render nothing if widget does not exist 1`] = `
+<p
+  className="text-danger"
+>
+  Widget not found 
+  unknown
+</p>
+`;
 
 exports[`Widget component should render widget 1`] = `
 <Text
@@ -46,12 +57,12 @@ exports[`Widget component should render widget 1`] = `
       "user,firstname": "This is not ok",
     }
   }
-  formName="myForm"
-  id="myForm-user-firstname"
+  id="myForm_user_firstname"
   isValid={false}
   onChange={[Function]}
   onFinish={[Function]}
   onTrigger={[Function]}
+  options={undefined}
   properties={
     Object {
       "comment": "",
@@ -71,5 +82,6 @@ exports[`Widget component should render widget 1`] = `
     }
   }
   value="my firstname"
+  widgets={Object {}}
 />
 `;

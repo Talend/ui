@@ -28,6 +28,7 @@ export default cmfConnect({
 	mapStateToProps,
 });
  */
+import invariant from 'invariant';
 import PropTypes from 'prop-types';
 import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
@@ -110,7 +111,7 @@ export function getStateToProps({
 
 	let userProps = {};
 	if (mapStateToProps) {
-		userProps = mapStateToProps(state, ownProps, cmfProps);
+		userProps = mapStateToProps(state, { ...ownProps, ...viewProps }, cmfProps);
 	}
 
 	const props = {
@@ -139,12 +140,17 @@ export function getDispatchToProps({
 		defaultState,
 	);
 	cmfProps.dispatch = dispatch;
+	cmfProps.getComponent = api.component.get;
 	cmfProps.dispatchActionCreator = (actionId, event, data, context) => {
-		dispatch(api.action.getActionCreatorFunction(context, actionId)(event, data, context));
+		dispatch(api.actionCreator.get(context, actionId)(event, data, context));
 	};
 
 	let userProps = {};
 	if (mapDispatchToProps) {
+		if (process.env.NODE_ENV === 'development') {
+			console.warn(`DEPRECATION WARNING: mapDispatchToProps will be removed from cmfConnect.
+			Please use the injectedProps dispatchActionCreator or dispatch`);
+		}
 		userProps = mapDispatchToProps(dispatch, ownProps, cmfProps);
 	}
 
@@ -215,6 +221,9 @@ export default function cmfConnect({
 	...rest
 }) {
 	return function wrapWithCMF(WrappedComponent) {
+		if (!WrappedComponent.displayName) {
+			invariant(true, `${WrappedComponent.name} has no displayName`);
+		}
 		class CMFContainer extends React.Component {
 			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 			static propTypes = {
@@ -309,6 +318,7 @@ cmfConnect.INJECTED_PROPS = INJECTED_PROPS;
 cmfConnect.propTypes = {
 	state: ImmutablePropTypes.Map,
 	initialState: ImmutablePropTypes.Map,
+	getComponent: PropTypes.func,
 	setState: PropTypes.func,
 	initState: PropTypes.func,
 	dispatchActionCreator: PropTypes.func,

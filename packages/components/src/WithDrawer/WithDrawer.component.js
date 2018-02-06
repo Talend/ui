@@ -46,6 +46,8 @@ function WithDrawer({ drawers, children }) {
 	);
 }
 
+WithDrawer.displayName = 'WithDrawer';
+
 WithDrawer.propTypes = {
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	children: PropTypes.node,

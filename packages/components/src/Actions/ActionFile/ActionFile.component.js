@@ -55,7 +55,7 @@ function getButtonContent(props) {
 /**
  * Purpose of this component is to provide a simple direct upload button.
  * When the user click on this component a file picker is open,
- * letting the user to choose the file he wich to upload.
+ * letting the user to choose the file he which to upload.
  * When the user select a file, the onChange props is executed and get
  * passed the react syntetic event and the selected file.
  * subsequently the field get emptied.

@@ -4,7 +4,8 @@ import FieldTemplate from '../FieldTemplate';
 
 function getSelectedOptions(select, multiple) {
 	if (multiple) {
-		return Array.prototype.slice.call(select.options)
+		return Array.prototype.slice
+			.call(select.options)
 			.filter(option => option.selected)
 			.map(option => option.value);
 	}
@@ -13,14 +14,7 @@ function getSelectedOptions(select, multiple) {
 }
 
 export default function Select({ id, isValid, errorMessage, onChange, onFinish, schema, value }) {
-	const {
-		autoFocus,
-		description,
-		disabled = false,
-		placeholder,
-		readOnly = false,
-		title,
-	} = schema;
+	const { autoFocus, description, disabled = false, placeholder, readOnly = false, title } = schema;
 
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
 
@@ -32,6 +26,7 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 			isValid={isValid}
 			label={title}
 			labelAfter
+			required={schema.required}
 		>
 			<select
 				id={id}
@@ -39,32 +34,23 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 				autoFocus={autoFocus}
 				className="form-control"
 				disabled={disabled}
-				onBlur={event => onFinish(event, { schema })}
-				onChange={
-					event => onChange(
-						event,
-						{ schema, value: getSelectedOptions(event.target, multiple) }
-					)
-				}
+				onChange={event => {
+					const payload = { schema, value: getSelectedOptions(event.target, multiple) };
+					onChange(event, payload);
+					onFinish(event, payload);
+				}}
 				readOnly={readOnly}
 				value={value}
 			>
 				<option disabled>{placeholder}</option>
-				{
-					schema.titleMap && schema.titleMap.map((option, index) => {
+				{schema.titleMap &&
+					schema.titleMap.map((option, index) => {
 						const optionProps = {
 							key: index,
 							value: option.value,
 						};
-						return (
-							<option
-								{...optionProps}
-							>
-								{option.name}
-							</option>
-						);
-					})
-				}
+						return <option {...optionProps}>{option.name}</option>;
+					})}
 			</select>
 		</FieldTemplate>
 	);
@@ -84,10 +70,12 @@ if (process.env.NODE_ENV !== 'production') {
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,
-			titleMap: PropTypes.arrayOf(PropTypes.shape({
-				name: PropTypes.string.isRequired,
-				value: PropTypes.string.isRequired,
-			})),
+			titleMap: PropTypes.arrayOf(
+				PropTypes.shape({
+					name: PropTypes.string.isRequired,
+					value: PropTypes.string.isRequired,
+				}),
+			),
 			type: PropTypes.string,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),

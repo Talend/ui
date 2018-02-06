@@ -1,113 +1,79 @@
+import omit from 'lodash/omit';
 import PropTypes from 'prop-types';
 import React from 'react';
-import UIFormComponent from './UIForm.component';
-import { formPropTypes, extractFormProps } from './utils/propTypes';
 
-import { formReducer, modelReducer, validationReducer } from './reducers';
-import { createForm, updateForm, updateFormData, setError, setErrors } from './actions';
+import UIFormComponent from './UIForm.component';
+import { formPropTypes } from './utils/propTypes';
 
 export default class UIForm extends React.Component {
+	static displayName = 'Container(UIForm)';
 	constructor(props) {
 		super(props);
-
-		const action = createForm(
-			this.props.formName,
-			this.props.data.jsonSchema,
-			this.props.data.uiSchema,
-			this.props.data.properties,
-		);
-		this.state = formReducer(undefined, action)[this.props.formName];
-
+		this.state = { ...this.props.data };
+		if (!this.state.errors) {
+			this.state.errors = {};
+		}
 		this.onChange = this.onChange.bind(this);
-		this.updateForm = this.updateForm.bind(this);
-		this.setError = this.setError.bind(this);
 		this.setErrors = this.setErrors.bind(this);
+	}
+
+	/**
+	 * Update the state with the new schema.
+	 * @param nextProps
+	 */
+	componentWillReceiveProps(nextProps) {
+		this.setState({
+			...nextProps.data,
+		});
 	}
 
 	/**
 	 * Update the model and validation
 	 * If onChange is provided, it is triggered
 	 * @param event The change event
-	 * @param payload { formName, schema, value, error } The change payload
-	 * formName: The form name
+	 * @param payload { schema, value, error } The change payload
 	 * schema: The schema
 	 * value: The new value
 	 * error: The validation error
 	 */
 	onChange(event, payload) {
-		const action = updateFormData(
-			payload.formName,
-			payload.schema,
-			payload.value
-		);
-		this.setState(
-			{ properties: modelReducer(this.state.properties, action) },
-			this.props.onChange && (() => { this.props.onChange(event, payload); })
-		);
-	}
+		this.setState({
+			properties: payload.properties,
+		});
 
-	/**
-	 * Set partial fields validation in state
-	 * @param formName the form name
-	 * @param errors the validation errors
-	 */
-	setError(formName, errors) {
-		const action = setError(formName, errors);
-		this.setState({ errors: validationReducer(this.state.errors, action) });
+		if (!this.props.onChange) {
+			return;
+		} else if (this.props.moz) {
+			this.props.onChange(payload);
+		} else {
+			this.props.onChange(event, payload);
+		}
 	}
 
 	/**
 	 * Set all fields validation in state
-	 * @param formName the form name
 	 * @param errors the validation errors
 	 */
-	setErrors(formName, errors) {
-		const action = setErrors(formName, errors);
-		this.setState({ errors: validationReducer(this.state.errors, action) });
-	}
+	setErrors(event, errors) {
+		this.setState({ errors });
 
-	/**
-	 * Update the form, the model and errors
-	 * @param formName The form name
-	 * @param jsonSchema The model schema
-	 * @param uiSchema The UI schema
-	 * @param properties The values
-	 * @param errors The validation errors
-	 */
-	updateForm(formName, jsonSchema, uiSchema, properties, errors) {
-		const action = updateForm(formName, jsonSchema, uiSchema, properties, errors);
-		const nextState = formReducer(
-			{ [formName]: this.state },
-			action
-		)[formName];
-
-		this.setState(nextState);
+		if (this.props.onErrors) {
+			this.props.onErrors(event, errors);
+		}
 	}
 
 	render() {
-		const { jsonSchema, uiSchema, properties, errors } = this.state;
+		const props = omit(this.props, 'data');
 
 		return (
 			<UIFormComponent
-				{...extractFormProps(this.props)}
-
-				jsonSchema={jsonSchema}
-				uiSchema={uiSchema}
-				properties={properties}
-				errors={errors}
-				initialData={this.props.data}
-
-				actions={this.props.actions}
-				customValidation={this.props.customValidation}
-				onTrigger={this.props.onTrigger}
-				widgets={this.props.widgets}
-
-				onReset={this.props.onReset}
+				{...this.state}
+				{...props}
 				onChange={this.onChange}
-				setError={this.setError}
 				setErrors={this.setErrors}
-				updateForm={this.updateForm}
-			/>
+			>
+				{this.props.children}
+			</UIFormComponent>
 		);
 	}
 }
@@ -123,10 +89,14 @@ if (process.env.NODE_ENV !== 'production') {
 			/** UI schema that specify how to render the fields */
 			uiSchema: PropTypes.array,
 			/**
-			 * Form fields initial values.
+			 * Form fields values.
 			 * Note that it should contains @definitionName for triggers.
 			 */
 			properties: PropTypes.object,
+			/**
+			 * Form fields errors.
+			 */
+			errors: PropTypes.object,
 		}),
 		/**
 		 * Actions buttons to display at the bottom of the form.
@@ -146,11 +116,18 @@ if (process.env.NODE_ENV !== 'production') {
 		 */
 		onChange: PropTypes.func,
 		/**
+		 * The errors callback.
+		 * Prototype: function onErrors(event, errors)
+		 */
+		onErrors: PropTypes.func,
+		/**
 		 * Trigger callback.
-		 * Prototype: function onTrigger(event, { formName, trigger, schema, properties })
+		 * Prototype: function onTrigger(event, { trigger, schema, properties })
 		 */
 		onTrigger: PropTypes.func,
+		/** Custom templates */
+		templates: PropTypes.object,
 		/** Custom widgets */
-		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		widgets: PropTypes.object,
 	};
 }

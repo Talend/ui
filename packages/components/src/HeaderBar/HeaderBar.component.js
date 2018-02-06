@@ -34,7 +34,7 @@ function Logo({ isFull, renderers, t, ...props }) {
 	});
 
 	return (
-		<li className={itemClassName}>
+		<li role="presentation" className={itemClassName}>
 			<renderers.Action
 				bsStyle="link"
 				className={actionClassName}
@@ -54,21 +54,23 @@ function Brand({ label, isSeparated, renderers, ...props }) {
 	});
 
 	return (
-		<li className={className}>
-			<renderers.Action
-				bsStyle="link"
-				className={theme['tc-header-bar-brand']}
-				tooltipPlacement="bottom"
-				label={label}
-				{...props}
-			/>
+		<li role="presentation" className={className}>
+			<span role="heading">
+				<renderers.Action
+					bsStyle="link"
+					className={theme['tc-header-bar-brand']}
+					tooltipPlacement="bottom"
+					label={label}
+					{...props}
+				/>
+			</span>
 		</li>
 	);
 }
 
 function Environment({ renderers, ...props }) {
 	return (
-		<li className={theme['tc-header-bar-action']}>
+		<li role="presentation" className={theme['tc-header-bar-action']}>
 			<renderers.ActionDropdown
 				bsStyle="link"
 				icon="talend-environment"
@@ -88,7 +90,7 @@ function Search({ renderers, ...props }) {
 	);
 
 	return (
-		<li className={className}>
+		<li role="presentation" className={className}>
 			<form className="navbar-form navbar-right" role="search">
 				<renderers.Typeahead {...props} />
 			</form>
@@ -107,11 +109,32 @@ function Help({ renderers, t, ...props }) {
 	const className = classNames(theme['tc-header-bar-action'], theme.separated);
 
 	return (
-		<li className={className}>
+		<li role="presentation" className={className}>
+			<renderers.Action {...global} />
+		</li>
+	);
+}
+
+function Information({ renderers, t, ...props }) {
+	const global = {
+		bsStyle: 'link',
+		icon: 'talend-info-circle',
+		label: t('HEADERBAR_INFO', { defaultValue: 'Information' }),
+		tooltipPlacement: 'bottom',
+		...props,
+	};
+	const className = classNames(
+		theme['tc-header-bar-action'],
+		'tc-header-bar-action',
+		theme.separated,
+	);
+
+	return (
+		<li role="presentation" className={className}>
 			{props.items && props.items.length ? (
-				<renderers.ActionSplitDropdown pullRight {...global} />
+				<renderers.ActionDropdown pullRight noCaret hideLabel {...global} />
 			) : (
-				<renderers.Action {...global} />
+				<renderers.Action hideLabel {...global} />
 			)}
 		</li>
 	);
@@ -141,7 +164,7 @@ function User({ name, firstName, lastName, renderers, ...rest }) {
 	}
 
 	return (
-		<li className={className}>
+		<li role="presentation" className={className}>
 			<renderers.ActionDropdown
 				bsStyle="link"
 				icon="talend-user-circle"
@@ -166,7 +189,7 @@ function AppNotification({ renderers, hasUnread, t, ...props }) {
 		...props,
 	};
 	return (
-		<li className={className}>
+		<li role="presentation" className={className}>
 			<renderers.Action {...global} />
 		</li>
 	);
@@ -174,7 +197,7 @@ function AppNotification({ renderers, hasUnread, t, ...props }) {
 
 function Products({ renderers, t, ...props }) {
 	return (
-		<li className={theme['tc-header-bar-action']}>
+		<li role="presentation" className={theme['tc-header-bar-action']}>
 			<renderers.ActionDropdown
 				bsStyle="link"
 				className={theme['tc-header-bar-products']}
@@ -199,6 +222,7 @@ function HeaderBar(props) {
 			Environment,
 			Search,
 			User,
+			Information,
 			Help,
 			Products,
 			AppNotification,
@@ -217,11 +241,15 @@ function HeaderBar(props) {
 			</ul>
 			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
 				{props.search && <Components.Search renderers={renderers} {...props.search} />}
-				{props.help && <Components.Help renderers={renderers} {...props.help} t={props.t} />}
-				{props.user && <Components.User renderers={renderers} {...props.user} />}
 				{props.notification && (
 					<Components.AppNotification renderers={renderers} {...props.notification} t={props.t} />
 				)}
+				{props.help && <Components.Help renderers={renderers} {...props.help} t={props.t} />}
+				{!props.user &&
+					props.information && (
+						<Components.Information renderers={renderers} {...props.information} t={props.t} />
+					)}
+				{props.user && <Components.User renderers={renderers} {...props.user} />}
 				{props.products && (
 					<Components.Products renderers={renderers} {...props.products} t={props.t} />
 				)}
@@ -235,8 +263,10 @@ HeaderBar.Brand = Brand;
 HeaderBar.Environment = Environment;
 HeaderBar.Search = Search;
 HeaderBar.Help = Help;
+HeaderBar.Information = Information;
 HeaderBar.User = User;
 HeaderBar.Products = Products;
+HeaderBar.getDisplayName = 'Headerbar';
 
 if (process.env.NODE_ENV !== 'production') {
 	Logo.propTypes = {
@@ -275,11 +305,20 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func.isRequired,
 	};
 
+	Information.propTypes = {
+		renderers: PropTypes.shape({
+			ActionSplitDropdown: PropTypes.func,
+			Action: PropTypes.func,
+		}),
+		t: PropTypes.func.isRequired,
+	};
+
 	User.propTypes = {
 		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
 		name: PropTypes.string.isRequired,
 		firstName: PropTypes.string,
 		lastName: PropTypes.string,
+		t: PropTypes.func.isRequired,
 	};
 
 	AppNotification.propTypes = {
@@ -299,6 +338,7 @@ if (process.env.NODE_ENV !== 'production') {
 		env: PropTypes.shape(Environment.propTypes),
 		search: PropTypes.shape(Search.propTypes),
 		help: PropTypes.shape(omit(Help.propTypes, 't')),
+		information: PropTypes.shape(omit(Information.propTypes, 't')),
 		user: PropTypes.shape(User.propTypes),
 		notification: PropTypes.shape(AppNotification.propTypes, 't'),
 		products: PropTypes.shape(omit(Products.propTypes, 't')),
@@ -308,6 +348,7 @@ if (process.env.NODE_ENV !== 'production') {
 			Environment: PropTypes.func,
 			Search: PropTypes.func,
 			User: PropTypes.func,
+			Information: PropTypes.func,
 			Products: PropTypes.func,
 		}),
 		t: PropTypes.func,
