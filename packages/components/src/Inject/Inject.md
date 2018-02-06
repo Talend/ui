@@ -22,6 +22,22 @@ For components you can pass props like this one:
     return <MyCustomizableComponent components={components} />
 ```
 
+The most important here is to understand the structure of the components props.
+The attributes keys are the `slot` key which is exposed in the component documentation.
+The value should always be an Array of Object.
+
+Each object should have the component key which is the string of the registred Component.
+The mecanism inside is to call the props.getComponent function with this component key as only argument.
+
+All other will attributes of this object will be pass as props of the given components.
+
+```js
+<Action label="LabelACtion1" icon="IconAction1 />
+```
+
+Good practice: If you are using CMF you can use `componentId` props in combination here to then use
+props['Action#componentId'] in the settings.
+
 # How to create a customizable components
 
 You have to add two props:
@@ -32,19 +48,24 @@ You have to add two props:
 ```js
 function Example({ getComponent, components }) {
     const inject = Inject.all(getComponent, components);
+    const Renderer = Inject.getAll(getComponent, { Something, Anything });
     return(
         <div>
             {inject('before-something')}
-            <Something />
+            <Renderer.Something />
             {inject('before-anything')}
-            <Anything />
+            <Renderer.Anything />
             {inject('after-anything')}
         </div>
     )
 }
 ```
+could use some more information geared toward the component user like "before-something" is the slot name in which you wish to inject a component, you can find those in the component documentation.
 
-In most of the case you would like to wrap the injectionion.
+The slots name should be listed in the documentation so a User can easly find them.
+For example you can check the documentation of the [SubHeaderBar](../SubHeaderBar/SubHeaderBar.md)
+
+In most of the case you would like to wrap the injection.
 To support this you can create a CustomInject which can support specific props
 
 ```js
