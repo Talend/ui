@@ -111,7 +111,7 @@ export function getStateToProps({
 
 	let userProps = {};
 	if (mapStateToProps) {
-		userProps = mapStateToProps(state, { ...viewProps, ...ownProps }, cmfProps);
+		userProps = mapStateToProps(state, { ...ownProps, ...viewProps }, cmfProps);
 	}
 
 	const props = {
