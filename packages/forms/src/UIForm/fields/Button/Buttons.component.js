@@ -15,7 +15,7 @@ function getButtonsList(id, buttons, onTrigger, onClick) {
 			key={index}
 			id={itemSchema.id || `${id}-${index}`}
 			onTrigger={onTrigger}
-			onClick={onClick(itemSchema.onClick)}
+			onClick={onClick && onClick(itemSchema.onClick)}
 			schema={itemSchema}
 		/>
 	));

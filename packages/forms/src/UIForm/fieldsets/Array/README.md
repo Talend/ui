@@ -107,3 +107,75 @@ Array of objects
 **Result**
 
 ![Array](screenshot.jpg)
+
+**Custom Array template**
+
+You can customize array template, by providing your template in UIForm `props.templates`.
+
+Example:
+```javascript
+function CustomArrayTemplate(props) {
+	const {
+		canReorder,
+		id,
+		onAdd,
+		onRemove,
+		onReorder,
+		renderItem,
+		schema,
+		value,
+	} = props;
+
+	return (
+		<div>
+			<legend>This is a custom array template</legend>
+			<ol id={id} style={{ listStyle: 'none' }}>
+				{value.map((itemValue, index) => {
+					return (
+						<li key={index}>
+							<Action
+							    icon={'talend-trash'}
+							    label={'Remove'}
+							    onClick={event => onReorder(event, index)}
+							    hideLabel
+							/>
+							{canReorder && <Action
+							    icon={'talend-caret-down'}
+							    label={'Move Down'}
+							    onClick={event => onReorder(event, { previousIndex: index, nextIndex: index - 1 }}
+							    hideLabel
+							/>}
+							{renderItem(index)}
+						</li>
+					);
+				})}
+			</ol>
+			<div>
+				<button type="button" className="btn btn-info" onClick={onAdd}>
+					New Element
+				</button>
+			</div>
+		</div>
+	);
+}
+
+
+const myTemplates = {
+	array: MyCustomArrayTemplate,
+};
+
+<UIForm {...props} templates={myTemplates} /> 
+```
+
+Custom Array Template props
+
+| Property | Type | Description |
+|---|---|---|
+| canReorder | `boolean` | Flag that indicates if reorder is enabled. |
+| id | `string` | The widget id. |
+| onAdd | `function` | `onAdd(event)` function to call to add an element. |
+| onRemove | `function` | `onRemove(event, index)` function to call to remove an element. |
+| onReorder | `function` | `onRemove(event, { previousIndex, nextIndex })` function to call to move an element. |
+| renderItem | `function` | `renderItem(index)` function to call to render an element. |
+| schema | `object` | The merged schema. |
+| value | `any` | The array value. |

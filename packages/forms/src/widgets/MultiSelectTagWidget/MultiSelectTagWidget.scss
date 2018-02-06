@@ -1,14 +1,18 @@
-@import "~@talend/bootstrap-theme/src/theme/_forms.scss";
+@import '~@talend/bootstrap-theme/src/theme/_forms.scss';
 $dropdown-items-max-height: 320px !default;
-$tf-typeahead-section-header-color: #63AEBD !default;
-$tf-typeahead-section-border-color: #E0E0E0 !default;
+$tf-typeahead-section-header-color: #63aebd !default;
+$tf-typeahead-section-border-color: #e0e0e0 !default;
 
 .dropdown-toggle {
 	position: absolute;
 	right: 0;
 	top: 50%;
+	padding: $padding-normal;
 	transform: translateY(-50%);
-	pointer-events: none
+	cursor: pointer;
+	z-index: 10;
+	background: transparent;
+	border: none;
 }
 
 .wrapper {

@@ -1,0 +1,109 @@
+/// Define button colors based on its background
+/// @access public
+/// @param {Color} $btn-bg [$btn-default-bg] - button background color to tint
+@mixin btn-colors($btn-bg: $btn-default-bg) {
+	box-shadow: 0 (-1 * $btn-box-shadow-width) 0 rgba(0, 0, 0, 0.15) inset;
+
+	&:hover {
+		background-color: tint($btn-bg, $btn-background-tint-percent);
+		box-shadow: 0 (-1 * $btn-box-shadow-width) 0 $shadow inset;
+	}
+
+	&:active {
+		background-color: $btn-bg;
+		box-shadow: 0 (-1 * $btn-box-shadow-width) 0 rgba(0, 0, 0, 0) inset;
+	}
+}
+
+/// Dropdown caret default color
+/// @access public
+/// @content Borders and box-shadow color variation
+/// @param {Color} dropdown-caret-color - Caret color
+@mixin dropdown-caret-color($dropdown-caret-color) {
+	border-top-color: $dropdown-caret-color;
+	border-right-color: $dropdown-caret-color;
+	box-shadow: 1px -1px 0 $dropdown-caret-color;
+}
+
+/// Define gradient based webapp layouts
+/// @access public
+/// @param {Color} $brand-primary - primary color of product
+/// @param {Color} $brand-secondary [$brand-primary] - secondary color of product
+@mixin layout-colors($brand-primary, $brand-secondary: $brand-primary) {
+	$logo-size: 31rem !default;
+
+	[role='banner'] {
+		nav {
+			$gradient-angle: 'to right';
+			background: linear-gradient(#{$gradient-angle}, $regal-blue 20%, $brand-primary 80%);
+		}
+
+		[role='heading'] span {
+			display: inline-flex;
+			align-items: center;
+
+			&:before {
+				display: block;
+				content: '';
+				margin-right: $padding-small;
+				height: $svg-md-size;
+				width: $svg-md-size;
+				background-repeat: no-repeat;
+			}
+		}
+
+		[role='presentation'] {
+			// Sorry, Bootstrap customization sucks
+			:global(.btn),
+			:global(.btn.open),
+			:global(.dropdown.open .btn) {
+				&,
+				&:hover {
+					background: none;
+				}
+			}
+
+			:global(.btn) {
+				&:hover {
+					box-shadow: 0 200px 100px -100px rgba(255, 255, 255, 0.12) inset;
+				}
+			}
+		}
+	}
+
+	[role='navigation'] {
+		$gradient-angle: 'to bottom';
+		position: relative;
+		height: 100%;
+		overflow: hidden;
+		background: linear-gradient(#{$gradient-angle}, $st-tropaz, $brand-primary 95%);
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: -50px;
+			height: $logo-size;
+			width: $logo-size;
+			background-repeat: no-repeat;
+		}
+
+		&[aria-expanded='false']:before {
+			content: none;
+		}
+
+		[role='presentation'] {
+			&[aria-current] {
+				$gradient-angle: 'to right';
+				background: linear-gradient(#{$gradient-angle}, $green-talend -15%, $brand-secondary 45%);
+			}
+
+			&:hover {
+				&:not([aria-current]) {
+					background: none;
+					box-shadow: 0 200px 100px -100px rgba(255, 255, 255, 0.12) inset;
+				}
+			}
+		}
+	}
+}

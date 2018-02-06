@@ -79,6 +79,17 @@ export function startWebsocket(url, offlinebuffer, options) {
 		}
 		ws.close();
 	};
+
+	function wsStillNotYetOpened() {
+		if (ws.readyState === WebSocket.CONNECTING) {
+			ws.onpingtimeout();
+		}
+	}
+
+	if (!isNaN(options.pingTimeoutDelay)) {
+		setTimeout(wsStillNotYetOpened, options.pingTimeoutDelay);
+	}
+
 	return ws;
 }
 
@@ -86,7 +97,7 @@ export function startWebsocket(url, offlinebuffer, options) {
  * create a new smart websocket featuring
  * automatic reconnection
  * message pooling in case of connection loss
- * @param ulr
+ * @param url
  * @param options
  */
 export default function SmartWebsocket(url, options = {}) {

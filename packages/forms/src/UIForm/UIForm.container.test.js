@@ -32,10 +32,29 @@ describe('UIForm container', () => {
 			instance.onChange(null, {
 				schema: mergedSchema[0],
 				value: 'toto',
+				properties: { lastname: 'toto' },
 			});
 
 			// then
 			expect(instance.state).toMatchSnapshot();
+		});
+
+		it('should call onChange callback', () => {
+			// given
+			const wrapper = shallow(<UIForm data={data} {...props} />);
+			const instance = wrapper.instance();
+			const event = { target: {} };
+			const payload = {
+				schema: mergedSchema[0],
+				value: 'toto',
+				properties: { lastname: 'toto' },
+			};
+
+			// when
+			instance.onChange(event, payload);
+
+			// then
+			expect(props.onChange).toBeCalledWith(event, payload);
 		});
 
 		it('should trigger onChange callback', () => {
@@ -67,7 +86,7 @@ describe('UIForm container', () => {
 			const errors = { firstname: 'my firstname is invalid' };
 
 			// when
-			instance.setErrors(errors);
+			instance.setErrors(null, errors);
 
 			// then
 			expect(instance.state).toMatchSnapshot();

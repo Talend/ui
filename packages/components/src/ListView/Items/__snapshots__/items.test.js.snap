@@ -3592,7 +3592,7 @@ exports[`Items should render 1`] = `
     t={[Function]}
   >
     <div
-      className="tc-listview-items"
+      className="theme-tc-listview-items tc-listview-items"
     >
       <Component>
         <div
@@ -3600,7 +3600,7 @@ exports[`Items should render 1`] = `
         >
           <List
             autoHeight={false}
-            className="tc-list-items"
+            className="theme-tc-list-items tc-list-items"
             estimatedRowSize={30}
             height={30}
             items={
@@ -3638,7 +3638,7 @@ exports[`Items should render 1`] = `
               autoWidth={false}
               cellRangeRenderer={[Function]}
               cellRenderer={[Function]}
-              className="ReactVirtualized__List tc-list-items"
+              className="ReactVirtualized__List theme-tc-list-items tc-list-items"
               columnCount={1}
               columnWidth={30}
               containerRole="rowgroup"
@@ -3686,7 +3686,7 @@ exports[`Items should render 1`] = `
               <div
                 aria-label="grid"
                 aria-readonly={true}
-                className="ReactVirtualized__Grid ReactVirtualized__List tc-list-items"
+                className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
                 onScroll={[Function]}
                 role="grid"
                 style={
@@ -3720,7 +3720,7 @@ exports[`Items should render 1`] = `
                   }
                 >
                   <div
-                    className="tc-item-container toggle"
+                    className="theme-tc-item-container theme-toggle tc-item-container toggle"
                     key="0-0"
                     style={
                       Object {
@@ -3750,7 +3750,7 @@ exports[`Items should render 1`] = `
                     </div>
                   </div>
                   <div
-                    className="tc-item-container"
+                    className="theme-tc-item-container theme-false tc-item-container"
                     key="1-0"
                     style={
                       Object {
@@ -3783,7 +3783,7 @@ exports[`Items should render 1`] = `
                                 type="checkbox"
                               />
                               <span
-                                className="tc-listview-item-label"
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
                                 Lorem ipsum dolor sit amet 0
                               </span>
@@ -3794,7 +3794,7 @@ exports[`Items should render 1`] = `
                     </Item>
                   </div>
                   <div
-                    className="tc-item-container"
+                    className="theme-tc-item-container theme-false tc-item-container"
                     key="2-0"
                     style={
                       Object {
@@ -3829,7 +3829,7 @@ exports[`Items should render 1`] = `
                                 type="checkbox"
                               />
                               <span
-                                className="tc-listview-item-label"
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
                                 Lorem ipsum dolor sit amet 1
                               </span>
@@ -3840,7 +3840,7 @@ exports[`Items should render 1`] = `
                     </Item>
                   </div>
                   <div
-                    className="tc-item-container"
+                    className="theme-tc-item-container theme-false tc-item-container"
                     key="3-0"
                     style={
                       Object {
@@ -3873,7 +3873,7 @@ exports[`Items should render 1`] = `
                                 type="checkbox"
                               />
                               <span
-                                className="tc-listview-item-label"
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
                                 Lorem ipsum dolor sit amet 2
                               </span>
@@ -7491,7 +7491,7 @@ exports[`Items should render with provided id 1`] = `
     t={[Function]}
   >
     <div
-      className="tc-listview-items"
+      className="theme-tc-listview-items tc-listview-items"
     >
       <Component>
         <div
@@ -7499,7 +7499,7 @@ exports[`Items should render with provided id 1`] = `
         >
           <List
             autoHeight={false}
-            className="tc-list-items"
+            className="theme-tc-list-items tc-list-items"
             estimatedRowSize={30}
             height={30}
             items={
@@ -7537,7 +7537,7 @@ exports[`Items should render with provided id 1`] = `
               autoWidth={false}
               cellRangeRenderer={[Function]}
               cellRenderer={[Function]}
-              className="ReactVirtualized__List tc-list-items"
+              className="ReactVirtualized__List theme-tc-list-items tc-list-items"
               columnCount={1}
               columnWidth={30}
               containerRole="rowgroup"
@@ -7585,7 +7585,7 @@ exports[`Items should render with provided id 1`] = `
               <div
                 aria-label="grid"
                 aria-readonly={true}
-                className="ReactVirtualized__Grid ReactVirtualized__List tc-list-items"
+                className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
                 onScroll={[Function]}
                 role="grid"
                 style={
@@ -7619,7 +7619,7 @@ exports[`Items should render with provided id 1`] = `
                   }
                 >
                   <div
-                    className="tc-item-container toggle"
+                    className="theme-tc-item-container theme-toggle tc-item-container toggle"
                     key="0-0"
                     style={
                       Object {
@@ -7649,7 +7649,7 @@ exports[`Items should render with provided id 1`] = `
                     </div>
                   </div>
                   <div
-                    className="tc-item-container"
+                    className="theme-tc-item-container theme-false tc-item-container"
                     key="1-0"
                     style={
                       Object {
@@ -7689,7 +7689,7 @@ exports[`Items should render with provided id 1`] = `
                                 type="checkbox"
                               />
                               <span
-                                className="tc-listview-item-label"
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
                                 Lorem ipsum dolor sit amet 0
                               </span>
@@ -7700,7 +7700,7 @@ exports[`Items should render with provided id 1`] = `
                     </Item>
                   </div>
                   <div
-                    className="tc-item-container"
+                    className="theme-tc-item-container theme-false tc-item-container"
                     key="2-0"
                     style={
                       Object {
@@ -7742,7 +7742,7 @@ exports[`Items should render with provided id 1`] = `
                                 type="checkbox"
                               />
                               <span
-                                className="tc-listview-item-label"
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
                                 Lorem ipsum dolor sit amet 1
                               </span>
@@ -7753,7 +7753,7 @@ exports[`Items should render with provided id 1`] = `
                     </Item>
                   </div>
                   <div
-                    className="tc-item-container"
+                    className="theme-tc-item-container theme-false tc-item-container"
                     key="3-0"
                     style={
                       Object {
@@ -7793,7 +7793,7 @@ exports[`Items should render with provided id 1`] = `
                                 type="checkbox"
                               />
                               <span
-                                className="tc-listview-item-label"
+                                className="theme-tc-listview-item-label tc-listview-item-label"
                               >
                                 Lorem ipsum dolor sit amet 2
                               </span>

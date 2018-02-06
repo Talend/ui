@@ -32,6 +32,10 @@ class Datalist extends Component {
 		this.state = { previousValue: props.value, value: props.value };
 	}
 
+	componentWillReceiveProps({ value }) {
+		this.setState({ previousValue: value, value });
+	}
+
 	/**
 	 * Persist the value (if not already persisted) and remove the suggestions on blur event
 	 * @param event The blur event
@@ -68,10 +72,10 @@ class Datalist extends Component {
 	 * ENTER: select a suggestion, persist the value, or submit the form
 	 * UP/DOWN: update the active suggestion index
 	 * @param event The keydown event
-	 * @param focusedItemIndex The previous focused suggestion index
-	 * @param newFocusedItemIndex The new focused suggestion index
+	 * @param highlightedItemIndex The previous focused suggestion index
+	 * @param newHighlightedItemIndex The new focused suggestion index
 	 */
-	onKeyDown(event, { focusedItemIndex, newFocusedItemIndex }) {
+	onKeyDown(event, { highlightedItemIndex, newHighlightedItemIndex }) {
 		switch (event.which) {
 			case keycode.codes.esc:
 				event.preventDefault();
@@ -82,9 +86,9 @@ class Datalist extends Component {
 					break;
 				}
 				event.preventDefault();
-				if (Number.isInteger(focusedItemIndex)) {
+				if (Number.isInteger(highlightedItemIndex)) {
 					// suggestions are displayed and an item has the focus : we select it
-					this.onSelect(event, { itemIndex: focusedItemIndex });
+					this.onSelect(event, { itemIndex: highlightedItemIndex });
 				} else if (this.state.value !== this.state.previousValue) {
 					// there is no focused item and the current value is not persisted
 					// we persist it
@@ -98,11 +102,11 @@ class Datalist extends Component {
 					// display all suggestions when they are not displayed
 					this.updateSuggestions();
 				}
-				this.setState({ focusedItemIndex: newFocusedItemIndex });
+				this.setState({ focusedItemIndex: newHighlightedItemIndex });
 				break;
 			case keycode.codes.up:
 				event.preventDefault();
-				this.setState({ focusedItemIndex: newFocusedItemIndex });
+				this.setState({ focusedItemIndex: newHighlightedItemIndex });
 				break;
 			default:
 				break;

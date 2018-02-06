@@ -2,13 +2,13 @@
 
 exports[`Columns widget should render columns 1`] = `
 <div
-  className="tf-columns"
+  className="tf-columns theme-tf-columns"
 >
   <legend>
     My awesome columns
   </legend>
   <div
-    className="tf-columns-items"
+    className="tf-columns-items theme-items"
   >
     <Widget
       schema={

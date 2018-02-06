@@ -9,7 +9,7 @@ import WithDrawer from '../../WithDrawer';
 /**
  * @param {object} props react props
  * @example
-<OneColumn name="Hello world"></OneColumn>
+ <OneColumn name="Hello world"></OneColumn>
  */
 function OneColumn({ drawers, children, tabs, ...props }) {
 	const container = classnames('tc-layout-one-column', theme.main);

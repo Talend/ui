@@ -1,4 +1,3 @@
-// test/styleMock.js
-
-// Return an object to emulate css modules (if you are using them)
-module.exports = {};
+module.exports = new Proxy({}, {
+	get: (target, key) => key !== '__esModule' && `theme-${key}`,
+});

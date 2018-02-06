@@ -2,10 +2,10 @@
 
 exports[`Typeahead items should render typeahead items with match 1`] = `
 <div
-  style={Object {}}
+  className="theme-tc-typeahead-container theme-container-open"
 >
   <div
-    className={undefined}
+    className="theme-typeahead-input-icon"
   >
     <label
       className="control-label sr-only"
@@ -21,35 +21,35 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
       aria-owns="react-autowhatever-my-search"
       autoComplete="off"
       autoFocus={true}
-      className="form-control"
+      className="theme-typeahead-input form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
       role="combobox"
-      style={Object {}}
       type="text"
       value="le"
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
-      style={Object {}}
+      className="theme-items-container"
+      id="react-autowhatever-my-search"
     >
       <div
-        style={Object {}}
+        className="theme-section-container"
       >
         <div
           style={Object {}}
         >
           <div
-            className={undefined}
+            className="theme-section-header"
           >
             <i
               aria-hidden="true"
@@ -58,15 +58,15 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
               title="icon"
             />
             <span
-              className={undefined}
+              className="theme-section-header-title"
             >
               category 1
             </span>
           </div>
         </div>
         <ul
+          className="theme-items"
           role="listbox"
-          style={Object {}}
         >
           <li
             id="react-autowhatever-my-search-section-0-item-0"
@@ -75,21 +75,21 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
             style={Object {}}
           >
             <div
-              className={undefined}
+              className="theme-item"
               title="le title 1"
             >
               <span
-                className={undefined}
+                className="theme-item-title"
               >
                 <span>
                   <em
-                    className={undefined}
+                    className="theme-highlight"
                   >
                     le
                   </em>
                    tit
                   <em
-                    className={undefined}
+                    className="theme-highlight"
                   >
                     le
                   </em>
@@ -97,12 +97,12 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
                 </span>
               </span>
               <p
-                className={undefined}
+                className="theme-item-description"
               >
                 <span>
                   description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
                   <em
-                    className={undefined}
+                    className="theme-highlight"
                   >
                     le
                   </em>
@@ -118,47 +118,47 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
             style={Object {}}
           >
             <div
-              className={undefined}
+              className="theme-item"
               title="title 2 les elephants elementaires ont des aile"
             >
               <span
-                className={undefined}
+                className="theme-item-title"
               >
                 <span>
                   tit
                   <em
-                    className={undefined}
+                    className="theme-highlight"
                   >
                     le
                   </em>
                    2 
                   <em
-                    className={undefined}
+                    className="theme-highlight"
                   >
                     le
                   </em>
                   s e
                   <em
-                    className={undefined}
+                    className="theme-highlight"
                   >
                     le
                   </em>
                   phants e
                   <em
-                    className={undefined}
+                    className="theme-highlight"
                   >
                     le
                   </em>
                   mentaires ont des ai
                   <em
-                    className={undefined}
+                    className="theme-highlight"
                   >
                     le
                   </em>
                 </span>
               </span>
               <p
-                className={undefined}
+                className="theme-item-description"
               >
                 <span>
                   description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
@@ -169,13 +169,13 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
         </ul>
       </div>
       <div
-        style={Object {}}
+        className="theme-section-container"
       >
         <div
           style={Object {}}
         >
           <div
-            className={undefined}
+            className="theme-section-header"
           >
             <i
               aria-hidden="true"
@@ -184,15 +184,15 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
               title="icon"
             />
             <span
-              className={undefined}
+              className="theme-section-header-title"
             >
               category 2
             </span>
           </div>
         </div>
         <ul
+          className="theme-items"
           role="listbox"
-          style={Object {}}
         >
           <li
             id="react-autowhatever-my-search-section-1-item-0"
@@ -201,16 +201,16 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
             style={Object {}}
           >
             <div
-              className={undefined}
+              className="theme-item"
               title="title 3"
             >
               <span
-                className={undefined}
+                className="theme-item-title"
               >
                 <span>
                   tit
                   <em
-                    className={undefined}
+                    className="theme-highlight"
                   >
                     le
                   </em>
@@ -218,12 +218,12 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
                 </span>
               </span>
               <p
-                className={undefined}
+                className="theme-item-description"
               >
                 <span>
                   description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
                   <em
-                    className={undefined}
+                    className="theme-highlight"
                   >
                     le
                   </em>
@@ -241,10 +241,10 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
 
 exports[`Typeahead items should render typeahead with object items 1`] = `
 <div
-  style={Object {}}
+  className="theme-tc-typeahead-container theme-container-open"
 >
   <div
-    className={undefined}
+    className="theme-typeahead-input-icon"
   >
     <label
       className="control-label sr-only"
@@ -260,35 +260,35 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
       aria-owns="react-autowhatever-my-search"
       autoComplete="off"
       autoFocus={true}
-      className="form-control"
+      className="theme-typeahead-input form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
       role="combobox"
-      style={Object {}}
       type="text"
       value={undefined}
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
-      style={Object {}}
+      className="theme-items-container"
+      id="react-autowhatever-my-search"
     >
       <div
-        style={Object {}}
+        className="theme-section-container"
       >
         <div
           style={Object {}}
         >
           <div
-            className={undefined}
+            className="theme-section-header"
           >
             <i
               aria-hidden="true"
@@ -297,15 +297,15 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
               title="icon"
             />
             <span
-              className={undefined}
+              className="theme-section-header-title"
             >
               category 1
             </span>
           </div>
         </div>
         <ul
+          className="theme-items"
           role="listbox"
-          style={Object {}}
         >
           <li
             id="react-autowhatever-my-search-section-0-item-0"
@@ -314,18 +314,18 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
             style={Object {}}
           >
             <div
-              className={undefined}
+              className="theme-item"
               title="le title 1"
             >
               <span
-                className={undefined}
+                className="theme-item-title"
               >
                 <span>
                   le title 1
                 </span>
               </span>
               <p
-                className={undefined}
+                className="theme-item-description"
               >
                 <span>
                   description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
@@ -340,18 +340,18 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
             style={Object {}}
           >
             <div
-              className={undefined}
+              className="theme-item"
               title="title 2 les elephants elementaires ont des aile"
             >
               <span
-                className={undefined}
+                className="theme-item-title"
               >
                 <span>
                   title 2 les elephants elementaires ont des aile
                 </span>
               </span>
               <p
-                className={undefined}
+                className="theme-item-description"
               >
                 <span>
                   description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
@@ -362,13 +362,13 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
         </ul>
       </div>
       <div
-        style={Object {}}
+        className="theme-section-container"
       >
         <div
           style={Object {}}
         >
           <div
-            className={undefined}
+            className="theme-section-header"
           >
             <i
               aria-hidden="true"
@@ -377,15 +377,15 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
               title="icon"
             />
             <span
-              className={undefined}
+              className="theme-section-header-title"
             >
               category 2
             </span>
           </div>
         </div>
         <ul
+          className="theme-items"
           role="listbox"
-          style={Object {}}
         >
           <li
             id="react-autowhatever-my-search-section-1-item-0"
@@ -394,18 +394,18 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
             style={Object {}}
           >
             <div
-              className={undefined}
+              className="theme-item"
               title="title 3"
             >
               <span
-                className={undefined}
+                className="theme-item-title"
               >
                 <span>
                   title 3
                 </span>
               </span>
               <p
-                className={undefined}
+                className="theme-item-description"
               >
                 <span>
                   description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
@@ -422,10 +422,10 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
 
 exports[`Typeahead items should render typeahead with string items 1`] = `
 <div
-  style={Object {}}
+  className="theme-tc-typeahead-container theme-container-open"
 >
   <div
-    className={undefined}
+    className="theme-typeahead-input-icon"
   >
     <label
       className="control-label sr-only"
@@ -441,30 +441,30 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
       aria-owns="react-autowhatever-my-search"
       autoComplete="off"
       autoFocus={true}
-      className="form-control"
+      className="theme-typeahead-input form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
       role="combobox"
-      style={Object {}}
       type="text"
       value={undefined}
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
-      style={Object {}}
+      className="theme-items-container"
+      id="react-autowhatever-my-search"
     >
       <ul
+        className="theme-items"
         role="listbox"
-        style={Object {}}
       >
         <li
           id="react-autowhatever-my-search--item-0"
@@ -473,11 +473,11 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
           style={Object {}}
         >
           <div
-            className={undefined}
+            className="theme-item"
             title="category 1"
           >
             <span
-              className={undefined}
+              className="theme-item-title"
             >
               <span>
                 category 1
@@ -492,11 +492,11 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
           style={Object {}}
         >
           <div
-            className={undefined}
+            className="theme-item"
             title="category 2"
           >
             <span
-              className={undefined}
+              className="theme-item-title"
             >
               <span>
                 category 2
@@ -512,10 +512,10 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
 
 exports[`Typeahead items should render typeahead without items 1`] = `
 <div
-  style={Object {}}
+  className="theme-tc-typeahead-container"
 >
   <div
-    className={undefined}
+    className="theme-typeahead-input-icon"
   >
     <label
       className="control-label sr-only"
@@ -531,27 +531,26 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       aria-owns="react-autowhatever-my-search"
       autoComplete="off"
       autoFocus={true}
-      className="form-control"
+      className="theme-typeahead-input form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
       role="combobox"
-      style={Object {}}
       type="text"
       value={undefined}
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
-      className="undefined undefined"
-      style={Object {}}
+      className="theme-items-container theme-no-result"
+      id="react-autowhatever-my-search"
     >
       <span
         className="no-result"
@@ -565,10 +564,10 @@ exports[`Typeahead items should render typeahead without items 1`] = `
 
 exports[`Typeahead position should render search bar on the right 1`] = `
 <div
-  style={Object {}}
+  className="theme-tc-typeahead-container theme-right"
 >
   <div
-    className={undefined}
+    className="theme-typeahead-input-icon"
   >
     <label
       className="control-label sr-only"
@@ -584,26 +583,26 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       aria-owns="react-autowhatever-my-search"
       autoComplete="off"
       autoFocus={true}
-      className="form-control"
+      className="theme-typeahead-input form-control"
       disabled={false}
       id="react-autowhatever-my-search-input"
-      onBlur={undefined}
+      onBlur={[Function]}
       onChange={undefined}
-      onFocus={undefined}
+      onFocus={[Function]}
       onKeyDown={undefined}
       placeholder={undefined}
       readOnly={false}
       role="combobox"
-      style={Object {}}
       type="text"
       value={undefined}
     />
   </div>
   <div
-    id="react-autowhatever-my-search"
+    id={undefined}
   >
     <div
-      style={Object {}}
+      className="theme-items-container"
+      id="react-autowhatever-my-search"
     />
   </div>
 </div>
@@ -611,7 +610,7 @@ exports[`Typeahead position should render search bar on the right 1`] = `
 
 exports[`Typeahead with toggle should render button 1`] = `
 <button
-  className="btn btn-link"
+  className="theme-only-icon-cls btn btn-link"
   disabled={false}
   onClick={[Function]}
   onFocus={[Function]}

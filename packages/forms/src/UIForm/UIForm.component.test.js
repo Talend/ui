@@ -48,12 +48,14 @@ describe('UIForm component', () => {
 			expect(props.onChange).toBeCalledWith(expect.anything(), {
 				schema: mergedSchema[0],
 				value: newValue,
-				properties: data.properties,
+				oldProperties: data.properties,
+				properties: { lastname: 'toto' },
 				formData: { lastname: 'toto' },
 			});
 			expect(props.onTrigger).not.toBeCalled();
 			expect(props.setErrors).not.toBeCalled();
 		});
+
 		it('should not perform trigger onChange', () => {
 			// given
 			const wrapper = mount(<UIForm {...data} {...props} properties={{ firstname: 'to' }} />);
@@ -71,6 +73,39 @@ describe('UIForm component', () => {
 	});
 
 	describe('#onFinish', () => {
+		it('should perform trigger', () => {
+			// given
+			const validData = {
+				...data,
+				properties: { firstname: 'toto' },
+			};
+			const wrapper = mount(<UIForm {...validData} {...props} />);
+			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
+
+			// when
+			wrapper
+				.find('input')
+				.at(1)
+				.simulate('blur');
+
+			// then
+			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
+				trigger: 'after',
+				schema: {
+					key: ['firstname'],
+					title: 'First Name (with placeholder)',
+					placeholder: 'Enter your firstname here',
+					triggers: ['after'],
+					required: true,
+					schema: { type: 'string' },
+					ngModelOptions: {},
+					type: 'text',
+				},
+				properties: validData.properties,
+				errors: validData.errors,
+			});
+		});
+
 		it('should NOT perform trigger when field has errors', () => {
 			// given: required firstname is empty
 			const wrapper = mount(<UIForm {...data} {...props} />);
@@ -106,7 +141,7 @@ describe('UIForm component', () => {
 			);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(newErrors);
+			expect(props.setErrors).toBeCalledWith(event, newErrors);
 		});
 	});
 
@@ -122,15 +157,12 @@ describe('UIForm component', () => {
 				.simulate('click');
 
 			// then
-			expect(props.onTrigger).toBeCalledWith(
-				expect.anything(),
-				{
-					trigger: 'after',
-					schema: mergedSchema[2],
-				},
-				undefined,
-				undefined,
-			);
+			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
+				properties: {},
+				errors: {},
+				trigger: 'after',
+				schema: mergedSchema[2],
+			});
 		});
 	});
 
@@ -156,9 +188,7 @@ describe('UIForm component', () => {
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith({
-				firstname: 'Missing required field',
-			});
+			expect(props.setErrors).toBeCalledWith(submitEvent, { firstname: 'Missing required field' });
 		});
 
 		it('should not call submit callback when form is invalid', () => {

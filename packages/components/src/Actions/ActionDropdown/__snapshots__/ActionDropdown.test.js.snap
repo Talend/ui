@@ -6,6 +6,8 @@ exports[`InjectDropdownMenuItem should render MenuItem with Inject 1`] = `
   disabled={false}
   divider={false}
   header={false}
+  onKeyDown={[Function]}
+  onSelect={[Function]}
   stuff="MyItemProps"
 >
   <Inject

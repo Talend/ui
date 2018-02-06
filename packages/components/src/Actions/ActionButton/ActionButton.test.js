@@ -2,8 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ActionButton from './ActionButton.component';
 
-jest.mock('react-dom');
-
 const myAction = {
 	label: 'Click me',
 	icon: 'talend-caret-down',

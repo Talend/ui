@@ -2,20 +2,20 @@
 
 exports[`SubHeaderBar should render without i18n 1`] = `
 <header
-  className="tc-subheader myClassName"
+  className="theme-tc-subheader tc-subheader myClassName"
 >
   <ActionBar
-    className="tc-subheader-navbar"
+    className="theme-tc-subheader-navbar tc-subheader-navbar"
   >
     <SubHeaderBarActions
       center={false}
-      className={undefined}
+      className="theme-tc-subheader-navbar-left"
       components={
         Array [
           Object {
             "injectedComponent": <Action
               bsStyle="link"
-              className="tc-subheader-back-button"
+              className="theme-tc-subheader-back-button tc-subheader-back-button"
               hideLabel={true}
               icon="talend-arrow-left"
               id="backArrow"

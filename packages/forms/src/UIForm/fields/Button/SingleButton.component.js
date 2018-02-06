@@ -4,7 +4,7 @@ import Action from '@talend/react-components/lib/Actions/Action';
 import classNames from 'classnames';
 
 export default function SingleButton({ className, id, onTrigger, onClick, schema }) {
-	const { triggers, type = 'button', ...props } = schema;
+	const { triggers, type = 'button', title, label, ...props } = schema;
 
 	let localOnClick;
 	if (type === 'button' && triggers) {
@@ -18,6 +18,7 @@ export default function SingleButton({ className, id, onTrigger, onClick, schema
 			{...props}
 			id={id}
 			className={classNames('btn', className)}
+			label={label || title}
 			onClick={localOnClick}
 			type={type}
 		/>
@@ -36,7 +37,7 @@ if (process.env.NODE_ENV !== 'production') {
 			inProgress: PropTypes.bool,
 			name: PropTypes.string,
 			label: PropTypes.string,
-			triggers: PropTypes.arrayOf(PropTypes.string),
+			triggers: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.string])),
 			type: PropTypes.string,
 		}),
 	};

@@ -2,6 +2,7 @@ import React from 'react';
 import { IconsProvider } from '@talend/react-components';
 import Immutable from 'immutable';
 import { I18nextProvider } from 'react-i18next';
+import { cloneDeep } from 'lodash';
 
 import { List } from '../src';
 import i18n from './config/i18n';
@@ -92,6 +93,18 @@ const ExampleList = {
 			</div>
 		</div>
 	),
+	'in progress': () => {
+		const props2 = cloneDeep(props);
+		props2.list.inProgress = true;
+		return (
+				<div>
+					<IconsProvider />
+					<div className="list-container">
+						<List {...props2} items={items} />
+					</div>
+				</div>
+		)
+	},
 	'no toolbar': () => (
 		<div>
 			<IconsProvider />

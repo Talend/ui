@@ -81,6 +81,8 @@ describe('InjectDropdownMenuItem', () => {
 				component="Action"
 				key={0}
 				menuItemProps={{ stuff: 'MyItemProps' }}
+				onSelect={jest.fn()}
+				onKeyDown={jest.fn()}
 				withMenuItem
 			/>,
 		);

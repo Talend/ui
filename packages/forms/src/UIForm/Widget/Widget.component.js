@@ -1,15 +1,22 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import get from 'lodash/get';
+import includes from 'lodash/includes';
 import { sfPath } from 'talend-json-schema-form-core';
 
 import defaultWidgets from '../utils/widgets';
+import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
 
+function shouldRender(conditions, properties) {
+	return !conditions || conditions.every(cond => includes(cond.values, get(properties, cond.path)));
+}
+
 export default function Widget(props) {
-	const { key, type, validationMessage, widget, options } = props.schema;
+	const { conditions, key, options, type, validationMessage, widget } = props.schema;
 	const widgetId = widget || type;
 
-	if (widgetId === 'hidden') {
+	if (widgetId === 'hidden' || !shouldRender(conditions, props.properties)) {
 		return null;
 	}
 
@@ -20,7 +27,7 @@ export default function Widget(props) {
 	}
 
 	const id = sfPath.name(key, '_', props.id);
-	const error = props.errors[key];
+	const error = getError(props.errors, props.schema);
 	const errorMessage = validationMessage || error;
 	return (
 		<WidgetImpl
@@ -29,7 +36,7 @@ export default function Widget(props) {
 			key={id}
 			errorMessage={errorMessage}
 			isValid={!error}
-			value={getValue(props.properties, key)}
+			value={getValue(props.properties, props.schema)}
 			options={options}
 		/>
 	);
@@ -40,7 +47,14 @@ if (process.env.NODE_ENV !== 'production') {
 		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		id: PropTypes.string,
 		schema: PropTypes.shape({
+			conditions: PropTypes.arrayOf(
+				PropTypes.shape({
+					path: PropTypes.string,
+					values: PropTypes.array,
+				}),
+			),
 			key: PropTypes.array,
+			options: PropTypes.object,
 			type: PropTypes.string,
 			validationMessage: PropTypes.string,
 			widget: PropTypes.string,

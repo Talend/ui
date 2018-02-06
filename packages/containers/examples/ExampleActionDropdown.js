@@ -1,5 +1,7 @@
 import React from 'react';
+import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
 import { IconsProvider } from '@talend/react-components';
+
 import { ActionDropdown } from '../src';
 
 export default function ExampleAction() {
@@ -7,11 +9,13 @@ export default function ExampleAction() {
 		id: 'injected-items',
 		displayMode: 'dropdown',
 		label: 'my injected items',
+		onSelect: action('selectAction'),
 		components: {
 			itemsDropdown: [
 				{
 					component: 'Action',
 					actionId: 'menu:first',
+					withMenuItem: true,
 				},
 				{
 					divider: true,
@@ -20,6 +24,7 @@ export default function ExampleAction() {
 					component: 'FilterBar',
 					dockable: false,
 					docked: false,
+					withMenuItem: true,
 				},
 				{
 					component: 'Action',

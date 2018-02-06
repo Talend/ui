@@ -59,7 +59,7 @@ This will produce a flat properties :
     "firstname": "",
     "age": 0,
     "email": "",
-    "comment": "",
+    "comment": ""
 }
 ```
 
@@ -280,61 +280,86 @@ As the user type, the value is validated by :
 
 Those validations change the `errors` object accordingly.
 
-**Triggers**
+### Conditional rendering
 
-This is a way to alter everything in the form. To add a trigger in a field, you must pass the additionnal property in it's uiSchema.
+It is possible to render parts of the forms defined in uiSchema, depending on properties values.  
+The uiSchema accepts a `conditions` property, which define all conditions to match to be rendered.
 
+| UISchema conditions property | Description |
+|---|---|
+| conditions[] | Each item defines a condition to meet to be rendered. All conditions must be met. |
+| conditions[].path | Define the path of the formData to test. This supports json path, dot notation, of an array of key. |
+| conditions[].values | Defines all the possible values. If the formData to test is equals to one of those, the condition is met. |
+
+Let's take this example: 
 ```json
-[
-  ...
-  {
-    "key": "user.gender",
-    "triggers": ["after"]
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "properties": {
+      "entity": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": ["human", "animal", "thing"]
+          },
+          "civility": {
+            "type": "string",
+            "enum": ["Mr", "Mrs"]
+          },
+          "lastname": {
+            "type": "string"
+          },
+          "firstname": {
+            "type": "string"
+          }
+        }
+      }
+    }
   }
-  ...
-]
-```
-
-There is at least 2 ways to trigger a trigger:
-
-* onChange on a field with an `"after"` trigger in uiSchema
-* onClick on a button, passing the trigger type
-* other ways depending on the widgets
-
-The `onTrigger` function is called.
-Triggers are concepts introduced with Daikkon. The goal is to write an `onTrigger` compatible with Daikkon forms as available implementation.
-
-```javascript
-function onTrigger(type, properties, schema, value) {
-	...
-
-	return new Promise(() => ({
-	    jsonSchema: {}, // the new jsonSchema
-	    uiSchema: [], // the new uiSchema
-	    properties: {}, // the new properties
-	    errors: {}, // the errors to add/alter to the current errors
-	}))
 }
 ```
 
-The `onTrigger` should return a promise that resolves an object containing
+We want 
+* `civility` to appear only for humans
+* `lastname` and `firstname` to appear only for humans and animals
 
-| Result | Description |
-|---|---|
-| jsonSchema | This replace the current jsonSchema |
-| uiSchema | This replace the current uiSchema |
-| properties | This replace the current properties |
-| errors | This is merged with the current errors |
-
-**Redux actions**
-
-If you use the redux implementation of UIForm, you dispatch the actions to alter the form configurations.
-
-Take a look at
-
-* form.actions.js : actions creators on the form
-* model.actions.js : actions creators to alter the properties
-* validation.actions.js : actions creators to alter the errors
+```json
+{
+  "uiSchema": [
+    {
+      "widget": "fieldset",
+      "conditions": [{
+        "path": "entity.kind",
+        "values": ["human", "animal"]
+      }],
+      "items": [
+        {
+          "key": "entity.civility",
+          "title": "Civility",
+          "description": "This should be visible only for humans",
+          "conditions": [{
+            "path": "entity.kind",
+            "values": ["human"]
+          }]
+        },
+        {
+          "key": "entity.lastname",
+          "title": "Last Name",
+          "description": "This should be visible only for humans and animals"
+        },
+        {
+          "key": "entity.firstname",
+          "title": "First Name",
+          "description": "This should be visible only for humans and animals"
+        }
+      ]
+    }
+  ]
+}
+```
 
 ## How to use
 
@@ -349,80 +374,69 @@ class MyComponent extends React.Component {
 		return `The field ${schema.key} is not valid. Value: ${value}`;
 	}
 
-	onChange(schema, value, properties) {
-		...
+	onChange(event, { schema, value, oldProperties, properties }) {
+		
+	}
+	
+	onErrors(event, errors) {
+		
 	}
 
-	onTrigger(type, schema, value, properties) {
-		...
+	onTrigger(event, { trigger, schema, properties }) {
+		
+	}
+	
+	onSubmit(event, properties) {
+		
 	}
 
 	render() {
 		return (<UIForm
 		    {...props}
 		    id={'my-unique-form-id'}
+		    data={{ jsonSchema, uiSchema, properties, errors }}
 		/>);
 	}
 }
 ```
 
-### Redux based
+UIForms manage its own state based on its `props.data`. But if you need to manage this state from outside, please read next sections.
 
-```javascript
-import { createStore, combineReducers } from 'redux';
-import { formReducer } from '@talend/react-forms/lib/UIForm';
+### How to synchronize data
 
-const reducers = {
-  // ... your other reducers here ...
-  form: formReducer
-}
-const reducer = combineReducers(reducers)
-const store = createStore(reducer)
-```
+You have 2 states changed internally, that you can synchronize : `properties` (the forms data), and `errors`.
 
 ```javascript
 import React from 'react';
-import { ConnectedUIForm } from '@talend/react-forms/lib/UIForm';
+import { UIForm } from '@talend/react-forms/lib/UIForm';
 
 class MyComponent extends React.Component {
-	constructor(props) {
-		super(props);
-		this.customValidation = this.customValidation.bind(this);
-		this.onChange = this.onChange.bind(this);
-		this.onTrigger = this.onTrigger.bind(this);
-		this.onSubmit = this.onSubmit.bind(this);
-	}
 
-	customValidation(schema, value, properties) {
-		return `The field ${schema.key} is not valid. Value: ${value}`;
+	onChange(event, { schema, value, oldProperties, properties }) {
+		// save properties in your app state
 	}
-
-	onChange(schema, value, properties) {
-		...
-	}
-
-	onTrigger(type, schema, value, properties) {
-		...
-	}
-
-	onSubmit(event, properties) {
-		... // properties is the model values
+	
+	onErrors(event, errors) {
+		// save errors in your app state
 	}
 
 	render() {
-		return (<ConnectedUIForm
-		    data={{
-		    	jsonSchema,
-		    	uiSchema,
-		    	properties,
-		    	errors
-		    }}
+		// get properties and errors from your app state
+		// inject them back to the forms
+		const properties = myAppState.properties;
+		const errors = myAppState.errors;
+		
+		return (<UIForm
+		    {...props}
 		    id={'my-unique-form-id'}
-		    customValidation={this.customValidation}
-		    onChange={this.onChange}
-		    onTrigger={this.onTrigger}
-		    onSubmit={this.onSubmit}
+		    data={{ jsonSchema, uiSchema, properties, errors }}
+		    onErrors={this.onErrors.bind(this)}
+		    onChange={this.onChange.bind(this)}
 		/>);
 	}
 }
 ```
+
+Changing UIForm's `props.data` will replace the existing pieces in the form.
+
+So you need to synchronize the UIForm's state with your own stat system

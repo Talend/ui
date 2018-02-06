@@ -32,6 +32,10 @@ $item-height: 40px;
 			height: $item-height - 2 * $padding-small;
 			margin-right: 10px;
 		}
+		.tc-treeview-img {
+			max-height: 2rem;
+			margin-right: 10px;
+		}
 
 		&:hover {
 			background: rgba($black, 0.05);
