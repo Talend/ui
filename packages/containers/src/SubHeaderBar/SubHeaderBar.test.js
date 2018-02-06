@@ -14,7 +14,6 @@ describe('Connect', () => {
 	});
 });
 
-
 describe('SubHeaderBar container', () => {
 	it('should render', () => {
 		const wrapper = shallow(<Container />);

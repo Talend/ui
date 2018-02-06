@@ -24,12 +24,7 @@ function SubHeaderBarActions({ children, tag, left, right, center, hasRight }) {
 	});
 	return (
 		<div className={className}>
-			<ActionBar.Content
-				tag={tag}
-				left={left}
-				center={center}
-				right={right}
-			>
+			<ActionBar.Content tag={tag} left={left} center={center} right={right}>
 				{children}
 			</ActionBar.Content>
 		</div>
@@ -77,15 +72,14 @@ function SubHeaderBar({
 }) {
 	const injected = Inject.all(getComponent, components, CustomInject);
 	const Components = Inject.getAll(getComponent, { Action, ActionBar });
-	const hasRight = (
-		Array.isArray(right) ||
-		has(components, 'before-right') ||
-		has(components, 'after-right')
-	);
+	const hasRight =
+		Array.isArray(right) || has(components, 'before-right') || has(components, 'after-right');
 	return (
 		<header className={classNames(theme['tc-subheader'], 'tc-subheader', className)}>
 			{injected('before-actionbar')}
-			<Components.ActionBar className={classNames(theme['tc-subheader-navbar'], 'tc-subheader-navbar')}>
+			<Components.ActionBar
+				className={classNames(theme['tc-subheader-navbar'], 'tc-subheader-navbar')}
+			>
 				{injected('before-left')}
 				<SubHeaderBarActions left>
 					{injected('before-back')}
@@ -106,29 +100,32 @@ function SubHeaderBar({
 				</SubHeaderBarActions>
 				{Array.isArray(left) && (
 					<SubHeaderBarActions left>
-						{left.map((item, index) => (
-							<Components.Action key={index} {...item} />
-						))}
+						{left.map((item, index) => <Components.Action key={index} {...item} />)}
 					</SubHeaderBarActions>
 				)}
 				{children}
 				{injected('before-center')}
-				{Array.isArray(center) && center.map((item, index) => (
-					<SubHeaderBarActions center hasRight={hasRight}>
-						<Components.Action key={index} {...item} />
-					</SubHeaderBarActions>
-				))}
+				{Array.isArray(center) &&
+					center.map((item, index) => (
+						<SubHeaderBarActions center hasRight={hasRight}>
+							<Components.Action key={index} {...item} />
+						</SubHeaderBarActions>
+					))}
 				{injected('before-right')}
-				{Array.isArray(right) && right.map((item, index) => (
-					<SubHeaderBarActions
-						className={classNames(theme['tc-subheader-navbar-right'], 'tc-subheader-navbar-right')}
-						left={false}
-						center={false}
-						right
-					>
-						<Components.Action key={index} {...item} />
-					</SubHeaderBarActions>
-				))}
+				{Array.isArray(right) &&
+					right.map((item, index) => (
+						<SubHeaderBarActions
+							className={classNames(
+								theme['tc-subheader-navbar-right'],
+								'tc-subheader-navbar-right',
+							)}
+							left={false}
+							center={false}
+							right
+						>
+							<Components.Action key={index} {...item} />
+						</SubHeaderBarActions>
+					))}
 				{injected('after-right')}
 			</Components.ActionBar>
 			{injected('after-actionbar')}

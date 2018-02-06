@@ -1,7 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Icon, Action, ActionBar } from '../index';
-import Container, { SubHeaderBar, SubHeaderBarActions, CustomInject } from './SubHeaderBar.component';
+import Container, {
+	SubHeaderBar,
+	SubHeaderBarActions,
+	CustomInject,
+} from './SubHeaderBar.component';
 
 function getComponent(name) {
 	if (name === 'Action') {
@@ -39,7 +43,7 @@ describe('SubHeaderBarActions', () => {
 					hideLabel
 				/>
 				<Icon name="talend-bell" />
-			</SubHeaderBarActions>
+			</SubHeaderBarActions>,
 		);
 		expect(wrapper.instance().props.center).toBeTruthy();
 		expect(wrapper.find(ActionBar.Content)).toHaveLength(1);
@@ -71,7 +75,7 @@ describe('SubHeaderBarActions', () => {
 					hideLabel
 				/>
 				<Icon name="talend-bell" />
-			</SubHeaderBarActions>
+			</SubHeaderBarActions>,
 		);
 		expect(wrapper.instance().props.right).toBeTruthy();
 		expect(wrapper.find(ActionBar.Content)).toHaveLength(1);
