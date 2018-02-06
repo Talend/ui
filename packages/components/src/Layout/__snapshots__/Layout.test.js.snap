@@ -288,7 +288,6 @@ ShallowWrapper {
               />
 </SubHeaderBarActions>,
             false,
-            undefined,
             null,
             false,
             null,
@@ -365,7 +364,6 @@ ShallowWrapper {
             "type": [Function],
           },
           false,
-          undefined,
           null,
           false,
           null,
@@ -441,7 +439,6 @@ ShallowWrapper {
                 />
 </SubHeaderBarActions>,
               false,
-              undefined,
               null,
               false,
               null,
@@ -518,7 +515,6 @@ ShallowWrapper {
               "type": [Function],
             },
             false,
-            undefined,
             null,
             false,
             null,

@@ -58,9 +58,7 @@ exports[`SubHeaderBar should render without i18n 1`] = `
       />
     </SubHeaderBarActions>
     <SubHeaderBarActions
-      center={false}
       className="theme-tc-subheader-navbar-right tc-subheader-navbar-right"
-      left={false}
       right={true}
     >
       <Action
