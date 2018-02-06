@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { IconsProvider, SubHeaderBar, FilterBar, Action } from '../src/index';
+import { IconsProvider, SubHeaderBar, FilterBar } from '../src/index';
 
 const viewProps = {
 	title: 'My Long Title is Long Long Lé Long La La La Lé Long Long Long Long',
