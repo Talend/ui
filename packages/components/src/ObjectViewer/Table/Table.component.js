@@ -87,7 +87,12 @@ function Table({ flat, data, ...props }) {
 								const path = getAbsolutePath(index, key, flat);
 								return (
 									<td key={j}>
-										<JSONLike data={flattenRow[key]} {...props} jsonpath={path} />
+										<JSONLike
+											data={flattenRow[key]}
+											{...props}
+											jsonpath={path}
+											nativeValueClassName={'native-value-table'}
+										/>
 									</td>
 								);
 							})}

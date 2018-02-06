@@ -36,7 +36,7 @@ function stopAndSelectWithEnterOrSpace(event, { onSelect, jsonpath }) {
 	}
 }
 
-export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
+export function NativeValue({ data, edit, className, onSelect, onChange, jsonpath }) {
 	const type = typeof data;
 	let display = data;
 	let inputType = 'number';
@@ -50,7 +50,10 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 
-	const lineValueClasses = classNames(theme.native, theme[type]);
+	const lineValueClasses = classNames(theme.native, theme[type], {
+		[theme[className]]: className,
+		[theme['line-value']]: !className,
+	});
 
 	return (
 		<span
@@ -68,6 +71,7 @@ export function NativeValue({ data, edit, onSelect, onChange, jsonpath }) {
 NativeValue.propTypes = {
 	data: PropTypes.oneOfType([PropTypes.bool, PropTypes.number, PropTypes.string]),
 	edit: PropTypes.bool,
+	className: PropTypes.string,
 	onSelect: PropTypes.func.isRequired,
 	onChange: PropTypes.func,
 	jsonpath: PropTypes.string,
@@ -359,6 +363,7 @@ export function Item({ data, name, opened, edited, jsonpath, ...props }) {
 					onSelect={props.onSelect}
 					onEdit={props.onEdit}
 					onChange={props.onChange}
+					className={props.nativeValueClassName}
 				/>
 				{props.showType && (
 					<div className={`tc-object-viewer-line-type ${theme['line-type']}`}>({info.type})</div>
@@ -403,6 +408,7 @@ Item.propTypes = {
 	selectedJsonpath: PropTypes.string,
 	onSubmit: PropTypes.func,
 	onChange: PropTypes.func,
+	nativeValueClassName: PropTypes.string,
 	showType: PropTypes.bool,
 };
 

@@ -88,10 +88,10 @@
 		color: $dove-gray;
 	}
 
-	.native {
-		font-family: 'Inconsolata';
-		font-size: 12px;
-		color: #555;
+	.native-value-table {
+		font-family: $font-family-monospace;
+		font-size: $font-size-small;
+		color: $dove-gray;
 		padding: 0;
 	}
 
