@@ -5,6 +5,7 @@ import ActionButton from '../ActionButton';
 import ActionFile from '../ActionFile';
 import ActionSplitDropdown from '../ActionSplitDropdown';
 import ActionDropdown from '../ActionDropdown';
+import ActionIconToggle from '../ActionIconToggle';
 import getRenderers from '../renderers';
 
 export const renderers = {
@@ -12,6 +13,7 @@ export const renderers = {
 	ActionFile,
 	ActionSplitDropdown,
 	ActionDropdown,
+	ActionIconToggle,
 };
 
 export function mapStateToProps(state, ownProps) {
