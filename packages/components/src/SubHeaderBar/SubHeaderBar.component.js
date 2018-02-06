@@ -45,7 +45,10 @@ SubHeaderBarActions.propTypes = {
 	hasRight: PropTypes.bool,
 };
 
-function CustomInject({ getComponent, left, right, center, ...props }) {
+function CustomInject({ getComponent, left, right, center, nowrap, ...props }) {
+	if (nowrap) {
+		return <Inject getComponent={getComponent} {...props} />;
+	}
 	return (
 		<SubHeaderBarActions left={left} right={right} center={center}>
 			<Inject getComponent={getComponent} {...props} />
@@ -53,6 +56,7 @@ function CustomInject({ getComponent, left, right, center, ...props }) {
 	);
 }
 CustomInject.propTypes = {
+	nowrap: PropTypes.bool,
 	right: PropTypes.bool,
 	center: PropTypes.bool,
 	left: PropTypes.bool,
@@ -71,22 +75,18 @@ function SubHeaderBar({
 	right,
 	...rest
 }) {
-	const injected = Inject.all(getComponent, components);
-	const iwrapped = Inject.all(getComponent, components, CustomInject);
+	const injected = Inject.all(getComponent, components, CustomInject);
 	const Components = Inject.getAll(getComponent, { Action, ActionBar });
 	const hasRight = (
 		Array.isArray(right) ||
 		has(components, 'before-right') ||
-		has(components, 'before-right-wrapped') ||
-		has(components, 'after-right') ||
-		has(components, 'after-right-wrapped')
+		has(components, 'after-right')
 	);
 	return (
 		<header className={classNames(theme['tc-subheader'], 'tc-subheader', className)}>
 			{injected('before-actionbar')}
 			<Components.ActionBar className={classNames(theme['tc-subheader-navbar'], 'tc-subheader-navbar')}>
 				{injected('before-left')}
-				{iwrapped('before-left-wrapped')}
 				<SubHeaderBarActions left>
 					{injected('before-back')}
 					{onGoBack && (
@@ -113,14 +113,12 @@ function SubHeaderBar({
 				)}
 				{children}
 				{injected('before-center')}
-				{iwrapped('before-center-wrapped')}
 				{Array.isArray(center) && center.map((item, index) => (
 					<SubHeaderBarActions center hasRight={hasRight}>
 						<Components.Action key={index} {...item} />
 					</SubHeaderBarActions>
 				))}
 				{injected('before-right')}
-				{iwrapped('before-right-wrapped')}
 				{Array.isArray(right) && right.map((item, index) => (
 					<SubHeaderBarActions
 						className={classNames(theme['tc-subheader-navbar-right'], 'tc-subheader-navbar-right')}
@@ -132,7 +130,6 @@ function SubHeaderBar({
 					</SubHeaderBarActions>
 				))}
 				{injected('after-right')}
-				{iwrapped('after-right-wrapped')}
 			</Components.ActionBar>
 			{injected('after-actionbar')}
 		</header>

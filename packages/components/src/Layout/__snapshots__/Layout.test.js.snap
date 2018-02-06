@@ -231,92 +231,83 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <ActionBar
-        className="theme-tc-subheader-navbar tc-subheader-navbar"
+      "children": Array [
+        null,
+        <ActionBar
+          className="theme-tc-subheader-navbar tc-subheader-navbar"
 >
-        <SubHeaderBarActions
-                center={false}
-                className="theme-tc-subheader-navbar-left"
-                components={
-                        Array [
-                                Object {
-                                  "injectedComponent": <Action
-                                    bsStyle="link"
-                                    className="theme-tc-subheader-back-button tc-subheader-back-button"
-                                    hideLabel={true}
-                                    icon="talend-arrow-left"
-                                    id="backArrow"
-                                    label="Go Back"
-                                    onClick={[Function]}
-                        />,
-                                },
-                                Object {
-                                  "injectedComponent": <InputTitleSubHeader
-                                    editMode={false}
-                                    t={[Function]}
-                                    title="defaultTitle"
-                        />,
-                                },
-                              ]
-                }
-                left={true}
-                right={false}
-        />
+          <SubHeaderBarActions
+                    left={true}
+          >
+                    <Action
+                              bsStyle="link"
+                              className="theme-tc-subheader-back-button tc-subheader-back-button"
+                              hideLabel={true}
+                              icon="talend-arrow-left"
+                              id="backArrow"
+                              label="Go Back"
+                              onClick={[Function]}
+                    />
+                    <InputTitleSubHeader
+                              editMode={false}
+                              t={[Function]}
+                              title="defaultTitle"
+                    />
+          </SubHeaderBarActions>
 </ActionBar>,
+        null,
+      ],
       "className": "theme-tc-subheader tc-subheader",
     },
     "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "children": Array [
-          <SubHeaderBarActions
-            center={false}
-            className="theme-tc-subheader-navbar-left"
-            components={
-                        Array [
-                                    Object {
-                                      "injectedComponent": <Action
-                                        bsStyle="link"
-                                        className="theme-tc-subheader-back-button tc-subheader-back-button"
-                                        hideLabel={true}
-                                        icon="talend-arrow-left"
-                                        id="backArrow"
-                                        label="Go Back"
-                                        onClick={[Function]}
-                        />,
-                                    },
-                                    Object {
-                                      "injectedComponent": <InputTitleSubHeader
-                                        editMode={false}
-                                        t={[Function]}
-                                        title="defaultTitle"
-                        />,
-                                    },
-                                  ]
-            }
-            left={true}
-            right={false}
-/>,
-          false,
-          false,
-        ],
-        "className": "theme-tc-subheader-navbar tc-subheader-navbar",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "center": false,
-            "className": "theme-tc-subheader-navbar-left",
-            "components": Array [
-              Object {
-                "injectedComponent": <Action
+    "rendered": Array [
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            null,
+            <SubHeaderBarActions
+              left={true}
+>
+              <Action
+                            bsStyle="link"
+                            className="theme-tc-subheader-back-button tc-subheader-back-button"
+                            hideLabel={true}
+                            icon="talend-arrow-left"
+                            id="backArrow"
+                            label="Go Back"
+                            onClick={[Function]}
+              />
+              <InputTitleSubHeader
+                            editMode={false}
+                            t={[Function]}
+                            title="defaultTitle"
+              />
+</SubHeaderBarActions>,
+            false,
+            undefined,
+            null,
+            false,
+            null,
+            false,
+            null,
+          ],
+          "className": "theme-tc-subheader-navbar tc-subheader-navbar",
+        },
+        "ref": null,
+        "rendered": Array [
+          null,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                null,
+                <Action
                   bsStyle="link"
                   className="theme-tc-subheader-back-button tc-subheader-back-button"
                   hideLabel={true}
@@ -325,27 +316,66 @@ ShallowWrapper {
                   label="Go Back"
                   onClick={[Function]}
 />,
-              },
-              Object {
-                "injectedComponent": <InputTitleSubHeader
+                null,
+                <InputTitleSubHeader
                   editMode={false}
                   t={[Function]}
                   title="defaultTitle"
 />,
+                null,
+              ],
+              "left": true,
+            },
+            "ref": null,
+            "rendered": Array [
+              null,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "bsStyle": "link",
+                  "className": "theme-tc-subheader-back-button tc-subheader-back-button",
+                  "hideLabel": true,
+                  "icon": "talend-arrow-left",
+                  "id": "backArrow",
+                  "label": "Go Back",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
               },
+              null,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "editMode": false,
+                  "t": [Function],
+                  "title": "defaultTitle",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              null,
             ],
-            "left": true,
-            "right": false,
+            "type": [Function],
           },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        false,
-        false,
-      ],
-      "type": [Function],
-    },
+          false,
+          undefined,
+          null,
+          false,
+          null,
+          false,
+          null,
+        ],
+        "type": [Function],
+      },
+      null,
+    ],
     "type": "header",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -354,92 +384,83 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <ActionBar
-          className="theme-tc-subheader-navbar tc-subheader-navbar"
+        "children": Array [
+          null,
+          <ActionBar
+            className="theme-tc-subheader-navbar tc-subheader-navbar"
 >
-          <SubHeaderBarActions
-                    center={false}
-                    className="theme-tc-subheader-navbar-left"
-                    components={
-                              Array [
-                                        Object {
-                                          "injectedComponent": <Action
-                                            bsStyle="link"
-                                            className="theme-tc-subheader-back-button tc-subheader-back-button"
-                                            hideLabel={true}
-                                            icon="talend-arrow-left"
-                                            id="backArrow"
-                                            label="Go Back"
-                                            onClick={[Function]}
-                              />,
-                                        },
-                                        Object {
-                                          "injectedComponent": <InputTitleSubHeader
-                                            editMode={false}
-                                            t={[Function]}
-                                            title="defaultTitle"
-                              />,
-                                        },
-                                      ]
-                    }
-                    left={true}
-                    right={false}
-          />
+            <SubHeaderBarActions
+                        left={true}
+            >
+                        <Action
+                                    bsStyle="link"
+                                    className="theme-tc-subheader-back-button tc-subheader-back-button"
+                                    hideLabel={true}
+                                    icon="talend-arrow-left"
+                                    id="backArrow"
+                                    label="Go Back"
+                                    onClick={[Function]}
+                        />
+                        <InputTitleSubHeader
+                                    editMode={false}
+                                    t={[Function]}
+                                    title="defaultTitle"
+                        />
+            </SubHeaderBarActions>
 </ActionBar>,
+          null,
+        ],
         "className": "theme-tc-subheader tc-subheader",
       },
       "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "children": Array [
-            <SubHeaderBarActions
-              center={false}
-              className="theme-tc-subheader-navbar-left"
-              components={
-                            Array [
-                                          Object {
-                                            "injectedComponent": <Action
-                                              bsStyle="link"
-                                              className="theme-tc-subheader-back-button tc-subheader-back-button"
-                                              hideLabel={true}
-                                              icon="talend-arrow-left"
-                                              id="backArrow"
-                                              label="Go Back"
-                                              onClick={[Function]}
-                            />,
-                                          },
-                                          Object {
-                                            "injectedComponent": <InputTitleSubHeader
-                                              editMode={false}
-                                              t={[Function]}
-                                              title="defaultTitle"
-                            />,
-                                          },
-                                        ]
-              }
-              left={true}
-              right={false}
-/>,
-            false,
-            false,
-          ],
-          "className": "theme-tc-subheader-navbar tc-subheader-navbar",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "center": false,
-              "className": "theme-tc-subheader-navbar-left",
-              "components": Array [
-                Object {
-                  "injectedComponent": <Action
+      "rendered": Array [
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              null,
+              <SubHeaderBarActions
+                left={true}
+>
+                <Action
+                                bsStyle="link"
+                                className="theme-tc-subheader-back-button tc-subheader-back-button"
+                                hideLabel={true}
+                                icon="talend-arrow-left"
+                                id="backArrow"
+                                label="Go Back"
+                                onClick={[Function]}
+                />
+                <InputTitleSubHeader
+                                editMode={false}
+                                t={[Function]}
+                                title="defaultTitle"
+                />
+</SubHeaderBarActions>,
+              false,
+              undefined,
+              null,
+              false,
+              null,
+              false,
+              null,
+            ],
+            "className": "theme-tc-subheader-navbar tc-subheader-navbar",
+          },
+          "ref": null,
+          "rendered": Array [
+            null,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  null,
+                  <Action
                     bsStyle="link"
                     className="theme-tc-subheader-back-button tc-subheader-back-button"
                     hideLabel={true}
@@ -448,27 +469,66 @@ ShallowWrapper {
                     label="Go Back"
                     onClick={[Function]}
 />,
-                },
-                Object {
-                  "injectedComponent": <InputTitleSubHeader
+                  null,
+                  <InputTitleSubHeader
                     editMode={false}
                     t={[Function]}
                     title="defaultTitle"
 />,
+                  null,
+                ],
+                "left": true,
+              },
+              "ref": null,
+              "rendered": Array [
+                null,
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "bsStyle": "link",
+                    "className": "theme-tc-subheader-back-button tc-subheader-back-button",
+                    "hideLabel": true,
+                    "icon": "talend-arrow-left",
+                    "id": "backArrow",
+                    "label": "Go Back",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
                 },
+                null,
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "editMode": false,
+                    "t": [Function],
+                    "title": "defaultTitle",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                null,
               ],
-              "left": true,
-              "right": false,
+              "type": [Function],
             },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          false,
-          false,
-        ],
-        "type": [Function],
-      },
+            false,
+            undefined,
+            null,
+            false,
+            null,
+            false,
+            null,
+          ],
+          "type": [Function],
+        },
+        null,
+      ],
       "type": "header",
     },
   ],
