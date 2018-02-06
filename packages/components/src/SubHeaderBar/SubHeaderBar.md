@@ -1,4 +1,4 @@
-# SubHeaderBar
+# SubHeaderBar component
 
 This component display a container of action which is supposed to be alone. (one instance per page)
 

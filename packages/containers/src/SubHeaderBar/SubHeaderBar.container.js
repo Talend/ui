@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { SubHeaderBar as Component } from '@talend/react-components';
 import Immutable from 'immutable';
 import omit from 'lodash/omit';
-import { componentState, cmfConnect } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 
 export const DISPLAY_NAME = 'Container(SubHeaderBar)';
 export const DEFAULT_STATE = new Immutable.Map({
@@ -14,12 +14,12 @@ class SubHeaderBar extends React.Component {
 	static displayName = DISPLAY_NAME;
 
 	static propTypes = {
-		...componentState.propTypes,
+		...cmfConnect.propTypes,
 		actionCreatorCancel: PropTypes.string,
 		actionCreatorEdit: PropTypes.string,
 		actionCreatorSubmit: PropTypes.string,
 		actionCreatorChange: PropTypes.string,
-		actionCreatorBackArrow: PropTypes.string,
+		actionCreatorGoBack: PropTypes.string,
 		onCancel: PropTypes.func,
 		onEdit: PropTypes.func,
 		onSubmit: PropTypes.func,
