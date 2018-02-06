@@ -103,9 +103,6 @@ const ExampleList = {
 					created: '2016-09-22',
 					modified: '2016-09-22',
 					author: 'Jean-Pierre DUPONT',
-					icon: 'fa fa-file-excel-o',
-					display: 'text',
-					className: 'item-0-class',
 				},
 				{
 					id: 'ID5',
@@ -113,9 +110,6 @@ const ExampleList = {
 					created: '2016-09-22',
 					modified: '2016-09-22',
 					author: 'Jean-Pierre DUPONT',
-					icon: 'fa fa-file-pdf-o',
-					display: 'input',
-					className: 'item-1-class',
 				},
 				{
 					id: 'iD6',
@@ -124,12 +118,51 @@ const ExampleList = {
 					modified: '2016-09-22',
 					author: 'Jean-Pierre DUPONT with super long name',
 				},
+				{
+					id: 'id7',
+					label: 'Title with actions',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'ID8',
+					label: 'Title in input mode',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'iD9',
+					label: 'Super long title to trigger overflow on some rendering',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT with super long name',
+				},
+				{
+					id: 'id10',
+					label: 'Title with actions',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'ID11',
+					label: 'Title in input mode',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'iD12',
+					label: 'Super long title to trigger overflow on some rendering',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT with super long name',
+				},
 			]),
 		);
-		propsPg.toolbar.pagination = {
-			itemsPerPage: 5,
-			startIndex: 1,
-		};
+		propsPg.toolbar.pagination = {};
 		return (
 			<div>
 				<IconsProvider />
