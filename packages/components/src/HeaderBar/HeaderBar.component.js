@@ -245,9 +245,10 @@ function HeaderBar(props) {
 					<Components.AppNotification renderers={renderers} {...props.notification} t={props.t} />
 				)}
 				{props.help && <Components.Help renderers={renderers} {...props.help} t={props.t} />}
-				{!props.user && props.information && (
-					<Components.Information renderers={renderers} {...props.information} t={props.t} />
-				)}
+				{!props.user &&
+					props.information && (
+						<Components.Information renderers={renderers} {...props.information} t={props.t} />
+					)}
 				{props.user && <Components.User renderers={renderers} {...props.user} />}
 				{props.products && (
 					<Components.Products renderers={renderers} {...props.products} t={props.t} />
