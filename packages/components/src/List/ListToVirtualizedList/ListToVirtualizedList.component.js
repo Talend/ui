@@ -38,6 +38,7 @@ export function ListToVirtualizedList(props) {
 				supposedActions[key] = true;
 			});
 	}
+
 	return (
 		<VirtualizedList
 			id={props.id}
@@ -46,6 +47,7 @@ export function ListToVirtualizedList(props) {
 			isSelected={itemProps && itemProps.isSelected}
 			inProgress={props.inProgress}
 			onRowClick={itemProps && itemProps.onRowClick}
+			onRowDoubleClick={titleProps && titleProps.onClick}
 			defaultHeight={props.defaultHeight}
 			noRowsRenderer={props.noRowsRenderer}
 			rowHeight={props.rowHeight}
