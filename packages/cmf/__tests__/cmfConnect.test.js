@@ -131,6 +131,23 @@ describe('cmfConnect', () => {
 			expect(props.available).toBe(true);
 			expect(props.model).toBeUndefined();
 		});
+		it('should pass view settings together with own props when calling mapStateToProps', () => {
+			const state = mock.state();
+			const mapStateToProps = jest.fn();
+			const ownProps = { view: 'simple' };
+			const props = getStateToProps({
+				state,
+				ownProps,
+				mapStateToProps,
+				WrappedComponent: { displayName: 'TestComponent' },
+			});
+			expect(mapStateToProps).toHaveBeenCalledWith(
+					state,
+					{ view: 'simple', name: 'my app' },
+					expect.anything(),
+			);
+			delete state.cmf.settings.props['TestComponent#connect-id'];
+		});
 	});
 	describe('#getMergeProps', () => {
 		it('should mergeProps in order', () => {
