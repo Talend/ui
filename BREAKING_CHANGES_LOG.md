@@ -2,6 +2,11 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.153.0
+* CMF: HeaderBar
+* PR: https://github.com/Talend/ui/pull/1037
+* Changes: Items in help dropdown are moved to information dropdown
+
 ## v0.152.0
 * CMF: cmfConnect
 * PR: https://github.com/Talend/ui/pull/1046

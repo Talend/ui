@@ -151,6 +151,8 @@ ActionDropdown.displayName = 'ActionDropdown';
 ActionDropdown.propTypes = {
 	bsStyle: PropTypes.string,
 	hideLabel: PropTypes.bool,
+	noCaret: PropTypes.bool,
+	pullRight: PropTypes.bool,
 	icon: PropTypes.string,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
