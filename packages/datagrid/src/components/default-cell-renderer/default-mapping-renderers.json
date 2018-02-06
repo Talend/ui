@@ -1,0 +1,5 @@
+{
+	"number": "DefaultNumberCellRenderer",
+	"string": "DefaultStringCellRenderer",
+	"date": "DefaultDateCellRenderer"
+}

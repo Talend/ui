@@ -1,8 +1,26 @@
 import { cmfConnect } from '@talend/react-cmf';
 
-import Container, { DEFAULT_STATE } from './datagrid.container';
+import Container from './datagrid.container';
+
+export function mapStateToProps(state, ownProps) {
+	const props = {};
+	if (ownProps.source) {
+		props.sourceData = state.cmf.collections.getIn(ownProps.source.split('.'));
+	}
+
+	return props;
+}
+
+export function mergeProps(stateProps, dispatchProps, ownProps) {
+	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	if (props.source) {
+		delete props.source;
+	}
+
+	return props;
+}
 
 export default cmfConnect({
-	defaultState: DEFAULT_STATE,
-	componentId: ownProps => ownProps.id || 'DataGrid',
+	mapStateToProps,
+	mergeProps,
 })(Container);

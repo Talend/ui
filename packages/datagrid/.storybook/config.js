@@ -33,8 +33,31 @@ registerActionCreator('datagrid:focus-column', (event, data) => {
 		...data,
 	};
 });
-api.expression.register('getSampleRowData', () => {
-	return () => {};
+function getIconRating({ context }) {
+	const state = context.store.getState();
+	const ratingCollection = state.cmf.collections.get(RATING_COLLECTION.RATING).toJS();
+
+	if (!ratingCollection.rating) {
+		return '';
+	}
+
+	if (!ratingCollection.rating.global) {
+		return getIconNoRating();
+	}
+
+	return getIconGlobalRating(ratingCollection.rating.global);
+}
+
+api.expression.register('getColumnDefs', props => {
+	console.log(props);
+});
+
+api.expression.register('getPinnedColumnDefs', props => {
+	console.log(props);
+});
+
+api.expression.register('getRowData', props => {
+	console.log(props);
 });
 
 function loadStories() {
@@ -45,9 +68,11 @@ function loadStories() {
 			state.cmf.settings.props = state.cmf.settings.views;
 		}
 
-		state.cmf.settings.props['DataGrid#default'] = {
-			collectionId: 'sample',
-			getRowDataExpression: 'getSampleRowData',
+		state.cmf.settings.props['Container(DataGrid)#default'] = {
+			source: 'sample',
+			getColumnDefsExpression: 'getColumnDefs',
+			getPinnedColumnDefsExpression: 'getPinnedColumnDefs',
+			getRowDataExpression: 'getRowData',
 			rowSelection: 'single',
 			focusedCellActionCreator: 'datagrid:focus-cell',
 			focusedColumnActionCreator: 'datagrid:focus-column',
