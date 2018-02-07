@@ -1,13 +1,13 @@
 export const ItemTypes = {
-  ELEMENT: 'element'
+	ELEMENT: 'element',
 };
 
 export const SchemaType = {
-  INPUT: 'input',
-  OUTPUT: 'output'
-}
+	INPUT: 'input',
+	OUTPUT: 'output',
+};
 
 export const MappingSide = {
-  SOURCE: 'source',
-  TARGET: 'target'
-}
+	SOURCE: 'source',
+	TARGET: 'target',
+};

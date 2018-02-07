@@ -1,18 +1,18 @@
-import {mount, configure} from 'enzyme';
-import React, {Component} from 'react';
-import Mapper from './Mapper.js'
-import SchemaElement from '../Schema/SchemaElement/SchemaElement.js'
-import DraggableSchemaElement from '../Schema/SchemaElement/DraggableSchemaElement.js'
+import { mount, configure } from 'enzyme';
+import React, { Component } from 'react';
+import Mapper from './Mapper.js';
+import SchemaElement from '../Schema/SchemaElement/SchemaElement.js';
+import DraggableSchemaElement from '../Schema/SchemaElement/DraggableSchemaElement.js';
 import TestBackend from 'react-dnd-test-backend';
-import {DragDropContext} from 'react-dnd';
+import { DragDropContext } from 'react-dnd';
 import TestUtils from 'react-dom/test-utils';
 
 it('clear-mapping', () => {
 	const clearMapping = jest.fn();
 	const performMapping = jest.fn();
-	const inputSchema = ['elem_in_1']
-	const outputSchema = ['elem_out_1']
-	const mapping = [{source: 'elem_in_1', target: 'elem_out_1'}]
+	const inputSchema = ['elem_in_1'];
+	const outputSchema = ['elem_out_1'];
+	const mapping = [{ source: 'elem_in_1', target: 'elem_out_1' }];
 	const mapper = (
 		<Mapper
 			inputSchema={inputSchema}
@@ -41,16 +41,16 @@ function wrapInTestContext(DecoratedComponent) {
 			render() {
 				return <DecoratedComponent {...this.props} />;
 			}
-		}
+		},
 	);
 }
 
 it('perform-mapping', () => {
 	const clearMapping = jest.fn();
 	const performMapping = jest.fn();
-	const inputSchema = ['elem_in_1']
-	const outputSchema = ['elem_out_1']
-	const mapping = []
+	const inputSchema = ['elem_in_1'];
+	const outputSchema = ['elem_out_1'];
+	const mapping = [];
 
 	const MapperTestContext = wrapInTestContext(Mapper);
 
@@ -61,7 +61,7 @@ it('perform-mapping', () => {
 			outputSchema={outputSchema}
 			performMapping={performMapping}
 			clearMapping={clearMapping}
-			draggable='true'
+			draggable="true"
 		/>
 	);
 
@@ -73,20 +73,20 @@ it('perform-mapping', () => {
 	// Find the drag source ID and use it to simulate the dragging operation
 	const elements = TestUtils.scryRenderedComponentsWithType(root, DraggableSchemaElement);
 
-	const sourceElem = getElementByName(elements, 'elem_in_1')
-	const decoratedSourceElem = sourceElem.getDecoratedComponentInstance()
+	const sourceElem = getElementByName(elements, 'elem_in_1');
+	const decoratedSourceElem = sourceElem.getDecoratedComponentInstance();
 
 	// simulate begin drag source node 'elem_in_1'
-	backend.simulateBeginDrag([decoratedSourceElem.getHandlerId()])
+	backend.simulateBeginDrag([decoratedSourceElem.getHandlerId()]);
 
-	const targetElem = getElementByName(elements, 'elem_out_1')
-	const decoratedTargetElement = targetElem.getDecoratedComponentInstance()
+	const targetElem = getElementByName(elements, 'elem_out_1');
+	const decoratedTargetElement = targetElem.getDecoratedComponentInstance();
 
 	// simulate drag node 'elem_in_1' over target node 'elem_out_1'
-	backend.simulateHover([targetElem.getHandlerId()])
+	backend.simulateHover([targetElem.getHandlerId()]);
 
 	// simulate drop the source node on the current target node 'elem_out_1'
-	backend.simulateDrop()
+	backend.simulateDrop();
 
 	// performMapping should be called
 	expect(performMapping).toBeCalled();
@@ -99,9 +99,8 @@ it('perform-mapping', () => {
 
 	// The second argument of the first call to the function was 'elem_out_1'
 	expect(performMapping.mock.calls[0][1]).toBe('elem_out_1');
-
 });
 
 function getElementByName(elements, name) {
-	return elements.find((elem) => elem.props.name === name)
+	return elements.find(elem => elem.props.name === name);
 }

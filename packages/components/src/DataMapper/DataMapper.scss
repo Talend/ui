@@ -1,125 +1,125 @@
 :global {
-  #mapper-container {
-    &,
-    > div,
-    > div > div {
-      display: flex;
-      justify-content: center;
-      width: 100vw;
-    }
-  }
+	#mapper-container {
+		&,
+		> div,
+		> div > div {
+			display: flex;
+			justify-content: center;
+			width: 100vw;
+		}
+	}
 
-  #mapper {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    margin: 10px;
-    background-color: #A8CDEA;
-    height: 400px;
-    width: 60%;
-    border-radius: 20px;
-  }
+	#mapper {
+		display: flex;
+		justify-content: center;
+		padding: 10px;
+		margin: 10px;
+		background-color: #a8cdea;
+		height: 400px;
+		width: 60%;
+		border-radius: 20px;
+	}
 
-  #mapping {
-    background-color: #FBFDFF;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-    width: 100%;
-  }
+	#mapping {
+		background-color: #fbfdff;
+		padding: 10px;
+		margin: 10px;
+		border-radius: 10px;
+		width: 100%;
+	}
 
-  #mapping-canvas {
-    position: absolute;
-    left: 0px;
-    right: auto;
-    top: 0px;
-    bottom: 0px;
-    height: 100%;
-    width: 100%;
-  }
+	#mapping-canvas {
+		position: absolute;
+		left: 0px;
+		right: auto;
+		top: 0px;
+		bottom: 0px;
+		height: 100%;
+		width: 100%;
+	}
 
-  .mapper-element:nth-child(1) {
-    order: 1;
-  }
+	.mapper-element:nth-child(1) {
+		order: 1;
+	}
 
-  .mapper-element:nth-child(2) {
-    order: 3;
-  }
+	.mapper-element:nth-child(2) {
+		order: 3;
+	}
 
-  .mapper-element:nth-child(3) {
-    order: 2;
-  }
+	.mapper-element:nth-child(3) {
+		order: 2;
+	}
 
-  .mapping-tools {
-    display: flex;
-    justify-content: space-around;
-    border-radius: 5px;
-    background-color: #A8CDEA;
-    font-weight: bold;
-    font-size: 1.2em;
-    padding: 6px;
-    margin: 6px;
-  }
+	.mapping-tools {
+		display: flex;
+		justify-content: space-around;
+		border-radius: 5px;
+		background-color: #a8cdea;
+		font-weight: bold;
+		font-size: 1.2em;
+		padding: 6px;
+		margin: 6px;
+	}
 
-  .mapping-content {
-    position: relative;
-    height: 80%;
-    width: 100%;
-    padding: 0px;
-    margin: 0px;
-  }
+	.mapping-content {
+		position: relative;
+		height: 80%;
+		width: 100%;
+		padding: 0px;
+		margin: 0px;
+	}
 
-  .Schema {
-    background-color: #D4E9F9;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-    width: 100%;
-  }
+	.Schema {
+		background-color: #d4e9f9;
+		padding: 10px;
+		margin: 10px;
+		border-radius: 10px;
+		width: 100%;
+	}
 
-  .Schema-title {
-    border-radius: 5px;
-    background-color: #A8CDEA;
-    font-weight: bold;
-    font-size: 1.2em;
-    padding: 6px;
-    margin: 6px;
-  }
+	.Schema-title {
+		border-radius: 5px;
+		background-color: #a8cdea;
+		font-weight: bold;
+		font-size: 1.2em;
+		padding: 6px;
+		margin: 6px;
+	}
 
-  .Schema-content {
-    height: 80%;
-    overflow: auto;
-    padding: 6px;
-    margin: 6px;
-  }
+	.Schema-content {
+		height: 80%;
+		overflow: auto;
+		padding: 6px;
+		margin: 6px;
+	}
 
-  .Schema-element {
-    padding: 2px;
-    margin: 2px;
-    border-radius: 5px;
-  }
+	.Schema-element {
+		padding: 2px;
+		margin: 2px;
+		border-radius: 5px;
+	}
 
-  .input {
-    text-align: right;
-  }
+	.input {
+		text-align: right;
+	}
 
-  .output {
-    text-align: left;
-  }
+	.output {
+		text-align: left;
+	}
 
-  .mapped {
-    font-weight: bold;
-  }
+	.mapped {
+		font-weight: bold;
+	}
 
-  .highlighted {
-    background-color: #FFE2D6;
-  }
+	.highlighted {
+		background-color: #ffe2d6;
+	}
 
-  .selected {
-    background-color: #FFC8B2;
-  }
+	.selected {
+		background-color: #ffc8b2;
+	}
 
-  .Schema-element:hover {
-    background-color: #FFE2D6;
-  }
+	.Schema-element:hover {
+		background-color: #ffe2d6;
+	}
 }
