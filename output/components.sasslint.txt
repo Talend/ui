@@ -1,5 +1,5 @@
 
-> @talend/react-components@0.152.0 lint:style /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.153.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
 
@@ -12,11 +12,23 @@ src/Actions/ActionIconToggle/ActionIconToggle.scss
 src/ConfirmDialog/ConfirmDialog.scss
   76:4  warning  Expected indentation of 2 tabs but found 3  indentation
 
+src/DataMapper/DataMapper.scss
+   33:9   warning  No unit allowed for values of 0                                      zero-unit
+   35:8   warning  No unit allowed for values of 0                                      zero-unit
+   36:11  warning  No unit allowed for values of 0                                      zero-unit
+   68:12  warning  No unit allowed for values of 0                                      zero-unit
+   69:11  warning  No unit allowed for values of 0                                      zero-unit
+   72:3   error    Class '.Schema' should be written in lowercase with hyphens          class-name-format
+   80:3   error    Class '.Schema-title' should be written in lowercase with hyphens    class-name-format
+   89:3   error    Class '.Schema-content' should be written in lowercase with hyphens  class-name-format
+   96:3   error    Class '.Schema-element' should be written in lowercase with hyphens  class-name-format
+  122:3   error    Class '.Schema-element' should be written in lowercase with hyphens  class-name-format
+
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
 
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 5 problems (2 errors, 3 warnings)
+✖ 15 problems (7 errors, 8 warnings)
 
