@@ -71,11 +71,8 @@ function SubHeaderBar({
 }) {
 	const injected = Inject.all(getComponent, components, CustomInject);
 	const Renderer = Inject.getAll(getComponent, { Action, ActionBar });
-	const hasRight = (
-		Array.isArray(right) ||
-		has(components, 'before-right') ||
-		has(components, 'after-right')
-	);
+	const hasRight =
+		Array.isArray(right) || has(components, 'before-right') || has(components, 'after-right');
 	return (
 		<header className={classNames(theme['tc-subheader'], 'tc-subheader', className)}>
 			{injected('before-actionbar')}
