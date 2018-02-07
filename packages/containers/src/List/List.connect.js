@@ -46,9 +46,10 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 	}
 
 	props.items = getItems(state, config);
+
 	const totalResults = props.items.length;
 
-	if (ownProps.toolbar && ownProps.toolbar.pagination) {
+	if (get(ownProps, ['toolbar', 'pagination'])) {
 		props.items = getPagedItems(state, config);
 	}
 

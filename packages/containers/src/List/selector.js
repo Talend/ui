@@ -39,10 +39,13 @@ export function configureGetPagination(state, { collectionId }) {
 	return null;
 }
 
-const getCollectionData = collectionId => state => getCollectionItems(state, collectionId);
+function getCollectionData(collectionId) {
+	return state => getCollectionItems(state, collectionId);
+}
 
-const getComponentState = collectionId => state =>
-	state.cmf.components.getIn(['Container(List)', collectionId || 'default']);
+function getComponentState(collectionId) {
+	return state => state.cmf.components.getIn(['Container(List)', collectionId || 'default']);
+}
 
 export function configureGetFilteredItems(configure) {
 	const localConfig = configure;
@@ -113,6 +116,7 @@ export function configureGetPagedItems(configure) {
 			if (componentState) {
 				const startIndex = componentState.get('startIndex');
 				const itemsPerPage = componentState.get('itemsPerPage');
+
 				if (itemsPerPage > 0 && startIndex > 0) {
 					results = results.slice(
 						startIndex - 1,

@@ -86,4 +86,17 @@ describe('List Selector tests', () => {
 		const props = mapStateToProps(state, localConfig);
 		expect(props.items.length).toBe(0);
 	});
+
+	it('should return items in a page when pagination applied', () => {
+		state.cmf.components = fromJS({
+			'Container(List)': {
+				default: {
+					itemsPerPage: 1,
+					startIndex: 1,
+				},
+			},
+		});
+		const props = mapStateToProps(state, { ...localConfig, toolbar: { pagination: {} } });
+		expect(props.items.length).toBe(1);
+	});
 });
