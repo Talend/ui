@@ -8,6 +8,7 @@ export default function pushNotification(state, notification) {
 	const path = ['Container(Notification)', 'Notification', 'notifications'];
 	let notifs = state.cmf.components.getIn(path);
 	if (!notifs) {
+		// eslint-disable-next-line no-console
 		console.error('Notifications are not yet available.', notification);
 		return state;
 	}
