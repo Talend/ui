@@ -86,6 +86,7 @@ import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
 import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
+import DataMapper from './DataMapper';
 import Dialog from './Dialog';
 import Drawer from './Drawer';
 import Emphasis from './Emphasis';
@@ -129,6 +130,7 @@ export {
 	CircularProgress,
 	Checkbox,
 	CollapsiblePanel,
+	DataMapper,
 	Dialog,
 	Enumeration,
 	ListView,

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`drag-over-element 1`] = `
+<div>
+  <div
+    className="Schema-element highlighted undefined"
+    onClick={[Function]}
+  >
+    Drag_over_element
+  </div>
+</div>
+`;
+
+exports[`mapped-element 1`] = `
+<div>
+  <div
+    className="Schema-element mapped undefined"
+    onClick={[Function]}
+  >
+    Mapped_element
+  </div>
+</div>
+`;
+
+exports[`single-element 1`] = `
+<div>
+  <div
+    className="Schema-element undefined"
+    onClick={[Function]}
+  >
+    Single_element
+  </div>
+</div>
+`;

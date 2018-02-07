@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mapping 1`] = `
+<div
+  className="mapper-element"
+  id="mapping"
+>
+  <div
+    className="mapping-tools"
+  >
+    <button
+      id="clear-connection"
+      onClick={undefined}
+    >
+      Clear connection
+    </button>
+    <button
+      id="clear-mapping"
+      onClick={undefined}
+    >
+      Clear mapping
+    </button>
+  </div>
+  <div
+    className="mapping-content"
+  >
+    <div
+      id="mappingItem"
+    >
+      [ elem_in_1 =&gt; elem_out_1 ]
+    </div>
+    <div
+      id="mappingItem"
+    >
+      [ elem_in_2 =&gt; elem_out_2 ]
+    </div>
+    <div
+      id="mappingItem"
+    >
+      [ elem_in_3 =&gt; elem_out_3 ]
+    </div>
+  </div>
+</div>
+`;

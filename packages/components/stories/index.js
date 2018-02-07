@@ -12,6 +12,7 @@ import './CollapsiblePanel';
 import './ConfirmDialog';
 import './Checkbox';
 import './Dialog';
+import './DataMapper';
 import './Drawer';
 import './Emphasis';
 import './Enumeration';

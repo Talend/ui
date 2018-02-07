@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`single-item 1`] = `
+<div
+  id="mappingItem"
+>
+  [ undefined =&gt; undefined ]
+</div>
+`;

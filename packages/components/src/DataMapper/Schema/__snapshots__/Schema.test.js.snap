@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`empty-schema 1`] = `
+<div
+  className="Schema mapper-element"
+>
+  <div
+    className="Schema-title"
+  >
+    undefined schema
+  </div>
+  <div
+    className="Schema-content"
+    onScroll={undefined}
+  />
+</div>
+`;
+
+exports[`single-schema 1`] = `
+<div
+  className="Schema mapper-element"
+>
+  <div
+    className="Schema-title"
+  >
+    undefined schema
+  </div>
+  <div
+    className="Schema-content"
+    onScroll={undefined}
+  >
+    <div
+      className="Schema-element undefined"
+      onClick={[Function]}
+    >
+      element_1
+    </div>
+    <div
+      className="Schema-element undefined"
+      onClick={[Function]}
+    >
+      element_2
+    </div>
+    <div
+      className="Schema-element undefined"
+      onClick={[Function]}
+    >
+      element_3
+    </div>
+  </div>
+</div>
+`;
