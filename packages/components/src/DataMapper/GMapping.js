@@ -63,8 +63,8 @@ export default class GMapping extends Component {
     return (
       <div id='mapping' className='mapper-element'>
         <div className='mapping-tools'>
-          <button id='clear-connection' className='remove-action' onClick={this.props.clearConnection}/>
-          <button id='clear-mapping' className='remove-all-action' onClick={this.props.clearMapping}/>
+            <button id='clear-connection' className='remove-action' onClick={this.props.clearConnection}>Clear</button>
+            <button id='clear-mapping' className='remove-all-action' onClick={this.props.clearMapping}>Clear All</button>
         </div>
         <div ref='canvasDiv' className='mapping-content'>
           <canvas ref='canvas' id='mapping-canvas' />

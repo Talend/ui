@@ -1,4 +1,4 @@
 import Mapper from './Mapper/MapperWithDnd';
-import './DataMapper.css';
+import './DataMapper.scss';
 
 export default Mapper;
