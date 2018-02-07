@@ -7,9 +7,18 @@ export default function pushNotification(state, notification) {
 	}
 	const path = ['Container(Notification)', 'Notification', 'notifications'];
 	let notifs = state.cmf.components.getIn(path);
-	notifs = notifs.push(Object.assign({
-		id: objectId(),
-	}, notification));
+	if (!notifs) {
+		console.error('Notifications are not yet available for ', notification);
+		return state;
+	}
+	notifs = notifs.push(
+		Object.assign(
+			{
+				id: objectId(),
+			},
+			notification,
+		),
+	);
 	const newState = Object.assign({}, state);
 	newState.cmf.components = state.cmf.components.setIn(path, notifs);
 	return newState;
