@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Icon from '@talend/react-components/lib/Icon';
 import { orderProperties, retrieveSchema } from 'react-jsonschema-form/lib/utils';
+import has from 'lodash/has';
 
 function createCollapsibleFieldset(title) {
 	class CollapsibleFieldset extends React.Component {
@@ -75,27 +76,33 @@ function createCollapsibleFieldset(title) {
 			const iconTransform = !formData.isClosed ? 'flip-vertical' : '';
 			return (
 				<fieldset>
-					<div className="" onDoubleClick={this.toggle} id={`${idSchema.$id}__title_bar`} role="button">
-						{title && (
-							<div onClick={this.toggle} id={`${idSchema.$id}__title_wrapper`} role="button">
-								<TitleField
-									id={`${idSchema.$id}__title`}
-									title={title(formData, uiSchema)}
-									required={required}
-									formContext={formContext}
-								/>
-							</div>
-						)}
-						<button
-							onClick={this.toggle}
-							id={`${idSchema.$id}__collapse`}
-							title="Collapse"
-							type="button"
-							className="toggle"
+					{has(schema, 'properties.isClosed') && (
+						<div
+							onDoubleClick={this.toggle}
+							id={`${idSchema.$id}__title_bar`}
+							role="button"
 						>
-							<Icon name="talend-caret-down" transform={iconTransform} />
-						</button>
-					</div>
+							{title && (
+								<div onClick={this.toggle} id={`${idSchema.$id}__title_wrapper`} role="button">
+									<TitleField
+										id={`${idSchema.$id}__title`}
+										title={title(formData, uiSchema)}
+										required={required}
+										formContext={formContext}
+									/>
+								</div>
+							)}
+							<button
+								onClick={this.toggle}
+								id={`${idSchema.$id}__collapse`}
+								title="Collapse"
+								type="button"
+								className="toggle"
+							>
+								<Icon name="talend-caret-down" transform={iconTransform} />
+							</button>
+						</div>
+					)}
 					{(uiSchema['ui:description'] || schema.description) && (
 						<DescriptionField
 							id={`${idSchema.$id}__description`}

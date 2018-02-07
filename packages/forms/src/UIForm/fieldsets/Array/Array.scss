@@ -8,9 +8,9 @@
 		display: inline-block;
 		text-transform: uppercase;
 		margin: 10px 0;
-	  }
+	}
 
-	legend {
+	fieldset > legend {
 		position: absolute;
 		width: 1px;
 		height: 1px;

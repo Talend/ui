@@ -11,43 +11,39 @@ function FieldTemplate({ element, cantDelete }) {
 	const arrayElement = classNames(theme.arrayElement, element.itemData.isClosed && theme.closed);
 	return (
 		<div className={arrayElement}>
-			{
-				<div className={theme.control}>
-					<button
-						type="button"
-						name={`btn-delete-element-${element.index}`}
-						disabled={cantDelete}
-						className={theme.delete}
-						onClick={element.onDropIndexClick(element.index)}
-						title="Delete"
-					>
-						<Icon name="talend-trash" />
-					</button>
-					{!element.itemData.isClosed && (
-						<div className={theme.orderaction}>
-							<button
-								type="button"
-								name={`btn-move-element-up-${element.index}`}
-								disabled={!element.hasMoveUp}
-								onClick={element.onReorderClick(element.index, element.index - 1)}
-								title="Move Up"
-							>
-								<Icon name="talend-caret-down" transform="flip-vertical" />
-							</button>
-							<button
-								type="button"
-								name={`btn-move-element-down-${element.index}`}
-								disabled={!element.hasMoveDown}
-								onClick={element.onReorderClick(element.index, element.index + 1)}
-								title="Move Down"
-							>
-								<Icon name="talend-caret-down" />
-							</button>
-						</div>
-					)}
-				</div>
-			}
+			<div className={theme.control}>
+				<button
+					type="button"
+					name={`btn-move-element-up-${element.index}`}
+					disabled={!element.hasMoveUp}
+					onClick={element.onReorderClick(element.index, element.index - 1)}
+					title="Move Up"
+				>
+					<Icon name="talend-caret-down" transform="flip-vertical" />
+				</button>
+				<button
+					type="button"
+					name={`btn-move-element-down-${element.index}`}
+					disabled={!element.hasMoveDown}
+					onClick={element.onReorderClick(element.index, element.index + 1)}
+					title="Move Down"
+				>
+					<Icon name="talend-caret-down" />
+				</button>
+			</div>
 			<div className={theme.element}>{element.children}</div>
+			<div className={theme.control}>
+				<button
+					type="button"
+					name={`btn-delete-element-${element.index}`}
+					disabled={cantDelete}
+					className={theme.delete}
+					onClick={element.onDropIndexClick(element.index)}
+					title="Delete"
+				>
+					<Icon name="talend-cross" />
+				</button>
+			</div>
 		</div>
 	);
 }
@@ -59,10 +55,11 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function ArrayFieldTemplate(props) {
-	const { items, canAdd, onAddClick, minItems, maxItems } = props;
+	const { items, canAdd, onAddClick, minItems, maxItems, title } = props;
 	const addBtnClass = classNames(theme.addBtn, 'btn', 'btn-info');
 	return (
-		<div className={theme.ArrayFieldTemplate}>
+		<fieldset className={theme.ArrayFieldTemplate} data-content={title}>
+			{title && <legend>{title}</legend>}
 			<IconsProvider />
 			{canAdd && (
 				<button
@@ -79,7 +76,7 @@ function ArrayFieldTemplate(props) {
 				items.map(element => (
 					<FieldTemplate element={element} cantDelete={items.length <= minItems} />
 				))}
-		</div>
+		</fieldset>
 	);
 }
 if (process.env.NODE_ENV !== 'production') {

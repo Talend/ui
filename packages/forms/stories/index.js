@@ -475,7 +475,7 @@ decoratedStories.add('Custom double array', () => {
 			properties: {
 				groupBy: {
 					type: 'array',
-					title: 'A list of strings',
+					title: 'Group by',
 					minItems: 1,
 					maxItems: 5,
 					items: {
@@ -490,7 +490,7 @@ decoratedStories.add('Custom double array', () => {
 				},
 				operations: {
 					type: 'array',
-					title: 'A list of strings',
+					title: 'operation',
 					minItems: 1,
 					maxItems: 5,
 					items: {
