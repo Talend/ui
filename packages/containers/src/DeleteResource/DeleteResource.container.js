@@ -36,15 +36,10 @@ export default class DeleteResource extends React.Component {
 	 * Return the label and a boolean to confirm that the item has been found.
 	 * @param {object} resourceInfo
 	 */
-	getLabel(resourceType, id) {
-		let resource;
-		const resourcesCollection = this.context.store.getState().cmf.collections.get(resourceType);
-		if (resourcesCollection) {
-			resource = resourcesCollection.find(
-				resoureCollection => resoureCollection.get('id') === id,
-			);
-		}
-		return resource ? { label: resource.get('label'), found: true } : { label: '', found: false };
+	getLabel() {
+		return this.props.resource
+			? { label: this.props.resource.get('label'), found: true }
+			: { label: '', found: false };
 	}
 
 	/**
@@ -54,7 +49,7 @@ export default class DeleteResource extends React.Component {
 		return {
 			resourceType: this.props.resourceType,
 			uri: this.props.uri,
-			...this.getLabel(this.props.resourceType, this.props.params.id),
+			...this.getLabel(),
 			id: this.props.params.id,
 		};
 	}

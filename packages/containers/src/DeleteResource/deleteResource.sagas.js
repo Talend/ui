@@ -24,7 +24,7 @@ export function buildHttpDelete(uri, labelResource, responseType) {
 }
 
 /**
- * from a resourceType and an optionnal resourcePath, return a resource locator
+ * from a resourceType and an optional resourcePath, return a resource locator
  * if resourcePath is provided resourceType is prepend to resourcePath
  * @param {String} resourceType
  * @param {Array<String>} [resourcePath]
@@ -36,7 +36,7 @@ export function getResourceLocator(resourceType, resourcePath) {
 			return [resourceType, ...resourcePath];
 		}
 		throw Error(
-			`Optional parameter resourcePath should be an arrray of string,
+			`Optional parameter resourcePath should be an array of string,
 got ${resourcePath}`,
 		);
 	}
@@ -71,21 +71,21 @@ export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath)
 /**
  * Return a saga for delete resource confirmation dialog box.
  * Race between cancel and confirm deleting the resource.
- * @param {string} uri
- * @param {string} resourceType
- * @param {Array<String>} [resourcePath]
+ * @param {object} sagaParams the params to setup the saga
+ * @param {string} sagaParams.uri the uri of the endpoint to make the calls
+ * @param {string} sagaParams.resourceType the resource type to call delete endpoint ( at least )
+ * @param {Array<String>} sagaParams.resourcePath
+ * @param {string} sagaParams.redirectUrl url to redirect after delete action is done or cancel
  */
-export default function deleteResource(uri, resourceType, resourcePath) {
-	return function* deleteResourceSaga() {
-		const { redirectUrl, model } = yield take(deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE);
-		const { id } = model;
+export default function deleteResource({ uri, resourceType, resourcePath, redirectUrl }) {
+	return function* deleteResourceSaga(routerParams) {
 		try {
 			yield race({
 				deleteConfirmationValidate: call(
 					deleteResourceValidate,
 					uri,
 					resourceType,
-					id,
+					routerParams.id,
 					resourcePath,
 				),
 				deleteConfirmationCancel: call(function* deleteResourceCancel() {

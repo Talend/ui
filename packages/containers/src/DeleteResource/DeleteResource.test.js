@@ -7,10 +7,6 @@ import Container from './DeleteResource.container';
 import Connected from './DeleteResource.connect';
 
 const state = store.state();
-const value = new Map({ id: 'myResourceID', label: 'myLabel' });
-const collections = new Map({
-	myResourceType: new List([value]),
-});
 const settings = {
 	actions: {
 		'dialog:delete:validate': {
@@ -27,7 +23,6 @@ const settings = {
 	},
 };
 state.cmf = {
-	collections,
 	settings,
 };
 
@@ -42,6 +37,7 @@ describe('Container DeleteResource', () => {
 		const props = {
 			uri: '/myEndpoint',
 			resourceType: 'myResourceType',
+			resource: new Map({ label: 'myLabel' }),
 			header: 'My header title',
 			params: { id: 'myResourceID' },
 			'validate-action': 'dialog:delete:validate',

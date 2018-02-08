@@ -1,6 +1,6 @@
 # DeleteResource Container
 
-This peculiar component need some preparation and make some assomption about your resource shape to properly work.
+This peculiar component need some preparation and make some assumption about your resource shape to properly work.
 It better to read the following documentation to avoid headache and hair loss.
 
 ## Breaking changes log
@@ -25,7 +25,7 @@ your resource need to have the following minimal shape
 }
 ```
 
-id will be used to identify the resource, and label will be used in the action dispatched when the resource will be succesfully deleted, allowing you to create a custom notification containing the resource name.
+id will be used to identify the resource, and label will be used in the action dispatched when the resource will be successfully deleted, allowing you to create a custom notification containing the resource name.
 
 ### association of the component with a route
 
@@ -50,7 +50,12 @@ next you have to associate the saga with the same route using SagaRouter present
 
 ```javascript
 const route = {
-	'/connections/:datastoreId/delete': DeleteResource.sagas(uri, resourceType),
+	'/connections/:id/delete': DeleteResource.sagas(
+        {
+            uri,
+            resourceType,
+        }
+    ),
 };
 ```
 
@@ -58,11 +63,18 @@ const route = {
 **resourceType** : is the name of the resource category
 **resourcePath** : optional array of string, is appended to resourceType key to deep location of a subset of a collection element
 the delete service will use it to check if the resource exist in your application state tree
+**redirectUrl** : is the url to redirect when delete is complete or cancel action is triggered
 
 example with resourceType only
 ```javascript
 const route = {
-	'/connections/:datastoreId/delete': DeleteResource.sagas(uri, 'resourceType'),
+	'/connections/:id/delete': DeleteResource.sagas(
+        {
+            uri,
+            resourceType:'resourceType',
+            redirectUrl:'/connections'
+        }
+    ),
 };
 ```
 
@@ -76,11 +88,17 @@ const route = {
 }
 ```
 
-example with resourcepath
+example with resourcePath
 
 ```javascript
 const route = {
-	'/connections/:datastoreId/delete': DeleteResource.sagas(uri, 'resourceType', ['data']),
+	'/connections/:id/delete': DeleteResource.sagas(
+        {
+            uri,
+            resourceType: 'resourceType',
+            resourcePath: ['data'],
+        }
+    ),
 };
 ```
 
