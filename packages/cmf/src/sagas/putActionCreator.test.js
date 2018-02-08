@@ -1,6 +1,6 @@
 import { put, select } from 'redux-saga/effects';
-import registry from './registry';
-import saga from './saga';
+import registry from '../registry';
+import putActionCreator from './putActionCreator';
 
 describe('saga', () => {
 	it('should putActionCreator call put of a registred actionCreator without context', () => {
@@ -13,7 +13,7 @@ describe('saga', () => {
 		const event = { type: 'click', source: 'MyComponent' };
 
 		// when
-		const gen = saga.putActionCreator('myActionCreator', event, data);
+		const gen = putActionCreator('myActionCreator', event, data);
 
 		// then
 		expect(gen.next().value).toEqual(select());
@@ -41,7 +41,7 @@ describe('saga', () => {
 		const event = { type: 'click', source: 'MyComponent' };
 
 		// when
-		const gen = saga.putActionCreator('myActionCreator', event, data, context);
+		const gen = putActionCreator('myActionCreator', event, data, context);
 
 		// then
 		expect(gen.next().value).toEqual(select());

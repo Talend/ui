@@ -46,6 +46,7 @@ const CMF_PROPS = [
 	'didMountActionCreator', // componentDidMount action creator id in registry
 	'keepComponentState', // redux state management on unmount
 	'view', // view component id in registry
+	'saga',
 	'willUnMountActionCreator', // componentWillUnmount action creator id in registry
 ];
 
@@ -247,6 +248,9 @@ export default function cmfConnect({
 				if (this.props.didMountActionCreator) {
 					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
 				}
+				if (this.props.saga) {
+					this.dispatchActionCreator('cmf.saga.start', { type: 'DID_MOUNT' }, this.props, this.context);
+				}
 			}
 
 			componentWillUnmount() {
@@ -259,6 +263,9 @@ export default function cmfConnect({
 					(this.props.keepComponentState === undefined && !keepComponentState)
 				) {
 					this.props.deleteState();
+				}
+				if (this.props.saga) {
+					this.dispatchActionCreator('cmf.saga.stop', { type: 'WILL_UNMOUNT' }, this.props);
 				}
 			}
 

@@ -1,29 +1,10 @@
-/**
- * This module provide helpers to use redux-saga in the CMF context
- * @module react-cmf/lib/saga
- * @see module:react-cmf/lib/api
- * @example
-import { api } from '@talend/react-cmf';
-
-api.saga.putActionCreator('myaction', {}, {});
- */
-
-import { put, select } from 'redux-saga/effects';
-import actionCreatorAPI from './actionCreator';
+// THIS FILE SHOULD BE REMOVED ONCE IN UI / CMF
 import registry from './registry';
 
-function* putActionCreator(actionCreatorId, event, data, optContext) {
-	const state = yield select();
-	const context = optContext || {
-		registry: registry.getRegistry(),
-		store: {
-			getState: () => state,
-		},
-	};
-	const actionCreator = actionCreatorAPI.get(context, actionCreatorId);
-	yield put(actionCreator(event, data, context));
+export function register(id, saga, context) {
+	registry.addToRegistry(`SAGA_${id}`, saga, context);
 }
 
-export default {
-	putActionCreator,
-};
+export function get(id, context) {
+	return registry.getFromRegistry(`SAGA_${id}`, context);
+}
