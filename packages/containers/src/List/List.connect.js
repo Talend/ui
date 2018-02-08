@@ -20,19 +20,13 @@ function componentId(ownProps) {
 function getItems(state, config) {
 	const items = configureGetFilteredItems(config)(state);
 
-	if (items) {
-		return items.toJS();
-	}
-	return [];
+	return items || [];
 }
 
 function getPagedItems(state, config) {
 	const items = configureGetPagedItems(config)(state);
 
-	if (items) {
-		return items.toJS();
-	}
-	return [];
+	return items || [];
 }
 
 export function mapStateToProps(state, ownProps, cmfProps) {
@@ -47,7 +41,7 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 
 	props.items = getItems(state, config);
 
-	const totalResults = props.items.length;
+	const totalResults = props.items.size;
 
 	if (get(ownProps, ['toolbar', 'pagination'])) {
 		props.items = getPagedItems(state, config);

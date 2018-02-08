@@ -46,7 +46,7 @@ describe('List Selector tests', () => {
 		});
 
 		const props = mapStateToProps(state, localConfig);
-		expect(props.items.length).toBe(localConfig.items.length);
+		expect(props.items.size).toBe(localConfig.items.length);
 	});
 
 	it('should filter the list when filter on visible column', () => {
@@ -65,7 +65,7 @@ describe('List Selector tests', () => {
 		});
 
 		const props = mapStateToProps(state, localConfig);
-		expect(props.items.length).toBe(1);
+		expect(props.items.size).toBe(1);
 	});
 
 	it('should return no elements when search on non visible column', () => {
@@ -84,7 +84,7 @@ describe('List Selector tests', () => {
 		});
 
 		const props = mapStateToProps(state, localConfig);
-		expect(props.items.length).toBe(0);
+		expect(props.items.size).toBe(0);
 	});
 
 	it('should return items in a page when pagination applied', () => {
@@ -97,6 +97,6 @@ describe('List Selector tests', () => {
 			},
 		});
 		const props = mapStateToProps(state, { ...localConfig, toolbar: { pagination: {} } });
-		expect(props.items.length).toBe(1);
+		expect(props.items.size).toBe(1);
 	});
 });

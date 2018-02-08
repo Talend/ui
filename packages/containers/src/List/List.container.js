@@ -25,7 +25,7 @@ export const DEFAULT_STATE = new Map({
  * @return {Array}          [description]
  */
 export function getItems(context, props) {
-	return props.items.map(item =>
+	return props.items.toJS().map(item =>
 		Object.assign({}, item, {
 			actions: getActionsProps(context, get(props, 'actions.items', []), item),
 		}),

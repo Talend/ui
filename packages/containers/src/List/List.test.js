@@ -48,7 +48,7 @@ const settings = {
 	actions,
 };
 
-const items = [
+const items = fromJS([
 	{
 		id: 1,
 		name: 'Title with actions',
@@ -76,7 +76,7 @@ const items = [
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT with super long name',
 	},
-];
+]);
 
 describe('Container List', () => {
 	it('should put default props', () => {
