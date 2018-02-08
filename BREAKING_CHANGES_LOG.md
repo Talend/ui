@@ -2,6 +2,34 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.153.0
+* CMF: HeaderBar
+* PR: https://github.com/Talend/ui/pull/1037
+* Changes: Items in help dropdown are moved to information dropdown
+
+## v0.152.0
+* CMF: cmfConnect
+* PR: https://github.com/Talend/ui/pull/1046
+* Changes: Spread viewProps in mapStateToProps
+
+Spread viewProps when calling mapStateToProps so more stuff can be handled.
+For example, currently cmf only handle expression on first level of props, with this change, we can do expression evaluation under props.list for List component.
+
+## v0.151.0
+* Container: Form
+* PR: https://github.com/Talend/ui/pull/1031
+* Changes: With Form container in default export, we must have form as dependency on the project that import containers. Remove Form from default export and import it à la lodash when you need it.
+
+Before
+```javascript
+import { Form } from '@talend/react-containers'
+```
+After
+```javascript
+import Form from '@talend/react-containers/lib/Form'
+```
+
+
 ## 0.150.0
 * Component: Typeahead
 * PR: [chore: upgrade react-autowhatever](https://github.com/Talend/ui/pull/1022)
@@ -46,7 +74,7 @@ function renderItemsContainer({ children, containerProps }) {
     );
 }
 ```
- 
+
 ## v0.143.0
 * Component: CollapsiblePanel
 * PR: [feat(components/collapsiblepanel): style update](https://github.com/Talend/ui/pull/961)
