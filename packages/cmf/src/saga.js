@@ -1,4 +1,3 @@
-// THIS FILE SHOULD BE REMOVED ONCE IN UI / CMF
 import registry from './registry';
 
 export function register(id, saga, context) {
