@@ -7,9 +7,14 @@ export function mapStateToProps(state, ownProps) {
 		const resource = state.cmf.collections
 			.get(ownProps.resourceType, new Immutable.Map())
 			.find(currentResource => currentResource.get('id') === ownProps.routeParams.id);
-		return { resource };
+		return {
+			resource,
+		};
 	}
 	return {};
 }
 
-export default cmfConnect({ componentId: 'DeleteResource', mapStateToProps })(Container);
+export default cmfConnect({
+	componentId: ownProps => ownProps.id || ownProps.componentId,
+	mapStateToProps,
+})(Container);

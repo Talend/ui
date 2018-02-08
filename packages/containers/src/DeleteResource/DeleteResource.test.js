@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { store } from '@talend/react-cmf/lib/mock';
-import { Map, List } from 'immutable';
+import Immutable from 'immutable';
 
 import Container from './DeleteResource.container';
 import Connected from './DeleteResource.connect';
@@ -37,7 +37,7 @@ describe('Container DeleteResource', () => {
 		const props = {
 			uri: '/myEndpoint',
 			resourceType: 'myResourceType',
-			resource: new Map({ label: 'myLabel' }),
+			resource: new Immutable.Map({ label: 'myLabel' }),
 			header: 'My header title',
 			params: { id: 'myResourceID' },
 			'validate-action': 'dialog:delete:validate',
