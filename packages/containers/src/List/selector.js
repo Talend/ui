@@ -17,9 +17,7 @@ function contains(listItem, query, columns) {
 }
 
 function getCollection(state, collectionId) {
-	return state.cmf
-		.collections
-		.get(collectionId);
+	return state.cmf.collections.get(collectionId);
 }
 
 function getCollectionItems(state, collectionId) {
@@ -41,16 +39,19 @@ export function configureGetPagination(state, { collectionId }) {
 	return null;
 }
 
+function getCollectionData(collectionId) {
+	return state => getCollectionItems(state, collectionId);
+}
+
+function getComponentState(collectionId) {
+	return state => state.cmf.components.getIn(['Container(List)', collectionId || 'default']);
+}
+
 export function configureGetFilteredItems(configure) {
 	const localConfig = configure;
 
-	const getCollectionData = state => getCollectionItems(state, localConfig.collectionId);
-
-	const getComponentState = state => state.cmf
-		.components.getIn(['Container(List)', localConfig.collectionId || 'default']);
-
 	const getFilteredList = createSelector(
-		[getCollectionData, getComponentState],
+		[getCollectionData(localConfig.collectionId), getComponentState(localConfig.collectionId)],
 		(items, componentState) => {
 			let results = items || localConfig.items;
 			if (componentState) {
@@ -64,7 +65,7 @@ export function configureGetFilteredItems(configure) {
 	);
 
 	const getSortedList = createSelector(
-		[getFilteredList, getComponentState],
+		[getFilteredList, getComponentState(localConfig.collectionId)],
 		(items, componentState) => {
 			if (!List.isList(items)) {
 				return new List();
@@ -102,8 +103,30 @@ export function configureGetFilteredItems(configure) {
 		},
 	);
 
-	return createSelector(
-		[getSortedList, getComponentState],
-		items => items,
+	return createSelector([getSortedList, getComponentState], items => items);
+}
+
+export function configureGetPagedItems(configure) {
+	const getSortedList = configureGetFilteredItems(configure);
+
+	const getPagedList = createSelector(
+		[getSortedList, getComponentState(configure.collectionId)],
+		(items, componentState) => {
+			let results = items;
+			if (componentState) {
+				const startIndex = componentState.get('startIndex');
+				const itemsPerPage = componentState.get('itemsPerPage');
+
+				if (itemsPerPage > 0 && startIndex > 0) {
+					results = results.slice(
+						startIndex - 1,
+						Math.min(startIndex + itemsPerPage - 1, results.size),
+					);
+				}
+			}
+			return results;
+		},
 	);
+
+	return createSelector([getPagedList, getComponentState], items => items);
 }
