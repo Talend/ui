@@ -91,7 +91,7 @@ function Table({ flat, data, ...props }) {
 											data={flattenRow[key]}
 											{...props}
 											jsonpath={path}
-											nativeValueClassName={'native-value-table'}
+											nativeValueClassName="native-value-table"
 										/>
 									</td>
 								);
