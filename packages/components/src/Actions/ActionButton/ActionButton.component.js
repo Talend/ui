@@ -52,7 +52,7 @@ function getContent(props) {
 	return adjustContentPlacement(getIcon(props), getLabel(props), props.iconPosition);
 }
 
-function noOp() {}
+function noOp() { }
 
 /**
  * @param {object} props react props
