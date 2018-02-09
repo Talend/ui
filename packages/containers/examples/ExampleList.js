@@ -93,17 +93,96 @@ const ExampleList = {
 			</div>
 		</div>
 	),
+	pagination: () => {
+		const propsPg = cloneDeep(props);
+		const itemsPg = items.concat(
+			Immutable.fromJS([
+				{
+					id: 'id4',
+					label: 'Title with actions',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'ID5',
+					label: 'Title in input mode',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'iD6',
+					label: 'Super long title to trigger overflow on some rendering',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT with super long name',
+				},
+				{
+					id: 'id7',
+					label: 'Title with actions',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'ID8',
+					label: 'Title in input mode',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'iD9',
+					label: 'Super long title to trigger overflow on some rendering',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT with super long name',
+				},
+				{
+					id: 'id10',
+					label: 'Title with actions',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'ID11',
+					label: 'Title in input mode',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+				},
+				{
+					id: 'iD12',
+					label: 'Super long title to trigger overflow on some rendering',
+					created: '2016-09-22',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT with super long name',
+				},
+			]),
+		);
+		propsPg.toolbar.pagination = {};
+		return (
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List {...propsPg} items={itemsPg} />
+				</div>
+			</div>
+		);
+	},
 	'in progress': () => {
 		const props2 = cloneDeep(props);
 		props2.list.inProgress = true;
 		return (
-				<div>
-					<IconsProvider />
-					<div className="list-container">
-						<List {...props2} items={items} />
-					</div>
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List {...props2} items={items} />
 				</div>
-		)
+			</div>
+		);
 	},
 	'no toolbar': () => (
 		<div>
@@ -117,12 +196,7 @@ const ExampleList = {
 		<div>
 			<IconsProvider />
 			<div className="list-container">
-				<List
-					{...props}
-					items={items}
-					rowHeight={customHeight}
-					initialState={defaultListState}
-				/>
+				<List {...props} items={items} rowHeight={customHeight} initialState={defaultListState} />
 			</div>
 		</div>
 	),
