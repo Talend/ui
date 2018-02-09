@@ -38,7 +38,7 @@ export default class DeleteResource extends React.Component {
 	 */
 	getLabel() {
 		return {
-			label: this.props.resource.get('label', ''),
+			label: this.props.resource ? this.props.resource.get('label', '') : '',
 			found: !!this.props.resource,
 		};
 	}
