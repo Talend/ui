@@ -17,6 +17,7 @@ exports[`Table should render Table with props data as an array 1`] = `
         <JSONLike
           data="header1"
           jsonpath="$[0]['field0']"
+          nativeValueClassName="native-value-table"
         />
       </td>
     </tr>
@@ -25,6 +26,7 @@ exports[`Table should render Table with props data as an array 1`] = `
         <JSONLike
           data={undefined}
           jsonpath="$[1]['field0']"
+          nativeValueClassName="native-value-table"
         />
       </td>
     </tr>
@@ -56,6 +58,7 @@ exports[`Table should render Table with props data as an object 1`] = `
         <JSONLike
           data="header1"
           jsonpath="$[0]['field0']"
+          nativeValueClassName="native-value-table"
         />
       </td>
     </tr>
@@ -64,6 +67,7 @@ exports[`Table should render Table with props data as an object 1`] = `
         <JSONLike
           data={undefined}
           jsonpath="$[1]['field0']"
+          nativeValueClassName="native-value-table"
         />
       </td>
     </tr>
