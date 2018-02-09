@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import { List } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import Container, { DEFAULT_STATE } from './List.container';
 import {
@@ -20,13 +21,13 @@ function componentId(ownProps) {
 function getItems(state, config) {
 	const items = configureGetFilteredItems(config)(state);
 
-	return items || [];
+	return items || new List();
 }
 
 function getPagedItems(state, config) {
 	const items = configureGetPagedItems(config)(state);
 
-	return items || [];
+	return items || new List();
 }
 
 export function mapStateToProps(state, ownProps, cmfProps) {
