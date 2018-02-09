@@ -19,7 +19,7 @@ function FieldTemplate({ element, cantDelete }) {
 					onClick={element.onReorderClick(element.index, element.index - 1)}
 					title="Move Up"
 				>
-					<Icon name="talend-caret-down" transform="flip-vertical" />
+					<Icon name="talend-arrow-left" transform="rotate-90" />
 				</button>
 				<button
 					type="button"
@@ -28,7 +28,7 @@ function FieldTemplate({ element, cantDelete }) {
 					onClick={element.onReorderClick(element.index, element.index + 1)}
 					title="Move Down"
 				>
-					<Icon name="talend-caret-down" />
+					<Icon name="talend-arrow-left" transform="rotate-270" />
 				</button>
 			</div>
 			<div className={theme.element}>{element.children}</div>

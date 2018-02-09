@@ -1,26 +1,30 @@
 $tf-filterwidget-shadow-color: $shadow !default;
 
 .ArrayFieldTemplate {
-
-	&> legend {
+	& > legend {
 		position: absolute;
 		width: 1px;
 		height: 1px;
 		padding: 0;
 		margin: -1px;
 		overflow: hidden;
-		clip: rect(0,0,0,0);
+		clip: rect(0, 0, 0, 0);
 		border: 0;
 	}
-	
+
 	.addBtn {
 		float: right;
+		margin-right: 32px;
 	}
 
 	.arrayElement {
 		display: flex;
 		background: $wild-sand;
-		border: 1px solid transparent;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+		&:first-of-type {
+			border-top: 1px solid rgba(0, 0, 0, 0.1);
+		}
 
 		&.closed {
 			.delete {
@@ -38,8 +42,7 @@ $tf-filterwidget-shadow-color: $shadow !default;
 
 		&:hover {
 			background: $white;
-	
-			
+
 			.control {
 				.delete {
 					color: $brand-danger;
@@ -56,8 +59,6 @@ $tf-filterwidget-shadow-color: $shadow !default;
 		.control {
 			flex-grow: 0;
 			flex-shrink: 0;
-	
-			border-right: 1px solid $gray-lighter;
 			display: flex;
 			flex-direction: column;
 			padding: 0;
@@ -68,13 +69,17 @@ $tf-filterwidget-shadow-color: $shadow !default;
 				border: 0;
 				color: transparent;
 				margin: 0;
-	
+
 				&:hover {
 					color: $dove-gray;
 				}
-	
+
 				&:disabled {
 					cursor: not-allowed;
+				}
+
+				> svg {
+					vertical-align: sub;
 				}
 			}
 
@@ -100,22 +105,25 @@ $tf-filterwidget-shadow-color: $shadow !default;
 			}
 
 			fieldset {
-				> div:first-child {
+				> :global(.form-group:nth-child(2)) {
+					margin-top: 0px;
+				}
+				> div[role='button'] {
 					// to forbid children selection of text on double click
 					user-select: none;
+					margin: 0;
 
 					div {
-						display: block;
 						width: inherit;
 						max-width: 100%;
 
 						legend {
-							color: $gray-light;
 							font-size: $font-size-base;
+							font-weight: 600;
 							margin: 0;
 							max-width: 100%;
 							overflow: hidden;
-							padding: $padding-normal ($padding-large * 2) $padding-normal $padding-normal;
+							padding: $padding-normal ($padding-large * 2) $padding-normal 0;
 							text-overflow: ellipsis;
 							white-space: nowrap;
 							// to allow classic text selection
@@ -130,24 +138,22 @@ $tf-filterwidget-shadow-color: $shadow !default;
 								color: $gray-dark;
 							}
 						}
-					}
 
-					:global(.toggle) {
-						background: transparent;
-						border: 0;
-						position: absolute;
-						top: 0;
-						right: 0;
-						padding: $padding-normal $padding-normal 0 $padding-normal;
-					}
-				}
 
-				div:first-child {
-					margin: 0;
+						:global(.toggle) {
+							background: transparent;
+							border: 0;
+							position: absolute;
+							top: 0;
+							right: 0;
+							padding: $padding-normal 0 0 $padding-normal;
+						}
+					}
 				}
 
 				> div {
-					margin: $padding-normal;
+					margin-top: $padding-normal;
+					margin-bottom: $padding-normal;
 				}
 			}
 		}
@@ -159,4 +165,6 @@ $tf-filterwidget-shadow-color: $shadow !default;
 	display: inline-block;
 	text-transform: uppercase;
 	margin: 10px 0;
+	font-size: $font-size-small;
+	margin-left: 32px;
 }

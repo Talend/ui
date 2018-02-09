@@ -52,7 +52,7 @@ function onColumnChange(key, onChange, formData) {
 
 export default function ColumnsWidget({ name, schema, formData, onChange, onBlur, ...props }) {
 	return (
-		<div className={`tf-widget-columns ${theme.columns}`}>
+		<fieldset className={`tf-widget-columns ${theme.columns}`}>
 			{(schema.title || name) && <TitleField id={`${name}__title`} title={schema.title || name} />}
 			{schema.properties ? Object.keys(schema.properties).map(
 				key => (
@@ -68,7 +68,7 @@ export default function ColumnsWidget({ name, schema, formData, onChange, onBlur
 					/>
 				)
 			) : null}
-		</div>
+		</fieldset>
 	);
 }
 

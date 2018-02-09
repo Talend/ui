@@ -77,11 +77,7 @@ function createCollapsibleFieldset(title) {
 			return (
 				<fieldset>
 					{has(schema, 'properties.isClosed') && (
-						<div
-							onDoubleClick={this.toggle}
-							id={`${idSchema.$id}__title_bar`}
-							role="button"
-						>
+						<div onDoubleClick={this.toggle} id={`${idSchema.$id}__title_bar`} role="button">
 							{title && (
 								<div onClick={this.toggle} id={`${idSchema.$id}__title_wrapper`} role="button">
 									<TitleField
@@ -90,17 +86,17 @@ function createCollapsibleFieldset(title) {
 										required={required}
 										formContext={formContext}
 									/>
+									<button
+										onClick={this.toggle}
+										id={`${idSchema.$id}__collapse`}
+										title="Collapse"
+										type="button"
+										className="toggle"
+									>
+										<Icon name="talend-caret-down" transform={iconTransform} />
+									</button>
 								</div>
 							)}
-							<button
-								onClick={this.toggle}
-								id={`${idSchema.$id}__collapse`}
-								title="Collapse"
-								type="button"
-								className="toggle"
-							>
-								<Icon name="talend-caret-down" transform={iconTransform} />
-							</button>
 						</div>
 					)}
 					{(uiSchema['ui:description'] || schema.description) && (

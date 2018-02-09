@@ -1,8 +1,11 @@
 .columns {
 	display: flex;
 	flex-wrap: wrap;
-
+	
 	.column {
+		&:first-of-type {
+			margin-left: 0;
+		}
 		flex: 1;
 		margin-left: 15px;
 		margin-top: 15px;
