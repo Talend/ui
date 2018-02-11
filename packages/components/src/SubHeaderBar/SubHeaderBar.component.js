@@ -79,7 +79,7 @@ function SubHeaderBar({
 			<Renderer.ActionBar
 				className={classNames(theme['tc-subheader-navbar'], 'tc-subheader-navbar')}
 			>
-				{injected('before-left')}
+				{injected('left')}
 				<SubHeaderBarActions left>
 					{injected('before-back')}
 					{onGoBack && (
@@ -102,14 +102,14 @@ function SubHeaderBar({
 						{left.map((item, index) => <Renderer.Action key={index} {...item} />)}
 					</SubHeaderBarActions>
 				)}
-				{injected('before-center')}
+				{injected('center')}
 				{Array.isArray(center) &&
 					center.map((item, index) => (
 						<SubHeaderBarActions center hasRight={hasRight}>
 							<Renderer.Action key={index} {...item} />
 						</SubHeaderBarActions>
 					))}
-				{injected('before-right')}
+				{injected('right')}
 				{Array.isArray(right) &&
 					right.map((item, index) => (
 						<SubHeaderBarActions
