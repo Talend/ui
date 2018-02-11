@@ -1,8 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Map } from 'immutable';
-import { Inject } from '@talend/react-cmf';
-import mock from '@talend/react-cmf/lib/mock';
 import Container, { DEFAULT_STATE, DISPLAY_NAME } from './SubHeaderBar.container';
 import Connect from './SubHeaderBar.connect';
 import { getComponentState, getEditMode } from './SubHeaderBar.selectors';
