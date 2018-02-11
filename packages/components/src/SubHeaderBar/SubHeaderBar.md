@@ -21,11 +21,11 @@ It provides a way to display a back button with an editable title.
 The CustomInject support the props 'nowrap' usefull for some of the following accepted components keys:
 
 * before-actionbar `nowrap`
-* before-left
+* left
 * before-back  `nowrap`
 * before-title `nowrap`
 * after-title `nowrap`
-* before-center
-* before-right
+* center
+* right
 * after-actionbar `nowrap`
 
