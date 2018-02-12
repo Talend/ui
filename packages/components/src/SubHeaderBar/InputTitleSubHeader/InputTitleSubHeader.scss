@@ -18,7 +18,6 @@ $tc-input-subheader-size-small: 1rem !default;
 	display: flex;
 	margin: 0;
 	height: 100%;
-	width: 45rem;
 
 	&-icon {
 		align-self: center;
@@ -35,6 +34,7 @@ $tc-input-subheader-size-small: 1rem !default;
 		padding-left: $padding-large;
 		overflow: hidden;
 		flex: 1;
+		margin-right: 110px;
 
 		&-title {
 			display: inline-flex;
