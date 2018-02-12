@@ -7,6 +7,8 @@ notifications:
   email: false
 env:
   - SLIMERJSLAUNCHER=$(which firefox) DISPLAY=:99.0 PATH=$TRAVIS_BUILD_DIR/node_modules/slimerjs/src:$PATH
+  - ACTION=cov
+  - ACTION=demo
 addons:
   firefox: "50.0"
 node_js:
@@ -23,7 +25,7 @@ before_script:
   - yarn global add sassdoc http-server surge prettier
   - .travis/before_script_icons.sh
 script:
-  - yarn test:cov
+  - yarn test:$ACTION
 after_success:
   - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo and static analysis skipped."; travis_terminate 0; fi
   - .travis/after_success_static.sh

@@ -9,6 +9,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
+    "test:demo": "echo nothing to demo in @talend/react-sagas",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint:style": "sass-lint -v -q",
     "lint": "npm run lint:es",
