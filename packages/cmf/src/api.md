@@ -103,8 +103,25 @@ in this case the payload is the current props.
 api.saga
 --
 
+You can register your saga in the cmf registry to be able to use the saga props
+supported by `cmfConnect`.
+
 ```javascript
-api.saga.putActionCreator('myaction', event, data, optionalContext);
+function* mySaga(action) {
+    //...
+}
+api.saga.register('mySaga', mySaga);
+```
+
+This is related to the `component` saga that you must initialize.
+
+api.sagas
+--
+
+Most of them are documented [here](sagas/index.md)
+
+```javascript
+api.sagas.putActionCreator('myaction', event, data, optionalContext);
 ```
 
 This will call the registered action creator `myaction`.

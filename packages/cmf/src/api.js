@@ -31,9 +31,9 @@ import * as saga from './saga';
 import sagas from './sagas';
 import component from './component';
 
-function registerInternals() {
-	actionCreator.register('cmf.saga.start', actions.saga.start);
-	actionCreator.register('cmf.saga.stop', actions.saga.stop);
+function registerInternals(context) {
+	actionCreator.register('cmf.saga.start', actions.saga.start, context);
+	actionCreator.register('cmf.saga.stop', actions.saga.stop, context);
 }
 
 export default {
