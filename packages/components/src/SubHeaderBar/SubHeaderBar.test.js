@@ -130,13 +130,13 @@ describe('SubHeaderBar', () => {
 			],
 		};
 		components = {
-			'before-center': [
+			center: [
 				{
 					component: 'WhatEver',
 					foo: 'bar',
 				},
 			],
-			'before-right': [
+			right: [
 				{
 					component: 'WhatEver',
 					foo: 'baz',
