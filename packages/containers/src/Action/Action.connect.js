@@ -40,5 +40,6 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default cmfConnect({
+	componentId: ownProps => ownProps.componentId || ownProps.id,
 	mapStateToProps,
 })(Action);
