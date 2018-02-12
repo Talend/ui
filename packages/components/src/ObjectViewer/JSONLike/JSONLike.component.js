@@ -50,9 +50,7 @@ export function NativeValue({ data, edit, className, onSelect, onChange, jsonpat
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 
-	const lineValueClasses = classNames(className, theme.native, theme[type], {
-		[theme['line-value']]: !className,
-	});
+	const lineValueClasses = classNames(className, theme.native, theme[type]);
 
 	return (
 		<span
@@ -74,6 +72,9 @@ NativeValue.propTypes = {
 	onSelect: PropTypes.func.isRequired,
 	onChange: PropTypes.func,
 	jsonpath: PropTypes.string,
+};
+NativeValue.defaultProps = {
+	className: theme['line-value'],
 };
 
 /**
