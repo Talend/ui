@@ -29,19 +29,12 @@ export default function DataGrid(props) {
 
 	return (
 		<Component
-			cellRenderer={props.cellRenderer}
+			{...props}
 			columnDefs={props.getColumnDefs(props.sourceData)}
-			getComponent={props.getComponent}
-			headerHeight={props.headerHeight}
-			headerRenderer={props.headerRenderer}
 			onFocusedCell={onFocusedCell}
 			onFocusedColumn={onFocusedColumn}
 			pinnedColumnDefs={props.getPinnedColumnDefs(props.sourceData)}
-			pinHeaderRenderer={props.pinHeaderRenderer}
 			rowData={props.getRowData(props.sourceData)}
-			rowHeight={props.rowHeight}
-			rowSelection={props.rowSelection}
-			theme={props.theme}
 			valueGetter={props.getValueGetter}
 		/>
 	);
