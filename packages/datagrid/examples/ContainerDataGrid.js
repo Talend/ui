@@ -2,8 +2,9 @@ import React from 'react';
 import { IconsProvider } from '@talend/react-components';
 
 import DataGrid from '../src/containers/datagrid.connect';
+import register from '../src/components/register';
 
-// import sample from '../.storybook/sample.json';
+register();
 
 export default function ReactCellRenderer() {
 	return (

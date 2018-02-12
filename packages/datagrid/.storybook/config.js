@@ -8,6 +8,12 @@ import { List, Map, fromJS } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';
 
+import {
+	NAMESPACE_INDEX,
+	NAMESPACE_SAMPLE,
+	COLUMN_INDEX,
+	TALEND_QUALITY_KEY,
+} from '../src/constants/';
 import examples from '../examples';
 import sample from './sample.json';
 
@@ -33,31 +39,75 @@ registerActionCreator('datagrid:focus-column', (event, data) => {
 		...data,
 	};
 });
-function getIconRating({ context }) {
-	const state = context.store.getState();
-	const ratingCollection = state.cmf.collections.get(RATING_COLLECTION.RATING).toJS();
 
-	if (!ratingCollection.rating) {
-		return '';
+function getColumnDefs(sample) {
+	if (!sample) {
+		return [];
 	}
 
-	if (!ratingCollection.rating.global) {
-		return getIconNoRating();
+	return sample.schema.fields.map(field => ({
+		headerName: field.doc,
+		type: field.type.dqType || field.type.type,
+		field: `${NAMESPACE_SAMPLE}${field.name}`,
+		[TALEND_QUALITY_KEY]: field[TALEND_QUALITY_KEY],
+	}));
+}
+
+function getRowData(sample) {
+	if (!sample) {
+		return [];
 	}
 
-	return getIconGlobalRating(ratingCollection.rating.global);
+	return sample.data.map((row, index) =>
+		Object.keys(row.value).reduce(
+			(rowData, key) => ({
+				...rowData,
+				[`${NAMESPACE_SAMPLE}${key}`]: {
+					value: row.value[key].value,
+					quality: row.value[key].quality,
+					comments: [],
+					type: 'string',
+					avro: {},
+				},
+			}),
+			{
+				[`${NAMESPACE_INDEX}${COLUMN_INDEX}`]: index,
+			},
+		),
+	);
+}
+
+function getPinnedColumnDefs(sample) {
+	if (!sample) {
+		return [];
+	}
+
+	return [
+		{
+			field: `${NAMESPACE_INDEX}${COLUMN_INDEX}`,
+			width: 100,
+		},
+	];
+}
+
+function valueGetter({ colDef, data }) {
+	return data[colDef.field];
 }
 
 api.expression.register('getColumnDefs', props => {
-	console.log(props);
+	return getColumnDefs;
 });
 
 api.expression.register('getPinnedColumnDefs', props => {
-	console.log(props);
+	return getPinnedColumnDefs;
 });
 
 api.expression.register('getRowData', props => {
-	console.log(props);
+	return getRowData;
+});
+
+api.expression.register('getValueGetter', props => {
+	return valueGetter;
 });
 
 function loadStories() {
@@ -69,13 +119,16 @@ function loadStories() {
 		}
 
 		state.cmf.settings.props['Container(DataGrid)#default'] = {
-			source: 'sample',
+			actionCreators: {
+				onFocusedCell: 'datagrid:focus-cell',
+				onFocusedColumn: 'datagrid:focus-column',
+			},
+			cellRenderer: 'DefaultCellRenderer',
 			getColumnDefsExpression: 'getColumnDefs',
 			getPinnedColumnDefsExpression: 'getPinnedColumnDefs',
 			getRowDataExpression: 'getRowData',
-			rowSelection: 'single',
-			focusedCellActionCreator: 'datagrid:focus-cell',
-			focusedColumnActionCreator: 'datagrid:focus-column',
+			getValueGetterExpression: 'getValueGetter',
+			source: 'sample',
 		};
 
 		const story = storiesOf(example);

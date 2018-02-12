@@ -11,7 +11,7 @@ const TALEND_QUALITY_VALID_KEY = 1;
 
 export const HEADER_RENDERER_COMPONENT = 'headerGrid';
 
-export default function CustomHeader(params) {
+export default function DefaultHeaderRenderer(params) {
 	return (
 		<div className={classNames(theme['header-component'])}>
 			<button
