@@ -1,57 +1,35 @@
 package org.talend.component;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
-public class StorybookTest {
+public class StorybookTest extends LocalJUnitTest {
 
     private static final String ACTION_LOGGER_CONSOLE_SELECTOR = ".horizontal.Pane2 > div > div > div:last-child";
 
-    private static final String STORY_CATEGORY_SELECTOR = "div[data-name='%s']";
-
-    private static final String STORY_MENU_SELECTOR = "a[data-name='%s']";
-
-    protected static WebDriver driver;
-
-    @BeforeClass
-    public static void before() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("http://localhost:6006/");
-    }
-
-    @AfterClass
-    public static void after() {
-        driver.close();
+    void goToStory(final String categoryName) {
+        this.goToStory(categoryName, "default");
     }
 
     protected void goToStory(final String categoryName, final String storyName) {
         this.goToMainElement();
 
-        final WebElement categoryMenu = driver.findElement(By.cssSelector(String.format(STORY_CATEGORY_SELECTOR, categoryName)));
-        final WebElement menusContainer = categoryMenu.findElement(By.xpath("following-sibling::*"));
-        if (menusContainer.findElements(By.tagName("ul")).size() == 0) {
-            categoryMenu.click();
+        try {
+            driver.get("http://localhost:6006/?selectedKind=" + categoryName + "&selectedStory=" + URLEncoder.encode(storyName, "UTF-8") + "&full=0&addons=1&stories=0&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
-
-        WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(elementToBeClickable(By.cssSelector(String.format(STORY_MENU_SELECTOR, storyName)))).click();
 
         this.goToStoryFrame();
     }
 
-    protected void goToStoryFrame() {
+    private void goToStoryFrame() {
         driver.switchTo().frame(driver.findElement(By.id("storybook-preview-iframe")));
     }
 
-    protected void goToMainElement() {
+    private void goToMainElement() {
         driver.switchTo().defaultContent();
     }
 
