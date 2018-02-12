@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$ACTION" == 'demo' ]; then
+if [ "$ACTION" == 'test:demo' ]; then
     echo "cp DEMO"
     cd "$TRAVIS_BUILD_DIR"
 
