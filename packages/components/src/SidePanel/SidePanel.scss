@@ -178,9 +178,12 @@ $toggle-button-padding: $padding-small - 1;
 	}
 
 	&.reverse {
-		background-color: $wild-sand;
+		background: $wild-sand;
 		border-right: $tc-side-panel-border-size solid $alto;
 
+		&:before {
+			background-image:none;
+		}
 		.toggle-btn {
 			background-color: $wild-sand;
 
