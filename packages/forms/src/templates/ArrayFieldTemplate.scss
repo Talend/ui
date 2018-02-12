@@ -14,7 +14,7 @@ $tf-filterwidget-shadow-color: $shadow !default;
 
 	.addBtn {
 		float: right;
-		margin-right: 32px;
+		margin-right: $padding-large;
 	}
 
 	.arrayElement {
@@ -170,5 +170,5 @@ $tf-filterwidget-shadow-color: $shadow !default;
 	text-transform: uppercase;
 	margin: 10px 0;
 	font-size: $font-size-small;
-	margin-left: 32px;
+	margin-left: $padding-large;
 }
