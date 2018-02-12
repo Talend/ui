@@ -14,11 +14,7 @@ function List({ data, ...props }) {
 		<ul className={`${theme.container} tc-object-viewer list-unstyled`}>
 			{dataset.map((obj, index) => (
 				<li key={index}>
-					<JSONLike
-						data={obj}
-						{...props}
-						jsonpath={`$[${index}]`}
-					/>
+					<JSONLike data={obj} {...props} jsonpath={`$[${index}]`} />
 				</li>
 			))}
 		</ul>
@@ -26,9 +22,7 @@ function List({ data, ...props }) {
 }
 
 List.propTypes = {
-	data: PropTypes.arrayOf(
-		PropTypes.object,
-	).isRequired,
+	data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default List;
