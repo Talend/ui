@@ -6,8 +6,7 @@ cache:
 notifications:
   email: false
 env:
-  - SLIMERJSLAUNCHER=$(which firefox) DISPLAY=:99.0 PATH=$TRAVIS_BUILD_DIR/node_modules/slimerjs/src:$PATH
-  - ACTION=cov
+  - ACTION=cov SLIMERJSLAUNCHER=$(which firefox) DISPLAY=:99.0 PATH=$TRAVIS_BUILD_DIR/node_modules/slimerjs/src:$PATH
   - ACTION=demo
 addons:
   firefox: "50.0"
