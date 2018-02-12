@@ -1145,7 +1145,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 </span>
                  
                 <svg
-                  className="theme-loader theme-animate theme-default"
+                  className="tc-circular-progress theme-loader theme-animate theme-default"
                   focusable="false"
                   viewBox="0 0 50 50"
                 >
