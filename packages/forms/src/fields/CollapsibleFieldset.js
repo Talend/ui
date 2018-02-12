@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Icon from '@talend/react-components/lib/Icon';
 import { orderProperties, retrieveSchema } from 'react-jsonschema-form/lib/utils';
-import has from 'lodash/has';
+
+import theme from '../templates/ArrayFieldTemplate.scss';
 
 function createCollapsibleFieldset(title) {
 	class CollapsibleFieldset extends React.Component {
@@ -75,30 +76,28 @@ function createCollapsibleFieldset(title) {
 			}
 			const iconTransform = !formData.isClosed ? 'flip-vertical' : '';
 			return (
-				<fieldset>
-					{has(schema, 'properties.isClosed') && (
-						<div onDoubleClick={this.toggle} id={`${idSchema.$id}__title_bar`} role="button">
-							{title && (
-								<div onClick={this.toggle} id={`${idSchema.$id}__title_wrapper`} role="button">
-									<TitleField
-										id={`${idSchema.$id}__title`}
-										title={title(formData, uiSchema)}
-										required={required}
-										formContext={formContext}
-									/>
-									<button
-										onClick={this.toggle}
-										id={`${idSchema.$id}__collapse`}
-										title="Collapse"
-										type="button"
-										className="toggle"
-									>
-										<Icon name="talend-caret-down" transform={iconTransform} />
-									</button>
-								</div>
-							)}
-						</div>
-					)}
+				<fieldset className={`${theme.collapsible}`}>
+					<div onDoubleClick={this.toggle} id={`${idSchema.$id}__title_bar`} role="button">
+						{title && (
+							<div onClick={this.toggle} id={`${idSchema.$id}__title_wrapper`} role="button">
+								<TitleField
+									id={`${idSchema.$id}__title`}
+									title={title(formData, uiSchema)}
+									required={required}
+									formContext={formContext}
+								/>
+								<button
+									onClick={this.toggle}
+									id={`${idSchema.$id}__collapse`}
+									title="Collapse"
+									type="button"
+									className="toggle"
+								>
+									<Icon name="talend-caret-down" transform={iconTransform} />
+								</button>
+							</div>
+						)}
+					</div>
 					{(uiSchema['ui:description'] || schema.description) && (
 						<DescriptionField
 							id={`${idSchema.$id}__description`}

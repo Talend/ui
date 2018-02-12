@@ -22,31 +22,37 @@ import ArrayFieldTemplate from '../src/templates/ArrayFieldTemplate';
 a11y(ReactDOM);
 
 const decoratedStories = storiesOf('Form', module)
-.addDecorator(withKnobs)
-.addDecorator(story =>
-	<I18nextProvider i18n={i18n}>
-		<section>
-			<nav style={{ position: 'fixed', bottom: 0, width: '100vw', textAlign: 'center', zIndex: 1 }}>
-				<div className="btn-group">
-					<button className="btn" onClick={() => i18n.changeLanguage('en')}>Default (en)</button>
-					<button className="btn" onClick={() => i18n.changeLanguage('fr')}>fr</button>
-					<button className="btn" onClick={() => i18n.changeLanguage('it')}>it</button>
-				</div>
-			</nav>
-			<IconsProvider />
-			<div className="container-fluid">
-				<div
-					className="col-md-offset-1 col-md-10"
-					style={{ marginTop: '20px', marginBottom: '20px' }}
+	.addDecorator(withKnobs)
+	.addDecorator(story => (
+		<I18nextProvider i18n={i18n}>
+			<section>
+				<nav
+					style={{ position: 'fixed', bottom: 0, width: '100vw', textAlign: 'center', zIndex: 1 }}
 				>
-					<Well>
-						{story()}
-					</Well>
+					<div className="btn-group">
+						<button className="btn" onClick={() => i18n.changeLanguage('en')}>
+							Default (en)
+						</button>
+						<button className="btn" onClick={() => i18n.changeLanguage('fr')}>
+							fr
+						</button>
+						<button className="btn" onClick={() => i18n.changeLanguage('it')}>
+							it
+						</button>
+					</div>
+				</nav>
+				<IconsProvider />
+				<div className="container-fluid">
+					<div
+						className="col-md-offset-1 col-md-10"
+						style={{ marginTop: '20px', marginBottom: '20px' }}
+					>
+						<Well>{story()}</Well>
+					</div>
 				</div>
-			</div>
-		</section>
-	</I18nextProvider>
-);
+			</section>
+		</I18nextProvider>
+	));
 
 const capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.slice(1);
 const sampleFilenames = require.context('./json', true, /.(js|json)$/);
@@ -56,7 +62,7 @@ sampleFilenames.keys().forEach(filename => {
 	const sampleNameMatches = filename.match(sampleFilenameRegex);
 	const sampleName = sampleNameMatches[sampleNameMatches.length - 1];
 	const capitalizedSampleName = capitalizeFirstLetter(sampleName);
-	decoratedStories.add(capitalizedSampleName, () =>
+	decoratedStories.add(capitalizedSampleName, () => (
 		<Form
 			autocomplete="off"
 			data={object(capitalizedSampleName, sampleFilenames(filename))}
@@ -64,7 +70,7 @@ sampleFilenames.keys().forEach(filename => {
 			onBlur={action('Blur')}
 			onSubmit={action('Submit')}
 		/>
-	);
+	));
 });
 
 decoratedStories.add('Multiple actions', () => {
@@ -125,7 +131,7 @@ function CustomDatalist(...args) {
 		return (
 			<div {...containerProps}>
 				{children}
-				{children &&
+				{children && (
 					<div style={{ padding: '0 1em 1em 1em', width: '100%' }}>
 						<span
 							style={{
@@ -144,7 +150,8 @@ function CustomDatalist(...args) {
 							id="default"
 							label="do some stuff"
 						/>
-					</div>}
+					</div>
+				)}
 			</div>
 		);
 	}
@@ -287,17 +294,13 @@ decoratedStories.add('Datalist in modal', () => {
 	// Need to override style for this demo (items-container must be scrollable)
 	return (
 		<div>
-			<style>
-				{'[class*="DatalistWidget__items-container"] {max-height: 100px;}'}
-			</style>
-			<Dialog {...props}>
-				{ getDatalist() }
-			</Dialog>
+			<style>{'[class*="DatalistWidget__items-container"] {max-height: 100px;}'}</style>
+			<Dialog {...props}>{getDatalist()}</Dialog>
 		</div>
 	);
 });
 
-const UnknownWidget = (props) => {
+const UnknownWidget = props => {
 	const { value } = props;
 
 	return (
@@ -348,7 +351,7 @@ decoratedStories.add('Custom widget', () => {
 
 class FormDemo extends React.Component {
 	static fields = {
-		CollapsibleFieldset: createCollapsibleFieldset((formData) => {
+		CollapsibleFieldset: createCollapsibleFieldset(formData => {
 			if (formData.function) {
 				return (
 					<span>
@@ -469,40 +472,92 @@ decoratedStories.add('Custom array', () => {
 decoratedStories.add('Custom double array', () => {
 	const schema = {
 		jsonSchema: {
-			title: 'A filter form',
-			description: '',
+			title: '',
 			type: 'object',
+			required: ['label'],
 			properties: {
-				groupBy: {
-					type: 'array',
-					title: 'Group by',
-					minItems: 1,
-					maxItems: 5,
-					items: {
-						type: 'object',
-						properties: {
-							fieldName: {
-								type: 'string',
-								enum: ['First Field', 'Second Field', 'Third Field'],
+				label: {
+					type: 'string',
+					title: 'Label',
+				},
+				description: {
+					type: 'string',
+					title: 'Description',
+				},
+				properties: {
+					title: '',
+					type: 'object',
+					properties: {
+						main: {
+							title: '',
+							type: 'object',
+							properties: {
+								schema: {
+									title: 'Schema',
+									type: 'string',
+								},
 							},
 						},
-					},
-				},
-				operations: {
-					type: 'array',
-					title: 'operation',
-					minItems: 1,
-					maxItems: 5,
-					items: {
-						type: 'object',
-						properties: {
-							fieldName: {
-								type: 'string',
-								enum: ['First Field', 'Second Field', 'Third Field'],
+						schemaFlow: {
+							title: '',
+							type: 'object',
+							properties: {
+								schema: {
+									title: 'Schema',
+									type: 'string',
+								},
 							},
-							operation: {
-								type: 'string',
-								enum: ['First Operation', 'Second Operation', 'Third Operation'],
+						},
+						groupBy: {
+							title: 'Group By',
+							minItems: '1',
+							maxItems: '10',
+							type: 'array',
+							items: {
+								title: '',
+								type: 'object',
+								properties: {
+									fieldPath: {
+										title: 'Field',
+										type: 'string',
+									},
+								},
+								required: ['fieldPath'],
+								default: {
+									fieldPath: '',
+								},
+							},
+						},
+						operations: {
+							title: 'Operations',
+							minItems: '1',
+							maxItems: '10',
+							type: 'array',
+							items: {
+								title: '',
+								type: 'object',
+								properties: {
+									fieldPath: {
+										title: 'Field',
+										type: 'string',
+									},
+									operation: {
+										title: 'Operation',
+										type: 'string',
+										enumNames: ['List', 'Count', 'Sum', 'Avg', 'Min', 'Max'],
+										enum: ['LIST', 'COUNT', 'SUM', 'AVG', 'MIN', 'MAX'],
+									},
+									outputFieldPath: {
+										title: 'Generated field (optional)',
+										type: 'string',
+									},
+								},
+								required: ['fieldPath'],
+								default: {
+									fieldPath: '',
+									operation: 'LIST',
+									outputFieldPath: '',
+								},
 							},
 						},
 					},
@@ -510,46 +565,68 @@ decoratedStories.add('Custom double array', () => {
 			},
 		},
 		uiSchema: {
-			groupBy: {
-				'ui:trigger': ['after'],
-				items: {
-					fieldName: {
-						'ui:widget': 'select',
+			'ui:order': ['label', 'description', 'properties'],
+			properties: {
+				groupBy: {
+					items: {
+						'ui:field': '',
+						fieldPath: {
+							'ui:widget': 'datalist',
+						},
+						'ui:order': ['fieldPath'],
+						'ui:options': {
+							type: 'filter',
+						},
 					},
 				},
-			},
-			operations: {
-				'ui:trigger': ['after'],
-				items: {
-					'ui:widget': 'columns',
-					fieldName: {
-						'ui:widget': 'select',
+				operations: {
+					items: {
+						'ui:widget': 'columns',
+						fieldPath: {
+							'ui:widget': 'datalist',
+						},
+						operation: {
+							'ui:widget': 'datalist',
+						},
+						'ui:order': ['fieldPath', 'operation', 'outputFieldPath'],
+						'ui:options': {
+							type: 'filter',
+						},
 					},
-					operation: {
-						'ui:widget': 'select',
-					},
+				},
+				'ui:order': ['groupBy', 'operations', 'main', 'schemaFlow'],
+				main: {
+					'ui:widget': 'hidden',
+				},
+				schemaFlow: {
+					'ui:widget': 'hidden',
 				},
 			},
 		},
 		properties: {
-			groupBy: [
-				{
-					fieldName: 'First Field',
+			properties: {
+				main: {
+					schema: '{"type":"record","name":"EmptyRecord","fields":[]}',
 				},
-				{
-					fieldName: 'Second Field',
+				schemaFlow: {
+					schema: '{"type":"record","name":"EmptyRecord","fields":[]}',
 				},
-			],
-			operations: [
-				{
-					fieldName: 'First Field',
-					operation: 'First Operation',
-				},
-				{
-					fieldName: 'Second Field',
-					operation: 'First Operation',
-				},
-			],
+				groupBy: [
+					{
+						fieldPath: '',
+					},
+				],
+				operations: [
+					{
+						fieldPath: '',
+						operation: 'LIST',
+						outputFieldPath: '',
+					},
+				],
+				'@definitionName': 'Aggregate',
+			},
+			label: 'Aggregate 1',
+			description: '',
 		},
 	};
 	return <FormDemo schema={schema} onTrigger={() => console.log(arguments)} />;
@@ -579,7 +656,6 @@ decoratedStories.add('Form Children', () => {
 		</Form>
 	);
 });
-
 
 decoratedStories.add('Form with live validation', () => {
 	const schema = {
@@ -612,12 +688,5 @@ decoratedStories.add('Form with live validation', () => {
 			email: 'lastJedi@sw.com',
 		},
 	};
-	return (
-		<Form
-			liveValidate
-			data={schema}
-			showErrorList={false}
-			onSubmit={action('SUBMIT')}
-		/>
-	);
+	return <Form liveValidate data={schema} showErrorList={false} onSubmit={action('SUBMIT')} />;
 });

@@ -3,12 +3,8 @@
 	flex-wrap: wrap;
 	
 	.column {
-		&:first-of-type {
-			margin-left: 0;
-		}
 		flex: 1;
-		margin-left: 15px;
-		margin-top: 15px;
+		margin: $padding-normal 4px 0 4px;
 
 		fieldset {
 			margin-right: auto;
@@ -16,7 +12,7 @@
 		}
 
 		input {
-			min-width: 20rem;
+			min-width: 15rem;
 		}
 	}
 }

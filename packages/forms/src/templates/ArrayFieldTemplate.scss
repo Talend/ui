@@ -26,18 +26,21 @@ $tf-filterwidget-shadow-color: $shadow !default;
 			border-top: 1px solid rgba(0, 0, 0, 0.1);
 		}
 
-		&.closed {
-			.delete {
-				visibility: hidden;
-			}
-			.element fieldset div:not(:first-child) {
-				display: none;
-			}
-			&:hover {
+		.closed {
+			.collapsible {
 				.delete {
-					visibility: initial;
+					visibility: hidden;
+				}
+				div:not(:first-child) {
+					display: none;
+				}
+				&:hover {
+					.delete {
+						visibility: initial;
+					}
 				}
 			}
+			
 		}
 
 		&:hover {
@@ -146,7 +149,7 @@ $tf-filterwidget-shadow-color: $shadow !default;
 							position: absolute;
 							top: 0;
 							right: 0;
-							padding: $padding-normal 0 0 $padding-normal;
+							padding: $padding-normal $padding-normal 0 $padding-normal;
 						}
 					}
 				}

@@ -8,9 +8,9 @@ import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import theme from './ArrayFieldTemplate.scss';
 
 function FieldTemplate({ element, cantDelete }) {
-	const arrayElement = classNames(theme.arrayElement, element.itemData.isClosed && theme.closed);
+	const elementClasses = classNames(theme.element, element.itemData.isClosed && theme.closed);
 	return (
-		<div className={arrayElement}>
+		<div className={theme.arrayElement}>
 			<div className={theme.control}>
 				<button
 					type="button"
@@ -31,7 +31,7 @@ function FieldTemplate({ element, cantDelete }) {
 					<Icon name="talend-arrow-left" transform="rotate-270" />
 				</button>
 			</div>
-			<div className={theme.element}>{element.children}</div>
+			<div className={elementClasses}>{element.children}</div>
 			<div className={theme.control}>
 				<button
 					type="button"
@@ -58,7 +58,7 @@ function ArrayFieldTemplate(props) {
 	const { items, canAdd, onAddClick, minItems, maxItems, title } = props;
 	const addBtnClass = classNames(theme.addBtn, 'btn', 'btn-info');
 	return (
-		<fieldset className={theme.ArrayFieldTemplate} data-content={title}>
+		<fieldset className={`${theme.ArrayFieldTemplate} ArrayFieldTemplate`} data-content={title}>
 			{title && <legend>{title}</legend>}
 			<IconsProvider />
 			{canAdd && (
