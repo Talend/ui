@@ -36,7 +36,7 @@ function stopAndSelectWithEnterOrSpace(event, { onSelect, jsonpath }) {
 	}
 }
 
-export function NativeValue({ data, edit, themeAttr, onSelect, onChange, jsonpath }) {
+export function NativeValue({ data, edit, className, onSelect, onChange, jsonpath }) {
 	const type = typeof data;
 	let display = data;
 	let inputType = 'number';
@@ -50,9 +50,8 @@ export function NativeValue({ data, edit, themeAttr, onSelect, onChange, jsonpat
 		return <input type={inputType} value={data} onChange={e => onChange(e, { jsonpath })} />;
 	}
 
-	const lineValueClasses = classNames(theme.native, theme[type], {
-		[theme[themeAttr]]: themeAttr,
-		[theme['line-value']]: !themeAttr,
+	const lineValueClasses = classNames(className, theme.native, theme[type], {
+		[theme['line-value']]: !className,
 	});
 
 	return (
@@ -71,7 +70,7 @@ export function NativeValue({ data, edit, themeAttr, onSelect, onChange, jsonpat
 NativeValue.propTypes = {
 	data: PropTypes.oneOfType([PropTypes.bool, PropTypes.number, PropTypes.string]),
 	edit: PropTypes.bool,
-	themeAttr: PropTypes.string,
+	className: PropTypes.string,
 	onSelect: PropTypes.func.isRequired,
 	onChange: PropTypes.func,
 	jsonpath: PropTypes.string,
