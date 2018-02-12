@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
+if [ "$ACTION" == 'demo' ] && [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
     nohup http-server .static/ -p 1337 >/dev/null 2>&1 &
     sleep 5
     echo "✓ Start static server"
