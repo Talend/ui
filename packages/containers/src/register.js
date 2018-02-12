@@ -7,6 +7,7 @@ import {
 	ActionDropdown,
 	Actions,
 	ActionSplitDropdown,
+	Badge,
 	Breadcrumbs,
 	CircularProgress,
 	ConfirmDialog,
@@ -39,6 +40,7 @@ export function registerAllContainers() {
 	api.component.register('ActionDropdown', ActionDropdown);
 	api.component.register('Actions', Actions);
 	api.component.register('ActionSplitDropdown', ActionSplitDropdown);
+	api.component.register('Badge', Badge);
 	api.component.register('Breadcrumbs', Breadcrumbs);
 	api.component.register('CircularProgress', CircularProgress);
 	api.component.register('ConfirmDialog', ConfirmDialog);
