@@ -54,20 +54,20 @@ export default function ColumnsWidget({ name, schema, formData, onChange, onBlur
 	return (
 		<div className={`tf-widget-columns ${theme.columns}`}>
 			{(schema.title || name) && <TitleField id={`${name}__title`} title={schema.title || name} />}
-			{schema.properties ? Object.keys(schema.properties).map(
-				key => (
-					<Column
-						{...props}
-						key={key}
-						columnKey={key}
-						schema={schema.properties[key]}
-						formData={formData[key]}
-						onChange={onColumnChange(key, onChange, formData)}
-						onBlur={onBlur}
-						className={`tf-column-${key}`}
-					/>
-				)
-			) : null}
+			{schema.properties
+				? Object.keys(schema.properties).map(key => (
+						<Column
+							{...props}
+							key={key}
+							columnKey={key}
+							schema={schema.properties[key]}
+							formData={formData[key]}
+							onChange={onColumnChange(key, onChange, formData)}
+							onBlur={onBlur}
+							className={`tf-column-${key}`}
+						/>
+					))
+				: null}
 		</div>
 	);
 }
