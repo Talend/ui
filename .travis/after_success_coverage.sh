@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$ACTION" == 'test:demo' ]; then
+if [ "$ACTION" == 'test' ]; then
     echo "COVERAGE"
     cd "$TRAVIS_BUILD_DIR"
 
