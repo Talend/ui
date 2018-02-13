@@ -121,7 +121,12 @@ describe('InlineFormSubHeader', () => {
 		expect(wrapper.find('.form-group').first().props().className).toBe('form-group');
 		expect(wrapper.find('Action').first().props().disabled).toBe(false);
 		wrapper.setState({ value: ' ' });
-		expect(wrapper.find('.form-group').first().props().className).toBe('form-group has-error');
+		expect(
+			wrapper
+				.find('.form-group')
+				.first()
+				.props().className,
+		).toBe('form-group has-error');
 		expect(wrapper.find('Action').first().props().disabled).toBe(true);
 		wrapper.find('form').simulate('submit', event);
 		expect(event.preventDefault).toHaveBeenCalled();
