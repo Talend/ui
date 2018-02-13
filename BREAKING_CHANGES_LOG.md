@@ -2,6 +2,34 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.153.0
+* Component: SubHeaderBar
+* PR: https://github.com/Talend/ui/pull/1041
+* Changes: props components has change
+
+| name | change |
+|---|---|
+| props.components | replaced by the new Inject API |
+| props.left | added with the same API has the ActionBar |
+| props.center | added with the same API has the ActionBar |
+| props.right | added with the same API has the ActionBar |
+
+[Check the component doc](packages/components/src/SubHeaderBar/SubHeaderBar.md)
+[Check the Inject component doc](packages/components/src/Inject/Inject.md)
+
+## v0.153.0
+* Component: HeaderBar
+* PR: https://github.com/Talend/ui/pull/1037
+* Changes: Items in help dropdown are moved to information dropdown
+
+## v0.152.0
+* CMF: cmfConnect
+* PR: https://github.com/Talend/ui/pull/1046
+* Changes: Spread viewProps in mapStateToProps
+
+Spread viewProps when calling mapStateToProps so more stuff can be handled.
+For example, currently cmf only handle expression on first level of props, with this change, we can do expression evaluation under props.list for List component.
+
 ## v0.151.0
 * Container: Form
 * PR: https://github.com/Talend/ui/pull/1031

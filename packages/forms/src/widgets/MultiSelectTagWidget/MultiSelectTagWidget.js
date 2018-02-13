@@ -94,6 +94,7 @@ class MultiSelectTagWidget extends React.Component {
 		onChange(nextValue);
 
 		this.setState({ filterText: '' });
+		this.component.querySelector('input').blur();
 	}
 
 	onRemoveTag(tagValue) {

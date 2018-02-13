@@ -9,7 +9,10 @@ import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
-import { actions as actionsSubHeader, actionsCreators as actionsCreatorsSubHeader } from './subheaderbar.storybook'
+import {
+	actions as actionsSubHeader,
+	actionsCreators as actionsCreatorsSubHeader,
+} from './subheaderbar.storybook';
 import { registerAllContainers } from '../src/register';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
@@ -23,7 +26,7 @@ function flagToggleReducer(state = {}, { type, flagId }) {
 		return {
 			...state,
 			[flagId]: !state[flagId],
-		}
+		};
 	}
 	return state;
 }
@@ -33,7 +36,7 @@ function reducer(state = {}, action) {
 	return {
 		flags: flagToggleReducer(state.flags, action),
 	};
-};
+}
 
 function objectView(event, data) {
 	return {
@@ -224,7 +227,7 @@ function loadStories() {
 		state.cmf.settings.props.appheaderbar = {
 			app: 'Hello Test',
 		};
-		state.cmf.settings.props['HeaderBar#default'] = {
+		state.cmf.settings.props['Container(HeaderBar)#default'] = {
 			logo: { name: 'appheaderbar:logo', isFull: true },
 			brand: { label: 'DATA STREAMS' },
 			notification: { name: 'appheaderbar:notification' },
@@ -363,7 +366,6 @@ function loadStories() {
 		};
 		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
-
 
 		const story = storiesOf(example);
 
