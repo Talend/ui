@@ -68,7 +68,7 @@ export default class DataGrid extends React.Component {
 		),
 		getComponent: PropTypes.func,
 		headerHeight: PropTypes.number,
-		headerRenderer: PropTypes.oneOfType([PropTypes.func, PropTypes.Element]),
+		headerRenderer: PropTypes.string,
 		onFocusedCell: PropTypes.func,
 		onFocusedColumn: PropTypes.func,
 		pinnedColumnDefs: PropTypes.arrayOf(
@@ -76,7 +76,7 @@ export default class DataGrid extends React.Component {
 				field: PropTypes.string.isRequired,
 			}),
 		),
-		pinHeaderRenderer: PropTypes.oneOfType([PropTypes.func, PropTypes.Element]),
+		pinHeaderRenderer: PropTypes.string,
 		rowSelection: PropTypes.string,
 		rowHeight: PropTypes.number,
 		rowData: PropTypes.arrayOf(PropTypes.object),
