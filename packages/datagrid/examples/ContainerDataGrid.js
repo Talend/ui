@@ -49,11 +49,18 @@ ExampleReactCellRenderer['with custom avro renderers'] = () => (
 	</div>
 );
 
+ExampleReactCellRenderer['with selected rows'] = () => (
+	<div style={{ height: '100vh' }}>
+		<IconsProvider />
+		<DataGrid componentId="HightLightRows" />
+	</div>
+);
+
 ExampleReactCellRenderer['multiple grid'] = () => (
 	<div>
 		<IconsProvider />
 		<div style={{ height: '50vh' }}>
-			<DataGrid />
+			<DataGrid componentId="HightLightRows" />
 		</div>
 		<div style={{ height: '50vh' }}>
 			<DataGrid componentId="CustomizedAvroDatagrid" />

@@ -167,6 +167,21 @@ function loadStories() {
 			source: 'sample',
 		};
 
+		state.cmf.settings.props['Container(DataGrid)#HightLightRows'] = {
+			actionCreators: {
+				onFocusedCell: 'datagrid:focus-cell',
+				onFocusedColumn: 'datagrid:focus-column',
+			},
+			cellRenderer: 'DefaultCellRenderer',
+			getColumnDefsExpression: 'getColumnDefs',
+			getPinnedColumnDefsExpression: 'getPinnedColumnDefs',
+			getRowDataExpression: 'getRowData',
+			getValueGetterExpression: 'getValueGetter',
+			rowSelection: 'multiple',
+			source: 'sample',
+			theme: 'grid-focus-row',
+		};
+
 		const story = storiesOf(example);
 
 		if (typeof examples[example] === 'function') {
