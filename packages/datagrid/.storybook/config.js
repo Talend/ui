@@ -8,12 +8,6 @@ import { List, Map, fromJS } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';
 
-import {
-	NAMESPACE_INDEX,
-	NAMESPACE_SAMPLE,
-	COLUMN_INDEX,
-	TALEND_QUALITY_KEY,
-} from '../src/constants/';
 import examples from '../examples';
 import sample from './sample.json';
 
@@ -91,77 +85,6 @@ registerActionCreator('datagrid:focus-column', (event, data) => {
 	};
 });
 
-function getColumnDefs(sample) {
-	if (!sample) {
-		return [];
-	}
-
-	return sample.schema.fields.map(avroField => ({
-		headerName: avroField.doc,
-		type: avroField.type.dqType || avroField.type.type,
-		field: `${NAMESPACE_SAMPLE}${avroField.name}`,
-		[TALEND_QUALITY_KEY]: avroField[TALEND_QUALITY_KEY],
-		avro: avroField,
-	}));
-}
-
-function getRowData(sample) {
-	if (!sample) {
-		return [];
-	}
-
-	return sample.data.map((row, index) =>
-		Object.keys(row.value).reduce(
-			(rowData, key) => ({
-				...rowData,
-				[`${NAMESPACE_SAMPLE}${key}`]: {
-					value: row.value[key].value,
-					quality: row.value[key].quality,
-					comments: [],
-					type: 'string',
-					avro: {},
-				},
-			}),
-			{
-				[`${NAMESPACE_INDEX}${COLUMN_INDEX}`]: index,
-			},
-		),
-	);
-}
-
-function getPinnedColumnDefs(sample) {
-	if (!sample) {
-		return [];
-	}
-
-	return [
-		{
-			field: `${NAMESPACE_INDEX}${COLUMN_INDEX}`,
-			width: 100,
-		},
-	];
-}
-
-function valueGetter({ colDef, data }) {
-	return data[colDef.field];
-}
-
-api.expression.register('getColumnDefs', props => {
-	return getColumnDefs;
-});
-
-api.expression.register('getPinnedColumnDefs', props => {
-	return getPinnedColumnDefs;
-});
-
-api.expression.register('getRowData', props => {
-	return getRowData;
-});
-
-api.expression.register('getValueGetter', props => {
-	return valueGetter;
-});
-
 function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
@@ -176,10 +99,6 @@ function loadStories() {
 				onFocusedColumn: 'datagrid:focus-column',
 			},
 			cellRenderer: 'DefaultCellRenderer',
-			getColumnDefsExpression: 'getColumnDefs',
-			getPinnedColumnDefsExpression: 'getPinnedColumnDefs',
-			getRowDataExpression: 'getRowData',
-			getValueGetterExpression: 'getValueGetter',
 			source: 'sample',
 		};
 
@@ -189,10 +108,6 @@ function loadStories() {
 				onFocusedColumn: 'datagrid:focus-column',
 			},
 			cellRenderer: 'CustomCellRenderer',
-			getColumnDefsExpression: 'getColumnDefs',
-			getPinnedColumnDefsExpression: 'getPinnedColumnDefs',
-			getRowDataExpression: 'getRowData',
-			getValueGetterExpression: 'getValueGetter',
 			headerRenderer: 'CustomHeaderRenderer',
 			pinHeaderRenderer: 'CustomPinHeaderRenderer',
 			source: 'sample',
@@ -200,7 +115,6 @@ function loadStories() {
 
 		state.cmf.settings.props['Container(DataGrid)#CustomizedAvroDatagrid'] = {
 			avroRenderer: {
-				// stringCellRenderer: 'CustomStringCellRenderer',
 				intCellRenderer: 'CustomIntCellRenderer',
 				dateCellRenderer: 'CustomDateCellRenderer',
 				booleanCellRenderer: 'CustomBooleanCellRenderer',
@@ -209,10 +123,6 @@ function loadStories() {
 				onFocusedCell: 'datagrid:focus-cell',
 				onFocusedColumn: 'datagrid:focus-column',
 			},
-			getColumnDefsExpression: 'getColumnDefs',
-			getPinnedColumnDefsExpression: 'getPinnedColumnDefs',
-			getRowDataExpression: 'getRowData',
-			getValueGetterExpression: 'getValueGetter',
 			headerRenderer: 'CustomHeaderRenderer',
 			pinHeaderRenderer: 'CustomPinHeaderRenderer',
 			source: 'sample',
@@ -224,10 +134,6 @@ function loadStories() {
 				onFocusedColumn: 'datagrid:focus-column',
 			},
 			cellRenderer: 'DefaultCellRenderer',
-			getColumnDefsExpression: 'getColumnDefs',
-			getPinnedColumnDefsExpression: 'getPinnedColumnDefs',
-			getRowDataExpression: 'getRowData',
-			getValueGetterExpression: 'getValueGetter',
 			rowSelection: 'multiple',
 			source: 'sample',
 			theme: 'grid-focus-row',

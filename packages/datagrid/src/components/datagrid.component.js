@@ -10,6 +10,8 @@ import { HEADER_RENDERER_COMPONENT } from './default-header-renderer';
 import { CELL_RENDERER_COMPONENT } from './default-cell-renderer';
 import { PIN_HEADER_RENDERER_COMPONENT } from './default-pin-header-renderer';
 
+import { NAMESPACE_INDEX } from './constants';
+import sampleSerializer from './sample-serializer';
 import theme from './datagrid.scss';
 
 const AG_GRID_CUSTOM_HEADER_KEY = 'headerComponent';
@@ -44,6 +46,10 @@ export default class DataGrid extends React.Component {
 	static defaultProps = {
 		cellRenderer: 'DefaultCellRenderer',
 		columnDefs: [],
+		getPinnedColumnDefsFn: sampleSerializer.getPinnedColumnDefsFromSample,
+		getColumnDefsFn: sampleSerializer.getColumnDefsFromSample,
+		getRowDataFn: sampleSerializer.getRowDataFromSample,
+		getValueGetterFn: sampleSerializer.valueGetterFromRowData,
 		headerHeight: HEADER_HEIGHT,
 		headerRenderer: 'DefaultHeaderRenderer',
 		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
@@ -61,25 +67,30 @@ export default class DataGrid extends React.Component {
 			stringCellRenderer: PropTypes.string,
 		}),
 		cellRenderer: PropTypes.string,
-		columnDefs: PropTypes.arrayOf(
-			PropTypes.shape({
-				field: PropTypes.string.isRequired,
-			}),
-		),
+		// columnDefs: PropTypes.arrayOf(
+		// 	PropTypes.shape({
+		// 		field: PropTypes.string.isRequired,
+		// 	}),
+		// ),
 		getComponent: PropTypes.func,
+		getPinnedColumnDefsFn: PropTypes.func,
+		getColumnDefsFn: PropTypes.func,
+		getRowDataFn: PropTypes.func,
+		getValueGetterFn: PropTypes.func,
 		headerHeight: PropTypes.number,
 		headerRenderer: PropTypes.string,
 		onFocusedCell: PropTypes.func,
 		onFocusedColumn: PropTypes.func,
-		pinnedColumnDefs: PropTypes.arrayOf(
-			PropTypes.shape({
-				field: PropTypes.string.isRequired,
-			}),
-		),
+		// pinnedColumnDefs: PropTypes.arrayOf(
+		// 	PropTypes.shape({
+		// 		field: PropTypes.string.isRequired,
+		// 	}),
+		// ),
 		pinHeaderRenderer: PropTypes.string,
+		data: PropTypes.object,
 		rowSelection: PropTypes.string,
 		rowHeight: PropTypes.number,
-		rowData: PropTypes.arrayOf(PropTypes.object),
+		// rowData: PropTypes.arrayOf(PropTypes.object),
 		theme: PropTypes.string,
 		valueGetter: PropTypes.func.isRequired,
 	};
@@ -111,7 +122,7 @@ export default class DataGrid extends React.Component {
 	setFocusColumn(colId) {
 		this.removeFocusColumn();
 
-		if (colId === 'index.index') {
+		if (!colId || colId.includes(NAMESPACE_INDEX)) {
 			return;
 		}
 
@@ -152,7 +163,7 @@ export default class DataGrid extends React.Component {
 			onViewportChanged: () => this.setFocusColumn(this.currentColId),
 			onVirtualColumnsChanged: () => this.setFocusColumn(this.currentColId),
 			ref: element => (this.gridElement = element),
-			rowData: this.props.rowData,
+			rowData: this.props.getRowDataFn(this.props.data),
 			rowHeight: this.props.rowHeight,
 			rowSelection: this.props.rowSelection,
 			suppressDragLeaveHidesColumns: true,
@@ -179,20 +190,23 @@ export default class DataGrid extends React.Component {
 			onGridReady: this.onGridReady,
 		};
 
-		if (this.props.pinnedColumnDefs) {
-			agGridOptions.columnDefs = this.props.pinnedColumnDefs.map(pinnedColumnDefinition => ({
+		const pinnedColumnDefs = this.props.getPinnedColumnDefsFn(this.props.data);
+		const columnDefs = this.props.getColumnDefsFn(this.props.data);
+
+		if (pinnedColumnDefs) {
+			agGridOptions.columnDefs = pinnedColumnDefs.map(pinnedColumnDefinition => ({
 				lockPosition: true,
 				pinned: 'left',
-				valueGetter: this.props.valueGetter,
+				valueGetter: this.props.getValueGetterFn,
 				...pinnedColumnDefinition,
 				[AG_GRID_CUSTOM_HEADER_KEY]: PIN_HEADER_RENDERER_COMPONENT,
 			}));
 		}
 
-		if (this.props.columnDefs) {
-			const columnsDefs = this.props.columnDefs.map(columnDefinition => ({
+		if (columnDefs) {
+			const columnsDefs = columnDefs.map(columnDefinition => ({
 				lockPinned: true,
-				valueGetter: this.props.valueGetter,
+				valueGetter: this.props.getValueGetterFn,
 				...columnDefinition,
 				[AG_GRID_CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
 				[AG_GRID_CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,

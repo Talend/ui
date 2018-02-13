@@ -30,12 +30,9 @@ export default function DataGrid(props) {
 	return (
 		<Component
 			{...props}
-			columnDefs={props.getColumnDefs(props.sourceData)}
+			data={props.sourceData}
 			onFocusedCell={onFocusedCell}
 			onFocusedColumn={onFocusedColumn}
-			pinnedColumnDefs={props.getPinnedColumnDefs(props.sourceData)}
-			rowData={props.getRowData(props.sourceData)}
-			valueGetter={props.getValueGetter}
 		/>
 	);
 }
