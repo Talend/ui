@@ -49,7 +49,12 @@ describe('deleteConfirmationSaga simple integration test', () => {
 		sagaTester.reset(true);
 		// given
 		sagaTester.start(
-			deleteResource({ uri: 'uri', resourceType: 'resourceType', redirectUrl: '/resourceType' }),
+			deleteResource({
+				uri: 'uri',
+				resourceType: 'resourceType',
+				redirectUrl: '/resourceType',
+				routerParamsAttribute: 'id',
+			}),
 			{ id: 'id' },
 		);
 		const data = {
@@ -87,7 +92,10 @@ describe('deleteConfirmationSaga simple integration test', () => {
 		const resourceType = 'resourceType';
 		const id = 'id';
 		const redirectUrl = '/resourceType';
-		sagaTester.start(deleteResource({ uri, resourceType, redirectUrl }), { id });
+		sagaTester.start(
+			deleteResource({ uri, resourceType, redirectUrl, routerParamsAttribute: 'id' }),
+			{ id },
+		);
 		const data = {
 			model: {
 				id,
@@ -120,7 +128,12 @@ describe('deleteConfirmationSaga datastore', () => {
 	const sagaTester = new SagaTester({ initialState: {} });
 	beforeEach(() => {
 		sagaTester.start(
-			deleteResource({ uri: 'uri', resourceType: 'resourceType', redirectUrl: '/connections' }),
+			deleteResource({
+				uri: 'uri',
+				resourceType: 'resourceType',
+				redirectUrl: '/connections',
+				routerParamsAttribute: 'id',
+			}),
 			{ id: 'modelId' },
 		);
 		// Given

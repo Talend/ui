@@ -77,7 +77,13 @@ export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath)
  * @param {Array<String>} sagaParams.resourcePath
  * @param {string} sagaParams.redirectUrl url to redirect after delete action is done or cancel
  */
-export default function deleteResource({ uri, resourceType, resourcePath, redirectUrl }) {
+export default function deleteResource({
+	uri,
+	resourceType,
+	resourcePath,
+	redirectUrl,
+	routerParamsAttribute,
+}) {
 	return function* deleteResourceSaga(routerParams) {
 		try {
 			yield race({
@@ -85,7 +91,7 @@ export default function deleteResource({ uri, resourceType, resourcePath, redire
 					deleteResourceValidate,
 					uri,
 					resourceType,
-					routerParams.id,
+					routerParams[routerParamsAttribute],
 					resourcePath,
 				),
 				deleteConfirmationCancel: call(function* deleteResourceCancel() {

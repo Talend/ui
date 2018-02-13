@@ -54,6 +54,7 @@ const route = {
         {
             uri,
             resourceType,
+            routerParamAttribute: 'id',
         }
     ),
 };
@@ -64,6 +65,7 @@ const route = {
 **resourcePath** : optional array of string, is appended to resourceType key to deep location of a subset of a collection element
 the delete service will use it to check if the resource exist in your application state tree
 **redirectUrl** : is the url to redirect when delete is complete or cancel action is triggered
+**routerParamAttribute** : is the attribute defined in the route to give the ressource id
 
 example with resourceType only
 ```javascript
@@ -72,7 +74,8 @@ const route = {
         {
             uri,
             resourceType:'resourceType',
-            redirectUrl:'/connections'
+            redirectUrl:'/connections',
+            routerParamAttribute: 'id',
         }
     ),
 };
@@ -92,11 +95,12 @@ example with resourcePath
 
 ```javascript
 const route = {
-	'/connections/:id/delete': DeleteResource.sagas(
+	'/connections/:deletedId/delete': DeleteResource.sagas(
         {
             uri,
             resourceType: 'resourceType',
             resourcePath: ['data'],
+            routerParamAttribute: 'deletedId',
         }
     ),
 };
