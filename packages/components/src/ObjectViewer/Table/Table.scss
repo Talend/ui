@@ -5,7 +5,14 @@
 		line-height: 25px;
 	}
 
-	&:global(.table-hover) >tbody > tr:hover {
+	.nativevalue {
+		font-family: $font-family-monospace;
+		font-size: $font-size-small;
+		color: $dove-gray;
+		padding: 0;
+	}
+
+	&:global(.table-hover) > tbody > tr:hover {
 		font-weight: initial;
 	}
 

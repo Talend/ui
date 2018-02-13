@@ -28,8 +28,8 @@ function getCircleStyle(percent) {
  * @example
  <CircularProgress size="large" />
  */
-function CircularProgress({ size, light, percent }) {
-	const classes = classNames(theme.loader, {
+function CircularProgress({ size, light, percent, className }) {
+	const classes = classNames('tc-circular-progress', className, theme.loader, {
 		[theme.loaderlight]: light,
 		[theme.animate]: !percent,
 		[theme.fixed]: percent,
@@ -55,6 +55,7 @@ function CircularProgress({ size, light, percent }) {
 CircularProgress.displayName = 'CircularProgress';
 
 CircularProgress.propTypes = {
+	className: PropTypes.string,
 	size: PropTypes.oneOf(Object.keys(SIZE).map(key => SIZE[key])),
 	light: PropTypes.bool,
 	percent: PropTypes.number,

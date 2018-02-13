@@ -4,7 +4,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 		opacity: 0;
 	}
 
-	to   {
+	to {
 		opacity: 1;
 	}
 }
@@ -16,6 +16,15 @@ $background-color-on-hover: shade($brand-primary, 30);
 	top: 0;
 	width: 100%;
 	z-index: 1030;
+
+	& {
+		svg {
+			margin: 0;
+		}
+		a svg {
+			margin: 0 $padding-smaller;
+		}
+	}
 
 	.tc-header-bar-actions {
 		align-items: center;
@@ -89,6 +98,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 			border-top-color: $white;
 			border-right-color: $white;
 			box-shadow: 1px -1px 0 $white;
+			margin-left: $padding-small;
 		}
 
 		&:global(.open) {

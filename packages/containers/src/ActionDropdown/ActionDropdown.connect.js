@@ -49,6 +49,9 @@ ContainerActionDropdown.displayName = 'Container(ActionDropdown)';
 
 ContainerActionDropdown.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.object),
+	noCaret: PropTypes.bool,
+	pullRight: PropTypes.bool,
+	hideLabel: PropTypes.bool,
 };
 
 export default cmfConnect({
