@@ -1,5 +1,4 @@
 
-
 > @talend/react-cmf@0.155.1 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config ../../.eslintrc --ext .js src
 
