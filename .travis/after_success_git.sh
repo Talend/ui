@@ -17,7 +17,7 @@ if [ -n "$GH_TOKEN" ]; then
 		if [[ "$TALEND_COMMIT_MSG" =~ 'icon' ]]; then
 			git add packages/components/src
 			git add packages/icons/src/svg
-			git -c user.name="travis" -c user.email="travis" commit -m "test(ci): optimize icons"
+			git -c user.name="travis" -c user.email="travis" commit -m "test(ci): optimize icons [skip ci]"
 			echo "✓ Commit optimized icons and components snapshots to $TRAVIS_PULL_REQUEST_BRANCH"
 		fi
 
@@ -25,15 +25,15 @@ if [ -n "$GH_TOKEN" ]; then
 #		git add packages/components/screenshots/
 #		echo "git status"
 #		git status
-#		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update screenshots"
+#		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update screenshots [skip ci]"
 #		echo "✓ Commit updated screenshots to $TRAVIS_PULL_REQUEST_BRANCH"
 
 		git add output/
-		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update code style outputs"
+		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): update code style outputs [skip ci]"
 		echo "✓ Commit updated lint output to $TRAVIS_PULL_REQUEST_BRANCH"
 
 		find packages/*/src -name "*.scss" -o -name "*.js" | xargs git add
-		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): prettier"
+		git -c user.name="travis" -c user.email="travis" commit -m "test(ci): prettier [skip ci]"
 		echo "✓ Commit prettified files to $TRAVIS_PULL_REQUEST_BRANCH"
 
 		git push -q https://build-travis-ci:$GH_TOKEN@github.com/Talend/ui $TRAVIS_PULL_REQUEST_BRANCH

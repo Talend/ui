@@ -9,6 +9,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
+    "test:demo": "build-storybook",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es",
     "watch": "npm-watch",
