@@ -98,19 +98,14 @@ exports[`Item should display input value with two buttons. The validate button i
   <div
     className="theme-tc-enumeration-item-actions tc-enumeration-item-actions"
   >
-    <span
-      onFocus={[Function]}
-      onMouseOver={[Function]}
-    >
-      <button
-        className="theme-btn-disabled btn btn-link"
-        disabled={true}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role="link"
-        type="button"
-      />
-    </span>
+    <button
+      className="theme-btn-disabled btn btn-link"
+      disabled={true}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role="link"
+      type="button"
+    />
     <button
       className="btn btn-link"
       disabled={false}

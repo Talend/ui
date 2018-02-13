@@ -146,31 +146,26 @@ exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1
       Label
     </span>
   </button>
-  <span
-    onFocus={[Function]}
-    onMouseOver={[Function]}
+  <button
+    className="tc-badge-delete-icon theme-tc-badge-delete-icon theme-btn-disabled btn btn-default"
+    disabled={true}
+    id="tc-badge-delete-delete"
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    role={null}
+    type="button"
   >
-    <button
-      className="tc-badge-delete-icon theme-tc-badge-delete-icon theme-btn-disabled btn btn-default"
-      disabled={true}
-      id="tc-badge-delete-delete"
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
+    <svg
+      aria-hidden="true"
+      className="theme-tc-svg-icon tc-svg-icon"
+      focusable="false"
+      title={null}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-cross"
-        />
-      </svg>
-    </button>
-  </span>
+      <use
+        xlinkHref="#talend-cross"
+      />
+    </svg>
+  </button>
 </div>
 `;
 
