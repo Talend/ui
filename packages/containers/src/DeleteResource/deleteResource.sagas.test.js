@@ -45,6 +45,19 @@ describe('deleteConfirmationSaga simple integration test', () => {
 		},
 	});
 
+	it('should throw error if some params are not set', () => {
+		let error = null;
+		sagaTester.reset(true);
+		// given
+		try {
+			sagaTester.start(deleteResource(), { id: 'id' });
+		} catch (e) {
+			error = e;
+		}
+
+		expect(error.message).toEqual('DeleteResource saga : uri not defined');
+	});
+
 	it('should return current location if delete is activated and canceled', () => {
 		sagaTester.reset(true);
 		// given

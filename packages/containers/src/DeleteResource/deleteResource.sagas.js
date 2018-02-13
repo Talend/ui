@@ -74,16 +74,21 @@ export function* deleteResourceValidate(uri, resourceType, itemId, resourcePath)
  * @param {object} sagaParams the params to setup the saga
  * @param {string} sagaParams.uri the uri of the endpoint to make the calls
  * @param {string} sagaParams.resourceType the resource type to call delete endpoint ( at least )
- * @param {Array<String>} sagaParams.resourcePath
  * @param {string} sagaParams.redirectUrl url to redirect after delete action is done or cancel
+ * @param {Array<String>} sagaParams.resourcePath optional
+ * @param {string} sagaParams.routerParamsAttribute optional param in route to get the resource id
  */
 export default function deleteResource({
 	uri,
 	resourceType,
-	resourcePath,
 	redirectUrl,
-	routerParamsAttribute,
-}) {
+	resourcePath,
+	routerParamsAttribute = 'id',
+} = {}) {
+	invariant(!!uri, 'DeleteResource saga : uri not defined');
+	invariant(!!resourceType, 'DeleteResource saga : resourceType not defined');
+	invariant(!!redirectUrl, 'DeleteResource saga : redirectUrl not defined');
+
 	return function* deleteResourceSaga(routerParams) {
 		try {
 			yield race({
@@ -99,7 +104,7 @@ export default function deleteResource({
 				}),
 			});
 		} catch (error) {
-			invariant(true, `DeleteResource race failed :${error}`);
+			invariant(`DeleteResource race failed :${error}`);
 		} finally {
 			yield put({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_CLOSE,
