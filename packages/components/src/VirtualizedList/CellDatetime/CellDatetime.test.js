@@ -1,32 +1,33 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import CellWithIcon from './CellWithIcon.component';
+import CellDatetime from './CellDatetime.component';
 
-describe('CellWithIcon', () => {
-	it('should render with icon', () => {
+describe('CellDatetime', () => {
+	it('should render with "ago"', () => {
 		// when
 		const columnData = {
-			getIcon: () => ({
-				label: 'test',
-				icon: 'talend-star',
-				onClick: jest.fn(),
-			}),
+			data: {
+				mode: 'ago',
+			},
 		};
 
-		const wrapper = shallow(<CellWithIcon cellData={'Test label'} columnData={columnData} />);
+		const wrapper = shallow(<CellDatetime cellData={1518561116} columnData={columnData} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render without icon', () => {
+	it('should render date formatted', () => {
 		// when
 		const columnData = {
-			getIcon: () => undefined,
+			data: {
+				mode: 'format',
+				pattern: 'YYYY-MM-DD HH:mm:ss',
+			},
 		};
 
-		const wrapper = shallow(<CellWithIcon cellData={'Test label 2'} columnData={columnData} />);
+		const wrapper = shallow(<CellDatetime cellData={1518561116} columnData={columnData} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

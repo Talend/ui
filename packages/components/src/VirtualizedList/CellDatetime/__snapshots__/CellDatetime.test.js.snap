@@ -1,35 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CellWithIcon should render with icon 1`] = `
+exports[`CellDatetime should render date formatted 1`] = `
 <div
-  className="cell-icon-container theme-cell-icon-container"
+  className="cell-datetime-container theme-cell-datetime-container"
 >
-  <div>
-    Test label
-  </div>
-  <div
-    className="icon-container theme-icon-container"
-  >
-    <Action
-      hideLabel={true}
-      icon="talend-star"
-      label="test"
-      link={true}
-      onClick={[Function]}
-    />
-  </div>
+  1518561116
 </div>
 `;
 
-exports[`CellWithIcon should render without icon 1`] = `
+exports[`CellDatetime should render with "ago" 1`] = `
 <div
-  className="cell-icon-container theme-cell-icon-container"
+  className="cell-datetime-container theme-cell-datetime-container"
 >
-  <div>
-    Test label 2
-  </div>
-  <div
-    className="icon-container theme-icon-container"
-  />
+  1518561116
 </div>
 `;

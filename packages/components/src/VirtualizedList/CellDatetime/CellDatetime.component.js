@@ -24,16 +24,16 @@ export function computeValue(cellData, columnData) {
 /**
  * Cell renderer that displays text + icon
  */
-function CellDatetimeAgo({ cellData, columnData }) {
+function CellDatetime({ cellData, columnData }) {
 	return (
-		<div className={classnames('cell-datetimeago-container', styles['cell-datetimeago-container'])}>
+		<div className={classnames('cell-datetime-container', styles['cell-datetime-container'])}>
 			{computeValue(cellData, columnData)}
 		</div>
 	);
 }
 
-CellDatetimeAgo.displayName = 'VirtualizedList(CellDatetimeAgo)';
-CellDatetimeAgo.propTypes = {
+CellDatetime.displayName = 'VirtualizedList(CellDatetime)';
+CellDatetime.propTypes = {
 	// The cell value : props.rowData[props.dataKey]
 	cellData: PropTypes.string,
 	// Can be any object
@@ -45,4 +45,4 @@ CellDatetimeAgo.propTypes = {
 	}).isRequired,
 };
 
-export default CellDatetimeAgo;
+export default CellDatetime;
