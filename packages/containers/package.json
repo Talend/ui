@@ -9,6 +9,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
+    "test:demo": "build-storybook",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es",
     "watch": "npm-watch",
@@ -38,11 +39,11 @@
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@storybook/addon-actions": "^3.3.6",
     "@storybook/react": "^3.3.6",
-    "@talend/bootstrap-theme": "^0.154.0",
-    "@talend/icons": "^0.154.0",
-    "@talend/react-cmf": "^0.154.0",
-    "@talend/react-components": "^0.154.0",
-    "@talend/react-forms": "^0.154.0",
+    "@talend/bootstrap-theme": "^0.155.1",
+    "@talend/icons": "^0.155.1",
+    "@talend/react-cmf": "^0.155.1",
+    "@talend/react-components": "^0.155.1",
+    "@talend/react-forms": "^0.155.1",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-eslint": "8.0.2",
@@ -104,10 +105,10 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/icons": "^0.154.0",
-    "@talend/react-cmf": "^0.154.0",
-    "@talend/react-components": "^0.154.0",
-    "@talend/react-forms": "^0.154.0",
+    "@talend/icons": "^0.155.1",
+    "@talend/react-cmf": "^0.155.1",
+    "@talend/react-components": "^0.155.1",
+    "@talend/react-forms": "^0.155.1",
     "bson-objectid": "1.1.5",
     "classnames": "2.2.5",
     "immutable": "3.8.1",
@@ -144,7 +145,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.154.0",
+  "version": "0.155.1",
   "dependencies": {
     "react-immutable-proptypes": "2.1.0"
   }

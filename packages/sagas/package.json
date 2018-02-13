@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-sagas",
-  "version": "0.154.0",
+  "version": "0.155.1",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "license": "Apache-2.0",
@@ -9,6 +9,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
+    "test:demo": "echo nothing to demo in @talend/react-sagas",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint:style": "sass-lint -v -q",
     "lint": "npm run lint:es",
@@ -52,7 +53,7 @@
     "redux-thunk": "2.2.0"
   },
   "dependencies": {
-    "@talend/react-cmf": "^0.154.0",
+    "@talend/react-cmf": "^0.155.1",
     "redux-saga": "0.15.4"
   },
   "devDependencies": {
