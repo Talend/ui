@@ -122,7 +122,12 @@ describe('InlineFormSubHeader', () => {
 		wrapper.find('form').simulate('submit', event);
 		expect(event.preventDefault).toHaveBeenCalled();
 		expect(defaultProps.onSubmit).not.toHaveBeenCalled();
-		expect(newWrapper.find('.form-group').first().props().className).toBe('form-group has-error');
+		expect(
+			newWrapper
+				.find('.form-group')
+				.first()
+				.props().className,
+		).toBe('form-group has-error');
 	});
 	it('should call onCancel when cancel event trigger', () => {
 		const event = {};
