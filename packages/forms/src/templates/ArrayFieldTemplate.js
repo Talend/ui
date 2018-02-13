@@ -82,6 +82,7 @@ function ArrayFieldTemplate(props) {
 if (process.env.NODE_ENV !== 'production') {
 	ArrayFieldTemplate.propTypes = {
 		type: PropTypes.string.isRequired,
+		title: PropTypes.string,
 		items: PropTypes.arrayOf(PropTypes.object).isRequired,
 		canAdd: PropTypes.func.isRequired,
 		onAddClick: PropTypes.func.isRequired,

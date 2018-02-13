@@ -510,7 +510,7 @@ decoratedStories.add('Custom double array', () => {
 						},
 						groupBy: {
 							title: 'Group By',
-							minItems: '1',
+							minItems: '0',
 							maxItems: '10',
 							type: 'array',
 							items: {
@@ -611,11 +611,7 @@ decoratedStories.add('Custom double array', () => {
 				schemaFlow: {
 					schema: '{"type":"record","name":"EmptyRecord","fields":[]}',
 				},
-				groupBy: [
-					{
-						fieldPath: '',
-					},
-				],
+				groupBy: [],
 				operations: [
 					{
 						fieldPath: '',

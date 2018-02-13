@@ -4,6 +4,7 @@
 	
 	.column {
 		flex: 1;
+		// added padding so column are nicely separated
 		margin: $padding-normal 4px 0 4px;
 
 		fieldset {

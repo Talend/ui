@@ -7,10 +7,13 @@
 		content: attr(data-content);
 		display: inline-block;
 		text-transform: uppercase;
-		margin: 10px 0;
+		margin: $padding-normal 0;
 	}
 
 	fieldset > legend {
+		// the idea here is to hide the element ou of the viewport
+		// and at the minimal size possible, so it is still targetable
+		// by accessibility helpers.
 		position: absolute;
 		width: 1px;
 		height: 1px;
