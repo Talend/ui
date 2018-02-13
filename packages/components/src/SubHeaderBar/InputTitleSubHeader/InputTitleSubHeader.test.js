@@ -118,10 +118,11 @@ describe('InlineFormSubHeader', () => {
 	it('should not call onSubmit when submit event trigger with empty value', () => {
 		const event = { preventDefault: jest.fn() };
 		const wrapper = shallow(<InlineFormSubHeader {...defaultProps} />);
-		wrapper.setState({ value: ' ' });
+		const newWrapper = wrapper.setState({ value: ' ' });
 		wrapper.find('form').simulate('submit', event);
 		expect(event.preventDefault).toHaveBeenCalled();
 		expect(defaultProps.onSubmit).not.toHaveBeenCalled();
+		expect(newWrapper.find('.form-group').first().props().className).toBe('form-group has-error');
 	});
 	it('should call onCancel when cancel event trigger', () => {
 		const event = {};

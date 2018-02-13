@@ -11,9 +11,7 @@ exports[`InlineFormSubHeader should render 1`] = `
     <label
       className="sr-only"
       htmlFor="inputTitle"
-    >
-      nodejs
-    </label>
+    />
     <input
       className="theme-tc-subheader-details-form-input tc-subheader-details-form-input form-control"
       id="inputTitle"

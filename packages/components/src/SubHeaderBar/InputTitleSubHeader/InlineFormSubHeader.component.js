@@ -62,6 +62,7 @@ class InlineFormSubHeader extends React.Component {
 
 	render() {
 		const notFilled = this.state.value.trim().length === 0;
+		const t = this.props.t;
 		return (
 			<form
 				onSubmit={this.onSubmit}
@@ -69,7 +70,7 @@ class InlineFormSubHeader extends React.Component {
 			>
 				<div className={classNames('form-group', { 'has-error': notFilled })}>
 					<label className="sr-only" htmlFor="inputTitle">
-						{name}
+						{t('SUBHEADERBAR_INPUT_TITLE_FORM_LABEL', { defaultvalue: 'title' })}
 					</label>
 					<input
 						ref={this.selectInput}
