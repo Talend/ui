@@ -45,11 +45,12 @@ function getColumnDefs(sample) {
 		return [];
 	}
 
-	return sample.schema.fields.map(field => ({
-		headerName: field.doc,
-		type: field.type.dqType || field.type.type,
-		field: `${NAMESPACE_SAMPLE}${field.name}`,
-		[TALEND_QUALITY_KEY]: field[TALEND_QUALITY_KEY],
+	return sample.schema.fields.map(avroField => ({
+		headerName: avroField.doc,
+		type: avroField.type.dqType || avroField.type.type,
+		field: `${NAMESPACE_SAMPLE}${avroField.name}`,
+		[TALEND_QUALITY_KEY]: avroField[TALEND_QUALITY_KEY],
+		avro: avroField,
 	}));
 }
 
@@ -128,6 +129,41 @@ function loadStories() {
 			getPinnedColumnDefsExpression: 'getPinnedColumnDefs',
 			getRowDataExpression: 'getRowData',
 			getValueGetterExpression: 'getValueGetter',
+			source: 'sample',
+		};
+
+		state.cmf.settings.props['Container(DataGrid)#CustomizedDatagrid'] = {
+			actionCreators: {
+				onFocusedCell: 'datagrid:focus-cell',
+				onFocusedColumn: 'datagrid:focus-column',
+			},
+			cellRenderer: 'CustomCellRenderer',
+			getColumnDefsExpression: 'getColumnDefs',
+			getPinnedColumnDefsExpression: 'getPinnedColumnDefs',
+			getRowDataExpression: 'getRowData',
+			getValueGetterExpression: 'getValueGetter',
+			headerRenderer: 'CustomHeaderRenderer',
+			pinHeaderRenderer: 'CustomPinHeaderRenderer',
+			source: 'sample',
+		};
+
+		state.cmf.settings.props['Container(DataGrid)#CustomizedAvroDatagrid'] = {
+			avroRenderer: {
+				// stringCellRenderer: 'CustomStringCellRenderer',
+				intCellRenderer: 'CustomIntCellRenderer',
+				dateCellRenderer: 'CustomDateCellRenderer',
+				booleanCellRenderer: 'CustomBooleanCellRenderer',
+			},
+			actionCreators: {
+				onFocusedCell: 'datagrid:focus-cell',
+				onFocusedColumn: 'datagrid:focus-column',
+			},
+			getColumnDefsExpression: 'getColumnDefs',
+			getPinnedColumnDefsExpression: 'getPinnedColumnDefs',
+			getRowDataExpression: 'getRowData',
+			getValueGetterExpression: 'getValueGetter',
+			headerRenderer: 'CustomHeaderRenderer',
+			pinHeaderRenderer: 'CustomPinHeaderRenderer',
 			source: 'sample',
 		};
 

@@ -3,10 +3,6 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 
-	&-number {
-		text-align: right;
-	}
-
 	.invisible-char {
 		display: inline-block;
 		width: 20px;

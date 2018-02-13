@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { AgGridReact } from 'ag-grid-react';
@@ -17,164 +18,209 @@ const AG_GRID_DEFAULT_ROW_SELECTION = 'single';
 const HEADER_HEIGHT = 69;
 const ROW_HEIGHT = 39;
 
-let gridAPI;
-let currentColId;
-
-function removeFocusColumn() {
-	const focusedCells = document.querySelectorAll('.column-focus');
-	for (const focusedCell of focusedCells) {
-		focusedCell.classList.remove('column-focus');
-	}
-}
-
-function setFocusColumn(colId) {
-	removeFocusColumn();
-
-	if (colId === 'index.index') {
-		return;
-	}
-
-	const columnsCells = document.querySelectorAll(`[col-id="${colId}"]`);
-	for (const columnCell of columnsCells) {
-		columnCell.classList.add('column-focus');
-	}
-}
-
 function enchancedHeaderRenderer(getComponent, headerRenderer, onFocusedColumn) {
 	const Component = Inject.get(getComponent, headerRenderer);
 
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} />;
 }
 
-function handleKeyboard({ nextCellDef, previousCellDef }) {
-	if (!nextCellDef) {
-		return null;
+function enchancedCellRenderer(getComponent, cellRenderer, avroRenderer) {
+	const Component = Inject.get(getComponent, cellRenderer);
+
+	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
+}
+
+function getAvroRenderer(avroRenderer) {
+	return {
+		booleanCellRenderer: 'DefaultBooleanCellRenderer',
+		dateCellRenderer: 'DefaultDateCellRenderer',
+		intCellRenderer: 'DefaultIntCellRenderer',
+		stringCellRenderer: 'DefaultStringCellRenderer',
+		...avroRenderer,
+	};
+}
+
+export default class DataGrid extends React.Component {
+	static defaultProps = {
+		cellRenderer: 'DefaultCellRenderer',
+		columnDefs: [],
+		headerHeight: HEADER_HEIGHT,
+		headerRenderer: 'DefaultHeaderRenderer',
+		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
+		pinnedColumnDefs: [],
+		rowHeight: ROW_HEIGHT,
+		rowData: [],
+		rowSelection: AG_GRID_DEFAULT_ROW_SELECTION,
+	};
+
+	static propTypes = {
+		avroRenderer: PropTypes.shape({
+			booleanCellRenderer: PropTypes.string,
+			dateCellRenderer: PropTypes.string,
+			intCellRenderer: PropTypes.string,
+			stringCellRenderer: PropTypes.string,
+		}),
+		cellRenderer: PropTypes.string,
+		columnDefs: PropTypes.arrayOf(
+			PropTypes.shape({
+				field: PropTypes.string.isRequired,
+			}),
+		),
+		getComponent: PropTypes.func,
+		headerHeight: PropTypes.number,
+		headerRenderer: PropTypes.oneOfType([PropTypes.func, PropTypes.Element]),
+		onFocusedCell: PropTypes.func,
+		onFocusedColumn: PropTypes.func,
+		pinnedColumnDefs: PropTypes.arrayOf(
+			PropTypes.shape({
+				field: PropTypes.string.isRequired,
+			}),
+		),
+		pinHeaderRenderer: PropTypes.oneOfType([PropTypes.func, PropTypes.Element]),
+		rowSelection: PropTypes.string,
+		rowHeight: PropTypes.number,
+		rowData: PropTypes.arrayOf(PropTypes.object),
+		theme: PropTypes.string,
+		valueGetter: PropTypes.func.isRequired,
+	};
+
+	constructor(props) {
+		super(props);
+
+		this.currentColId = null;
+		this.gridAPI = null;
+		this.handleKeyboard = this.handleKeyboard.bind(this);
+		this.onFocusedColumn = this.onFocusedColumn.bind(this);
+		this.onGridReady = this.onGridReady.bind(this);
 	}
 
-	if (previousCellDef.rowIndex !== nextCellDef.rowIndex) {
-		if (gridAPI) {
-			gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
+	onGridReady({ api }) {
+		this.gridAPI = api;
+	}
+
+	onFocusedColumn(colId) {
+		let selectedRowIndex = 0;
+		if (this.gridAPI.getFocusedCell()) {
+			selectedRowIndex = this.gridAPI.getFocusedCell().rowIndex;
+		}
+		this.gridAPI.setFocusedCell(selectedRowIndex, colId);
+		this.setFocusColumn(colId);
+		this.props.onFocusedColumn(colId);
+	}
+
+	setFocusColumn(colId) {
+		this.removeFocusColumn();
+
+		if (colId === 'index.index') {
+			return;
+		}
+
+		const columnsCells = ReactDOM.findDOMNode(this.gridElement).querySelectorAll(
+			`[col-id="${colId}"]`,
+		);
+		for (const columnCell of columnsCells) {
+			columnCell.classList.add('column-focus');
 		}
 	}
 
-	return nextCellDef;
-}
-
-export default function DataGrid(props) {
-	const agGridOptions = {
-		headerHeight: props.headerHeight,
-		tabToNextCell: handleKeyboard,
-		navigateToNextCell: handleKeyboard,
-		onViewportChanged: () => setFocusColumn(currentColId),
-		onVirtualColumnsChanged: () => setFocusColumn(currentColId),
-		rowData: props.rowData,
-		rowHeight: props.rowHeight,
-		rowSelection: props.rowSelection,
-		suppressDragLeaveHidesColumns: true,
-		onCellFocused: ({ column, ...rest }) => {
-			if (!column) {
-				return;
-			}
-
-			currentColId = column.colId;
-			if (column.pinned) {
-				removeFocusColumn();
-				return;
-			}
-
-			setFocusColumn(currentColId);
-
-			if (props.onFocusedCell) {
-				props.onFocusedCell({
-					column,
-					...rest,
-				});
-			}
-		},
-		onGridReady: ({ api }) => {
-			gridAPI = api;
-		},
-	};
-
-	if (props.pinnedColumnDefs) {
-		agGridOptions.columnDefs = props.pinnedColumnDefs.map(pinnedColumnDefinition => ({
-			lockPosition: true,
-			pinned: 'left',
-			valueGetter: props.valueGetter,
-			...pinnedColumnDefinition,
-			[AG_GRID_CUSTOM_HEADER_KEY]: PIN_HEADER_RENDERER_COMPONENT,
-		}));
+	removeFocusColumn() {
+		const focusedCells = ReactDOM.findDOMNode(this.gridElement).querySelectorAll('.column-focus');
+		for (const focusedCell of focusedCells) {
+			focusedCell.classList.remove('column-focus');
+		}
 	}
 
-	if (props.columnDefs) {
-		const columnsDefs = props.columnDefs.map(columnDefinition => ({
-			lockPinned: true,
-			valueGetter: props.valueGetter,
-			...columnDefinition,
-			[AG_GRID_CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
-			[AG_GRID_CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
-		}));
-		agGridOptions.columnDefs = [...agGridOptions.columnDefs, ...columnsDefs];
+	handleKeyboard({ nextCellDef, previousCellDef }) {
+		if (!nextCellDef) {
+			return null;
+		}
+
+		if (previousCellDef.rowIndex !== nextCellDef.rowIndex) {
+			if (this.gridAPI) {
+				this.gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
+			}
+		}
+
+		return nextCellDef;
 	}
 
-	agGridOptions.frameworkComponents = {
-		[CELL_RENDERER_COMPONENT]: Inject.get(props.getComponent, props.cellRenderer),
-		[HEADER_RENDERER_COMPONENT]: enchancedHeaderRenderer(
-			props.getComponent,
-			props.headerRenderer,
-			colId => {
-				let selectedRowIndex = 0;
-				if (gridAPI.getFocusedCell()) {
-					selectedRowIndex = gridAPI.getFocusedCell().rowIndex;
+	render() {
+		const agGridOptions = {
+			headerHeight: this.props.headerHeight,
+			tabToNextCell: this.handleKeyboard,
+			navigateToNextCell: this.handleKeyboard,
+			onViewportChanged: () => this.setFocusColumn(this.currentColId),
+			onVirtualColumnsChanged: () => this.setFocusColumn(this.currentColId),
+			ref: element => (this.gridElement = element),
+			rowData: this.props.rowData,
+			rowHeight: this.props.rowHeight,
+			rowSelection: this.props.rowSelection,
+			suppressDragLeaveHidesColumns: true,
+			onCellFocused: ({ column, ...rest }) => {
+				if (!column) {
+					return;
 				}
-				gridAPI.setFocusedCell(selectedRowIndex, colId);
-				setFocusColumn(colId);
-				props.onFocusedColumn(colId);
+
+				this.currentColId = column.colId;
+				if (column.pinned) {
+					this.removeFocusColumn();
+					return;
+				}
+
+				this.setFocusColumn(this.currentColId);
+
+				if (this.props.onFocusedCell) {
+					this.props.onFocusedCell({
+						column,
+						...rest,
+					});
+				}
 			},
-		),
-		[PIN_HEADER_RENDERER_COMPONENT]: Inject.get(props.getComponent, props.pinHeaderRenderer),
-	};
+			onGridReady: this.onGridReady,
+		};
 
-	return (
-		<div className={classNames(theme.grid, theme[props.theme])}>
-			<AgGridReact {...agGridOptions} />
-		</div>
-	);
+		if (this.props.pinnedColumnDefs) {
+			agGridOptions.columnDefs = this.props.pinnedColumnDefs.map(pinnedColumnDefinition => ({
+				lockPosition: true,
+				pinned: 'left',
+				valueGetter: this.props.valueGetter,
+				...pinnedColumnDefinition,
+				[AG_GRID_CUSTOM_HEADER_KEY]: PIN_HEADER_RENDERER_COMPONENT,
+			}));
+		}
+
+		if (this.props.columnDefs) {
+			const columnsDefs = this.props.columnDefs.map(columnDefinition => ({
+				lockPinned: true,
+				valueGetter: this.props.valueGetter,
+				...columnDefinition,
+				[AG_GRID_CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
+				[AG_GRID_CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
+			}));
+			agGridOptions.columnDefs = [...agGridOptions.columnDefs, ...columnsDefs];
+		}
+
+		agGridOptions.frameworkComponents = {
+			[CELL_RENDERER_COMPONENT]: enchancedCellRenderer(
+				this.props.getComponent,
+				this.props.cellRenderer,
+				getAvroRenderer(this.props.avroRenderer),
+			),
+			[HEADER_RENDERER_COMPONENT]: enchancedHeaderRenderer(
+				this.props.getComponent,
+				this.props.headerRenderer,
+				this.onFocusedColumn,
+			),
+			[PIN_HEADER_RENDERER_COMPONENT]: Inject.get(
+				this.props.getComponent,
+				this.props.pinHeaderRenderer,
+			),
+		};
+
+		return (
+			<div className={classNames(theme.grid, theme[this.props.theme])}>
+				<AgGridReact {...agGridOptions} />
+			</div>
+		);
+	}
 }
-
-DataGrid.propTypes = {
-	cellRenderer: PropTypes.string,
-	columnDefs: PropTypes.arrayOf(
-		PropTypes.shape({
-			field: PropTypes.string.isRequired,
-		}),
-	),
-	getComponent: PropTypes.func,
-	headerHeight: PropTypes.number,
-	headerRenderer: PropTypes.oneOfType([PropTypes.func, PropTypes.Element]),
-	onFocusedCell: PropTypes.func,
-	onFocusedColumn: PropTypes.func,
-	pinnedColumnDefs: PropTypes.arrayOf(
-		PropTypes.shape({
-			field: PropTypes.string.isRequired,
-		}),
-	),
-	pinHeaderRenderer: PropTypes.oneOfType([PropTypes.func, PropTypes.Element]),
-	rowSelection: PropTypes.string,
-	rowHeight: PropTypes.number,
-	rowData: PropTypes.arrayOf(PropTypes.object),
-	theme: PropTypes.string,
-	valueGetter: PropTypes.func.isRequired,
-};
-
-DataGrid.defaultProps = {
-	cellRenderer: 'DefaultCellRenderer',
-	columnDefs: [],
-	headerHeight: HEADER_HEIGHT,
-	headerRenderer: 'DefaultHeaderRenderer',
-	pinHeaderRenderer: 'DefaultPinHeaderRenderer',
-	pinnedColumnDefs: [],
-	rowHeight: ROW_HEIGHT,
-	rowData: [],
-	rowSelection: AG_GRID_DEFAULT_ROW_SELECTION,
-};

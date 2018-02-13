@@ -19,7 +19,7 @@
             "name": "field1",
             "doc": "Code UIC",
             "type": {
-                "type": "string",
+                "type": "int",
                 "dqType": "",
                 "dqTypeKey": ""
             },
