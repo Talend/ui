@@ -11,6 +11,7 @@
     "prepublish": "npm run build-react && npm run build-webfont",
     "test": "echo no test",
     "test:cov": "echo no test",
+    "test:demo": "node ./scripts/docs.js",
     "start": "echo nothing to start",
     "svgo": "svgo -f src/svg --config=.svgo.yml"
   },
