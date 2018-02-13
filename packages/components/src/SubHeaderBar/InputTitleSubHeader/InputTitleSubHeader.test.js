@@ -118,8 +118,18 @@ describe('InlineFormSubHeader', () => {
 	it('should not call onSubmit when submit event trigger with empty value', () => {
 		const event = { preventDefault: jest.fn() };
 		const wrapper = shallow(<InlineFormSubHeader {...defaultProps} />);
-		expect(wrapper.find('.form-group').first().props().className).toBe('form-group');
-		expect(wrapper.find('Action').first().props().disabled).toBe(false);
+		expect(
+			wrapper
+				.find('.form-group')
+				.first()
+				.props().className,
+		).toBe('form-group');
+		expect(
+			wrapper
+				.find('Action')
+				.first()
+				.props().disabled,
+		).toBe(false);
 		wrapper.setState({ value: ' ' });
 		expect(
 			wrapper
@@ -127,7 +137,12 @@ describe('InlineFormSubHeader', () => {
 				.first()
 				.props().className,
 		).toBe('form-group has-error');
-		expect(wrapper.find('Action').first().props().disabled).toBe(true);
+		expect(
+			wrapper
+				.find('Action')
+				.first()
+				.props().disabled,
+		).toBe(true);
 		wrapper.find('form').simulate('submit', event);
 		expect(event.preventDefault).toHaveBeenCalled();
 		expect(defaultProps.onSubmit).not.toHaveBeenCalled();
