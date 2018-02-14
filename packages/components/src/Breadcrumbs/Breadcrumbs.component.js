@@ -46,20 +46,25 @@ function Breadcrumbs(props) {
 		const isActive = index === nbItems - 1;
 		const id = `${props.id}-item-${index}`;
 		const separator = index < props.items.length - 1 && (
-			<li className={classNames('tc-breadcrumb-separator', 'separator')} key={`${index}-separator`} aria-hidden="true">
+			<li
+				className={classNames('tc-breadcrumb-separator', 'separator')}
+				key={`${index}-separator`}
+				aria-hidden="true"
+			>
 				<Icon name="talend-chevron-left" transform="rotate-180" />
 			</li>
 		);
 
 		function getItemContent() {
-			return onClick ?
-				<Button
-					id={id}
-					bsStyle="link"
-					role="link"
-					title={title}
-					onClick={wrappedOnClick}
-				>{text}</Button> : <span id={id} title={title}>{text}</span>;
+			return onClick ? (
+				<Button id={id} bsStyle="link" role="link" title={title} onClick={wrappedOnClick}>
+					{text}
+				</Button>
+			) : (
+				<span id={id} title={title}>
+					{text}
+				</span>
+			);
 		}
 
 		/**
@@ -80,23 +85,17 @@ function Breadcrumbs(props) {
 		}
 		if (maxItemsReached && index === ellipsisIndex) {
 			return [
-				<li className="sr-only" key={index + .1}>
+				<li className="sr-only" key={index + 0.1}>
 					{getItemContent()}
 				</li>,
-				<li className={'tc-breadcrumb-menu'} key={index+.2} aria-hidden="true">
-					<ActionDropdown
-						id={`${props.id}-ellipsis`}
-						items={hiddenItems}
-						label="…"
-						link
-						noCaret
-					/>
+				<li className={'tc-breadcrumb-menu'} key={index + 0.2} aria-hidden="true">
+					<ActionDropdown id={`${props.id}-ellipsis`} items={hiddenItems} label="…" link noCaret />
 				</li>,
 				separator,
 			];
 		}
 		return [
-			<li className={classNames('tc-breadcrumb-item', {['active'] : isActive})} key={index}>
+			<li className={classNames('tc-breadcrumb-item', { ['active']: isActive })} key={index}>
 				{!isActive && getItemContent()}
 			</li>,
 			separator,
