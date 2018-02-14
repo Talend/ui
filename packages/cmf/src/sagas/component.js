@@ -5,8 +5,9 @@ import { get } from '../saga';
 
 export function* onSagaStart(action) {
 	const saga = get(action.saga);
-	invariant(process.env.NODE_ENV !== 'production', `The saga ${action.saga} is not registred`);
-	if (saga) {
+	if (!saga) {
+		invariant(process.env.NODE_ENV !== 'production', `The saga ${action.saga} is not registred`);
+	} else {
 		const task = yield fork(saga);
 		yield take(`${CONST.WILL_UNMOUNT_SAGA_STOP}_${action.saga}`);
 		yield cancel(task);
