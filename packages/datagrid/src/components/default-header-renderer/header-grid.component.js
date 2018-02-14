@@ -12,26 +12,26 @@ import {
 
 export const HEADER_RENDERER_COMPONENT = 'headerGrid';
 
-export default function DefaultHeaderRenderer(params) {
+export default function DefaultHeaderRenderer(props) {
 	return (
 		<div className={classNames(theme['td-header-component'], 'td-header-component')}>
 			<button
 				className={classNames(theme.header)}
-				onClick={() => params.onFocusedColumn(params.column.colId)}
+				onClick={() => props.onFocusedColumn(props.column.colId)}
 			>
 				<div className={classNames(theme['header-first-line'])}>
-					<span className={classNames(theme['header-column-label'])} title={params.displayName}>
-						{params.displayName}
+					<span className={classNames(theme['header-column-label'])} title={props.displayName}>
+						{props.displayName}
 					</span>
 					<span className={classNames(theme['header-other-actions'])}>...</span>
 				</div>
-				<div className={classNames(theme['header-second-line'])}>{params.column.colDef.type}</div>
+				<div className={classNames(theme['header-second-line'])}>{props.column.colDef.type}</div>
 			</button>
-			{params.column.colDef[TALEND_QUALITY_KEY] && (
+			{props.column.colDef[TALEND_QUALITY_KEY] && (
 				<QualityBar
-					invalid={params.column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_INVALID_KEY]}
-					empty={params.column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_EMPTY_KEY]}
-					valid={params.column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_VALID_KEY]}
+					invalid={props.column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_INVALID_KEY]}
+					empty={props.column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_EMPTY_KEY]}
+					valid={props.column.colDef[TALEND_QUALITY_KEY][TALEND_QUALITY_VALID_KEY]}
 				/>
 			)}
 		</div>

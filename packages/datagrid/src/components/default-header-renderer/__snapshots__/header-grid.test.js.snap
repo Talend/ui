@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`] = `
+<div
+  className="td-header-component td-header-component"
+>
+  <button
+    className="header"
+    onClick={[Function]}
+  >
+    <div
+      className="header-first-line"
+    >
+      <span
+        className="header-column-label"
+        title="Title"
+      >
+        Title
+      </span>
+      <span
+        className="header-other-actions"
+      >
+        ...
+      </span>
+    </div>
+    <div
+      className="header-second-line"
+    >
+      string
+    </div>
+  </button>
+  <QualityBar
+    empty={33}
+    invalid={33}
+    valid={34}
+  />
+</div>
+`;

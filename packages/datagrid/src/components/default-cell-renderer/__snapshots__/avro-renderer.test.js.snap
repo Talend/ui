@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DefaultTypeRenderer should render DefaultTypeRenderer 1`] = `
+<Inject
+  colDef={
+    Object {
+      "avro": Object {
+        "type": Object {
+          "type": "string",
+        },
+      },
+    }
+  }
+  component="stringCellRenderer"
+  data={
+    Object {
+      "value": "value",
+    }
+  }
+  getComponent={[Function]}
+/>
+`;
+
+exports[`#DefaultTypeRenderer should render DefaultTypeRenderer and load Injected Component stringCellRenderer 1`] = `
+<Inject
+  colDef={
+    Object {
+      "avro": Object {
+        "type": Object {
+          "type": "string",
+        },
+      },
+    }
+  }
+  component="stringCellRenderer"
+  data={
+    Object {
+      "value": "value",
+    }
+  }
+  getComponent={[Function]}
+/>
+`;

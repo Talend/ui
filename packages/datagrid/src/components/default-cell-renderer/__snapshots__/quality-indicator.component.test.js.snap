@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`] = `
+<div
+  className="td-cell-quality-indicator td-cell-quality-indicator td-cell-quality-indicator-invalid"
+  title="Incorrect value"
+/>
+`;

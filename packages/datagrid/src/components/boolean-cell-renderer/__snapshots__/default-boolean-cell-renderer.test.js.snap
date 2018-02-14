@@ -5,9 +5,3 @@ exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`
   true
 </span>
 `;
-
-exports[`#DefaultDateCellRenderer should render DefaultDateCellRenderer 1`] = `
-<span>
-  true
-</span>
-`;
