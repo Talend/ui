@@ -45,7 +45,6 @@ function getAvroRenderer(avroRenderer) {
 export default class DataGrid extends React.Component {
 	static defaultProps = {
 		cellRenderer: 'DefaultCellRenderer',
-		columnDefs: [],
 		getPinnedColumnDefsFn: sampleSerializer.getPinnedColumnDefsFromSample,
 		getColumnDefsFn: sampleSerializer.getColumnDefsFromSample,
 		getRowDataFn: sampleSerializer.getRowDataFromSample,
@@ -53,9 +52,7 @@ export default class DataGrid extends React.Component {
 		headerHeight: HEADER_HEIGHT,
 		headerRenderer: 'DefaultHeaderRenderer',
 		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
-		pinnedColumnDefs: [],
 		rowHeight: ROW_HEIGHT,
-		rowData: [],
 		rowSelection: AG_GRID_DEFAULT_ROW_SELECTION,
 	};
 
@@ -87,8 +84,6 @@ export default class DataGrid extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.currentColId = null;
-		this.gridAPI = null;
 		this.handleKeyboard = this.handleKeyboard.bind(this);
 		this.onFocusedColumn = this.onFocusedColumn.bind(this);
 		this.onFocusedCell = this.onFocusedCell.bind(this);
@@ -107,7 +102,8 @@ export default class DataGrid extends React.Component {
 			return;
 		}
 
-		this.currentColId = column.colId;
+		this.setCurrentFocusedColumn(column.colId);
+
 		if (column.pinned) {
 			this.removeFocusColumn();
 			return;
