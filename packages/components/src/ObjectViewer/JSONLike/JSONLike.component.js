@@ -11,7 +11,7 @@ import theme from './JSONLike.scss';
 
 function noop() {}
 
-const VALIDE_TYPES = ['number', 'string', 'boolean', 'bool'];
+const VALIDE_TYPES = ['number', 'string', 'bool'];
 const COMPLEX_TYPES = ['object', 'array'];
 
 export const ARRAY_ABSTRACT = '[...]';
@@ -470,7 +470,7 @@ export function JSONLike({ onSubmit, className, style, ...props }) {
 }
 
 JSONLike.propTypes = {
-	data: PropTypes.oneOfType([...VALIDE_TYPES, ...COMPLEX_TYPES].map(t => `PropTypes.${t}`)),
+	data: PropTypes.oneOfType([...VALIDE_TYPES, ...COMPLEX_TYPES].map(t => PropTypes[t])),
 	onSubmit: PropTypes.func,
 	className: PropTypes.string,
 	style: PropTypes.object,
