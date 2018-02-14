@@ -224,7 +224,7 @@ const propsWithVirtualized = {
 			{ key: 'id', label: 'Id' },
 			{ key: 'name', label: 'Name' },
 			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created', type: 'datetime', data: { mode: 'format' } },
+			{ key: 'created', label: 'Created', type: 'datetime', data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' } },
 			{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
 		],
 		items: [
@@ -729,34 +729,4 @@ storiesOf('List', module)
 				<List {...propsWithVirtualized} />
 			</span>
 		</div>
-	))
-	.add('list with virtualized and sort timestamp desc', () => {
-		const propsSortDesc = cloneDeep(propsWithVirtualized);
-		propsSortDesc.list.sort = sortUpdatedDesc;
-
-		return (
-			<div className="virtualized-list">
-				<h1>List with virtualized and timestamp that is sorted on modified field and descending order</h1>
-				<p>CellDatetimeRenderer in action + sorting descending.</p>
-				{/* Do not reproduce!*/}
-				<span>
-					<List {...propsSortDesc} />
-				</span>
-			</div>
-		);
-	})
-	.add('list with virtualized and sort timestamp asc', () => {
-		const propsSortAsc = cloneDeep(propsWithVirtualized);
-		propsSortAsc.list.sort = sortUpdatedAsc;
-
-		return (
-			<div className="virtualized-list">
-				<h1>List with virtualized and timestamp that is sorted on modified field and ascending order</h1>
-				<p>CellDatetimeRenderer in action + sorting ascending.</p>
-				{/* Do not reproduce!*/}
-				<span>
-					<List {...propsSortAsc} />
-				</span>
-			</div>
-		);
-	});
+	));

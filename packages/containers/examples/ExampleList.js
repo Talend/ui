@@ -20,6 +20,19 @@ const list = {
 	},
 };
 
+const listWithTimestamp = {
+	columns: [
+		{ key: 'id', label: 'Id' },
+		{ key: 'label', label: 'Name' },
+		{ key: 'author', label: 'Author' },
+		{ key: 'created', label: 'Created', type: 'datetime', data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' } },
+		{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } }
+	],
+	titleProps: {
+		key: 'label',
+	},
+};
+
 const actions = {
 	title: 'object:view',
 	left: ['object:add', 'object:upload', 'menu:items'],
@@ -53,6 +66,10 @@ const customHeight = {
 export const defaultListState = new Immutable.Map({
 	displayMode: 'large',
 });
+export const defaultSortedListState = new Immutable.Map({
+	sortOn: 'modified',
+	sortAsc: false,
+});
 
 const items = Immutable.fromJS([
 	{
@@ -83,6 +100,63 @@ const items = Immutable.fromJS([
 		author: 'Jean-Pierre DUPONT with super long name',
 	},
 ]);
+
+const referenceDatetime = Date.now();
+const minusFourHours = referenceDatetime - 3600 * 4 * 1000;
+const minusThreeHours = referenceDatetime - 3600 * 3 * 1000;
+const minusTwoHours = referenceDatetime - 3600 * 2 * 1000;
+const minusOneHours = referenceDatetime - 3600 * 1 * 1000;
+const minusThreeMin = referenceDatetime - 60 * 3 * 1000;
+
+const oneDay = 24 * 3600 * 1000;
+
+const itemsWithTimestamp = Immutable.fromJS([
+	{
+		id: 'id0',
+		label: 'Title with actions but first',
+		created: minusThreeHours,
+		modified: minusThreeHours,
+		author: 'Jean-Pierre DUPONT',
+		icon: 'fa fa-file-excel-o',
+		display: 'text',
+		className: 'item-0-class',
+	},
+	{
+		id: 'ID2',
+		label: 'Title in input mode',
+		created: minusTwoHours,
+		modified: minusTwoHours - oneDay * 2,
+		author: 'Jean-Pierre DUPONT',
+		icon: 'fa fa-file-pdf-o',
+		display: 'input',
+		className: 'item-1-class',
+	},
+	{
+		id: 'id1',
+		label: 'Title with actions',
+		created: minusThreeMin - oneDay,
+		modified: minusThreeMin,
+		author: 'Jean-Pierre DUPONT',
+		icon: 'fa fa-file-excel-o',
+		display: 'text',
+		className: 'item-0-class',
+	},
+	{
+		id: 'iD3',
+		label: 'Super long title to trigger overflow on some rendering',
+		created: minusOneHours - oneDay,
+		modified: minusOneHours,
+		author: 'Jean-Pierre DUPONT with super long name',
+	},
+]);
+
+const sortUpdatedAsc = {
+	field: 'modified',
+	isDescending: false,
+};
+const props3 = cloneDeep(props);
+props3.list = listWithTimestamp;
+props3.list.sort = sortUpdatedAsc;
 
 const ExampleList = {
 	default: () => (
@@ -213,5 +287,13 @@ const ExampleList = {
 			</div>
 		</I18nextProvider>
 	),
+	'sort on timestamps': () => (
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List {...props3} items={itemsWithTimestamp} initialState={defaultSortedListState}/>
+			</div>
+		</div>
+	)
 };
 export default ExampleList;
