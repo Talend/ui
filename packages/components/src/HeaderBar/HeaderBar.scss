@@ -39,6 +39,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 		.tc-header-bar-action {
 			height: 100%;
 			list-style: none;
+			white-space: nowrap;
 
 			&:not(:last-child).separated:after {
 				content: '|';
