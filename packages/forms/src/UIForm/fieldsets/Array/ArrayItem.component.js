@@ -40,7 +40,11 @@ export function ReorderButton(props) {
 	}
 
 	return (
-		<button {...buttonProps} type="button">
+		<button
+			{...buttonProps}
+			className={`${theme['tf-array-item-reorder']} tf-array-item-reorder`}
+			type="button"
+		>
 			<Icon name="talend-caret-down" transform={iconTransform} />
 		</button>
 	);
