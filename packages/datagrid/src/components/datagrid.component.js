@@ -20,13 +20,13 @@ const AG_GRID_DEFAULT_ROW_SELECTION = 'single';
 const HEADER_HEIGHT = 69;
 const ROW_HEIGHT = 39;
 
-function enchancedHeaderRenderer(getComponent, headerRenderer, onFocusedColumn) {
+function injectedHeaderRenderer(getComponent, headerRenderer, onFocusedColumn) {
 	const Component = Inject.get(getComponent, headerRenderer);
 
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} />;
 }
 
-function enchancedCellRenderer(getComponent, cellRenderer, avroRenderer) {
+function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
 	const Component = Inject.get(getComponent, cellRenderer);
 
 	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
@@ -216,12 +216,12 @@ export default class DataGrid extends React.Component {
 		}
 
 		agGridOptions.frameworkComponents = {
-			[CELL_RENDERER_COMPONENT]: enchancedCellRenderer(
+			[CELL_RENDERER_COMPONENT]: injectedCellRenderer(
 				this.props.getComponent,
 				this.props.cellRenderer,
 				getAvroRenderer(this.props.avroRenderer),
 			),
-			[HEADER_RENDERER_COMPONENT]: enchancedHeaderRenderer(
+			[HEADER_RENDERER_COMPONENT]: injectedHeaderRenderer(
 				this.props.getComponent,
 				this.props.headerRenderer,
 				this.onFocusedColumn,
