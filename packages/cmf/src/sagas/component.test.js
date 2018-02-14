@@ -1,7 +1,7 @@
 import { fork, take, cancel } from 'redux-saga/effects';
 import { createMockTask } from 'redux-saga/utils';
 import registry from '../registry';
-import { onSagaStart, handle} from './component';
+import { onSagaStart, handle } from './component';
 import CONST from '../constant';
 
 describe('sagas.component', () => {
