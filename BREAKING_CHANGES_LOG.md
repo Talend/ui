@@ -2,6 +2,11 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.156.0
+* cmf: putActionCreator
+* PR: https://github.com/Talend/ui/pull/1055
+* Change: move from api.saga.putActionCreator to api.sagas.putActionCreator
+
 ## v0.153.0
 * Component: SubHeaderBar
 * PR: https://github.com/Talend/ui/pull/1041

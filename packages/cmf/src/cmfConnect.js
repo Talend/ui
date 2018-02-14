@@ -252,8 +252,7 @@ export default function cmfConnect({
 					this.dispatchActionCreator(
 						'cmf.saga.start',
 						{ type: 'DID_MOUNT' },
-						this.props,
-						this.context,
+						this.props
 					);
 				}
 			}
