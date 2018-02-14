@@ -52,8 +52,8 @@ const items = fromJS([
 	{
 		id: 1,
 		name: 'Title with actions',
-		created: '2016-09-22',
-		modified: '2016-09-22',
+		created: 1474495200,
+		modified: 1474495200,
 		author: 'Jean-Pierre DUPONT',
 		icon: 'fa fa-file-excel-o',
 		display: 'text',
@@ -62,8 +62,8 @@ const items = fromJS([
 	{
 		id: 2,
 		name: 'Title in input mode',
-		created: '2016-09-22',
-		modified: '2016-09-22',
+		created: 1474495200,
+		modified: 1474495200,
 		author: 'Jean-Pierre DUPONT',
 		icon: 'fa fa-file-pdf-o',
 		display: 'input',
@@ -72,8 +72,8 @@ const items = fromJS([
 	{
 		id: 3,
 		name: 'Super long title to trigger overflow on some rendering',
-		created: '2016-09-22',
-		modified: '2016-09-22',
+		created: 1474495200,
+		modified: 1474495200,
 		author: 'Jean-Pierre DUPONT with super long name',
 	},
 ]);
