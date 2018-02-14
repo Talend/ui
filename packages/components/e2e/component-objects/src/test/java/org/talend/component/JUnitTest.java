@@ -1,6 +1,3 @@
 package org.talend.component;
 
-interface JUnitTest {
-
-
-}
+interface JUnitTest {}
