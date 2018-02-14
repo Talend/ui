@@ -9,16 +9,16 @@
 	&:hover {
 		height: 1.2rem;
 	}
-}
 
-.quality-bar-valid {
-	background-color: $rio-grande;
-}
+	&-valid {
+		background-color: $rio-grande;
+	}
 
-.quality-bar-empty {
-	background-color: $silver-chalice;
-}
+	&-empty {
+		background-color: $silver-chalice;
+	}
 
-.quality-bar-invalid {
-	background-color: $lightning-yellow;
+	&-invalid  {
+		background-color: $lightning-yellow;
+	}
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import get from 'lodash/get';
 
 import Component from '../components/';
 
@@ -8,8 +9,8 @@ export default function DataGrid(props) {
 			props.onFocusedCell();
 		}
 
-		if (props.actionCreators && props.actionCreators.onFocusedCell) {
-			props.dispatchActionCreator(props.actionCreators.onFocusedCell, event, {
+		if (get(props, 'actionCreators.onFocusedCell')) {
+			props.dispatchActionCreator(get(props, 'actionCreators.onFocusedCell'), event, {
 				props,
 			});
 		}
@@ -20,8 +21,8 @@ export default function DataGrid(props) {
 			props.onFocusedColumn();
 		}
 
-		if (props.actionCreators && props.actionCreators.onFocusedColumn) {
-			props.dispatchActionCreator(props.actionCreators.onFocusedColumn, event, {
+		if (get(props, 'actionCreators.onFocusedColumn')) {
+			props.dispatchActionCreator(get(props, 'actionCreators.onFocusedColumn'), event, {
 				props,
 			});
 		}

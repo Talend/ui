@@ -3,11 +3,12 @@ import classNames from 'classnames';
 
 import QualityBar from './quality-bar.component';
 import theme from './header-grid.scss';
-
-const TALEND_QUALITY_KEY = '@talend-quality@';
-const TALEND_QUALITY_INVALID_KEY = -1;
-const TALEND_QUALITY_EMPTY_KEY = 0;
-const TALEND_QUALITY_VALID_KEY = 1;
+import {
+	TALEND_QUALITY_KEY,
+	TALEND_QUALITY_INVALID_KEY,
+	TALEND_QUALITY_EMPTY_KEY,
+	TALEND_QUALITY_VALID_KEY,
+} from '../constants';
 
 export const HEADER_RENDERER_COMPONENT = 'headerGrid';
 
