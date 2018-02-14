@@ -6,6 +6,7 @@
   "scripts": {
     "start": "echo nothing to start",
     "test:cov": "istanbul cover _mocha",
+    "test:demo": "echo nothing to demo in generator-talend",
     "test:lint": "eslint generator/**/index.js",
     "test:unit": "mocha --compilers js:babel-register",
     "test": "npm run test:lint && npm run test:unit"
@@ -51,5 +52,5 @@
     "yeoman-assert": "^2.0.0",
     "yeoman-test": "^1.0.0"
   },
-  "version": "0.153.0"
+  "version": "0.155.1"
 }

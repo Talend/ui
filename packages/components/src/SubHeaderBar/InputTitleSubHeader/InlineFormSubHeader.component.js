@@ -47,7 +47,9 @@ class InlineFormSubHeader extends React.Component {
 
 	onSubmit(event) {
 		event.preventDefault();
-		this.props.onSubmit(event, { value: this.state.value, props: this.props });
+		if (this.state.value.trim().length !== 0) {
+			this.props.onSubmit(event, { value: this.state.value, props: this.props });
+		}
 	}
 
 	selectInput(input) {
