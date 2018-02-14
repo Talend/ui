@@ -2,6 +2,20 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.156.0
+* Container: DeleteResource
+* PR: https://github.com/Talend/ui/pull/1053
+* Changes: deleteResource Saga params has changed
+
+| name | change |
+|---|---|
+| + sagaParams | object spread to get uri / resource type / redirectUrl / resourcePath & routerParamsAttribute |
+| - uri | moved in object param |
+| - resourceType | moved in object param |
+| - resourcePath | moved in object param |
+
+[Check the component doc](packages/containers/src/DeleteResource/README.md)
+
 ## v0.153.0
 * Component: SubHeaderBar
 * PR: https://github.com/Talend/ui/pull/1041
