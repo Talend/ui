@@ -1,5 +1,6 @@
 import get from 'lodash/get';
 import objectId from 'bson-objectid';
+import invariant from 'invariant';
 
 export default function pushNotification(state, notification) {
 	if (!get(notification, 'message')) {
@@ -8,8 +9,7 @@ export default function pushNotification(state, notification) {
 	const path = ['Container(Notification)', 'Notification', 'notifications'];
 	let notifs = state.cmf.components.getIn(path);
 	if (!notifs) {
-		// eslint-disable-next-line no-console
-		console.error('Notifications are not yet available.', notification);
+		invariant(true, 'Notifications are not yet available.', notification);
 		return state;
 	}
 	notifs = notifs.push(
