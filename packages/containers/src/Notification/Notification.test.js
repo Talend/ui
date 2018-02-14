@@ -98,7 +98,7 @@ describe('Notification.pushNotification', () => {
 		expect(notifications.size).toBe(0);
 	});
 
-	it('should change the state if no notification', () => {
+	it('should not change the state if no notification', () => {
 		const state = store.state();
 		state.cmf.components = fromJS({
 			'Container(Notification)': {
@@ -107,6 +107,13 @@ describe('Notification.pushNotification', () => {
 				},
 			},
 		});
+		const newState = pushNotification(state);
+		expect(newState).toBe(state);
+	});
+
+	it('should not change the state if notification state is not yet availbale', () => {
+		const state = store.state();
+		state.cmf.components = fromJS({});
 		const newState = pushNotification(state);
 		expect(newState).toBe(state);
 	});
