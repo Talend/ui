@@ -7,6 +7,19 @@ This document aims to ease the WIP migration from a version to another by provid
 * PR: https://github.com/Talend/ui/pull/1055
 * Change: move from api.saga.putActionCreator to api.sagas.putActionCreator
 
+* Container: DeleteResource
+* PR: https://github.com/Talend/ui/pull/1053
+* Changes: deleteResource Saga params has changed
+
+| name | change |
+|---|---|
+| + sagaParams | object spread to get uri / resource type / redirectUrl / resourcePath & routerParamsAttribute |
+| - uri | moved in object param |
+| - resourceType | moved in object param |
+| - resourcePath | moved in object param |
+
+[Check the component doc](packages/containers/src/DeleteResource/README.md)
+
 ## v0.153.0
 * Component: SubHeaderBar
 * PR: https://github.com/Talend/ui/pull/1041
