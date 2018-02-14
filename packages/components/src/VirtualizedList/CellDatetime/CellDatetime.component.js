@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import { distanceInWordsToNow, format } from 'date-fns';
+import invariant from 'invariant';
 
 import styles from './CellDatetime.scss';
 
@@ -15,8 +16,7 @@ export function computeValue(cellData, columnData) {
 			return format(cellData, columnData.pattern || DATE_TIME_FORMAT);
 		}
 	} catch (e) {
-		// eslint-disable-next-line no-console
-		console.error('Conversion error in list cell ', columnData);
+		invariant(true, 'Conversion error in list cell ', columnData);
 	}
 
 	return cellData;
