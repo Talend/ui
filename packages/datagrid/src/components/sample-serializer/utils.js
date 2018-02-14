@@ -27,7 +27,6 @@ export function getRowDataFromSample(sample) {
 					value: row.value[key].value,
 					quality: row.value[key].quality,
 					comments: [],
-					type: 'string',
 					avro: {},
 				},
 			}),

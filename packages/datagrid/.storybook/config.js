@@ -70,7 +70,7 @@ const reducer = (state = {}, a) => {
 	return state;
 };
 
-const registerActionCreator = api.action.registerActionCreator;
+const registerActionCreator = api.actionCreator.register;
 registerActionCreator('datagrid:focus-cell', (event, data) => {
 	return {
 		type: 'DATAGRID_FOCUS_CELL',
