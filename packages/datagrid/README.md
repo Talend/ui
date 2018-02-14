@@ -63,7 +63,7 @@ The cellRenderer has :
 
 In entry, the datagrid component waits a sample of dataset. By default, the datagrid component provides a serializer to transform the data like aggrid waiting in entry.
 
-[The format is like this](.storybook/sample.js).
+[The format is like this](.storybook/sample.json).
 
 ### Props
 
