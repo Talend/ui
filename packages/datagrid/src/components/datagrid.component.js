@@ -93,6 +93,9 @@ export default class DataGrid extends React.Component {
 		this.onFocusedColumn = this.onFocusedColumn.bind(this);
 		this.onFocusedCell = this.onFocusedCell.bind(this);
 		this.onGridReady = this.onGridReady.bind(this);
+		this.setGridElement = this.setGridElement.bind(this);
+		this.setCurrentFocusedColumn = this.setCurrentFocusedColumn.bind(this);
+		this.updateStyleFocusColumn = this.updateStyleFocusColumn.bind(this);
 	}
 
 	onGridReady({ api }) {
@@ -110,7 +113,7 @@ export default class DataGrid extends React.Component {
 			return;
 		}
 
-		this.setFocusColumn(this.currentColId);
+		this.updateStyleFocusColumn();
 
 		if (this.props.onFocusedCell) {
 			this.props.onFocusedCell({
@@ -125,12 +128,29 @@ export default class DataGrid extends React.Component {
 		if (this.gridAPI.getFocusedCell()) {
 			selectedRowIndex = this.gridAPI.getFocusedCell().rowIndex;
 		}
+		this.setCurrentFocusedColumn(colId);
 		this.gridAPI.setFocusedCell(selectedRowIndex, colId);
-		this.setFocusColumn(colId);
+		this.updateStyleFocusColumn();
 		this.props.onFocusedColumn(colId);
 	}
 
-	setFocusColumn(colId) {
+	setCurrentFocusedColumn(colId) {
+		this.currentColId = colId;
+	}
+
+	setGridElement(element) {
+		this.gridElement = element;
+	}
+
+	removeFocusColumn() {
+		const focusedCells = ReactDOM.findDOMNode(this.gridElement).querySelectorAll('.column-focus');
+		for (const focusedCell of focusedCells) {
+			focusedCell.classList.remove('column-focus');
+		}
+	}
+
+	updateStyleFocusColumn() {
+		const colId = this.currentColId;
 		this.removeFocusColumn();
 
 		if (!colId || colId.includes(NAMESPACE_INDEX)) {
@@ -142,13 +162,6 @@ export default class DataGrid extends React.Component {
 		);
 		for (const columnCell of columnsCells) {
 			columnCell.classList.add('column-focus');
-		}
-	}
-
-	removeFocusColumn() {
-		const focusedCells = ReactDOM.findDOMNode(this.gridElement).querySelectorAll('.column-focus');
-		for (const focusedCell of focusedCells) {
-			focusedCell.classList.remove('column-focus');
 		}
 	}
 
@@ -171,9 +184,9 @@ export default class DataGrid extends React.Component {
 			headerHeight: this.props.headerHeight,
 			tabToNextCell: this.handleKeyboard,
 			navigateToNextCell: this.handleKeyboard,
-			onViewportChanged: () => this.setFocusColumn(this.currentColId),
-			onVirtualColumnsChanged: () => this.setFocusColumn(this.currentColId),
-			ref: element => (this.gridElement = element),
+			onViewportChanged: this.updateStyleFocusColumn,
+			onVirtualColumnsChanged: this.updateStyleFocusColumn,
+			ref: this.setGridElement,
 			rowData: this.props.getRowDataFn(this.props.data),
 			rowHeight: this.props.rowHeight,
 			rowSelection: this.props.rowSelection,
