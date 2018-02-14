@@ -7,9 +7,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-/home/travis/build/Talend/ui/packages/forms/src/templates/ArrayFieldTemplate.js
-  58:57  error  'title' is missing in props validation  react/prop-types
-
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
   9:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
@@ -22,5 +19,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
 
-✖ 6 problems (6 errors, 0 warnings)
+✖ 5 problems (5 errors, 0 warnings)
 
