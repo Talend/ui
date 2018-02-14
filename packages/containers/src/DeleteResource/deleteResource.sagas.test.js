@@ -45,10 +45,31 @@ describe('deleteConfirmationSaga simple integration test', () => {
 		},
 	});
 
+	it('should throw error if some params are not set', () => {
+		let error = null;
+		sagaTester.reset(true);
+		// given
+		try {
+			sagaTester.start(deleteResource(), { id: 'id' });
+		} catch (e) {
+			error = e;
+		}
+
+		expect(error.message).toEqual('DeleteResource saga : uri not defined');
+	});
+
 	it('should return current location if delete is activated and canceled', () => {
 		sagaTester.reset(true);
 		// given
-		sagaTester.start(deleteResource('uri', 'resourceType'));
+		sagaTester.start(
+			deleteResource({
+				uri: 'uri',
+				resourceType: 'resourceType',
+				redirectUrl: '/resourceType',
+				routerParamsAttribute: 'id',
+			}),
+			{ id: 'id' },
+		);
 		const data = {
 			model: {
 				id: 'id',
@@ -83,13 +104,16 @@ describe('deleteConfirmationSaga simple integration test', () => {
 		const uri = 'uri';
 		const resourceType = 'resourceType';
 		const id = 'id';
-		sagaTester.start(deleteResource(uri, resourceType));
+		const redirectUrl = '/resourceType';
+		sagaTester.start(
+			deleteResource({ uri, resourceType, redirectUrl, routerParamsAttribute: 'id' }),
+			{ id },
+		);
 		const data = {
 			model: {
 				id,
 			},
 		};
-		const redirectUrl = '/resourceType';
 		const context = {
 			router: {
 				getCurrentLocation: jest.fn(() => ({ pathname: redirectUrl })),
@@ -116,7 +140,15 @@ describe('deleteConfirmationSaga simple integration test', () => {
 describe('deleteConfirmationSaga datastore', () => {
 	const sagaTester = new SagaTester({ initialState: {} });
 	beforeEach(() => {
-		sagaTester.start(deleteResource('uri', 'resourceType'));
+		sagaTester.start(
+			deleteResource({
+				uri: 'uri',
+				resourceType: 'resourceType',
+				redirectUrl: '/connections',
+				routerParamsAttribute: 'id',
+			}),
+			{ id: 'modelId' },
+		);
 		// Given
 		sagaTester.dispatch({
 			type: '@@router/LOCATION_CHANGE',
@@ -124,11 +156,6 @@ describe('deleteConfirmationSaga datastore', () => {
 				method: 'replace',
 				args: ['/connections/datastoreId/delete'],
 			},
-		});
-		sagaTester.dispatch({
-			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE,
-			model: { id: 'modelId' },
-			redirectUrl: '/connections',
 		});
 	});
 	it('sould have received @@router/LOCATION_CHANGE', () => {
@@ -140,15 +167,6 @@ describe('deleteConfirmationSaga datastore', () => {
 				method: 'replace',
 				args: ['/connections/datastoreId/delete'],
 			},
-		});
-	});
-	it('should have received DIALOG_BOX_DELETE_CONFIRMATION', () => {
-		const expectedActions = sagaTester.getCalledActions();
-		// Then
-		expect(expectedActions[1]).toEqual({
-			type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE,
-			model: { id: 'modelId' },
-			redirectUrl: '/connections',
 		});
 	});
 	it('should call deleteResourceCancel then finally received DIALOG_BOX_DLETE_RESOURCE_CLOSE', () => {
