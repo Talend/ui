@@ -1,6 +1,6 @@
 import { put, select } from 'redux-saga/effects';
-import registry from '../registry';
-import putActionCreator from './putActionCreator';
+import registry from '../../src/registry';
+import putActionCreator from '../../src/sagas/putActionCreator';
 
 describe('saga', () => {
 	it('should putActionCreator call put of a registred actionCreator without context', () => {
