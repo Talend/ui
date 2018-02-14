@@ -14,7 +14,7 @@ export const HEADER_RENDERER_COMPONENT = 'headerGrid';
 
 export default function DefaultHeaderRenderer(params) {
 	return (
-		<div className={classNames(theme['header-component'])}>
+		<div className={classNames(theme['td-header-component'], 'td-header-component')}>
 			<button
 				className={classNames(theme.header)}
 				onClick={() => params.onFocusedColumn(params.column.colId)}

@@ -9,7 +9,7 @@ export const CELL_RENDERER_COMPONENT = 'cellRenderer';
 
 export default function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent }) {
 	return (
-		<div className={classNames(theme.cell)}>
+		<div className={classNames(theme['td-cell'], 'td-cell')}>
 			{value.quality <= 0 && <QualityIndicator tooltip="Incorrect value" value={value.quality} />}
 			<AvroRenderer
 				colDef={colDef}

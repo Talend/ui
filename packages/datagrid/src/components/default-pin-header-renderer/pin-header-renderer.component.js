@@ -8,7 +8,7 @@ export const PIN_HEADER_RENDERER_COMPONENT = 'pinHeaderRenderer';
 
 export default function DefaultPinHeaderRenderer() {
 	return (
-		<div className={classNames(theme['pin-header'])}>
+		<div className={classNames(theme['td-pin-header'], 'td-pin-header')}>
 			<Icon name="talend-burger" />
 		</div>
 	);

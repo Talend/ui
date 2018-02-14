@@ -1,4 +1,4 @@
-.quality-bar {
+.td-quality-bar {
 	display: flex;
 	height: 0.3rem;
 	width: 100%;
@@ -10,15 +10,15 @@
 		height: 1.2rem;
 	}
 
+	&-invalid {
+		background-color: $lightning-yellow;
+	}
+
 	&-valid {
 		background-color: $rio-grande;
 	}
 
 	&-empty {
 		background-color: $silver-chalice;
-	}
-
-	&-invalid  {
-		background-color: $lightning-yellow;
 	}
 }

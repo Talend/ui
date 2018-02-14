@@ -7,9 +7,9 @@ import theme from './quality-indicator.scss';
 export default function QualityIndicator(props) {
 	return (
 		<div
-			className={classNames(theme['quality-indicator'], {
-				[theme['quality-indicator-invalid']]: props.value < 0,
-				[theme['quality-indicator-empty']]: props.value === 0,
+			className={classNames(theme['td-cell-quality-indicator'], 'td-cell-quality-indicator', {
+				[theme['td-cell-quality-indicator-invalid']]: props.value < 0,
+				[theme['td-cell-quality-indicator-empty']]: props.value === 0,
 			})}
 			title={props.tooltip}
 		/>

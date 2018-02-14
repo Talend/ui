@@ -233,7 +233,7 @@ export default class DataGrid extends React.Component {
 		};
 
 		return (
-			<div className={classNames(theme.grid, theme[this.props.theme])}>
+			<div className={classNames(theme['td-grid'], theme[this.props.theme], 'td-grid')}>
 				<AgGridReact {...agGridOptions} />
 			</div>
 		);
