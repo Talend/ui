@@ -6,7 +6,7 @@ exports[`SubHeaderBar container should render 1`] = `
   onCancel={[Function]}
   onChange={[Function]}
   onEdit={[Function]}
-  onGoBack={[Function]}
+  onGoBack={undefined}
   onSubmit={[Function]}
 />
 `;
