@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`] = `
+<span>
+  true
+</span>
+`;
+
+exports[`#DefaultDateCellRenderer should render DefaultDateCellRenderer 1`] = `
+<span>
+  true
+</span>
+`;
