@@ -67,11 +67,6 @@ export default class DataGrid extends React.Component {
 			stringCellRenderer: PropTypes.string,
 		}),
 		cellRenderer: PropTypes.string,
-		// columnDefs: PropTypes.arrayOf(
-		// 	PropTypes.shape({
-		// 		field: PropTypes.string.isRequired,
-		// 	}),
-		// ),
 		getComponent: PropTypes.func,
 		getPinnedColumnDefsFn: PropTypes.func,
 		getColumnDefsFn: PropTypes.func,
@@ -81,16 +76,10 @@ export default class DataGrid extends React.Component {
 		headerRenderer: PropTypes.string,
 		onFocusedCell: PropTypes.func,
 		onFocusedColumn: PropTypes.func,
-		// pinnedColumnDefs: PropTypes.arrayOf(
-		// 	PropTypes.shape({
-		// 		field: PropTypes.string.isRequired,
-		// 	}),
-		// ),
 		pinHeaderRenderer: PropTypes.string,
 		data: PropTypes.object,
 		rowSelection: PropTypes.string,
 		rowHeight: PropTypes.number,
-		// rowData: PropTypes.arrayOf(PropTypes.object),
 		theme: PropTypes.string,
 		valueGetter: PropTypes.func.isRequired,
 	};
@@ -102,11 +91,33 @@ export default class DataGrid extends React.Component {
 		this.gridAPI = null;
 		this.handleKeyboard = this.handleKeyboard.bind(this);
 		this.onFocusedColumn = this.onFocusedColumn.bind(this);
+		this.onFocusedCell = this.onFocusedCell.bind(this);
 		this.onGridReady = this.onGridReady.bind(this);
 	}
 
 	onGridReady({ api }) {
 		this.gridAPI = api;
+	}
+
+	onFocusedCell({ column, ...rest }) {
+		if (!column) {
+			return;
+		}
+
+		this.currentColId = column.colId;
+		if (column.pinned) {
+			this.removeFocusColumn();
+			return;
+		}
+
+		this.setFocusColumn(this.currentColId);
+
+		if (this.props.onFocusedCell) {
+			this.props.onFocusedCell({
+				column,
+				...rest,
+			});
+		}
 	}
 
 	onFocusedColumn(colId) {
@@ -167,26 +178,7 @@ export default class DataGrid extends React.Component {
 			rowHeight: this.props.rowHeight,
 			rowSelection: this.props.rowSelection,
 			suppressDragLeaveHidesColumns: true,
-			onCellFocused: ({ column, ...rest }) => {
-				if (!column) {
-					return;
-				}
-
-				this.currentColId = column.colId;
-				if (column.pinned) {
-					this.removeFocusColumn();
-					return;
-				}
-
-				this.setFocusColumn(this.currentColId);
-
-				if (this.props.onFocusedCell) {
-					this.props.onFocusedCell({
-						column,
-						...rest,
-					});
-				}
-			},
+			onCellFocused: this.onFocusedCell,
 			onGridReady: this.onGridReady,
 		};
 

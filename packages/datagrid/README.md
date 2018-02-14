@@ -35,7 +35,7 @@ Features:
 * Custom Header/Pin Header
 * Row selection keyboard/mouse
 
-The DataGrid componnent provides 3 default renderers:
+The DataGrid componnent provides 3 default renderers provides by Inject, it can be override to show anything:
 
 * defaultHeaderRenderer
 * defaultPinHeaderRenderer
@@ -58,6 +58,59 @@ The cellRenderer has :
   * DateCellRenderer: Renderer for the avro type _date_
   * IntCellRenderer: Renderer for the avro type _int_
   * StringCellRenderer: Renderer for avro the type _string_
+
+### Concept
+
+In entry, the datagrid component waits a sample of dataset. By default, the datagrid component provides a serializer to transform the data like aggrid waiting in entry.
+
+[The format is like this](.storybook/sample.js).
+
+### Props
+
+| property              | description                                           | type     | default                  |
+| --------------------- | ----------------------------------------------------- | -------- | ------------------------ |
+| avroRenderer          | list of component to inject to the avro renderer      | object   |                          |
+| cellRenderer          | cell component to inject                              | string   | DefaultCellRenderer      |
+| getComponent          | method to provide the injected component              | function | cellRenderer             |
+| getPinnedColumnDefsFn | method to provide the definition of the pinned olumns | function | sample serializer        |
+| getColumnDefsFn       | method to provide the definition of the columns       | function | sample serializer        |
+| getRowDataFn          | method to provide the row data                        | function | sample serializer        |
+| getValueGetterFn      | method to provide the data by row/column              | function | sample serializer        |
+| headerHeight          | height of the header                                  | int      | 69                       |
+| headerRenderer        | header component to inject                            | string   | DefaultHeaderRenderer    |
+| onFocusedCell         | callback when one cell is focused                     | function |                          |
+| onFocusedColumn       | callback when one column is focused                   | function |                          |
+| pinHeaderRenderer     | pinHeader component to inject                         | string   | DefaultPinHeaderRenderer |
+| data                  | data to set into the datagrid                         | Array    |                          |
+| rowSelection          | set the type of selection (single or multiple)        | string   | single                   |
+| rowHeight             | height of the row                                     | int      | 39                       |
+| theme                 | style css                                             | string   |                          |
+
+### Avro renderers
+
+| property            | description                                 | type   | default                    |
+| ------------------- | ------------------------------------------- | ------ | -------------------------- |
+| booleanCellRenderer | renderer for the boolean renderer to inject | string | DefaultBooleanCellRenderer |
+| dateCellRenderer    | renderer for the date renderer to inject    | string | DefaultDateCellRenderer    |
+| intCellRenderer     | renderer for the int renderer to inject     | string | DefaultIntCellRenderer     |
+| stringCellRenderer  | renderer for the string renderer to inject  | string | DefaultStringCellRenderer  |
+
+## Containers DataGrid
+
+The container DataGrid
+
+* connect the component DataGrid with the CMF settings
+* spread the data from the redux store and the CMF settings
+* dispatch the event by actioncreators.
+
+### API
+
+| property                        | description                                        | type   | default                   |
+| ------------------------------- | -------------------------------------------------- | ------ | ------------------------- |
+| sourceData                      | path of the collections in CMF store to load       | string |                           |
+| actionCreators                  | object of actionsCreators                          | object |                           |
+| actionsCreators.onFocusedColumn | action creator triggers when one column is focused | string |                           |
+| actionsCreators.onFocusedCell   | action creator triggers when one cell is focused   | string | DefaultStringCellRenderer |
 
 ## Issue solved with ag-grid
 

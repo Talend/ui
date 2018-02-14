@@ -66,7 +66,7 @@ setAddon({ addWithCMF: cmf.addWithCMF });
 
 const actionLogger = action('dispatch');
 const reducer = (state = {}, a) => {
-	actionLogger(a);
+	console.log(a);
 	return state;
 };
 
