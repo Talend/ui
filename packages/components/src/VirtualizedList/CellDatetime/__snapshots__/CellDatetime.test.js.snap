@@ -4,7 +4,7 @@ exports[`CellDatetime should render date formatted 1`] = `
 <div
   className="cell-datetime-container theme-cell-datetime-container"
 >
-  1518561116
+  1970-01-18 14:49:21
 </div>
 `;
 
@@ -12,6 +12,6 @@ exports[`CellDatetime should render with "ago" 1`] = `
 <div
   className="cell-datetime-container theme-cell-datetime-container"
 >
-  1518561116
+  about 48 years ago
 </div>
 `;

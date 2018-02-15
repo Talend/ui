@@ -7,9 +7,7 @@ describe('CellDatetime', () => {
 	it('should render with "ago"', () => {
 		// when
 		const columnData = {
-			data: {
-				mode: 'ago',
-			},
+			mode: 'ago',
 		};
 
 		const wrapper = shallow(<CellDatetime cellData={1518561116} columnData={columnData} />);
@@ -21,10 +19,8 @@ describe('CellDatetime', () => {
 	it('should render date formatted', () => {
 		// when
 		const columnData = {
-			data: {
-				mode: 'format',
-				pattern: 'YYYY-MM-DD HH:mm:ss',
-			},
+			mode: 'format',
+			pattern: 'YYYY-MM-DD HH:mm:ss',
 		};
 
 		const wrapper = shallow(<CellDatetime cellData={1518561116} columnData={columnData} />);
