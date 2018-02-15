@@ -11,9 +11,9 @@ export default {
 	// Default height to render list
 	defaultHeight: PropTypes.number,
 	// Disable header on TABLE
-	disableHeader: PropTypes.boolean,
+	disableHeader: PropTypes.bool,
 	// label used when the list is empty
-	noRowsRenderer: PropTypes.oneOf(PropTypes.element, PropTypes.func),
+	noRowsRenderer: PropTypes.oneOf([PropTypes.element, PropTypes.func]),
 	// The id. The sub-ids will be based on the ids as prefix
 	id: PropTypes.string,
 	// Highlight row on click
