@@ -102,7 +102,6 @@ const items = Immutable.fromJS([
 ]);
 
 const referenceDatetime = Date.now();
-const minusFourHours = referenceDatetime - 3600 * 4 * 1000;
 const minusThreeHours = referenceDatetime - 3600 * 3 * 1000;
 const minusTwoHours = referenceDatetime - 3600 * 2 * 1000;
 const minusOneHours = referenceDatetime - 3600 * 1 * 1000;
@@ -154,9 +153,9 @@ const sortUpdatedAsc = {
 	field: 'modified',
 	isDescending: false,
 };
-const props3 = cloneDeep(props);
-props3.list = listWithTimestamp;
-props3.list.sort = sortUpdatedAsc;
+const propsTimestampSorted = cloneDeep(props);
+propsTimestampSorted.list = listWithTimestamp;
+propsTimestampSorted.list.sort = sortUpdatedAsc;
 
 const ExampleList = {
 	default: () => (
@@ -291,7 +290,7 @@ const ExampleList = {
 		<div>
 			<IconsProvider />
 			<div className="list-container">
-				<List {...props3} items={itemsWithTimestamp} initialState={defaultSortedListState}/>
+				<List {...propsTimestampSorted} items={itemsWithTimestamp} initialState={defaultSortedListState}/>
 			</div>
 		</div>
 	)
