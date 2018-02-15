@@ -97,9 +97,7 @@ Using cmfConnect for example expression can be used for props resolution.
 in this case the payload is the current props.
 
 
-## api.expressions
-
-(./expressions/index.md)
+## [api.expressions](./expressions/index.md)
 
 ## api.saga
 
