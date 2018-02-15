@@ -1,4 +1,3 @@
-
 export function getIn({ context }, path, defaultValue) {
 	return context.store.getState().cmf.collections.getIn(path, defaultValue);
 }

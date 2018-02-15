@@ -19,6 +19,6 @@ export function getIn({ context, payload }, propsPath, immutablePath, defaultVal
 }
 
 export function get(fullContext, propsPath, id, defaultValue) {
-	const immutablePath = id.split('.')
+	const immutablePath = id.split('.');
 	return getIn(fullContext, propsPath, immutablePath, defaultValue);
 }
