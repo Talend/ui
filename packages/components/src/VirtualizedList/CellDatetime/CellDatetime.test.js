@@ -10,7 +10,7 @@ describe('CellDatetime', () => {
 			mode: 'ago',
 		};
 
-		const wrapper = shallow(<CellDatetime cellData={1518561116} columnData={columnData} />);
+		const wrapper = shallow(<CellDatetime cellData={1474495200000} columnData={columnData} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -23,7 +23,7 @@ describe('CellDatetime', () => {
 			pattern: 'YYYY-MM-DD HH:mm:ss',
 		};
 
-		const wrapper = shallow(<CellDatetime cellData={1518561116} columnData={columnData} />);
+		const wrapper = shallow(<CellDatetime cellData={1474495200000} columnData={columnData} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
