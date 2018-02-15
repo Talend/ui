@@ -27,6 +27,7 @@ import action from './action';
 import actions from './actions';
 import actionCreator from './actionCreator';
 import expression from './expression';
+import expressions from './expressions';
 import saga from './saga';
 import component from './component';
 
@@ -36,6 +37,7 @@ export default {
 	actionCreator,
 	component,
 	expression,
+	expressions,
 	route,
 	registry,
 	saga,
