@@ -1,5 +1,5 @@
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
 import { Map, fromJS } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 
@@ -52,8 +52,8 @@ const items = fromJS([
 	{
 		id: 1,
 		name: 'Title with actions',
-		created: 1474495200,
-		modified: 1474495200,
+		created: '2016-09-22',
+		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
 		icon: 'fa fa-file-excel-o',
 		display: 'text',
@@ -62,8 +62,8 @@ const items = fromJS([
 	{
 		id: 2,
 		name: 'Title in input mode',
-		created: 1474495200,
-		modified: 1474495200,
+		created: '2016-09-22',
+		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
 		icon: 'fa fa-file-pdf-o',
 		display: 'input',
@@ -72,8 +72,8 @@ const items = fromJS([
 	{
 		id: 3,
 		name: 'Super long title to trigger overflow on some rendering',
-		created: 1474495200,
-		modified: 1474495200,
+		created: '2016-09-22',
+		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT with super long name',
 	},
 ]);
