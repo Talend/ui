@@ -36,8 +36,6 @@ CellDatetime.displayName = 'VirtualizedList(CellDatetime)';
 CellDatetime.propTypes = {
 	// The cell value : props.rowData[props.dataKey]
 	cellData: PropTypes.string,
-	// Can be any object
-	rowData: PropTypes.object,
 	// Column data
 	columnData: PropTypes.shape({
 		mode: PropTypes.string.isRequired,
