@@ -1,12 +1,6 @@
-import * as collections from './collections';
-import * as components from './components';
-import * as immutable from './immutable';
+import immutableGet from './immutable';
 
 export default {
-	'Immutable.get': immutable.get,
-	'Immutable.getIn': immutable.getIn,
-	'cmf.collections.get': collections.get,
-	'cmf.collections.getIn': collections.getIn,
-	'cmf.components.get': components.get,
-	'cmf.components.getIn': components.getIn,
+	'cmf.collections.get': immutableGet('cmf.collections'),
+	'cmf.components.get': immutableGet('cmf.components'),
 };

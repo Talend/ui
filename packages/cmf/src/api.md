@@ -1,5 +1,5 @@
-CMF API
-==
+# CMF API
+
 
 ```javascript
 import { api } from '@talend/react-cmf';
@@ -14,13 +14,11 @@ The API is the most used items accessible. Here is the list of the first level a
 * `expression` to register your expressions
 * `saga` to use CMF in redux-saga
 
-api.actionCreator
---
+## api.actionCreator
 
 the can be found [here](actionCreator.md).
 
-api.actions
---
+## api.actions
 
 ```javascript
 import { api, cmfConnect } from '@talend/react-cmf';
@@ -72,8 +70,7 @@ export default cmfConnect({})(MyCollectionmanager);
 
 
 
-api.component
---
+## api.component
 
 ```javascript
 import * as components from '@talend/containers';
@@ -85,8 +82,7 @@ api.component.registerMany({
 });
 ```
 
-api.expression
---
+## api.expression
 
 ```javascript
 function myexpression({ context, payload}, ...args) {
@@ -100,8 +96,12 @@ api.expressions.register('myexpression', myexpression);
 Using cmfConnect for example expression can be used for props resolution.
 in this case the payload is the current props.
 
-api.saga
---
+
+## api.expressions
+
+(./expressions/index.md)
+
+## api.saga
 
 ```javascript
 api.saga.putActionCreator('myaction', event, data, optionalContext);

@@ -58,48 +58,18 @@ function mapStateToProps(state) {
 export api.cmfConnect({mapStateToProps})(MyComponent)
 ```
 
-## cmf.immutable
-
-This is nice to read content in existing props (here model)
-
-
-```json
-	"props": {
-		"MyArticle#default": {
-			"titleExpression": {
-				"id": "Immutable.get",
-				"args": ["model", "label"]
-			},
-			"descriptionExpression": {
-				"id": "Immutable.getIn",
-				"args": ["model", ["meta", "description"]]
-			},
-			// variante
-			"descriptionExpression": {
-				"id": "Immutable.get",
-				"args": ["model", "meta.description"]
-			},
-		}
-	}
-```
-
 ## cmf.collections
 
 ```json
 	"props": {
 		"MyArticle#default": {
 			"titleExpression": {
-				"id": "cmf.collections.getIn",
-				"args": [["article", "label"]]
+				"id": "cmf.collections.get",
+				"args": ["article.label", "no title"]
 			},
-			"descriptionExpression": {
-				"id": "cmf.collections.getIn",
-				"args": [["article", "meta", "description"]]
-			},
-			// variante
 			"descriptionExpression": {
 				"id": "cmf.collections.get",
-				"args": ["article.meta.description"]
+				"args": ["article.meta.description", "no description"]
 			},
 		}
 	}
@@ -113,8 +83,8 @@ let say you want to know the state of component
 	"props": {
 		"AnOtherComponent#default": {
 			"active": {
-				"id": "cmf.components.getIn",
-				"args": [["MyArticle", "default", "like"]]
+				"id": "cmf.components.get",
+				"args": ["MyArticle.default.like", false]
 			}
 		}
 	}
