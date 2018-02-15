@@ -21,12 +21,12 @@ It provides a set of base APIs and patterns.
 
 ## Breaking changes log
 
-Before 1.0, `react-cmf` do NOT follow semver version in releases.
+Before 1.0, `react-cmf` does NOT follow semver version in releases.
 You will find a [list of breaking changes here](https://github.com/Talend/react-cmf/blob/master/BREAKING_CHANGES_LOG.md).
 
 ## Definition
 
-_CMF_ definition from wikipedia:
+_CMF_ definition from Wikipedia:
 
 ```
 A content management framework (CMF) is a system that facilitates the use of reusable components or customized software for managing Web content. It shares aspects of a Web application framework and a content management system
@@ -36,21 +36,22 @@ It fits with our goal, this is why this add-on has been named that way.
 
 ## Paradigm
 
-A _user_ interact with a _view_ using mouse and/or keyboard which send _events_ from a _content_ and that interaction _dispatch_ an _action_.
+A _user_ interacts with a _view_ using mouse and/or keyboard which sends _events_ from a _content_ and that interaction _dispatches_ an _action_.
 That action may change the current view or the content displayed.
 
 ## Definitions
 
 We have the following objects to build a user interface:
 
-* views
+* props
 * actions
 
 Let's talk about each of them.
 
-### Views
+### Props
 
-Views are special React component. They are high level component which has the following responsibility:
+Props are special React components. 
+They are high level component which has the following responsibility:
 They must dispatch props to configurable components.
 
 They are called by UI abstraction library from the router and connected to the store throw the settings.
@@ -208,7 +209,7 @@ import MyComponent from './MyComponent';
 
 const MySuperComponent = api.expressions.withExpression(MyComponent, ['disabled']);
 
-return <MySuperComponent disabled="userDontHaveSuperPower" />;
+return <MySuperComponent disabled="userDoesntHaveSuperPower" />;
 ```
 
 [See API](src/expression.md)
@@ -261,10 +262,8 @@ you may change the following using simple props:
 * [settings](src/settings.md)
 * [api](src/api.md)
 * [store](src/store.md)
-* [Inject](src/Inject.md)
 * [Dispatcher](src/Dispatcher.md)
 * [how to](howto/index.md)
-* [saga](src/saga.md)
 * [sagas](src/sagas/index.md)
 * [sagaRouter](src/sagaRouter/index.md)
 
