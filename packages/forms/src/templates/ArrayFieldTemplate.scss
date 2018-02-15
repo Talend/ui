@@ -1,52 +1,90 @@
 $tf-filterwidget-shadow-color: $shadow !default;
 
 .ArrayFieldTemplate {
+	// see bottom of the file or search for $LEGEND
+	& > legend {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
+	}
+
 	.addBtn {
-		margin-bottom: 30px;
+		float: right;
+		margin: -$padding-smaller $padding-large 0 0;
 	}
 
 	.arrayElement {
 		display: flex;
 		background: $wild-sand;
-		border: 1px solid transparent;
-		border-radius: $border-radius-large;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-		transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-		margin-bottom: $padding-normal;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-		&.closed {
-			.delete {
-				visibility: hidden;
-			}
-			.element fieldset div:not(:first-child) {
-				display: none;
-			}
-			&:hover {
+		&:first-of-type {
+			border-top: 1px solid rgba(0, 0, 0, 0.1);
+		}
+
+		.closed {
+			.collapsible {
 				.delete {
-					visibility: initial;
+					visibility: hidden;
+				}
+				div:not(:first-child) {
+					display: none;
+				}
+				&:hover {
+					.delete {
+						visibility: initial;
+					}
 				}
 			}
 		}
 
 		&:hover {
 			background: $white;
-			box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
-			border: 1px solid $gallery;
 
-			.delete {
-				color: $brand-danger;
+			.control {
+				.delete {
+					color: $brand-danger;
+				}
+				button {
+					color: $dark-silver;
+					&:disabled {
+						color: $silver;
+					}
+				}
 			}
 		}
 
 		.control {
-			border-right: 1px solid $wild-sand;
+			flex-grow: 0;
+			flex-shrink: 0;
 			display: flex;
 			flex-direction: column;
-			padding: 0 $padding-small;
-			.orderaction {
-				display: flex;
-				flex-direction: column;
-				padding-top: ($padding-normal * 2);
+			padding: 0;
+			justify-content: space-between;
+
+			button {
+				background: transparent;
+				border: 0;
+				color: transparent;
+				margin: 0;
+				padding: 2px;
+
+				&:hover {
+					color: $dove-gray;
+				}
+
+				&:disabled {
+					cursor: not-allowed;
+				}
+
+				> svg {
+					vertical-align: sub;
+				}
 			}
 
 			.delete {
@@ -56,22 +94,6 @@ $tf-filterwidget-shadow-color: $shadow !default;
 					&:hover {
 						display: initial;
 					}
-				}
-			}
-
-			button {
-				background: transparent;
-				border: 0;
-				margin: 0 0 1em 0;
-				color: $dark-silver;
-
-				&:hover {
-					color: $dove-gray;
-				}
-
-				&:disabled {
-					color: $silver;
-					cursor: not-allowed;
 				}
 			}
 		}
@@ -87,23 +109,25 @@ $tf-filterwidget-shadow-color: $shadow !default;
 			}
 
 			fieldset {
-				> div:first-child {
-					border-bottom: 1px solid $wild-sand;
+				> :global(.form-group:nth-child(2)) {
+					margin-top: 0px;
+				}
+				> div[role='button'] {
 					// to forbid children selection of text on double click
 					user-select: none;
+					margin: 0;
 
 					div {
-						display: inline-block;
 						width: inherit;
 						max-width: 100%;
 
 						legend {
-							color: $gray-light;
 							font-size: $font-size-base;
+							font-weight: 600;
 							margin: 0;
 							max-width: 100%;
 							overflow: hidden;
-							padding: $padding-normal ($padding-large * 2) $padding-normal $padding-normal;
+							padding: $padding-normal ($padding-large * 2) $padding-normal 0;
 							text-overflow: ellipsis;
 							white-space: nowrap;
 							// to allow classic text selection
@@ -118,26 +142,33 @@ $tf-filterwidget-shadow-color: $shadow !default;
 								color: $gray-dark;
 							}
 						}
-					}
 
-					:global(.toggle) {
-						background: transparent;
-						border: 0;
-						position: absolute;
-						top: 0;
-						right: 0;
-						padding: $padding-normal;
+						:global(.toggle) {
+							background: transparent;
+							border: 0;
+							position: absolute;
+							top: 0;
+							right: 0;
+							padding: $padding-normal $padding-normal 0 $padding-normal;
+						}
 					}
-				}
-
-				div:first-child {
-					margin: 0;
 				}
 
 				> div {
-					margin: $padding-normal;
+					margin-top: $padding-normal;
+					margin-bottom: $padding-normal;
 				}
 			}
 		}
 	}
+}
+
+// $LEGEND instead of displyaing fieldset -> legend that is resistant to most positionning CSS
+.ArrayFieldTemplate::before {
+	content: attr(data-content);
+	display: inline-block;
+	text-transform: uppercase;
+	margin: 0 0 $padding-normal 0;
+	font-size: $font-size-small;
+	margin-left: $padding-large;
 }
