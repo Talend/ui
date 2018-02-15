@@ -78,7 +78,6 @@ export default class DataGrid extends React.Component {
 		rowSelection: PropTypes.string,
 		rowHeight: PropTypes.number,
 		theme: PropTypes.string,
-		valueGetter: PropTypes.func.isRequired,
 	};
 
 	constructor(props) {

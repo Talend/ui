@@ -135,7 +135,8 @@
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "identity-obj-proxy"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js",
+    "coveragePathIgnorePatterns": ["index.js"]
   },
   "publishConfig": {
     "access": "public"

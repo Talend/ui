@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DefaultDateCellRenderer should render DefaultDateCellRenderer 1`] = `
+<div
+  className="td-grid undefined td-grid"
+>
+  <AgGridReact
+    columnDefs={Array []}
+    frameworkComponents={
+      Object {
+        "cellRenderer": [Function],
+        "headerGrid": [Function],
+        "pinHeaderRenderer": [Function],
+      }
+    }
+    headerHeight={69}
+    navigateToNextCell={[Function]}
+    onCellFocused={[Function]}
+    onGridReady={[Function]}
+    onViewportChanged={[Function]}
+    onVirtualColumnsChanged={[Function]}
+    rowData={Array []}
+    rowHeight={39}
+    rowSelection="single"
+    suppressDragLeaveHidesColumns={true}
+    tabToNextCell={[Function]}
+  />
+</div>
+`;

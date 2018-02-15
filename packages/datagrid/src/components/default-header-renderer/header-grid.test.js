@@ -9,6 +9,7 @@ import {
 } from '../constants';
 
 import DefaultHeaderRenderer from './header-grid.component';
+import QualityBar from './quality-bar.component';
 
 describe('#DefaultBooleanCellRenderer', () => {
 	it('should render DefaultBooleanCellRenderer', () => {
@@ -34,5 +35,23 @@ describe('#DefaultBooleanCellRenderer', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(onFocusedColumn).toHaveBeenCalledWith('colId');
+	});
+
+	it('should render DefaultBooleanCellRenderer without QualityBar', () => {
+		const onFocusedColumn = jest.fn();
+		const wrapper = shallow(
+			<DefaultHeaderRenderer
+				onFocusedColumn={onFocusedColumn}
+				column={{
+					colId: 'colId',
+					colDef: {
+						type: 'string',
+					},
+				}}
+				displayName="Title"
+			/>,
+		);
+		// then
+		expect(wrapper.find(QualityBar).length).toBe(0);
 	});
 });

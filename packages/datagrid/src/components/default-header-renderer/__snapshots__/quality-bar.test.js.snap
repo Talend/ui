@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`] = `
+<div
+  className="td-quality-bar td-quality-bar"
+>
+  <span
+    className="td-quality-bar-invalid"
+    style={
+      Object {
+        "width": "33%",
+      }
+    }
+    title="33%"
+  />
+  <span
+    className="td-quality-bar-empty"
+    style={
+      Object {
+        "width": "33%",
+      }
+    }
+    title="33%"
+  />
+  <span
+    className="td-quality-bar-valid"
+    style={
+      Object {
+        "width": "34%",
+      }
+    }
+    title="34%"
+  />
+</div>
+`;
