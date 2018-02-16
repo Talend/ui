@@ -103,11 +103,25 @@ api.expressions.register('myExpression', myExpression);
 Expressions can be used for props resolution.
 In this case, the payload is the current props.
 
-api.saga
+api.sagas
 --
 
+You can register your saga in the cmf registry to be able to use the saga props
+supported by `cmfConnect`.
+
 ```javascript
-api.saga.putActionCreator('myAction', event, data, optionalContext);
+function* mySaga(action) {
+    //...
+}
+api.sagas.register('mySaga', mySaga);
+```
+
+This is related to the `component` saga that you must initialize.
+
+Most of them are documented [here](sagas/index.md)
+
+```javascript
+api.sagas.putActionCreator('myaction', event, data, optionalContext);
 ```
 
 This will call the registered `myAction` action creator.
