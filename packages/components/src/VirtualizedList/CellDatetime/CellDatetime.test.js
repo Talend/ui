@@ -4,42 +4,44 @@ import { shallow } from 'enzyme';
 import CellDatetime, { computeValue } from './CellDatetime.component';
 
 describe('CellDatetime', () => {
-	it('should render with "ago"', () => {
+	it('should render', () => {
 		// when
 		const columnData = {
 			mode: 'ago',
 		};
 
 		const wrapper = shallow(<CellDatetime cellData={1474495200000} columnData={columnData} />);
-
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.getElement()).toBeDefined();
 	});
-
-	xit('should render date formatted', () => {
+	it('should format with "ago"', () => {
 		// when
 		const columnData = {
-			mode: 'format',
-			pattern: 'YYYY-MM-DD HH:mm:ss',
+			mode: 'ago',
 		};
-
-		const wrapper = shallow(<CellDatetime cellData={1474495200000} columnData={columnData} />);
+		const cellData = 1474495200000;
+		const strDate = computeValue(cellData, columnData);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(strDate.indexOf('ago')).toBeGreaterThan(-1);
 	});
 
-	it('should render the right value', () => {
+
+	it('should format according to the pattern', () => {
 		// when
 		const columnData = {
 			mode: 'format',
 			pattern: 'YYYY-MM-DD HH:mm:ss',
 			throughISO: true,
 		};
-		const cellData = 1474495200000;
+		const cellData = 1474495200000 + 3600 * 11 * 1000;
+		const timezoneOffset = new Date().getTimezoneOffset();
+		const cellDataWithOffset = cellData + timezoneOffset * 60 * 1000;
+		const expectedStrDate = `2016-09-22 ${11 + new Date().getTimezoneOffset() / 60}:00:00`;
 
-		const strDate = computeValue(cellData, columnData);
+		const strDate = computeValue(cellDataWithOffset, columnData);
+
 		// then
-		expect(strDate).toEqual('2016-09-22 00:00:00');
+		expect(strDate).toEqual(expectedStrDate);
 	});
 });
