@@ -5,44 +5,49 @@ CMF API
 import { api } from '@talend/react-cmf';
 ```
 
-The API is the most used items accessible. Here is the list of the first level access:
+The API is the most used item accessible. 
+Here is the list of the first level access:
 
 * `actionCreator` to register your action creators
 * `action` to register your actions
-* `actions` to call basic action creator which CMF provide to you
+* `actions` to call basic action creators which CMF provides to you
 * `component` to register your components
 * `expression` to register your expressions
-* `saga` to use CMF in redux-saga
+* `saga` to use CMF with redux-saga
 
 api.actionCreator
 --
 
-the can be found [here](actionCreator.md).
+Documentation can be found [here](actionCreator.md).
 
 api.actions
 --
 
 ```javascript
 import { api, cmfConnect } from '@talend/react-cmf';
+
 function MyButton(props) {
     return <button onclick={() => props.dispatch(api.actions.http.get('/foo/bar'))}>Get</button>;
 }
 export default cmfConnect({})(MyButton);
 ```
 
-You can also handle collections using the following api
+You can also handle collections using the following API.
 
 ```javascript
 import React from 'react';
 import { api, cmfConnect } from '@talend/react-cmf';
 
 class MyCollectionManager extends React.Component {
+	
     constructor(props) {
         this.increment = this.increment.bind(this);
     }
+    
     componentDidMount() {
         this.props.dispatch(api.actions.collections.addOrReplace('count', 0));
     }
+    
     increment() {
         this.props.dispatch(
             api.actions.collections.addOrReplace(
@@ -70,8 +75,6 @@ function mapStateToProps(state) {
 export default cmfConnect({})(MyCollectionmanager);
 ```
 
-
-
 api.component
 --
 
@@ -89,16 +92,16 @@ api.expression
 --
 
 ```javascript
-function myexpression({ context, payload}, ...args) {
-    // context is react context
-    // payload depend on the expression caller
-    // args are arguments given at the call time
+function myExpression({ context, payload}, ...args) {
+    // context - react context
+    // payload - depends on the expression caller
+    // args    - arguments given at the call time
 }
-api.expressions.register('myexpression', myexpression);
+api.expressions.register('myExpression', myExpression);
 ```
 
-Using cmfConnect for example expression can be used for props resolution.
-in this case the payload is the current props.
+Expressions can be used for props resolution.
+In this case, the payload is the current props.
 
 api.saga
 --
@@ -124,5 +127,5 @@ Most of them are documented [here](sagas/index.md)
 api.sagas.putActionCreator('myaction', event, data, optionalContext);
 ```
 
-This will call the registered action creator `myaction`.
-It's the saga brother of dispatchActionCreator.
+This will call the registered `myAction` action creator.
+It's an equivalent of dispatchActionCreator using saga.
