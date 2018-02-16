@@ -1,5 +1,5 @@
 
-> @talend/react-cmf@0.155.1 lint:es /home/travis/build/Talend/ui/packages/cmf
+> @talend/react-cmf@0.156.0 lint:es /home/travis/build/Talend/ui/packages/cmf
 > eslint --config ../../.eslintrc --ext .js src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -22,7 +22,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   177:51  error    There should be no spaces inside this paren  space-in-parens
 
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/collection.js
-  9:1  error  Prefer default export  import/prefer-default-export
+  10:1  error  Prefer default export  import/prefer-default-export
 
 ✖ 8 problems (3 errors, 5 warnings)
 
