@@ -26,7 +26,6 @@ describe('CellDatetime', () => {
 		expect(strDate.indexOf('ago')).toBeGreaterThan(-1);
 	});
 
-
 	it('should format according to the pattern', () => {
 		// when
 		const columnData = {
@@ -36,7 +35,10 @@ describe('CellDatetime', () => {
 		const cellData = 1474495200000 + 3600 * 11 * 1000;
 		const timezoneOffset = new Date(cellData).getTimezoneOffset();
 		const cellDataWithOffset = cellData + timezoneOffset * 60 * 1000;
-		const expectedStrDate = `2016-09-22 ${11 + timezoneOffset / 60}:00:00`;
+		const hours = 11 + timezoneOffset / 60;
+		const isOneDigitHours = hours.toString().length === 1;
+		const expectedStrDate = `2016-09-22 ${isOneDigitHours ? 0 : ''}${11 +
+			timezoneOffset / 60}:00:00`;
 		const computedStrOffset = computeValue(cellDataWithOffset, columnData);
 		const computedStr = computeValue(cellData, columnData);
 
