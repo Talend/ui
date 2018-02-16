@@ -4,10 +4,14 @@ import classNames from 'classnames';
 
 import Icon from '@talend/react-components/lib/Icon';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
+import { translate } from 'react-i18next';
+
+import I18N_DOMAIN_FORMS from '../constants';
+import { DEFAULT_I18N } from '../translate';
 
 import theme from './ArrayFieldTemplate.scss';
 
-function FieldTemplate({ element, cantDelete }) {
+function FieldTemplate({ element, cantDelete, t }) {
 	const elementClasses = classNames(theme.element, element.itemData.isClosed && theme.closed);
 	return (
 		<div className={theme.arrayElement}>
@@ -17,7 +21,7 @@ function FieldTemplate({ element, cantDelete }) {
 					name={`btn-move-element-up-${element.index}`}
 					disabled={!element.hasMoveUp}
 					onClick={element.onReorderClick(element.index, element.index - 1)}
-					title="Move Up"
+					title={t('FIELD_TEMPLATE_ACTION_MOVE_UP', { defaultValue: 'Move Up' })}
 				>
 					<Icon name="talend-arrow-left" transform="rotate-90" />
 				</button>
@@ -26,7 +30,7 @@ function FieldTemplate({ element, cantDelete }) {
 					name={`btn-move-element-down-${element.index}`}
 					disabled={!element.hasMoveDown}
 					onClick={element.onReorderClick(element.index, element.index + 1)}
-					title="Move Down"
+					title={t('FIELD_TEMPLATE_ACTION_MOVE_DOWN', { defaultValue: 'Move Down' })}
 				>
 					<Icon name="talend-arrow-left" transform="rotate-270" />
 				</button>
@@ -39,7 +43,7 @@ function FieldTemplate({ element, cantDelete }) {
 					disabled={cantDelete}
 					className={theme.delete}
 					onClick={element.onDropIndexClick(element.index)}
-					title="Delete"
+					title={t('FIELD_TEMPLATE_ACTION_MOVE_DELETE', { defaultValue: 'Delete' })}
 				>
 					<Icon name="talend-cross" />
 				</button>
@@ -51,11 +55,12 @@ if (process.env.NODE_ENV !== 'production') {
 	FieldTemplate.propTypes = {
 		element: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 		cantDelete: PropTypes.bool.isRequired,
+		t: PropTypes.func.isRequired,
 	};
 }
 
 function ArrayFieldTemplate(props) {
-	const { items, canAdd, onAddClick, minItems, maxItems, title } = props;
+	const { items, canAdd, onAddClick, minItems, maxItems, title, t } = props;
 	const addBtnClass = classNames(theme.addBtn, 'btn', 'btn-info');
 	return (
 		<fieldset className={`${theme.ArrayFieldTemplate} ArrayFieldTemplate`} data-content={title}>
@@ -69,12 +74,12 @@ function ArrayFieldTemplate(props) {
 					disabled={items.length >= maxItems}
 					onClick={onAddClick}
 				>
-					{`NEW ${props.type}`}
+					{t('ARRAY_FIELD_TEMPLATE_ACTION_NEW_ELEMENT', { defaultValue: 'NEW {{element}}', element: props.type })}
 				</button>
 			)}
 			{items &&
 				items.map(element => (
-					<FieldTemplate element={element} cantDelete={items.length <= minItems} />
+					<FieldTemplate element={element} cantDelete={items.length <= minItems} t={t} />
 				))}
 		</fieldset>
 	);
@@ -88,6 +93,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onAddClick: PropTypes.func.isRequired,
 		minItems: PropTypes.number.isRequired,
 		maxItems: PropTypes.number.isRequired,
+		t: PropTypes.func.isRequired,
 	};
 }
-export default ArrayFieldTemplate;
+export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(ArrayFieldTemplate);
