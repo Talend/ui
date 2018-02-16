@@ -257,13 +257,13 @@ const propsWithVirtualized = {
 				created: 1518596913333,
 				modified: minusOneHours,
 				author:
-					'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
+					'Jean-Pierre DUPONT',
 				className: 'item-2-class',
 			},
 			{
 				persistentActions,
 				id: 3,
-				name: 'Title with long long long long long long long long long long long text',
+				name: 'Title',
 				created: 1518596913333,
 				modified: minusThreeMin,
 				author: 'Jean-Pierre DUPONT',
@@ -302,16 +302,6 @@ const itemPropsForItems = {
 const sort = {
 	field: 'name',
 	isDescending: false,
-	onChange: action('sort.onChange'),
-};
-const sortUpdatedAsc = {
-	field: 'modified',
-	isDescending: false,
-	onChange: action('sort.onChange'),
-};
-const sortUpdatedDesc = {
-	field: 'modified',
-	isDescending: true,
 	onChange: action('sort.onChange'),
 };
 
@@ -724,7 +714,6 @@ storiesOf('List', module)
 		<div className="virtualized-list">
 			<h1>List with virtualized and timestamp</h1>
 			<p>CellDatetimeRenderer in action.</p>
-			{/* Do not reproduce!*/}
 			<span>
 				<List {...propsWithVirtualized} />
 			</span>
