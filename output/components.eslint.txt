@@ -19,11 +19,19 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellDatetime/CellDatetime.component.js
+  17:4  warning  Unexpected console statement                                  no-console
+  19:4  error    Expected exception block, space or tab after '//' in comment  spaced-comment
+  21:4  warning  Unexpected console statement                                  no-console
+  23:1  error    Line 23 exceeds the maximum line length of 100                max-len
+  23:4  error    Expected exception block, space or tab after '//' in comment  spaced-comment
+  24:4  warning  Unexpected console statement                                  no-console
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/RowLarge/RowLarge.component.js
   44:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 9 problems (8 errors, 1 warning)
+✖ 15 problems (11 errors, 4 warnings)
 
