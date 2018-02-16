@@ -9,8 +9,8 @@ api.saga.putActionCreator('myaction', {}, {});
  */
 
 import { put, select } from 'redux-saga/effects';
-import actionCreatorAPI from './actionCreator';
-import registry from './registry';
+import actionCreatorAPI from '../actionCreator';
+import registry from '../registry';
 
 function* putActionCreator(actionCreatorId, event, data, optContext) {
 	const state = yield select();
@@ -24,6 +24,4 @@ function* putActionCreator(actionCreatorId, event, data, optContext) {
 	yield put(actionCreator(event, data, context));
 }
 
-export default {
-	putActionCreator,
-};
+export default putActionCreator;

@@ -2,7 +2,8 @@
 
 CMF has a system to manage collections by a combination of middleware, action, reducer.
 
-By using those entities, you will have the collections in your app state `state.cmf.collections`. This object is a dictionary that stores a collection under unique identifiers.
+By using those entities, you will have the collections in your app state `state.cmf.collections`. 
+This object is a dictionary that stores a collection under unique identifiers.
 
 **Pre-requisite**
 You can store anything you want in the collections dictionary, but to use the element operations (delete/mutate collection) :
@@ -108,7 +109,7 @@ export function fetchDataSets() {
 	});
 }
 
-...
+//...
 
 dispatch(fetchDataSets());
 ```

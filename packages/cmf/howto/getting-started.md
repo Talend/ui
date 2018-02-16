@@ -5,14 +5,19 @@ The easiest way to start with CMF is to use the [Yeoman](http://yeoman.io/) gene
 ## Install the generator
 
 ```bash
-> npm install -g yo
-> npm install -g generator-talend
+$> npm install -g yo
+$> npm install -g @talend/generator-talend
+```
+or 
+```bash
+$> yarn global add yo
+$> yarn global add @talend/generator-talend
 ```
 
 ## Generate your project
 
 ```bash
-> yo talend:react-cmf
+$> yo talend:react-cmf
 
      _-----_
     |       |    ╭──────────────────────────╮
@@ -24,8 +29,8 @@ The easiest way to start with CMF is to use the [Yeoman](http://yeoman.io/) gene
    __'.___.'__
  ´   `  |° ´ Y `
 
-> name my-app-name
-> description My App using the amazing React CMF
+$> name my-app-name
+$> description My App using the amazing React CMF
 ```
 
 Yeoman will create a base project with an example.
@@ -34,6 +39,10 @@ To serve the example project on http://localhost:8080/, run
 
 ```bash
 > npm start
+```
+or
+```bash
+$> yarn start
 ```
 
 ## Project structure
@@ -98,7 +107,7 @@ render(
 );
 ```
 
-It basically
+It basically will
 1. Register `components` and `actions creators` in CMF
 
 ```javascript
@@ -128,53 +137,38 @@ render(
 
 ## Let's go through a feature
 
-In this part, we'll go through the code allowing to display the list of datastore.
+In this part, we'll go through the code allowing to display the list of datastores (entities).
 
 **1. assets/settings.json**
 ```json
 {
-  ...
-
   "routes": {
     "path": "/",
     "component": "App",
-    ...
     "childRoutes": [
-      ...
       {
         "path": "datastores",
         "component": "HomeListView",
         "view": "datastores"
       }
     ]
-  },
-
-  ...
+  }
 }
 ```
 
-The url http://localhost:8080/datastores will display the `HomeListView` container, passing the `datastores` views settings as props.
+The url [http://localhost:8080/datastores](http://localhost:8080/datastores) will display the `HomeListView` container, passing the `datastores` views settings as props.
 
 ```json
 {
-  ...
-
-  "views": {
-    ...
-
+  "props": {
     "datastores": {
-      "didMountActionCreator": "datastore:fetchAll",
-      ...
-    },
-
-    ...
-  },
-
-  ...
+      "didMountActionCreator": "datastore:fetchAll"
+    }
+  }
 }
 ```
 
-The `datastores` views settings has a props that refers to an action `datastore:fetchAll`.
+The `datastores` views settings has props that refer to an action `datastore:fetchAll`.
 
 **2. app/configure.js**
 
@@ -184,10 +178,10 @@ In the app configuration, we register `HomeListView` container and the `datastor
 	initialize() {
 		registerComponent('HomeListView', HomeListView);
 
-		...
+		// ...
 
 		registerActionCreator('datastore:fetchAll', fetchDataStores);
-	},
+	}
 ```
 
 **3. app/actions/datastore.js**
