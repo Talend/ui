@@ -25,8 +25,8 @@ import api from './api';
  * @return {object} ReactElement
  */
 const UIRouter = (props, context) => {
-	const routes = api.route.getRoutesFromSettings(context, props.routes);
-	if (routes.path === '/' && !!routes.component) {
+	const routes = api.route.getRoutesFromSettings(context, props.routes, props.dispatch);
+	if (routes.path === '/' && routes.component) {
 		return (<BaseRouter routes={routes} history={props.history} />);
 	}
 	return (

@@ -65,10 +65,11 @@ export const connectView = deprecated(oldConnectView, args => {
 /**
  * Internal. Is here to replace all 'component' from an object by their
  * value in the registry. It configures react-router
- * @param  {object} context
- * @param  {object} item
+ * @param  {object} context The react context
+ * @param  {object} item The route to adapt
+ * @param  {object} dispatch The redux dispatcher
  */
-function loadComponents(context, item) {
+function loadComponents(context, item, dispatch) {
 	/* eslint no-param-reassign: ["error", { "props": false }] */
 	if (item.component) {
 		item.component = component.get(item.component, context);
@@ -93,28 +94,47 @@ function loadComponents(context, item) {
 		item.getComponents = getFunction(item.getComponents);
 	}
 	if (item.onEnter) {
-		item.onEnter = getFunction(item.onEnter);
+		const onEnterFn = getFunction(item.onEnter);
+		item.onEnter = function onEnter(nextState, replace) {
+			return onEnterFn({
+				router: {
+					nextState,
+					replace,
+				},
+				dispatch
+			});
+		};
 	}
 	if (item.onLeave) {
-		item.onEnter = getFunction(item.onEnter);
+		const onLeaveFn = getFunction(item.onLeave);
+		item.onLeave = function onLeave(nextState, replace) {
+			return onLeaveFn({
+				router: {
+					nextState,
+					replace,
+				},
+				dispatch
+			});
+		};
 	}
 	if (item.childRoutes) {
-		item.childRoutes.forEach(route => loadComponents(context, route));
+		item.childRoutes.forEach(route => loadComponents(context, route, dispatch));
 	}
 	if (item.indexRoute) {
-		loadComponents(context, item.indexRoute);
+		loadComponents(context, item.indexRoute, dispatch);
 	}
 }
 
 /**
  * get the react router configuration 'routes' from our settings
- * @param  {object} context
- * @param  {object} settings
+ * @param  {object} context The react context
+ * @param  {object} settings The route settings
+ * @param  {object} dispatch The redux dispatcher
  * @return {object} react router config
  */
-function getRoutesFromSettings(context, settings) {
+function getRoutesFromSettings(context, settings, dispatch) {
 	const copy = Object.assign({}, settings);
-	loadComponents(context, copy);
+	loadComponents(context, copy, dispatch);
 	return copy;
 }
 
