@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#ConnectedDataGrid should render a connected ConnectedDataGrid 1`] = `
+<CMF(Container(DataGrid))
+  deleteState={[Function]}
+  dispatch={[Function]}
+  dispatchActionCreator={[Function]}
+  getCollection={[Function]}
+  getComponent={[Function]}
+  initState={[Function]}
+  setState={[Function]}
+  state={undefined}
+  updateState={[Function]}
+/>
+`;

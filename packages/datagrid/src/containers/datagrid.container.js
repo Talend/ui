@@ -1,12 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import get from 'lodash/get';
 
 import Component from '../components/';
+import DATAGRID_PROPTYPES from '../components/datagrid.proptypes';
 
 export default function DataGrid(props) {
 	const onFocusedCell = event => {
 		if (props.onFocusedCell) {
-			props.onFocusedCell();
+			props.onFocusedCell(event);
 		}
 
 		if (get(props, 'actionCreators.onFocusedCell')) {
@@ -18,7 +20,7 @@ export default function DataGrid(props) {
 
 	const onFocusedColumn = event => {
 		if (props.onFocusedColumn) {
-			props.onFocusedColumn();
+			props.onFocusedColumn(event);
 		}
 
 		if (get(props, 'actionCreators.onFocusedColumn')) {
@@ -37,5 +39,14 @@ export default function DataGrid(props) {
 		/>
 	);
 }
+
+DataGrid.propTypes = {
+	...DATAGRID_PROPTYPES,
+	sourceData: PropTypes.string,
+	actionCreators: {
+		onFocusedCell: PropTypes.string,
+		onFocusedColumn: PropTypes.string,
+	},
+};
 
 DataGrid.displayName = 'Container(DataGrid)';

@@ -10,6 +10,7 @@ import { HEADER_RENDERER_COMPONENT } from './default-header-renderer';
 import { CELL_RENDERER_COMPONENT } from './default-cell-renderer';
 import { PIN_HEADER_RENDERER_COMPONENT } from './default-pin-header-renderer';
 
+import { DATAGRID_PROPTYPES } from './datagrid.proptypes';
 import { NAMESPACE_INDEX } from './constants';
 import sampleSerializer from './sample-serializer';
 import theme from './datagrid.scss';
@@ -56,29 +57,7 @@ export default class DataGrid extends React.Component {
 		rowSelection: AG_GRID_DEFAULT_ROW_SELECTION,
 	};
 
-	static propTypes = {
-		avroRenderer: PropTypes.shape({
-			booleanCellRenderer: PropTypes.string,
-			dateCellRenderer: PropTypes.string,
-			intCellRenderer: PropTypes.string,
-			stringCellRenderer: PropTypes.string,
-		}),
-		cellRenderer: PropTypes.string,
-		getComponent: PropTypes.func,
-		getPinnedColumnDefsFn: PropTypes.func,
-		getColumnDefsFn: PropTypes.func,
-		getRowDataFn: PropTypes.func,
-		getValueGetterFn: PropTypes.func,
-		headerHeight: PropTypes.number,
-		headerRenderer: PropTypes.string,
-		onFocusedCell: PropTypes.func,
-		onFocusedColumn: PropTypes.func,
-		pinHeaderRenderer: PropTypes.string,
-		data: PropTypes.object,
-		rowSelection: PropTypes.string,
-		rowHeight: PropTypes.number,
-		theme: PropTypes.string,
-	};
+	static propTypes = DATAGRID_PROPTYPES;
 
 	constructor(props) {
 		super(props);
