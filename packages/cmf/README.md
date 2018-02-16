@@ -36,29 +36,34 @@ It fits with our goal, this is why this add-on has been named that way.
 
 ## Paradigm
 
-A _user_ interacts with a _view_ using mouse and/or keyboard which sends _events_ from a _content_ and that interaction _dispatches_ an _action_.
-That action may change the current view or the content displayed.
+A _user_ interacts with a _component_ using mouse and/or keyboard which sends _events_ from a _content_ and that interaction _dispatches_ an _action_.
+That action may change the current component or the content displayed.
 
 ## Definitions
 
-We have the following objects to build a user interface:
+### Components
 
-* props
-* actions
+An HTML page is composed by a tree structure called the DOM. In our case React manage that DOM
+using a tree of `components`.
 
-Let's talk about each of them.
+So `components` in the context of CMF are React components.
 
-### Props
+But they are not just React component. We give them some super power using `cmfConnect`.
 
-Props are special React components. 
-They are high level component which has the following responsibility:
-They must dispatch props to configurable components.
+```javascript
+import React from 'react';
+import { cmfConnect } from '@talend/react-cmf';
 
-They are called by UI abstraction library from the router and connected to the store throw the settings.
-
-So a view is can be a pure component.
-
-Then view will be composed of react components that can get their props.
+function myComponent(props) {
+	return (
+		<article>
+			<h2>{props.title}</h2>
+			<button onClick={() => props.dispatchActionCreator('read')}>Read</button>
+		</article>
+	);
+}
+export default cmfConnect({})(myComponent);
+```
 
 ### Actions
 
@@ -67,21 +72,29 @@ Actions are [redux actions](http://redux.js.org/docs/basics/Actions.html).
 ### ComponentState Management
 
 Component state can be easily stored in cmf state, each are identified by their name and an unique key,
-so component state can be stored and reused later
+so component state can be stored and reused later.
+
+We give you the choice to use either:
+
+* React component state (this.state && this.setState)
+* CMF redux state (this.props.state && this.props.setState)
+
 
 ### Collections management
 
-Manage a local cache of your business data
+Manage a local cache of your business data.
+You can connect your component to give him access to your data and write them using
+either saga or redux.
 
 ## Internals: The registry
 
-You will find the registry as the central piece of ui abstraction.
+You will find the registry as the central piece of CMF.
 It's just a key/object registry and it's used with prefix to store the following:
 
 * action creators (function)
-* views (React Component)
-
-Note: this may change in the futur. We will try to remove the singleton in favors of higher order components.
+* components (function or class)
+* expressions (function)
+* saga (iterator)
 
 ## Store structure
 
@@ -273,6 +286,6 @@ For 1.0
 
 * [x] embedable apps
 * [ ] react-router v4
-* [ ] i18n
 * [x] generator
 * [x] actionCreator should become first class
+* [ ] move from peer dependencies to dependencies
