@@ -74,7 +74,10 @@ function ArrayFieldTemplate(props) {
 					disabled={items.length >= maxItems}
 					onClick={onAddClick}
 				>
-					{t('ARRAY_FIELD_TEMPLATE_ACTION_NEW_ELEMENT', { defaultValue: 'NEW {{element}}', element: props.type })}
+					{t('ARRAY_FIELD_TEMPLATE_ACTION_NEW_ELEMENT', {
+						defaultValue: 'NEW {{element}}',
+						element: props.type,
+					})}
 				</button>
 			)}
 			{items &&
