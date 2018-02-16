@@ -40,9 +40,10 @@ function registerFunction(id, func) {
 /**
  * return a function from the router configuration
  * @param  {string} id
+ * @param  {object} contextcmf context
  */
-function getFunction(id) {
-	return registry.getFromRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`);
+function getFunction(id, context) {
+	return registry.getFromRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, context);
 }
 
 /**
@@ -88,13 +89,13 @@ function loadComponents(context, item, dispatch) {
 		// TODO: iterate over all keys to call loadComponents
 	}
 	if (item.getComponent) {
-		item.getComponent = getFunction(item.getComponent);
+		item.getComponent = getFunction(item.getComponent, context);
 	}
 	if (item.getComponents) {
-		item.getComponents = getFunction(item.getComponents);
+		item.getComponents = getFunction(item.getComponents, context);
 	}
 	if (item.onEnter) {
-		const onEnterFn = getFunction(item.onEnter);
+		const onEnterFn = getFunction(item.onEnter, context);
 		item.onEnter = function onEnter(nextState, replace) {
 			return onEnterFn({
 				router: {
@@ -106,7 +107,7 @@ function loadComponents(context, item, dispatch) {
 		};
 	}
 	if (item.onLeave) {
-		const onLeaveFn = getFunction(item.onLeave);
+		const onLeaveFn = getFunction(item.onLeave, context);
 		item.onLeave = function onLeave(nextState, replace) {
 			return onLeaveFn({
 				router: {
