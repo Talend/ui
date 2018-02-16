@@ -41,7 +41,8 @@ describe('CellDatetime', () => {
 		const expectedStrDate = `2016-09-22 ${11 + timezoneOffset / 60}:00:00`;
 
 		const strDate = computeValue(cellDataWithOffset, columnData);
-
+		console.log('built restult', expectedStrDate);
+		console.log('computed restult', strDate);
 		// then
 		expect(strDate).toEqual(expectedStrDate);
 	});
