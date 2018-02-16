@@ -32,21 +32,20 @@ describe('CellDatetime', () => {
 		const columnData = {
 			mode: 'format',
 			pattern: 'YYYY-MM-DD HH:mm:ss',
-			throughISO: true,
 		};
 		const cellData = 1474495200000 + 3600 * 11 * 1000;
-		console.log('cellData', cellData);
 		const timezoneOffset = new Date().getTimezoneOffset();
-		console.log('offset en minute', timezoneOffset);
 		const cellDataWithOffset = cellData + timezoneOffset * 60 * 1000;
-		console.log('cellDataWithOffset', cellDataWithOffset);
 		const expectedStrDate = `2016-09-22 ${11 + timezoneOffset / 60}:00:00`;
-		console.log('expected restult', expectedStrDate);
 		const computedStrOffset = computeValue(cellDataWithOffset, columnData);
-		console.log('computed str offset', computedStrOffset);
 		const computedStr = computeValue(cellData, columnData);
-		console.log('computed str without offset', computedStr);
 
+		console.log('cellData', cellData);
+		console.log('offset en minute', timezoneOffset);
+		console.log('cellDataWithOffset', cellDataWithOffset);
+		console.log('expected restult', expectedStrDate);
+		console.log('computed str offset', computedStrOffset);
+		console.log('computed str without offset', computedStr);
 
 		// then
 		expect(computedStrOffset).toEqual(expectedStrDate);
