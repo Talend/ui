@@ -74,7 +74,7 @@ ActionSplitDropdown.propTypes = {
 	).isRequired,
 	label: PropTypes.string.isRequired,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	onClick: PropTypes.func.isRequired,
+	onClick: PropTypes.func,
 	emptyDropdownLabel: PropTypes.string,
 	className: PropTypes.string,
 };

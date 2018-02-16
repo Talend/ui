@@ -1,5 +1,5 @@
 import invariant from 'invariant';
-import action from './action';
+import actionCreator from './actionCreator';
 import expression from './expression';
 import registry from './registry';
 import CONST from './constant';
@@ -38,7 +38,7 @@ function register(id, component, context) {
 	registry.addToRegistry(`${CONST.REGISTRY_COMPONENT_PREFIX}:${id}`, component, context);
 	if (component.actions) {
 		Object.keys(component.actions).forEach(key => {
-			action.registerActionCreator(key, component.actions[key], context);
+			actionCreator.register(key, component.actions[key], context);
 		});
 	}
 	if (component.expressions) {

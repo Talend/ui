@@ -6,29 +6,10 @@ exports[`Array Item component should NOT render moveUp/moveDown with no reorder 
 >
   <div
     className="theme-control"
-  >
-    <button
-      className="theme-delete"
-      id="talend-control-3-delete"
-      onClick={[Function]}
-      title="Delete"
-      type="button"
-    >
-      <Icon
-        name="talend-trash"
-      />
-    </button>
-  </div>
+  />
   <span>
     This is the item content
   </span>
-</div>
-`;
-
-exports[`Array Item component should NOT render reorder control panel when value.isClosed is true 1`] = `
-<div
-  className="theme-tf-array-item tf-array-item"
->
   <div
     className="theme-control"
   >
@@ -40,13 +21,38 @@ exports[`Array Item component should NOT render reorder control panel when value
       type="button"
     >
       <Icon
-        name="talend-trash"
+        name="talend-cross"
       />
     </button>
   </div>
+</div>
+`;
+
+exports[`Array Item component should NOT render reorder control panel when value.isClosed is true 1`] = `
+<div
+  className="theme-tf-array-item tf-array-item"
+>
+  <div
+    className="theme-control"
+  />
   <span>
     This is the item content
   </span>
+  <div
+    className="theme-control"
+  >
+    <button
+      className="theme-delete"
+      id="talend-control-3-delete"
+      onClick={[Function]}
+      title="Delete"
+      type="button"
+    >
+      <Icon
+        name="talend-cross"
+      />
+    </button>
+  </div>
 </div>
 `;
 
@@ -57,17 +63,6 @@ exports[`Array Item component should disable moveDown 1`] = `
   <div
     className="theme-control"
   >
-    <button
-      className="theme-delete"
-      id="talend-control-3-delete"
-      onClick={[Function]}
-      title="Delete"
-      type="button"
-    >
-      <Icon
-        name="talend-trash"
-      />
-    </button>
     <Translate(ReorderButton)
       hasMoveDown={false}
       hasMoveUp={true}
@@ -97,6 +92,21 @@ exports[`Array Item component should disable moveDown 1`] = `
   <span>
     This is the item content
   </span>
+  <div
+    className="theme-control"
+  >
+    <button
+      className="theme-delete"
+      id="talend-control-3-delete"
+      onClick={[Function]}
+      title="Delete"
+      type="button"
+    >
+      <Icon
+        name="talend-cross"
+      />
+    </button>
+  </div>
 </div>
 `;
 
@@ -107,17 +117,6 @@ exports[`Array Item component should disable moveUp 1`] = `
   <div
     className="theme-control"
   >
-    <button
-      className="theme-delete"
-      id="talend-control-3-delete"
-      onClick={[Function]}
-      title="Delete"
-      type="button"
-    >
-      <Icon
-        name="talend-trash"
-      />
-    </button>
     <Translate(ReorderButton)
       hasMoveDown={true}
       hasMoveUp={false}
@@ -147,13 +146,6 @@ exports[`Array Item component should disable moveUp 1`] = `
   <span>
     This is the item content
   </span>
-</div>
-`;
-
-exports[`Array Item component should render control panel with item content 1`] = `
-<div
-  className="theme-tf-array-item tf-array-item"
->
   <div
     className="theme-control"
   >
@@ -165,9 +157,20 @@ exports[`Array Item component should render control panel with item content 1`] 
       type="button"
     >
       <Icon
-        name="talend-trash"
+        name="talend-cross"
       />
     </button>
+  </div>
+</div>
+`;
+
+exports[`Array Item component should render control panel with item content 1`] = `
+<div
+  className="theme-tf-array-item tf-array-item"
+>
+  <div
+    className="theme-control"
+  >
     <Translate(ReorderButton)
       hasMoveDown={true}
       hasMoveUp={true}
@@ -197,5 +200,20 @@ exports[`Array Item component should render control panel with item content 1`] 
   <span>
     This is the item content
   </span>
+  <div
+    className="theme-control"
+  >
+    <button
+      className="theme-delete"
+      id="talend-control-3-delete"
+      onClick={[Function]}
+      title="Delete"
+      type="button"
+    >
+      <Icon
+        name="talend-cross"
+      />
+    </button>
+  </div>
 </div>
 `;
