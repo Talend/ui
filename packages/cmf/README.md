@@ -97,8 +97,9 @@ For example for Forms you should prefer to use the internal React component stat
 
 Manage a local cache of your business data.
 You can connect your component to give him access to your data and being able
-to dispatch action to let CMF's reducers write them using either saga or redux.
+to dispatch action to let CMF's reducers write them.
 
+You can dispatch some actionCreator in `api.actions.collections` for that
 
 ## Configuration (settings)
 
