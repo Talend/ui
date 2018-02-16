@@ -1,9 +1,9 @@
 App component
 ==
 
-This component let you start your app with all internals needed:
+App lets you start your web application with all needed stuff:
 
-* react-redux's Provider
+* react-redux Provider
 * react-cmf RegistryProvider
 * react-cmf router which is on top of react-router
 

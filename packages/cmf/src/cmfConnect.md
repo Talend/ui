@@ -1,16 +1,16 @@
 cmfConnect
 ==
 
-cmfConnect is a higher order component which connect your component to redux with some CMF api.
+`cmfConnectù is a Higher Order Component (HOC) which connects your component to redux with some CMF API.
 
-* It inject a state managment on top of redux
-* It inject dispatch function
-* It let you maps the state to props
-* It let you use registred actionCreator
-* It let you use the component registry
-* It let you evaluate props using expression
+* It injects a state management on top of redux
+* It injects dispatch function
+* It lets you map the state to props
+* It lets you use registered actionCreator
+* It lets you use the component registry
+* It lets you evaluate props using expression
 
-Note that CMFConnect itself use [react-redux](http://github.com/reactjs/react-redux)'s [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
+Note that CMFConnect itself uses [react-redux](http://github.com/reactjs/react-redux) [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
 
 API
 --
@@ -19,7 +19,7 @@ API
 cmfConnect(
     componentId, // string or function(props) to compute the id in the store
     defaultState, // the default state when the component is mount
-    keepComponent, // boolean, when the component is unmount, to keep it's state in redux store
+    keepComponent, // boolean, when the component is unmount, to keep its state in redux store
     mapStateToProps, // function(state, ownProps) that should return the props (same as redux)
     ...rest, // the rest is applied to connect function
 )(Component);
@@ -28,9 +28,9 @@ cmfConnect(
 How to use component state
 --
 
-First with CMF you will not need to write reducer.
-
-If you wanna use state managment of CMF you must add a displayName to your component. This is required.
+First, with CMF, you will not need to write reducer.
+If you want to use CMF state management, you must add a `displayName` to your component. 
+This is required.
 
 ```javascript
 // example adapted from https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class
@@ -79,11 +79,11 @@ export default cmfConnect({ defaultState: DEFAULT_STATE })(Clock);
 // This will create the state in redux at state.cmf.components.getIn(['Clock', 'default'])
 ```
 
-First you should use immutable data structure, the setState of CMF use a Immutable.fromJS to convert the content of setState.
+First you should use immutable data structure, the `setState` of CMF uses `Immutable.fromJS` to convert its content.
 
 The main idea behind is to remove the need to write reducer.
 
-Like React It's recommended to use a function into setState if your change is based on another value
+Like with React, it's recommended to use a function into `setState` if your change is based on another value.
 
 ```javascript
 this.props.setState(
@@ -94,13 +94,14 @@ this.props.setState(
 );
 ```
 
-If you want the component support the props `initialState` to make the state spawned with this value;
-This let save one render if you know the first state.
+If you want the component to support the props `initialState` to make the state spawned with this value;
+This lets save one render if you know the first state.
 
 How to use expression
 --
 
-CMF add a notion of expression. It's easy to use once your component is cmfConnected.
+CMF add a notion of expression. 
+It's easy to use once your component is cmfConnected.
 
 ```javascript
 function MyTitle(props) {
@@ -152,7 +153,7 @@ export default cmfConnect({ mapStateToProps })(SimpleButton);
 
 Here instead of having click handler dispatcher hard coded into that component, we can delegate it to dispatchActionCreator, a utility that get automaticaly injected into your component props by CMFConnect.
 
-dispatchActionCreator rely on it's first parameter to resolve a function from a function registry.
+`dispatchActionCreator` relies on its first parameter to resolve a function from registry.
 
 [You can see a schema here](http://www.plantuml.com/plantuml/png/XLJBReGm3Bpp5JvNuWSuz4BRsqehjkgbwW61WKYGe2JiKg7zzvf0U6J3bWl8dXbxx0IbKurmJYLo7Okc5Pm-O0W0lbz-8Cp5ZOUl49y-Oi4vPZg2inIj2WYW37LD6HPi0o5HcxIzZC1FCH57I89vrvieX5tx28885DQZmbIZa6dPK5-6_Dwt4fLYWYTOCgNbBuGr5ffaA2xgAwu84i8UiuuqvbnE0PiDZ9urulOmpDbzkvALrQRKCh8f7L5SIuPNX6mPflKW6iYQmW2zqlEiP-KlXhSBQirugGvqRTOlxVe9ZxfU67vFJ_focRkUBI_hb1RDoNCCniURTMkk2tKhRbPjEUJxZQasrLbbYosiQHL-d-k-xmU4dRqdSB-d__KtPZpW-yDnTMmk91U9iaIt1mzzF20vNJkDoNnNF7C_0XXsNB4wfp-9w--GjBNfxTqg4Z9OWS7u8kI4sToXOOrwVXEK_GC0)
 
