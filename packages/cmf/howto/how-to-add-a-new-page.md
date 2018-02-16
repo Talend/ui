@@ -68,7 +68,7 @@ class MyContainer extends React.Component {
  */
 function mapStateToProps(state, ownProps) {
     return {
-        ... // your substate
+        //... your sub state
     };
 }
 
@@ -80,7 +80,7 @@ To learn more on that take a look at [cmfConnect](../src/cmfConnect.md)
 
 ## Register your component
 
-In your app configuration phase
+In your app configuration phase, _configure.js_
 
 ```javascript
 import { api } from 'react-cmf';
@@ -91,7 +91,7 @@ api.component.register('MyContainer', MyContainer);
 
 ## Register your action creator
 
-In your app configuration phase
+In your app configuration phase, _configure.js_
 
 ```javascript
 import { api } from 'react-cmf';
@@ -102,20 +102,14 @@ api.action.registerActionCreator('my:action', myAction);
 
 ## Add your route Settings configuration
 
-In your app settings
+In your app _settings.json_
 
 ```json
 {
-    "actions": ...,
-
-    "views": ...,
-
     "routes": {
         "path": "/",
         "component": "App",
-        ...
         "childRoutes": [
-            ...,
             {
                 "path": "newRoute",
                 "component": "MyContainer",
@@ -126,43 +120,32 @@ In your app settings
 }
 ```
 
-## Add your views Settings configuration
+## Add your props settings configuration
 
-In your app settings
+In your app _settings.json_
 
 ```json
 {
-    "actions": ...,
-
-    "views": {
-        ...,
-
+    "props": {
         "MyContainer#myContainerView": {
             "label": "my action",
-            "link": true,
+            "link": true
         }
-    },
-    "routes": ...
+    }
 }
 ```
 
-## Add your actions Settings configuration
+## Add your actions settings configuration
 
-In your app settings. Here we rely on an actionCreator, but you can pass a `payload` object property instead of the `actionCreator` that would be dispatched to redux
+In your app _settings.json_ 
+Here we rely on an actionCreator, but you can pass a `payload` object property instead of the `actionCreator` that would be dispatched to redux.
 
 ```json
 {
     "actions": {
-        ...,
-
         "myClickAction": {
             "id": "myClickAction",
             "actionCreator": "my:action"
-        },
-    },
-
-    "views": ...,
-
-    "routes": ...
-}
+        }
+    }}
 ```
