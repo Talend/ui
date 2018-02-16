@@ -70,6 +70,7 @@
     "jest": "20.0.3",
     "jest-cli": "20.0.3",
     "jsdoc": "^3.4.1",
+    "jsdom": "^11.6.2",
     "keycode": "2.1.9",
     "lodash": "4.17.4",
     "node-sass": "4.5.3",
@@ -136,7 +137,9 @@
       "^.+\\.(css|scss)$": "identity-obj-proxy"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js",
-    "coveragePathIgnorePatterns": ["index.js"]
+    "coveragePathIgnorePatterns": [
+      "index.js"
+    ]
   },
   "publishConfig": {
     "access": "public"

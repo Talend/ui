@@ -2,7 +2,7 @@ import React from 'react';
 import { IconsProvider } from '@talend/react-components';
 import { api } from '@talend/react-cmf';
 
-import DataGrid from '../src/components/datagrid.component';
+import DataGrid from '../src/components/';
 import sample from '../.storybook/sample.json';
 
 export default function ReactCellRenderer() {

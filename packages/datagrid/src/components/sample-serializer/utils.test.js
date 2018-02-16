@@ -19,8 +19,8 @@ const sample = {
 					dqTypeKey: 'FR_COMMUNE',
 				},
 				'@talend-quality@': {
-					'0': 0,
-					'1': 38,
+					0: 0,
+					1: 38,
 					'-1': 62,
 				},
 			},
@@ -33,8 +33,8 @@ const sample = {
 					dqTypeKey: '',
 				},
 				'@talend-quality@': {
-					'0': 0,
-					'1': 100,
+					0: 0,
+					1: 100,
 					'-1': 0,
 				},
 			},
@@ -134,8 +134,8 @@ const sample = {
 	],
 	encoding: 'JSON',
 	'@talend-quality@': {
-		'0': 30,
-		'1': 62,
+		0: 30,
+		1: 62,
 		'-1': 7,
 	},
 };

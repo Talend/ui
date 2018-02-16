@@ -20,13 +20,13 @@ const AG_GRID_DEFAULT_ROW_SELECTION = 'single';
 const HEADER_HEIGHT = 69;
 const ROW_HEIGHT = 39;
 
-function injectedHeaderRenderer(getComponent, headerRenderer, onFocusedColumn) {
+export function injectedHeaderRenderer(getComponent, headerRenderer, onFocusedColumn) {
 	const Component = Inject.get(getComponent, headerRenderer);
 
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} />;
 }
 
-function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
+export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
 	const Component = Inject.get(getComponent, cellRenderer);
 
 	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
