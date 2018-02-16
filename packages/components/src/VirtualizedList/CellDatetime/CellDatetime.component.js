@@ -13,6 +13,20 @@ export function computeValue(cellData, columnData) {
 		if (columnData.mode === 'ago') {
 			return distanceInWordsToNow(cellData, { addSuffix: 'ago' });
 		} else if (columnData.mode === 'format') {
+			if (columnData.throughISO) {
+				const manualDate = new Date(cellData);
+				const isoDateStr = manualDate.toISOString();
+				console.log('isoStr', isoDateStr);
+				const libFormattedDate = format(isoDateStr, columnData.pattern || DATE_TIME_FORMAT);
+				console.log('libFormattedDate', libFormattedDate);
+				return libFormattedDate;
+			}
+
+			const libFormattedDate = format(cellData, columnData.pattern || DATE_TIME_FORMAT);
+			console.log('libFormattedDate', libFormattedDate);
+			return libFormattedDate;
+
+			/*
 			const manualDate = new Date(cellData);
 			console.log('la date vaut', cellData);
 
@@ -23,6 +37,7 @@ export function computeValue(cellData, columnData) {
 			//console.log('en string formatté', manualDate.format(columnData.pattern || DATE_TIME_FORMAT));
 			console.log('en string formatté par la lib', libFormatteddate);
 			return libFormatteddate;
+			*/
 		}
 	} catch (e) {
 		invariant(true, 'Conversion error in list cell ', columnData);
