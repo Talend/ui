@@ -36,8 +36,9 @@ describe('CellDatetime', () => {
 		};
 		const cellData = 1474495200000 + 3600 * 11 * 1000;
 		const timezoneOffset = new Date().getTimezoneOffset();
+		console.log('offset en minute', timezoneOffset);
 		const cellDataWithOffset = cellData + timezoneOffset * 60 * 1000;
-		const expectedStrDate = `2016-09-22 ${11 + new Date().getTimezoneOffset() / 60}:00:00`;
+		const expectedStrDate = `2016-09-22 ${11 + timezoneOffset / 60}:00:00`;
 
 		const strDate = computeValue(cellDataWithOffset, columnData);
 
