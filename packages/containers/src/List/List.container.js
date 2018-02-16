@@ -135,13 +135,19 @@ class List extends React.Component {
 
 		if (props.list.titleProps) {
 			if (this.props.actions.title) {
-				props.list.titleProps.onClick = this.getGenericDispatcher(this.props.actions.title);
+				props.list.titleProps.onClick = this.getGenericDispatcher(
+					this.props.actions.title
+				);
 			}
 			if (this.props.actions.editSubmit) {
-				props.list.titleProps.onEditSubmit = this.getGenericDispatcher(this.props.actions.editSubmit);
+				props.list.titleProps.onEditSubmit = this.getGenericDispatcher(
+					this.props.actions.editSubmit
+				);
 			}
 			if (this.props.actions.editCancel) {
-				props.list.titleProps.onEditCancel = this.getGenericDispatcher(this.props.actions.editCancel);
+				props.list.titleProps.onEditCancel = this.getGenericDispatcher(
+					this.props.actions.editCancel
+				);
 			}
 		}
 
