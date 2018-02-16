@@ -34,7 +34,7 @@ describe('CellDatetime', () => {
 			pattern: 'YYYY-MM-DD HH:mm:ss',
 		};
 		const cellData = 1474495200000 + 3600 * 11 * 1000;
-		const timezoneOffset = new Date().getTimezoneOffset();
+		const timezoneOffset = new Date(cellData).getTimezoneOffset();
 		const cellDataWithOffset = cellData + timezoneOffset * 60 * 1000;
 		const expectedStrDate = `2016-09-22 ${11 + timezoneOffset / 60}:00:00`;
 		const computedStrOffset = computeValue(cellDataWithOffset, columnData);
