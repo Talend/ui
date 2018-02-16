@@ -100,7 +100,7 @@ api.expressions.register('myexpression', myexpression);
 Using cmfConnect for example expression can be used for props resolution.
 in this case the payload is the current props.
 
-api.saga
+api.sagas
 --
 
 You can register your saga in the cmf registry to be able to use the saga props
@@ -110,13 +110,10 @@ supported by `cmfConnect`.
 function* mySaga(action) {
     //...
 }
-api.saga.register('mySaga', mySaga);
+api.sagas.register('mySaga', mySaga);
 ```
 
 This is related to the `component` saga that you must initialize.
-
-api.sagas
---
 
 Most of them are documented [here](sagas/index.md)
 
