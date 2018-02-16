@@ -1,5 +1,5 @@
 {
-  "name": "@talend/datagrid",
+  "name": "@talend/react-datagrid",
   "description": "Provide a datagrid for at least talend applications",
   "main": "lib/index.js",
   "license": "Apache-2.0",
