@@ -1,7 +1,7 @@
 Dispatcher
 ==
 
-This component let you dispatch registered action creatpr on any event handled by React
+This component lets you dispatch registered action creator on any event handled by React
 
 ```javascript
 <Dispatcher onFocus="myAction">
