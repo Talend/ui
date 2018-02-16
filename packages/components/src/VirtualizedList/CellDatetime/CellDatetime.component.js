@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import { distanceInWordsToNow, format } from 'date-fns';
+import enLocale from 'date-fns/locale/en/index.js';
 import invariant from 'invariant';
 
 import styles from './CellDatetime.scss';
@@ -9,6 +10,7 @@ import styles from './CellDatetime.scss';
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
 
 export function computeValue(cellData, columnData) {
+	console.log('en locale', enLocale);
 	try {
 		if (columnData.mode === 'ago') {
 			return distanceInWordsToNow(cellData, { addSuffix: 'ago' });
@@ -17,7 +19,7 @@ export function computeValue(cellData, columnData) {
 				const manualDate = new Date(cellData);
 				const isoDateStr = manualDate.toISOString();
 				console.log('isoStr', isoDateStr);
-				const libFormattedDate = format(isoDateStr, columnData.pattern || DATE_TIME_FORMAT);
+				const libFormattedDate = format(isoDateStr, columnData.pattern || DATE_TIME_FORMAT, { locale: enLocale });
 				console.log('libFormattedDate', libFormattedDate);
 				return libFormattedDate;
 			}
