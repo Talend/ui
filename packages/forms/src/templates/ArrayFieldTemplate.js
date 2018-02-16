@@ -43,7 +43,7 @@ function FieldTemplate({ element, cantDelete, t }) {
 					disabled={cantDelete}
 					className={theme.delete}
 					onClick={element.onDropIndexClick(element.index)}
-					title={t('FIELD_TEMPLATE_ACTION_MOVE_DELETE', { defaultValue: 'Delete' })}
+					title={t('FIELD_TEMPLATE_ACTION_DELETE', { defaultValue: 'Delete' })}
 				>
 					<Icon name="talend-cross" />
 				</button>
