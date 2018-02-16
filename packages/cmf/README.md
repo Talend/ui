@@ -22,7 +22,7 @@ It provides a set of base APIs and patterns.
 ## Breaking changes log
 
 Before 1.0, `react-cmf` does NOT follow semver version in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/react-cmf/blob/master/BREAKING_CHANGES_LOG.md).
+You will find a [list of breaking changes here](https://github.com/Talend/ui/blob/master/BREAKING_CHANGES_LOG.md).
 
 ## Definition
 
@@ -37,7 +37,7 @@ It fits with our goal, this is why this add-on has been named that way.
 ## Paradigm
 
 A _user_ interacts with a _component_ using mouse and/or keyboard which sends _events_ from a _content_ and that interaction _dispatches_ an _action_.
-That action may change the current component or the content displayed.
+The action may change the application state, which in turn may change some components in the user interface.
 
 ## Definitions
 
@@ -46,15 +46,15 @@ That action may change the current component or the content displayed.
 An HTML page is composed by a tree structure called the DOM. In our case React manage that DOM
 using a tree of `components`.
 
-So `components` in the context of CMF are React components.
+`Components` in the context of CMF are React components.
 
-But they are not just React component. We give them some super power using `cmfConnect`.
+But they are not just React component. We give them some super power using [cmfConnect](./src/cmfConnect.md).
 
 ```javascript
 import React from 'react';
 import { cmfConnect } from '@talend/react-cmf';
 
-function myComponent(props) {
+function MyComponent(props) {
 	return (
 		<article>
 			<h2>{props.title}</h2>
@@ -62,39 +62,12 @@ function myComponent(props) {
 		</article>
 	);
 }
-export default cmfConnect({})(myComponent);
+export default cmfConnect({})(MyComponent);
 ```
 
 ### Actions
 
 Actions are [redux actions](http://redux.js.org/docs/basics/Actions.html).
-
-### ComponentState Management
-
-Component state can be easily stored in cmf state, each are identified by their name and an unique key,
-so component state can be stored and reused later.
-
-We give you the choice to use either:
-
-* React component state (this.state && this.setState)
-* CMF redux state (this.props.state && this.props.setState)
-
-
-### Collections management
-
-Manage a local cache of your business data.
-You can connect your component to give him access to your data and write them using
-either saga or redux.
-
-## Internals: The registry
-
-You will find the registry as the central piece of CMF.
-It's just a key/object registry and it's used with prefix to store the following:
-
-* action creators (function)
-* components (function or class)
-* expressions (function)
-* saga (iterator)
 
 ## Store structure
 
@@ -105,6 +78,70 @@ cmf store structure is the following
     * collections
     * components
     * settings
+
+### ComponentState Management
+
+Component state can be easily stored in cmf state, each are identified by their name and an unique key,
+so component state can be stored and reused later.
+
+We give you the choice to use either:
+
+* CMF redux state (this.props.state && this.props.setState)
+* React component state (this.state && this.setState)
+
+Warning: you should use the redux state except for part that require lots of mutation without sharing.
+For example for Forms you should prefer to use the internal React component state.
+
+
+### Collections management
+
+Manage a local cache of your business data.
+You can connect your component to give him access to your data and being able
+to dispatch action to let CMF's reducers write them using either saga or redux.
+
+
+## Configuration (settings)
+
+We don't want to have to rebuild our app to change a label of a button right ?
+With CMF you can describe all your app just using json.
+
+The json look like this:
+
+```json
+{
+	"props": {
+		"App#default": {
+			"saga": "bootstrap"
+		},
+		"Navbar#default": {
+			"brand": "Talend",
+			"left": [{ "component": "Button", "componentId": "help" }]
+		},
+		"Button#help": {
+			"id": "help",
+			"label": "help",
+			"payload": {
+				"type": "MENU_HELP",
+				"cmf": {
+					"routerPush": "/help"
+				}
+			}
+		}
+	}
+}
+```
+
+To resolve the component "Button" we need a registry.
+
+## Internals: The registry
+
+You will find the registry as the central piece of CMF.
+It's just a key/object registry and it's used with prefix to store the following:
+
+* action creators (function)
+* components (function or class)
+* expressions (function)
+* saga (iterator)
 
 ## Middlewares
 
@@ -214,16 +251,23 @@ Options for this script :
 Expression are registred function use to eval props.
 We use them to handle dynamic configuration like disable buttons if a user doesn't have the permission.
 
-Given an existing `MyComponent` you may want to add disabled props expression support just by doing the following:
+Given the upper `MyComponent` example you can use expression to fill the `title` from the store
 
-```javascript
-import { api } from '@talend/react-cmf';
-import MyComponent from './MyComponent';
-
-const MySuperComponent = api.expressions.withExpression(MyComponent, ['disabled']);
-
-return <MySuperComponent disabled="userDoesntHaveSuperPower" />;
+```json
+{
+	"props": {
+		"MyComponent#default": {
+			"titleExpression": {
+				"id": "cmf.collections.get",
+				"args": ["article.data.title"]
+			}
+		}
+	}
+}
 ```
+
+So adding `Expression` to a prop name of a component is resolve by cmfConnect
+during the mapStateToProps evaluation. So the title props will be resolved !
 
 [See API](src/expression.md)
 

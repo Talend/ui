@@ -1,7 +1,7 @@
 cmfConnect
 ==
 
-`cmfConnectù is a Higher Order Component (HOC) which connects your component to redux with some CMF API.
+`cmfConnect` is a Higher Order Component (HOC) which connects your component to redux with some CMF API.
 
 * It injects a state management on top of redux
 * It injects dispatch function
@@ -16,20 +16,20 @@ API
 --
 
 ```javascript
-cmfConnect(
+cmfConnect({
     componentId, // string or function(props) to compute the id in the store
     defaultState, // the default state when the component is mount
     keepComponent, // boolean, when the component is unmount, to keep its state in redux store
     mapStateToProps, // function(state, ownProps) that should return the props (same as redux)
     ...rest, // the rest is applied to connect function
-)(Component);
+})(Component);
 ```
 
 How to use component state
 --
 
 First, with CMF, you will not need to write reducer.
-If you want to use CMF state management, you must add a `displayName` to your component. 
+If you want to use CMF state management, you must add a `displayName` to your component.
 This is required.
 
 ```javascript
@@ -100,7 +100,7 @@ This lets save one render if you know the first state.
 How to use expression
 --
 
-CMF add a notion of expression. 
+CMF add a notion of expression.
 It's easy to use once your component is cmfConnected.
 
 ```javascript
