@@ -149,6 +149,7 @@ describe('cmfConnect', () => {
 			delete state.cmf.settings.props['TestComponent#connect-id'];
 		});
 	});
+
 	describe('#getMergeProps', () => {
 		it('should mergeProps in order', () => {
 			const props = getMergeProps({
@@ -240,6 +241,26 @@ describe('cmfConnect', () => {
 			expect(call[2]).toBe(data);
 			expect(call[3].registry).toBe(context.registry);
 			expect(call[3].store).toBe(context.store);
+		});
+
+		it('should pass defaultState when there is no component state in store', () => {
+			const TestComponent = () => (<div />);
+			TestComponent.displayName = 'MyComponentWithoutStateInStore';
+			const defaultState = new Map({ toto: 'lol' });
+			const CMFConnected = cmfConnect({ defaultState })(TestComponent);
+
+			const wrapper = mount(
+				<CMFConnected />,
+				{
+					context: mock.context(),
+					childContextTypes: {
+						registry: React.PropTypes.object,
+					},
+				},
+			);
+
+			expect(wrapper.find(TestComponent).props().state).toBe(defaultState);
+
 		});
 
 		it('should componentDidMount initState and dispatchActionCreator', () => {
