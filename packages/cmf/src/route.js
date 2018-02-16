@@ -102,7 +102,7 @@ function loadComponents(context, item, dispatch) {
 					nextState,
 					replace,
 				},
-				dispatch
+				dispatch,
 			});
 		};
 	}
@@ -114,7 +114,7 @@ function loadComponents(context, item, dispatch) {
 					nextState,
 					replace,
 				},
-				dispatch
+				dispatch,
 			});
 		};
 	}
