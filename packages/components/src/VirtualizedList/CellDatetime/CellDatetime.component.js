@@ -13,7 +13,16 @@ export function computeValue(cellData, columnData) {
 		if (columnData.mode === 'ago') {
 			return distanceInWordsToNow(cellData, { addSuffix: 'ago' });
 		} else if (columnData.mode === 'format') {
-			return format(cellData, columnData.pattern || DATE_TIME_FORMAT);
+			const manualDate = new Date(cellData);
+			console.log('la date vaut', cellData);
+
+			//const libFormatteddate = format(cellData, columnData.pattern || DATE_TIME_FORMAT);
+			const isoDateStr = manualDate.toISOString();
+			console.log('isoStr', isoDateStr);
+			const libFormatteddate = format(isoDateStr, columnData.pattern || DATE_TIME_FORMAT);
+			//console.log('en string formatté', manualDate.format(columnData.pattern || DATE_TIME_FORMAT));
+			console.log('en string formatté par la lib', libFormatteddate);
+			return libFormatteddate;
 		}
 	} catch (e) {
 		invariant(true, 'Conversion error in list cell ', columnData);
