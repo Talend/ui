@@ -32,6 +32,7 @@ const UIRouter = (props, context) => {
 };
 
 UIRouter.propTypes = {
+	dispatch: PropTypes.func,
 	history: PropTypes.object,
 	routes: PropTypes.object,
 };
