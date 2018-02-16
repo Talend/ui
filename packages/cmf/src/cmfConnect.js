@@ -279,7 +279,7 @@ export default function cmfConnect({
 					...this.props,
 					dispatchActionCreator: this.dispatchActionCreator,
 				};
-				if(!props.state && defaultState) {
+				if (!props.state && defaultState) {
 					props.state = defaultState;
 				}
 
