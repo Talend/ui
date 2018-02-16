@@ -145,11 +145,10 @@ function ActionButton(props) {
 			</span>
 		);
 	}
-	// tooltip doesn't work on disabled button
-	if ((hideLabel || tooltip || tooltipLabel) && !btnIsDisabled) {
+	if (hideLabel || tooltip || tooltipLabel) {
 		btn = (
 			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-				{btn}
+				{btnIsDisabled ? <span>{btn}</span> : btn}
 			</TooltipTrigger>
 		);
 	}

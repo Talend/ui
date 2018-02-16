@@ -483,25 +483,30 @@ exports[`Enumeration should render with header in default state and first item i
               <div
                 className="theme-tc-enumeration-item-actions tc-enumeration-item-actions"
               >
-                <button
-                  className="theme-btn-disabled btn btn-link"
-                  disabled={true}
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role="link"
-                  type="button"
+                <span
+                  onFocus={[Function]}
+                  onMouseOver={[Function]}
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="theme-tc-svg-icon tc-svg-icon"
-                    focusable="false"
-                    title={null}
+                  <button
+                    className="theme-btn-disabled btn btn-link"
+                    disabled={true}
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                    role="link"
+                    type="button"
                   >
-                    <use
-                      xlinkHref="#talend-check"
-                    />
-                  </svg>
-                </button>
+                    <svg
+                      aria-hidden="true"
+                      className="theme-tc-svg-icon tc-svg-icon"
+                      focusable="false"
+                      title={null}
+                    >
+                      <use
+                        xlinkHref="#talend-check"
+                      />
+                    </svg>
+                  </button>
+                </span>
                 <button
                   className="btn btn-link"
                   disabled={false}
