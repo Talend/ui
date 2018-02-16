@@ -97,6 +97,17 @@ class List extends React.Component {
 		this.props.setState({ displayMode: payload });
 	}
 
+	getGenericDispatcher(property) {
+		return (event, data) => {
+			this.props.dispatchActionCreator(
+				property,
+				event,
+				data,
+				this.context
+			);
+		};
+	}
+
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
 		const items = getItems(this.context, this.props);
@@ -121,10 +132,17 @@ class List extends React.Component {
 		}
 		props.list.titleProps = get(this.props, 'list.titleProps');
 
-		if (props.list.titleProps && this.props.actions.title) {
-			props.list.titleProps.onClick = (event, data) => {
-				this.props.dispatchActionCreator(this.props.actions.title, event, data, this.context);
-			};
+
+		if (props.list.titleProps) {
+			if (this.props.actions.title) {
+				props.list.titleProps.onClick = this.getGenericDispatcher(this.props.actions.title);
+			}
+			if (this.props.actions.editSubmit) {
+				props.list.titleProps.onEditSubmit = this.getGenericDispatcher(this.props.actions.editSubmit);
+			}
+			if (this.props.actions.editCancel) {
+				props.list.titleProps.onEditCancel = this.getGenericDispatcher(this.props.actions.editCancel);
+			}
 		}
 
 		// toolbar
