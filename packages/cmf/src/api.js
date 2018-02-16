@@ -27,8 +27,8 @@ import action from './action';
 import actions from './actions';
 import actionCreator from './actionCreator';
 import expression from './expression';
-import * as saga from './saga';
 import sagas from './sagas';
+import selectors from './selectors';
 import component from './component';
 
 function registerInternals(context) {
@@ -45,6 +45,7 @@ export default {
 	route,
 	registry,
 	registerInternals,
+	saga: sagas,
 	sagas,
-	saga,
+	selectors,
 };
