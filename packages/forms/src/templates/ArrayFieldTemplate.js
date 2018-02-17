@@ -21,7 +21,7 @@ function FieldTemplate({ element, cantDelete, t }) {
 					name={`btn-move-element-up-${element.index}`}
 					disabled={!element.hasMoveUp}
 					onClick={element.onReorderClick(element.index, element.index - 1)}
-					title={t('FIELD_TEMPLATE_ACTION_MOVE_UP', { defaultValue: 'Move Up' })}
+					title={t('ARRAY_FIELD_TEMPLATE_ACTION_MOVE_UP', { defaultValue: 'Move Up' })}
 				>
 					<Icon name="talend-arrow-left" transform="rotate-90" />
 				</button>
@@ -30,7 +30,7 @@ function FieldTemplate({ element, cantDelete, t }) {
 					name={`btn-move-element-down-${element.index}`}
 					disabled={!element.hasMoveDown}
 					onClick={element.onReorderClick(element.index, element.index + 1)}
-					title={t('FIELD_TEMPLATE_ACTION_MOVE_DOWN', { defaultValue: 'Move Down' })}
+					title={t('ARRAY_FIELD_TEMPLATE_ACTION_MOVE_DOWN', { defaultValue: 'Move Down' })}
 				>
 					<Icon name="talend-arrow-left" transform="rotate-270" />
 				</button>
@@ -43,7 +43,7 @@ function FieldTemplate({ element, cantDelete, t }) {
 					disabled={cantDelete}
 					className={theme.delete}
 					onClick={element.onDropIndexClick(element.index)}
-					title={t('FIELD_TEMPLATE_ACTION_DELETE', { defaultValue: 'Delete' })}
+					title={t('ARRAY_FIELD_TEMPLATE_ACTION_DELETE', { defaultValue: 'Delete' })}
 				>
 					<Icon name="talend-cross" />
 				</button>
