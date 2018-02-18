@@ -79,10 +79,10 @@ Action.displayName = 'Action';
 Action.propTypes = {
 	displayMode: PropTypes.string,
 	renderers: PropTypes.shape({
-		ActionButton: PropTypes.node,
-		ActionFile: PropTypes.node,
-		ActionSplitDropdown: PropTypes.node,
-		ActionDropdown: PropTypes.node,
+		ActionButton: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+		ActionFile: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+		ActionSplitDropdown: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+		ActionDropdown: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 	}),
 };
 

@@ -2,25 +2,27 @@
 	display: flex;
 	background: $wild-sand;
 	border: 1px solid transparent;
-	border-radius: $border-radius-large;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-	transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-	margin-bottom: $padding-normal;
 
 	&:hover {
 		background: $white;
-		box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
-		border: 1px solid $gallery;
 
-		.delete {
-			color: $brand-danger;
+		.control {
+			.delete {
+				color: $brand-danger;
+			}
+			.tf-array-item-reorder {
+				color: $dark-silver;
+				&:disabled {
+					color: $silver;
+				}
+			}
 		}
 	}
 
 	> * {
 		flex-grow: 1;
 		margin: 0;
-		padding: $padding-normal;
+		padding: $padding-small;
 	}
 
 	.control {
@@ -30,24 +32,19 @@
 		border-right: 1px solid $gray-lighter;
 		display: flex;
 		flex-direction: column;
-		padding: 0 $padding-small;
-
-		.delete + button {
-			margin-top: ($padding-normal * 2);
-		}
+		padding: 0;
+		justify-content: space-between;
 
 		button {
 			background: transparent;
 			border: 0;
-			margin: 1em 0 0 0;
-			color: $dark-silver;
+			color: transparent;
 
 			&:hover {
 				color: $dove-gray;
 			}
 
 			&:disabled {
-				color: $silver;
 				cursor: not-allowed;
 			}
 		}
