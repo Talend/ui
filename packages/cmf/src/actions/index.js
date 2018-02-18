@@ -7,6 +7,7 @@
 import * as collectionsActions from './collectionsActions';
 import * as componentsActions from './componentsActions';
 import * as settingsActions from './settingsActions';
+import * as saga from './saga';
 import http from './http';
 
 /**
@@ -27,4 +28,5 @@ export default {
 	collections: collectionsActions,
 	components: componentsActions,
 	settings: settingsActions,
+	saga,
 };
