@@ -269,6 +269,45 @@ describe('cmfConnect', () => {
 			expect(props.initState.mock.calls[0][0]).toBe(props.initialState);
 		});
 
+		it('should componentDidMount support saga', () => {
+			const TestComponent = jest.fn();
+			TestComponent.displayName = 'TestComponent';
+			const CMFConnected = cmfConnect({})(TestComponent);
+			const props = {
+				saga: 'hello',
+				dispatchActionCreator: jest.fn(),
+			};
+			const context = mock.context();
+			const instance = new CMFConnected.CMFContainer(props, context);
+			instance.componentDidMount();
+			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
+				'cmf.saga.start',
+				{ type: 'DID_MOUNT' },
+				instance.props,
+				instance.context
+			);
+		});
+
+		it('should componentWillUnmount support saga', () => {
+			const TestComponent = jest.fn();
+			TestComponent.displayName = 'TestComponent';
+			const CMFConnected = cmfConnect({})(TestComponent);
+			const props = {
+				saga: 'hello',
+				dispatchActionCreator: jest.fn(),
+				deleteState: jest.fn(),
+			};
+			const context = mock.context();
+			const instance = new CMFConnected.CMFContainer(props, context);
+			instance.componentWillUnmount();
+			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
+				'cmf.saga.stop',
+				{ type: 'WILL_UNMOUNT' },
+				instance.props,
+				instance.context
+			);
+		});
+
 		it('should componentWillUnMount dispatchActionCreator', () => {
 			const TestComponent = jest.fn();
 			TestComponent.displayName = 'TestComponent';
