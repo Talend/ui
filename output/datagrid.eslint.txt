@@ -4,55 +4,8 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/datagrid/src/components/boolean-cell-renderer/default-boolean-cell-renderer.component.js
-  3:51  error  'data' is missing in props validation  react/prop-types
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/datagrid.component.js
-  123:24  error  Do not use findDOMNode  react/no-find-dom-node
-  146:24  error  Do not use findDOMNode  react/no-find-dom-node
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/date-cell-renderer/default-date-cell-renderer.component.js
-  3:51  error  'data' is missing in props validation  react/prop-types
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/default-cell-renderer/avro-renderer.component.js
-  4:47  error  'avroRenderer' is missing in props validation  react/prop-types
-  4:61  error  'colDef' is missing in props validation        react/prop-types
-  4:69  error  'data' is missing in props validation          react/prop-types
-  4:75  error  'getComponent' is missing in props validation  react/prop-types
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/default-cell-renderer/default-cell-renderer.component.js
-  10:47  error  'avroRenderer' is missing in props validation  react/prop-types
-  10:61  error  'colDef' is missing in props validation        react/prop-types
-  10:69  error  'value' is missing in props validation         react/prop-types
-  10:76  error  'getComponent' is missing in props validation  react/prop-types
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/default-cell-renderer/quality-indicator.component.js
-  13:57  error  'value' is missing in props validation  react/prop-types
-  14:55  error  'value' is missing in props validation  react/prop-types
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/default-header-renderer/header-grid.component.js
-  20:26  error  'onFocusedColumn' is missing in props validation     react/prop-types
-  20:48  error  'column' is missing in props validation              react/prop-types
-  20:55  error  'column.colId' is missing in props validation        react/prop-types
-  23:78  error  'displayName' is missing in props validation         react/prop-types
-  24:14  error  'displayName' is missing in props validation         react/prop-types
-  28:69  error  'column' is missing in props validation              react/prop-types
-  28:76  error  'column.colDef' is missing in props validation       react/prop-types
-  28:83  error  'column.colDef.type' is missing in props validation  react/prop-types
-  30:11  error  'column' is missing in props validation              react/prop-types
-  30:18  error  'column.colDef' is missing in props validation       react/prop-types
-  32:21  error  'column' is missing in props validation              react/prop-types
-  32:28  error  'column.colDef' is missing in props validation       react/prop-types
-  33:19  error  'column' is missing in props validation              react/prop-types
-  33:26  error  'column.colDef' is missing in props validation       react/prop-types
-  34:19  error  'column' is missing in props validation              react/prop-types
-  34:26  error  'column.colDef' is missing in props validation       react/prop-types
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/int-cell-renderer/default-int-cell-renderer.component.js
-  6:50  error  'data' is missing in props validation  react/prop-types
-
 /home/travis/build/Talend/ui/packages/datagrid/src/components/string-cell-renderer/default-string-cell-renderer.component.js
   3:53  error  'data' is missing in props validation  react/prop-types
 
-✖ 32 problems (32 errors, 0 warnings)
+✖ 1 problem (1 error, 0 warnings)
 
