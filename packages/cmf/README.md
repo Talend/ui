@@ -96,10 +96,10 @@ For example for Forms you should prefer to use the internal React component stat
 ### Collections management
 
 Manage a local cache of your business data.
-You can connect your component to give him access to your data and being able
-to dispatch action to let CMF's reducers write them.
+You can connect your component to give it access to your data and being able
+to dispatch action to let CMF reducers write them.
 
-You can dispatch some actionCreator in `api.actions.collections` for that
+You can dispatch some actionCreators in `api.actions.collections` for that.
 
 ## Configuration (settings)
 
