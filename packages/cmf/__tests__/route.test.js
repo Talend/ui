@@ -25,6 +25,7 @@ describe('loadComponent behavior', () => {
 		const wrapper = shallow(React.createElement(mockItem.component), { context: mock.context() });
 		expect(wrapper.props().dispatch()).toBe('dispatch');
 	});
+
 	it('should replace component by regitry one', () => {
 		const mockItem = {
 			component: 'TestContainer',
@@ -41,5 +42,48 @@ describe('loadComponent behavior', () => {
 		component();
 		expect(obj.fn).toHaveBeenCalled();
 		expect(mockItem.component.displayName).toBe('WithView');
+	});
+
+	it('should replace onEnter/onLeave hooks', () => {
+		// given
+		const mockItem = {
+			component: 'TestContainer',
+			view: 'appmenu',
+			onEnter: 'onEnterId',
+			onLeave: 'onLeaveId',
+		};
+		const dispatch = jest.fn();
+		const component = jest.fn();
+		component.CMFContainer = true;
+		const onEnter = jest.fn();
+		const onLeave = jest.fn();
+		const nextState = { params: {} };
+		const replace = jest.fn();
+
+		const mockContext = mock.context();
+		mockContext.registry = {
+			'_.route.hook:onEnterId': onEnter,
+			'_.route.hook:onLeaveId': onLeave,
+			'_.route.component:TestContainer': component,
+		};
+
+		// when
+		route.loadComponents(mockContext, mockItem, dispatch);
+
+
+		// then
+		expect(onEnter).not.toBeCalled();
+		mockItem.onEnter(nextState, replace);
+		expect(onEnter).toBeCalledWith({
+			router: { nextState, replace },
+			dispatch,
+		});
+
+		expect(onLeave).not.toBeCalled();
+		mockItem.onLeave(nextState, replace);
+		expect(onLeave).toBeCalledWith({
+			router: { nextState, replace },
+			dispatch,
+		});
 	});
 });
