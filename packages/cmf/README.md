@@ -103,7 +103,8 @@ You can dispatch some actionCreators in `api.actions.collections` for that.
 
 ## Configuration (settings)
 
-We don't want to rewrite a bunch of app code to change a label of a button right ?
+We don't want to rewrite a bunch of app code to change a label of a button 
+?
 With CMF you can describe all your app just using json.
 
 The json looks like this:
@@ -217,11 +218,11 @@ Note onResponse and onError accept function:
 
 ## Scripts
 
-When you have cmf in you package.json, you can run in your project scope this script :
+When you have cmf in you package.json, you can run in your project scope this script:
 
 * cmf-settings
 
-It require a cmf.json file with this format in your webapp's project root :
+It require a cmf.json file with this format in your webapp's project root:
 
 ```json
 {
