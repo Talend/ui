@@ -8,8 +8,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   3:51  error  'data' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/datagrid/src/components/datagrid.component.js
-  119:24  error  Do not use findDOMNode  react/no-find-dom-node
-  133:24  error  Do not use findDOMNode  react/no-find-dom-node
+  123:24  error  Do not use findDOMNode  react/no-find-dom-node
+  146:24  error  Do not use findDOMNode  react/no-find-dom-node
 
 /home/travis/build/Talend/ui/packages/datagrid/src/components/date-cell-renderer/default-date-cell-renderer.component.js
   3:51  error  'data' is missing in props validation  react/prop-types
