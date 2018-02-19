@@ -38,6 +38,8 @@ const toolbar = {
 
 const actions = {
 	title: 'object:open',
+	editSubmit: 'object:edit:submit',
+	editCancel: 'object:edit:cancel',
 	// left: ['object:add'],
 	// items: ['object:delete'],
 };
@@ -92,6 +94,8 @@ describe('Container List', () => {
 		expect(props.list.columns).toEqual(list.columns);
 		expect(props.list.titleProps.key).toBe('label');
 		expect(typeof props.list.titleProps.onClick).toBe('function');
+		expect(typeof props.list.titleProps.onEditSubmit).toBe('function');
+		expect(typeof props.list.titleProps.onEditCancel).toBe('function');
 		expect(props.toolbar.filter.placeholder).toBe('find an object');
 		expect(typeof props.toolbar.filter.onFilter).toBe('function');
 		expect(typeof props.toolbar.display.onChange).toBe('function');
@@ -142,6 +146,72 @@ describe('Container List', () => {
 		const calls = dispatchActionCreator.mock.calls;
 		expect(calls.length).toBe(1);
 		expect(calls[0][0]).toBe('object:open');
+		expect(calls[0][1]).toBe(e);
+		expect(calls[0][2]).toBe(data);
+		expect(calls[0][3].registry).toBe(context.registry);
+	});
+
+	it('should ontitle edit submit call action creator', () => {
+		const dispatchActionCreator = jest.fn();
+		const actionCreator = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:object:edit:submit': actionCreator,
+			},
+		};
+		const wrapper = shallow(
+			<Container
+				{...cloneDeep(settings)}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+			/>,
+			{
+				lifecycleExperimental: true,
+				context,
+			},
+		);
+		const props = wrapper.props();
+		const onEditSubmit = props.list.titleProps.onEditSubmit;
+		const e = {};
+		const data = { foo: 'bar' };
+
+		onEditSubmit(e, data);
+		const calls = dispatchActionCreator.mock.calls;
+		expect(calls.length).toBe(1);
+		expect(calls[0][0]).toBe('object:edit:submit');
+		expect(calls[0][1]).toBe(e);
+		expect(calls[0][2]).toBe(data);
+		expect(calls[0][3].registry).toBe(context.registry);
+	});
+
+	it('should ontitle edit cancel call action creator', () => {
+		const dispatchActionCreator = jest.fn();
+		const actionCreator = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:object:edit:cancel': actionCreator,
+			},
+		};
+		const wrapper = shallow(
+			<Container
+				{...cloneDeep(settings)}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+			/>,
+			{
+				lifecycleExperimental: true,
+				context,
+			},
+		);
+		const props = wrapper.props();
+		const onEditCancel = props.list.titleProps.onEditCancel;
+		const e = {};
+		const data = { foo: 'bar' };
+
+		onEditCancel(e, data);
+		const calls = dispatchActionCreator.mock.calls;
+		expect(calls.length).toBe(1);
+		expect(calls[0][0]).toBe('object:edit:cancel');
 		expect(calls[0][1]).toBe(e);
 		expect(calls[0][2]).toBe(data);
 		expect(calls[0][3].registry).toBe(context.registry);
