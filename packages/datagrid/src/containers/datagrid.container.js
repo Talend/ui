@@ -42,11 +42,11 @@ export default function DataGrid(props) {
 
 DataGrid.propTypes = {
 	...DATAGRID_PROPTYPES,
-	sourceData: PropTypes.string,
-	actionCreators: {
+	sourceData: PropTypes.object,
+	actionCreators: PropTypes.shape({
 		onFocusedCell: PropTypes.string,
 		onFocusedColumn: PropTypes.string,
-	},
+	}),
 };
 
 DataGrid.displayName = 'Container(DataGrid)';

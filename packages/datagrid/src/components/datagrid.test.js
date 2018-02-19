@@ -374,6 +374,7 @@ describe('#Datagrid method', () => {
 			<DataGrid getComponent={getComponent} onFocusedColumn={onFocusedColumn} />,
 		);
 		const instance = wrapper.instance();
+		instance.setCurrentFocusedColumn(currentColId);
 
 		instance.setCurrentFocusedColumn = jest.fn();
 		instance.updateStyleFocusColumn = jest.fn();
@@ -407,6 +408,7 @@ describe('#Datagrid method', () => {
 			<DataGrid getComponent={getComponent} onFocusedColumn={onFocusedColumn} />,
 		);
 		const instance = wrapper.instance();
+		instance.setCurrentFocusedColumn(currentColId);
 
 		instance.setCurrentFocusedColumn = jest.fn();
 		instance.updateStyleFocusColumn = jest.fn();

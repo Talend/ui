@@ -105,6 +105,11 @@ export default class DataGrid extends React.Component {
 		if (this.gridAPI.getFocusedCell()) {
 			selectedRowIndex = this.gridAPI.getFocusedCell().rowIndex;
 		}
+
+		if (colId !== this.currentColId) {
+			this.removeFocusColumn();
+		}
+
 		this.setCurrentFocusedColumn(colId);
 		this.gridAPI.setFocusedCell(selectedRowIndex, colId);
 		this.updateStyleFocusColumn();
@@ -120,6 +125,7 @@ export default class DataGrid extends React.Component {
 	}
 
 	removeFocusColumn() {
+		// eslint-disable-next-line react/no-find-dom-node
 		const focusedCells = ReactDOM.findDOMNode(this.gridElement).querySelectorAll(
 			`.${FOCUSED_COLUMN_CLASS_NAME}`,
 		);
@@ -143,6 +149,7 @@ export default class DataGrid extends React.Component {
 			https://github.com/ag-grid/ag-grid/issues/2216
 			When Ag-grid implement this feature, we can't remove the below code
 		*/
+		// eslint-disable-next-line react/no-find-dom-node
 		const columnsCells = ReactDOM.findDOMNode(this.gridElement).querySelectorAll(
 			`[col-id="${colId}"]:not(.${FOCUSED_COLUMN_CLASS_NAME})`,
 		);

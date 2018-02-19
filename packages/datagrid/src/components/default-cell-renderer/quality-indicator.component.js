@@ -20,4 +20,5 @@ export default function QualityIndicator(props) {
 
 QualityIndicator.propTypes = {
 	tooltip: PropTypes.string,
+	value: PropTypes.oneOf([TALEND_QUALITY_INVALID_KEY, TALEND_QUALITY_EMPTY_KEY]),
 };

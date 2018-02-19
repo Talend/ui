@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
+import DATAGRID_PROPTYPES from '../datagrid.proptypes';
 
 import QualityIndicator from './quality-indicator.component';
 import AvroRenderer from './avro-renderer.component';
@@ -20,3 +23,16 @@ export default function DefaultCellRenderer({ avroRenderer, colDef, value, getCo
 		</div>
 	);
 }
+
+DefaultCellRenderer.propTypes = {
+	avroRenderer: DATAGRID_PROPTYPES.avroRenderer,
+	colDef: PropTypes.shape({
+		avro: PropTypes.shape({
+			type: PropTypes.shape({
+				type: PropTypes.oneOf(['boolean', 'date', 'int', 'string']),
+			}),
+		}),
+	}),
+	value: PropTypes.object,
+	getComponent: PropTypes.func,
+};
