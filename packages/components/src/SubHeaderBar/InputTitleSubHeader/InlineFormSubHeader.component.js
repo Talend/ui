@@ -61,23 +61,30 @@ class InlineFormSubHeader extends React.Component {
 	}
 
 	render() {
+		const notFilled = this.state.value.trim().length === 0;
+		const t = this.props.t;
 		return (
 			<form
 				onSubmit={this.onSubmit}
 				className={classNames(theme['tc-subheader-details-form'], 'tc-subheader-details-form')}
 			>
-				<input
-					ref={this.selectInput}
-					id="inputTitle"
-					type="text"
-					className={classNames(
-						theme['tc-subheader-details-form-input'],
-						'tc-subheader-details-form-input',
-						'form-control',
-					)}
-					onChange={this.onChange}
-					value={this.state.value}
-				/>
+				<div className={classNames('form-group', { 'has-error': notFilled })}>
+					<label className="sr-only" htmlFor="inputTitle">
+						{t('SUBHEADERBAR_INPUT_TITLE_FORM_LABEL', { defaultvalue: 'title' })}
+					</label>
+					<input
+						ref={this.selectInput}
+						id="inputTitle"
+						type="text"
+						className={classNames(
+							theme['tc-subheader-details-form-input'],
+							'tc-subheader-details-form-input',
+							'form-control',
+						)}
+						onChange={this.onChange}
+						value={this.state.value}
+					/>
+				</div>
 				<div
 					className={classNames(
 						theme['tc-subheader-details-form-buttons'],
@@ -95,6 +102,7 @@ class InlineFormSubHeader extends React.Component {
 							theme['tc-subheader-details-form-buttons-icon'],
 							'tc-subheader-details-form-buttons-icon',
 						)}
+						disabled={notFilled}
 						hideLabel
 					/>
 					<Action
