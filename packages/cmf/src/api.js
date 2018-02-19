@@ -28,8 +28,14 @@ import actions from './actions';
 import actionCreator from './actionCreator';
 import expression from './expression';
 import expressions from './expressions';
-import saga from './saga';
+import sagas from './sagas';
+import selectors from './selectors';
 import component from './component';
+
+function registerInternals(context) {
+	actionCreator.register('cmf.saga.start', actions.saga.start, context);
+	actionCreator.register('cmf.saga.stop', actions.saga.stop, context);
+}
 
 export default {
 	action,
@@ -40,5 +46,8 @@ export default {
 	expressions,
 	route,
 	registry,
-	saga,
+	registerInternals,
+	saga: sagas,
+	sagas,
+	selectors,
 };

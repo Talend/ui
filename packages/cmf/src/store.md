@@ -1,6 +1,8 @@
+# Store
+
 CMF uses [redux](http://redux.js.org/)
 
-## Initialise the store
+## Initialize the store
 ```javascript
 import { store as cmfstore } from 'react-cmf';
 import appReducer from './reducers';
@@ -10,20 +12,18 @@ import appReducer from './reducers';
 const store = cmfstore.initialize(appReducer, preloadedState, enhancer, middleware);
 ```
 
-
 | Argument | Type | Description | Mandatory |
 |---|---|---|---|
-| appReducer | function &#124; object | Your app root reducer | false |
-| preloadedState | object | Your initial state | false |
-| enhancer | function | Redux store enhancer | false |
-| middleware | array &#124; function | Your app redux middleware | false |
+| `appReducer` | function &#124; object | Your app root reducer | false |
+| `preloadedState` | object | Your initial state | false |
+| `enhancer` | function | Redux store enhancer | false |
+| `middleware` | array &#124; function | Your app redux middleware | false |
 
 ## Reducers
 
 The CMF store comes with some reducers out of the box
 * router reducer from [react-router-redux](https://github.com/reactjs/react-router-redux)
 * CMF internal reducer (settings, ...)
-
 
 ## Middlewares
 
@@ -45,11 +45,11 @@ cmfstore.setRouterMiddleware(routerMiddleware(browserHistory));
 const store = cmfstore.initialize(appReducer, preloadedState, enhancer, middleware);
 ```
 
-## Store layout
+## Store hierarchy
 
-The results is a store with the following layout:
+The results is a store with the following hierarchy:
 
-* state.cmf.settings
-* state.cmf.components (Immutable)
-* state.cmf.collections (Immutable)
+* `state.cmf.settings`
+* `state.cmf.components` (Immutable)
+* `state.cmf.collections` (Immutable)
 

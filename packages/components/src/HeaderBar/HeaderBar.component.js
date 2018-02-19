@@ -315,10 +315,10 @@ if (process.env.NODE_ENV !== 'production') {
 
 	User.propTypes = {
 		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
-		name: PropTypes.string.isRequired,
+		name: PropTypes.string,
 		firstName: PropTypes.string,
 		lastName: PropTypes.string,
-		t: PropTypes.func.isRequired,
+		t: PropTypes.func,
 	};
 
 	AppNotification.propTypes = {
