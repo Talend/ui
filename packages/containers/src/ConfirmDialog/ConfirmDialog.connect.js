@@ -21,5 +21,5 @@ export function mapStateToProps(state, props, cmfProps) {
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
 	componentId: ownProps => (ownProps && ownProps.id) || 'ConfirmDialog',
-	mapStateToProps
+	mapStateToProps,
 })(Container);
