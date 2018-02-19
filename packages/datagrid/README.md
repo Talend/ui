@@ -14,7 +14,7 @@ import DataGrid from '@talend/react-datagrid'; //use the DataGrid Container
 
 ## DataGrid Component
 
-The dataGrid component used to show datagrid on all talend projects. This library use [Ag-Grid](http://ag-grid.com) to show the grid. It is an decorator of Ag-Grid.
+The dataGrid component used to show datagrid on all talend projects. This library use [Ag-Grid](http://ag-grid.com) to show the grid. It's an enchanced Ag-Grid.
 
 Features:
 
@@ -25,7 +25,7 @@ Features:
 * Custom Header/Pin Header
 * Row selection keyboard/mouse
 
-The DataGrid componnent provides 3 default renderers provides by Inject, it can be override to show anything:
+The DataGrid componnent provides 3 default renderers provides by Inject, it can be overrided to show anything:
 
 * defaultHeaderRenderer
 * defaultPinHeaderRenderer
@@ -57,24 +57,24 @@ In entry, the datagrid component waits a sample of dataset. By default, the data
 
 ### Props
 
-| property              | description                                           | type     | default                  |
-| --------------------- | ----------------------------------------------------- | -------- | ------------------------ |
-| avroRenderer          | list of component to inject to the avro renderer      | object   |                          |
-| cellRenderer          | cell component to inject                              | string   | DefaultCellRenderer      |
-| getComponent          | method to provide the injected component              | function | cellRenderer             |
-| getPinnedColumnDefsFn | method to provide the definition of the pinned olumns | function | sample serializer        |
-| getColumnDefsFn       | method to provide the definition of the columns       | function | sample serializer        |
-| getRowDataFn          | method to provide the row data                        | function | sample serializer        |
-| getValueGetterFn      | method to provide the data by row/column              | function | sample serializer        |
-| headerHeight          | height of the header                                  | int      | 69                       |
-| headerRenderer        | header component to inject                            | string   | DefaultHeaderRenderer    |
-| onFocusedCell         | callback when one cell is focused                     | function |                          |
-| onFocusedColumn       | callback when one column is focused                   | function |                          |
-| pinHeaderRenderer     | pinHeader component to inject                         | string   | DefaultPinHeaderRenderer |
-| data                  | data to set into the datagrid                         | Array    |                          |
-| rowSelection          | set the type of selection (single or multiple)        | string   | single                   |
-| rowHeight             | height of the row                                     | int      | 39                       |
-| theme                 | style css                                             | string   |                          |
+| property              | description                                            | type     | default                  |
+| --------------------- | ------------------------------------------------------ | -------- | ------------------------ |
+| avroRenderer          | list of components to inject to the avro renderer      | object   |                          |
+| cellRenderer          | cell component to inject                               | string   | DefaultCellRenderer      |
+| getComponent          | method to provide the injected components              | function | cellRenderer             |
+| getPinnedColumnDefsFn | method to provide the definition of the pinned columns | function | sample serializer        |
+| getColumnDefsFn       | method to provide the definition of the columns        | function | sample serializer        |
+| getRowDataFn          | method to provide the row data                         | function | sample serializer        |
+| getValueGetterFn      | method to provide the data by row/column               | function | sample serializer        |
+| headerHeight          | height of the header                                   | int      | 69                       |
+| headerRenderer        | header component to inject                             | string   | DefaultHeaderRenderer    |
+| onFocusedCell         | callback when one cell is focused                      | function |                          |
+| onFocusedColumn       | callback when one column is focused                    | function |                          |
+| pinHeaderRenderer     | pinHeader component to inject                          | string   | DefaultPinHeaderRenderer |
+| data                  | data to set into the datagrid                          | Array    |                          |
+| rowSelection          | set the type of selection (single or multiple)         | string   | single                   |
+| rowHeight             | height of the row                                      | int      | 39                       |
+| theme                 | style css                                              | string   |                          |
 
 ### Avro renderers
 
