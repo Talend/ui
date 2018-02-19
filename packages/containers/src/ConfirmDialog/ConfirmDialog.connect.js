@@ -11,10 +11,11 @@ export function mapStateToProps(state, props, cmfProps) {
 	};
 	const validateAction = cmfProps.state ? cmfProps.state.getIn(['validateAction']) : undefined;
 	const cancelAction = cmfProps.state ? cmfProps.state.getIn(['cancelAction']) : undefined;
+	const model = cmfProps.state ? cmfProps.state.getIn(['model']) : undefined;
 
 	return {
-		validateAction: getActionsProps(context, validateAction, props.model),
-		cancelAction: getActionsProps(context, cancelAction, props.model),
+		validateAction: getActionsProps(context, validateAction, model),
+		cancelAction: getActionsProps(context, cancelAction, model),
 	};
 }
 
