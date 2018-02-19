@@ -22,7 +22,7 @@ class ListViewWidget extends React.Component {
 			{
 				id: `${props.id}-search`,
 				icon: 'talend-search',
-				label: t('LISTVIEW_WIDGET_SEARCH', 'Search for specific values'),
+				label: t('LISTVIEW_WIDGET_SEARCH', { defaultValue: 'Search for specific values' }),
 				onClick: this.switchToSearchMode.bind(this),
 			},
 		];
@@ -30,7 +30,7 @@ class ListViewWidget extends React.Component {
 			{
 				id: 'abort',
 				icon: 'talend-cross',
-				label: t('LISTVIEW_WIDGET_ABORT', 'Abort'),
+				label: t('LISTVIEW_WIDGET_ABORT', { defaultValue: 'Abort' }),
 				onClick: this.switchToDefaultMode.bind(this),
 			},
 		];
