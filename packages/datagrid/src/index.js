@@ -1,3 +1,3 @@
-import DataGrid from './containers/datagrid.connect';
+import DataGrid from './containers';
 
-export default { DataGrid };
+export default DataGrid;

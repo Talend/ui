@@ -14,7 +14,7 @@ describe('#ConnectedDataGrid', () => {
 });
 
 describe('#ConnectedDataGrid.mapStateToProps', () => {
-	it('should render a connected ConnectedDataGrid', () => {
+	it('should map state to the props', () => {
 		const collection = {};
 		const getIn = jest.fn(() => collection);
 		const state = {
@@ -36,7 +36,7 @@ describe('#ConnectedDataGrid.mapStateToProps', () => {
 });
 
 describe('#ConnectedDataGrid.mergeProps', () => {
-	it('should render a connected ConnectedDataGrid', () => {
+	it('should merge the props and clean the props', () => {
 		const props = mergeProps(
 			{},
 			{

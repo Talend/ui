@@ -35,7 +35,6 @@ describe('#DataGridContainer events', () => {
 			.onFocusedCell(event);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(dispatchActionCreator).toHaveBeenCalledWith(
 			focusCellActionCreator,
 			{},
@@ -84,7 +83,6 @@ describe('#DataGridContainer events', () => {
 			.onFocusedColumn(event);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(dispatchActionCreator).toHaveBeenCalledWith(
 			focusColumnActionCreator,
 			{},

@@ -2,7 +2,7 @@ import React from 'react';
 import { IconsProvider } from '@talend/react-components';
 import { api } from '@talend/react-cmf';
 
-import DataGrid from '../src/containers/';
+import DataGrid from '../src/';
 import register from '../src/components/register';
 
 function registerCustomizedComponents() {
