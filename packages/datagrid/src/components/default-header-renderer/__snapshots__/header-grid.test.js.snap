@@ -5,27 +5,23 @@ exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`
   className="td-header-component td-header-component"
 >
   <button
-    className="header"
+    className="td-header td-header"
     onClick={[Function]}
   >
     <div
-      className="header-first-line"
+      className="td-header-first-line td-header-first-line"
     >
       <span
-        className="header-column-label"
+        className="td-header-column-label td-header-column-label"
         title="Title"
       >
         Title
       </span>
-      <span
-        className="header-other-actions"
-      >
+      <span>
         ...
       </span>
     </div>
-    <div
-      className="header-second-line"
-    >
+    <div>
       string
     </div>
   </button>
