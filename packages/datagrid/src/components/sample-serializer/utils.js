@@ -1,3 +1,4 @@
+import get from 'lodash/get';
 import { NAMESPACE_INDEX, NAMESPACE_SAMPLE, COLUMN_INDEX, TALEND_QUALITY_KEY } from '../constants/';
 
 export function getColumnDefsFromSample(sample) {
@@ -5,7 +6,7 @@ export function getColumnDefsFromSample(sample) {
 		return [];
 	}
 
-	return sample.schema.fields.map(avroField => ({
+	return get(sample, 'schema.fields', []).map(avroField => ({
 		headerName: avroField.doc,
 		type: avroField.type.dqType || avroField.type.type,
 		field: `${NAMESPACE_SAMPLE}${avroField.name}`,
@@ -19,7 +20,7 @@ export function getRowDataFromSample(sample) {
 		return [];
 	}
 
-	return sample.data.map((row, index) =>
+	return get(sample, 'data', []).map((row, index) =>
 		Object.keys(row.value).reduce(
 			(rowData, key) => ({
 				...rowData,

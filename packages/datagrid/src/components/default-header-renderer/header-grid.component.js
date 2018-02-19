@@ -16,14 +16,20 @@ export const HEADER_RENDERER_COMPONENT = 'headerGrid';
 export default function DefaultHeaderRenderer({ column, displayName, onFocusedColumn }) {
 	return (
 		<div className={classNames(theme['td-header-component'], 'td-header-component')}>
-			<button className={classNames(theme.header)} onClick={() => onFocusedColumn(column.colId)}>
-				<div className={classNames(theme['header-first-line'])}>
-					<span className={classNames(theme['header-column-label'])} title={displayName}>
+			<button
+				className={classNames(theme['td-header'], 'td-header')}
+				onClick={() => onFocusedColumn(column.colId)}
+			>
+				<div className={classNames(theme['td-header-first-line'], 'td-header-first-line')}>
+					<span
+						className={classNames(theme['td-header-column-label'], 'td-header-column-label')}
+						title={displayName}
+					>
 						{displayName}
 					</span>
-					<span className={classNames(theme['header-other-actions'])}>...</span>
+					<span>...</span>
 				</div>
-				<div className={classNames(theme['header-second-line'])}>{column.colDef.type}</div>
+				<div>{column.colDef.type}</div>
 			</button>
 			{column.colDef[TALEND_QUALITY_KEY] && (
 				<QualityBar
