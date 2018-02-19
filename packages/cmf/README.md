@@ -43,7 +43,7 @@ The action may change the application state, which in turn may change some compo
 
 ### Components
 
-An HTML page is composed by a tree structure called the DOM. In our case React manage that DOM
+An HTML page is composed by a tree structure called the DOM. In our case React manages that DOM
 using a tree of `components`.
 
 `Components` in the context of CMF are React components.
