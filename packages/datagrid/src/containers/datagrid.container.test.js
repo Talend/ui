@@ -5,11 +5,11 @@ import DataGridContainer from './datagrid.container';
 
 describe('#DataGridContainer', () => {
 	it('should render DataGridContainer', () => {
-		const sourceData = {};
-		const wrapper = shallow(<DataGridContainer sourceData={sourceData} />);
+		const data = {};
+		const wrapper = shallow(<DataGridContainer data={data} />);
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.find('DataGrid').props().data).toBe(sourceData);
+		expect(wrapper.find('DataGrid').props().data).toBe(data);
 		expect(DataGridContainer.displayName).toBe('Container(DataGrid)');
 	});
 });
@@ -23,11 +23,9 @@ describe('#DataGridContainer events', () => {
 
 		const wrapper = shallow(
 			<DataGridContainer
-				actionCreators={{
-					onFocusedCell: focusCellActionCreator,
-				}}
 				dispatchActionCreator={dispatchActionCreator}
 				onFocusedCell={onFocusedCell}
+				onFocusedCellActionCreator={focusCellActionCreator}
 			/>,
 		);
 
@@ -43,9 +41,9 @@ describe('#DataGridContainer events', () => {
 			{},
 			{
 				props: {
-					actionCreators: { onFocusedCell: focusCellActionCreator },
 					dispatchActionCreator,
 					onFocusedCell,
+					onFocusedCellActionCreator: focusCellActionCreator,
 				},
 			},
 		);
@@ -74,11 +72,9 @@ describe('#DataGridContainer events', () => {
 
 		const wrapper = shallow(
 			<DataGridContainer
-				actionCreators={{
-					onFocusedColumn: focusColumnActionCreator,
-				}}
 				dispatchActionCreator={dispatchActionCreator}
 				onFocusedColumn={onFocusedColumn}
+				onFocusedColumnActionCreator={focusColumnActionCreator}
 			/>,
 		);
 
@@ -94,9 +90,9 @@ describe('#DataGridContainer events', () => {
 			{},
 			{
 				props: {
-					actionCreators: { onFocusedColumn: focusColumnActionCreator },
 					dispatchActionCreator,
 					onFocusedColumn,
+					onFocusedColumnActionCreator: focusColumnActionCreator,
 				},
 			},
 		);

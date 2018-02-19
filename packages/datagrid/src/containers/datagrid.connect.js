@@ -5,7 +5,7 @@ import Container from './datagrid.container';
 export function mapStateToProps(state, ownProps) {
 	const props = {};
 	if (ownProps.source) {
-		props.sourceData = state.cmf.collections.getIn(ownProps.source.split('.'));
+		props.data = state.cmf.collections.getIn(ownProps.source.split('.'));
 	}
 
 	return props;

@@ -18,8 +18,8 @@ describe('#DefaultBooleanCellRenderer', () => {
 			<QualityIndicator value={TALEND_QUALITY_INVALID_KEY} tooltip="Incorrect value" />,
 		);
 		// then
-		expect(wrapper.find('.td-cell-quality-indicator-invalid').length).toBe(1);
-		expect(wrapper.find('.td-cell-quality-indicator-empty').length).toBe(0);
+		expect(wrapper.find('.theme-td-cell-quality-indicator-invalid').length).toBe(1);
+		expect(wrapper.find('.theme-td-cell-quality-indicator-empty').length).toBe(0);
 	});
 
 	it('should handle when TALEND_QUALITY_EMPTY_KEY value', () => {
@@ -27,7 +27,7 @@ describe('#DefaultBooleanCellRenderer', () => {
 			<QualityIndicator value={TALEND_QUALITY_EMPTY_KEY} tooltip="Empty value" />,
 		);
 		// then
-		expect(wrapper.find('.td-cell-quality-indicator-invalid').length).toBe(0);
-		expect(wrapper.find('.td-cell-quality-indicator-empty').length).toBe(1);
+		expect(wrapper.find('.theme-td-cell-quality-indicator-invalid').length).toBe(0);
+		expect(wrapper.find('.theme-td-cell-quality-indicator-empty').length).toBe(1);
 	});
 });

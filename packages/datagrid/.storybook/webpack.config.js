@@ -8,14 +8,4 @@
 const path = require('path');
 const commonConfiguration = require('../../../.storybook/webpack.config');
 
-module.exports = storybookBaseConfig => {
-	const storybookConfig = commonConfiguration(storybookBaseConfig);
-
-	storybookConfig.resolve = {
-		alias: {
-			'react-cmf': path.join(__dirname, '../node_modules/@talend/react-cmf'),
-		},
-	};
-
-	return storybookConfig;
-};
+module.exports = storybookBaseConfig => commonConfiguration(storybookBaseConfig);

@@ -2,7 +2,7 @@
 
 exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`] = `
 <div
-  className="td-pin-header td-pin-header"
+  className="theme-td-pin-header td-pin-header"
 >
   <Icon
     name="talend-burger"

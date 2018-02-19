@@ -2,10 +2,10 @@
 
 exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`] = `
 <div
-  className="td-quality-bar td-quality-bar"
+  className="theme-td-quality-bar td-quality-bar"
 >
   <span
-    className="td-quality-bar-invalid td-quality-bar-invalid"
+    className="theme-td-quality-bar-invalid td-quality-bar-invalid"
     style={
       Object {
         "width": "33%",
@@ -14,7 +14,7 @@ exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`
     title="33%"
   />
   <span
-    className="td-quality-bar-empty td-quality-bar-empty"
+    className="theme-td-quality-bar-empty td-quality-bar-empty"
     style={
       Object {
         "width": "33%",
@@ -23,7 +23,7 @@ exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`
     title="33%"
   />
   <span
-    className="td-quality-bar-valid td-quality-bar-valid"
+    className="theme-td-quality-bar-valid td-quality-bar-valid"
     style={
       Object {
         "width": "34%",

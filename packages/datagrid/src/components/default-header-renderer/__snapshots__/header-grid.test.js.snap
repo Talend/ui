@@ -2,17 +2,17 @@
 
 exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`] = `
 <div
-  className="td-header-component td-header-component"
+  className="theme-td-header-component td-header-component"
 >
   <button
-    className="td-header-button td-header-button"
+    className="theme-td-header td-header"
     onClick={[Function]}
   >
     <div
-      className="td-header-first-line td-header-first-line"
+      className="theme-td-header-first-line td-header-first-line"
     >
       <span
-        className="td-header-column-label td-header-column-label"
+        className="theme-td-header-column-label td-header-column-label"
         title="Title"
       >
         Title

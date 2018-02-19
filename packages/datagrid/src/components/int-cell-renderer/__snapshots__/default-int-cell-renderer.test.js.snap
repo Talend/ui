@@ -2,7 +2,7 @@
 
 exports[`#DefaultDateCellRenderer should render DefaultDateCellRenderer 1`] = `
 <div
-  className="td-cell-int td-cell-int"
+  className="theme-td-cell-int td-cell-int"
 >
   42.42
 </div>

@@ -30,7 +30,7 @@ describe('#ConnectedDataGrid.mapStateToProps', () => {
 		// then
 		expect(getIn).toHaveBeenCalledWith(['a', 'b']);
 		expect(props).toEqual({
-			sourceData: collection,
+			data: collection,
 		});
 	});
 });

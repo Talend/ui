@@ -2,11 +2,6 @@
 
 exports[`#DataGridContainer events should trigger onFocusedCell 1`] = `
 <DataGrid
-  actionCreators={
-    Object {
-      "onFocusedCell": "focus:cell",
-    }
-  }
   cellRenderer="DefaultCellRenderer"
   data={undefined}
   dispatchActionCreator={[Function]}
@@ -17,6 +12,7 @@ exports[`#DataGridContainer events should trigger onFocusedCell 1`] = `
   headerHeight={69}
   headerRenderer="DefaultHeaderRenderer"
   onFocusedCell={[Function]}
+  onFocusedCellActionCreator="focus:cell"
   onFocusedColumn={[Function]}
   pinHeaderRenderer="DefaultPinHeaderRenderer"
   rowHeight={39}
@@ -26,11 +22,6 @@ exports[`#DataGridContainer events should trigger onFocusedCell 1`] = `
 
 exports[`#DataGridContainer events should trigger onFocusedColum 1`] = `
 <DataGrid
-  actionCreators={
-    Object {
-      "onFocusedColumn": "focus:column",
-    }
-  }
   cellRenderer="DefaultCellRenderer"
   data={undefined}
   dispatchActionCreator={[Function]}
@@ -42,6 +33,7 @@ exports[`#DataGridContainer events should trigger onFocusedColum 1`] = `
   headerRenderer="DefaultHeaderRenderer"
   onFocusedCell={[Function]}
   onFocusedColumn={[Function]}
+  onFocusedColumnActionCreator="focus:column"
   pinHeaderRenderer="DefaultPinHeaderRenderer"
   rowHeight={39}
   rowSelection="single"
@@ -63,6 +55,5 @@ exports[`#DataGridContainer should render DataGridContainer 1`] = `
   pinHeaderRenderer="DefaultPinHeaderRenderer"
   rowHeight={39}
   rowSelection="single"
-  sourceData={Object {}}
 />
 `;

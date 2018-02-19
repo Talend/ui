@@ -94,19 +94,15 @@ function loadStories() {
 		}
 
 		state.cmf.settings.props['Container(DataGrid)#default'] = {
-			actionCreators: {
-				onFocusedCell: 'datagrid:focus-cell',
-				onFocusedColumn: 'datagrid:focus-column',
-			},
+			onFocusedCellActionCreator: 'datagrid:focus-cell',
+			onFocusedColumnActionCreator: 'datagrid:focus-column',
 			cellRenderer: 'DefaultCellRenderer',
 			source: 'sample',
 		};
 
 		state.cmf.settings.props['Container(DataGrid)#CustomizedDatagrid'] = {
-			actionCreators: {
-				onFocusedCell: 'datagrid:focus-cell',
-				onFocusedColumn: 'datagrid:focus-column',
-			},
+			onFocusedCellActionCreator: 'datagrid:focus-cell',
+			onFocusedColumnActionCreator: 'datagrid:focus-column',
 			cellRenderer: 'CustomCellRenderer',
 			headerRenderer: 'CustomHeaderRenderer',
 			pinHeaderRenderer: 'CustomPinHeaderRenderer',
@@ -119,20 +115,16 @@ function loadStories() {
 				dateCellRenderer: 'CustomDateCellRenderer',
 				booleanCellRenderer: 'CustomBooleanCellRenderer',
 			},
-			actionCreators: {
-				onFocusedCell: 'datagrid:focus-cell',
-				onFocusedColumn: 'datagrid:focus-column',
-			},
+			onFocusedCellActionCreator: 'datagrid:focus-cell',
+			onFocusedColumnActionCreator: 'datagrid:focus-column',
 			headerRenderer: 'CustomHeaderRenderer',
 			pinHeaderRenderer: 'CustomPinHeaderRenderer',
 			source: 'sample',
 		};
 
 		state.cmf.settings.props['Container(DataGrid)#HightLightRows'] = {
-			actionCreators: {
-				onFocusedCell: 'datagrid:focus-cell',
-				onFocusedColumn: 'datagrid:focus-column',
-			},
+			onFocusedCellActionCreator: 'datagrid:focus-cell',
+			onFocusedColumnActionCreator: 'datagrid:focus-column',
 			cellRenderer: 'DefaultCellRenderer',
 			rowSelection: 'multiple',
 			source: 'sample',

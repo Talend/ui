@@ -125,6 +125,13 @@ export default class DataGrid extends React.Component {
 	}
 
 	removeFocusColumn() {
+		/*
+			This is a bad pratice to manipulate straight the DOM.
+			But we can't the choice if we want hightlight the column.
+			There is a issue on ag-grid to request a feature like this.
+			https://github.com/ag-grid/ag-grid/issues/2216
+			When Ag-grid implement this feature, we can't remove the below code
+		*/
 		// eslint-disable-next-line react/no-find-dom-node
 		const focusedCells = ReactDOM.findDOMNode(this.gridElement).querySelectorAll(
 			`.${FOCUSED_COLUMN_CLASS_NAME}`,

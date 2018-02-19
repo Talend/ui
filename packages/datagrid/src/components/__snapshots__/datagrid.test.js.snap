@@ -2,7 +2,7 @@
 
 exports[`#DataGrid should render DefaultDateCellRenderer 1`] = `
 <div
-  className="td-grid undefined td-grid"
+  className="theme-td-grid theme-undefined td-grid"
 >
   <AgGridReact
     columnDefs={Array []}
@@ -30,7 +30,7 @@ exports[`#DataGrid should render DefaultDateCellRenderer 1`] = `
 
 exports[`#DataGrid should render DefaultDateCellRenderer with columnsDefs and rowData 1`] = `
 <div
-  className="td-grid undefined td-grid"
+  className="theme-td-grid theme-undefined td-grid"
 >
   <AgGridReact
     columnDefs={
