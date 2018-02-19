@@ -40,15 +40,6 @@ describe('CellDatetime', () => {
 		const expectedStrDate = `2016-09-22 ${isOneDigitHours ? 0 : ''}${11 +
 			timezoneOffset / 60}:00:00`;
 		const computedStrOffset = computeValue(cellDataWithOffset, columnData);
-		const computedStr = computeValue(cellData, columnData);
-
-		console.log('cellData', cellData);
-		console.log('offset en minute', timezoneOffset);
-		console.log('cellDataWithOffset', cellDataWithOffset);
-		console.log('expected restult', expectedStrDate);
-		console.log('computed str offset', computedStrOffset);
-		console.log('computed str without offset', computedStr);
-
 		// then
 		expect(computedStrOffset).toEqual(expectedStrDate);
 	});
