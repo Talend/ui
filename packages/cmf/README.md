@@ -103,8 +103,7 @@ You can dispatch some actionCreators in `api.actions.collections` for that.
 
 ## Configuration (settings)
 
-We don't want to rewrite a bunch of app code to change a label of a button 
-?
+We don't want to rewrite a bunch of app code to change a label of a button?
 With CMF you can describe all your app just using json.
 
 The json looks like this:
