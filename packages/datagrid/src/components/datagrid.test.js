@@ -226,7 +226,6 @@ describe('#Datagrid method', () => {
 		const instance = wrapper.instance();
 		instance.setGridElement(gridElement);
 		instance.currentColId = `${NAMESPACE_SAMPLE}colId`;
-		instance.removeFocusColumn = jest.fn();
 
 		// when
 		wrapper.instance().updateStyleFocusColumn();
@@ -235,7 +234,6 @@ describe('#Datagrid method', () => {
 		expect(gridElement.outerHTML).toBe(
 			`<div class="grid-element"><div col-id="${NAMESPACE_SAMPLE}colId" class="column-focus"></div><div col-id="${NAMESPACE_SAMPLE}colId" class="column-focus"></div><div></div></div>`,
 		);
-		expect(instance.removeFocusColumn).toHaveBeenCalled();
 	});
 
 	it('should not set the focus on the column when any defined column', () => {
@@ -246,7 +244,6 @@ describe('#Datagrid method', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		const instance = wrapper.instance();
 		instance.setGridElement(gridElement);
-		instance.removeFocusColumn = jest.fn();
 
 		// when
 		wrapper.instance().updateStyleFocusColumn();
@@ -255,7 +252,6 @@ describe('#Datagrid method', () => {
 		expect(gridElement.outerHTML).toBe(
 			`<div class="grid-element"><div col-id="${NAMESPACE_SAMPLE}colId"></div><div col-id="${NAMESPACE_SAMPLE}colId"></div><div></div></div>`,
 		);
-		expect(instance.removeFocusColumn).toHaveBeenCalled();
 	});
 
 	it('should not set the focus on the column when the selected column is an pinned column', () => {
@@ -267,7 +263,6 @@ describe('#Datagrid method', () => {
 		const instance = wrapper.instance();
 		instance.setGridElement(gridElement);
 		instance.currentColId = `${NAMESPACE_INDEX}index`;
-		instance.removeFocusColumn = jest.fn();
 
 		// when
 		wrapper.instance().updateStyleFocusColumn();
@@ -276,7 +271,6 @@ describe('#Datagrid method', () => {
 		expect(gridElement.outerHTML).toBe(
 			`<div class="grid-element"><div col-id="${NAMESPACE_SAMPLE}colId"></div><div col-id="${NAMESPACE_SAMPLE}colId"></div><div></div></div>`,
 		);
-		expect(instance.removeFocusColumn).toHaveBeenCalled();
 	});
 
 	it('should manage the cells with keyboard', () => {
@@ -338,7 +332,7 @@ describe('#Datagrid method', () => {
 		});
 
 		expect(nextFocusedCell).toBe(null);
-		expect(setSelected).not.toHaveBeenCalledWith();
+		expect(setSelected).not.toHaveBeenCalled();
 	});
 
 	it('should not manage the cells with keyboard if any api', () => {
@@ -364,7 +358,7 @@ describe('#Datagrid method', () => {
 		});
 
 		expect(nextFocusedCell).toBe(nextCellDef);
-		expect(setSelected).not.toHaveBeenCalledWith();
+		expect(setSelected).not.toHaveBeenCalled();
 	});
 
 	it('should focus a column and the first cell', () => {
@@ -392,7 +386,7 @@ describe('#Datagrid method', () => {
 		instance.onFocusedColumn(currentColId);
 
 		expect(instance.setCurrentFocusedColumn).toHaveBeenCalledWith(currentColId);
-		expect(instance.updateStyleFocusColumn).toHaveBeenCalledWith();
+		expect(instance.updateStyleFocusColumn).toHaveBeenCalled();
 		expect(setFocusedCell).toHaveBeenCalledWith(0, currentColId);
 		expect(onFocusedColumn).toHaveBeenCalledWith(currentColId);
 	});
@@ -425,12 +419,38 @@ describe('#Datagrid method', () => {
 		instance.onFocusedColumn(currentColId);
 
 		expect(instance.setCurrentFocusedColumn).toHaveBeenCalledWith(currentColId);
-		expect(instance.updateStyleFocusColumn).toHaveBeenCalledWith();
+		expect(instance.updateStyleFocusColumn).toHaveBeenCalled();
 		expect(setFocusedCell).toHaveBeenCalledWith(rowIndex, currentColId);
 		expect(onFocusedColumn).toHaveBeenCalledWith(currentColId);
 	});
 
-	it('should focus a column when a cell is focused', () => {
+	it('should focus a column when an another column is focused', () => {
+		const currentColId = 'colId';
+		const focusedColId = 'colId2';
+		const column = {
+			colId: focusedColId,
+			pinned: false,
+		};
+		const onFocusedCell = jest.fn();
+		const wrapper = shallow(<DataGrid getComponent={getComponent} onFocusedCell={onFocusedCell} />);
+		const instance = wrapper.instance();
+		instance.setCurrentFocusedColumn(currentColId);
+
+		instance.setCurrentFocusedColumn = jest.fn();
+		instance.removeFocusColumn = jest.fn();
+		instance.updateStyleFocusColumn = jest.fn();
+
+		instance.onFocusedCell({
+			column,
+		});
+
+		expect(instance.setCurrentFocusedColumn).toHaveBeenCalledWith(focusedColId);
+		expect(instance.updateStyleFocusColumn).toHaveBeenCalled();
+		expect(instance.removeFocusColumn).toHaveBeenCalled();
+		expect(onFocusedCell).toHaveBeenCalledWith({ column });
+	});
+
+	it('should focus a column when the same column is focused without remove the previous style', () => {
 		const currentColId = 'colId';
 		const column = {
 			colId: currentColId,
@@ -439,6 +459,7 @@ describe('#Datagrid method', () => {
 		const onFocusedCell = jest.fn();
 		const wrapper = shallow(<DataGrid getComponent={getComponent} onFocusedCell={onFocusedCell} />);
 		const instance = wrapper.instance();
+		instance.setCurrentFocusedColumn(currentColId);
 
 		instance.setCurrentFocusedColumn = jest.fn();
 		instance.removeFocusColumn = jest.fn();
@@ -449,8 +470,8 @@ describe('#Datagrid method', () => {
 		});
 
 		expect(instance.setCurrentFocusedColumn).toHaveBeenCalledWith(currentColId);
-		expect(instance.updateStyleFocusColumn).toHaveBeenCalledWith();
-		expect(instance.removeFocusColumn).not.toHaveBeenCalledWith();
+		expect(instance.updateStyleFocusColumn).toHaveBeenCalled();
+		expect(instance.removeFocusColumn).not.toHaveBeenCalled();
 		expect(onFocusedCell).toHaveBeenCalledWith({ column });
 	});
 
@@ -468,9 +489,9 @@ describe('#Datagrid method', () => {
 			column,
 		});
 
-		expect(instance.setCurrentFocusedColumn).not.toHaveBeenCalledWith();
-		expect(instance.updateStyleFocusColumn).not.toHaveBeenCalledWith();
-		expect(instance.removeFocusColumn).not.toHaveBeenCalledWith();
+		expect(instance.setCurrentFocusedColumn).not.toHaveBeenCalled();
+		expect(instance.updateStyleFocusColumn).not.toHaveBeenCalled();
+		expect(instance.removeFocusColumn).not.toHaveBeenCalled();
 		expect(onFocusedCell).not.toHaveBeenCalledWith({ column });
 	});
 
@@ -493,8 +514,8 @@ describe('#Datagrid method', () => {
 		});
 
 		expect(instance.setCurrentFocusedColumn).toHaveBeenCalledWith(currentColId);
-		expect(instance.updateStyleFocusColumn).not.toHaveBeenCalledWith();
-		expect(instance.removeFocusColumn).toHaveBeenCalledWith();
+		expect(instance.updateStyleFocusColumn).not.toHaveBeenCalled();
+		expect(instance.removeFocusColumn).toHaveBeenCalled();
 		expect(onFocusedCell).not.toHaveBeenCalledWith({ column });
 	});
 });

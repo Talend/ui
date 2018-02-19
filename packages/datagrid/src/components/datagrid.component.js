@@ -14,6 +14,7 @@ import { NAMESPACE_INDEX } from './constants';
 import sampleSerializer from './sample-serializer';
 import theme from './datagrid.scss';
 
+const FOCUSED_COLUMN_CLASS_NAME = 'column-focus';
 const AG_GRID_CUSTOM_HEADER_KEY = 'headerComponent';
 const AG_GRID_CUSTOM_CELL_KEY = 'cellRenderer';
 const AG_GRID_DEFAULT_ROW_SELECTION = 'single';
@@ -79,10 +80,13 @@ export default class DataGrid extends React.Component {
 			return;
 		}
 
+		if (column.colId !== this.currentColId || column.pinned) {
+			this.removeFocusColumn();
+		}
+
 		this.setCurrentFocusedColumn(column.colId);
 
 		if (column.pinned) {
-			this.removeFocusColumn();
 			return;
 		}
 
@@ -116,25 +120,28 @@ export default class DataGrid extends React.Component {
 	}
 
 	removeFocusColumn() {
-		const focusedCells = ReactDOM.findDOMNode(this.gridElement).querySelectorAll('.column-focus');
+		const focusedCells = ReactDOM.findDOMNode(this.gridElement).querySelectorAll(
+			`.${FOCUSED_COLUMN_CLASS_NAME}`,
+		);
+
 		for (const focusedCell of focusedCells) {
-			focusedCell.classList.remove('column-focus');
+			focusedCell.classList.remove(FOCUSED_COLUMN_CLASS_NAME);
 		}
 	}
 
 	updateStyleFocusColumn() {
 		const colId = this.currentColId;
-		this.removeFocusColumn();
 
 		if (!colId || colId.includes(NAMESPACE_INDEX)) {
 			return;
 		}
 
 		const columnsCells = ReactDOM.findDOMNode(this.gridElement).querySelectorAll(
-			`[col-id="${colId}"]`,
+			`[col-id="${colId}"]:not(.${FOCUSED_COLUMN_CLASS_NAME})`,
 		);
+
 		for (const columnCell of columnsCells) {
-			columnCell.classList.add('column-focus');
+			columnCell.classList.add(FOCUSED_COLUMN_CLASS_NAME);
 		}
 	}
 
