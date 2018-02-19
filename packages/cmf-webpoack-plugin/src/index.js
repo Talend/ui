@@ -12,15 +12,14 @@ function ReactCMFWebpackPlugin(options) {
 	this.options = options;
 }
 
-ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
+ReactCMFWebpackPlugin.prototype.apply = function(compiler) {
 	const {
 		dev, // dev sources instead of sources
 		quiet, // no output
 		recursive, // recursive search for json files
 	} = this.options;
 
-	compiler.plugin('emit', function (compilation, callback) {
-
+	compiler.plugin('emit', function(compilation, callback) {
 		function findJson(fileOrFolder, recursive) {
 			let jsonFiles = [];
 			if (fileOrFolder.endsWith('.json')) {
@@ -93,9 +92,8 @@ ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 		log('\nExtracting configuration from : \n');
 
 		const jsonFiles = sources.reduce(
-			(acc, source) =>
-				acc.concat([...findJson(pathLib.join(process.cwd(), source), recursive)]),
-			[]
+			(acc, source) => acc.concat([...findJson(pathLib.join(process.cwd(), source), recursive)]),
+			[],
 		);
 
 		log(jsonFiles);
@@ -104,7 +102,7 @@ ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 
 		const configurations = jsonFiles.map(path => require(`${path}`)); // eslint-disable-line global-require
 
-		const settings = deepmerge.all(configurations, {arrayMerge: concatMerge});
+		const settings = deepmerge.all(configurations, { arrayMerge: concatMerge });
 
 		if (settings.overrideRoutes) {
 			Object.keys(settings.overrideRoutes).forEach(route => {
