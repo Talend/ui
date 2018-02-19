@@ -147,7 +147,6 @@
     "ag-grid": "^16.0.0",
     "ag-grid-react": "^16.0.0",
     "react-dom": "^15.6.2",
-    "react-dom-factories": "^1.0.2",
-    "react-immutable-proptypes": "2.1.0"
+    "react-dom-factories": "^1.0.2"
   }
 }

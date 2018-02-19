@@ -1,45 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#DataGridContainer events should trigger onFocusedCell 1`] = `
-<DataGrid
-  cellRenderer="DefaultCellRenderer"
-  data={undefined}
-  dispatchActionCreator={[Function]}
-  getColumnDefsFn={[Function]}
-  getPinnedColumnDefsFn={[Function]}
-  getRowDataFn={[Function]}
-  getValueGetterFn={[Function]}
-  headerHeight={69}
-  headerRenderer="DefaultHeaderRenderer"
-  onFocusedCell={[Function]}
-  onFocusedCellActionCreator="focus:cell"
-  onFocusedColumn={[Function]}
-  pinHeaderRenderer="DefaultPinHeaderRenderer"
-  rowHeight={39}
-  rowSelection="single"
-/>
-`;
-
-exports[`#DataGridContainer events should trigger onFocusedColum 1`] = `
-<DataGrid
-  cellRenderer="DefaultCellRenderer"
-  data={undefined}
-  dispatchActionCreator={[Function]}
-  getColumnDefsFn={[Function]}
-  getPinnedColumnDefsFn={[Function]}
-  getRowDataFn={[Function]}
-  getValueGetterFn={[Function]}
-  headerHeight={69}
-  headerRenderer="DefaultHeaderRenderer"
-  onFocusedCell={[Function]}
-  onFocusedColumn={[Function]}
-  onFocusedColumnActionCreator="focus:column"
-  pinHeaderRenderer="DefaultPinHeaderRenderer"
-  rowHeight={39}
-  rowSelection="single"
-/>
-`;
-
 exports[`#DataGridContainer should render DataGridContainer 1`] = `
 <DataGrid
   cellRenderer="DefaultCellRenderer"

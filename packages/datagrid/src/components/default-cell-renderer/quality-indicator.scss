@@ -1,15 +1,17 @@
+$td-quality-bar-indicator-width: 0.2rem !default;
+
 .td-cell-quality-indicator {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 0.2rem;
+	width: $td-quality-bar-indicator-width;
 	height: 100%;
 
 	&-invalid {
-		background-color: $lightning-yellow;
+		background-color: $td-quality-bar-invalid-background-color;
 	}
 
 	&-empty {
-		background-color: $silver-chalice;
+		background-color: $td-quality-bar-empty-background-color;
 	}
 }

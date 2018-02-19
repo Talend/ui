@@ -11,14 +11,14 @@
 	}
 
 	&-invalid {
-		background-color: $lightning-yellow;
+		background-color: $td-quality-bar-invalid-background-color;
 	}
 
 	&-valid {
-		background-color: $rio-grande;
+		background-color: $td-quality-bar-valid-background-color;
 	}
 
 	&-empty {
-		background-color: $silver-chalice;
+		background-color: $td-quality-bar-empty-background-color;
 	}
 }
