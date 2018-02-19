@@ -267,8 +267,8 @@ Given the upper `MyComponent` example you can use expression to fill the `title`
 }
 ```
 
-So adding `Expression` to a prop name of a component is resolve by cmfConnect
-during the mapStateToProps evaluation. So the title props will be resolved !
+So adding `Expression` to a prop name of a component is resolved by `cmfConnect`
+during the `mapStateToProps` evaluation. So the `title` props will be resolved!
 
 [See API](src/expression.md)
 
