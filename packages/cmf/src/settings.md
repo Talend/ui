@@ -130,3 +130,47 @@ CMF uses [React router](https://github.com/ReactTraining/react-router). The defi
   }
 }
 ```
+
+You can use onEnter/onLeave lifecycle hooks. To do that, you need to:
+* register a route function in CMF registry
+* add the route function id in your route settings
+
+```javascript
+// configure.js
+import { api } from '@talend/react-cmf';
+import onEnter from './routeHooks.js';
+
+const registerRouteFunction = api.route.registerFunction;
+registerRouteFunction('my:route:onEnter', onEnterFetchThings);
+```
+
+```json
+// settings.json
+{
+  "routes": {
+    "path": "/",
+    "childRoutes": [
+      {
+        "path": "datasets",
+        "component": "HomeListView",
+        "view": "datasets",
+        "onEnter": "my:route:onEnter"
+      },
+    ]
+  }
+}
+```
+
+```javascript
+// routeHooks.js
+export default function onEnterFetchThings({ router, dispatch }) {
+	const {
+		nextState, // react-router next state
+		replace, // react-router replace
+	} = router;
+	dispatch({ // redux dispatch
+		type: 'FETCH_THINGS',
+		folderId: nextState.params.thingId,
+	});
+}
+```
