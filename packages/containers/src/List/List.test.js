@@ -1,5 +1,5 @@
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
 import { Map, fromJS } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 
