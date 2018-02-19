@@ -5,7 +5,7 @@ exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`
   className="td-header-component td-header-component"
 >
   <button
-    className="td-header td-header"
+    className="td-header-button td-header-button"
     onClick={[Function]}
   >
     <div

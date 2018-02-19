@@ -17,7 +17,7 @@ export default function DefaultHeaderRenderer({ column, displayName, onFocusedCo
 	return (
 		<div className={classNames(theme['td-header-component'], 'td-header-component')}>
 			<button
-				className={classNames(theme['td-header'], 'td-header')}
+				className={classNames(theme['td-header-button'], 'td-header-button')}
 				onClick={() => onFocusedColumn(column.colId)}
 			>
 				<div className={classNames(theme['td-header-first-line'], 'td-header-first-line')}>
