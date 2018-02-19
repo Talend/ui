@@ -48,7 +48,7 @@ using a tree of `components`.
 
 `Components` in the context of CMF are React components.
 
-But they are not just React component. We give them some super power using [cmfConnect](./src/cmfConnect.md).
+But they are not just React component. We give them some super powers using [cmfConnect](./src/cmfConnect.md).
 
 ```javascript
 import React from 'react';
