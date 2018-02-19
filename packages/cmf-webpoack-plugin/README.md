@@ -42,19 +42,19 @@ $> yarn add @talend/react-cmf-webpack-plugin
 
 You must have a _cmf.json_ file at root folder of your project:
 
-``json
+```json
 {
 	"settings": {
 		"sources": [
-            "src/settings",
-            "node_modules/another_package_name/lib/settings/"
+			"src/settings",
+			"node_modules/another_package_name/lib/settings/"
 		],
 		"sources-dev": [
 			"src/settings",
-            "../../another_package_name/src/settings/"
+			"../../another_package_name/src/settings/"
 		],
 		"destination": "dist/settings.json"
-  }
+	}
 }
 ```
 
