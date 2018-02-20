@@ -179,6 +179,8 @@ Object {
     "titleProps": Object {
       "key": "label",
       "onClick": [Function],
+      "onEditCancel": [Function],
+      "onEditSubmit": [Function],
     },
   },
   "renderers": undefined,
