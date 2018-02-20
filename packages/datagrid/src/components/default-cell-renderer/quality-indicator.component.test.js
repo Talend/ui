@@ -4,8 +4,8 @@ import { shallow } from 'enzyme';
 import QualityIndicator from './quality-indicator.component';
 import { TALEND_QUALITY_EMPTY_KEY, TALEND_QUALITY_INVALID_KEY } from '../constants';
 
-describe('#DefaultBooleanCellRenderer', () => {
-	it('should render DefaultBooleanCellRenderer', () => {
+describe('#QualityIndicator', () => {
+	it('should render QualityIndicator', () => {
 		const wrapper = shallow(
 			<QualityIndicator value={TALEND_QUALITY_INVALID_KEY} tooltip="Incorrect value" />,
 		);
