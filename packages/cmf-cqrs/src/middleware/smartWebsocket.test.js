@@ -187,5 +187,33 @@ describe('smart websocket tests', () => {
 				done();
 			}, 100);
 		});
+
+		it('should trigger a timeout on connect after pingTimeoutDelay', () => {
+			// given
+			jest.useFakeTimers();
+			const url = urlWS;
+			const options = {
+				onMessage: jest.fn(),
+				onOpen: jest.fn(),
+				onClose: jest.fn(),
+				onError: jest.fn(),
+				onPingTimeout: jest.fn(),
+				checkInterval: 70,
+				// < 4ms, that is the delay from ws mock to send
+				// smartWebStocket send a ping on connect, so to test the connect timeout
+				// we need to trigger timeout before any send delay
+				pingTimeoutDelay: 1,
+			};
+			const result = SmartWebsocket(url, options); // eslint-disable-line
+			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
+			expect(options.onPingTimeout).not.toBeCalled();
+
+			// when
+			jest.runTimersToTime(1);
+
+			// then
+			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
+			expect(options.onPingTimeout).toBeCalled();
+		});
 	});
 });

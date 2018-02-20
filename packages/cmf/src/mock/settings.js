@@ -106,6 +106,9 @@ const settings = {
 		},
 	},
 	props: {
+		simple: {
+			name: 'my app',
+		},
 		appmenu: {
 			actions: ['menu:tuto', 'menu:forum', 'menu:settings'],
 			userMenuActions: ['menu:preferences', 'menu:logout'],

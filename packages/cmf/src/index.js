@@ -9,7 +9,6 @@ import ConnectedDispatcher from './Dispatcher';
 import Inject from './Inject.component.js';
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
-import history from './history';
 import store from './store';
 import actions from './actions/';
 import reducers from './reducers/';

@@ -1,5 +1,5 @@
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
 import { Map, fromJS } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 
@@ -38,6 +38,8 @@ const toolbar = {
 
 const actions = {
 	title: 'object:open',
+	editSubmit: 'object:edit:submit',
+	editCancel: 'object:edit:cancel',
 	// left: ['object:add'],
 	// items: ['object:delete'],
 };
@@ -48,7 +50,7 @@ const settings = {
 	actions,
 };
 
-const items = [
+const items = fromJS([
 	{
 		id: 1,
 		name: 'Title with actions',
@@ -76,7 +78,7 @@ const items = [
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT with super long name',
 	},
-];
+]);
 
 describe('Container List', () => {
 	it('should put default props', () => {
@@ -92,6 +94,8 @@ describe('Container List', () => {
 		expect(props.list.columns).toEqual(list.columns);
 		expect(props.list.titleProps.key).toBe('label');
 		expect(typeof props.list.titleProps.onClick).toBe('function');
+		expect(typeof props.list.titleProps.onEditSubmit).toBe('function');
+		expect(typeof props.list.titleProps.onEditCancel).toBe('function');
 		expect(props.toolbar.filter.placeholder).toBe('find an object');
 		expect(typeof props.toolbar.filter.onFilter).toBe('function');
 		expect(typeof props.toolbar.display.onChange).toBe('function');
@@ -147,6 +151,72 @@ describe('Container List', () => {
 		expect(calls[0][3].registry).toBe(context.registry);
 	});
 
+	it('should ontitle edit submit call action creator', () => {
+		const dispatchActionCreator = jest.fn();
+		const actionCreator = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:object:edit:submit': actionCreator,
+			},
+		};
+		const wrapper = shallow(
+			<Container
+				{...cloneDeep(settings)}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+			/>,
+			{
+				lifecycleExperimental: true,
+				context,
+			},
+		);
+		const props = wrapper.props();
+		const onEditSubmit = props.list.titleProps.onEditSubmit;
+		const e = {};
+		const data = { foo: 'bar' };
+
+		onEditSubmit(e, data);
+		const calls = dispatchActionCreator.mock.calls;
+		expect(calls.length).toBe(1);
+		expect(calls[0][0]).toBe('object:edit:submit');
+		expect(calls[0][1]).toBe(e);
+		expect(calls[0][2]).toBe(data);
+		expect(calls[0][3].registry).toBe(context.registry);
+	});
+
+	it('should ontitle edit cancel call action creator', () => {
+		const dispatchActionCreator = jest.fn();
+		const actionCreator = jest.fn();
+		const context = {
+			registry: {
+				'actionCreator:object:edit:cancel': actionCreator,
+			},
+		};
+		const wrapper = shallow(
+			<Container
+				{...cloneDeep(settings)}
+				items={items}
+				dispatchActionCreator={dispatchActionCreator}
+			/>,
+			{
+				lifecycleExperimental: true,
+				context,
+			},
+		);
+		const props = wrapper.props();
+		const onEditCancel = props.list.titleProps.onEditCancel;
+		const e = {};
+		const data = { foo: 'bar' };
+
+		onEditCancel(e, data);
+		const calls = dispatchActionCreator.mock.calls;
+		expect(calls.length).toBe(1);
+		expect(calls[0][0]).toBe('object:edit:cancel');
+		expect(calls[0][1]).toBe(e);
+		expect(calls[0][2]).toBe(data);
+		expect(calls[0][3].registry).toBe(context.registry);
+	});
+
 	it('should not set onclick if no action on title', () => {
 		const dispatchActionCreator = jest.fn();
 		const actionCreator = jest.fn();
@@ -178,6 +248,7 @@ describe('Container List', () => {
 		// given
 		const dispatchActionCreator = jest.fn();
 		const actionCreator = jest.fn();
+		const setState = jest.fn();
 		const context = {
 			registry: {
 				'actionCreator:pagination:change': actionCreator,
@@ -188,6 +259,7 @@ describe('Container List', () => {
 				{...cloneDeep(settings)}
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
+				setState={setState}
 			/>,
 			{
 				lifecycleExperimental: true,
@@ -195,13 +267,13 @@ describe('Container List', () => {
 			},
 		);
 		const props = wrapper.props();
-		const event = {};
-		const data = { foo: 'bar' };
+		const event = null;
+		const data = { startIndex: 1, itemsPerPage: 5 };
 
 		expect(dispatchActionCreator).not.toBeCalled();
 
 		// when
-		props.toolbar.pagination.onChange(event, data);
+		props.toolbar.pagination.onChange(data.startIndex, data.itemsPerPage);
 
 		// then
 		expect(dispatchActionCreator).toBeCalledWith('pagination:change', event, data, context);

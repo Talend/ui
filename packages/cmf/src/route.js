@@ -37,9 +37,10 @@ function registerFunction(id, func) {
 /**
  * return a function from the router configuration
  * @param  {string} id
+ * @param  {object} contextcmf context
  */
-function getFunction(id) {
-	return registry.getFromRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`);
+function getFunction(id, context) {
+	return registry.getFromRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, context);
 }
 
 /**

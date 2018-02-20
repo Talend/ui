@@ -10,8 +10,9 @@ import { getActionsProps } from '../actionAPI';
 export const DEFAULT_STATE = new Map({
 	displayMode: 'table',
 	searchQuery: '',
-	limit: 0,
-	offset: 0,
+	itemsPerPage: 10,
+	startIndex: 1,
+	totalResults: 0,
 	sortOn: 'name',
 	sortAsc: true,
 	filterDocked: true,
@@ -24,7 +25,7 @@ export const DEFAULT_STATE = new Map({
  * @return {Array}          [description]
  */
 export function getItems(context, props) {
-	return props.items.map(item =>
+	return props.items.toJS().map(item =>
 		Object.assign({}, item, {
 			actions: getActionsProps(context, get(props, 'actions.items', []), item),
 		}),
@@ -67,8 +68,8 @@ class List extends React.Component {
 		this.onFilter = this.onFilter.bind(this);
 		this.onToggle = this.onToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
+		this.onChangePage = this.onChangePage.bind(this);
 	}
-
 	onSelectSortBy(event, payload) {
 		this.props.setState({
 			sortOn: payload.field,
@@ -78,6 +79,10 @@ class List extends React.Component {
 
 	onFilter(event, payload) {
 		this.props.setState({ searchQuery: payload });
+	}
+
+	onChangePage(startIndex, itemsPerPage) {
+		this.props.setState({ startIndex, itemsPerPage });
 	}
 
 	onToggle() {
@@ -90,6 +95,12 @@ class List extends React.Component {
 
 	onSelectDisplayMode(event, payload) {
 		this.props.setState({ displayMode: payload });
+	}
+
+	getGenericDispatcher(property) {
+		return (event, data) => {
+			this.props.dispatchActionCreator(property, event, data, this.context);
+		};
 	}
 
 	render() {
@@ -106,6 +117,7 @@ class List extends React.Component {
 					isDescending: !state.sortAsc,
 					onChange: this.onSelectSortBy,
 				},
+				inProgress: get(this.props, 'list.inProgress', false),
 			},
 			virtualized: this.props.virtualized,
 			renderers: this.props.renderers,
@@ -115,10 +127,20 @@ class List extends React.Component {
 		}
 		props.list.titleProps = get(this.props, 'list.titleProps');
 
-		if (props.list.titleProps && this.props.actions.title) {
-			props.list.titleProps.onClick = (event, data) => {
-				this.props.dispatchActionCreator(this.props.actions.title, event, data, this.context);
-			};
+		if (props.list.titleProps) {
+			if (this.props.actions.title) {
+				props.list.titleProps.onClick = this.getGenericDispatcher(this.props.actions.title);
+			}
+			if (this.props.actions.editSubmit) {
+				props.list.titleProps.onEditSubmit = this.getGenericDispatcher(
+					this.props.actions.editSubmit,
+				);
+			}
+			if (this.props.actions.editCancel) {
+				props.list.titleProps.onEditCancel = this.getGenericDispatcher(
+					this.props.actions.editCancel,
+				);
+			}
 		}
 
 		// toolbar
@@ -167,8 +189,20 @@ class List extends React.Component {
 			if (pagination) {
 				props.toolbar.pagination = {
 					...pagination,
-					onChange: (event, data) => {
-						this.props.dispatchActionCreator(pagination.onChange, event, data, this.context);
+					totalResults: state.totalResults,
+					itemsPerPage: state.itemsPerPage,
+					startIndex: state.startIndex,
+					onChange: (startIndex, itemsPerPage) => {
+						if (pagination.onChange) {
+							this.props.dispatchActionCreator(
+								pagination.onChange,
+								null,
+								{ startIndex, itemsPerPage },
+								this.context,
+							);
+						} else {
+							this.onChangePage(startIndex, itemsPerPage);
+						}
 					},
 				};
 			}

@@ -17,6 +17,7 @@ exports[`Action should render from name props keeping extra props 1`] = `
       "ActionButton": [Function],
       "ActionDropdown": [Function],
       "ActionFile": [Function],
+      "ActionIconToggle": [Function],
       "ActionSplitDropdown": [Function],
     }
   }

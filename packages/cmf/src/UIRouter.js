@@ -63,7 +63,7 @@ CMFRoute.contextTypes = {
 };
 CMFRoute.displayName = 'CMFRoute';
 
- /**
+/**
  * @typedef {Object} Router
  */
 
@@ -71,7 +71,7 @@ CMFRoute.displayName = 'CMFRoute';
  * pure arrow function that render the router component.
  * You should never need to use this, it's an internal component
  * @example
-  "routes": {
+ "routes": {
     "path": "/",
     "component": "App",
     "indexRoute": {
