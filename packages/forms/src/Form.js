@@ -209,7 +209,7 @@ if (process.env.NODE_ENV !== 'production') {
 		handleAction: PropTypes.func,
 		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		formContext: PropTypes.func,
-		children: PropTypes.element,
+		children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 		fields: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	};
 }
