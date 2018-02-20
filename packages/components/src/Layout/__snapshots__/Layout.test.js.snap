@@ -382,7 +382,7 @@ exports[`Layout should render layout with subHeader in OneColumn mode 1`] = `
       className="theme-tc-actionbar-container tc-actionbar-container nav theme-tc-subheader-navbar tc-subheader-navbar"
     >
       <div
-        className="theme-tc-subheader-navbar-left"
+        className="tc-subheader-left theme-tc-subheader-navbar-left"
       >
         <div
           className="theme-navbar-left navbar-left"
@@ -409,10 +409,6 @@ exports[`Layout should render layout with subHeader in OneColumn mode 1`] = `
               />
             </svg>
           </button>
-        </div>
-        <div
-          className="theme-navbar-left navbar-left"
-        >
           <div
             className="theme-tc-subheader-details tc-subheader-details"
           >
@@ -474,7 +470,7 @@ exports[`Layout should render layout with subHeader in TwoColumns mode 1`] = `
       className="theme-tc-actionbar-container tc-actionbar-container nav theme-tc-subheader-navbar tc-subheader-navbar"
     >
       <div
-        className="theme-tc-subheader-navbar-left"
+        className="tc-subheader-left theme-tc-subheader-navbar-left"
       >
         <div
           className="theme-navbar-left navbar-left"
@@ -501,10 +497,6 @@ exports[`Layout should render layout with subHeader in TwoColumns mode 1`] = `
               />
             </svg>
           </button>
-        </div>
-        <div
-          className="theme-navbar-left navbar-left"
-        >
           <div
             className="theme-tc-subheader-details tc-subheader-details"
           >

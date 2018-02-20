@@ -70,11 +70,12 @@ import { I18N_DOMAIN_COMPONENTS, CIRCULAR_PROGRESS_SIZE } from './constants';
 
 import {
 	Action,
-	ActionFile,
-	ActionDropdown,
-	ActionButton,
-	ActionSplitDropdown,
 	Actions,
+	ActionButton,
+	ActionDropdown,
+	ActionFile,
+	ActionIconToggle,
+	ActionSplitDropdown,
 } from './Actions';
 import ActionBar from './ActionBar';
 import Notification from './Notification';
@@ -115,12 +116,13 @@ import Inject from './Inject';
 export {
 	Inject,
 	Action,
+	Actions,
 	ActionBar,
 	ActionButton,
-	ActionFile,
 	ActionDropdown,
+	ActionFile,
+	ActionIconToggle,
 	ActionSplitDropdown,
-	Actions,
 	HeaderBar,
 	HttpError,
 	Breadcrumbs,

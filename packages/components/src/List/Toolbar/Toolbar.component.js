@@ -122,7 +122,7 @@ Toolbar.propTypes = {
 	actionBar: PropTypes.shape(ActionBar.propTypes),
 	selectAllCheckbox: PropTypes.shape(omit(SelectAll.propTypes, 't')),
 	display: PropTypes.shape(omit(SelectDisplayMode.propTypes, 't')),
-	sort: PropTypes.shape(omit(SelectSortBy.propTypes, 't')),
+	sort: PropTypes.bool,
 	pagination: PropTypes.shape(Pagination.propTypes),
 	filter: PropTypes.shape(omit(FilterBar.propTypes, 't')),
 	t: PropTypes.func.isRequired,

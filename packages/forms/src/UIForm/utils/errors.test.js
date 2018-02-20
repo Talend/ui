@@ -1,4 +1,4 @@
-import { removeError, addError } from './errors';
+import { removeError, addError, getError } from './errors';
 
 describe('Errors utils', () => {
 	describe('#removeError', () => {
@@ -32,6 +32,20 @@ describe('Errors utils', () => {
 				other: 'this stays',
 				[schema.key]: 'error message',
 			});
+		});
+	});
+
+	describe('#getError', () => {
+		it('should add error based on schema key', () => {
+			// given
+			const schema = { key: ['hakuna', 'matata'] };
+			const errors = { [schema.key]: 'this is it' };
+
+			// when
+			const errorMessage = getError(errors, schema);
+
+			// then
+			expect(errorMessage).toEqual('this is it');
 		});
 	});
 });

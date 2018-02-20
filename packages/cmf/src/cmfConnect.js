@@ -46,6 +46,7 @@ const CMF_PROPS = [
 	'didMountActionCreator', // componentDidMount action creator id in registry
 	'keepComponentState', // redux state management on unmount
 	'view', // view component id in registry
+	'saga',
 	'willUnMountActionCreator', // componentWillUnmount action creator id in registry
 ];
 
@@ -111,7 +112,7 @@ export function getStateToProps({
 
 	let userProps = {};
 	if (mapStateToProps) {
-		userProps = mapStateToProps(state, ownProps, cmfProps);
+		userProps = mapStateToProps(state, { ...ownProps, ...viewProps }, cmfProps);
 	}
 
 	const props = {
@@ -247,6 +248,9 @@ export default function cmfConnect({
 				if (this.props.didMountActionCreator) {
 					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
 				}
+				if (this.props.saga) {
+					this.dispatchActionCreator('cmf.saga.start', { type: 'DID_MOUNT' }, this.props);
+				}
 			}
 
 			componentWillUnmount() {
@@ -260,6 +264,9 @@ export default function cmfConnect({
 				) {
 					this.props.deleteState();
 				}
+				if (this.props.saga) {
+					this.dispatchActionCreator('cmf.saga.stop', { type: 'WILL_UNMOUNT' }, this.props);
+				}
 			}
 
 			dispatchActionCreator(actionCreatorId, event, data, context) {
@@ -268,9 +275,13 @@ export default function cmfConnect({
 			}
 
 			render() {
-				const props = Object.assign({ state: defaultState }, this.props, {
+				const props = {
+					...this.props,
 					dispatchActionCreator: this.dispatchActionCreator,
-				});
+				};
+				if (!props.state && defaultState) {
+					props.state = defaultState;
+				}
 
 				// remove all internal props already used by the container
 				CMF_PROPS.forEach(key => {
@@ -316,8 +327,8 @@ export default function cmfConnect({
 cmfConnect.INJECTED_PROPS = INJECTED_PROPS;
 
 cmfConnect.propTypes = {
-	state: ImmutablePropTypes.Map,
-	initialState: ImmutablePropTypes.Map,
+	state: ImmutablePropTypes.map,
+	initialState: ImmutablePropTypes.map,
 	getComponent: PropTypes.func,
 	setState: PropTypes.func,
 	initState: PropTypes.func,

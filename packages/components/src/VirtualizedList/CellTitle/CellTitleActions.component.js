@@ -12,7 +12,7 @@ function CellTitleActions({ rowData, actionsKey, displayMode, persistentActionsK
 	const actions = [];
 
 	if (displayMode === TITLE_MODE_TEXT) {
-		actions.push(<Actions key={0} actions={rowData[actionsKey]} hideLabel link />);
+		actions.push(<Actions key={actions.length} actions={rowData[actionsKey]} hideLabel link />);
 		actions.push(
 			<Actions
 				key={actions.length}

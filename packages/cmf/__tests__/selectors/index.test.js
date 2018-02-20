@@ -1,8 +1,8 @@
 import { Map, List } from 'immutable';
 import cases from 'jest-in-case';
-import { getCollectionFromPath, findCollectionPathListItem } from '../../src/selectors';
+import selectors from '../../src/selectors';
 
-describe('getCollectionFromPath', () => {
+describe('selectors.collections.get', () => {
 	const collection = new Map({ id: 'id' });
 	const collectionSubset = new Map({ subset: 'subset' });
 	const collectionWithSubset = new Map({ collectionSubset });
@@ -15,18 +15,18 @@ describe('getCollectionFromPath', () => {
 		},
 	};
 	it('try to find the collection if collectionPath is a string', () => {
-		expect(getCollectionFromPath(state, 'collection')).toEqual(collection);
+		expect(selectors.collections.get(state, 'collection')).toEqual(collection);
 	});
 
 	it('try to find the collection subset if collectionPath is an array', () => {
-		expect(getCollectionFromPath(state, ['collectionWithSubset', 'collectionSubset'])).toEqual(
+		expect(selectors.collections.get(state, ['collectionWithSubset', 'collectionSubset'])).toEqual(
 			collectionSubset,
 		);
 	});
 
 	it('throw an exception if collection path is neither a string or an array', () => {
 		expect(() => {
-			getCollectionFromPath(state, {});
+			selectors.collections.get(state, {});
 		}).toThrowError(`Type mismatch: collectionPath should be a string or an array of string
 got [object Object]`);
 	});
@@ -47,9 +47,9 @@ const state = {
 };
 
 cases(
-	'findCollectionPathListItem(state, pathDescriptor, resourceId)',
+	'find(state, pathDescriptor, resourceId)',
 	opts => {
-		expect(findCollectionPathListItem(opts.state, opts.pathDescriptor, opts.resourceId)).toBe(
+		expect(selectors.collections.findListItem(opts.state, opts.pathDescriptor, opts.resourceId)).toBe(
 			opts.result,
 		);
 	},
@@ -79,10 +79,10 @@ cases(
 );
 
 cases(
-	'findCollectionPathListItem(state, pathDescriptor, resourceId)',
+	'selectors.collections.findListItem(state, pathDescriptor, resourceId)',
 	opts => {
 		expect(() => {
-			findCollectionPathListItem(opts.state, opts.pathDescriptor, opts.resourceId);
+			selectors.collections.findListItem(opts.state, opts.pathDescriptor, opts.resourceId);
 		}).toThrow(opts.result);
 	},
 	[
@@ -91,7 +91,7 @@ cases(
 			state,
 			pathDescriptor: 'isNotList',
 			resourceId: id,
-			result: `Type mismatch: isNotList does not resolve as an instance of Immutable.List, 
+			result: `Type mismatch: isNotList does not resolve as an instance of Immutable.List,
 got Map { "id": Map { "id": "id" } }`,
 		},
 		{
@@ -99,7 +99,7 @@ got Map { "id": Map { "id": "id" } }`,
 			state,
 			pathDescriptor: 'notFound',
 			resourceId: id,
-			result: `Type mismatch: notFound does not resolve as an instance of Immutable.List, 
+			result: `Type mismatch: notFound does not resolve as an instance of Immutable.List,
 got undefined`,
 		},
 	],

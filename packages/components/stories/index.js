@@ -3,6 +3,7 @@ import './ActionFile';
 import './ActionBar';
 import './ActionDropdown';
 import './ActionSplitDropdown';
+import './ActionIconToggle';
 import './Actions';
 import './Badge';
 import './Breadcrumbs';

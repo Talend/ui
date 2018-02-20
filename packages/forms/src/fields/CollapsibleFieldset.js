@@ -3,6 +3,8 @@ import React from 'react';
 import Icon from '@talend/react-components/lib/Icon';
 import { orderProperties, retrieveSchema } from 'react-jsonschema-form/lib/utils';
 
+import theme from '../templates/ArrayFieldTemplate.scss';
+
 function createCollapsibleFieldset(title) {
 	class CollapsibleFieldset extends React.Component {
 		static defaultProps = {
@@ -74,7 +76,7 @@ function createCollapsibleFieldset(title) {
 			}
 			const iconTransform = !formData.isClosed ? 'flip-vertical' : '';
 			return (
-				<fieldset>
+				<fieldset className={`${theme.collapsible}`}>
 					<div onDoubleClick={this.toggle} id={`${idSchema.$id}__title_bar`} role="button">
 						{title && (
 							<div onClick={this.toggle} id={`${idSchema.$id}__title_wrapper`} role="button">
@@ -84,17 +86,17 @@ function createCollapsibleFieldset(title) {
 									required={required}
 									formContext={formContext}
 								/>
+								<button
+									onClick={this.toggle}
+									id={`${idSchema.$id}__collapse`}
+									title="Collapse"
+									type="button"
+									className="toggle"
+								>
+									<Icon name="talend-caret-down" transform={iconTransform} />
+								</button>
 							</div>
 						)}
-						<button
-							onClick={this.toggle}
-							id={`${idSchema.$id}__collapse`}
-							title="Collapse"
-							type="button"
-							className="toggle"
-						>
-							<Icon name="talend-caret-down" transform={iconTransform} />
-						</button>
 					</div>
 					{(uiSchema['ui:description'] || schema.description) && (
 						<DescriptionField
