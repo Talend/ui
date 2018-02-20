@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`] = `
+exports[`#QualityBar should render QualityBar 1`] = `
 <div
   className="theme-td-quality-bar td-quality-bar"
 >
@@ -8,6 +8,7 @@ exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`
     className="theme-td-quality-bar-invalid td-quality-bar-invalid"
     style={
       Object {
+        "minWidth": "5%",
         "width": "33%",
       }
     }
@@ -17,6 +18,7 @@ exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`
     className="theme-td-quality-bar-empty td-quality-bar-empty"
     style={
       Object {
+        "minWidth": "5%",
         "width": "33%",
       }
     }
@@ -26,10 +28,92 @@ exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`
     className="theme-td-quality-bar-valid td-quality-bar-valid"
     style={
       Object {
+        "minWidth": "5%",
         "width": "34%",
       }
     }
     title="34%"
+  />
+</div>
+`;
+
+exports[`#QualityBar should render QualityBar without empty value 1`] = `
+<div
+  className="theme-td-quality-bar td-quality-bar"
+>
+  <span
+    className="theme-td-quality-bar-invalid td-quality-bar-invalid"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "33%",
+      }
+    }
+    title="33%"
+  />
+  <span
+    className="theme-td-quality-bar-valid td-quality-bar-valid"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "34%",
+      }
+    }
+    title="34%"
+  />
+</div>
+`;
+
+exports[`#QualityBar should render QualityBar without invalid value 1`] = `
+<div
+  className="theme-td-quality-bar td-quality-bar"
+>
+  <span
+    className="theme-td-quality-bar-empty td-quality-bar-empty"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "33%",
+      }
+    }
+    title="33%"
+  />
+  <span
+    className="theme-td-quality-bar-valid td-quality-bar-valid"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "34%",
+      }
+    }
+    title="34%"
+  />
+</div>
+`;
+
+exports[`#QualityBar should render QualityBar without valid value 1`] = `
+<div
+  className="theme-td-quality-bar td-quality-bar"
+>
+  <span
+    className="theme-td-quality-bar-invalid td-quality-bar-invalid"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "33%",
+      }
+    }
+    title="33%"
+  />
+  <span
+    className="theme-td-quality-bar-empty td-quality-bar-empty"
+    style={
+      Object {
+        "minWidth": "5%",
+        "width": "33%",
+      }
+    }
+    title="33%"
   />
 </div>
 `;

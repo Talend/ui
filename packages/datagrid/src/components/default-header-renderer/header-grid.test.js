@@ -11,8 +11,8 @@ import {
 import DefaultHeaderRenderer from './header-grid.component';
 import QualityBar from './quality-bar.component';
 
-describe('#DefaultBooleanCellRenderer', () => {
-	it('should render DefaultBooleanCellRenderer', () => {
+describe('#DefaultHeaderGrid', () => {
+	it('should render DefaultHeaderGrid', () => {
 		const onFocusedColumn = jest.fn();
 		const wrapper = shallow(
 			<DefaultHeaderRenderer
@@ -37,7 +37,7 @@ describe('#DefaultBooleanCellRenderer', () => {
 		expect(onFocusedColumn).toHaveBeenCalledWith('colId');
 	});
 
-	it('should render DefaultBooleanCellRenderer without QualityBar', () => {
+	it('should render DefaultHeaderGrid without QualityBar', () => {
 		const onFocusedColumn = jest.fn();
 		const wrapper = shallow(
 			<DefaultHeaderRenderer

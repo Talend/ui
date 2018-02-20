@@ -1,6 +1,8 @@
+$td-quality-bar-height: 5% !default;
+
 .td-quality-bar {
 	display: flex;
-	height: 0.3rem;
+	height: $td-quality-bar-height;
 	width: 100%;
 	padding: 0 0.2rem;
 	position: absolute;
