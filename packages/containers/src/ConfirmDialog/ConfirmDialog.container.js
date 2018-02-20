@@ -33,11 +33,7 @@ class ConfirmDialog extends React.Component {
 		state.validateAction = getActionsProps(this.context, state.validateAction, state.model);
 		state.cancelAction = getActionsProps(this.context, state.cancelAction, state.model);
 
-		return (
-			<Component
-				{...state}
-			/>
-		);
+		return <Component {...state} />;
 	}
 }
 
