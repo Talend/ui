@@ -103,7 +103,6 @@ export default function deleteResource({
 				}),
 			});
 		} catch (error) {
-			console.error(error);
 			invariant(process.env.NODE_ENV !== 'production', `DeleteResource race failed :${error}`);
 		} finally {
 			yield put({

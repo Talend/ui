@@ -24,7 +24,7 @@
       }
     }
   },
-  "views": {
+  "props": {
     "indexRouteRedirect": {
       "path": "/datastores"
     },
