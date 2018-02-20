@@ -66,7 +66,6 @@ describe('Connected ConfirmDialog', () => {
 		const props = mapStateToProps(state, { oneProp: 'a prop' }, { state: cmfState });
 		expect(props.validateAction.name).toEqual('foo');
 		expect(props.cancelAction.name).toEqual('foo1');
-		expect(props.oneProp).toBe('a prop');
 	});
 });
 

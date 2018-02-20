@@ -16,7 +16,6 @@ export function mapStateToProps(state, props, cmfProps) {
 	return {
 		validateAction: getActionsProps(context, validateAction, model),
 		cancelAction: getActionsProps(context, cancelAction, model),
-		...props,
 	};
 }
 
