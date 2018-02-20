@@ -1,7 +1,7 @@
 import { call, select } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
-import selectors from '../../src/selectors';
 import Immutable from 'immutable';
+import selectors from '../../src/selectors';
 import {
 	waitFor,
 } from '../../src/sagas/collection';

@@ -1,0 +1,15 @@
+.td-cell-quality-indicator {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0.2rem;
+	height: 100%;
+
+	&-invalid {
+		background-color: $lightning-yellow;
+	}
+
+	&-empty {
+		background-color: $silver-chalice;
+	}
+}

@@ -1,0 +1,58 @@
+.td-grid {
+	color: $black;
+	height: 100%;
+	width: 100%;
+
+	&-focus-row {
+		:global(.ag-row-focus) {
+			background-color: violet;
+		}
+
+		:global(.ag-row-selected) {
+			background-color: violet;
+		}
+	}
+
+	/* ==== HEADER ==== */
+	:global(.ag-header-container) {
+		background-color: $white;
+		color: $dove-gray;
+	}
+
+	/* ==== PIN ==== */
+	:global(.ag-pinned-left-header) {
+		border: #e6e6e6 1px solid;
+	}
+
+	:global(.ag-pinned-left-header .ag-react-container) {
+		height: 100%;
+	}
+
+	:global(.ag-cell.ag-cell-last-left-pinned) {
+		padding: 9px;
+		color: $dove-gray;
+		background-color: $white;
+		border-color: #e6e6e6;
+		font-weight: bold;
+	}
+
+	/* ==== COLUMN ====  */
+
+	:global(.column-focus) {
+		background-color: rgba(102, 189, 255, 0.5);
+	}
+
+	/* ==== BODY ==== */
+	:global(.ag-body) {
+		background-color: rgba(117, 132, 149, 0.1);
+	}
+
+	:global(.ag-cell) {
+		border-right: #f6f6f6 1px solid;
+		border-bottom: #f6f6f6 1px solid;
+	}
+
+	:global(.ag-cell.ag-cell-focus:not(.ag-cell-last-left-pinned)) {
+		background-color: white;
+	}
+}
