@@ -20,9 +20,11 @@ function getItemsPerPageTitle(option) {
 }
 
 function getMenuItem(option, index) {
-	return (<MenuItem key={index} eventKey={option}>
-		{getItemsPerPageTitle(option)}
-	</MenuItem>);
+	return (
+		<MenuItem key={index} eventKey={option}>
+			{getItemsPerPageTitle(option)}
+		</MenuItem>
+	);
 }
 
 function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...opts }) {
@@ -55,7 +57,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				break;
 			}
 			case LAST: {
-				from = ((pagesLength - 1) * itemsPerPage) + 1;
+				from = (pagesLength - 1) * itemsPerPage + 1;
 				break;
 			}
 			default:
@@ -64,7 +66,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 		onChange(from, itemsPerPage);
 	}
 	function getNavigationItems() {
-		return [(
+		return [
 			<NavItem
 				key={'key-first'}
 				eventKey={FIRST}
@@ -73,8 +75,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				disabled={startIndex <= 1}
 			>
 				<Icon {...first} />
-			</NavItem>
-		), (
+			</NavItem>,
 			<NavItem
 				key={'key-prev'}
 				eventKey={PREV}
@@ -83,13 +84,13 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				disabled={startIndex <= 1}
 			>
 				<Icon {...prev} />
-			</NavItem>
-		), (
+			</NavItem>,
 			<NavItem disabled>
 				key={'key-current'}
-				<span className="btn-link">{currentPage}/{pagesLength}</span>
-			</NavItem>
-		), (
+				<span className="btn-link">
+					{currentPage}/{pagesLength}
+				</span>
+			</NavItem>,
 			<NavItem
 				key={'key-next'}
 				eventKey={NEXT}
@@ -98,8 +99,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				disabled={startIndex + itemsPerPage > totalResults}
 			>
 				<Icon {...next} />
-			</NavItem>
-		), (
+			</NavItem>,
 			<NavItem
 				key={'key-last'}
 				eventKey={LAST}
@@ -108,14 +108,11 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				disabled={startIndex + itemsPerPage > totalResults}
 			>
 				<Icon {...last} />
-			</NavItem>
-		)];
+			</NavItem>,
+		];
 	}
 	return (
-		<Nav
-			className={theme['tc-pagination']}
-			onSelect={selectedKey => changePageTo(selectedKey)}
-		>
+		<Nav className={theme['tc-pagination']} onSelect={selectedKey => changePageTo(selectedKey)}>
 			<NavDropdown
 				id={id ? `${id}-size` : uuid.v4()}
 				title={getItemsPerPageTitle(itemsPerPage)}
