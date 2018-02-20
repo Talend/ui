@@ -8,15 +8,15 @@ const deepmerge = require('deepmerge');
  * @param options Plugin options
  * @constructor
  */
-function ReactCMFWebpackPlugin(options) {
+function ReactCMFWebpackPlugin(options = {}) {
 	this.options = options;
 }
 
 ReactCMFWebpackPlugin.prototype.apply = function(compiler) {
 	const {
-		dev, // dev sources instead of sources
-		quiet, // no output
-		recursive, // recursive search for json files
+		dev,
+		quiet,
+		recursive,
 	} = this.options;
 
 	compiler.plugin('emit', function(compilation, callback) {
