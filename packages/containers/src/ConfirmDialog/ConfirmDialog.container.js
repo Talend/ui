@@ -24,7 +24,6 @@ class ConfirmDialog extends React.Component {
 
 	render() {
 		const state = (this.props.state || DEFAULT_STATE).toJS();
-		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), state);
 		if (!state.validateAction || !state.cancelAction) {
 			return null;
 		}
@@ -32,8 +31,9 @@ class ConfirmDialog extends React.Component {
 		// and adding onClick event using the retrieved  action creator
 		state.validateAction = getActionsProps(this.context, state.validateAction, state.model);
 		state.cancelAction = getActionsProps(this.context, state.cancelAction, state.model);
+		const props = { ...omit(this.props, cmfConnect.INJECTED_PROPS), ...state };
 
-		return <Component {...state} />;
+		return <Component {...props} />
 	}
 }
 
