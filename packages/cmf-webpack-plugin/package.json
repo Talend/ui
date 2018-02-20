@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
+    "chokidar": "^2.0.2",
     "deepmerge": "^2.0.1"
   },
   "devDependencies": {
@@ -36,9 +37,9 @@
     "babel-eslint": "8.0.2",
     "babel-jest": "20.0.3",
     "babel-loader": "7.1.2",
+    "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.6.0",
     "babel-preset-react": "6.24.1",
-    "babel-polyfill": "6.26.0",
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
