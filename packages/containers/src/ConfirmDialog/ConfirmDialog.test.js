@@ -63,9 +63,10 @@ describe('Connected ConfirmDialog', () => {
 		state.cmf.settings.actions['object:validate'] = { name: 'foo' };
 		state.cmf.settings.actions['object:cancel'] = { name: 'foo1' };
 
-		const props = mapStateToProps(state, {}, { state: cmfState });
+		const props = mapStateToProps(state, { oneProp: 'a prop' }, { state: cmfState });
 		expect(props.validateAction.name).toEqual('foo');
 		expect(props.cancelAction.name).toEqual('foo1');
+		expect(props.oneProp).toBe('a prop');
 	});
 });
 
