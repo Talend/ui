@@ -27,7 +27,7 @@ function onRequest(url, config) {
 }
 
 function onJSError(error, action) {
-	console.error(error);  // eslint-disable-line no-console
+	console.error(error); // eslint-disable-line no-console
 	return {
 		type: ACTION_TYPE_HTTP_REDUCER_ERROR,
 		error,
