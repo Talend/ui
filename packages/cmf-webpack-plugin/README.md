@@ -102,6 +102,7 @@ const webpackConfig = {
       dev: false,
       quiet: false,
       recursive: false,
+      watch: process.env.NODE_ENV === 'developement',
     }),
   ],
 };
