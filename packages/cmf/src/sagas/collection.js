@@ -10,7 +10,7 @@ import selectors from '../selectors';
 export function* waitFor(id, interval = 10) {
 	// eslint-disable-next-line no-constant-condition
 	while (true) {
-		const collection = yield select(selectors.collections.get);
+		const collection = yield select(selectors.collections.get, id);
 		if (collection !== undefined) {
 			break;
 		}
