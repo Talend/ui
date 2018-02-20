@@ -84,6 +84,7 @@ You can pass a bunch of configuration options to ReactCMFWebpackPlugin. Allowed 
 | `dev` | Boolean | false | `devSource` entry will be used instead of `sources` one in _cmf.json_ file |
 | `quiet` | Boolean | false | No output at all |
 | `recursive` | Boolean | false | Recursive search for JSON files |
+| `watch` | Boolean | false | Watch settings in dev mode |
 
 Here's an example webpack config illustrating how to use these options:
 
