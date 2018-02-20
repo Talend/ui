@@ -33,7 +33,7 @@ class ConfirmDialog extends React.Component {
 		state.cancelAction = getActionsProps(this.context, state.cancelAction, state.model);
 		const props = { ...omit(this.props, cmfConnect.INJECTED_PROPS), ...state };
 
-		return <Component {...props} />
+		return <Component {...props} />;
 	}
 }
 
