@@ -23,8 +23,7 @@ src/theme/_forms.scss
   417:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_navbar.scss
-  17:21  error    Quotes around URLs are required             url-quotes
-  18:6   warning  Expected indentation of 4 tabs but found 5  indentation
+  18:6  warning  Expected indentation of 4 tabs but found 5  indentation
 
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
@@ -32,5 +31,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 19 problems (15 errors, 4 warnings)
+✖ 18 problems (14 errors, 4 warnings)
 
