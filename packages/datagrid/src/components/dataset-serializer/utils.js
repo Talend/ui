@@ -1,7 +1,7 @@
 import get from 'lodash/get';
 import { NAMESPACE_INDEX, NAMESPACE_SAMPLE, COLUMN_INDEX, TALEND_QUALITY_KEY } from '../constants/';
 
-export function getColumnDefsFromSample(sample) {
+export function getColumnDefs(sample) {
 	if (!sample) {
 		return [];
 	}
@@ -15,7 +15,7 @@ export function getColumnDefsFromSample(sample) {
 	}));
 }
 
-export function getRowDataFromSample(sample) {
+export function getRowData(sample) {
 	if (!sample) {
 		return [];
 	}
@@ -38,7 +38,7 @@ export function getRowDataFromSample(sample) {
 	);
 }
 
-export function getPinnedColumnDefsFromSample(sample) {
+export function getPinnedColumnDefs(sample) {
 	if (!sample) {
 		return [];
 	}
@@ -51,6 +51,6 @@ export function getPinnedColumnDefsFromSample(sample) {
 	];
 }
 
-export function valueGetterFromRowData({ colDef, data }) {
+export function getValueByCell({ colDef, data }) {
 	return data[colDef.field];
 }

@@ -9,9 +9,9 @@ import { HEADER_RENDERER_COMPONENT } from './default-header-renderer';
 import { CELL_RENDERER_COMPONENT } from './default-cell-renderer';
 import { PIN_HEADER_RENDERER_COMPONENT } from './default-pin-header-renderer';
 
-import { DATAGRID_PROPTYPES } from './datagrid.proptypes';
+import DATAGRID_PROPTYPES from './datagrid.proptypes';
 import { NAMESPACE_INDEX } from './constants';
-import sampleSerializer from './sample-serializer';
+import serializer from './dataset-serializer';
 import theme from './datagrid.scss';
 
 const FOCUSED_COLUMN_CLASS_NAME = 'column-focus';
@@ -46,10 +46,10 @@ function getAvroRenderer(avroRenderer) {
 export default class DataGrid extends React.Component {
 	static defaultProps = {
 		cellRenderer: 'DefaultCellRenderer',
-		getPinnedColumnDefsFn: sampleSerializer.getPinnedColumnDefsFromSample,
-		getColumnDefsFn: sampleSerializer.getColumnDefsFromSample,
-		getRowDataFn: sampleSerializer.getRowDataFromSample,
-		getValueGetterFn: sampleSerializer.valueGetterFromRowData,
+		getPinnedColumnDefsFn: serializer.getPinnedColumnDefs,
+		getColumnDefsFn: serializer.getColumnDefs,
+		getRowDataFn: serializer.getRowData,
+		getValueByCellFn: serializer.getValueByCell,
 		headerHeight: HEADER_HEIGHT,
 		headerRenderer: 'DefaultHeaderRenderer',
 		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
@@ -127,10 +127,10 @@ export default class DataGrid extends React.Component {
 	removeFocusColumn() {
 		/*
 			This is a bad pratice to manipulate straight the DOM.
-			But we can't the choice if we want hightlight the column.
+			But we don't have the choice if we want to highlight the column.
 			There is a issue on ag-grid to request a feature like this.
 			https://github.com/ag-grid/ag-grid/issues/2216
-			When Ag-grid implement this feature, we can't remove the below code
+			When Ag-grid implements this feature, we can remove the below code
 		*/
 		// eslint-disable-next-line react/no-find-dom-node
 		const focusedCells = ReactDOM.findDOMNode(this.gridElement).querySelectorAll(
@@ -151,7 +151,7 @@ export default class DataGrid extends React.Component {
 
 		/*
 			This is a bad pratice to manipulate straight the DOM.
-			But we can't the choice if we want hightlight the column.
+			But we don't have the choice if we want to highlight the column.
 			There is a issue on ag-grid to request a feature like this.
 			https://github.com/ag-grid/ag-grid/issues/2216
 			When Ag-grid implement this feature, we can't remove the below code
@@ -171,10 +171,8 @@ export default class DataGrid extends React.Component {
 			return null;
 		}
 
-		if (previousCellDef.rowIndex !== nextCellDef.rowIndex) {
-			if (this.gridAPI) {
-				this.gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
-			}
+		if (this.gridAPI && previousCellDef.rowIndex !== nextCellDef.rowIndex) {
+			this.gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
 		}
 
 		return nextCellDef;
@@ -196,27 +194,28 @@ export default class DataGrid extends React.Component {
 			onGridReady: this.onGridReady,
 		};
 
-		const pinnedColumnDefs = this.props.getPinnedColumnDefsFn(this.props.data);
-		const columnDefs = this.props.getColumnDefsFn(this.props.data);
+		const adaptedPinnedColumnDefs = this.props.getPinnedColumnDefsFn(this.props.data);
+		const adaptedColumnDefs = this.props.getColumnDefsFn(this.props.data);
 
-		if (pinnedColumnDefs) {
-			agGridOptions.columnDefs = pinnedColumnDefs.map(pinnedColumnDefinition => ({
+		if (adaptedPinnedColumnDefs) {
+			agGridOptions.columnDefs = adaptedPinnedColumnDefs.map(adaptedPinnedColumnDef => ({
 				lockPosition: true,
 				pinned: 'left',
-				valueGetter: this.props.getValueGetterFn,
-				...pinnedColumnDefinition,
+				valueGetter: this.props.getValueByCellFn,
+				...adaptedPinnedColumnDef,
 				[AG_GRID_CUSTOM_HEADER_KEY]: PIN_HEADER_RENDERER_COMPONENT,
 			}));
 		}
 
-		if (columnDefs) {
-			const columnsDefs = columnDefs.map(columnDefinition => ({
+		if (adaptedColumnDefs) {
+			const columnsDefs = adaptedColumnDefs.map(adaptedColumnDef => ({
 				lockPinned: true,
-				valueGetter: this.props.getValueGetterFn,
-				...columnDefinition,
+				valueGetter: this.props.getValueByCellFn,
+				...adaptedColumnDef,
 				[AG_GRID_CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
 				[AG_GRID_CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
 			}));
+
 			agGridOptions.columnDefs = [...agGridOptions.columnDefs, ...columnsDefs];
 		}
 
@@ -238,7 +237,7 @@ export default class DataGrid extends React.Component {
 		};
 
 		return (
-			<div className={classNames(theme['td-grid'], theme[this.props.theme], 'td-grid')}>
+			<div className={classNames(theme['td-grid'], this.props.className, 'td-grid')}>
 				<AgGridReact {...agGridOptions} />
 			</div>
 		);

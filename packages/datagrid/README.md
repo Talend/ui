@@ -62,10 +62,10 @@ In entry, the datagrid component waits a sample of dataset. By default, the data
 | avroRenderer          | list of components to inject to the avro renderer      | object   |                          |
 | cellRenderer          | cell component to inject                               | string   | DefaultCellRenderer      |
 | getComponent          | method to provide the injected components              | function | cellRenderer             |
-| getPinnedColumnDefsFn | method to provide the definition of the pinned columns | function | sample serializer        |
-| getColumnDefsFn       | method to provide the definition of the columns        | function | sample serializer        |
-| getRowDataFn          | method to provide the row data                         | function | sample serializer        |
-| getValueGetterFn      | method to provide the data by row/column               | function | sample serializer        |
+| getPinnedColumnDefsFn | method to provide the definition of the pinned columns | function | dataset serializer       |
+| getColumnDefsFn       | method to provide the definition of the columns        | function | dataset serializer       |
+| getRowDataFn          | method to provide the row data                         | function | dataset serializer       |
+| getValueByCellFn      | method to provide the data by row/column               | function | dataset serializer       |
 | headerHeight          | height of the header                                   | int      | 69                       |
 | headerRenderer        | header component to inject                             | string   | DefaultHeaderRenderer    |
 | onFocusedCell         | callback when one cell is focused                      | function |                          |
@@ -74,7 +74,6 @@ In entry, the datagrid component waits a sample of dataset. By default, the data
 | data                  | data to set into the datagrid                          | Array    |                          |
 | rowSelection          | set the type of selection (single or multiple)         | string   | single                   |
 | rowHeight             | height of the row                                      | int      | 39                       |
-| theme                 | style css                                              | string   |                          |
 
 ### Avro renderers
 
@@ -109,7 +108,7 @@ It is a list of issues encountered with ag-grid that DataGrid resolved.
 ### Column Active.
 
 By default, ag-grid doesn't manage a style when the column is active. DataGrid listens some events from ag-grid to add the class _.column-focus_ on all cells and header on the current column.
-The component HeaderCell is enchanced by a method onFocusedColumn to detect
+The component HeaderCell is enchanced by a method onFocusedColumn to detect when the user change of the column.
 
 Ag-Grid Events to update the active column style:
 

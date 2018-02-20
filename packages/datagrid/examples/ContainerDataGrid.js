@@ -5,6 +5,8 @@ import { api } from '@talend/react-cmf';
 import DataGrid from '../src/';
 import register from '../src/components/register';
 
+import theme from '../src/components/datagrid.scss';
+
 function registerCustomizedComponents() {
 	api.component.register('CustomCellRenderer', props => <span>{props.value.value}</span>);
 	api.component.register('CustomHeaderRenderer', props => <span>{props.displayName}</span>);
@@ -52,7 +54,7 @@ ExampleReactCellRenderer['with custom avro renderers'] = () => (
 ExampleReactCellRenderer['with selected rows'] = () => (
 	<div style={{ height: '100vh' }}>
 		<IconsProvider />
-		<DataGrid componentId="HightLightRows" />
+		<DataGrid componentId="HightLightRows" className={theme['td-grid-focus-row']} />
 	</div>
 );
 

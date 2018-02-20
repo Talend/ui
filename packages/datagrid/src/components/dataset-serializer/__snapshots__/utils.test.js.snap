@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#getColumnDefsFromSample should returns the columns definitions 1`] = `
+exports[`#getColumnDefs should returns the columns definitions 1`] = `
 Array [
   Object {
     "@talend-quality@": Object {
@@ -53,7 +53,7 @@ Array [
 ]
 `;
 
-exports[`#getPinnedColumnDefsFromSample should returns the pinned columns defintions 1`] = `
+exports[`#getPinnedColumnDefs should returns the pinned columns defintions 1`] = `
 Array [
   Object {
     "field": "index.index",
@@ -62,7 +62,7 @@ Array [
 ]
 `;
 
-exports[`#getRowDataFromSample should returns the row data 1`] = `
+exports[`#getRowData should returns the row data 1`] = `
 Array [
   Object {
     "index.index": 0,
@@ -192,5 +192,3 @@ Array [
   },
 ]
 `;
-
-exports[`myData 1`] = `"myData"`;

@@ -1,9 +1,4 @@
-import {
-	getColumnDefsFromSample,
-	getRowDataFromSample,
-	getPinnedColumnDefsFromSample,
-	valueGetterFromRowData,
-} from './utils';
+import { getColumnDefs, getRowData, getPinnedColumnDefs, getValueByCell } from './utils';
 
 const sample = {
 	schema: {
@@ -140,51 +135,51 @@ const sample = {
 	},
 };
 
-describe('#getColumnDefsFromSample', () => {
+describe('#getColumnDefs', () => {
 	it('should returns the columns definitions', () => {
-		const columnDefs = getColumnDefsFromSample(sample);
+		const columnDefs = getColumnDefs(sample);
 
 		expect(columnDefs).toMatchSnapshot();
 	});
 
 	it('should returns an empty columns definitions', () => {
-		const columnDefs = getColumnDefsFromSample();
+		const columnDefs = getColumnDefs();
 
 		expect(columnDefs).toEqual([]);
 	});
 });
 
-describe('#getRowDataFromSample', () => {
+describe('#getRowData', () => {
 	it('should returns the row data', () => {
-		const rowData = getRowDataFromSample(sample);
+		const rowData = getRowData(sample);
 
 		expect(rowData).toMatchSnapshot();
 	});
 
 	it('should returns an empty row data', () => {
-		const rowData = getRowDataFromSample();
+		const rowData = getRowData();
 
 		expect(rowData).toEqual([]);
 	});
 });
 
-describe('#getPinnedColumnDefsFromSample', () => {
+describe('#getPinnedColumnDefs', () => {
 	it('should returns the pinned columns defintions', () => {
-		const pinnedColumnsDefs = getPinnedColumnDefsFromSample(sample);
+		const pinnedColumnsDefs = getPinnedColumnDefs(sample);
 
 		expect(pinnedColumnsDefs).toMatchSnapshot();
 	});
 
 	it('should returns an empty row data', () => {
-		const pinnedColumnsDefs = getPinnedColumnDefsFromSample();
+		const pinnedColumnsDefs = getPinnedColumnDefs();
 
 		expect(pinnedColumnsDefs).toEqual([]);
 	});
 });
 
-describe('#valueGetterFromRowData', () => {
+describe('#getValueByCell', () => {
 	it('should returns the pinned columns defintions', () => {
-		const value = valueGetterFromRowData({
+		const value = getValueByCell({
 			colDef: {
 				field: 'colId',
 			},
@@ -193,6 +188,6 @@ describe('#valueGetterFromRowData', () => {
 			},
 		});
 
-		expect(value).toMatchSnapshot('myData');
+		expect(value).toBe('myData');
 	});
 });

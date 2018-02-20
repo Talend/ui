@@ -74,6 +74,7 @@ const registerActionCreator = api.actionCreator.register;
 registerActionCreator('datagrid:focus-cell', (event, data) => {
 	return {
 		type: 'DATAGRID_FOCUS_CELL',
+		...event,
 		...data,
 	};
 });
@@ -81,6 +82,7 @@ registerActionCreator('datagrid:focus-cell', (event, data) => {
 registerActionCreator('datagrid:focus-column', (event, data) => {
 	return {
 		type: 'DATAGRID_FOCUS_COLUMN',
+		...event,
 		...data,
 	};
 });
@@ -128,7 +130,6 @@ function loadStories() {
 			cellRenderer: 'DefaultCellRenderer',
 			rowSelection: 'multiple',
 			source: 'sample',
-			theme: 'grid-focus-row',
 		};
 
 		const story = storiesOf(example);
