@@ -17,7 +17,7 @@ function ReactCMFWebpackPlugin(options = {}) {
 	this.options = options;
 }
 
-ReactCMFWebpackPlugin.prototype.apply = compiler => {
+ReactCMFWebpackPlugin.prototype.apply = function(compiler) {
 	const {
 		dev,
 		quiet,
