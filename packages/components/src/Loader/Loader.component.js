@@ -22,7 +22,7 @@ Loader.displayName = 'Loader';
 Loader.propTypes = {
 	id: PropTypes.string,
 	className: PropTypes.string,
-	size: PropTypes.oneOf(SIZE),
+	size: PropTypes.oneOf(Object.values(SIZE)),
 };
 
 export default Loader;

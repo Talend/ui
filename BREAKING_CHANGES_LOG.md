@@ -2,7 +2,37 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.157.0
+* cmf: route onLeave/onEnter
+* PR: [feat(cmf): route onEnter/onLeave with dispatch](https://github.com/Talend/ui/pull/1082)
+* Change: onEnter/onLeave arguments have changed
+
+Before
+```javascript
+function onEnter(nextState, replace) { }
+function onLeave(nextState, replace) { }
+```
+
+After
+```javascript
+function onEnter(router, dispatch) { const { nextState, replace } = router; }
+function onLeave(router, dispatch) { }
+```
+
 ## v0.156.0
+* cmf: selectors
+* PR: https://github.com/Talend/ui/pull/1055
+* Change: move to collections
+
+| name | new location |
+|---|---|
+| getCollectionFromPath | selectors.collections.find
+| findCollectionPathListItem | selectors.collections.findListItem
+
+* cmf: putActionCreator
+* PR: https://github.com/Talend/ui/pull/1055
+* Change: move from api.saga.putActionCreator to api.sagas.putActionCreator
+
 * Container: DeleteResource
 * PR: https://github.com/Talend/ui/pull/1053
 * Changes: deleteResource Saga params has changed

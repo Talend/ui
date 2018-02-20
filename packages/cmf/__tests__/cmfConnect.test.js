@@ -149,6 +149,7 @@ describe('cmfConnect', () => {
 			delete state.cmf.settings.props['TestComponent#connect-id'];
 		});
 	});
+
 	describe('#getMergeProps', () => {
 		it('should mergeProps in order', () => {
 			const props = getMergeProps({
@@ -242,6 +243,26 @@ describe('cmfConnect', () => {
 			expect(call[3].store).toBe(context.store);
 		});
 
+		it('should pass defaultState when there is no component state in store', () => {
+			const TestComponent = () => (<div />);
+			TestComponent.displayName = 'MyComponentWithoutStateInStore';
+			const defaultState = new Map({ toto: 'lol' });
+			const CMFConnected = cmfConnect({ defaultState })(TestComponent);
+
+			const wrapper = mount(
+				<CMFConnected />,
+				{
+					context: mock.context(),
+					childContextTypes: {
+						registry: React.PropTypes.object,
+					},
+				},
+			);
+
+			expect(wrapper.find(TestComponent).props().state).toBe(defaultState);
+
+		});
+
 		it('should componentDidMount initState and dispatchActionCreator', () => {
 			const TestComponent = jest.fn();
 			TestComponent.displayName = 'TestComponent';
@@ -267,6 +288,45 @@ describe('cmfConnect', () => {
 
 			expect(props.initState).toHaveBeenCalled();
 			expect(props.initState.mock.calls[0][0]).toBe(props.initialState);
+		});
+
+		it('should componentDidMount support saga', () => {
+			const TestComponent = jest.fn();
+			TestComponent.displayName = 'TestComponent';
+			const CMFConnected = cmfConnect({})(TestComponent);
+			const props = {
+				saga: 'hello',
+				dispatchActionCreator: jest.fn(),
+			};
+			const context = mock.context();
+			const instance = new CMFConnected.CMFContainer(props, context);
+			instance.componentDidMount();
+			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
+				'cmf.saga.start',
+				{ type: 'DID_MOUNT' },
+				instance.props,
+				instance.context
+			);
+		});
+
+		it('should componentWillUnmount support saga', () => {
+			const TestComponent = jest.fn();
+			TestComponent.displayName = 'TestComponent';
+			const CMFConnected = cmfConnect({})(TestComponent);
+			const props = {
+				saga: 'hello',
+				dispatchActionCreator: jest.fn(),
+				deleteState: jest.fn(),
+			};
+			const context = mock.context();
+			const instance = new CMFConnected.CMFContainer(props, context);
+			instance.componentWillUnmount();
+			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
+				'cmf.saga.stop',
+				{ type: 'WILL_UNMOUNT' },
+				instance.props,
+				instance.context
+			);
 		});
 
 		it('should componentWillUnMount dispatchActionCreator', () => {
