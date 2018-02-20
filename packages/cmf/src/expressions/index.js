@@ -1,6 +1,6 @@
-import immutableGet from './immutable';
+import getInState from './getInState';
 
 export default {
-	'cmf.collections.get': immutableGet('cmf.collections'),
-	'cmf.components.get': immutableGet('cmf.components'),
+	'cmf.collections.get': getInState('cmf.collections'),
+	'cmf.components.get': getInState('cmf.components'),
 };
