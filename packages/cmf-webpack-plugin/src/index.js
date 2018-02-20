@@ -1,8 +1,12 @@
 const fs = require('fs');
 const pathLib = require('path');
 const mkdirp = require('mkdirp');
+
 const chokidar = require('chokidar');
 const deepmerge = require('deepmerge');
+
+const defaultExt = '.json';
+const defaultConfigFilename = 'cmf.json';
 
 /**
  * React CMF Webpack Plugin
@@ -13,27 +17,34 @@ function ReactCMFWebpackPlugin(options = {}) {
 	this.options = options;
 }
 
-ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
+ReactCMFWebpackPlugin.prototype.apply = compiler => {
 	const {
 		dev,
 		quiet,
 		recursive,
 		watch,
-	} = this.options;
+	} = Object.assign({
+		dev: false,
+		quiet: false,
+		recursive: false,
+		watch: false,
+	}, this.options);
 
-	let jsonFiles;
+	const log = !quiet && console.error; // eslint-disable-line no-console
 
-	function findJson(fileOrFolder, recursive) {
+	let files;
+
+	function findJson(fileOrFolder) {
 		let jsonFiles = [];
-		if (fileOrFolder.endsWith('.json')) {
+		if (fileOrFolder.endsWith(defaultExt)) {
 			jsonFiles.push(fileOrFolder);
 		} else {
 			fs.readdirSync(fileOrFolder).forEach(path => {
 				const fullpath = pathLib.join(fileOrFolder, path);
-				if (path.endsWith('.json')) {
+				if (path.endsWith(defaultExt)) {
 					jsonFiles.push(fullpath);
 				} else if (recursive && fs.lstatSync(fullpath).isDirectory()) {
-					jsonFiles = jsonFiles.concat(...findJson(fullpath, recursive));
+					jsonFiles = jsonFiles.concat(...findJson(fullpath));
 				}
 			});
 		}
@@ -71,15 +82,14 @@ ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 		settings.actions[id] = Object.assign({}, settings.actions[id], settings.overrideActions[id]);
 	}
 
-	compiler.plugin('emit', function (compilation, callback) {
-
+	compiler.plugin('emit', (compilation, callback) => {
 		let cmfconfig = {};
 		try {
-			const cmfconfigPath = pathLib.join(process.cwd(), 'cmf.json');
+			const cmfconfigPath = pathLib.join(process.cwd(), defaultConfigFilename);
 			delete require.cache[require.resolve(cmfconfigPath)];
 			cmfconfig = require(cmfconfigPath); // eslint-disable-line global-require
 		} catch (e) {
-			console.error('cmf.json file is required to run this script');
+			log(`${defaultConfigFilename} file is required to run this script`);
 			process.exit();
 		}
 
@@ -87,19 +97,21 @@ ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 
 		const destination = pathLib.join(process.cwd(), cmfconfig.settings.destination);
 
-		jsonFiles = sources.reduce(
-			(acc, source) => acc.concat([...findJson(pathLib.join(process.cwd(), source), recursive)]),
+		files = sources.reduce(
+			(acc, source) => acc.concat([...findJson(pathLib.join(process.cwd(), source))]),
 			[],
 		);
 
-		console.error('Extracting configuration from:', jsonFiles);
+		log('Extracting configuration from:', files);
 
-		const configurations = jsonFiles.map(jsonFilePath => {
+		const configurations = files.map(jsonFilePath => {
 			delete require.cache[require.resolve(jsonFilePath)];
 			return require(jsonFilePath); // eslint-disable-line global-require
 		});
 
-		const settings = deepmerge.all(configurations, {arrayMerge: concatMerge});
+		const settings = deepmerge.all(configurations, {
+			arrayMerge: concatMerge,
+		});
 
 		if (settings.overrideRoutes) {
 			Object.keys(settings.overrideRoutes).forEach(route => {
@@ -112,10 +124,10 @@ ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 			});
 		}
 
-		console.error(`Merge to ${destination}`);
+		log(`Merge to ${destination}`);
 		mkdirp(pathLib.dirname(destination), () => {
 			fs.writeFile(destination, JSON.stringify(settings), () => {
-				console.error('Merged');
+				log('Merged');
 			});
 		});
 
@@ -123,8 +135,8 @@ ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 	});
 
 	if (watch) {
-		compiler.plugin('done', compilation => {
-			const watcher = chokidar.watch(jsonFiles, {
+		compiler.plugin('done', () => {
+			const watcher = chokidar.watch(files, {
 				persistent: true,
 				ignored: false,
 				ignoreInitial: false,
@@ -138,65 +150,61 @@ ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 				depth: 99,
 				awaitWriteFinish: {
 					stabilityThreshold: 2000,
-					pollInterval: 100
+					pollInterval: 100,
 				},
 				ignorePermissionErrors: false,
-				atomic: true
+				atomic: true,
 			});
 
 			watcher
 				.on(
 					'add',
-					function (path) {
-						return null;
-					}
+					() => null
 				)
 				.on(
 					'change',
-					function (path) {
-						console.error(`\n\n Compilation Started  after change of - ${path} \n\n`);
-						compiler.run(function (err) {
+					path => {
+						log(`\n\n Compilation Started  after change of - ${path} \n\n`);
+						compiler.run(err => {
 							if (err) throw err;
 							watcher.close();
 						});
-						console.error(`\n\n Compilation ended  for change of - ${path} \n\n`);
+						log(`\n\n Compilation ended  for change of - ${path} \n\n`);
 					}
 				)
 				.on(
 					'unlink',
-					function (path) {
-						console.error(`File ${path} has been removed`);
+					path => {
+						log(`File ${path} has been removed`);
 					}
 				)
 				.on(
 					'addDir',
-					function (path) {
-						console.error(`Directory ${path} has been added`);
+					path => {
+						log(`Directory ${path} has been added`);
 					}
 				)
 				.on(
 					'unlinkDir',
-					function (path) {
-						console.error(`Directory ${path} has been removed`);
+					path => {
+						log(`Directory ${path} has been removed`);
 					}
 				)
 				.on(
 					'error',
-					function (error) {
-						console.error(`Watcher error: ${error}`);
+					error => {
+						log(`Watcher error: ${error}`);
 					}
 				)
 				.on(
 					'ready',
-					function () {
-						console.error('Initial scan complete. Ready for changes');
+					() => {
+						log('Initial scan complete. Ready for changes');
 					}
 				)
 				.on(
 					'raw',
-					function (event, path, details) {
-						return null;
-					}
+					() => null
 				);
 		});
 	}
