@@ -187,7 +187,7 @@ ActionBar.propTypes = {
 	selected: PropTypes.number,
 	children: PropTypes.node,
 	className: PropTypes.string,
-	renderers: PropTypes.shape(SwitchActions.propTypes.renderers),
+	renderers: SwitchActions.propTypes.renderers,
 };
 
 ActionBar.displayName = 'ActionBar';

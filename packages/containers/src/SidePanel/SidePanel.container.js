@@ -9,26 +9,6 @@ export const DEFAULT_STATE = new Map({
 	docked: false,
 });
 
-export function getActions(actionIds, context) {
-	return actionIds.map((id) => {
-		const info = getActionsProps(context, id);
-		let route = get(info, 'payload.cmf.routerReplace');
-		if (!route) {
-			route = get(info, 'payload.cmf.routerPush');
-		}
-		if (!route) {
-			route = get(info, 'href');
-		}
-		if (route) {
-			const currentRoute = context.router.route.location.pathname;
-			if (currentRoute.indexOf(route) !== -1) {
-				info.active = true;
-			}
-		}
-		return info;
-	});
-}
-
 /**
  * Checkout the {@link http://talend.surge.sh/containers/?selectedKind=SidePanelExample&selectedStory=Default|examples}
  * @param {object} props react props

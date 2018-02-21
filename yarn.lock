@@ -9209,9 +9209,9 @@ react-storybook-addon-props-combinations@^0.3.0:
     object-hash "^1.1.5"
     pretty-format "^18.1.0"
 
-react-storybook-cmf@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/react-storybook-cmf/-/react-storybook-cmf-0.2.0.tgz#9d9049895354c6239f0a005c0c61158238d67506"
+react-storybook-cmf@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-storybook-cmf/-/react-storybook-cmf-0.3.1.tgz#ee8bc105165438f4fbdbfbcbc0b1912afcb06297"
   dependencies:
     "@kadira/storybook-addons" "^1.5.0"
     prop-types "15.5.10"
