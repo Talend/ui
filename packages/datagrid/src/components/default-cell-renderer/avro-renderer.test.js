@@ -1,14 +1,25 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
-import DefaultTypeRenderer from './avro-renderer.component';
+import AvroRenderer from './avro-renderer.component';
 
-function getComponent() {}
+function DummyComponent() {
+	return <span>dummy component</span>;
+}
 
-describe('#DefaultTypeRenderer', () => {
-	it('should render DefaultTypeRenderer and load Injected Component stringCellRenderer', () => {
+const registryComponents = {
+	stringCellRenderer: DummyComponent,
+};
+
+function getComponent(id) {
+	console.log(registryComponents[id]);
+	return registryComponents[id];
+}
+
+describe('#AvroRenderer', () => {
+	it('should render AvroRenderer and load Injected Component stringCellRenderer', () => {
 		const wrapper = shallow(
-			<DefaultTypeRenderer
+			<AvroRenderer
 				avroRenderer={{ stringCellRenderer: 'stringCellRenderer' }}
 				colDef={{ avro: { type: { type: 'string' } } }}
 				data={{ value: 'value' }}
@@ -16,6 +27,20 @@ describe('#DefaultTypeRenderer', () => {
 			/>,
 		);
 		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should mount DummyComponent', () => {
+		const wrapper = mount(
+			<AvroRenderer
+				avroRenderer={{ stringCellRenderer: 'stringCellRenderer' }}
+				colDef={{ avro: { type: { type: 'string' } } }}
+				data={{ value: 'value' }}
+				getComponent={getComponent}
+			/>,
+		);
+		// then
+		expect(wrapper.find('DummyComponent').length).toBe(1);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

@@ -260,6 +260,21 @@ exports[`#injectedCellRenderer should injected the cell renderer 1`] = `
 />
 `;
 
+exports[`#injectedCellRenderer should injected the default cell renderer 1`] = `
+<DefaultCellRenderer
+  avroRenderer={Object {}}
+  getComponent={null}
+  id="injectedComponent"
+/>
+`;
+
+exports[`#injectedHeaderRenderer should injected the default header renderer 1`] = `
+<DefaultHeaderRenderer
+  id="injectedComponent"
+  onFocusedColumn={[Function]}
+/>
+`;
+
 exports[`#injectedHeaderRenderer should injected the header renderer 1`] = `
 <Component
   id="injectedComponent"

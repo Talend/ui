@@ -4,13 +4,16 @@ import { Inject } from '@talend/react-components';
 
 import DATAGRID_PROPTYPES from '../datagrid.proptypes';
 
-export default function DefaultTypeRenderer({ avroRenderer, colDef, data, getComponent }) {
-	const componentId = avroRenderer[`${colDef.avro.type.type}CellRenderer`];
+import DefaultRenderer from './default-renderer.component';
 
-	return <Inject getComponent={getComponent} component={componentId} data={data} colDef={colDef} />;
+export default function AvroRenderer({ avroRenderer, colDef, data, getComponent }) {
+	const componentId = avroRenderer[`${colDef.avro.type.type}CellRenderer`];
+	const Component = Inject.get(getComponent, componentId, DefaultRenderer);
+
+	return <Component data={data} colDef={colDef} />;
 }
 
-DefaultTypeRenderer.propTypes = {
+AvroRenderer.propTypes = {
 	avroRenderer: DATAGRID_PROPTYPES.avroRenderer,
 	colDef: PropTypes.shape({
 		avro: PropTypes.shape({

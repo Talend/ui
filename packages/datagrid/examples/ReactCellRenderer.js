@@ -11,7 +11,6 @@ export default function ReactCellRenderer() {
 			<IconsProvider />
 			<DataGrid
 				data={sample}
-				getComponent={api.component.get}
 				onFocusedCell={event => console.log(event)}
 				onFocusedColumn={event => console.log(event)}
 				onRowsSelected={event => console.log(event)}

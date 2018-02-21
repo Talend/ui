@@ -8,7 +8,7 @@ exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUAL
     tooltip="Incorrect value"
     value={0}
   />
-  <DefaultTypeRenderer
+  <AvroRenderer
     avroRenderer={
       Object {
         "stringCellRenderer": "StringRenderer",
@@ -39,7 +39,7 @@ exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUAL
     tooltip="Incorrect value"
     value={-1}
   />
-  <DefaultTypeRenderer
+  <AvroRenderer
     avroRenderer={
       Object {
         "stringCellRenderer": "StringRenderer",
@@ -66,7 +66,7 @@ exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUAL
 <div
   className="theme-td-cell td-cell"
 >
-  <DefaultTypeRenderer
+  <AvroRenderer
     avroRenderer={
       Object {
         "stringCellRenderer": "StringRenderer",

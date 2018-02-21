@@ -553,6 +553,15 @@ describe('#injectedCellRenderer', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(wrapper.props().avroRenderer).toBe(avroRenderer);
 	});
+
+	it('should injected the default cell renderer', () => {
+		const InjectedComponent = injectedCellRenderer(null, 'header', avroRenderer);
+
+		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('DefaultCellRenderer').length).toBe(1);
+	});
 });
 
 describe('#injectedHeaderRenderer', () => {
@@ -574,5 +583,14 @@ describe('#injectedHeaderRenderer', () => {
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(onFocusedColumn).toHaveBeenCalled();
+	});
+
+	it('should injected the default header renderer', () => {
+		const InjectedComponent = injectedHeaderRenderer(null, 'header', onFocusedColumn);
+
+		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
+
+		expect(wrapper.find('DefaultHeaderRenderer').length).toBe(1);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

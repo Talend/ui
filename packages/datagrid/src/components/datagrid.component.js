@@ -4,9 +4,11 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid/dist/styles/ag-grid.css';
 import { Inject } from '@talend/react-components';
 
-import { HEADER_RENDERER_COMPONENT } from './default-header-renderer';
-import { CELL_RENDERER_COMPONENT } from './default-cell-renderer';
-import { PIN_HEADER_RENDERER_COMPONENT } from './default-pin-header-renderer';
+import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from './default-header-renderer';
+import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from './default-cell-renderer';
+import DefaultPinHeaderRenderer, {
+	PIN_HEADER_RENDERER_COMPONENT,
+} from './default-pin-header-renderer';
 
 import DATAGRID_PROPTYPES from './datagrid.proptypes';
 import { NAMESPACE_INDEX } from './constants';
@@ -22,13 +24,13 @@ const HEADER_HEIGHT = 69;
 const ROW_HEIGHT = 39;
 
 export function injectedHeaderRenderer(getComponent, headerRenderer, onFocusedColumn) {
-	const Component = Inject.get(getComponent, headerRenderer);
+	const Component = Inject.get(getComponent, headerRenderer, DefaultHeaderRenderer);
 
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} />;
 }
 
 export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
-	const Component = Inject.get(getComponent, cellRenderer);
+	const Component = Inject.get(getComponent, cellRenderer, DefaultCellRenderer);
 
 	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
 }
@@ -235,6 +237,7 @@ export default class DataGrid extends React.Component {
 			[PIN_HEADER_RENDERER_COMPONENT]: Inject.get(
 				this.props.getComponent,
 				this.props.pinHeaderRenderer,
+				DefaultPinHeaderRenderer,
 			),
 		};
 
