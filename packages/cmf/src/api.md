@@ -1,5 +1,5 @@
-CMF API
-==
+# CMF API
+
 
 ```javascript
 import { api } from '@talend/react-cmf';
@@ -15,13 +15,11 @@ Here is the list of the first level access:
 * `expression` to register your expressions
 * `saga` to use CMF with redux-saga
 
-api.actionCreator
---
+## api.actionCreator
 
 Documentation can be found [here](actionCreator.md).
 
-api.actions
---
+## api.actions
 
 ```javascript
 import { api, cmfConnect } from '@talend/react-cmf';
@@ -75,8 +73,8 @@ function mapStateToProps(state) {
 export default cmfConnect({})(MyCollectionmanager);
 ```
 
-api.component
---
+
+## api.component
 
 ```javascript
 import * as components from '@talend/containers';
@@ -88,8 +86,7 @@ api.component.registerMany({
 });
 ```
 
-api.expression
---
+## api.expression
 
 ```javascript
 function myExpression({ context, payload}, ...args) {
@@ -103,8 +100,10 @@ api.expressions.register('myExpression', myExpression);
 Expressions can be used for props resolution.
 In this case, the payload is the current props.
 
-api.sagas
---
+
+## [api.expressions](./expressions/index.md)
+
+## api.saga
 
 You can register your saga in the cmf registry to be able to use the saga props
 supported by `cmfConnect`.
