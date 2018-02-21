@@ -4,7 +4,11 @@ import { JSDOM } from 'jsdom';
 
 import { NAMESPACE_SAMPLE, NAMESPACE_INDEX } from './constants';
 
-import DataGrid, { injectedCellRenderer, injectedHeaderRenderer } from './datagrid.component';
+import DataGrid, {
+	injectedCellRenderer,
+	injectedHeaderRenderer,
+	AG_GRID_ELEMENT,
+} from './datagrid.component';
 
 function PinHeaderRenderer() {}
 
@@ -186,9 +190,9 @@ describe('#Datagrid method', () => {
 		const element = {};
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 
-		wrapper.instance().setGridElement(element);
+		wrapper.instance().setGridInstance(element);
 
-		expect(wrapper.instance().gridElement).toBe(element);
+		expect(wrapper.instance().gridInstance).toBe(element);
 	});
 
 	it('should set the current selected column', () => {
@@ -206,7 +210,9 @@ describe('#Datagrid method', () => {
 		).window;
 		const gridElement = document.querySelector('.grid-element');
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
-		wrapper.instance().setGridElement(gridElement);
+		wrapper.instance().setGridInstance({
+			[AG_GRID_ELEMENT]: gridElement,
+		});
 
 		// when
 		wrapper.instance().removeFocusColumn();
@@ -224,7 +230,9 @@ describe('#Datagrid method', () => {
 		const gridElement = document.querySelector('.grid-element');
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		const instance = wrapper.instance();
-		instance.setGridElement(gridElement);
+		instance.setGridInstance({
+			[AG_GRID_ELEMENT]: gridElement,
+		});
 		instance.currentColId = `${NAMESPACE_SAMPLE}colId`;
 
 		// when
@@ -243,7 +251,9 @@ describe('#Datagrid method', () => {
 		const gridElement = document.querySelector('.grid-element');
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		const instance = wrapper.instance();
-		instance.setGridElement(gridElement);
+		instance.setGridInstance({
+			[AG_GRID_ELEMENT]: gridElement,
+		});
 
 		// when
 		wrapper.instance().updateStyleFocusColumn();
@@ -261,7 +271,9 @@ describe('#Datagrid method', () => {
 		const gridElement = document.querySelector('.grid-element');
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		const instance = wrapper.instance();
-		instance.setGridElement(gridElement);
+		instance.setGridInstance({
+			[AG_GRID_ELEMENT]: gridElement,
+		});
 		instance.currentColId = `${NAMESPACE_INDEX}index`;
 
 		// when

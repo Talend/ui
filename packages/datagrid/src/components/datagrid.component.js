@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid/dist/styles/ag-grid.css';
@@ -17,6 +16,7 @@ import theme from './datagrid.scss';
 const FOCUSED_COLUMN_CLASS_NAME = 'column-focus';
 const AG_GRID_CUSTOM_HEADER_KEY = 'headerComponent';
 const AG_GRID_CUSTOM_CELL_KEY = 'cellRenderer';
+export const AG_GRID_ELEMENT = 'eGridDiv';
 const AG_GRID_DEFAULT_ROW_SELECTION = 'single';
 const HEADER_HEIGHT = 69;
 const ROW_HEIGHT = 39;
@@ -66,7 +66,7 @@ export default class DataGrid extends React.Component {
 		this.onFocusedColumn = this.onFocusedColumn.bind(this);
 		this.onFocusedCell = this.onFocusedCell.bind(this);
 		this.onGridReady = this.onGridReady.bind(this);
-		this.setGridElement = this.setGridElement.bind(this);
+		this.setGridInstance = this.setGridInstance.bind(this);
 		this.setCurrentFocusedColumn = this.setCurrentFocusedColumn.bind(this);
 		this.updateStyleFocusColumn = this.updateStyleFocusColumn.bind(this);
 	}
@@ -120,20 +120,21 @@ export default class DataGrid extends React.Component {
 		this.currentColId = colId;
 	}
 
-	setGridElement(element) {
-		this.gridElement = element;
+	setGridInstance(gridInstance) {
+		this.gridInstance = gridInstance;
 	}
 
 	removeFocusColumn() {
 		/*
 			This is a bad pratice to manipulate straight the DOM.
 			But we don't have the choice if we want to highlight the column.
+			We have to access to the wrapper element of the cell and header.
 			There is a issue on ag-grid to request a feature like this.
 			https://github.com/ag-grid/ag-grid/issues/2216
 			When Ag-grid implements this feature, we can remove the below code
 		*/
 		// eslint-disable-next-line react/no-find-dom-node
-		const focusedCells = ReactDOM.findDOMNode(this.gridElement).querySelectorAll(
+		const focusedCells = this.gridInstance[AG_GRID_ELEMENT].querySelectorAll(
 			`.${FOCUSED_COLUMN_CLASS_NAME}`,
 		);
 
@@ -152,12 +153,13 @@ export default class DataGrid extends React.Component {
 		/*
 			This is a bad pratice to manipulate straight the DOM.
 			But we don't have the choice if we want to highlight the column.
+			We have to access to the wrapped element of the cell and header.
 			There is a issue on ag-grid to request a feature like this.
 			https://github.com/ag-grid/ag-grid/issues/2216
 			When Ag-grid implement this feature, we can't remove the below code
 		*/
 		// eslint-disable-next-line react/no-find-dom-node
-		const columnsCells = ReactDOM.findDOMNode(this.gridElement).querySelectorAll(
+		const columnsCells = this.gridInstance[AG_GRID_ELEMENT].querySelectorAll(
 			`[col-id="${colId}"]:not(.${FOCUSED_COLUMN_CLASS_NAME})`,
 		);
 
@@ -185,7 +187,7 @@ export default class DataGrid extends React.Component {
 			navigateToNextCell: this.handleKeyboard,
 			onViewportChanged: this.updateStyleFocusColumn,
 			onVirtualColumnsChanged: this.updateStyleFocusColumn,
-			ref: this.setGridElement,
+			ref: this.setGridInstance, // use ref in AgGridReact to get the current instance
 			rowData: this.props.getRowDataFn(this.props.data),
 			rowHeight: this.props.rowHeight,
 			rowSelection: this.props.rowSelection,
