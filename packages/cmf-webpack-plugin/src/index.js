@@ -30,7 +30,7 @@ ReactCMFWebpackPlugin.prototype.apply = function(compiler) {
 		watch: false,
 	}, this.options);
 
-	const log = !quiet && console.error; // eslint-disable-line no-console
+	const log = !quiet ? console.error : Function.prototype; // eslint-disable-line no-console
 
 	let files;
 
@@ -164,12 +164,12 @@ ReactCMFWebpackPlugin.prototype.apply = function(compiler) {
 				.on(
 					'change',
 					path => {
-						log(`\n\n Compilation Started  after change of - ${path} \n\n`);
+						log(`Compilation started after change of - ${path}`);
 						compiler.run(err => {
 							if (err) throw err;
 							watcher.close();
 						});
-						log(`\n\n Compilation ended  for change of - ${path} \n\n`);
+						log(`Compilation ended for change of - ${path}`);
 					}
 				)
 				.on(
