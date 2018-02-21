@@ -1,4 +1,4 @@
-# React CMF Webpack Plugin (aka react-cmf-webpack-plugin)
+# React CMF Webpack Plugin (aka @talend/react-cmf-webpack-plugin)
 
 Simplifies merging of CMF settings files to serve your webpack bundles.
 
@@ -8,22 +8,22 @@ Simplifies merging of CMF settings files to serve your webpack bundles.
 [![Quality][quality-badge] ][quality-url]
 [![dependencies][dependencies-image] ][dependencies-url]
 [![devdependencies][devdependencies-image] ][devdependencies-url]
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1e353b0f69c4cf99a4cb3f68b70ea7d)](https://www.codacy.com/app/Talend/ui/packages/cmf-cqrs)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f1e353b0f69c4cf99a4cb3f68b70ea7d)](https://www.codacy.com/app/Talend/ui/packages/cmf-webpack-plugin)
 
-[npm-icon]: https://nodei.co/npm/react-cmf-webpack-plugin.png?downloads=true
+[npm-icon]: https://nodei.co/npm/@talend/react-cmf-webpack-plugin.png?downloads=true
 [npm-url]: https://npmjs.org/package/@talend/react-cmf-webpack-plugin
-[travis-ci-image]: https://travis-ci.org/Talend/react-cmf-webpack-plugin.svg?branch=master
-[travis-ci-url]: https://travis-ci.org/Talend/react-cmf-webpack-plugin
-[dependencies-image]: https://david-dm.org/Talend/react-cmf-webpack-plugin/status.svg
-[dependencies-url]: https://david-dm.org/Talend/react-cmf-webpack-plugin
-[devdependencies-image]: https://david-dm.org/Talend/react-cmf-webpack-plugin/dev-status.svg
-[devdependencies-url]: https://david-dm.org/Talend/react-cmf-webpack-plugin#info=devDependencies
-[quality-badge]: http://npm.packagequality.com/shield/react-cmf-webpack-plugin.svg
-[quality-url]: http://packagequality.com/#?package=react-cmf-webpack-plugin
+[travis-ci-image]: https://travis-ci.org/Talend/@talend/react-cmf-webpack-plugin.svg?branch=master
+[travis-ci-url]: https://travis-ci.org/Talend/@talend/react-cmf-webpack-plugin
+[dependencies-image]: https://david-dm.org/Talend/@talend/react-cmf-webpack-plugin/status.svg
+[dependencies-url]: https://david-dm.org/Talend/@talend/react-cmf-webpack-plugin
+[devdependencies-image]: https://david-dm.org/Talend/@talend/react-cmf-webpack-plugin/dev-status.svg
+[devdependencies-url]: https://david-dm.org/Talend/@talend/react-cmf-webpack-plugin#info=devDependencies
+[quality-badge]: http://npm.packagequality.com/shield/@talend/react-cmf-webpack-plugin.svg
+[quality-url]: http://packagequality.com/#?package=@talend/react-cmf-webpack-plugin
 
 ## Breaking changes log
 
-Before 1.0, `react-cmf-webpack-plugin` does NOT follow semver in releases.
+Before 1.0, `@talend/react-cmf-webpack-plugin` does NOT follow semver in releases.
 You will find a [list of breaking changes here](https://github.com/Talend/ui/blob/master/BREAKING_CHANGES_LOG.md).
 
 ## Content
@@ -61,7 +61,7 @@ You must have a _cmf.json_ file at root folder of your project:
 Edit your webpack.config.js file:
 
 ```javascript
-const ReactCMFWebpackPlugin = require('react-cmf-webpack-plugin');
+const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 
 const webpackConfig = {
   entry: 'index.js',
@@ -89,7 +89,7 @@ You can pass a bunch of configuration options to ReactCMFWebpackPlugin. Allowed 
 Here's an example webpack config illustrating how to use these options:
 
 ```javascript
-const ReactCMFWebpackPlugin = require('react-cmf-webpack-plugin');
+const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 
 const webpackConfig = {
   entry: 'index.js',
