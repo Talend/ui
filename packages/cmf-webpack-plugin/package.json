@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "scripts": {
     "prepublish": "npm run build && npm run test",
-    "build": "rimraf ./dist &&  babel -d dist ./src/ --ignore **/*.test.js",
+    "build": "rimraf ./dist && babel -d dist ./src/ --ignore **/*.test.js",
     "start": "echo nothing to start",
     "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",
     "lint:es": "eslint --config ../../.eslintrc --ext .js src",
@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
+    "@talend/react-cmf": "file:../cmf",
     "chokidar": "^2.0.2",
     "deepmerge": "^2.0.1",
     "mkdirp": "^0.5.1"

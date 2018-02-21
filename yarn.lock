@@ -285,6 +285,14 @@
     react-treebeard "^2.1.0"
     redux "^3.7.2"
 
+"@talend/react-cmf@file:packages/cmf":
+  version "0.158.0"
+  dependencies:
+    babel-polyfill "6.26.0"
+    deepmerge "1.5.1"
+    hoist-non-react-statics "^1.2.0"
+    react-immutable-proptypes "2.1.0"
+
 "@types/inline-style-prefixer@^3.0.0":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@types/inline-style-prefixer/-/inline-style-prefixer-3.0.1.tgz#8541e636b029124b747952e9a28848286d2b5bf6"
