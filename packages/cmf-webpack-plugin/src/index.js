@@ -13,14 +13,22 @@ function ReactCMFWebpackPlugin(options = {}) {
 
 ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 	const {
+		quiet,
 		watch,
 	} = Object.assign({
+		quiet: false,
 		watch: false,
 	}, this.options);
 
 	let modifiedFiles;
 
-	compiler.plugin('run', (compilation, callback) => {
+	function log(message) {
+		if (!quiet) {
+			console.error(message); // eslint-disable-line no-console
+		}
+	}
+
+	compiler.plugin('emit', (compilation, callback) => {
 		modifiedFiles = mergeSettings(this.options, callback);
 		callback();
 	});

@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 const deepmerge = require('deepmerge');
+const Ajv = require('ajv');
+const ajv = new Ajv();
 
 const DEFAULT_SETTINGS_EXT = '.json';
 
@@ -29,7 +31,7 @@ function merge(options, callback) {
 		callback();
 	}
 
-	function importAndValidate(filePath) {
+	function importAndValidate(filePath, schema) {
 		let file;
 		try {
 			delete require.cache[require.resolve(filePath)];
@@ -37,10 +39,8 @@ function merge(options, callback) {
 		} catch (e) {
 			error(`${filePath} does not exist`, e);
 		}
-		try {
-			JSON.parse(file);
-		} catch (e) {
-			error(`${filePath} is invalid`, e);
+		if (!ajv.validate(schema || {}, file)) {
+			error(`${filePath} is invalid`, ajv.errors);
 		}
 		return file;
 	}
@@ -50,9 +50,9 @@ function merge(options, callback) {
 		if (fileOrFolder.endsWith(DEFAULT_SETTINGS_EXT)) {
 			files.push(fileOrFolder);
 		} else {
-			fs.readdirSync(fileOrFolder).forEach(path => {
-				const fullpath = pathLib.join(fileOrFolder, path);
-				if (path.endsWith(DEFAULT_SETTINGS_EXT)) {
+			fs.readdirSync(fileOrFolder).forEach(fileOrFolderPath => {
+				const fullpath = path.join(fileOrFolder, fileOrFolderPath);
+				if (fileOrFolderPath.endsWith(DEFAULT_SETTINGS_EXT)) {
 					files.push(fullpath);
 				} else if (recursive && fs.lstatSync(fullpath).isDirectory()) {
 					files = files.concat(...findJson(fullpath));
@@ -108,7 +108,7 @@ function merge(options, callback) {
 	);
 
 	log('Extracting configuration from:', jsonFiles);
-	const configurations = jsonFiles.map(importAndValidate);
+	const configurations = jsonFiles.map(jsonFile => importAndValidate(jsonFile));
 
 	// Merge json stuff in one object / settings
 	const settings = deepmerge.all(configurations, {
@@ -135,7 +135,7 @@ function merge(options, callback) {
 		});
 	});
 
-	return jsonFiles.concat(cmfconfig);
+	return jsonFiles.concat(cmfconfigPath);
 }
 
-export default merge;
+module.exports = merge;
