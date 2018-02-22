@@ -179,7 +179,9 @@ class List extends React.Component {
 					props.toolbar.actionBar.actions.left = actions.left.map(action => ({ actionId: action }));
 				}
 				if (actions.right) {
-					props.toolbar.actionBar.actions.right = actions.right.map(action => ({ actionId: action }));
+					props.toolbar.actionBar.actions.right = actions.right.map(action => ({
+						actionId: action,
+					}));
 				}
 			}
 
