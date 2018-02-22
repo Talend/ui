@@ -118,7 +118,7 @@ function List({
 
 	return (
 		<div className={classnames}>
-			{injected('before-toolbar')}
+			{injected('toolbar')}
 			<ListToolbar
 				id={id}
 				toolbar={toolbar}
@@ -127,21 +127,20 @@ function List({
 				getComponent={getComponent}
 				components={components.toolbar}
 			/>
-			{injected('after-toolbar')}
+			{injected('list-wrapper')}
 			<div className={'tc-list-display-virtualized'}>
-				{injected('before-list')}
+				{injected('list')}
 				<ListToVirtualizedList
 					id={id}
 					displayMode={displayMode}
 					defaultHeight={defaultHeight}
 					rowHeight={rowHeight}
 					getComponent={getComponent}
-					components={components.list}
 					{...list}
 				/>
 				{injected('after-list')}
 			</div>
-			{injected('after-list-wrap')}
+			{injected('after-list-wrapper')}
 		</div>
 	);
 }

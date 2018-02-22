@@ -23,26 +23,37 @@ This component display a list with two optional toolbars
 | id | html id |
 | actionBar | spread to the ActionBar component |
 | selectAllCheckbox | |
-| display | |
-| sort | |
-| pagination | |
-| filter | |
+| display | { onChange } to control the change on display mode |
+| sort | `{ field: 'name', onChange: action(), options: [{ id: 'id', name: 'id'}]`|
+| pagination | `{itemsPerPage: 5, totalResults: 10, onChange: action('pagination.onChange') }`|
+| filter | FilterBar props |
 
 **List Props**
 
 | name | description |
 |----|----|
-
+| columns | Array of {key, label, type} define which columns to display |
+| items | Array of object to display |
+| titleProps | object to control the title cell |
+| itemProps | |
 
 ## Customization
 
 `components` props support the following slots:
 
-* before-toolbar
-* after-toolbar
-* before-list
+* toolbar
+* list-wrapper
+* list
 * after-list
-* after_list-wrap
-
-To access slot of the toolbar and inside the list use `components.toolbar` and `components.list`
+* after-list-wrapper
+* `components.toolbar`
+    * actionbar
+    * navbar
+    * selectall
+    * display
+    * sort
+    * pagination
+    * filter
+    * last
+    * after-navbar
 
