@@ -1,4 +1,5 @@
-import { api, deprecated } from '@talend/react-cmf';
+import { api } from '@talend/react-cmf';
+import deprecated from '@talend/react-cmf/lib/deprecated';
 
 const msg = `@talend/react-containers/lib/actionAPI should not be used any more
 
