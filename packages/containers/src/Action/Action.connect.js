@@ -19,7 +19,9 @@ export const renderers = {
 export function mapStateToProps(state, ownProps) {
 	const props = {};
 	if (ownProps.actionId) {
-		console.warn('DEPRECATED: you should use componentId to map props using props.Action#componentId');
+		console.warn(
+			'DEPRECATED: you should use componentId to map props using props.Action#componentId',
+		);
 		const info = api.action.getActionInfo(
 			{
 				registry: api.registry.getRegistry(),
