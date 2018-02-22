@@ -21,12 +21,12 @@ It provides a set of base APIs and patterns.
 
 ## Breaking changes log
 
-Before 1.0, `react-cmf` do NOT follow semver version in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/react-cmf/blob/master/BREAKING_CHANGES_LOG.md).
+Before 1.0, `react-cmf` does NOT follow semver version in releases.
+You will find a [list of breaking changes here](https://github.com/Talend/ui/blob/master/BREAKING_CHANGES_LOG.md).
 
 ## Definition
 
-_CMF_ definition from wikipedia:
+_CMF_ definition from Wikipedia:
 
 ```
 A content management framework (CMF) is a system that facilitates the use of reusable components or customized software for managing Web content. It shares aspects of a Web application framework and a content management system
@@ -36,51 +36,38 @@ It fits with our goal, this is why this add-on has been named that way.
 
 ## Paradigm
 
-A _user_ interact with a _view_ using mouse and/or keyboard which send _events_ from a _content_ and that interaction _dispatch_ an _action_.
-That action may change the current view or the content displayed.
+A _user_ interacts with a _component_ using mouse and/or keyboard which sends _events_ from a _content_ and that interaction _dispatches_ an _action_.
+The action may change the application state, which in turn may change some components in the user interface.
 
 ## Definitions
 
-We have the following objects to build a user interface:
+### Components
 
-* views
-* actions
+An HTML page is composed by a tree structure called the DOM. In our case React manages that DOM
+using a tree of `components`.
 
-Let's talk about each of them.
+`Components` in the context of CMF are React components.
 
-### Views
+But they are not just React component. We give them some super powers using [cmfConnect](./src/cmfConnect.md).
 
-Views are special React component. They are high level component which has the following responsibility:
-They must dispatch props to configurable components.
+```javascript
+import React from 'react';
+import { cmfConnect } from '@talend/react-cmf';
 
-They are called by UI abstraction library from the router and connected to the store throw the settings.
-
-So a view is can be a pure component.
-
-Then view will be composed of react components that can get their props.
+function MyComponent(props) {
+	return (
+		<article>
+			<h2>{props.title}</h2>
+			<button onClick={() => props.dispatchActionCreator('read')}>Read</button>
+		</article>
+	);
+}
+export default cmfConnect({})(MyComponent);
+```
 
 ### Actions
 
 Actions are [redux actions](http://redux.js.org/docs/basics/Actions.html).
-
-### ComponentState Management
-
-Component state can be easily stored in cmf state, each are identified by their name and an unique key,
-so component state can be stored and reused later
-
-### Collections management
-
-Manage a local cache of your business data
-
-## Internals: The registry
-
-You will find the registry as the central piece of ui abstraction.
-It's just a key/object registry and it's used with prefix to store the following:
-
-* action creators (function)
-* views (React Component)
-
-Note: this may change in the futur. We will try to remove the singleton in favors of higher order components.
 
 ## Store structure
 
@@ -91,6 +78,71 @@ cmf store structure is the following
     * collections
     * components
     * settings
+
+### ComponentState Management
+
+Component state can be easily stored in cmf state, each are identified by their name and an unique key,
+so component state can be stored and reused later.
+
+We give you the choice to use either:
+
+* CMF redux state (this.props.state && this.props.setState)
+* React component state (this.state && this.setState)
+
+Warning: you should use the redux state except for part that require lots of mutation without sharing.
+For example for Forms you should prefer to use the internal React component state.
+
+
+### Collections management
+
+Manage a local cache of your business data.
+You can connect your component to give it access to your data and being able
+to dispatch action to let CMF reducers write them.
+
+You can dispatch some actionCreators in `api.actions.collections` for that.
+
+## Configuration (settings)
+
+We don't want to rewrite a bunch of app code to change a label of a button?
+With CMF you can describe all your app just using json.
+
+The json looks like this:
+
+```json
+{
+	"props": {
+		"App#default": {
+			"saga": "bootstrap"
+		},
+		"Navbar#default": {
+			"brand": "Talend",
+			"left": [{ "component": "Button", "componentId": "help" }]
+		},
+		"Button#help": {
+			"id": "help",
+			"label": "help",
+			"payload": {
+				"type": "MENU_HELP",
+				"cmf": {
+					"routerPush": "/help"
+				}
+			}
+		}
+	}
+}
+```
+
+To resolve the component "Button" we need a registry.
+
+## Internals: The registry
+
+You will find the registry as the central piece of CMF.
+It's just a key/object registry and it's used with prefix to store the following:
+
+* action creators (function)
+* components (function or class)
+* expressions (function)
+* saga (iterator)
 
 ## Middlewares
 
@@ -165,11 +217,11 @@ Note onResponse and onError accept function:
 
 ## Scripts
 
-When you have cmf in you package.json, you can run in your project scope this script :
+When you have cmf in you package.json, you can run in your project scope this script:
 
 * cmf-settings
 
-It require a cmf.json file with this format in your webapp's project root :
+It require a cmf.json file with this format in your webapp's project root:
 
 ```json
 {
@@ -200,16 +252,23 @@ Options for this script :
 Expression are registred function use to eval props.
 We use them to handle dynamic configuration like disable buttons if a user doesn't have the permission.
 
-Given an existing `MyComponent` you may want to add disabled props expression support just by doing the following:
+Given the upper `MyComponent` example you can use expression to fill the `title` from the store
 
-```javascript
-import { api } from '@talend/react-cmf';
-import MyComponent from './MyComponent';
-
-const MySuperComponent = api.expressions.withExpression(MyComponent, ['disabled']);
-
-return <MySuperComponent disabled="userDontHaveSuperPower" />;
+```json
+{
+	"props": {
+		"MyComponent#default": {
+			"titleExpression": {
+				"id": "cmf.collections.get",
+				"args": ["article.data.title"]
+			}
+		}
+	}
+}
 ```
+
+So adding `Expression` to a prop name of a component is resolved by `cmfConnect`
+during the `mapStateToProps` evaluation. So the `title` props will be resolved!
 
 [See API](src/expression.md)
 
@@ -261,10 +320,8 @@ you may change the following using simple props:
 * [settings](src/settings.md)
 * [api](src/api.md)
 * [store](src/store.md)
-* [Inject](src/Inject.md)
 * [Dispatcher](src/Dispatcher.md)
 * [how to](howto/index.md)
-* [saga](src/saga.md)
 * [sagas](src/sagas/index.md)
 * [sagaRouter](src/sagaRouter/index.md)
 
@@ -274,6 +331,6 @@ For 1.0
 
 * [x] embedable apps
 * [ ] react-router v4
-* [ ] i18n
 * [x] generator
 * [x] actionCreator should become first class
+* [ ] move from peer dependencies to dependencies

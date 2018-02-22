@@ -209,6 +209,84 @@ const props = {
 	},
 };
 
+const referenceDatetime = Date.now();
+const minusThreeHours = referenceDatetime - 3600 * 3 * 1000;
+const minusTwoHours = referenceDatetime - 3600 * 2 * 1000;
+const minusOneHours = referenceDatetime - 3600 * 1 * 1000;
+const minusThreeMin = referenceDatetime - 60 * 3 * 1000;
+
+const propsWithVirtualized = {
+	id: 'talend',
+	displayMode: 'table',
+	virtualized: true,
+	list: {
+		columns: [
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
+			{ key: 'author', label: 'Author' },
+			{ key: 'created', label: 'Created', type: 'datetime', data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' } },
+			{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
+		],
+		items: [
+			{
+				id: 0,
+				name: 'Title with actions',
+				created: 1518596913333,
+				modified: minusThreeHours,
+				author: 'Jean-Pierre DUPONT',
+				actions,
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-0-class',
+			},
+			{
+				persistentActions,
+				id: 1,
+				name: 'Title in input mode',
+				created: 1518596913333,
+				modified: minusTwoHours,
+				author: 'Jean-Pierre DUPONT',
+				icon: 'talend-file-json-o',
+				display: 'input',
+				className: 'item-1-class',
+			},
+			{
+				persistentActions,
+				id: 2,
+				name: 'Super long title to trigger overflow on tile rendering',
+				created: 1518596913333,
+				modified: minusOneHours,
+				author:
+					'Jean-Pierre DUPONT',
+				className: 'item-2-class',
+			},
+			{
+				persistentActions,
+				id: 3,
+				name: 'Title',
+				created: 1518596913333,
+				modified: minusThreeMin,
+				author: 'Jean-Pierre DUPONT',
+				actions,
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-3-class',
+			},
+		],
+		titleProps: {
+			key: 'name',
+			iconKey: 'icon',
+			displayModeKey: 'display',
+			onClick: action('onTitleClick'),
+			onEditCancel: action('onEditCancel'),
+			onEditSubmit: action('onEditSubmit'),
+		},
+		itemProps: {
+			classNameKey: 'className',
+		},
+	},
+};
+
 const itemPropsForItems = {
 	classNameKey: 'className',
 	onOpen: action('onItemOpen'),
@@ -272,9 +350,12 @@ const warningIcon = {
 
 const getIcon = item => {
 	switch (item.cat) {
-		case 'fluffy' : return okIcon;
-		case 'fat' : return warningIcon;
-		default: return null;
+		case 'fluffy':
+			return okIcon;
+		case 'fat':
+			return warningIcon;
+		default:
+			return null;
 	}
 };
 
@@ -619,7 +700,7 @@ storiesOf('List', module)
 			<p>Display the list with hidden header labels.</p>
 			<List {...props} />
 		</div>
-		))
+	))
 	.add('Inline parent', () => (
 		<div className="virtualized-list">
 			<h1>List</h1>
@@ -628,4 +709,13 @@ storiesOf('List', module)
 				<List {...props} />
 			</span>
 		</div>
-		));
+	))
+	.add('list with virtualized', () => (
+		<div className="virtualized-list">
+			<h1>List with virtualized and timestamp</h1>
+			<p>CellDatetimeRenderer in action.</p>
+			<span>
+				<List {...propsWithVirtualized} />
+			</span>
+		</div>
+	));

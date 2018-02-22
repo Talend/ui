@@ -25,6 +25,27 @@ export function getItemIcon(iconName = 'talend-folder', toggled) {
 
 /**
  * Internal: you should not use it
+ * Instantiate an icon based on the icon config
+ *
+ * @param icon The icon name of the Icon props
+ * @param toggled if the treeview is toggled
+ */
+function TreeViewIcon({ icon, toggled }) {
+	if (typeof icon === 'object') {
+		return <Icon {...icon} className={classNames(css['tc-treeview-img'], icon.className)} />;
+	}
+
+	return (
+		<Icon name={getItemIcon(icon, toggled)} className={classNames(css['tc-treeview-folder'])} />
+	);
+}
+TreeViewIcon.propTypes = {
+	icon: PropTypes.oneOfType([PropTypes.string, PropTypes.shape(Icon.propTypes)]),
+	toggled: PropTypes.bool,
+};
+
+/**
+ * Internal: you should not use it
  * Single item of TreeView component
  *
  * @param id, for qa purposes
@@ -45,7 +66,7 @@ class TreeViewItem extends React.Component {
 			toggled: PropTypes.bool,
 			selected: PropTypes.bool,
 			children: PropTypes.arrayOf(PropTypes.object),
-			icon: PropTypes.string,
+			icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 			actions: PropTypes.arrayOf(
 				PropTypes.shape({
 					action: PropTypes.func,
@@ -159,7 +180,7 @@ class TreeViewItem extends React.Component {
 							title={toggleIconLabel}
 						/>
 					)}
-					<Icon name={getItemIcon(icon, toggled)} className={css['tc-treeview-folder']} />
+					<TreeViewIcon icon={icon} toggled={toggled} />
 					<span className="tc-treeview-item-name">{name}</span>
 					<div className={css['tc-treeview-item-ctrl']}>
 						{showCounter && <Badge label={counter.toString()} />}

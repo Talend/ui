@@ -393,7 +393,7 @@ exports[`Storyshots SidePanel docked 1`] = `
   >
     <nav
       aria-expanded={false}
-      className="theme-tc-side-panel tc-side-panel theme-docked"
+      className="theme-tc-side-panel tc-side-panel docked theme-docked"
       id={undefined}
       role="navigation"
     >
@@ -650,7 +650,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
   >
     <nav
       aria-expanded={false}
-      className="theme-tc-side-panel tc-side-panel theme-docked theme-large"
+      className="theme-tc-side-panel tc-side-panel docked theme-docked large theme-large"
       id={undefined}
       role="navigation"
     >
@@ -899,7 +899,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
   </svg>
   <nav
     aria-expanded={true}
-    className="theme-tc-side-panel tc-side-panel theme-large theme-reverse"
+    className="theme-tc-side-panel tc-side-panel large theme-large reverse theme-reverse"
     id={undefined}
     role="navigation"
   >
@@ -1377,7 +1377,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
   </svg>
   <nav
     aria-expanded={true}
-    className="theme-tc-side-panel tc-side-panel theme-reverse"
+    className="theme-tc-side-panel tc-side-panel reverse theme-reverse"
     id={undefined}
     role="navigation"
   >
@@ -1635,7 +1635,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
       >
         <nav
           aria-expanded={true}
-          className="theme-tc-side-panel tc-side-panel theme-reverse"
+          className="theme-tc-side-panel tc-side-panel reverse theme-reverse"
           id={undefined}
           role="navigation"
         >

@@ -1,6 +1,114 @@
-### **INJECT**
+# **INJECT**
 
 With the Inject components you can instanciate any component anywhere. This allows a great flexibility in your component design.
+
+The concept is to let you add `slot` in your component so from the outside a user may
+inject in a controlled way some other components.
+
+# How to customize components as a user
+
+For components you can pass props like this one:
+
+```js
+    const props = {
+        components: {
+            'before-something': [
+                { component: 'Action', label: 'LabelAction1', icon: 'IconAction1' },
+                { component: 'Action', label: 'LabelAction2', icon: 'IconAction2' },
+            ],
+            'after-anything': { component: 'Action', label: 'LabelAction3', icon: 'IconAction3' },
+        },
+    };
+    return <MyCustomizableComponent components={components} />
+```
+
+The most important here is to understand the structure of the components props.
+The attributes keys are the `slot` key which is exposed in the component documentation.
+The value should always be an Array of Object.
+
+Each object should have the component key which is the string of the registred Component.
+The mecanism inside is to call the props.getComponent function with this component key as only argument.
+
+All other will attributes of this object will be pass as props of the given components.
+
+```js
+<Action label="LabelACtion1" icon="IconAction1 />
+```
+
+Good practice: If you are using CMF you can use `componentId` props in combination here to then use
+props['Action#componentId'] in the settings.
+
+# How to create a customizable components
+
+You have to add two props:
+
+* getComponent: a function which is able to return a component by it's key.
+* components: an object with slots as a key and array of props as value.
+
+```js
+function Example({ getComponent, components }) {
+    const inject = Inject.all(getComponent, components);
+    const Renderer = Inject.getAll(getComponent, { Something, Anything });
+    return(
+        <div>
+            {inject('before-something')}
+            <Renderer.Something />
+            {inject('before-anything')}
+            <Renderer.Anything />
+            {inject('after-anything')}
+        </div>
+    )
+}
+```
+could use some more information geared toward the component user like "before-something" is the slot name in which you wish to inject a component, you can find those in the component documentation.
+
+The slots name should be listed in the documentation so a User can easly find them.
+For example you can check the documentation of the [SubHeaderBar](../SubHeaderBar/SubHeaderBar.md)
+
+In most of the case you would like to wrap the injection.
+To support this you can create a CustomInject which can support specific props
+
+```js
+function CustomInject({ nowrap, ...props }) {
+    if (nowrap) {
+        return <Inject {...props} />;
+    }
+    return (
+        <div className="maclass">
+            <Inject {...props} />
+        </div>
+    );
+}
+
+function Example({ getComponent, components }) {
+    const inject = Inject.all(getComponent, components, CustomInject);
+    return(
+        <div>
+            {inject('before-something')}
+            <Something />
+            {inject('before-anything')}
+            <Anything />
+            {inject('after-anything')}
+        </div>
+    )
+}
+
+function MyUse() {
+    const props = {
+        components: {
+            'before-something': [
+                { nowrap: true, component: 'Action' },
+                { component: 'WhatEver' },
+            ]
+        }
+    }
+    return <Example {...props} />;
+}
+```
+
+In this case Action will not be wrapped but WhatEver will be.
+
+# How it works
 
 The Inject component looks like this
 
@@ -28,7 +136,7 @@ Inject.propTypes = {
 function Example({getComponent, actionProps, filterProps }) {
     <div>
         <Inject getComponent={getComponent} component="Action" {...actionProps} />
-        <Inject getComponent={getComponent} component="FilterBar" {...filterProps} />        
+        <Inject getComponent={getComponent} component="FilterBar" {...filterProps} />
     </div>
 }
 ```
@@ -59,10 +167,10 @@ const array = [
 ```
 
 ```js
-function Example({ getComponent, arrayComponents }) {
+function Example({ getComponent, components }) {
 return (
     <div>
-        {Inject.map(getComponent, arrayComponents)}
+        {Inject.map(getComponent, components)}
     </div>
     )
 }
@@ -88,33 +196,7 @@ Inject.all = function injectAll(getComponent, components) {
 
 This function helps to instanciate a all bunch of components.
 
-getComponent still the same. For components you can pass something like this
-
-```js
-    const components = {
-        col1: [
-            { component: 'Action', label: 'LabelAction1', icon: 'IconAction1' },
-            { component: 'Action', label: 'LabelAction2', icon: 'IconAction2' },
-        ],
-        col2: { component: 'Action', label: 'LabelAction3', icon: 'IconAction3' },
-    };
-```
-
-You will have in return a function which accept a string as an argument. This string is a key to match your object attribute name and return the asked component. You will receive an array or a single component of Inject.
-
-```js
-function Example({ getComponent, components }) {
-    const inject = Inject.all(getComponent, components);
-    return(
-        <div>
-            {inject('col1')}
-            <Something />
-            {inject('col2')}
-            <Anything />          
-        </div>
-    )
-}
-```
+getComponent still the same.
 
 ### INJECT.GET
 

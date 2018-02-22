@@ -9,17 +9,34 @@ import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
-import { actions as actionsSubHeader, actionsCreators as actionsCreatorsSubHeader } from './subheaderbar.storybook'
+import {
+	actions as actionsSubHeader,
+	actionsCreators as actionsCreatorsSubHeader,
+} from './subheaderbar.storybook';
 import { registerAllContainers } from '../src/register';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
 
 registerAllContainers();
 const actionLogger = action('dispatch');
-const reducer = (state = {}, a) => {
-	actionLogger(a);
+
+const TOGGLE_FLAG_TYPE = 'TOGGLE_FLAG_TYPE';
+function flagToggleReducer(state = {}, { type, flagId }) {
+	if (type === TOGGLE_FLAG_TYPE) {
+		return {
+			...state,
+			[flagId]: !state[flagId],
+		};
+	}
 	return state;
-};
+}
+
+function reducer(state = {}, action) {
+	actionLogger(action);
+	return {
+		flags: flagToggleReducer(state.flags, action),
+	};
+}
 
 function objectView(event, data) {
 	return {
@@ -77,6 +94,13 @@ const isTrueExpressionAction = action('isTrueExpression');
 api.expression.register('isTrueExpression', (context, first) => {
 	isTrueExpressionAction(context, first);
 	return !!first;
+});
+
+const isFlagExpressionAction = action('isFlagExpression');
+api.expression.register('isFlagExpression', (config, flagId) => {
+	const flagStatus = config.context.store.getState().app.flags[flagId];
+	isFlagExpressionAction(config, flagId, flagStatus);
+	return flagStatus;
 });
 
 api.expression.register('getItems', () => [
@@ -203,7 +227,7 @@ function loadStories() {
 		state.cmf.settings.props.appheaderbar = {
 			app: 'Hello Test',
 		};
-		state.cmf.settings.props['HeaderBar#default'] = {
+		state.cmf.settings.props['Container(HeaderBar)#default'] = {
 			logo: { name: 'appheaderbar:logo', isFull: true },
 			brand: { label: 'DATA STREAMS' },
 			notification: { name: 'appheaderbar:notification' },
@@ -332,9 +356,16 @@ function loadStories() {
 			},
 			overlayPlacement: 'bottom',
 		};
+		actions['action:icon:toggle'] = {
+			icon: 'talend-panel-opener-right',
+			id: 'action:icon:toggle',
+			label: 'Click me to toggle',
+			tooltipPlacement: 'top',
+			activeExpression: { id: 'isFlagExpression', args: ['action:icon:creator:flag'] },
+			payload: { type: 'TOGGLE_FLAG_TYPE', flagId: 'action:icon:creator:flag' },
+		};
 		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
-
 
 		const story = storiesOf(example);
 

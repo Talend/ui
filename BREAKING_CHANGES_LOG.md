@@ -2,6 +2,93 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.157.0
+* cmf: route onLeave/onEnter
+* PR: [feat(cmf): route onEnter/onLeave with dispatch](https://github.com/Talend/ui/pull/1082)
+* Change: onEnter/onLeave arguments have changed
+
+Before
+```javascript
+function onEnter(nextState, replace) { }
+function onLeave(nextState, replace) { }
+```
+
+After
+```javascript
+function onEnter(router, dispatch) { const { nextState, replace } = router; }
+function onLeave(router, dispatch) { }
+```
+
+## v0.156.0
+* cmf: selectors
+* PR: https://github.com/Talend/ui/pull/1055
+* Change: move to collections
+
+| name | new location |
+|---|---|
+| getCollectionFromPath | selectors.collections.find
+| findCollectionPathListItem | selectors.collections.findListItem
+
+* cmf: putActionCreator
+* PR: https://github.com/Talend/ui/pull/1055
+* Change: move from api.saga.putActionCreator to api.sagas.putActionCreator
+
+* Container: DeleteResource
+* PR: https://github.com/Talend/ui/pull/1053
+* Changes: deleteResource Saga params has changed
+
+| name | change |
+|---|---|
+| + sagaParams | object spread to get uri / resource type / redirectUrl / resourcePath & routerParamsAttribute |
+| - uri | moved in object param |
+| - resourceType | moved in object param |
+| - resourcePath | moved in object param |
+
+[Check the component doc](packages/containers/src/DeleteResource/README.md)
+
+## v0.153.0
+* Component: SubHeaderBar
+* PR: https://github.com/Talend/ui/pull/1041
+* Changes: props components has change
+
+| name | change |
+|---|---|
+| props.components | replaced by the new Inject API |
+| props.left | added with the same API has the ActionBar |
+| props.center | added with the same API has the ActionBar |
+| props.right | added with the same API has the ActionBar |
+
+[Check the component doc](packages/components/src/SubHeaderBar/SubHeaderBar.md)
+[Check the Inject component doc](packages/components/src/Inject/Inject.md)
+
+## v0.153.0
+* Component: HeaderBar
+* PR: https://github.com/Talend/ui/pull/1037
+* Changes: Items in help dropdown are moved to information dropdown
+
+## v0.152.0
+* CMF: cmfConnect
+* PR: https://github.com/Talend/ui/pull/1046
+* Changes: Spread viewProps in mapStateToProps
+
+Spread viewProps when calling mapStateToProps so more stuff can be handled.
+For example, currently cmf only handle expression on first level of props, with this change, we can do expression evaluation under props.list for List component.
+
+## v0.151.0
+* Container: Form
+* PR: https://github.com/Talend/ui/pull/1031
+* Changes: With Form container in default export, we must have form as dependency on the project that import containers. Remove Form from default export and import it à la lodash when you need it.
+
+Before
+```javascript
+import { Form } from '@talend/react-containers'
+```
+After
+```javascript
+import Form from '@talend/react-containers/lib/Form'
+```
+
+
 ## 0.150.0
 * Component: Typeahead
 * PR: [chore: upgrade react-autowhatever](https://github.com/Talend/ui/pull/1022)
@@ -46,7 +133,7 @@ function renderItemsContainer({ children, containerProps }) {
     );
 }
 ```
- 
+
 ## v0.143.0
 * Component: CollapsiblePanel
 * PR: [feat(components/collapsiblepanel): style update](https://github.com/Talend/ui/pull/961)

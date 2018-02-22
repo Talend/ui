@@ -7,13 +7,13 @@ import {
 	ActionDropdown,
 	Actions,
 	ActionSplitDropdown,
+	Badge,
 	Breadcrumbs,
 	CircularProgress,
 	ConfirmDialog,
 	Drawer,
 	DeleteResource,
 	FilterBar,
-	Form,
 	HeaderBar,
 	HomeListView,
 	Icon,
@@ -40,13 +40,13 @@ export function registerAllContainers() {
 	api.component.register('ActionDropdown', ActionDropdown);
 	api.component.register('Actions', Actions);
 	api.component.register('ActionSplitDropdown', ActionSplitDropdown);
+	api.component.register('Badge', Badge);
 	api.component.register('Breadcrumbs', Breadcrumbs);
 	api.component.register('CircularProgress', CircularProgress);
 	api.component.register('ConfirmDialog', ConfirmDialog);
 	api.component.register('Drawer', Drawer);
 	api.component.register('DeleteResource', DeleteResource);
 	api.component.register('FilterBar', FilterBar);
-	api.component.register('Form', Form);
 	api.component.register('HeaderBar', HeaderBar);
 	api.component.register('HomeListView', HomeListView);
 	api.component.register('Icon', Icon);
