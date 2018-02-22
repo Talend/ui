@@ -57,6 +57,10 @@ class List extends React.Component {
 		...cmfConnect.propTypes,
 	};
 
+	static defaultProps = {
+		state: DEFAULT_STATE,
+	};
+
 	static contextTypes = {
 		store: PropTypes.object,
 		registry: PropTypes.object,
@@ -79,7 +83,7 @@ class List extends React.Component {
 	}
 
 	onFilter(event, payload) {
-		this.props.setState({ searchQuery: payload });
+		this.props.setState({ searchQuery: payload.query });
 	}
 
 	onChangePage(startIndex, itemsPerPage) {

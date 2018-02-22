@@ -118,6 +118,7 @@ function List({
 
 	return (
 		<div className={classnames}>
+			{injected('before-component')}
 			{injected('before-toolbar')}
 			<ListToolbar
 				id={id}
@@ -142,6 +143,7 @@ function List({
 				{injected('after-list')}
 			</div>
 			{injected('after-list-wrapper')}
+			{injected('after-component')}
 		</div>
 	);
 }

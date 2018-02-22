@@ -41,6 +41,7 @@ This component displays a list with two optional toolbars
 
 `components` props support the following slots:
 
+* before-component
 * before-toolbar
 * `.toolbar`
     * before-actionbar
