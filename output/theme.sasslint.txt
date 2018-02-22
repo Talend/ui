@@ -10,17 +10,27 @@ src/theme/_dropdowns.scss
   22:22  error  !important not allowed  no-important
 
 src/theme/_forms.scss
+   26:5   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    28:11  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    29:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   46:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   47:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   95:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  110:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  280:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  293:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   44:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   44:25  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   48:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   48:25  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   52:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   60:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   61:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   73:11  error    A value of `0` is not allowed. `none` must be used       border-zero
+  111:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  113:11  error    A value of `0` is not allowed. `none` must be used       border-zero
+  127:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  301:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
   314:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  337:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  417:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  341:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  364:9   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  369:21  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  379:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  458:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
@@ -28,5 +38,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 17 problems (14 errors, 3 warnings)
+✖ 27 problems (24 errors, 3 warnings)
 
