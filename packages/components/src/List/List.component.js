@@ -103,7 +103,16 @@ ListToolbar.propTypes = {
 }
  <List {...props}></List>
  */
-function List({ displayMode, id, list, toolbar, defaultHeight, rowHeight, getComponent, components = {} }) {
+function List({
+	displayMode,
+	id,
+	list,
+	toolbar,
+	defaultHeight,
+	rowHeight,
+	getComponent,
+	components = {},
+}) {
 	const classnames = classNames('tc-list', theme.list);
 	const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
 
