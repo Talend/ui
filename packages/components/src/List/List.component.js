@@ -118,7 +118,7 @@ function List({
 
 	return (
 		<div className={classnames}>
-			{injected('toolbar')}
+			{injected('before-toolbar')}
 			<ListToolbar
 				id={id}
 				toolbar={toolbar}

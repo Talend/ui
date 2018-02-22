@@ -1,6 +1,6 @@
 # The List component
 
-This component display a list with two optional toolbars
+This component displays a list with two optional toolbars
 
 
 ## Props
@@ -41,12 +41,8 @@ This component display a list with two optional toolbars
 
 `components` props support the following slots:
 
-* toolbar
-* list-wrapper
-* list
-* after-list
-* after-list-wrapper
-* `components.toolbar`
+* before-toolbar
+* `.toolbar`
     * actionbar
     * navbar
     * selectall
@@ -56,4 +52,7 @@ This component display a list with two optional toolbars
     * filter
     * last
     * after-navbar
-
+* list-wrapper
+* list
+* after-list
+* after-list-wrapper
