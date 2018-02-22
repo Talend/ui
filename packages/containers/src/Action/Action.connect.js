@@ -17,25 +17,27 @@ export const renderers = {
 };
 
 export function mapStateToProps(state, ownProps) {
-	const props = {
-		renderers: getRenderers(renderers),
-	};
-
-	if (!ownProps.actionId && !ownProps.name) {
-		return props;
-	}
-	const info = api.action.getActionInfo(
-		{
-			registry: api.registry.getRegistry(),
-			store: {
-				getState: () => state,
+	const props = {};
+	if (ownProps.actionId) {
+		console.warn('DEPRECATED: you should use componentId to map props using props.Action#componentId');
+		const info = api.action.getActionInfo(
+			{
+				registry: api.registry.getRegistry(),
+				store: {
+					getState: () => state,
+				},
 			},
-		},
-		ownProps.actionId || ownProps.name,
-	);
+			ownProps.actionId,
+		);
 
-	props.actionId = ownProps.actionId || ownProps.name;
-	props.displayMode = info.displayMode;
+		props.displayMode = info.displayMode;
+	}
+	return props;
+}
+
+export function mergeProps(stateProps, dispatchProps, ownProps) {
+	const props = Object.assign({}, ownProps, stateProps, dispatchProps);
+	delete props.actionId;
 	return props;
 }
 

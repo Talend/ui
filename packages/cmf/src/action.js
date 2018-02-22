@@ -2,8 +2,30 @@ import get from 'lodash/get';
 import deprecated from './deprecated';
 import actionCreatorAPI from './actionCreator';
 
+const msg = `The CMF action api is deprecated. You should use your own component.
+This api is redondant and is just used to map the settings to props.
+So please migrate your settings from
+
+{
+	"actions": {
+		"my-action": { ... props }
+	}
+}
+
+to
+
+{
+	"props": {
+		"MyActionComponent#my-action": {
+			...props
+		}
+	}
+}
+`;
+
 /**
- * This module provide low level api to register and handle action in a CMF App.
+ * This module is DEPRECATED and will be removed in future version.
+ * it provide low level api to register and handle action in a CMF App.
  * @module react-cmf/lib/action
  * @see module:react-cmf/lib/Dispatcher
  */
@@ -116,12 +138,12 @@ const getActionCreatorFunction = deprecated(
 );
 
 export default {
-	getActionsById,
+	getActionsById: deprecated(getActionsById, msg),
 	getActionCreatorFunction,
-	getActionInfo,
-	getActionObject,
-	getContentTypeActions,
-	getOnProps,
-	mapDispatchToProps,
+	getActionInfo: deprecated(getActionInfo, msg),
+	getActionObject: deprecated(getActionObject, msg),
+	getContentTypeActions: deprecated(getContentTypeActions, msg),
+	getOnProps: deprecated(getOnProps, msg),
+	mapDispatchToProps: deprecated(mapDispatchToProps, msg),
 	registerActionCreator,
 };

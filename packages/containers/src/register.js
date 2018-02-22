@@ -5,6 +5,7 @@ import {
 	ActionButton,
 	ActionFile,
 	ActionDropdown,
+	ActionIconToggle,
 	Actions,
 	ActionSplitDropdown,
 	Badge,
@@ -38,6 +39,7 @@ export function registerAllContainers() {
 	api.component.register('ActionButton', ActionButton);
 	api.component.register('ActionFile', ActionFile);
 	api.component.register('ActionDropdown', ActionDropdown);
+	api.component.register('ActionIconToggle', ActionIconToggle);
 	api.component.register('Actions', Actions);
 	api.component.register('ActionSplitDropdown', ActionSplitDropdown);
 	api.component.register('Badge', Badge);

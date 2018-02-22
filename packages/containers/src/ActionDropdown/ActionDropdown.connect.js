@@ -14,10 +14,12 @@ export function mapStateToProps(state, ownProps = {}) {
 		},
 	};
 	if (ownProps.actionId) {
+		// deprecated
 		props = api.action.getActionInfo(context, ownProps.actionId);
 	}
 	const actionIds = ownProps.actionIds || props.actionIds;
 	if (actionIds) {
+		// deprecated
 		props.items = actionIds.map(itemId => api.action.getActionInfo(context, itemId));
 	}
 	return props;
