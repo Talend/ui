@@ -176,29 +176,33 @@ class List extends React.Component {
 			const actions = this.props.actions;
 			if (actions) {
 				if (actions.left) {
-					props.toolbar.actionBar.actions.left = actions.left.map(action => ({ name: action }));
+					props.toolbar.actionBar.actions.left = actions.left.map(action => ({ actionId: action }));
 				}
 				if (actions.right) {
-					props.toolbar.actionBar.actions.right = actions.right.map(action => ({ name: action }));
+					props.toolbar.actionBar.actions.right = actions.right.map(action => ({ actionId: action }));
 				}
 			}
 
 			if (props.toolbar.pagination) {
-				props.toolbar.pagination.totalResults = state.totalResults;
-				props.toolbar.pagination.itemsPerPage = state.itemsPerPage;
-				props.toolbar.pagination.startIndex = state.startIndex;
-				props.toolbar.pagination.onChange = (startIndex, itemsPerPage) => {
-					if (this.props.toolbar.pagination.onChange) {
+				const pagination = props.toolbar.pagination;
+				pagination.totalResults = state.totalResults;
+				pagination.itemsPerPage = state.itemsPerPage;
+				pagination.startIndex = state.startIndex;
+				if (!pagination.onChange) {
+					pagination.onChange = (startIndex, itemsPerPage) => {
+						this.onChangePage(startIndex, itemsPerPage);
+					};
+				} else if (typeof pagination.onChange === 'string') {
+					const onChangeActionCreator = pagination.onChange;
+					pagination.onChange = (startIndex, itemsPerPage) => {
 						this.props.dispatchActionCreator(
-							this.props.toolbar.pagination.onChange,
+							onChangeActionCreator,
 							null,
 							{ startIndex, itemsPerPage },
 							this.context,
 						);
-					} else {
-						this.onChangePage(startIndex, itemsPerPage);
-					}
-				};
+					};
+				}
 			}
 		}
 		return <Component {...props} />;

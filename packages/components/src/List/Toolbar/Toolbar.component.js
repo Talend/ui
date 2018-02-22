@@ -65,7 +65,7 @@ function Toolbar({
 	getComponent,
 	components,
 }) {
-	const Components = Inject.getAll(getComponent, {
+	const Renderer = Inject.getAll(getComponent, {
 		ActionBar,
 		FilterBar,
 	});
@@ -85,7 +85,7 @@ function Toolbar({
 	return (
 		<div className="tc-list-toolbar">
 			{injected('before-actionbar')}
-			{actionBar && <Components.ActionBar {...actionBarProps} />}
+			{actionBar && <Renderer.ActionBar {...actionBarProps} />}
 			{injected('after-actionbar')}
 			{hasToolbarItem && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
@@ -121,7 +121,7 @@ function Toolbar({
 					{injected('after-pagination')}
 					{injected('before-filter')}
 					{filter && (
-						<Components.FilterBar
+						<Renderer.FilterBar
 							id={id && `${id}-filter`}
 							{...filter}
 							t={t}
