@@ -12,7 +12,8 @@ $tf-typeahead-input-width: 135px !default;
 
 	border: 0;
 	border-radius: 0;
-	box-shadow: $form-shadow;
+	border-bottom: $form-border-bottom;
+	box-shadow: none;
 	height: auto;
 	padding: 0;
 
