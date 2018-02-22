@@ -125,11 +125,12 @@ function List({
 				displayMode={displayMode}
 				list={list}
 				getComponent={getComponent}
-				components={components.toolbar}
+				components={components}
 			/>
-			{injected('list-wrapper')}
+			{injected('after-toolbar')}
+			{injected('before-list-wrapper')}
 			<div className={'tc-list-display-virtualized'}>
-				{injected('list')}
+				{injected('before-list')}
 				<ListToVirtualizedList
 					id={id}
 					displayMode={displayMode}

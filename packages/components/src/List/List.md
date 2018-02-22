@@ -43,16 +43,22 @@ This component displays a list with two optional toolbars
 
 * before-toolbar
 * `.toolbar`
-    * actionbar
-    * navbar
-    * selectall
-    * display
-    * sort
-    * pagination
-    * filter
-    * last
+    * before-actionbar
+    * after-actionbar
+    * before-navbar
+    * before-selectall
+    * after-selectall
+    * before-display
+    * after-display
+    * before-sort
+    * after-sort
+    * before-pagination
+    * after-pagination
+    * before-filter
+    * after-filter
     * after-navbar
-* list-wrapper
-* list
+* after-toolbar
+* before-list-wrapper
+* before-list
 * after-list
 * after-list-wrapper

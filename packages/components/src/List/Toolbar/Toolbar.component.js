@@ -84,14 +84,16 @@ function Toolbar({
 
 	return (
 		<div className="tc-list-toolbar">
-			{injected('actionbar')}
+			{injected('before-actionbar')}
 			{actionBar && <Renderer.ActionBar {...actionBarProps} />}
-			{injected('navbar')}
+			{injected('after-actionbar')}
+			{injected('before-navbar')}
 			{hasToolbarItem && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
-					{injected('selectall')}
+					{injected('before-selectall')}
 					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
-					{injected('display')}
+					{injected('after-selectall')}
+					{injected('before-displaymode')}
 					{display && (
 						<Label
 							text={t('LIST_TOOLBAR_DISPLAY', { defaultValue: 'Display:' })}
@@ -99,7 +101,8 @@ function Toolbar({
 						/>
 					)}
 					{display && <SelectDisplayMode id={displayModeId} {...display} t={t} />}
-					{injected('sort')}
+					{injected('after-displaymode')}
+					{injected('before-sort')}
 					{sort && (
 						<Label
 							text={t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
@@ -108,7 +111,7 @@ function Toolbar({
 					)}
 					{sort && <SelectSortBy id={id && `${id}-sort`} {...sort} t={t} />}
 					{injected('after-sort')}
-					{injected('pagination')}
+					{injected('before-pagination')}
 					{pagination && (
 						<Label
 							text={t('LIST_TOOLBAR_PAGINATION_SHOW', { defaultValue: 'Show:' })}
@@ -117,7 +120,7 @@ function Toolbar({
 					)}
 					{pagination && <Pagination id={id && `${id}-pagination`} {...pagination} />}
 					{injected('after-pagination')}
-					{injected('filter')}
+					{injected('before-filter')}
 					{filter && (
 						<Renderer.FilterBar
 							id={id && `${id}-filter`}
