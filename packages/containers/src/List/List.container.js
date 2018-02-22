@@ -105,7 +105,7 @@ class List extends React.Component {
 	}
 
 	render() {
-		const state = (this.props.state || DEFAULT_STATE).toJS();
+		const state = this.props.state.toJS();
 		const items = getItems(this.context, this.props);
 		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS));
 		if (!props.displayMode) {
