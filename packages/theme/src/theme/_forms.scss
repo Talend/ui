@@ -23,10 +23,8 @@ form {
 		margin-bottom: 0;
 	}
 
-	div.form-group:not(.has-success):not(.has-warning):not(.has-error) {
+	div:not(.has-success):not(.has-warning):not(.has-error) {
 		textarea,
-		textarea.form-control,
-		input.form-control,
 		input[type='text'],
 		input[type='password'],
 		input[type='email'],
@@ -41,24 +39,24 @@ form {
 			}
 		}
 
-		input.input-lg ~ label.control-label {
+		.input-lg ~ .control-label {
 			font-size: $font-size-large;
 		}
 
-		input.input-sm ~ label.control-label {
+		.input-sm ~ .control-label {
 			font-size: $font-size-small;
 		}
 
-		label.control-label {
-			color: $silver-chalice;
-			font-weight: $form-base-font-weight;
-			font-size: $font-size-base;
+		label {
+			&.control-label {
+				color: $silver-chalice;
+				font-weight: $form-base-font-weight;
+				font-size: $font-size-base;
+			}
 		}
 	}
 
 	textarea,
-	textarea.form-control,
-	input.form-control,
 	input[type='text'],
 	input[type='password'],
 	input[type='email'],
@@ -70,7 +68,7 @@ form {
 	[contenteditable].form-control {
 		box-shadow: none;
 		padding: 0;
-		border: 0;
+		border: none;
 		border-radius: 0;
 		font-size: $form-input-font-size;
 		font-weight: $form-base-font-weight;
@@ -107,49 +105,50 @@ form {
 		}
 	}
 
-	select,
-	select.form-control {
-		box-shadow: none;
-		border: 0;
-		border-radius: 0;
-		border-bottom: $form-border-bottom;
-		appearance: none;
-		padding-left: 0;
-		padding-right: 0 \9; // remove padding for < ie9 since default arrow can't be removed
-		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=');
-		background-size: 13px;
-		background-repeat: no-repeat;
-		background-position: right center;
-		font-size: $form-input-font-size;
-		font-weight: $form-base-font-weight;
-		line-height: 1.5;
+	select {
+		&.form-control {
+			box-shadow: none;
+			border: none;
+			border-radius: 0;
+			border-bottom: $form-border-bottom;
+			appearance: none;
+			padding-left: 0;
+			padding-right: 0 \9; // remove padding for < ie9 since default arrow can't be removed
+			background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEVmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaP/QSjAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=');
+			background-size: 13px;
+			background-repeat: no-repeat;
+			background-position: right center;
+			font-size: $form-input-font-size;
+			font-weight: $form-base-font-weight;
+			line-height: 1.5;
 
-		&::-ms-expand {
-			// sass-lint:disable-line no-vendor-prefixes
-			display: none;
-		}
-
-		&.input {
-			&-sm {
-				font-size: $font-size-small;
+			&::-ms-expand {
+				// sass-lint:disable-line no-vendor-prefixes
+				display: none;
 			}
 
-			&-lg {
-				font-size: $font-size-large;
+			&.input {
+				&-sm {
+					font-size: $font-size-small;
+				}
+
+				&-lg {
+					font-size: $font-size-large;
+				}
 			}
-		}
 
-		&:focus {
-			@include box-shadow(inset 0 -2px 0 $brand-primary);
-			background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISF8S9ewAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=');
-		}
+			&:focus {
+				@include box-shadow(inset 0 -2px 0 $brand-primary);
+				background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISF8S9ewAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=');
+			}
 
-		&[multiple] {
-			background: none;
-		}
+			&[multiple] {
+				background: none;
+			}
 
-		option:default {
-			display: none;
+			option:default {
+				display: none;
+			}
 		}
 	}
 
@@ -298,7 +297,7 @@ form {
 	.has-warning {
 		input:not([type='checkbox']),
 		.form-control,
-		input.form-control[readonly],
+		input[readonly],
 		input[type='text'][readonly],
 		[type='text'].form-control[readonly],
 		input:not([type='checkbox']):focus,
@@ -311,7 +310,7 @@ form {
 	.has-error {
 		input:not([type='checkbox']),
 		.form-control,
-		input.form-control[readonly],
+		input[readonly],
 		input[type='text'][readonly],
 		[type='text'].form-control[readonly],
 		input:not([type='checkbox']):focus,
@@ -328,7 +327,7 @@ form {
 			.text-danger {
 				line-height: 15px;
 				font-size: $font-size-small;
-				font-weight: 400;
+				font-weight: $form-base-font-weight;
 				color: $chestnut-rose;
 				list-style-type: none;
 			}
@@ -338,7 +337,7 @@ form {
 	.has-success {
 		input:not([type='checkbox']),
 		.form-control,
-		input.form-control[readonly],
+		input[readonly],
 		input[type='text'][readonly],
 		[type='text'].form-control[readonly],
 		input:not([type='checkbox']):focus,
@@ -360,25 +359,39 @@ form {
 	}
 
 	.form-group-lg {
-		select,
-		select.form-control {
-			line-height: 1.5;
+		select {
+			&.form-control {
+				line-height: 1.5;
+			}
 		}
 	}
 
-	.form-group > input.form-control::placeholder {
+	.form-group > .form-control::placeholder {
 		color: $silver;
 	}
 
 	.form-control + label {
-		font-size: 14px;
+		font-size: $font-size-base;
 		color: $silver-chalice;
 	}
 
-	textarea,
-	textarea.form-control {
-		border-right: 1px solid $gallery;
+	textarea {
+		&.form-control {
+			box-shadow: none;
+			padding: 0;
+			border: none;
+			border-radius: 0;
+			font-size: $form-input-font-size;
+			font-weight: $form-base-font-weight;
+			border-bottom: $form-border-bottom;
+			border-right: 1px solid $gallery;
+
+			&:focus {
+				@include box-shadow($form-focus-shadow);
+			}
+		}
 	}
+
 }
 
 .form {
