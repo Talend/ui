@@ -141,7 +141,6 @@ List.displayName = 'List';
 
 List.propTypes = {
 	...ListToolbar.propTypes,
-	renderers: PropTypes.object,
 };
 
 List.defaultProps = {
