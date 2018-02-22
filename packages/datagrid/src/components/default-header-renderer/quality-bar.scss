@@ -8,10 +8,6 @@ $td-quality-bar-height: 5% !default;
 	position: absolute;
 	bottom: 0px;
 
-	&:hover {
-		height: 1.2rem;
-	}
-
 	&-invalid {
 		background-color: $td-quality-bar-invalid-background-color;
 	}

@@ -1,5 +1,12 @@
+$td-cell-quality-indicator-hover-width: 0.8rem !default;
+$td-cell-quality-indicator-padding: 0.9rem !default;
+
 .td-cell {
-	padding: 9px;
+	padding: $td-cell-quality-indicator-padding;
 	overflow: hidden;
 	text-overflow: ellipsis;
+
+	&:hover :global(.td-cell-quality-indicator) {
+		width: $td-cell-quality-indicator-hover-width;
+	}
 }
