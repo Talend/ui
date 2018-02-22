@@ -12,7 +12,6 @@ const registryComponents = {
 };
 
 function getComponent(id) {
-	console.log(registryComponents[id]);
 	return registryComponents[id];
 }
 
