@@ -2,7 +2,7 @@ import get from 'lodash/get';
 import deprecated from './deprecated';
 import actionCreatorAPI from './actionCreator';
 
-const msg = `The CMF action api is deprecated. You should use your own component.
+const msg = `@talend/react-cmf/lib/action api is deprecated. You should use your own component.
 This api is redondant and is just used to map the settings to props.
 So please migrate your settings from
 
