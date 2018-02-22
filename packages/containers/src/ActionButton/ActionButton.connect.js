@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { api, cmfConnect, Inject } from '@talend/react-cmf';
 import { ActionButton } from '@talend/react-components';
 
-
 export function mapStateToProps(state, ownProps) {
 	let props = {};
 	if (ownProps.actionId) {
