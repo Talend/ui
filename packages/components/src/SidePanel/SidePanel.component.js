@@ -53,10 +53,7 @@ function SidePanel({
 		reverse,
 		[theme.reverse]: reverse,
 	});
-	const listCSS = classNames(
-		theme['tc-side-panel-list'],
-		'tc-side-panel-list',
-	);
+	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list');
 
 	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand' });
 	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse' });
