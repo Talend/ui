@@ -34,6 +34,8 @@ import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
+import omit from 'lodash/omit';
+import pick from 'lodash/pick';
 import api from './api';
 import deprecated from './deprecated';
 
@@ -41,6 +43,23 @@ import { statePropTypes, initState, getStateAccessors, getStateProps } from './c
 import { mapStateToViewProps } from './settings';
 
 let newState;
+
+const KEEP_EVENT_ATTRIBUTES = [
+	'type',
+	// keyboard
+	'ctrlKey', 'altKey', 'shiftKey', 'charCode', 'key', 'keyCode', 'repeat', 'which',
+	// mouse
+	'button', 'buttons', 'clientX', 'clientY', 'pageX', 'pageY', 'screenX', 'screenY',
+];
+
+function serializeEvent(event) {
+	if (event.nativeEvent) {
+		return Object.assign({
+			target: pick(event.target || {}, ['type', 'value', 'checked']),
+		}, pick(event, KEEP_EVENT_ATTRIBUTES));
+	}
+	return event;
+}
 
 const CMF_PROPS = [
 	'didMountActionCreator', // componentDidMount action creator id in registry
@@ -244,6 +263,8 @@ export default function cmfConnect({
 			constructor(props, context) {
 				super(props, context);
 				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
+				this.onEvent = this.onEvent.bind(this);
+				this.onEventDispatch = this.onEventDispatch.bind(this);
 			}
 
 			componentDidMount() {
@@ -272,14 +293,66 @@ export default function cmfConnect({
 				}
 			}
 
+			onEvent() {
+				return Object.keys(this.props).reduce(this.onEventDispatch, { toOmit: [] });
+			}
+
+			onEventDispatch(props, key) {
+				if (key.startsWith('on')) {
+					if (key.endsWith('Dispatch')) {
+						props.toOmit.push(key);
+						// eslint-disable-next-line no-param-reassign
+						props[key.replace('Dispatch', '')] = (event, data) => {
+							const payload = Object.assign({
+								event: serializeEvent(event),
+								data,
+							}, this.props[key]);
+							if (!payload.type) {
+								console.error(`payload ${payload} has no type`);
+							} else {
+								this.props.dispatch(payload);
+							}
+						};
+					}
+					if (key.endsWith('ActionCreator')) {
+						props.toOmit.push(key);
+						const newKey = key.replace('ActionCreator', '');
+						let actionCreator = this.props[key];
+						let args;
+						if (typeof this.props[key] === 'object') {
+							actionCreator = this.props[key].id;
+							args = this.props[key].args;
+						}
+						// eslint-disable-next-line no-param-reassign
+						props[newKey] = (event, data) => {
+							if (!args) {
+								args = [
+									actionCreator,
+									serializeEvent(event),
+									{
+										props: this.props,
+										data,
+									},
+								];
+							}
+							this.dispatchActionCreator(...args);
+						};
+					}
+				}
+				return props;
+			}
+
 			dispatchActionCreator(actionCreatorId, event, data, context) {
 				const extendedContext = Object.assign({}, this.context, context);
 				this.props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
 			}
 
 			render() {
+				const { toOmit, handlers } = this.onEvent();
+
 				const props = {
-					...this.props,
+					...omit(this.props, toOmit),
+					handlers,
 					dispatchActionCreator: this.dispatchActionCreator,
 				};
 				if (!props.state && defaultState) {
@@ -290,7 +363,6 @@ export default function cmfConnect({
 				CMF_PROPS.forEach(key => {
 					delete props[key];
 				});
-
 				return createElement(WrappedComponent, props);
 			}
 		}
