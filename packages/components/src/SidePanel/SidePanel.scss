@@ -168,7 +168,7 @@ $toggle-button-padding: $padding-small - 1;
 				}
 			}
 
-			&.active {
+			&:global(.active) {
 				background-color: $list-item-color;
 
 				:global(.btn.btn-link),
