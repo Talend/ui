@@ -14,7 +14,7 @@ import DataGrid from '@talend/react-datagrid'; //use the DataGrid Container
 
 ## DataGrid Component
 
-The dataGrid component used to show datagrid on all talend projects. This library use [Ag-Grid](http://ag-grid.com) to show the grid. It's an enchanced Ag-Grid.
+The dataGrid component used to show datagrid on all talend projects. This library use [Ag-Grid](http://ag-grid.com) to show the grid. It's an enhanced Ag-Grid.
 
 Features:
 
@@ -105,10 +105,10 @@ The container DataGrid
 
 It is a list of issues encountered with ag-grid that DataGrid resolved.
 
-### Column Active.
+### Active Column.
 
 By default, ag-grid doesn't manage a style when the column is active. DataGrid listens some events from ag-grid to add the class _.column-focus_ on all cells and header on the current column.
-The component HeaderCell is enchanced by a method onFocusedColumn to detect when the user change of the column.
+The component HeaderCell is enhanced by a method onFocusedColumn to detect when the user change of the column.
 
 Ag-Grid Events to update the active column style:
 
@@ -116,6 +116,13 @@ Ag-Grid Events to update the active column style:
 * onViewportChanged: triggers when a new virtualized row is added, removed.
 * onVirtualColumnsChanged: triggers when a new virtualized column is added, removed.
 * click on the header updates the current cell to the selected column.
+
+_Workaround Active Column_
+
+To create this feature, we used a bad pratice by manipulating straight the DOM. But we don't have the choice if we want to highlight the column. We have to access to the wrapper element of the cell and header.
+There is a [issue on ag-grid to request a feature.](https://github.com/ag-grid/ag-grid/issues/2216).
+
+See the code in the method [removeFocusColumn and updateStyleFocusColumn](./src/components/datagrid.component.js).
 
 ### Current Row selected
 

@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-datagrid",
-  "description": "Provide a datagrid for at least talend applications",
+  "description": "Provide a datagrid for at least talend applications based on ag-grid",
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "scripts": {

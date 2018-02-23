@@ -1,13 +1,13 @@
 import { api } from '@talend/react-cmf';
 
 import register from './register';
-import DefaultCellRenderer from './default-cell-renderer';
-import DefaultHeaderRenderer from './default-header-renderer';
-import DefaultPinHeaderRenderer from './default-pin-header-renderer';
-import DefaultStringCellRenderer from './string-cell-renderer/';
-import DefaultIntCellRenderer from './int-cell-renderer';
-import DefaultBooleanCellRenderer from './boolean-cell-renderer';
-import DefaultDateCellRenderer from './date-cell-renderer';
+import DefaultCellRenderer from './DefaultCellRenderer';
+import DefaultHeaderRenderer from './DefaultHeaderRenderer';
+import DefaultPinHeaderRenderer from './DefaultPinHeaderRenderer';
+import DefaultStringCellRenderer from './DefaultStringCellRenderer/';
+import DefaultIntCellRenderer from './DefaultIntCellRenderer';
+import DefaultBooleanCellRenderer from './DefaultBooleanCellRenderer';
+import DefaultDateCellRenderer from './DefaultDateCellRenderer';
 
 jest.mock('@talend/react-cmf', () => ({
 	api: {
@@ -23,7 +23,6 @@ describe('#register components', () => {
 
 		register();
 
-		// then
 		expect(api.component.register.mock.calls.length).toBe(7);
 		expect(api.component.register.mock.calls).toEqual([
 			['DefaultCellRenderer', DefaultCellRenderer],

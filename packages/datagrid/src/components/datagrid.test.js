@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { JSDOM } from 'jsdom';
 
-import { NAMESPACE_SAMPLE, NAMESPACE_INDEX } from './constants';
+import { NAMESPACE_DATA, NAMESPACE_INDEX } from './constants';
 
 import DataGrid, {
 	injectedCellRenderer,
@@ -158,15 +158,14 @@ jest.mock('react-dom', () => ({
 }));
 
 describe('#DataGrid', () => {
-	it('should render DefaultDateCellRenderer', () => {
+	it('should render DataGrid', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
-		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render DefaultDateCellRenderer with columnsDefs and rowData', () => {
+	it('should render DataGrid with columnsDefs and rowData', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} data={sample} />);
-		// then
+
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
@@ -214,10 +213,8 @@ describe('#Datagrid method', () => {
 			[AG_GRID_ELEMENT]: gridElement,
 		});
 
-		// when
 		wrapper.instance().removeFocusColumn();
 
-		// then
 		expect(gridElement.outerHTML).toBe(
 			'<div class="grid-element"><div class=""></div><div class=""></div><div></div></div>',
 		);
@@ -225,7 +222,7 @@ describe('#Datagrid method', () => {
 
 	it('should set the focus on the column', () => {
 		const { document } = new JSDOM(
-			`<!DOCTYPE html><div class="grid-element"><div col-id="${NAMESPACE_SAMPLE}colId"></div><div col-id="${NAMESPACE_SAMPLE}colId"></div><div></div></div>`,
+			`<!DOCTYPE html><div class="grid-element"><div col-id="${NAMESPACE_DATA}colId"></div><div col-id="${NAMESPACE_DATA}colId"></div><div></div></div>`,
 		).window;
 		const gridElement = document.querySelector('.grid-element');
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
@@ -233,20 +230,18 @@ describe('#Datagrid method', () => {
 		instance.setGridInstance({
 			[AG_GRID_ELEMENT]: gridElement,
 		});
-		instance.currentColId = `${NAMESPACE_SAMPLE}colId`;
+		instance.currentColId = `${NAMESPACE_DATA}colId`;
 
-		// when
 		wrapper.instance().updateStyleFocusColumn();
 
-		// then
 		expect(gridElement.outerHTML).toBe(
-			`<div class="grid-element"><div col-id="${NAMESPACE_SAMPLE}colId" class="column-focus"></div><div col-id="${NAMESPACE_SAMPLE}colId" class="column-focus"></div><div></div></div>`,
+			`<div class="grid-element"><div col-id="${NAMESPACE_DATA}colId" class="column-focus"></div><div col-id="${NAMESPACE_DATA}colId" class="column-focus"></div><div></div></div>`,
 		);
 	});
 
 	it('should not set the focus on the column when any defined column', () => {
 		const { document } = new JSDOM(
-			`<!DOCTYPE html><div class="grid-element"><div col-id="${NAMESPACE_SAMPLE}colId"></div><div col-id="${NAMESPACE_SAMPLE}colId"></div><div></div></div>`,
+			`<!DOCTYPE html><div class="grid-element"><div col-id="${NAMESPACE_DATA}colId"></div><div col-id="${NAMESPACE_DATA}colId"></div><div></div></div>`,
 		).window;
 		const gridElement = document.querySelector('.grid-element');
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
@@ -255,18 +250,16 @@ describe('#Datagrid method', () => {
 			[AG_GRID_ELEMENT]: gridElement,
 		});
 
-		// when
 		wrapper.instance().updateStyleFocusColumn();
 
-		// then
 		expect(gridElement.outerHTML).toBe(
-			`<div class="grid-element"><div col-id="${NAMESPACE_SAMPLE}colId"></div><div col-id="${NAMESPACE_SAMPLE}colId"></div><div></div></div>`,
+			`<div class="grid-element"><div col-id="${NAMESPACE_DATA}colId"></div><div col-id="${NAMESPACE_DATA}colId"></div><div></div></div>`,
 		);
 	});
 
 	it('should not set the focus on the column when the selected column is an pinned column', () => {
 		const { document } = new JSDOM(
-			`<!DOCTYPE html><div class="grid-element"><div col-id="${NAMESPACE_SAMPLE}colId"></div><div col-id="${NAMESPACE_SAMPLE}colId"></div><div></div></div>`,
+			`<!DOCTYPE html><div class="grid-element"><div col-id="${NAMESPACE_DATA}colId"></div><div col-id="${NAMESPACE_DATA}colId"></div><div></div></div>`,
 		).window;
 		const gridElement = document.querySelector('.grid-element');
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
@@ -276,12 +269,10 @@ describe('#Datagrid method', () => {
 		});
 		instance.currentColId = `${NAMESPACE_INDEX}index`;
 
-		// when
 		wrapper.instance().updateStyleFocusColumn();
 
-		// then
 		expect(gridElement.outerHTML).toBe(
-			`<div class="grid-element"><div col-id="${NAMESPACE_SAMPLE}colId"></div><div col-id="${NAMESPACE_SAMPLE}colId"></div><div></div></div>`,
+			`<div class="grid-element"><div col-id="${NAMESPACE_DATA}colId"></div><div col-id="${NAMESPACE_DATA}colId"></div><div></div></div>`,
 		);
 	});
 

@@ -12,7 +12,7 @@ const DATAGRID_PROPTYPES = {
 	getPinnedColumnDefsFn: PropTypes.func,
 	getColumnDefsFn: PropTypes.func,
 	getRowDataFn: PropTypes.func,
-	getValueByCellFn: PropTypes.func,
+	getCellValueFn: PropTypes.func,
 	headerHeight: PropTypes.number,
 	headerRenderer: PropTypes.string,
 	onFocusedCell: PropTypes.func,

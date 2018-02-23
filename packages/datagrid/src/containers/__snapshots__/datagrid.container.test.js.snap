@@ -4,10 +4,10 @@ exports[`#DataGridContainer should render DataGridContainer 1`] = `
 <DataGrid
   cellRenderer="DefaultCellRenderer"
   data={Object {}}
+  getCellValueFn={[Function]}
   getColumnDefsFn={[Function]}
   getPinnedColumnDefsFn={[Function]}
   getRowDataFn={[Function]}
-  getValueByCellFn={[Function]}
   headerHeight={69}
   headerRenderer="DefaultHeaderRenderer"
   onFocusedCell={[Function]}

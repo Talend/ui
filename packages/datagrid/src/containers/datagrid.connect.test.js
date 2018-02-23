@@ -8,7 +8,7 @@ describe('#ConnectedDataGrid', () => {
 	it('should render a connected ConnectedDataGrid', () => {
 		const context = mock.context();
 		const wrapper = shallow(<ConnectedDataGrid />, { context });
-		// then
+
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
@@ -27,7 +27,7 @@ describe('#ConnectedDataGrid.mapStateToProps', () => {
 		const props = mapStateToProps(state, {
 			source: 'a.b',
 		});
-		// then
+
 		expect(getIn).toHaveBeenCalledWith(['a', 'b']);
 		expect(props).toEqual({
 			data: collection,
@@ -44,7 +44,7 @@ describe('#ConnectedDataGrid.mergeProps', () => {
 				source: 'a.b',
 			},
 		);
-		// then
+
 		expect(props).toEqual({ other: 'other' });
 	});
 });

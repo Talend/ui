@@ -4,15 +4,15 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid/dist/styles/ag-grid.css';
 import { Inject } from '@talend/react-components';
 
-import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from './default-header-renderer';
-import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from './default-cell-renderer';
+import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from './DefaultHeaderRenderer';
+import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from './DefaultCellRenderer';
 import DefaultPinHeaderRenderer, {
 	PIN_HEADER_RENDERER_COMPONENT,
-} from './default-pin-header-renderer';
+} from './DefaultPinHeaderRenderer';
 
 import DATAGRID_PROPTYPES from './datagrid.proptypes';
 import { NAMESPACE_INDEX } from './constants';
-import serializer from './dataset-serializer';
+import serializer from './DatasetSerializer';
 import theme from './datagrid.scss';
 
 const FOCUSED_COLUMN_CLASS_NAME = 'column-focus';
@@ -51,7 +51,7 @@ export default class DataGrid extends React.Component {
 		getPinnedColumnDefsFn: serializer.getPinnedColumnDefs,
 		getColumnDefsFn: serializer.getColumnDefs,
 		getRowDataFn: serializer.getRowData,
-		getValueByCellFn: serializer.getValueByCell,
+		getCellValueFn: serializer.getCellValue,
 		headerHeight: HEADER_HEIGHT,
 		headerRenderer: 'DefaultHeaderRenderer',
 		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
@@ -103,17 +103,9 @@ export default class DataGrid extends React.Component {
 	}
 
 	onFocusedColumn(colId) {
-		let selectedRowIndex = 0;
-		if (this.gridAPI.getFocusedCell()) {
-			selectedRowIndex = this.gridAPI.getFocusedCell().rowIndex;
-		}
-
-		if (colId !== this.currentColId) {
-			this.removeFocusColumn();
-		}
-
+		this.gridAPI.deselectAll();
 		this.setCurrentFocusedColumn(colId);
-		this.gridAPI.setFocusedCell(selectedRowIndex, colId);
+		this.removeFocusColumn();
 		this.updateStyleFocusColumn();
 		this.props.onFocusedColumn(colId);
 	}
@@ -127,15 +119,7 @@ export default class DataGrid extends React.Component {
 	}
 
 	removeFocusColumn() {
-		/*
-			This is a bad pratice to manipulate straight the DOM.
-			But we don't have the choice if we want to highlight the column.
-			We have to access to the wrapper element of the cell and header.
-			There is a issue on ag-grid to request a feature like this.
-			https://github.com/ag-grid/ag-grid/issues/2216
-			When Ag-grid implements this feature, we can remove the below code
-		*/
-		// eslint-disable-next-line react/no-find-dom-node
+		// workaround see README.md#Workaround Active Column
 		const focusedCells = this.gridInstance[AG_GRID_ELEMENT].querySelectorAll(
 			`.${FOCUSED_COLUMN_CLASS_NAME}`,
 		);
@@ -152,15 +136,7 @@ export default class DataGrid extends React.Component {
 			return;
 		}
 
-		/*
-			This is a bad pratice to manipulate straight the DOM.
-			But we don't have the choice if we want to highlight the column.
-			We have to access to the wrapped element of the cell and header.
-			There is a issue on ag-grid to request a feature like this.
-			https://github.com/ag-grid/ag-grid/issues/2216
-			When Ag-grid implement this feature, we can't remove the below code
-		*/
-		// eslint-disable-next-line react/no-find-dom-node
+		// workaround see README.md#Workaround Active Column
 		const columnsCells = this.gridInstance[AG_GRID_ELEMENT].querySelectorAll(
 			`[col-id="${colId}"]:not(.${FOCUSED_COLUMN_CLASS_NAME})`,
 		);
@@ -205,7 +181,7 @@ export default class DataGrid extends React.Component {
 			agGridOptions.columnDefs = adaptedPinnedColumnDefs.map(adaptedPinnedColumnDef => ({
 				lockPosition: true,
 				pinned: 'left',
-				valueGetter: this.props.getValueByCellFn,
+				valueGetter: this.props.getCellValueFn,
 				...adaptedPinnedColumnDef,
 				[AG_GRID_CUSTOM_HEADER_KEY]: PIN_HEADER_RENDERER_COMPONENT,
 			}));
@@ -214,7 +190,7 @@ export default class DataGrid extends React.Component {
 		if (adaptedColumnDefs) {
 			const columnsDefs = adaptedColumnDefs.map(adaptedColumnDef => ({
 				lockPinned: true,
-				valueGetter: this.props.getValueByCellFn,
+				valueGetter: this.props.getCellValueFn,
 				...adaptedColumnDef,
 				[AG_GRID_CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
 				[AG_GRID_CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,

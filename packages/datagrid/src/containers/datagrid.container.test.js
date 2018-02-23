@@ -7,7 +7,7 @@ describe('#DataGridContainer', () => {
 	it('should render DataGridContainer', () => {
 		const data = {};
 		const wrapper = shallow(<DataGridContainer data={data} />);
-		// then
+
 		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(wrapper.find('DataGrid').props().data).toBe(data);
 		expect(DataGridContainer.displayName).toBe('Container(DataGrid)');
@@ -34,7 +34,6 @@ describe('#DataGridContainer events', () => {
 			.props()
 			.onFocusedCell(event);
 
-		// then
 		expect(dispatchActionCreator).toHaveBeenCalledWith(
 			focusCellActionCreator,
 			{},
@@ -59,7 +58,6 @@ describe('#DataGridContainer events', () => {
 			.props()
 			.onFocusedCell(event);
 
-		// then
 		expect(dispatchActionCreator).not.toHaveBeenCalled();
 	});
 
@@ -82,7 +80,6 @@ describe('#DataGridContainer events', () => {
 			.props()
 			.onFocusedColumn(event);
 
-		// then
 		expect(dispatchActionCreator).toHaveBeenCalledWith(
 			focusColumnActionCreator,
 			{},
@@ -107,7 +104,6 @@ describe('#DataGridContainer events', () => {
 			.props()
 			.onFocusedColumn(event);
 
-		// then
 		expect(dispatchActionCreator).not.toHaveBeenCalled();
 	});
 });
