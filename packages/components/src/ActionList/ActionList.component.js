@@ -24,7 +24,6 @@ function getActionId(id, action) {
 	return undefined;
 }
 
-
 function ActionListItem({ id, onSelect, action, isSelected }) {
 	const a11y = {
 		role: 'presentation',
@@ -71,7 +70,6 @@ function ActionListItem({ id, onSelect, action, isSelected }) {
 	);
 }
 
-
 function ActionList(props) {
 	const { className, actions, selected, ...rest } = props;
 
@@ -93,15 +91,9 @@ function ActionList(props) {
 				className,
 			)}
 		>
-			{
-				actions.map(action =>
-					<ActionListItem
-						action={action}
-						isSelected={isActionSelected(action)}
-						{...rest}
-					/>
-				)
-			}
+			{actions.map(action => (
+				<ActionListItem action={action} isSelected={isActionSelected(action)} {...rest} />
+			))}
 		</ul>
 	);
 }
