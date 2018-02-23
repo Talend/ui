@@ -11,7 +11,7 @@ import { Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 import { connect } from 'react-redux';
 import omit from 'lodash/omit';
-import api from './api';
+import api from '../api';
 
 const contextTypes = {
 	registry: PropTypes.object,

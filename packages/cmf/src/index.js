@@ -8,7 +8,7 @@ import cmfConnect from './cmfConnect';
 import ConnectedDispatcher from './Dispatcher';
 import Inject from './Inject.component.js';
 import RegistryProvider from './RegistryProvider';
-import UIRouter from './UIRouter';
+import UIRouter from './route/UIRouter';
 import store from './store';
 import actions from './actions/';
 import reducers from './reducers/';

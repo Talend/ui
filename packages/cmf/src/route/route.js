@@ -6,11 +6,11 @@
 /* eslint no-underscore-dangle: ["error", {"allow": ["_ref"] }]*/
 
 import { connect } from 'react-redux';
-import registry from './registry';
-import { mapStateToViewProps } from './settings';
-import deprecated from './deprecated';
-import CONST from './constant';
-import component from './component';
+import registry from '../registry';
+import { mapStateToViewProps } from '../settings';
+import deprecated from '../deprecated';
+import CONST from '../constant';
+import component from '../component';
 
 const getComponentFromRegistry = deprecated(
 	(context, id) => component.get(id, context),
@@ -37,7 +37,7 @@ function registerFunction(id, func) {
 /**
  * return a function from the router configuration
  * @param  {string} id
- * @param  {object} contextcmf context
+ * @param  {object} context cmf context
  */
 function getFunction(id, context) {
 	return registry.getFromRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, context);
@@ -47,7 +47,7 @@ function getFunction(id, context) {
  * DEPRECATED connection to support old component which are registred but
  * not CMF connected.
  * @param  {object} context React context with at least the stostore
- * @param  {any} component  React component to connect
+ * @param  {any} Component  React component to connect
  * @param  {string} view  the viewId to search for in settings
  * @return {any}       the connected component with it's view props injected
  */

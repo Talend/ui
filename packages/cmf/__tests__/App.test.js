@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import App from '../src/App';
 import RegistryProvider from '../src/RegistryProvider';
-import UIRouter from '../src/UIRouter';
+import UIRouter from '../src/route/UIRouter';
 
 describe('CMF App', () => {
 	it('App should init stuff', () => {
