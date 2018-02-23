@@ -34,8 +34,17 @@ function ActionList(props) {
 		return action.active;
 	};
 
+	const css = classNames(
+		'nav',
+		'nav-pills',
+		'nav-stacked',
+		theme['tc-action-list'],
+		'tc-action-list',
+		className,
+	);
+
 	return (
-		<ul className={classNames(className, 'nav')}>
+		<ul className={css}>
 			{actions.map(action => {
 				const a11y = {
 					role: 'presentation',

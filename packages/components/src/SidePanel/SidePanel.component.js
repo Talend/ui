@@ -54,9 +54,6 @@ function SidePanel({
 		[theme.reverse]: reverse,
 	});
 	const listCSS = classNames(
-		'nav',
-		'nav-pills',
-		'nav-stacked',
 		theme['tc-side-panel-list'],
 		'tc-side-panel-list',
 	);
