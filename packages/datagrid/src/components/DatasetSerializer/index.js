@@ -1,9 +1,4 @@
-import {
-	getColumnDefs,
-	getRowData,
-	getPinnedColumnDefs,
-	getCellValue,
-} from './datasetSerializer';
+import { getColumnDefs, getRowData, getPinnedColumnDefs, getCellValue } from './datasetSerializer';
 
 export default {
 	getColumnDefs,
