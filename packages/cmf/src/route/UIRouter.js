@@ -17,7 +17,7 @@ import CMFRoute from './CMFRoute';
  */
 
 /**
- * pure arrow function that render the router component.
+ * Pure arrow function that render the router component.
  * You should never need to use this, it's an internal component
  * @example
  "routes": {
@@ -42,7 +42,7 @@ import CMFRoute from './CMFRoute';
       }
     ]
   }
- * @param  {object} props   The waited props (history and routes)
+ * @param  {object} props The props (history and routes)
  * @return {object} ReactElement
  */
 function CMFRouter(props) {
@@ -60,8 +60,8 @@ function CMFRouter(props) {
 }
 CMFRouter.displayName = 'CMFRouter';
 CMFRouter.propTypes = {
-	history: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	routes: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	history: PropTypes.object,
+	routes: PropTypes.object,
 };
 
 function mapStateToProps(state) {

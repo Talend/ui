@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import omit from 'lodash/omit';
 import api from '../api';
 
+/**
+ * CMF Route component that implements onEnter/onLeave hooks
+ */
 class CMFRouteHooks extends React.Component {
 	static displayName = 'CMFRouteHooks';
 	static propTypes = {
@@ -16,6 +19,7 @@ class CMFRouteHooks extends React.Component {
 		registry: PropTypes.object,
 		router: PropTypes.object,
 	};
+	static ownProps = Object.keys(CMFRouteHooks.propTypes);
 
 	constructor(props, context) {
 		super(props, context);
@@ -28,7 +32,7 @@ class CMFRouteHooks extends React.Component {
 			return;
 		}
 		this.onEnter({
-			router: omit(this.props, ['onEnter', 'onLeave', 'children']),
+			router: omit(this.props, CMFRouteHooks.ownProps),
 			dispatch: this.props.dispatch,
 		});
 	}
@@ -38,7 +42,7 @@ class CMFRouteHooks extends React.Component {
 			return;
 		}
 		this.onLeave({
-			router: omit(this.props, ['onEnter', 'onLeave', 'children']),
+			router: omit(this.props, CMFRouteHooks.ownProps),
 			dispatch: this.props.dispatch,
 		});
 	}
