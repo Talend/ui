@@ -10,36 +10,106 @@ import PropTypes from 'prop-types';
 import { Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 import { connect } from 'react-redux';
+import omit from 'lodash/omit';
 import api from './api';
+
+const contextTypes = {
+	registry: PropTypes.object,
+	router: PropTypes.object,
+};
+
+function withViewHOC(Component, view) {
+	function WithView(props) {
+		return <Component view={view} {...props} />;
+	}
+	WithView.displayName = `WithView(${Component.displayName})`;
+	return WithView;
+}
 
 function getComponent(view, componentName, context) {
 	const component = api.component.get(componentName, context);
 	if (view && !component.CMFContainer) {
 		return api.route.connectView(context, component, view);
+	} else if (view) {
+		return withViewHOC(component, view);
 	}
 	return component;
 }
 
+class CMFRouteHooks extends React.Component {
+	static displayName = 'CMFRouteHooks';
+	static propTypes = {
+		onEnter: PropTypes.string,
+		onLeave: PropTypes.string,
+		children: PropTypes.element,
+		dispatch: PropTypes.func,
+	};
+	static contextTypes = contextTypes;
+
+	constructor(props, context) {
+		super(props, context);
+		this.onEnter = this.props.onEnter && api.route.getFunction(this.props.onEnter, this.context);
+		this.onLeave = this.props.onLeave && api.route.getFunction(this.props.onLeave, this.context);
+	}
+
+	componentWillMount() {
+		if (!this.onEnter) {
+			return;
+		}
+		this.onEnter({
+			router: omit(this.props, ['onEnter', 'onLeave', 'children']),
+			dispatch: this.props.dispatch,
+		});
+	}
+
+	componentWillUnmount() {
+		if (!this.onLeave) {
+			return;
+		}
+		this.onLeave({
+			router: omit(this.props, ['onEnter', 'onLeave', 'children']),
+			dispatch: this.props.dispatch,
+		});
+	}
+
+	render() {
+		return React.Children.only(this.props.children);
+	}
+}
+const ConnectedCMFRouteHooks = connect()(CMFRouteHooks);
+
 function CMFRoute(props, context) {
-	const { path, view, childRoutes, component } = props;
+	const { path, view, childRoutes, component, onEnter, onLeave } = props;
 	const Component = getComponent(view, component, context);
 
 	let safePath = path;
 	if (!safePath.startsWith('/')) {
 		safePath = `${props.cmfParentPath || ''}/${path}`;
 	}
+
 	// Warning: You should not use <Route component> and <Route children>
 	// in the same route; <Route children> will be ignored
 	function SubComponent(subprops) {
-		// Backward compat: add props.params
-		return (
+		const componentWithChildrenRoutes = (
+			// Backward compat: add props.params
 			<Component view={view} {...subprops} params={subprops.match.params}>
 				{childRoutes ? childRoutes.map((route, index) => (
 					<CMFRoute key={index} {...route} cmfParentPath={safePath} />
 				)) : null}
 			</Component>
 		);
+
+		if (onEnter || onLeave) {
+			return (
+				<ConnectedCMFRouteHooks {...subprops} onEnter={onEnter} onLeave={onLeave}>
+					{componentWithChildrenRoutes}
+				</ConnectedCMFRouteHooks>
+			);
+		}
+
+		return componentWithChildrenRoutes;
 	}
+
 	return (
 		<Route
 			path={safePath}
@@ -56,11 +126,10 @@ CMFRoute.propTypes = {
 	component: PropTypes.string,
 	view: PropTypes.string,
 	childRoutes: PropTypes.arrayOf(PropTypes.object),  // recursive
+	onEnter: PropTypes.string,
+	onLeave: PropTypes.string,
 };
-CMFRoute.contextTypes = {
-	registry: PropTypes.object,
-	router: PropTypes.object,
-};
+CMFRoute.contextTypes = contextTypes;
 CMFRoute.displayName = 'CMFRoute';
 
 /**
@@ -110,9 +179,12 @@ function CMFRouter(props, context) {
 			<ConnectedRouter history={props.history}>
 				<Component view={routes.view}>
 					<Route exact path="/" component={IndexComponent} />
-					{routes.childRoutes ? routes.childRoutes.map((route, index) => (
-						<CMFRoute key={index} {...route} />
-					)) : null}
+					{
+						routes.childRoutes &&
+						routes.childRoutes.map((route, index) => (
+							<CMFRoute key={index} {...route} />
+						))
+					}
 				</Component>
 			</ConnectedRouter>
 		);
@@ -122,11 +194,7 @@ function CMFRouter(props, context) {
 	);
 }
 CMFRouter.displayName = 'CMFRouter';
-
-CMFRouter.contextTypes = {
-	registry: PropTypes.object,
-	router: PropTypes.object,
-};
+CMFRouter.contextTypes = contextTypes;
 CMFRouter.propTypes = {
 	history: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	routes: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
@@ -135,7 +203,6 @@ CMFRouter.propTypes = {
 function mapStateToProps(state) {
 	return {
 		routes: state.cmf.settings.routes,
-		// router: state.router,  // force re render on router change
 	};
 }
 
