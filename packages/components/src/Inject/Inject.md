@@ -53,6 +53,7 @@ function Example({ getComponent, components }) {
         <div>
             {inject('before-something')}
             <Renderer.Something />
+            {inject('after-something')}
             {inject('before-anything')}
             <Renderer.Anything />
             {inject('after-anything')}
