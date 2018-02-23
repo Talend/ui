@@ -78,7 +78,7 @@ ConfirmDialog.displayName = 'ConfirmDialog';
 ConfirmDialog.propTypes = {
 	header: PropTypes.string,
 	size: PropTypes.oneOf(['small', 'large']),
-	children: PropTypes.element,
+	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	show: PropTypes.bool,
 	cancelAction: PropTypes.shape(Action.propTypes).isRequired,
 	validateAction: PropTypes.shape(Action.propTypes).isRequired,
