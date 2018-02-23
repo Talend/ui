@@ -47,16 +47,33 @@ let newState;
 const KEEP_EVENT_ATTRIBUTES = [
 	'type',
 	// keyboard
-	'ctrlKey', 'altKey', 'shiftKey', 'charCode', 'key', 'keyCode', 'repeat', 'which',
+	'ctrlKey',
+	'altKey',
+	'shiftKey',
+	'charCode',
+	'key',
+	'keyCode',
+	'repeat',
+	'which',
 	// mouse
-	'button', 'buttons', 'clientX', 'clientY', 'pageX', 'pageY', 'screenX', 'screenY',
+	'button',
+	'buttons',
+	'clientX',
+	'clientY',
+	'pageX',
+	'pageY',
+	'screenX',
+	'screenY',
 ];
 
 function serializeEvent(event) {
 	if (event.nativeEvent) {
-		return Object.assign({
-			target: pick(event.target || {}, ['type', 'value', 'checked']),
-		}, pick(event, KEEP_EVENT_ATTRIBUTES));
+		return Object.assign(
+			{
+				target: pick(event.target || {}, ['type', 'value', 'checked']),
+			},
+			pick(event, KEEP_EVENT_ATTRIBUTES),
+		);
 	}
 	return event;
 }
@@ -303,10 +320,13 @@ export default function cmfConnect({
 						props.toOmit.push(key);
 						// eslint-disable-next-line no-param-reassign
 						props[key.replace('Dispatch', '')] = (event, data) => {
-							const payload = Object.assign({
-								event: serializeEvent(event),
-								data,
-							}, this.props[key]);
+							const payload = Object.assign(
+								{
+									event: serializeEvent(event),
+									data,
+								},
+								this.props[key],
+							);
 							if (!payload.type) {
 								console.error(`payload ${payload} has no type`);
 							} else {
