@@ -24,8 +24,56 @@ function getActionId(id, action) {
 	return undefined;
 }
 
+
+function ActionListItem({ id, onSelect, action, isSelected }) {
+	const a11y = {
+		role: 'presentation',
+	};
+	const extra = {};
+
+	if (isSelected) {
+		// @see https://tink.uk/using-the-aria-current-attribute/
+		a11y['aria-current'] = true;
+	}
+	if (onSelect) {
+		extra.onClick = event => {
+			onSelect(event, action);
+			if (action.onClick) {
+				action.onClick(event);
+			}
+		};
+	}
+
+	const actionProps = Object.assign(
+		{},
+		action,
+		{
+			active: undefined, // active scope is only the list item
+			id: getActionId(id, action),
+			bsStyle: 'link',
+			role: 'link',
+		},
+		extra,
+	);
+
+	return (
+		<li
+			title={action.label}
+			key={action.key || action.label}
+			className={classNames(theme['tc-action-list-item'], 'tc-action-list-item', {
+				active: isSelected,
+				[theme.active]: isSelected,
+			})}
+			{...a11y}
+		>
+			<Action {...actionProps} />
+		</li>
+	);
+}
+
+
 function ActionList(props) {
-	const { className, actions, selected, onSelect, id } = props;
+	const { className, actions, selected, ...rest } = props;
 
 	const isActionSelected = action => {
 		if (selected) {
@@ -34,63 +82,26 @@ function ActionList(props) {
 		return action.active;
 	};
 
-	const css = classNames(
-		'nav',
-		'nav-pills',
-		'nav-stacked',
-		theme['tc-action-list'],
-		'tc-action-list',
-		className,
-	);
-
 	return (
-		<ul className={css}>
-			{actions.map(action => {
-				const a11y = {
-					role: 'presentation',
-				};
-				const extra = {};
-				const isSelected = isActionSelected(action);
-
-				if (isSelected) {
-					// @see https://tink.uk/using-the-aria-current-attribute/
-					a11y['aria-current'] = true;
-				}
-				if (onSelect) {
-					extra.onClick = event => {
-						onSelect(event, action);
-						if (action.onClick) {
-							action.onClick(event);
-						}
-					};
-				}
-
-				const actionProps = Object.assign(
-					{},
-					action,
-					{
-						active: undefined, // active scope is only the list item
-						id: getActionId(id, action),
-						bsStyle: 'link',
-						role: 'link',
-					},
-					extra,
-				);
-
-				return (
-					<li
-						title={action.label}
-						key={action.key || action.label}
-						className={classNames(theme['tc-action-list-item'], 'tc-action-list-item', {
-							active: isSelected,
-							[theme.active]: isSelected,
-						})}
-						{...a11y}
-					>
-						<Action {...actionProps} />
-					</li>
-				);
-			})}
+		<ul
+			className={classNames(
+				'nav',
+				'nav-pills',
+				'nav-stacked',
+				theme['tc-action-list'],
+				'tc-action-list',
+				className,
+			)}
+		>
+			{
+				actions.map(action =>
+					<ActionListItem
+						action={action}
+						isSelected={isActionSelected(action)}
+						{...rest}
+					/>
+				)
+			}
 		</ul>
 	);
 }
@@ -110,6 +121,13 @@ if (process.env.NODE_ENV !== 'production') {
 		label: PropTypes.string,
 		onClick: PropTypes.func,
 	});
+
+	ActionListItem.propTypes = {
+		id: PropTypes.string,
+		onSelect: PropTypes.func,
+		action: actionPropType,
+		isSelected: PropTypes.bool,
+	};
 
 	ActionList.propTypes = {
 		id: PropTypes.string,

@@ -10,6 +10,8 @@ const icons = {
 	'talend-star': talendIcons['talend-star'],
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-expanded': talendIcons['talend-expanded'],
+	'talend-folder': talendIcons['talend-folder'],
+	'talend-tdp-negative': talendIcons['talend-tdp-negative'],
 };
 
 const actions = [
@@ -33,6 +35,16 @@ const actions = [
 		label: 'All datasets',
 		icon: 'talend-expanded',
 		onClick: action('All clicked'),
+	},
+	{
+		label: 'Import file',
+		icon: 'talend-folder',
+		onClick: action('Import clicked'),
+	},
+	{
+		label: 'Use magic',
+		icon: 'talend-tdp-negative',
+		onClick: action('Magic clicked'),
 	},
 ];
 
