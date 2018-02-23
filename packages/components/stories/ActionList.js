@@ -65,7 +65,7 @@ stories
 		<div style={{ display: 'inline-table', background: '#236192' }}>
 			<ActionList
 				id="context"
-				actions={[actions[0]]}
+				actions={[actions[1]]}
 				onSelect={action('onItemSelect')}
 				onToggleDock={action('onToggleDock')}
 				tooltipPlacement="top"
