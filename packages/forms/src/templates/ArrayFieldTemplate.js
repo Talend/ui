@@ -81,8 +81,8 @@ function ArrayFieldTemplate(props) {
 				</button>
 			)}
 			{items &&
-				items.map(element => (
-					<FieldTemplate element={element} cantDelete={items.length <= minItems} t={t} />
+				items.map((element, index) => (
+					<FieldTemplate key={index} element={element} cantDelete={items.length <= minItems} t={t} />
 				))}
 		</fieldset>
 	);
