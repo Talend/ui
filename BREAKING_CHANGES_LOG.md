@@ -2,6 +2,72 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+# TODO
+## React-router v4
+* cmf: route onLeave/onEnter
+* PR: [feat(cmf): react-router v4 integration](https://github.com/Talend/ui/pull/324)
+* Change: adapt route configuration and hook parameters to react-router v4 formats
+
+#### Optional path parameters
+From `(/:paramName)` to `/:paramName?`.
+
+Before
+```json
+// settings.json
+{
+  "routes": {
+    "path": "/",
+    "component": "App",
+    "childRoutes": [
+      {
+        "path": "preparations(/:folderId)", // optional parameter
+        "component": "HomeListView",
+        "view": "preparations",
+        "onEnter": "preparation:fetch"
+      }
+    ]
+  }
+}
+```
+
+After
+```json
+// settings.json
+{
+  "routes": {
+    "path": "/",
+    "component": "App",
+    "childRoutes": [
+      {
+        "path": "preparations/:folderId?", // optional parameter
+        "component": "HomeListView",
+        "view": "preparations",
+        "onEnter": "preparation:fetch"
+      }
+    ]
+  }
+}
+```
+
+#### onEnter/onLeave router parameters
+Now the router parameter has the react-router v4 `match` object instead of react-router v3 `nextState` object.
+
+Before
+```javascript
+function onEnter({ router, dispatch }) {
+	const { nextState, replace } = router;
+	const pathParams = nextState.params;
+}
+```
+
+After
+```javascript
+function onEnter({ router, dispatch }) {
+	const { match, replace } = router;
+	const pathParams = match.params;
+}
+```
+
 ## v0.157.0
 * cmf: route onLeave/onEnter
 * PR: [feat(cmf): route onEnter/onLeave with dispatch](https://github.com/Talend/ui/pull/1082)
