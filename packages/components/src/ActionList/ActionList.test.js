@@ -16,11 +16,7 @@ describe('ActionList', () => {
 		];
 
 		// when
-		const actionList = (
-			<ActionList
-				actions={actions}
-			/>
-		);
+		const actionList = <ActionList actions={actions} />;
 		const wrapper = mount(actionList);
 		wrapper
 			.find(Button)

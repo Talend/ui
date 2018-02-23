@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { Action } from '../Actions';
 import theme from './ActionList.scss';
 
-
 /**
  * return the formatted action id
  * if there is no action id, it is generated from the action label
@@ -24,7 +23,6 @@ function getActionId(id, action) {
 	}
 	return undefined;
 }
-
 
 function ActionList(props) {
 	const { className, actions, selected, onSelect, id } = props;
@@ -74,14 +72,10 @@ function ActionList(props) {
 					<li
 						title={action.label}
 						key={action.key || action.label}
-						className={classNames(
-							theme['tc-action-list-item'],
-							'tc-action-list-item',
-							{
-								active: isSelected,
-								[theme.active]: isSelected,
-							}
-						)}
+						className={classNames(theme['tc-action-list-item'], 'tc-action-list-item', {
+							active: isSelected,
+							[theme.active]: isSelected,
+						})}
 						{...a11y}
 					>
 						<Action {...actionProps} />
@@ -91,7 +85,6 @@ function ActionList(props) {
 		</ul>
 	);
 }
-
 
 ActionList.displayName = 'ActionList';
 

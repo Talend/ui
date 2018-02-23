@@ -11,7 +11,6 @@ import ActionList from '../ActionList';
 import Inject from '../Inject';
 import theme from './SidePanel.scss';
 
-
 /**
  * This component aims to display links as a menu.
  * @param {object} props react props
@@ -81,7 +80,7 @@ function SidePanel({
 				</div>
 			)}
 			{injected('before-actions')}
-			{ actions &&
+			{actions && (
 				<Components.ActionList
 					className={listCSS}
 					actions={actions}
@@ -89,7 +88,7 @@ function SidePanel({
 					selected={selected}
 					id={id}
 				/>
-			}
+			)}
 			{injected('actions')}
 		</nav>
 	);
