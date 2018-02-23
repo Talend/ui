@@ -37,8 +37,6 @@ function ListToolbar({ id, toolbar, displayMode, list, getComponent, components 
 		<Toolbar
 			{...toolbarProps}
 			sort={!shouldHideSortOptions && toolbarProps.sort}
-			getComponent={getComponent}
-			components={components}
 		/>
 	);
 }

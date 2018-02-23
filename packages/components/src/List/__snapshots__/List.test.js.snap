@@ -5,6 +5,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
   className="tc-list theme-list"
 >
   <ListToolbar
+    components={Object {}}
     displayMode="table"
     list={
       Object {
@@ -386,6 +387,7 @@ exports[`List should render 1`] = `
   className="tc-list theme-list"
 >
   <ListToolbar
+    components={Object {}}
     displayMode="table"
     list={
       Object {
@@ -5585,6 +5587,7 @@ exports[`List should render id if provided 1`] = `
   className="tc-list theme-list"
 >
   <ListToolbar
+    components={Object {}}
     displayMode="table"
     id="context"
     list={

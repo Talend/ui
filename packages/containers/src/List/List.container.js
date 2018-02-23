@@ -4,6 +4,7 @@ import { Map } from 'immutable';
 import { List as Component } from '@talend/react-components';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
+import pick from 'lodash/pick';
 import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
@@ -153,8 +154,8 @@ class List extends React.Component {
 		if (props.toolbar) {
 			props.toolbar.display = {
 				...props.toolbar.display,
-				onChange: (e, p) => {
-					this.onSelectDisplayMode(e, p);
+				onChange: (event, data) => {
+					this.onSelectDisplayMode(event, data);
 				},
 			};
 			if (props.toolbar.sort) {
@@ -191,9 +192,9 @@ class List extends React.Component {
 
 			if (props.toolbar.pagination) {
 				const pagination = props.toolbar.pagination;
-				pagination.totalResults = state.totalResults;
-				pagination.itemsPerPage = state.itemsPerPage;
-				pagination.startIndex = state.startIndex;
+				Object.assign(props.toolbar.pagination, {
+					...pick(state, ['totalResults', 'itemsPerPage', 'startIndex']),
+				});
 				if (!pagination.onChange) {
 					pagination.onChange = (startIndex, itemsPerPage) => {
 						this.onChangePage(startIndex, itemsPerPage);
