@@ -69,7 +69,7 @@ exports[`Storyshots ActionList default 1`] = `
     }
   >
     <ul
-      className="nav"
+      className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list"
     >
       <li
         aria-current={true}
@@ -262,7 +262,7 @@ exports[`Storyshots ActionList single 1`] = `
     }
   >
     <ul
-      className="nav"
+      className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list"
     >
       <li
         aria-current={true}
