@@ -7,11 +7,10 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 import { connect } from 'react-redux';
 
-import CMFRoute, { getComponent } from './CMFRoute';
+import CMFRoute from './CMFRoute';
 
 /**
  * @typedef {Object} Router
@@ -44,34 +43,14 @@ import CMFRoute, { getComponent } from './CMFRoute';
     ]
   }
  * @param  {object} props   The waited props (history and routes)
- * * @param  {object} context The react context with the registry
  * @return {object} ReactElement
  */
-function CMFRouter(props, context) {
+function CMFRouter(props) {
 	const routes = props.routes;
 	if (routes.path === '/' && routes.component) {
-		const Component = getComponent(routes.view, routes.component, context);
-
-		let IndexComponent;
-		if (routes.indexRoute) {
-			IndexComponent = getComponent(
-				routes.indexRoute.view,
-				routes.indexRoute.component,
-				context
-			);
-		}
-
 		return (
 			<ConnectedRouter history={props.history}>
-				<Component view={routes.view}>
-					{IndexComponent && <Route exact path={routes.path} component={IndexComponent} />}
-					{
-						routes.childRoutes &&
-						routes.childRoutes.map((route, index) => (
-							<CMFRoute key={index} {...route} />
-						))
-					}
-				</Component>
+				<CMFRoute {...routes} />
 			</ConnectedRouter>
 		);
 	}
@@ -80,10 +59,6 @@ function CMFRouter(props, context) {
 	);
 }
 CMFRouter.displayName = 'CMFRouter';
-CMFRouter.contextTypes = {
-	registry: PropTypes.object,
-	router: PropTypes.object,
-};
 CMFRouter.propTypes = {
 	history: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	routes: PropTypes.object, // eslint-disable-line react/forbid-prop-types

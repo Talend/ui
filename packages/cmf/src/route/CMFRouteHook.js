@@ -19,8 +19,8 @@ class CMFRouteHooks extends React.Component {
 
 	constructor(props, context) {
 		super(props, context);
-		this.onEnter = this.props.onEnter && api.route.getFunction(this.props.onEnter, this.context);
-		this.onLeave = this.props.onLeave && api.route.getFunction(this.props.onLeave, this.context);
+		this.onEnter = props.onEnter && api.route.getFunction(props.onEnter, this.context);
+		this.onLeave = props.onLeave && api.route.getFunction(props.onLeave, this.context);
 	}
 
 	componentWillMount() {

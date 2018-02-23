@@ -24,23 +24,49 @@ export function getComponent(view, componentName, context) {
 }
 
 export default function CMFRoute(props, context) {
-	const { path, view, childRoutes, component, onEnter, onLeave } = props;
+	const {
+		childRoutes = [],
+		component,
+		indexRoute,
+		onEnter,
+		onLeave,
+		path,
+		view,
+	} = props;
 	const Component = getComponent(view, component, context);
 
 	let safePath = path;
 	if (!safePath.startsWith('/')) {
-		safePath = `${props.cmfParentPath || ''}/${path}`;
+		const parentPath = props.cmfParentPath || '';
+		if (parentPath.endsWith('/')) {
+			safePath = `${parentPath}${path}`;
+		} else {
+			safePath = `${parentPath}/${path}`;
+		}
 	}
 
 	// Warning: You should not use <Route component> and <Route children>
 	// in the same route; <Route children> will be ignored
 	function SubComponent(subprops) {
+		let IndexComponent;
+		if (indexRoute) {
+			IndexComponent = getComponent(
+				indexRoute.view,
+				indexRoute.component,
+				context
+			);
+		}
+		const children = childRoutes.map((route, index) => (
+			<CMFRoute key={index} {...route} cmfParentPath={safePath} />
+		));
+		if (IndexComponent) {
+			children.push(<Route key={-1} exact path={path} component={IndexComponent} />);
+		}
+
 		const componentWithChildrenRoutes = (
 			// Backward compat: add props.params
 			<Component view={view} {...subprops} params={subprops.match.params}>
-				{childRoutes ? childRoutes.map((route, index) => (
-					<CMFRoute key={index} {...route} cmfParentPath={safePath} />
-				)) : null}
+				{children}
 			</Component>
 		);
 
@@ -65,14 +91,15 @@ export default function CMFRoute(props, context) {
 }
 
 CMFRoute.propTypes = {
-	exact: PropTypes.bool,
-	cmfParentPath: PropTypes.string,
-	path: PropTypes.string,
-	component: PropTypes.string,
-	view: PropTypes.string,
 	childRoutes: PropTypes.arrayOf(PropTypes.object),  // recursive
+	cmfParentPath: PropTypes.string,
+	component: PropTypes.string,
+	exact: PropTypes.bool,
+	indexRoute: PropTypes.object,
 	onEnter: PropTypes.string,
 	onLeave: PropTypes.string,
+	path: PropTypes.string,
+	view: PropTypes.string,
 };
 CMFRoute.contextTypes = {
 	registry: PropTypes.object,
