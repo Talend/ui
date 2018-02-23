@@ -160,7 +160,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
     </svg>
   </symbol>
   <symbol
-    id="talend-aws-kinesis"
+    id="talend-AWS-kinesis"
   >
     <svg
       viewBox="0 0 16 16"
@@ -3055,7 +3055,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
     </svg>
   </symbol>
   <symbol
-    id="talend-aws-kinesis"
+    id="talend-AWS-kinesis"
   >
     <svg
       viewBox="0 0 16 16"
