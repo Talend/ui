@@ -45,7 +45,7 @@ import CMFRoute from './CMFRoute';
  * @param  {object} props The props (history and routes)
  * @return {object} ReactElement
  */
-function CMFRouter(props) {
+export function CMFRouterComponent(props) {
 	const routes = props.routes;
 	if (routes.path === '/' && routes.component) {
 		return (
@@ -58,8 +58,8 @@ function CMFRouter(props) {
 		<div className="is-loading">loading</div>
 	);
 }
-CMFRouter.displayName = 'CMFRouter';
-CMFRouter.propTypes = {
+CMFRouterComponent.displayName = 'CMFRouter';
+CMFRouterComponent.propTypes = {
 	history: PropTypes.object,
 	routes: PropTypes.object,
 };
@@ -70,4 +70,4 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(mapStateToProps)(CMFRouter);
+export default connect(mapStateToProps)(CMFRouterComponent);

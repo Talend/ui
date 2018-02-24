@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CMFRouter should render Route components 1`] = `
+<ConnectedRouter
+  history={undefined}
+>
+  <CMFRoute
+    childRoutes={
+      Array [
+        Object {
+          "component": "HomeListView",
+          "onEnter": "preparation:fetch",
+          "path": "preparations/:folderId?",
+          "view": "preparations",
+        },
+        Object {
+          "component": "HomeListView",
+          "path": "datasets",
+          "view": "datasets",
+        },
+        Object {
+          "component": "HomeListView",
+          "path": "datastores",
+          "view": "datastores",
+        },
+      ]
+    }
+    component="App"
+    indexRoute={
+      Object {
+        "component": "Redirect",
+        "view": "indexRouteRedirect",
+      }
+    }
+    path="/"
+  />
+</ConnectedRouter>
+`;
+
+exports[`CMFRouter should render loading when the routes configuration is not complete 1`] = `
+<div
+  className="is-loading"
+>
+  loading
+</div>
+`;

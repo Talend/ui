@@ -7,7 +7,7 @@ import api from '../api';
 /**
  * CMF Route component that implements onEnter/onLeave hooks
  */
-export class CMFRouteHook extends React.Component {
+export class CMFRouteHookComponent extends React.Component {
 	static displayName = 'CMFRouteHooks';
 	static propTypes = {
 		onEnter: PropTypes.string,
@@ -19,7 +19,7 @@ export class CMFRouteHook extends React.Component {
 		registry: PropTypes.object,
 		router: PropTypes.object,
 	};
-	static ownProps = Object.keys(CMFRouteHook.propTypes);
+	static ownProps = Object.keys(CMFRouteHookComponent.propTypes);
 
 	constructor(props, context) {
 		super(props, context);
@@ -32,7 +32,7 @@ export class CMFRouteHook extends React.Component {
 			return;
 		}
 		this.onEnter({
-			router: omit(this.props, CMFRouteHook.ownProps),
+			router: omit(this.props, CMFRouteHookComponent.ownProps),
 			dispatch: this.props.dispatch,
 		});
 	}
@@ -42,7 +42,7 @@ export class CMFRouteHook extends React.Component {
 			return;
 		}
 		this.onLeave({
-			router: omit(this.props, CMFRouteHook.ownProps),
+			router: omit(this.props, CMFRouteHookComponent.ownProps),
 			dispatch: this.props.dispatch,
 		});
 	}
@@ -51,4 +51,4 @@ export class CMFRouteHook extends React.Component {
 		return React.Children.only(this.props.children);
 	}
 }
-export default connect()(CMFRouteHook);
+export default connect()(CMFRouteHookComponent);

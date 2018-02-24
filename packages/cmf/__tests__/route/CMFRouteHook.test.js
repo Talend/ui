@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CMFRouteHook } from '../../src/route/CMFRouteHook';
+import { CMFRouteHookComponent } from '../../src/route/CMFRouteHook';
 
 const onEnter = 'myComponent:onEnter';
 const onLeave = 'myComponent:onLeave';
@@ -20,9 +20,9 @@ describe('CMFRouteHook', () => {
 
 		// when
 		const wrapper = shallow(
-			<CMFRouteHook>
+			<CMFRouteHookComponent>
 				<MyComponent />
-			</CMFRouteHook>
+			</CMFRouteHookComponent>
 		);
 
 		// then
@@ -38,13 +38,13 @@ describe('CMFRouteHook', () => {
 		// when
 		const wrapper = shallow(
 			(
-				<CMFRouteHook
+				<CMFRouteHookComponent
 					dispatch={jest.fn()}
 					onEnter={onEnter}
 					onLeave={onLeave}
 				>
 					<div />
-				</CMFRouteHook>
+				</CMFRouteHookComponent>
 			),
 			{ context },
 		);
@@ -65,14 +65,14 @@ describe('CMFRouteHook', () => {
 		// when
 		shallow(
 			(
-				<CMFRouteHook
+				<CMFRouteHookComponent
 					dispatch={dispatch}
 					onEnter={onEnter}
 					onLeave={onLeave}
 					match={match}
 				>
 					<div />
-				</CMFRouteHook>
+				</CMFRouteHookComponent>
 			),
 			{ context },
 		);
@@ -94,14 +94,14 @@ describe('CMFRouteHook', () => {
 
 		const wrapper = shallow(
 			(
-				<CMFRouteHook
+				<CMFRouteHookComponent
 					dispatch={dispatch}
 					onEnter={onEnter}
 					onLeave={onLeave}
 					match={match}
 				>
 					<div />
-				</CMFRouteHook>
+				</CMFRouteHookComponent>
 			),
 			{ context },
 		);
