@@ -526,7 +526,7 @@ describe('cmfConnect', () => {
 			const Button = ({ onClick, label }) => (<button onClick={onClick} >{label}</button>);
 			const CMFConnectedButton = cmfConnect({})(Button);
 			const onClickDispatch = {
-				type: 'MY_BUTTON',
+				type: 'MY_BUTTON_CLICKED',
 			};
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
@@ -544,13 +544,24 @@ describe('cmfConnect', () => {
 			);
 			const onClick = wrapper.find(Button).first().props().onClick;
 			expect(onClick).toBeDefined();
+			expect(context.store.dispatch).not.toHaveBeenCalled();
+			onClick({ type: 'click' });
+			expect(context.store.dispatch).toHaveBeenCalledWith({
+				type: 'MY_BUTTON_CLICKED',
+				event: {
+					type: 'click',
+				},
+			});
 		});
 		it('should transform onEventActionCreator props to onEvent handler', () => {
 			const Button = ({ onClick, label }) => (<button onClick={onClick} >{label}</button>);
 			const CMFConnectedButton = cmfConnect({})(Button);
-			const onClickActionCreator = 'myactioncreator';
+			const onClickActionCreator = 'myactionCreator';
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
+			context.registry = {
+				'actionCreator:myactionCreator': () => ({ type: 'FETCH_STUFF' }),
+			};
 
 			const wrapper = mount(
 				<CMFConnectedButton
@@ -565,6 +576,50 @@ describe('cmfConnect', () => {
 			);
 			const onClick = wrapper.find(Button).first().props().onClick;
 			expect(onClick).toBeDefined();
+			expect(context.store.dispatch).not.toHaveBeenCalled();
+			onClick({ type: 'click' });
+			expect(context.store.dispatch).toHaveBeenCalledWith({
+				type: 'FETCH_STUFF',
+			});
+		});
+		it('should support onEventActionCreator props as object', () => {
+			const Button = ({ onClick, label }) => (<button onClick={onClick} >{label}</button>);
+			const CMFConnectedButton = cmfConnect({})(Button);
+			const onClickActionCreator = {
+				id: 'myfetch',
+				args: [{
+					url: '/api/foo',
+					cmf: { collectionId: 'foo' },
+				}],
+			};
+			const context = mock.context();
+			context.store.dispatch = jest.fn();
+			context.registry = {
+				'actionCreator:myfetch': config => ({ type: 'FETCH_CONFIGURED', ...config }),
+			};
+
+			const wrapper = mount(
+				<CMFConnectedButton
+					onClickActionCreator={onClickActionCreator}
+				/>,
+				{
+					context,
+					childContextTypes: {
+						registry: React.PropTypes.object,
+					},
+				}
+			);
+			const onClick = wrapper.find(Button).first().props().onClick;
+			expect(onClick).toBeDefined();
+			expect(context.store.dispatch).not.toHaveBeenCalled();
+			onClick({ type: 'click' });
+			expect(context.store.dispatch).toHaveBeenCalledWith({
+				type: 'FETCH_CONFIGURED',
+				url: '/api/foo',
+				cmf: {
+					collectionId: 'foo',
+				},
+			});
 		});
 	});
 });

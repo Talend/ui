@@ -347,7 +347,6 @@ export default function cmfConnect({
 						props[newKey] = (event, data) => {
 							if (!args) {
 								args = [
-									actionCreator,
 									serializeEvent(event),
 									{
 										props: this.props,
@@ -355,7 +354,7 @@ export default function cmfConnect({
 									},
 								];
 							}
-							this.dispatchActionCreator(...args);
+							this.dispatchActionCreator(actionCreator, ...args);
 						};
 					}
 				}
