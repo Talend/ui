@@ -3,9 +3,11 @@
 exports[`Component HomeListView should be able to render theme 1`] = `
 <Layout
   drawers={
-    <h1>
-      Hello children
-    </h1>
+    Array [
+      <h1>
+        Hello children
+    </h1>,
+    ]
   }
   hasTheme={true}
   header={
@@ -28,29 +30,48 @@ exports[`Component HomeListView should be able to render theme 1`] = `
 `;
 
 exports[`Component HomeListView should children transformed as array in props.drawer 1`] = `
-Object {
-  "props": Object {
-    "children": Object {
-      "props": Object {
-        "children": Object {
-          "props": Object {
-            "children": null,
+Array [
+  Object {
+    "props": Object {
+      "children": Object {
+        "props": Object {
+          "children": Object {
+            "props": Object {
+              "children": null,
+            },
           },
+          "label": "foo",
         },
-        "label": "foo",
       },
+      "foo": "bar",
     },
-    "foo": "bar",
   },
-}
+  Object {
+    "props": Object {
+      "children": Object {
+        "props": Object {
+          "children": null,
+        },
+      },
+      "label": "foo",
+    },
+  },
+  Object {
+    "props": Object {
+      "children": null,
+    },
+  },
+]
 `;
 
 exports[`Component HomeListView should render with element props 1`] = `
 <Layout
   drawers={
-    <h1>
-      Hello children
-    </h1>
+    Array [
+      <h1>
+        Hello children
+    </h1>,
+    ]
   }
   hasTheme={undefined}
   header={
@@ -75,9 +96,11 @@ exports[`Component HomeListView should render with element props 1`] = `
 exports[`Component HomeListView should render with object props 1`] = `
 <Layout
   drawers={
-    <h1>
-      Hello children
-    </h1>
+    Array [
+      <h1>
+        Hello children
+    </h1>,
+    ]
   }
   hasTheme={undefined}
   header={
