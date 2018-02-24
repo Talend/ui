@@ -27,7 +27,7 @@ class CMFRouteHooks extends React.Component {
 		this.onLeave = props.onLeave && api.route.getFunction(props.onLeave, this.context);
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		if (!this.onEnter) {
 			return;
 		}
@@ -37,7 +37,7 @@ class CMFRouteHooks extends React.Component {
 		});
 	}
 
-	componentDidUnmount() {
+	componentWillUnmount() {
 		if (!this.onLeave) {
 			return;
 		}

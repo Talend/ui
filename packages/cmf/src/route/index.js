@@ -1,5 +1,5 @@
 import route from './route';
-import UIRouter from './UIRouter';
+import CMFRouter from './CMFRouter';
 
-export { UIRouter };
+export { CMFRouter };
 export default route;
