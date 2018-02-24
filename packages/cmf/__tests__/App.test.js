@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import App from '../src/App';
 import RegistryProvider from '../src/RegistryProvider';
-import UIRouter from '../src/route/UIRouter';
+import CMFRouter from '../src/route/CMFRouter';
 
 describe('CMF App', () => {
 	it('App should init stuff', () => {
@@ -20,7 +20,7 @@ describe('CMF App', () => {
 		expect(wrapper.contains(
 			<Provider store={store}>
 				<RegistryProvider>
-					<UIRouter history={history} />
+					<CMFRouter history={history} />
 				</RegistryProvider>
 			</Provider>)
 		).toEqual(true);

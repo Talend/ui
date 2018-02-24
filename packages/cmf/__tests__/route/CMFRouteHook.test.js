@@ -1,54 +1,119 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import omit from 'lodash/omit';
-import api from '../api';
+import { shallow } from 'enzyme';
+import { CMFRouteHook } from '../../src/route/CMFRouteHook';
 
-/**
- * CMF Route component that implements onEnter/onLeave hooks
- */
-class CMFRouteHooks extends React.Component {
-	static displayName = 'CMFRouteHooks';
-	static propTypes = {
-		onEnter: PropTypes.string,
-		onLeave: PropTypes.string,
-		children: PropTypes.element,
-		dispatch: PropTypes.func,
+const onEnter = 'myComponent:onEnter';
+const onLeave = 'myComponent:onLeave';
+function createContext(onEnterFn, onLeaveFn) {
+	return {
+		registry: {
+			[`_.route.hook:${onEnter}`]: onEnterFn,
+			[`_.route.hook:${onLeave}`]: onLeaveFn,
+		},
 	};
-	static contextTypes = {
-		registry: PropTypes.object,
-		router: PropTypes.object,
-	};
-	static ownProps = Object.keys(CMFRouteHooks.propTypes);
-
-	constructor(props, context) {
-		super(props, context);
-		this.onEnter = props.onEnter && api.route.getFunction(props.onEnter, this.context);
-		this.onLeave = props.onLeave && api.route.getFunction(props.onLeave, this.context);
-	}
-
-	componentWillMount() {
-		if (!this.onEnter) {
-			return;
-		}
-		this.onEnter({
-			router: omit(this.props, CMFRouteHooks.ownProps),
-			dispatch: this.props.dispatch,
-		});
-	}
-
-	componentWillUnmount() {
-		if (!this.onLeave) {
-			return;
-		}
-		this.onLeave({
-			router: omit(this.props, CMFRouteHooks.ownProps),
-			dispatch: this.props.dispatch,
-		});
-	}
-
-	render() {
-		return React.Children.only(this.props.children);
-	}
 }
-export default connect()(CMFRouteHooks);
+
+describe('CMFRouteHook', () => {
+	it('should render its children', () => {
+		// given
+		const MyComponent = () => (<div>My component</div>);
+
+		// when
+		const wrapper = shallow(
+			<CMFRouteHook>
+				<MyComponent />
+			</CMFRouteHook>
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should create onEnter/onLeave function', () => {
+		// given
+		const onEnterFn = jest.fn();
+		const onLeaveFn = jest.fn();
+		const context = createContext(onEnterFn, onLeaveFn);
+
+		// when
+		const wrapper = shallow(
+			(
+				<CMFRouteHook
+					dispatch={jest.fn()}
+					onEnter={onEnter}
+					onLeave={onLeave}
+				>
+					<div />
+				</CMFRouteHook>
+			),
+			{ context },
+		);
+
+		// then
+		expect(wrapper.instance().onEnter).toBe(onEnterFn);
+		expect(wrapper.instance().onLeave).toBe(onLeaveFn);
+	});
+
+	it('should call onEnter when componentDidMount', () => {
+		// given
+		const onEnterFn = jest.fn();
+		const onLeaveFn = jest.fn();
+		const context = createContext(onEnterFn, onLeaveFn);
+		const dispatch = jest.fn();
+		const match = { params: {} };
+
+		// when
+		shallow(
+			(
+				<CMFRouteHook
+					dispatch={dispatch}
+					onEnter={onEnter}
+					onLeave={onLeave}
+					match={match}
+				>
+					<div />
+				</CMFRouteHook>
+			),
+			{ context },
+		);
+
+		// then
+		expect(onEnterFn).toBeCalledWith({
+			router: { match },
+			dispatch,
+		});
+	});
+
+	it('should call onLeave when componentWillUnmount', () => {
+		// given
+		const onEnterFn = jest.fn();
+		const onLeaveFn = jest.fn();
+		const context = createContext(onEnterFn, onLeaveFn);
+		const dispatch = jest.fn();
+		const match = { params: {} };
+
+		const wrapper = shallow(
+			(
+				<CMFRouteHook
+					dispatch={dispatch}
+					onEnter={onEnter}
+					onLeave={onLeave}
+					match={match}
+				>
+					<div />
+				</CMFRouteHook>
+			),
+			{ context },
+		);
+		expect(onLeaveFn).not.toBeCalled();
+
+		// when
+		wrapper.unmount();
+
+		// then
+		expect(onLeaveFn).toBeCalledWith({
+			router: { match },
+			dispatch,
+		});
+	});
+});

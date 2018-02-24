@@ -7,7 +7,7 @@ import api from '../api';
 /**
  * CMF Route component that implements onEnter/onLeave hooks
  */
-class CMFRouteHooks extends React.Component {
+export class CMFRouteHook extends React.Component {
 	static displayName = 'CMFRouteHooks';
 	static propTypes = {
 		onEnter: PropTypes.string,
@@ -19,12 +19,12 @@ class CMFRouteHooks extends React.Component {
 		registry: PropTypes.object,
 		router: PropTypes.object,
 	};
-	static ownProps = Object.keys(CMFRouteHooks.propTypes);
+	static ownProps = Object.keys(CMFRouteHook.propTypes);
 
 	constructor(props, context) {
 		super(props, context);
-		this.onEnter = props.onEnter && api.route.getFunction(props.onEnter, this.context);
-		this.onLeave = props.onLeave && api.route.getFunction(props.onLeave, this.context);
+		this.onEnter = props.onEnter && api.route.getFunction(props.onEnter, context);
+		this.onLeave = props.onLeave && api.route.getFunction(props.onLeave, context);
 	}
 
 	componentDidMount() {
@@ -32,17 +32,17 @@ class CMFRouteHooks extends React.Component {
 			return;
 		}
 		this.onEnter({
-			router: omit(this.props, CMFRouteHooks.ownProps),
+			router: omit(this.props, CMFRouteHook.ownProps),
 			dispatch: this.props.dispatch,
 		});
 	}
 
-	componentDidUnmount() {
+	componentWillUnmount() {
 		if (!this.onLeave) {
 			return;
 		}
 		this.onLeave({
-			router: omit(this.props, CMFRouteHooks.ownProps),
+			router: omit(this.props, CMFRouteHook.ownProps),
 			dispatch: this.props.dispatch,
 		});
 	}
@@ -51,4 +51,4 @@ class CMFRouteHooks extends React.Component {
 		return React.Children.only(this.props.children);
 	}
 }
-export default connect()(CMFRouteHooks);
+export default connect()(CMFRouteHook);

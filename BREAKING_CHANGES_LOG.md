@@ -8,6 +8,20 @@ This document aims to ease the WIP migration from a version to another by provid
 * PR: [feat(cmf): react-router v4 integration](https://github.com/Talend/ui/pull/324)
 * Change: adapt route configuration and hook parameters to react-router v4 formats
 
+#### UIRouter to CMFRouter
+The component UIRouter has been renamed to CMFRouter.
+But you should not use this component explicitly and let CMF handle this.
+
+Before
+````javascript
+import { UIRouter } from '@talend/cmf';
+````
+
+After
+```javascript
+import { CMFRouter } from '@talend/cmf';
+```
+
 #### Optional path parameters
 From `(/:paramName)` to `/:paramName?`.
 

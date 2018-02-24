@@ -20,7 +20,7 @@ import { Provider } from 'react-redux';
 import { createHashHistory } from 'history';
 
 import RegistryProvider from './RegistryProvider';
-import UIRouter from './route/UIRouter';
+import CMFRouter from './route/CMFRouter';
 
 /**
  * The React component that render your app and provide CMF environment.
@@ -33,7 +33,7 @@ export default function App(props) {
 	return (
 		<Provider store={props.store}>
 			<RegistryProvider>
-				{props.children || <UIRouter history={history} />}
+				{props.children || <CMFRouter history={history} />}
 			</RegistryProvider>
 		</Provider>
 	);
