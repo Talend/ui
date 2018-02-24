@@ -522,5 +522,49 @@ describe('cmfConnect', () => {
 			expect(CMFConnectedFunction.displayName).toBe('Connect(CMF(FunctionComponent))');
 			expect(CMFConnectedClass.displayName).toBe('Connect(CMF(ClassComponent))');
 		});
+		it('should transform onEventDispatch props to onEvent handler', () => {
+			const Button = ({ onClick, label }) => (<button onClick={onClick} >{label}</button>);
+			const CMFConnectedButton = cmfConnect({})(Button);
+			const onClickDispatch = {
+				type: 'MY_BUTTON',
+			};
+			const context = mock.context();
+			context.store.dispatch = jest.fn();
+
+			const wrapper = mount(
+				<CMFConnectedButton
+					onClickDispatch={onClickDispatch}
+				/>,
+				{
+					context,
+					childContextTypes: {
+						registry: React.PropTypes.object,
+					},
+				}
+			);
+			const onClick = wrapper.find(Button).first().props().onClick;
+			expect(onClick).toBeDefined();
+		});
+		it('should transform onEventActionCreator props to onEvent handler', () => {
+			const Button = ({ onClick, label }) => (<button onClick={onClick} >{label}</button>);
+			const CMFConnectedButton = cmfConnect({})(Button);
+			const onClickActionCreator = 'myactioncreator';
+			const context = mock.context();
+			context.store.dispatch = jest.fn();
+
+			const wrapper = mount(
+				<CMFConnectedButton
+					onClickActionCreator={onClickActionCreator}
+				/>,
+				{
+					context,
+					childContextTypes: {
+						registry: React.PropTypes.object,
+					},
+				}
+			);
+			const onClick = wrapper.find(Button).first().props().onClick;
+			expect(onClick).toBeDefined();
+		});
 	});
 });

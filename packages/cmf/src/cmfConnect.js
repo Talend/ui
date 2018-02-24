@@ -368,11 +368,10 @@ export default function cmfConnect({
 			}
 
 			render() {
-				const { toOmit, handlers } = this.onEvent();
-
+				const { toOmit, ...handlers } = this.onEvent();
 				const props = {
 					...omit(this.props, toOmit),
-					handlers,
+					...handlers,
 					dispatchActionCreator: this.dispatchActionCreator,
 				};
 				if (!props.state && defaultState) {
