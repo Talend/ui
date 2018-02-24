@@ -188,6 +188,7 @@ export function getDispatchToProps({
 	let userProps = {};
 	if (mapDispatchToProps) {
 		if (process.env.NODE_ENV === 'development') {
+			// eslint-disable-next-line no-console
 			console.warn(`DEPRECATION WARNING: mapDispatchToProps will be removed from cmfConnect.
 			Please use the injectedProps dispatchActionCreator or dispatch`);
 		}
@@ -327,11 +328,7 @@ export default function cmfConnect({
 								},
 								this.props[key],
 							);
-							if (!payload.type) {
-								console.error(`payload ${payload} has no type`);
-							} else {
-								this.props.dispatch(payload);
-							}
+							this.props.dispatch(payload);
 						};
 					}
 					if (key.endsWith('ActionCreator')) {

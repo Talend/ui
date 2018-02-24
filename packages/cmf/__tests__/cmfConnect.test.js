@@ -542,10 +542,11 @@ describe('cmfConnect', () => {
 					},
 				}
 			);
-			const onClick = wrapper.find(Button).first().props().onClick;
-			expect(onClick).toBeDefined();
+			const props = wrapper.find(Button).first().props();
+			expect(props.onClickDispatch).toBeUndefined();
+			expect(props.onClick).toBeDefined();
 			expect(context.store.dispatch).not.toHaveBeenCalled();
-			onClick({ type: 'click' });
+			props.onClick({ type: 'click' });
 			expect(context.store.dispatch).toHaveBeenCalledWith({
 				type: 'MY_BUTTON_CLICKED',
 				event: {
@@ -574,10 +575,11 @@ describe('cmfConnect', () => {
 					},
 				}
 			);
-			const onClick = wrapper.find(Button).first().props().onClick;
-			expect(onClick).toBeDefined();
+			const props = wrapper.find(Button).first().props();
+			expect(props.onClick).toBeDefined();
+			expect(props.onClickActionCreator).toBeUndefined();
 			expect(context.store.dispatch).not.toHaveBeenCalled();
-			onClick({ type: 'click' });
+			props.onClick({ type: 'click' });
 			expect(context.store.dispatch).toHaveBeenCalledWith({
 				type: 'FETCH_STUFF',
 			});
@@ -609,10 +611,10 @@ describe('cmfConnect', () => {
 					},
 				}
 			);
-			const onClick = wrapper.find(Button).first().props().onClick;
-			expect(onClick).toBeDefined();
+			const props = wrapper.find(Button).first().props();
+			expect(props.onClick).toBeDefined();
 			expect(context.store.dispatch).not.toHaveBeenCalled();
-			onClick({ type: 'click' });
+			props.onClick({ type: 'click' });
 			expect(context.store.dispatch).toHaveBeenCalledWith({
 				type: 'FETCH_CONFIGURED',
 				url: '/api/foo',
