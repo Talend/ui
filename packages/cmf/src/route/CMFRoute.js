@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router';
 
-import CMFRouteHook from './CMFRouteHook';
+import ConnectedCMFRouteHook from './CMFRouteHook';
 import api from '../api';
 
 /**
@@ -63,9 +63,9 @@ function CMFRouteComponent({ Component, onEnter, onLeave, ...props }) {
 
 	if (onEnter || onLeave) {
 		return (
-			<CMFRouteHook {...props} onEnter={onEnter} onLeave={onLeave}>
+			<ConnectedCMFRouteHook {...props} onEnter={onEnter} onLeave={onLeave}>
 				{routeComponent}
-			</CMFRouteHook>
+			</ConnectedCMFRouteHook>
 		);
 	}
 

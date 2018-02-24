@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CMFRoute should instantiate Route component 1`] = `
+<Route
+  component={[Function]}
+  exact={undefined}
+  path="/"
+/>
+`;
+
+exports[`CMFRoute should instantiate nested Route component 1`] = `
+<CMFRouteComponent
+  Component={[Function]}
+  match={
+    Object {
+      "params": Object {},
+      "path": "/",
+      "url": "/",
+    }
+  }
+  onEnter={undefined}
+  onLeave={undefined}
+  view={undefined}
+>
+  <CMFRoute
+    cmfParentPath="/"
+    component="HomeListView"
+    onEnter="preparation:fetch"
+    path="preparations/:folderId?"
+    view="preparations"
+  />
+  <CMFRoute
+    cmfParentPath="/"
+    component="HomeListView"
+    path="datasets"
+    view="datasets"
+  />
+  <CMFRoute
+    cmfParentPath="/"
+    component="HomeListView"
+    path="datastores"
+    view="datastores"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/"
+  />
+</CMFRouteComponent>
+`;
