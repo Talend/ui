@@ -1,0 +1,481 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots PieChartButton Loading state 1`] = `
+<div
+  className="col-lg-offset-2 col-lg-8"
+>
+  <div>
+    <button
+      className="btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <span>
+        changestatus
+      </span>
+    </button>
+    <p>
+      Small :
+    </p>
+    <button
+      className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
+      disabled={false}
+      type="button"
+    >
+      <div
+        className="theme-tc-pie-chart-loading-small-circle tc-pie-chart-loading-small-circle"
+      />
+      <div
+        className="theme-tc-pie-chart-loading-skeleton-label tc-pie-chart-loading-skeleton-label"
+      />
+    </button>
+    <p>
+      Medium :
+    </p>
+    <button
+      className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
+      disabled={false}
+      type="button"
+    >
+      <div
+        className="theme-tc-pie-chart-loading-medium-circle tc-pie-chart-loading-medium-circle"
+      />
+      <div
+        className="theme-tc-pie-chart-loading-skeleton-label tc-pie-chart-loading-skeleton-label"
+      />
+    </button>
+    <p>
+      Large :
+    </p>
+    <button
+      className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
+      disabled={false}
+      type="button"
+    >
+      <div
+        className="theme-tc-pie-chart-loading-large-circle tc-pie-chart-loading-large-circle"
+      />
+      <div
+        className="theme-tc-pie-chart-loading-skeleton-label tc-pie-chart-loading-skeleton-label"
+      />
+    </button>
+    <p>
+      after large
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots PieChartButton default 1`] = `
+<div
+  className="col-lg-offset-2 col-lg-8"
+>
+  <div>
+    <p>
+      Small :
+    </p>
+    <button
+      className="theme-tc-pie-chart tc-pie-chart btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={null}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      type="button"
+    >
+      <svg
+        height={20}
+        width={20}
+      >
+        <path
+          d="M1.0798635081746981,-8.934981522292736A9,9,0,0,1,3.2679771569343448,8.385721513486798L2.5137114511013143,5.448050544974975A6,6,0,0,0,1.079863508174698,-5.902024635979812Z"
+          fill="#C3D600"
+          stroke="#C3D600"
+          transform="translate(10,10)"
+        />
+        <path
+          d="M1.1761019362637408,8.922823781489617A9,9,0,0,1,-1.734049908655706,8.83136857538463L-0.7968146875784861,5.946855165014463A6,6,0,0,0,0.4218362304307106,5.985152812977795Z"
+          fill="#F3C446"
+          stroke="#F3C446"
+          transform="translate(10,10)"
+        />
+        <path
+          d="M-3.788072360973488,8.163976224121965A9,9,0,0,1,-4.378222438590741,7.863279740554863L-2.7239429984372805,5.346039145130208Z"
+          fill="#66BDFF"
+          stroke="#66BDFF"
+          transform="translate(10,10)"
+        />
+        <path
+          d="M-6.125478298028102,6.593824051367063A9,9,0,0,1,-6.593824051367061,6.125478298028103L-4.242640687119285,4.242640687119286Z"
+          fill="#E96065"
+          stroke="#E96065"
+          transform="translate(10,10)"
+        />
+        <path
+          d="M-7.863279740554862,4.3782224385907424A9,9,0,0,1,-8.163976224121967,3.7880723609734854L-5.346039145130207,2.7239429984372814Z"
+          fill="#60769E"
+          stroke="#60769E"
+          transform="translate(10,10)"
+        />
+        <path
+          d="M-8.83136857538463,1.7340499086557037A9,9,0,0,1,-1.0798635081746992,-8.934981522292736L-1.0798635081746997,-5.902024635979812A6,6,0,0,0,-5.946855165014464,0.7968146875784833Z"
+          fill="#ABABAB"
+          stroke="#ABABAB"
+          transform="translate(10,10)"
+        />
+      </svg>
+      <div
+        className="theme-tc-pie-chart-label tc-pie-chart-label"
+        style={
+          Object {
+            "color": "#C3D600",
+          }
+        }
+      >
+        50 %
+      </div>
+    </button>
+    <p>
+      Medium :
+    </p>
+    <button
+      className="theme-tc-pie-chart tc-pie-chart btn btn-default"
+      disabled={false}
+      onClick={null}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      type="button"
+    >
+      <svg
+        height={35}
+        width={35}
+      >
+        <path
+          d="M1.3937731225219872,-14.935106175817275A15,15,0,0,1,5.064195046567592,14.119275070991439L4.063525727214313,10.221925389292732A11,11,0,0,0,1.3937731225219856,-10.91134256097458Z"
+          fill="#C3D600"
+          stroke="#C3D600"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M2.364224692750655,14.812509632138237A15,15,0,0,1,-3.289644610710196,14.63482963123334L-2.046233272376233,10.808003025305851A11,11,0,0,0,1.3635553733973784,10.915159950439532Z"
+          fill="#F3C446"
+          stroke="#F3C446"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M-5.940758631533353,13.773430468908678A15,15,0,0,1,-7.65104900914431,12.90199399549046L-5.285940097628721,9.64670084973515A11,11,0,0,0,-4.697347293199387,9.946603862981192Z"
+          fill="#66BDFF"
+          stroke="#66BDFF"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M-9.90622129399095,11.263515422570356A15,15,0,0,1,-11.263515422570354,9.906221293990951L-8.008222276815042,7.541112382475366A11,11,0,0,0,-7.541112382475365,8.008222276815044Z"
+          fill="#E96065"
+          stroke="#E96065"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M-12.901993995490459,7.651049009144312A15,15,0,0,1,-13.773430468908682,5.940758631533346L-9.946603862981194,4.6973472931993845A11,11,0,0,0,-9.646700849735149,5.285940097628723Z"
+          fill="#60769E"
+          stroke="#60769E"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M-14.63482963123334,3.2896446107101958A15,15,0,0,1,-1.3937731225219925,-14.935106175817273L-1.393773122521987,-10.91134256097458A11,11,0,0,0,-10.808003025305853,2.04623327237623Z"
+          fill="#ABABAB"
+          stroke="#ABABAB"
+          transform="translate(17.5,17.5)"
+        />
+      </svg>
+      <div
+        className="theme-tc-pie-chart-label tc-pie-chart-label"
+        style={
+          Object {
+            "color": "#C3D600",
+          }
+        }
+      >
+        50 %
+      </div>
+    </button>
+    <p>
+      Large : 
+    </p>
+    <button
+      className="theme-tc-pie-chart tc-pie-chart btn btn-default"
+      disabled={false}
+      onClick={null}
+      onMouseDown={null}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      type="button"
+    >
+      <svg
+        height={50}
+        width={50}
+      >
+        <path
+          d="M1.3895647232292019,-21.9560722780728A22,22,0,0,1,6.80616212963549,20.920711198836326L5.559490085415783,16.06524416217082A17,17,0,0,0,1.3895647232292017,-16.94311393693488Z"
+          fill="#C3D600"
+          stroke="#C3D600"
+          transform="translate(25,25)"
+        />
+        <path
+          d="M4.1143441451991505,21.611852587292592A22,22,0,0,1,-5.463244878808167,21.310864726570255L-3.9141555593029027,16.54325803031489A17,17,0,0,0,2.8676721009794424,16.756385550627083Z"
+          fill="#F3C446"
+          stroke="#F3C446"
+          transform="translate(25,25)"
+        />
+        <path
+          d="M-8.106354048490171,20.45206649804677A22,22,0,0,1,-11.781274007442452,18.579601254105558L-8.834731024165045,14.524032764031332A17,17,0,0,0,-6.557264728984907,15.684459801791405Z"
+          fill="#66BDFF"
+          stroke="#66BDFF"
+          transform="translate(25,25)"
+        />
+        <path
+          d="M-14.029636959195138,16.946069951265567A22,22,0,0,1,-16.946069951265564,14.029636959195143L-12.890501461191343,11.083093975917727A17,17,0,0,0,-11.083093975917725,12.890501461191345Z"
+          fill="#E96065"
+          stroke="#E96065"
+          transform="translate(25,25)"
+        />
+        <path
+          d="M-18.579601254105558,11.781274007442455A22,22,0,0,1,-20.452066498046772,8.106354048490168L-15.684459801791409,6.5572647289849A17,17,0,0,0,-14.524032764031332,8.834731024165047Z"
+          fill="#60769E"
+          stroke="#60769E"
+          transform="translate(25,25)"
+        />
+        <path
+          d="M-21.31086472657026,5.463244878808161A22,22,0,0,1,-1.3895647232292045,-21.9560722780728L-1.3895647232292074,-16.94311393693488A17,17,0,0,0,-16.54325803031489,3.9141555593029014Z"
+          fill="#ABABAB"
+          stroke="#ABABAB"
+          transform="translate(25,25)"
+        />
+      </svg>
+      <div
+        className="theme-tc-pie-chart-label tc-pie-chart-label"
+        style={
+          Object {
+            "color": "#C3D600",
+          }
+        }
+      >
+        50 %
+      </div>
+    </button>
+    <p>
+      with other data :
+    </p>
+    <button
+      className="theme-tc-pie-chart tc-pie-chart btn btn-default"
+      disabled={false}
+      onClick={null}
+      onMouseDown={null}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      type="button"
+    >
+      <svg
+        height={35}
+        width={35}
+      >
+        <path
+          d="M1.3937731225219872,-14.935106175817275A15,15,0,1,1,-7.65104900914431,12.90199399549046L-5.285940097628721,9.64670084973515A11,11,0,1,0,1.3937731225219856,-10.91134256097458Z"
+          fill="#C3D600"
+          stroke="#C3D600"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M-9.90622129399095,11.263515422570356A15,15,0,0,1,-12.90199399549046,-7.65104900914431L-9.64670084973515,-5.28594009762872A11,11,0,0,0,-7.541112382475365,8.008222276815044Z"
+          fill="#F3C446"
+          stroke="#F3C446"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M-11.263515422570356,-9.90622129399095A15,15,0,0,1,-4.16764539736368,-14.40939734485219L-3.4136672816322444,-10.45690564604623A11,11,0,0,0,-8.008222276815046,-7.541112382475363Z"
+          fill="#E96065"
+          stroke="#E96065"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M-1.4294742600403505,-14.93173142471703A15,15,0,0,1,-1.3937731225219925,-14.935106175817273L-1.0351914465036536,-10.95118161063388Z"
+          fill="#ABABAB"
+          stroke="#ABABAB"
+          transform="translate(17.5,17.5)"
+        />
+      </svg>
+      <div
+        className="theme-tc-pie-chart-label tc-pie-chart-label"
+        style={
+          Object {
+            "color": "#C3D600",
+          }
+        }
+      >
+        60 %
+      </div>
+    </button>
+    <p>
+      with without label :
+    </p>
+    <button
+      className="theme-tc-pie-chart tc-pie-chart btn btn-default"
+      disabled={false}
+      onClick={null}
+      onMouseDown={null}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      type="button"
+    >
+      <svg
+        height={35}
+        width={35}
+      >
+        <path
+          d="M1.3937731225219872,-14.935106175817275A15,15,0,1,1,-7.65104900914431,12.90199399549046L-5.285940097628721,9.64670084973515A11,11,0,1,0,1.3937731225219856,-10.91134256097458Z"
+          fill="#C3D600"
+          stroke="#C3D600"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M-9.90622129399095,11.263515422570356A15,15,0,0,1,-12.90199399549046,-7.65104900914431L-9.64670084973515,-5.28594009762872A11,11,0,0,0,-7.541112382475365,8.008222276815044Z"
+          fill="#F3C446"
+          stroke="#F3C446"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M-11.263515422570356,-9.90622129399095A15,15,0,0,1,-4.16764539736368,-14.40939734485219L-3.4136672816322444,-10.45690564604623A11,11,0,0,0,-8.008222276815046,-7.541112382475363Z"
+          fill="#E96065"
+          stroke="#E96065"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M-1.4294742600403505,-14.93173142471703A15,15,0,0,1,-1.3937731225219925,-14.935106175817273L-1.0351914465036536,-10.95118161063388Z"
+          fill="#ABABAB"
+          stroke="#ABABAB"
+          transform="translate(17.5,17.5)"
+        />
+      </svg>
+      <div
+        className="theme-tc-pie-chart-label tc-pie-chart-label"
+        style={
+          Object {
+            "color": "#C3D600",
+          }
+        }
+      />
+    </button>
+    <p>
+      with overlay component
+    </p>
+    <span>
+      <button
+        className="theme-tc-pie-chart tc-pie-chart btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={null}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        type="button"
+      >
+        <svg
+          height={35}
+          width={35}
+        >
+          <path
+            d="M1.3937731225219872,-14.935106175817275A15,15,0,1,1,-7.65104900914431,12.90199399549046L-5.285940097628721,9.64670084973515A11,11,0,1,0,1.3937731225219856,-10.91134256097458Z"
+            fill="#C3D600"
+            stroke="#C3D600"
+            transform="translate(17.5,17.5)"
+          />
+          <path
+            d="M-9.90622129399095,11.263515422570356A15,15,0,0,1,-12.90199399549046,-7.65104900914431L-9.64670084973515,-5.28594009762872A11,11,0,0,0,-7.541112382475365,8.008222276815044Z"
+            fill="#F3C446"
+            stroke="#F3C446"
+            transform="translate(17.5,17.5)"
+          />
+          <path
+            d="M-11.263515422570356,-9.90622129399095A15,15,0,0,1,-4.16764539736368,-14.40939734485219L-3.4136672816322444,-10.45690564604623A11,11,0,0,0,-8.008222276815046,-7.541112382475363Z"
+            fill="#E96065"
+            stroke="#E96065"
+            transform="translate(17.5,17.5)"
+          />
+          <path
+            d="M-1.4294742600403505,-14.93173142471703A15,15,0,0,1,-1.3937731225219925,-14.935106175817273L-1.0351914465036536,-10.95118161063388Z"
+            fill="#ABABAB"
+            stroke="#ABABAB"
+            transform="translate(17.5,17.5)"
+          />
+        </svg>
+        <div
+          className="theme-tc-pie-chart-label tc-pie-chart-label"
+          style={
+            Object {
+              "color": "#C3D600",
+            }
+          }
+        >
+          60 %
+        </div>
+      </button>
+    </span>
+    <p>
+      with a tooltip
+    </p>
+    <button
+      className="theme-tc-pie-chart tc-pie-chart btn btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={null}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseOver={[Function]}
+      type="button"
+    >
+      <svg
+        height={35}
+        width={35}
+      >
+        <path
+          d="M1.3937731225219872,-14.935106175817275A15,15,0,1,1,-7.65104900914431,12.90199399549046L-5.285940097628721,9.64670084973515A11,11,0,1,0,1.3937731225219856,-10.91134256097458Z"
+          fill="#C3D600"
+          stroke="#C3D600"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M-9.90622129399095,11.263515422570356A15,15,0,0,1,-12.90199399549046,-7.65104900914431L-9.64670084973515,-5.28594009762872A11,11,0,0,0,-7.541112382475365,8.008222276815044Z"
+          fill="#F3C446"
+          stroke="#F3C446"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M-11.263515422570356,-9.90622129399095A15,15,0,0,1,-4.16764539736368,-14.40939734485219L-3.4136672816322444,-10.45690564604623A11,11,0,0,0,-8.008222276815046,-7.541112382475363Z"
+          fill="#E96065"
+          stroke="#E96065"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          d="M-1.4294742600403505,-14.93173142471703A15,15,0,0,1,-1.3937731225219925,-14.935106175817273L-1.0351914465036536,-10.95118161063388Z"
+          fill="#ABABAB"
+          stroke="#ABABAB"
+          transform="translate(17.5,17.5)"
+        />
+      </svg>
+      <div
+        className="theme-tc-pie-chart-label tc-pie-chart-label"
+        style={
+          Object {
+            "color": "#C3D600",
+          }
+        }
+      >
+        60 %
+      </div>
+    </button>
+  </div>
+</div>
+`;

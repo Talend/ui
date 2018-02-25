@@ -26,6 +26,7 @@ import './List';
 import './Loader';
 import './Notification';
 import './ObjectViewer';
+import './PieChartButton';
 import './Progress';
 import './SidePanel';
 import './Slider';

@@ -44,6 +44,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "d3-shape": "^1.2.0",
     "lodash": "4.17.4",
     "rc-slider": "8.4.1",
     "rc-tooltip": "3.7.0",

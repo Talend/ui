@@ -1,0 +1,89 @@
+$tc-pie-chart-font-size: $font-size-large !default;
+
+.tc-pie-chart-loading {
+	display: flex;
+	align-items: center;
+
+	& > div:first-child{
+		display: block;
+		background: $gallery;
+	}
+
+	&-small-circle{
+		width: 20px;
+		height: 20px;
+		border-radius: 10px;
+		margin-top: 3px;
+		margin-bottom: 2px;
+		margin-left: 4px;
+	}
+	&-medium-circle{
+		width: 32px;
+		height: 32px;
+		border-radius: 16px;
+		margin-top: 2px;
+		margin-bottom: 1px;
+		margin-left: 5px;
+	}
+	&-large-circle{
+		width: 46px;
+		height: 46px;
+		border-radius: 25px;
+		margin-top: 3px;
+		margin-left: 5px;
+		margin-bottom: 1px;
+	}
+	&-skeleton-label{
+		margin-top: 1px;
+		width: 40px;
+		height: 18px;
+		border-radius: 4px;
+		display: block;
+		margin-left: 5px;
+		background: $gallery;
+	}
+}
+
+// PieChart styles
+.tc-pie-chart, .tc-pie-chart-loading{
+    font-size: $tc-pie-chart-font-size;
+    display: flex;
+    align-items: center;
+
+    background-color: $white;
+	border: none;
+	color: $gray;
+
+	box-shadow: none;
+	line-height: unset;
+	padding: 0;
+
+    > svg {
+        margin-right: $padding-smaller;
+        height: inherit;
+		width: inherit;
+    }
+
+    &:hover,
+	&:active,
+	&:focus {
+		box-shadow: none;
+		background-color: $white;
+		border-color: $scooter;
+		color: $scooter;
+	}
+
+	&.active {
+		background-color: $brand-primary;
+		border-color: $brand-primary;
+		color: $white;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: $scooter;
+			border-color: $scooter;
+			color: $white;
+		}
+	}
+}
