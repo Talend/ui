@@ -27,6 +27,7 @@ import action from './action';
 import actions from './actions';
 import actionCreator from './actionCreator';
 import expression from './expression';
+import expressions from './expressions';
 import sagas from './sagas';
 import selectors from './selectors';
 import component from './component';
@@ -42,6 +43,7 @@ export default {
 	actionCreator,
 	component,
 	expression,
+	expressions,
 	route,
 	registry,
 	registerInternals,

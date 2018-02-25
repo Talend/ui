@@ -52,6 +52,9 @@ const CMF_PROPS = [
 
 export const INJECTED_PROPS = [
 	'setState',
+	'deleteState',
+	'updateState',
+	'componentId',
 	'state',
 	'initState',
 	'getCollection',
@@ -275,9 +278,13 @@ export default function cmfConnect({
 			}
 
 			render() {
-				const props = Object.assign({ state: defaultState }, this.props, {
+				const props = {
+					...this.props,
 					dispatchActionCreator: this.dispatchActionCreator,
-				});
+				};
+				if (!props.state && defaultState) {
+					props.state = defaultState;
+				}
 
 				// remove all internal props already used by the container
 				CMF_PROPS.forEach(key => {
