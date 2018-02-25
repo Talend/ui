@@ -119,7 +119,7 @@ function setMinimum(model, minimumPercentage) {
 	});
 
 	/**
-	 * This function decrease the percentage shown & the amount to substract by 1
+	 * This function decrease the percentage shown & the amount to subtract by 1
 	 * @param {object} element the current element
 	 */
 	function decreaseElement(element) {
@@ -186,8 +186,8 @@ function wrapMouseEvent(mouseEvent, overlayComponent, label, rest, model) {
 		});
 }
 
-class PieChart extends React.Component {
-	static displayName = 'PieChart';
+class PieChartButton extends React.Component {
+	static displayName = 'PieChartButton';
 
 	static propTypes = {
 		className: PropTypes.string,
@@ -337,4 +337,4 @@ class PieChart extends React.Component {
 	}
 }
 
-export default PieChart;
+export default PieChartButton;
