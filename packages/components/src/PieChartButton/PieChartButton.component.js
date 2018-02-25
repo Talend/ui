@@ -144,7 +144,7 @@ function setMinimum(model, minimumPercentage) {
 	return valuesMins;
 }
 
-function decorateWithOverlay(btn, overlayPlacement, overlayComponent) {
+function decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId) {
 	if (!overlayComponent) {
 		return btn;
 	}
@@ -156,7 +156,7 @@ function decorateWithOverlay(btn, overlayPlacement, overlayComponent) {
 				trigger="click"
 				rootClose
 				placement={overlayPlacement}
-				overlay={<Popover>{overlayComponent}</Popover>}
+				overlay={<Popover id={overlayId}>{overlayComponent}</Popover>}
 			>
 				{btn}
 			</OverlayTrigger>
@@ -204,6 +204,7 @@ class PieChart extends React.Component {
 		onClick: PropTypes.func,
 		emptyColor: PropTypes.string,
 		tooltip: PropTypes.bool,
+		overlayId: PropTypes.string,
 		model: PropTypes.arrayOf(
 			PropTypes.shape({
 				color: PropTypes.string.isRequired,
@@ -219,6 +220,7 @@ class PieChart extends React.Component {
 		emptyColor: '#ABABAB',
 		tooltipPlacement: 'top',
 		overlayPlacement: 'bottom',
+		overlayId: 'pie-chart-popover',
 	};
 
 	/**
@@ -263,6 +265,7 @@ class PieChart extends React.Component {
 			emptyColor,
 			overlayComponent,
 			overlayPlacement,
+			overlayId,
 			onClick,
 			onMouseDown,
 			hideLabel,
@@ -327,7 +330,7 @@ class PieChart extends React.Component {
 			</Button>
 		);
 
-		btn = decorateWithOverlay(btn, overlayPlacement, overlayComponent);
+		btn = decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId);
 		btn = decorateWithTooltip(btn, tooltip, label, tooltipPlacement);
 
 		return btn;

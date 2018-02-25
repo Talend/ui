@@ -71,6 +71,7 @@ stories
 				display="medium"
 				model={pieChartData2}
 				overlayComponent={overlayComponent}
+				overlayId="id-popover"
 				onClick={onClick}
 			/>
 			<p>with a tooltip</p>
