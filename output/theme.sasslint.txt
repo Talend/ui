@@ -11,7 +11,7 @@ src/theme/_dropdowns.scss
 
 src/theme/_forms.scss
   125:7  warning  Vendor prefixes should not be used  no-vendor-prefixes
-  470:8  warning  Vendor prefixes should not be used  no-vendor-prefixes
+  491:8  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
