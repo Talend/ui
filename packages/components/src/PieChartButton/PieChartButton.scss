@@ -3,9 +3,26 @@ $tc-pie-chart-loading-small-circle-size: 20px !default;
 $tc-pie-chart-loading-medium-circle-size: 32px !default;
 $tc-pie-chart-loading-large-circle-size: 46px !default;
 
+@mixin heartbeat($animation-name) {
+    animation: $animation-name 1.5s ease infinite;
+}
+
+@keyframes object-blink {
+    0%, 100% {
+		opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
 .tc-pie-chart-loading {
 	display: flex;
 	align-items: center;
+
+	&.animate-object-blink {
+		@include heartbeat(object-blink);
+	}
 
 	& > div:first-child{
 		display: block;

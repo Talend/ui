@@ -289,7 +289,14 @@ class PieChartButton extends React.Component {
 
 		if (inProgress) {
 			return (
-				<Button className={classnames(theme['tc-pie-chart-loading'], 'tc-pie-chart-loading')}>
+				<Button
+					className={classnames(
+						theme['tc-pie-chart-loading'],
+						theme['animate-object-blink'],
+						'tc-pie-chart-loading',
+						'animate-object-blink',
+					)}
+				>
 					<div
 						className={classnames(
 							theme[`tc-pie-chart-loading-${display}-circle`],
