@@ -47,7 +47,7 @@ ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 	this._log('apply');
 
 	compiler.plugin('emit', (compilation, callback) => {
-		this._log('emit', { lastRun: this._lastRun, lastWatch: this._lastWatch });
+		this._log('emit', JSON.stringify({ canRun: this._canRun, lastRun: this._lastRun, lastWatch: this._lastWatch }));
 		if (!this._canRun || (this._lastRun && this._lastWatch && this._lastRun > this._lastWatch)) return;
 		this._canRun = false;
 		this._lastRun = new Date();
@@ -62,14 +62,14 @@ ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 
 	if (this._options.watch) {
 		compiler.plugin('done', () => {
-			this._log('done', { lastRun: this._lastRun, lastWatch: this._lastWatch });
+			this._log('done', JSON.stringify({ canRun: this._canRun, lastRun: this._lastRun, lastWatch: this._lastWatch }));
 			if (!this._canRun || (this._lastRun && this._lastWatch && this._lastWatch > this._lastRun)) return;
 			this._lastWatch = new Date();
 			const watcher = chokidar.watch(this._modifiedFiles, chokidarOptions);
 			const run = () => {
+				watcher.close();
 				compiler.run(err => {
 					if (err) throw err;
-					watcher.close();
 				});
 			};
 			watcher
