@@ -391,7 +391,6 @@ form {
 			}
 		}
 	}
-
 }
 
 .form {
@@ -417,14 +416,13 @@ form {
 
 			input {
 				&.form-control {
-                    color: $silver-chalice;
-                    font-weight: $form-base-font-weight;
-                    font-size: $font-size-base;
+					color: $silver-chalice;
+					font-weight: $form-base-font-weight;
+					font-size: $font-size-base;
 					font-style: oblique;
 				}
 			}
 		}
-
 	}
 
 	&-control {
