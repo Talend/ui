@@ -294,8 +294,10 @@ class PieChartButton extends React.Component {
 					className={classnames(
 						theme['tc-pie-chart-loading'],
 						theme['animate-object-blink'],
+						theme[`tc-pie-chart-loading-${display}`],
 						'tc-pie-chart-loading',
 						'animate-object-blink',
+						`tc-pie-chart-loading-${display}`,
 					)}
 				>
 					<div
@@ -307,9 +309,7 @@ class PieChartButton extends React.Component {
 					{!hideLabel && (
 						<div
 							className={classnames(
-								theme[`tc-pie-chart-loading-skeleton-${display}-label`],
 								theme['tc-pie-chart-loading-skeleton-label'],
-								`tc-pie-chart-loading-skeleton-${display}-label`,
 								'tc-pie-chart-loading-skeleton-label',
 							)}
 						/>
