@@ -2,103 +2,115 @@ const chokidar = require('chokidar');
 
 const mergeSettings = require('@talend/react-cmf/scripts/cmf-settings.merge');
 
+const chokidarOptions = {
+	persistent: true,
+	ignored: false,
+	ignoreInitial: false,
+	followSymlinks: true,
+	cwd: '.',
+	disableGlobbing: false,
+	usePolling: true,
+	interval: 100,
+	binaryInterval: 300,
+	alwaysStat: false,
+	depth: 99,
+	awaitWriteFinish: {
+		stabilityThreshold: 2000,
+		pollInterval: 100,
+	},
+	ignorePermissionErrors: false,
+	atomic: true,
+};
+
 /**
  * React CMF Webpack Plugin
  * @param options Plugin options
  * @constructor
  */
 function ReactCMFWebpackPlugin(options = {}) {
-	this.options = options;
+	this._lastRun;
+	this._lastWatch;
+	this._modifiedFiles = [];
+	this._options = Object.assign({
+		quiet: false,
+		watch: false,
+	}, options);
+	this._log = (...args) => {
+		if (!this._options.quiet) {
+			console.error('[ReactCMFWebpackPlugin]', ...args); // eslint-disable-line no-console
+		}
+	}
 }
 
 ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
-	const {
-		quiet,
-		watch,
-	} = Object.assign({
-		quiet: false,
-		watch: false,
-	}, this.options);
-
-	let modifiedFiles;
-
-	function log(message) {
-		if (!quiet) {
-			console.error(message); // eslint-disable-line no-console
-		}
-	}
+	this._log('apply');
 
 	compiler.plugin('emit', (compilation, callback) => {
-		modifiedFiles = mergeSettings(this.options, callback);
-		callback();
+		this._log('emit', { lastRun: this._lastRun, lastWatch: this._lastWatch });
+		if (this._lastRun && this._lastWatch && this._lastRun > this._lastWatch) return;
+		this._lastRun = new Date();
+		const startTime = Date.now();
+		this._modifiedFiles = mergeSettings(this._options, this._log, () => {
+			const endTime = Date.now();
+			this._log(`Files merged in ${(((endTime - startTime) % 60000) / 1000)}s`);
+			callback();
+		}, callback);
 	});
 
-	if (watch) {
+	if (this._options.watch) {
 		compiler.plugin('done', () => {
-			const watcher = chokidar.watch(modifiedFiles, {
-				persistent: true,
-				ignored: false,
-				ignoreInitial: false,
-				followSymlinks: true,
-				cwd: '.',
-				disableGlobbing: false,
-				usePolling: true,
-				interval: 100,
-				binaryInterval: 300,
-				alwaysStat: false,
-				depth: 99,
-				awaitWriteFinish: {
-					stabilityThreshold: 2000,
-					pollInterval: 100,
-				},
-				ignorePermissionErrors: false,
-				atomic: true,
-			});
-
+			this._log('done', { lastRun: this._lastRun, lastWatch: this._lastWatch });
+			if (this._lastRun && this._lastWatch && this._lastWatch > this._lastRun) return;
+			this._lastWatch = new Date();
+			const watcher = chokidar.watch(this._modifiedFiles, chokidarOptions);
+			const run = () => {
+				compiler.run(err => {
+					if (err) throw err;
+					watcher.close();
+				});
+			};
 			watcher
 				.on(
 					'add',
-					() => null
+					path => {
+						this._log(`[watcher] File ${path} has been added`);
+					}
 				)
 				.on(
 					'change',
 					path => {
-						log(`Compilation started after change of - ${path}`);
-						compiler.run(err => {
-							if (err) throw err;
-							watcher.close();
-						});
-						log(`Compilation ended for change of - ${path}`);
+						this._log(`[watcher] File ${path} has been changed`);
+						run();
 					}
 				)
 				.on(
 					'unlink',
 					path => {
-						log(`File ${path} has been removed`);
+						this._log(`[watcher] File ${path} has been removed`);
 					}
 				)
 				.on(
 					'addDir',
 					path => {
-						log(`Directory ${path} has been added`);
+						this._log(`[watcher] Directory ${path} has been added`);
 					}
 				)
 				.on(
 					'unlinkDir',
 					path => {
-						log(`Directory ${path} has been removed`);
+						this._log(`[watcher] Directory ${path} has been removed`);
 					}
 				)
 				.on(
 					'error',
 					error => {
-						log(`Watcher error: ${error}`);
+						this._log(`[watcher] ${error}`);
 					}
 				)
 				.on(
 					'ready',
 					() => {
-						log('Initial scan complete. Ready for changes');
+						this._log('[watcher] Initial scan complete. Ready for changes');
 					}
 				)
 				.on(

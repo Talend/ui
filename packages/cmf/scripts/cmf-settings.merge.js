@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs').default || require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 const deepmerge = require('deepmerge');
@@ -9,7 +9,10 @@ const DEFAULT_SETTINGS_EXT = '.json';
 
 const DEFAULT_CONFIG_FILENAME = 'cmf.json';
 
-function merge(options, callback) {
+function merge(options, logger, successCallback, errorCallback) {
+	const onSuccess = successCallback || Function.prototype;
+	const onError = errorCallback || Function.prototype;
+
 	const {
 		dev,
 		quiet,
@@ -20,15 +23,15 @@ function merge(options, callback) {
 		recursive: false,
 	}, options);
 
-	function log(message) {
+	function log(...args) {
 		if (!quiet) {
-			console.log(message); // eslint-disable-line no-console
+			logger ? logger(args) : console.log(args); // eslint-disable-line no-console
 		}
 	}
 
 	function error(...args) {
-		console.error(args); // eslint-disable-line no-console
-		callback();
+		logger ? logger(args) : console.error(args); // eslint-disable-line no-console
+		return onError();
 	}
 
 	function importAndValidate(filePath, schema) {
@@ -131,7 +134,8 @@ function merge(options, callback) {
 	log(`Merge to ${destination}`);
 	mkdirp(path.dirname(destination), () => {
 		fs.writeFile(destination, JSON.stringify(settings), () => {
-			log('Merged');
+			log('CMF settings has been merged');
+			return onSuccess();
 		});
 	});
 
