@@ -7,12 +7,6 @@ import {
 	configureGetPagination,
 	configureGetPagedItems,
 } from './selector';
-import ActionBar from '../ActionBar';
-import getRenderers from '../renderers';
-
-const renderers = {
-	ActionBar,
-};
 
 function componentId(ownProps) {
 	return ownProps.collectionId;
@@ -59,7 +53,6 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 		}
 	}
 
-	props.renderers = getRenderers(renderers);
 	return props;
 }
 
