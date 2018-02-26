@@ -53,7 +53,7 @@ console.log('###################################################################
 	'                          \'----------------\'  \'----------------\'  \'----------------\'  \'----------------\'  \'----------------\'  \'----------------\'  \'----------------\' \n' +
 	'##########################################################################################################################################################################################################');
 
-console.log('\nCONFIGURATION ------------------------------------------------------------------------------------');
+console.log('\nCONFIGURATION ------------------------------------------------------------------------------------\n');
 
 // USER : Pass extra config to merge with common config.
 // talend-scripts-start --config ./webpack.config.js
@@ -75,7 +75,7 @@ if (apiUrl) {
 // INTERNAL : Set the mode to get devServer config
 env.TALEND_MODE = 'development';
 
-console.log('\nRUN ----------------------------------------------------------------------------------------------');
+console.log('\nRUN ----------------------------------------------------------------------------------------------\n');
 
 // Run webpack dev server
 const result = spawn.sync(
@@ -90,3 +90,6 @@ const result = spawn.sync(
 
 process.exit(result.status);
 
+// TODO waiting for
+// - resolve-url-loader : https://github.com/bholloway/resolve-url-loader/issues/79
+// - extract-text-webpack-plugin : https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/701
