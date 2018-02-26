@@ -307,7 +307,9 @@ class PieChartButton extends React.Component {
 					{!hideLabel && (
 						<div
 							className={classnames(
+								theme[`tc-pie-chart-loading-skeleton-${display}-label`],
 								theme['tc-pie-chart-loading-skeleton-label'],
+								`tc-pie-chart-loading-skeleton-${display}-label`,
 								'tc-pie-chart-loading-skeleton-label',
 							)}
 						/>

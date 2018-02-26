@@ -34,9 +34,11 @@ $tc-pie-chart-loading-large-circle-size: 46px !default;
 		height: $tc-pie-chart-loading-small-circle-size;
 		border-radius: $tc-pie-chart-loading-small-circle-size / 2;
 		// adjust to be like loaded component
+		/*
 		margin-top: 3px;
 		margin-bottom: 2px;
 		margin-left: 4px;
+		*/
 	}
 
 	&-medium-circle{
@@ -44,9 +46,11 @@ $tc-pie-chart-loading-large-circle-size: 46px !default;
 		height: $tc-pie-chart-loading-medium-circle-size;
 		border-radius: $tc-pie-chart-loading-medium-circle-size / 2;
 		// adjust to be like loaded component
+		/*
 		margin-top: 2px;
 		margin-bottom: 1px;
 		margin-left: 5px;
+		*/
 	}
 
 	&-large-circle{
@@ -54,9 +58,11 @@ $tc-pie-chart-loading-large-circle-size: 46px !default;
 		height: $tc-pie-chart-loading-large-circle-size;
 		border-radius: $tc-pie-chart-loading-large-circle-size / 2;
 		// adjust to be like loaded component
+		/*
 		margin-top: 3px;
 		margin-left: 5px;
 		margin-bottom: 1px;
+		*/
 	}
 
 	&-skeleton-label{
@@ -67,6 +73,10 @@ $tc-pie-chart-loading-large-circle-size: 46px !default;
 		display: block;
 		margin-left: 5px;
 		background: $gallery;
+	}
+
+	&-skeleton-small-label{
+		line-height: 25px;
 	}
 }
 
