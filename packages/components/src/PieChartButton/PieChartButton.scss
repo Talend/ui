@@ -1,78 +1,68 @@
+@import "~@talend/bootstrap-theme/src/theme/_animation.scss";
 $tc-pie-chart-font-size: $font-size-large !default;
 $tc-pie-chart-loading-small-circle-size: 20px !default;
+$tc-pie-chart-loading-small-size: 25px !default;
+$tc-pie-chart-loading-small-size-without-label: 25px !default;
 $tc-pie-chart-loading-medium-circle-size: 32px !default;
+$tc-pie-chart-loading-medium-size: 35px !default;
 $tc-pie-chart-loading-large-circle-size: 46px !default;
-
-@mixin heartbeat($animation-name) {
-    animation: $animation-name 1.5s ease infinite;
-}
-
-@keyframes object-blink {
-    0%, 100% {
-		opacity: 1;
-    }
-    50% {
-        opacity: 0.5;
-    }
-}
+$tc-pie-chart-loading-large-size: 50px !default;
+$tc-pie-chart-skeleton-label-width: 40px !default;
+$tc-pie-chart-skeleton-label-height: 18px !default;
 
 .tc-pie-chart-loading {
 	display: flex;
 	align-items: center;
-
-	&.animate-object-blink {
-		@include heartbeat(object-blink);
-	}
+	@include heartbeat(object-blink);
 
 	& > div:first-child{
 		display: block;
 		background: $gallery;
+		// adjust to be like loaded component
+		margin-left: $padding-smaller;
 	}
 
 	&-small{
-		height: 25px;
+		height: $tc-pie-chart-loading-small-size;
+		&.tc-pie-chart-loading-no-label{
+			height: $tc-pie-chart-loading-small-size-without-label;
+		}
 	}
 
 	&-medium{
-		height: 35px;
+		height: $tc-pie-chart-loading-medium-size;
 	}
 
 	&-large{
-		height: 50px;
+		height: $tc-pie-chart-loading-large-size;
 	}
 
 	&-small-circle{
 		width: $tc-pie-chart-loading-small-circle-size;
 		height: $tc-pie-chart-loading-small-circle-size;
 		border-radius: $tc-pie-chart-loading-small-circle-size / 2;
-		// adjust to be like loaded component
-		margin-left: 4px;
 	}
 
 	&-medium-circle{
 		width: $tc-pie-chart-loading-medium-circle-size;
 		height: $tc-pie-chart-loading-medium-circle-size;
 		border-radius: $tc-pie-chart-loading-medium-circle-size / 2;
-		// adjust to be like loaded component
-		margin-left: 5px;
 	}
 
 	&-large-circle{
 		width: $tc-pie-chart-loading-large-circle-size;
 		height: $tc-pie-chart-loading-large-circle-size;
 		border-radius: $tc-pie-chart-loading-large-circle-size / 2;
-		// adjust to be like loaded component
-		margin-left: 5px;
 	}
 
 	&-skeleton-label{
-		margin-top: 1px;
-		width: 40px;
-		height: 18px;
+		background: $gallery;
 		border-radius: 4px;
 		display: block;
-		margin-left: 5px;
-		background: $gallery;
+		height: $tc-pie-chart-skeleton-label-height;
+		margin-left: $padding-smaller;
+		margin-top: 1px;
+		width: $tc-pie-chart-skeleton-label-width;
 	}
 }
 
