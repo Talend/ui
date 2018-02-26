@@ -34,8 +34,9 @@ const displaySizes = {
  * @param {object} size the current size
  * @param {function} arcGen the arc generator
  * @param {string} emptyColor the empty color to complete the graph
+ * @param {boolean} hover known if the component is hovered
  */
-function getEmptyPartCircle(values, size, arcGen, emptyColor, hover) {
+export function getEmptyPartCircle(values, size, arcGen, emptyColor, hover) {
 	const allPercentages = values.reduce((acc, value) => acc + value.percentageShown, 0);
 	if (allPercentages >= 98) {
 		return null;
@@ -65,8 +66,9 @@ function getEmptyPartCircle(values, size, arcGen, emptyColor, hover) {
  * @param {array} values the values to get when we have to start
  * @param {object} size the current graph size
  * @param {function} arcGen the arc generator
+ * @param {boolean} hover known if the component is hovered
  */
-function getCircle(value, index, values, size, arcGen, hover) {
+export function getCircle(value, index, values, size, arcGen, hover) {
 	let percentagesDone = 0;
 	for (let i = 0; i < index; i += 1) {
 		percentagesDone += values[i].percentageShown;
@@ -144,6 +146,13 @@ function setMinimum(model, minimumPercentage) {
 	return valuesMins;
 }
 
+/**
+ * This function add an OverlayTrigger wrapping the button if defined
+ * @param {Element} btn the current button
+ * @param {string} overlayPlacement the overlay placement
+ * @param {Element} overlayComponent the overlay component
+ * @param {string} overlayId the id to be set for the overlay
+ */
 function decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId) {
 	if (!overlayComponent) {
 		return btn;
@@ -164,6 +173,13 @@ function decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId)
 	);
 }
 
+/**
+ * This function wrap the button with a TooltipTrigger
+ * @param {Element} btn the button element ( may be wrapped by overlay trigger )
+ * @param {boolean} tooltip tell if the tooltip has to be showed
+ * @param {string} label the label to show on the tooltip
+ * @param {string} tooltipPlacement the tooltip placement
+ */
 function decorateWithTooltip(btn, tooltip, label, tooltipPlacement) {
 	if (!tooltip || !label) {
 		return btn;
@@ -175,6 +191,14 @@ function decorateWithTooltip(btn, tooltip, label, tooltipPlacement) {
 	);
 }
 
+/**
+ * This function wrap the event when we don't have an overlay component
+ * @param {string} mouseEvent the event to wrap ( mouseClick )
+ * @param {Element} overlayComponent tell if there is an overlay component
+ * @param {string} label the label of the component
+ * @param {object} rest the rest of the props
+ * @param {object} model the model of the component
+ */
 function wrapMouseEvent(mouseEvent, overlayComponent, label, rest, model) {
 	if (overlayComponent || !mouseEvent) {
 		return null;
@@ -223,17 +247,6 @@ class PieChartButton extends React.Component {
 		overlayId: 'pie-chart-popover',
 	};
 
-	/**
-	 * This is the PieChart component
-	 * @param {object} props the props of the object
-	 * @param {array} props.values the values to build the graph
-	 * @param {number} props.labelIndex the index to get the label
-	 * @param {string} props.className some classes to pass to component
-	 * @param {boolean} props.inProgress show loader
-	 * @param {number} props.minimumPercentage minimum percentage to show in the graph
-	 * @param {string} props.display choose the size of the chart
-	 * @param {string} props.emptyColor the color for the empty segment
-	 */
 	constructor(props) {
 		super(props);
 		// we need to access the component state
