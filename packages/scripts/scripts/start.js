@@ -24,7 +24,7 @@ const result = spawn.sync(
 	webpackDevServer,
 	[
 		'--inline',
-		'--config', hereRelative(__dirname, '../config/webpack.config.merge.js'),
+		'--config', hereRelative(__dirname, '../config/webpack.config.js'),
 		'--content-base', 'build/',
 	],
 	{ stdio: 'inherit', env });

@@ -46,17 +46,35 @@ function getEnv() {
 
 	const userConfigFilePath = path.join(process.cwd(), 'talend-scripts.json');
 	if (fs.existsSync(userConfigFilePath)) {
-		env.TALEND_SCRIPTS_CONFIG = require(userConfigFilePath);
+		env.TALEND_SCRIPTS_CONFIG = JSON.stringify(require(userConfigFilePath));
 	}
 
 	return env;
 }
 
-function getUserConfig(configObjectPath) {
-	return get(
-		process.env.TALEND_SCRIPTS_CONFIG,
-		configObjectPath
-	);
+function getTalendScriptsConfig() {
+	if (typeof process.env.TALEND_SCRIPTS_CONFIG === 'string') {
+		return JSON.parse(process.env.TALEND_SCRIPTS_CONFIG);
+	}
+	return process.env.TALEND_SCRIPTS_CONFIG;
+}
+
+function createUserConfigGetter() {
+	const talendScriptsConfig = getTalendScriptsConfig();
+	return function getUserConfig(configObjectPath, defaultValue) {
+		return get(
+			talendScriptsConfig,
+			configObjectPath,
+			defaultValue
+		);
+	};
+}
+
+function getPreset(presetName) {
+	if (presetName === 'talend') {
+		return require('../preset/preset-talend');
+	}
+	return require(`talend-scripts-preset-${presetName}`);
 }
 
 function printLogo() {
@@ -101,9 +119,10 @@ function printLogo() {
 }
 
 module.exports = {
+	createUserConfigGetter,
 	getAbsolutePath,
 	getEnv,
-	getUserConfig,
+	getPreset,
 	hereRelative,
 	printLogo,
 	resolveBin,

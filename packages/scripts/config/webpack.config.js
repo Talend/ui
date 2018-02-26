@@ -1,85 +1,25 @@
-const autoprefixer = require('autoprefixer');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { getUserConfig } = require('../scripts/utils');
+const mergeWith = require('lodash.mergeWith');
+const { getAbsolutePath, getPreset, createUserConfigGetter } = require('../scripts/utils');
+const getUserConfig = createUserConfigGetter();
 
-const babelrc = require('../config/.babelrc.json');
-const extractCSS = new ExtractTextPlugin({ filename: '[name]-[hash].css' });
+const mode = process.env.TALEND_MODE || 'production';
+const presetName = getUserConfig(['preset'], 'talend');
+const preset = getPreset(presetName);
 
-let SASS_DATA = '@import \'~@talend/bootstrap-theme/src/theme/guidelines\';';
-const userSassData = getUserConfig(['sass', 'data']);
-if (userSassData) {
-	const adaptedUserSassData = Object.keys(userSassData)
-		.map(key => (`${key}: ${userSassData[key]};`))
-		.join('\n');
-	SASS_DATA = `${adaptedUserSassData}\n${SASS_DATA}`;
+// Default configuration file
+let webpackConfigurations = [];
+webpackConfigurations = webpackConfigurations.concat(preset.getWebpackConfiguration({ mode, getUserConfig }));
+
+// App configuration file
+const userConfigPath = getUserConfig(['webpack', 'config', mode]);
+if (userConfigPath) {
+	const userConfigAbsolutePath = getAbsolutePath(userConfigPath);
+	console.log(`Merge ${mode} webpack config with custom one (${userConfigAbsolutePath})`);
+	webpackConfigurations.push(require(userConfigAbsolutePath));
 }
 
-function getCommonStyleLoaders(enableModules) {
-	let cssOptions = {};
-	if (enableModules) {
-		cssOptions = { sourceMap: true, modules: true, importLoaders: 1, localIdentName: '[name]__[local]___[hash:base64:5]' };
+module.exports = mergeWith({}, ...webpackConfigurations, function customizer(objValue, srcValue) {
+	if (Array.isArray(objValue)) {
+		return objValue.concat(srcValue);
 	}
-	return [
-		{ loader: 'css-loader', options: cssOptions },
-		{ loader: 'postcss-loader', options: { sourceMap: true, plugins: () => [autoprefixer({ browsers: ['last 2 versions'] })] } },
-		{ loader: 'resolve-url-loader' },
-	];
-}
-
-function getSassLoaders(enableModules) {
-	return getCommonStyleLoaders(enableModules).concat({ loader: 'sass-loader', options: { sourceMap: true, data: SASS_DATA } });
-}
-
-module.exports = {
-	entry: ['babel-polyfill', 'whatwg-fetch', `${process.cwd()}/src/app/index.js`],
-	output: {
-		path: `${process.cwd()}/dist`,
-		publicPath: '/',
-		filename: '[name]-[hash].js',
-	},
-	module: {
-		rules: [
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-					options: babelrc,
-				},
-			},
-			{
-				test: /\.css$/,
-				use: extractCSS.extract(getCommonStyleLoaders()),
-				exclude: /@talend/,
-			},
-			{
-				test: /\.scss$/,
-				use: extractCSS.extract(getSassLoaders()),
-				include: /bootstrap-theme/,
-			},
-			{
-				test: /\.scss$/,
-				use: extractCSS.extract(getSassLoaders(true)),
-				exclude: /bootstrap-theme/,
-			},
-			{
-				test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'url-loader',
-				options: { name: './fonts/[name].[ext]', limit: 50000, mimetype: 'application/font-woff' },
-			},
-		],
-	},
-	plugins: [
-		extractCSS,
-		new HtmlWebpackPlugin({
-			filename: './index.html',
-			template: `${process.cwd()}/src/app/index.html`,
-			title: getUserConfig(['html', 'title']),
-		}),
-		new CopyWebpackPlugin([
-			{ from: 'src/assets' },
-		]),
-	],
-};
+});

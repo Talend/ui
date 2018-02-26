@@ -1,7 +1,6 @@
 const webpack = require('webpack');
-const { getUserConfig } = require('../scripts/utils');
 
-module.exports = {
+module.exports = ({ getUserConfig }) => ({
 	output: {
 		path: `${process.cwd()}/build`,
 	},
@@ -10,10 +9,10 @@ module.exports = {
 		poll: 1000,
 	},
 	devServer: {
-		port: 4000,
+		port: 3000,
 		proxy: {
 			'/api': {
-				target: getUserConfig(['webpack', 'api-url']) || 'http://localhost',
+				target: getUserConfig(['webpack', 'api-url'], 'http://localhost'),
 				changeOrigin: true,
 				secure: false,
 			},
@@ -24,4 +23,4 @@ module.exports = {
 	plugins: [
 		new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('development') }),
 	],
-};
+});
