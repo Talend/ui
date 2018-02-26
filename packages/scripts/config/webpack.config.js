@@ -2,17 +2,19 @@ const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { getUserConfig } = require('../scripts/utils');
 
 const babelrc = require('../config/.babelrc.json');
 const extractCSS = new ExtractTextPlugin({ filename: '[name]-[hash].css' });
 
-// TODO get SASS DATA colors from config passed to Talend-scripts
-const SASS_DATA = `
-$brand-primary: #4F93A7;
-$brand-primary-t7: #00A1B3;
-$brand-secondary-t7: #168AA6;
-@import '~@talend/bootstrap-theme/src/theme/guidelines';
-`;
+let SASS_DATA = '@import \'~@talend/bootstrap-theme/src/theme/guidelines\';';
+const userSassData = getUserConfig(['sass', 'data']);
+if (userSassData) {
+	const adaptedUserSassData = Object.keys(userSassData)
+		.map(key => (`${key}: ${userSassData[key]};`))
+		.join('\n');
+	SASS_DATA = `${adaptedUserSassData}\n${SASS_DATA}`;
+}
 
 function getCommonStyleLoaders(enableModules) {
 	let cssOptions = {};
@@ -74,7 +76,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			filename: './index.html',
 			template: `${process.cwd()}/src/app/index.html`,
-			title: 'Talend Data Preparation',
+			title: getUserConfig(['html', 'title']),
 		}),
 		new CopyWebpackPlugin([
 			{ from: 'src/assets' },

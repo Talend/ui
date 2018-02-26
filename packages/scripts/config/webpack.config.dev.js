@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const { getUserConfig } = require('../scripts/utils');
 
 module.exports = {
 	output: {
@@ -9,10 +10,10 @@ module.exports = {
 		poll: 1000,
 	},
 	devServer: {
-		port: 3000,
+		port: 4000,
 		proxy: {
 			'/api': {
-				target: process.env.TALEND_API_URL || 'http://localhost',
+				target: getUserConfig(['webpack', 'api-url']) || 'http://localhost',
 				changeOrigin: true,
 				secure: false,
 			},
