@@ -77,6 +77,7 @@ const result = spawn.sync(
 	webpackDevServer,
 	[
 		'--inline',
+		'--mode', 'development',
 		'--config', hereRelative(__dirname, '../config/webpack.config.merge.js'),
 		'--content-base', 'build/',
 	],
@@ -87,3 +88,4 @@ process.exit(result.status);
 // TODO waiting for
 // - resolve-url-loader : https://github.com/bholloway/resolve-url-loader/issues/79
 // - extract-text-webpack-plugin : https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/701
+// - html-webpack-plugin : for now html-webpack-plugin@webpack-contrib/html-webpack-plugin

@@ -34,7 +34,14 @@ function getAbsolutePath(userPath) {
 	return `${process.cwd()}/${userPath}`;
 }
 
+function hereRelative(dirname, p) {
+	return path
+		.join(dirname, p)
+		.replace(process.cwd(), '.');
+}
+
 module.exports = {
 	resolveBin,
 	getAbsolutePath,
+	hereRelative,
 };

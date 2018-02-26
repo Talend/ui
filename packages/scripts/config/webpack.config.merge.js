@@ -1,35 +1,24 @@
-const merge = require('lodash.merge')
+const mergeWith = require('lodash.mergeWith');
 const defaultConfig = require('./webpack.config');
 
-function getDevConfig() {
-	const pureDevConfig = {
-		output: {
-			path: `${process.cwd()}/build`,
-		},
-		watchOptions: {
-			aggregateTimeout: 300,
-			poll: 1000,
-		},
-		devServer: {
-			port: 3000,
-			proxy: {
-				'/api': {
-					target: process.env.API_URL || 'http://localhost',
-					changeOrigin: true,
-					secure: false,
-				},
-			},
-			historyApiFallback: true,
-		},
-	};
-	return merge({}, defaultConfig, pureDevConfig);
+
+// Default configuration file
+const configurationFiles = [defaultConfig];
+
+// Dev configuration file
+if (process.env.TALEND_MODE === 'development') {
+	configurationFiles.push(require('./webpack.config.dev'));
 }
 
-let mergedConfig = (process.env.TALEND_MODE === 'development') ? getDevConfig() : defaultConfig;
+// App configuration file
 const appConfigPath = process.env.TALEND_APP_CONFIG;
 if (appConfigPath) {
 	console.log(`Merge ${process.env.TALEND_MODE} webpack config with app custom one (${appConfigPath})`);
-	const appConfig = require(appConfigPath);
-	mergedConfig = merge(mergedConfig, appConfig);
+	configurationFiles.push(require(appConfigPath));
 }
-module.exports = mergedConfig;
+
+module.exports = mergeWith({}, ...configurationFiles, function customizer(objValue, srcValue) {
+	if (Array.isArray(objValue)) {
+		return objValue.concat(srcValue);
+	}
+});

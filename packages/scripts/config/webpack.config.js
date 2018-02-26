@@ -73,7 +73,7 @@ module.exports = {
 		extractCSS,
 		new HtmlWebpackPlugin({
 			filename: './index.html',
-			template: './src/app/index.html',
+			template: `${process.cwd()}/src/app/index.html`,
 			title: 'Talend Data Preparation',
 		}),
 		new CopyWebpackPlugin([
