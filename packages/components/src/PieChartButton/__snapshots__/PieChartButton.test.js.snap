@@ -1,5 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PieChartButton decorateWithOverlay should return the component wrapped 1`] = `
+<span>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    overlay={
+      <Popover
+        bsClass="popover"
+        id="id-test"
+        placement="right"
+      >
+        <div
+          className="fake-overlay"
+        />
+      </Popover>
+    }
+    placement="top"
+    rootClose={true}
+    trigger="click"
+  >
+    <div
+      className="fake-button-element"
+    />
+  </OverlayTrigger>
+</span>
+`;
+
+exports[`PieChartButton decorateWithTooltip should return the component wrapped with tooltip 1`] = `
+<TooltipTrigger
+  label="label"
+  tooltipPlacement="top"
+>
+  <div
+    className="fake-button-element"
+  />
+</TooltipTrigger>
+`;
+
+exports[`PieChartButton getCircle should get return a path 1`] = `
+<path
+  d="M0,0Z"
+  fill="red"
+  stroke="red"
+  transform="translate(10,10)"
+/>
+`;
+
+exports[`PieChartButton getCircle should get return a path with hover color 1`] = `
+<path
+  d="M0,0Z"
+  fill="#66BDFF"
+  stroke="#66BDFF"
+  transform="translate(10,10)"
+/>
+`;
+
+exports[`PieChartButton getEmptyPartCircle should get return a path for the rest 1`] = `
+<path
+  d="M0,0Z"
+  fill="purple"
+  stroke="purple"
+  transform="translate(10,10)"
+/>
+`;
+
 exports[`Storyshots PieChartButton Loading state 1`] = `
 <div
   className="col-lg-offset-2 col-lg-8"
@@ -21,7 +85,7 @@ exports[`Storyshots PieChartButton Loading state 1`] = `
       Small :
     </p>
     <button
-      className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
+      className="theme-tc-pie-chart-loading theme-animate-object-blink tc-pie-chart-loading animate-object-blink btn btn-default"
       disabled={false}
       type="button"
     >
@@ -36,7 +100,7 @@ exports[`Storyshots PieChartButton Loading state 1`] = `
       Medium :
     </p>
     <button
-      className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
+      className="theme-tc-pie-chart-loading theme-animate-object-blink tc-pie-chart-loading animate-object-blink btn btn-default"
       disabled={false}
       type="button"
     >
@@ -51,7 +115,7 @@ exports[`Storyshots PieChartButton Loading state 1`] = `
       Large :
     </p>
     <button
-      className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
+      className="theme-tc-pie-chart-loading theme-animate-object-blink tc-pie-chart-loading animate-object-blink btn btn-default"
       disabled={false}
       type="button"
     >
@@ -60,6 +124,42 @@ exports[`Storyshots PieChartButton Loading state 1`] = `
       />
       <div
         className="theme-tc-pie-chart-loading-skeleton-label tc-pie-chart-loading-skeleton-label"
+      />
+    </button>
+    <p>
+      Small without label:
+    </p>
+    <button
+      className="theme-tc-pie-chart-loading theme-animate-object-blink tc-pie-chart-loading animate-object-blink btn btn-default"
+      disabled={false}
+      type="button"
+    >
+      <div
+        className="theme-tc-pie-chart-loading-small-circle tc-pie-chart-loading-small-circle"
+      />
+    </button>
+    <p>
+      Medium without label:
+    </p>
+    <button
+      className="theme-tc-pie-chart-loading theme-animate-object-blink tc-pie-chart-loading animate-object-blink btn btn-default"
+      disabled={false}
+      type="button"
+    >
+      <div
+        className="theme-tc-pie-chart-loading-medium-circle tc-pie-chart-loading-medium-circle"
+      />
+    </button>
+    <p>
+      Large without label:
+    </p>
+    <button
+      className="theme-tc-pie-chart-loading theme-animate-object-blink tc-pie-chart-loading animate-object-blink btn btn-default"
+      disabled={false}
+      type="button"
+    >
+      <div
+        className="theme-tc-pie-chart-loading-large-circle tc-pie-chart-loading-large-circle"
       />
     </button>
     <p>
@@ -289,19 +389,19 @@ exports[`Storyshots PieChartButton default 1`] = `
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-9.90622129399095,11.263515422570356A15,15,0,0,1,-12.90199399549046,-7.65104900914431L-9.64670084973515,-5.28594009762872A11,11,0,0,0,-7.541112382475365,8.008222276815044Z"
+          d="M-9.90622129399095,11.263515422570356A15,15,0,0,1,-14.935106175817275,1.393773122521985L-10.91134256097458,1.3937731225219863A11,11,0,0,0,-7.541112382475365,8.008222276815044Z"
           fill="#F3C446"
           stroke="#F3C446"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-11.263515422570356,-9.90622129399095A15,15,0,0,1,-4.16764539736368,-14.40939734485219L-3.4136672816322444,-10.45690564604623A11,11,0,0,0,-8.008222276815046,-7.541112382475363Z"
+          d="M-14.935106175817275,-1.3937731225219812A15,15,0,0,1,-11.84132720672218,-9.207766829331696L-8.908129767342086,-6.453311091849969A11,11,0,0,0,-10.91134256097458,-1.3937731225219838Z"
           fill="#E96065"
           stroke="#E96065"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-1.4294742600403505,-14.93173142471703A15,15,0,0,1,-1.3937731225219925,-14.935106175817273L-1.0351914465036536,-10.95118161063388Z"
+          d="M-9.93312049203495,-11.239800589455106A15,15,0,0,1,-1.3937731225219925,-14.935106175817273L-1.393773122521987,-10.91134256097458A11,11,0,0,0,-6.999923052654852,-8.485344851973382Z"
           fill="#ABABAB"
           stroke="#ABABAB"
           transform="translate(17.5,17.5)"
@@ -341,19 +441,19 @@ exports[`Storyshots PieChartButton default 1`] = `
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-9.90622129399095,11.263515422570356A15,15,0,0,1,-12.90199399549046,-7.65104900914431L-9.64670084973515,-5.28594009762872A11,11,0,0,0,-7.541112382475365,8.008222276815044Z"
+          d="M-9.90622129399095,11.263515422570356A15,15,0,0,1,-14.935106175817275,1.393773122521985L-10.91134256097458,1.3937731225219863A11,11,0,0,0,-7.541112382475365,8.008222276815044Z"
           fill="#F3C446"
           stroke="#F3C446"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-11.263515422570356,-9.90622129399095A15,15,0,0,1,-4.16764539736368,-14.40939734485219L-3.4136672816322444,-10.45690564604623A11,11,0,0,0,-8.008222276815046,-7.541112382475363Z"
+          d="M-14.935106175817275,-1.3937731225219812A15,15,0,0,1,-11.84132720672218,-9.207766829331696L-8.908129767342086,-6.453311091849969A11,11,0,0,0,-10.91134256097458,-1.3937731225219838Z"
           fill="#E96065"
           stroke="#E96065"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-1.4294742600403505,-14.93173142471703A15,15,0,0,1,-1.3937731225219925,-14.935106175817273L-1.0351914465036536,-10.95118161063388Z"
+          d="M-9.93312049203495,-11.239800589455106A15,15,0,0,1,-1.3937731225219925,-14.935106175817273L-1.393773122521987,-10.91134256097458A11,11,0,0,0,-6.999923052654852,-8.485344851973382Z"
           fill="#ABABAB"
           stroke="#ABABAB"
           transform="translate(17.5,17.5)"
@@ -392,19 +492,19 @@ exports[`Storyshots PieChartButton default 1`] = `
             transform="translate(17.5,17.5)"
           />
           <path
-            d="M-9.90622129399095,11.263515422570356A15,15,0,0,1,-12.90199399549046,-7.65104900914431L-9.64670084973515,-5.28594009762872A11,11,0,0,0,-7.541112382475365,8.008222276815044Z"
+            d="M-9.90622129399095,11.263515422570356A15,15,0,0,1,-14.935106175817275,1.393773122521985L-10.91134256097458,1.3937731225219863A11,11,0,0,0,-7.541112382475365,8.008222276815044Z"
             fill="#F3C446"
             stroke="#F3C446"
             transform="translate(17.5,17.5)"
           />
           <path
-            d="M-11.263515422570356,-9.90622129399095A15,15,0,0,1,-4.16764539736368,-14.40939734485219L-3.4136672816322444,-10.45690564604623A11,11,0,0,0,-8.008222276815046,-7.541112382475363Z"
+            d="M-14.935106175817275,-1.3937731225219812A15,15,0,0,1,-11.84132720672218,-9.207766829331696L-8.908129767342086,-6.453311091849969A11,11,0,0,0,-10.91134256097458,-1.3937731225219838Z"
             fill="#E96065"
             stroke="#E96065"
             transform="translate(17.5,17.5)"
           />
           <path
-            d="M-1.4294742600403505,-14.93173142471703A15,15,0,0,1,-1.3937731225219925,-14.935106175817273L-1.0351914465036536,-10.95118161063388Z"
+            d="M-9.93312049203495,-11.239800589455106A15,15,0,0,1,-1.3937731225219925,-14.935106175817273L-1.393773122521987,-10.91134256097458A11,11,0,0,0,-6.999923052654852,-8.485344851973382Z"
             fill="#ABABAB"
             stroke="#ABABAB"
             transform="translate(17.5,17.5)"
@@ -447,19 +547,19 @@ exports[`Storyshots PieChartButton default 1`] = `
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-9.90622129399095,11.263515422570356A15,15,0,0,1,-12.90199399549046,-7.65104900914431L-9.64670084973515,-5.28594009762872A11,11,0,0,0,-7.541112382475365,8.008222276815044Z"
+          d="M-9.90622129399095,11.263515422570356A15,15,0,0,1,-14.935106175817275,1.393773122521985L-10.91134256097458,1.3937731225219863A11,11,0,0,0,-7.541112382475365,8.008222276815044Z"
           fill="#F3C446"
           stroke="#F3C446"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-11.263515422570356,-9.90622129399095A15,15,0,0,1,-4.16764539736368,-14.40939734485219L-3.4136672816322444,-10.45690564604623A11,11,0,0,0,-8.008222276815046,-7.541112382475363Z"
+          d="M-14.935106175817275,-1.3937731225219812A15,15,0,0,1,-11.84132720672218,-9.207766829331696L-8.908129767342086,-6.453311091849969A11,11,0,0,0,-10.91134256097458,-1.3937731225219838Z"
           fill="#E96065"
           stroke="#E96065"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-1.4294742600403505,-14.93173142471703A15,15,0,0,1,-1.3937731225219925,-14.935106175817273L-1.0351914465036536,-10.95118161063388Z"
+          d="M-9.93312049203495,-11.239800589455106A15,15,0,0,1,-1.3937731225219925,-14.935106175817273L-1.393773122521987,-10.91134256097458A11,11,0,0,0,-6.999923052654852,-8.485344851973382Z"
           fill="#ABABAB"
           stroke="#ABABAB"
           transform="translate(17.5,17.5)"

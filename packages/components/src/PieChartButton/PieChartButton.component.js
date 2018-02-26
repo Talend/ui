@@ -35,10 +35,11 @@ const displaySizes = {
  * @param {function} arcGen the arc generator
  * @param {string} emptyColor the empty color to complete the graph
  * @param {boolean} hover known if the component is hovered
+ * @param {number} minimumPercentage the minimum percentage to be shown
  */
-export function getEmptyPartCircle(values, size, arcGen, emptyColor, hover) {
+export function getEmptyPartCircle(values, size, arcGen, emptyColor, hover, minimumPercentage) {
 	const allPercentages = values.reduce((acc, value) => acc + value.percentageShown, 0);
-	if (allPercentages >= 98) {
+	if (allPercentages >= 100 - minimumPercentage) {
 		return null;
 	}
 
@@ -109,7 +110,7 @@ function sortElements(a, b) {
  * @param {array} values the set of values
  * @param {number} minimumPercentage the minimum value we have to show
  */
-function setMinimum(model, minimumPercentage) {
+export function setMinimum(model, minimumPercentage) {
 	let amountToSubtract = 0;
 
 	const valuesMins = model.map(value => {
@@ -153,7 +154,7 @@ function setMinimum(model, minimumPercentage) {
  * @param {Element} overlayComponent the overlay component
  * @param {string} overlayId the id to be set for the overlay
  */
-function decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId) {
+export function decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId) {
 	if (!overlayComponent) {
 		return btn;
 	}
@@ -180,7 +181,7 @@ function decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId)
  * @param {string} label the label to show on the tooltip
  * @param {string} tooltipPlacement the tooltip placement
  */
-function decorateWithTooltip(btn, tooltip, label, tooltipPlacement) {
+export function decorateWithTooltip(btn, tooltip, label, tooltipPlacement) {
 	if (!tooltip || !label) {
 		return btn;
 	}
@@ -193,13 +194,13 @@ function decorateWithTooltip(btn, tooltip, label, tooltipPlacement) {
 
 /**
  * This function wrap the event when we don't have an overlay component
- * @param {string} mouseEvent the event to wrap ( mouseClick )
+ * @param {function} mouseEvent the event to wrap ( mouseClick )
  * @param {Element} overlayComponent tell if there is an overlay component
  * @param {string} label the label of the component
  * @param {object} rest the rest of the props
  * @param {object} model the model of the component
  */
-function wrapMouseEvent(mouseEvent, overlayComponent, label, rest, model) {
+export function wrapMouseEvent(mouseEvent, overlayComponent, label, rest, model) {
 	if (overlayComponent || !mouseEvent) {
 		return null;
 	}
@@ -216,25 +217,25 @@ class PieChartButton extends React.Component {
 	static propTypes = {
 		className: PropTypes.string,
 		display: PropTypes.oneOf(['small', 'medium', 'large']),
-		labelIndex: PropTypes.number,
+		emptyColor: PropTypes.string,
 		inProgress: PropTypes.bool,
-		minimumPercentage: PropTypes.number.isRequired,
 		hideLabel: PropTypes.bool,
 		label: PropTypes.string,
-		overlayComponent: PropTypes.element,
-		overlayPlacement: OverlayTrigger.propTypes.placement,
-		tooltipPlacement: OverlayTrigger.propTypes.placement,
-		onMouseDown: PropTypes.func,
-		onClick: PropTypes.func,
-		emptyColor: PropTypes.string,
-		tooltip: PropTypes.bool,
-		overlayId: PropTypes.string,
+		labelIndex: PropTypes.number,
+		minimumPercentage: PropTypes.number.isRequired,
 		model: PropTypes.arrayOf(
 			PropTypes.shape({
 				color: PropTypes.string.isRequired,
 				percentage: PropTypes.number.isRequired,
 			}).isRequired,
 		),
+		onClick: PropTypes.func,
+		onMouseDown: PropTypes.func,
+		overlayComponent: PropTypes.element,
+		overlayId: PropTypes.string,
+		overlayPlacement: OverlayTrigger.propTypes.placement,
+		tooltip: PropTypes.bool,
+		tooltipPlacement: OverlayTrigger.propTypes.placement,
 	};
 
 	static defaultProps = {
@@ -303,12 +304,14 @@ class PieChartButton extends React.Component {
 							`tc-pie-chart-loading-${display}-circle`,
 						)}
 					/>
-					<div
-						className={classnames(
-							theme['tc-pie-chart-loading-skeleton-label'],
-							'tc-pie-chart-loading-skeleton-label',
-						)}
-					/>
+					{!hideLabel && (
+						<div
+							className={classnames(
+								theme['tc-pie-chart-loading-skeleton-label'],
+								'tc-pie-chart-loading-skeleton-label',
+							)}
+						/>
+					)}
 				</Button>
 			);
 		}
@@ -339,6 +342,7 @@ class PieChartButton extends React.Component {
 						this.state.arcGen,
 						emptyColor,
 						this.state.hover,
+						minimumPercentage,
 					)}
 				</svg>
 				<div

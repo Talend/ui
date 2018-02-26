@@ -30,16 +30,20 @@ const pieChartData1 = [
 
 const pieChartData2 = [
 	{
+		color: '#F3C446',
+		percentage: 15,
+	},
+	{
+		color: '#60769E',
+		percentage: 15,
+	},
+	{
 		color: '#C3D600',
 		percentage: 60,
 	},
 	{
-		color: '#F3C446',
-		percentage: 25,
-	},
-	{
 		color: '#E96065',
-		percentage: 12,
+		percentage: 2,
 	},
 ];
 
@@ -69,6 +73,7 @@ stories
 			<p>with overlay component</p>
 			<PieChartButton
 				display="medium"
+				labelIndex={2}
 				model={pieChartData2}
 				overlayComponent={overlayComponent}
 				overlayId="id-popover"
@@ -118,6 +123,27 @@ stories
 						<p>Large :</p>
 						<PieChartButton
 							display="large"
+							model={pieChartData1}
+							inProgress={this.state.inProgress}
+						/>
+						<p>Small without label:</p>
+						<PieChartButton
+							display="small"
+							hideLabel
+							model={pieChartData1}
+							inProgress={this.state.inProgress}
+						/>
+						<p>Medium without label:</p>
+						<PieChartButton
+							display="medium"
+							hideLabel
+							model={pieChartData1}
+							inProgress={this.state.inProgress}
+						/>
+						<p>Large without label:</p>
+						<PieChartButton
+							display="large"
+							hideLabel
 							model={pieChartData1}
 							inProgress={this.state.inProgress}
 						/>
