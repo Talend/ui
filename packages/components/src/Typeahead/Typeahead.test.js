@@ -21,14 +21,18 @@ describe('Typeahead', () => {
 				name: 'fa fa-filter',
 				title: 'icon',
 			},
-			suggestions: [{
-				title: 'le title 1',
-				description: 'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
-			},
-			{
-				title: 'title 2 les elephants elementaires ont des aile ',
-				description: 'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
-			}],
+			suggestions: [
+				{
+					title: 'le title 1',
+					description:
+						'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
+				},
+				{
+					title: 'title 2 les elephants elementaires ont des aile ',
+					description:
+						'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
+				},
+			],
 		},
 
 		{
@@ -40,10 +44,12 @@ describe('Typeahead', () => {
 			suggestions: [
 				{
 					title: 'title 3',
-					description: 'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
+					description:
+						'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
 				},
 			],
-		}];
+		},
+	];
 
 	describe('toggle button', () => {
 		it('should be hidden if docked property is not true', () => {
@@ -89,7 +95,10 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Action').at(0).simulate('click');
+			typeaheadInstance
+				.find('Action')
+				.at(0)
+				.simulate('click');
 
 			// then
 			expect(props.onToggle).toBeCalled();
@@ -198,7 +207,10 @@ describe('Typeahead', () => {
 
 			// when
 			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('Item').at(0).simulate('mouseDown');
+			typeaheadInstance
+				.find('Item')
+				.at(0)
+				.simulate('mouseDown');
 
 			// then
 			expect(onSelect).toBeCalled();
