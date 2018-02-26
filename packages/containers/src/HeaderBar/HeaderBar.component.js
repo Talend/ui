@@ -4,11 +4,13 @@ import { HeaderBar as PureHeaderBar } from '@talend/react-components';
 
 import Action from '../Action';
 import ActionDropdown from '../ActionDropdown';
+import Typeahead from '../Typeahead';
 import getRenderers from '../renderers';
 
 const renderers = {
 	Action,
 	ActionDropdown,
+	Typeahead,
 };
 
 function HeaderBar(props) {

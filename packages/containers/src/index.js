@@ -6,7 +6,6 @@ import {
 	IconsProvider,
 	Layout,
 	TooltipTrigger,
-	Typeahead,
 } from '@talend/react-components';
 
 import actionAPI from './actionAPI';
@@ -33,6 +32,7 @@ import SidePanel from './SidePanel';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 import SubHeaderBar from './SubHeaderBar';
+import Typeahead from './Typeahead';
 
 export {
 	actionAPI,
