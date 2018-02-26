@@ -2,6 +2,24 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+
+## v0.159.0
+* Typeahead: new flag to manage the display mode
+
+Before
+```jsx
+<Typeahead onToggle={func} />
+```
+
+After
+```jsx
+<Typeahead onToggle={func} docked={bool} />
+```
+
+- `docked === true && onToggle !== undefined` : the toggle button is displayed
+- `docked !== true || onToggle === undefined` : the typeahead input is displayed
+
+
 ## v0.157.0
 * cmf: route onLeave/onEnter
 * PR: [feat(cmf): route onEnter/onLeave with dispatch](https://github.com/Talend/ui/pull/1082)
@@ -15,7 +33,8 @@ function onLeave(nextState, replace) { }
 
 After
 ```javascript
-function onEnter(router, dispatch) { const { nextState, replace } = router; }
+function onEnter(router, dispatch)
+ { const { nextState, replace } = router; }
 function onLeave(router, dispatch) { }
 ```
 
