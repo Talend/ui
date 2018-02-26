@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#DataGrid should render DefaultDateCellRenderer 1`] = `
+exports[`#DataGrid should render DataGrid 1`] = `
 <div
   className="theme-td-grid td-grid"
 >
@@ -28,7 +28,7 @@ exports[`#DataGrid should render DefaultDateCellRenderer 1`] = `
 </div>
 `;
 
-exports[`#DataGrid should render DefaultDateCellRenderer with columnsDefs and rowData 1`] = `
+exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
 <div
   className="theme-td-grid td-grid"
 >
@@ -252,14 +252,6 @@ exports[`#DataGrid should render DefaultDateCellRenderer with columnsDefs and ro
 </div>
 `;
 
-exports[`#injectedCellRenderer should injected the cell renderer 1`] = `
-<Component
-  avroRenderer={Object {}}
-  getComponent={[Function]}
-  id="injectedComponent"
-/>
-`;
-
 exports[`#injectedCellRenderer should injected the default cell renderer 1`] = `
 <DefaultCellRenderer
   avroRenderer={Object {}}
@@ -272,6 +264,7 @@ exports[`#injectedHeaderRenderer should injected the default header renderer 1`]
 <DefaultHeaderRenderer
   id="injectedComponent"
   onFocusedColumn={[Function]}
+  onKeyDown={undefined}
 />
 `;
 
@@ -279,5 +272,6 @@ exports[`#injectedHeaderRenderer should injected the header renderer 1`] = `
 <Component
   id="injectedComponent"
   onFocusedColumn={[Function]}
+  onKeyDown={[Function]}
 />
 `;

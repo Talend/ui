@@ -13,12 +13,16 @@ import {
 
 export const HEADER_RENDERER_COMPONENT = 'headerGrid';
 
-export default function DefaultHeaderRenderer({ column, displayName, onFocusedColumn }) {
+export default function DefaultHeaderRenderer({ column, displayName, onFocusedColumn, onKeyDown }) {
+	const onHeaderClick = () => onFocusedColumn(column.colId);
+	const onHeaderKeyDown = event => onKeyDown(event, column.colId);
+
 	return (
 		<div className={classNames(theme['td-header-component'], 'td-header-component')}>
 			<button
 				className={classNames(theme['td-header'], 'td-header')}
-				onClick={() => onFocusedColumn(column.colId)}
+				onClick={onHeaderClick}
+				onKeyDown={onHeaderKeyDown}
 			>
 				<div className={classNames(theme['td-header-first-line'], 'td-header-first-line')}>
 					<span
@@ -54,4 +58,5 @@ DefaultHeaderRenderer.propTypes = {
 	}),
 	displayName: PropTypes.string,
 	onFocusedColumn: PropTypes.func,
+	onKeyDown: PropTypes.func,
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { AgGridReact } from 'ag-grid-react';
+import keycode from 'keycode';
 import 'ag-grid/dist/styles/ag-grid.css';
 import { Inject } from '@talend/react-components';
 
@@ -23,10 +24,10 @@ const AG_GRID_DEFAULT_ROW_SELECTION = 'single';
 const HEADER_HEIGHT = 69;
 const ROW_HEIGHT = 39;
 
-export function injectedHeaderRenderer(getComponent, headerRenderer, onFocusedColumn) {
+export function injectedHeaderRenderer(getComponent, headerRenderer, onFocusedColumn, onKeyDown) {
 	const Component = Inject.get(getComponent, headerRenderer, DefaultHeaderRenderer);
 
-	return props => <Component {...props} onFocusedColumn={onFocusedColumn} />;
+	return props => <Component {...props} onFocusedColumn={onFocusedColumn} onKeyDown={onKeyDown} />;
 }
 
 export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
@@ -71,6 +72,7 @@ export default class DataGrid extends React.Component {
 		this.setGridInstance = this.setGridInstance.bind(this);
 		this.setCurrentFocusedColumn = this.setCurrentFocusedColumn.bind(this);
 		this.updateStyleFocusColumn = this.updateStyleFocusColumn.bind(this);
+		this.onKeyDownHeaderColumn = this.onKeyDownHeaderColumn.bind(this);
 	}
 
 	onGridReady({ api }) {
@@ -104,10 +106,22 @@ export default class DataGrid extends React.Component {
 
 	onFocusedColumn(colId) {
 		this.gridAPI.deselectAll();
-		this.setCurrentFocusedColumn(colId);
+		this.gridAPI.clearFocusedCell();
+
 		this.removeFocusColumn();
+		this.setCurrentFocusedColumn(colId);
 		this.updateStyleFocusColumn();
+
 		this.props.onFocusedColumn(colId);
+	}
+
+	onKeyDownHeaderColumn(event, colId) {
+		if (event.keyCode === keycode('down')) {
+			this.gridAPI.setFocusedCell(0, colId);
+			this.gridAPI.ensureIndexVisible(0);
+
+			event.preventDefault();
+		}
 	}
 
 	setCurrentFocusedColumn(colId) {
@@ -209,6 +223,7 @@ export default class DataGrid extends React.Component {
 				this.props.getComponent,
 				this.props.headerRenderer,
 				this.onFocusedColumn,
+				this.onKeyDownHeaderColumn,
 			),
 			[PIN_HEADER_RENDERER_COMPONENT]: Inject.get(
 				this.props.getComponent,

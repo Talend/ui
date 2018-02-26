@@ -14,9 +14,12 @@ import QualityBar from './QualityBar.component';
 describe('#DefaultHeaderGrid', () => {
 	it('should render DefaultHeaderGrid', () => {
 		const onFocusedColumn = jest.fn();
+		const onKeyDown = jest.fn();
+		const event = {};
 		const wrapper = shallow(
 			<DefaultHeaderRenderer
 				onFocusedColumn={onFocusedColumn}
+				onKeyDown={onKeyDown}
 				column={{
 					colId: 'colId',
 					colDef: {
@@ -32,9 +35,11 @@ describe('#DefaultHeaderGrid', () => {
 			/>,
 		);
 		wrapper.find('button').simulate('click');
+		wrapper.find('button').simulate('keydown', event);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(onFocusedColumn).toHaveBeenCalledWith('colId');
+		expect(onKeyDown).toHaveBeenCalledWith(event, 'colId');
 	});
 
 	it('should render DefaultHeaderGrid without QualityBar', () => {

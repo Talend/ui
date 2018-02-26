@@ -1,4 +1,5 @@
 import React from 'react';
+import keycode from 'keycode';
 import { shallow } from 'enzyme';
 import { JSDOM } from 'jsdom';
 
@@ -364,22 +365,22 @@ describe('#Datagrid method', () => {
 		expect(setSelected).not.toHaveBeenCalled();
 	});
 
-	it('should focus a column and the first cell', () => {
-		const getFocusedCell = jest.fn();
-		const setFocusedCell = jest.fn();
+	it('should focus a column', () => {
+		const deselectAll = jest.fn();
+		const clearFocusedCell = jest.fn();
 		const api = {
-			getFocusedCell,
-			setFocusedCell,
+			deselectAll,
+			clearFocusedCell,
 		};
-		const onFocusedColumn = jest.fn();
 		const currentColId = 'colId';
+		const onFocusedColumn = jest.fn();
 		const wrapper = shallow(
 			<DataGrid getComponent={getComponent} onFocusedColumn={onFocusedColumn} />,
 		);
 		const instance = wrapper.instance();
-		instance.setCurrentFocusedColumn(currentColId);
 
 		instance.setCurrentFocusedColumn = jest.fn();
+		instance.removeFocusColumn = jest.fn();
 		instance.updateStyleFocusColumn = jest.fn();
 
 		wrapper
@@ -391,41 +392,9 @@ describe('#Datagrid method', () => {
 
 		expect(instance.setCurrentFocusedColumn).toHaveBeenCalledWith(currentColId);
 		expect(instance.updateStyleFocusColumn).toHaveBeenCalled();
-		expect(setFocusedCell).toHaveBeenCalledWith(0, currentColId);
-		expect(onFocusedColumn).toHaveBeenCalledWith(currentColId);
-	});
-
-	it('should focus a column and one cell one the current selected row', () => {
-		const rowIndex = 1;
-		const getFocusedCell = jest.fn(() => ({
-			rowIndex,
-		}));
-		const setFocusedCell = jest.fn();
-		const api = {
-			getFocusedCell,
-			setFocusedCell,
-		};
-		const onFocusedColumn = jest.fn();
-		const currentColId = 'colId';
-		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} onFocusedColumn={onFocusedColumn} />,
-		);
-		const instance = wrapper.instance();
-		instance.setCurrentFocusedColumn(currentColId);
-
-		instance.setCurrentFocusedColumn = jest.fn();
-		instance.updateStyleFocusColumn = jest.fn();
-
-		wrapper
-			.find('AgGridReact')
-			.props()
-			.onGridReady({ api });
-
-		instance.onFocusedColumn(currentColId);
-
-		expect(instance.setCurrentFocusedColumn).toHaveBeenCalledWith(currentColId);
-		expect(instance.updateStyleFocusColumn).toHaveBeenCalled();
-		expect(setFocusedCell).toHaveBeenCalledWith(rowIndex, currentColId);
+		expect(instance.removeFocusColumn).toHaveBeenCalled();
+		expect(deselectAll).toHaveBeenCalled();
+		expect(clearFocusedCell).toHaveBeenCalled();
 		expect(onFocusedColumn).toHaveBeenCalledWith(currentColId);
 	});
 
@@ -523,6 +492,63 @@ describe('#Datagrid method', () => {
 		expect(instance.removeFocusColumn).toHaveBeenCalled();
 		expect(onFocusedCell).not.toHaveBeenCalledWith({ column });
 	});
+
+	it('should focus on the first cell when DOWN is triggered', () => {
+		const preventDefault = jest.fn();
+		const setFocusedCell = jest.fn();
+		const ensureIndexVisible = jest.fn();
+		const api = {
+			setFocusedCell,
+			ensureIndexVisible,
+		};
+		const colId = 'colId';
+		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const instance = wrapper.instance();
+
+		wrapper
+			.find('AgGridReact')
+			.props()
+			.onGridReady({ api });
+
+		instance.onKeyDownHeaderColumn(
+			{
+				keyCode: keycode('down'),
+				preventDefault,
+			},
+			colId,
+		);
+
+		expect(setFocusedCell).toHaveBeenCalledWith(0, colId);
+		expect(ensureIndexVisible).toHaveBeenCalledWith(0);
+	});
+
+	it('should not focus on the first cell when other key is triggered', () => {
+		const preventDefault = jest.fn();
+		const setFocusedCell = jest.fn();
+		const ensureIndexVisible = jest.fn();
+		const colId = 'colId';
+		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const instance = wrapper.instance();
+
+		wrapper
+			.find('AgGridReact')
+			.props()
+			.onGridReady({
+				setFocusedCell,
+				ensureIndexVisible,
+			});
+
+		instance.onKeyDownHeaderColumn(
+			{
+				keyCode: keycode('up'),
+				preventDefault,
+			},
+			colId,
+		);
+
+		expect(setFocusedCell).not.toHaveBeenCalledWith(0, colId);
+		expect(ensureIndexVisible).not.toHaveBeenCalledWith(0);
+	});
 });
 
 describe('#injectedCellRenderer', () => {
@@ -530,19 +556,14 @@ describe('#injectedCellRenderer', () => {
 	const avroRenderer = {};
 
 	it('should injected the cell renderer', () => {
-		const InjectedComponent = injectedCellRenderer(
-			componentId => {
-				if (componentId === 'header') return Component;
-				return null;
-			},
-			'header',
-			avroRenderer,
-		);
+		const getCellComponent = () => Component;
+		const InjectedComponent = injectedCellRenderer(getCellComponent, 'cellRenderer', avroRenderer);
 
 		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find(Component).length).toBe(1);
 		expect(wrapper.props().avroRenderer).toBe(avroRenderer);
+		expect(wrapper.props().getComponent).toBe(getCellComponent);
 	});
 
 	it('should injected the default cell renderer', () => {
@@ -558,6 +579,7 @@ describe('#injectedCellRenderer', () => {
 describe('#injectedHeaderRenderer', () => {
 	const Component = () => {};
 	const onFocusedColumn = jest.fn();
+	const onKeyDown = jest.fn();
 
 	it('should injected the header renderer', () => {
 		const InjectedComponent = injectedHeaderRenderer(
@@ -567,13 +589,16 @@ describe('#injectedHeaderRenderer', () => {
 			},
 			'header',
 			onFocusedColumn,
+			onKeyDown,
 		);
 
 		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
 		wrapper.props().onFocusedColumn();
+		wrapper.props().onKeyDown();
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(onFocusedColumn).toHaveBeenCalled();
+		expect(onKeyDown).toHaveBeenCalled();
 	});
 
 	it('should injected the default header renderer', () => {
