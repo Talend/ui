@@ -417,10 +417,10 @@ form {
 
 			input {
 				&.form-control {
-					color: #ababab;
-					font-weight: 400;
-					font-size: 16px;
-					font-style: italic;
+                    color: $silver-chalice;
+                    font-weight: $form-base-font-weight;
+                    font-size: $font-size-base;
+					font-style: oblique;
 				}
 			}
 		}
