@@ -25,10 +25,11 @@ function getDevConfig() {
 	return merge({}, defaultConfig, pureDevConfig);
 }
 
-let mergedConfig = (process.env.MODE === 'development') ? getDevConfig() : defaultConfig;
-if (process.env.TALEND_APP_CONFIG) {
-	const customConfig = require(`${process.cwd()}/${process.env.APP_CONFIG}`);
-	mergedConfig = merge(mergedConfig, customConfig);
+let mergedConfig = (process.env.TALEND_MODE === 'development') ? getDevConfig() : defaultConfig;
+const appConfigPath = process.env.TALEND_APP_CONFIG;
+if (appConfigPath) {
+	console.log(`Merge ${process.env.TALEND_MODE} webpack config with app custom one (${appConfigPath})`);
+	const appConfig = require(appConfigPath);
+	mergedConfig = merge(mergedConfig, appConfig);
 }
-
 module.exports = mergedConfig;
