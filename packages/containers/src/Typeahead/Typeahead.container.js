@@ -5,12 +5,10 @@ import { cmfConnect, componentState } from '@talend/react-cmf';
 import { Typeahead as Component } from '@talend/react-components';
 import omit from 'lodash/omit';
 
-
 export const DISPLAY_NAME = 'Container(TreeView)';
 export const DEFAULT_STATE = new Immutable.Map({
 	displayMode: 'BUTTON',
 });
-
 
 /**
  * The Typeahead React container
@@ -36,7 +34,7 @@ export default class Typeahead extends React.Component {
 	render() {
 		const mode = this.props.state.get('displayMode');
 		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), {
-			onToggle: (mode === 'BUTTON') && this.onToggle,
+			onToggle: mode === 'BUTTON' && this.onToggle,
 		});
 
 		return <Component {...props} />;
