@@ -46,6 +46,7 @@ describe('Typeahead', () => {
 			const props = {
 				id: 'my-search',
 				onToggle: jest.fn(),
+				docked: true,
 				icon: {
 					name: 'fa fa-search',
 					title: 'Toggle search bar',

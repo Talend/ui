@@ -46,11 +46,44 @@ describe('Typeahead', () => {
 		}];
 
 	describe('toggle button', () => {
+		it('should be hidden if docked property is not true', () => {
+			// given
+			const props = {
+				...initialProps,
+				onToggle: jest.fn(),
+				docked: false,
+			};
+			const typeahead = <Typeahead {...props} />;
+
+			// when
+			const typeaheadInstance = mount(typeahead);
+
+			// then
+			expect(typeaheadInstance.find('Action').length).toBe(0);
+		});
+
+		it('should be shown if docked property is true', () => {
+			// given
+			const props = {
+				...initialProps,
+				onToggle: jest.fn(),
+				docked: true,
+			};
+			const typeahead = <Typeahead {...props} />;
+
+			// when
+			const typeaheadInstance = mount(typeahead);
+
+			// then
+			expect(typeaheadInstance.find('Action').length).toBe(1);
+		});
+
 		it('should call onToggle', () => {
 			// given
 			const props = {
 				...initialProps,
 				onToggle: jest.fn(),
+				docked: true,
 			};
 			const typeahead = <Typeahead {...props} />;
 

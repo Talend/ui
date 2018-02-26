@@ -19,8 +19,8 @@ import { Action } from '../Actions';
  *
  * <Typeahead {...props} />
  */
-function Typeahead({ onToggle, icon, position, ...rest }) {
-	if (onToggle) {
+function Typeahead({ onToggle, icon, position, docked, ...rest }) {
+	if (docked === true && onToggle) {
 		return (
 			<Action
 				onClick={onToggle}
@@ -122,6 +122,7 @@ Typeahead.defaultProps = {
 	readOnly: false,
 	searching: false,
 	searchingText: 'Searching for matches…',
+	docked: false,
 };
 
 Typeahead.propTypes = {
@@ -135,6 +136,7 @@ Typeahead.propTypes = {
 
 	// toggle button
 	onToggle: PropTypes.func,
+	docked: PropTypes.bool,
 	icon: PropTypes.shape({
 		name: PropTypes.string,
 		title: PropTypes.string,
