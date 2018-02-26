@@ -391,6 +391,7 @@ form {
 			}
 		}
 	}
+
 }
 
 .form {
@@ -402,6 +403,28 @@ form {
 		select {
 			padding: 0;
 		}
+
+		&.multi-select-readonly {
+			.dropdown-toggle {
+				display: none;
+			}
+
+			.form-control {
+				border: none;
+				box-shadow: none;
+				pointer-events: none;
+			}
+
+			input {
+				&.form-control {
+					color: #ababab;
+					font-weight: 400;
+					font-size: 16px;
+					font-style: italic;
+				}
+			}
+		}
+
 	}
 
 	&-control {
