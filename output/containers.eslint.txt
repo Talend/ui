@@ -19,8 +19,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-/home/travis/build/Talend/ui/packages/containers/src/Typeahead/Typeahead.container.js
-  2:8  error  'PropTypes' is defined but never used  no-unused-vars
+/home/travis/build/Talend/ui/packages/containers/src/Typeahead/Typeahead.test.js
+  4:21  error  'DEFAULT_STATE' is defined but never used  no-unused-vars
+  4:36  error  'DISPLAY_NAME' is defined but never used   no-unused-vars
 
-✖ 6 problems (6 errors, 0 warnings)
+✖ 7 problems (7 errors, 0 warnings)
 
