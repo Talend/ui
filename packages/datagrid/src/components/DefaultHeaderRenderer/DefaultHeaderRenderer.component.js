@@ -9,7 +9,7 @@ import {
 	TALEND_QUALITY_INVALID_KEY,
 	TALEND_QUALITY_EMPTY_KEY,
 	TALEND_QUALITY_VALID_KEY,
-} from '../constants';
+} from '../../constants';
 
 export const HEADER_RENDERER_COMPONENT = 'headerGrid';
 

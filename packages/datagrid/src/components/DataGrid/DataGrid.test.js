@@ -3,13 +3,13 @@ import keycode from 'keycode';
 import { shallow } from 'enzyme';
 import { JSDOM } from 'jsdom';
 
-import { NAMESPACE_DATA, NAMESPACE_INDEX } from './constants';
+import { NAMESPACE_DATA, NAMESPACE_INDEX } from '../../constants';
 
 import DataGrid, {
 	injectedCellRenderer,
 	injectedHeaderRenderer,
 	AG_GRID_ELEMENT,
-} from './datagrid.component';
+} from './DataGrid.component';
 
 function PinHeaderRenderer() {}
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Component from '../components/';
-import DATAGRID_PROPTYPES from '../components/datagrid.proptypes';
+import Component from '../../components/';
+import DATAGRID_PROPTYPES from '../../components/DataGrid/DataGrid.proptypes';
 
 export default function DataGrid(props) {
 	const onFocusedCell = event => {

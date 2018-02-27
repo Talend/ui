@@ -1,17 +1,19 @@
 import React from 'react';
-import { storiesOf, configure, setAddon } from '@storybook/react';
+import { storiesOf, setAddon } from '@storybook/react';
 import cmf from 'react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import { IconsProvider } from '@talend/react-components';
 import { api } from '@talend/react-cmf';
 
 import DataGrid from '../src/';
-import register from '../src/components/register';
-import theme from '../src/components/datagrid.scss';
+import register from '../src/register';
+import theme from '../src/components/DataGrid/DataGrid.scss';
 
 import sample from './sample.json';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
+
+Object.keys(api.expressions).forEach(id => api.expression.register(id, api.expressions[id]));
 
 const registerActionCreator = api.actionCreator.register;
 registerActionCreator('datagrid:focus-cell', (event, data) => ({
@@ -84,19 +86,25 @@ if (!cmfState.cmf.settings.props) {
 }
 
 cmfState.cmf.settings.props['Container(DataGrid)#default'] = {
+	dataExpression: {
+		id: 'cmf.collections.get',
+		args: ['sample', []],
+	},
 	onFocusedCellActionCreator: 'datagrid:focus-cell',
 	onFocusedColumnActionCreator: 'datagrid:focus-column',
 	cellRenderer: 'DefaultCellRenderer',
-	source: 'sample',
 };
 
 cmfState.cmf.settings.props['Container(DataGrid)#CustomizedDatagrid'] = {
+	dataExpression: {
+		id: 'cmf.collections.get',
+		args: ['sample', []],
+	},
 	onFocusedCellActionCreator: 'datagrid:focus-cell',
 	onFocusedColumnActionCreator: 'datagrid:focus-column',
 	cellRenderer: 'CustomCellRenderer',
 	headerRenderer: 'CustomHeaderRenderer',
 	pinHeaderRenderer: 'CustomPinHeaderRenderer',
-	source: 'sample',
 };
 
 cmfState.cmf.settings.props['Container(DataGrid)#CustomizedAvroDatagrid'] = {
@@ -105,19 +113,25 @@ cmfState.cmf.settings.props['Container(DataGrid)#CustomizedAvroDatagrid'] = {
 		dateCellRenderer: 'CustomDateCellRenderer',
 		booleanCellRenderer: 'CustomBooleanCellRenderer',
 	},
+	dataExpression: {
+		id: 'cmf.collections.get',
+		args: ['sample', []],
+	},
 	onFocusedCellActionCreator: 'datagrid:focus-cell',
 	onFocusedColumnActionCreator: 'datagrid:focus-column',
 	headerRenderer: 'CustomHeaderRenderer',
 	pinHeaderRenderer: 'CustomPinHeaderRenderer',
-	source: 'sample',
 };
 
 cmfState.cmf.settings.props['Container(DataGrid)#HightLightRows'] = {
+	dataExpression: {
+		id: 'cmf.collections.get',
+		args: ['sample', []],
+	},
 	onFocusedCellActionCreator: 'datagrid:focus-cell',
 	onFocusedColumnActionCreator: 'datagrid:focus-column',
 	cellRenderer: 'DefaultCellRenderer',
 	rowSelection: 'multiple',
-	source: 'sample',
 };
 
 const reducer = (state = {}, a) => {

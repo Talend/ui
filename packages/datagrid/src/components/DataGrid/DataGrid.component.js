@@ -5,16 +5,16 @@ import keycode from 'keycode';
 import 'ag-grid/dist/styles/ag-grid.css';
 import { Inject } from '@talend/react-components';
 
-import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from './DefaultHeaderRenderer';
-import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from './DefaultCellRenderer';
+import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
+import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
 import DefaultPinHeaderRenderer, {
 	PIN_HEADER_RENDERER_COMPONENT,
-} from './DefaultPinHeaderRenderer';
+} from '../DefaultPinHeaderRenderer';
 
-import DATAGRID_PROPTYPES from './datagrid.proptypes';
-import { NAMESPACE_INDEX } from './constants';
-import serializer from './DatasetSerializer';
-import theme from './datagrid.scss';
+import DATAGRID_PROPTYPES from './DataGrid.proptypes';
+import { NAMESPACE_INDEX } from '../../constants';
+import serializer from '../DatasetSerializer';
+import theme from './DataGrid.scss';
 
 export const AG_GRID_ELEMENT = 'eGridDiv';
 const FOCUSED_COLUMN_CLASS_NAME = 'column-focus';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Inject } from '@talend/react-components';
 
-import DATAGRID_PROPTYPES from '../datagrid.proptypes';
+import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
 
 import DefaultRenderer from './DefaultRenderer.component';
 

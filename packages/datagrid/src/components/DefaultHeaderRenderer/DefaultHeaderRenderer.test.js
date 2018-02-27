@@ -6,7 +6,7 @@ import {
 	TALEND_QUALITY_EMPTY_KEY,
 	TALEND_QUALITY_INVALID_KEY,
 	TALEND_QUALITY_VALID_KEY,
-} from '../constants';
+} from '../../constants';
 
 import DefaultHeaderRenderer from './DefaultHeaderRenderer.component';
 import QualityBar from './QualityBar.component';

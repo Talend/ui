@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import QualityIndicator from './QualityIndicator.component';
-import { TALEND_QUALITY_EMPTY_KEY, TALEND_QUALITY_INVALID_KEY } from '../constants';
+import { TALEND_QUALITY_EMPTY_KEY, TALEND_QUALITY_INVALID_KEY } from '../../constants';
 
 describe('#QualityIndicator', () => {
 	it('should render QualityIndicator', () => {

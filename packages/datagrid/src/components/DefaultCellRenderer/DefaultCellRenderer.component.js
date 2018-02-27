@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import DATAGRID_PROPTYPES from '../datagrid.proptypes';
+import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
 
 import QualityIndicator from './QualityIndicator.component';
 import AvroRenderer from './AvroRenderer.component';

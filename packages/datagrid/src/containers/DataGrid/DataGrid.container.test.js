@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import DataGridContainer from './datagrid.container';
+import DataGridContainer from './DataGrid.container';
 
 describe('#DataGridContainer', () => {
 	it('should render DataGridContainer', () => {

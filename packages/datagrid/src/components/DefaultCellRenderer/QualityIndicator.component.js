@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { TALEND_QUALITY_EMPTY_KEY, TALEND_QUALITY_INVALID_KEY } from '../constants';
+import { TALEND_QUALITY_EMPTY_KEY, TALEND_QUALITY_INVALID_KEY } from '../../constants';
 
 import theme from './QualityIndicator.scss';
 

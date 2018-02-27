@@ -1,5 +1,10 @@
 import get from 'lodash/get';
-import { NAMESPACE_INDEX, NAMESPACE_DATA, COLUMN_INDEX, TALEND_QUALITY_KEY } from '../constants/';
+import {
+	NAMESPACE_INDEX,
+	NAMESPACE_DATA,
+	COLUMN_INDEX,
+	TALEND_QUALITY_KEY,
+} from '../../constants/';
 
 export function getColumnDefs(sample) {
 	if (!sample) {
