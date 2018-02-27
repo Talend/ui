@@ -56,11 +56,11 @@ function Brand({ label, isSeparated, renderers, ...props }) {
 	return (
 		<li role="presentation" className={className}>
 			<span role="heading">
-				<renderers.Action
+				<renderers.ActionDropdown
 					bsStyle="link"
 					className={theme['tc-header-bar-brand']}
 					tooltipPlacement="bottom"
-					label={label}
+          label={label}
 					{...props}
 				/>
 			</span>
