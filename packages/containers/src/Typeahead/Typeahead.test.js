@@ -37,7 +37,6 @@ describe('Typeahead container', () => {
 		expect(state.docked).toEqual(false);
 	});
 
-
 	describe('Handlers', () => {
 		describe('change', () => {
 			it('should call onChange callback if present', () => {
@@ -68,7 +67,7 @@ describe('Typeahead container', () => {
 					{
 						props,
 						value: data.value,
-					}
+					},
 				);
 			});
 		});
