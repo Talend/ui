@@ -38,6 +38,7 @@ import omit from 'lodash/omit';
 import pick from 'lodash/pick';
 import api from './api';
 import deprecated from './deprecated';
+import CONSTANT from './constant';
 
 import { statePropTypes, initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
@@ -316,11 +317,12 @@ export default function cmfConnect({
 			}
 
 			onEventDispatch(props, key) {
-				if (key.startsWith('on')) {
-					if (key.endsWith('Dispatch')) {
+				if (key.startsWith(CONSTANT.IS_HANDLER)) {
+					if (key.endsWith(CONSTANT.IS_HANDLER_STATIC)) {
+						const handlerKey = key.replace(CONSTANT.IS_HANDLER_STATIC, '');
 						props.toOmit.push(key);
 						// eslint-disable-next-line no-param-reassign
-						props[key.replace('Dispatch', '')] = (event, data) => {
+						props[handlerKey] = (event, data) => {
 							const payload = Object.assign(
 								{
 									event: serializeEvent(event),
@@ -329,11 +331,13 @@ export default function cmfConnect({
 								this.props[key],
 							);
 							this.props.dispatch(payload);
+							if (this.props[handlerKey]) {
+								this.props[handlerKey](event, data);
+							}
 						};
-					}
-					if (key.endsWith('ActionCreator')) {
+					} else if (key.endsWith(CONSTANT.IS_HANDLER_DYNAMIC)) {
 						props.toOmit.push(key);
-						const newKey = key.replace('ActionCreator', '');
+						const handlerKey = key.replace(CONSTANT.IS_HANDLER_DYNAMIC, '');
 						let actionCreator = this.props[key];
 						let args;
 						if (typeof this.props[key] === 'object') {
@@ -341,7 +345,7 @@ export default function cmfConnect({
 							args = this.props[key].args;
 						}
 						// eslint-disable-next-line no-param-reassign
-						props[newKey] = (event, data) => {
+						props[handlerKey] = (event, data) => {
 							if (!args) {
 								args = [
 									serializeEvent(event),
@@ -352,6 +356,9 @@ export default function cmfConnect({
 								];
 							}
 							this.dispatchActionCreator(actionCreator, ...args);
+							if (this.props[handlerKey]) {
+								this.props[handlerKey](event, data);
+							}
 						};
 					}
 				}

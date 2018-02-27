@@ -115,7 +115,7 @@ function MyArticle(props) {
 
 The titleExpression will be evaluated and injected as title props.
 
-So expression are state reader, they are a mapStateToProps available in JSON.
+Expressions are a way to read the state, they are a mapStateToProps available in JSON.
 
 How to dispatch action creator
 ---
@@ -173,7 +173,7 @@ function SimpleButton ({label, onClick}) {
 }
 export default cmfConnect({})(SimpleButton);
 
-// using the follwing configuration
+// using the following configuration
 {
 	"props": {
 		"SimpleButton#default": {
@@ -200,7 +200,7 @@ export default cmfConnect({})(SimpleButton);
 	}
 }
 
-// the first and thirst option will dispatch an action in redux with the event serialized.
+// the first and third option will dispatch an action in redux with the serialized event.
 {
 	type: 'SIMPLE_BUTTON_CLICKED',
 	what: 'you want more',
