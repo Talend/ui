@@ -19,8 +19,8 @@ import { Action } from '../Actions';
  *
  * <Typeahead {...props} />
  */
-function Typeahead({ onToggle, icon, position, ...rest }) {
-	if (onToggle) {
+function Typeahead({ onToggle, icon, docked, position, ...rest }) {
+	if (onToggle && docked) {
 		return (
 			<Action
 				onClick={onToggle}
