@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InjectDropdownMenuItem should render MenuItem with Inject 1`] = `
-<MenuItem
-  bsClass="dropdown"
-  disabled={false}
-  divider={false}
-  header={false}
+<Unknown
   onKeyDown={[Function]}
   onSelect={[Function]}
   stuff="MyItemProps"
@@ -14,15 +10,12 @@ exports[`InjectDropdownMenuItem should render MenuItem with Inject 1`] = `
     component="Action"
     getComponent={[Function]}
   />
-</MenuItem>
+</Unknown>
 `;
 
 exports[`InjectDropdownMenuItem should render MenuItem with props divider 1`] = `
-<MenuItem
-  bsClass="dropdown"
-  disabled={false}
+<Unknown
   divider={true}
-  header={false}
   stuff="MyItemProps"
 />
 `;

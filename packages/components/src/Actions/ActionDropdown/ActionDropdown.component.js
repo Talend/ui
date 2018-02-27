@@ -20,14 +20,15 @@ function InjectDropdownMenuItem({
 	onKeyDown,
 	...rest
 }) {
+	const Renderers = Inject.getAll(getComponent, { MenuItem });
 	if (divider) {
-		return <MenuItem key={key} {...menuItemProps} divider />;
+		return <Renderers.MenuItem key={key} {...menuItemProps} divider />;
 	}
 	if (withMenuItem) {
 		return (
-			<MenuItem key={key} {...menuItemProps} onSelect={onSelect} onKeyDown={onKeyDown}>
+			<Renderers.MenuItem key={key} {...menuItemProps} onSelect={onSelect} onKeyDown={onKeyDown}>
 				<Inject component={component} getComponent={getComponent} {...rest} />
-			</MenuItem>
+			</Renderers.MenuItem>
 		);
 	}
 	return (
@@ -49,15 +50,16 @@ InjectDropdownMenuItem.propTypes = {
 	onKeyDown: PropTypes.func,
 };
 
-function getMenuItem(item, index) {
+function getMenuItem(item, index, getComponent) {
+	const Renderers = Inject.getAll(getComponent, { MenuItem });
 	if (item.divider) {
-		return <MenuItem key={index} divider />;
+		return <Renderers.MenuItem key={index} divider />;
 	}
 	return (
-		<MenuItem key={index} eventKey={item} {...item} onClick={wrapOnClick(item)}>
+		<Renderers.MenuItem key={index} eventKey={item} {...item} onClick={wrapOnClick(item)}>
 			{item.icon && <Icon name={item.icon} />}
 			{item.label}
-		</MenuItem>
+		</Renderers.MenuItem>
 	);
 }
 
@@ -104,6 +106,7 @@ function ActionDropdown(props) {
 		...rest
 	} = props;
 
+	const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
 	const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
 	const title = (
 		<span className="tc-dropdown-button-title">
@@ -120,7 +123,7 @@ function ActionDropdown(props) {
 	}
 
 	const dropdown = (
-		<DropdownButton
+		<Renderers.DropdownButton
 			title={title}
 			bsStyle={style}
 			role="button"
@@ -130,10 +133,10 @@ function ActionDropdown(props) {
 		>
 			{!items.length && !components && <MenuItem disabled>No options</MenuItem>}
 			{injected('beforeItemsDropdown')}
-			{items.map(getMenuItem)}
+			{items.map((item, key) => getMenuItem(item, key, getComponent))}
 			{injected('itemsDropdown')}
 			{injected('afterItemsDropdown')}
-		</DropdownButton>
+		</Renderers.DropdownButton>
 	);
 
 	if (hideLabel || tooltipLabel) {
