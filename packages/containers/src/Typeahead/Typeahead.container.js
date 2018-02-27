@@ -5,8 +5,6 @@ import { cmfConnect, componentState } from '@talend/react-cmf';
 import { Typeahead as Component } from '@talend/react-components';
 import omit from 'lodash/omit';
 
-<<<<<<< HEAD
-=======
 const KEYS = {
 	DOWN: 'ArrowDown',
 	UP: 'ArrowUp',
@@ -14,7 +12,6 @@ const KEYS = {
 	ESC: 'Escape',
 };
 
->>>>>>> handlers
 export const DISPLAY_NAME = 'Container(TreeView)';
 export const DEFAULT_STATE = new Immutable.Map({
 	docked: true,
