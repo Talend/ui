@@ -152,7 +152,7 @@ class List extends React.Component {
 
 		// toolbar
 		if (props.toolbar) {
-			if (this.props.displayMode) {
+			if (props.toolbar.display) {
 				props.toolbar.display = {
 					...props.toolbar.display,
 					onChange: (event, data) => {
