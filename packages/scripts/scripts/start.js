@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 const spawn = require('cross-spawn');
-const { getEnv, hereRelative, printLogo, resolveBin } = require('./utils');
+const { getEnv, hereRelative, printLogo, printSeparator, resolveBin } = require('./utils');
 
 const webpackDevServer = resolveBin('webpack-dev-server');
-
 printLogo();
-
-console.log('\nCONFIGURATION ------------------------------------------------------------------------------------\n');
+printSeparator('CONFIGURATION');
 
 // USER : current env vars and talend scripts configuration in <project-folder>/talend-scripts.json
 const env = getEnv();
@@ -17,9 +15,8 @@ if (env.TALEND_SCRIPTS_CONFIG) {
 // INTERNAL : Set the mode to get devServer config
 env.TALEND_MODE = 'development';
 
-console.log('\nRUN ----------------------------------------------------------------------------------------------\n');
-
 // Run webpack dev server
+printSeparator('RUN');
 const result = spawn.sync(
 	webpackDevServer,
 	[

@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 const spawn = require('cross-spawn');
-const { getEnv, hereRelative, printLogo, resolveBin } = require('./utils');
+const { getEnv, hereRelative, printLogo, printSeparator, resolveBin } = require('./utils');
 
 const rimraf = resolveBin('rimraf');
 const webpack = resolveBin('webpack');
 
 printLogo();
-
-console.log('\nCONFIGURATION ------------------------------------------------------------------------------------\n');
+printSeparator('CONFIGURATION');
 
 // USER : current env vars and talend scripts configuration in <project-folder>/talend-scripts.json
 const env = getEnv();
@@ -18,8 +17,8 @@ if (env.TALEND_SCRIPTS_CONFIG) {
 // INTERNAL : Set the mode to get devServer config
 env.TALEND_MODE = 'production';
 
-console.log('\nRUN ----------------------------------------------------------------------------------------------\n');
-
+printSeparator('RUN');
+// remove old builds folder
 const rmResult = spawn.sync(
 	rimraf,
 	['./build', './dist'],
