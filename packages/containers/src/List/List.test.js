@@ -28,6 +28,9 @@ const toolbar = {
 		field: 'id',
 		isDescending: false,
 	},
+	display: {
+		displayModes: ['large', 'table'],
+	},
 	pagination: {
 		startIndex: 1,
 		itemsPerPage: 25,
