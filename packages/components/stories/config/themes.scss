@@ -1,3 +1,9 @@
+.portal {
+	:global {
+		@import '~@talend/bootstrap-theme/src/theme/variations/portal';
+	}
+}
+
 .tdc {
 	:global {
 		@import '~@talend/bootstrap-theme/src/theme/variations/tdc';
