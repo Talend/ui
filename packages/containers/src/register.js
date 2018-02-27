@@ -1,66 +1,24 @@
-import { api } from '@talend/react-cmf';
-import {
-	Action,
-	ActionBar,
-	ActionButton,
-	ActionFile,
-	ActionDropdown,
-	Actions,
-	ActionSplitDropdown,
-	Badge,
-	Breadcrumbs,
-	CircularProgress,
-	ConfirmDialog,
-	Drawer,
-	DeleteResource,
-	FilterBar,
-	HeaderBar,
-	HomeListView,
-	Icon,
-	IconsProvider,
-	Layout,
-	List,
-	Notification,
-	ObjectViewer,
-	Redirect,
-	ShortcutManager,
-	SelectObject,
-	SidePanel,
-	SubHeaderBar,
-	TooltipTrigger,
-	TreeView,
-	Typeahead,
-} from './index';
+import { api, cmfConnect } from '@talend/react-cmf';
+import omit from 'lodash/omit';
+import * as bootstrap from 'react-bootstrap';
+import * as components from '@talend/react-components';
+import * as containers from './index';
+import wrap from './wrap';
 
 export function registerAllContainers() {
-	api.component.register('Action', Action);
-	api.component.register('ActionBar', ActionBar);
-	api.component.register('ActionButton', ActionButton);
-	api.component.register('ActionFile', ActionFile);
-	api.component.register('ActionDropdown', ActionDropdown);
-	api.component.register('Actions', Actions);
-	api.component.register('ActionSplitDropdown', ActionSplitDropdown);
-	api.component.register('Badge', Badge);
-	api.component.register('Breadcrumbs', Breadcrumbs);
-	api.component.register('CircularProgress', CircularProgress);
-	api.component.register('ConfirmDialog', ConfirmDialog);
-	api.component.register('Drawer', Drawer);
-	api.component.register('DeleteResource', DeleteResource);
-	api.component.register('FilterBar', FilterBar);
-	api.component.register('HeaderBar', HeaderBar);
-	api.component.register('HomeListView', HomeListView);
-	api.component.register('Icon', Icon);
-	api.component.register('IconsProvider', IconsProvider);
-	api.component.register('Layout', Layout);
-	api.component.register('List', List);
-	api.component.register('Notification', Notification);
-	api.component.register('ObjectViewer', ObjectViewer);
-	api.component.register('Redirect', Redirect);
-	api.component.register('ShortcutManager', ShortcutManager);
-	api.component.register('SelectObject', SelectObject);
-	api.component.register('SidePanel', SidePanel);
-	api.component.register('SubHeaderBar', SubHeaderBar);
-	api.component.register('TooltipTrigger', TooltipTrigger);
-	api.component.register('TreeView', TreeView);
-	api.component.register('Typeahead', Typeahead);
+	const mycontainers = omit(containers, ['actionAPI']);
+	const toOmit = Object.keys(mycontainers);
+	const connected = {};
+	// connect our component which provide a great api
+	Object.keys(omit(components, toOmit)).forEach(key => {
+		connected[key] = cmfConnect({})(components[key]);
+	});
+	// connect bootstrap component adding the inject API
+	Object.keys(bootstrap).forEach(key => {
+		if (!connected[key]) {
+			connected[key] = wrap(bootstrap[key], key);
+		}
+	});
+	api.component.registerMany(mycontainers);
+	api.component.registerMany(connected);
 }
