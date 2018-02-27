@@ -2,6 +2,10 @@
 
 This library provide a datagrid to show some datas !
 
+## Guidelines
+
+[Datagrid](https://company-57688.frontify.com/document/92132#/navigation-layout/data-grid)
+
 ## Basic usage
 
 ```shell

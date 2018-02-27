@@ -1,5 +1,4 @@
 $td-header-component-border-color: $gallery !default;
-$td-header-component-height: 95% !default;
 $td-quality-bar-hover-height: 1rem !default;
 
 .td-header-component {
@@ -11,22 +10,30 @@ $td-quality-bar-hover-height: 1rem !default;
 	}
 
 	.td-header {
-		height: $td-header-component-height;
+		height: 100%;
 		width: 100%;
+		padding: 1rem;
 		text-align: left;
 		background-color: inherit;
 		border: none;
 
-		&-first-line {
-			font-weight: bold;
+		&-title {
 			display: flex;
+			color: $dove-gray;
+			font-weight: 400;
+
+			&-ellipse {
+				flex-grow: 1;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
 		}
 
-		&-column-label {
-			flex-grow: 1;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
+		&-type {
+			font-size: 1.2rem;
+			font-weight: 700;
+			color: $dark-silver;
 		}
 	}
 }

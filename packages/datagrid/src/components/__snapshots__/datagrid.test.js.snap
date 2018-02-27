@@ -13,7 +13,7 @@ exports[`#DataGrid should render DataGrid 1`] = `
         "pinHeaderRenderer": [Function],
       }
     }
-    headerHeight={69}
+    headerHeight={55}
     navigateToNextCell={[Function]}
     onCellFocused={[Function]}
     onGridReady={[Function]}
@@ -70,6 +70,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
           "lockPinned": true,
           "type": "FR Commune",
           "valueGetter": [Function],
+          "width": 150,
         },
         Object {
           "@talend-quality@": Object {
@@ -98,6 +99,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
           "lockPinned": true,
           "type": "int",
           "valueGetter": [Function],
+          "width": 150,
         },
       ]
     }
@@ -108,7 +110,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
         "pinHeaderRenderer": [Function],
       }
     }
-    headerHeight={69}
+    headerHeight={55}
     navigateToNextCell={[Function]}
     onCellFocused={[Function]}
     onGridReady={[Function]}

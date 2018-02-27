@@ -16,13 +16,14 @@ import { NAMESPACE_INDEX } from './constants';
 import serializer from './DatasetSerializer';
 import theme from './datagrid.scss';
 
+export const AG_GRID_ELEMENT = 'eGridDiv';
 const FOCUSED_COLUMN_CLASS_NAME = 'column-focus';
 const AG_GRID_CUSTOM_HEADER_KEY = 'headerComponent';
 const AG_GRID_CUSTOM_CELL_KEY = 'cellRenderer';
-export const AG_GRID_ELEMENT = 'eGridDiv';
 const AG_GRID_DEFAULT_ROW_SELECTION = 'single';
-const HEADER_HEIGHT = 69;
+const HEADER_HEIGHT = 55;
 const ROW_HEIGHT = 39;
+const CELL_WIDTH = 150;
 
 export function injectedHeaderRenderer(getComponent, headerRenderer, onFocusedColumn, onKeyDown) {
 	const Component = Inject.get(getComponent, headerRenderer, DefaultHeaderRenderer);
@@ -196,6 +197,7 @@ export default class DataGrid extends React.Component {
 				lockPosition: true,
 				pinned: 'left',
 				valueGetter: this.props.getCellValueFn,
+				width: CELL_WIDTH,
 				...adaptedPinnedColumnDef,
 				[AG_GRID_CUSTOM_HEADER_KEY]: PIN_HEADER_RENDERER_COMPONENT,
 			}));
@@ -203,6 +205,7 @@ export default class DataGrid extends React.Component {
 
 		if (adaptedColumnDefs) {
 			const columnsDefs = adaptedColumnDefs.map(adaptedColumnDef => ({
+				width: CELL_WIDTH,
 				lockPinned: true,
 				valueGetter: this.props.getCellValueFn,
 				...adaptedColumnDef,

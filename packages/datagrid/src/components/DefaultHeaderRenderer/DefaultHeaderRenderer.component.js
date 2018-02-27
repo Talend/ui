@@ -24,16 +24,18 @@ export default function DefaultHeaderRenderer({ column, displayName, onFocusedCo
 				onClick={onHeaderClick}
 				onKeyDown={onHeaderKeyDown}
 			>
-				<div className={classNames(theme['td-header-first-line'], 'td-header-first-line')}>
+				<div className={classNames(theme['td-header-title'], 'td-header-title')}>
 					<span
-						className={classNames(theme['td-header-column-label'], 'td-header-column-label')}
+						className={classNames(theme['td-header-title-ellipse'], 'td-header-title-ellipse')}
 						title={displayName}
 					>
 						{displayName}
 					</span>
 					<span>...</span>
 				</div>
-				<div>{column.colDef.type}</div>
+				<div className={classNames(theme['td-header-type'], 'td-header-type')}>
+					{column.colDef.type}
+				</div>
 			</button>
 			{column.colDef[TALEND_QUALITY_KEY] && (
 				<QualityBar

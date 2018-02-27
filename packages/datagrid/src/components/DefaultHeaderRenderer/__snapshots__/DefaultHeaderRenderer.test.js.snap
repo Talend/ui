@@ -10,10 +10,10 @@ exports[`#DefaultHeaderGrid should render DefaultHeaderGrid 1`] = `
     onKeyDown={[Function]}
   >
     <div
-      className="theme-td-header-first-line td-header-first-line"
+      className="theme-td-header-title td-header-title"
     >
       <span
-        className="theme-td-header-column-label td-header-column-label"
+        className="theme-td-header-title-ellipse td-header-title-ellipse"
         title="Title"
       >
         Title
@@ -22,7 +22,9 @@ exports[`#DefaultHeaderGrid should render DefaultHeaderGrid 1`] = `
         ...
       </span>
     </div>
-    <div>
+    <div
+      className="theme-td-header-type td-header-type"
+    >
       string
     </div>
   </button>

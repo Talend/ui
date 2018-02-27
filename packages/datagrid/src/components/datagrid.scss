@@ -5,11 +5,11 @@
 
 	&-focus-row {
 		:global(.ag-row-focus) {
-			background-color: violet;
+			background-color: $white;
 		}
 
 		:global(.ag-row-selected) {
-			background-color: violet;
+			background-color: $white;
 		}
 	}
 
@@ -24,7 +24,7 @@
 	}
 	/* ==== PIN ==== */
 	:global(.ag-pinned-left-header) {
-		border: #e6e6e6 1px solid;
+		border: $gallery 0.1rem solid;
 	}
 
 	:global(.ag-pinned-left-header .ag-react-container) {
@@ -32,30 +32,38 @@
 	}
 
 	:global(.ag-cell.ag-cell-last-left-pinned) {
-		padding: 9px;
+		padding: 1rem;
 		color: $dove-gray;
 		background-color: $white;
-		border-color: #e6e6e6;
-		font-weight: bold;
 	}
 
 	/* ==== COLUMN ====  */
 
 	:global(.column-focus) {
-		background-color: rgba(102, 189, 255, 0.5);
+		background-color: rgba($scooter, 0.2);
 	}
 
 	/* ==== BODY ==== */
+	:global(.ag-pinned-left-cols-viewport) {
+		font-family: inherit;
+	}
+
 	:global(.ag-body) {
-		background-color: rgba(117, 132, 149, 0.1);
+		background-color: $td-body-background-color;
+		font-family: $td-body-font-family;
 	}
 
 	:global(.ag-cell) {
-		border-right: #f6f6f6 1px solid;
-		border-bottom: #f6f6f6 1px solid;
+		border-right: 0.1rem solid $alto;
+		border-bottom: 0.1rem solid $alto;
 	}
 
 	:global(.ag-cell.ag-cell-focus:not(.ag-cell-last-left-pinned)) {
-		background-color: white;
+		background-color: $white;
+		outline: solid 0.1rem $scooter;
+	}
+
+	:global(.ag-cell.ag-cell-focus:not(.ag-cell-last-left-pinned):focus) {
+		box-shadow: none;
 	}
 }
