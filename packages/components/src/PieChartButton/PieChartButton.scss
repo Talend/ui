@@ -1,58 +1,26 @@
 @import "~@talend/bootstrap-theme/src/theme/_animation.scss";
 $tc-pie-chart-font-size: $font-size-large !default;
-$tc-pie-chart-loading-small-circle-size: 20px !default;
-$tc-pie-chart-loading-small-size: 25px !default;
-$tc-pie-chart-loading-small-size-without-label: 20px !default;
-$tc-pie-chart-loading-medium-circle-size: 32px !default;
-$tc-pie-chart-loading-medium-size: 35px !default;
-$tc-pie-chart-loading-large-circle-size: 46px !default;
-$tc-pie-chart-loading-large-size: 50px !default;
+$tc-pie-chart-loading-min-height-no-label: 20px !default;
+$tc-pie-chart-loading-min-height: 25px !default;
 $tc-pie-chart-skeleton-label-width: 40px !default;
 $tc-pie-chart-skeleton-label-height: 14px !default;
+$tc-pie-chart-loading-margin-left: 4px !default;
 
 .tc-pie-chart-loading {
 	display: flex;
 	align-items: center;
+	min-height: $tc-pie-chart-loading-min-height;
 	@include heartbeat(object-blink);
+
+	&.tc-pie-chart-loading-no-label{
+		min-height: $tc-pie-chart-loading-min-height-no-label;
+	}
 
 	& > div:first-child{
 		display: block;
 		background: $gallery;
 		// adjust to be like loaded component
-		margin-left: $padding-smaller;
-	}
-
-	&-small{
-		height: $tc-pie-chart-loading-small-size;
-		&.tc-pie-chart-loading-no-label{
-			height: $tc-pie-chart-loading-small-size-without-label;
-		}
-	}
-
-	&-medium{
-		height: $tc-pie-chart-loading-medium-size;
-	}
-
-	&-large{
-		height: $tc-pie-chart-loading-large-size;
-	}
-
-	&-small-circle{
-		width: $tc-pie-chart-loading-small-circle-size;
-		height: $tc-pie-chart-loading-small-circle-size;
-		border-radius: $tc-pie-chart-loading-small-circle-size / 2;
-	}
-
-	&-medium-circle{
-		width: $tc-pie-chart-loading-medium-circle-size;
-		height: $tc-pie-chart-loading-medium-circle-size;
-		border-radius: $tc-pie-chart-loading-medium-circle-size / 2;
-	}
-
-	&-large-circle{
-		width: $tc-pie-chart-loading-large-circle-size;
-		height: $tc-pie-chart-loading-large-circle-size;
-		border-radius: $tc-pie-chart-loading-large-circle-size / 2;
+		margin-left: $tc-pie-chart-loading-margin-left;
 	}
 
 	&-skeleton-label{

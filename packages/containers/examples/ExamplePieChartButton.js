@@ -21,8 +21,6 @@ const initialStateInProgress = new Map({
 const ExamplePieChartButton = {
 	Slider: () => (
 		<div>
-			<p>Without model :</p>
-			<PieChartButton id="pieChart0" />
 			<p>Loading :</p>
 			<PieChartButton id="pieChart1" initialState={initialStateInProgress} />
 			<p>With Data :</p>

@@ -8,24 +8,9 @@ import theme from './PieChartButton.scss';
 
 const SCOOTER = '#66BDFF';
 const displaySizes = {
-	small: {
-		svgSize: 20,
-		innerRadius: 6,
-		outerRadius: 9,
-		padAngle: 0.2,
-	},
-	medium: {
-		svgSize: 35,
-		innerRadius: 11,
-		outerRadius: 15,
-		padAngle: 0.15,
-	},
-	large: {
-		padAngle: 0.1,
-		svgSize: 50,
-		innerRadius: 17,
-		outerRadius: 22,
-	},
+	small: 20,
+	medium: 35,
+	large: 50,
 };
 
 /**
@@ -211,6 +196,24 @@ export function wrapMouseEvent(mouseEvent, overlayComponent, label, rest, model)
 		});
 }
 
+/**
+ * This function return useful stuff to build the graph of the loader
+ * @param {number} size the size in px of the graph
+ */
+export function getDisplaySize(size) {
+	const innerRadiusPerPixel = 12 / 30;
+	const outerRadiusPerPixel = 14 / 30;
+	const padAnglePerPixel = 0.1 / 30;
+
+	const pixelNumber = size - 20;
+	return {
+		svgSize: size,
+		innerRadius: parseInt(6 + innerRadiusPerPixel * pixelNumber, 10),
+		outerRadius: parseInt(9 + outerRadiusPerPixel * pixelNumber, 10),
+		padAngle: 0.2 - padAnglePerPixel * pixelNumber,
+	};
+}
+
 class PieChartButton extends React.Component {
 	static displayName = 'PieChartButton';
 
@@ -235,6 +238,7 @@ class PieChartButton extends React.Component {
 		overlayComponent: PropTypes.element,
 		overlayId: PropTypes.string,
 		overlayPlacement: OverlayTrigger.propTypes.placement,
+		size: PropTypes.number,
 		tooltip: PropTypes.bool,
 		tooltipPlacement: OverlayTrigger.propTypes.placement,
 	};
@@ -284,32 +288,32 @@ class PieChartButton extends React.Component {
 			onClick,
 			onMouseDown,
 			hideLabel,
+			size,
 			tooltip,
 			tooltipPlacement,
-			getComponent,
 			...rest
 		} = this.props;
 
+		let currentSize = size;
+		if (!size && display) {
+			currentSize = displaySizes[display];
+		}
+		const sizeObject = getDisplaySize(currentSize);
+
 		if (inProgress) {
+			const loadingCircleStyle = {
+				width: `${sizeObject.svgSize}px`,
+				height: `${sizeObject.svgSize}px`,
+				borderRadius: `${sizeObject.svgSize / 2}px`,
+			};
 			return (
 				<Button
-					className={classnames(
-						theme['tc-pie-chart-loading'],
-						theme[`tc-pie-chart-loading-${display}`],
-						'tc-pie-chart-loading',
-						`tc-pie-chart-loading-${display}`,
-						{
-							[theme['tc-pie-chart-loading-no-label']]: hideLabel,
-							'tc-pie-chart-loading-no-label': hideLabel,
-						},
-					)}
+					className={classnames(theme['tc-pie-chart-loading'], 'tc-pie-chart-loading', {
+						[theme['tc-pie-chart-loading-no-label']]: hideLabel,
+						'tc-pie-chart-loading-no-label': hideLabel,
+					})}
 				>
-					<div
-						className={classnames(
-							theme[`tc-pie-chart-loading-${display}-circle`],
-							`tc-pie-chart-loading-${display}-circle`,
-						)}
-					/>
+					<div style={loadingCircleStyle} />
 					{!hideLabel && (
 						<div
 							className={classnames(
@@ -331,7 +335,6 @@ class PieChartButton extends React.Component {
 			preparedValues = setMinimum(model, minimumPercentage);
 		}
 
-		const size = displaySizes[display];
 		const rClick = wrapMouseEvent(onClick, overlayComponent, label, rest, model);
 		const rMouseDown = wrapMouseEvent(onMouseDown, overlayComponent, label, rest, model);
 
@@ -344,14 +347,21 @@ class PieChartButton extends React.Component {
 				onClick={rClick}
 				{...rest}
 			>
-				<svg width={size.svgSize} height={size.svgSize}>
+				<svg width={sizeObject.svgSize} height={sizeObject.svgSize}>
 					{preparedValues &&
 						preparedValues.map((value, index) =>
-							getCircle(value, index, preparedValues, size, this.state.arcGen, this.state.hover),
+							getCircle(
+								value,
+								index,
+								preparedValues,
+								sizeObject,
+								this.state.arcGen,
+								this.state.hover,
+							),
 						)}
 					{getEmptyPartCircle(
 						preparedValues,
-						size,
+						sizeObject,
 						this.state.arcGen,
 						emptyColor,
 						this.state.hover,
