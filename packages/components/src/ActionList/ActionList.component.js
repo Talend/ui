@@ -59,15 +59,10 @@ function ActionListItem({ id, onSelect, action, isSelected, isNav, itemClassName
 		<li
 			title={action.label}
 			key={action.key || action.label}
-			className={classNames(
-				theme['tc-action-list-item'],
-				'tc-action-list-item',
-				itemClassName,
-				{
-					active: isSelected,
-					[theme.active]: isSelected,
-				}
-			)}
+			className={classNames(theme['tc-action-list-item'], 'tc-action-list-item', itemClassName, {
+				active: isSelected,
+				[theme.active]: isSelected,
+			})}
 			{...a11y}
 		>
 			<Action {...actionProps} />
