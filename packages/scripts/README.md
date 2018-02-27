@@ -13,7 +13,7 @@ For now there are 3 goals :
 ### Default usage
 
 1. Add @talend/scripts as dev dependency.
-```
+```bash
 yarn add --dev @talend/scripts
 ```
 
@@ -86,7 +86,7 @@ const { mode, getUserConfig } = presetApi;
 
 1. Install the preset
 
-```
+```bash
 yarn add --dev talend-scripts-preset-${presetName}
 ```
 

@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 const spawn = require('cross-spawn');
-const { getEnv, hereRelative, printLogo, printSeparator, resolveBin } = require('./utils');
+const { getEnv, hereRelative, printSeparator, resolveBin } = require('./utils');
 
 const rimraf = resolveBin('rimraf');
 const webpack = resolveBin('webpack');
 
-printLogo();
 printSeparator('CONFIGURATION');
 
 // USER : current env vars and talend scripts configuration in <project-folder>/talend-scripts.json
