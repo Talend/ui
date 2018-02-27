@@ -71,7 +71,7 @@ module.exports = {
 }
 ```
 
-The preset api contains the run mode and utilities functions
+The preset api contains the run mode and utility functions
 
 ```javascript
 const { mode, getUserConfig } = presetApi;
@@ -129,4 +129,4 @@ yarn add --dev talend-scripts-preset-${presetName}
 |---|---|
 | html.title | The title to display on the browser tab. |
 | sass.data | Define a set of sass variables to customise @talend/theme. |
-| webpack.api-url | Default: `http://localhost`. The preset add a proxy to `/api` urls. |
+| webpack.api-url | Default: `http://localhost`. The preset adds a proxy to `/api` urls. |
