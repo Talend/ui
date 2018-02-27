@@ -11,7 +11,9 @@ export function registerAllContainers() {
 	const connected = {};
 	// connect our component which provide a great api
 	Object.keys(omit(components, toOmit)).forEach(key => {
-		connected[key] = cmfConnect({})(components[key]);
+		if (components[key]) {
+			connected[key] = cmfConnect({})(components[key]);
+		}
 	});
 	// connect bootstrap component adding the inject API
 	Object.keys(bootstrap).forEach(key => {
