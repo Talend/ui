@@ -2893,11 +2893,11 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+            className="theme-tc-action-list-item tc-action-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -2926,7 +2926,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -2955,7 +2955,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Favorites"
           >
