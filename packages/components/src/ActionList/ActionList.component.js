@@ -24,13 +24,13 @@ function getActionId(id, action) {
 	return undefined;
 }
 
-function ActionListItem({ id, onSelect, action, isSelected }) {
+function ActionListItem({ id, onSelect, action, isSelected, isNav, itemClassName }) {
 	const a11y = {
 		role: 'presentation',
 	};
 	const extra = {};
 
-	if (isSelected) {
+	if (isSelected && isNav) {
 		// @see https://tink.uk/using-the-aria-current-attribute/
 		a11y['aria-current'] = true;
 	}
@@ -59,10 +59,15 @@ function ActionListItem({ id, onSelect, action, isSelected }) {
 		<li
 			title={action.label}
 			key={action.key || action.label}
-			className={classNames(theme['tc-action-list-item'], 'tc-action-list-item', {
-				active: isSelected,
-				[theme.active]: isSelected,
-			})}
+			className={classNames(
+				theme['tc-action-list-item'],
+				'tc-action-list-item',
+				itemClassName,
+				{
+					active: isSelected,
+					[theme.active]: isSelected,
+				}
+			)}
 			{...a11y}
 		>
 			<Action {...actionProps} />
@@ -116,9 +121,11 @@ if (process.env.NODE_ENV !== 'production') {
 
 	ActionListItem.propTypes = {
 		id: PropTypes.string,
+		itemClassName: PropTypes.string,
 		onSelect: PropTypes.func,
 		action: actionPropType,
 		isSelected: PropTypes.bool,
+		isNav: PropTypes.bool,
 	};
 
 	ActionList.propTypes = {

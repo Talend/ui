@@ -73,6 +73,57 @@ stories
 			/>
 		</div>
 	))
+	.addWithInfo('with custom class names', () => (
+		<div>
+			<p>You can add your custom classnames to the container and items</p>
+			<pre>
+				{
+					`
+.custom-container-classname {
+	border: 5px solid turquoise;
+}
+
+.custom-item-classname {
+	background-color: pink;
+}
+					`
+				}
+			</pre>
+			<pre>
+				{
+			`
+<ActionList
+	className={'custom-container-classname'}
+	itemClassName={'custom-item-classname'}
+	{...otherProps}
+/>
+			`
+				}
+			</pre>
+			<style>
+				{
+					`.custom-container-classname {
+						border: 5px solid turquoise;
+					}
+
+					.custom-item-classname {
+						background-color: pink;
+					}`
+				}
+			</style>
+			<div style={{ display: 'inline-table', background: '#236192' }}>
+				<ActionList
+					id="context"
+					actions={actions}
+					onSelect={action('onItemSelect')}
+					onToggleDock={action('onToggleDock')}
+					tooltipPlacement="top"
+					className="custom-container-classname"
+					itemClassName="custom-item-classname"
+				/>
+			</div>
+		</div>
+	))
 	.addWithInfo('single', () => (
 		<div style={{ display: 'inline-table', background: '#236192' }}>
 			<ActionList

@@ -77,10 +77,11 @@ function SidePanel({
 			{actions && (
 				<Components.ActionList
 					className={listCSS}
-					actions={actions}
 					onSelect={onSelect}
 					selected={selected}
+					actions={actions}
 					id={id}
+					isNav
 				/>
 			)}
 			{injected('actions')}
