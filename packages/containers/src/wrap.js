@@ -11,7 +11,7 @@ export function toText(props) {
 	return props.text;
 }
 export default function wrap(Component, key) {
-	const Wrapper = ({ getComponent, components, text, ...props}) => {
+	const Wrapper = ({ getComponent, components, text, ...props }) => {
 		const injected = Inject.all(getComponent, components);
 		const newprops = Object.assign({}, omit(props, cmfConnect.INJECTED_PROPS));
 		return (
@@ -25,10 +25,7 @@ export default function wrap(Component, key) {
 	Wrapper.displayName = key;
 	Wrapper.propTypes = {
 		...cmfConnect.propTypes,
-		text: PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.arrayOf(PropTypes.string),
-		]),
+		text: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
 	};
 	return cmfConnect({})(Wrapper);
 }
