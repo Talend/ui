@@ -2,13 +2,13 @@
 $tc-pie-chart-font-size: $font-size-large !default;
 $tc-pie-chart-loading-small-circle-size: 20px !default;
 $tc-pie-chart-loading-small-size: 25px !default;
-$tc-pie-chart-loading-small-size-without-label: 25px !default;
+$tc-pie-chart-loading-small-size-without-label: 20px !default;
 $tc-pie-chart-loading-medium-circle-size: 32px !default;
 $tc-pie-chart-loading-medium-size: 35px !default;
 $tc-pie-chart-loading-large-circle-size: 46px !default;
 $tc-pie-chart-loading-large-size: 50px !default;
 $tc-pie-chart-skeleton-label-width: 40px !default;
-$tc-pie-chart-skeleton-label-height: 18px !default;
+$tc-pie-chart-skeleton-label-height: 14px !default;
 
 .tc-pie-chart-loading {
 	display: flex;

@@ -38,7 +38,7 @@ const displaySizes = {
  * @param {number} minimumPercentage the minimum percentage to be shown
  */
 export function getEmptyPartCircle(values, size, arcGen, emptyColor, hover, minimumPercentage) {
-	const allPercentages = values.reduce((acc, value) => acc + value.percentageShown, 0);
+	const allPercentages = values ? values.reduce((acc, value) => acc + value.percentageShown, 0) : 0;
 	if (allPercentages >= 100 - minimumPercentage) {
 		return null;
 	}
@@ -222,6 +222,7 @@ class PieChartButton extends React.Component {
 		hideLabel: PropTypes.bool,
 		label: PropTypes.string,
 		labelIndex: PropTypes.number,
+		getComponent: PropTypes.func,
 		minimumPercentage: PropTypes.number.isRequired,
 		model: PropTypes.arrayOf(
 			PropTypes.shape({
@@ -285,6 +286,7 @@ class PieChartButton extends React.Component {
 			hideLabel,
 			tooltip,
 			tooltipPlacement,
+			getComponent,
 			...rest
 		} = this.props;
 
@@ -320,9 +322,15 @@ class PieChartButton extends React.Component {
 			);
 		}
 
-		const labelValue = model[labelIndex];
-		const labelStyle = { color: this.state.hover ? SCOOTER : labelValue.color };
-		const preparedValues = setMinimum(model, minimumPercentage);
+		let labelValue = null;
+		let labelStyle = null;
+		let preparedValues = null;
+		if (model) {
+			labelValue = model[labelIndex];
+			labelStyle = { color: this.state.hover ? SCOOTER : labelValue.color };
+			preparedValues = setMinimum(model, minimumPercentage);
+		}
+
 		const size = displaySizes[display];
 		const rClick = wrapMouseEvent(onClick, overlayComponent, label, rest, model);
 		const rMouseDown = wrapMouseEvent(onMouseDown, overlayComponent, label, rest, model);
@@ -337,9 +345,10 @@ class PieChartButton extends React.Component {
 				{...rest}
 			>
 				<svg width={size.svgSize} height={size.svgSize}>
-					{preparedValues.map((value, index) =>
-						getCircle(value, index, preparedValues, size, this.state.arcGen, this.state.hover),
-					)}
+					{preparedValues &&
+						preparedValues.map((value, index) =>
+							getCircle(value, index, preparedValues, size, this.state.arcGen, this.state.hover),
+						)}
 					{getEmptyPartCircle(
 						preparedValues,
 						size,
