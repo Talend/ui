@@ -8,7 +8,9 @@ const preset = getPreset(presetName);
 
 // Default configuration file
 let webpackConfigurations = [];
-webpackConfigurations = webpackConfigurations.concat(preset.getWebpackConfiguration({ mode, getUserConfig }));
+webpackConfigurations = webpackConfigurations.concat(
+	preset.getWebpackConfiguration({ mode, getUserConfig })
+);
 
 // App configuration file
 const userConfigPath = getUserConfig(['webpack', 'config', mode]);

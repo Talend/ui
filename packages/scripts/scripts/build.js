@@ -1,28 +1,39 @@
-const path = require('path');
+#!/usr/bin/env node
 const spawn = require('cross-spawn');
-const yargsParser = require('yargs-parser');
-const { getAbsolutePath, resolveBin } = require('./utils');
+const { getEnv, hereRelative, printLogo, resolveBin } = require('./utils');
 
-const crossEnv = resolveBin('cross-env');
+const rimraf = resolveBin('rimraf');
 const webpack = resolveBin('webpack');
-const here = p => path.join(__dirname, p);
-const hereRelative = p => here(p).replace(process.cwd(), '.');
 
-const args = process.argv.slice(2);
-const parsedArgs = yargsParser(args);
-const commands = [];
+printLogo();
 
-// USER : Pass extra config to merge with common config.
-// talend-scripts-start --config ./webpack.config.js
-const appConfigPath = parsedArgs['app-config'];
-if (appConfigPath) {
-	const appConfigAbsolutePath = getAbsolutePath(appConfigPath);
-	commands.push(`${crossEnv} TALEND_APP_CONFIG=${appConfigAbsolutePath}`);
+console.log('\nCONFIGURATION ------------------------------------------------------------------------------------\n');
+
+// USER : current env vars and talend scripts configuration in <project-folder>/talend-scripts.json
+const env = getEnv();
+if (env.TALEND_SCRIPTS_CONFIG) {
+	console.log('Talend scripts configuration file found and loaded');
 }
 
-// INTERNAL : run webpack
-commands.push(`${webpack} --mode production --config ${hereRelative('../config/webpack.config.js')}`);
+// INTERNAL : Set the mode to get devServer config
+env.TALEND_MODE = 'production';
 
+console.log('\nRUN ----------------------------------------------------------------------------------------------\n');
 
-const result = spawn.sync(commands.join(' '));
+const rmResult = spawn.sync(
+	rimraf,
+	['./build', './dist'],
+	{ stdio: 'inherit', env }
+);
+if (rmResult.status === 0) {
+	console.log('Folders ./dist and ./build removed successfully');
+}
+
+// Run webpack dev server
+const result = spawn.sync(
+	webpack,
+	['--config', hereRelative(__dirname, '../config/webpack.config.js')],
+	{ stdio: 'inherit', env }
+);
+
 process.exit(result.status);
