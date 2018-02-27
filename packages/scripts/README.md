@@ -2,11 +2,11 @@
 
 ## Description
 
-This projects, inspired by react-scripts and kcd-scripts, aims to abstract all tools and configuration from your project.
+This project, inspired by react-scripts and kcd-scripts, aims to abstract all tools and configuration from your project.
 For now there are 3 goals : 
-* build and dev-serve : based on webpack
-* lint : based on eslint
-* test : based on jest and enzyme
+* build and dev-serve: based on webpack
+* lint: based on eslint
+* test: based on jest and enzyme
 
 ## How to use
 
@@ -31,9 +31,9 @@ yarn add --dev @talend/scripts
 
 4. You're good to go
 
-### Customisation
+### Customization
 
-Unlike react-scripts, we enable customisation. To start to customise it, just add a `talend-scripts.json` in your project root folder.
+Unlike react-scripts, we enable customisation. To start to customize it, just add a `talend-scripts.json` in your project root folder.
 
 ```json
 {
