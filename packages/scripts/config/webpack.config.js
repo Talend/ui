@@ -1,7 +1,11 @@
-const mergeWith = require('lodash.mergeWith');
-const { getAbsolutePath, getPreset, createUserConfigGetter } = require('../scripts/utils');
-const getUserConfig = createUserConfigGetter();
+/* eslint-disable global-require */
 
+const mergeWith = require('lodash.mergewith');
+const { createUserConfigGetter } = require('../scripts/utils/env');
+const { getAbsolutePath } = require('../scripts/utils/path-resolver');
+const { getPreset } = require('../scripts/utils/preset');
+
+const getUserConfig = createUserConfigGetter();
 const mode = process.env.TALEND_MODE || 'production';
 const presetName = getUserConfig(['preset'], 'talend');
 const preset = getPreset(presetName);

@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 const spawn = require('cross-spawn');
-const { getEnv, hereRelative, printSeparator, resolveBin } = require('./utils');
+const { getEnv } = require('./utils/env');
+const { hereRelative, resolveBin } = require('./utils/path-resolver');
+const { printSeparator } = require('./utils/log');
 
 const rimraf = resolveBin('rimraf');
 const webpack = resolveBin('webpack');

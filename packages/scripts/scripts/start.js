@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 const spawn = require('cross-spawn');
-const { getEnv, hereRelative, printSeparator, resolveBin } = require('./utils');
+const { getEnv } = require('./utils/env');
+const { hereRelative, resolveBin } = require('./utils/path-resolver');
+const { printSeparator } = require('./utils/log');
 
 const webpackDevServer = resolveBin('webpack-dev-server');
 printSeparator('CONFIGURATION');
