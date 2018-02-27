@@ -60,7 +60,7 @@ function Brand({ label, isSeparated, renderers, ...props }) {
 					bsStyle="link"
 					className={theme['tc-header-bar-brand']}
 					tooltipPlacement="bottom"
-          label={label}
+					label={label}
 					{...props}
 				/>
 			</span>
