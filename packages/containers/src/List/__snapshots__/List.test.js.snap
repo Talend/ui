@@ -212,6 +212,10 @@ Object {
       "actions": Object {},
     },
     "display": Object {
+      "displayModes": Array [
+        "large",
+        "table",
+      ],
       "onChange": [Function],
     },
     "filter": Object {
