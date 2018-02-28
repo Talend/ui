@@ -80,7 +80,8 @@ export default class DataGrid extends React.Component {
 		this.gridAPI = api;
 	}
 
-	onFocusedCell({ column, ...rest }) {
+	onFocusedCell(props) {
+		const column = props.column;
 		if (!column) {
 			return;
 		}
@@ -98,10 +99,7 @@ export default class DataGrid extends React.Component {
 		this.updateStyleFocusColumn();
 
 		if (this.props.onFocusedCell) {
-			this.props.onFocusedCell({
-				column,
-				...rest,
-			});
+			this.props.onFocusedCell(props);
 		}
 	}
 
@@ -196,7 +194,7 @@ export default class DataGrid extends React.Component {
 		let adaptedColumnDefs = [];
 
 		if (pinnedColumnDefs) {
-			adaptedColumnDefs = agGridOptions.columnDefs = pinnedColumnDefs.map(pinnedColumnDef => ({
+			adaptedColumnDefs = pinnedColumnDefs.map(pinnedColumnDef => ({
 				lockPosition: true,
 				pinned: 'left',
 				valueGetter: this.props.getCellValueFn,
@@ -207,17 +205,16 @@ export default class DataGrid extends React.Component {
 		}
 
 		if (columnDefs) {
-			adaptedColumnDefs = [
-				...adaptedColumnDefs,
-				...columnDefs.map(columnDef => ({
+			adaptedColumnDefs = adaptedColumnDefs.concat(
+				columnDefs.map(columnDef => ({
 					width: CELL_WIDTH,
 					lockPinned: true,
 					valueGetter: this.props.getCellValueFn,
 					...columnDef,
 					[AG_GRID_CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
 					[AG_GRID_CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
-				})),
-			];
+				}))
+			);
 		}
 
 		agGridOptions.columnDefs = adaptedColumnDefs;
