@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { IconsProvider, SubHeaderBar, FilterBar, Action } from '../src/index';
+import { IconsProvider, SubHeaderBar, FilterBar } from '../src/index';
 
 const viewProps = {
 	title: 'My Long Title is Long Long Lé Long La La La Lé Long Long Long Long',
@@ -15,69 +15,46 @@ const backAction = action('onGoBack');
 
 const injectedComponentsRight = [
 	{
-		injectedComponent: (
-			<Action
-				label="action1"
-				bsStyle="link"
-				icon="talend-share-alt"
-				onClick={action('return action1')}
-				hideLabel
-			/>
-		),
+		label: 'action1',
+		bsStyle: 'link',
+		icon: 'talend-share-alt',
+		onClick: action('return action1'),
+		hideLabel: true,
 	},
 	{
-		injectedComponent: (
-			<Action
-				label="Action2"
-				bsStyle="link"
-				icon="talend-activity"
-				onClick={action('return action2')}
-			/>
-		),
+		label: 'Action2',
+		bsStyle: 'link',
+		icon: 'talend-activity',
+		onClick: action('return action2'),
 	},
 	{
-		injectedComponent: (
-			<Action
-				label="action3"
-				bsStyle="link"
-				icon="talend-bell"
-				onClick={action('return action3')}
-				hideLabel
-			/>
-		),
+		label: 'action3',
+		bsStyle: 'link',
+		icon: 'talend-bell',
+		onClick: action('return action3'),
+		hideLabel: true,
 	},
 ];
 
 const componentAction = {
-	injectedComponent: (
-		<Action
-			label="action4"
-			bsStyle="link"
-			icon="talend-bell"
-			onClick={action('return action4')}
-			hideLabel
+	label: 'action4',
+	bsStyle: 'link',
+	icon: 'talend-bell',
+	onClick: action('return action4'),
+	hideLabel: true,
+};
+
+const center = (
+	<SubHeaderBar.Content center>
+		<FilterBar
+			t={() => action('t')}
+			onFilter={() => action('onFilter')}
+			navbar
+			docked={false}
+			dockable={false}
 		/>
-	),
-};
-
-const componentInput = {
-	tag: 'form',
-	injectedComponent: <input id="inputTitle" type="text" onChange={action('onChange')} value="" />,
-};
-
-const injectedComponentsCenter = [
-	{
-		injectedComponent: (
-			<FilterBar
-				t={() => action('t')}
-				onFilter={() => action('onFilter')}
-				navbar
-				docked={false}
-				dockable={false}
-			/>
-		),
-	},
-];
+	</SubHeaderBar.Content>
+);
 
 const stories = storiesOf('SubHeaderBar', module);
 if (!stories.addWithInfo) {
@@ -115,7 +92,7 @@ stories
 			<SubHeaderBar
 				{...viewProps}
 				onGoBack={backAction}
-				componentsRight={injectedComponentsRight}
+				right={injectedComponentsRight}
 			/>
 		</div>
 	))
@@ -125,8 +102,10 @@ stories
 			<SubHeaderBar
 				{...viewProps}
 				onGoBack={backAction}
-				componentsCenter={[componentAction, ...injectedComponentsCenter]}
-			/>
+				center={[componentAction]}
+			>
+				{center}
+			</SubHeaderBar>
 		</div>
 	))
 	.addWithInfo('with center components with tag props', () => (
@@ -135,8 +114,14 @@ stories
 			<SubHeaderBar
 				{...viewProps}
 				onGoBack={backAction}
-				componentsCenter={[componentInput]}
-			/>
+			>
+				<SubHeaderBar.Content
+					tag="form"
+					center
+				>
+					<input id="inputTitle" type="text" onChange={action('onChange')} value="" />
+				</SubHeaderBar.Content>
+			</SubHeaderBar>
 		</div>
 	))
 	.addWithInfo('with center && right components', () => (
@@ -145,9 +130,10 @@ stories
 			<SubHeaderBar
 				{...viewProps}
 				onGoBack={backAction}
-				componentsCenter={injectedComponentsCenter}
-				componentsRight={injectedComponentsRight}
-			/>
+				right={injectedComponentsRight}
+			>
+				{center}
+			</SubHeaderBar>
 		</div>
 	))
 	.addWithInfo('with all', () => (
@@ -158,9 +144,10 @@ stories
 				iconId="talend-file-csv-o"
 				subTitle="mySubTitle"
 				onGoBack={backAction}
-				componentsCenter={injectedComponentsCenter}
-				componentsRight={injectedComponentsRight}
-				editable
-			/>
+				right={injectedComponentsRight}
+				editMode
+			>
+				{center}
+			</SubHeaderBar>
 		</div>
 	));

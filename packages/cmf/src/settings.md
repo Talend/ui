@@ -2,9 +2,10 @@
 Settings
 ==
 
-The settings are your app configuration. You configure 3 things :
+Settings are your app configuration. 
+You configure 3 things :
 * the `actions`, which are the actions definitions
-* the `views`, which are basically the props to pass to a `component`
+* the `props`, which are basically the props to pass to a `component`
 * the `routes`, which is a combination of a `path`, a `component`, and a `view` (component configuration or props)
 
 ## Load settings in CMF
@@ -25,12 +26,10 @@ store.dispatch(settingsAction);
 
 ## Actions
 
-An action is a definition that holds **at least** the info to dispatch to the [store](store.md).
+An action is a definition that **at least** holds the info to dispatch to the [store](store.md).
 
 ```json
 {
-  ...
-
   "actions": {
     "menu:datasets": {
       "id": "menu:datasets",
@@ -45,16 +44,14 @@ An action is a definition that holds **at least** the info to dispatch to the [s
     },
     "datasets:fetchAll": {
       "id": "datasets:fetchAll",
-      "actionCreator": "fetchAll",
-    },
-    ...
-  },
-
-  ...
+      "actionCreator": "fetchAll"
+    }
+  }
 }
 ```
 
-The actions settings are a dictionary. It should follow some rules :
+The actions settings are a dictionary. 
+It should follow some rules:
 * the dictionary key is the action `id` property
 * the action has either a `payload` or an `actionCreator` property
 
@@ -62,15 +59,13 @@ The `payload` property defines static properties to dispatch to the store
 
 The `actionCreator` property defines the registered `action creator` id to call and dispatch.
 
-## Views
+## Props
 
-A view is the props that will be applied to a `registered component`.
+Props will be applied to a `registered component`.
 
-```
+```json
 {
-  ...
-
-  "views": {
+  "props": {
     "datasets": {
       "didMountActionCreator": "dataset:fetchAll",
       "header": { "_ref": "AppHeaderBar#default" },
@@ -85,12 +80,8 @@ A view is the props that will be applied to a `registered component`.
           ]
         }
       }
-    },
-    ...
+    }
   },
-
-  ...
-
   "ref": {
     "AppHeaderBar#default": {
       "app": "CMF starter"
@@ -99,7 +90,8 @@ A view is the props that will be applied to a `registered component`.
 }
 ```
 
-The views settings are a dictionary. It should follow some rules :
+The props settings are a dictionary. 
+It should follow some rules:
 * `actions` are references to an action setting id (ex : `"didMountActionCreator": "dataset:fetchAll"` where `dataset:fetchAll` is an action id)
 * it can have references to common settings parts (ex: `"header": { "_ref": "AppHeaderBar#default" }` where `AppHeaderBar#default` is a definition from `ref` part). CMF will replace the refs by the actual definitions.
 
@@ -107,17 +99,15 @@ Note that you can use expression here if the component is cmfConnected.
 
 ## Routes
 
-A route definition is a combination of
+Route definition is a combination of
 * a path
 * a registered component
 * a view setting (the component props)
 
 CMF uses [React router](https://github.com/ReactTraining/react-router). The definition is basically an "enhanced" react router configuration.
 
-```
+```json
 {
-  ...
-
   "routes": {
     "path": "/",
     "component": "App",
@@ -137,8 +127,50 @@ CMF uses [React router](https://github.com/ReactTraining/react-router). The defi
         "view": "datastores"
       }
     ]
-  },
+  }
+}
+```
 
-  ...
+You can use onEnter/onLeave lifecycle hooks. To do that, you need to:
+* register a route function in CMF registry
+* add the route function id in your route settings
+
+```javascript
+// configure.js
+import { api } from '@talend/react-cmf';
+import onEnter from './routeHooks.js';
+
+const registerRouteFunction = api.route.registerFunction;
+registerRouteFunction('my:route:onEnter', onEnterFetchThings);
+```
+
+```json
+// settings.json
+{
+  "routes": {
+    "path": "/",
+    "childRoutes": [
+      {
+        "path": "datasets",
+        "component": "HomeListView",
+        "view": "datasets",
+        "onEnter": "my:route:onEnter"
+      },
+    ]
+  }
+}
+```
+
+```javascript
+// routeHooks.js
+export default function onEnterFetchThings({ router, dispatch }) {
+	const {
+		nextState, // react-router next state
+		replace, // react-router replace
+	} = router;
+	dispatch({ // redux dispatch
+		type: 'FETCH_THINGS',
+		folderId: nextState.params.thingId,
+	});
 }
 ```

@@ -2,8 +2,102 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.160.0
+* icon: AWS-kinesis
+* PR: [chore(icons): update AWS-kinesis.svg](https://github.com/Talend/ui/pull/1092)
+* Change: name change
+
+Before
+```
+AWS-kinesis.svg
+```
+
+After
+```
+aws-kinesis.svg
+```
+
+* Typeahead: new flag to manage the display mode
+* PR: [fix(components/typeahead): use a flag for the display mode](https://github.com/Talend/ui/pull/1101)
+* Change: flag instead of onToggle presence
+
+Before
+```jsx
+<Typeahead onToggle={func} />         // button
+<Typeahead onToggle={undefined} />    // input
+```
+
+After
+```jsx
+<Typeahead onToggle={func} docked />  // button
+<Typeahead onToggle={func} />         // input
+```
+
+- `docked === true && onToggle !== undefined` : the toggle button is displayed
+- `docked !== true || onToggle === undefined` : the typeahead input is displayed
+
+## v0.157.0
+* cmf: route onLeave/onEnter
+* PR: [feat(cmf): route onEnter/onLeave with dispatch](https://github.com/Talend/ui/pull/1082)
+* Change: onEnter/onLeave arguments have changed
+
+Before
+```javascript
+function onEnter(nextState, replace) { }
+function onLeave(nextState, replace) { }
+```
+
+After
+```javascript
+function onEnter(router, dispatch)
+ { const { nextState, replace } = router; }
+function onLeave(router, dispatch) { }
+```
+
+## v0.156.0
+* cmf: selectors
+* PR: https://github.com/Talend/ui/pull/1055
+* Change: move to collections
+
+| name | new location |
+|---|---|
+| getCollectionFromPath | selectors.collections.find
+| findCollectionPathListItem | selectors.collections.findListItem
+
+* cmf: putActionCreator
+* PR: https://github.com/Talend/ui/pull/1055
+* Change: move from api.saga.putActionCreator to api.sagas.putActionCreator
+
+* Container: DeleteResource
+* PR: https://github.com/Talend/ui/pull/1053
+* Changes: deleteResource Saga params has changed
+
+| name | change |
+|---|---|
+| + sagaParams | object spread to get uri / resource type / redirectUrl / resourcePath & routerParamsAttribute |
+| - uri | moved in object param |
+| - resourceType | moved in object param |
+| - resourcePath | moved in object param |
+
+[Check the component doc](packages/containers/src/DeleteResource/README.md)
+
 ## v0.153.0
-* CMF: HeaderBar
+* Component: SubHeaderBar
+* PR: https://github.com/Talend/ui/pull/1041
+* Changes: props components has change
+
+| name | change |
+|---|---|
+| props.components | replaced by the new Inject API |
+| props.left | added with the same API has the ActionBar |
+| props.center | added with the same API has the ActionBar |
+| props.right | added with the same API has the ActionBar |
+
+[Check the component doc](packages/components/src/SubHeaderBar/SubHeaderBar.md)
+[Check the Inject component doc](packages/components/src/Inject/Inject.md)
+
+## v0.153.0
+* Component: HeaderBar
 * PR: https://github.com/Talend/ui/pull/1037
 * Changes: Items in help dropdown are moved to information dropdown
 
