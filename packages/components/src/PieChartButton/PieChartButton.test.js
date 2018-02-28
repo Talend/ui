@@ -1,12 +1,14 @@
 import React from 'react';
-import { arc } from 'd3-shape';
 import initStoryshots from '@storybook/addon-storyshots';
 import {
 	decorateWithOverlay,
 	decorateWithTooltip,
+	getAngle,
 	getCircle,
+	getDisplaySize,
+	getPercentageToIndex,
 	getEmptyPartCircle,
-	setMinimum,
+	setMinimumPercentage,
 	wrapMouseEvent,
 } from './PieChartButton.component';
 
@@ -66,18 +68,13 @@ describe('PieChartButton', () => {
 			{ percentageShown: 20, color: 'blue', percentage: 20 },
 		];
 		const size = { svgSize: 20 };
-		let arcGen = null;
-
-		beforeEach(() => {
-			arcGen = arc();
-		});
 
 		it('should get return a path', () => {
 			// given
 			const value = values[0];
 
 			// when
-			const result = getCircle(value, 0, values, size, arcGen, false);
+			const result = getCircle(value, 0, values, size);
 
 			// then
 			expect(result).toMatchSnapshot();
@@ -88,7 +85,7 @@ describe('PieChartButton', () => {
 			const value = values[0];
 
 			// when
-			const result = getCircle(value, 0, values, size, arcGen, true);
+			const result = getCircle(value, 0, values, size);
 
 			// then
 			expect(result).toMatchSnapshot();
@@ -101,16 +98,11 @@ describe('PieChartButton', () => {
 			{ percentageShown: 30, color: 'blue', percentage: 30 },
 		];
 		const size = { svgSize: 20 };
-		let arcGen = null;
-
-		beforeEach(() => {
-			arcGen = arc();
-		});
 
 		it('should get return a path for the rest', () => {
 			// given
 			// when
-			const result = getEmptyPartCircle(values, size, arcGen, 'purple', false, 5);
+			const result = getEmptyPartCircle(values, size, 5);
 
 			// then
 			expect(result).toMatchSnapshot();
@@ -119,14 +111,24 @@ describe('PieChartButton', () => {
 		it('should not be shown if the minimum percentage is above the rest', () => {
 			// given
 			// when
-			const result = getEmptyPartCircle(values, size, arcGen, 'purple', false, 11);
+			const result = getEmptyPartCircle(values, size, 11);
 
 			// then
 			expect(result).toBeNull();
 		});
 	});
 
-	describe('setMinimum', () => {
+	describe('setMinimumPercentage', () => {
+		it('should return an empty array if no model is set', () => {
+			// given
+
+			// when
+			const result = setMinimumPercentage(null, 5);
+
+			// then
+			expect(result).toEqual([]);
+		});
+
 		it('should move some percentages to fit the minimum', () => {
 			// given
 			const values = [
@@ -137,7 +139,7 @@ describe('PieChartButton', () => {
 			];
 
 			// when
-			const result = setMinimum(values, 5);
+			const result = setMinimumPercentage(values, 5);
 
 			// then
 			expect(result).toEqual([
@@ -158,7 +160,7 @@ describe('PieChartButton', () => {
 			];
 
 			// when
-			const result = setMinimum(values, 5);
+			const result = setMinimumPercentage(values, 5);
 
 			// then
 			expect(result).toEqual([
@@ -179,7 +181,7 @@ describe('PieChartButton', () => {
 			];
 
 			// when
-			const result = setMinimum(values, 5);
+			const result = setMinimumPercentage(values, 5);
 
 			// then
 			expect(result).toEqual([
@@ -215,6 +217,61 @@ describe('PieChartButton', () => {
 			expect(onClick).not.toHaveBeenCalled();
 			result();
 			expect(onClick).toHaveBeenCalled();
+		});
+	});
+
+	describe('getAngle', () => {
+		it('should return the angle for 50%', () => {
+			// given
+			// when
+			const result = getAngle(50);
+			// then
+			expect(result).toBe(Math.PI);
+		});
+	});
+
+	describe('Name of the group', () => {
+		it('should return the sum of 2 first percentages', () => {
+			// given
+			const values = [
+				{ color: 'red', percentageShown: 40 },
+				{ color: 'purple', percentageShown: 30 },
+				{ color: 'white', percentageShown: 10 },
+				{ color: 'blue', percentageShown: 7 },
+			];
+			// when
+			const result = getPercentageToIndex(values, 2);
+			// then
+			expect(result).toBe(70);
+		});
+	});
+
+	describe('getDisplaySize', () => {
+		it('should return a size object if display is given but no size', () => {
+			// given
+			// when
+			const result = getDisplaySize(null, 'large');
+			// then
+			expect(result).toEqual({
+				innerRadius: 18,
+				outerRadius: 22,
+				padAngle: 0.101,
+				svgSize: 50,
+			});
+		});
+
+		it('should return a size object if only size is given', () => {
+			// given
+			const size = 28;
+			// when
+			const result = getDisplaySize(size, 'large');
+			// then
+			expect(result).toEqual({
+				innerRadius: 9,
+				outerRadius: 12,
+				padAngle: 0.1736,
+				svgSize: 28,
+			});
 		});
 	});
 });

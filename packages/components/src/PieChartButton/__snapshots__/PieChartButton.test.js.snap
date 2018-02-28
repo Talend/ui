@@ -39,27 +39,24 @@ exports[`PieChartButton decorateWithTooltip should return the component wrapped 
 
 exports[`PieChartButton getCircle should get return a path 1`] = `
 <path
+  className="theme-tc-pie-chart-color-red tc-pie-chart-color-red"
   d="M0,0Z"
-  fill="red"
-  stroke="red"
   transform="translate(10,10)"
 />
 `;
 
 exports[`PieChartButton getCircle should get return a path with hover color 1`] = `
 <path
+  className="theme-tc-pie-chart-color-red tc-pie-chart-color-red"
   d="M0,0Z"
-  fill="#66BDFF"
-  stroke="#66BDFF"
   transform="translate(10,10)"
 />
 `;
 
 exports[`PieChartButton getEmptyPartCircle should get return a path for the rest 1`] = `
 <path
+  className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
   d="M0,0Z"
-  fill="purple"
-  stroke="purple"
   transform="translate(10,10)"
 />
 `;
@@ -218,8 +215,6 @@ exports[`Storyshots PieChartButton default 1`] = `
       disabled={false}
       onClick={[Function]}
       onMouseDown={null}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       type="button"
     >
       <svg
@@ -227,49 +222,38 @@ exports[`Storyshots PieChartButton default 1`] = `
         width={20}
       >
         <path
+          className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
           d="M1.0798635081746981,-8.934981522292736A9,9,0,0,1,3.2679771569343448,8.385721513486798L2.5137114511013143,5.448050544974975A6,6,0,0,0,1.079863508174698,-5.902024635979812Z"
-          fill="#C3D600"
-          stroke="#C3D600"
           transform="translate(10,10)"
         />
         <path
+          className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
           d="M1.1761019362637408,8.922823781489617A9,9,0,0,1,-1.734049908655706,8.83136857538463L-0.7968146875784861,5.946855165014463A6,6,0,0,0,0.4218362304307106,5.985152812977795Z"
-          fill="#F3C446"
-          stroke="#F3C446"
           transform="translate(10,10)"
         />
         <path
+          className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
           d="M-3.788072360973488,8.163976224121965A9,9,0,0,1,-4.378222438590741,7.863279740554863L-2.7239429984372805,5.346039145130208Z"
-          fill="#66BDFF"
-          stroke="#66BDFF"
           transform="translate(10,10)"
         />
         <path
+          className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
           d="M-6.125478298028102,6.593824051367063A9,9,0,0,1,-6.593824051367061,6.125478298028103L-4.242640687119285,4.242640687119286Z"
-          fill="#E96065"
-          stroke="#E96065"
           transform="translate(10,10)"
         />
         <path
+          className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
           d="M-7.863279740554862,4.3782224385907424A9,9,0,0,1,-8.163976224121967,3.7880723609734854L-5.346039145130207,2.7239429984372814Z"
-          fill="#60769E"
-          stroke="#60769E"
           transform="translate(10,10)"
         />
         <path
+          className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
           d="M-8.83136857538463,1.7340499086557037A9,9,0,0,1,-1.0798635081746992,-8.934981522292736L-1.0798635081746997,-5.902024635979812A6,6,0,0,0,-5.946855165014464,0.7968146875784833Z"
-          fill="#ABABAB"
-          stroke="#ABABAB"
           transform="translate(10,10)"
         />
       </svg>
       <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label"
-        style={
-          Object {
-            "color": "#C3D600",
-          }
-        }
+        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
       >
         50 %
       </div>
@@ -282,58 +266,45 @@ exports[`Storyshots PieChartButton default 1`] = `
       disabled={false}
       onClick={[Function]}
       onMouseDown={null}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       type="button"
     >
       <svg
-        height="25"
-        width="25"
+        height={25}
+        width={25}
       >
         <path
-          d="M1.2450560974866847,-10.929310834362395A11,11,0,0,1,3.9239494488733375,10.276313576506247L3.1712173817861413,7.3446157365418A8,8,0,0,0,1.2450560974866853,-7.902520820226368Z"
-          fill="#C3D600"
-          stroke="#C3D600"
+          className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+          d="M1.2461847902827028,-10.929182195776043A11,11,0,0,1,3.9250106905941236,10.27590828485355L3.1722663701678537,7.344162721284304A8,8,0,0,0,1.2461847902827026,-7.902342910078508Z"
           transform="translate(12.5,12.5)"
         />
         <path
-          d="M1.512068707501079,10.895579297302003A11,11,0,0,1,-2.1932240699564955,10.779135780709113L-1.2578945171840736,7.900487414307945A8,8,0,0,0,0.7593366404138804,7.963881457337556Z"
-          fill="#F3C446"
-          stroke="#F3C446"
+          className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+          d="M1.5109434835492437,10.895735394617477A11,11,0,0,1,-2.192110867808632,10.779362223398714L-1.2567660892863657,7.900666996957906A8,8,0,0,0,0.7581991631229743,7.96398983104823Z"
           transform="translate(12.5,12.5)"
         />
         <path
-          d="M-4.561461499291944,10.00964879456204A11,11,0,0,1,-5.416816184341679,9.573823814184909L-3.6377136522463975,7.125099254344474A8,8,0,0,0,-3.626131946519525,7.1310004281608705Z"
-          fill="#66BDFF"
-          stroke="#66BDFF"
+          className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+          d="M-4.562495198421178,10.009177666740843A11,11,0,0,1,-5.415827440824338,9.574383172362285L-3.6366959476318454,7.125618750991251A8,8,0,0,0,-3.6271504198989115,7.130482440300035Z"
           transform="translate(12.5,12.5)"
         />
         <path
-          d="M-7.43135926797544,8.11017258942592A11,11,0,0,1,-8.110172589425918,7.431359267975441L-5.661448029585487,5.652256735880157A8,8,0,0,0,-5.652256735880156,5.661448029585488Z"
-          fill="#E96065"
-          stroke="#E96065"
+          className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+          d="M-7.432196787764914,8.10940508964356A11,11,0,0,1,-8.109405089643559,7.432196787764916L-5.660640668272529,5.653065294572418A8,8,0,0,0,-5.653065294572417,5.66064066827253Z"
           transform="translate(12.5,12.5)"
         />
         <path
-          d="M-9.573823814184907,5.41681618434168A11,11,0,0,1,-10.00964879456204,4.561461499291944L-7.131000428160871,3.6261319465195228A8,8,0,0,0,-7.125099254344473,3.637713652246399Z"
-          fill="#60769E"
-          stroke="#60769E"
+          className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
+          d="M-9.574383172362285,5.415827440824341A11,11,0,0,1,-10.009177666740843,4.5624951984211775L-7.130482440300036,3.6271504198989097A8,8,0,0,0,-7.12561875099125,3.636695947631847Z"
           transform="translate(12.5,12.5)"
         />
         <path
-          d="M-10.779135780709115,2.19322406995649A11,11,0,0,1,-1.2450560974866882,-10.929310834362393L-1.2450560974866864,-7.902520820226368A8,8,0,0,0,-7.900487414307946,1.2578945171840716Z"
-          fill="#ABABAB"
-          stroke="#ABABAB"
+          className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+          d="M-10.779362223398715,2.1921108678086267A11,11,0,0,1,-1.2461847902827017,-10.929182195776043L-1.246184790282707,-7.902342910078507A8,8,0,0,0,-7.900666996957906,1.2567660892863637Z"
           transform="translate(12.5,12.5)"
         />
       </svg>
       <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label"
-        style={
-          Object {
-            "color": "#C3D600",
-          }
-        }
+        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
       >
         50 %
       </div>
@@ -346,8 +317,6 @@ exports[`Storyshots PieChartButton default 1`] = `
       disabled={false}
       onClick={null}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       type="button"
     >
       <svg
@@ -355,49 +324,38 @@ exports[`Storyshots PieChartButton default 1`] = `
         width={35}
       >
         <path
-          d="M1.4985941454548493,-15.92966464139181A16,16,0,0,1,5.413059556895222,15.056519725139182L4.412429259459025,11.159322023773214A12,12,0,0,0,1.4985941454548493,-11.90605793649638Z"
-          fill="#C3D600"
-          stroke="#C3D600"
+          className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+          d="M1.4441414721137937,-14.930320003553877A15,15,0,0,1,5.111790709195919,14.102113165954181L4.36136036308964,11.179379937334208A12,12,0,0,0,1.4441414721137937,-11.912785375743198Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M2.510033447588189,15.801890143017339A16,16,0,0,1,-3.497289361567177,15.61310241820853L-2.253926511073504,11.786425042508862A12,12,0,0,0,1.5094031501519916,11.90469244165137Z"
-          fill="#F3C446"
-          stroke="#F3C446"
+          className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+          d="M2.314248484842055,14.820399925454314A15,15,0,0,1,-3.24026245504848,14.645842386916609L-2.3077929739400975,11.775996415990994A12,12,0,0,0,1.563818138735775,11.897666696834342Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-6.347784816200377,14.68692030097583A16,16,0,0,1,-8.1508338188312,13.768220947449876L-5.785817136668552,10.51305474450849A12,12,0,0,0,-5.104421965706705,10.860242925276161Z"
-          fill="#66BDFF"
-          stroke="#66BDFF"
+          className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+          d="M-5.987182770060277,13.753313872586975A15,15,0,0,1,-7.60748691687456,12.92772767386374L-5.8338245643655835,10.486490878850022A12,12,0,0,0,-5.054713288951897,10.883467901661358Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-10.575610081518743,12.006517871709478A16,16,0,0,1,-12.006517871709477,10.575610081518747L-8.751351668768088,8.210593399356103A12,12,0,0,0,-8.210593399356101,8.75135166876809Z"
-          fill="#E96065"
-          stroke="#E96065"
+          className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+          d="M-9.944156903317985,11.230037554798884A15,15,0,0,1,-11.230037554798882,9.944156903317987L-8.788800759785158,8.170494550809014A12,12,0,0,0,-8.170494550809014,8.78880075978516Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-13.768220947449874,8.150833818831204A16,16,0,0,1,-14.686920300975832,6.347784816200371L-10.860242925276161,5.1044219657067025A12,12,0,0,0,-10.51305474450849,5.785817136668554Z"
-          fill="#60769E"
-          stroke="#60769E"
+          className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
+          d="M-12.92772767386374,7.607486916874562A15,15,0,0,1,-13.753313872586977,5.987182770060273L-10.883467901661358,5.054713288951895A12,12,0,0,0,-10.486490878850022,5.833824564365586Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-15.61310241820853,3.497289361567176A16,16,0,0,1,-1.4985941454548477,-15.92966464139181L-1.4985941454548453,-11.906057936496381A12,12,0,0,0,-11.786425042508862,2.2539265110735007Z"
-          fill="#ABABAB"
-          stroke="#ABABAB"
+          className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+          d="M-14.645842386916609,3.240262455048476A15,15,0,0,1,-1.4441414721138024,-14.930320003553875L-1.444141472113798,-11.912785375743198A12,12,0,0,0,-11.775996415990996,2.3077929739400918Z"
           transform="translate(17.5,17.5)"
         />
       </svg>
       <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label"
-        style={
-          Object {
-            "color": "#C3D600",
-          }
-        }
+        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
       >
         50 %
       </div>
@@ -410,8 +368,6 @@ exports[`Storyshots PieChartButton default 1`] = `
       disabled={false}
       onClick={null}
       onMouseDown={null}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       type="button"
     >
       <svg
@@ -419,49 +375,38 @@ exports[`Storyshots PieChartButton default 1`] = `
         width={50}
       >
         <path
-          d="M1.459699800959779,-22.95363318716839A23,23,0,0,1,7.122177094852827,21.869490013019366L5.875515187472818,17.014062456737847A18,18,0,0,0,1.4596998009597788,-17.940715606995113Z"
-          fill="#C3D600"
-          stroke="#C3D600"
+          className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+          d="M1.4348696498656017,-21.95315806638978A22,22,0,0,1,6.84931898371705,20.906621665378967L5.851963233759641,17.022177484409138A18,18,0,0,0,1.4348696498656004,-17.942718553438176Z"
           transform="translate(25,25)"
         />
         <path
-          d="M4.294495799827917,22.59551517060986A23,23,0,0,1,-5.704805729946293,22.281274460487488L-4.155729006271811,17.51370653021316A18,18,0,0,0,3.047833892447908,17.740087614328342Z"
-          fill="#F3C446"
-          stroke="#F3C446"
+          className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+          d="M4.0697378211683395,21.62029680802167A22,22,0,0,1,-5.4192567921750845,21.32209313881881L-4.179962827760253,17.50793850681863A18,18,0,0,0,3.0723820712109315,17.73585262705184Z"
           transform="translate(25,25)"
         />
         <path
-          d="M-8.481319745021363,21.379130370122887A23,23,0,0,1,-12.310885128286468,19.42786934684643L-9.364366103702945,15.37233383308531A18,18,0,0,0,-6.932243021346881,16.61156243984856Z"
-          fill="#66BDFF"
-          stroke="#66BDFF"
+          className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+          d="M-8.148541053252734,20.43529492577621A22,22,0,0,1,-11.74290862121536,18.603873175061853L-9.385631420291393,15.359359454171225A18,18,0,0,0,-6.909247088837899,16.621140293776026Z"
           transform="translate(25,25)"
         />
         <path
-          d="M-14.672729019610838,17.711889315289604A23,23,0,0,1,-17.7118893152896,14.67272901961084L-13.656353801528482,11.726209995027318A18,18,0,0,0,-11.726209995027316,13.656353801528484Z"
-          fill="#E96065"
-          stroke="#E96065"
+          className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+          d="M-14.064576484123553,16.91708273675573A22,22,0,0,1,-16.917082736755727,14.064576484123556L-13.67256901586509,11.707299283199601A18,18,0,0,0,-11.7072992831996,13.672569015865093Z"
           transform="translate(25,25)"
         />
         <path
-          d="M-19.427869346846425,12.310885128286472A23,23,0,0,1,-21.37913037012289,8.481319745021352L-16.611562439848562,6.932243021346873A18,18,0,0,0,-15.372333833085309,9.364366103702949Z"
-          fill="#60769E"
-          stroke="#60769E"
+          className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
+          d="M-18.60387317506185,11.742908621215362A22,22,0,0,1,-20.435294925776212,8.148541053252725L-16.621140293776026,6.9092470888378985A18,18,0,0,0,-15.359359454171223,9.385631420291395Z"
           transform="translate(25,25)"
         />
         <path
-          d="M-22.281274460487488,5.704805729946293A23,23,0,0,1,-1.459699800959787,-22.953633187168386L-1.4596998009597768,-17.940715606995113A18,18,0,0,0,-17.51370653021316,4.155729006271811Z"
-          fill="#ABABAB"
-          stroke="#ABABAB"
+          className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+          d="M-21.32209313881881,5.419256792175084A22,22,0,0,1,-1.4348696498656093,-21.953158066389776L-1.4348696498656066,-17.942718553438176A18,18,0,0,0,-17.507938506818633,4.179962827760244Z"
           transform="translate(25,25)"
         />
       </svg>
       <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label"
-        style={
-          Object {
-            "color": "#C3D600",
-          }
-        }
+        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
       >
         50 %
       </div>
@@ -474,8 +419,6 @@ exports[`Storyshots PieChartButton default 1`] = `
       disabled={false}
       onClick={null}
       onMouseDown={null}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       type="button"
     >
       <svg
@@ -483,43 +426,33 @@ exports[`Storyshots PieChartButton default 1`] = `
         width={35}
       >
         <path
-          d="M1.4985941454548493,-15.92966464139181A16,16,0,0,1,11.318777699959778,-11.308637025693823L8.218535450116393,-8.7438935866798A12,12,0,0,0,1.4985941454548493,-11.90605793649638Z"
-          fill="#F3C446"
-          stroke="#F3C446"
+          className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+          d="M1.4441414721137937,-14.930320003553877A15,15,0,0,1,10.583478862702211,-10.62967427359538L8.258428471439572,-8.706225311931473A12,12,0,0,0,1.4441414721137937,-11.912785375743198Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M13.229257418379492,-8.999263756455369A16,16,0,0,1,15.928315026628562,1.512871578316787L11.975977458463314,0.7589228645775445A12,12,0,0,0,10.129015168536107,-6.434520317441346Z"
-          fill="#60769E"
-          stroke="#60769E"
+          className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+          d="M12.424539700534853,-8.40421401618458A15,15,0,0,1,14.936468116282928,1.3791012331455303L11.97238232275216,0.8136716277784195A12,12,0,0,0,10.099489309272212,-6.4807650545206705Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M15.366697944616963,4.456971424510686A16,16,0,1,1,-12.63808405415157,-9.812177711405345L-9.705000997200361,-7.057829386173909A12,12,0,1,0,11.414360376451713,3.703022710771445Z"
-          fill="#C3D600"
-          stroke="#C3D600"
+          className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+          d="M14.395257861298035,4.21622474575741A15,15,0,1,1,-11.872317745240206,-9.167773522292887L-9.672629669408478,-7.1021289257854825A12,12,0,1,0,11.431172067767267,3.650795140390298Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-10.586367483685988,-11.997033945953307A16,16,0,0,1,-8.987402528535393,-13.237318300549989L-7.049015215311723,-9.711404867180846A12,12,0,0,0,-7.653284426734781,-9.242685620721874Z"
-          fill="#E96065"
-          stroke="#E96065"
+          className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+          d="M-9.895152014666019,-11.273241175751142A15,15,0,0,1,-8.458247336168116,-12.3878186941933L-7.004538942491166,-9.743532942579131A12,12,0,0,0,-7.695463938834289,-9.207596579243743Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-6.360946407861981,-14.681224771670372A16,16,0,0,1,-1.4985941454548477,-15.92966464139181L-1.4985941454548453,-11.906057936496381A12,12,0,0,0,-4.422559094638314,-11.155311338301228Z"
-          fill="#ABABAB"
-          stroke="#ABABAB"
+          className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+          d="M-5.927225698284713,-13.779259614420264A15,15,0,0,1,-1.4441414721138024,-14.930320003553875L-1.444141472113798,-11.912785375743198A12,12,0,0,0,-4.473517304607769,-11.134973862806092Z"
           transform="translate(17.5,17.5)"
         />
       </svg>
       <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label"
-        style={
-          Object {
-            "color": "#F3C446",
-          }
-        }
+        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
       >
         15 %
       </div>
@@ -532,8 +465,6 @@ exports[`Storyshots PieChartButton default 1`] = `
       disabled={false}
       onClick={null}
       onMouseDown={null}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       type="button"
     >
       <svg
@@ -541,43 +472,33 @@ exports[`Storyshots PieChartButton default 1`] = `
         width={35}
       >
         <path
-          d="M1.4985941454548493,-15.92966464139181A16,16,0,0,1,11.318777699959778,-11.308637025693823L8.218535450116393,-8.7438935866798A12,12,0,0,0,1.4985941454548493,-11.90605793649638Z"
-          fill="#F3C446"
-          stroke="#F3C446"
+          className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+          d="M1.4441414721137937,-14.930320003553877A15,15,0,0,1,10.583478862702211,-10.62967427359538L8.258428471439572,-8.706225311931473A12,12,0,0,0,1.4441414721137937,-11.912785375743198Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M13.229257418379492,-8.999263756455369A16,16,0,0,1,15.928315026628562,1.512871578316787L11.975977458463314,0.7589228645775445A12,12,0,0,0,10.129015168536107,-6.434520317441346Z"
-          fill="#60769E"
-          stroke="#60769E"
+          className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+          d="M12.424539700534853,-8.40421401618458A15,15,0,0,1,14.936468116282928,1.3791012331455303L11.97238232275216,0.8136716277784195A12,12,0,0,0,10.099489309272212,-6.4807650545206705Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M15.366697944616963,4.456971424510686A16,16,0,1,1,-12.63808405415157,-9.812177711405345L-9.705000997200361,-7.057829386173909A12,12,0,1,0,11.414360376451713,3.703022710771445Z"
-          fill="#C3D600"
-          stroke="#C3D600"
+          className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+          d="M14.395257861298035,4.21622474575741A15,15,0,1,1,-11.872317745240206,-9.167773522292887L-9.672629669408478,-7.1021289257854825A12,12,0,1,0,11.431172067767267,3.650795140390298Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-10.586367483685988,-11.997033945953307A16,16,0,0,1,-8.987402528535393,-13.237318300549989L-7.049015215311723,-9.711404867180846A12,12,0,0,0,-7.653284426734781,-9.242685620721874Z"
-          fill="#E96065"
-          stroke="#E96065"
+          className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+          d="M-9.895152014666019,-11.273241175751142A15,15,0,0,1,-8.458247336168116,-12.3878186941933L-7.004538942491166,-9.743532942579131A12,12,0,0,0,-7.695463938834289,-9.207596579243743Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-6.360946407861981,-14.681224771670372A16,16,0,0,1,-1.4985941454548477,-15.92966464139181L-1.4985941454548453,-11.906057936496381A12,12,0,0,0,-4.422559094638314,-11.155311338301228Z"
-          fill="#ABABAB"
-          stroke="#ABABAB"
+          className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+          d="M-5.927225698284713,-13.779259614420264A15,15,0,0,1,-1.4441414721138024,-14.930320003553875L-1.444141472113798,-11.912785375743198A12,12,0,0,0,-4.473517304607769,-11.134973862806092Z"
           transform="translate(17.5,17.5)"
         />
       </svg>
       <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label"
-        style={
-          Object {
-            "color": "#F3C446",
-          }
-        }
+        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
       />
     </button>
     <p>
@@ -589,8 +510,6 @@ exports[`Storyshots PieChartButton default 1`] = `
         disabled={false}
         onClick={[Function]}
         onMouseDown={null}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
         type="button"
       >
         <svg
@@ -598,43 +517,33 @@ exports[`Storyshots PieChartButton default 1`] = `
           width={35}
         >
           <path
-            d="M1.4985941454548493,-15.92966464139181A16,16,0,0,1,11.318777699959778,-11.308637025693823L8.218535450116393,-8.7438935866798A12,12,0,0,0,1.4985941454548493,-11.90605793649638Z"
-            fill="#F3C446"
-            stroke="#F3C446"
+            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+            d="M1.4441414721137937,-14.930320003553877A15,15,0,0,1,10.583478862702211,-10.62967427359538L8.258428471439572,-8.706225311931473A12,12,0,0,0,1.4441414721137937,-11.912785375743198Z"
             transform="translate(17.5,17.5)"
           />
           <path
-            d="M13.229257418379492,-8.999263756455369A16,16,0,0,1,15.928315026628562,1.512871578316787L11.975977458463314,0.7589228645775445A12,12,0,0,0,10.129015168536107,-6.434520317441346Z"
-            fill="#60769E"
-            stroke="#60769E"
+            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+            d="M12.424539700534853,-8.40421401618458A15,15,0,0,1,14.936468116282928,1.3791012331455303L11.97238232275216,0.8136716277784195A12,12,0,0,0,10.099489309272212,-6.4807650545206705Z"
             transform="translate(17.5,17.5)"
           />
           <path
-            d="M15.366697944616963,4.456971424510686A16,16,0,1,1,-12.63808405415157,-9.812177711405345L-9.705000997200361,-7.057829386173909A12,12,0,1,0,11.414360376451713,3.703022710771445Z"
-            fill="#C3D600"
-            stroke="#C3D600"
+            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+            d="M14.395257861298035,4.21622474575741A15,15,0,1,1,-11.872317745240206,-9.167773522292887L-9.672629669408478,-7.1021289257854825A12,12,0,1,0,11.431172067767267,3.650795140390298Z"
             transform="translate(17.5,17.5)"
           />
           <path
-            d="M-10.586367483685988,-11.997033945953307A16,16,0,0,1,-8.987402528535393,-13.237318300549989L-7.049015215311723,-9.711404867180846A12,12,0,0,0,-7.653284426734781,-9.242685620721874Z"
-            fill="#E96065"
-            stroke="#E96065"
+            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+            d="M-9.895152014666019,-11.273241175751142A15,15,0,0,1,-8.458247336168116,-12.3878186941933L-7.004538942491166,-9.743532942579131A12,12,0,0,0,-7.695463938834289,-9.207596579243743Z"
             transform="translate(17.5,17.5)"
           />
           <path
-            d="M-6.360946407861981,-14.681224771670372A16,16,0,0,1,-1.4985941454548477,-15.92966464139181L-1.4985941454548453,-11.906057936496381A12,12,0,0,0,-4.422559094638314,-11.155311338301228Z"
-            fill="#ABABAB"
-            stroke="#ABABAB"
+            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+            d="M-5.927225698284713,-13.779259614420264A15,15,0,0,1,-1.4441414721138024,-14.930320003553875L-1.444141472113798,-11.912785375743198A12,12,0,0,0,-4.473517304607769,-11.134973862806092Z"
             transform="translate(17.5,17.5)"
           />
         </svg>
         <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label"
-          style={
-            Object {
-              "color": "#C3D600",
-            }
-          }
+          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
         >
           60 %
         </div>
@@ -649,8 +558,6 @@ exports[`Storyshots PieChartButton default 1`] = `
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={null}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseOver={[Function]}
       type="button"
     >
@@ -659,43 +566,33 @@ exports[`Storyshots PieChartButton default 1`] = `
         width={35}
       >
         <path
-          d="M1.4985941454548493,-15.92966464139181A16,16,0,0,1,11.318777699959778,-11.308637025693823L8.218535450116393,-8.7438935866798A12,12,0,0,0,1.4985941454548493,-11.90605793649638Z"
-          fill="#F3C446"
-          stroke="#F3C446"
+          className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+          d="M1.4441414721137937,-14.930320003553877A15,15,0,0,1,10.583478862702211,-10.62967427359538L8.258428471439572,-8.706225311931473A12,12,0,0,0,1.4441414721137937,-11.912785375743198Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M13.229257418379492,-8.999263756455369A16,16,0,0,1,15.928315026628562,1.512871578316787L11.975977458463314,0.7589228645775445A12,12,0,0,0,10.129015168536107,-6.434520317441346Z"
-          fill="#60769E"
-          stroke="#60769E"
+          className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+          d="M12.424539700534853,-8.40421401618458A15,15,0,0,1,14.936468116282928,1.3791012331455303L11.97238232275216,0.8136716277784195A12,12,0,0,0,10.099489309272212,-6.4807650545206705Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M15.366697944616963,4.456971424510686A16,16,0,1,1,-12.63808405415157,-9.812177711405345L-9.705000997200361,-7.057829386173909A12,12,0,1,0,11.414360376451713,3.703022710771445Z"
-          fill="#C3D600"
-          stroke="#C3D600"
+          className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+          d="M14.395257861298035,4.21622474575741A15,15,0,1,1,-11.872317745240206,-9.167773522292887L-9.672629669408478,-7.1021289257854825A12,12,0,1,0,11.431172067767267,3.650795140390298Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-10.586367483685988,-11.997033945953307A16,16,0,0,1,-8.987402528535393,-13.237318300549989L-7.049015215311723,-9.711404867180846A12,12,0,0,0,-7.653284426734781,-9.242685620721874Z"
-          fill="#E96065"
-          stroke="#E96065"
+          className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+          d="M-9.895152014666019,-11.273241175751142A15,15,0,0,1,-8.458247336168116,-12.3878186941933L-7.004538942491166,-9.743532942579131A12,12,0,0,0,-7.695463938834289,-9.207596579243743Z"
           transform="translate(17.5,17.5)"
         />
         <path
-          d="M-6.360946407861981,-14.681224771670372A16,16,0,0,1,-1.4985941454548477,-15.92966464139181L-1.4985941454548453,-11.906057936496381A12,12,0,0,0,-4.422559094638314,-11.155311338301228Z"
-          fill="#ABABAB"
-          stroke="#ABABAB"
+          className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+          d="M-5.927225698284713,-13.779259614420264A15,15,0,0,1,-1.4441414721138024,-14.930320003553875L-1.444141472113798,-11.912785375743198A12,12,0,0,0,-4.473517304607769,-11.134973862806092Z"
           transform="translate(17.5,17.5)"
         />
       </svg>
       <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label"
-        style={
-          Object {
-            "color": "#F3C446",
-          }
-        }
+        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
       >
         15 %
       </div>
@@ -922,8 +819,6 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         disabled={false}
         onClick={null}
         onMouseDown={null}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
         type="button"
       >
         <svg
@@ -931,49 +826,38 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
           width={20}
         >
           <path
+            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
             d="M1.0798635081746981,-8.934981522292736A9,9,0,0,1,3.2679771569343448,8.385721513486798L2.5137114511013143,5.448050544974975A6,6,0,0,0,1.079863508174698,-5.902024635979812Z"
-            fill="#C3D600"
-            stroke="#C3D600"
             transform="translate(10,10)"
           />
           <path
+            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
             d="M1.1761019362637408,8.922823781489617A9,9,0,0,1,-1.734049908655706,8.83136857538463L-0.7968146875784861,5.946855165014463A6,6,0,0,0,0.4218362304307106,5.985152812977795Z"
-            fill="#F3C446"
-            stroke="#F3C446"
             transform="translate(10,10)"
           />
           <path
+            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
             d="M-3.788072360973488,8.163976224121965A9,9,0,0,1,-4.378222438590741,7.863279740554863L-2.7239429984372805,5.346039145130208Z"
-            fill="#66BDFF"
-            stroke="#66BDFF"
             transform="translate(10,10)"
           />
           <path
+            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
             d="M-6.125478298028102,6.593824051367063A9,9,0,0,1,-6.593824051367061,6.125478298028103L-4.242640687119285,4.242640687119286Z"
-            fill="#E96065"
-            stroke="#E96065"
             transform="translate(10,10)"
           />
           <path
+            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
             d="M-7.863279740554862,4.3782224385907424A9,9,0,0,1,-8.163976224121967,3.7880723609734854L-5.346039145130207,2.7239429984372814Z"
-            fill="#60769E"
-            stroke="#60769E"
             transform="translate(10,10)"
           />
           <path
+            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
             d="M-8.83136857538463,1.7340499086557037A9,9,0,0,1,-1.0798635081746992,-8.934981522292736L-1.0798635081746997,-5.902024635979812A6,6,0,0,0,-5.946855165014464,0.7968146875784833Z"
-            fill="#ABABAB"
-            stroke="#ABABAB"
             transform="translate(10,10)"
           />
         </svg>
         <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label"
-          style={
-            Object {
-              "color": "#C3D600",
-            }
-          }
+          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
         >
           50 %
         </div>
@@ -989,8 +873,6 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         disabled={false}
         onClick={null}
         onMouseDown={null}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
         type="button"
       >
         <svg
@@ -998,49 +880,38 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
           width={22}
         >
           <path
-            d="M1.0439821900023,-8.939245000947116A9,9,0,0,1,3.2342834003789487,8.398774368086881L2.4805620635094314,5.463223576706141A6,6,0,0,0,1.0439821900023012,-5.908477061558079Z"
-            fill="#C3D600"
-            stroke="#C3D600"
+            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+            d="M1.044341061267502,-8.939203082364259A9,9,0,0,1,3.2346205723157953,8.398644518798937L2.4808938880087514,5.463072900524102A6,6,0,0,0,1.0443410612675026,-5.908413640542668Z"
             transform="translate(11,11)"
           />
           <path
-            d="M1.2119162608701117,8.91802999415446A9,9,0,0,1,-1.7694925574761828,8.824335447445117L-0.8329337581982279,5.941903849310739A6,6,0,0,0,0.4581949240005917,5.982479202773721Z"
-            fill="#F3C446"
-            stroke="#F3C446"
+            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+            d="M1.2115582394779834,8.918078640175416A9,9,0,0,1,-1.7691382970664187,8.824406477823477L-0.8325728531713845,5.941954429660502A6,6,0,0,0,0.45783155517093826,5.982507021900581Z"
             transform="translate(11,11)"
           />
           <path
-            d="M-3.7552646868717288,8.179118970374143A9,9,0,0,1,-4.409757044649291,7.845638457586861L-2.7239429984372805,5.346039145130208Z"
-            fill="#66BDFF"
-            stroke="#66BDFF"
+            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+            d="M-3.7555930401725255,8.178968206113023A9,9,0,0,1,-4.409442072572152,7.8458154839781065L-2.7239429984372805,5.346039145130208Z"
             transform="translate(11,11)"
           />
           <path
-            d="M-6.098955711722566,6.618363787708158A9,9,0,0,1,-6.618363787708157,6.098955711722567L-4.242640687119285,4.242640687119286Z"
-            fill="#E96065"
-            stroke="#E96065"
+            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+            d="M-6.0992214055501055,6.618118935625091A9,9,0,0,1,-6.61811893562509,6.099221405550106L-4.242640687119285,4.242640687119286Z"
             transform="translate(11,11)"
           />
           <path
-            d="M-7.84563845758686,4.409757044649293A9,9,0,0,1,-8.179118970374143,3.755264686871727L-5.346039145130207,2.7239429984372814Z"
-            fill="#60769E"
-            stroke="#60769E"
+            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
+            d="M-7.845815483978106,4.409442072572153A9,9,0,0,1,-8.178968206113025,3.7555930401725237L-5.346039145130207,2.7239429984372814Z"
             transform="translate(11,11)"
           />
           <path
-            d="M-8.824335447445117,1.7694925574761786A9,9,0,0,1,-1.0439821900023032,-8.939245000947116L-1.0439821900023007,-5.908477061558079A6,6,0,0,0,-5.941903849310739,0.8329337581982277Z"
-            fill="#ABABAB"
-            stroke="#ABABAB"
+            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+            d="M-8.824406477823477,1.7691382970664165A9,9,0,0,1,-1.0443410612675073,-8.939203082364259L-1.044341061267502,-5.908413640542668A6,6,0,0,0,-5.941954429660502,0.8325728531713842Z"
             transform="translate(11,11)"
           />
         </svg>
         <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label"
-          style={
-            Object {
-              "color": "#C3D600",
-            }
-          }
+          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
         >
           50 %
         </div>
@@ -1056,8 +927,6 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         disabled={false}
         onClick={null}
         onMouseDown={null}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
         type="button"
       >
         <svg
@@ -1065,49 +934,38 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
           width={25}
         >
           <path
-            d="M1.2450560974866847,-10.929310834362395A11,11,0,0,1,3.9239494488733375,10.276313576506247L3.1712173817861413,7.3446157365418A8,8,0,0,0,1.2450560974866853,-7.902520820226368Z"
-            fill="#C3D600"
-            stroke="#C3D600"
+            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+            d="M1.2461847902827028,-10.929182195776043A11,11,0,0,1,3.9250106905941236,10.27590828485355L3.1722663701678537,7.344162721284304A8,8,0,0,0,1.2461847902827026,-7.902342910078508Z"
             transform="translate(12.5,12.5)"
           />
           <path
-            d="M1.512068707501079,10.895579297302003A11,11,0,0,1,-2.1932240699564955,10.779135780709113L-1.2578945171840736,7.900487414307945A8,8,0,0,0,0.7593366404138804,7.963881457337556Z"
-            fill="#F3C446"
-            stroke="#F3C446"
+            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+            d="M1.5109434835492437,10.895735394617477A11,11,0,0,1,-2.192110867808632,10.779362223398714L-1.2567660892863657,7.900666996957906A8,8,0,0,0,0.7581991631229743,7.96398983104823Z"
             transform="translate(12.5,12.5)"
           />
           <path
-            d="M-4.561461499291944,10.00964879456204A11,11,0,0,1,-5.416816184341679,9.573823814184909L-3.6377136522463975,7.125099254344474A8,8,0,0,0,-3.626131946519525,7.1310004281608705Z"
-            fill="#66BDFF"
-            stroke="#66BDFF"
+            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+            d="M-4.562495198421178,10.009177666740843A11,11,0,0,1,-5.415827440824338,9.574383172362285L-3.6366959476318454,7.125618750991251A8,8,0,0,0,-3.6271504198989115,7.130482440300035Z"
             transform="translate(12.5,12.5)"
           />
           <path
-            d="M-7.43135926797544,8.11017258942592A11,11,0,0,1,-8.110172589425918,7.431359267975441L-5.661448029585487,5.652256735880157A8,8,0,0,0,-5.652256735880156,5.661448029585488Z"
-            fill="#E96065"
-            stroke="#E96065"
+            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+            d="M-7.432196787764914,8.10940508964356A11,11,0,0,1,-8.109405089643559,7.432196787764916L-5.660640668272529,5.653065294572418A8,8,0,0,0,-5.653065294572417,5.66064066827253Z"
             transform="translate(12.5,12.5)"
           />
           <path
-            d="M-9.573823814184907,5.41681618434168A11,11,0,0,1,-10.00964879456204,4.561461499291944L-7.131000428160871,3.6261319465195228A8,8,0,0,0,-7.125099254344473,3.637713652246399Z"
-            fill="#60769E"
-            stroke="#60769E"
+            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
+            d="M-9.574383172362285,5.415827440824341A11,11,0,0,1,-10.009177666740843,4.5624951984211775L-7.130482440300036,3.6271504198989097A8,8,0,0,0,-7.12561875099125,3.636695947631847Z"
             transform="translate(12.5,12.5)"
           />
           <path
-            d="M-10.779135780709115,2.19322406995649A11,11,0,0,1,-1.2450560974866882,-10.929310834362393L-1.2450560974866864,-7.902520820226368A8,8,0,0,0,-7.900487414307946,1.2578945171840716Z"
-            fill="#ABABAB"
-            stroke="#ABABAB"
+            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+            d="M-10.779362223398715,2.1921108678086267A11,11,0,0,1,-1.2461847902827017,-10.929182195776043L-1.246184790282707,-7.902342910078507A8,8,0,0,0,-7.900666996957906,1.2567660892863637Z"
             transform="translate(12.5,12.5)"
           />
         </svg>
         <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label"
-          style={
-            Object {
-              "color": "#C3D600",
-            }
-          }
+          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
         >
           50 %
         </div>
@@ -1123,8 +981,6 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         disabled={false}
         onClick={null}
         onMouseDown={null}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
         type="button"
       >
         <svg
@@ -1132,49 +988,38 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
           width={30}
         >
           <path
-            d="M1.3651869303456519,-12.928119145692207A13,13,0,0,1,4.537389564121677,12.182450325915543L3.785912340994002,9.255639780496502A10,10,0,0,0,1.3651869303456516,-9.906374949759039Z"
-            fill="#C3D600"
-            stroke="#C3D600"
+            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+            d="M1.3679109619949321,-12.927831202489228A13,13,0,0,1,4.539956406744892,12.181493989854284L3.78845734010648,9.254598369577868A10,10,0,0,0,1.367910961994932,-9.905999172221554Z"
             transform="translate(15,15)"
           />
           <path
-            d="M1.8927954190703105,12.861466693248731A13,13,0,0,1,-2.6966385952568146,12.717237918926081L-1.7628682860596037,9.843388410806783A10,10,0,0,0,1.1413181959426364,9.934656147829688Z"
-            fill="#F3C446"
-            stroke="#F3C446"
+            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+            d="M1.8900853593217775,12.861865235434458A13,13,0,0,1,-2.693958907863037,12.717805840739407L-1.7601614563637737,9.843872797203922A10,10,0,0,0,1.1385862926833654,9.934969615158042Z"
             transform="translate(15,15)"
           />
           <path
-            d="M-5.293378447389233,11.873505994975332A13,13,0,0,1,-6.494498346569646,11.26150483844873L-4.718361671999755,8.816862431284934A10,10,0,0,0,-4.35960813819202,8.999656486856034Z"
-            fill="#66BDFF"
-            stroke="#66BDFF"
+            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+            d="M-5.295880176096739,11.872390372642974A13,13,0,0,1,-6.492125309903955,11.26287303313433L-4.715937007607593,8.81815956650123A10,10,0,0,0,-4.362082724597476,8.998457329107488Z"
             transform="translate(15,15)"
           />
           <path
-            d="M-8.703417200866046,9.656631349889517A13,13,0,0,1,-9.656631349889516,8.703417200866047L-7.211988942725725,6.927280526296151A10,10,0,0,0,-6.92728052629615,7.211988942725726Z"
-            fill="#E96065"
-            stroke="#E96065"
+            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+            d="M-8.705451739995318,9.654797253314669A13,13,0,0,1,-9.654797253314666,8.70545173999532L-7.210083786681567,6.929263437698959A10,10,0,0,0,-6.929263437698957,7.210083786681569Z"
             transform="translate(15,15)"
           />
           <path
-            d="M-11.261504838448728,6.494498346569649A13,13,0,0,1,-11.873505994975334,5.293378447389229L-8.999656486856036,4.3596081381920175A10,10,0,0,0,-8.816862431284934,4.718361671999757Z"
-            fill="#60769E"
-            stroke="#60769E"
+            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
+            d="M-11.262873033134328,6.492125309903956A13,13,0,0,1,-11.872390372642975,5.295880176096737L-8.998457329107488,4.3620827245974745A10,10,0,0,0,-8.818159566501228,4.715937007607595Z"
             transform="translate(15,15)"
           />
           <path
-            d="M-12.717237918926083,2.696638595256811A13,13,0,0,1,-1.3651869303456476,-12.928119145692209L-1.3651869303456508,-9.90637494975904A10,10,0,0,0,-9.843388410806783,1.7628682860596032Z"
-            fill="#ABABAB"
-            stroke="#ABABAB"
+            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+            d="M-12.717805840739407,2.693958907863034A13,13,0,0,1,-1.3679109619949392,-12.927831202489227L-1.3679109619949332,-9.905999172221554A10,10,0,0,0,-9.843872797203922,1.760161456363771Z"
             transform="translate(15,15)"
           />
         </svg>
         <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label"
-          style={
-            Object {
-              "color": "#C3D600",
-            }
-          }
+          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
         >
           50 %
         </div>
@@ -1190,8 +1035,6 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         disabled={false}
         onClick={null}
         onMouseDown={null}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
         type="button"
       >
         <svg
@@ -1199,49 +1042,38 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
           width={35}
         >
           <path
-            d="M1.4985941454548493,-15.92966464139181A16,16,0,0,1,5.413059556895222,15.056519725139182L4.412429259459025,11.159322023773214A12,12,0,0,0,1.4985941454548493,-11.90605793649638Z"
-            fill="#C3D600"
-            stroke="#C3D600"
+            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+            d="M1.4441414721137937,-14.930320003553877A15,15,0,0,1,5.111790709195919,14.102113165954181L4.36136036308964,11.179379937334208A12,12,0,0,0,1.4441414721137937,-11.912785375743198Z"
             transform="translate(17.5,17.5)"
           />
           <path
-            d="M2.510033447588189,15.801890143017339A16,16,0,0,1,-3.497289361567177,15.61310241820853L-2.253926511073504,11.786425042508862A12,12,0,0,0,1.5094031501519916,11.90469244165137Z"
-            fill="#F3C446"
-            stroke="#F3C446"
+            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+            d="M2.314248484842055,14.820399925454314A15,15,0,0,1,-3.24026245504848,14.645842386916609L-2.3077929739400975,11.775996415990994A12,12,0,0,0,1.563818138735775,11.897666696834342Z"
             transform="translate(17.5,17.5)"
           />
           <path
-            d="M-6.347784816200377,14.68692030097583A16,16,0,0,1,-8.1508338188312,13.768220947449876L-5.785817136668552,10.51305474450849A12,12,0,0,0,-5.104421965706705,10.860242925276161Z"
-            fill="#66BDFF"
-            stroke="#66BDFF"
+            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+            d="M-5.987182770060277,13.753313872586975A15,15,0,0,1,-7.60748691687456,12.92772767386374L-5.8338245643655835,10.486490878850022A12,12,0,0,0,-5.054713288951897,10.883467901661358Z"
             transform="translate(17.5,17.5)"
           />
           <path
-            d="M-10.575610081518743,12.006517871709478A16,16,0,0,1,-12.006517871709477,10.575610081518747L-8.751351668768088,8.210593399356103A12,12,0,0,0,-8.210593399356101,8.75135166876809Z"
-            fill="#E96065"
-            stroke="#E96065"
+            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+            d="M-9.944156903317985,11.230037554798884A15,15,0,0,1,-11.230037554798882,9.944156903317987L-8.788800759785158,8.170494550809014A12,12,0,0,0,-8.170494550809014,8.78880075978516Z"
             transform="translate(17.5,17.5)"
           />
           <path
-            d="M-13.768220947449874,8.150833818831204A16,16,0,0,1,-14.686920300975832,6.347784816200371L-10.860242925276161,5.1044219657067025A12,12,0,0,0,-10.51305474450849,5.785817136668554Z"
-            fill="#60769E"
-            stroke="#60769E"
+            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
+            d="M-12.92772767386374,7.607486916874562A15,15,0,0,1,-13.753313872586977,5.987182770060273L-10.883467901661358,5.054713288951895A12,12,0,0,0,-10.486490878850022,5.833824564365586Z"
             transform="translate(17.5,17.5)"
           />
           <path
-            d="M-15.61310241820853,3.497289361567176A16,16,0,0,1,-1.4985941454548477,-15.92966464139181L-1.4985941454548453,-11.906057936496381A12,12,0,0,0,-11.786425042508862,2.2539265110735007Z"
-            fill="#ABABAB"
-            stroke="#ABABAB"
+            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+            d="M-14.645842386916609,3.240262455048476A15,15,0,0,1,-1.4441414721138024,-14.930320003553875L-1.444141472113798,-11.912785375743198A12,12,0,0,0,-11.775996415990996,2.3077929739400918Z"
             transform="translate(17.5,17.5)"
           />
         </svg>
         <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label"
-          style={
-            Object {
-              "color": "#C3D600",
-            }
-          }
+          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
         >
           50 %
         </div>
@@ -1257,8 +1089,6 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         disabled={false}
         onClick={null}
         onMouseDown={null}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
         type="button"
       >
         <svg
@@ -1266,49 +1096,38 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
           width={40}
         >
           <path
-            d="M1.5191080511646864,-17.935782969496664A18,18,0,0,1,5.931830321190495,16.99451055607678L4.932483817753618,13.102312902216871A14,14,0,0,0,1.5191080511646857,-13.917338493005285Z"
-            fill="#C3D600"
-            stroke="#C3D600"
+            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+            d="M1.526692250897407,-17.935138995030112A18,18,0,0,1,5.93901609940482,16.992000699476513L4.939623352376835,13.099622938720543A14,14,0,0,0,1.5266922508974075,-13.916508569718548Z"
             transform="translate(20,20)"
           />
           <path
-            d="M2.9890653646044045,17.750084175747514A18,18,0,0,1,-4.097704133978629,17.527373472097135L-2.855936499790654,13.705605667359743A14,14,0,0,0,1.9897188611675296,13.857886521887606Z"
-            fill="#F3C446"
-            stroke="#F3C446"
+            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+            d="M2.9815592865152305,17.751346546698784A18,18,0,0,1,-4.090292132347834,17.52910466259054L-2.8484670368143354,13.707160010016011A14,14,0,0,0,1.982166539487245,13.85896878594281Z"
             transform="translate(20,20)"
           />
           <path
-            d="M-6.98721935601184,16.588513063893746A18,18,0,0,1,-9.313404488104599,15.403262538856927L-6.951422087666821,12.152272666423258A14,14,0,0,0,-5.745451721823864,12.766745259156353Z"
-            fill="#66BDFF"
-            stroke="#66BDFF"
+            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+            d="M-6.994233359534421,16.58555696117486A18,18,0,0,1,-9.306890222937803,15.407199433322877L-6.944798524525838,12.156059125133595A14,14,0,0,0,-5.752408264000923,12.763612308600333Z"
             transform="translate(20,20)"
           />
           <path
-            d="M-11.771372947472681,13.617443920630198A18,18,0,0,1,-13.617443920630196,11.771372947472683L-10.366454048196534,9.409390547034898A14,14,0,0,0,-9.409390547034896,10.366454048196536Z"
-            fill="#E96065"
-            stroke="#E96065"
+            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+            d="M-11.777130175250894,13.61246505358948A18,18,0,0,1,-13.612465053589478,11.777130175250896L-10.361324745400204,9.415038476838925A14,14,0,0,0,-9.415038476838923,10.361324745400204Z"
             transform="translate(20,20)"
           />
           <path
-            d="M-15.403262538856925,9.3134044881046A18,18,0,0,1,-16.588513063893746,6.987219356011839L-12.766745259156355,5.745451721823859A14,14,0,0,0,-12.152272666423258,6.951422087666824Z"
-            fill="#60769E"
-            stroke="#60769E"
+            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
+            d="M-15.407199433322875,9.306890222937804A18,18,0,0,1,-16.58555696117486,6.9942333595344195L-12.763612308600333,5.75240826400092A14,14,0,0,0,-12.156059125133593,6.94479852452584Z"
             transform="translate(20,20)"
           />
           <path
-            d="M-17.52737347209714,4.097704133978622A18,18,0,0,1,-1.5191080511646926,-17.935782969496664L-1.5191080511646935,-13.917338493005284A14,14,0,0,0,-13.705605667359745,2.8559364997906505Z"
-            fill="#ABABAB"
-            stroke="#ABABAB"
+            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+            d="M-17.52910466259054,4.090292132347826A18,18,0,0,1,-1.5266922508974134,-17.935138995030112L-1.526692250897409,-13.916508569718548A14,14,0,0,0,-13.707160010016013,2.848467036814332Z"
             transform="translate(20,20)"
           />
         </svg>
         <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label"
-          style={
-            Object {
-              "color": "#C3D600",
-            }
-          }
+          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
         >
           50 %
         </div>
@@ -1324,8 +1143,6 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         disabled={false}
         onClick={null}
         onMouseDown={null}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
         type="button"
       >
         <svg
@@ -1333,49 +1150,38 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
           width={45}
         >
           <path
-            d="M1.4932151392079036,-19.94417981637852A20,20,0,0,1,6.406218867909867,18.946249228183284L5.4079751596421595,15.058346677928935A16,16,0,0,0,1.4932151392079056,-15.930169758920973Z"
-            fill="#C3D600"
-            stroke="#C3D600"
+            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+            d="M1.5038687311500423,-19.943379323461436A20,20,0,0,1,6.416338683177331,18.942824443645204L5.418044810206666,15.05472651477245A16,16,0,0,0,1.5038687311500407,-15.92916755010974Z"
             transform="translate(22.5,22.5)"
           />
           <path
-            d="M3.5136127883516286,19.688944237148213A20,20,0,0,1,-4.7429585137565375,19.42947103080226L-3.5025611904101934,15.611920609182983A16,16,0,0,0,2.515369080083917,15.801041686893868Z"
-            fill="#F3C446"
-            stroke="#F3C446"
+            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+            d="M3.503094824097712,19.690818333766117A20,20,0,0,1,-4.732578979802762,19.43200185775848L-3.492119322817093,15.614259592923627A16,16,0,0,0,2.504800951127048,15.802720404893362Z"
             transform="translate(22.5,22.5)"
           />
           <path
-            d="M-7.5832224905050385,18.506613322255873A20,20,0,0,1,-10.514858341259348,17.0128702476463L-8.155482426932142,13.765467895571186A16,16,0,0,0,-6.342825167158698,14.68906290063659Z"
-            fill="#66BDFF"
-            stroke="#66BDFF"
+            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+            d="M-7.593107292628304,18.502559867289577A20,20,0,0,1,-10.5057688863958,17.018484659500032L-8.146274406440858,13.770919115838515A16,16,0,0,0,-6.352647635642632,14.684817602454723Z"
             transform="translate(22.5,22.5)"
           />
           <path
-            d="M-12.930931189013645,15.257490572993781A20,20,0,0,1,-15.25749057299378,12.93093118901365L-12.010088220918668,10.571555274686439A16,16,0,0,0,-10.571555274686437,12.01008822091867Z"
-            fill="#E96065"
-            stroke="#E96065"
+            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+            d="M-12.939079608014744,15.250580936392456A20,20,0,0,1,-15.250580936392454,12.939079608014747L-12.003015392730939,10.579585128059803A16,16,0,0,0,-10.5795851280598,12.00301539273094Z"
             transform="translate(22.5,22.5)"
           />
           <path
-            d="M-17.012870247646298,10.51485834125935A20,20,0,0,1,-18.506613322255873,7.583222490505037L-14.689062900636593,6.342825167158694A16,16,0,0,0,-13.765467895571184,8.155482426932144Z"
-            fill="#60769E"
-            stroke="#60769E"
+            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
+            d="M-17.018484659500032,10.505768886395803A20,20,0,0,1,-18.502559867289577,7.593107292628298L-14.684817602454725,6.3526476356426285A16,16,0,0,0,-13.770919115838515,8.14627440644086Z"
             transform="translate(22.5,22.5)"
           />
           <path
-            d="M-19.429471030802265,4.742958513756529A20,20,0,0,1,-1.4932151392079105,-19.94417981637852L-1.4932151392079005,-15.930169758920973A16,16,0,0,0,-15.611920609182983,3.5025611904101894Z"
-            fill="#ABABAB"
-            stroke="#ABABAB"
+            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+            d="M-19.432001857758483,4.732578979802756A20,20,0,0,1,-1.5038687311500445,-19.943379323461436L-1.5038687311500498,-15.92916755010974A16,16,0,0,0,-15.614259592923627,3.492119322817089Z"
             transform="translate(22.5,22.5)"
           />
         </svg>
         <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label"
-          style={
-            Object {
-              "color": "#C3D600",
-            }
-          }
+          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
         >
           50 %
         </div>
@@ -1391,8 +1197,6 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         disabled={false}
         onClick={null}
         onMouseDown={null}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
         type="button"
       >
         <svg
@@ -1400,49 +1204,38 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
           width={50}
         >
           <path
-            d="M1.459699800959779,-22.95363318716839A23,23,0,0,1,7.122177094852827,21.869490013019366L5.875515187472818,17.014062456737847A18,18,0,0,0,1.4596998009597788,-17.940715606995113Z"
-            fill="#C3D600"
-            stroke="#C3D600"
+            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+            d="M1.4348696498656017,-21.95315806638978A22,22,0,0,1,6.84931898371705,20.906621665378967L5.851963233759641,17.022177484409138A18,18,0,0,0,1.4348696498656004,-17.942718553438176Z"
             transform="translate(25,25)"
           />
           <path
-            d="M4.294495799827917,22.59551517060986A23,23,0,0,1,-5.704805729946293,22.281274460487488L-4.155729006271811,17.51370653021316A18,18,0,0,0,3.047833892447908,17.740087614328342Z"
-            fill="#F3C446"
-            stroke="#F3C446"
+            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+            d="M4.0697378211683395,21.62029680802167A22,22,0,0,1,-5.4192567921750845,21.32209313881881L-4.179962827760253,17.50793850681863A18,18,0,0,0,3.0723820712109315,17.73585262705184Z"
             transform="translate(25,25)"
           />
           <path
-            d="M-8.481319745021363,21.379130370122887A23,23,0,0,1,-12.310885128286468,19.42786934684643L-9.364366103702945,15.37233383308531A18,18,0,0,0,-6.932243021346881,16.61156243984856Z"
-            fill="#66BDFF"
-            stroke="#66BDFF"
+            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+            d="M-8.148541053252734,20.43529492577621A22,22,0,0,1,-11.74290862121536,18.603873175061853L-9.385631420291393,15.359359454171225A18,18,0,0,0,-6.909247088837899,16.621140293776026Z"
             transform="translate(25,25)"
           />
           <path
-            d="M-14.672729019610838,17.711889315289604A23,23,0,0,1,-17.7118893152896,14.67272901961084L-13.656353801528482,11.726209995027318A18,18,0,0,0,-11.726209995027316,13.656353801528484Z"
-            fill="#E96065"
-            stroke="#E96065"
+            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+            d="M-14.064576484123553,16.91708273675573A22,22,0,0,1,-16.917082736755727,14.064576484123556L-13.67256901586509,11.707299283199601A18,18,0,0,0,-11.7072992831996,13.672569015865093Z"
             transform="translate(25,25)"
           />
           <path
-            d="M-19.427869346846425,12.310885128286472A23,23,0,0,1,-21.37913037012289,8.481319745021352L-16.611562439848562,6.932243021346873A18,18,0,0,0,-15.372333833085309,9.364366103702949Z"
-            fill="#60769E"
-            stroke="#60769E"
+            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
+            d="M-18.60387317506185,11.742908621215362A22,22,0,0,1,-20.435294925776212,8.148541053252725L-16.621140293776026,6.9092470888378985A18,18,0,0,0,-15.359359454171223,9.385631420291395Z"
             transform="translate(25,25)"
           />
           <path
-            d="M-22.281274460487488,5.704805729946293A23,23,0,0,1,-1.459699800959787,-22.953633187168386L-1.4596998009597768,-17.940715606995113A18,18,0,0,0,-17.51370653021316,4.155729006271811Z"
-            fill="#ABABAB"
-            stroke="#ABABAB"
+            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+            d="M-21.32209313881881,5.419256792175084A22,22,0,0,1,-1.4348696498656093,-21.953158066389776L-1.4348696498656066,-17.942718553438176A18,18,0,0,0,-17.507938506818633,4.179962827760244Z"
             transform="translate(25,25)"
           />
         </svg>
         <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label"
-          style={
-            Object {
-              "color": "#C3D600",
-            }
-          }
+          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
         >
           50 %
         </div>

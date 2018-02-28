@@ -17,7 +17,7 @@ $tc-pie-chart-colors: (
 	)
 	!default;
 
-@mixin applyColor($color) {
+@mixin apply-color($color) {
 	color: $color;
 	stroke: $color;
 	fill: $color;
@@ -68,20 +68,16 @@ $tc-pie-chart-colors: (
 
 	@each $type in $tc-pie-chart-colors {
 		.tc-pie-chart-color-#{nth($type, 1)} {
-			@include applyColor(#{nth($type, 2)});
+			@include apply-color(#{nth($type, 2)});
 		}
 	}
 
 	&:hover {
 		@each $type in $tc-pie-chart-colors {
 			.tc-pie-chart-color-#{nth($type, 1)} {
-				@include applyColor($tc-pie-chart-hover-color);
+				@include apply-color($tc-pie-chart-hover-color);
 			}
 		}
-	}
-
-	&-empty-part-circle {
-		@include applyColor($alto);
 	}
 
 	> svg {

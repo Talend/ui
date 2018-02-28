@@ -8,6 +8,7 @@ import theme from './PieChartButton.scss';
 
 const MIN_SIZE = 20;
 const MAX_SIZE = 50;
+const MAX_PERCENT = 100;
 const BASE_INNER_RADIUS = 6;
 const BASE_OUTER_RADIUS = 9;
 const BASE_PAD_ANGLE = 0.2;
@@ -25,15 +26,23 @@ const displaySizes = {
 };
 
 /**
- * this function generate the empty part of the chart
+ * This function return the angle for a given percentage
+ * @param {number} percentage the percentage to calculate the angle
+ */
+export function getAngle(percentage) {
+	return percentage * 2 / 100 * Math.PI;
+}
+
+/**
+ * this function generates chart's empty part
  * @param {array} values the values shown in the graph
  * @param {object} size the current size
  * @param {function} arcGen the arc generator
  * @param {number} minimumPercentage the minimum percentage to be shown
  */
 export function getEmptyPartCircle(values, size, minimumPercentage) {
-	const allPercentages = values ? values.reduce((acc, value) => acc + value.percentageShown, 0) : 0;
-	if (allPercentages >= 100 - minimumPercentage) {
+	const allPercentages = values.reduce((acc, value) => acc + value.percentageShown, 0);
+	if (allPercentages >= MAX_PERCENT - minimumPercentage) {
 		return null;
 	}
 
@@ -41,7 +50,7 @@ export function getEmptyPartCircle(values, size, minimumPercentage) {
 		innerRadius: size.innerRadius,
 		outerRadius: size.outerRadius,
 		padAngle: size.padAngle,
-		startAngle: allPercentages * 2 / 100 * Math.PI,
+		startAngle: getAngle(allPercentages),
 		endAngle: Math.PI * 2,
 	});
 	return (
@@ -54,6 +63,20 @@ export function getEmptyPartCircle(values, size, minimumPercentage) {
 }
 
 /**
+ * This function return the sum of the percentages below the given index
+ * @param {array} values the values to get when we have to start
+ * @param {number} index the current index
+ */
+export function getPercentageToIndex(values, index) {
+	return values.reduce((acc, value, i) => {
+		if (i < index) {
+			return acc + value.percentageShown;
+		}
+		return acc;
+	}, 0);
+}
+
+/**
  * This function generate a part of circle for a value
  * @param {object} value the value to generate
  * @param {number} index the current index
@@ -61,17 +84,14 @@ export function getEmptyPartCircle(values, size, minimumPercentage) {
  * @param {object} size the current graph size
  */
 export function getCircle(value, index, values, size) {
-	let percentagesDone = 0;
-	for (let i = 0; i < index; i += 1) {
-		percentagesDone += values[i].percentageShown;
-	}
+	const percentagesDone = getPercentageToIndex(values, index);
 
 	const arcGenerated = arcGen({
 		innerRadius: size.innerRadius,
 		outerRadius: size.outerRadius,
 		padAngle: size.padAngle,
-		startAngle: percentagesDone * 2 / 100 * Math.PI,
-		endAngle: (percentagesDone + value.percentageShown) * 2 / 100 * Math.PI,
+		startAngle: getAngle(percentagesDone),
+		endAngle: getAngle(percentagesDone + value.percentageShown),
 	});
 
 	return (
@@ -93,17 +113,25 @@ export function getCircle(value, index, values, size) {
  * @param {object} b an other element with a percentageShown to compare
  */
 function sortElements(a, b) {
-	if (a.percentageShown > b.percentageShown) return -1;
-	if (a.percentageShown < b.percentageShown) return 1;
+	if (a.percentageShown > b.percentageShown) {
+		return -1;
+	}
+	if (a.percentageShown < b.percentageShown) {
+		return 1;
+	}
 	return 0;
 }
 
 /**
- * This function set percentage show with the minimum percentage shown
+ * This function sets minimum percentage show with the minimum percentage shown
  * @param {array} values the set of values
  * @param {number} minimumPercentage the minimum value we have to show
  */
-export function setMinimum(model, minimumPercentage) {
+export function setMinimumPercentage(model, minimumPercentage) {
+	if (!model) {
+		return [];
+	}
+
 	let amountToSubtract = 0;
 
 	const valuesMins = model.map(value => {
@@ -153,7 +181,6 @@ export function decorateWithOverlay(btn, overlayPlacement, overlayComponent, ove
 	}
 
 	return (
-		// this span is here to allow the tooltip trigger to work
 		<span>
 			<OverlayTrigger
 				trigger="click"
@@ -207,11 +234,17 @@ export function wrapMouseEvent(mouseEvent, overlayComponent, label, rest, model)
 /**
  * This function return useful stuff to build the graph of the loader
  * @param {number} size the size in px of the graph
+ * @param {string} display the chosen display if given
  */
-export function getDisplaySize(size) {
-	const pixelNumber = size - MIN_SIZE;
+export function getDisplaySize(size, display) {
+	let currentSize = size;
+	if (!currentSize && display) {
+		currentSize = displaySizes[display];
+	}
+
+	const pixelNumber = currentSize - MIN_SIZE;
 	return {
-		svgSize: size,
+		svgSize: currentSize,
 		innerRadius: parseInt(BASE_INNER_RADIUS + INNER_RADIUS_PER_PIXEL * pixelNumber, 10),
 		outerRadius: parseInt(BASE_OUTER_RADIUS + OUTER_RADIUS_PER_PIXEL * pixelNumber, 10),
 		padAngle: BASE_PAD_ANGLE - PAD_ANGLE_PER_PIXEL * pixelNumber,
@@ -225,6 +258,9 @@ export function getDisplaySize(size) {
  * @param {string} componentName component name
  */
 function propTypeCheckSize(props, propName, componentName) {
+	if (props[propName] == null) {
+		return null;
+	}
 	if (typeof props[propName] !== 'number') {
 		return new Error(
 			`Invalid type of ${propName} supplied to ${componentName} : ${typeof props[
@@ -239,6 +275,18 @@ function propTypeCheckSize(props, propName, componentName) {
 		);
 	}
 	return null;
+}
+
+/**
+ * This function return the showed value on the chart
+ * @param {array} model the pie chart model
+ * @param {index} index current index showed
+ */
+function getShowedValue(model, index) {
+	if (!model) {
+		return {};
+	}
+	return model[index];
 }
 
 function PieChartButton({
@@ -260,11 +308,7 @@ function PieChartButton({
 	tooltipPlacement,
 	...rest
 }) {
-	let currentSize = size;
-	if (!size && display) {
-		currentSize = displaySizes[display];
-	}
-	const sizeObject = getDisplaySize(currentSize);
+	const sizeObject = getDisplaySize(size, display);
 
 	if (inProgress) {
 		const loadingCircleStyle = {
@@ -292,13 +336,8 @@ function PieChartButton({
 		);
 	}
 
-	let labelValue = null;
-	let preparedValues = null;
-	if (model) {
-		labelValue = model[labelIndex];
-		preparedValues = setMinimum(model, minimumPercentage);
-	}
-
+	const labelValue = getShowedValue(model, labelIndex);
+	const preparedValues = setMinimumPercentage(model, minimumPercentage);
 	const rClick = wrapMouseEvent(onClick, overlayComponent, label, rest, model);
 	const rMouseDown = wrapMouseEvent(onMouseDown, overlayComponent, label, rest, model);
 
@@ -310,8 +349,7 @@ function PieChartButton({
 			{...rest}
 		>
 			<svg width={sizeObject.svgSize} height={sizeObject.svgSize}>
-				{preparedValues &&
-					preparedValues.map((value, index) => getCircle(value, index, preparedValues, sizeObject))}
+				{preparedValues.map((value, index) => getCircle(value, index, preparedValues, sizeObject))}
 				{getEmptyPartCircle(preparedValues, sizeObject, minimumPercentage)}
 			</svg>
 			<div
@@ -322,7 +360,7 @@ function PieChartButton({
 					`tc-pie-chart-color-${labelValue.color}`,
 				)}
 			>
-				{!hideLabel && labelValue && `${labelValue.percentage} %`}
+				{!hideLabel && labelValue.percentage && `${labelValue.percentage} %`}
 			</div>
 		</Button>
 	);
