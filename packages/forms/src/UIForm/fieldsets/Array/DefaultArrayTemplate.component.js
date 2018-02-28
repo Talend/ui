@@ -25,7 +25,7 @@ export function DefaultArrayTemplate(props) {
 			/>
 			<ol id={id} className={classNames(theme['tf-array'], 'tf-array')}>
 				{value.map((itemValue, index) => (
-					<li className={theme.item} key={index}>
+					<li className={classNames(theme.item, 'item', `item-${index}`)} key={index}>
 						<ArrayItem
 							hasMoveDown={index < value.length - 1}
 							hasMoveUp={index > 0}

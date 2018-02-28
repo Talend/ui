@@ -139,6 +139,7 @@ decoratedStories
 				bsStyle: 'link',
 			},
 			onToggle: action('onToggle'),
+			docked: true,
 		};
 		return (
 			<div>
