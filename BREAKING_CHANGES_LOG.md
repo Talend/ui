@@ -2,6 +2,21 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.160.0
+* icon: AWS-kinesis
+* PR: [chore(icons): update AWS-kinesis.svg](https://github.com/Talend/ui/pull/1092)
+* Change: name change
+
+Before
+```
+AWS-kinesis.svg
+```
+
+After
+```
+aws-kinesis.svg
+```
+
 ## v0.157.0
 * cmf: route onLeave/onEnter
 * PR: [feat(cmf): route onEnter/onLeave with dispatch](https://github.com/Talend/ui/pull/1082)
