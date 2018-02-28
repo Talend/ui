@@ -213,7 +213,7 @@ export default class DataGrid extends React.Component {
 					...columnDef,
 					[AG_GRID_CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
 					[AG_GRID_CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
-				}))
+				})),
 			);
 		}
 
