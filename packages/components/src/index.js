@@ -78,6 +78,7 @@ import {
 	ActionSplitDropdown,
 } from './Actions';
 import ActionBar from './ActionBar';
+import ActionList from './ActionList';
 import Notification from './Notification';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
@@ -118,6 +119,7 @@ export {
 	Action,
 	Actions,
 	ActionBar,
+	ActionList,
 	ActionButton,
 	ActionDropdown,
 	ActionFile,
