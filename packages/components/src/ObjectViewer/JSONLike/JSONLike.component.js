@@ -247,6 +247,7 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 				transform={iconTransform}
 				className={theme['wider-icon-selection']}
 				onClick={e => {
+					e.preventDefault();
 					e.stopPropagation();
 					props.onToggle(e, { data, isOpened, jsonpath });
 				}}
@@ -264,7 +265,11 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 						<button
 							className={`tc-object-viewer-line-type ${theme['line-type']} `}
 							type="button"
-							onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
+							onClick={e => {
+								e.preventDefault();
+								e.stopPropagation();
+								stopAndSelect(e, { onSelect, jsonpath });
+							}}
 						>
 							({info.type})
 						</button>
