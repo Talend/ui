@@ -49,6 +49,18 @@ $tc-pie-chart-loading-margin-left: 4px !default;
 	line-height: unset;
 	padding: 0;
 
+	&:hover{
+		.tc-pie-chart-empty-part-circle{
+			stroke: $scooter;
+			fill: $scooter;
+		}
+	}
+
+	&-empty-part-circle{
+		stroke: $gallery;
+		fill: $gallery;
+	}
+
 	> svg {
 		margin-right: $padding-smaller;
 		height: inherit;

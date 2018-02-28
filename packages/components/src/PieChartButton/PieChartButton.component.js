@@ -7,6 +7,15 @@ import TooltipTrigger from '../TooltipTrigger';
 import theme from './PieChartButton.scss';
 
 const SCOOTER = '#66BDFF';
+const MIN_SIZE = 20;
+const MAX_SIZE = 50;
+const BASE_INNER_RADIUS = 6;
+const BASE_OUTER_RADIUS = 9;
+const BASE_PAD_ANGLE = 0.2;
+const INNER_RADIUS_PER_PIXEL = 0.4;
+const OUTER_RADIUS_PER_PIXEL = 0.45;
+const PAD_ANGLE_PER_PIXEL = 0.0033;
+
 const displaySizes = {
 	small: 20,
 	medium: 35,
@@ -18,11 +27,10 @@ const displaySizes = {
  * @param {array} values the values shown in the graph
  * @param {object} size the current size
  * @param {function} arcGen the arc generator
- * @param {string} emptyColor the empty color to complete the graph
  * @param {boolean} hover known if the component is hovered
  * @param {number} minimumPercentage the minimum percentage to be shown
  */
-export function getEmptyPartCircle(values, size, arcGen, emptyColor, hover, minimumPercentage) {
+export function getEmptyPartCircle(values, size, arcGen, hover, minimumPercentage) {
 	const allPercentages = values ? values.reduce((acc, value) => acc + value.percentageShown, 0) : 0;
 	if (allPercentages >= 100 - minimumPercentage) {
 		return null;
@@ -37,10 +45,12 @@ export function getEmptyPartCircle(values, size, arcGen, emptyColor, hover, mini
 	});
 	return (
 		<path
+			className={classnames(
+				theme['tc-pie-chart-empty-part-circle'],
+				'tc-pie-chart-empty-part-circle',
+			)}
 			d={arcGenerated}
 			transform={`translate(${size.svgSize / 2},${size.svgSize / 2})`}
-			stroke={hover ? SCOOTER : emptyColor}
-			fill={hover ? SCOOTER : emptyColor}
 		/>
 	);
 }
@@ -201,17 +211,34 @@ export function wrapMouseEvent(mouseEvent, overlayComponent, label, rest, model)
  * @param {number} size the size in px of the graph
  */
 export function getDisplaySize(size) {
-	const innerRadiusPerPixel = 12 / 30;
-	const outerRadiusPerPixel = 14 / 30;
-	const padAnglePerPixel = 0.1 / 30;
-
-	const pixelNumber = size - 20;
+	const pixelNumber = size - MIN_SIZE;
 	return {
 		svgSize: size,
-		innerRadius: parseInt(6 + innerRadiusPerPixel * pixelNumber, 10),
-		outerRadius: parseInt(9 + outerRadiusPerPixel * pixelNumber, 10),
-		padAngle: 0.2 - padAnglePerPixel * pixelNumber,
+		innerRadius: parseInt(BASE_INNER_RADIUS + INNER_RADIUS_PER_PIXEL * pixelNumber, 10),
+		outerRadius: parseInt(BASE_OUTER_RADIUS + OUTER_RADIUS_PER_PIXEL * pixelNumber, 10),
+		padAngle: BASE_PAD_ANGLE - PAD_ANGLE_PER_PIXEL * pixelNumber,
 	};
+}
+
+/**
+ * This function check if the type is a number & check with min/max
+ * @param {object} props list of component props
+ * @param {string} propName current prop name
+ * @param {string} componentName component name
+ */
+function propTypeCheckSize(props, propName, componentName) {
+	if (typeof props[propName] !== 'number') {
+		return new Error(
+			`Invalid type of ${propName} supplied to ${componentName}. Validation failed.`,
+		);
+	} else if (props[propName] < MIN_SIZE || props[propName] > MAX_SIZE) {
+		return new Error(
+			`Invalid prop ${propName} supplied to ${componentName} : ${
+				props[propName]
+			}. Validation failed.`,
+		);
+	}
+	return null;
 }
 
 class PieChartButton extends React.Component {
@@ -220,7 +247,6 @@ class PieChartButton extends React.Component {
 	static propTypes = {
 		className: PropTypes.string,
 		display: PropTypes.oneOf(['small', 'medium', 'large']),
-		emptyColor: PropTypes.string,
 		inProgress: PropTypes.bool,
 		hideLabel: PropTypes.bool,
 		label: PropTypes.string,
@@ -238,7 +264,7 @@ class PieChartButton extends React.Component {
 		overlayComponent: PropTypes.element,
 		overlayId: PropTypes.string,
 		overlayPlacement: OverlayTrigger.propTypes.placement,
-		size: PropTypes.number,
+		size: propTypeCheckSize,
 		tooltip: PropTypes.bool,
 		tooltipPlacement: OverlayTrigger.propTypes.placement,
 	};
@@ -247,7 +273,6 @@ class PieChartButton extends React.Component {
 		labelIndex: 0,
 		minimumPercentage: 5,
 		display: 'small',
-		emptyColor: '#ABABAB',
 		tooltipPlacement: 'top',
 		overlayPlacement: 'bottom',
 		overlayId: 'pie-chart-popover',
@@ -281,7 +306,6 @@ class PieChartButton extends React.Component {
 			minimumPercentage,
 			display,
 			label,
-			emptyColor,
 			overlayComponent,
 			overlayPlacement,
 			overlayId,
@@ -363,7 +387,6 @@ class PieChartButton extends React.Component {
 						preparedValues,
 						sizeObject,
 						this.state.arcGen,
-						emptyColor,
 						this.state.hover,
 						minimumPercentage,
 					)}
