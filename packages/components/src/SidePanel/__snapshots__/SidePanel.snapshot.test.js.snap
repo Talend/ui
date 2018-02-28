@@ -165,11 +165,11 @@ exports[`Storyshots SidePanel default 1`] = `
         </button>
       </div>
       <ul
-        className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+        className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
       >
         <li
           aria-current={true}
-          className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+          className="theme-tc-action-list-item tc-action-list-item active theme-active"
           role="presentation"
           title="Preparations"
         >
@@ -198,7 +198,7 @@ exports[`Storyshots SidePanel default 1`] = `
           </button>
         </li>
         <li
-          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+          className="theme-tc-action-list-item tc-action-list-item"
           role="presentation"
           title="Datasets"
         >
@@ -227,7 +227,7 @@ exports[`Storyshots SidePanel default 1`] = `
           </button>
         </li>
         <li
-          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+          className="theme-tc-action-list-item tc-action-list-item"
           role="presentation"
           title="Favorites"
         >
@@ -425,11 +425,11 @@ exports[`Storyshots SidePanel docked 1`] = `
         </button>
       </div>
       <ul
-        className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+        className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
       >
         <li
           aria-current={true}
-          className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+          className="theme-tc-action-list-item tc-action-list-item active theme-active"
           role="presentation"
           title="Preparations"
         >
@@ -457,7 +457,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           </button>
         </li>
         <li
-          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+          className="theme-tc-action-list-item tc-action-list-item"
           role="presentation"
           title="Datasets"
         >
@@ -485,7 +485,7 @@ exports[`Storyshots SidePanel docked 1`] = `
           </button>
         </li>
         <li
-          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+          className="theme-tc-action-list-item tc-action-list-item"
           role="presentation"
           title="Favorites"
         >
@@ -682,11 +682,11 @@ exports[`Storyshots SidePanel large docked 1`] = `
         </button>
       </div>
       <ul
-        className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+        className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
       >
         <li
           aria-current={true}
-          className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+          className="theme-tc-action-list-item tc-action-list-item active theme-active"
           role="presentation"
           title="Preparations"
         >
@@ -714,7 +714,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
           </button>
         </li>
         <li
-          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+          className="theme-tc-action-list-item tc-action-list-item"
           role="presentation"
           title="Datasets"
         >
@@ -742,7 +742,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
           </button>
         </li>
         <li
-          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+          className="theme-tc-action-list-item tc-action-list-item"
           role="presentation"
           title="Favorites"
         >
@@ -931,10 +931,10 @@ exports[`Storyshots SidePanel large reverse 1`] = `
       </button>
     </div>
     <ul
-      className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+      className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
     >
       <li
-        className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+        className="theme-tc-action-list-item tc-action-list-item"
         role="presentation"
         title="Preparations"
       >
@@ -963,7 +963,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
       </li>
       <li
         aria-current={true}
-        className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+        className="theme-tc-action-list-item tc-action-list-item active theme-active"
         role="presentation"
         title="Datasets"
       >
@@ -991,7 +991,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+        className="theme-tc-action-list-item tc-action-list-item"
         role="presentation"
         title="Favorites"
       >
@@ -1160,10 +1160,10 @@ exports[`Storyshots SidePanel not dockable 1`] = `
       role="navigation"
     >
       <ul
-        className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+        className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
       >
         <li
-          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+          className="theme-tc-action-list-item tc-action-list-item"
           role="presentation"
           title="Preparations"
         >
@@ -1192,7 +1192,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         </li>
         <li
           aria-current={true}
-          className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+          className="theme-tc-action-list-item tc-action-list-item active theme-active"
           role="presentation"
           title="Datasets"
         >
@@ -1220,7 +1220,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
           </button>
         </li>
         <li
-          className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+          className="theme-tc-action-list-item tc-action-list-item"
           role="presentation"
           title="Favorites"
         >
@@ -1409,10 +1409,10 @@ exports[`Storyshots SidePanel reverse 1`] = `
       </button>
     </div>
     <ul
-      className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+      className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
     >
       <li
-        className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+        className="theme-tc-action-list-item tc-action-list-item"
         role="presentation"
         title="Preparations"
       >
@@ -1441,7 +1441,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
       </li>
       <li
         aria-current={true}
-        className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+        className="theme-tc-action-list-item tc-action-list-item active theme-active"
         role="presentation"
         title="Datasets"
       >
@@ -1469,7 +1469,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+        className="theme-tc-action-list-item tc-action-list-item"
         role="presentation"
         title="Favorites"
       >
@@ -1667,10 +1667,10 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
             </button>
           </div>
           <ul
-            className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+            className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
           >
             <li
-              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+              className="theme-tc-action-list-item tc-action-list-item"
               role="presentation"
               title="Preparations"
             >
@@ -1698,7 +1698,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+              className="theme-tc-action-list-item tc-action-list-item"
               role="presentation"
               title="Datasets"
             >
@@ -1726,7 +1726,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+              className="theme-tc-action-list-item tc-action-list-item"
               role="presentation"
               title="Favorites"
             >
@@ -1754,7 +1754,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+              className="theme-tc-action-list-item tc-action-list-item"
               role="presentation"
               title="Some super super super long name"
             >
@@ -2279,10 +2279,10 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
             </button>
           </div>
           <ul
-            className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+            className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
           >
             <li
-              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+              className="theme-tc-action-list-item tc-action-list-item"
               role="presentation"
               title="Preparations"
             >
@@ -2310,7 +2310,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+              className="theme-tc-action-list-item tc-action-list-item"
               role="presentation"
               title="Datasets"
             >
@@ -2338,7 +2338,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+              className="theme-tc-action-list-item tc-action-list-item"
               role="presentation"
               title="Favorites"
             >
@@ -2366,7 +2366,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+              className="theme-tc-action-list-item tc-action-list-item"
               role="presentation"
               title="Some super super super long name"
             >
@@ -2893,11 +2893,11 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+            className="theme-tc-action-list-item tc-action-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -2926,7 +2926,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -2955,7 +2955,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Favorites"
           >
@@ -3158,11 +3158,11 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+            className="theme-tc-action-list-item tc-action-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -3191,7 +3191,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -3220,7 +3220,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Favorites"
           >
@@ -3423,11 +3423,11 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+            className="theme-tc-action-list-item tc-action-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -3456,7 +3456,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -3485,7 +3485,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Favorites"
           >
@@ -3688,11 +3688,11 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+            className="theme-tc-action-list-item tc-action-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -3721,7 +3721,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -3750,7 +3750,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Favorites"
           >
@@ -3953,11 +3953,11 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+            className="theme-tc-action-list-item tc-action-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -3986,7 +3986,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -4015,7 +4015,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Favorites"
           >
@@ -4218,11 +4218,11 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+            className="theme-tc-action-list-item tc-action-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -4251,7 +4251,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -4280,7 +4280,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Favorites"
           >
@@ -4483,11 +4483,11 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
           </button>
         </div>
         <ul
-          className="nav nav-pills nav-stacked theme-tc-side-panel-list tc-side-panel-list"
+          className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list"
         >
           <li
             aria-current={true}
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item active theme-active"
+            className="theme-tc-action-list-item tc-action-list-item active theme-active"
             role="presentation"
             title="Preparations"
           >
@@ -4516,7 +4516,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Datasets"
           >
@@ -4545,7 +4545,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-side-panel-list-item tc-side-panel-list-item"
+            className="theme-tc-action-list-item tc-action-list-item"
             role="presentation"
             title="Favorites"
           >
