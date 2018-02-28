@@ -130,6 +130,7 @@ const props = {
 		},
 		id: 'header-search',
 		onToggle: action('onSearchClick'),
+		docked: true,
 	},
 	help: {
 		id: 'header-help',
