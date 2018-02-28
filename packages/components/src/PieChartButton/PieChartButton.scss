@@ -5,6 +5,23 @@ $tc-pie-chart-loading-min-height: 25px !default;
 $tc-pie-chart-skeleton-label-width: 40px !default;
 $tc-pie-chart-skeleton-label-height: 14px !default;
 $tc-pie-chart-loading-margin-left: 4px !default;
+$tc-pie-chart-hover-color: $scooter !default;
+
+$tc-pie-chart-colors: (
+		rio-grande $rio-grande,
+		chestnut-rose $chestnut-rose,
+		lightning-yellow $lightning-yellow,
+		slate-gray $slate-gray,
+		silver-chalice $silver-chalice,
+		alto $alto
+	)
+	!default;
+
+@mixin applyColor($color) {
+	color: $color;
+	stroke: $color;
+	fill: $color;
+}
 
 .tc-pie-chart-loading {
 	@include heartbeat(object-blink);
@@ -41,7 +58,7 @@ $tc-pie-chart-loading-margin-left: 4px !default;
 	display: flex;
 	align-items: center;
 
-	background-color: $white;
+	background-color: transparent;
 	border: none;
 	color: $gray;
 
@@ -49,16 +66,22 @@ $tc-pie-chart-loading-margin-left: 4px !default;
 	line-height: unset;
 	padding: 0;
 
+	@each $type in $tc-pie-chart-colors {
+		.tc-pie-chart-color-#{nth($type, 1)} {
+			@include applyColor(#{nth($type, 2)});
+		}
+	}
+
 	&:hover {
-		.tc-pie-chart-empty-part-circle {
-			stroke: $scooter;
-			fill: $scooter;
+		@each $type in $tc-pie-chart-colors {
+			.tc-pie-chart-color-#{nth($type, 1)} {
+				@include applyColor($tc-pie-chart-hover-color);
+			}
 		}
 	}
 
 	&-empty-part-circle {
-		stroke: $gallery;
-		fill: $gallery;
+		@include applyColor($alto);
 	}
 
 	> svg {

@@ -3,15 +3,14 @@ import { Map } from 'immutable';
 import PieChartButton from '../src/PieChartButton';
 
 const initialState1 = new Map({
-	model: [{ percentage: 10, color: 'red' }],
+	model: [{ percentage: 10, color: 'rio-grande' }],
 });
 const initialState2 = new Map({
 	model: [
-		{ percentage: 10, color: 'red' },
-		{ percentage: 15, color: 'blue' },
-		{ percentage: 5, color: 'cyan' },
-		{ percentage: 20, color: 'yellow' },
-		{ percentage: 15, color: 'black' },
+		{ percentage: 10, color: 'rio-grande' },
+		{ percentage: 15, color: 'chestnut-rose' },
+		{ percentage: 5, color: 'lightning-yellow' },
+		{ percentage: 20, color: 'slate-gray' },
 	],
 });
 const initialStateInProgress = new Map({

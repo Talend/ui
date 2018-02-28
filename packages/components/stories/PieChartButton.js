@@ -7,42 +7,42 @@ import PieChartButton from '../src/PieChartButton';
 
 const pieChartData1 = [
 	{
-		color: '#C3D600',
+		color: 'rio-grande',
 		percentage: 50,
 	},
 	{
-		color: '#F3C446',
+		color: 'chestnut-rose',
 		percentage: 12,
 	},
 	{
-		color: '#66BDFF',
+		color: 'lightning-yellow',
 		percentage: 1,
 	},
 	{
-		color: '#E96065',
+		color: 'slate-gray',
 		percentage: 4,
 	},
 	{
-		color: '#60769E',
+		color: 'silver-chalice',
 		percentage: 3,
 	},
 ];
 
 const pieChartData2 = [
 	{
-		color: '#F3C446',
+		color: 'rio-grande',
 		percentage: 15,
 	},
 	{
-		color: '#60769E',
+		color: 'chestnut-rose',
 		percentage: 15,
 	},
 	{
-		color: '#C3D600',
+		color: 'lightning-yellow',
 		percentage: 60,
 	},
 	{
-		color: '#E96065',
+		color: 'slate-gray',
 		percentage: 2,
 	},
 ];
@@ -65,7 +65,7 @@ stories
 			<p>Small :</p>
 			<PieChartButton display="small" model={pieChartData1} onClick={onClick} />
 			<p>custom size</p>
-			<PieChartButton size="25" model={pieChartData1} onClick={onClick} />
+			<PieChartButton size={25} model={pieChartData1} onClick={onClick} />
 			<p>Medium :</p>
 			<PieChartButton display="medium" model={pieChartData1} onMouseDown={onMouseDown} />
 			<p>Large : </p>

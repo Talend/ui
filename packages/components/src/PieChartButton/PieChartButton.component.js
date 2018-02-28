@@ -6,7 +6,6 @@ import classnames from 'classnames';
 import TooltipTrigger from '../TooltipTrigger';
 import theme from './PieChartButton.scss';
 
-const SCOOTER = '#66BDFF';
 const MIN_SIZE = 20;
 const MAX_SIZE = 50;
 const BASE_INNER_RADIUS = 6;
@@ -15,6 +14,9 @@ const BASE_PAD_ANGLE = 0.2;
 const INNER_RADIUS_PER_PIXEL = 0.4;
 const OUTER_RADIUS_PER_PIXEL = 0.45;
 const PAD_ANGLE_PER_PIXEL = 0.0033;
+
+// we need just one instance of this, it's just a generator
+const arcGen = arc();
 
 const displaySizes = {
 	small: 20,
@@ -27,10 +29,9 @@ const displaySizes = {
  * @param {array} values the values shown in the graph
  * @param {object} size the current size
  * @param {function} arcGen the arc generator
- * @param {boolean} hover known if the component is hovered
  * @param {number} minimumPercentage the minimum percentage to be shown
  */
-export function getEmptyPartCircle(values, size, arcGen, hover, minimumPercentage) {
+export function getEmptyPartCircle(values, size, minimumPercentage) {
 	const allPercentages = values ? values.reduce((acc, value) => acc + value.percentageShown, 0) : 0;
 	if (allPercentages >= 100 - minimumPercentage) {
 		return null;
@@ -45,10 +46,7 @@ export function getEmptyPartCircle(values, size, arcGen, hover, minimumPercentag
 	});
 	return (
 		<path
-			className={classnames(
-				theme['tc-pie-chart-empty-part-circle'],
-				'tc-pie-chart-empty-part-circle',
-			)}
+			className={classnames(theme['tc-pie-chart-color-alto'], 'tc-pie-chart-color-alto')}
 			d={arcGenerated}
 			transform={`translate(${size.svgSize / 2},${size.svgSize / 2})`}
 		/>
@@ -61,10 +59,8 @@ export function getEmptyPartCircle(values, size, arcGen, hover, minimumPercentag
  * @param {number} index the current index
  * @param {array} values the values to get when we have to start
  * @param {object} size the current graph size
- * @param {function} arcGen the arc generator
- * @param {boolean} hover known if the component is hovered
  */
-export function getCircle(value, index, values, size, arcGen, hover) {
+export function getCircle(value, index, values, size) {
 	let percentagesDone = 0;
 	for (let i = 0; i < index; i += 1) {
 		percentagesDone += values[i].percentageShown;
@@ -82,9 +78,11 @@ export function getCircle(value, index, values, size, arcGen, hover) {
 		<path
 			key={index}
 			d={arcGenerated}
+			className={classnames(
+				theme[`tc-pie-chart-color-${value.color}`],
+				`tc-pie-chart-color-${value.color}`,
+			)}
 			transform={`translate(${size.svgSize / 2},${size.svgSize / 2})`}
-			stroke={hover ? SCOOTER : value.color}
-			fill={hover ? SCOOTER : value.color}
 		/>
 	);
 }
@@ -109,7 +107,7 @@ export function setMinimum(model, minimumPercentage) {
 	let amountToSubtract = 0;
 
 	const valuesMins = model.map(value => {
-		if (value.percentage < minimumPercentage && value.percentage > 0) {
+		if (value.percentage && value.percentage < minimumPercentage) {
 			amountToSubtract += minimumPercentage - value.percentage;
 			return { ...value, percentageShown: minimumPercentage };
 		}
@@ -229,7 +227,9 @@ export function getDisplaySize(size) {
 function propTypeCheckSize(props, propName, componentName) {
 	if (typeof props[propName] !== 'number') {
 		return new Error(
-			`Invalid type of ${propName} supplied to ${componentName}. Validation failed.`,
+			`Invalid type of ${propName} supplied to ${componentName} : ${typeof props[
+				propName
+			]}. Validation failed.`,
 		);
 	} else if (props[propName] < MIN_SIZE || props[propName] > MAX_SIZE) {
 		return new Error(
@@ -241,170 +241,138 @@ function propTypeCheckSize(props, propName, componentName) {
 	return null;
 }
 
-class PieChartButton extends React.Component {
-	static displayName = 'PieChartButton';
+function PieChartButton({
+	model,
+	labelIndex,
+	className,
+	inProgress,
+	minimumPercentage,
+	display,
+	label,
+	overlayComponent,
+	overlayPlacement,
+	overlayId,
+	onClick,
+	onMouseDown,
+	hideLabel,
+	size,
+	tooltip,
+	tooltipPlacement,
+	...rest
+}) {
+	let currentSize = size;
+	if (!size && display) {
+		currentSize = displaySizes[display];
+	}
+	const sizeObject = getDisplaySize(currentSize);
 
-	static propTypes = {
-		className: PropTypes.string,
-		display: PropTypes.oneOf(['small', 'medium', 'large']),
-		inProgress: PropTypes.bool,
-		hideLabel: PropTypes.bool,
-		label: PropTypes.string,
-		labelIndex: PropTypes.number,
-		getComponent: PropTypes.func,
-		minimumPercentage: PropTypes.number.isRequired,
-		model: PropTypes.arrayOf(
-			PropTypes.shape({
-				color: PropTypes.string.isRequired,
-				percentage: PropTypes.number.isRequired,
-			}).isRequired,
-		),
-		onClick: PropTypes.func,
-		onMouseDown: PropTypes.func,
-		overlayComponent: PropTypes.element,
-		overlayId: PropTypes.string,
-		overlayPlacement: OverlayTrigger.propTypes.placement,
-		size: propTypeCheckSize,
-		tooltip: PropTypes.bool,
-		tooltipPlacement: OverlayTrigger.propTypes.placement,
-	};
-
-	static defaultProps = {
-		labelIndex: 0,
-		minimumPercentage: 5,
-		display: 'small',
-		tooltipPlacement: 'top',
-		overlayPlacement: 'bottom',
-		overlayId: 'pie-chart-popover',
-	};
-
-	constructor(props) {
-		super(props);
-		// we need to access the component state
-		this.onMouseEnter = this.onMouseEnter.bind(this);
-		this.onMouseLeave = this.onMouseLeave.bind(this);
-		this.state = {
-			hover: false,
-			arcGen: arc(),
+	if (inProgress) {
+		const loadingCircleStyle = {
+			width: `${sizeObject.svgSize}px`,
+			height: `${sizeObject.svgSize}px`,
+			borderRadius: `${sizeObject.svgSize / 2}px`,
 		};
-	}
-
-	onMouseEnter() {
-		this.setState({ hover: true });
-	}
-
-	onMouseLeave() {
-		this.setState({ hover: false });
-	}
-
-	render() {
-		const {
-			model,
-			labelIndex,
-			className,
-			inProgress,
-			minimumPercentage,
-			display,
-			label,
-			overlayComponent,
-			overlayPlacement,
-			overlayId,
-			onClick,
-			onMouseDown,
-			hideLabel,
-			size,
-			tooltip,
-			tooltipPlacement,
-			...rest
-		} = this.props;
-
-		let currentSize = size;
-		if (!size && display) {
-			currentSize = displaySizes[display];
-		}
-		const sizeObject = getDisplaySize(currentSize);
-
-		if (inProgress) {
-			const loadingCircleStyle = {
-				width: `${sizeObject.svgSize}px`,
-				height: `${sizeObject.svgSize}px`,
-				borderRadius: `${sizeObject.svgSize / 2}px`,
-			};
-			return (
-				<Button
-					className={classnames(theme['tc-pie-chart-loading'], 'tc-pie-chart-loading', {
-						[theme['tc-pie-chart-loading-no-label']]: hideLabel,
-						'tc-pie-chart-loading-no-label': hideLabel,
-					})}
-				>
-					<div style={loadingCircleStyle} />
-					{!hideLabel && (
-						<div
-							className={classnames(
-								theme['tc-pie-chart-loading-skeleton-label'],
-								'tc-pie-chart-loading-skeleton-label',
-							)}
-						/>
-					)}
-				</Button>
-			);
-		}
-
-		let labelValue = null;
-		let labelStyle = null;
-		let preparedValues = null;
-		if (model) {
-			labelValue = model[labelIndex];
-			labelStyle = { color: this.state.hover ? SCOOTER : labelValue.color };
-			preparedValues = setMinimum(model, minimumPercentage);
-		}
-
-		const rClick = wrapMouseEvent(onClick, overlayComponent, label, rest, model);
-		const rMouseDown = wrapMouseEvent(onMouseDown, overlayComponent, label, rest, model);
-
-		let btn = (
+		return (
 			<Button
-				className={classnames(theme['tc-pie-chart'], 'tc-pie-chart', className)}
-				onMouseEnter={this.onMouseEnter}
-				onMouseLeave={this.onMouseLeave}
-				onMouseDown={rMouseDown}
-				onClick={rClick}
-				{...rest}
+				className={classnames(theme['tc-pie-chart-loading'], 'tc-pie-chart-loading', {
+					[theme['tc-pie-chart-loading-no-label']]: hideLabel,
+					'tc-pie-chart-loading-no-label': hideLabel,
+				})}
 			>
-				<svg width={sizeObject.svgSize} height={sizeObject.svgSize}>
-					{preparedValues &&
-						preparedValues.map((value, index) =>
-							getCircle(
-								value,
-								index,
-								preparedValues,
-								sizeObject,
-								this.state.arcGen,
-								this.state.hover,
-							),
+				<div style={loadingCircleStyle} />
+				{!hideLabel && (
+					<div
+						className={classnames(
+							theme['tc-pie-chart-loading-skeleton-label'],
+							'tc-pie-chart-loading-skeleton-label',
 						)}
-					{getEmptyPartCircle(
-						preparedValues,
-						sizeObject,
-						this.state.arcGen,
-						this.state.hover,
-						minimumPercentage,
-					)}
-				</svg>
-				<div
-					className={classnames(theme['tc-pie-chart-label'], 'tc-pie-chart-label')}
-					style={labelStyle}
-				>
-					{!hideLabel && labelValue && `${labelValue.percentage} %`}
-				</div>
+					/>
+				)}
 			</Button>
 		);
-
-		btn = decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId);
-		btn = decorateWithTooltip(btn, tooltip, label, tooltipPlacement);
-
-		return btn;
 	}
+
+	let labelValue = null;
+	let preparedValues = null;
+	if (model) {
+		labelValue = model[labelIndex];
+		preparedValues = setMinimum(model, minimumPercentage);
+	}
+
+	const rClick = wrapMouseEvent(onClick, overlayComponent, label, rest, model);
+	const rMouseDown = wrapMouseEvent(onMouseDown, overlayComponent, label, rest, model);
+
+	let btn = (
+		<Button
+			className={classnames(theme['tc-pie-chart'], 'tc-pie-chart', className)}
+			onMouseDown={rMouseDown}
+			onClick={rClick}
+			{...rest}
+		>
+			<svg width={sizeObject.svgSize} height={sizeObject.svgSize}>
+				{preparedValues &&
+					preparedValues.map((value, index) => getCircle(value, index, preparedValues, sizeObject))}
+				{getEmptyPartCircle(preparedValues, sizeObject, minimumPercentage)}
+			</svg>
+			<div
+				className={classnames(
+					theme['tc-pie-chart-label'],
+					'tc-pie-chart-label',
+					theme[`tc-pie-chart-color-${labelValue.color}`],
+					`tc-pie-chart-color-${labelValue.color}`,
+				)}
+			>
+				{!hideLabel && labelValue && `${labelValue.percentage} %`}
+			</div>
+		</Button>
+	);
+
+	btn = decorateWithOverlay(btn, overlayPlacement, overlayComponent, overlayId);
+	btn = decorateWithTooltip(btn, tooltip, label, tooltipPlacement);
+
+	return btn;
 }
+
+PieChartButton.propTypes = {
+	className: PropTypes.string,
+	display: PropTypes.oneOf(['small', 'medium', 'large']),
+	inProgress: PropTypes.bool,
+	hideLabel: PropTypes.bool,
+	label: PropTypes.string,
+	labelIndex: PropTypes.number,
+	getComponent: PropTypes.func,
+	minimumPercentage: PropTypes.number.isRequired,
+	model: PropTypes.arrayOf(
+		PropTypes.shape({
+			color: PropTypes.oneOf([
+				'rio-grande',
+				'chestnut-rose',
+				'lightning-yellow',
+				'slate-gray',
+				'silver-chalice',
+			]),
+			percentage: PropTypes.number.isRequired,
+		}).isRequired,
+	),
+	onClick: PropTypes.func,
+	onMouseDown: PropTypes.func,
+	overlayComponent: PropTypes.element,
+	overlayId: PropTypes.string,
+	overlayPlacement: OverlayTrigger.propTypes.placement,
+	size: propTypeCheckSize,
+	tooltip: PropTypes.bool,
+	tooltipPlacement: OverlayTrigger.propTypes.placement,
+};
+
+PieChartButton.defaultProps = {
+	labelIndex: 0,
+	minimumPercentage: 5,
+	display: 'small',
+	tooltipPlacement: 'top',
+	overlayPlacement: 'bottom',
+	overlayId: 'pie-chart-popover',
+};
+
+PieChartButton.displayName = 'PieChartButton';
 
 export default PieChartButton;
