@@ -3,7 +3,6 @@
 exports[`Filter container should render 1`] = `
 <PieChartButton
   display="small"
-  emptyColor="#ABABAB"
   inProgress={undefined}
   labelIndex={0}
   minimumPercentage={5}
