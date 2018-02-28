@@ -48,6 +48,9 @@ $tc-typeahead-input-width: 260px !default;
 
 		> li > div {
 			padding: $padding-smaller;
+			&:hover {
+				background-color: $concrete;
+			}
 		}
 	}
 }
