@@ -11,7 +11,6 @@ This widget allows you to render a Typeahead.
 | disabled | Disable the input | `false` |
 | placeholder | The input placeholder |  |
 | readOnly | If the input should be readonly | `false` |
-| restricted | If the value is restricted to the possible suggestions | `true` |
 | titleMap | A mapping of value/label to display |  |
 
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import Typeahead from '../Typeahead';
 import keycode from 'keycode';
+import Typeahead from '../Typeahead';
 import Datalist from './Datalist.component';
+
 const props = {
 	autoFocus: true,
 	disabled: false,

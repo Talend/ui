@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import keycode from 'keycode';
 import get from 'lodash/get';
-
 import Typeahead from '../Typeahead';
 import theme from './Datalist.scss';
 
@@ -224,7 +223,6 @@ if (process.env.NODE_ENV !== 'production') {
 		disabled: PropTypes.bool,
 		placeholder: PropTypes.string,
 		readOnly: PropTypes.bool,
-		restricted: PropTypes.bool,
 		titleMap: PropTypes.arrayOf(
 			PropTypes.shape({
 				name: PropTypes.string.isRequired,
