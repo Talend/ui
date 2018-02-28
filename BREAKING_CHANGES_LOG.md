@@ -2,23 +2,39 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.160.0
+* icon: AWS-kinesis
+* PR: [chore(icons): update AWS-kinesis.svg](https://github.com/Talend/ui/pull/1092)
+* Change: name change
 
-## v0.159.0
+Before
+```
+AWS-kinesis.svg
+```
+
+After
+```
+aws-kinesis.svg
+```
+
 * Typeahead: new flag to manage the display mode
+* PR: [fix(components/typeahead): use a flag for the display mode](https://github.com/Talend/ui/pull/1101)
+* Change: flag instead of onToggle presence
 
 Before
 ```jsx
-<Typeahead onToggle={func} />
+<Typeahead onToggle={func} />         // button
+<Typeahead onToggle={undefined} />    // input
 ```
 
 After
 ```jsx
-<Typeahead onToggle={func} docked={bool} />
+<Typeahead onToggle={func} docked />  // button
+<Typeahead onToggle={func} />         // input
 ```
 
 - `docked === true && onToggle !== undefined` : the toggle button is displayed
 - `docked !== true || onToggle === undefined` : the typeahead input is displayed
-
 
 ## v0.157.0
 * cmf: route onLeave/onEnter
