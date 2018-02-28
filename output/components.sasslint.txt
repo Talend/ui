@@ -18,5 +18,11 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 5 problems (2 errors, 3 warnings)
+src/PieChartButton/PieChartButton.scss
+  19:1  error  Mixin 'applyColor' should be written in lowercase with hyphens  mixin-name-format
+  70:4  error  Mixin 'applyColor' should be written in lowercase with hyphens  mixin-name-format
+  77:5  error  Mixin 'applyColor' should be written in lowercase with hyphens  mixin-name-format
+  83:3  error  Mixin 'applyColor' should be written in lowercase with hyphens  mixin-name-format
+
+✖ 9 problems (6 errors, 3 warnings)
 
