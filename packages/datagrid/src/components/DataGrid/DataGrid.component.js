@@ -167,6 +167,8 @@ export default class DataGrid extends React.Component {
 		}
 
 		if (this.gridAPI && previousCellDef.rowIndex !== nextCellDef.rowIndex) {
+			// ag-grid workaround: ag-grid set a selected row only by a click by an user
+			// This allows, when the user move the cell by the keyboard/tab, to set the selected row
 			this.gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
 		}
 
@@ -189,33 +191,36 @@ export default class DataGrid extends React.Component {
 			onGridReady: this.onGridReady,
 		};
 
-		const adaptedPinnedColumnDefs = this.props.getPinnedColumnDefsFn(this.props.data);
-		const adaptedColumnDefs = this.props.getColumnDefsFn(this.props.data);
+		const pinnedColumnDefs = this.props.getPinnedColumnDefsFn(this.props.data);
+		const columnDefs = this.props.getColumnDefsFn(this.props.data);
+		let adaptedColumnDefs = [];
 
-		if (adaptedPinnedColumnDefs) {
-			agGridOptions.columnDefs = adaptedPinnedColumnDefs.map(adaptedPinnedColumnDef => ({
+		if (pinnedColumnDefs) {
+			adaptedColumnDefs = agGridOptions.columnDefs = pinnedColumnDefs.map(pinnedColumnDef => ({
 				lockPosition: true,
 				pinned: 'left',
 				valueGetter: this.props.getCellValueFn,
 				width: CELL_WIDTH,
-				...adaptedPinnedColumnDef,
+				...pinnedColumnDef,
 				[AG_GRID_CUSTOM_HEADER_KEY]: PIN_HEADER_RENDERER_COMPONENT,
 			}));
 		}
 
-		if (adaptedColumnDefs) {
-			const columnsDefs = adaptedColumnDefs.map(adaptedColumnDef => ({
-				width: CELL_WIDTH,
-				lockPinned: true,
-				valueGetter: this.props.getCellValueFn,
-				...adaptedColumnDef,
-				[AG_GRID_CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
-				[AG_GRID_CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
-			}));
-
-			agGridOptions.columnDefs = [...agGridOptions.columnDefs, ...columnsDefs];
+		if (columnDefs) {
+			adaptedColumnDefs = [
+				...adaptedColumnDefs,
+				...columnDefs.map(columnDef => ({
+					width: CELL_WIDTH,
+					lockPinned: true,
+					valueGetter: this.props.getCellValueFn,
+					...columnDef,
+					[AG_GRID_CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
+					[AG_GRID_CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
+				})),
+			];
 		}
 
+		agGridOptions.columnDefs = adaptedColumnDefs;
 		agGridOptions.frameworkComponents = {
 			[CELL_RENDERER_COMPONENT]: injectedCellRenderer(
 				this.props.getComponent,

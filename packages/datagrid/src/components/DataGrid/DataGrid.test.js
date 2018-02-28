@@ -169,6 +169,27 @@ describe('#DataGrid', () => {
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
+	it('should render DataGrid with custom serializer', () => {
+		const getPinnedColumnDefsFn = jest.fn();
+		const getColumnDefsFn = jest.fn();
+		const getRowDataFn = jest.fn();
+		const getCellValueFn = jest.fn();
+
+		const props = {
+			getComponent,
+			getCellValueFn,
+			getColumnDefsFn,
+			getPinnedColumnDefsFn,
+			getRowDataFn,
+			data: sample,
+		};
+
+		shallow(<DataGrid {...props} />);
+		expect(getColumnDefsFn).toHaveBeenCalledWith(sample);
+		expect(getPinnedColumnDefsFn).toHaveBeenCalledWith(sample);
+		expect(getRowDataFn).toHaveBeenCalledWith(sample);
+	});
 });
 
 describe('#AgGrid API', () => {
@@ -424,6 +445,32 @@ describe('#Datagrid method', () => {
 		expect(onFocusedCell).toHaveBeenCalledWith({ column });
 	});
 
+	it('should focus a column when an another column is focused and not call onFocusedCell if undefined', () => {
+		const currentColId = 'colId';
+		const focusedColId = 'colId2';
+		const column = {
+			colId: focusedColId,
+			pinned: false,
+		};
+		const onFocusedCell = jest.fn();
+		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const instance = wrapper.instance();
+		instance.setCurrentFocusedColumn(currentColId);
+
+		instance.setCurrentFocusedColumn = jest.fn();
+		instance.removeFocusColumn = jest.fn();
+		instance.updateStyleFocusColumn = jest.fn();
+
+		instance.onFocusedCell({
+			column,
+		});
+
+		expect(instance.setCurrentFocusedColumn).toHaveBeenCalledWith(focusedColId);
+		expect(instance.updateStyleFocusColumn).toHaveBeenCalled();
+		expect(instance.removeFocusColumn).toHaveBeenCalled();
+		expect(onFocusedCell).not.toHaveBeenCalled();
+	});
+
 	it('should focus a column when the same column is focused without remove the previous style', () => {
 		const currentColId = 'colId';
 		const column = {
@@ -556,12 +603,16 @@ describe('#injectedCellRenderer', () => {
 	const avroRenderer = {};
 
 	it('should injected the cell renderer', () => {
-		const getCellComponent = () => Component;
+		const getCellComponent = jest.fn(() => Component);
+		const componentId = 'cellRenderer';
+		const myProps = 'myProps';
 		const InjectedComponent = injectedCellRenderer(getCellComponent, 'cellRenderer', avroRenderer);
 
-		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
+		const wrapper = shallow(<InjectedComponent id="injectedComponent" myProps="myProps" />);
 
 		expect(wrapper.find(Component).length).toBe(1);
+		expect(getCellComponent).toHaveBeenCalledWith(componentId);
+		expect(wrapper.props().myProps).toBe(myProps);
 		expect(wrapper.props().avroRenderer).toBe(avroRenderer);
 		expect(wrapper.props().getComponent).toBe(getCellComponent);
 	});
@@ -571,7 +622,6 @@ describe('#injectedCellRenderer', () => {
 
 		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(wrapper.find('DefaultCellRenderer').length).toBe(1);
 	});
 });
@@ -582,21 +632,21 @@ describe('#injectedHeaderRenderer', () => {
 	const onKeyDown = jest.fn();
 
 	it('should injected the header renderer', () => {
+		const getCellComponent = jest.fn(() => Component);
+		const componentId = 'header';
 		const InjectedComponent = injectedHeaderRenderer(
-			componentId => {
-				if (componentId === 'header') return Component;
-				return null;
-			},
+			getCellComponent,
 			'header',
 			onFocusedColumn,
 			onKeyDown,
 		);
 
-		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
+		const wrapper = shallow(<InjectedComponent id="injectedComponent" myProps="myProps" />);
 		wrapper.props().onFocusedColumn();
 		wrapper.props().onKeyDown();
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.props().myProps).toBe('myProps');
+		expect(getCellComponent).toHaveBeenCalledWith(componentId);
 		expect(onFocusedColumn).toHaveBeenCalled();
 		expect(onKeyDown).toHaveBeenCalled();
 	});
@@ -607,6 +657,5 @@ describe('#injectedHeaderRenderer', () => {
 		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
 
 		expect(wrapper.find('DefaultHeaderRenderer').length).toBe(1);
-		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
