@@ -1,5 +1,5 @@
 
-> @talend/react-components@0.158.0 lint:style /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.159.0 lint:style /home/travis/build/Talend/ui/packages/components
 > sass-lint -v -q
 
 
@@ -18,5 +18,10 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 5 problems (2 errors, 3 warnings)
+src/PieChartButton/PieChartButton.scss
+   1:2  error  Leading underscores are not allowed     clean-import-paths
+   1:2  error  File extensions are not allowed         clean-import-paths
+  13:2  error  Mixins should come before declarations  mixins-before-declarations
+
+✖ 8 problems (5 errors, 3 warnings)
 

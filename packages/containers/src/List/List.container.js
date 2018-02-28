@@ -152,12 +152,14 @@ class List extends React.Component {
 
 		// toolbar
 		if (props.toolbar) {
-			props.toolbar.display = {
-				...props.toolbar.display,
-				onChange: (event, data) => {
-					this.onSelectDisplayMode(event, data);
-				},
-			};
+			if (props.toolbar.display) {
+				props.toolbar.display = {
+					...props.toolbar.display,
+					onChange: (event, data) => {
+						this.onSelectDisplayMode(event, data);
+					},
+				};
+			}
 			if (props.toolbar.sort) {
 				props.toolbar.sort.isDescending = !state.sortAsc;
 				props.toolbar.sort.field = state.sortOn;

@@ -12,18 +12,18 @@ $tc-pie-chart-loading-margin-left: 4px !default;
 	align-items: center;
 	min-height: $tc-pie-chart-loading-min-height;
 
-	&.tc-pie-chart-loading-no-label{
+	&.tc-pie-chart-loading-no-label {
 		min-height: $tc-pie-chart-loading-min-height-no-label;
 	}
 
-	& > div:first-child{
+	& > div:first-child {
 		display: block;
 		background: $gallery;
 		// adjust to be like loaded component
 		margin-left: $tc-pie-chart-loading-margin-left;
 	}
 
-	&-skeleton-label{
+	&-skeleton-label {
 		background: $gallery;
 		border-radius: 4px;
 		display: block;
@@ -35,12 +35,13 @@ $tc-pie-chart-loading-margin-left: 4px !default;
 }
 
 // PieChart styles
-.tc-pie-chart, .tc-pie-chart-loading{
-    font-size: $tc-pie-chart-font-size;
-    display: flex;
-    align-items: center;
+.tc-pie-chart,
+.tc-pie-chart-loading {
+	font-size: $tc-pie-chart-font-size;
+	display: flex;
+	align-items: center;
 
-    background-color: $white;
+	background-color: $white;
 	border: none;
 	color: $gray;
 
@@ -48,13 +49,13 @@ $tc-pie-chart-loading-margin-left: 4px !default;
 	line-height: unset;
 	padding: 0;
 
-    > svg {
-        margin-right: $padding-smaller;
-        height: inherit;
+	> svg {
+		margin-right: $padding-smaller;
+		height: inherit;
 		width: inherit;
-    }
+	}
 
-    &:hover,
+	&:hover,
 	&:active,
 	&:focus {
 		box-shadow: none;
