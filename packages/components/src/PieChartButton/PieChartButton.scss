@@ -1,4 +1,4 @@
-@import "~@talend/bootstrap-theme/src/theme/_animation.scss";
+@import "~@talend/bootstrap-theme/src/theme/animation";
 $tc-pie-chart-font-size: $font-size-large !default;
 $tc-pie-chart-loading-min-height-no-label: 20px !default;
 $tc-pie-chart-loading-min-height: 25px !default;
@@ -7,10 +7,10 @@ $tc-pie-chart-skeleton-label-height: 14px !default;
 $tc-pie-chart-loading-margin-left: 4px !default;
 
 .tc-pie-chart-loading {
+	@include heartbeat(object-blink);
 	display: flex;
 	align-items: center;
 	min-height: $tc-pie-chart-loading-min-height;
-	@include heartbeat(object-blink);
 
 	&.tc-pie-chart-loading-no-label{
 		min-height: $tc-pie-chart-loading-min-height-no-label;
