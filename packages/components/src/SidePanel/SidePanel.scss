@@ -32,23 +32,6 @@ $toggle-button-padding: $padding-small - 1;
 		transition: 0.2s width ease-out;
 	}
 
-	:global(.btn.btn-link) {
-		padding: $padding-normal;
-		font-size: $font-size-small;
-		text-align: left;
-		text-overflow: inherit;
-		text-transform: uppercase;
-
-		> span {
-			margin-left: $padding-normal;
-			width: $tc-side-panel-labels-width;
-			vertical-align: middle;
-			text-overflow: ellipsis;
-			overflow: hidden;
-			transition: 0.1s opacity ease-out;
-		}
-	}
-
 	:global(.tc-svg-icon) {
 		width: $tc-side-panel-icons-size;
 		height: $tc-side-panel-icons-size;
@@ -60,59 +43,38 @@ $toggle-button-padding: $padding-small - 1;
 		padding-left: $toggle-button-padding;
 		text-align: left;
 
-		:global(.btn.btn-link) {
-			color: $white;
-			line-height: 1;
-			padding: $padding-small;
-			display: inline-block;
-			width: auto;
-			opacity: $toggle-button-opacity;
-			margin: 0 auto;
+		:global {
+			.btn.btn-link {
+				color: $white;
+				line-height: 1;
+				padding: $padding-small;
+				display: inline-block;
+				width: auto;
+				opacity: $toggle-button-opacity;
+				margin: 0 auto;
 
-			> span {
-				// .sr-only
-				position: absolute;
-				width: 1px;
-				height: 1px;
-				padding: 0;
-				margin: -1px;
-				overflow: hidden;
-				clip: rect(0, 0, 0, 0);
-				border: none;
-			}
-
-			&:hover {
-				opacity: 1;
-				background-color: $list-item-hover-color;
-			}
-
-			:global(.tc-svg-icon) {
-				width: $svg-sm-size;
-				height: $svg-sm-size;
-				transition: 0.2s transform ease-out;
-			}
-		}
-	}
-
-	&-list {
-		.tc-side-panel-list-item {
-			color: $list-item-color;
-
-			&:hover,
-			&.active {
-				color: $list-item-color;
-
-				:global(.tc-svg-icon) {
-					color: $list-item-color;
+				> span {
+					// .sr-only
+					position: absolute;
+					width: 1px;
+					height: 1px;
+					padding: 0;
+					margin: -1px;
+					overflow: hidden;
+					clip: rect(0, 0, 0, 0);
+					border: none;
 				}
-			}
 
-			&:hover {
-				background-color: $list-item-hover-color;
-			}
+				&:hover {
+					opacity: 1;
+					background-color: $list-item-hover-color;
+				}
 
-			&.active {
-				background-color: $list-item-active-color;
+				.tc-svg-icon {
+					width: $svg-sm-size;
+					height: $svg-sm-size;
+					transition: 0.2s transform ease-out;
+				}
 			}
 		}
 	}
@@ -132,11 +94,13 @@ $toggle-button-padding: $padding-small - 1;
 		}
 
 		.toggle-btn {
-			:global(.btn.btn-link) {
-				padding: $padding-small;
+			:global {
+				.btn.btn-link {
+					padding: $padding-small;
 
-				:global(.tc-svg-icon) {
-					transform: rotate(-180deg);
+					.tc-svg-icon {
+						transform: rotate(-180deg);
+					}
 				}
 			}
 		}
@@ -156,22 +120,24 @@ $toggle-button-padding: $padding-small - 1;
 			}
 		}
 
-		:global(.btn.btn-link) {
-			padding: $padding-normal $tc-side-panel-large-padding;
+		:global {
+			.btn.btn-link {
+				padding: $padding-normal $tc-side-panel-large-padding;
 
-			> span {
-				width: $tc-side-panel-large-labels-width;
-			}
+				> span {
+					width: $tc-side-panel-large-labels-width;
+				}
 
-			:global(.tc-svg-icon) + span {
-				margin-left: $tc-side-panel-large-padding;
+				.tc-svg-icon + span {
+					margin-left: $tc-side-panel-large-padding;
+				}
 			}
 		}
 
 		&.docked {
 			&,
 			> ul,
-			.tc-side-panel-list-item {
+			:global(.tc-action-list-item) {
 				width: $tc-side-panel-large-docked-width;
 			}
 		}
@@ -187,33 +153,37 @@ $toggle-button-padding: $padding-small - 1;
 		.toggle-btn {
 			background-color: $wild-sand;
 
-			:global(.btn.btn-link),
-			:global(.tc-svg-icon) {
-				color: $dove-gray;
+			:global {
+				.btn.btn-link,
+				.tc-svg-icon {
+					color: $dove-gray;
+				}
 			}
 		}
 
-		.tc-side-panel-list-item {
-			color: $dove-gray;
+		:global {
+			.tc-action-list-item {
+				color: $dove-gray;
 
-			&:hover {
-				background-color: $list-item-reverse-hover-color;
+				&:hover {
+					background-color: $list-item-reverse-hover-color;
 
-				:global(.btn.btn-link) {
-					color: $dove-gray;
+					.btn.btn-link {
+						color: $dove-gray;
+					}
+
+					.tc-svg-icon {
+						color: $silver;
+					}
 				}
 
-				:global(.tc-svg-icon) {
-					color: $silver;
-				}
-			}
+				&.active {
+					background-color: $list-item-color;
 
-			&.active {
-				background-color: $list-item-color;
-
-				:global(.btn.btn-link),
-				:global(.tc-svg-icon) {
-					color: $brand-primary;
+					.btn.btn-link,
+					.tc-svg-icon {
+						color: $brand-primary;
+					}
 				}
 			}
 		}
