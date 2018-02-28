@@ -98,24 +98,24 @@ const props = {
 	brand: {
 		id: 'header-brand',
 		label: 'Example App Name',
-    items: [
-      {
-        icon: 'talend-logo-dp',
-        key: 'tdp',
-        label: 'Data Preparation',
-      },
-      {
-        icon: 'talend-logo-ic',
-        key: 'tic',
-        label: 'Integration Cloud',
-      },
-      {
-        icon: 'talend-logo-mc',
-        key: 'tmc',
-        label: 'Management Console',
-      },
-    ],
-    onSelect: action('onProductClick'),
+		items: [
+			{
+				icon: 'talend-logo-dp',
+				key: 'tdp',
+				label: 'Data Preparation',
+			},
+			{
+				icon: 'talend-logo-ic',
+				key: 'tic',
+				label: 'Integration Cloud',
+			},
+			{
+				icon: 'talend-logo-mc',
+				key: 'tmc',
+				label: 'Management Console',
+			},
+		],
+		onSelect: action('onProductClick'),
 	},
 	logo: {
 		id: 'header-logo',
