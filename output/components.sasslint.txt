@@ -18,10 +18,5 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-src/PieChartButton/PieChartButton.scss
-   1:2  error  Leading underscores are not allowed     clean-import-paths
-   1:2  error  File extensions are not allowed         clean-import-paths
-  13:2  error  Mixins should come before declarations  mixins-before-declarations
-
-✖ 8 problems (5 errors, 3 warnings)
+✖ 5 problems (2 errors, 3 warnings)
 
