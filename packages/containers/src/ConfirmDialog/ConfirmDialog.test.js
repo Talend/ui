@@ -1,18 +1,16 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { fromJS, Map } from 'immutable';
-import { store, Provider } from '@talend/react-cmf/lib/mock';
+import mock, { store, Provider } from '@talend/react-cmf/lib/mock';
 
 import Container from './ConfirmDialog.container';
-import Connected from './ConfirmDialog.connect';
-
+import Connected, { mapStateToProps } from './ConfirmDialog.connect';
 
 import { showConfirmDialog, hideConfirmDialog } from './showHideConfirmDialog';
 
-jest.mock(
-	'@talend/react-components',
-	() => ({ ConfirmDialog: props => (<div className="tc-confirm-dialog" {...props} />) })
-);
+jest.mock('@talend/react-components', () => ({
+	ConfirmDialog: props => <div className="tc-confirm-dialog" {...props} />,
+}));
 
 describe('Container ConfirmDialog', () => {
 	it('should not render', () => {
@@ -35,11 +33,13 @@ describe('Container ConfirmDialog', () => {
 			cancelAction: 'menu:demo',
 			model: { foo: 'bar' },
 		});
-		const wrapper = renderer.create(
-			<Provider>
-				<Container state={state} />,
-			</Provider>
-		).toJSON();
+		const wrapper = renderer
+			.create(
+				<Provider>
+					<Container state={state} />,
+				</Provider>,
+			)
+			.toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
 });
@@ -48,6 +48,24 @@ describe('Connected ConfirmDialog', () => {
 	it('should connect ConfirmDialog', () => {
 		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
 		expect(Connected.WrappedComponent).toBe(Container);
+	});
+
+	it('should set validateAction and cancelAction', () => {
+		const cmfState = new Map({
+			size: 'small',
+			header: 'DO SOMETHING',
+			show: true,
+			children: 'Confirm this !',
+			validateAction: 'object:validate',
+			cancelAction: 'object:cancel',
+		});
+		const state = mock.state();
+		state.cmf.settings.actions['object:validate'] = { name: 'foo' };
+		state.cmf.settings.actions['object:cancel'] = { name: 'foo1' };
+
+		const props = mapStateToProps(state, { oneProp: 'a prop' }, { state: cmfState });
+		expect(props.validateAction.name).toEqual('foo');
+		expect(props.cancelAction.name).toEqual('foo1');
 	});
 });
 
@@ -79,8 +97,11 @@ describe('ConfirmDialog.show/hide', () => {
 
 		const newState = showConfirmDialog(state, action);
 		expect(newState).not.toBe(state);
-		const confirmDialoVisibility =
-			newState.cmf.components.getIn(['CMFContainer(ConfirmDialog)', 'ConfirmDialog', 'show']);
+		const confirmDialoVisibility = newState.cmf.components.getIn([
+			'CMFContainer(ConfirmDialog)',
+			'ConfirmDialog',
+			'show',
+		]);
 		expect(confirmDialoVisibility).toBeTruthy();
 	});
 
@@ -96,9 +117,11 @@ describe('ConfirmDialog.show/hide', () => {
 
 		const newState = hideConfirmDialog(state);
 		expect(newState).not.toBe(state);
-		const confirmDialogVisibility =
-			newState.cmf.components.getIn(['CMFContainer(ConfirmDialog)', 'ConfirmDialog', 'show']);
+		const confirmDialogVisibility = newState.cmf.components.getIn([
+			'CMFContainer(ConfirmDialog)',
+			'ConfirmDialog',
+			'show',
+		]);
 		expect(confirmDialogVisibility).toBeFalsy();
 	});
 });
-

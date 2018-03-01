@@ -82,6 +82,40 @@ function onEnter({ router, dispatch }) {
 }
 ```
 
+## v0.160.0
+* icon: AWS-kinesis
+* PR: [chore(icons): update AWS-kinesis.svg](https://github.com/Talend/ui/pull/1092)
+* Change: name change
+
+Before
+```
+AWS-kinesis.svg
+```
+
+After
+```
+aws-kinesis.svg
+```
+
+* Typeahead: new flag to manage the display mode
+* PR: [fix(components/typeahead): use a flag for the display mode](https://github.com/Talend/ui/pull/1101)
+* Change: flag instead of onToggle presence
+
+Before
+```jsx
+<Typeahead onToggle={func} />         // button
+<Typeahead onToggle={undefined} />    // input
+```
+
+After
+```jsx
+<Typeahead onToggle={func} docked />  // button
+<Typeahead onToggle={func} />         // input
+```
+
+- `docked === true && onToggle !== undefined` : the toggle button is displayed
+- `docked !== true || onToggle === undefined` : the typeahead input is displayed
+
 ## v0.157.0
 * cmf: route onLeave/onEnter
 * PR: [feat(cmf): route onEnter/onLeave with dispatch](https://github.com/Talend/ui/pull/1082)
@@ -95,7 +129,8 @@ function onLeave(nextState, replace) { }
 
 After
 ```javascript
-function onEnter(router, dispatch) { const { nextState, replace } = router; }
+function onEnter(router, dispatch)
+ { const { nextState, replace } = router; }
 function onLeave(router, dispatch) { }
 ```
 
