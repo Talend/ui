@@ -7,6 +7,7 @@
     "build": "rimraf ./dist && babel -d dist ./src/ --ignore **/*.test.js",
     "start": "echo nothing to start",
     "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",
+    "test:cov": "npm run test",
     "lint:es": "eslint --config ../../.eslintrc --ext .js src",
     "lint": "npm run lint:es"
   },
