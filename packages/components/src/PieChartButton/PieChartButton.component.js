@@ -123,8 +123,44 @@ function sortElements(a, b) {
 }
 
 /**
- * This function sets minimum percentage show with the minimum percentage shown
  * It increase values below minPercentage & decrease values above if some are increased
+ * setMinimumPercentage([{percentage: 50}, {percentage: 2}], 5) would result on
+ * [{percentage: 50, percentageShown: 47}, {percentage: 2, percentageShown: 5}]
+ * @param {*} values the set of values
+ * @param {*} minimumPercentage the minimum value we have to show
+ * @param {*} amountToSubtract the amount to decrease
+ */
+export function distributePercentages(values, minimumPercentage, amountToSubtract) {
+	/**
+	 * This function decrease the percentage shown & the amount to subtract by 1
+	 * @param {object} element the current element
+	 */
+	function decreaseElement(element) {
+		if (amountToSubtract > 0) {
+			// eslint-disable-next-line no-param-reassign
+			element.percentageShown -= 1;
+			// eslint-disable-next-line no-param-reassign
+			amountToSubtract -= 1;
+		}
+	}
+
+	while (amountToSubtract > 0) {
+		const elementsToDecrease = values
+			.filter(value => value.percentageShown > minimumPercentage)
+			.sort(sortElements);
+		if (elementsToDecrease.length > 0) {
+			elementsToDecrease.forEach(decreaseElement);
+		} else {
+			// eslint-disable-next-line no-param-reassign
+			amountToSubtract = 0;
+		}
+	}
+
+	return values;
+}
+
+/**
+ * This function sets minimum percentage show with the minimum percentage shown
  * @param {array} values the set of values
  * @param {number} minimumPercentage the minimum value we have to show
  */
@@ -143,30 +179,7 @@ export function setMinimumPercentage(model, minimumPercentage) {
 		return { ...value, percentageShown: value.percentage };
 	});
 
-	/**
-	 * This function decrease the percentage shown & the amount to subtract by 1
-	 * @param {object} element the current element
-	 */
-	function decreaseElement(element) {
-		if (amountToSubtract > 0) {
-			// eslint-disable-next-line no-param-reassign
-			element.percentageShown -= 1;
-			amountToSubtract -= 1;
-		}
-	}
-
-	while (amountToSubtract > 0) {
-		const elementsToDecrease = valuesMins
-			.filter(value => value.percentageShown > minimumPercentage)
-			.sort(sortElements);
-		if (elementsToDecrease.length > 0) {
-			elementsToDecrease.forEach(decreaseElement);
-		} else {
-			amountToSubtract = 0;
-		}
-	}
-
-	return valuesMins;
+	return distributePercentages(valuesMins, minimumPercentage, amountToSubtract);
 }
 
 /**

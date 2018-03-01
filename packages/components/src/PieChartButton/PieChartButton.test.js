@@ -3,6 +3,7 @@ import initStoryshots from '@storybook/addon-storyshots';
 import {
 	decorateWithOverlay,
 	decorateWithTooltip,
+	distributePercentages,
 	getAngle,
 	getCircle,
 	getDisplaySize,
@@ -115,6 +116,39 @@ describe('PieChartButton', () => {
 
 			// then
 			expect(result).toBeNull();
+		});
+	});
+
+	describe('distributePercentages', () => {
+		it('should return an empty array if empty array is set', () => {
+			// given
+
+			// when
+			const result = distributePercentages([], 5, 2);
+
+			// then
+			expect(result).toEqual([]);
+		});
+
+		it('should move some percentages to fit the minimum', () => {
+			// given
+			const values = [
+				{ percentageShown: 40 },
+				{ percentageShown: 6 },
+				{ percentageShown: 5 },
+				{ percentageShown: 5 },
+			];
+
+			// when
+			const result = distributePercentages(values, 5, 7);
+
+			// then
+			expect(result).toEqual([
+				{ percentageShown: 34 },
+				{ percentageShown: 5 },
+				{ percentageShown: 5 },
+				{ percentageShown: 5 },
+			]);
 		});
 	});
 
