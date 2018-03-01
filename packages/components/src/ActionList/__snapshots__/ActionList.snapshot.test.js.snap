@@ -1,0 +1,721 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots ActionList default 1`] = `
+<div>
+  <svg
+    focusable="false"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-clock"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.672 0L0 3.06l1.05 1.193 3.634-3.058zm8.656 0l-1.05 1.194 3.672 3.095L16 3.06 12.328 0zM7.98 1.68a6.953 6.953 0 0 0-5.096 2.126A6.795 6.795 0 0 0 .787 8.877a6.713 6.713 0 0 0 2.098 5.035A7.065 7.065 0 0 0 7.981 16a7.065 7.065 0 0 0 5.097-2.088 6.854 6.854 0 0 0 2.098-5.035 6.938 6.938 0 0 0-2.098-5.072A6.952 6.952 0 0 0 7.98 1.679zm0 1.603a5.539 5.539 0 0 1 3.972 1.641 5.341 5.341 0 0 1 1.65 3.916 5.425 5.425 0 0 1-1.65 3.953 5.538 5.538 0 0 1-3.972 1.641 5.415 5.415 0 0 1-3.972-1.64A5.39 5.39 0 0 1 2.4 8.838a5.306 5.306 0 0 1 1.61-3.916 5.415 5.415 0 0 1 3.972-1.64zM7 5v5l3 1 1-1-3-1V5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-star"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 0l2.5 5 5.5.8-4 3.9.9 5.5L8 12.6l-4.9 2.6.9-5.5-4-3.9L5.5 5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-badge"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 9l-4 4h3v3l4-5c-.215-.117-3-2-3-2zm8 0s-2.881 1.906-3 2l4 5v-3h3zM8-.063l.813.914 1.1-.533.402 1.155 1.22-.071-.07 1.22 1.154.402-.532 1.1.913.813-.913.813.532 1.1-1.155.402.072 1.22-1.221-.07-.402 1.155-1.1-.533L8 9.937l-.813-.913-1.1.533-.402-1.155-1.22.07.07-1.22-1.154-.401.532-1.1L3 4.936l.913-.813-.532-1.1 1.155-.402-.072-1.22 1.221.07.402-1.154 1.1.533z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-expanded"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 2h4v5H1zm5 5h9V2H6zm-5 7h4V9H1zm5 0h9V9H6z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-folder"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 6l2 8h12l2-8zm15-2H7L5 2H1v3h14z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-tdp-negative"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5.556 11.132l.579-1.101h3.532l.618 1.1H5.556zm5.827.565l-2.2-3.92a.347.347 0 0 0-.197-.16v-.84h.069a.482.482 0 0 0 0-.963H6.786a.482.482 0 0 0 0 .963h.069v.84a.347.347 0 0 0-.197.16l-2.2 3.92a.342.342 0 0 0 .299.512h6.327a.342.342 0 0 0 .299-.512zM8.997 4.103a.788.788 0 1 1-1.576 0 .788.788 0 0 1 1.576 0m1.593 1.162a.527.527 0 1 1-1.055 0 .527.527 0 0 1 1.055 0M6.352 4.73a.527.527 0 1 1-1.055.001.527.527 0 0 1 1.055 0m8.935 3.64L13.92 7.226v.828h-1.538a.313.313 0 1 0-.001.628h1.539v.833l1.367-1.145z"
+        />
+        <path
+          d="M14.836 5.233A7.431 7.431 0 0 0 8.782.635.881.881 0 0 0 7.938 0a.882.882 0 0 0-.844.634 7.494 7.494 0 0 0-6.075 4.628l.002.001a.313.313 0 0 0 .564.267v-.002l.005-.01c.918-2.29 3.043-3.965 5.55-4.259.14.3.444.51.798.51a.88.88 0 0 0 .794-.505 6.804 6.804 0 0 1 5.518 4.19c.053.14.16.256.314.256a.315.315 0 0 0 .314-.314c0-.059-.042-.163-.042-.163m-.765 6.1c-.224 0-.339.248-.403.354a6.796 6.796 0 0 1-4.922 3.079.882.882 0 0 0-1.62-.001c-3.124-.38-5.647-2.903-5.967-6.084h2.053a.315.315 0 1 0 0-.628v-.001H.587a.086.086 0 0 0-.086.083v.022a7.457 7.457 0 0 0 .034.559h.001l.001.019c.011.098.033.276.041.332.484 3.339 3.191 5.944 6.521 6.324a.881.881 0 0 0 .836.609.882.882 0 0 0 .837-.61c2.23-.253 4.171-1.506 5.4-3.32.047-.07.203-.27.21-.427a.306.306 0 0 0-.31-.31"
+        />
+      </svg>
+    </symbol>
+  </svg>
+  <div
+    style={
+      Object {
+        "background": "#236192",
+        "display": "inline-table",
+      }
+    }
+  >
+    <ul
+      className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list"
+    >
+      <li
+        className="theme-tc-action-list-item tc-action-list-item active theme-active"
+        role="presentation"
+        title="Recent datasets"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="context-nav-recent-datasets"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-clock"
+            />
+          </svg>
+          <span>
+            Recent datasets
+          </span>
+        </button>
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Favorite datasets"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="context-nav-favorite-datasets"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-star"
+            />
+          </svg>
+          <span>
+            Favorite datasets
+          </span>
+        </button>
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Certified datasets"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="context-nav-certified-datasets"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-badge"
+            />
+          </svg>
+          <span>
+            Certified datasets
+          </span>
+        </button>
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="All datasets"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="context-nav-all-datasets"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-expanded"
+            />
+          </svg>
+          <span>
+            All datasets
+          </span>
+        </button>
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Import file"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="context-nav-import-file"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-folder"
+            />
+          </svg>
+          <span>
+            Import file
+          </span>
+        </button>
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Use magic"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="context-nav-use-magic"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-tdp-negative"
+            />
+          </svg>
+          <span>
+            Use magic
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ActionList single 1`] = `
+<div>
+  <svg
+    focusable="false"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-clock"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.672 0L0 3.06l1.05 1.193 3.634-3.058zm8.656 0l-1.05 1.194 3.672 3.095L16 3.06 12.328 0zM7.98 1.68a6.953 6.953 0 0 0-5.096 2.126A6.795 6.795 0 0 0 .787 8.877a6.713 6.713 0 0 0 2.098 5.035A7.065 7.065 0 0 0 7.981 16a7.065 7.065 0 0 0 5.097-2.088 6.854 6.854 0 0 0 2.098-5.035 6.938 6.938 0 0 0-2.098-5.072A6.952 6.952 0 0 0 7.98 1.679zm0 1.603a5.539 5.539 0 0 1 3.972 1.641 5.341 5.341 0 0 1 1.65 3.916 5.425 5.425 0 0 1-1.65 3.953 5.538 5.538 0 0 1-3.972 1.641 5.415 5.415 0 0 1-3.972-1.64A5.39 5.39 0 0 1 2.4 8.838a5.306 5.306 0 0 1 1.61-3.916 5.415 5.415 0 0 1 3.972-1.64zM7 5v5l3 1 1-1-3-1V5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-star"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 0l2.5 5 5.5.8-4 3.9.9 5.5L8 12.6l-4.9 2.6.9-5.5-4-3.9L5.5 5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-badge"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 9l-4 4h3v3l4-5c-.215-.117-3-2-3-2zm8 0s-2.881 1.906-3 2l4 5v-3h3zM8-.063l.813.914 1.1-.533.402 1.155 1.22-.071-.07 1.22 1.154.402-.532 1.1.913.813-.913.813.532 1.1-1.155.402.072 1.22-1.221-.07-.402 1.155-1.1-.533L8 9.937l-.813-.913-1.1.533-.402-1.155-1.22.07.07-1.22-1.154-.401.532-1.1L3 4.936l.913-.813-.532-1.1 1.155-.402-.072-1.22 1.221.07.402-1.154 1.1.533z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-expanded"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 2h4v5H1zm5 5h9V2H6zm-5 7h4V9H1zm5 0h9V9H6z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-folder"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 6l2 8h12l2-8zm15-2H7L5 2H1v3h14z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-tdp-negative"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5.556 11.132l.579-1.101h3.532l.618 1.1H5.556zm5.827.565l-2.2-3.92a.347.347 0 0 0-.197-.16v-.84h.069a.482.482 0 0 0 0-.963H6.786a.482.482 0 0 0 0 .963h.069v.84a.347.347 0 0 0-.197.16l-2.2 3.92a.342.342 0 0 0 .299.512h6.327a.342.342 0 0 0 .299-.512zM8.997 4.103a.788.788 0 1 1-1.576 0 .788.788 0 0 1 1.576 0m1.593 1.162a.527.527 0 1 1-1.055 0 .527.527 0 0 1 1.055 0M6.352 4.73a.527.527 0 1 1-1.055.001.527.527 0 0 1 1.055 0m8.935 3.64L13.92 7.226v.828h-1.538a.313.313 0 1 0-.001.628h1.539v.833l1.367-1.145z"
+        />
+        <path
+          d="M14.836 5.233A7.431 7.431 0 0 0 8.782.635.881.881 0 0 0 7.938 0a.882.882 0 0 0-.844.634 7.494 7.494 0 0 0-6.075 4.628l.002.001a.313.313 0 0 0 .564.267v-.002l.005-.01c.918-2.29 3.043-3.965 5.55-4.259.14.3.444.51.798.51a.88.88 0 0 0 .794-.505 6.804 6.804 0 0 1 5.518 4.19c.053.14.16.256.314.256a.315.315 0 0 0 .314-.314c0-.059-.042-.163-.042-.163m-.765 6.1c-.224 0-.339.248-.403.354a6.796 6.796 0 0 1-4.922 3.079.882.882 0 0 0-1.62-.001c-3.124-.38-5.647-2.903-5.967-6.084h2.053a.315.315 0 1 0 0-.628v-.001H.587a.086.086 0 0 0-.086.083v.022a7.457 7.457 0 0 0 .034.559h.001l.001.019c.011.098.033.276.041.332.484 3.339 3.191 5.944 6.521 6.324a.881.881 0 0 0 .836.609.882.882 0 0 0 .837-.61c2.23-.253 4.171-1.506 5.4-3.32.047-.07.203-.27.21-.427a.306.306 0 0 0-.31-.31"
+        />
+      </svg>
+    </symbol>
+  </svg>
+  <div
+    style={
+      Object {
+        "background": "#236192",
+        "display": "inline-table",
+      }
+    }
+  >
+    <ul
+      className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list"
+    >
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Favorite datasets"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="context-nav-favorite-datasets"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
+          >
+            <use
+              xlinkHref="#talend-star"
+            />
+          </svg>
+          <span>
+            Favorite datasets
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ActionList with custom class names 1`] = `
+<div>
+  <svg
+    focusable="false"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <symbol
+      id="talend-clock"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.672 0L0 3.06l1.05 1.193 3.634-3.058zm8.656 0l-1.05 1.194 3.672 3.095L16 3.06 12.328 0zM7.98 1.68a6.953 6.953 0 0 0-5.096 2.126A6.795 6.795 0 0 0 .787 8.877a6.713 6.713 0 0 0 2.098 5.035A7.065 7.065 0 0 0 7.981 16a7.065 7.065 0 0 0 5.097-2.088 6.854 6.854 0 0 0 2.098-5.035 6.938 6.938 0 0 0-2.098-5.072A6.952 6.952 0 0 0 7.98 1.679zm0 1.603a5.539 5.539 0 0 1 3.972 1.641 5.341 5.341 0 0 1 1.65 3.916 5.425 5.425 0 0 1-1.65 3.953 5.538 5.538 0 0 1-3.972 1.641 5.415 5.415 0 0 1-3.972-1.64A5.39 5.39 0 0 1 2.4 8.838a5.306 5.306 0 0 1 1.61-3.916 5.415 5.415 0 0 1 3.972-1.64zM7 5v5l3 1 1-1-3-1V5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-star"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 0l2.5 5 5.5.8-4 3.9.9 5.5L8 12.6l-4.9 2.6.9-5.5-4-3.9L5.5 5z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-badge"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 9l-4 4h3v3l4-5c-.215-.117-3-2-3-2zm8 0s-2.881 1.906-3 2l4 5v-3h3zM8-.063l.813.914 1.1-.533.402 1.155 1.22-.071-.07 1.22 1.154.402-.532 1.1.913.813-.913.813.532 1.1-1.155.402.072 1.22-1.221-.07-.402 1.155-1.1-.533L8 9.937l-.813-.913-1.1.533-.402-1.155-1.22.07.07-1.22-1.154-.401.532-1.1L3 4.936l.913-.813-.532-1.1 1.155-.402-.072-1.22 1.221.07.402-1.154 1.1.533z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-expanded"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 2h4v5H1zm5 5h9V2H6zm-5 7h4V9H1zm5 0h9V9H6z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-folder"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 6l2 8h12l2-8zm15-2H7L5 2H1v3h14z"
+        />
+      </svg>
+    </symbol>
+    <symbol
+      id="talend-tdp-negative"
+    >
+      <svg
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5.556 11.132l.579-1.101h3.532l.618 1.1H5.556zm5.827.565l-2.2-3.92a.347.347 0 0 0-.197-.16v-.84h.069a.482.482 0 0 0 0-.963H6.786a.482.482 0 0 0 0 .963h.069v.84a.347.347 0 0 0-.197.16l-2.2 3.92a.342.342 0 0 0 .299.512h6.327a.342.342 0 0 0 .299-.512zM8.997 4.103a.788.788 0 1 1-1.576 0 .788.788 0 0 1 1.576 0m1.593 1.162a.527.527 0 1 1-1.055 0 .527.527 0 0 1 1.055 0M6.352 4.73a.527.527 0 1 1-1.055.001.527.527 0 0 1 1.055 0m8.935 3.64L13.92 7.226v.828h-1.538a.313.313 0 1 0-.001.628h1.539v.833l1.367-1.145z"
+        />
+        <path
+          d="M14.836 5.233A7.431 7.431 0 0 0 8.782.635.881.881 0 0 0 7.938 0a.882.882 0 0 0-.844.634 7.494 7.494 0 0 0-6.075 4.628l.002.001a.313.313 0 0 0 .564.267v-.002l.005-.01c.918-2.29 3.043-3.965 5.55-4.259.14.3.444.51.798.51a.88.88 0 0 0 .794-.505 6.804 6.804 0 0 1 5.518 4.19c.053.14.16.256.314.256a.315.315 0 0 0 .314-.314c0-.059-.042-.163-.042-.163m-.765 6.1c-.224 0-.339.248-.403.354a6.796 6.796 0 0 1-4.922 3.079.882.882 0 0 0-1.62-.001c-3.124-.38-5.647-2.903-5.967-6.084h2.053a.315.315 0 1 0 0-.628v-.001H.587a.086.086 0 0 0-.086.083v.022a7.457 7.457 0 0 0 .034.559h.001l.001.019c.011.098.033.276.041.332.484 3.339 3.191 5.944 6.521 6.324a.881.881 0 0 0 .836.609.882.882 0 0 0 .837-.61c2.23-.253 4.171-1.506 5.4-3.32.047-.07.203-.27.21-.427a.306.306 0 0 0-.31-.31"
+        />
+      </svg>
+    </symbol>
+  </svg>
+  <div>
+    <p>
+      You can add your custom classnames to the container and items
+    </p>
+    <pre>
+      
+      .custom-container-classname {
+      	border: 5px solid turquoise;
+      }
+      
+      .custom-item-classname {
+      	background-color: pink;
+      }
+      					
+    </pre>
+    <pre>
+      
+      &lt;ActionList
+      	className={'custom-container-classname'}
+      	itemClassName={'custom-item-classname'}
+      	{...otherProps}
+      /&gt;
+      			
+    </pre>
+    <style>
+      .custom-container-classname {
+      						border: 5px solid turquoise;
+      					}
+      
+      					.custom-item-classname {
+      						background-color: pink;
+      					}
+    </style>
+    <div
+      style={
+        Object {
+          "background": "#236192",
+          "display": "inline-table",
+        }
+      }
+    >
+      <ul
+        className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list custom-container-classname"
+      >
+        <li
+          className="theme-tc-action-list-item tc-action-list-item custom-item-classname active theme-active"
+          role="presentation"
+          title="Recent datasets"
+        >
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="context-nav-recent-datasets"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-clock"
+              />
+            </svg>
+            <span>
+              Recent datasets
+            </span>
+          </button>
+        </li>
+        <li
+          className="theme-tc-action-list-item tc-action-list-item custom-item-classname"
+          role="presentation"
+          title="Favorite datasets"
+        >
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="context-nav-favorite-datasets"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-star"
+              />
+            </svg>
+            <span>
+              Favorite datasets
+            </span>
+          </button>
+        </li>
+        <li
+          className="theme-tc-action-list-item tc-action-list-item custom-item-classname"
+          role="presentation"
+          title="Certified datasets"
+        >
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="context-nav-certified-datasets"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-badge"
+              />
+            </svg>
+            <span>
+              Certified datasets
+            </span>
+          </button>
+        </li>
+        <li
+          className="theme-tc-action-list-item tc-action-list-item custom-item-classname"
+          role="presentation"
+          title="All datasets"
+        >
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="context-nav-all-datasets"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-expanded"
+              />
+            </svg>
+            <span>
+              All datasets
+            </span>
+          </button>
+        </li>
+        <li
+          className="theme-tc-action-list-item tc-action-list-item custom-item-classname"
+          role="presentation"
+          title="Import file"
+        >
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="context-nav-import-file"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-folder"
+              />
+            </svg>
+            <span>
+              Import file
+            </span>
+          </button>
+        </li>
+        <li
+          className="theme-tc-action-list-item tc-action-list-item custom-item-classname"
+          role="presentation"
+          title="Use magic"
+        >
+          <button
+            className="btn btn-link"
+            disabled={false}
+            id="context-nav-use-magic"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-tdp-negative"
+              />
+            </svg>
+            <span>
+              Use magic
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
