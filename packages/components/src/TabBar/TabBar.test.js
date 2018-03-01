@@ -42,7 +42,7 @@ describe('TabBar', () => {
 	});
 
 	it('should select a tab from its key', () => {
-		const tabBar = (<TabBar {...props} />);
+		const tabBar = <TabBar {...props} />;
 		const wrapper = mount(tabBar);
 
 		expect(
