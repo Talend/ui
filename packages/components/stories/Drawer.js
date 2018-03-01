@@ -124,7 +124,7 @@ const tabs = {
 		},
 	],
 	onSelect: action('Tab clicked'),
-	selected: 'navigator',
+	selectedKey: 'navigator',
 };
 
 function scrollableContent() {
