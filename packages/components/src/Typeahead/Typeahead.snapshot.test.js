@@ -14,11 +14,13 @@ const itemsObject = [
 		suggestions: [
 			{
 				title: 'le title 1',
-				description: 'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
+				description:
+					'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
 			},
 			{
 				title: 'title 2 les elephants elementaires ont des aile ',
-				description: 'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
+				description:
+					'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
 			},
 		],
 	},
@@ -31,7 +33,8 @@ const itemsObject = [
 		suggestions: [
 			{
 				title: 'title 3',
-				description: 'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
+				description:
+					'description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.',
 			},
 		],
 	},
@@ -46,6 +49,7 @@ describe('Typeahead', () => {
 			const props = {
 				id: 'my-search',
 				onToggle: jest.fn(),
+				docked: true,
 				icon: {
 					name: 'fa fa-search',
 					title: 'Toggle search bar',
@@ -54,9 +58,7 @@ describe('Typeahead', () => {
 			};
 
 			// when
-			const wrapper = renderer
-				.create(<Typeahead {...props} />)
-				.toJSON();
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
@@ -72,9 +74,7 @@ describe('Typeahead', () => {
 			};
 
 			// when
-			const wrapper = renderer
-				.create(<Typeahead {...props} />)
-				.toJSON();
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
@@ -90,9 +90,7 @@ describe('Typeahead', () => {
 				multiSection: false,
 			};
 			// when
-			const wrapper = renderer
-				.create(<Typeahead {...props} />)
-				.toJSON();
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
@@ -105,9 +103,7 @@ describe('Typeahead', () => {
 				items: itemsObject,
 			};
 			// when
-			const wrapper = renderer
-				.create(<Typeahead {...props} />)
-				.toJSON();
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
@@ -121,9 +117,7 @@ describe('Typeahead', () => {
 			};
 
 			// when
-			const wrapper = renderer
-				.create(<Typeahead {...props} />)
-				.toJSON();
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
@@ -138,9 +132,7 @@ describe('Typeahead', () => {
 			};
 
 			// when
-			const wrapper = renderer
-				.create(<Typeahead {...props} />)
-				.toJSON();
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
 
 			// then
 			expect(wrapper).toMatchSnapshot();
