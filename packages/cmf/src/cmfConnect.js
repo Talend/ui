@@ -46,7 +46,6 @@ let newState;
 
 function serializeEvent(event) {
 	if (event.persist) {
-		debugger;
 		return event.persist();
 	}
 	return event;
