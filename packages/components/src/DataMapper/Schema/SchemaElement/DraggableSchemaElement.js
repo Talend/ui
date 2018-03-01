@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { ItemTypes, SchemaType } from '../../Constants';
-import { DragSource } from 'react-dnd';
-import { DropTarget } from 'react-dnd';
+import { DragSource, DropTarget } from 'react-dnd';
 import PropTypes from 'prop-types';
 import flow from 'lodash/flow';
+import { ItemTypes, SchemaType } from '../../Constants';
 import SchemaElement from './SchemaElement.js';
 
 const elementSource = {
@@ -17,11 +16,11 @@ const elementSource = {
 
 const elementTarget = {
 	drop(props, monitor) {
-		var sourceElem = monitor.getItem();
+		const sourceElem = monitor.getItem();
 		props.performMapping(sourceElem.elementId, props.name);
 	},
 	canDrop(props, monitor) {
-		var sourceElem = monitor.getItem();
+		const sourceElem = monitor.getItem();
 		return props.schemaType !== sourceElem.schemaType && sourceElem.schemaType === SchemaType.INPUT;
 	},
 };
@@ -72,6 +71,12 @@ class DraggableSchemaElement extends Component {
 DraggableSchemaElement.propTypes = {
 	name: PropTypes.string,
 	schemaType: PropTypes.string,
+	mapped: PropTypes.bool,
+	connectDragSource: PropTypes.func,
+	connectDropTarget: PropTypes.func,
+	onSelect: PropTypes.func,
+	dragOver: PropTypes.func,
+	selected: PropTypes.bool,
 };
 
 export default flow(

@@ -1,7 +1,6 @@
 import React from 'react';
-import Schema from './Schema.js';
 import renderer from 'react-test-renderer';
-import { SchemaType, MappingSide } from '../Constants';
+import Schema from './Schema.js';
 
 const emptySchema = [];
 const schema = ['element_1', 'element_2', 'element_3'];

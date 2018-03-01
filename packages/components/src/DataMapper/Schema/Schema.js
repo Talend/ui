@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SchemaElement from './SchemaElement/SchemaElement.js';
 import DraggableSchemaElement from './SchemaElement/DraggableSchemaElement.js';
 import { SchemaType } from '../Constants';
@@ -28,17 +29,16 @@ function renderSchemaElement(type, elem, draggable, mapped, performMapping, sele
 				onSelect={onSelect}
 			/>
 		);
-	} else {
-		return (
-			<SchemaElement
-				key={elem}
-				name={elem}
-				schemaType={type}
-				selected={isSelected(elem, selection, type)}
-				onSelect={onSelect}
-			/>
-		);
 	}
+	return (
+		<SchemaElement
+			key={elem}
+			name={elem}
+			schemaType={type}
+			selected={isSelected(elem, selection, type)}
+			onSelect={onSelect}
+		/>
+	);
 }
 
 export default class Schema extends Component {
@@ -46,7 +46,7 @@ export default class Schema extends Component {
 		const scrollTop = this.contentNode.scrollTop;
 		const children = this.contentNode.childNodes;
 		const childranArray = Array.from(children);
-		const child = childranArray.find(child => child.firstChild.innerHTML === element);
+		const child = childranArray.find(c => c.firstChild.innerHTML === element);
 		const childOffsetTop = child.offsetTop;
 		const parentOffsetTop = this.contentNode.offsetTop;
 		const y = childOffsetTop - parentOffsetTop + child.clientHeight / 2 - scrollTop;
@@ -57,7 +57,7 @@ export default class Schema extends Component {
 		const { type, schema, draggable, mapped, performMapping, selection, onSelect } = this.props;
 		return (
 			<div className={'Schema mapper-element'}>
-				<div className="Schema-title">{type + ' schema'}</div>
+				<div className="Schema-title">{`${type} schema`}</div>
 				<div
 					ref={content => {
 						this.contentNode = content;
@@ -73,3 +73,14 @@ export default class Schema extends Component {
 		);
 	}
 }
+
+Schema.propTypes = {
+	type: PropTypes.string,
+	schema: PropTypes.array,
+	mapped: PropTypes.bool,
+	performMapping: PropTypes.func,
+	selection: PropTypes.object,
+	draggable: PropTypes.bool,
+	onSelect: PropTypes.func,
+	onScroll: PropTypes.func,
+};

@@ -1,7 +1,7 @@
-export function reverse(name, reverse) {
+export function reverse(name, rev) {
 	let className = name;
-	if (reverse) {
-		className = className + ' reverse';
+	if (rev) {
+		className += ' reverse';
 	}
 	return className;
 }

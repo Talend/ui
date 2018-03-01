@@ -1,6 +1,6 @@
 import React from 'react';
-import SchemaElement from './SchemaElement.js';
 import renderer from 'react-test-renderer';
+import SchemaElement from './SchemaElement.js';
 
 it('single-element', () => {
 	// create React tree

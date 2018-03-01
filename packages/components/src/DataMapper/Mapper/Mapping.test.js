@@ -1,6 +1,6 @@
 import React from 'react';
-import Mapping from './Mapping.js';
 import renderer from 'react-test-renderer';
+import Mapping from './Mapping.js';
 
 const mapping = [
 	{

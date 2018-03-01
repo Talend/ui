@@ -1,6 +1,6 @@
 import React from 'react';
-import MappingItem from './MappingItem.js';
 import renderer from 'react-test-renderer';
+import MappingItem from './MappingItem.js';
 
 const item = ['element_in', 'element_out'];
 

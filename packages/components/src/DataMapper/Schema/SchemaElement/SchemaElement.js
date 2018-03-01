@@ -6,15 +6,15 @@ import { reverse } from '../../Utils';
 function getClassName(props) {
 	let className = 'Schema-element';
 	if (props.highlighted) {
-		className = className + ' highlighted';
+		className += ' highlighted';
 	}
 	if (props.mapped) {
-		className = className + ' mapped';
+		className += ' mapped';
 	}
 	if (props.selected) {
-		className = className + ' selected';
+		className += ' selected';
 	}
-	className = className + ' ' + props.schemaType;
+	className += ` ${props.schemaType}`;
 	return className;
 }
 
@@ -24,7 +24,7 @@ export default class SchemaElement extends Component {
 		this.select = this.select.bind(this);
 	}
 
-	select(event) {
+	select() {
 		this.props.onSelect(this.props.name, this.props.schemaType);
 	}
 
@@ -33,6 +33,7 @@ export default class SchemaElement extends Component {
 			<div
 				className={reverse(getClassName(this.props), this.props.schemaType === SchemaType.INPUT)}
 				onClick={this.select}
+				role="button"
 			>
 				{this.props.name}
 			</div>
@@ -42,4 +43,6 @@ export default class SchemaElement extends Component {
 
 SchemaElement.propTypes = {
 	name: PropTypes.string,
+	schemaType: PropTypes.string,
+	onSelect: PropTypes.func,
 };

@@ -1,6 +1,6 @@
 import React from 'react';
-import DraggableSchemaElement from './DraggableSchemaElement.js';
 import renderer from 'react-test-renderer';
+import DraggableSchemaElement from './DraggableSchemaElement.js';
 
 it('single-element', () => {
 	// Obtain the reference to the component before React DnD wrapping

@@ -1,11 +1,10 @@
-import { mount, configure } from 'enzyme';
+import { mount } from 'enzyme';
 import React, { Component } from 'react';
-import Mapper from './Mapper.js';
-import SchemaElement from '../Schema/SchemaElement/SchemaElement.js';
-import DraggableSchemaElement from '../Schema/SchemaElement/DraggableSchemaElement.js';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
 import TestUtils from 'react-dom/test-utils';
+import Mapper from './Mapper.js';
+import DraggableSchemaElement from '../Schema/SchemaElement/DraggableSchemaElement.js';
 
 it('clear-mapping', () => {
 	const clearMapping = jest.fn();
@@ -45,6 +44,10 @@ function wrapInTestContext(DecoratedComponent) {
 	);
 }
 
+function getElementByName(elements, name) {
+	return elements.find(elem => elem.props.name === name);
+}
+
 it('perform-mapping', () => {
 	const clearMapping = jest.fn();
 	const performMapping = jest.fn();
@@ -80,7 +83,6 @@ it('perform-mapping', () => {
 	backend.simulateBeginDrag([decoratedSourceElem.getHandlerId()]);
 
 	const targetElem = getElementByName(elements, 'elem_out_1');
-	const decoratedTargetElement = targetElem.getDecoratedComponentInstance();
 
 	// simulate drag node 'elem_in_1' over target node 'elem_out_1'
 	backend.simulateHover([targetElem.getHandlerId()]);
@@ -100,7 +102,3 @@ it('perform-mapping', () => {
 	// The second argument of the first call to the function was 'elem_out_1'
 	expect(performMapping.mock.calls[0][1]).toBe('elem_out_1');
 });
-
-function getElementByName(elements, name) {
-	return elements.find(elem => elem.props.name === name);
-}

@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Schema from '../Schema/Schema.js';
-//import Mapping from './Mapping.js'
 import GMapping from '../GMapping.js';
 import { SchemaType, MappingSide } from '../Constants';
 
 function getMapped(mapping, side) {
-	var mappedElements = mapping.map(item => item[side]);
+	const mappedElements = mapping.map(item => item[side]);
 	return Array.from(new Set(mappedElements));
+}
+
+function getMappingItem(mapping, selection) {
+	if (selection.type === SchemaType.INPUT) {
+		return mapping.find(item => item.source === selection.element);
+	}
+	return mapping.find(item => item.target === selection.element);
 }
 
 export default class Mapper extends Component {
@@ -16,20 +23,17 @@ export default class Mapper extends Component {
 		this.onScroll = this.onScroll.bind(this);
 	}
 
-	getYPosition(element, type) {
-		if (type === SchemaType.INPUT) {
-			return this.inputSchema.getYPosition(element);
-		} else {
-			return this.outputSchema.getYPosition(element);
+	onScroll() {
+		if (this.gmap.updateCanvas) {
+			this.gmap.updateCanvas();
 		}
 	}
 
-	getMappingItem(mapping, selection) {
-		if (selection.type === SchemaType.INPUT) {
-			return mapping.find(item => item.source === selection.element);
-		} else {
-			return mapping.find(item => item.target === selection.element);
+	getYPosition(element, type) {
+		if (type === SchemaType.INPUT) {
+			return this.inputSchema.getYPosition(element);
 		}
+		return this.outputSchema.getYPosition(element);
 	}
 
 	getConnection() {
@@ -37,21 +41,15 @@ export default class Mapper extends Component {
 		if (selection == null || mapping.length === 0) {
 			return null;
 		}
-		const item = this.getMappingItem(mapping, selection);
+		const item = getMappingItem(mapping, selection);
 		if (item != null) {
 			const source = item.source;
 			const target = item.target;
 			const sourceYPos = this.getYPosition(source, SchemaType.INPUT);
 			const targetYPos = this.getYPosition(target, SchemaType.OUTPUT);
-			return { sourceYPos: sourceYPos, targetYPos: targetYPos };
+			return { sourceYPos, targetYPos };
 		}
 		return {};
-	}
-
-	onScroll() {
-		if (this.gmap.updateCanvas) {
-			this.gmap.updateCanvas();
-		}
 	}
 
 	render() {
@@ -108,3 +106,15 @@ export default class Mapper extends Component {
 		);
 	}
 }
+
+Mapper.propTypes = {
+	mapping: PropTypes.array,
+	selection: PropTypes.object,
+	inputSchema: PropTypes.array,
+	outputSchema: PropTypes.array,
+	performMapping: PropTypes.func,
+	clearMapping: PropTypes.func,
+	clearConnection: PropTypes.func,
+	draggable: PropTypes.bool,
+	onSelect: PropTypes.func,
+};
