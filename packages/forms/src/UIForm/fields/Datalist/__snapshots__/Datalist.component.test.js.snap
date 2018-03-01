@@ -15,6 +15,7 @@ exports[`Datalist component should render typeahead 1`] = `
     <Typeahead
       autoFocus={true}
       disabled={false}
+      docked={false}
       focusedItemIndex={undefined}
       id="my-datalist"
       items={null}
