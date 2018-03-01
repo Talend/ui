@@ -218,6 +218,7 @@ exports[`Storyshots PieChartButton default 1`] = `
       type="button"
     >
       <svg
+        className="theme-tc-pie-chart-graph tc-pie-chart-graph"
         height={20}
         width={20}
       >
@@ -269,6 +270,7 @@ exports[`Storyshots PieChartButton default 1`] = `
       type="button"
     >
       <svg
+        className="theme-tc-pie-chart-graph tc-pie-chart-graph"
         height={25}
         width={25}
       >
@@ -320,6 +322,7 @@ exports[`Storyshots PieChartButton default 1`] = `
       type="button"
     >
       <svg
+        className="theme-tc-pie-chart-graph tc-pie-chart-graph"
         height={35}
         width={35}
       >
@@ -371,6 +374,7 @@ exports[`Storyshots PieChartButton default 1`] = `
       type="button"
     >
       <svg
+        className="theme-tc-pie-chart-graph tc-pie-chart-graph"
         height={50}
         width={50}
       >
@@ -422,6 +426,7 @@ exports[`Storyshots PieChartButton default 1`] = `
       type="button"
     >
       <svg
+        className="theme-tc-pie-chart-graph tc-pie-chart-graph"
         height={35}
         width={35}
       >
@@ -468,6 +473,7 @@ exports[`Storyshots PieChartButton default 1`] = `
       type="button"
     >
       <svg
+        className="theme-tc-pie-chart-graph tc-pie-chart-graph"
         height={35}
         width={35}
       >
@@ -513,6 +519,7 @@ exports[`Storyshots PieChartButton default 1`] = `
         type="button"
       >
         <svg
+          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
           height={35}
           width={35}
         >
@@ -562,6 +569,7 @@ exports[`Storyshots PieChartButton default 1`] = `
       type="button"
     >
       <svg
+        className="theme-tc-pie-chart-graph tc-pie-chart-graph"
         height={35}
         width={35}
       >
@@ -822,6 +830,7 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         type="button"
       >
         <svg
+          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
           height={20}
           width={20}
         >
@@ -876,6 +885,7 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         type="button"
       >
         <svg
+          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
           height={22}
           width={22}
         >
@@ -930,6 +940,7 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         type="button"
       >
         <svg
+          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
           height={25}
           width={25}
         >
@@ -984,6 +995,7 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         type="button"
       >
         <svg
+          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
           height={30}
           width={30}
         >
@@ -1038,6 +1050,7 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         type="button"
       >
         <svg
+          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
           height={35}
           width={35}
         >
@@ -1092,6 +1105,7 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         type="button"
       >
         <svg
+          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
           height={40}
           width={40}
         >
@@ -1146,6 +1160,7 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         type="button"
       >
         <svg
+          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
           height={45}
           width={45}
         >
@@ -1200,6 +1215,7 @@ exports[`Storyshots PieChartButton lot of sizes 1`] = `
         type="button"
       >
         <svg
+          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
           height={50}
           width={50}
         >
