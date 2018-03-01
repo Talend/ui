@@ -8,8 +8,14 @@ program
 	.version('0.0.1')
 	.option('-d, --debug', 'display more info')
 	.option('-q, --quiet', 'display nothing')
-	.option('-p, --path [value]', '[optional] path of the package.json to update by default local package')
-	.option('-s, --stack [value]', '[optional] stack version to use, by default the last published one')
+	.option(
+		'-p, --path [value]',
+		'[optional] path of the package.json to update by default local package',
+	)
+	.option(
+		'-s, --stack [value]',
+		'[optional] stack version to use, by default the last published one',
+	)
 	.option('-f, --force');
 
 program.on('--help', () => {
@@ -17,7 +23,7 @@ program.on('--help', () => {
 	console.log('>node version.js --path ../yourapp/package.json');
 	console.log('To update your project dependencies to a specif stack version :');
 	console.log('>node version.js --path ../yourapp/package.json --stack=0.114.0');
-	console.log('Don\'t forget to use yarn after the package json update');
+	console.log("Don't forget to use yarn after the package json update");
 	console.log('so you lockfile is updated !');
 });
 
@@ -39,6 +45,7 @@ const STACK_VERSION = {
 	'@talend/react-sagas': stack_version,
 	'@talend/react-components': stack_version,
 	'@talend/react-containers': stack_version,
+	'@talend/react-datagrid': stack_version,
 	'@talend/react-forms': stack_version,
 	'@talend/icons': stack_version,
 	'@talend/log': stack_version,
@@ -98,7 +105,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'redux-logger': '3.0.6',
 	'redux-mock-store': '1.2.3',
 	'redux-thunk': '2.2.0',
-	uuid: '3.0.1',  // prefer bson-objectid
+	uuid: '3.0.1', // prefer bson-objectid
 	tv4: '^1.2.7',
 
 	// script dep
@@ -168,11 +175,10 @@ const files = [
 	'./packages/logging/package.json',
 	'./packages/sagas/package.json',
 	'./packages/theme/package.json',
+	'./packages/datagrid/package.json',
 ];
 
-const templates = [
-	'./packages/generator/generators/react-cmf/templates/package.json',
-];
+const templates = ['./packages/generator/generators/react-cmf/templates/package.json'];
 
 if (program.debug) {
 	console.log(`will update ${files}`);
