@@ -86,6 +86,7 @@
     "packages/cmf-webpack-plugin",
     "packages/components",
     "packages/containers",
+    "packages/datagrid",
     "packages/forms",
     "packages/generator",
     "packages/icons",
