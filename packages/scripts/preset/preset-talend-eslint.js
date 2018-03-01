@@ -1,1 +1,3 @@
-module.exports = ({ hereRelative }) => hereRelative(__dirname, './config/.eslintrc');
+const path = require('path');
+
+module.exports = () => path.join(__dirname, './config/.eslintrc');

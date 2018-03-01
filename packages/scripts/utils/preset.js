@@ -1,19 +1,17 @@
 /* eslint-disable global-require */
 
 const { createUserConfigGetter } = require('./env');
-const { hereRelative } = require('./path-resolver');
 
 /**
  * Get the preset arguments
  * @param env Then environment object. It takes the current process env if not provided.
  */
 function getPresetApi(env = process.env) {
-	const mode = process.env.TALEND_MODE || 'production';
+	const mode = env.TALEND_MODE || 'production';
 	const getUserConfig = createUserConfigGetter();
 	return {
 		mode,
 		getUserConfig,
-		hereRelative,
 	};
 }
 

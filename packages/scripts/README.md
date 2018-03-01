@@ -24,9 +24,7 @@ yarn add --dev @talend/scripts
 {
   "start": "talend-scripts start",
   "prepublish": "talend-scripts build",
-  "test": "talend-scripts test", // TODO
-  "lint:es": "talend-scripts lint:es",
-  "lint:sass": "talend-scripts lint:sass" // TODO
+  "lint:es": "talend-scripts lint:es"
 }
 ```
 
@@ -67,13 +65,13 @@ A preset is a node module `talend-scripts-preset-${presetName}`. It exports 3 fu
 ```javascript
 module.exports = {
 	getWebpackConfiguration(presetApi) { },
-	getEslintConfiguration(presetApi) { },
+	getEslintConfigurationPath(presetApi) { },
 }
 ```
 | Preset function | Description |
 |---|---|
 | getWebpackConfiguration | Returns the webpack configuration object. |
-| getEslintConfiguration | Returns the path to .eslintrc file. It will be passed to eslint --config option. This path should be absolute or relative from cwd. |
+| getEslintConfigurationPath | Returns the path to .eslintrc file. It will be passed to eslint --config option. This path should be absolute or relative from cwd. |
 
 
 The preset api contains the run mode and utility functions
@@ -82,7 +80,6 @@ The preset api contains the run mode and utility functions
 const {
 	mode,
 	getUserConfig,
-	hereRelative,
 } = presetApi;
 ```
 
@@ -90,7 +87,6 @@ const {
 |---|---|
 | mode | The run mode : `development` or `production` |
 | getUserConfig(path: array or string, defaultValue: any) | User configuration getter. They are defined in the `talend-scrips.json` file. It uses lodash.get under the hood, the object path can be an array of keys of a dot-separated string. |
-| hereRelative(dirname: string, relativePathFromDirname: string) | Resolve a relative path from cwd, based on the current folder and the file relative path |
 
 ### How to use
 

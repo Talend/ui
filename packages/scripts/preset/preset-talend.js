@@ -1,7 +1,7 @@
-const getEslintConfiguration = require('./preset-talend-eslint');
+const getEslintConfigurationPath = require('./preset-talend-eslint');
 const getWebpackConfiguration = require('./preset-talend-webpack');
 
 module.exports = {
-	getEslintConfiguration,
+	getEslintConfigurationPath,
 	getWebpackConfiguration,
 };
