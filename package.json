@@ -83,6 +83,7 @@
   "workspaces": [
     "packages/cmf",
     "packages/cmf-cqrs",
+    "packages/cmf-webpack-plugin",
     "packages/components",
     "packages/containers",
     "packages/datagrid",
