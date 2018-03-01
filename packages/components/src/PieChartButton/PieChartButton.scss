@@ -8,13 +8,14 @@ $tc-pie-chart-loading-margin-left: 4px !default;
 $tc-pie-chart-hover-color: $scooter !default;
 
 $tc-pie-chart-colors: (
-	rio-grande $rio-grande,
-	chestnut-rose $chestnut-rose,
-	lightning-yellow $lightning-yellow,
-	slate-gray $slate-gray,
-	silver-chalice $silver-chalice,
-	alto $alto
-) !default;
+		rio-grande $rio-grande,
+		chestnut-rose $chestnut-rose,
+		lightning-yellow $lightning-yellow,
+		slate-gray $slate-gray,
+		silver-chalice $silver-chalice,
+		alto $alto
+	)
+	!default;
 
 @mixin apply-color($color) {
 	color: $color;
@@ -79,7 +80,7 @@ $tc-pie-chart-colors: (
 		}
 	}
 
-	> svg {
+	& &-graph {
 		margin-right: $padding-smaller;
 		height: inherit;
 		width: inherit;
@@ -89,7 +90,7 @@ $tc-pie-chart-colors: (
 	&:active,
 	&:focus {
 		box-shadow: none;
-		background-color: $white;
+		background-color: transparent;
 		border-color: $scooter;
 		color: $scooter;
 	}
