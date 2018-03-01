@@ -80,7 +80,7 @@ export default class GMapping extends Component {
 				</div>
 				<div
 					ref={c => {
-						this.canvasParent = c;
+						this.canvasParentElem = c;
 					}}
 					id="mapping-content"
 				>
