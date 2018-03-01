@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Datalist component should render typeahead 1`] = `
+exports[`Datalist component should render typeahead multisection 1`] = `
 <div
   className="theme-tc-datalist"
 >
@@ -10,6 +10,53 @@ exports[`Datalist component should render typeahead 1`] = `
     <Typeahead
       autoFocus={true}
       disabled={false}
+      docked={false}
+      focusedItemIndex={undefined}
+      id="my-datalist"
+      items={null}
+      multiSection={true}
+      noResultText="No result."
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onSelect={[Function]}
+      placeholder="Type here"
+      position="left"
+      readOnly={false}
+      searching={false}
+      searchingText="Searching for matches…"
+      theme={
+        Object {
+          "container": "theme-container tc-datalist-container",
+          "itemsContainer": "theme-items-container",
+          "itemsList": "theme-items",
+        }
+      }
+      value="foo"
+    />
+  </form>
+  <div
+    className="theme-toggle"
+  >
+    <span
+      className="caret"
+    />
+  </div>
+</div>
+`;
+
+exports[`Datalist component should render typeahead single section 1`] = `
+<div
+  className="theme-tc-datalist"
+>
+  <form
+    className="theme-tc-datalist-form"
+  >
+    <Typeahead
+      autoFocus={true}
+      disabled={false}
+      docked={false}
       focusedItemIndex={undefined}
       id="my-datalist"
       items={null}

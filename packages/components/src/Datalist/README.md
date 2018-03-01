@@ -9,6 +9,7 @@ This widget allows you to render a Typeahead.
 | autoFocus | `boolean` |
 | id | The id of the typeahead |
 | disabled | Disable the input | `false` |
+| multiSection | whether the data list will display with sections |
 | placeholder | The input placeholder |  |
 | readOnly | If the input should be readonly | `false` |
 | titleMap | A mapping of value/label to display |  |

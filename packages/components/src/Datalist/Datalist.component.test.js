@@ -18,17 +18,45 @@ const props = {
 	],
 };
 
+const multiSectionMap = [
+	{ title: 'cat 1', items: [{ name: 'foo', value: 'foo' }] },
+	{ title: 'cat 2', items: [{ name: 'bar', value: 'bar' }] },
+	{ title: 'cat 3', items: [{ name: 'foobar', value: 'foobar' }] },
+	{ title: 'cat 4', items: [{ name: 'lol', value: 'lol' }] },
+];
+
 describe('Datalist component', () => {
-	it('should render typeahead', () => {
+	it('should render typeahead single section', () => {
 		// when
 		const wrapper = shallow(
 			<Datalist
 				id={'my-datalist'}
 				isValid
+				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				{...props}
+				value={'foo'}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render typeahead multisection', () => {
+		const multiSectionProps = { ...props, titleMap: multiSectionMap };
+		// when
+		const wrapper = shallow(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				multiSection={true}
+				errorMessage={'This should be correct'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				{...multiSectionProps}
 				value={'foo'}
 			/>,
 		);
@@ -43,6 +71,7 @@ describe('Datalist component', () => {
 			<Datalist
 				id={'my-datalist'}
 				isValid
+				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
@@ -68,6 +97,7 @@ describe('Datalist component', () => {
 			<Datalist
 				id={'my-datalist'}
 				isValid
+				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={onChange}
 				onFinish={onFinish}
@@ -95,6 +125,7 @@ describe('Datalist component', () => {
 			<Datalist
 				id={'my-datalist'}
 				isValid
+				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
@@ -120,6 +151,7 @@ describe('Datalist component', () => {
 			<Datalist
 				id={'my-datalist'}
 				isValid
+				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
@@ -150,6 +182,7 @@ describe('Datalist component', () => {
 			<Datalist
 				id={'my-datalist'}
 				isValid
+				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
@@ -177,6 +210,7 @@ describe('Datalist component', () => {
 			<Datalist
 				id={'my-datalist'}
 				isValid
+				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={onChange}
 				onFinish={onFinish}
@@ -203,6 +237,7 @@ describe('Datalist component', () => {
 			<Datalist
 				id={'my-datalist'}
 				isValid
+				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
@@ -227,6 +262,7 @@ describe('Datalist component', () => {
 			<Datalist
 				id={'my-datalist'}
 				isValid
+				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}

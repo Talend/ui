@@ -114,8 +114,11 @@ class Datalist extends Component {
 	 * @param event The select event
 	 * @param itemIndex The item index in suggestions list
 	 */
-	onSelect(event, { itemIndex }) {
-		const newValue = this.state.suggestions[itemIndex];
+	onSelect(event, { sectionIndex, itemIndex }) {
+		let newValue = this.state.suggestions[itemIndex];
+		if (this.props.multiSection) {
+			newValue = this.state.suggestions[sectionIndex].suggestions[itemIndex];
+		}
 		this.updateValue(event, newValue, true);
 	}
 
@@ -128,9 +131,22 @@ class Datalist extends Component {
 	 */
 	updateValue(event, value, persist) {
 		const previousValue = persist ? value : this.state.previousValue;
-		this.setState({ value, previousValue });
+
+		this.setState({
+			// setting the filtered value so it needs to be actual value
+			value : typeof value === 'object' ? value.title : value,
+			previousValue: typeof previousValue === 'object'  ? previousValue.title : previousValue,
+		});
 		if (persist) {
-			const enumValue = this.props.titleMap.find(item => item.name === value);
+			let enumValue = this.props.titleMap.find(item => item.name === value);
+			if (this.props.multiSection) {
+				this.props.titleMap.forEach(group => {
+					const item = group.items.find(item => item.name === value.title);
+					if (item) {
+						enumValue = item;
+					}
+				})
+			}
 			const payload = { value: get(enumValue, 'value', value) };
 			this.props.onChange(event, payload);
 			this.props.onFinish(event, payload);
@@ -149,6 +165,21 @@ class Datalist extends Component {
 	}
 
 	/**
+	 * Build the suggestions object according to multiSection props
+	 */
+	buildSuggestion(titleMap, multiSection) {
+		if (multiSection) {
+			return titleMap.map(group => {
+				return {
+					title: group.title,
+					suggestions: group.items.map((item) => ({ title: item.name }))
+				};
+			});
+		}
+		return titleMap.map(item => item.name);
+	}
+
+	/**
 	 * Filter suggestions.
 	 * This sets at least an empty array, which means the suggestion box will always display
 	 * If the array is empty, the suggestion box will display a "No result" message
@@ -159,11 +190,20 @@ class Datalist extends Component {
 			return;
 		}
 
-		let suggestions = this.props.titleMap.map(item => item.name);
+		let suggestions = this.buildSuggestion(this.props.titleMap, this.props.multiSection);
 		if (value) {
 			const escapedValue = escapeRegexCharacters(value.trim());
 			const regex = new RegExp(escapedValue, 'i');
-			suggestions = suggestions.filter(itemValue => regex.test(itemValue));
+			if (this.props.multiSection) {
+				suggestions = suggestions.map(suggestion => {
+					return {
+						...suggestion,
+						suggestions: suggestion.suggestions.filter(item => regex.test(item.title))
+					};
+				});
+			} else {
+				suggestions = suggestions.filter(itemValue => regex.test(itemValue));
+			}
 		}
 
 		this.setState({ suggestions });
@@ -189,7 +229,7 @@ class Datalist extends Component {
 						disabled={this.props.disabled || false}
 						focusedItemIndex={this.state.focusedItemIndex}
 						items={this.state.suggestions}
-						multiSection={false}
+						multiSection={this.props.multiSection}
 						onBlur={this.onBlur}
 						onChange={this.onChange}
 						onFocus={this.onFocus}
@@ -221,13 +261,27 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		disabled: PropTypes.bool,
+		multiSection:  PropTypes.bool.isRequired,
 		placeholder: PropTypes.string,
 		readOnly: PropTypes.bool,
 		titleMap: PropTypes.arrayOf(
-			PropTypes.shape({
-				name: PropTypes.string.isRequired,
-				value: PropTypes.string.isRequired,
-			}),
+			PropTypes.oneOfType(
+				[
+					PropTypes.shape({
+						name: PropTypes.string.isRequired,
+						value: PropTypes.string.isRequired,
+					}),
+					PropTypes.shape({
+						title: PropTypes.string,
+						items: PropTypes.arrayOf(
+							PropTypes.shape({
+								name: PropTypes.string,
+								value: PropTypes.string,
+							}),
+						),
+					}),
+				]
+			),
 		),
 		value: PropTypes.string,
 	};
