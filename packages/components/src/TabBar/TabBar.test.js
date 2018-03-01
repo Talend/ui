@@ -22,6 +22,7 @@ const props = {
 		},
 	],
 	onSelect: onClick,
+	selectedKey: '2',
 };
 
 describe('TabBar', () => {
@@ -41,7 +42,7 @@ describe('TabBar', () => {
 	});
 
 	it('should select a tab from its key', () => {
-		const tabBar = <TabBar {...props} selectedKey={'2'} />;
+		const tabBar = (<TabBar {...props} />);
 		const wrapper = mount(tabBar);
 
 		expect(

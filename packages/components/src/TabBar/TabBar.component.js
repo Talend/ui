@@ -23,6 +23,7 @@ Tab.propTypes = {
 		label: PropTypes.string.isRequired,
 	}).isRequired,
 	onClick: PropTypes.func.isRequired,
+	isSelected: PropTypes.bool,
 };
 
 function TabBar({ items, onSelect, selectedKey, className }) {
@@ -50,7 +51,6 @@ TabBar.propTypes = {
 			id: PropTypes.string,
 			key: PropTypes.string.isRequired,
 			label: PropTypes.string.isRequired,
-			isSelected: PropTypes.bool,
 		}),
 	).isRequired,
 	onSelect: PropTypes.func.isRequired,
