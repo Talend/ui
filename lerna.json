@@ -13,6 +13,7 @@
     "packages/icons",
     "packages/logging",
     "packages/sagas",
-    "packages/theme"
+    "packages/theme",
+    "packages/datagrid"
   ]
 }

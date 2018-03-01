@@ -45,6 +45,7 @@ const STACK_VERSION = {
 	'@talend/react-sagas': stack_version,
 	'@talend/react-components': stack_version,
 	'@talend/react-containers': stack_version,
+	'@talend/react-datagrid': stack_version,
 	'@talend/react-forms': stack_version,
 	'@talend/icons': stack_version,
 	'@talend/log': stack_version,
@@ -175,6 +176,7 @@ const files = [
 	'./packages/logging/package.json',
 	'./packages/sagas/package.json',
 	'./packages/theme/package.json',
+	'./packages/datagrid/package.json',
 ];
 
 const templates = ['./packages/generator/generators/react-cmf/templates/package.json'];

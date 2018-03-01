@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUALITY_EMPTY_KEY quality cell 1`] = `
+<div
+  className="theme-td-cell td-cell"
+>
+  <QualityIndicator
+    tooltip="Incorrect value"
+    value={0}
+  />
+  <AvroRenderer
+    avroRenderer={
+      Object {
+        "stringCellRenderer": "StringRenderer",
+      }
+    }
+    colDef={
+      Object {
+        "avro": Object {
+          "type": "string",
+        },
+      }
+    }
+    data={
+      Object {
+        "quality": 0,
+      }
+    }
+    getComponent={[Function]}
+  />
+</div>
+`;
+
+exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUALITY_INVALID_KEY quality cell 1`] = `
+<div
+  className="theme-td-cell td-cell"
+>
+  <QualityIndicator
+    tooltip="Incorrect value"
+    value={-1}
+  />
+  <AvroRenderer
+    avroRenderer={
+      Object {
+        "stringCellRenderer": "StringRenderer",
+      }
+    }
+    colDef={
+      Object {
+        "avro": Object {
+          "type": "string",
+        },
+      }
+    }
+    data={
+      Object {
+        "quality": -1,
+      }
+    }
+    getComponent={[Function]}
+  />
+</div>
+`;
+
+exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUALITY_VALID_KEY quality cell 1`] = `
+<div
+  className="theme-td-cell td-cell"
+>
+  <AvroRenderer
+    avroRenderer={
+      Object {
+        "stringCellRenderer": "StringRenderer",
+      }
+    }
+    colDef={
+      Object {
+        "avro": Object {
+          "type": "string",
+        },
+      }
+    }
+    data={
+      Object {
+        "quality": 1,
+      }
+    }
+    getComponent={[Function]}
+  />
+</div>
+`;
