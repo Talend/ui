@@ -1,5 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`JSONLike ComplexItem basic render 1`] = `
+<div>
+  <Icon
+    className="theme-wider-icon-selection"
+    name="talend-chevron-left"
+    onClick={[Function]}
+    transform="rotate-180"
+  />
+  <LineItem
+    jsonpath={undefined}
+    mouseOverData={
+      Object {
+        "data": undefined,
+        "isEdited": false,
+        "isOpened": false,
+      }
+    }
+    name={undefined}
+    onSelect={[Function]}
+    onToggle={undefined}
+    selectedJsonpath={undefined}
+  >
+    <span
+      className="theme-hierarchical"
+    >
+      <TooltipTrigger
+        className="offset"
+        label=""
+        tooltipPlacement="right"
+      >
+        <sup
+          className="badge"
+        >
+          (undefined)
+        </sup>
+      </TooltipTrigger>
+    </span>
+  </LineItem>
+</div>
+`;
+
 exports[`JSONLike should render 1`] = `
 <div
   className="tc-object-viewer theme-container"
