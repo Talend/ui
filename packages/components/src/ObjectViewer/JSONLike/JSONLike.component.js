@@ -309,13 +309,13 @@ ComplexItem.propTypes = {
 		PropTypes.array,
 	]),
 	name: PropTypes.string,
-	opened: PropTypes.arrayOf(PropTypes.string),
-	edited: PropTypes.arrayOf(PropTypes.string),
+	opened: PropTypes.arrayOf(PropTypes.string).isRequired,
+	edited: PropTypes.arrayOf(PropTypes.string).isRequired,
 	jsonpath: PropTypes.string,
 	tupleLabel: PropTypes.string,
 	onMouseOver: PropTypes.func,
 	onEdit: PropTypes.func,
-	onToggle: PropTypes.func,
+	onToggle: PropTypes.func.isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selectedJsonpath: PropTypes.string,
 	onSubmit: PropTypes.func,
@@ -325,7 +325,7 @@ ComplexItem.propTypes = {
 		type: PropTypes.string,
 		keys: PropTypes.array,
 		length: PropTypes.number,
-	}),
+	}).isRequired,
 };
 
 export function Item({ data, name, opened, edited, jsonpath, ...props }) {
