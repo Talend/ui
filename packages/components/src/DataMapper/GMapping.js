@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class GMapping extends Component {
-
 	componentDidMount() {
 		this.initCanvasSize();
 	}
@@ -78,8 +77,18 @@ export default class GMapping extends Component {
 						Clear All
 					</button>
 				</div>
-				<div ref={c => { this.canvasParent = c; }} className="mapping-content">
-					<canvas ref={c => { this.canvas = c; }} id="mapping-canvas" />
+				<div
+					ref={c => {
+						this.canvasParent = c;
+					}}
+					className="mapping-content"
+				>
+					<canvas
+						ref={c => {
+							this.canvas = c;
+						}}
+						id="mapping-canvas"
+					/>
 				</div>
 			</div>
 		);
