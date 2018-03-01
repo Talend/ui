@@ -9,9 +9,8 @@
 @import './variables';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 @import './visual-helpers';
+@import './datagrid';
 
-/// Breadcrumb items max width
-/// @type Number
 $breadcrumb-items-max-width: 250px !default;
 
 /// Button font size

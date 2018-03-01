@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DefaultDateCellRenderer should render DefaultDateCellRenderer 1`] = `
+<div
+  className="theme-td-cell-int td-cell-int"
+>
+  42.42
+</div>
+`;
