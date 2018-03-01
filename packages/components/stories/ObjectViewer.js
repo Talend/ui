@@ -216,6 +216,7 @@ const handler = {
 	onClick: action('onClick'),
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
+	onToggle: action('onToggle'),
 };
 
 let selectedJsonpath = "$[0]['attributes']";
@@ -231,6 +232,7 @@ const handlerHighlight = {
 	},
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
+	onToggle: action('onToggle'),
 };
 
 const openedNativeTypeHandler = {
@@ -243,6 +245,7 @@ const openedNativeTypeHandler = {
 	},
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
+	onToggle: action('onToggle'),
 };
 
 const rootOpenedTypeHandler = {
@@ -252,6 +255,7 @@ const rootOpenedTypeHandler = {
 	onSelect: (e, jsonpath) => (selectedJsonpath = jsonpath),
 	onSubmit: action('onSubmit'),
 	onChange: action('onChange'),
+	onToggle: action('onToggle'),
 };
 
 const stories = storiesOf('ObjectViewer', module);

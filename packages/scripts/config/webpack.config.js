@@ -1,26 +1,24 @@
-/* eslint-disable global-require */
+/* eslint-disable global-require,no-console */
 
 const mergeWith = require('lodash.mergewith');
-const { createUserConfigGetter } = require('../scripts/utils/env');
-const { getAbsolutePath } = require('../scripts/utils/path-resolver');
-const { getPreset } = require('../scripts/utils/preset');
+const { getAbsolutePath } = require('../utils/path-resolver');
+const { getPreset, getPresetApi } = require('../utils/preset');
 
-const getUserConfig = createUserConfigGetter();
-const mode = process.env.TALEND_MODE || 'production';
-const presetName = getUserConfig(['preset'], 'talend');
+const presetApi = getPresetApi();
+const presetName = presetApi.getUserConfig(['preset'], 'talend');
 const preset = getPreset(presetName);
 
 // Preset default configuration file
 let webpackConfigurations = [];
 webpackConfigurations = webpackConfigurations.concat(
-	preset.getWebpackConfiguration({ mode, getUserConfig })
+	preset.getWebpackConfiguration(presetApi)
 );
 
 // User configuration file
-const userConfigPath = getUserConfig(['webpack', 'config', mode]);
+const userConfigPath = presetApi.getUserConfig(['webpack', 'config', presetApi.mode]);
 if (userConfigPath) {
 	const userConfigAbsolutePath = getAbsolutePath(userConfigPath);
-	console.log(`Merge ${mode} webpack config with custom one (${userConfigAbsolutePath})`);
+	console.log(`Merge ${presetApi.mode} webpack config with custom one (${userConfigAbsolutePath})`);
 	webpackConfigurations.push(require(userConfigAbsolutePath));
 }
 
