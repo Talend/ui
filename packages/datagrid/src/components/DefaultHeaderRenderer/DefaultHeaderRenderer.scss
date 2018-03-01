@@ -1,0 +1,39 @@
+$td-header-component-border-color: $gallery !default;
+$td-quality-bar-hover-height: 1rem !default;
+
+.td-header-component {
+	border-right: $td-header-component-border-color 1px solid;
+	height: 100%;
+
+	&:hover :global(.td-quality-bar) {
+		height: $td-quality-bar-hover-height;
+	}
+
+	.td-header {
+		height: 100%;
+		width: 100%;
+		padding: 1rem;
+		text-align: left;
+		background-color: inherit;
+		border: none;
+
+		&-title {
+			display: flex;
+			color: $dove-gray;
+			font-weight: 400;
+
+			&-ellipse {
+				flex-grow: 1;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		}
+
+		&-type {
+			font-size: 1.2rem;
+			font-weight: 700;
+			color: $dark-silver;
+		}
+	}
+}
