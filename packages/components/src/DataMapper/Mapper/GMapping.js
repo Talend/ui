@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { drawLine, drawBezier, drawPoint, drawArrow } from '../Drawing.js'
 
 export default class GMapping extends Component {
-
 	// resizeCanvas() {
 	// 	console.log('RESIZE CANVAS')
 	// }
@@ -79,8 +78,18 @@ export default class GMapping extends Component {
 						Clear All
 					</button>
 				</div>
-				<div ref={c => { this.canvasParentElem = c; }} id="mapping-content">
-					<canvas ref={c => { this.canvas = c; }} id="mapping-canvas" />
+				<div
+					ref={c => {
+						this.canvasParent = c;
+					}}
+					id="mapping-content"
+				>
+					<canvas
+						ref={c => {
+							this.canvas = c;
+						}}
+						id="mapping-canvas"
+					/>
 				</div>
 			</div>
 		);
