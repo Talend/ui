@@ -2,6 +2,12 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import ActionDropdown, { InjectDropdownMenuItem, getMenuItem } from './ActionDropdown.component';
 
+function getComponent(key) {
+	const Fake = props => <div {...props} />;
+	Fake.displayName = key;
+	return Fake;
+}
+
 describe('ActionDropdown', () => {
 	it('should call onSelect callback when click on item', () => {
 		// given
@@ -62,7 +68,6 @@ describe('getMenuItem', () => {
 });
 
 describe('InjectDropdownMenuItem', () => {
-	const getComponent = jest.fn();
 	it('should render MenuItem with props divider', () => {
 		const wrapper = shallow(
 			<InjectDropdownMenuItem

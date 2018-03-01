@@ -49,6 +49,7 @@ InjectDropdownMenuItem.propTypes = {
 	onSelect: PropTypes.func,
 	onKeyDown: PropTypes.func,
 };
+InjectDropdownMenuItem.displayname = 'InjectDropdownMenuItem';
 
 function getMenuItem(item, index, getComponent) {
 	const Renderers = Inject.getAll(getComponent, { MenuItem });
@@ -131,7 +132,7 @@ function ActionDropdown(props) {
 			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button')}
 			{...rest}
 		>
-			{!items.length && !components && <MenuItem disabled>No options</MenuItem>}
+			{!items.length && !components && <Renderers.MenuItem disabled>No options</Renderers.MenuItem>}
 			{injected('beforeItemsDropdown')}
 			{items.map((item, key) => getMenuItem(item, key, getComponent))}
 			{injected('itemsDropdown')}
