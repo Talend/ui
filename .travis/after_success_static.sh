@@ -12,6 +12,7 @@ mkdir .static/forms
 mkdir .static/icons
 mkdir .static/logging
 mkdir .static/theme
+mkdir .static/datagrid
 cp .surge/index.html .static
 if [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
     STATIC_BRANCH_NAME=$(echo $TRAVIS_PULL_REQUEST_BRANCH | sed -e 's/\//\\\//g')
