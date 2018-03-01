@@ -29,8 +29,8 @@ const chokidarOptions = {
  */
 function ReactCMFWebpackPlugin(options = {}) {
 	this.canRun = true;
-	this.lastRun;
-	this.lastWatch;
+	this.lastRun = null;
+	this.lastWatch = null;
 	this.modifiedFiles = [];
 	this.options = Object.assign({
 		quiet: false,
@@ -40,7 +40,7 @@ function ReactCMFWebpackPlugin(options = {}) {
 		if (!this.options.quiet) {
 			console.error('[ReactCMFWebpackPlugin]', ...args); // eslint-disable-line no-console
 		}
-	}
+	};
 }
 
 ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
