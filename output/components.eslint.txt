@@ -8,6 +8,146 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/GMapping.js
+  13:18  error  Using this.refs is deprecated                           react/no-string-refs
+  14:21  error  Using this.refs is deprecated                           react/no-string-refs
+  21:19  error  Using this.refs is deprecated                           react/no-string-refs
+  22:33  error  'getConnection' is missing in props validation          react/prop-types
+  29:19  error  Using this.refs is deprecated                           react/no-string-refs
+  30:27  error  Using this.refs is deprecated                           react/no-string-refs
+  30:51  error  Using this.refs is deprecated                           react/no-string-refs
+  37:14  error  Using this.refs is deprecated                           react/no-string-refs
+  44:10  error  Expected 'this' to be used by class method 'drawLine'   class-methods-use-this
+  46:3   error  Assignment to property of function parameter 'context'  no-param-reassign
+  47:3   error  Assignment to property of function parameter 'context'  no-param-reassign
+  54:11  error  Expected 'this' to be used by class method 'drawPoint'  class-methods-use-this
+  68:27  error  'clearConnection' is missing in props validation        react/prop-types
+  75:27  error  'clearMapping' is missing in props validation           react/prop-types
+  80:10  error  Using string literals in ref attributes is deprecated   react/no-string-refs
+  81:14  error  Using string literals in ref attributes is deprecated   react/no-string-refs
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapper.js
+   3:1   error  Expected exception block, space or tab after '//' in comment  spaced-comment
+   8:2   error  Unexpected var, use let or const instead                      no-var
+  19:2   error  getYPosition should be placed after onScroll                  react/sort-comp
+  22:10  error  Unnecessary 'else' after 'return'                             no-else-return
+  27:16  error  Expected 'this' to be used by class method 'getMappingItem'   class-methods-use-this
+  30:10  error  Unnecessary 'else' after 'return'                             no-else-return
+  36:11  error  'mapping' is missing in props validation                      react/prop-types
+  36:20  error  'selection' is missing in props validation                    react/prop-types
+  46:13  error  Expected property shorthand                                   object-shorthand
+  46:37  error  Expected property shorthand                                   object-shorthand
+  59:4   error  'inputSchema' is missing in props validation                  react/prop-types
+  60:4   error  'mapping' is missing in props validation                      react/prop-types
+  61:4   error  'outputSchema' is missing in props validation                 react/prop-types
+  62:4   error  'performMapping' is missing in props validation               react/prop-types
+  63:4   error  'clearMapping' is missing in props validation                 react/prop-types
+  64:4   error  'clearConnection' is missing in props validation              react/prop-types
+  65:4   error  'draggable' is missing in props validation                    react/prop-types
+  66:4   error  'selection' is missing in props validation                    react/prop-types
+  67:4   error  'onSelect' is missing in props validation                     react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapper.test.js
+   1:17  error  'configure' is defined but never used                                                          no-unused-vars
+   4:8   error  'SchemaElement' is defined but never used                                                      no-unused-vars
+   6:25  error  Absolute imports should come before relative imports                                           import/imports-first
+   7:33  error  Absolute imports should come before relative imports                                           import/imports-first
+   8:23  error  Absolute imports should come before relative imports                                           import/imports-first
+  39:9   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  40:3   error  Component should be written as a pure function                                                 react/prefer-stateless-function
+  76:21  error  'getElementByName' was used before it was defined                                              no-use-before-define
+  82:21  error  'getElementByName' was used before it was defined                                              no-use-before-define
+  83:8   error  'decoratedTargetElement' is assigned a value but never used                                    no-unused-vars
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MapperWithDnd.js
+  2:1   error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
+  2:33  error  Absolute imports should come before relative imports                                           import/imports-first
+  3:1   error  'react-dnd-html5-backend' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  3:26  error  Absolute imports should come before relative imports                                           import/imports-first
+  5:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapping.js
+   5:9   error  Unexpected string concatenation                   prefer-template
+   8:16  error  Component should be written as a pure function    react/prefer-stateless-function
+  10:11  error  'mapping' is missing in props validation          react/prop-types
+  10:20  error  'clearMapping' is missing in props validation     react/prop-types
+  10:34  error  'clearConnection' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapping.test.js
+  3:22  error  Absolute imports should come before relative imports  import/imports-first
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MappingItem.js
+  4:9   error  Unexpected string concatenation               prefer-template
+  7:39  error  'mappingItem' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MappingItem.test.js
+  3:22  error  Absolute imports should come before relative imports  import/imports-first
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Schema.js
+  31:9   error  Unnecessary 'else' after 'return'                no-else-return
+  49:36  error  'child' is already declared in the upper scope   no-shadow
+  57:11  error  'type' is missing in props validation            react/prop-types
+  57:17  error  'schema' is missing in props validation          react/prop-types
+  57:25  error  'draggable' is missing in props validation       react/prop-types
+  57:36  error  'mapped' is missing in props validation          react/prop-types
+  57:44  error  'performMapping' is missing in props validation  react/prop-types
+  57:60  error  'selection' is missing in props validation       react/prop-types
+  57:71  error  'onSelect' is missing in props validation        react/prop-types
+  60:36  error  Unexpected string concatenation                  prefer-template
+  66:27  error  'onScroll' is missing in props validation        react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Schema.test.js
+  3:22  error  Absolute imports should come before relative imports  import/imports-first
+  4:10  error  'SchemaType' is defined but never used                no-unused-vars
+  4:22  error  'MappingSide' is defined but never used               no-unused-vars
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaElement/DraggableSchemaElement.js
+   3:1   error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
+   3:28  error  Absolute imports should come before relative imports                                           import/imports-first
+   3:28  error  '/home/travis/build/Talend/ui/node_modules/react-dnd/lib/index.js' imported multiple times     import/no-duplicates
+   4:1   error  'react-dnd' import is duplicated                                                               no-duplicate-imports
+   4:1   error  'react-dnd' should be listed in the project's dependencies, not devDependencies                import/no-extraneous-dependencies
+   4:28  error  Absolute imports should come before relative imports                                           import/imports-first
+   4:28  error  '/home/travis/build/Talend/ui/node_modules/react-dnd/lib/index.js' imported multiple times     import/no-duplicates
+   5:23  error  Absolute imports should come before relative imports                                           import/imports-first
+   6:18  error  Absolute imports should come before relative imports                                           import/imports-first
+  20:3   error  Unexpected var, use let or const instead                                                       no-var
+  24:3   error  Unexpected var, use let or const instead                                                       no-var
+  48:4   error  'mapped' is missing in props validation                                                        react/prop-types
+  49:4   error  'connectDragSource' is missing in props validation                                             react/prop-types
+  50:4   error  'connectDropTarget' is missing in props validation                                             react/prop-types
+  51:4   error  'onSelect' is missing in props validation                                                      react/prop-types
+  52:4   error  'selected' is missing in props validation                                                      react/prop-types
+  54:34  error  'dragOver' is missing in props validation                                                      react/prop-types
+  78:2   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  79:2   error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaElement/DraggableSchemaElement.test.js
+  3:22  error  Absolute imports should come before relative imports  import/imports-first
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaElement/SchemaElement.js
+   9:3   error  Assignment can be replaced with operator assignment                                  operator-assignment
+   9:15  error  Unexpected string concatenation                                                      prefer-template
+  12:3   error  Assignment can be replaced with operator assignment                                  operator-assignment
+  12:15  error  Unexpected string concatenation                                                      prefer-template
+  15:3   error  Assignment can be replaced with operator assignment                                  operator-assignment
+  15:15  error  Unexpected string concatenation                                                      prefer-template
+  17:14  error  Unexpected string concatenation                                                      prefer-template
+  27:9   error  'event' is defined but never used                                                    no-unused-vars
+  28:14  error  'onSelect' is missing in props validation                                            react/prop-types
+  28:51  error  'schemaType' is missing in props validation                                          react/prop-types
+  33:4   error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  34:61  error  'schemaType' is missing in props validation                                          react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaElement/SchemaElement.test.js
+  3:22  error  Absolute imports should come before relative imports  import/imports-first
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Utils.js
+  1:1   error  Prefer default export                                import/prefer-default-export
+  1:31  error  'reverse' is already declared in the upper scope     no-shadow
+  4:3   error  Assignment can be replaced with operator assignment  operator-assignment
+  4:15  error  Unexpected string concatenation                      prefer-template
+
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
@@ -29,5 +169,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 11 problems (10 errors, 1 warning)
+✖ 121 problems (120 errors, 1 warning)
 
