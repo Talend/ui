@@ -124,6 +124,7 @@ function sortElements(a, b) {
 
 /**
  * This function sets minimum percentage show with the minimum percentage shown
+ * It increase values below minPercentage & decrease values above if some are increased
  * @param {array} values the set of values
  * @param {number} minimumPercentage the minimum value we have to show
  */
@@ -154,20 +155,13 @@ export function setMinimumPercentage(model, minimumPercentage) {
 		}
 	}
 
-	// We want to dispatch the amount on the other values > minPercentage
-	// so until all is not distributed
 	while (amountToSubtract > 0) {
-		// we get the elements > minPercentage & sort them descending
 		const elementsToDecrease = valuesMins
 			.filter(value => value.percentageShown > minimumPercentage)
 			.sort(sortElements);
-		// if all elementsToDecrease are not currently at minimumPercentage
 		if (elementsToDecrease.length > 0) {
-			// We decrease the current element by one
 			elementsToDecrease.forEach(decreaseElement);
 		} else {
-			// if there is no elementsToDecrease, all values are currently
-			// to minimumPercentage, so we don't want anymore to decrease it
 			amountToSubtract = 0;
 		}
 	}
