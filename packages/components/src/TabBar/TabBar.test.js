@@ -41,7 +41,7 @@ describe('TabBar', () => {
 	});
 
 	it('should select a tab from its key', () => {
-		const tabBar = <TabBar {...props} selected={'2'} />;
+		const tabBar = (<TabBar {...props} selectedKey={'2'} />);
 		const wrapper = mount(tabBar);
 
 		expect(
@@ -65,34 +65,5 @@ describe('TabBar', () => {
 				.props()
 				.className.includes('active'),
 		).toBe(false);
-	});
-
-	it('should select a tab from the isSelected flag', () => {
-		const custom = { ...props };
-		custom.items[2].isSelected = true;
-		const tabBar = <TabBar {...custom} />;
-		const wrapper = mount(tabBar);
-
-		expect(
-			wrapper
-				.find('li')
-				.at(0)
-				.props()
-				.className.includes('active'),
-		).toBe(false);
-		expect(
-			wrapper
-				.find('li')
-				.at(1)
-				.props()
-				.className.includes('active'),
-		).toBe(false);
-		expect(
-			wrapper
-				.find('li')
-				.at(2)
-				.props()
-				.className.includes('active'),
-		).toBe(true);
 	});
 });

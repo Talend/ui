@@ -22,11 +22,10 @@ Tab.propTypes = {
 		key: PropTypes.string.isRequired,
 		label: PropTypes.string.isRequired,
 	}).isRequired,
-	isSelected: PropTypes.bool,
 	onClick: PropTypes.func.isRequired,
 };
 
-function TabBar({ items, onSelect, selected, className }) {
+function TabBar({ items, onSelect, selectedKey, className }) {
 	return (
 		<nav className={classNames(['nav', 'tc-tab-bar', className, theme['tc-tab-bar']])}>
 			<ul className="nav nav-tabs tc-tab-bar-actions">
@@ -34,7 +33,7 @@ function TabBar({ items, onSelect, selected, className }) {
 					<Tab
 						key={item.key}
 						onClick={onSelect}
-						isSelected={selected === item.key || item.isSelected}
+						isSelected={selectedKey === item.key}
 						item={item}
 					/>
 				))}
@@ -55,7 +54,7 @@ TabBar.propTypes = {
 		}),
 	).isRequired,
 	onSelect: PropTypes.func.isRequired,
-	selected: PropTypes.string,
+	selectedKey: PropTypes.string,
 	className: PropTypes.string,
 };
 
