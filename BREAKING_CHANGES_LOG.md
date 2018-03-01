@@ -45,6 +45,27 @@ After
 |---|---|
 | props.selected | props.selectedKey |
 
+
+* Component: Drawer
+* PR: [fix(components/tabbar): rename selected property](https://github.com/Talend/ui/pull/1111)
+* Change: `selected` has been renamed by `selectedKey` for drawer's tabs
+
+
+| Before | After |
+|---|---|
+| props.tabs.selected | props.tabs.selectedKey |
+
+
+* Component: Layout
+* PR: [fix(components/tabbar): rename selected property](https://github.com/Talend/ui/pull/1111)
+* Change: `selected` has been renamed by `selectedKey` for layout's tabs
+
+
+| Before | After |
+|---|---|
+| props.tabs.selected | props.tabs.selectedKey |
+
+
 ## v0.157.0
 * cmf: route onLeave/onEnter
 * PR: [feat(cmf): route onEnter/onLeave with dispatch](https://github.com/Talend/ui/pull/1082)

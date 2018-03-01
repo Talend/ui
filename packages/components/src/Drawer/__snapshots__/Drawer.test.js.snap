@@ -208,7 +208,7 @@ exports[`Drawer should render with tabs 1`] = `
             </button>
           </li>
           <li
-            className="tc-tab-bar-action"
+            className="tc-tab-bar-action active"
           >
             <button
               className="btn btn-link"
