@@ -35,7 +35,6 @@ import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import omit from 'lodash/omit';
-import pick from 'lodash/pick';
 import api from './api';
 import deprecated from './deprecated';
 import CONSTANT from './constant';
@@ -45,36 +44,10 @@ import { mapStateToViewProps } from './settings';
 
 let newState;
 
-const KEEP_EVENT_ATTRIBUTES = [
-	'type',
-	// keyboard
-	'ctrlKey',
-	'altKey',
-	'shiftKey',
-	'charCode',
-	'key',
-	'keyCode',
-	'repeat',
-	'which',
-	// mouse
-	'button',
-	'buttons',
-	'clientX',
-	'clientY',
-	'pageX',
-	'pageY',
-	'screenX',
-	'screenY',
-];
-
 function serializeEvent(event) {
-	if (event.nativeEvent) {
-		return Object.assign(
-			{
-				target: pick(event.target || {}, ['type', 'value', 'checked']),
-			},
-			pick(event, KEEP_EVENT_ATTRIBUTES),
-		);
+	if (event.persist) {
+		debugger;
+		return event.persist();
 	}
 	return event;
 }
@@ -317,50 +290,48 @@ export default function cmfConnect({
 			}
 
 			onEventDispatch(props, key) {
-				if (key.startsWith(CONSTANT.IS_HANDLER)) {
-					if (key.endsWith(CONSTANT.IS_HANDLER_STATIC)) {
-						const handlerKey = key.replace(CONSTANT.IS_HANDLER_STATIC, '');
-						props.toOmit.push(key);
-						// eslint-disable-next-line no-param-reassign
-						props[handlerKey] = (event, data) => {
-							const payload = Object.assign(
+				if (CONSTANT.IS_HANDLER_DISPATCH_REGEX.test(key)) {
+					const handlerKey = key.replace(CONSTANT.IS_HANDLER_DISPATCH, '');
+					props.toOmit.push(key);
+					// eslint-disable-next-line no-param-reassign
+					props[handlerKey] = (event, data) => {
+						const payload = Object.assign(
+							{
+								event: serializeEvent(event),
+								data,
+							},
+							this.props[key],
+						);
+						this.props.dispatch(payload);
+						if (this.props[handlerKey]) {
+							this.props[handlerKey](event, data);
+						}
+					};
+				} else if (CONSTANT.IS_HANDLER_ACTION_CREATOR_REGEX.test(key)) {
+					props.toOmit.push(key);
+					const handlerKey = key.replace(CONSTANT.IS_HANDLER_ACTION_CREATOR, '');
+					let actionCreator = this.props[key];
+					let args;
+					if (typeof this.props[key] === 'object') {
+						actionCreator = this.props[key].id;
+						args = this.props[key].args;
+					}
+					// eslint-disable-next-line no-param-reassign
+					props[handlerKey] = (event, data) => {
+						if (!args) {
+							args = [
+								serializeEvent(event),
 								{
-									event: serializeEvent(event),
+									props: this.props,
 									data,
 								},
-								this.props[key],
-							);
-							this.props.dispatch(payload);
-							if (this.props[handlerKey]) {
-								this.props[handlerKey](event, data);
-							}
-						};
-					} else if (key.endsWith(CONSTANT.IS_HANDLER_DYNAMIC)) {
-						props.toOmit.push(key);
-						const handlerKey = key.replace(CONSTANT.IS_HANDLER_DYNAMIC, '');
-						let actionCreator = this.props[key];
-						let args;
-						if (typeof this.props[key] === 'object') {
-							actionCreator = this.props[key].id;
-							args = this.props[key].args;
+							];
 						}
-						// eslint-disable-next-line no-param-reassign
-						props[handlerKey] = (event, data) => {
-							if (!args) {
-								args = [
-									serializeEvent(event),
-									{
-										props: this.props,
-										data,
-									},
-								];
-							}
-							this.dispatchActionCreator(actionCreator, ...args);
-							if (this.props[handlerKey]) {
-								this.props[handlerKey](event, data);
-							}
-						};
-					}
+						this.dispatchActionCreator(actionCreator, ...args);
+						if (this.props[handlerKey]) {
+							this.props[handlerKey](event, data);
+						}
+					};
 				}
 				return props;
 			}

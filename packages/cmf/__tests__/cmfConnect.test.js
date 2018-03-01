@@ -558,7 +558,7 @@ describe('cmfConnect', () => {
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
 			context.registry = {
-				'actionCreator:myactionCreator': () => ({ type: 'FETCH_STUFF' }),
+				'actionCreator:myactionCreator': event => ({ type: 'FETCH_STUFF', event }),
 			};
 
 			const wrapper = mount(
@@ -579,6 +579,9 @@ describe('cmfConnect', () => {
 			props.onClick({ type: 'click' });
 			expect(context.store.dispatch).toHaveBeenCalledWith({
 				type: 'FETCH_STUFF',
+				event: {
+					type: 'click',
+				},
 			});
 		});
 		it('should support onEventActionCreator props as object', () => {
