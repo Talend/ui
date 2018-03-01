@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
-    "@talend/react-cmf": "file:../cmf",
+    "@talend/react-cmf": "0.159.0",
     "chokidar": "^2.0.2",
     "deepmerge": "^2.0.1",
     "mkdirp": "^0.5.1"

@@ -28,44 +28,44 @@ const chokidarOptions = {
  * @constructor
  */
 function ReactCMFWebpackPlugin(options = {}) {
-	this._canRun = true;
-	this._lastRun;
-	this._lastWatch;
-	this._modifiedFiles = [];
-	this._options = Object.assign({
+	this.canRun = true;
+	this.lastRun;
+	this.lastWatch;
+	this.modifiedFiles = [];
+	this.options = Object.assign({
 		quiet: false,
 		watch: false,
 	}, options);
-	this._log = (...args) => {
-		if (!this._options.quiet) {
+	this.log = (...args) => {
+		if (!this.options.quiet) {
 			console.error('[ReactCMFWebpackPlugin]', ...args); // eslint-disable-line no-console
 		}
 	}
 }
 
 ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
-	this._log('apply');
+	this.log('apply');
 
 	compiler.plugin('emit', (compilation, callback) => {
-		this._log('emit', JSON.stringify({ canRun: this._canRun, lastRun: this._lastRun, lastWatch: this._lastWatch }));
-		if (!this._canRun || (this._lastRun && this._lastWatch && this._lastRun > this._lastWatch)) return;
-		this._canRun = false;
-		this._lastRun = new Date();
+		this.log('emit', JSON.stringify({ canRun: this.canRun, lastRun: this.lastRun, lastWatch: this.lastWatch }));
+		if (!this.canRun || (this.lastRun && this.lastWatch && this.lastRun > this.lastWatch)) return;
+		this.canRun = false;
+		this.lastRun = new Date();
 		const startTime = Date.now();
-		this._modifiedFiles = mergeSettings(this._options, this._log, () => {
+		this.modifiedFiles = mergeSettings(this.options, this.log, () => {
 			const endTime = Date.now();
-			this._log(`Files merged in ${(((endTime - startTime) % 60000) / 1000)}s`);
-			this._canRun = true;
+			this.log(`Files merged in ${(((endTime - startTime) % 60000) / 1000)}s`);
+			this.canRun = true;
 			callback();
 		}, callback);
 	});
 
-	if (this._options.watch) {
+	if (this.options.watch) {
 		compiler.plugin('done', () => {
-			this._log('done', JSON.stringify({ canRun: this._canRun, lastRun: this._lastRun, lastWatch: this._lastWatch }));
-			if (!this._canRun || (this._lastRun && this._lastWatch && this._lastWatch > this._lastRun)) return;
-			this._lastWatch = new Date();
-			const watcher = chokidar.watch(this._modifiedFiles, chokidarOptions);
+			this.log('done', JSON.stringify({ canRun: this.canRun, lastRun: this.lastRun, lastWatch: this.lastWatch }));
+			if (!this.canRun || (this.lastRun && this.lastWatch && this.lastWatch > this.lastRun)) return;
+			this.lastWatch = new Date();
+			const watcher = chokidar.watch(this.modifiedFiles, chokidarOptions);
 			const run = () => {
 				watcher.close();
 				compiler.run(err => {
@@ -76,44 +76,44 @@ ReactCMFWebpackPlugin.prototype.apply = function (compiler) {
 				.on(
 					'add',
 					path => {
-						this._log(`[watcher] File ${path} has been added`);
+						this.log(`[watcher] File ${path} has been added`);
 					}
 				)
 				.on(
 					'change',
 					path => {
-						this._log(`[watcher] File ${path} has been changed`);
+						this.log(`[watcher] File ${path} has been changed`);
 						run();
 					}
 				)
 				.on(
 					'unlink',
 					path => {
-						this._log(`[watcher] File ${path} has been removed`);
+						this.log(`[watcher] File ${path} has been removed`);
 					}
 				)
 				.on(
 					'addDir',
 					path => {
-						this._log(`[watcher] Directory ${path} has been added`);
+						this.log(`[watcher] Directory ${path} has been added`);
 					}
 				)
 				.on(
 					'unlinkDir',
 					path => {
-						this._log(`[watcher] Directory ${path} has been removed`);
+						this.log(`[watcher] Directory ${path} has been removed`);
 					}
 				)
 				.on(
 					'error',
 					error => {
-						this._log(`[watcher] ${error}`);
+						this.log(`[watcher] ${error}`);
 					}
 				)
 				.on(
 					'ready',
 					() => {
-						this._log('[watcher] Initial scan complete. Ready for changes');
+						this.log('[watcher] Initial scan complete. Ready for changes');
 					}
 				)
 				.on(
