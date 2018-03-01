@@ -587,15 +587,19 @@ describe('cmfConnect', () => {
 		it('should support onEventActionCreator props as object', () => {
 			const onClickActionCreator = {
 				id: 'myfetch',
-				args: [{
+				data: {
 					url: '/api/foo',
 					cmf: { collectionId: 'foo' },
-				}],
+				},
 			};
 			const context = mock.context();
 			context.store.dispatch = jest.fn();
 			context.registry = {
-				'actionCreator:myfetch': config => ({ type: 'FETCH_CONFIGURED', ...config }),
+				'actionCreator:myfetch': (event, data) => ({
+					type: 'FETCH_CONFIGURED',
+					event,
+					data,
+				}),
 			};
 
 			const wrapper = mount(
@@ -612,13 +616,12 @@ describe('cmfConnect', () => {
 			const props = wrapper.find(Button).props();
 			expect(props.onClick).toBeDefined();
 			expect(context.store.dispatch).not.toHaveBeenCalled();
-			props.onClick({ type: 'click' });
-			expect(context.store.dispatch).toHaveBeenCalledWith({
+			const event = { type: 'click' };
+			props.onClick(event);
+			expect(context.store.dispatch.mock.calls[0][0]).toMatchObject({
 				type: 'FETCH_CONFIGURED',
-				url: '/api/foo',
-				cmf: {
-					collectionId: 'foo',
-				},
+				event,
+				data: onClickActionCreator.data,
 			});
 		});
 	});

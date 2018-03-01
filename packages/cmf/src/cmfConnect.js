@@ -310,23 +310,20 @@ export default function cmfConnect({
 					props.toOmit.push(key);
 					const handlerKey = key.replace(CONSTANT.IS_HANDLER_ACTION_CREATOR, '');
 					let actionCreator = this.props[key];
-					let args;
 					if (typeof this.props[key] === 'object') {
 						actionCreator = this.props[key].id;
-						args = this.props[key].args;
 					}
 					// eslint-disable-next-line no-param-reassign
 					props[handlerKey] = (event, data) => {
-						if (!args) {
-							args = [
-								serializeEvent(event),
-								{
-									props: this.props,
-									data,
-								},
-							];
-						}
-						this.dispatchActionCreator(actionCreator, ...args);
+						this.dispatchActionCreator(
+							actionCreator,
+							serializeEvent(event),
+							{
+								props: this.props,
+								...data,
+								...(this.props[key].data || {}),
+							}
+						);
 						if (this.props[handlerKey]) {
 							this.props[handlerKey](event, data);
 						}

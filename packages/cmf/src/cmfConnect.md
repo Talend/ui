@@ -188,13 +188,13 @@ export default cmfConnect({})(SimpleButton);
 			// to dispatch action creator onClick with controlled arguments
 			"onClickActionCreator": {
 				"id": "cmf.http",
-				"args": [{
+				"data": {
 					"method": "GET",
 					"url": "/api/v1/foo",
 					"cmf": {
 						"collectionId": "foo"
 					}
-				}]
+				}
 			}
 		}
 	}
