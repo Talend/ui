@@ -2,10 +2,6 @@
 
 exports[`InjectDropdownMenuItem should render MenuItem with Inject 1`] = `
 <MenuItem
-  bsClass="dropdown"
-  disabled={false}
-  divider={false}
-  header={false}
   onKeyDown={[Function]}
   onSelect={[Function]}
   stuff="MyItemProps"
@@ -19,10 +15,7 @@ exports[`InjectDropdownMenuItem should render MenuItem with Inject 1`] = `
 
 exports[`InjectDropdownMenuItem should render MenuItem with props divider 1`] = `
 <MenuItem
-  bsClass="dropdown"
-  disabled={false}
   divider={true}
-  header={false}
   stuff="MyItemProps"
 />
 `;
