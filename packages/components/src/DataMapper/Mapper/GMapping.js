@@ -1,23 +1,43 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { drawLine, drawBezier, drawPoint, drawArrow } from '../Drawing.js'
 
 export default class GMapping extends Component {
 
+	// resizeCanvas() {
+	// 	console.log('RESIZE CANVAS')
+	// }
+
 	componentDidMount() {
-		this.initCanvasSize();
+		this.updateCanvasSize();
+		// this.canvasParent = document.getElementById('mapping-content');
+		// this.canvasParent.addEventListener('resize', this.resizeCanvas, false);
 	}
+
+	// componentWillUnmount() {
+	// 	this.canvasParent.removeEventListener('resize', this.resizeCanvas, false);
+	// }
+
+	// componentWillUpdate() {
+	// 	this.updateCanvasSize();
+	// }
 
 	componentDidUpdate() {
-		this.updateCanvas();
+		this.updateCanvas(true, true);
 	}
 
-	initCanvasSize() {
-		this.canvas.width = this.canvasParent.clientWidth;
-		this.canvas.height = this.canvasParent.clientHeight;
+	updateCanvasSize() {
+		this.canvas.width = this.canvasParentElem.clientWidth;
+		this.canvas.height = this.canvasParentElem.clientHeight;
 	}
 
-	updateCanvas() {
-		this.clearCanvas();
+	updateCanvas(clear, resetSize) {
+		if (clear) {
+			this.clearCanvas();
+		}
+		if (resetSize) {
+			this.updateCanvasSize();
+		}
 		const connection = this.props.getConnection();
 		if (connection != null && connection.sourceYPos != null && connection.targetYPos != null) {
 			this.drawConnection(connection);
@@ -35,34 +55,15 @@ export default class GMapping extends Component {
 		const y1 = connection.sourceYPos;
 		const x2 = this.canvas.width - radius;
 		const y2 = connection.targetYPos;
-		this.drawPoint(x1, y1, radius);
-		this.drawLine(x1, y1, x2, y2, 3);
-		this.drawPoint(x2, y2, radius);
-	}
-
-	drawLine(x1, y1, x2, y2, width) {
-		const context = this.canvas.getContext('2d');
-		context.beginPath();
-		context.lineWidth = width;
-		context.lineJoin = 'round';
-		context.moveTo(x1, y1);
-		context.lineTo(x2, y2);
-		context.stroke();
-		context.closePath();
-	}
-
-	drawPoint(x, y, radius) {
-		const context = this.canvas.getContext('2d');
-		context.beginPath();
-		context.arc(x, y, radius, 0, Math.PI * 2);
-		context.fill();
-		context.closePath();
+		drawPoint(x1, y1, radius, this.canvas);
+		drawBezier(x1, y1, x2, y2, 3, this.canvas);
+		drawArrow(x2, y2, 12, 12, this.canvas);
 	}
 
 	render() {
 		return (
 			<div id="mapping" className="mapper-element">
-				<div className="mapping-tools">
+				<div id="mapping-tools">
 					<button
 						id="clear-connection"
 						className="remove-action"
@@ -78,7 +79,7 @@ export default class GMapping extends Component {
 						Clear All
 					</button>
 				</div>
-				<div ref={c => { this.canvasParent = c; }} className="mapping-content">
+				<div ref={c => { this.canvasParentElem = c; }} id="mapping-content">
 					<canvas ref={c => { this.canvas = c; }} id="mapping-canvas" />
 				</div>
 			</div>

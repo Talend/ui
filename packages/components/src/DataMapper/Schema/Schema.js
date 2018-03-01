@@ -56,16 +56,16 @@ export default class Schema extends Component {
 	render() {
 		const { type, schema, draggable, mapped, performMapping, selection, onSelect } = this.props;
 		return (
-			<div className={'Schema mapper-element'}>
-				<div className="Schema-title">{`${type} schema`}</div>
+			<div className={'schema mapper-element'}>
+				<div className="schema-name">{schema.name}</div>
 				<div
 					ref={content => {
 						this.contentNode = content;
 					}}
-					className={reverse('Schema-content', type === SchemaType.INPUT)}
+					className={reverse('schema-content', type === SchemaType.INPUT)}
 					onScroll={this.props.onScroll}
 				>
-					{schema.map(elem =>
+					{schema.elements.map(elem =>
 						renderSchemaElement(type, elem, draggable, mapped, performMapping, selection, onSelect),
 					)}
 				</div>

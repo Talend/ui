@@ -4,7 +4,7 @@ import { SchemaType } from '../../Constants';
 import { reverse } from '../../Utils';
 
 function getClassName(props) {
-	let className = 'Schema-element';
+	let className = 'schema-element';
 	if (props.highlighted) {
 		className += ' highlighted';
 	}

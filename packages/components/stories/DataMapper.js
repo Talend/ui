@@ -4,70 +4,82 @@ import { DataMapper as Mapper } from '../src/index';
 import { SchemaType } from '../src/DataMapper/Constants';
 
 /*
-const inputSchema1 = [
-	'firstname',
-	'lastname',
-	'street',
-	'zip',
-	'city',
-	'state',
-	'birthday',
-	'company'
-]
+const inputSchema1 = {
+  name: 'user_info',
+  elements: [
+    'firstname',
+    'lastname',
+    'street',
+    'zip',
+    'city',
+    'state',
+    'birthday',
+    'company'
+  ]
+}
 */
 
-const inputSchema2 = [
-	'firstname',
-	'lastname',
-	'street',
-	'zip',
-	'city',
-	'state',
-	'birthday',
-	'company',
-	'favorite_color',
-	'favorite_number',
-	'favorite_movie',
-	'favorite_song',
-	'favorite_video_game',
-	'favorite_dessert',
-	'favorite_country',
-	'favorite_football_player',
-	'favorite_writer',
-];
+const inputSchema2 = {
+  name: 'user_info_full',
+  elements: [
+    'firstname',
+    'lastname',
+    'street',
+    'zip',
+    'city',
+    'state',
+    'birthday',
+    'company',
+    'favorite_color',
+    'favorite_number',
+    'favorite_movie',
+    'favorite_song',
+    'favorite_video_game',
+    'favorite_dessert',
+    'favorite_country',
+    'favorite_football_player',
+    'favorite_writer'
+  ]
+}
 
 /*
-const outputSchema1 = [
-	'name',
-	'city',
-	'state',
-	'company',
-	'birthday',
-	'age',
-	'identifier',
-	'code',
-];
+const outputSchema1 = {
+  name: 'customer_data',
+  elements: [
+    'name',
+    'city',
+    'state',
+    'company',
+    'birthday',
+    'age',
+    'identifier',
+    'code'
+  ]
+}
 */
 
-const outputSchema2 = [
-	'name',
-	'city',
-	'state',
-	'company',
-	'birthday',
-	'age',
-	'identifier',
-	'code',
-	'favorite_color',
-	'favorite_number',
-	'favorite_movie',
-	'favorite_song',
-	'favorite_video_game',
-	'favorite_dessert',
-	'favorite_country',
-	'favorite_football_player',
-	'favorite_writer',
-];
+const outputSchema2 = {
+  name: 'customer_data_full',
+  elements: [
+    'name',
+    'city',
+    'state',
+    'company',
+    'birthday',
+    'age',
+    'identifier',
+    'code',
+    'favorite_color',
+    'favorite_number',
+    'favorite_movie',
+    'favorite_song',
+    'favorite_video_game',
+    'favorite_dessert',
+    'favorite_country',
+    'favorite_football_player',
+    'favorite_writer'
+  ]
+}
 
 const emptyMapping = [];
 

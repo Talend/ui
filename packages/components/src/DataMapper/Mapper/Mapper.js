@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Schema from '../Schema/Schema.js';
-import GMapping from '../GMapping.js';
+import GMapping from './GMapping.js';
 import { SchemaType, MappingSide } from '../Constants';
 
 function getMapped(mapping, side) {
@@ -25,7 +25,7 @@ export default class Mapper extends Component {
 
 	onScroll() {
 		if (this.gmap.updateCanvas) {
-			this.gmap.updateCanvas();
+			this.gmap.updateCanvas(true, false);
 		}
 	}
 
@@ -110,8 +110,8 @@ export default class Mapper extends Component {
 Mapper.propTypes = {
 	mapping: PropTypes.array,
 	selection: PropTypes.object,
-	inputSchema: PropTypes.array,
-	outputSchema: PropTypes.array,
+	inputSchema: PropTypes.object,
+	outputSchema: PropTypes.object,
 	performMapping: PropTypes.func,
 	clearMapping: PropTypes.func,
 	clearConnection: PropTypes.func,
