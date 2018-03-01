@@ -79,6 +79,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'bootstrap-sass': '3.3.7',
 	'bson-objectid': '1.1.5',
 	classnames: '2.2.5',
+	'd3-shape': '1.2.0',
 	keycode: '2.1.9',
 	lodash: '4.17.4',
 	immutable: '3.8.1',
