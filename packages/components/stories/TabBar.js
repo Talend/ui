@@ -23,7 +23,7 @@ const props = {
 		},
 	],
 	onSelect: action('onSelect'),
-	selected: '2',
+	selectedKey: '2',
 };
 
 const stories = storiesOf('TabBar', module);
