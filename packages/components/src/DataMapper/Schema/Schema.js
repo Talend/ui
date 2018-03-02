@@ -14,7 +14,9 @@ function isSelected(element, selection, type) {
 
 function isHighlighted(element, selection, type) {
 	return selection == null ?
-	 false : (selection.type !== type && selection.connected === element);
+	 false : (selection.type !== type
+		 && selection.connected != null
+		 && selection.connected.includes(element));
 }
 
 function renderSchemaElement(type, elem, draggable, mapped, performMapping, selection, onSelect) {

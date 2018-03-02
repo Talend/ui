@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { DataMapper as Mapper } from '../src/index';
 import { SchemaType, Navigation, switchSchemaType, Configs } from '../src/DataMapper/Constants';
 import { inputSchema2, outputSchema2, emptyMapping } from '../src/DataMapper/Data';
-import { isSelected, isSelectionEmpty, getSchema } from '../src/DataMapper/Utils';
+import { isSelected, isSelectionEmpty, getSchema, getMappingItems } from '../src/DataMapper/Utils';
 
 function getInitialState() {
 	return {
@@ -11,25 +11,27 @@ function getInitialState() {
     outputSchema: outputSchema2,
 		mapping: emptyMapping,
 		selection: null,
+		showAll: false,
 	};
 }
 
-function getMappingItem(mapping, element, type) {
-	if (type === SchemaType.INPUT) {
-		return mapping.find(item => item.source === element);
-	}
-	return mapping.find(item => item.target === element);
-}
-
 function getConnected(mapping, element, type) {
-	const item = getMappingItem(mapping, element, type);
-	if (item != null) {
+	const items = getMappingItems(mapping, element, type);
+	if (items != null) {
 		if (type === SchemaType.INPUT) {
-			return item.target;
+			return items.map(item => item.target);
 		}
-		return item.source;
+		return items.map(item => item.source);
 	}
 	return null;
+}
+
+function appendConnected(mapping, source, target, type) {
+	const connected = getConnected(mapping, source, type);
+	if (connected != null) {
+		return connected.concat(target);
+	}
+	return [target];
 }
 
 function getSelection(mapping, selection, element, type) {
@@ -51,21 +53,33 @@ function clearConnected(selection) {
 	};
 }
 
-function removeConnection(mapping, selection) {
+function removeConnections(mapping, selection) {
 	if (isSelectionEmpty(selection)) {
 		return mapping;
 	}
-	const index = mapping.findIndex(item =>
+	const items = mapping.filter(item =>
 		(selection.type === SchemaType.INPUT && item.source === selection.element)
 		|| (selection.type === SchemaType.OUTPUT && item.target === selection.element)
 	);
-	if (index >= 0) {
-		// remove Item
-		const updatedMapping = mapping.slice();
-		updatedMapping.splice(index, 1);
+	if (items != null) {
+		// remove items
+		let updatedMapping = mapping.slice();
+		for (var i = 0; i < items.length; i++) {
+			const item = items[i];
+			const index = updatedMapping.findIndex(it => it.source === item.source && it.target === item.target);
+			if (index >= 0) {
+				updatedMapping = removeConnection(updatedMapping, index);
+			}
+		}
 		return updatedMapping;
 	}
 	return mapping;
+}
+
+function removeConnection(mapping, index) {
+	const updatedMapping = mapping.slice();
+	updatedMapping.splice(index, 1);
+	return updatedMapping;
 }
 
 function getCurrentSelectedSchema(state) {
@@ -112,15 +126,15 @@ function navigateUpDown(state, nav) {
 
 function switchSchema(state) {
   const selection = state.selection;
-  if (selection.connected != null) {
+	const targetType = switchSchemaType(selection.type);
+  if (selection.connected != null && selection.connected.length > 0) {
     return {
-			element: selection.connected,
-			connected: selection.element,
-			type: switchSchemaType(selection.type),
+			element: selection.connected[0],
+			connected: getConnected(state.mapping, selection.connected[0], targetType),
+			type: targetType,
   	};
   }
   // try to find an element with the same name
-  const targetType = switchSchemaType(selection.type);
   const targetSchema = getSchema(state, targetType);
   let targetElem = targetSchema.elements.find(e => e === selection.element);
   if (targetElem == null) {
@@ -206,7 +220,7 @@ stories
 					mapping: prevState.mapping.concat([{ source, target }]),
 					selection: {
 						element: source,
-						connected: target,
+						connected: appendConnected(prevState.mapping, source, target, SchemaType.INPUT),
 						type: SchemaType.INPUT,
 					},
 				}));
@@ -221,7 +235,7 @@ stories
 
 			clearConnection() {
 				this.setState(prevState => ({
-					mapping: removeConnection(prevState.mapping, prevState.selection),
+					mapping: removeConnections(prevState.mapping, prevState.selection),
 					selection: clearConnected(prevState.selection),
 				}));
 			}
@@ -253,6 +267,7 @@ stories
 						draggable={Configs.DRAGGABLE}
 						selection={this.state.selection}
 						onSelect={this.selectElement}
+						showAll={this.state.showAll}
 					/>
 				);
 			}

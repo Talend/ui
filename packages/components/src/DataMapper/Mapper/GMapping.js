@@ -37,9 +37,11 @@ export default class GMapping extends Component {
 		if (resetSize) {
 			this.updateCanvasSize();
 		}
-		const connection = this.props.getConnection();
-		if (connection != null && connection.sourceYPos != null && connection.targetYPos != null) {
-			this.drawConnection(connection);
+		const connections = this.props.getConnections();
+		if (connections != null) {
+			for (var i = 0; i < connections.length; i++) {
+  			this.drawConnection(connections[i]);
+			}
 		}
 	}
 
@@ -49,14 +51,16 @@ export default class GMapping extends Component {
 	}
 
 	drawConnection(connection) {
-		const radius = 5;
-		const x1 = radius;
-		const y1 = connection.sourceYPos;
-		const x2 = this.canvas.width - radius;
-		const y2 = connection.targetYPos;
-		drawPoint(x1, y1, radius, this.canvas);
-		drawBezier(x1, y1, x2, y2, 3, this.canvas);
-		drawArrow(x2, y2, 12, 12, this.canvas);
+		if (connection.sourceYPos != null && connection.targetYPos != null) {
+			const radius = 5;
+			const x1 = radius;
+			const y1 = connection.sourceYPos;
+			const x2 = this.canvas.width - radius;
+			const y2 = connection.targetYPos;
+			drawPoint(x1, y1, radius, this.canvas);
+			drawBezier(x1, y1, x2, y2, 4, this.canvas);
+			drawArrow(x2, y2, 12, 12, this.canvas);
+		}
 	}
 
 	render() {
@@ -97,7 +101,7 @@ export default class GMapping extends Component {
 }
 
 GMapping.propTypes = {
-	getConnection: PropTypes.func,
+	getConnections: PropTypes.func,
 	clearConnection: PropTypes.func,
 	clearMapping: PropTypes.func,
 };

@@ -3,23 +3,17 @@ import PropTypes from 'prop-types';
 import Schema from '../Schema/Schema.js';
 import GMapping from './GMapping.js';
 import { SchemaType, MappingSide } from '../Constants';
+import { getMappingItems } from '../Utils';
 
 function getMapped(mapping, side) {
 	const mappedElements = mapping.map(item => item[side]);
 	return Array.from(new Set(mappedElements));
 }
 
-function getMappingItem(mapping, selection) {
-	if (selection.type === SchemaType.INPUT) {
-		return mapping.find(item => item.source === selection.element);
-	}
-	return mapping.find(item => item.target === selection.element);
-}
-
 export default class Mapper extends Component {
 	constructor(props) {
 		super(props);
-		this.getConnection = this.getConnection.bind(this);
+		this.getConnections = this.getConnections.bind(this);
 		this.onScroll = this.onScroll.bind(this);
 	}
 
@@ -36,20 +30,24 @@ export default class Mapper extends Component {
 		return this.outputSchema.getYPosition(element);
 	}
 
-	getConnection() {
+	getConnection(item) {
+		const source = item.source;
+		const target = item.target;
+		const sourceYPos = this.getYPosition(source, SchemaType.INPUT);
+		const targetYPos = this.getYPosition(target, SchemaType.OUTPUT);
+		return { sourceYPos, targetYPos };
+	}
+
+	getConnections() {
 		const { mapping, selection } = this.props;
 		if (selection == null || mapping.length === 0) {
 			return null;
 		}
-		const item = getMappingItem(mapping, selection);
-		if (item != null) {
-			const source = item.source;
-			const target = item.target;
-			const sourceYPos = this.getYPosition(source, SchemaType.INPUT);
-			const targetYPos = this.getYPosition(target, SchemaType.OUTPUT);
-			return { sourceYPos, targetYPos };
+		const items = getMappingItems(mapping, selection.element, selection.type);
+		if (items != null) {
+			return items.map(item => this.getConnection(item));
 		}
-		return {};
+		return null;
 	}
 
 	reveal(selection) {
@@ -111,7 +109,7 @@ export default class Mapper extends Component {
 					mapping={mapping}
 					clearConnection={clearConnection}
 					clearMapping={clearMapping}
-					getConnection={this.getConnection}
+					getConnections={this.getConnections}
 					selection={selection}
 				/>
 			</div>
