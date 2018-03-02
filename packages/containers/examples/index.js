@@ -11,6 +11,7 @@ import HomeListViewExample from './ExampleHomeListView';
 import ListExample from './ExampleList';
 import NotificationExample from './ExampleNotification';
 import ObjectViewerExample from './ExampleObjectViewer';
+import PieChartButtonExample from './ExamplePieChartButton';
 import SelectObjectExample from './ExampleSelectObject';
 import SidePanelExample from './ExampleSidePanel';
 import SliderExample from './ExampleSlider';
@@ -32,6 +33,7 @@ export default {
 	HomeListViewExample,
 	ListExample,
 	NotificationExample,
+	PieChartButtonExample,
 	ObjectViewerExample,
 	SelectObjectExample,
 	SidePanelExample,
