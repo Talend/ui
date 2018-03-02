@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#QualityIndicator should render QualityIndicator 1`] = `
+<div
+  className="theme-td-cell-quality-indicator td-cell-quality-indicator theme-td-cell-quality-indicator-invalid"
+  title="Incorrect value"
+/>
+`;
