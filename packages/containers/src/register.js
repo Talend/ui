@@ -14,8 +14,6 @@ export function registerAllContainers() {
 	Object.keys(omit(components, alreadyRegistered)).forEach(key => {
 		if (components[key]) {
 			api.component.register(key, cmfConnect({})(components[key]));
-		} else {
-			console.warn('no component at ', key);
 		}
 	});
 

@@ -1,10 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { mount } from 'enzyme';
 import mock from '@talend/react-cmf/lib/mock';
 import wrap from './wrap';
 
 describe('wrap', () => {
 	const Button = ({ onClick, children }) => <button onClick={onClick}>{children}</button>;
+	Button.propTypes = {
+		onClick: PropTypes.func,
+		children: PropTypes.node,
+	};
 	Button.displayName = 'Button';
 	const context = mock.context();
 	context.registry = {};

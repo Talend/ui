@@ -11,8 +11,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/containers/src/register.js
-   8:1  error    Prefer default export         import/prefer-default-export
-  18:4  warning  Unexpected console statement  no-console
+  8:1  error  Prefer default export  import/prefer-default-export
 
 /home/travis/build/Talend/ui/packages/containers/src/renderers.js
   5:33  error  Unexpected parentheses around single function argument  arrow-parens
@@ -20,9 +19,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
   3:1  error  'react-router' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-/home/travis/build/Talend/ui/packages/containers/src/wrap.test.js
-  7:20  error  'onClick' is missing in props validation   react/prop-types
-  7:29  error  'children' is missing in props validation  react/prop-types
-
-✖ 8 problems (7 errors, 1 warning)
+✖ 5 problems (5 errors, 0 warnings)
 
