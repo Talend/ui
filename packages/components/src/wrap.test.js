@@ -11,6 +11,7 @@ describe('wrap', () => {
 		children: PropTypes.node,
 	};
 	Button.displayName = 'Button';
+	Button.foo = 'bar';
 	const context = mock.context();
 	context.registry = {};
 	it('should create a component', () => {
@@ -23,5 +24,10 @@ describe('wrap', () => {
 			},
 		});
 		expect(wrapper.find('button').props().children[1]).toBe('hello');
+	});
+
+	it('should re-expose all attributes', () => {
+		const WrappedButton = wrap(Button, 'MyButton');
+		expect(WrappedButton.foo).toBe('bar');
 	});
 });
