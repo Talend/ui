@@ -26,6 +26,6 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 }
 
 export default cmfConnect({
-	componentId: ownProps => ownProps.componentId || ownProps.id,
+	componentId: ownProps => ownProps.componentId || ownProps.actionId || ownProps.id,
 	mapStateToProps,
 })(Action);
