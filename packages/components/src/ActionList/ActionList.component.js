@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Action } from '../Actions';
+import Inject from '../Inject';
 import theme from './ActionList.scss';
 
 /**
@@ -24,12 +25,12 @@ function getActionId(id, action) {
 	return undefined;
 }
 
-function ActionListItem({ id, onSelect, action, isSelected, isNav, itemClassName }) {
+function ActionListItem({ getComponent, id, onSelect, action, isSelected, isNav, itemClassName }) {
 	const a11y = {
 		role: 'presentation',
 	};
 	const extra = {};
-
+	const Renderers = Inject.getAll(getComponent, { Action });
 	if (isSelected && isNav) {
 		// @see https://tink.uk/using-the-aria-current-attribute/
 		a11y['aria-current'] = true;
@@ -65,7 +66,7 @@ function ActionListItem({ id, onSelect, action, isSelected, isNav, itemClassName
 			})}
 			{...a11y}
 		>
-			<Action {...actionProps} />
+			<Renderers.Action {...actionProps} />
 		</li>
 	);
 }
@@ -121,6 +122,7 @@ if (process.env.NODE_ENV !== 'production') {
 		action: actionPropType,
 		isSelected: PropTypes.bool,
 		isNav: PropTypes.bool,
+		getComponent: PropTypes.func,
 	};
 
 	ActionList.propTypes = {
