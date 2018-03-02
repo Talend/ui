@@ -45,7 +45,7 @@ export function wrapOnClick(action) {
  * @return {Component} the component to be used
  */
 export function getActionComponent({ displayMode, getComponent }) {
-	const renderers = Inject.getAll(getComponent, {
+	const Renderers = Inject.getAll(getComponent, {
 		ActionFile,
 		ActionDropdown,
 		ActionSplitDropdown,
@@ -54,18 +54,18 @@ export function getActionComponent({ displayMode, getComponent }) {
 	});
 	switch (displayMode) {
 		case TYPE_FILE:
-			return renderers.ActionFile;
+			return Renderers.ActionFile;
 		case TYPE_DROPDOWN:
-			return renderers.ActionDropdown;
+			return Renderers.ActionDropdown;
 		case TYPE_SPLIT_DROPDOWN:
-			return renderers.ActionSplitDropdown;
+			return Renderers.ActionSplitDropdown;
 		case TYPE_ICON_TOGGLE:
-			return renderers.ActionIconToggle;
+			return Renderers.ActionIconToggle;
 		default:
 			if (displayMode) {
 				return getComponent(displayMode);
 			}
-			return renderers.ActionButton;
+			return Renderers.ActionButton;
 	}
 }
 
