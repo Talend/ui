@@ -167,6 +167,7 @@ export {
 	// bootstrap
 	Alert,
 	BootstrapBadge,
+	BootstrapCheckbox,
 	Breadcrumb,
 	BreadcrumbItem,
 	Button,
@@ -174,7 +175,6 @@ export {
 	ButtonToolbar,
 	Carousel,
 	CarouselItem,
-	BootstrapCheckbox,
 	Clearfix,
 	ControlLabel,
 	Col,
