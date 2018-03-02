@@ -1,20 +1,6 @@
 import { api, cmfConnect } from '@talend/react-cmf';
 import { Action } from '@talend/react-components';
 
-import ActionButton from '../ActionButton';
-import ActionFile from '../ActionFile';
-import ActionSplitDropdown from '../ActionSplitDropdown';
-import ActionDropdown from '../ActionDropdown';
-import ActionIconToggle from '../ActionIconToggle';
-
-export const renderers = {
-	ActionButton,
-	ActionFile,
-	ActionSplitDropdown,
-	ActionDropdown,
-	ActionIconToggle,
-};
-
 export function mapStateToProps(state, ownProps) {
 	const props = {};
 	if (ownProps.actionId) {
