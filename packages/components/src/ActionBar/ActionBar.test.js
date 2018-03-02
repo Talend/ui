@@ -27,7 +27,7 @@ describe('ActionBar', () => {
 		expect(onClickMock).toHaveBeenCalled();
 	});
 
-	it('should support custom renderers', () => {
+	it('should support custom component', () => {
 		// given
 		function MyAction(props) {
 			return (<div className="my-custom-action" {...props} />);
@@ -39,8 +39,11 @@ describe('ActionBar', () => {
 					{ label: 'Preparations', icon: 'talend-preparation' },
 				],
 			},
-			renderers: {
-				Action: MyAction,
+			getComponent: (key) => {
+				if (key === 'Action') {
+					return MyAction;
+				}
+				return undefined;
 			},
 		};
 
