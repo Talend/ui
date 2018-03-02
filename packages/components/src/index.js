@@ -1,4 +1,3 @@
-
 import bootstrap from './bootstrap';
 import { I18N_DOMAIN_COMPONENTS, CIRCULAR_PROGRESS_SIZE } from './constants';
 import {
@@ -163,7 +162,6 @@ export {
 	getTranslated,
 	I18N_DOMAIN_COMPONENTS,
 	CIRCULAR_PROGRESS_SIZE,
-
 	// bootstrap
 	Alert,
 	BootstrapBadge,
