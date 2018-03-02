@@ -6,7 +6,6 @@ import ActionFile from '../ActionFile';
 import ActionSplitDropdown from '../ActionSplitDropdown';
 import ActionDropdown from '../ActionDropdown';
 import ActionIconToggle from '../ActionIconToggle';
-import getRenderers from '../renderers';
 
 export const renderers = {
 	ActionButton,
@@ -19,6 +18,7 @@ export const renderers = {
 export function mapStateToProps(state, ownProps) {
 	const props = {};
 	if (ownProps.actionId) {
+		// eslint-disable-next-line no-console
 		console.warn(
 			'DEPRECATED: you should use componentId to map props using props.Action#componentId',
 		);

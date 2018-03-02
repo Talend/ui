@@ -2,27 +2,6 @@ import get from 'lodash/get';
 import deprecated from './deprecated';
 import actionCreatorAPI from './actionCreator';
 
-const msg = `@talend/react-cmf/lib/action api is deprecated. You should use your own component.
-This api is redondant and is just used to map the settings to props.
-So please migrate your settings from
-
-{
-	"actions": {
-		"my-action": { ... props }
-	}
-}
-
-to
-
-{
-	"props": {
-		"MyActionComponent#my-action": {
-			...props
-		}
-	}
-}
-`;
-
 /**
  * This module is DEPRECATED and will be removed in future version.
  * it provide low level api to register and handle action in a CMF App.
@@ -138,12 +117,12 @@ const getActionCreatorFunction = deprecated(
 );
 
 export default {
-	getActionsById: deprecated(getActionsById, msg),
+	getActionsById,
 	getActionCreatorFunction,
-	getActionInfo: deprecated(getActionInfo, msg),
-	getActionObject: deprecated(getActionObject, msg),
-	getContentTypeActions: deprecated(getContentTypeActions, msg),
-	getOnProps: deprecated(getOnProps, msg),
-	mapDispatchToProps: deprecated(mapDispatchToProps, msg),
+	getActionInfo,
+	getActionObject,
+	getContentTypeActions,
+	getOnProps,
+	mapDispatchToProps,
 	registerActionCreator,
 };
