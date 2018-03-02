@@ -1,114 +1,17 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { DataMapper as Mapper } from '../src/index';
-import { SchemaType } from '../src/DataMapper/Constants';
-
-/*
-const inputSchema1 = {
-  name: 'user_info',
-  elements: [
-    'firstname',
-    'lastname',
-    'street',
-    'zip',
-    'city',
-    'state',
-    'birthday',
-    'company'
-  ]
-}
-*/
-
-const inputSchema2 = {
-  name: 'user_info_full',
-  elements: [
-    'firstname',
-    'lastname',
-    'street',
-    'zip',
-    'city',
-    'state',
-    'birthday',
-    'company',
-    'favorite_color',
-    'favorite_number',
-    'favorite_movie',
-    'favorite_song',
-    'favorite_video_game',
-    'favorite_dessert',
-    'favorite_country',
-    'favorite_football_player',
-    'favorite_writer'
-  ]
-}
-
-/*
-const outputSchema1 = {
-  name: 'customer_data',
-  elements: [
-    'name',
-    'city',
-    'state',
-    'company',
-    'birthday',
-    'age',
-    'identifier',
-    'code'
-  ]
-}
-*/
-
-const outputSchema2 = {
-  name: 'customer_data_full',
-  elements: [
-    'name',
-    'city',
-    'state',
-    'company',
-    'birthday',
-    'age',
-    'identifier',
-    'code',
-    'favorite_color',
-    'favorite_number',
-    'favorite_movie',
-    'favorite_song',
-    'favorite_video_game',
-    'favorite_dessert',
-    'favorite_country',
-    'favorite_football_player',
-    'favorite_writer'
-  ]
-}
-
-const emptyMapping = [];
-
-/*
-const initialMapping = [
-	{
-		source: 'lastname',
-		target: 'name'
-	},
-	{
-		source: 'city',
-		target: 'city'
-	},
-	{
-		source: 'zip',
-		target: 'code'
-	}
-];
-*/
+import { SchemaType, Navigation, switchSchemaType, Configs } from '../src/DataMapper/Constants';
+import { inputSchema2, outputSchema2, emptyMapping } from '../src/DataMapper/Data';
+import { isSelected, isSelectionEmpty, getSchema } from '../src/DataMapper/Utils';
 
 function getInitialState() {
 	return {
+    inputSchema: inputSchema2,
+    outputSchema: outputSchema2,
 		mapping: emptyMapping,
 		selection: null,
 	};
-}
-
-function isSelected(selection, element, type) {
-	return selection != null && selection.element === element && selection.type === type;
 }
 
 function getMappingItem(mapping, element, type) {
@@ -148,11 +51,6 @@ function clearConnected(selection) {
 	};
 }
 
-function isSelectionEmpty(selection) {
-	const result = selection == null || selection.element == null || selection.type == null;
-	return result;
-}
-
 function removeConnection(mapping, selection) {
 	if (isSelectionEmpty(selection)) {
 		return mapping;
@@ -168,6 +66,86 @@ function removeConnection(mapping, selection) {
 		return updatedMapping;
 	}
 	return mapping;
+}
+
+function getCurrentSelectedSchema(state) {
+  if (isSelectionEmpty(state.selection)) {
+    return null;
+  }
+  if (state.selection.type === SchemaType.INPUT) {
+    return state.inputSchema;
+  } else if (state.selection.type === SchemaType.OUTPUT) {
+    return state.outputSchema;
+  }
+  return null;
+}
+
+function navigateUpDown(state, nav) {
+  const selection = state.selection;
+  const schema = getCurrentSelectedSchema(state);
+  const selectedElemIndex = schema.elements.indexOf(selection.element);
+  const size = schema.elements.length;
+  let newSelectedElemIndex = selectedElemIndex;
+  switch (nav) {
+    case Navigation.UP:
+      newSelectedElemIndex = selectedElemIndex - 1;
+      if (newSelectedElemIndex < 0) {
+        newSelectedElemIndex = size - 1;
+      }
+      break;
+    case Navigation.DOWN:
+      newSelectedElemIndex = selectedElemIndex + 1;
+      if (newSelectedElemIndex >= size) {
+        newSelectedElemIndex = 0;
+      }
+      break;
+		default:
+			return;
+  }
+  const newSelectedElement = schema.elements[newSelectedElemIndex];
+  return {
+		element: newSelectedElement,
+		connected: getConnected(state.mapping, newSelectedElement, selection.type),
+		type: selection.type,
+	};
+}
+
+function switchSchema(state) {
+  const selection = state.selection;
+  if (selection.connected != null) {
+    return {
+			element: selection.connected,
+			connected: selection.element,
+			type: switchSchemaType(selection.type),
+  	};
+  }
+  // try to find an element with the same name
+  const targetType = switchSchemaType(selection.type);
+  const targetSchema = getSchema(state, targetType);
+  let targetElem = targetSchema.elements.find(e => e === selection.element);
+  if (targetElem == null) {
+    // get the first element in target schema
+    targetElem = targetSchema.elements[0];
+  }
+  return {
+		element: targetElem,
+		connected: getConnected(state.mapping, targetElem, targetType),
+		type: targetType,
+	};
+}
+
+function navigate(state, nav) {
+  switch (nav) {
+    case Navigation.UP:
+      return navigateUpDown(state, nav);
+    case Navigation.DOWN:
+      return navigateUpDown(state, nav);
+    case Navigation.SWITCH_SCHEMA:
+      return switchSchema(state);
+		default:
+			break;
+  }
+  return state.selection;
 }
 
 const stories = storiesOf('DataMapper', module);
@@ -191,7 +169,37 @@ stories
 				this.clearMapping = this.clearMapping.bind(this);
 				this.clearConnection = this.clearConnection.bind(this);
 				this.selectElement = this.selectElement.bind(this);
+        this.handleNavigation = this.handleNavigation.bind(this);
+        this.handleKeyEvent = this.handleKeyEvent.bind(this);
 			}
+
+      handleKeyEvent(ev) {
+        if (this.handleNavigation(ev)) {
+          ev.preventDefault();
+          this.setState(prevState => ({
+  					selection: navigate(prevState, ev.key),
+  				}));
+          // reveal
+          const mapperInstance = this.mapper.getDecoratedComponentInstance();
+          mapperInstance.reveal(this.state.selection);
+        }
+      }
+
+      componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyEvent);
+      }
+
+      componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyEvent);
+      }
+
+			handleNavigation(ev) {
+        const key = ev.key;
+        const isValidKey = key === Navigation.UP
+												|| key === Navigation.DOWN
+												|| key === Navigation.SWITCH_SCHEMA;
+        return isValidKey && !isSelectionEmpty(this.state.selection);
+      }
 
 			performMapping(source, target) {
 				this.setState(prevState => ({
@@ -233,13 +241,16 @@ stories
 			render() {
 				return (
 					<Mapper
-						inputSchema={inputSchema2}
+            ref={m => {
+              this.mapper = m;
+            }}
+						inputSchema={this.state.inputSchema}
 						mapping={this.state.mapping}
-						outputSchema={outputSchema2}
+						outputSchema={this.state.outputSchema}
 						performMapping={this.performMapping}
 						clearMapping={this.clearMapping}
 						clearConnection={this.clearConnection}
-						draggable="true"
+						draggable={Configs.DRAGGABLE}
 						selection={this.state.selection}
 						onSelect={this.selectElement}
 					/>

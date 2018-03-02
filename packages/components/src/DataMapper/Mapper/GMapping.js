@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { drawLine, drawBezier, drawPoint, drawArrow } from '../Drawing.js'
+import { drawLine, drawBezier, drawPoint, drawArrow } from '../Drawing.js';
 
 export default class GMapping extends Component {
 	// resizeCanvas() {

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { SchemaType } from '../../Constants';
-import { reverse } from '../../Utils';
 
 function getClassName(props) {
 	let className = 'schema-element';
@@ -31,7 +29,7 @@ export default class SchemaElement extends Component {
 	render() {
 		return (
 			<div
-				className={reverse(getClassName(this.props), this.props.schemaType === SchemaType.INPUT)}
+				className={getClassName(this.props)}
 				onClick={this.select}
 				role="button"
 			>

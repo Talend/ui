@@ -52,6 +52,18 @@ export default class Mapper extends Component {
 		return {};
 	}
 
+	reveal(selection) {
+		if (selection == null) {
+			return;
+		}
+		const type = selection.type;
+		if (type === SchemaType.INPUT) {
+			this.inputSchema.reveal(selection.element);
+		} else {
+			this.outputSchema.reveal(selection.element);
+		}
+	}
+
 	render() {
 		const {
 			inputSchema,

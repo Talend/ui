@@ -7,7 +7,24 @@ export const SchemaType = {
 	OUTPUT: 'output',
 };
 
+export function switchSchemaType(type) {
+	if (type === SchemaType.INPUT) {
+		return SchemaType.OUTPUT;
+	}
+	return SchemaType.INPUT;
+}
+
 export const MappingSide = {
 	SOURCE: 'source',
 	TARGET: 'target',
+};
+
+export const Navigation = {
+	UP: 'ArrowUp',
+	DOWN: 'ArrowDown',
+	SWITCH_SCHEMA: 'Tab',
+};
+
+export const Configs = {
+	DRAGGABLE: true,
 };
