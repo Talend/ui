@@ -92,8 +92,13 @@ function ActionList(props) {
 				className,
 			)}
 		>
-			{actions.map(action => (
-				<ActionListItem action={action} isSelected={isActionSelected(action)} {...rest} />
+			{actions.map((action, index) => (
+				<ActionListItem
+					key={action.id || index}
+					action={action}
+					isSelected={isActionSelected(action)}
+					{...rest}
+				/>
 			))}
 		</ul>
 	);
