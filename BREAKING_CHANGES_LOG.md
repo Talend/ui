@@ -2,6 +2,15 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.161.0
+* component: Action
+* PR: [fix(Action): use the new Inject API](https://github.com/Talend/ui/pull/1093)
+* Changes:
+| Before | After |
+|---|---|
+| props.renderers | props.getComponent |
+| props.name | no more resolve use actionId or componentId with "props" settings |
+
 ## v0.160.0
 * icon: AWS-kinesis
 * PR: [chore(icons): update AWS-kinesis.svg](https://github.com/Talend/ui/pull/1092)
