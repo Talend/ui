@@ -1,5 +1,5 @@
 
-> @talend/react-components@0.160.0 lint:es /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.161.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -7,6 +7,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/ActionList/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
+
+/home/travis/build/Talend/ui/packages/components/src/bootstrap.js
+  6:3  error  Assignment to property of function parameter 'acc'  no-param-reassign
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -36,5 +39,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 16 problems (15 errors, 1 warning)
+/home/travis/build/Talend/ui/packages/components/src/wrap.js
+  4:1  error  '@talend/react-cmf' should be listed in the project's dependencies. Run 'npm i -S @talend/react-cmf' to add it  import/no-extraneous-dependencies
+
+/home/travis/build/Talend/ui/packages/components/src/wrap.test.js
+  4:1  error  '@talend/react-cmf' should be listed in the project's dependencies. Run 'npm i -S @talend/react-cmf' to add it  import/no-extraneous-dependencies
+
+✖ 19 problems (18 errors, 1 warning)
 
