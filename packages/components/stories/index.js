@@ -1,6 +1,7 @@
 import './Action';
 import './ActionFile';
 import './ActionBar';
+import './ActionList';
 import './ActionDropdown';
 import './ActionSplitDropdown';
 import './ActionIconToggle';
@@ -26,6 +27,7 @@ import './List';
 import './Loader';
 import './Notification';
 import './ObjectViewer';
+import './PieChartButton';
 import './Progress';
 import './SidePanel';
 import './Slider';

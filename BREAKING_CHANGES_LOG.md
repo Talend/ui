@@ -2,6 +2,70 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.160.0
+* icon: AWS-kinesis
+* PR: [chore(icons): update AWS-kinesis.svg](https://github.com/Talend/ui/pull/1092)
+* Change: name change
+
+Before
+```
+AWS-kinesis.svg
+```
+
+After
+```
+aws-kinesis.svg
+```
+
+* Typeahead: new flag to manage the display mode
+* PR: [fix(components/typeahead): use a flag for the display mode](https://github.com/Talend/ui/pull/1101)
+* Change: flag instead of onToggle presence
+
+Before
+```jsx
+<Typeahead onToggle={func} />         // button
+<Typeahead onToggle={undefined} />    // input
+```
+
+After
+```jsx
+<Typeahead onToggle={func} docked />  // button
+<Typeahead onToggle={func} />         // input
+```
+
+- `docked === true && onToggle !== undefined` : the toggle button is displayed
+- `docked !== true || onToggle === undefined` : the typeahead input is displayed
+
+* Component: TabBar
+* PR: [fix(components/tabbar): rename selected property](https://github.com/Talend/ui/pull/1111)
+* Change: `selected` has been renamed by `selectedKey`
+
+
+| Before | After |
+|---|---|
+| props.selected | props.selectedKey |
+
+
+* Component: Drawer
+* PR: [fix(components/tabbar): rename selected property](https://github.com/Talend/ui/pull/1111)
+* Change: `selected` has been renamed by `selectedKey` for drawer's tabs
+
+
+| Before | After |
+|---|---|
+| props.tabs.selected | props.tabs.selectedKey |
+
+
+* Component: Layout
+* PR: [fix(components/tabbar): rename selected property](https://github.com/Talend/ui/pull/1111)
+* Change: `selected` has been renamed by `selectedKey` for layout's tabs
+
+
+| Before | After |
+|---|---|
+| props.tabs.selected | props.tabs.selectedKey |
+
+
 ## v0.157.0
 * cmf: route onLeave/onEnter
 * PR: [feat(cmf): route onEnter/onLeave with dispatch](https://github.com/Talend/ui/pull/1082)
@@ -15,7 +79,8 @@ function onLeave(nextState, replace) { }
 
 After
 ```javascript
-function onEnter(router, dispatch) { const { nextState, replace } = router; }
+function onEnter(router, dispatch)
+ { const { nextState, replace } = router; }
 function onLeave(router, dispatch) { }
 ```
 
