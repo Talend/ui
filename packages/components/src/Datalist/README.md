@@ -15,7 +15,7 @@ This widget allows you to render a Typeahead.
 | titleMap | A mapping of value/label to display |  |
 
 
-```json
+```json single selection
 {
 	"autoFocus": true,
 	"disabled": false,
@@ -28,5 +28,23 @@ This widget allows you to render a Typeahead.
 		{ "name": "lol", value: "lol" },
 	],
 };
+```json multi section
+{
+	autoFocus: true,
+	disabled: false,
+	multiSection: true,
+	placeholder: 'search for something ...',
+	readOnly: false,
+	titleMap: [
+		{ title: 'cat 1', suggestions: [{ name: 'foo', value: 'foo' }, { name: 'faa', value: 'foo' }] },
+		{ title: 'cat 2', suggestions: [{ name: 'bar', value: 'bar' }] },
+		{ title: 'cat 3', suggestions: [{ name: 'foobar', value: 'foobar' }] },
+		{ title: 'cat 4', suggestions: [{ name: 'lol', value: 'lol' }] },
+	],
+	onFinish: (event, payload) => {},
+	onChange: (event, payload) => {},
+};
 
 ```
+
+

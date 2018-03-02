@@ -11,10 +11,10 @@ const propsMultiSection = {
 	placeholder: 'search for something ...',
 	readOnly: false,
 	titleMap: [
-		{ title: 'cat 1', items: [{ name: 'foo', value: 'foo' }, { name: 'faa', value: 'foo' }] },
-		{ title: 'cat 2', items: [{ name: 'bar', value: 'bar' }] },
-		{ title: 'cat 3', items: [{ name: 'foobar', value: 'foobar' }] },
-		{ title: 'cat 4', items: [{ name: 'lol', value: 'lol' }] },
+		{ title: 'cat 1', suggestions: [{ name: 'foo', value: 'foo' }, { name: 'faa', value: 'foo' }] },
+		{ title: 'cat 2', suggestions: [{ name: 'bar', value: 'bar' }] },
+		{ title: 'cat 3', suggestions: [{ name: 'foobar', value: 'foobar' }] },
+		{ title: 'cat 4', suggestions: [{ name: 'lol', value: 'lol' }] },
 	],
 	onFinish: (event, payload) => {
 		console.log('toto');

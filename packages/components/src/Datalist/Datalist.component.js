@@ -51,7 +51,7 @@ class Datalist extends Component {
 	 * @param value
 	 */
 	onChange(event, { value }) {
-		this.updateSuggestions(value);
+		this.updateGroups(value);
 		this.updateValue(event, value, false);
 	}
 
@@ -59,7 +59,7 @@ class Datalist extends Component {
 	 * Display suggestions on focus
 	 */
 	onFocus() {
-		this.updateSuggestions(this.state.value);
+		this.updateGroups(this.state.value);
 	}
 
 	/**
@@ -78,7 +78,7 @@ class Datalist extends Component {
 				this.resetValue();
 				break;
 			case keycode.codes.enter:
-				if (!this.state.suggestions) {
+				if (!this.state.groups) {
 					break;
 				}
 				event.preventDefault();
@@ -94,9 +94,9 @@ class Datalist extends Component {
 				break;
 			case keycode.codes.down:
 				event.preventDefault();
-				if (!this.state.suggestions) {
+				if (!this.state.groups) {
 					// display all suggestions when they are not displayed
-					this.updateSuggestions();
+					this.updateGroups();
 				}
 				this.setState({ focusedItemIndex: newHighlightedItemIndex });
 				break;
@@ -115,9 +115,9 @@ class Datalist extends Component {
 	 * @param itemIndex The item index in suggestions list
 	 */
 	onSelect(event, { sectionIndex, itemIndex }) {
-		let newValue = this.state.suggestions[itemIndex];
+		let newValue = this.state.groups[itemIndex];
 		if (this.props.multiSection) {
-			newValue = this.state.suggestions[sectionIndex].suggestions[itemIndex];
+			newValue = this.state.groups[sectionIndex].suggestions[itemIndex];
 		}
 		this.updateValue(event, newValue, true);
 	}
@@ -141,7 +141,7 @@ class Datalist extends Component {
 			let enumValue = this.props.titleMap.find(item => item.name === value);
 			if (this.props.multiSection) {
 				this.props.titleMap.forEach(group => {
-					const item = group.items.find(item => item.name === value.title);
+					const item = group.suggestions.find(item => item.name === value.title);
 					if (item) {
 						enumValue = item;
 					}
@@ -165,14 +165,15 @@ class Datalist extends Component {
 	}
 
 	/**
-	 * Build the suggestions object according to multiSection props
+	 * Building multiSection items or single section items
+	 * return the items list
 	 */
-	buildSuggestion(titleMap, multiSection) {
+	buildGroupItems(titleMap, multiSection) {
 		if (multiSection) {
 			return titleMap.map(group => {
 				return {
 					title: group.title,
-					suggestions: group.items.map((item) => ({ title: item.name }))
+					suggestions: group.suggestions.map((item) => ({ title: item.name }))
 				};
 			});
 		}
@@ -185,28 +186,31 @@ class Datalist extends Component {
 	 * If the array is empty, the suggestion box will display a "No result" message
 	 * @param value The value to base suggestions on
 	 */
-	updateSuggestions(value) {
+	updateGroups(value) {
 		if (this.props.readOnly || this.props.disabled) {
 			return;
 		}
 
-		let suggestions = this.buildSuggestion(this.props.titleMap, this.props.multiSection);
+		// building multiSection items or single section items
+		let groups = this.buildGroupItems(this.props.titleMap, this.props.multiSection);
 		if (value) {
+			// filtering
 			const escapedValue = escapeRegexCharacters(value.trim());
 			const regex = new RegExp(escapedValue, 'i');
 			if (this.props.multiSection) {
-				suggestions = suggestions.map(suggestion => {
+				groups = groups.map(group => {
 					return {
-						...suggestion,
-						suggestions: suggestion.suggestions.filter(item => regex.test(item.title))
+						...group,
+						suggestions: group.suggestions.filter(item => regex.test(item.title))
 					};
 				});
 			} else {
-				suggestions = suggestions.filter(itemValue => regex.test(itemValue));
+				// only one group so items are inline
+				groups = groups.filter(itemValue => regex.test(itemValue));
 			}
 		}
 
-		this.setState({ suggestions });
+		this.setState({ groups });
 	}
 
 	/**
@@ -214,7 +218,7 @@ class Datalist extends Component {
 	 */
 	resetSuggestions() {
 		this.setState({
-			suggestions: undefined,
+			groups: undefined,
 			focusedItemIndex: undefined,
 		});
 	}
@@ -228,7 +232,7 @@ class Datalist extends Component {
 						autoFocus={this.props.autoFocus || false}
 						disabled={this.props.disabled || false}
 						focusedItemIndex={this.state.focusedItemIndex}
-						items={this.state.suggestions}
+						items={this.state.groups}
 						multiSection={this.props.multiSection}
 						onBlur={this.onBlur}
 						onChange={this.onChange}
