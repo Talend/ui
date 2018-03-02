@@ -4,10 +4,6 @@ import { Action } from '@talend/react-components';
 export function mapStateToProps(state, ownProps) {
 	const props = {};
 	if (ownProps.actionId) {
-		// eslint-disable-next-line no-console
-		console.warn(
-			'DEPRECATED: you should use componentId to map props using props.Action#componentId',
-		);
 		const info = api.action.getActionInfo(
 			{
 				registry: api.registry.getRegistry(),

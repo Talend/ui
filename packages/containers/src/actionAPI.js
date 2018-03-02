@@ -1,9 +1,4 @@
 import { api } from '@talend/react-cmf';
-import deprecated from '@talend/react-cmf/lib/deprecated';
-
-const msg = `@talend/react-containers/lib/actionAPI should not be used any more
-
-You should use injection API + Action components with props;`;
 
 /**
  * add support for expression in actions.
@@ -71,6 +66,6 @@ export function getActionsProps(context, ids, model) {
 }
 
 export default {
-	getProps: deprecated(getActionsProps, msg),
-	evalExpressions: deprecated(evalExpressions, msg),
+	getProps: getActionsProps,
+	evalExpressions,
 };
