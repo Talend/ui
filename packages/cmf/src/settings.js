@@ -27,7 +27,11 @@ export function generateDefaultViewId(viewId, componentName, componentId) {
  * @return {String} MyComponent#default
  */
 function withoutHOC(componentName) {
-	return componentName.split('(').slice(-1).pop().split(')')[0];
+	return componentName
+		.split('(')
+		.slice(-1)
+		.pop()
+		.split(')')[0];
 }
 
 /**
