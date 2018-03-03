@@ -11,10 +11,22 @@ export function toText(props) {
 	return props.text;
 }
 
+const OMIT_PROPS = [
+	'setState',
+	'deleteState',
+	'updateState',
+	'componentId',
+	'state',
+	'initState',
+	'getCollection',
+	'dispatch',
+	'dispatchActionCreator',
+];
+
 export default function wrap(Component, key) {
 	const Wrapper = ({ getComponent, components, text, ...props }) => {
 		const injected = Inject.all(getComponent, components);
-		const newprops = Object.assign({}, omit(props, cmfConnect.INJECTED_PROPS));
+		const newprops = Object.assign({}, omit(props, OMIT_PROPS));
 		return (
 			<Component {...newprops}>
 				{injected('children')}
@@ -28,8 +40,18 @@ export default function wrap(Component, key) {
 	});
 	Wrapper.displayName = key;
 	Wrapper.propTypes = {
-		...cmfConnect.propTypes,
 		text: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+		children: PropTypes.oneOfType([
+			PropTypes.node,
+			PropTypes.arrayOf(PropTypes.node),
+		]),
+		getComponent: PropTypes.func,
+		components: PropTypes.shape({
+			children: PropTypes.arrayOf(PropTypes.shape({
+				component: PropTypes.string,
+				componentId: PropTypes.string,
+			})),
+		}),
 	};
 	return Wrapper;
 }
