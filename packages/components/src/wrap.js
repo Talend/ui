@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-import { cmfConnect } from '@talend/react-cmf';
 
 import Inject from './Inject';
 
@@ -32,5 +31,5 @@ export default function wrap(Component, key) {
 		...cmfConnect.propTypes,
 		text: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
 	};
-	return cmfConnect({})(Wrapper);
+	return Wrapper;
 }
