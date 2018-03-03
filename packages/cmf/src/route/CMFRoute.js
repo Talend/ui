@@ -6,6 +6,16 @@ import CMFRouteHook from './CMFRouteHook';
 import api from '../api';
 
 /**
+ * Route components memoization.
+ * The routes are configured once on settings loading.
+ * Without memoization, a new component is created at each render,
+ * which implies a removal of current DOM nodes and mount of new once,
+ * even if there is no differences.
+ * @type {object} Key: unique route id - value : route component
+ */
+const routeComponents = {};
+
+/**
  * Get component from CMF registry
  * Connect it to CMF if not already connected
  * Pass the view setting to cmfConnect
@@ -26,15 +36,22 @@ export function getConnectedComponent(view, componentId, context) {
 
 /**
  * Get child routes
- * @param parentPath The parent path
- * @param indexRoute The parent index settings
  * @param childRoutes The child routes settings
  * @param context The cmf context
+ * @param indexRoute The parent index settings
+ * @param parentPath The parent path
+ * @param parentRouteId The parent unique identifier
  * @returns {any[]} The list of Route/CMFRoute child components
  */
-function getChildRoutes(parentPath, indexRoute, childRoutes = [], context) {
+function getChildRoutes({
+	childRoutes = [],
+	context,
+	indexRoute,
+	parentPath,
+	parentRouteId,
+}) {
 	const children = childRoutes.map((route, index) => (
-		<CMFRoute key={index} {...route} cmfParentPath={parentPath} />
+		<CMFRoute key={index} {...route} cmfParentPath={parentPath} routeId={`${parentRouteId}.${index}`} />
 	));
 
 	if (indexRoute) {
@@ -94,7 +111,6 @@ function getSafePath(parentPath = '', path) {
 	return path;
 }
 
-
 /**
  * @param childRoutes The child routes settings
  * @param cmfParentPath The parent path
@@ -104,6 +120,7 @@ function getSafePath(parentPath = '', path) {
  * @param onEnter The enter hook function id in CMF registry
  * @param onLeave The leave hook function id in CMF registry
  * @param path The route path
+ * @param routeId A unique id of this route config for component memoization
  * @param view The view settings id
  * @param context The CMF context
  * @returns {*} The CMF route
@@ -117,30 +134,41 @@ export default function CMFRoute({
 	onEnter,
 	onLeave,
 	path,
+	routeId = 'root',
 	view,
 }, context) {
 	const safePath = getSafePath(cmfParentPath, path);
-	const connectedComponent = getConnectedComponent(view, component, context);
-	const children = getChildRoutes(safePath, indexRoute, childRoutes, context);
 
-	function RouteComponent(props) {
-		return (
-			<CMFRouteComponent
-				{...props}
-				Component={connectedComponent}
-				children={children}
-				onEnter={onEnter}
-				onLeave={onLeave}
-				view={view}
-			/>
-		);
+	let memoizedComponent = routeComponents[routeId];
+	if (!memoizedComponent) {
+		const connectedComponent = getConnectedComponent(view, component, context);
+		const children = getChildRoutes({
+			childRoutes,
+			context,
+			indexRoute,
+			parentRouteId: routeId,
+			parentPath: safePath,
+		});
+		memoizedComponent = function RouteComponent(props) {
+			return (
+				<CMFRouteComponent
+					{...props}
+					Component={connectedComponent}
+					children={children}
+					onEnter={onEnter}
+					onLeave={onLeave}
+					view={view}
+				/>
+			);
+		};
+		routeComponents[routeId] = memoizedComponent;
 	}
 
 	return (
 		<Route
 			path={safePath}
 			exact={exact}
-			component={RouteComponent}
+			component={memoizedComponent}
 		/>
 	);
 }
@@ -154,6 +182,7 @@ CMFRoute.propTypes = {
 	onEnter: PropTypes.string,
 	onLeave: PropTypes.string,
 	path: PropTypes.string,
+	routeId: PropTypes.string,
 	view: PropTypes.string,
 };
 CMFRoute.contextTypes = {

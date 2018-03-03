@@ -10,7 +10,7 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 
 @function set-text-color($color) {
 	@if (lightness($color) > 60) {
-		@return #000; // Lighter backgorund, return dark color
+		@return #000; // Lighter background, return dark color
 	} @else {
 		@return #fff; // Darker background, return light color
 	}
@@ -25,8 +25,6 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 	right: 0;
 	bottom: 0;
 	width: 50vw;
-	// should always stay lower than dialog z-index which is set to 1040
-	z-index: 100;
 }
 
 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
@@ -130,15 +128,17 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 	}
 }
 
-:global(.tc-with-drawer-wrapper) :global(.tc-drawer.stacked)::after {
-	background: rgba(0, 0, 0, 0.4);
-	content: ' ';
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	top: 0;
-}
+:global(.tc-with-drawer-wrapper) {
+	:global(.tc-drawer.stacked)::after {
+		background: rgba(0, 0, 0, 0.4);
+		content: ' ';
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+	}
 
-:global(.tc-with-drawer-wrapper:last-child) :global(.tc-drawer.stacked)::after {
-	content: none;
+	&:last-child :global(.tc-drawer.stacked)::after {
+		content: none;
+	}
 }
