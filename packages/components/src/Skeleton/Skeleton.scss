@@ -1,0 +1,54 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
+.tc-skeleton {
+	@include heartbeat(skeleton-blink);
+	background-color: $black;
+	display: inline-block;
+
+	&-icon {
+		background-color: transparent;
+		fill: $black;
+		stroke: $black;
+		height: 24px;
+		width: 24px;
+	}
+
+	&-circle {
+		border-radius: 50%;
+		&-small {
+			width: 16px;
+			height: 16px;
+		}
+		&-medium {
+			width: 20px;
+			height: 20px;
+		}
+		&-large {
+			width: 24px;
+			height: 24px;
+		}
+	}
+
+	&-text {
+		border-radius: 4px;
+		height: 14px;
+		&-small {
+			width: 30px;
+		}
+		&-medium {
+			width: 100px;
+		}
+		&-large {
+			width: 130px;
+		}
+		&-extra-large {
+			width: 160px;
+		}
+	}
+
+	&-button {
+		border-radius: 4px;
+		height: 35px;
+		width: 80px;
+	}
+}

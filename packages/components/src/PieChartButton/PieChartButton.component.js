@@ -4,6 +4,7 @@ import { arc } from 'd3-shape';
 import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 import classnames from 'classnames';
 import TooltipTrigger from '../TooltipTrigger';
+import Skeleton from '../Skeleton';
 import theme from './PieChartButton.scss';
 
 const MIN_SIZE = 20;
@@ -325,11 +326,6 @@ function PieChartButton({
 	const sizeObject = getDisplaySize(size, display);
 
 	if (inProgress) {
-		const loadingCircleStyle = {
-			width: `${sizeObject.svgSize}px`,
-			height: `${sizeObject.svgSize}px`,
-			borderRadius: `${sizeObject.svgSize / 2}px`,
-		};
 		return (
 			<Button
 				className={classnames(theme['tc-pie-chart-loading'], 'tc-pie-chart-loading', {
@@ -337,15 +333,8 @@ function PieChartButton({
 					'tc-pie-chart-loading-no-label': hideLabel,
 				})}
 			>
-				<div style={loadingCircleStyle} />
-				{!hideLabel && (
-					<div
-						className={classnames(
-							theme['tc-pie-chart-loading-skeleton-label'],
-							'tc-pie-chart-loading-skeleton-label',
-						)}
-					/>
-				)}
+				<Skeleton type="circle" width={sizeObject.svgSize} height={sizeObject.svgSize} />
+				{!hideLabel && <Skeleton type="text" size="small" />}
 			</Button>
 		);
 	}

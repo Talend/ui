@@ -8,13 +8,14 @@ $tc-pie-chart-loading-margin-left: 4px !default;
 $tc-pie-chart-hover-color: $scooter !default;
 
 $tc-pie-chart-colors: (
-	rio-grande $rio-grande,
-	chestnut-rose $chestnut-rose,
-	lightning-yellow $lightning-yellow,
-	slate-gray $slate-gray,
-	silver-chalice $silver-chalice,
-	alto $alto
-) !default;
+		rio-grande $rio-grande,
+		chestnut-rose $chestnut-rose,
+		lightning-yellow $lightning-yellow,
+		slate-gray $slate-gray,
+		silver-chalice $silver-chalice,
+		alto $alto
+	)
+	!default;
 
 @mixin apply-color($color) {
 	color: $color;
@@ -23,7 +24,6 @@ $tc-pie-chart-colors: (
 }
 
 .tc-pie-chart-loading {
-	@include heartbeat(object-blink);
 	display: flex;
 	align-items: center;
 	min-height: $tc-pie-chart-loading-min-height;
@@ -32,21 +32,10 @@ $tc-pie-chart-colors: (
 		min-height: $tc-pie-chart-loading-min-height-no-label;
 	}
 
-	& > div:first-child {
-		display: block;
-		background: $gallery;
+	& > span:first-child {
 		// adjust to be like loaded component
 		margin-left: $tc-pie-chart-loading-margin-left;
-	}
-
-	&-skeleton-label {
-		background: $gallery;
-		border-radius: 4px;
-		display: block;
-		height: $tc-pie-chart-skeleton-label-height;
-		margin-left: $padding-smaller;
-		margin-top: 1px;
-		width: $tc-pie-chart-skeleton-label-width;
+		margin-right: $padding-smaller;
 	}
 }
 
