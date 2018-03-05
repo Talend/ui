@@ -35,7 +35,7 @@ stories
 			<Skeleton type="text" size="medium" />
 			<div>large:</div>
 			<Skeleton type="text" size="large" />
-			<div>extra-karge:</div>
+			<div>extra-large:</div>
 			<Skeleton type="text" size="extra-large" />
 			<div>custom width:</div>
 			<Skeleton type="text" size="extra-large" width={400} />
