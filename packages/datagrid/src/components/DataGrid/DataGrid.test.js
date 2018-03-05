@@ -190,6 +190,12 @@ describe('#DataGrid', () => {
 		expect(getPinnedColumnDefsFn).toHaveBeenCalledWith(sample);
 		expect(getRowDataFn).toHaveBeenCalledWith(sample);
 	});
+
+	it('should render one Skeleton when inProgress', () => {
+		const wrapper = shallow(<DataGrid inProgress getComponent={getComponent} />);
+		expect(wrapper.find('Skeleton').length).toBe(1);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
 });
 
 describe('#AgGrid API', () => {

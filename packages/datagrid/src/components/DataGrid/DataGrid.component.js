@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { AgGridReact } from 'ag-grid-react';
 import keycode from 'keycode';
 import 'ag-grid/dist/styles/ag-grid.css';
-import { Inject } from '@talend/react-components';
+import { Inject, Skeleton } from '@talend/react-components';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
@@ -159,25 +159,7 @@ export default class DataGrid extends React.Component {
 		}
 	}
 
-	handleKeyboard({ nextCellDef, previousCellDef }) {
-		if (!nextCellDef) {
-			return null;
-		}
-
-		if (this.gridAPI && previousCellDef.rowIndex !== nextCellDef.rowIndex) {
-			// ag-grid workaround: ag-grid set a selected row only by a click by an user
-			// This allows, when the user move the cell by the keyboard/tab, to set the selected row
-			this.gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
-		}
-
-		return nextCellDef;
-	}
-
-	render() {
-		if (this.props.inProgress) {
-			return 'skeleton 96*96';
-		}
-
+	getAgGridConfig() {
 		const agGridOptions = {
 			headerHeight: this.props.headerHeight,
 			tabToNextCell: this.handleKeyboard,
@@ -241,9 +223,49 @@ export default class DataGrid extends React.Component {
 			),
 		};
 
+		return agGridOptions;
+	}
+
+	handleKeyboard({ nextCellDef, previousCellDef }) {
+		if (!nextCellDef) {
+			return null;
+		}
+
+		if (this.gridAPI && previousCellDef.rowIndex !== nextCellDef.rowIndex) {
+			// ag-grid workaround: ag-grid set a selected row only by a click by an user
+			// This allows, when the user move the cell by the keyboard/tab, to set the selected row
+			this.gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
+		}
+
+		return nextCellDef;
+	}
+
+	render() {
+		let content;
+		if (this.props.inProgress) {
+			content = (
+				<Skeleton
+					className={classNames(theme['td-grid-in-progress'], 'td-grid-in-progress')}
+					name="talend-table"
+					type={Skeleton.TYPES.icon}
+				/>
+			);
+		} else {
+			content = <AgGridReact {...this.getAgGridConfig()} />;
+		}
+
 		return (
-			<div className={classNames(theme['td-grid'], this.props.className, 'td-grid')}>
-				<AgGridReact {...agGridOptions} />
+			<div
+				className={classNames(
+					{
+						[theme['td-grid-in-progress']]: this.props.inProgress,
+					},
+					theme['td-grid'],
+					this.props.className,
+					'td-grid',
+				)}
+			>
+				{content}
 			</div>
 		);
 	}

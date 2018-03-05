@@ -1,3 +1,6 @@
+$td-datagrid-skeleton-width: 9.6rem !default;
+$td-datagrid-skeleton-height: 9.6rem !default;
+
 .td-grid {
 	color: $black;
 	height: 100%;
@@ -8,6 +11,11 @@
 		align-items: center;
 		justify-content: center;
 		height: 100%;
+
+		svg {
+			width: $td-datagrid-skeleton-width;
+			height: $td-datagrid-skeleton-height;
+		}
 	}
 
 	&-focus-row {
