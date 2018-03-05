@@ -103,7 +103,7 @@ import Loader from './Loader';
 import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import SidePanel from './SidePanel';
-import Skeleton, { SKELETON_SIZES, SKELETON_TYPES } from './Skeleton';
+import Skeleton from './Skeleton';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
@@ -228,6 +228,4 @@ export {
 	Well,
 	I18N_DOMAIN_COMPONENTS,
 	CIRCULAR_PROGRESS_SIZE,
-	SKELETON_SIZES,
-	SKELETON_TYPES,
 };
