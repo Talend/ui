@@ -23,7 +23,6 @@ $tc-pie-chart-colors: (
 }
 
 .tc-pie-chart-loading {
-	@include heartbeat(object-blink);
 	display: flex;
 	align-items: center;
 	min-height: $tc-pie-chart-loading-min-height;
@@ -32,21 +31,10 @@ $tc-pie-chart-colors: (
 		min-height: $tc-pie-chart-loading-min-height-no-label;
 	}
 
-	& > div:first-child {
-		display: block;
-		background: $gallery;
+	&-circle {
 		// adjust to be like loaded component
 		margin-left: $tc-pie-chart-loading-margin-left;
-	}
-
-	&-skeleton-label {
-		background: $gallery;
-		border-radius: 4px;
-		display: block;
-		height: $tc-pie-chart-skeleton-label-height;
-		margin-left: $padding-smaller;
-		margin-top: 1px;
-		width: $tc-pie-chart-skeleton-label-width;
+		margin-right: $padding-smaller;
 	}
 }
 
