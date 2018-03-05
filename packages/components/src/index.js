@@ -229,4 +229,6 @@ export {
 	Thumbnail,
 	Tooltip,
 	Well,
+	I18N_DOMAIN_COMPONENTS,
+	CIRCULAR_PROGRESS_SIZE,
 };
