@@ -22,7 +22,7 @@ export function generateDefaultViewId(viewId, componentName, componentId) {
 }
 
 /**
- * this function remove all HOC from the componentName
+ * Removes all HOC from the componentName
  * @param {String} viewId Connect(CMF(Container(MyComponent)))#default
  * @return {String} MyComponent#default
  */
