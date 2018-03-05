@@ -450,6 +450,14 @@ ajv@^5.0.0, ajv@^5.1.0, ajv@^5.1.5:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.3.0"
 
+ajv@^6.1.1:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.2.0.tgz#afac295bbaa0152449e522742e4547c1ae9328d2"
+  dependencies:
+    fast-deep-equal "^1.0.0"
+    fast-json-stable-stringify "^2.0.0"
+    json-schema-traverse "^0.3.0"
+
 align-text@^0.1.1, align-text@^0.1.3:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/align-text/-/align-text-0.1.4.tgz#0cd90a561093f35d0a99256c22b7069433fad117"
@@ -2401,6 +2409,24 @@ chokidar@^2.0.0:
   optionalDependencies:
     fsevents "^1.0.0"
 
+chokidar@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.0.2.tgz#4dc65139eeb2714977735b6a35d06e97b494dfd7"
+  dependencies:
+    anymatch "^2.0.0"
+    async-each "^1.0.0"
+    braces "^2.3.0"
+    glob-parent "^3.1.0"
+    inherits "^2.0.1"
+    is-binary-path "^1.0.0"
+    is-glob "^4.0.0"
+    normalize-path "^2.1.1"
+    path-is-absolute "^1.0.0"
+    readdirp "^2.0.0"
+    upath "^1.0.0"
+  optionalDependencies:
+    fsevents "^1.0.0"
+
 chownr@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.0.1.tgz#e2a75042a9551908bebd25b8523d5f9769d79181"
@@ -3302,6 +3328,16 @@ cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
 
+d3-path@1:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/d3-path/-/d3-path-1.0.5.tgz#241eb1849bd9e9e8021c0d0a799f8a0e8e441764"
+
+d3-shape@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/d3-shape/-/d3-shape-1.2.0.tgz#45d01538f064bafd05ea3d6d2cb748fd8c41f777"
+  dependencies:
+    d3-path "1"
+
 d@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/d/-/d-1.0.0.tgz#754bb5bfe55451da69a58b94d45f4c5b0462d58f"
@@ -3456,6 +3492,10 @@ deep-is@~0.1.3:
 deepmerge@1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-1.5.1.tgz#c053bf06fd7276f1994f70c09a0760cb61a56237"
+
+deepmerge@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.0.1.tgz#25c1c24f110fb914f80001b925264dd77f3f4312"
 
 default-require-extensions@^1.0.0:
   version "1.0.0"
@@ -11969,6 +12009,10 @@ unzip-response@^1.0.2:
 unzip-response@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/unzip-response/-/unzip-response-2.0.1.tgz#d2f0f737d16b0615e72a6935ed04214572d56f97"
+
+upath@^1.0.0:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/upath/-/upath-1.0.4.tgz#ee2321ba0a786c50973db043a50b7bcba822361d"
 
 update-notifier@^2.3.0:
   version "2.3.0"

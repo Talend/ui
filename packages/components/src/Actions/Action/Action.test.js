@@ -24,6 +24,7 @@ const renderers = {
 	ActionDropdown: MyActionDropdown,
 	ActionIconToggle: MyActionIconToggle,
 };
+const getComponent = key => renderers[key];
 
 describe('getActionComponent', () => {
 	it('should return ActionButton without displayMode', () => {
@@ -39,23 +40,23 @@ describe('getActionComponent', () => {
 		expect(component).toBe(ActionDropdown);
 	});
 	it('should return MyActionButton without displayMode', () => {
-		const component = getActionComponent({ renderers });
+		const component = getActionComponent({ getComponent });
 		expect(component.displayName).toBe('MyActionButton');
 	});
 	it('should return MyActionFile if displayMode = file', () => {
-		const component = getActionComponent({ renderers, displayMode: 'file' });
+		const component = getActionComponent({ getComponent, displayMode: 'file' });
 		expect(component.displayName).toBe('MyActionFile');
 	});
 	it('should return MyActionSplitDropdown if displayMode = splitDropdown', () => {
-		const component = getActionComponent({ renderers, displayMode: 'splitDropdown' });
+		const component = getActionComponent({ getComponent, displayMode: 'splitDropdown' });
 		expect(component.displayName).toBe('MyActionSplitDropdown');
 	});
 	it('should return MyActionDropdown if displayMode = dropdown', () => {
-		const component = getActionComponent({ renderers, displayMode: 'dropdown' });
+		const component = getActionComponent({ getComponent, displayMode: 'dropdown' });
 		expect(component.displayName).toBe('MyActionDropdown');
 	});
 	it('should return MyActionIconToggle if displayMode = iconToggle', () => {
-		const component = getActionComponent({ renderers, displayMode: 'iconToggle' });
+		const component = getActionComponent({ getComponent, displayMode: 'iconToggle' });
 		expect(component.displayName).toBe('MyActionIconToggle');
 	});
 });

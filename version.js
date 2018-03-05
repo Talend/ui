@@ -42,6 +42,7 @@ const STACK_VERSION = {
 	'@talend/bootstrap-theme': stack_version,
 	'@talend/react-cmf': stack_version,
 	'@talend/react-cmf-cqrs': stack_version,
+	'@talend/react-cmf-webpack-plugin': stack_version,
 	'@talend/react-sagas': stack_version,
 	'@talend/react-components': stack_version,
 	'@talend/react-containers': stack_version,
@@ -78,6 +79,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'bootstrap-sass': '3.3.7',
 	'bson-objectid': '1.1.5',
 	classnames: '2.2.5',
+	'd3-shape': '1.2.0',
 	keycode: '2.1.9',
 	lodash: '4.17.4',
 	immutable: '3.8.1',
@@ -167,6 +169,7 @@ const VERSIONS = Object.assign({}, ADDONS, {
 const files = [
 	'./packages/cmf/package.json',
 	'./packages/cmf-cqrs/package.json',
+	'./packages/cmf-webpack-plugin/package.json',
 	'./packages/components/package.json',
 	'./packages/containers/package.json',
 	'./packages/forms/package.json',
