@@ -174,6 +174,10 @@ export default class DataGrid extends React.Component {
 	}
 
 	render() {
+		if (this.props.inProgress) {
+			return 'skeleton 96*96';
+		}
+
 		const agGridOptions = {
 			headerHeight: this.props.headerHeight,
 			tabToNextCell: this.handleKeyboard,
