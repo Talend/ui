@@ -34,6 +34,7 @@ import List from './List';
 import Loader from './Loader';
 import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
+import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
 import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
@@ -217,6 +218,7 @@ export {
 	ResponsiveEmbed,
 	Row,
 	SafeAnchor,
+	Skeleton,
 	SplitButton,
 	Tab,
 	TabContainer,
