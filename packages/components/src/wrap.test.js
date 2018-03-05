@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { mount } from 'enzyme';
-import mock from '@talend/react-cmf/lib/mock';
 import wrap from './wrap';
 
 describe('wrap', () => {
@@ -11,17 +10,16 @@ describe('wrap', () => {
 		children: PropTypes.node,
 	};
 	Button.displayName = 'Button';
-	const context = mock.context();
-	context.registry = {};
+	Button.foo = 'bar';
 	it('should create a component', () => {
 		const WrappedButton = wrap(Button, 'MyButton');
-		expect(WrappedButton.displayName).toBe('Connect(CMF(MyButton))');
-		const wrapper = mount(<WrappedButton text="hello" />, {
-			context,
-			childContextTypes: {
-				registry: React.PropTypes.object,
-			},
-		});
+		expect(WrappedButton.displayName).toBe('MyButton');
+		const wrapper = mount(<WrappedButton text="hello" />);
 		expect(wrapper.find('button').props().children[1]).toBe('hello');
+	});
+
+	it('should re-expose all attributes', () => {
+		const WrappedButton = wrap(Button, 'MyButton');
+		expect(WrappedButton.foo).toBe('bar');
 	});
 });
