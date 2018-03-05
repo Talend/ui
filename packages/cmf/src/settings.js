@@ -45,7 +45,7 @@ export function nonMemoized(state, ownProps, componentName, componentId) {
 
 	if (viewId && state.cmf.settings.props[viewId]) {
 		viewProps = state.cmf.settings.props[viewId] || {};
-	} else if (componentName && componentName.indexOf('(') !== -1) {
+	} else if (componentName && componentName.includes('(')) {
 		viewId = generateDefaultViewId(null, withoutHOC(componentName), componentId);
 		if (viewId && state.cmf.settings.props[viewId]) {
 			viewProps = state.cmf.settings.props[viewId] || {};
