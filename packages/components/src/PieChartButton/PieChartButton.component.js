@@ -333,7 +333,15 @@ function PieChartButton({
 					'tc-pie-chart-loading-no-label': hideLabel,
 				})}
 			>
-				<Skeleton type="circle" width={sizeObject.svgSize} height={sizeObject.svgSize} />
+				<Skeleton
+					type="circle"
+					width={sizeObject.svgSize}
+					height={sizeObject.svgSize}
+					className={classnames(
+						theme['tc-pie-chart-loading-circle'],
+						'tc-pie-chart-loading-circle',
+					)}
+				/>
 				{!hideLabel && <Skeleton type="text" size="small" />}
 			</Button>
 		);
