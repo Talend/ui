@@ -3,7 +3,8 @@ import deprecated from './deprecated';
 import actionCreatorAPI from './actionCreator';
 
 /**
- * This module provide low level api to register and handle action in a CMF App.
+ * This module is DEPRECATED and will be removed in future version.
+ * it provide low level api to register and handle action in a CMF App.
  * @module react-cmf/lib/action
  * @see module:react-cmf/lib/Dispatcher
  */
