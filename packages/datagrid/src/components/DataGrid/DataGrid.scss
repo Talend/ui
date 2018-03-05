@@ -3,6 +3,13 @@
 	height: 100%;
 	width: 100%;
 
+	&-in-progress {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+
 	&-focus-row {
 		:global(.ag-row-focus) {
 			background-color: $white;
