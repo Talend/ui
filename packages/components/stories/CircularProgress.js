@@ -29,6 +29,8 @@ storiesOf('CircularProgress', module)
 			<div style={{ background: '#2f5157' }}>
 				<CircularProgress light size="large" />
 			</div>
+      <h3>larger</h3>
+      <CircularProgress size="larger" />
 			<h3>Small with percent</h3>
 			<CircularProgress size="small" percent="30" />
 			<h3>Normal with percent</h3>

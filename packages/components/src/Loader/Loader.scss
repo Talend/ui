@@ -1,3 +1,20 @@
 .tc-loader {
 	display: flex;
 }
+
+.tc-app-loader-icon {
+	position: absolute;
+	width: 5em;
+	height: 7em;
+	margin-left: 14px;
+	margin-right: 10px;
+
+	animation: fadeIn 2s linear infinite;
+
+	@keyframes fadeIn {
+		0% { opacity: 0.6; }
+		25% { opacity: 1; }
+		50% { opacity: 1; }
+		100% { opacity: 0.6; }
+	}
+}
