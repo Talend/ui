@@ -23,15 +23,11 @@ export function generateDefaultViewId(viewId, componentName, componentId) {
 
 /**
  * Removes all HOC from the componentName
- * @param {String} viewId Connect(CMF(Container(MyComponent)))#default
+ * @param {String} viewId Connect(CMF(Container(MyComponent)))
  * @return {String} MyComponent#default
  */
 function withoutHOC(componentName) {
-	return componentName
-		.split('(')
-		.slice(-1)
-		.pop()
-		.split(')')[0];
+	return componentName.match(/.*\((.*)\)/)[1];
 }
 
 /**
