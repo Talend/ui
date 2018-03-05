@@ -4,7 +4,7 @@ import { arc } from 'd3-shape';
 import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 import classnames from 'classnames';
 import TooltipTrigger from '../TooltipTrigger';
-import Skeleton from '../Skeleton';
+import Skeleton, { SKELETON_TYPES, SKELETON_SIZES } from '../Skeleton';
 import theme from './PieChartButton.scss';
 
 const MIN_SIZE = 20;
@@ -334,7 +334,7 @@ function PieChartButton({
 				})}
 			>
 				<Skeleton
-					type="circle"
+					type={SKELETON_TYPES.circle}
 					width={sizeObject.svgSize}
 					height={sizeObject.svgSize}
 					className={classnames(
@@ -342,7 +342,7 @@ function PieChartButton({
 						'tc-pie-chart-loading-circle',
 					)}
 				/>
-				{!hideLabel && <Skeleton type="text" size="small" />}
+				{!hideLabel && <Skeleton type={SKELETON_TYPES.text} size={SKELETON_SIZES.small} />}
 			</Button>
 		);
 	}

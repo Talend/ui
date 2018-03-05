@@ -4,27 +4,50 @@ import classnames from 'classnames';
 import Icon from '../Icon';
 import theme from './Skeleton.scss';
 
+export const SKELETON_TYPES = {
+	icon: 'icon',
+	text: 'text',
+	button: 'button',
+	circle: 'circle',
+};
+
+export const SKELETON_SIZES = {
+	'extra-large': 'extra-large',
+	large: 'large',
+	medium: 'medium',
+	small: 'small',
+};
+
 function Skeleton({ type, size, width, height, name, className }) {
-	const style = { width, height };
 	const classes = classnames(
 		theme['tc-skeleton'],
 		theme[`tc-skeleton-${type}`],
 		theme[`tc-skeleton-${type}-${size}`],
 		'tc-skeleton',
 		`tc-skeleton-${type}`,
-		`tc-skeleton-circle-${size}`,
+		`tc-skeleton-${type}-${size}`,
 		className,
 	);
 
 	if (type === 'icon') {
 		return <Icon className={classes} name={name} />;
 	}
-	return <span style={style} className={classes} />;
+	return <span style={{ width, height }} className={classes} />;
 }
 
 Skeleton.propTypes = {
-	type: PropTypes.oneOf(['icon', 'circle', 'text', 'button']).isRequired,
-	size: PropTypes.oneOf(['extra-large', 'large', 'medium', 'small']),
+	type: PropTypes.oneOf([
+		SKELETON_TYPES.button,
+		SKELETON_TYPES.circle,
+		SKELETON_TYPES.icon,
+		SKELETON_TYPES.text,
+	]).isRequired,
+	size: PropTypes.oneOf([
+		SKELETON_SIZES.small,
+		SKELETON_SIZES.medium,
+		SKELETON_SIZES.large,
+		SKELETON_SIZES['extra-large'],
+	]),
 	width: PropTypes.number,
 	height: PropTypes.number,
 	name: PropTypes.string,
@@ -32,8 +55,8 @@ Skeleton.propTypes = {
 };
 
 Skeleton.defaultProps = {
-	type: 'text',
-	size: 'medium',
+	type: SKELETON_TYPES.text,
+	size: SKELETON_SIZES.medium,
 };
 
 Skeleton.displayName = 'Skeleton';

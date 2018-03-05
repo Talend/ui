@@ -4,7 +4,7 @@ import talendIcons from '@talend/icons/dist/react';
 import Skeleton from '../src/Skeleton';
 import IconProvider from '../src/IconsProvider';
 
-const stories = storiesOf('Skeleton', module);
+const stories = storiesOf(Skeleton.displayName, module);
 if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
 }

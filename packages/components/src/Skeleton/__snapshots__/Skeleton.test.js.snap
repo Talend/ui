@@ -85,7 +85,7 @@ exports[`Storyshots Skeleton default 1`] = `
       small:
     </div>
     <span
-      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-circle-small"
+      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
       style={
         Object {
           "height": undefined,
@@ -97,7 +97,7 @@ exports[`Storyshots Skeleton default 1`] = `
       medium:
     </div>
     <span
-      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-medium tc-skeleton tc-skeleton-text tc-skeleton-circle-medium"
+      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-medium tc-skeleton tc-skeleton-text tc-skeleton-text-medium"
       style={
         Object {
           "height": undefined,
@@ -109,7 +109,7 @@ exports[`Storyshots Skeleton default 1`] = `
       large:
     </div>
     <span
-      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-large tc-skeleton tc-skeleton-text tc-skeleton-circle-large"
+      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-large tc-skeleton tc-skeleton-text tc-skeleton-text-large"
       style={
         Object {
           "height": undefined,
@@ -118,10 +118,10 @@ exports[`Storyshots Skeleton default 1`] = `
       }
     />
     <div>
-      extra-karge:
+      extra-large:
     </div>
     <span
-      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-extra-large tc-skeleton tc-skeleton-text tc-skeleton-circle-extra-large"
+      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-extra-large tc-skeleton tc-skeleton-text tc-skeleton-text-extra-large"
       style={
         Object {
           "height": undefined,
@@ -133,7 +133,7 @@ exports[`Storyshots Skeleton default 1`] = `
       custom width:
     </div>
     <span
-      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-extra-large tc-skeleton tc-skeleton-text tc-skeleton-circle-extra-large"
+      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-extra-large tc-skeleton tc-skeleton-text tc-skeleton-text-extra-large"
       style={
         Object {
           "height": undefined,
@@ -145,7 +145,7 @@ exports[`Storyshots Skeleton default 1`] = `
       Button: 
     </h4>
     <span
-      className="theme-tc-skeleton theme-tc-skeleton-button theme-tc-skeleton-button-medium tc-skeleton tc-skeleton-button tc-skeleton-circle-medium"
+      className="theme-tc-skeleton theme-tc-skeleton-button theme-tc-skeleton-button-medium tc-skeleton tc-skeleton-button tc-skeleton-button-medium"
       style={
         Object {
           "height": undefined,
@@ -158,7 +158,7 @@ exports[`Storyshots Skeleton default 1`] = `
     </h4>
     <svg
       aria-hidden="true"
-      className="theme-tc-svg-icon tc-svg-icon theme-tc-skeleton theme-tc-skeleton-icon theme-tc-skeleton-icon-medium tc-skeleton tc-skeleton-icon tc-skeleton-circle-medium"
+      className="theme-tc-svg-icon tc-svg-icon theme-tc-skeleton theme-tc-skeleton-icon theme-tc-skeleton-icon-medium tc-skeleton tc-skeleton-icon tc-skeleton-icon-medium"
       focusable="false"
       title={null}
     >
