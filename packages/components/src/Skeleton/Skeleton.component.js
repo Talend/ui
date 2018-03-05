@@ -4,20 +4,15 @@ import classnames from 'classnames';
 import Icon from '../Icon';
 import theme from './Skeleton.scss';
 
-export const SKELETON_TYPES = {
-	icon: 'icon',
-	text: 'text',
-	button: 'button',
-	circle: 'circle',
-};
-
-export const SKELETON_SIZES = {
-	xlarge: 'xlarge',
-	large: 'large',
-	medium: 'medium',
-	small: 'small',
-};
-
+/**
+ * This component show some skeleton stuff
+ * @param {object} props the react props
+ * @param {string} props.size the wanted size
+ * @param {string} props.type the type of skeleton
+ * @param {number} props.width width to override size's width
+ * @param {number} props.height height to override size's height
+ * @param {string} props.className classes to apply on skeleton
+ */
 function Skeleton({ type, size, width, height, name, className }) {
 	const classes = classnames(
 		theme['tc-skeleton'],
@@ -35,18 +30,32 @@ function Skeleton({ type, size, width, height, name, className }) {
 	return <span style={{ width, height }} className={classes} />;
 }
 
+Skeleton.SKELETON_TYPES = {
+	icon: 'icon',
+	text: 'text',
+	button: 'button',
+	circle: 'circle',
+};
+
+Skeleton.SKELETON_SIZES = {
+	xlarge: 'xlarge',
+	large: 'large',
+	medium: 'medium',
+	small: 'small',
+};
+
 Skeleton.propTypes = {
 	type: PropTypes.oneOf([
-		SKELETON_TYPES.button,
-		SKELETON_TYPES.circle,
-		SKELETON_TYPES.icon,
-		SKELETON_TYPES.text,
+		Skeleton.SKELETON_TYPES.button,
+		Skeleton.SKELETON_TYPES.circle,
+		Skeleton.SKELETON_TYPES.icon,
+		Skeleton.SKELETON_TYPES.text,
 	]).isRequired,
 	size: PropTypes.oneOf([
-		SKELETON_SIZES.small,
-		SKELETON_SIZES.medium,
-		SKELETON_SIZES.large,
-		SKELETON_SIZES.xlarge,
+		Skeleton.SKELETON_SIZES.small,
+		Skeleton.SKELETON_SIZES.medium,
+		Skeleton.SKELETON_SIZES.large,
+		Skeleton.SKELETON_SIZES.xlarge,
 	]),
 	width: PropTypes.number,
 	height: PropTypes.number,
@@ -55,8 +64,8 @@ Skeleton.propTypes = {
 };
 
 Skeleton.defaultProps = {
-	type: SKELETON_TYPES.text,
-	size: SKELETON_SIZES.medium,
+	type: Skeleton.SKELETON_TYPES.text,
+	size: Skeleton.SKELETON_SIZES.medium,
 };
 
 Skeleton.displayName = 'Skeleton';
