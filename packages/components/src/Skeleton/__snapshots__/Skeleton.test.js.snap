@@ -67,7 +67,7 @@ exports[`Storyshots Skeleton default 1`] = `
       }
     />
     <div>
-      custom
+      custom size override class definition 
     </div>
     <span
       className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-small tc-skeleton tc-skeleton-circle tc-skeleton-circle-small"
@@ -121,7 +121,7 @@ exports[`Storyshots Skeleton default 1`] = `
       extra-large:
     </div>
     <span
-      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-extra-large tc-skeleton tc-skeleton-text tc-skeleton-text-extra-large"
+      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-xlarge tc-skeleton tc-skeleton-text tc-skeleton-text-xlarge"
       style={
         Object {
           "height": undefined,
@@ -133,7 +133,7 @@ exports[`Storyshots Skeleton default 1`] = `
       custom width:
     </div>
     <span
-      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-extra-large tc-skeleton tc-skeleton-text tc-skeleton-text-extra-large"
+      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
       style={
         Object {
           "height": undefined,

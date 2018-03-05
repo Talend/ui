@@ -12,7 +12,7 @@ export const SKELETON_TYPES = {
 };
 
 export const SKELETON_SIZES = {
-	'extra-large': 'extra-large',
+	xlarge: 'xlarge',
 	large: 'large',
 	medium: 'medium',
 	small: 'small',
@@ -46,7 +46,7 @@ Skeleton.propTypes = {
 		SKELETON_SIZES.small,
 		SKELETON_SIZES.medium,
 		SKELETON_SIZES.large,
-		SKELETON_SIZES['extra-large'],
+		SKELETON_SIZES.xlarge,
 	]),
 	width: PropTypes.number,
 	height: PropTypes.number,

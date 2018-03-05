@@ -25,7 +25,7 @@ stories
 			<Skeleton type={SKELETON_TYPES.circle} size={SKELETON_SIZES.medium} />
 			<div>large</div>
 			<Skeleton type={SKELETON_TYPES.circle} size={SKELETON_SIZES.large} />
-			<div>custom</div>
+			<div>custom size override class definition </div>
 			<Skeleton type={SKELETON_TYPES.circle} size={SKELETON_SIZES.small} width={50} height={50} />
 
 			<h4>Texts :</h4>
@@ -36,7 +36,7 @@ stories
 			<div>large:</div>
 			<Skeleton type={SKELETON_TYPES.text} size={SKELETON_SIZES.large} />
 			<div>extra-large:</div>
-			<Skeleton type={SKELETON_TYPES.text} size={SKELETON_SIZES['extra-large']} />
+			<Skeleton type={SKELETON_TYPES.text} size={SKELETON_SIZES.xlarge} />
 			<div>custom width:</div>
 			<Skeleton type={SKELETON_TYPES.text} size={SKELETON_SIZES.small} width={400} />
 
