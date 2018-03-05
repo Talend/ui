@@ -9,11 +9,15 @@ if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
 }
 
+const icons = {
+	'talend-locked': talendIcons['talend-locked'],
+};
+
 stories
 	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
 	.addWithInfo('default', () => (
 		<div>
-			<IconProvider defaultIcons={talendIcons} />
+			<IconProvider defaultIcons={icons} />
 			<h4>Circles :</h4>
 			<div>small</div>
 			<Skeleton type="circle" size="small" />
