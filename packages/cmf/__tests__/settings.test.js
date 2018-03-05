@@ -20,7 +20,7 @@ describe('mapStateToViewProps', () => {
 		const state = mock.state();
 		state.cmf.settings.props.MyComponent = { foo: 'bar' };
 		state.cmf.settings.props['MyComponent#my-component-id'] = { foo: 'baz' };
-		const props = mapStateToViewProps(state, { view: undefined }, 'Container(MyComponent)', 'my-component-id');
+		const props = mapStateToViewProps(state, { view: undefined }, 'Translate(Container(MyComponent))', 'my-component-id');
 		expect(props.foo).toBe('baz');
 	});
 });
