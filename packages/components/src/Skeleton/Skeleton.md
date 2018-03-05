@@ -5,7 +5,7 @@
 To use this component, you have to give a type and a size
 
 ```html
-<Skeleton type={Skeleton.SKELETON_TYPES.circle} size={Skeleton.SKELETON_SIZES.small} />
+<Skeleton type={Skeleton.TYPES.circle} size={Skeleton.SIZES.small} />
 ```
 
 The types / sizes are :
@@ -22,8 +22,8 @@ You can also override css default sizes by
 
 ```html
 <Skeleton
-    type={Skeleton.SKELETON_TYPES.text}
-    size={Skeleton.SKELETON_SIZES.small}
+    type={Skeleton.TYPES.text}
+    size={Skeleton.SIZES.small}
     width={400}
 />
 ```

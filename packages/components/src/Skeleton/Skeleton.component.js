@@ -30,14 +30,14 @@ function Skeleton({ type, size, width, height, name, className }) {
 	return <span style={{ width, height }} className={classes} />;
 }
 
-Skeleton.SKELETON_TYPES = {
+Skeleton.TYPES = {
 	icon: 'icon',
 	text: 'text',
 	button: 'button',
 	circle: 'circle',
 };
 
-Skeleton.SKELETON_SIZES = {
+Skeleton.SIZES = {
 	xlarge: 'xlarge',
 	large: 'large',
 	medium: 'medium',
@@ -46,16 +46,16 @@ Skeleton.SKELETON_SIZES = {
 
 Skeleton.propTypes = {
 	type: PropTypes.oneOf([
-		Skeleton.SKELETON_TYPES.button,
-		Skeleton.SKELETON_TYPES.circle,
-		Skeleton.SKELETON_TYPES.icon,
-		Skeleton.SKELETON_TYPES.text,
+		Skeleton.TYPES.button,
+		Skeleton.TYPES.circle,
+		Skeleton.TYPES.icon,
+		Skeleton.TYPES.text,
 	]).isRequired,
 	size: PropTypes.oneOf([
-		Skeleton.SKELETON_SIZES.small,
-		Skeleton.SKELETON_SIZES.medium,
-		Skeleton.SKELETON_SIZES.large,
-		Skeleton.SKELETON_SIZES.xlarge,
+		Skeleton.SIZES.small,
+		Skeleton.SIZES.medium,
+		Skeleton.SIZES.large,
+		Skeleton.SIZES.xlarge,
 	]),
 	width: PropTypes.number,
 	height: PropTypes.number,
@@ -64,8 +64,8 @@ Skeleton.propTypes = {
 };
 
 Skeleton.defaultProps = {
-	type: Skeleton.SKELETON_TYPES.text,
-	size: Skeleton.SKELETON_SIZES.medium,
+	type: Skeleton.TYPES.text,
+	size: Skeleton.SIZES.medium,
 };
 
 Skeleton.displayName = 'Skeleton';

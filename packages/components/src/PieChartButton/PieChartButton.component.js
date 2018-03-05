@@ -334,7 +334,7 @@ function PieChartButton({
 				})}
 			>
 				<Skeleton
-					type={Skeleton.SKELETON_TYPES.circle}
+					type={Skeleton.TYPES.circle}
 					width={sizeObject.svgSize}
 					height={sizeObject.svgSize}
 					className={classnames(
@@ -342,9 +342,7 @@ function PieChartButton({
 						'tc-pie-chart-loading-circle',
 					)}
 				/>
-				{!hideLabel && (
-					<Skeleton type={Skeleton.SKELETON_TYPES.text} size={Skeleton.SKELETON_SIZES.small} />
-				)}
+				{!hideLabel && <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.small} />}
 			</Button>
 		);
 	}
