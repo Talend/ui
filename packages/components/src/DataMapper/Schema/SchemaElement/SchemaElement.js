@@ -17,9 +17,32 @@ function getClassName(props) {
 }
 
 export default class SchemaElement extends Component {
+
 	constructor(props) {
 		super(props);
 		this.select = this.select.bind(this);
+		this.handleMouseEnter = this.handleMouseEnter.bind(this);
+		this.handleMouseLeave = this.handleMouseLeave.bind(this);
+	}
+
+	handleMouseEnter(ev) {
+		//console.log('on mouse enter ' + this.props.name);
+		this.props.onEnterElement(this.props.name, this.props.schemaType);
+	}
+
+	handleMouseLeave(ev) {
+		//console.log('on mouse leave ' + this.props.name);
+		this.props.onLeaveElement(this.props.name, this.props.schemaType);
+	}
+
+	componentDidMount() {
+		this.element.addEventListener('mouseenter', this.handleMouseEnter);
+		this.element.addEventListener('mouseleave', this.handleMouseLeave);
+	}
+
+	componentWillUnmount() {
+		this.element.removeEventListener('mouseenter', this.handleMouseEnter);
+		this.element.removeEventListener('mouseleave', this.handleMouseLeave);
 	}
 
 	select() {
@@ -32,6 +55,9 @@ export default class SchemaElement extends Component {
 				className={getClassName(this.props)}
 				onClick={this.select}
 				role="button"
+				ref={elem => {
+					this.element = elem;
+				}}
 			>
 				{this.props.name}
 			</div>
@@ -43,4 +69,6 @@ SchemaElement.propTypes = {
 	name: PropTypes.string,
 	schemaType: PropTypes.string,
 	onSelect: PropTypes.func,
+	onEnterElement: PropTypes.func,
+	onLeaveElement: PropTypes.func,
 };

@@ -50,6 +50,8 @@ class DraggableSchemaElement extends Component {
 			onSelect,
 			selected,
 			highlighted,
+			onEnterElement,
+			onLeaveElement,
 		} = this.props;
 		const isHighlighted = this.props.dragOver || highlighted;
 		return connectDragSource(
@@ -62,6 +64,8 @@ class DraggableSchemaElement extends Component {
 						schemaType={schemaType}
 						selected={selected}
 						onSelect={onSelect}
+						onEnterElement={onEnterElement}
+						onLeaveElement={onLeaveElement}
 					/>
 				</div>,
 			),
@@ -79,6 +83,8 @@ DraggableSchemaElement.propTypes = {
 	dragOver: PropTypes.bool,
 	selected: PropTypes.bool,
 	highlighted: PropTypes.bool,
+	onEnterElement: PropTypes.func,
+	onLeaveElement: PropTypes.func,
 };
 
 export default flow(

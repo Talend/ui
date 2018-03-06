@@ -44,22 +44,30 @@ export default class Mapper extends Component {
 	}
 
 	// { current : [ {sourceYPos1, targetYPos1}, {sourceYPos2, targetYPos2} ],
-	//   pending : {sourceYPos, targetYPos}
+	//   pending : {sourceYPos, targetYPos},
+	//   focused: [ {sourceYPos1, targetYPos1}, {sourceYPos2, targetYPos2} ],
+	//   all: [ {sourceYPos1, targetYPos1}, {sourceYPos2, targetYPos2} ],
 	// }
 	getConnections() {
-		const { mapping, selection, pendingItem } = this.props;
-		if (selection == null || (mapping.length === 0 && pendingItem == null)) {
+		const { mapping, selection, pendingItem, focused, showAll } = this.props;
+		if (mapping.length === 0 && pendingItem == null) {
 			return null;
 		}
-		//console.log('mapping is ' + mapping);
-		const items = getMappingItems(mapping, selection.element, selection.type);
+		let allConnections = null;
+		if (showAll) {
+			allConnections = mapping.map(item => this.getConnectionFromItem(item));
+		}
+		let items = null;
+		if (selection != null) {
+			items = getMappingItems(mapping, selection.element, selection.type);
+		}
 		//console.log('getMappingItems returns ' + items);
 		let current = null;
 		if (items != null) {
 			current = items.map(item => this.getConnectionFromItem(item));
 		}
 		let pending = null;
-		if (pendingItem != null) {
+		if (selection != null && pendingItem != null) {
 			//console.log('PENDING ITEM is ' + pendingItem);
 			if (pendingItem.type === SchemaType.INPUT) {
 				pending = this.getConnection(pendingItem.element, selection.element);
@@ -67,7 +75,14 @@ export default class Mapper extends Component {
 				pending = this.getConnection(selection.element, pendingItem.element);
 			}
 		}
-		return {current, pending};
+		let focusedConnections = null;
+		if (focused != null) {
+			const focusedItems = getMappingItems(mapping, focused.element, focused.type);
+				if (focusedItems != null) {
+					focusedConnections = focusedItems.map(item => this.getConnectionFromItem(item));
+				}
+		}
+		return {current, pending, focused: focusedConnections, all: allConnections};
 	}
 
 	reveal(selection) {
@@ -94,6 +109,11 @@ export default class Mapper extends Component {
 			selection,
 			onSelect,
 			pendingItem,
+			onEnterElement,
+			onLeaveElement,
+			focused,
+			showAll,
+			onShowAll,
 		} = this.props;
 		return (
 			<div id="mapper">
@@ -110,6 +130,8 @@ export default class Mapper extends Component {
 					onSelect={onSelect}
 					onScroll={this.onScroll}
 					pendingItem={pendingItem}
+					onEnterElement={onEnterElement}
+					onLeaveElement={onLeaveElement}
 				/>
 				<Schema
 					ref={output => {
@@ -124,6 +146,8 @@ export default class Mapper extends Component {
 					onSelect={onSelect}
 					onScroll={this.onScroll}
 					pendingItem={pendingItem}
+					onEnterElement={onEnterElement}
+					onLeaveElement={onLeaveElement}
 				/>
 				<GMapping
 					ref={gmap => {
@@ -134,6 +158,8 @@ export default class Mapper extends Component {
 					clearMapping={clearMapping}
 					getConnections={this.getConnections}
 					selection={selection}
+					showAll={showAll}
+					onShowAll={onShowAll}
 				/>
 			</div>
 		);
@@ -151,4 +177,9 @@ Mapper.propTypes = {
 	draggable: PropTypes.bool,
 	onSelect: PropTypes.func,
 	pendingItem: PropTypes.object,
+	onEnterElement: PropTypes.func,
+	onLeaveElement: PropTypes.func,
+	focused: PropTypes.object,
+	showAll: PropTypes.bool,
+	onShowAll: PropTypes.func,
 };

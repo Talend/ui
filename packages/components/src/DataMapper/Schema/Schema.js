@@ -21,7 +21,8 @@ function isHighlighted(element, selection, type, pendingItem) {
 	return connected || pending;
 }
 
-function renderSchemaElement(type, elem, draggable, mapped, performMapping, selection, onSelect, pendingItem) {
+function renderSchemaElement(type, elem, draggable, mapped, performMapping,
+				selection, onSelect, pendingItem, onEnterElement, onLeaveElement) {
 	if (draggable) {
 		return (
 			<DraggableSchemaElement
@@ -33,6 +34,8 @@ function renderSchemaElement(type, elem, draggable, mapped, performMapping, sele
 				selected={isSelected(elem, selection, type)}
 				highlighted={isHighlighted(elem, selection, type, pendingItem)}
 				onSelect={onSelect}
+				onEnterElement={onEnterElement}
+				onLeaveElement={onLeaveElement}
 			/>
 		);
 	}
@@ -44,6 +47,8 @@ function renderSchemaElement(type, elem, draggable, mapped, performMapping, sele
 			selected={isSelected(elem, selection, type)}
 			highlighted={isHighlighted(elem, selection, type, pendingItem)}
 			onSelect={onSelect}
+			onEnterElement={onEnterElement}
+			onLeaveElement={onLeaveElement}
 		/>
 	);
 }
@@ -79,7 +84,9 @@ export default class Schema extends Component {
 	}
 
 	render() {
-		const { type, schema, draggable, mapped, performMapping, selection, onSelect, pendingItem } = this.props;
+		const { type, schema, draggable, mapped, performMapping,
+			selection, onSelect, pendingItem,
+			onEnterElement, onLeaveElement } = this.props;
 		return (
 			<div className="schema mapper-element">
 				<div className="schema-name">{schema.name}</div>
@@ -91,7 +98,8 @@ export default class Schema extends Component {
 					onScroll={this.props.onScroll}
 				>
 					{schema.elements.map(elem =>
-						renderSchemaElement(type, elem, draggable, mapped, performMapping, selection, onSelect, pendingItem),
+						renderSchemaElement(type, elem, draggable, mapped, performMapping,
+							selection, onSelect, pendingItem, onEnterElement, onLeaveElement),
 					)}
 				</div>
 			</div>
@@ -109,4 +117,6 @@ Schema.propTypes = {
 	onSelect: PropTypes.func,
 	onScroll: PropTypes.func,
 	pendingItem: PropTypes.object,
+	onEnterElement: PropTypes.func,
+	onLeaveElement: PropTypes.func,
 };

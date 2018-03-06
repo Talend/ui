@@ -36,15 +36,33 @@ export const ConnectionParams = {
 	PENDING: {
 		anchorRadius: 5,
 		lineWidth: 4,
+		lineDash: [4, 4],
 		arrowWidth: 12,
 		arrowHeight: 12,
-		lineDash: [4, 4],
+		color: '#111111',
 	},
 	CURRENT: {
 		anchorRadius: 5,
 		lineWidth: 4,
+		lineDash: null,
 		arrowWidth: 12,
 		arrowHeight: 12,
-		lineDash: null,
+		color: '#000000',
 	},
+	FOCUSED: {
+		anchorRadius: 5,
+		lineWidth: 4,
+		lineDash: null,
+		arrowWidth: 12,
+		arrowHeight: 12,
+		color: '#999999',
+	},
+	ALL: {
+		anchorRadius: 4,
+		lineWidth: 3,
+		lineDash: null,
+		arrowWidth: 10,
+		arrowHeight: 10,
+		color: '#CCCCCC',
+	}
 };

@@ -12,6 +12,7 @@ function getInitialState() {
 		mapping: emptyMapping,
 		pendingItem: null,
 		selection: null,
+		focused: null,
 		showAll: false,
 	};
 }
@@ -50,7 +51,14 @@ function select(mapping, element, type) {
 	};
 }
 
+function getFocused(element, type) {
+	return {element, type};
+}
+
 function clearConnected(selection) {
+	if (selection == null) {
+		return null;
+	}
 	return {
 		element: selection.element,
 		connected: null,
@@ -201,10 +209,13 @@ stories
 				this.selectElement = this.selectElement.bind(this);
         this.handleNavigation = this.handleNavigation.bind(this);
         this.handleKeyEvent = this.handleKeyEvent.bind(this);
+				this.onEnterElement = this.onEnterElement.bind(this);
+				this.onLeaveElement = this.onLeaveElement.bind(this);
+				this.onShowAll = this.onShowAll.bind(this);
 			}
 
       handleKeyEvent(ev) {
-				console.log(ev.key);
+				//console.log(ev.key);
 				let reveal = false;
 				if (this.handleFirstSelect(ev)) {
 					ev.preventDefault();
@@ -354,6 +365,25 @@ stories
 				});
 			}
 
+			onEnterElement(element, type) {
+				this.setState({
+					focused: getFocused(element, type),
+				});
+			}
+
+			onLeaveElement(element, type) {
+				this.setState({
+					focused: null,
+				});
+			}
+
+			onShowAll() {
+				console.log('On show all');
+				this.setState(prevState => ({
+					showAll: !prevState.showAll,
+				}));
+			}
+
 			render() {
 				return (
 					<Mapper
@@ -371,6 +401,10 @@ stories
 						pendingItem={this.state.pendingItem}
 						onSelect={this.selectElement}
 						showAll={this.state.showAll}
+						onShowAll={this.onShowAll}
+						onEnterElement={this.onEnterElement}
+						onLeaveElement={this.onLeaveElement}
+						focused={this.state.focused}
 					/>
 				);
 			}
