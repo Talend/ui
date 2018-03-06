@@ -7,23 +7,25 @@ This document aims to ease the WIP migration from a version to another by provid
 * component: PieChartButton
 * PR: [feat(datagrid): implement skeleton with the loading state. change inProgress by loading in the PieChartButton](https://github.com/Talend/ui/pull/1127)
 * Changes:
-  | Before | After |
-  |---|---|
-  | inProgress | loading |
+
+| Before     | After   |
+| ---------- | ------- |
+| inProgress | loading |
 
 ## v0.161.0
 
 * component: Action
 * PR: [fix(Action): use the new Inject API](https://github.com/Talend/ui/pull/1093)
 * Changes:
-  | Before | After |
-  |---|---|
-  | props.renderers | props.getComponent |
-  | props.name | no more resolve use actionId or componentId with "props" settings |
-  | props.available as string | not supported anymore use props.availableExpression |
-  | props.active as string | not supported anymore use props.activeExpression |
-  | props.disabled as string | not supported anymore use props.disabledExpression |
-  | props.inProgress as string | not supported anymore use props.inProgressExpression |
+
+| Before                     | After                                                             |
+| -------------------------- | ----------------------------------------------------------------- |
+| props.renderers            | props.getComponent                                                |
+| props.name                 | no more resolve use actionId or componentId with "props" settings |
+| props.available as string  | not supported anymore use props.availableExpression               |
+| props.active as string     | not supported anymore use props.activeExpression                  |
+| props.disabled as string   | not supported anymore use props.disabledExpression                |
+| props.inProgress as string | not supported anymore use props.inProgressExpression              |
 
 ## v0.160.0
 
