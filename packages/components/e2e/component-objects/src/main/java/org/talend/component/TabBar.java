@@ -15,7 +15,7 @@ import java.util.Iterator;
  */
 public class TabBar extends Component {
 
-    private static final Logger LOGGER = LogManager.getLogger(SidePanel.class);
+    private static final Logger LOGGER = LogManager.getLogger(TabBar.class);
 
     static final String NAME = "TabBar";
 
