@@ -29,6 +29,7 @@ $tf-typeahead-input-width: 135px !default;
 		}
 
 		:global(input) {
+			border: 0;
 			padding-left: $tc-badge-margin;
 		}
 
