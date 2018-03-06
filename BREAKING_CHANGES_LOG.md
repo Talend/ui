@@ -2,16 +2,6 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
-## v0.163.0
-
-* component: PieChartButton
-* PR: [feat(datagrid): implement skeleton with the loading state. change inProgress by loading in the PieChartButton](https://github.com/Talend/ui/pull/1127)
-* Changes:
-
-| Before     | After   |
-| ---------- | ------- |
-| inProgress | loading |
-
 ## v0.161.0
 
 * component: Action
