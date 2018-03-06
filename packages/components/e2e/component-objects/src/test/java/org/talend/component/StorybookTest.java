@@ -18,6 +18,8 @@ public class StorybookTest {
 
     private static final String STORY_MENU_SELECTOR = "a[data-name='%s']";
 
+    private static final String DEFAULT_STORY_NAME = "default";
+
     protected static WebDriver driver;
 
     @BeforeClass
@@ -30,6 +32,10 @@ public class StorybookTest {
     @AfterClass
     public static void after() {
         driver.close();
+    }
+
+    protected void goToStory(final String categoryName) {
+        goToStory(categoryName, DEFAULT_STORY_NAME);
     }
 
     protected void goToStory(final String categoryName, final String storyName) {
