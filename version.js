@@ -76,6 +76,7 @@ const ADDONS = {
 
 const VERSIONS = Object.assign({}, ADDONS, {
 	// deps
+	ajv: '^6.2.1',
 	'bootstrap-sass': '3.3.7',
 	'bson-objectid': '1.1.5',
 	classnames: '2.2.5',
