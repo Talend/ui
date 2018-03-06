@@ -31,6 +31,7 @@ import './PieChartButton';
 import './Progress';
 import './SidePanel';
 import './Slider';
+import './Skeleton';
 import './Status';
 import './SubHeaderBar';
 import './TabBar';
