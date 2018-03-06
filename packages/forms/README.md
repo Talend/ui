@@ -57,7 +57,7 @@ Each action accept the following properties :
 
 | property              | propType                | required | default | doc |
 | ----------------------|:-----------------------:|:--------:|:-------:|:---:|
-| iconPosition          |	other                   | no       | - 
+| iconPosition          |	other                   | no       | -
 | icon                  | string                  | no       | -
 | hideLabel             | bool                    | no       | -
 | disabled              | bool                    | no       | {false}
@@ -136,6 +136,18 @@ The data and actions PropTypes are exported for easy reuse.
 You can use them by importing the DataPropTypes and ActionsPropTypes functions.
 ```javascript
 import Form, { DataPropTypes, ActionsPropTypes } from '@talend/react-forms'
+```
+
+### Validation
+
+You can use validation from outside (let say button outside the form) this way:
+
+```javascript
+import validate from '@talend/react-forms/lib/validate';
+
+function isvalide(options) {
+	return validate(options.jsonSchema, options.data);
+}
 ```
 
 ## LICENSE
