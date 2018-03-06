@@ -11,10 +11,14 @@ if (!stories.addWithInfo) {
 }
 
 stories
-	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
+	.addDecorator(story => (
+		<div className="col-lg-offset-2 col-lg-8">
+			<IconProvider />
+			{story()}
+		</div>
+	))
 	.addWithInfo('default', () => (
 		<div>
-			<IconProvider />
 			<h4>Circles :</h4>
 			<div>small</div>
 			<Skeleton type={Skeleton.TYPES.circle} size={Skeleton.SIZES.small} />

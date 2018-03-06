@@ -191,8 +191,8 @@ describe('#DataGrid', () => {
 		expect(getRowDataFn).toHaveBeenCalledWith(sample);
 	});
 
-	it('should render one Skeleton when inProgress', () => {
-		const wrapper = shallow(<DataGrid inProgress getComponent={getComponent} />);
+	it('should render one Skeleton is loading', () => {
+		const wrapper = shallow(<DataGrid loading getComponent={getComponent} />);
 		expect(wrapper.find('Skeleton').length).toBe(1);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});

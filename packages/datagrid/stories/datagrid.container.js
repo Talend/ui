@@ -103,7 +103,7 @@ cmfState.cmf.settings.props['Container(DataGrid)#ProgressDatagrid'] = {
 	onFocusedCellActionCreator: 'datagrid:focus-cell',
 	onFocusedColumnActionCreator: 'datagrid:focus-column',
 	cellRenderer: 'DefaultCellRenderer',
-	inProgress: true,
+	loading: true,
 };
 
 cmfState.cmf.settings.props['Container(DataGrid)#CustomizedDatagrid'] = {

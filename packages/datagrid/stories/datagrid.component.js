@@ -21,6 +21,6 @@ storiesOf('Component Datagrid')
 	.add('in progress', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />
-			<DataGrid data={sample} inProgress />
+			<DataGrid data={sample} loading />
 		</div>
 	));

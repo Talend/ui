@@ -131,34 +131,6 @@ export default class DataGrid extends React.Component {
 		this.gridInstance = gridInstance;
 	}
 
-	removeFocusColumn() {
-		// workaround see README.md#Workaround Active Column
-		const focusedCells = this.gridInstance[AG_GRID_ELEMENT].querySelectorAll(
-			`.${FOCUSED_COLUMN_CLASS_NAME}`,
-		);
-
-		for (const focusedCell of focusedCells) {
-			focusedCell.classList.remove(FOCUSED_COLUMN_CLASS_NAME);
-		}
-	}
-
-	updateStyleFocusColumn() {
-		const colId = this.currentColId;
-
-		if (!colId || colId.includes(NAMESPACE_INDEX)) {
-			return;
-		}
-
-		// workaround see README.md#Workaround Active Column
-		const columnsCells = this.gridInstance[AG_GRID_ELEMENT].querySelectorAll(
-			`[col-id="${colId}"]:not(.${FOCUSED_COLUMN_CLASS_NAME})`,
-		);
-
-		for (const columnCell of columnsCells) {
-			columnCell.classList.add(FOCUSED_COLUMN_CLASS_NAME);
-		}
-	}
-
 	getAgGridConfig() {
 		const agGridOptions = {
 			headerHeight: this.props.headerHeight,
@@ -226,6 +198,34 @@ export default class DataGrid extends React.Component {
 		return agGridOptions;
 	}
 
+	removeFocusColumn() {
+		// workaround see README.md#Workaround Active Column
+		const focusedCells = this.gridInstance[AG_GRID_ELEMENT].querySelectorAll(
+			`.${FOCUSED_COLUMN_CLASS_NAME}`,
+		);
+
+		for (const focusedCell of focusedCells) {
+			focusedCell.classList.remove(FOCUSED_COLUMN_CLASS_NAME);
+		}
+	}
+
+	updateStyleFocusColumn() {
+		const colId = this.currentColId;
+
+		if (!colId || colId.includes(NAMESPACE_INDEX)) {
+			return;
+		}
+
+		// workaround see README.md#Workaround Active Column
+		const columnsCells = this.gridInstance[AG_GRID_ELEMENT].querySelectorAll(
+			`[col-id="${colId}"]:not(.${FOCUSED_COLUMN_CLASS_NAME})`,
+		);
+
+		for (const columnCell of columnsCells) {
+			columnCell.classList.add(FOCUSED_COLUMN_CLASS_NAME);
+		}
+	}
+
 	handleKeyboard({ nextCellDef, previousCellDef }) {
 		if (!nextCellDef) {
 			return null;
@@ -242,7 +242,7 @@ export default class DataGrid extends React.Component {
 
 	render() {
 		let content;
-		if (this.props.inProgress) {
+		if (this.props.loading) {
 			content = (
 				<Skeleton
 					className={classNames(theme['td-grid-in-progress'], 'td-grid-in-progress')}
@@ -258,7 +258,7 @@ export default class DataGrid extends React.Component {
 			<div
 				className={classNames(
 					{
-						[theme['td-grid-in-progress']]: this.props.inProgress,
+						[theme['td-grid-in-progress']]: this.props.loading,
 					},
 					theme['td-grid'],
 					this.props.className,
