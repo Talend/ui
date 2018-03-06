@@ -30,24 +30,44 @@ export default class Mapper extends Component {
 		return this.outputSchema.getYPosition(element);
 	}
 
-	getConnection(item) {
+	getConnectionFromItem(item) {
 		const source = item.source;
 		const target = item.target;
+		return this.getConnection(source, target);
+	}
+
+	getConnection(source, target) {
+		//console.log('getConnection(' + source + ', ' + target + ')');
 		const sourceYPos = this.getYPosition(source, SchemaType.INPUT);
 		const targetYPos = this.getYPosition(target, SchemaType.OUTPUT);
 		return { sourceYPos, targetYPos };
 	}
 
+	// { current : [ {sourceYPos1, targetYPos1}, {sourceYPos2, targetYPos2} ],
+	//   pending : {sourceYPos, targetYPos}
+	// }
 	getConnections() {
-		const { mapping, selection } = this.props;
-		if (selection == null || mapping.length === 0) {
+		const { mapping, selection, pendingItem } = this.props;
+		if (selection == null || (mapping.length === 0 && pendingItem == null)) {
 			return null;
 		}
+		//console.log('mapping is ' + mapping);
 		const items = getMappingItems(mapping, selection.element, selection.type);
+		//console.log('getMappingItems returns ' + items);
+		let current = null;
 		if (items != null) {
-			return items.map(item => this.getConnection(item));
+			current = items.map(item => this.getConnectionFromItem(item));
 		}
-		return null;
+		let pending = null;
+		if (pendingItem != null) {
+			//console.log('PENDING ITEM is ' + pendingItem);
+			if (pendingItem.type === SchemaType.INPUT) {
+				pending = this.getConnection(pendingItem.element, selection.element);
+			} else {
+				pending = this.getConnection(selection.element, pendingItem.element);
+			}
+		}
+		return {current, pending};
 	}
 
 	reveal(selection) {
@@ -73,6 +93,7 @@ export default class Mapper extends Component {
 			draggable,
 			selection,
 			onSelect,
+			pendingItem,
 		} = this.props;
 		return (
 			<div id="mapper">
@@ -88,6 +109,7 @@ export default class Mapper extends Component {
 					selection={selection}
 					onSelect={onSelect}
 					onScroll={this.onScroll}
+					pendingItem={pendingItem}
 				/>
 				<Schema
 					ref={output => {
@@ -101,6 +123,7 @@ export default class Mapper extends Component {
 					selection={selection}
 					onSelect={onSelect}
 					onScroll={this.onScroll}
+					pendingItem={pendingItem}
 				/>
 				<GMapping
 					ref={gmap => {
@@ -127,4 +150,5 @@ Mapper.propTypes = {
 	clearConnection: PropTypes.func,
 	draggable: PropTypes.bool,
 	onSelect: PropTypes.func,
+	pendingItem: PropTypes.object,
 };

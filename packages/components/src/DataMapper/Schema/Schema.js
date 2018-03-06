@@ -12,14 +12,16 @@ function isSelected(element, selection, type) {
 		false	: (selection.type === type && selection.element === element);
 }
 
-function isHighlighted(element, selection, type) {
-	return selection == null ?
+function isHighlighted(element, selection, type, pendingItem) {
+	const connected = selection == null ?
 	 false : (selection.type !== type
 		 && selection.connected != null
 		 && selection.connected.includes(element));
+	const pending = pendingItem != null && pendingItem.type === type && pendingItem.element === element;
+	return connected || pending;
 }
 
-function renderSchemaElement(type, elem, draggable, mapped, performMapping, selection, onSelect) {
+function renderSchemaElement(type, elem, draggable, mapped, performMapping, selection, onSelect, pendingItem) {
 	if (draggable) {
 		return (
 			<DraggableSchemaElement
@@ -29,7 +31,7 @@ function renderSchemaElement(type, elem, draggable, mapped, performMapping, sele
 				mapped={isMapped(elem, mapped)}
 				performMapping={performMapping}
 				selected={isSelected(elem, selection, type)}
-				highlighted={isHighlighted(elem, selection, type)}
+				highlighted={isHighlighted(elem, selection, type, pendingItem)}
 				onSelect={onSelect}
 			/>
 		);
@@ -40,7 +42,7 @@ function renderSchemaElement(type, elem, draggable, mapped, performMapping, sele
 			name={elem}
 			schemaType={type}
 			selected={isSelected(elem, selection, type)}
-			highlighted={isHighlighted(elem, selection, type)}
+			highlighted={isHighlighted(elem, selection, type, pendingItem)}
 			onSelect={onSelect}
 		/>
 	);
@@ -77,7 +79,7 @@ export default class Schema extends Component {
 	}
 
 	render() {
-		const { type, schema, draggable, mapped, performMapping, selection, onSelect } = this.props;
+		const { type, schema, draggable, mapped, performMapping, selection, onSelect, pendingItem } = this.props;
 		return (
 			<div className="schema mapper-element">
 				<div className="schema-name">{schema.name}</div>
@@ -89,7 +91,7 @@ export default class Schema extends Component {
 					onScroll={this.props.onScroll}
 				>
 					{schema.elements.map(elem =>
-						renderSchemaElement(type, elem, draggable, mapped, performMapping, selection, onSelect),
+						renderSchemaElement(type, elem, draggable, mapped, performMapping, selection, onSelect, pendingItem),
 					)}
 				</div>
 			</div>
@@ -106,4 +108,5 @@ Schema.propTypes = {
 	draggable: PropTypes.bool,
 	onSelect: PropTypes.func,
 	onScroll: PropTypes.func,
+	pendingItem: PropTypes.object,
 };

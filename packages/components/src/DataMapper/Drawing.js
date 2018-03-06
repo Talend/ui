@@ -9,12 +9,15 @@ export function drawLine(x1, y1, x2, y2, width, canvas) {
   context.closePath();
 }
 
-export function drawBezier(x1, y1, x2, y2, width, canvas) {
+export function drawBezier(x1, y1, x2, y2, width, lineDash, canvas) {
   const context = canvas.getContext('2d');
   const x = (x2 - x1) / 2;
   context.beginPath();
   context.lineWidth = width;
   context.lineJoin = 'round';
+  if (lineDash != null) {
+    context.setLineDash(lineDash);
+  }
   context.moveTo(x1, y1);
   context.bezierCurveTo(x, y1, x, y2, x2, y2);
   context.stroke();

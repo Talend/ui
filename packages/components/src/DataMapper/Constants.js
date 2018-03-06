@@ -19,12 +19,32 @@ export const MappingSide = {
 	TARGET: 'target',
 };
 
-export const Navigation = {
+export const Keys = {
 	UP: 'ArrowUp',
 	DOWN: 'ArrowDown',
 	SWITCH_SCHEMA: 'Tab',
+	ENTER: 'Enter',
+	ESCAPE: 'Escape',
+	DELETE: 'Delete',
 };
 
 export const Configs = {
 	DRAGGABLE: true,
+};
+
+export const ConnectionParams = {
+	PENDING: {
+		anchorRadius: 5,
+		lineWidth: 4,
+		arrowWidth: 12,
+		arrowHeight: 12,
+		lineDash: [4, 4],
+	},
+	CURRENT: {
+		anchorRadius: 5,
+		lineWidth: 4,
+		arrowWidth: 12,
+		arrowHeight: 12,
+		lineDash: null,
+	},
 };

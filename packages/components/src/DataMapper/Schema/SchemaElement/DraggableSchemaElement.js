@@ -17,7 +17,7 @@ const elementSource = {
 const elementTarget = {
 	drop(props, monitor) {
 		const sourceElem = monitor.getItem();
-		props.performMapping(sourceElem.elementId, props.name);
+		props.performMapping(sourceElem.elementId, props.name, SchemaType.INPUT);
 	},
 	canDrop(props, monitor) {
 		const sourceElem = monitor.getItem();

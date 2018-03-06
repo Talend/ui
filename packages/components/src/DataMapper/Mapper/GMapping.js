@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { drawLine, drawBezier, drawPoint, drawArrow } from '../Drawing.js';
+import { ConnectionParams } from '../Constants';
 
 export default class GMapping extends Component {
 	// resizeCanvas() {
@@ -39,8 +40,13 @@ export default class GMapping extends Component {
 		}
 		const connections = this.props.getConnections();
 		if (connections != null) {
-			for (var i = 0; i < connections.length; i++) {
-  			this.drawConnection(connections[i]);
+			if (connections.current != null) {
+				for (let i = 0; i < connections.current.length; i += 1) {
+  				this.drawConnection(connections.current[i], ConnectionParams.CURRENT);
+				}
+			}
+			if (connections.pending != null) {
+				this.drawConnection(connections.pending, ConnectionParams.PENDING);
 			}
 		}
 	}
@@ -50,16 +56,27 @@ export default class GMapping extends Component {
 		context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 	}
 
-	drawConnection(connection) {
+	// drawConnection(connection) {
+	// 	if (connection.sourceYPos != null && connection.targetYPos != null) {
+	// 		const x1 = 5;
+	// 		const y1 = connection.sourceYPos;
+	// 		const x2 = this.canvas.width - 5;
+	// 		const y2 = connection.targetYPos;
+	// 		drawPoint(x1, y1, 5, this.canvas);
+	// 		drawBezier(x1, y1, x2, y2, 4, this.canvas);
+	// 		drawArrow(x2, y2, 12, 12, this.canvas);
+	// 	}
+	// }
+
+	drawConnection(connection, params) {
 		if (connection.sourceYPos != null && connection.targetYPos != null) {
-			const radius = 5;
-			const x1 = radius;
+			const x1 = params.anchorRadius;
 			const y1 = connection.sourceYPos;
-			const x2 = this.canvas.width - radius;
+			const x2 = this.canvas.width - params.anchorRadius;
 			const y2 = connection.targetYPos;
-			drawPoint(x1, y1, radius, this.canvas);
-			drawBezier(x1, y1, x2, y2, 4, this.canvas);
-			drawArrow(x2, y2, 12, 12, this.canvas);
+			drawPoint(x1, y1, params.anchorRadius, this.canvas);
+			drawBezier(x1, y1, x2, y2, params.lineWidth, params.lineDash, this.canvas);
+			drawArrow(x2, y2, params.arrowWidth, params.arrowHeight, this.canvas);
 		}
 	}
 

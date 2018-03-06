@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { DataMapper as Mapper } from '../src/index';
-import { SchemaType, Navigation, switchSchemaType, Configs } from '../src/DataMapper/Constants';
+import { SchemaType, Keys, switchSchemaType, Configs } from '../src/DataMapper/Constants';
 import { inputSchema2, outputSchema2, emptyMapping } from '../src/DataMapper/Data';
 import { isSelected, isSelectionEmpty, getSchema, getMappingItems } from '../src/DataMapper/Utils';
 
@@ -10,6 +10,7 @@ function getInitialState() {
     inputSchema: inputSchema2,
     outputSchema: outputSchema2,
 		mapping: emptyMapping,
+		pendingItem: null,
 		selection: null,
 		showAll: false,
 	};
@@ -38,6 +39,10 @@ function getSelection(mapping, selection, element, type) {
 	if (isSelected(selection, element, type)) {
 		return null;
 	}
+	return select(mapping, element, type);
+}
+
+function select(mapping, element, type) {
 	return {
 		element,
 		connected: getConnected(mapping, element, type),
@@ -101,13 +106,13 @@ function navigateUpDown(state, nav) {
   const size = schema.elements.length;
   let newSelectedElemIndex = selectedElemIndex;
   switch (nav) {
-    case Navigation.UP:
+    case Keys.UP:
       newSelectedElemIndex = selectedElemIndex - 1;
       if (newSelectedElemIndex < 0) {
         newSelectedElemIndex = size - 1;
       }
       break;
-    case Navigation.DOWN:
+    case Keys.DOWN:
       newSelectedElemIndex = selectedElemIndex + 1;
       if (newSelectedElemIndex >= size) {
         newSelectedElemIndex = 0;
@@ -148,13 +153,24 @@ function switchSchema(state) {
 	};
 }
 
+function firstSelect(state) {
+	const element = state.inputSchema.elements[0];
+	return {
+		element: element,
+		connected: getConnected(state.mapping, element, SchemaType.INPUT),
+		type: SchemaType.INPUT,
+	};
+}
+
 function navigate(state, nav) {
   switch (nav) {
-    case Navigation.UP:
+    case Keys.UP:
       return navigateUpDown(state, nav);
-    case Navigation.DOWN:
+    case Keys.DOWN:
       return navigateUpDown(state, nav);
-    case Navigation.SWITCH_SCHEMA:
+    case Keys.SWITCH_SCHEMA:
+			return switchSchema(state);
+		case Keys.ENTER:
       return switchSchema(state);
 		default:
 			break;
@@ -188,15 +204,58 @@ stories
 			}
 
       handleKeyEvent(ev) {
-        if (this.handleNavigation(ev)) {
+				console.log(ev.key);
+				let reveal = false;
+				if (this.handleFirstSelect(ev)) {
+					ev.preventDefault();
+					this.setState(prevState => ({
+  					selection: firstSelect(prevState),
+  				}));
+          reveal = true;
+				} else if (this.handleNavigation(ev)) {
           ev.preventDefault();
           this.setState(prevState => ({
   					selection: navigate(prevState, ev.key),
   				}));
-          // reveal
+          reveal = true;
+        } else if (this.handleStartConnection(ev)) {
+					ev.preventDefault();
+					this.setState(prevState => ({
+  					selection: navigate(prevState, ev.key),
+						pendingItem: {
+							element: prevState.selection.element,
+							type: prevState.selection.type,
+						}
+  				}));
+					reveal = true;
+				} else if (this.handleEndConnection(ev)) {
+					ev.preventDefault();
+					if (this.state.pendingItem.type === SchemaType.INPUT) {
+						this.performMapping(this.state.pendingItem.element,
+																this.state.selection.element,
+																this.state.pendingItem.type);
+					} else {
+						this.performMapping(this.state.selection.element,
+																this.state.pendingItem.element,
+																this.state.pendingItem.type);
+					}
+					reveal = true;
+				} else if (this.handleEscape(ev)) {
+					ev.preventDefault();
+					const fromItem = this.state.pendingItem.element;
+					const fromType = this.state.pendingItem.type;
+					this.setState(prevState => ({
+						pendingItem: null,
+						selection: select(prevState.mapping, fromItem, fromType),
+  				}));
+				} else if (this.handleDelete(ev)) {
+					this.clearConnection();
+				}
+				if (reveal) {
+					// reveal
           const mapperInstance = this.mapper.getDecoratedComponentInstance();
           mapperInstance.reveal(this.state.selection);
-        }
+				}
       }
 
       componentDidMount() {
@@ -207,22 +266,63 @@ stories
         document.removeEventListener('keydown', this.handleKeyEvent);
       }
 
+			handleStartConnection(ev) {
+				return ev.key === Keys.ENTER
+					&& !isSelectionEmpty(this.state.selection)
+					&& this.state.pendingItem == null;
+			}
+
+			handleEndConnection(ev) {
+				return ev.key === Keys.ENTER
+					&& !isSelectionEmpty(this.state.selection)
+					&& this.state.pendingItem != null
+					&& this.state.selection.type != this.state.pendingItem.type;
+			}
+
 			handleNavigation(ev) {
         const key = ev.key;
-        const isValidKey = key === Navigation.UP
-												|| key === Navigation.DOWN
-												|| key === Navigation.SWITCH_SCHEMA;
+        const isValidKey = key === Keys.UP
+												|| key === Keys.DOWN
+												|| key === Keys.SWITCH_SCHEMA;
         return isValidKey && !isSelectionEmpty(this.state.selection);
       }
 
-			performMapping(source, target) {
+			handleFirstSelect(ev) {
+				const isValidKey = ev.key === Keys.SWITCH_SCHEMA;
+				return isValidKey && isSelectionEmpty(this.state.selection);
+			}
+
+			handleEscape(ev) {
+				const isValidKey = ev.key === Keys.ESCAPE;
+				return isValidKey && this.state.pendingItem != null;
+			}
+
+			handleDelete(ev) {
+				const isValidKey = ev.key === Keys.DELETE;
+				return isValidKey
+					&& !isSelectionEmpty(this.state.selection)
+					&& this.state.selection.connected != null;
+			}
+
+			performMapping(source, target, selectionType) {
+				//console.log('performMapping(' + source + ', ' + target + ')');
+				let selectedSourceElement = source;
+				let selectedTargetElement = target;
+				if (selectionType === SchemaType.OUTPUT) {
+					selectedSourceElement = target;
+					selectedTargetElement = source;
+				}
 				this.setState(prevState => ({
 					mapping: prevState.mapping.concat([{ source, target }]),
 					selection: {
-						element: source,
-						connected: appendConnected(prevState.mapping, source, target, SchemaType.INPUT),
-						type: SchemaType.INPUT,
+						element: selectedSourceElement,
+						connected: appendConnected(prevState.mapping,
+																			selectedSourceElement,
+																			selectedTargetElement,
+																			selectionType),
+						type: selectionType,
 					},
+					pendingItem: null,
 				}));
 			}
 
@@ -230,6 +330,7 @@ stories
 				this.setState(prevState => ({
 					mapping: [],
 					selection: clearConnected(prevState.selection),
+					pendingItem: null,
 				}));
 			}
 
@@ -237,6 +338,7 @@ stories
 				this.setState(prevState => ({
 					mapping: removeConnections(prevState.mapping, prevState.selection),
 					selection: clearConnected(prevState.selection),
+					pendingItem: null,
 				}));
 			}
 
@@ -266,6 +368,7 @@ stories
 						clearConnection={this.clearConnection}
 						draggable={Configs.DRAGGABLE}
 						selection={this.state.selection}
+						pendingItem={this.state.pendingItem}
 						onSelect={this.selectElement}
 						showAll={this.state.showAll}
 					/>
