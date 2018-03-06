@@ -14,23 +14,13 @@ export const LOGGER_PREFIX = '[react-cmf]';
  * Supported console method list
  * @type {string[]}
  */
-export const LOGGER_METHODS = [
-	'trace',
-	'debug',
-	'log',
-	'info',
-	'warn',
-	'error',
-];
+export const LOGGER_METHODS = ['trace', 'debug', 'log', 'info', 'warn', 'error'];
 
 /**
  * White list for authorized console methods for production mode
  * @type {string[]} Authorized console methods
  */
-export const LOGGER_METHODS_FOR_PRODUCTION = [
-	'warn',
-	'error',
-];
+export const LOGGER_METHODS_FOR_PRODUCTION = ['warn', 'error'];
 
 /**
  * Service that wraps console.log (no output in production mode)
@@ -43,13 +33,13 @@ const logger = {
 	},
 	getPrefix() {
 		return this._prefix;
-	}
+	},
 };
 
 /**
  * First, be sure that window.console exists
  */
-const windowConsole = (typeof window !== 'undefined') ? window.console : [];
+const windowConsole = typeof window !== 'undefined' ? window.console : [];
 
 // Populate service with some recognized console functions
 LOGGER_METHODS.forEach(method => {
@@ -63,7 +53,7 @@ LOGGER_METHODS.forEach(method => {
 			}
 		}
 		return Function.prototype;
-	}
+	};
 });
 
 export default logger;
