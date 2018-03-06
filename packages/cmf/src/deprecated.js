@@ -3,6 +3,7 @@
  * @module react-cmf/lib/deprecated
  */
 
+import api from './api';
 
 /* eslint-disable prefer-rest-params */
 /* eslint-disable no-console*/
@@ -28,12 +29,8 @@ export default function deprecated(fn, msg, log) {
 
 			if (log) {
 				log(message);
-			} else if (console) {
-				if (console.warn) {
-					console.warn(message);
-				} else if (console.log) {
-					console.log(message);
-				}
+			} else {
+				api.console.warn(message);
 			}
 		}
 		return fn.apply(this, arguments);

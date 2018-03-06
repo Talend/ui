@@ -20,7 +20,7 @@ function MyComponent(props) {
  */
 
 function NotFoundComponent({ error }) {
-	console.error(error.message);
+	api.console.error(error.message);
 	return (<div className="alert alert-danger">{error.message}</div>);
 }
 NotFoundComponent.propTypes = {

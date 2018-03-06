@@ -1,3 +1,4 @@
+import api from './../api';
 import { HTTP_METHODS } from '../middlewares/http';
 import {
 	ACTION_TYPE_HTTP_REQUEST,
@@ -27,7 +28,7 @@ function onRequest(url, config) {
 }
 
 function onJSError(error, action) {
-	console.error(error); // eslint-disable-line no-console
+	api.console.error(error); // eslint-disable-line no-console
 	return {
 		type: ACTION_TYPE_HTTP_REDUCER_ERROR,
 		error,

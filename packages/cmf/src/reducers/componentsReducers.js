@@ -6,6 +6,7 @@ import get from 'lodash/get';
 import { Map, fromJS } from 'immutable';
 import invariant from 'invariant';
 import ACTIONS from '../actions';
+import api from './../api';
 
 export const defaultState = new Map();
 
@@ -18,7 +19,7 @@ export const defaultState = new Map();
 export function warnIfAnotherComponentBind(state, action) {
 	if (process.env.NODE_ENV !== 'production') {
 		if (state.getIn([action.componentName, action.key])) {
-			console.warn(`Beware component ${action.componentName} try to recreate an existing
+			api.console.warn(`Beware component ${action.componentName} try to recreate an existing
  State namespace ${action.key}, meaning that the original one will be overloaded`);
 		}
 	}
@@ -33,7 +34,7 @@ export function warnIfAnotherComponentBind(state, action) {
 export function warnIfRemovingStateDoesntExist(state, action) {
 	if (process.env.NODE_ENV !== 'production') {
 		if (!state.getIn([action.componentName, action.key])) {
-			console.warn(`Beware the component ${action.componentName} try to remove a non existing
+			api.console.warn(`Beware the component ${action.componentName} try to remove a non existing
  State namespace ${action.key}, it isn't a normal behavior execpt if two component are binded
  to this specific namespace`);
 		}

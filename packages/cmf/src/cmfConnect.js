@@ -162,7 +162,7 @@ export function getDispatchToProps({
 	if (mapDispatchToProps) {
 		if (process.env.NODE_ENV === 'development') {
 			// eslint-disable-next-line no-console
-			console.warn(`DEPRECATION WARNING: mapDispatchToProps will be removed from cmfConnect.
+			api.console.warn(`DEPRECATION WARNING: mapDispatchToProps will be removed from cmfConnect.
 			Please use the injectedProps dispatchActionCreator or dispatch`);
 		}
 		userProps = mapDispatchToProps(dispatch, ownProps, cmfProps);
