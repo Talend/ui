@@ -285,7 +285,7 @@ HeaderBar.Help = Help;
 HeaderBar.Information = Information;
 HeaderBar.User = User;
 HeaderBar.Products = Products;
-HeaderBar.getDisplayName = 'Headerbar';
+HeaderBar.displayName = 'HeaderBar';
 
 if (process.env.NODE_ENV !== 'production') {
 	Logo.propTypes = {
