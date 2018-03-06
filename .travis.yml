@@ -6,7 +6,7 @@ cache:
 notifications:
   email: false
 env:
-  - ACTION=test TZ=Europe/Paris
+  - ACTION=test
   - ACTION=test:demo
 addons:
   firefox: "50.0"
