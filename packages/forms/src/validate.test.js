@@ -1,4 +1,3 @@
-
 import validate from './validate';
 
 const jsonSchema = {
