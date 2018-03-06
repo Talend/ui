@@ -58,10 +58,15 @@ describe('Table.getHeaders', () => {
 	});
 
 	it('should transform json path to key even if the json path is deeply nested', () => {
-		const headers = getHeaders(["$['Action'][0]['Geography'][0]['CountryCode'][0]['Geography']['CountryCode']"], true);
+		const headers = getHeaders(
+			["$['Action'][0]['Geography'][0]['CountryCode'][0]['Geography']['CountryCode']"],
+			true,
+		);
 		expect(headers[0]).toBe('Action[0].Geography[0].CountryCode[0].Geography.CountryCode');
 		expect(headers.length).toBe(1);
-		expect(getHeaders(['Action.Geography.CountryCode'], true)[0]).toBe('Action.Geography.CountryCode');
+		expect(getHeaders(['Action.Geography.CountryCode'], true)[0]).toBe(
+			'Action.Geography.CountryCode',
+		);
 	});
 });
 
