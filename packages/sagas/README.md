@@ -15,16 +15,19 @@ A set of generic sagas that are reusable accross the app(http://guidelines.talen
 [npm-url]: https://npmjs.org/package/@talend/react-sagas
 [travis-ci-image]: https://travis-ci.org/Talend/react-talend-sagas.svg?branch=master
 [travis-ci-url]: https://travis-ci.org/Talend/react-talend-sagas
-
 [dependencies-image]: https://david-dm.org/Talend/react-talend-sagas.svg
 [dependencies-url]: https://david-dm.org/Talend/react-talend-sagas
 [devdependencies-image]: https://david-dm.org/Talend/react-talend-sagas/dev-status.svg
 [devdependencies-url]: https://david-dm.org/Talend/react-talend-sagas#info=devDependencies
 [peerdependencies-image]: https://david-dm.org/Talend/react-talend-sagas/peer-status.svg
 [peerdependencies-url]: https://david-dm.org/Talend/react-talend-sagas?type=peer
-
 [quality-badge]: http://npm.packagequality.com/shield/react-talend-sagas.svg
 [quality-url]: http://packagequality.com/#?package=react-talend-sagas
+
+## Breaking changes log
+
+Before 1.0, `@talend/react-sagas` does NOT follow semver version in releases.
+You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
 ## Conventions
 
@@ -39,12 +42,16 @@ Please read our [style guidelines](http://guidelines.talend.com) first.
 Thanks to [BrowserStack](https://www.browserstack.com/) for providing real browser testing infrastructure.
 
 ### List of sagas
+
 #### maybePenging
+
 ##### Description
+
 This saga will trigger a state change after 400ms that consists in adding the component in an up-to-date pending list.
 Based on that, any cmf-expression will be evaluated and pure component will be re-rendered.
 
 #### Signature
+
 First argument is about identifying your context: parent entity id or page id or any other way to provide a context id in a unique way.
 
 Second argument is the identifier of the action or component.

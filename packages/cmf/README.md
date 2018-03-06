@@ -1,4 +1,3 @@
-
 # Content Management Framework (aka CMF)
 
 This is a framework to help you to build configurable React App.
@@ -21,8 +20,8 @@ It provides a set of base APIs and patterns.
 
 ## Breaking changes log
 
-Before 1.0, `react-cmf` does NOT follow semver version in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/ui/blob/master/BREAKING_CHANGES_LOG.md).
+Before 1.0, `@talend/react-cmf` does NOT follow semver version in releases.
+You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
 ## Definition
 
@@ -91,7 +90,6 @@ We give you the choice to use either:
 
 Warning: you should use the redux state except for part that require lots of mutation without sharing.
 For example for Forms you should prefer to use the internal React component state.
-
 
 ### Collections management
 

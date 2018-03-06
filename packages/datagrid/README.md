@@ -2,6 +2,10 @@
 
 This library provide a datagrid to show some datas !
 
+## Breaking changes log
+
+You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
+
 ## Guidelines
 
 [Datagrid](https://company-57688.frontify.com/document/92132#/navigation-layout/data-grid)

@@ -9,8 +9,15 @@ A small library that provides a centralized error logger.
 * Redux [documentation](./src/redux)
 * Framework free: see next section
 
+#### Breaking changes log
+
+Before 1.0, `@talend/log` does NOT follow semver version in releases.
+You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
+
 #### Advanced config
+
 Look in ./src/errorTransformer.js for jsDoc on each parameter
+
 ```javascript
     import LOGGING_SERVER_URL from 'somewhere';
     import { initErrorTransformer, TraceKit } from '@talend/log';
@@ -56,19 +63,20 @@ Look in ./src/errorTransformer.js for jsDoc on each parameter
             collectWindowErrors: true,
         }
     );
-    
+
     ...
-    
+
     TraceKit.report(new Error('My error'));
 ```
 
 Notable details:
- - Once initErrorTransformer is called, listener function is created and registered in TraceKit, then returned.
- - Depending on the parameters you provide, TraceKit.report function may be patched to rethrow no error.
- - transport.send is called with fetchOptions defined on transport.fetchOptions
- - TraceKit.store should be defined in your configStore.js file if you want to attach state to report
- - fetchOptions are merged with Object.assign to default options, so don't expect deepMerge
- - that is also true for default transport and default options objects
+
+* Once initErrorTransformer is called, listener function is created and registered in TraceKit, then returned.
+* Depending on the parameters you provide, TraceKit.report function may be patched to rethrow no error.
+* transport.send is called with fetchOptions defined on transport.fetchOptions
+* TraceKit.store should be defined in your configStore.js file if you want to attach state to report
+* fetchOptions are merged with Object.assign to default options, so don't expect deepMerge
+* that is also true for default transport and default options objects
 
 #### Log warnings
 
