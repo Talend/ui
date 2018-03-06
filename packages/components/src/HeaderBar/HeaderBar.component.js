@@ -226,21 +226,37 @@ function HeaderBar(props) {
 	return (
 		<nav className={classNames(theme['tc-header-bar'], 'tc-header-bar', 'navbar')}>
 			<ul className={theme['tc-header-bar-actions']}>
-				{props.logo && <Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />}
+				{props.logo && (
+					<Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />
+				)}
 				{props.brand && (
-					<Components.Brand getComponent={props.getComponent} {...props.brand} isSeparated={!!props.env} />
+					<Components.Brand
+						getComponent={props.getComponent}
+						{...props.brand}
+						isSeparated={!!props.env}
+					/>
 				)}
 				{props.env && <Components.Environment getComponent={props.getComponent} {...props.env} />}
 			</ul>
 			<ul className={classNames(theme['tc-header-bar-actions'], theme.right)}>
 				{props.search && <Components.Search getComponent={props.getComponent} {...props.search} />}
 				{props.notification && (
-					<Components.AppNotification getComponent={props.getComponent} {...props.notification} t={props.t} />
+					<Components.AppNotification
+						getComponent={props.getComponent}
+						{...props.notification}
+						t={props.t}
+					/>
 				)}
-				{props.help && <Components.Help getComponent={props.getComponent} {...props.help} t={props.t} />}
+				{props.help && (
+					<Components.Help getComponent={props.getComponent} {...props.help} t={props.t} />
+				)}
 				{!props.user &&
 					props.information && (
-						<Components.Information getComponent={props.getComponent} {...props.information} t={props.t} />
+						<Components.Information
+							getComponent={props.getComponent}
+							{...props.information}
+							t={props.t}
+						/>
 					)}
 				{props.user && <Components.User getComponent={props.getComponent} {...props.user} />}
 				{props.products && (
@@ -259,7 +275,7 @@ HeaderBar.Help = Help;
 HeaderBar.Information = Information;
 HeaderBar.User = User;
 HeaderBar.Products = Products;
-HeaderBar.getDisplayName = 'Headerbar';
+HeaderBar.displayName = 'HeaderBar';
 
 if (process.env.NODE_ENV !== 'production') {
 	Logo.propTypes = {

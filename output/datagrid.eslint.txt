@@ -3,3 +3,9 @@
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/datagrid/src/components/DataGrid/DataGrid.component.js
+  134:2  error  removeFocusColumn should be placed after getAgGridConfig  react/sort-comp
+
+✖ 1 problem (1 error, 0 warnings)
+
