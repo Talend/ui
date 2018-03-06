@@ -1,11 +1,17 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import talendIcons from '@talend/icons/dist/react';
 import Skeleton from '../src/Skeleton';
 import IconProvider from '../src/IconsProvider';
 
 import theme from './Skeleton.scss';
 
 const stories = storiesOf(Skeleton.displayName, module);
+const icons = {
+	'talend-locked': talendIcons['talend-locked'],
+	'talend-table': talendIcons['talend-table'],
+};
+
 if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
 }
@@ -13,7 +19,7 @@ if (!stories.addWithInfo) {
 stories
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
-			<IconProvider />
+			<IconProvider defaultIcons={icons} />
 			{story()}
 		</div>
 	))
