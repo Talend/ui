@@ -7,6 +7,10 @@
     <artifactId>component-objects</artifactId>
     <version>0.162.0</version>
 
+    <properties>
+        <skipTests>true</skipTests>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -58,7 +62,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.5</version>
                 <configuration>
-                    <skip>true</skip>
+                    <skip>${skipTests}</skip>
                 </configuration>
             </plugin>
         </plugins>
