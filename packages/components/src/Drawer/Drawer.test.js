@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import Drawer, { cancelActionComponent } from './Drawer.component';
 
@@ -111,5 +111,48 @@ describe('Drawer', () => {
 			)
 			.toJSON();
 		expect(wrapper).toMatchSnapshot();
+	});
+});
+
+describe('Drawer.Animation', () => {
+	it('should wrap drawer in a CSSTransition', () => {
+		// given
+		const DrawerContent = () => (<div>My drawer content</div>);
+
+		// when
+		const wrapper = shallow(
+			<Drawer.Animation>
+				{() => <DrawerContent />}
+			</Drawer.Animation>
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should pass animation props to the drawer component', () => {
+		// given
+		const DrawerContent = animationProps => (<div {...animationProps}>My drawer content</div>);
+
+		// when
+		const wrapper = shallow(
+			<Drawer.Animation>
+				{animationProps => (<DrawerContent {...animationProps} />)}
+			</Drawer.Animation>
+		);
+
+		// then
+		const animationProps = wrapper.find(DrawerContent).props();
+		expect(animationProps.active).toBe(true);
+		expect(animationProps.transitioned).toBe(false);
+		expect(animationProps.close).toBeDefined();
+	});
+
+	it('should call onClose() function after close transition', () => { // TODO
+		// given
+
+		// when
+
+		// then
 	});
 });

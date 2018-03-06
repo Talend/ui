@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WithDrawer should wrap drawers in a container 1`] = `
+<div
+  className="theme-tc-with-drawer"
+>
+  <div>
+    My content
+  </div>
+  <div
+    className="theme-tc-with-drawer-container"
+  >
+    <div>
+      My first drawer
+    </div>
+    <div>
+      My second drawer
+    </div>
+  </div>
+</div>
+`;

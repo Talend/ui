@@ -291,3 +291,33 @@ exports[`Drawer should render without tc-drawer-transition class 1`] = `
   </div>
 </div>
 `;
+
+exports[`Drawer.Animation should wrap drawer in a CSSTransition 1`] = `
+<CSSTransition
+  active={true}
+  defaultStyle={
+    Object {
+      "transform": "translateX(100%)",
+    }
+  }
+  enterStyle={
+    Object {
+      "transform": Array [
+        "translateX(0%)",
+      ],
+    }
+  }
+  leaveStyle={
+    Object {
+      "transform": Array [
+        "translateX(100%)",
+      ],
+    }
+  }
+  onTransitionComplete={[Function]}
+  transitionAppear={true}
+  withTransition={true}
+>
+  <DrawerContent />
+</CSSTransition>
+`;

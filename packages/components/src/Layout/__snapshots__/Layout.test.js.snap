@@ -140,68 +140,32 @@ exports[`Layout should render layout with Drawer component 1`] = `
           className="theme-tc-with-drawer-container"
         >
           <div
-            className="tc-with-drawer-wrapper"
-            onTransitionEnd={[Function]}
             style={
               Object {
-                "transform": "translateX(100%)",
+                "width": 500,
               }
             }
           >
-            <span
-              style={
-                Object {
-                  "opacity": 0.9,
-                }
-              }
-            />
-            <div
-              style={
-                Object {
-                  "width": 500,
-                }
-              }
-              transitioned={false}
-            >
-              <h1>
-                Hello drawers
-              </h1>
-              <p>
-                You should not being able to read this because I'm first
-              </p>
-            </div>
+            <h1>
+              Hello drawers
+            </h1>
+            <p>
+              You should not being able to read this because I'm first
+            </p>
           </div>
           <div
-            className="tc-with-drawer-wrapper"
-            onTransitionEnd={[Function]}
             style={
               Object {
-                "transform": "translateX(100%)",
+                "width": 400,
               }
             }
           >
-            <span
-              style={
-                Object {
-                  "opacity": 0.9,
-                }
-              }
-            />
-            <div
-              style={
-                Object {
-                  "width": 400,
-                }
-              }
-              transitioned={false}
-            >
-              <h1>
-                Hello drawers
-              </h1>
-              <p>
-                The content dictate the width
-              </p>
-            </div>
+            <h1>
+              Hello drawers
+            </h1>
+            <p>
+              The content dictate the width
+            </p>
           </div>
         </div>
       </div>
