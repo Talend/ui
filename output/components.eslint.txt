@@ -12,13 +12,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
-  229:1  error  Line 229 exceeds the maximum line length of 100  max-len
-  231:1  error  Line 231 exceeds the maximum line length of 100  max-len
-  238:1  error  Line 238 exceeds the maximum line length of 100  max-len
-  240:1  error  Line 240 exceeds the maximum line length of 100  max-len
-  243:1  error  Line 243 exceeds the maximum line length of 100  max-len
-
 /home/travis/build/Talend/ui/packages/components/src/JSONSchemaRenderer/JSONSchemaRenderer.component.js
   76:56  error  'properties' is defined but never used  no-unused-vars
 
@@ -36,5 +29,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 16 problems (15 errors, 1 warning)
+✖ 11 problems (10 errors, 1 warning)
 
