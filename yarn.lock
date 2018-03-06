@@ -296,21 +296,6 @@
     react-treebeard "^2.1.0"
     redux "^3.7.2"
 
-"@talend/icons@^0.150.0":
-  version "0.150.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-0.150.0.tgz#9f9ebbaa519964f765db7a698237ab09d0120b4d"
-
-"@talend/react-components@^0.150.0":
-  version "0.150.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-0.150.0.tgz#63c530ae46b228d5d1136755f5da1d0813575d0a"
-  dependencies:
-    lodash "4.17.4"
-    rc-slider "8.4.1"
-    rc-tooltip "3.7.0"
-    react-autowhatever "10.1.0"
-    react-debounce-input "3.1.0"
-    react-virtualized "9.10.1"
-
 "@types/inline-style-prefixer@^3.0.0":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@types/inline-style-prefixer/-/inline-style-prefixer-3.0.1.tgz#8541e636b029124b747952e9a28848286d2b5bf6"
