@@ -4,6 +4,7 @@ import validate from './validate';
 const jsonSchema = {
 	title: 'my test schema',
 	required: ['label'],
+	type: 'object',
 	properties: {
 		label: {
 			type: 'string',
@@ -16,6 +17,7 @@ const jsonSchema = {
 
 const validPayload = {
 	label: 'foo',
+	description: undefined, // this doesn t work with tv4 and is produced by our lib.
 };
 
 const typeNotValidPayload = {

@@ -145,8 +145,8 @@ You can use validation from outside (let say button outside the form) this way:
 ```javascript
 import validate from '@talend/react-forms/lib/validate';
 
-function isvalide(options) {
-	return validate(options.jsonSchema, options.data);
+function isValid({ payload}) {
+	return validate(payload.jsonSchema, payload.formData);
 }
 ```
 
