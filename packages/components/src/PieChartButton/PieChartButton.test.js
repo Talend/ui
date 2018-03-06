@@ -1,6 +1,6 @@
 import React from 'react';
-import initStoryshots from '@storybook/addon-storyshots';
-import {
+import { shallow } from 'enzyme';
+import PieChartButton, {
 	decorateWithOverlay,
 	decorateWithTooltip,
 	distributePercentages,
@@ -13,11 +13,90 @@ import {
 	wrapMouseEvent,
 } from './PieChartButton.component';
 
-initStoryshots({
-	configPath: 'src/PieChartButton/__snapshots__',
-});
-
 describe('PieChartButton', () => {
+	describe('snapshots render', () => {
+		const pieChartData = [
+			{
+				color: 'rio-grande',
+				percentage: 50,
+			},
+			{
+				color: 'chestnut-rose',
+				percentage: 12,
+			},
+			{
+				color: 'lightning-yellow',
+				percentage: 1,
+			},
+			{
+				color: 'slate-gray',
+				percentage: 4,
+			},
+			{
+				color: 'silver-chalice',
+				percentage: 3,
+			},
+		];
+
+		it('shoud render a PieChartButton', () => {
+			const onClick = jest.fn();
+			const event = {};
+			const wrapper = shallow(
+				<PieChartButton label="my label" display="small" model={pieChartData} onClick={onClick} />,
+			);
+
+			wrapper
+				.find('Button')
+				.at(0)
+				.simulate('click', event);
+
+			expect(onClick).toHaveBeenCalledWith(event, {
+				action: {
+					label: 'my label',
+				},
+				model: pieChartData,
+			});
+
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+
+		it('shoud render a PieChartButton with an overlay', () => {
+			const onClick = jest.fn();
+			const event = {};
+			const overlayComponent = <div>I am an overlay</div>;
+			const wrapper = shallow(
+				<PieChartButton
+					display="medium"
+					labelIndex={2}
+					model={pieChartData}
+					overlayComponent={overlayComponent}
+					overlayId="id-popover"
+					onClick={onClick}
+				/>,
+			);
+
+			wrapper
+				.find('Button')
+				.at(0)
+				.simulate('click', event);
+
+			expect(onClick).not.toHaveBeenCalledWith(event, {
+				action: {
+					label: 'my label',
+				},
+				model: pieChartData,
+			});
+
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+
+		it('shoud render a Skeleton when the state is loading', () => {
+			const wrapper = shallow(<PieChartButton loading model={pieChartData} />);
+
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+	});
+
 	describe('decorateWithOverlay', () => {
 		it('should return the same component if no overlayComponent', () => {
 			// given

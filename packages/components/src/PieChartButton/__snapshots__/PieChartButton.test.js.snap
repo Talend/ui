@@ -61,283 +61,89 @@ exports[`PieChartButton getEmptyPartCircle should get return a path for the rest
 />
 `;
 
-exports[`Storyshots PieChartButton Loading state 1`] = `
-<div
-  className="col-lg-offset-2 col-lg-8"
+exports[`PieChartButton snapshots render shoud render a PieChartButton 1`] = `
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="theme-tc-pie-chart tc-pie-chart"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={null}
 >
-  <div>
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
-    >
-      <span>
-        changestatus
-      </span>
-    </button>
-    <p>
-      Small :
-    </p>
-    <button
-      className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
-      disabled={false}
-      type="button"
-    >
-      <span
-        className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-        style={
-          Object {
-            "height": 20,
-            "width": 20,
-          }
-        }
-      />
-      <span
-        className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
-        style={
-          Object {
-            "height": undefined,
-            "width": undefined,
-          }
-        }
-      />
-    </button>
-    <p>
-      Medium :
-    </p>
-    <button
-      className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
-      disabled={false}
-      type="button"
-    >
-      <span
-        className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-        style={
-          Object {
-            "height": 35,
-            "width": 35,
-          }
-        }
-      />
-      <span
-        className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
-        style={
-          Object {
-            "height": undefined,
-            "width": undefined,
-          }
-        }
-      />
-    </button>
-    <p>
-      Large :
-    </p>
-    <button
-      className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
-      disabled={false}
-      type="button"
-    >
-      <span
-        className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-        style={
-          Object {
-            "height": 50,
-            "width": 50,
-          }
-        }
-      />
-      <span
-        className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
-        style={
-          Object {
-            "height": undefined,
-            "width": undefined,
-          }
-        }
-      />
-    </button>
-    <p>
-      Small without label:
-    </p>
-    <button
-      className="theme-tc-pie-chart-loading tc-pie-chart-loading theme-tc-pie-chart-loading-no-label tc-pie-chart-loading-no-label btn btn-default"
-      disabled={false}
-      type="button"
-    >
-      <span
-        className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-        style={
-          Object {
-            "height": 20,
-            "width": 20,
-          }
-        }
-      />
-    </button>
-    <p>
-      Medium without label:
-    </p>
-    <button
-      className="theme-tc-pie-chart-loading tc-pie-chart-loading theme-tc-pie-chart-loading-no-label tc-pie-chart-loading-no-label btn btn-default"
-      disabled={false}
-      type="button"
-    >
-      <span
-        className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-        style={
-          Object {
-            "height": 35,
-            "width": 35,
-          }
-        }
-      />
-    </button>
-    <p>
-      Large without label:
-    </p>
-    <button
-      className="theme-tc-pie-chart-loading tc-pie-chart-loading theme-tc-pie-chart-loading-no-label tc-pie-chart-loading-no-label btn btn-default"
-      disabled={false}
-      type="button"
-    >
-      <span
-        className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-        style={
-          Object {
-            "height": 50,
-            "width": 50,
-          }
-        }
-      />
-    </button>
-    <p>
-      after large
-    </p>
+  <svg
+    className="theme-tc-pie-chart-graph tc-pie-chart-graph"
+    height={20}
+    width={20}
+  >
+    <path
+      className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+      d="M1.0798635081746981,-8.934981522292736A9,9,0,0,1,3.2679771569343448,8.385721513486798L2.5137114511013143,5.448050544974975A6,6,0,0,0,1.079863508174698,-5.902024635979812Z"
+      transform="translate(10,10)"
+    />
+    <path
+      className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+      d="M1.1761019362637408,8.922823781489617A9,9,0,0,1,-1.734049908655706,8.83136857538463L-0.7968146875784861,5.946855165014463A6,6,0,0,0,0.4218362304307106,5.985152812977795Z"
+      transform="translate(10,10)"
+    />
+    <path
+      className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+      d="M-3.788072360973488,8.163976224121965A9,9,0,0,1,-4.378222438590741,7.863279740554863L-2.7239429984372805,5.346039145130208Z"
+      transform="translate(10,10)"
+    />
+    <path
+      className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+      d="M-6.125478298028102,6.593824051367063A9,9,0,0,1,-6.593824051367061,6.125478298028103L-4.242640687119285,4.242640687119286Z"
+      transform="translate(10,10)"
+    />
+    <path
+      className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
+      d="M-7.863279740554862,4.3782224385907424A9,9,0,0,1,-8.163976224121967,3.7880723609734854L-5.346039145130207,2.7239429984372814Z"
+      transform="translate(10,10)"
+    />
+    <path
+      className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+      d="M-8.83136857538463,1.7340499086557037A9,9,0,0,1,-1.0798635081746992,-8.934981522292736L-1.0798635081746997,-5.902024635979812A6,6,0,0,0,-5.946855165014464,0.7968146875784833Z"
+      transform="translate(10,10)"
+    />
+  </svg>
+  <div
+    className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+  >
+    50 %
   </div>
-</div>
+</Button>
 `;
 
-exports[`Storyshots PieChartButton default 1`] = `
-<div
-  className="col-lg-offset-2 col-lg-8"
->
-  <div>
-    <p>
-      Small :
-    </p>
-    <button
-      className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={null}
-      type="button"
-    >
-      <svg
-        className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-        height={20}
-        width={20}
+exports[`PieChartButton snapshots render shoud render a PieChartButton with an overlay 1`] = `
+<span>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    overlay={
+      <Popover
+        bsClass="popover"
+        id="id-popover"
+        placement="right"
       >
-        <path
-          className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-          d="M1.0798635081746981,-8.934981522292736A9,9,0,0,1,3.2679771569343448,8.385721513486798L2.5137114511013143,5.448050544974975A6,6,0,0,0,1.079863508174698,-5.902024635979812Z"
-          transform="translate(10,10)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-          d="M1.1761019362637408,8.922823781489617A9,9,0,0,1,-1.734049908655706,8.83136857538463L-0.7968146875784861,5.946855165014463A6,6,0,0,0,0.4218362304307106,5.985152812977795Z"
-          transform="translate(10,10)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-          d="M-3.788072360973488,8.163976224121965A9,9,0,0,1,-4.378222438590741,7.863279740554863L-2.7239429984372805,5.346039145130208Z"
-          transform="translate(10,10)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-          d="M-6.125478298028102,6.593824051367063A9,9,0,0,1,-6.593824051367061,6.125478298028103L-4.242640687119285,4.242640687119286Z"
-          transform="translate(10,10)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
-          d="M-7.863279740554862,4.3782224385907424A9,9,0,0,1,-8.163976224121967,3.7880723609734854L-5.346039145130207,2.7239429984372814Z"
-          transform="translate(10,10)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-          d="M-8.83136857538463,1.7340499086557037A9,9,0,0,1,-1.0798635081746992,-8.934981522292736L-1.0798635081746997,-5.902024635979812A6,6,0,0,0,-5.946855165014464,0.7968146875784833Z"
-          transform="translate(10,10)"
-        />
-      </svg>
-      <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-      >
-        50 %
-      </div>
-    </button>
-    <p>
-      custom size
-    </p>
-    <button
-      className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={null}
-      type="button"
-    >
-      <svg
-        className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-        height={25}
-        width={25}
-      >
-        <path
-          className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-          d="M1.2461847902827028,-10.929182195776043A11,11,0,0,1,3.9250106905941236,10.27590828485355L3.1722663701678537,7.344162721284304A8,8,0,0,0,1.2461847902827026,-7.902342910078508Z"
-          transform="translate(12.5,12.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-          d="M1.5109434835492437,10.895735394617477A11,11,0,0,1,-2.192110867808632,10.779362223398714L-1.2567660892863657,7.900666996957906A8,8,0,0,0,0.7581991631229743,7.96398983104823Z"
-          transform="translate(12.5,12.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-          d="M-4.562495198421178,10.009177666740843A11,11,0,0,1,-5.415827440824338,9.574383172362285L-3.6366959476318454,7.125618750991251A8,8,0,0,0,-3.6271504198989115,7.130482440300035Z"
-          transform="translate(12.5,12.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-          d="M-7.432196787764914,8.10940508964356A11,11,0,0,1,-8.109405089643559,7.432196787764916L-5.660640668272529,5.653065294572418A8,8,0,0,0,-5.653065294572417,5.66064066827253Z"
-          transform="translate(12.5,12.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
-          d="M-9.574383172362285,5.415827440824341A11,11,0,0,1,-10.009177666740843,4.5624951984211775L-7.130482440300036,3.6271504198989097A8,8,0,0,0,-7.12561875099125,3.636695947631847Z"
-          transform="translate(12.5,12.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-          d="M-10.779362223398715,2.1921108678086267A11,11,0,0,1,-1.2461847902827017,-10.929182195776043L-1.246184790282707,-7.902342910078507A8,8,0,0,0,-7.900666996957906,1.2567660892863637Z"
-          transform="translate(12.5,12.5)"
-        />
-      </svg>
-      <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-      >
-        50 %
-      </div>
-    </button>
-    <p>
-      Medium :
-    </p>
-    <button
-      className="theme-tc-pie-chart tc-pie-chart btn btn-default"
+        <div>
+          I am an overlay
+        </div>
+      </Popover>
+    }
+    placement="bottom"
+    rootClose={true}
+    trigger="click"
+  >
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      className="theme-tc-pie-chart tc-pie-chart"
       disabled={false}
       onClick={null}
-      onMouseDown={[Function]}
-      type="button"
+      onMouseDown={null}
     >
       <svg
         className="theme-tc-pie-chart-graph tc-pie-chart-graph"
@@ -376,953 +182,109 @@ exports[`Storyshots PieChartButton default 1`] = `
         />
       </svg>
       <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
       >
-        50 %
+        1 %
       </div>
-    </button>
-    <p>
-      Large : 
-    </p>
-    <button
-      className="theme-tc-pie-chart tc-pie-chart btn btn-default"
+    </Button>
+  </OverlayTrigger>
+</span>
+`;
+
+exports[`PieChartButton snapshots render shoud render a PieChartButton with an overlay 2`] = `
+<span>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    overlay={
+      <Popover
+        bsClass="popover"
+        id="id-popover"
+        placement="right"
+      >
+        <div>
+          I am an overlay
+        </div>
+      </Popover>
+    }
+    placement="bottom"
+    rootClose={true}
+    trigger="click"
+  >
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      className="theme-tc-pie-chart tc-pie-chart"
       disabled={false}
       onClick={null}
       onMouseDown={null}
-      type="button"
     >
       <svg
         className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-        height={50}
-        width={50}
+        height={35}
+        width={35}
       >
         <path
           className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-          d="M1.4348696498656017,-21.95315806638978A22,22,0,0,1,6.84931898371705,20.906621665378967L5.851963233759641,17.022177484409138A18,18,0,0,0,1.4348696498656004,-17.942718553438176Z"
-          transform="translate(25,25)"
+          d="M1.4441414721137937,-14.930320003553877A15,15,0,0,1,5.111790709195919,14.102113165954181L4.36136036308964,11.179379937334208A12,12,0,0,0,1.4441414721137937,-11.912785375743198Z"
+          transform="translate(17.5,17.5)"
         />
         <path
           className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-          d="M4.0697378211683395,21.62029680802167A22,22,0,0,1,-5.4192567921750845,21.32209313881881L-4.179962827760253,17.50793850681863A18,18,0,0,0,3.0723820712109315,17.73585262705184Z"
-          transform="translate(25,25)"
+          d="M2.314248484842055,14.820399925454314A15,15,0,0,1,-3.24026245504848,14.645842386916609L-2.3077929739400975,11.775996415990994A12,12,0,0,0,1.563818138735775,11.897666696834342Z"
+          transform="translate(17.5,17.5)"
         />
         <path
           className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-          d="M-8.148541053252734,20.43529492577621A22,22,0,0,1,-11.74290862121536,18.603873175061853L-9.385631420291393,15.359359454171225A18,18,0,0,0,-6.909247088837899,16.621140293776026Z"
-          transform="translate(25,25)"
+          d="M-5.987182770060277,13.753313872586975A15,15,0,0,1,-7.60748691687456,12.92772767386374L-5.8338245643655835,10.486490878850022A12,12,0,0,0,-5.054713288951897,10.883467901661358Z"
+          transform="translate(17.5,17.5)"
         />
         <path
           className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-          d="M-14.064576484123553,16.91708273675573A22,22,0,0,1,-16.917082736755727,14.064576484123556L-13.67256901586509,11.707299283199601A18,18,0,0,0,-11.7072992831996,13.672569015865093Z"
-          transform="translate(25,25)"
+          d="M-9.944156903317985,11.230037554798884A15,15,0,0,1,-11.230037554798882,9.944156903317987L-8.788800759785158,8.170494550809014A12,12,0,0,0,-8.170494550809014,8.78880075978516Z"
+          transform="translate(17.5,17.5)"
         />
         <path
           className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
-          d="M-18.60387317506185,11.742908621215362A22,22,0,0,1,-20.435294925776212,8.148541053252725L-16.621140293776026,6.9092470888378985A18,18,0,0,0,-15.359359454171223,9.385631420291395Z"
-          transform="translate(25,25)"
+          d="M-12.92772767386374,7.607486916874562A15,15,0,0,1,-13.753313872586977,5.987182770060273L-10.883467901661358,5.054713288951895A12,12,0,0,0,-10.486490878850022,5.833824564365586Z"
+          transform="translate(17.5,17.5)"
         />
         <path
           className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-          d="M-21.32209313881881,5.419256792175084A22,22,0,0,1,-1.4348696498656093,-21.953158066389776L-1.4348696498656066,-17.942718553438176A18,18,0,0,0,-17.507938506818633,4.179962827760244Z"
-          transform="translate(25,25)"
+          d="M-14.645842386916609,3.240262455048476A15,15,0,0,1,-1.4441414721138024,-14.930320003553875L-1.444141472113798,-11.912785375743198A12,12,0,0,0,-11.775996415990996,2.3077929739400918Z"
+          transform="translate(17.5,17.5)"
         />
       </svg>
       <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
       >
-        50 %
+        1 %
       </div>
-    </button>
-    <p>
-      with other data :
-    </p>
-    <button
-      className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-      disabled={false}
-      onClick={null}
-      onMouseDown={null}
-      type="button"
-    >
-      <svg
-        className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-        height={35}
-        width={35}
-      >
-        <path
-          className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-          d="M1.4441414721137937,-14.930320003553877A15,15,0,0,1,10.583478862702211,-10.62967427359538L8.258428471439572,-8.706225311931473A12,12,0,0,0,1.4441414721137937,-11.912785375743198Z"
-          transform="translate(17.5,17.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-          d="M12.424539700534853,-8.40421401618458A15,15,0,0,1,14.936468116282928,1.3791012331455303L11.97238232275216,0.8136716277784195A12,12,0,0,0,10.099489309272212,-6.4807650545206705Z"
-          transform="translate(17.5,17.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-          d="M14.395257861298035,4.21622474575741A15,15,0,1,1,-11.872317745240206,-9.167773522292887L-9.672629669408478,-7.1021289257854825A12,12,0,1,0,11.431172067767267,3.650795140390298Z"
-          transform="translate(17.5,17.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-          d="M-9.895152014666019,-11.273241175751142A15,15,0,0,1,-8.458247336168116,-12.3878186941933L-7.004538942491166,-9.743532942579131A12,12,0,0,0,-7.695463938834289,-9.207596579243743Z"
-          transform="translate(17.5,17.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-          d="M-5.927225698284713,-13.779259614420264A15,15,0,0,1,-1.4441414721138024,-14.930320003553875L-1.444141472113798,-11.912785375743198A12,12,0,0,0,-4.473517304607769,-11.134973862806092Z"
-          transform="translate(17.5,17.5)"
-        />
-      </svg>
-      <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-      >
-        15 %
-      </div>
-    </button>
-    <p>
-      with without label :
-    </p>
-    <button
-      className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-      disabled={false}
-      onClick={null}
-      onMouseDown={null}
-      type="button"
-    >
-      <svg
-        className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-        height={35}
-        width={35}
-      >
-        <path
-          className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-          d="M1.4441414721137937,-14.930320003553877A15,15,0,0,1,10.583478862702211,-10.62967427359538L8.258428471439572,-8.706225311931473A12,12,0,0,0,1.4441414721137937,-11.912785375743198Z"
-          transform="translate(17.5,17.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-          d="M12.424539700534853,-8.40421401618458A15,15,0,0,1,14.936468116282928,1.3791012331455303L11.97238232275216,0.8136716277784195A12,12,0,0,0,10.099489309272212,-6.4807650545206705Z"
-          transform="translate(17.5,17.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-          d="M14.395257861298035,4.21622474575741A15,15,0,1,1,-11.872317745240206,-9.167773522292887L-9.672629669408478,-7.1021289257854825A12,12,0,1,0,11.431172067767267,3.650795140390298Z"
-          transform="translate(17.5,17.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-          d="M-9.895152014666019,-11.273241175751142A15,15,0,0,1,-8.458247336168116,-12.3878186941933L-7.004538942491166,-9.743532942579131A12,12,0,0,0,-7.695463938834289,-9.207596579243743Z"
-          transform="translate(17.5,17.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-          d="M-5.927225698284713,-13.779259614420264A15,15,0,0,1,-1.4441414721138024,-14.930320003553875L-1.444141472113798,-11.912785375743198A12,12,0,0,0,-4.473517304607769,-11.134973862806092Z"
-          transform="translate(17.5,17.5)"
-        />
-      </svg>
-      <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-      />
-    </button>
-    <p>
-      with overlay component
-    </p>
-    <span>
-      <button
-        className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={null}
-        type="button"
-      >
-        <svg
-          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-          height={35}
-          width={35}
-        >
-          <path
-            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-            d="M1.4441414721137937,-14.930320003553877A15,15,0,0,1,10.583478862702211,-10.62967427359538L8.258428471439572,-8.706225311931473A12,12,0,0,0,1.4441414721137937,-11.912785375743198Z"
-            transform="translate(17.5,17.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-            d="M12.424539700534853,-8.40421401618458A15,15,0,0,1,14.936468116282928,1.3791012331455303L11.97238232275216,0.8136716277784195A12,12,0,0,0,10.099489309272212,-6.4807650545206705Z"
-            transform="translate(17.5,17.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-            d="M14.395257861298035,4.21622474575741A15,15,0,1,1,-11.872317745240206,-9.167773522292887L-9.672629669408478,-7.1021289257854825A12,12,0,1,0,11.431172067767267,3.650795140390298Z"
-            transform="translate(17.5,17.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-            d="M-9.895152014666019,-11.273241175751142A15,15,0,0,1,-8.458247336168116,-12.3878186941933L-7.004538942491166,-9.743532942579131A12,12,0,0,0,-7.695463938834289,-9.207596579243743Z"
-            transform="translate(17.5,17.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-            d="M-5.927225698284713,-13.779259614420264A15,15,0,0,1,-1.4441414721138024,-14.930320003553875L-1.444141472113798,-11.912785375743198A12,12,0,0,0,-4.473517304607769,-11.134973862806092Z"
-            transform="translate(17.5,17.5)"
-          />
-        </svg>
-        <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-        >
-          60 %
-        </div>
-      </button>
-    </span>
-    <p>
-      with a tooltip
-    </p>
-    <button
-      className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={null}
-      onMouseOver={[Function]}
-      type="button"
-    >
-      <svg
-        className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-        height={35}
-        width={35}
-      >
-        <path
-          className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-          d="M1.4441414721137937,-14.930320003553877A15,15,0,0,1,10.583478862702211,-10.62967427359538L8.258428471439572,-8.706225311931473A12,12,0,0,0,1.4441414721137937,-11.912785375743198Z"
-          transform="translate(17.5,17.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-          d="M12.424539700534853,-8.40421401618458A15,15,0,0,1,14.936468116282928,1.3791012331455303L11.97238232275216,0.8136716277784195A12,12,0,0,0,10.099489309272212,-6.4807650545206705Z"
-          transform="translate(17.5,17.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-          d="M14.395257861298035,4.21622474575741A15,15,0,1,1,-11.872317745240206,-9.167773522292887L-9.672629669408478,-7.1021289257854825A12,12,0,1,0,11.431172067767267,3.650795140390298Z"
-          transform="translate(17.5,17.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-          d="M-9.895152014666019,-11.273241175751142A15,15,0,0,1,-8.458247336168116,-12.3878186941933L-7.004538942491166,-9.743532942579131A12,12,0,0,0,-7.695463938834289,-9.207596579243743Z"
-          transform="translate(17.5,17.5)"
-        />
-        <path
-          className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-          d="M-5.927225698284713,-13.779259614420264A15,15,0,0,1,-1.4441414721138024,-14.930320003553875L-1.444141472113798,-11.912785375743198A12,12,0,0,0,-4.473517304607769,-11.134973862806092Z"
-          transform="translate(17.5,17.5)"
-        />
-      </svg>
-      <div
-        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-      >
-        15 %
-      </div>
-    </button>
-  </div>
-</div>
+    </Button>
+  </OverlayTrigger>
+</span>
 `;
 
-exports[`Storyshots PieChartButton lot of loading 1`] = `
-<div
-  className="col-lg-offset-2 col-lg-8"
+exports[`PieChartButton snapshots render shoud render a Skeleton when the state is loading 1`] = `
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="theme-tc-pie-chart-loading tc-pie-chart-loading"
+  disabled={false}
 >
-  <div>
-    <div>
-      <div>
-        <p>
-          20
-          px
-        </p>
-        <button
-          className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
-          disabled={false}
-          type="button"
-        >
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-            style={
-              Object {
-                "height": 20,
-                "width": 20,
-              }
-            }
-          />
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
-            style={
-              Object {
-                "height": undefined,
-                "width": undefined,
-              }
-            }
-          />
-        </button>
-      </div>
-      <div>
-        <p>
-          22
-          px
-        </p>
-        <button
-          className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
-          disabled={false}
-          type="button"
-        >
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-            style={
-              Object {
-                "height": 22,
-                "width": 22,
-              }
-            }
-          />
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
-            style={
-              Object {
-                "height": undefined,
-                "width": undefined,
-              }
-            }
-          />
-        </button>
-      </div>
-      <div>
-        <p>
-          25
-          px
-        </p>
-        <button
-          className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
-          disabled={false}
-          type="button"
-        >
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-            style={
-              Object {
-                "height": 25,
-                "width": 25,
-              }
-            }
-          />
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
-            style={
-              Object {
-                "height": undefined,
-                "width": undefined,
-              }
-            }
-          />
-        </button>
-      </div>
-      <div>
-        <p>
-          30
-          px
-        </p>
-        <button
-          className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
-          disabled={false}
-          type="button"
-        >
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-            style={
-              Object {
-                "height": 30,
-                "width": 30,
-              }
-            }
-          />
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
-            style={
-              Object {
-                "height": undefined,
-                "width": undefined,
-              }
-            }
-          />
-        </button>
-      </div>
-      <div>
-        <p>
-          35
-          px
-        </p>
-        <button
-          className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
-          disabled={false}
-          type="button"
-        >
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-            style={
-              Object {
-                "height": 35,
-                "width": 35,
-              }
-            }
-          />
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
-            style={
-              Object {
-                "height": undefined,
-                "width": undefined,
-              }
-            }
-          />
-        </button>
-      </div>
-      <div>
-        <p>
-          40
-          px
-        </p>
-        <button
-          className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
-          disabled={false}
-          type="button"
-        >
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-            style={
-              Object {
-                "height": 40,
-                "width": 40,
-              }
-            }
-          />
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
-            style={
-              Object {
-                "height": undefined,
-                "width": undefined,
-              }
-            }
-          />
-        </button>
-      </div>
-      <div>
-        <p>
-          45
-          px
-        </p>
-        <button
-          className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
-          disabled={false}
-          type="button"
-        >
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-            style={
-              Object {
-                "height": 45,
-                "width": 45,
-              }
-            }
-          />
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
-            style={
-              Object {
-                "height": undefined,
-                "width": undefined,
-              }
-            }
-          />
-        </button>
-      </div>
-      <div>
-        <p>
-          50
-          px
-        </p>
-        <button
-          className="theme-tc-pie-chart-loading tc-pie-chart-loading btn btn-default"
-          disabled={false}
-          type="button"
-        >
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
-            style={
-              Object {
-                "height": 50,
-                "width": 50,
-              }
-            }
-          />
-          <span
-            className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
-            style={
-              Object {
-                "height": undefined,
-                "width": undefined,
-              }
-            }
-          />
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots PieChartButton lot of sizes 1`] = `
-<div
-  className="col-lg-offset-2 col-lg-8"
->
-  <div>
-    <div>
-      <p>
-        20
-        px
-      </p>
-      <button
-        className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-        disabled={false}
-        onClick={null}
-        onMouseDown={null}
-        type="button"
-      >
-        <svg
-          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-          height={20}
-          width={20}
-        >
-          <path
-            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-            d="M1.0798635081746981,-8.934981522292736A9,9,0,0,1,3.2679771569343448,8.385721513486798L2.5137114511013143,5.448050544974975A6,6,0,0,0,1.079863508174698,-5.902024635979812Z"
-            transform="translate(10,10)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-            d="M1.1761019362637408,8.922823781489617A9,9,0,0,1,-1.734049908655706,8.83136857538463L-0.7968146875784861,5.946855165014463A6,6,0,0,0,0.4218362304307106,5.985152812977795Z"
-            transform="translate(10,10)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-            d="M-3.788072360973488,8.163976224121965A9,9,0,0,1,-4.378222438590741,7.863279740554863L-2.7239429984372805,5.346039145130208Z"
-            transform="translate(10,10)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-            d="M-6.125478298028102,6.593824051367063A9,9,0,0,1,-6.593824051367061,6.125478298028103L-4.242640687119285,4.242640687119286Z"
-            transform="translate(10,10)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
-            d="M-7.863279740554862,4.3782224385907424A9,9,0,0,1,-8.163976224121967,3.7880723609734854L-5.346039145130207,2.7239429984372814Z"
-            transform="translate(10,10)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-            d="M-8.83136857538463,1.7340499086557037A9,9,0,0,1,-1.0798635081746992,-8.934981522292736L-1.0798635081746997,-5.902024635979812A6,6,0,0,0,-5.946855165014464,0.7968146875784833Z"
-            transform="translate(10,10)"
-          />
-        </svg>
-        <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-        >
-          50 %
-        </div>
-      </button>
-    </div>
-    <div>
-      <p>
-        22
-        px
-      </p>
-      <button
-        className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-        disabled={false}
-        onClick={null}
-        onMouseDown={null}
-        type="button"
-      >
-        <svg
-          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-          height={22}
-          width={22}
-        >
-          <path
-            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-            d="M1.044341061267502,-8.939203082364259A9,9,0,0,1,3.2346205723157953,8.398644518798937L2.4808938880087514,5.463072900524102A6,6,0,0,0,1.0443410612675026,-5.908413640542668Z"
-            transform="translate(11,11)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-            d="M1.2115582394779834,8.918078640175416A9,9,0,0,1,-1.7691382970664187,8.824406477823477L-0.8325728531713845,5.941954429660502A6,6,0,0,0,0.45783155517093826,5.982507021900581Z"
-            transform="translate(11,11)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-            d="M-3.7555930401725255,8.178968206113023A9,9,0,0,1,-4.409442072572152,7.8458154839781065L-2.7239429984372805,5.346039145130208Z"
-            transform="translate(11,11)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-            d="M-6.0992214055501055,6.618118935625091A9,9,0,0,1,-6.61811893562509,6.099221405550106L-4.242640687119285,4.242640687119286Z"
-            transform="translate(11,11)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
-            d="M-7.845815483978106,4.409442072572153A9,9,0,0,1,-8.178968206113025,3.7555930401725237L-5.346039145130207,2.7239429984372814Z"
-            transform="translate(11,11)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-            d="M-8.824406477823477,1.7691382970664165A9,9,0,0,1,-1.0443410612675073,-8.939203082364259L-1.044341061267502,-5.908413640542668A6,6,0,0,0,-5.941954429660502,0.8325728531713842Z"
-            transform="translate(11,11)"
-          />
-        </svg>
-        <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-        >
-          50 %
-        </div>
-      </button>
-    </div>
-    <div>
-      <p>
-        25
-        px
-      </p>
-      <button
-        className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-        disabled={false}
-        onClick={null}
-        onMouseDown={null}
-        type="button"
-      >
-        <svg
-          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-          height={25}
-          width={25}
-        >
-          <path
-            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-            d="M1.2461847902827028,-10.929182195776043A11,11,0,0,1,3.9250106905941236,10.27590828485355L3.1722663701678537,7.344162721284304A8,8,0,0,0,1.2461847902827026,-7.902342910078508Z"
-            transform="translate(12.5,12.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-            d="M1.5109434835492437,10.895735394617477A11,11,0,0,1,-2.192110867808632,10.779362223398714L-1.2567660892863657,7.900666996957906A8,8,0,0,0,0.7581991631229743,7.96398983104823Z"
-            transform="translate(12.5,12.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-            d="M-4.562495198421178,10.009177666740843A11,11,0,0,1,-5.415827440824338,9.574383172362285L-3.6366959476318454,7.125618750991251A8,8,0,0,0,-3.6271504198989115,7.130482440300035Z"
-            transform="translate(12.5,12.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-            d="M-7.432196787764914,8.10940508964356A11,11,0,0,1,-8.109405089643559,7.432196787764916L-5.660640668272529,5.653065294572418A8,8,0,0,0,-5.653065294572417,5.66064066827253Z"
-            transform="translate(12.5,12.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
-            d="M-9.574383172362285,5.415827440824341A11,11,0,0,1,-10.009177666740843,4.5624951984211775L-7.130482440300036,3.6271504198989097A8,8,0,0,0,-7.12561875099125,3.636695947631847Z"
-            transform="translate(12.5,12.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-            d="M-10.779362223398715,2.1921108678086267A11,11,0,0,1,-1.2461847902827017,-10.929182195776043L-1.246184790282707,-7.902342910078507A8,8,0,0,0,-7.900666996957906,1.2567660892863637Z"
-            transform="translate(12.5,12.5)"
-          />
-        </svg>
-        <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-        >
-          50 %
-        </div>
-      </button>
-    </div>
-    <div>
-      <p>
-        30
-        px
-      </p>
-      <button
-        className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-        disabled={false}
-        onClick={null}
-        onMouseDown={null}
-        type="button"
-      >
-        <svg
-          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-          height={30}
-          width={30}
-        >
-          <path
-            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-            d="M1.3679109619949321,-12.927831202489228A13,13,0,0,1,4.539956406744892,12.181493989854284L3.78845734010648,9.254598369577868A10,10,0,0,0,1.367910961994932,-9.905999172221554Z"
-            transform="translate(15,15)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-            d="M1.8900853593217775,12.861865235434458A13,13,0,0,1,-2.693958907863037,12.717805840739407L-1.7601614563637737,9.843872797203922A10,10,0,0,0,1.1385862926833654,9.934969615158042Z"
-            transform="translate(15,15)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-            d="M-5.295880176096739,11.872390372642974A13,13,0,0,1,-6.492125309903955,11.26287303313433L-4.715937007607593,8.81815956650123A10,10,0,0,0,-4.362082724597476,8.998457329107488Z"
-            transform="translate(15,15)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-            d="M-8.705451739995318,9.654797253314669A13,13,0,0,1,-9.654797253314666,8.70545173999532L-7.210083786681567,6.929263437698959A10,10,0,0,0,-6.929263437698957,7.210083786681569Z"
-            transform="translate(15,15)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
-            d="M-11.262873033134328,6.492125309903956A13,13,0,0,1,-11.872390372642975,5.295880176096737L-8.998457329107488,4.3620827245974745A10,10,0,0,0,-8.818159566501228,4.715937007607595Z"
-            transform="translate(15,15)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-            d="M-12.717805840739407,2.693958907863034A13,13,0,0,1,-1.3679109619949392,-12.927831202489227L-1.3679109619949332,-9.905999172221554A10,10,0,0,0,-9.843872797203922,1.760161456363771Z"
-            transform="translate(15,15)"
-          />
-        </svg>
-        <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-        >
-          50 %
-        </div>
-      </button>
-    </div>
-    <div>
-      <p>
-        35
-        px
-      </p>
-      <button
-        className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-        disabled={false}
-        onClick={null}
-        onMouseDown={null}
-        type="button"
-      >
-        <svg
-          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-          height={35}
-          width={35}
-        >
-          <path
-            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-            d="M1.4441414721137937,-14.930320003553877A15,15,0,0,1,5.111790709195919,14.102113165954181L4.36136036308964,11.179379937334208A12,12,0,0,0,1.4441414721137937,-11.912785375743198Z"
-            transform="translate(17.5,17.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-            d="M2.314248484842055,14.820399925454314A15,15,0,0,1,-3.24026245504848,14.645842386916609L-2.3077929739400975,11.775996415990994A12,12,0,0,0,1.563818138735775,11.897666696834342Z"
-            transform="translate(17.5,17.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-            d="M-5.987182770060277,13.753313872586975A15,15,0,0,1,-7.60748691687456,12.92772767386374L-5.8338245643655835,10.486490878850022A12,12,0,0,0,-5.054713288951897,10.883467901661358Z"
-            transform="translate(17.5,17.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-            d="M-9.944156903317985,11.230037554798884A15,15,0,0,1,-11.230037554798882,9.944156903317987L-8.788800759785158,8.170494550809014A12,12,0,0,0,-8.170494550809014,8.78880075978516Z"
-            transform="translate(17.5,17.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
-            d="M-12.92772767386374,7.607486916874562A15,15,0,0,1,-13.753313872586977,5.987182770060273L-10.883467901661358,5.054713288951895A12,12,0,0,0,-10.486490878850022,5.833824564365586Z"
-            transform="translate(17.5,17.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-            d="M-14.645842386916609,3.240262455048476A15,15,0,0,1,-1.4441414721138024,-14.930320003553875L-1.444141472113798,-11.912785375743198A12,12,0,0,0,-11.775996415990996,2.3077929739400918Z"
-            transform="translate(17.5,17.5)"
-          />
-        </svg>
-        <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-        >
-          50 %
-        </div>
-      </button>
-    </div>
-    <div>
-      <p>
-        40
-        px
-      </p>
-      <button
-        className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-        disabled={false}
-        onClick={null}
-        onMouseDown={null}
-        type="button"
-      >
-        <svg
-          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-          height={40}
-          width={40}
-        >
-          <path
-            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-            d="M1.526692250897407,-17.935138995030112A18,18,0,0,1,5.93901609940482,16.992000699476513L4.939623352376835,13.099622938720543A14,14,0,0,0,1.5266922508974075,-13.916508569718548Z"
-            transform="translate(20,20)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-            d="M2.9815592865152305,17.751346546698784A18,18,0,0,1,-4.090292132347834,17.52910466259054L-2.8484670368143354,13.707160010016011A14,14,0,0,0,1.982166539487245,13.85896878594281Z"
-            transform="translate(20,20)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-            d="M-6.994233359534421,16.58555696117486A18,18,0,0,1,-9.306890222937803,15.407199433322877L-6.944798524525838,12.156059125133595A14,14,0,0,0,-5.752408264000923,12.763612308600333Z"
-            transform="translate(20,20)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-            d="M-11.777130175250894,13.61246505358948A18,18,0,0,1,-13.612465053589478,11.777130175250896L-10.361324745400204,9.415038476838925A14,14,0,0,0,-9.415038476838923,10.361324745400204Z"
-            transform="translate(20,20)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
-            d="M-15.407199433322875,9.306890222937804A18,18,0,0,1,-16.58555696117486,6.9942333595344195L-12.763612308600333,5.75240826400092A14,14,0,0,0,-12.156059125133593,6.94479852452584Z"
-            transform="translate(20,20)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-            d="M-17.52910466259054,4.090292132347826A18,18,0,0,1,-1.5266922508974134,-17.935138995030112L-1.526692250897409,-13.916508569718548A14,14,0,0,0,-13.707160010016013,2.848467036814332Z"
-            transform="translate(20,20)"
-          />
-        </svg>
-        <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-        >
-          50 %
-        </div>
-      </button>
-    </div>
-    <div>
-      <p>
-        45
-        px
-      </p>
-      <button
-        className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-        disabled={false}
-        onClick={null}
-        onMouseDown={null}
-        type="button"
-      >
-        <svg
-          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-          height={45}
-          width={45}
-        >
-          <path
-            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-            d="M1.5038687311500423,-19.943379323461436A20,20,0,0,1,6.416338683177331,18.942824443645204L5.418044810206666,15.05472651477245A16,16,0,0,0,1.5038687311500407,-15.92916755010974Z"
-            transform="translate(22.5,22.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-            d="M3.503094824097712,19.690818333766117A20,20,0,0,1,-4.732578979802762,19.43200185775848L-3.492119322817093,15.614259592923627A16,16,0,0,0,2.504800951127048,15.802720404893362Z"
-            transform="translate(22.5,22.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-            d="M-7.593107292628304,18.502559867289577A20,20,0,0,1,-10.5057688863958,17.018484659500032L-8.146274406440858,13.770919115838515A16,16,0,0,0,-6.352647635642632,14.684817602454723Z"
-            transform="translate(22.5,22.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-            d="M-12.939079608014744,15.250580936392456A20,20,0,0,1,-15.250580936392454,12.939079608014747L-12.003015392730939,10.579585128059803A16,16,0,0,0,-10.5795851280598,12.00301539273094Z"
-            transform="translate(22.5,22.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
-            d="M-17.018484659500032,10.505768886395803A20,20,0,0,1,-18.502559867289577,7.593107292628298L-14.684817602454725,6.3526476356426285A16,16,0,0,0,-13.770919115838515,8.14627440644086Z"
-            transform="translate(22.5,22.5)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-            d="M-19.432001857758483,4.732578979802756A20,20,0,0,1,-1.5038687311500445,-19.943379323461436L-1.5038687311500498,-15.92916755010974A16,16,0,0,0,-15.614259592923627,3.492119322817089Z"
-            transform="translate(22.5,22.5)"
-          />
-        </svg>
-        <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-        >
-          50 %
-        </div>
-      </button>
-    </div>
-    <div>
-      <p>
-        50
-        px
-      </p>
-      <button
-        className="theme-tc-pie-chart tc-pie-chart btn btn-default"
-        disabled={false}
-        onClick={null}
-        onMouseDown={null}
-        type="button"
-      >
-        <svg
-          className="theme-tc-pie-chart-graph tc-pie-chart-graph"
-          height={50}
-          width={50}
-        >
-          <path
-            className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-            d="M1.4348696498656017,-21.95315806638978A22,22,0,0,1,6.84931898371705,20.906621665378967L5.851963233759641,17.022177484409138A18,18,0,0,0,1.4348696498656004,-17.942718553438176Z"
-            transform="translate(25,25)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
-            d="M4.0697378211683395,21.62029680802167A22,22,0,0,1,-5.4192567921750845,21.32209313881881L-4.179962827760253,17.50793850681863A18,18,0,0,0,3.0723820712109315,17.73585262705184Z"
-            transform="translate(25,25)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
-            d="M-8.148541053252734,20.43529492577621A22,22,0,0,1,-11.74290862121536,18.603873175061853L-9.385631420291393,15.359359454171225A18,18,0,0,0,-6.909247088837899,16.621140293776026Z"
-            transform="translate(25,25)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
-            d="M-14.064576484123553,16.91708273675573A22,22,0,0,1,-16.917082736755727,14.064576484123556L-13.67256901586509,11.707299283199601A18,18,0,0,0,-11.7072992831996,13.672569015865093Z"
-            transform="translate(25,25)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
-            d="M-18.60387317506185,11.742908621215362A22,22,0,0,1,-20.435294925776212,8.148541053252725L-16.621140293776026,6.9092470888378985A18,18,0,0,0,-15.359359454171223,9.385631420291395Z"
-            transform="translate(25,25)"
-          />
-          <path
-            className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
-            d="M-21.32209313881881,5.419256792175084A22,22,0,0,1,-1.4348696498656093,-21.953158066389776L-1.4348696498656066,-17.942718553438176A18,18,0,0,0,-17.507938506818633,4.179962827760244Z"
-            transform="translate(25,25)"
-          />
-        </svg>
-        <div
-          className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
-        >
-          50 %
-        </div>
-      </button>
-    </div>
-  </div>
-</div>
+  <Skeleton
+    className="theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
+    height={20}
+    size="medium"
+    type="circle"
+    width={20}
+  />
+  <Skeleton
+    size="small"
+    type="text"
+  />
+</Button>
 `;
