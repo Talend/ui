@@ -1,22 +1,9 @@
 .tc-tab-bar {
-	background-color: tint($brand-primary, 90);
-
 	:global(.tc-tab-bar-action) {
 		color: tint($black, 40);
 
-		&:hover,
-		&:focus {
-			background-color: tint($brand-primary, 85);
-		}
-
 		&:global(.active) {
-			background-color: tint($brand-primary, 75);
 			color: tint($black, 15);
-
-			&:hover,
-			&:focus {
-				background-color: tint($brand-primary, 70);
-			}
 		}
 	}
 }
