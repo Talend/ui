@@ -2,30 +2,43 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.163.0
+
+* component: PieChartButton
+* PR: [feat(datagrid): implement skeleton with the loading state. change inProgress by loading in the PieChartButton](https://github.com/Talend/ui/pull/1127)
+* Changes:
+  | Before | After |
+  |---|---|
+  | inProgress | loading |
+
 ## v0.161.0
+
 * component: Action
 * PR: [fix(Action): use the new Inject API](https://github.com/Talend/ui/pull/1093)
 * Changes:
-| Before | After |
-|---|---|
-| props.renderers | props.getComponent |
-| props.name | no more resolve use actionId or componentId with "props" settings |
-| props.available as string | not supported anymore use props.availableExpression |
-| props.active as string | not supported anymore use props.activeExpression |
-| props.disabled as string | not supported anymore use props.disabledExpression |
-| props.inProgress as string | not supported anymore use props.inProgressExpression |
+  | Before | After |
+  |---|---|
+  | props.renderers | props.getComponent |
+  | props.name | no more resolve use actionId or componentId with "props" settings |
+  | props.available as string | not supported anymore use props.availableExpression |
+  | props.active as string | not supported anymore use props.activeExpression |
+  | props.disabled as string | not supported anymore use props.disabledExpression |
+  | props.inProgress as string | not supported anymore use props.inProgressExpression |
 
 ## v0.160.0
+
 * icon: AWS-kinesis
 * PR: [chore(icons): update AWS-kinesis.svg](https://github.com/Talend/ui/pull/1092)
 * Change: name change
 
 Before
+
 ```
 AWS-kinesis.svg
 ```
 
 After
+
 ```
 aws-kinesis.svg
 ```
@@ -35,77 +48,78 @@ aws-kinesis.svg
 * Change: flag instead of onToggle presence
 
 Before
+
 ```jsx
 <Typeahead onToggle={func} />         // button
 <Typeahead onToggle={undefined} />    // input
 ```
 
 After
+
 ```jsx
 <Typeahead onToggle={func} docked />  // button
 <Typeahead onToggle={func} />         // input
 ```
 
-- `docked === true && onToggle !== undefined` : the toggle button is displayed
-- `docked !== true || onToggle === undefined` : the typeahead input is displayed
+* `docked === true && onToggle !== undefined` : the toggle button is displayed
+* `docked !== true || onToggle === undefined` : the typeahead input is displayed
 
-* Component: TabBar
-* PR: [fix(components/tabbar): rename selected property](https://github.com/Talend/ui/pull/1111)
-* Change: `selected` has been renamed by `selectedKey`
+- Component: TabBar
+- PR: [fix(components/tabbar): rename selected property](https://github.com/Talend/ui/pull/1111)
+- Change: `selected` has been renamed by `selectedKey`
 
-
-| Before | After |
-|---|---|
+| Before         | After             |
+| -------------- | ----------------- |
 | props.selected | props.selectedKey |
-
 
 * Component: Drawer
 * PR: [fix(components/tabbar): rename selected property](https://github.com/Talend/ui/pull/1111)
 * Change: `selected` has been renamed by `selectedKey` for drawer's tabs
 
-
-| Before | After |
-|---|---|
+| Before              | After                  |
+| ------------------- | ---------------------- |
 | props.tabs.selected | props.tabs.selectedKey |
-
 
 * Component: Layout
 * PR: [fix(components/tabbar): rename selected property](https://github.com/Talend/ui/pull/1111)
 * Change: `selected` has been renamed by `selectedKey` for layout's tabs
 
-
-| Before | After |
-|---|---|
+| Before              | After                  |
+| ------------------- | ---------------------- |
 | props.tabs.selected | props.tabs.selectedKey |
 
-
 ## v0.157.0
+
 * cmf: route onLeave/onEnter
 * PR: [feat(cmf): route onEnter/onLeave with dispatch](https://github.com/Talend/ui/pull/1082)
 * Change: onEnter/onLeave arguments have changed
 
 Before
+
 ```javascript
-function onEnter(nextState, replace) { }
-function onLeave(nextState, replace) { }
+function onEnter(nextState, replace) {}
+function onLeave(nextState, replace) {}
 ```
 
 After
+
 ```javascript
-function onEnter(router, dispatch)
- { const { nextState, replace } = router; }
-function onLeave(router, dispatch) { }
+function onEnter(router, dispatch) {
+	const { nextState, replace } = router;
+}
+function onLeave(router, dispatch) {}
 ```
 
 ## v0.156.0
+
 * cmf: selectors
 * PR: https://github.com/Talend/ui/pull/1055
 * Change: move to collections
 
-| name | new location |
-|---|---|
-| getCollectionFromPath | selectors.collections.find
-| findCollectionPathListItem | selectors.collections.findListItem
+| name                       | new location                        |
+| -------------------------- | ----------------------------------- |
+| getCollectionFromPath      |  selectors.collections.find         |
+| findCollectionPathListItem |  selectors.collections.findListItem |
 
 * cmf: putActionCreator
 * PR: https://github.com/Talend/ui/pull/1055
@@ -115,36 +129,39 @@ function onLeave(router, dispatch) { }
 * PR: https://github.com/Talend/ui/pull/1053
 * Changes: deleteResource Saga params has changed
 
-| name | change |
-|---|---|
-| + sagaParams | object spread to get uri / resource type / redirectUrl / resourcePath & routerParamsAttribute |
-| - uri | moved in object param |
-| - resourceType | moved in object param |
-| - resourcePath | moved in object param |
+| name           | change                                                                                        |
+| -------------- | --------------------------------------------------------------------------------------------- |
+| + sagaParams   | object spread to get uri / resource type / redirectUrl / resourcePath & routerParamsAttribute |
+| - uri          | moved in object param                                                                         |
+| - resourceType | moved in object param                                                                         |
+| - resourcePath | moved in object param                                                                         |
 
 [Check the component doc](packages/containers/src/DeleteResource/README.md)
 
 ## v0.153.0
+
 * Component: SubHeaderBar
 * PR: https://github.com/Talend/ui/pull/1041
 * Changes: props components has change
 
-| name | change |
-|---|---|
-| props.components | replaced by the new Inject API |
-| props.left | added with the same API has the ActionBar |
-| props.center | added with the same API has the ActionBar |
-| props.right | added with the same API has the ActionBar |
+| name             | change                                    |
+| ---------------- | ----------------------------------------- |
+| props.components | replaced by the new Inject API            |
+| props.left       | added with the same API has the ActionBar |
+| props.center     | added with the same API has the ActionBar |
+| props.right      | added with the same API has the ActionBar |
 
 [Check the component doc](packages/components/src/SubHeaderBar/SubHeaderBar.md)
 [Check the Inject component doc](packages/components/src/Inject/Inject.md)
 
 ## v0.153.0
+
 * Component: HeaderBar
 * PR: https://github.com/Talend/ui/pull/1037
 * Changes: Items in help dropdown are moved to information dropdown
 
 ## v0.152.0
+
 * CMF: cmfConnect
 * PR: https://github.com/Talend/ui/pull/1046
 * Changes: Spread viewProps in mapStateToProps
@@ -153,81 +170,76 @@ Spread viewProps when calling mapStateToProps so more stuff can be handled.
 For example, currently cmf only handle expression on first level of props, with this change, we can do expression evaluation under props.list for List component.
 
 ## v0.151.0
+
 * Container: Form
 * PR: https://github.com/Talend/ui/pull/1031
 * Changes: With Form container in default export, we must have form as dependency on the project that import containers. Remove Form from default export and import it à la lodash when you need it.
 
 Before
+
 ```javascript
-import { Form } from '@talend/react-containers'
-```
-After
-```javascript
-import Form from '@talend/react-containers/lib/Form'
+import { Form } from '@talend/react-containers';
 ```
 
+After
+
+```javascript
+import Form from '@talend/react-containers/lib/Form';
+```
 
 ## 0.150.0
+
 * Component: Typeahead
 * PR: [chore: upgrade react-autowhatever](https://github.com/Talend/ui/pull/1022)
 * Changes : we upgraded React-autowhatever from 7.0.0 to 10.1.0. We ensured old props compatibility, but overriding some props have been changed.
 
-| Before | After |
-|---|---|
+| Before                  | After                       |
+| ----------------------- | --------------------------- |
 | props.theme.itemFocused | props.theme.itemHighlighted |
 
 * Component: Form's Datalist widget
 * PR: [chore(react): Updates to React 16(https://github.com/Talend/ui/pull/761)
 * Changes : we upgraded React-autowhatever from 7.0.0 to 10.1.0. Custom item container have api changes
-Now containerProps are in a nested object `props.containerProps` instead of directly in `props`.
+  Now containerProps are in a nested object `props.containerProps` instead of directly in `props`.
 
 Before
+
 ```javascript
 function renderItemsContainer({ children, ...containerProps }) {
-    return (
-        <div {...containerProps}>
-            {children}
-        </div>
-    );
+	return <div {...containerProps}>{children}</div>;
 }
 
 function CustomDatalist() {
-    return (
-		<DatalistWidget
-			{...otherProps}
-			renderItemsContainer={renderItemsContainer}
-		/>
-	);
+	return <DatalistWidget {...otherProps} renderItemsContainer={renderItemsContainer} />;
 }
 ```
 
 After
+
 ```javascript
 function renderItemsContainer({ children, containerProps }) {
-    return (
-        <div {...containerProps}>
-            {children}
-        </div>
-    );
+	return <div {...containerProps}>{children}</div>;
 }
 ```
 
 ## v0.143.0
+
 * Component: CollapsiblePanel
 * PR: [feat(components/collapsiblepanel): style update](https://github.com/Talend/ui/pull/961)
 * Changes :
 
 | Old Props | New props |
-|---|---|
-| selected | status |
+| --------- | --------- |
+| selected  | status    |
 
 * Component: Status
 * PR: [feat(components/collapsiblepanel): style update](https://github.com/Talend/ui/pull/961)
 * Changes :
-Status component has no longer default export.
-import Status from '../Status'; ---> import { Status, getbsStyleFromStatus } from '../Status';
+  Status component has no longer default export.
+  import Status from '../Status'; ---> import { Status, getbsStyleFromStatus } from '../Status';
 
 ## v0.142.0
+
 * Container: HeaderBar
 * PR [fix(component/containers): add number of missings displayName ](https://github.com/Talend/ui/pull/985)
 * Change
@@ -236,6 +248,7 @@ Display name of this component was `HeaderBar` now `Container(HeaderBar)`
 Change made for consistency, and also because `HeaderBar` is already in use inside the component repository.
 
 ## v0.141.0
+
 * Container: DeleteResource
 * PR [fix(container/deleteResource): change so keyboard shortcut can be supported ](https://github.com/Talend/ui/pull/958)
 * Changes
@@ -280,8 +293,8 @@ Some constant from CMF/middlewares/http/constants are renamed
 * PR: [fix: remove Slider from the global export](https://github.com/Talend/ui/pull/932)
 * Changes :
 
-| Before | After |
-|---|---|
+| Before                                            | After                                                   |
+| ------------------------------------------------- | ------------------------------------------------------- |
 | import { Slider } from '@talend/react-component'; | import Slider from '@talend/react-component/lib/Slider' |
 
 ## v0.130.0
@@ -307,13 +320,11 @@ Some constant from CMF/middlewares/http/constants are renamed
 | toggleAllLabel    | i18next `t()` fn will do the magic trick by providing `LISTVIEW_ITEMS_TOGGLE_ALL`               |
 | searchPlaceholder | i18next `t()` fn will do the magic trick by providing `LISTVIEW_HEADERINPUT_SEARCH_PLACEHOLDER` |
 
-
 * Component: SidePanel
 * PR: [feat(components/sidepanel): accept custom action ids](https://github.com/Talend/ui/pull/846)
 * Changes :
 
 Before this, action ids were ignored. Now, if an id is provided per action, it will be used instead of the label ; so it could break some QA tests.
-
 
 ## v0.121.0
 
@@ -346,6 +357,7 @@ List component object has entirely changed.
 ### package name
 
 Before
+
 ```xml
 <dependency>
     <groupId>com.talend</groupId>
@@ -353,11 +365,13 @@ Before
     <version>1.0.0</version>
 </dependency>
 ```
+
 ```java
 import com.talend.component.*;
 ```
 
 After
+
 ```xml
 <dependency>
     <groupId>org.talend</groupId>
@@ -365,6 +379,7 @@ After
     <version>0.97.0</version>
 </dependency>
 ```
+
 ```java
 import org.talend.component.*;
 ```
@@ -374,11 +389,13 @@ Explanation : this aligns the package name with all talend projects, and align v
 ### WebDriver configuration
 
 Before
+
 ```java
 this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 ```
 
 After
+
 ```java
 // removed this configuration
 ```
@@ -389,11 +406,13 @@ This should not be here, and only managed by the test project.
 ### list.getItems()
 
 Before
+
 ```java
 list.getItems(); // this returns all buttons in the table title cells
 ```
 
 After
+
 ```java
 List<WebElement> titles = list
     .getTable(optional_id)              // get the table display component object
@@ -417,6 +436,7 @@ Explanation : getting all title buttons and actions is not a real use case. Ther
 ### list.getItemActionButton(String label, String listType, String action)
 
 Before
+
 ```java
 final WebElement actionButton = list.getItemActionButton(label, listType, action);
 
@@ -426,6 +446,7 @@ action.moveToElement(actionButton).click().build().perform();
 ```
 
 After
+
 ```java
 final Item item = list
     .getTable(optional_id)      // get the table display component object
@@ -445,18 +466,20 @@ item.clickOnAction(part_of_id_to_match); // the id was "listType:action" before
 ```
 
 Explanation :
- * the buttons should have ids or part of ids that are similar
- * listType and action parameters are specific to a project. They are used to create the id.
 
+* the buttons should have ids or part of ids that are similar
+* listType and action parameters are specific to a project. They are used to create the id.
 
 ### list.hasItem(String name)
 
 Before
+
 ```java
 final boolean exists = list.hasItem(titleLabel);
 ```
 
 After
+
 ```java
 final boolean exists = list.getTable().hasItem(titleLabel);
 ```
