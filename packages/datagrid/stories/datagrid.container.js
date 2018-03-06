@@ -28,6 +28,12 @@ registerActionCreator('datagrid:focus-column', (event, data) => ({
 	...data,
 }));
 
+registerActionCreator('datagrid:vertical-scroll', (event, data) => ({
+	type: 'DATAGRID_SCROLL',
+	...event,
+	...data,
+}));
+
 sample.data = [
 	...sample.data,
 	...Array(960)
@@ -92,6 +98,7 @@ cmfState.cmf.settings.props['Container(DataGrid)#default'] = {
 	},
 	onFocusedCellActionCreator: 'datagrid:focus-cell',
 	onFocusedColumnActionCreator: 'datagrid:focus-column',
+	onVerticalScrollActionCreator: 'datagrid:vertical-scroll',
 	cellRenderer: 'DefaultCellRenderer',
 };
 
@@ -102,6 +109,7 @@ cmfState.cmf.settings.props['Container(DataGrid)#CustomizedDatagrid'] = {
 	},
 	onFocusedCellActionCreator: 'datagrid:focus-cell',
 	onFocusedColumnActionCreator: 'datagrid:focus-column',
+	onVerticalScrollActionCreator: 'datagrid:vertical-scroll',
 	cellRenderer: 'CustomCellRenderer',
 	headerRenderer: 'CustomHeaderRenderer',
 	pinHeaderRenderer: 'CustomPinHeaderRenderer',
@@ -119,6 +127,7 @@ cmfState.cmf.settings.props['Container(DataGrid)#CustomizedAvroDatagrid'] = {
 	},
 	onFocusedCellActionCreator: 'datagrid:focus-cell',
 	onFocusedColumnActionCreator: 'datagrid:focus-column',
+	onVerticalScrollActionCreator: 'datagrid:vertical-scroll',
 	headerRenderer: 'CustomHeaderRenderer',
 	pinHeaderRenderer: 'CustomPinHeaderRenderer',
 };
@@ -130,6 +139,7 @@ cmfState.cmf.settings.props['Container(DataGrid)#HightLightRows'] = {
 	},
 	onFocusedCellActionCreator: 'datagrid:focus-cell',
 	onFocusedColumnActionCreator: 'datagrid:focus-column',
+	onScrollActionCreator: 'datagrid:vertical-scroll',
 	cellRenderer: 'DefaultCellRenderer',
 	rowSelection: 'multiple',
 };
