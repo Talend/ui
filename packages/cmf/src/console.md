@@ -1,7 +1,7 @@
 Console
 ==
 
-Simple wrapper for Browser `console`.
+Simple wrapper for browser `console`.
 
 Accepted methods are:
 * `trace`
@@ -11,4 +11,4 @@ Accepted methods are:
 * `warn`
 * `error`
 
-if `process.env` is `PRODUCTION`, there is no output for others levels than `warn` and `error` by default.
+if `process.env.NODE_ENV` is set to `PRODUCTION`, then there is no output for others methods than `warn` and `error`.

@@ -7,6 +7,7 @@ describe('CMF api', () => {
 		expect(api.actions).toBeDefined();
 		expect(api.actionCreator).toBeDefined();
 		expect(api.component).toBeDefined();
+		expect(api.console).toBeDefined();
 		expect(api.expression).toBeDefined();
 		expect(api.route).toBeDefined();
 		expect(api.registry).toBeDefined();

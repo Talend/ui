@@ -5,7 +5,7 @@
 import { api } from '@talend/react-cmf';
 ```
 
-The API is the most used item accessible. 
+The API is the most used item accessible.
 Here is the list of the first level access:
 
 * `actionCreator` to register your action creators
@@ -37,15 +37,15 @@ import React from 'react';
 import { api, cmfConnect } from '@talend/react-cmf';
 
 class MyCollectionManager extends React.Component {
-	
+
     constructor(props) {
         this.increment = this.increment.bind(this);
     }
-    
+
     componentDidMount() {
         this.props.dispatch(api.actions.collections.addOrReplace('count', 0));
     }
-    
+
     increment() {
         this.props.dispatch(
             api.actions.collections.addOrReplace(
@@ -102,6 +102,8 @@ In this case, the payload is the current props.
 
 
 ## [api.expressions](./expressions/index.md)
+
+## [api.console](./console.md)
 
 ## api.saga
 

@@ -1,34 +1,68 @@
 /**
- * This module define console which is just console wrapper
- * used to be called in the way you want in your APP with a context and a payload as params
+ * This module defines console which is just a browser console wrapper
  * @module react-cmf/lib/console
  * @see module:react-cmf/lib/api
  */
 
 /**
- * Service for wrrapping console.log with no output in production mode
- * @type {{}}
+ * Simple prefix for any log content
+ * @type {string}
  */
-const logger = {};
+export const LOGGER_PREFIX = '[react-cmf]';
 
-const windowConsole = (typeof window !== 'undefined') ? window.console : [];
-
-const productionLogLevels = [
-	'warn',
-	'error',
-];
-
-[
+/**
+ * Supported console method list
+ * @type {string[]}
+ */
+export const LOGGER_METHODS = [
 	'trace',
 	'debug',
 	'log',
 	'info',
 	'warn',
 	'error',
-].forEach(level => {
-	logger[level] = Function.prototype;
-	if (process.env.NODE_ENV !== 'production' || productionLogLevels.includes(level)) {
-		logger[level] = windowConsole[level] || windowConsole['log'] || Function.prototype;
+];
+
+/**
+ * White list for authorized console methods for production mode
+ * @type {string[]} Authorized console methods
+ */
+export const LOGGER_METHODS_FOR_PRODUCTION = [
+	'warn',
+	'error',
+];
+
+/**
+ * Service that wraps console.log (no output in production mode)
+ * @type {{}}
+ */
+const logger = {
+	_prefix: LOGGER_PREFIX,
+	setPrefix(prefix) {
+		this._prefix = prefix;
+	},
+	getPrefix() {
+		return this._prefix;
+	}
+};
+
+/**
+ * First, be sure that window.console exists
+ */
+const windowConsole = (typeof window !== 'undefined') ? window.console : [];
+
+// Populate service with some recognized console functions
+LOGGER_METHODS.forEach(method => {
+	logger[method] = (...args) => {
+		if (process.env.NODE_ENV !== 'production' || LOGGER_METHODS_FOR_PRODUCTION.includes(method)) {
+			const windowConsoleMethod = windowConsole[method] || windowConsole['log'];
+			if (windowConsoleMethod) {
+				const consoleArgs = Array.prototype.slice.call(args);
+				consoleArgs.unshift(logger.getPrefix());
+				windowConsoleMethod.apply(windowConsole, consoleArgs);
+			}
+		}
+		return Function.prototype;
 	}
 });
 
