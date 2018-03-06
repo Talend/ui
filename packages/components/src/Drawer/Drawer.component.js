@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
+import omit from 'lodash/omit';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
 import TabBar from '../TabBar';
@@ -14,38 +15,49 @@ class DrawerAnimation extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleTransitionComplete = this.handleTransitionComplete.bind(this);
-		this.state = { transitioned: false };
+		this.close = this.close.bind(this);
+		this.state = { transitioned: false, active: true };
 	}
 
 	handleTransitionComplete() {
-		this.props.onTransitionComplete();
-		this.setState({ transitioned: true });
+		if (this.state.active) {
+			this.props.onTransitionComplete();
+			this.setState({ transitioned: true });
+		} else {
+			this.props.onClose();
+		}
+	}
+
+	close() {
+		this.setState({ active: false });
 	}
 
 	render() {
-		const { children, withTransition, ...rest } = this.props;
-		const transitionDuration = withTransition ? DEFAULT_TRANSITION_DURATION : 0;
+		const restProps = omit(this.props, Object.keys(DrawerAnimation.propTypes));
 		return (
 			<CSSTransition
-				{...rest}
+				{...restProps}
+				transitionAppear
+				active={this.state.active}
 				onTransitionComplete={this.handleTransitionComplete}
 				defaultStyle={{ transform: 'translateX(100%)' }}
-				enterStyle={{ transform: transit('translateX(0%)', transitionDuration, 'ease-in-out') }}
-				leaveStyle={{ transform: transit('translateX(100%)', transitionDuration, 'ease-in-out') }}
+				enterStyle={{ transform: transit('translateX(0%)', DEFAULT_TRANSITION_DURATION, 'ease-in-out') }}
+				leaveStyle={{ transform: transit('translateX(100%)', DEFAULT_TRANSITION_DURATION, 'ease-in-out') }}
 			>
-				{React.cloneElement(children, this.state)}
+				{this.props.children({ close: this.close, ...this.state })}
 			</CSSTransition>
 		);
 	}
 }
 
 DrawerAnimation.propTypes = {
-	children: PropTypes.node,
-	withTransition: PropTypes.bool,
+	children: PropTypes.func,
 	onTransitionComplete: PropTypes.func,
+	onClose: PropTypes.func,
 };
 DrawerAnimation.defaultProps = {
 	withTransition: true,
+	onClose: () => {},
 	onTransitionComplete: () => {},
 };
 
