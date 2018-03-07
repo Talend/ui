@@ -52,7 +52,7 @@ function serializeEvent(event) {
 	return event;
 }
 
-const CMF_PROPS = [
+export const CMF_PROPS = [
 	'didMountActionCreator', // componentDidMount action creator id in registry
 	'keepComponentState', // redux state management on unmount
 	'view', // view component id in registry
