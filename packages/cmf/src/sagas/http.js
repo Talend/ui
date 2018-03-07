@@ -149,6 +149,21 @@ export function* httpPost(url, payload, config) {
 }
 
 /**
+ * function - fetch an url with PATCH method
+ *
+ * @param  {string} url     url to request
+ * @param  {object} payload payload to send with the request
+ * @param  {object} config  option that you want apply to the request
+ * @example
+ * import { sagas } from '@talend/react-cmf';
+ * import { call } from 'redux-saga/effects'
+ * yield call(sagas.http.patch, '/foo', {foo: 42});
+ */
+export function* httpPatch(url, payload, config) {
+	return yield* wrapFetch(url, config, HTTP_METHODS.PATCH, payload);
+}
+
+/**
  * function - fetch an url with PUT method
  *
  * @param  {string} url     url to request
@@ -200,6 +215,7 @@ export default {
 	get: httpGet,
 	post: httpPost,
 	put: httpPut,
+	patch: httpPatch,
 	create(defaultConfig = {}) {
 		const configEnhancer = handleDefaultConfiguration(defaultConfig);
 		return {
