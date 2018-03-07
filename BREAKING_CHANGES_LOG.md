@@ -82,6 +82,123 @@ function onEnter({ router, dispatch }) {
 }
 ```
 
+#### HomeListView stacked drawers
+The stacked drawers route settings are not hierarchical anymore, they are siblings.
+
+Before
+```json
+{
+  "routes": {
+    "path": "/",
+    "component": "App",
+    "childRoutes": [
+      {
+        "path": "preparations/:folderId?",
+        "component": "HomeListView",
+        "view": "home",
+        "childRoutes" : [
+          {
+            "path": "add",
+            "component": "FirstDrawer",
+            "childRoutes": [
+              {
+                "path": "dataset/add",
+                "component": "SecondDrawer"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+``` 
+
+After
+```json
+{
+  "routes": {
+    "path": "/",
+    "component": "App",
+    "childRoutes": [
+      {
+        "path": "preparations/:folderId?",
+        "component": "HomeListView",
+        "view": "home",
+        "childRoutes" : [
+          {
+            "path": "add",
+            "component": "FirstDrawer"
+          },
+          {
+            "path": "add/dataset/add",
+            "component": "SecondDrawer"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+#### WithDrawer
+This component is used in HomeListView stacked drawers implementation. It used to manage drawers transitions in this entry point, but that not the case anymore.
+
+To ensure that your drawer has an enter/leave animation, wrap it with `<Drawer.Animation>`. Please read the next section to see how to use it.
+
+Before
+```javascript
+function FirstDrawer(props) {
+	return (
+		<Drawer.Container id="first-drawer" stacked>
+            <Drawer.Title title={'First drawer'} />
+            <div>
+                This is the first drawer, deal with it
+            </div>
+            <Drawer.Footer>
+                <Button onClick={props.gotToPage}>Close</Button>
+                <Button bsStyle={'info'} onClick={props.addDataset}>Add Dataset</Button>
+            </Drawer.Footer>
+        </Drawer.Container>
+	);
+}
+```
+
+After
+```javascript
+function FirstDrawer(props) {
+	return (
+		<Drawer.Animation className={'tc-with-drawer-wrapper'} onClose={props.gotToPage} >
+        	{({ close }) => (
+                <Drawer.Container id="first-drawer" stacked>
+                    <Drawer.Title title={'First drawer'} />
+                    <div>
+                        This is the first drawer, deal with it
+                    </div>
+                    <Drawer.Footer>
+                        <Button onClick={close}>Close</Button>
+                        <Button bsStyle={'info'} onClick={props.addDataset}>Add Dataset</Button>
+                    </Drawer.Footer>
+                </Drawer.Container>
+            )}
+        </Drawer.Animation>
+	);
+}
+```
+
+#### Drawer.Animation
+`<Drawer.Animation>` api has changed to manage the open and close animation. The children can now trigger a close animation and callback.
+
+| Props | Change | Description |
+|---|---|---|
+| withTransition | Removed | Drawer.Animation is animates, if you don't want animation, please don't use it. |
+| onClose | Added | The action to perform on close. This callback is executed after the animation. |
+| children | Changed | It's now a render function : `({ close, transitioned, active }) => <React element>`.<br/>`close()`: a function to close the drawer with its animation.<br/>`transitioned`: boolean that indicates if the animation is finished.<br/>`active`: boolean that indicates if the drawer is open.|
+
+#### Drawer
+It had a z-index set to 100. This is unlikely, but you may experiment issues that some element under the drawer appears on top.
+In that case you should rework your HTML markup to not rely on z-indexes. Otherwise, contribute to fix if possible without z-index. 
+
 ## v0.161.0
 * component: Action
 * PR: [fix(Action): use the new Inject API](https://github.com/Talend/ui/pull/1093)
