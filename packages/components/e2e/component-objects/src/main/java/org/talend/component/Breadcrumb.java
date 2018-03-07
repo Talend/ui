@@ -18,13 +18,13 @@ public class Breadcrumb extends Component {
 
     private static final String SELECTOR = ".tc-breadcrumb";
 
-    private static final String ITEM_SELECTOR = ".tc-breadcrumb-item";
+    private static final String ITEM_SELECTOR = SELECTOR + " .tc-breadcrumb-item";
 
     private static final String ACTIVE_ITEM_SELECTOR = ITEM_SELECTOR + ".active";
 
-    private static final String COLLAPSED_MENU_BUTTON_SELECTOR = ".dropdown-toggle";
+    private static final String COLLAPSED_MENU_BUTTON_SELECTOR = SELECTOR + " .dropdown-toggle";
 
-    private static final String COLLAPSED_MENU_SELECTOR = ".dropdown-menu";
+    private static final String COLLAPSED_MENU_SELECTOR = SELECTOR + " .dropdown-menu";
 
     private static final String COLLAPSED_MENU_ITEM_SELECTOR = COLLAPSED_MENU_SELECTOR + " a";
 
