@@ -282,45 +282,46 @@ class MultiSelectTagWidget extends React.Component {
 		const valueToLabel = mapValueToLabel(transformOptions(options));
 		let badgeValue;
 		let badgeProps;
-		const defaultLabel =
-						(readonly && (!options.enumOptions || !options.enumOptions.length)) && (
-							<label className="control-label">none</label>
-						);
+		const defaultLabel = readonly &&
+			(!options.enumOptions || !options.enumOptions.length) && (
+				<label className="control-label">none</label>
+			);
 
-		const caret =
-						!readonly && (
-							<button
-								onClick={this.onCaretClick}
-								className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}
-								type="button"
-							>
-								<span className="caret" />
-							</button>
-						);
+		const caret = !readonly && (
+			<button
+				onClick={this.onCaretClick}
+				className={classNames(theme['dropdown-toggle'], 'dropdown-toggle')}
+				type="button"
+			>
+				<span className="caret" />
+			</button>
+		);
 
-		const typeAhead =
-						!readonly && (
-							<Typeahead
-								id={id}
-								autoFocus={false}
-								focusedItemIndex={this.state.focusedItemIndex}
-								focusedSectionIndex={this.state.focusedSectionIndex}
-								value={this.state.filterText}
-								items={this.state.items}
-								onFocus={this.onFocus}
-								onKeyDown={this.onKeyDown}
-								onBlur={this.resetSuggestions}
-								onChange={this.onChange}
-								onSelect={this.onSelect}
-								multiSection={this.withCategory}
-								theme={this.theme}
-								noResultText={noAvailableMessage}
-								readOnly={readonly}
-							/>
-						);
+		const typeAhead = !readonly && (
+			<Typeahead
+				id={id}
+				autoFocus={false}
+				focusedItemIndex={this.state.focusedItemIndex}
+				focusedSectionIndex={this.state.focusedSectionIndex}
+				value={this.state.filterText}
+				items={this.state.items}
+				onFocus={this.onFocus}
+				onKeyDown={this.onKeyDown}
+				onBlur={this.resetSuggestions}
+				onChange={this.onChange}
+				onSelect={this.onSelect}
+				multiSection={this.withCategory}
+				theme={this.theme}
+				noResultText={noAvailableMessage}
+				readOnly={readonly}
+			/>
+		);
 
 		return (
-			<div className={classNames(readonly && theme['readonly'], 'dropdown')} ref={component => this.setComponentRef(component)}>
+			<div
+				className={classNames(readonly && theme['readonly'], 'dropdown')}
+				ref={component => this.setComponentRef(component)}
+			>
 				{caret}
 				<div className={`${theme.wrapper} form-control`}>
 					{value.map((val, index) => {
