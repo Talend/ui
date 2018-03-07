@@ -82,6 +82,19 @@ function onEnter({ router, dispatch }) {
 }
 ```
 
+## v0.161.0
+* component: Action
+* PR: [fix(Action): use the new Inject API](https://github.com/Talend/ui/pull/1093)
+* Changes:
+| Before | After |
+|---|---|
+| props.renderers | props.getComponent |
+| props.name | no more resolve use actionId or componentId with "props" settings |
+| props.available as string | not supported anymore use props.availableExpression |
+| props.active as string | not supported anymore use props.activeExpression |
+| props.disabled as string | not supported anymore use props.disabledExpression |
+| props.inProgress as string | not supported anymore use props.inProgressExpression |
+
 ## v0.160.0
 * icon: AWS-kinesis
 * PR: [chore(icons): update AWS-kinesis.svg](https://github.com/Talend/ui/pull/1092)

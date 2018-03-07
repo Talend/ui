@@ -6,6 +6,7 @@ import ActionFile from '../ActionFile';
 import ActionSplitDropdown from '../ActionSplitDropdown';
 import ActionDropdown from '../ActionDropdown';
 import ActionIconToggle from '../ActionIconToggle';
+import Inject from '../../Inject';
 
 const TYPE_FILE = 'file';
 const TYPE_DROPDOWN = 'dropdown';
@@ -43,18 +44,28 @@ export function wrapOnClick(action) {
  * @param {ActionProps} - props should contains displayMode and renderers
  * @return {Component} the component to be used
  */
-export function getActionComponent({ displayMode, renderers = {} }) {
+export function getActionComponent({ displayMode, getComponent }) {
+	const Renderers = Inject.getAll(getComponent, {
+		ActionFile,
+		ActionDropdown,
+		ActionSplitDropdown,
+		ActionIconToggle,
+		ActionButton,
+	});
 	switch (displayMode) {
 		case TYPE_FILE:
-			return renderers.ActionFile || ActionFile;
+			return Renderers.ActionFile;
 		case TYPE_DROPDOWN:
-			return renderers.ActionDropdown || ActionDropdown;
+			return Renderers.ActionDropdown;
 		case TYPE_SPLIT_DROPDOWN:
-			return renderers.ActionSplitDropdown || ActionSplitDropdown;
+			return Renderers.ActionSplitDropdown;
 		case TYPE_ICON_TOGGLE:
-			return renderers.ActionIconToggle || ActionIconToggle;
+			return Renderers.ActionIconToggle;
 		default:
-			return renderers.ActionButton || ActionButton;
+			if (displayMode) {
+				return getComponent(displayMode);
+			}
+			return Renderers.ActionButton;
 	}
 }
 
@@ -65,10 +76,10 @@ export function getActionComponent({ displayMode, renderers = {} }) {
  * You can override the component using props renderer
  * @param {ActionProps}
  */
-function Action({ displayMode, renderers, ...props }) {
+function Action({ displayMode, getComponent, ...props }) {
 	const ActionComponent = getActionComponent({
 		displayMode,
-		renderers,
+		getComponent,
 		...props,
 	});
 	return <ActionComponent {...props} />;
@@ -78,12 +89,7 @@ Action.displayName = 'Action';
 
 Action.propTypes = {
 	displayMode: PropTypes.string,
-	renderers: PropTypes.shape({
-		ActionButton: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-		ActionFile: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-		ActionSplitDropdown: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-		ActionDropdown: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-	}),
+	getComponent: PropTypes.func,
 };
 
 export default Action;
