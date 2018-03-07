@@ -18,6 +18,7 @@ const DATAGRID_PROPTYPES = {
 	headerRenderer: PropTypes.string,
 	onFocusedCell: PropTypes.func,
 	onFocusedColumn: PropTypes.func,
+	onVerticalScroll: PropTypes.func,
 	pinHeaderRenderer: PropTypes.string,
 	data: PropTypes.object,
 	rowSelection: PropTypes.string,
