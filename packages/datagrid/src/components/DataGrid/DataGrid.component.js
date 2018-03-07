@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { AgGridReact } from 'ag-grid-react';
 import keycode from 'keycode';
 import 'ag-grid/dist/styles/ag-grid.css';
-import { Inject } from '@talend/react-components';
+import { Inject, Skeleton } from '@talend/react-components';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
@@ -145,49 +145,7 @@ export default class DataGrid extends React.Component {
 		this.gridInstance = gridInstance;
 	}
 
-	removeFocusColumn() {
-		// workaround see README.md#Workaround Active Column
-		const focusedCells = this.gridInstance[AG_GRID.ELEMENT].querySelectorAll(
-			`.${FOCUSED_COLUMN_CLASS_NAME}`,
-		);
-
-		for (const focusedCell of focusedCells) {
-			focusedCell.classList.remove(FOCUSED_COLUMN_CLASS_NAME);
-		}
-	}
-
-	updateStyleFocusColumn() {
-		const colId = this.currentColId;
-
-		if (!colId || colId.includes(NAMESPACE_INDEX)) {
-			return;
-		}
-
-		// workaround see README.md#Workaround Active Column
-		const columnsCells = this.gridInstance[AG_GRID.ELEMENT].querySelectorAll(
-			`[col-id="${colId}"]:not(.${FOCUSED_COLUMN_CLASS_NAME})`,
-		);
-
-		for (const columnCell of columnsCells) {
-			columnCell.classList.add(FOCUSED_COLUMN_CLASS_NAME);
-		}
-	}
-
-	handleKeyboard({ nextCellDef, previousCellDef }) {
-		if (!nextCellDef) {
-			return null;
-		}
-
-		if (this.gridAPI && previousCellDef.rowIndex !== nextCellDef.rowIndex) {
-			// ag-grid workaround: ag-grid set a selected row only by a click by an user
-			// This allows, when the user move the cell by the keyboard/tab, to set the selected row
-			this.gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
-		}
-
-		return nextCellDef;
-	}
-
-	render() {
+	getAgGridConfig() {
 		const agGridOptions = {
 			headerHeight: this.props.headerHeight,
 			tabToNextCell: this.handleKeyboard,
@@ -255,9 +213,71 @@ export default class DataGrid extends React.Component {
 			),
 		};
 
+		return agGridOptions;
+	}
+
+	removeFocusColumn() {
+		// workaround see README.md#Workaround Active Column
+		const focusedCells = this.gridInstance[AG_GRID.ELEMENT].querySelectorAll(
+			`.${FOCUSED_COLUMN_CLASS_NAME}`,
+		);
+
+		for (const focusedCell of focusedCells) {
+			focusedCell.classList.remove(FOCUSED_COLUMN_CLASS_NAME);
+		}
+	}
+
+	updateStyleFocusColumn() {
+		const colId = this.currentColId;
+
+		if (!colId || colId.includes(NAMESPACE_INDEX)) {
+			return;
+		}
+
+		// workaround see README.md#Workaround Active Column
+		const columnsCells = this.gridInstance[AG_GRID.ELEMENT].querySelectorAll(
+			`[col-id="${colId}"]:not(.${FOCUSED_COLUMN_CLASS_NAME})`,
+		);
+
+		for (const columnCell of columnsCells) {
+			columnCell.classList.add(FOCUSED_COLUMN_CLASS_NAME);
+		}
+	}
+
+	handleKeyboard({ nextCellDef, previousCellDef }) {
+		if (!nextCellDef) {
+			return null;
+		}
+
+		if (this.gridAPI && previousCellDef.rowIndex !== nextCellDef.rowIndex) {
+			// ag-grid workaround: ag-grid set a selected row only by a click by an user
+			// This allows, when the user move the cell by the keyboard/tab, to set the selected row
+			this.gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
+		}
+
+		return nextCellDef;
+	}
+
+	render() {
+		let content;
+		if (this.props.loading) {
+			content = <Skeleton name="talend-table" type={Skeleton.TYPES.icon} />;
+		} else {
+			content = <AgGridReact {...this.getAgGridConfig()} />;
+		}
+
 		return (
-			<div className={classNames(theme['td-grid'], this.props.className, 'td-grid')}>
-				<AgGridReact {...agGridOptions} />
+			<div
+				className={classNames(
+					{
+						[theme['td-grid-loading']]: this.props.loading,
+					},
+					theme['td-grid'],
+					this.props.className,
+					'td-grid',
+				)}
+			>
+				{content}
 			</div>
 		);
 	}

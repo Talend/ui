@@ -9,8 +9,14 @@ Base theme following Talend Style Guidelines.
 Note: The example has been taken from the excellent project [Bootstwatch](https://bootswatch.com/).
 
 # Docs & Help
+
 * [Example page](https://talend.github.io/bootstrap-theme)
 * [Sass Api](https://talend.github.io/bootstrap-theme/sassdoc)
+
+# Breaking changes log
+
+Before 1.0, `@talend/bootstrap-theme` does NOT follow semver version in releases.
+You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
 # How to use
 
@@ -19,7 +25,9 @@ Note: The example has been taken from the excellent project [Bootstwatch](https:
 ```bash
 npm install --save @talend/bootstrap-heme
 ```
+
 or
+
 ```bash
 yarn add --dev @talend/bootstrap-theme
 ```
@@ -46,7 +54,10 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				exclude: /bootstrap.scss/,
-				loaders: ['style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'],
+				loaders: [
+					'style',
+					'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass',
+				],
 			},
 		],
 	},
@@ -71,4 +82,5 @@ You can now add [Bootstrap](http://getbootstrap.com/) markup!
 ```bash
 yarn && yarn start
 ```
+
 Open [http://localhost:1337/](http://localhost:1337/) to see your changes.
