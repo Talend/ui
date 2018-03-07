@@ -110,7 +110,7 @@ stories
 				{sizes.map(size => (
 					<div key={size}>
 						<p>{size}px</p>
-						<PieChartButton inProgress size={size} model={pieChartData1} />
+						<PieChartButton loading size={size} model={pieChartData1} />
 					</div>
 				))}
 			</div>
@@ -120,58 +120,46 @@ stories
 		class WithLayout extends React.Component {
 			constructor() {
 				super();
-				this.changeInProgress = this.changeInProgress.bind(this);
-				this.state = { inProgress: true };
+				this.changeState = this.changeState.bind(this);
+				this.state = { loading: true };
 			}
 
-			changeInProgress() {
+			changeState() {
 				this.setState(prevState => ({
-					inProgress: !prevState.inProgress,
+					loading: !prevState.loading,
 				}));
 			}
 
 			render() {
 				return (
 					<div>
-						<ActionButton label="changestatus" onClick={this.changeInProgress} />
+						<ActionButton label="changestatus" onClick={this.changeState} />
 						<p>Small :</p>
-						<PieChartButton
-							display="small"
-							model={pieChartData1}
-							inProgress={this.state.inProgress}
-						/>
+						<PieChartButton display="small" model={pieChartData1} loading={this.state.loading} />
 						<p>Medium :</p>
-						<PieChartButton
-							display="medium"
-							model={pieChartData1}
-							inProgress={this.state.inProgress}
-						/>
+						<PieChartButton display="medium" model={pieChartData1} loading={this.state.loading} />
 						<p>Large :</p>
-						<PieChartButton
-							display="large"
-							model={pieChartData1}
-							inProgress={this.state.inProgress}
-						/>
+						<PieChartButton display="large" model={pieChartData1} loading={this.state.loading} />
 						<p>Small without label:</p>
 						<PieChartButton
 							display="small"
 							hideLabel
 							model={pieChartData1}
-							inProgress={this.state.inProgress}
+							loading={this.state.loading}
 						/>
 						<p>Medium without label:</p>
 						<PieChartButton
 							display="medium"
 							hideLabel
 							model={pieChartData1}
-							inProgress={this.state.inProgress}
+							loading={this.state.loading}
 						/>
 						<p>Large without label:</p>
 						<PieChartButton
 							display="large"
 							hideLabel
 							model={pieChartData1}
-							inProgress={this.state.inProgress}
+							loading={this.state.loading}
 						/>
 						<p>after large</p>
 					</div>
