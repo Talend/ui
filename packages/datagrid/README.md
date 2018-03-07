@@ -2,6 +2,10 @@
 
 This library provide a datagrid to show some datas !
 
+## Breaking changes log
+
+You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
+
 ## Guidelines
 
 [Datagrid](https://company-57688.frontify.com/document/92132#/navigation-layout/data-grid)
@@ -74,6 +78,7 @@ In entry, the datagrid component waits a sample of dataset. By default, the data
 | headerRenderer        | header component to inject                             | string   | DefaultHeaderRenderer    |
 | onFocusedCell         | callback when one cell is focused                      | function |                          |
 | onFocusedColumn       | callback when one column is focused                    | function |                          |
+| onVerticalScroll      | callback when the grid scroll vertical                 | function |                          |
 | pinHeaderRenderer     | pinHeader component to inject                          | string   | DefaultPinHeaderRenderer |
 | data                  | data to set into the datagrid                          | Array    |                          |
 | rowSelection          | set the type of selection (single or multiple)         | string   | single                   |

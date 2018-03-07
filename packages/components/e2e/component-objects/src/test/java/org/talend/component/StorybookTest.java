@@ -1,5 +1,6 @@
 package org.talend.component;
 
+import org.apache.http.client.utils.URIBuilder;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
@@ -7,6 +8,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.net.URL;
+import java.net.URLEncoder;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
@@ -18,13 +22,18 @@ public class StorybookTest {
 
     private static final String STORY_MENU_SELECTOR = "a[data-name='%s']";
 
+    private static final String DEFAULT_STORY_NAME = "default";
+
+    private static final String STORYBOOK_HOST = "localhost";
+
+    private static final int STORYBOOK_PORT = 6006;
+
     protected static WebDriver driver;
 
     @BeforeClass
     public static void before() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("http://localhost:6006/");
     }
 
     @AfterClass
@@ -32,17 +41,27 @@ public class StorybookTest {
         driver.close();
     }
 
+    protected void goToStory(final String categoryName) {
+        goToStory(categoryName, DEFAULT_STORY_NAME);
+    }
+
     protected void goToStory(final String categoryName, final String storyName) {
         this.goToMainElement();
 
-        final WebElement categoryMenu = driver.findElement(By.cssSelector(String.format(STORY_CATEGORY_SELECTOR, categoryName)));
-        final WebElement menusContainer = categoryMenu.findElement(By.xpath("following-sibling::*"));
-        if (menusContainer.findElements(By.tagName("ul")).size() == 0) {
-            categoryMenu.click();
-        }
+        try {
+            URIBuilder builder = new URIBuilder();
 
-        WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(elementToBeClickable(By.cssSelector(String.format(STORY_MENU_SELECTOR, storyName)))).click();
+            builder.setScheme("http");
+            builder.setHost(STORYBOOK_HOST);
+            builder.setPort(STORYBOOK_PORT);
+            builder.setPath("/");
+            builder.addParameter("selectedKind", categoryName);
+            builder.addParameter("selectedStory", storyName);
+
+            driver.get(builder.build().toURL().toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         this.goToStoryFrame();
     }
