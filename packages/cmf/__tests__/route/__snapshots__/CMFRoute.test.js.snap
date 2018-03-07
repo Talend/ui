@@ -27,18 +27,21 @@ exports[`CMFRoute should instantiate nested Route component 1`] = `
     component="HomeListView"
     onEnter="preparation:fetch"
     path="preparations/:folderId?"
+    routeId="root.0"
     view="preparations"
   />
   <CMFRoute
     cmfParentPath="/"
     component="HomeListView"
     path="datasets"
+    routeId="root.1"
     view="datasets"
   />
   <CMFRoute
     cmfParentPath="/"
     component="HomeListView"
     path="datastores"
+    routeId="root.2"
     view="datastores"
   />
   <Route
