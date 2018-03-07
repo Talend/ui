@@ -35,13 +35,17 @@ export default class SchemaElement extends Component {
 	}
 
 	componentDidMount() {
-		this.element.addEventListener('mouseenter', this.handleMouseEnter);
-		this.element.addEventListener('mouseleave', this.handleMouseLeave);
+		if (this.element != null) {
+			this.element.addEventListener('mouseenter', this.handleMouseEnter);
+			this.element.addEventListener('mouseleave', this.handleMouseLeave);
+		}
 	}
 
 	componentWillUnmount() {
-		this.element.removeEventListener('mouseenter', this.handleMouseEnter);
-		this.element.removeEventListener('mouseleave', this.handleMouseLeave);
+		if (this.element != null) {
+			this.element.removeEventListener('mouseenter', this.handleMouseEnter);
+			this.element.removeEventListener('mouseleave', this.handleMouseLeave);
+		}
 	}
 
 	select() {

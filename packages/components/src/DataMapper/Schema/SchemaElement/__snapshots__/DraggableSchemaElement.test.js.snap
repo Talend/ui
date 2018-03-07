@@ -3,8 +3,9 @@
 exports[`drag-over-element 1`] = `
 <div>
   <div
-    className="Schema-element highlighted undefined"
+    className="schema-element highlighted undefined"
     onClick={[Function]}
+    role="button"
   >
     Drag_over_element
   </div>
@@ -14,8 +15,9 @@ exports[`drag-over-element 1`] = `
 exports[`mapped-element 1`] = `
 <div>
   <div
-    className="Schema-element mapped undefined"
+    className="schema-element mapped undefined"
     onClick={[Function]}
+    role="button"
   >
     Mapped_element
   </div>
@@ -25,8 +27,9 @@ exports[`mapped-element 1`] = `
 exports[`single-element 1`] = `
 <div>
   <div
-    className="Schema-element undefined"
+    className="schema-element undefined"
     onClick={[Function]}
+    role="button"
   >
     Single_element
   </div>

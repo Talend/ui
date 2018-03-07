@@ -9,8 +9,8 @@ import DraggableSchemaElement from '../Schema/SchemaElement/DraggableSchemaEleme
 it('clear-mapping', () => {
 	const clearMapping = jest.fn();
 	const performMapping = jest.fn();
-	const inputSchema = ['elem_in_1'];
-	const outputSchema = ['elem_out_1'];
+	const inputSchema = { name: 'input', elements: ['elem_in_1'] };
+	const outputSchema = { name: 'input', elements: ['elem_out_1'] };
 	const mapping = [{ source: 'elem_in_1', target: 'elem_out_1' }];
 	const mapper = (
 		<Mapper
@@ -51,8 +51,8 @@ function getElementByName(elements, name) {
 it('perform-mapping', () => {
 	const clearMapping = jest.fn();
 	const performMapping = jest.fn();
-	const inputSchema = ['elem_in_1'];
-	const outputSchema = ['elem_out_1'];
+	const inputSchema = { name: 'input', elements: ['elem_in_1'] };
+	const outputSchema = { name: 'input', elements: ['elem_out_1'] };
 	const mapping = [];
 
 	const MapperTestContext = wrapInTestContext(Mapper);
