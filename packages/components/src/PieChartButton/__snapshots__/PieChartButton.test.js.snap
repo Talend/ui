@@ -61,7 +61,7 @@ exports[`PieChartButton getEmptyPartCircle should get return a path for the rest
 />
 `;
 
-exports[`PieChartButton snapshots render shoud render a PieChartButton 1`] = `
+exports[`PieChartButton snapshots render should render a PieChartButton 1`] = `
 <Button
   active={false}
   block={false}
@@ -69,7 +69,7 @@ exports[`PieChartButton snapshots render shoud render a PieChartButton 1`] = `
   bsStyle="default"
   className="theme-tc-pie-chart tc-pie-chart"
   disabled={false}
-  onClick={[Function]}
+  onClick={null}
   onMouseDown={null}
 >
   <svg
@@ -116,7 +116,7 @@ exports[`PieChartButton snapshots render shoud render a PieChartButton 1`] = `
 </Button>
 `;
 
-exports[`PieChartButton snapshots render shoud render a PieChartButton with an overlay 1`] = `
+exports[`PieChartButton snapshots render should render a PieChartButton with an overlay 1`] = `
 <span>
   <OverlayTrigger
     defaultOverlayShown={false}
@@ -191,7 +191,7 @@ exports[`PieChartButton snapshots render shoud render a PieChartButton with an o
 </span>
 `;
 
-exports[`PieChartButton snapshots render shoud render a Skeleton when the state is loading 1`] = `
+exports[`PieChartButton snapshots render should render a Skeleton when the state is loading 1`] = `
 <Button
   active={false}
   block={false}

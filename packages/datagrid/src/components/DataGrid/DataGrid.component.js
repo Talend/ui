@@ -146,7 +146,7 @@ export default class DataGrid extends React.Component {
 	}
 
 	getAgGridConfig() {
-    const agGridOptions = {
+		const agGridOptions = {
 			headerHeight: this.props.headerHeight,
 			tabToNextCell: this.handleKeyboard,
 			navigateToNextCell: this.handleKeyboard,
