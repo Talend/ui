@@ -19,6 +19,11 @@ describe('CircularProgress', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
+  it('should render at larger size if set', () => {
+    const wrapper = renderer.create(<CircularProgress size="larger" />).toJSON();
+    expect(wrapper).toMatchSnapshot();
+  });
+
 	it('should render as light if set', () => {
 		const wrapper = renderer.create(<CircularProgress light />).toJSON();
 		expect(wrapper).toMatchSnapshot();

@@ -37,5 +37,7 @@ storiesOf('CircularProgress', module)
 			<CircularProgress size="default" percent="50" />
 			<h3>Large with percent</h3>
 			<CircularProgress size="large" percent="70" />
+      <h3>Larger with percent</h3>
+      <CircularProgress size="larger" percent="90" />
 		</div>
 	));

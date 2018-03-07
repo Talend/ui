@@ -14,7 +14,7 @@ function Loader({ id, className, size = SIZE.default, appLogo }) {
 	return (
 			<div id={id} aria-atomic="true" aria-busy="true" className={loaderClassNames}>
 				<CircularProgress size={size} />
-				{appLogo ? <Icon name={appLogo} className={theme['tc-app-loader-icon']} /> : null}
+				{appLogo && <Icon name={appLogo} className={theme['tc-app-loader-icon']} />}
 			</div>
 	);
 }

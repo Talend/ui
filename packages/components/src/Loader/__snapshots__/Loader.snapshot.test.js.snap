@@ -87,6 +87,35 @@ exports[`Loader should render a large loader 1`] = `
 </div>
 `;
 
+exports[`Loader should render a larger loader 1`] = `
+<div
+  aria-atomic="true"
+  aria-busy="true"
+  className="tc-loader theme-tc-loader"
+  id={undefined}
+>
+  <svg
+    className="tc-circular-progress theme-loader theme-animate theme-larger"
+    focusable="false"
+    viewBox="0 0 50 50"
+  >
+    <circle
+      className="theme-path"
+      cx={25}
+      cy={25}
+      fill="none"
+      r={20}
+      style={
+        Object {
+          "strokeDasharray": 12.566370614359172,
+          "strokeDashoffset": 0,
+        }
+      }
+    />
+  </svg>
+</div>
+`;
+
 exports[`Loader should render a small loader 1`] = `
 <div
   aria-atomic="true"
@@ -111,6 +140,45 @@ exports[`Loader should render a small loader 1`] = `
           "strokeDashoffset": 0,
         }
       }
+    />
+  </svg>
+</div>
+`;
+
+exports[`Loader should render app loader 1`] = `
+<div
+  aria-atomic="true"
+  aria-busy="true"
+  className="tc-loader theme-tc-loader theme-tc-app-loader"
+  id={undefined}
+>
+  <svg
+    className="tc-circular-progress theme-loader theme-animate theme-larger"
+    focusable="false"
+    viewBox="0 0 50 50"
+  >
+    <circle
+      className="theme-path"
+      cx={25}
+      cy={25}
+      fill="none"
+      r={20}
+      style={
+        Object {
+          "strokeDasharray": 12.566370614359172,
+          "strokeDashoffset": 0,
+        }
+      }
+    />
+  </svg>
+  <svg
+    aria-hidden="true"
+    className="theme-tc-svg-icon tc-svg-icon theme-tc-app-loader-icon"
+    focusable="false"
+    title={null}
+  >
+    <use
+      xlinkHref="#svg-test"
     />
   </svg>
 </div>
