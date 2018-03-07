@@ -9,6 +9,7 @@ const DATAGRID_PROPTYPES = {
 	}),
 	cellRenderer: PropTypes.string,
 	className: PropTypes.string,
+	loading: PropTypes.bool,
 	getComponent: PropTypes.func,
 	getPinnedColumnDefsFn: PropTypes.func,
 	getColumnDefsFn: PropTypes.func,
