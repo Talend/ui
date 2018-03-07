@@ -24,6 +24,10 @@ public class StorybookTest {
 
     private static final String DEFAULT_STORY_NAME = "default";
 
+    private static final String STORYBOOK_HOST = "localhost";
+
+    private static final int STORYBOOK_PORT = 6006;
+
     protected static WebDriver driver;
 
     @BeforeClass
@@ -48,7 +52,8 @@ public class StorybookTest {
             URIBuilder builder = new URIBuilder();
 
             builder.setScheme("http");
-            builder.setHost("localhost:6006");
+            builder.setHost(STORYBOOK_HOST);
+            builder.setPort(STORYBOOK_PORT);
             builder.setPath("/");
             builder.addParameter("selectedKind", categoryName);
             builder.addParameter("selectedStory", storyName);
