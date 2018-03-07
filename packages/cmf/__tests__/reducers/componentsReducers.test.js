@@ -145,8 +145,8 @@ describe('check component management reducer', () => {
 		expect(console.warn).toBeCalledWith(
 			LOGGER_PREFIX,
 			`Beware the component component try to remove a non existing
-			 State namespace key, it isn't a normal behavior execpt if two component are binded
-			 to this specific namespace`);
+ State namespace key, it isn't a normal behavior execpt if two component are binded
+ to this specific namespace`);
 	});
 	it('should recall itself on action.cmf.componentState', () => {
 		const action = {
