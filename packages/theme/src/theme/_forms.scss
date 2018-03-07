@@ -29,6 +29,7 @@ form {
 		input[type='password'],
 		input[type='email'],
 		input[type='number'],
+		input[type='array'],
 		[type='text'].form-control,
 		[type='password'].form-control,
 		[type='email'].form-control,
@@ -61,6 +62,7 @@ form {
 	input[type='password'],
 	input[type='email'],
 	input[type='number'],
+	input[type='array'],
 	[type='text'].form-control,
 	[type='password'].form-control,
 	[type='email'].form-control,
@@ -401,27 +403,6 @@ form {
 
 		select {
 			padding: 0;
-		}
-
-		&.multi-select-readonly {
-			.dropdown-toggle {
-				display: none;
-			}
-
-			.form-control {
-				border: none;
-				box-shadow: none;
-				pointer-events: none;
-			}
-
-			input {
-				&.form-control {
-					color: $silver-chalice;
-					font-weight: $form-base-font-weight;
-					font-size: $font-size-base;
-					font-style: oblique;
-				}
-			}
 		}
 	}
 

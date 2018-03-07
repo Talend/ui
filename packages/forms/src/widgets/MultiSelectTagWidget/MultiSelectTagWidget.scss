@@ -61,3 +61,11 @@ $tf-typeahead-section-border-color: #e0e0e0 !default;
 		}
 	}
 }
+
+.readonly {
+	.wrapper {
+		border: none;
+		box-shadow: none;
+		pointer-events: none;
+	}
+}
