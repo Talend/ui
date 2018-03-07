@@ -190,25 +190,6 @@ function AppNotification({ getComponent, hasUnread, t, ...props }) {
 	);
 }
 
-function Products({ getComponent, t, ...props }) {
-	const Renderers = Inject.getAll(getComponent, { ActionDropdown });
-	return (
-		<li role="presentation" className={theme['tc-header-bar-action']}>
-			<Renderers.ActionDropdown
-				bsStyle="link"
-				className={theme['tc-header-bar-products']}
-				icon="talend-launcher"
-				label={t('HEADERBAR_APPS', { defaultValue: 'Apps' })}
-				pullRight
-				hideLabel
-				noCaret
-				tooltipPlacement="bottom"
-				{...props}
-			/>
-		</li>
-	);
-}
-
 function HeaderBar(props) {
 	const Components = Inject.getAll(props.getComponent, {
 		Logo,
@@ -218,7 +199,6 @@ function HeaderBar(props) {
 		User,
 		Information,
 		Help,
-		Products,
 		AppNotification,
 	});
 
@@ -258,9 +238,6 @@ function HeaderBar(props) {
 						/>
 					)}
 				{props.user && <Components.User getComponent={props.getComponent} {...props.user} />}
-				{props.products && (
-					<Components.Products getComponent={props.getComponent} {...props.products} t={props.t} />
-				)}
 			</ul>
 		</nav>
 	);
@@ -273,7 +250,6 @@ HeaderBar.Search = Search;
 HeaderBar.Help = Help;
 HeaderBar.Information = Information;
 HeaderBar.User = User;
-HeaderBar.Products = Products;
 HeaderBar.displayName = 'HeaderBar';
 
 if (process.env.NODE_ENV !== 'production') {
@@ -335,11 +311,6 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func.isRequired,
 	};
 
-	Products.propTypes = {
-		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
-		t: PropTypes.func.isRequired,
-	};
-
 	HeaderBar.propTypes = {
 		logo: PropTypes.shape(omit(Logo.propTypes, 't')),
 		brand: PropTypes.shape(Brand.propTypes),
@@ -349,7 +320,6 @@ if (process.env.NODE_ENV !== 'production') {
 		information: PropTypes.shape(omit(Information.propTypes, 't')),
 		user: PropTypes.shape(User.propTypes),
 		notification: PropTypes.shape(AppNotification.propTypes, 't'),
-		products: PropTypes.shape(omit(Products.propTypes, 't')),
 		getComponent: PropTypes.func,
 		t: PropTypes.func,
 	};
