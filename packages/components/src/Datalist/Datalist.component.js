@@ -134,8 +134,8 @@ class Datalist extends Component {
 
 		this.setState({
 			// setting the filtered value so it needs to be actual value
-			value : typeof value === 'object' ? value.title : value,
-			previousValue: typeof previousValue === 'object'  ? previousValue.title : previousValue,
+			value: typeof value === 'object' ? value.title : value,
+			previousValue: typeof previousValue === 'object' ? previousValue.title : previousValue,
 		});
 		if (persist) {
 			let enumValue = this.props.titleMap.find(item => item.name === value);
@@ -145,7 +145,7 @@ class Datalist extends Component {
 					if (item) {
 						enumValue = item;
 					}
-				})
+				});
 			}
 			const payload = { value: get(enumValue, 'value', value) };
 			this.props.onChange(event, payload);
@@ -173,7 +173,7 @@ class Datalist extends Component {
 			return titleMap.map(group => {
 				return {
 					title: group.title,
-					suggestions: group.suggestions.map((item) => ({ title: item.name }))
+					suggestions: group.suggestions.map(item => ({ title: item.name })),
 				};
 			});
 		}
@@ -201,7 +201,7 @@ class Datalist extends Component {
 				groups = groups.map(group => {
 					return {
 						...group,
-						suggestions: group.suggestions.filter(item => regex.test(item.title))
+						suggestions: group.suggestions.filter(item => regex.test(item.title)),
 					};
 				});
 			} else {
@@ -265,27 +265,25 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		disabled: PropTypes.bool,
-		multiSection:  PropTypes.bool.isRequired,
+		multiSection: PropTypes.bool.isRequired,
 		placeholder: PropTypes.string,
 		readOnly: PropTypes.bool,
 		titleMap: PropTypes.arrayOf(
-			PropTypes.oneOfType(
-				[
-					PropTypes.shape({
-						name: PropTypes.string.isRequired,
-						value: PropTypes.string.isRequired,
-					}),
-					PropTypes.shape({
-						title: PropTypes.string,
-						items: PropTypes.arrayOf(
-							PropTypes.shape({
-								name: PropTypes.string,
-								value: PropTypes.string,
-							}),
-						),
-					}),
-				]
-			),
+			PropTypes.oneOfType([
+				PropTypes.shape({
+					name: PropTypes.string.isRequired,
+					value: PropTypes.string.isRequired,
+				}),
+				PropTypes.shape({
+					title: PropTypes.string,
+					items: PropTypes.arrayOf(
+						PropTypes.shape({
+							name: PropTypes.string,
+							value: PropTypes.string,
+						}),
+					),
+				}),
+			]),
 		),
 		value: PropTypes.string,
 	};
