@@ -12,17 +12,21 @@ function isSelected(element, selection, type) {
 		false	: (selection.type === type && selection.element === element);
 }
 
-function isHighlighted(element, selection, type, pendingItem) {
+function isHighlighted(element, selection, type, pendingItem, focusedElements) {
 	const connected = selection == null ?
 	 false : (selection.type !== type
 		 && selection.connected != null
 		 && selection.connected.includes(element));
-	const pending = pendingItem != null && pendingItem.type === type && pendingItem.element === element;
-	return connected || pending;
+	const pending = pendingItem != null
+			&& pendingItem.type === type
+			&& pendingItem.element === element;
+	const focused = focusedElements != null && focusedElements.includes(element);
+	return connected || pending || focused;
 }
 
 function renderSchemaElement(type, elem, draggable, mapped, performMapping,
-				selection, onSelect, pendingItem, onEnterElement, onLeaveElement) {
+				selection, onSelect, pendingItem, onEnterElement, onLeaveElement,
+				focusedElements) {
 	if (draggable) {
 		return (
 			<DraggableSchemaElement
@@ -32,7 +36,7 @@ function renderSchemaElement(type, elem, draggable, mapped, performMapping,
 				mapped={isMapped(elem, mapped)}
 				performMapping={performMapping}
 				selected={isSelected(elem, selection, type)}
-				highlighted={isHighlighted(elem, selection, type, pendingItem)}
+				highlighted={isHighlighted(elem, selection, type, pendingItem, focusedElements)}
 				onSelect={onSelect}
 				onEnterElement={onEnterElement}
 				onLeaveElement={onLeaveElement}
@@ -45,7 +49,7 @@ function renderSchemaElement(type, elem, draggable, mapped, performMapping,
 			name={elem}
 			schemaType={type}
 			selected={isSelected(elem, selection, type)}
-			highlighted={isHighlighted(elem, selection, type, pendingItem)}
+			highlighted={isHighlighted(elem, selection, type, pendingItem, focusedElements)}
 			onSelect={onSelect}
 			onEnterElement={onEnterElement}
 			onLeaveElement={onLeaveElement}
@@ -86,7 +90,7 @@ export default class Schema extends Component {
 	render() {
 		const { type, schema, draggable, mapped, performMapping,
 			selection, onSelect, pendingItem,
-			onEnterElement, onLeaveElement } = this.props;
+			onEnterElement, onLeaveElement, focusedElements } = this.props;
 		return (
 			<div className="schema mapper-element">
 				<div className="schema-name">{schema.name}</div>
@@ -99,7 +103,8 @@ export default class Schema extends Component {
 				>
 					{schema.elements.map(elem =>
 						renderSchemaElement(type, elem, draggable, mapped, performMapping,
-							selection, onSelect, pendingItem, onEnterElement, onLeaveElement),
+							selection, onSelect, pendingItem, onEnterElement, onLeaveElement,
+							focusedElements),
 					)}
 				</div>
 			</div>
@@ -119,4 +124,5 @@ Schema.propTypes = {
 	pendingItem: PropTypes.object,
 	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
+	focusedElements: PropTypes.array,
 };

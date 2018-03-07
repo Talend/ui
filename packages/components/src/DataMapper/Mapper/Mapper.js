@@ -8,6 +8,23 @@ import { getMappingItems } from '../Utils';
 function getMapped(mapping, side) {
 	const mappedElements = mapping.map(item => item[side]);
 	return Array.from(new Set(mappedElements));
+};
+
+function getFocusedElements(mapping, focused, type) {
+	if (focused == null || focused.type === type) {
+		return null;
+	}
+	let focusedElements = null;
+	const focusedItems = getMappingItems(mapping, focused.element, focused.type);
+	if (focusedItems != null) {
+		if (focused.type === SchemaType.INPUT) {
+			focusedElements = focusedItems.map(item => item.target);
+		} else {
+			focusedElements = focusedItems.map(item => item.source);
+		}
+	}
+	console.log('Focused elements in ' + type + 'schema are ' + focusedElements);
+	return focusedElements;
 }
 
 export default class Mapper extends Component {
@@ -77,10 +94,12 @@ export default class Mapper extends Component {
 		}
 		let focusedConnections = null;
 		if (focused != null) {
-			const focusedItems = getMappingItems(mapping, focused.element, focused.type);
-				if (focusedItems != null) {
-					focusedConnections = focusedItems.map(item => this.getConnectionFromItem(item));
-				}
+			const focusedItems =
+				getMappingItems(mapping, focused.element, focused.type);
+			if (focusedItems != null) {
+				focusedConnections =
+					focusedItems.map(item => this.getConnectionFromItem(item));
+			}
 		}
 		return {current, pending, focused: focusedConnections, all: allConnections};
 	}
@@ -132,6 +151,7 @@ export default class Mapper extends Component {
 					pendingItem={pendingItem}
 					onEnterElement={onEnterElement}
 					onLeaveElement={onLeaveElement}
+					focusedElements={getFocusedElements(mapping, focused, SchemaType.INPUT)}
 				/>
 				<Schema
 					ref={output => {
@@ -148,6 +168,7 @@ export default class Mapper extends Component {
 					pendingItem={pendingItem}
 					onEnterElement={onEnterElement}
 					onLeaveElement={onLeaveElement}
+					focusedElements={getFocusedElements(mapping, focused, SchemaType.OUTPUT)}
 				/>
 				<GMapping
 					ref={gmap => {

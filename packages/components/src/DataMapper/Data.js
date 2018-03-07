@@ -1,4 +1,30 @@
 
+export function createSchema(name, elementName, size) {
+  let elements = [];
+  for (let i = 0; i < size; i += 1) {
+    elements = elements.concat(elementName + '_' + i);
+  }
+  const schema = {name, elements};
+  console.log(schema);
+  return schema;
+};
+
+export function createMapping(inputSchema, outputSchema, shuffle) {
+  let mapping = [];
+  if (shuffle) {
+
+  } else {
+    for (let i = 0; i < inputSchema.elements.length; i += 1) {
+      mapping = mapping.concat(
+        {
+          source: inputSchema.elements[i],
+          target: outputSchema.elements[i],
+        });
+    }
+  }
+  return mapping;
+};
+
 export const inputSchema1 = {
   name: 'user_info',
   elements: [
@@ -79,6 +105,10 @@ export const initialMapping = [
 	{
 		source: 'lastname',
 		target: 'name',
+	},
+  {
+		source: 'lastname',
+		target: 'identifier',
 	},
 	{
 		source: 'city',

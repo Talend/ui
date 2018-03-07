@@ -2,14 +2,18 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { DataMapper as Mapper } from '../src/index';
 import { SchemaType, Keys, switchSchemaType, Configs } from '../src/DataMapper/Constants';
-import { inputSchema2, outputSchema2, emptyMapping } from '../src/DataMapper/Data';
+import { createSchema, createMapping, inputSchema2, outputSchema2, emptyMapping, initialMapping } from '../src/DataMapper/Data';
 import { isSelected, isSelectionEmpty, getSchema, getMappingItems } from '../src/DataMapper/Utils';
 
 function getInitialState() {
+	const size = 1000;
+	const inputSchema = createSchema('Big input schema', 'input_element', size);
+	const outputSchema = createSchema('Big output schema', 'output_element', size);
+	const mapping = createMapping(inputSchema, outputSchema, false);
 	return {
     inputSchema: inputSchema2,
     outputSchema: outputSchema2,
-		mapping: emptyMapping,
+		mapping: initialMapping,
 		pendingItem: null,
 		selection: null,
 		focused: null,
@@ -215,7 +219,7 @@ stories
 			}
 
       handleKeyEvent(ev) {
-				//console.log(ev.key);
+				console.log(ev);
 				let reveal = false;
 				if (this.handleFirstSelect(ev)) {
 					ev.preventDefault();
@@ -226,13 +230,13 @@ stories
 				} else if (this.handleNavigation(ev)) {
           ev.preventDefault();
           this.setState(prevState => ({
-  					selection: navigate(prevState, ev.key),
+  					selection: navigate(prevState, ev.keyCode),
   				}));
           reveal = true;
         } else if (this.handleStartConnection(ev)) {
 					ev.preventDefault();
 					this.setState(prevState => ({
-  					selection: navigate(prevState, ev.key),
+  					selection: navigate(prevState, ev.keyCode),
 						pendingItem: {
 							element: prevState.selection.element,
 							type: prevState.selection.type,
@@ -278,20 +282,20 @@ stories
       }
 
 			handleStartConnection(ev) {
-				return ev.key === Keys.ENTER
+				return ev.keyCode === Keys.ENTER
 					&& !isSelectionEmpty(this.state.selection)
 					&& this.state.pendingItem == null;
 			}
 
 			handleEndConnection(ev) {
-				return ev.key === Keys.ENTER
+				return ev.keyCode === Keys.ENTER
 					&& !isSelectionEmpty(this.state.selection)
 					&& this.state.pendingItem != null
 					&& this.state.selection.type != this.state.pendingItem.type;
 			}
 
 			handleNavigation(ev) {
-        const key = ev.key;
+        const key = ev.keyCode;
         const isValidKey = key === Keys.UP
 												|| key === Keys.DOWN
 												|| key === Keys.SWITCH_SCHEMA;
@@ -299,17 +303,17 @@ stories
       }
 
 			handleFirstSelect(ev) {
-				const isValidKey = ev.key === Keys.SWITCH_SCHEMA;
+				const isValidKey = ev.keyCode === Keys.SWITCH_SCHEMA;
 				return isValidKey && isSelectionEmpty(this.state.selection);
 			}
 
 			handleEscape(ev) {
-				const isValidKey = ev.key === Keys.ESCAPE;
+				const isValidKey = ev.keyCode === Keys.ESCAPE;
 				return isValidKey && this.state.pendingItem != null;
 			}
 
 			handleDelete(ev) {
-				const isValidKey = ev.key === Keys.DELETE;
+				const isValidKey = ev.keyCode === Keys.DELETE;
 				return isValidKey
 					&& !isSelectionEmpty(this.state.selection)
 					&& this.state.selection.connected != null;

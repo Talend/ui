@@ -20,12 +20,12 @@ export const MappingSide = {
 };
 
 export const Keys = {
-	UP: 'ArrowUp',
-	DOWN: 'ArrowDown',
-	SWITCH_SCHEMA: 'Tab',
-	ENTER: 'Enter',
-	ESCAPE: 'Escape',
-	DELETE: 'Delete',
+	UP: 38,
+	DOWN: 40,
+	SWITCH_SCHEMA: 9,
+	ENTER: 13,
+	ESCAPE: 27,
+	DELETE: 46,
 };
 
 export const Configs = {
