@@ -23,3 +23,13 @@ export function getMappingItems(mapping, element, type) {
 	}
 	return mapping.filter(item => item.target === element);
 }
+
+export function isMapped(mapping, element, type) {
+  if (mapping != null) {
+    return mapping.find(item =>
+      (type === SchemaType.INPUT && item.source === element)
+      || (type === SchemaType.OUTPUT && item.target === element)
+    )
+  }
+  return false;
+}

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { DataMapper as Mapper } from '../src/index';
 import { SchemaType, Keys, switchSchemaType, Configs } from '../src/DataMapper/Constants';
 import { createSchema, createMapping, inputSchema2, outputSchema2, emptyMapping, initialMapping } from '../src/DataMapper/Data';
-import { isSelected, isSelectionEmpty, getSchema, getMappingItems } from '../src/DataMapper/Utils';
+import { isSelected, isSelectionEmpty, getSchema, getMappingItems, isMapped } from '../src/DataMapper/Utils';
 
 function getInitialState() {
 	const size = 1000;
@@ -141,22 +141,38 @@ function navigateUpDown(state, nav) {
 	};
 }
 
-function switchSchema(state) {
+function switchSchema(state, connectContext) {
   const selection = state.selection;
 	const targetType = switchSchemaType(selection.type);
-  if (selection.connected != null && selection.connected.length > 0) {
-    return {
-			element: selection.connected[0],
-			connected: getConnected(state.mapping, selection.connected[0], targetType),
-			type: targetType,
-  	};
+	let targetElem = null;
+  if (!connectContext
+		&& selection.connected != null
+		&& selection.connected.length > 0) {
+		targetElem = selection.connected[0];
   }
-  // try to find an element with the same name
-  const targetSchema = getSchema(state, targetType);
-  let targetElem = targetSchema.elements.find(e => e === selection.element);
+	const targetSchema = getSchema(state, targetType);
+	if (targetElem == null) {
+  	// try to find an element with the same name
+   	targetElem = targetSchema.elements.find(elem =>
+			(!connectContext && elem === selection.element)
+			|| (connectContext
+					&& elem === selection.element
+					&& (selection.connected == null || !selection.connected.includes(elem)))
+		);
+	}
   if (targetElem == null) {
     // get the first element in target schema
-    targetElem = targetSchema.elements[0];
+		if (connectContext) {
+			// for connexion context we try to get a non connected element
+			for (let i = 0; i < targetSchema.elements.length; i += 1) {
+				if (!isMapped(state.mapping, targetSchema.elements[i], targetType)) {
+					targetElem = targetSchema.elements[i];
+					break;
+				}
+			}
+		} else {
+    	targetElem = targetSchema.elements[0];
+		}
   }
   return {
 		element: targetElem,
@@ -181,9 +197,9 @@ function navigate(state, nav) {
     case Keys.DOWN:
       return navigateUpDown(state, nav);
     case Keys.SWITCH_SCHEMA:
-			return switchSchema(state);
+			return switchSchema(state, false);
 		case Keys.ENTER:
-      return switchSchema(state);
+      return switchSchema(state, true);
 		default:
 			break;
   }
