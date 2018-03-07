@@ -41,28 +41,19 @@ function Brand({ label, isSeparated, getComponent, ...props }) {
 		[theme.separated]: isSeparated,
 	});
 	const Renderers = Inject.getAll(getComponent, { ActionDropdown, Action });
-	const renderOption =
-		props && props.items ? (
-			<Renderers.ActionDropdown
-				bsStyle="link"
-				className={theme['tc-header-bar-brand']}
-				tooltipPlacement="bottom"
-				label={label}
-				{...props}
-			/>
-		) : (
-			<Renderers.Action
-				bsStyle="link"
-				className={theme['tc-header-bar-brand']}
-				tooltipPlacement="bottom"
-				label={label}
-				{...props}
-			/>
-		);
+	const ActionComponent = props && props.items ? Renderers.ActionDropdown : Renderers.Action;
 
 	return (
 		<li role="presentation" className={className}>
-			<span role="heading">{renderOption}</span>
+			<span role="heading">
+				<ActionComponent
+					bsStyle="link"
+					className={theme['tc-header-bar-brand']}
+					tooltipPlacement="bottom"
+					label={label}
+					{...props}
+				/>
+			</span>
 		</li>
 	);
 }

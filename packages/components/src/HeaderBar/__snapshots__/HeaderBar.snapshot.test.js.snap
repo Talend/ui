@@ -348,7 +348,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                   Example App Name
                 </span>
               </span>
-
+               
               <span
                 className="caret"
               />
@@ -556,7 +556,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                 </span>
               </span>
             </span>
-
+             
             <span
               className="caret"
             />
@@ -934,7 +934,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                   Example App Name
                 </span>
               </span>
-
+               
               <span
                 className="caret"
               />
@@ -1087,7 +1087,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 >
                   Searching for matches…
                 </span>
-
+                 
                 <svg
                   className="tc-circular-progress theme-loader theme-animate theme-default"
                   focusable="false"
@@ -1190,7 +1190,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 </span>
               </span>
             </span>
-
+             
             <span
               className="caret"
             />
@@ -1568,7 +1568,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                   Example App Name
                 </span>
               </span>
-
+               
               <span
                 className="caret"
               />
@@ -1700,7 +1700,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 Default
               </span>
             </span>
-
+             
             <span
               className="caret"
             />
@@ -1842,7 +1842,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 </span>
               </span>
             </span>
-
+             
             <span
               className="caret"
             />
@@ -2220,7 +2220,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                   Example App Name
                 </span>
               </span>
-
+               
               <span
                 className="caret"
               />
@@ -2428,7 +2428,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 </span>
               </span>
             </span>
-
+             
             <span
               className="caret"
             />
@@ -2806,7 +2806,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                   Example App Name
                 </span>
               </span>
-
+               
               <span
                 className="caret"
               />
@@ -3014,7 +3014,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 </span>
               </span>
             </span>
-
+             
             <span
               className="caret"
             />
@@ -3392,7 +3392,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                   Example App Name
                 </span>
               </span>
-
+               
               <span
                 className="caret"
               />
@@ -3628,7 +3628,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 </span>
               </span>
             </span>
-
+             
             <span
               className="caret"
             />
@@ -4006,7 +4006,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                   Example App Name
                 </span>
               </span>
-
+               
               <span
                 className="caret"
               />
@@ -4240,7 +4240,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                 </span>
               </span>
             </span>
-
+             
             <span
               className="caret"
             />
@@ -4618,7 +4618,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                   Example App Name
                 </span>
               </span>
-
+               
               <span
                 className="caret"
               />
@@ -4848,7 +4848,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 </span>
               </span>
             </span>
-
+             
             <span
               className="caret"
             />
@@ -5226,7 +5226,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                   Example App Name
                 </span>
               </span>
-
+               
               <span
                 className="caret"
               />
@@ -5467,7 +5467,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                             >
                               le
                             </em>
-                             2
+                             2 
                             <em
                               className="theme-highlight"
                             >
@@ -5785,7 +5785,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 </span>
               </span>
             </span>
-
+             
             <span
               className="caret"
             />
@@ -6163,7 +6163,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                   Example App Name
                 </span>
               </span>
-
+               
               <span
                 className="caret"
               />
@@ -6397,7 +6397,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                 </span>
               </span>
             </span>
-
+             
             <span
               className="caret"
             />
@@ -6775,7 +6775,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                   Example App Name
                 </span>
               </span>
-
+               
               <span
                 className="caret"
               />
@@ -7380,7 +7380,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                         Example App Name
                       </span>
                     </span>
-
+                     
                     <span
                       className="caret"
                     />
@@ -7588,7 +7588,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                       </span>
                     </span>
                   </span>
-
+                   
                   <span
                     className="caret"
                   />
@@ -7978,7 +7978,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                         Example App Name
                       </span>
                     </span>
-
+                     
                     <span
                       className="caret"
                     />
@@ -8186,7 +8186,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                       </span>
                     </span>
                   </span>
-
+                   
                   <span
                     className="caret"
                   />
@@ -8576,7 +8576,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                         Example App Name
                       </span>
                     </span>
-
+                     
                     <span
                       className="caret"
                     />
@@ -8784,7 +8784,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                       </span>
                     </span>
                   </span>
-
+                   
                   <span
                     className="caret"
                   />
@@ -9174,7 +9174,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                         Example App Name
                       </span>
                     </span>
-
+                     
                     <span
                       className="caret"
                     />
@@ -9382,7 +9382,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                       </span>
                     </span>
                   </span>
-
+                   
                   <span
                     className="caret"
                   />
@@ -9772,7 +9772,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                         Example App Name
                       </span>
                     </span>
-
+                     
                     <span
                       className="caret"
                     />
@@ -9980,7 +9980,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                       </span>
                     </span>
                   </span>
-
+                   
                   <span
                     className="caret"
                   />
@@ -10370,7 +10370,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                         Example App Name
                       </span>
                     </span>
-
+                     
                     <span
                       className="caret"
                     />
@@ -10578,7 +10578,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                       </span>
                     </span>
                   </span>
-
+                   
                   <span
                     className="caret"
                   />
@@ -10968,7 +10968,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                         Example App Name
                       </span>
                     </span>
-
+                     
                     <span
                       className="caret"
                     />
@@ -11176,7 +11176,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                       </span>
                     </span>
                   </span>
-
+                   
                   <span
                     className="caret"
                   />
