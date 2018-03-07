@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import api from './api';
+import console from './console';
 
 /**
  * The Inject component let you use the registry to render named component
@@ -20,7 +21,7 @@ function MyComponent(props) {
  */
 
 function NotFoundComponent({ error }) {
-	api.console.error(error.message);
+	console.error(error.message);
 	return <div className="alert alert-danger">{error.message}</div>;
 }
 NotFoundComponent.propTypes = {

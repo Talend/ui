@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import invariant from 'invariant';
 
 import actions from './actions';
-import api from './api';
+import console from './console';
 
 /**
  * This module provide props.setState and props.state into
@@ -87,7 +87,7 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 		},
 	};
 	accessors.updateState = function updateState(state) {
-		api.console.warn('DEPRECATION WARNING: please use props.setState');
+		console.warn('DEPRECATION WARNING: please use props.setState');
 		accessors.setState(state);
 	};
 	return accessors;

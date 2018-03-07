@@ -3,8 +3,7 @@ import { Map } from 'immutable';
 import reducer, {
 	defaultState,
 } from '../../src/reducers/componentsReducers';
-
-global.console = { warn: jest.fn() };
+import { LOGGER_PREFIX } from "../../src/console";
 
 describe('check component management reducer', () => {
 	const initialState = defaultState
@@ -12,6 +11,10 @@ describe('check component management reducer', () => {
 			.set('key1', new Map().set('searchQuery', '')));
 
 	beforeEach(() => {
+		jest.spyOn(global.console, 'warn');
+	});
+
+	afterEach(() => {
 		jest.clearAllMocks();
 	});
 
@@ -84,8 +87,7 @@ describe('check component management reducer', () => {
 			initialComponentState: 'initialState',
 		};
 		reducer(initialState, action);
-		expect(console.warn).toBeCalled(); // eslint no-console: ["error", { allow: ["warn"] }]
-		expect(console.warn.mock.calls[0][0]).toEqual(`Beware component component1 try to recreate an existing
+		expect(console.warn).toBeCalledWith(LOGGER_PREFIX, `Beware component component1 try to recreate an existing
  State namespace key1, meaning that the original one will be overloaded`); // eslint no-console: ["error", { allow: ["warn"] }]
 	});
 	it(`REACT_CMF.COMPONENT_MERGE_STATE should properly merge
@@ -140,8 +142,7 @@ describe('check component management reducer', () => {
 			key: 'key',
 		};
 		reducer(initialState, action);
-		expect(console.warn).toBeCalled();
-		expect(console.warn.mock.calls[0][0]).toEqual(`Beware the component component try to remove a non existing
+		expect(console.warn).toBeCalledWith(LOGGER_PREFIX, `Beware the component component try to remove a non existing
  State namespace key, it isn't a normal behavior execpt if two component are binded
  to this specific namespace`);
 	});

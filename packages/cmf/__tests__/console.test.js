@@ -1,3 +1,4 @@
+import api from '../src/api';
 import {
 	default as cmfConsole,
 	LOGGER_PREFIX,
@@ -5,9 +6,6 @@ import {
 } from '../src/console';
 
 describe('CMF console', () => {
-	afterEach(() => {
-		delete process.env.NODE_ENV;
-	});
 
 	it('should be defined', () => {
 		expect(cmfConsole).toBeDefined();
@@ -24,23 +22,22 @@ describe('CMF console', () => {
 	});
 
 	describe('with development mode', () => {
-		let spyList = [];
-
 		beforeAll(() => {
-			LOGGER_METHODS.forEach(logMethod => {
-				spyList.push(jest.spyOn(global.console, logMethod));
-			});
-		});
-
-		beforeEach(() => {
 			process.env.NODE_ENV = 'development';
 		});
 
-		afterAll(() => {
-			spyList.forEach(spy => {
-				spy.mockReset();
-				spy.mockRestore();
+		beforeEach(() => {
+			LOGGER_METHODS.forEach(logMethod => {
+				jest.spyOn(global.console, logMethod);
 			});
+		});
+
+		afterEach(() => {
+			jest.clearAllMocks();
+		});
+
+		afterAll(() => {
+			delete process.env.NODE_ENV;
 		});
 
 		it('should produce output with trace method', () => {
@@ -48,21 +45,10 @@ describe('CMF console', () => {
 			const text = 'trace';
 
 			// when
-			cmfConsole.trace(text, {});
+			cmfConsole.trace(text);
 
 			// then
-			expect(console.trace).toBeCalledWith(LOGGER_PREFIX, text, {});
-		});
-
-		it('should produce output with trace method', () => {
-			// given
-			const text = 'debug';
-
-			// when
-			cmfConsole.debug(text);
-
-			// then
-			expect(console.debug).toBeCalledWith(LOGGER_PREFIX, text);
+			expect(console.trace).toBeCalledWith(LOGGER_PREFIX, text);
 		});
 
 		it('should produce output with log method', () => {
@@ -111,23 +97,22 @@ describe('CMF console', () => {
 	});
 
 	describe('with production mode', () => {
-		let spyList = [];
-
 		beforeAll(() => {
-			LOGGER_METHODS.forEach(logMethod => {
-				spyList.push(jest.spyOn(global.console, logMethod));
-			});
-		});
-
-		beforeEach(() => {
 			process.env.NODE_ENV = 'production';
 		});
 
-		afterAll(() => {
-			spyList.forEach(spy => {
-				spy.mockReset();
-				spy.mockRestore();
+		beforeEach(() => {
+			LOGGER_METHODS.forEach(logMethod => {
+				jest.spyOn(global.console, logMethod);
 			});
+		});
+
+		afterEach(() => {
+			jest.clearAllMocks();
+		});
+
+		afterAll(() => {
+			delete process.env.NODE_ENV;
 		});
 
 		it('should not produce output with trace method', () => {
@@ -186,16 +171,13 @@ describe('CMF console', () => {
 	});
 
 	describe('with any mode', () => {
-		let spy;
-
 		beforeEach(() => {
-			spy = jest.spyOn(global.console, 'log');
+			jest.spyOn(global.console, 'log');
 		});
 
 		afterEach(() => {
 			cmfConsole.setPrefix(LOGGER_PREFIX);
-			spy.mockReset();
-			spy.mockRestore();
+			jest.clearAllMocks();
 		});
 
 		it('should accept another prefix', () => {

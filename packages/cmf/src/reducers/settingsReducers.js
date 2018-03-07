@@ -5,7 +5,7 @@
 import get from 'lodash/get';
 import invariant from 'invariant';
 import * as ACTIONS from '../actions/settingsActions';
-import api from './../api';
+import console from './../console';
 
 export const defaultState = {
 	initialized: false,
@@ -48,7 +48,7 @@ function prepareSettings({ views, props, ref, ...rest }) {
 	const settings = Object.assign({ props: {} }, { ...rest });
 	if (views) {
 		if (process.env.NODE_ENV === 'development') {
-			api.console.warn('settings.view is deprecated, please use settings.props');
+			console.warn('settings.view is deprecated, please use settings.props');
 		}
 		Object.keys(views).forEach(id => {
 			settings.props[id] = attachRefs(ref, views[id]);
@@ -77,7 +77,7 @@ export function settingsReducers(state = defaultState, action) {
 			return Object.assign({}, state, { initialized: true }, prepareSettings(action.settings));
 		case ACTIONS.REQUEST_KO:
 			alert(`Settings can't be loaded ${get(action, 'error.message')}`); // eslint-disable-line
-			api.console.error(action.error);
+			console.error(action.error);
 			return Object.assign({}, state, { initialized: true }, action.settings);
 		default:
 			return state;

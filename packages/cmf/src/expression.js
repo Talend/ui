@@ -3,7 +3,7 @@ import React from 'react';
 import invariant from 'invariant';
 import forIn from 'lodash/forIn';
 
-import api from './api';
+import console from './console';
 import CONST from './constant';
 import registry from './registry';
 
@@ -89,7 +89,7 @@ function getProps(props, attrs, context, payload = {}) {
 		const value = props[attr];
 		if (typeof value === 'string' || typeof value === 'object') {
 			// eslint-disable-next-line
-			api.console.warn(
+			console.warn(
 				`beware this is present just for the sake of backward compatibility,
 				you should use properties ending with Expression to see them evaluated
 				example: instead of using ${attr}, ${attr}Expression will be evaluated

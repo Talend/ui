@@ -1,7 +1,16 @@
 /* eslint no-underscore-dangle: ["error", {"allow": ["_registry", "_isLocked"] }] */
 import registry from '../src/registry';
+import { LOGGER_PREFIX } from "../src/console";
 
 describe('CMF registry', () => {
+	beforeEach(() => {
+		jest.spyOn(global.console, 'warn');
+	});
+
+	afterEach(() => {
+		jest.clearAllMocks();
+	});
+
 	it('Registry should get a singleton', () => {
 		// given
 		const r1 = registry.Registry.getRegistry();
@@ -48,7 +57,6 @@ describe('CMF registry', () => {
 
 	it('addToRegistry should warn that a registered item is overridden', () => {
 		// given
-		console.warn = jest.genMockFn();
 		registry.addToRegistry('jso', 'value');
 
 		expect(console.warn).not.toBeCalled();
@@ -58,6 +66,7 @@ describe('CMF registry', () => {
 
 		// then
 		expect(console.warn).not.toBeCalledWith(
+			LOGGER_PREFIX,
 			"CMF: The 'key' object is registered, overriding and existing 'key' object. " +
 				'Please check your CMF configuration, you might not want that.',
 		);

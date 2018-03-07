@@ -5,7 +5,7 @@
  */
 /* eslint no-underscore-dangle: ["error", {"allow": ["_registry", "_isLocked"] }]*/
 
-import api from './api';
+import console from './console';
 
 /**
  * @typedef {Object<string, *>} Registry
@@ -64,7 +64,7 @@ function addToRegistry(id, item, context) {
 	const registry = getRegistry(context);
 	if (registry[id]) {
 		// eslint-disable-next-line no-console
-		api.console.warn(
+		console.warn(
 			`CMF: The '${id}' object is registered, overriding an existing '${id}' object. ` +
 				'Please check your CMF configuration, you might not want that.',
 		);
