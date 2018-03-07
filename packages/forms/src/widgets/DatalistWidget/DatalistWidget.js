@@ -147,7 +147,9 @@ class DatalistWidget extends React.Component {
 		const inputValue = this.getValue(inputLabel);
 		const isIncluded = this.isPartOfItems(value);
 
-		this.reference.itemsContainer.removeEventListener('mousedown', itemsContainerClickHandler);
+		if (this.reference && this.reference.itemsContainer) {
+			this.reference.itemsContainer.removeEventListener('mousedown', itemsContainerClickHandler);
+		}
 		if (options.restricted && !isIncluded) {
 			this.resetValue();
 			if (inputLabel !== this.getLabel(lastKnownValue)) {
@@ -254,6 +256,9 @@ class DatalistWidget extends React.Component {
 	}
 
 	getDropdownItems(suggestions) {
+		if (suggestions.length === 0) {
+			return [null];
+		}
 		// options with categories
 		if (this.props.options && this.props.options.groupBy) {
 			const category = this.props.options.groupBy;
@@ -300,7 +305,9 @@ class DatalistWidget extends React.Component {
 		const keys = Object.keys(itemsMap);
 		const suggestions = this.getMatchingSuggestions(items, value);
 
-		this.reference.itemsContainer.addEventListener('mousedown', itemsContainerClickHandler);
+		if (this.reference && this.reference.itemsContainer) {
+			this.reference.itemsContainer.addEventListener('mousedown', itemsContainerClickHandler);
+		}
 		this.setState({
 			value,
 			initialItems: items,
@@ -356,6 +363,9 @@ class DatalistWidget extends React.Component {
 	 * @param value
 	 */
 	renderDatalistItem(item, { value }) {
+		if (!item) {
+			return null;
+		}
 		return (
 			<div className={classnames(theme.item, 'datalist-item')}>
 				<Emphasis value={this.getLabel(value)} text={this.getLabel(item)} />
