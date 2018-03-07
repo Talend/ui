@@ -55,6 +55,23 @@ describe('http.post', () => {
 	});
 });
 
+describe('http.patch', () => {
+	it('should fetch /foo with a PATCH method', () => {
+		const url = '/foo';
+		const config = {
+			'Content-Type': 'application/json',
+		};
+		const payload = {
+			bar: 42,
+		};
+
+		const gen = http.patch('/foo', payload, config);
+
+		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.PATCH, payload));
+		expect(gen.next().done).toBe(true);
+	});
+});
+
 describe('http.put', () => {
 	it('should fetch /foo with a PUT method', () => {
 		const url = '/foo';

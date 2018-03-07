@@ -134,7 +134,7 @@ export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload) {
 }
 
 /**
- * function - fetch an url with POST method
+ * function - fetch a url with POST method
  *
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
@@ -149,7 +149,22 @@ export function* httpPost(url, payload, config) {
 }
 
 /**
- * function - fetch an url with PUT method
+ * function - fetch a url with PATCH method
+ *
+ * @param  {string} url     url to request
+ * @param  {object} payload payload to send with the request
+ * @param  {object} config  option that you want apply to the request
+ * @example
+ * import { sagas } from '@talend/react-cmf';
+ * import { call } from 'redux-saga/effects'
+ * yield call(sagas.http.patch, '/foo', {foo: 42});
+ */
+export function* httpPatch(url, payload, config) {
+	return yield* wrapFetch(url, config, HTTP_METHODS.PATCH, payload);
+}
+
+/**
+ * function - fetch a url with PUT method
  *
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
@@ -164,7 +179,7 @@ export function* httpPut(url, payload, config) {
 }
 
 /**
- * function - fetch an url with DELETE method
+ * function - fetch a url with DELETE method
  *
  * @param  {string} url     url to request
  * @param  {object} config  option that you want apply to the request
@@ -178,7 +193,7 @@ export function* httpDelete(url, config) {
 }
 
 /**
- * function - fetch an url with GET method
+ * function - fetch a url with GET method
  *
  * @param  {string} url     url to request
  * @param  {object} config  option that you want apply to the request
@@ -200,6 +215,7 @@ export default {
 	get: httpGet,
 	post: httpPost,
 	put: httpPut,
+	patch: httpPatch,
 	create(defaultConfig = {}) {
 		const configEnhancer = handleDefaultConfiguration(defaultConfig);
 		return {
@@ -214,6 +230,9 @@ export default {
 			},
 			put: function* configuredPut(url, payload, config = {}) {
 				return yield call(httpPut, url, payload, configEnhancer(config));
+			},
+			patch: function* configuredPatch(url, payload, config = {}) {
+				return yield call(httpPatch, url, payload, configEnhancer(config));
 			},
 		};
 	},
