@@ -231,6 +231,9 @@ export default {
 			put: function* configuredPut(url, payload, config = {}) {
 				return yield call(httpPut, url, payload, configEnhancer(config));
 			},
+			patch: function* configuredPatch(url, payload, config = {}) {
+				return yield call(httpPatch, url, payload, configEnhancer(config));
+			},
 		};
 	},
 };
