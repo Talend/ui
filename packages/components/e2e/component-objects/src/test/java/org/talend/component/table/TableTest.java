@@ -17,7 +17,7 @@ public class TableTest extends StorybookTest {
 
     @Before
     public void init() {
-        goToStory("List", "Virtualized - table display");
+        goToStory("List", "Table display");
     }
 
     @Test
@@ -168,7 +168,7 @@ public class TableTest extends StorybookTest {
     @Test
     public void should_click_on_item_specific_cell_action() {
         // given
-        goToStory("List", "Virtualized - column actions");
+        goToStory("List", "Column actions");
         assertThat(getActionLog(), not(startsWith("▶onFavorite:")));
 
         // when

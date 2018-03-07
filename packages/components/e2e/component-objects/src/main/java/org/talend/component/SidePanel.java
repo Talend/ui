@@ -21,9 +21,9 @@ public class SidePanel extends Component {
 
     static final String SELECTOR = ".tc-side-panel";
 
-    static final String MENU_ITEMS_SELECTOR = ".tc-side-panel-list-item span";
+    static final String MENU_ITEMS_SELECTOR = SELECTOR + " .tc-action-list-item span";
 
-    static final String MENU_ITEM_ACTIVE_SELECTOR = ".tc-side-panel-list-item.active span";
+    static final String MENU_ITEM_ACTIVE_SELECTOR = SELECTOR + " .tc-action-list-item.active span";
 
     /**
      * SidePanel constructor

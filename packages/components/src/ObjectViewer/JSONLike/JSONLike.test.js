@@ -1,11 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Component, {
 	ARRAY_ABSTRACT,
 	OBJECT_ABSTRACT,
 	abstracter,
 	getDataAbstract,
 	getDataInfo,
+	ComplexItem,
 } from './JSONLike.component';
 
 describe('JSONLike', () => {
@@ -152,6 +153,47 @@ describe('JSONLike', () => {
 
 		it('abstracts an object with an array inside', () => {
 			expect(getDataAbstract(arrayInObject)).toEqual(`${ARRAY_ABSTRACT}, Nantes, France`);
+		});
+	});
+
+	describe('ComplexItem', () => {
+		it('basic render', () => {
+			// given
+			const mockOnSelect = jest.fn();
+			// when
+			const wrapper = shallow(
+				<ComplexItem onSelect={mockOnSelect} opened={[]} edited={[]} info={{}} />,
+			);
+
+			// expect
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+
+		// skeletton test to be activated when enzyme will fix
+		// https://github.com/airbnb/enzyme/issues/308
+		xit('don"t trigger wrapping form submit when used', () => {
+			// given
+			const mockOnSelect = jest.fn();
+			const mockOnToggle = jest.fn();
+			const mockOnSubmitClick = jest.fn();
+			// when
+			const wrapper = mount(
+				<form onSubmit={mockOnSubmitClick}>
+					<ComplexItem
+						onSelect={mockOnSelect}
+						onToggle={mockOnToggle}
+						opened={[]}
+						edited={[]}
+						info={{}}
+					/>
+					<button type="submit" onClick={mockOnSubmitClick} />
+				</form>,
+			);
+			wrapper.find('button.tc-svg-anchor').simulate('click');
+
+			// expect
+			expect(mockOnToggle.mock.calls.length).toEqual(1);
+			expect(mockOnSubmitClick.mock.calls.length).toEqual(0);
 		});
 	});
 });

@@ -1,0 +1,22 @@
+$td-quality-bar-height: 0.5rem !default;
+
+.td-quality-bar {
+	display: flex;
+	height: $td-quality-bar-height;
+	width: 100%;
+	padding: 0 0.3rem;
+	position: absolute;
+	bottom: 0;
+
+	&-invalid {
+		background-color: $td-quality-bar-invalid-background-color;
+	}
+
+	&-valid {
+		background-color: $td-quality-bar-valid-background-color;
+	}
+
+	&-empty {
+		background-color: $td-quality-bar-empty-background-color;
+	}
+}

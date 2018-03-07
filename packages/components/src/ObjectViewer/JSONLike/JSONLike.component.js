@@ -11,7 +11,7 @@ import theme from './JSONLike.scss';
 
 function noop() {}
 
-const VALIDE_TYPES = ['number', 'string', 'boolean', 'bool'];
+const VALIDE_TYPES = ['number', 'string', 'bool'];
 const COMPLEX_TYPES = ['object', 'array'];
 
 export const ARRAY_ABSTRACT = '[...]';
@@ -247,6 +247,7 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 				transform={iconTransform}
 				className={theme['wider-icon-selection']}
 				onClick={e => {
+					e.preventDefault();
 					e.stopPropagation();
 					props.onToggle(e, { data, isOpened, jsonpath });
 				}}
@@ -264,7 +265,11 @@ export function ComplexItem({ data, name, opened, edited, jsonpath, info, onSele
 						<button
 							className={`tc-object-viewer-line-type ${theme['line-type']} `}
 							type="button"
-							onClick={e => stopAndSelect(e, { onSelect, jsonpath })}
+							onClick={e => {
+								e.preventDefault();
+								e.stopPropagation();
+								stopAndSelect(e, { onSelect, jsonpath });
+							}}
 						>
 							({info.type})
 						</button>
@@ -304,13 +309,13 @@ ComplexItem.propTypes = {
 		PropTypes.array,
 	]),
 	name: PropTypes.string,
-	opened: PropTypes.arrayOf(PropTypes.string),
-	edited: PropTypes.arrayOf(PropTypes.string),
+	opened: PropTypes.arrayOf(PropTypes.string).isRequired,
+	edited: PropTypes.arrayOf(PropTypes.string).isRequired,
 	jsonpath: PropTypes.string,
 	tupleLabel: PropTypes.string,
 	onMouseOver: PropTypes.func,
 	onEdit: PropTypes.func,
-	onToggle: PropTypes.func,
+	onToggle: PropTypes.func.isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selectedJsonpath: PropTypes.string,
 	onSubmit: PropTypes.func,
@@ -320,7 +325,7 @@ ComplexItem.propTypes = {
 		type: PropTypes.string,
 		keys: PropTypes.array,
 		length: PropTypes.number,
-	}),
+	}).isRequired,
 };
 
 export function Item({ data, name, opened, edited, jsonpath, ...props }) {
@@ -470,7 +475,7 @@ export function JSONLike({ onSubmit, className, style, ...props }) {
 }
 
 JSONLike.propTypes = {
-	data: PropTypes.oneOfType([...VALIDE_TYPES, ...COMPLEX_TYPES].map(t => `PropTypes.${t}`)),
+	data: PropTypes.oneOfType([...VALIDE_TYPES, ...COMPLEX_TYPES].map(t => PropTypes[t])),
 	onSubmit: PropTypes.func,
 	className: PropTypes.string,
 	style: PropTypes.object,

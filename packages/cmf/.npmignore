@@ -44,7 +44,6 @@ src
 .eslintignore
 .eslintrc
 *.tgz
-BREAKING_CHANGES_LOG.md
 docs.json
 env__tests.js
 yarn.lock
