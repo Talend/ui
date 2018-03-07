@@ -417,9 +417,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             disabled={false}
             id="header-user"
             onClick={[Function]}
-            onFocus={[Function]}
             onKeyDown={[Function]}
-            onMouseOver={[Function]}
             role="button"
             type="button"
           >
@@ -962,10 +960,10 @@ exports[`Storyshots HeaderBar while searching 1`] = `
           role="search"
         >
           <div
-            className="theme-tc-typeahead-container theme-right"
+            className="theme-tc-typeahead-container tc-typeahead-container theme-right"
           >
             <div
-              className="theme-typeahead-input-icon"
+              className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
             >
               <label
                 className="control-label sr-only"
@@ -981,7 +979,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 aria-owns="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
-                className="theme-typeahead-input form-control"
+                className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
                 disabled={false}
                 id="react-autowhatever-42-input"
                 onBlur={[Function]}
@@ -999,7 +997,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               id={undefined}
             >
               <div
-                className="theme-items-container theme-is-searching"
+                className="theme-items-container tc-typeahead-items-container theme-is-searching"
                 id="react-autowhatever-42"
               >
                 <span
@@ -1074,9 +1072,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             disabled={false}
             id="header-user"
             onClick={[Function]}
-            onFocus={[Function]}
             onKeyDown={[Function]}
-            onMouseOver={[Function]}
             role="button"
             type="button"
           >
@@ -1749,9 +1745,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             disabled={false}
             id="header-user"
             onClick={[Function]}
-            onFocus={[Function]}
             onKeyDown={[Function]}
-            onMouseOver={[Function]}
             role="button"
             type="button"
           >
@@ -2358,9 +2352,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             disabled={false}
             id="header-user"
             onClick={[Function]}
-            onFocus={[Function]}
             onKeyDown={[Function]}
-            onMouseOver={[Function]}
             role="button"
             type="button"
           >
@@ -2967,9 +2959,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             disabled={false}
             id="header-user"
             onClick={[Function]}
-            onFocus={[Function]}
             onKeyDown={[Function]}
-            onMouseOver={[Function]}
             role="button"
             type="button"
           >
@@ -3512,10 +3502,10 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
           role="search"
         >
           <div
-            className="theme-tc-typeahead-container theme-right"
+            className="theme-tc-typeahead-container tc-typeahead-container theme-right"
           >
             <div
-              className="theme-typeahead-input-icon"
+              className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
             >
               <label
                 className="control-label sr-only"
@@ -3531,7 +3521,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 aria-owns="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
-                className="theme-typeahead-input form-control"
+                className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
                 disabled={false}
                 id="react-autowhatever-42-input"
                 onBlur={[Function]}
@@ -3549,7 +3539,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               id={undefined}
             >
               <div
-                className="theme-items-container theme-no-result"
+                className="theme-items-container tc-typeahead-items-container theme-no-result"
                 id="react-autowhatever-42"
               >
                 <span
@@ -3604,9 +3594,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             disabled={false}
             id="header-user"
             onClick={[Function]}
-            onFocus={[Function]}
             onKeyDown={[Function]}
-            onMouseOver={[Function]}
             role="button"
             type="button"
           >
@@ -4239,9 +4227,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             disabled={false}
             id="header-user"
             onClick={[Function]}
-            onFocus={[Function]}
             onKeyDown={[Function]}
-            onMouseOver={[Function]}
             role="button"
             type="button"
           >
@@ -4784,10 +4770,10 @@ exports[`Storyshots HeaderBar with search input 1`] = `
           role="search"
         >
           <div
-            className="theme-tc-typeahead-container"
+            className="theme-tc-typeahead-container tc-typeahead-container"
           >
             <div
-              className="theme-typeahead-input-icon"
+              className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
             >
               <label
                 className="control-label sr-only"
@@ -4803,7 +4789,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 aria-owns="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
-                className="theme-typeahead-input form-control"
+                className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
                 disabled={false}
                 id="react-autowhatever-42-input"
                 onBlur={[Function]}
@@ -4821,7 +4807,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               id={undefined}
             >
               <div
-                className="theme-items-container"
+                className="theme-items-container tc-typeahead-items-container"
                 id="react-autowhatever-42"
               />
             </div>
@@ -4870,9 +4856,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             disabled={false}
             id="header-user"
             onClick={[Function]}
-            onFocus={[Function]}
             onKeyDown={[Function]}
-            onMouseOver={[Function]}
             role="button"
             type="button"
           >
@@ -5415,10 +5399,10 @@ exports[`Storyshots HeaderBar with search results 1`] = `
           role="search"
         >
           <div
-            className="theme-tc-typeahead-container theme-right theme-container-open"
+            className="theme-tc-typeahead-container tc-typeahead-container theme-right theme-container-open tc-typeahead-container-open"
           >
             <div
-              className="theme-typeahead-input-icon"
+              className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
             >
               <label
                 className="control-label sr-only"
@@ -5434,7 +5418,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 aria-owns="react-autowhatever-42"
                 autoComplete="off"
                 autoFocus={true}
-                className="theme-typeahead-input form-control"
+                className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
                 disabled={false}
                 id="react-autowhatever-42-input"
                 onBlur={[Function]}
@@ -5452,17 +5436,17 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               id={undefined}
             >
               <div
-                className="theme-items-container"
+                className="theme-items-container tc-typeahead-items-container"
                 id="react-autowhatever-42"
               >
                 <div
-                  className="theme-section-container"
+                  className="theme-section-container tc-typeahead-section-container"
                 >
                   <div
                     style={Object {}}
                   >
                     <div
-                      className="theme-section-header"
+                      className="theme-section-header tc-typeahead-section-header"
                     >
                       <svg
                         aria-hidden="true"
@@ -5475,7 +5459,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         />
                       </svg>
                       <span
-                        className="theme-section-header-title"
+                        className="theme-section-header-title tc-typeahead-section-header-title"
                       >
                         category 1
                       </span>
@@ -5496,7 +5480,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         title="le title 1"
                       >
                         <span
-                          className="theme-item-title"
+                          className="theme-item-title tc-typeahead-item-title"
                         >
                           <span>
                             <em
@@ -5514,7 +5498,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           </span>
                         </span>
                         <p
-                          className="theme-item-description"
+                          className="theme-item-description tc-typeahead-item-description"
                         >
                           <span>
                             description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
@@ -5539,7 +5523,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         title="title 2 les elephants elementaires ont des aile"
                       >
                         <span
-                          className="theme-item-title"
+                          className="theme-item-title tc-typeahead-item-title"
                         >
                           <span>
                             tit
@@ -5575,7 +5559,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           </span>
                         </span>
                         <p
-                          className="theme-item-description"
+                          className="theme-item-description tc-typeahead-item-description"
                         >
                           <span>
                             description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
@@ -5586,13 +5570,13 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                   </ul>
                 </div>
                 <div
-                  className="theme-section-container"
+                  className="theme-section-container tc-typeahead-section-container"
                 >
                   <div
                     style={Object {}}
                   >
                     <div
-                      className="theme-section-header"
+                      className="theme-section-header tc-typeahead-section-header"
                     >
                       <svg
                         aria-hidden="true"
@@ -5605,7 +5589,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         />
                       </svg>
                       <span
-                        className="theme-section-header-title"
+                        className="theme-section-header-title tc-typeahead-section-header-title"
                       >
                         category 2
                       </span>
@@ -5626,7 +5610,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         title="title 3"
                       >
                         <span
-                          className="theme-item-title"
+                          className="theme-item-title tc-typeahead-item-title"
                         >
                           <span>
                             tit
@@ -5639,7 +5623,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           </span>
                         </span>
                         <p
-                          className="theme-item-description"
+                          className="theme-item-description tc-typeahead-item-description"
                         >
                           <span>
                             description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
@@ -5656,13 +5640,13 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                   </ul>
                 </div>
                 <div
-                  className="theme-section-container"
+                  className="theme-section-container tc-typeahead-section-container"
                 >
                   <div
                     style={Object {}}
                   >
                     <div
-                      className="theme-section-header"
+                      className="theme-section-header tc-typeahead-section-header"
                     >
                       <svg
                         aria-hidden="true"
@@ -5675,7 +5659,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         />
                       </svg>
                       <span
-                        className="theme-section-header-title"
+                        className="theme-section-header-title tc-typeahead-section-header-title"
                       >
                         category 3
                       </span>
@@ -5696,7 +5680,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         title="title 4"
                       >
                         <span
-                          className="theme-item-title"
+                          className="theme-item-title tc-typeahead-item-title"
                         >
                           <span>
                             tit
@@ -5709,7 +5693,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           </span>
                         </span>
                         <p
-                          className="theme-item-description"
+                          className="theme-item-description tc-typeahead-item-description"
                         >
                           <span>
                             description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.
@@ -5728,7 +5712,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         title="title 5"
                       >
                         <span
-                          className="theme-item-title"
+                          className="theme-item-title tc-typeahead-item-title"
                         >
                           <span>
                             tit
@@ -5741,7 +5725,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           </span>
                         </span>
                         <p
-                          className="theme-item-description"
+                          className="theme-item-description tc-typeahead-item-description"
                         >
                           <span>
                             description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.
@@ -5760,7 +5744,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                         title="title 6"
                       >
                         <span
-                          className="theme-item-title"
+                          className="theme-item-title tc-typeahead-item-title"
                         >
                           <span>
                             tit
@@ -5773,7 +5757,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                           </span>
                         </span>
                         <p
-                          className="theme-item-description"
+                          className="theme-item-description tc-typeahead-item-description"
                         >
                           <span>
                             description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.
@@ -5830,9 +5814,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             disabled={false}
             id="header-user"
             onClick={[Function]}
-            onFocus={[Function]}
             onKeyDown={[Function]}
-            onMouseOver={[Function]}
             role="button"
             type="button"
           >
@@ -6465,9 +6447,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             disabled={false}
             id="header-user"
             onClick={[Function]}
-            onFocus={[Function]}
             onKeyDown={[Function]}
-            onMouseOver={[Function]}
             role="button"
             type="button"
           >
@@ -7700,9 +7680,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                   disabled={false}
                   id="header-user"
                   onClick={[Function]}
-                  onFocus={[Function]}
                   onKeyDown={[Function]}
-                  onMouseOver={[Function]}
                   role="button"
                   type="button"
                 >
@@ -8321,9 +8299,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                   disabled={false}
                   id="header-user"
                   onClick={[Function]}
-                  onFocus={[Function]}
                   onKeyDown={[Function]}
-                  onMouseOver={[Function]}
                   role="button"
                   type="button"
                 >
@@ -8942,9 +8918,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                   disabled={false}
                   id="header-user"
                   onClick={[Function]}
-                  onFocus={[Function]}
                   onKeyDown={[Function]}
-                  onMouseOver={[Function]}
                   role="button"
                   type="button"
                 >
@@ -9563,9 +9537,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                   disabled={false}
                   id="header-user"
                   onClick={[Function]}
-                  onFocus={[Function]}
                   onKeyDown={[Function]}
-                  onMouseOver={[Function]}
                   role="button"
                   type="button"
                 >
@@ -10184,9 +10156,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                   disabled={false}
                   id="header-user"
                   onClick={[Function]}
-                  onFocus={[Function]}
                   onKeyDown={[Function]}
-                  onMouseOver={[Function]}
                   role="button"
                   type="button"
                 >
@@ -10805,9 +10775,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                   disabled={false}
                   id="header-user"
                   onClick={[Function]}
-                  onFocus={[Function]}
                   onKeyDown={[Function]}
-                  onMouseOver={[Function]}
                   role="button"
                   type="button"
                 >
@@ -11426,9 +11394,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                   disabled={false}
                   id="header-user"
                   onClick={[Function]}
-                  onFocus={[Function]}
                   onKeyDown={[Function]}
-                  onMouseOver={[Function]}
                   role="button"
                   type="button"
                 >
