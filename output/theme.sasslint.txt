@@ -1,5 +1,5 @@
 
-> @talend/bootstrap-theme@0.162.0 lint:style /home/travis/build/Talend/ui/packages/theme
+> @talend/bootstrap-theme@0.163.0 lint:style /home/travis/build/Talend/ui/packages/theme
 > sass-lint -q -v
 
 
@@ -10,8 +10,8 @@ src/theme/_dropdowns.scss
   22:22  error  !important not allowed  no-important
 
 src/theme/_forms.scss
-  125:7  warning  Vendor prefixes should not be used  no-vendor-prefixes
-  491:8  warning  Vendor prefixes should not be used  no-vendor-prefixes
+  127:7  warning  Vendor prefixes should not be used  no-vendor-prefixes
+  472:8  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
