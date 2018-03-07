@@ -39,9 +39,8 @@ npm install @talend/icons
 Next you can get the icon set object through a simple require:
 
 ```javascript
-var icons = require('@talend/icons').default;
-icons.svgs['add'];
-<svg ...></svg>
+const icons = require('@talend/icons').default;
+const addIcon = icons.svgs['add'];
 ```
 
 This icon set is registred within [@talend/react-components](https://github.com/Talend/ui/tree/master/packages/components) Icon. So you can use it through this addon.

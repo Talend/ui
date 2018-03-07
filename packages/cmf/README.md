@@ -199,8 +199,8 @@ return actions.http.get(url, {
 				};
 			});
 		},
-	});
-}
+	}
+);
 ```
 
 The request is done using the fecth API so you may add the [github's fetch

@@ -19,54 +19,52 @@ You will find a [list of breaking changes here](https://github.com/Talend/ui/wik
 Look in ./src/errorTransformer.js for jsDoc on each parameter
 
 ```javascript
-    import LOGGING_SERVER_URL from 'somewhere';
-    import { initErrorTransformer, TraceKit } from '@talend/log';
+import LOGGING_SERVER_URL from 'somewhere';
+import { initErrorTransformer, TraceKit } from '@talend/log';
 
-    initErrorTransformer(
-        LOGGING_SERVER_URL, {
-            send: (payload, fetchOptions) => fetch(LOGGING_SERVER_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    '@message': payload
-                }),
-                ...fetchOptions,
+initErrorTransformer(
+    LOGGING_SERVER_URL, {
+        send: (payload, fetchOptions) => fetch(LOGGING_SERVER_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                '@message': payload
             }),
-            payloadMiddleware: payload => Object.assign({
-                state: TraceKit.store.getState()
-            }, payload),
-            fetchOptions: {
-                headers: {
-                    'Content-Type': 'application/json',
-                    custom: 'customData'
-                }
-            },
-            successHandler: (responseText) => {
-                alert('yay! ' + responseText)
-            },
-            retryCount: 5,
-            retryTimeout: 3000,
-            failedTryHandler: function failedTry(error, payload, transportOpts, attempt) {
-                alert('Oh no! ' + error);
-                transportOpts.send(transportOpts.payloadMiddleware(payload), transportOpts.fetchOptions, attempt + 1);
-            },
-            failedReportHandler: (errorResponse) => {
-                alert('oh no! ' + errorResponse)
-            },
-        }, {
-            stackTraceLimit: 100,
-            linesOfContext: 13,
-            rethrowErrorHandler: () => {},
-            remoteFetching: true,
-            collectWindowErrors: true,
-        }
-    );
+            ...fetchOptions,
+        }),
+        payloadMiddleware: payload => Object.assign({
+            state: TraceKit.store.getState()
+        }, payload),
+        fetchOptions: {
+            headers: {
+                'Content-Type': 'application/json',
+                custom: 'customData'
+            }
+        },
+        successHandler: (responseText) => {
+            alert('yay! ' + responseText)
+        },
+        retryCount: 5,
+        retryTimeout: 3000,
+        failedTryHandler: function failedTry(error, payload, transportOpts, attempt) {
+            alert('Oh no! ' + error);
+            transportOpts.send(transportOpts.payloadMiddleware(payload), transportOpts.fetchOptions, attempt + 1);
+        },
+        failedReportHandler: (errorResponse) => {
+            alert('oh no! ' + errorResponse)
+        },
+    }, {
+        stackTraceLimit: 100,
+        linesOfContext: 13,
+        rethrowErrorHandler: () => {},
+        remoteFetching: true,
+        collectWindowErrors: true,
+    }
+);
 
-    ...
-
-    TraceKit.report(new Error('My error'));
+TraceKit.report(new Error('My error'));
 ```
 
 Notable details:
