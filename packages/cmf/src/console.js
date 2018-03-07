@@ -37,12 +37,12 @@ export const LOGGER_METHODS_FOR_PRODUCTION = [
  * @type {{}}
  */
 const logger = {
-	_prefix: LOGGER_PREFIX,
+	prefix: LOGGER_PREFIX,
 	setPrefix(prefix) {
-		this._prefix = prefix;
+		this.prefix = prefix;
 	},
 	getPrefix() {
-		return this._prefix;
+		return this.prefix;
 	}
 };
 
@@ -55,7 +55,7 @@ const windowConsole = (typeof window !== 'undefined') ? window.console : [];
 LOGGER_METHODS.forEach(method => {
 	logger[method] = (...args) => {
 		if (process.env.NODE_ENV !== 'production' || LOGGER_METHODS_FOR_PRODUCTION.includes(method)) {
-			const windowConsoleMethod = windowConsole[method] || windowConsole['log'];
+			const windowConsoleMethod = windowConsole[method] || windowConsole.log;
 			if (windowConsoleMethod) {
 				const consoleArgs = Array.prototype.slice.call(args);
 				consoleArgs.unshift(logger.getPrefix());
