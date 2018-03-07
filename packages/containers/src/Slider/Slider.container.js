@@ -40,8 +40,8 @@ class Slider extends React.Component {
 		if (this.props.onAfterChange) {
 			this.props.onAfterChange(value);
 		}
-		if (this.props.onAfterChangeActionCreator) {
-			this.props.dispatchActionCreator(this.props.onAfterChangeActionCreator, null, {
+		if (this.props.onAfterChangeAction) {
+			this.props.dispatchActionCreator(this.props.onAfterChangeAction, null, {
 				value,
 			});
 		}
@@ -52,8 +52,8 @@ class Slider extends React.Component {
 		if (this.props.onChange) {
 			this.props.onChange(value);
 		}
-		if (this.props.onChangeActionCreator) {
-			this.props.dispatchActionCreator(this.props.onChangeActionCreator, null, {
+		if (this.props.onChangeAction) {
+			this.props.dispatchActionCreator(this.props.onChangeAction, null, {
 				value,
 			});
 		}

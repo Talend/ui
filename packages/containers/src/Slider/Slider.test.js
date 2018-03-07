@@ -27,10 +27,10 @@ describe('Filter container', () => {
 
 	describe('onAfterChange', () => {
 		it('should call dispatchActionCreator method when onAfterChange', () => {
-			const onAfterChangeActionCreator = jest.fn();
+			const onAfterChangeAction = jest.fn();
 			const dispatchActionCreator = jest.fn();
 			const container = new Container({
-				onAfterChangeActionCreator,
+				onAfterChangeAction,
 				dispatchActionCreator,
 			});
 
@@ -65,11 +65,11 @@ describe('Filter container', () => {
 		});
 
 		it('should call dispatchActionCreator method when onChange', () => {
-			const onChangeActionCreator = jest.fn();
+			const onChangeAction = jest.fn();
 			const dispatchActionCreator = jest.fn();
 			const container = new Container({
 				setState,
-				onChangeActionCreator,
+				onChangeAction,
 				dispatchActionCreator,
 			});
 
