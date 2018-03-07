@@ -13,7 +13,8 @@ const viewSubHeader = {
 const injectedComponentsCenter = {
 	center: [
 		{
-			componentId: 'FilterBar',
+			component: 'FilterBar',
+			center: true,
 			navbar: true,
 			docked: false,
 			dockable: false,
@@ -24,11 +25,13 @@ const injectedComponentsRight = {
 	right: [
 		{
 			actionId: 'subheaderbar:action-sharing',
-			componentId: 'Action',
+			component: 'Action',
+			right: true,
 		},
 		{
 			actionId: 'subheaderbar:action-bubbles',
-			componentId: 'Action',
+			component: 'Action',
+			right: true,
 		},
 	],
 };
@@ -76,14 +79,14 @@ const ExampleSubHeaderBar = {
 			<IconsProvider />
 			<SubHeaderBar
 				{...props}
-				injectedComponents={injectedComponentsRight}
+				components={injectedComponentsRight}
 			/>
 		</div>
 	),
 	'with-center-actions': () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar {...props} injectedComponents={injectedComponentsCenter} />
+			<SubHeaderBar {...props} components={injectedComponentsCenter} />
 		</div>
 	),
 	'with-all': () => (
@@ -91,7 +94,7 @@ const ExampleSubHeaderBar = {
 			<IconsProvider />
 			<SubHeaderBar
 				{...props}
-				injectedComponents={Object.assign({}, injectedComponentsCenter, injectedComponentsRight)}
+				components={Object.assign({}, injectedComponentsCenter, injectedComponentsRight)}
 				iconId="talend-file-csv-o"
 				subTitle="mySubTitle"
 				editable
