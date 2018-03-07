@@ -55,18 +55,6 @@ function Breadcrumbs(props) {
 			</li>
 		);
 
-		function getItemContent() {
-			return onClick ? (
-				<Button id={id} bsStyle="link" role="link" title={title} onClick={wrappedOnClick}>
-					{text}
-				</Button>
-			) : (
-				<span id={id} title={title}>
-					{text}
-				</span>
-			);
-		}
-
 		/**
 		 * Wrapper for onClick in order to return item
 		 * @param args Arguments of default onClick callback
@@ -75,6 +63,17 @@ function Breadcrumbs(props) {
 		let wrappedOnClick;
 		if (onClick) {
 			wrappedOnClick = event => onClick(event, item);
+		}
+		function getItemContent() {
+			return !isActive && onClick ? (
+				<Button id={id} bsStyle="link" role="link" title={title} onClick={wrappedOnClick}>
+					{text}
+				</Button>
+			) : (
+				<span id={id} title={title}>
+					{text}
+				</span>
+			);
 		}
 		if (maxItemsReached && index < ellipsisIndex) {
 			return (
@@ -95,8 +94,8 @@ function Breadcrumbs(props) {
 			];
 		}
 		return [
-			<li className={classNames('tc-breadcrumb-item', { ['active']: isActive })} key={index}>
-				{!isActive && getItemContent()}
+			<li className={classNames('tc-breadcrumb-item', { active: isActive })} key={index}>
+				{getItemContent()}
 			</li>,
 			separator,
 		];

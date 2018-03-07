@@ -18,10 +18,6 @@ public class StorybookTest {
 
     private static final String ACTION_LOGGER_CONSOLE_SELECTOR = ".horizontal.Pane2 > div > div > div:last-child";
 
-    private static final String STORY_CATEGORY_SELECTOR = "div[data-name='%s']";
-
-    private static final String STORY_MENU_SELECTOR = "a[data-name='%s']";
-
     private static final String DEFAULT_STORY_NAME = "default";
 
     private static final String STORYBOOK_HOST = "localhost";

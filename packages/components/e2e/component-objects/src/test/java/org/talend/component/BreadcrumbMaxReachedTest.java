@@ -46,7 +46,7 @@ public class BreadcrumbMaxReachedTest extends StorybookTest {
         assertThat(getActionLog(), not(containsString("▶Text D clicked")));
 
         // when
-        breadcrumb.getItem("Text D").click();
+        breadcrumb.clickOnItem("Text D");
 
         // then
         assertThat(getActionLog(), containsString("▶Text D clicked"));
@@ -80,12 +80,9 @@ public class BreadcrumbMaxReachedTest extends StorybookTest {
         assertThat(getActionLog(), not(containsString("▶Text C clicked")));
 
         // when
-        breadcrumb.getCollapsedMenuButton().click();
-        breadcrumb.getCollapsedMenuItem("Text A").click();
-        breadcrumb.getCollapsedMenuButton().click();
-        breadcrumb.getCollapsedMenuItem("Text B").click();
-        breadcrumb.getCollapsedMenuButton().click();
-        breadcrumb.getCollapsedMenuItem("Text C").click();
+        breadcrumb.clickOnItem("Text A");
+        breadcrumb.clickOnItem("Text B");
+        breadcrumb.clickOnItem("Text C");
 
         // then
         assertThat(getActionLog(), containsString("▶Text A clicked"));

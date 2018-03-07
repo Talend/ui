@@ -14,75 +14,89 @@ public class Breadcrumb extends Component {
 
     private static final Logger LOGGER = LogManager.getLogger(Breadcrumb.class);
 
-    static final String NAME = "Breadcrumb";
+    private static final String NAME = "Breadcrumb";
 
-    static final String SELECTOR = ".tc-breadcrumb";
+    private static final String SELECTOR = ".tc-breadcrumb";
 
-    static final String ITEM_SELECTOR = ".tc-breadcrumb-item";
+    private static final String ITEM_SELECTOR = ".tc-breadcrumb-item";
 
-    static final String ACTIVE_ITEM_SELECTOR = ITEM_SELECTOR + ".active";
+    private static final String ACTIVE_ITEM_SELECTOR = ITEM_SELECTOR + ".active";
 
-    static final String COLLAPSED_MENU_BUTTON_SELECTOR = ".dropdown-toggle";
+    private static final String COLLAPSED_MENU_BUTTON_SELECTOR = ".dropdown-toggle";
 
-    static final String COLLAPSED_MENU_SELECTOR = ".dropdown-menu";
+    private static final String COLLAPSED_MENU_SELECTOR = ".dropdown-menu";
 
-    static final String COLLAPSED_MENU_ITEM_SELECTOR = COLLAPSED_MENU_SELECTOR + " a";
+    private static final String COLLAPSED_MENU_ITEM_SELECTOR = COLLAPSED_MENU_SELECTOR + " a";
 
     /**
      * Breadcrumb constructor
      *
      * @param driver Selenium WebDriver
      */
-    Breadcrumb(WebDriver driver) {
+    public Breadcrumb(WebDriver driver) {
         super(driver, NAME, SELECTOR);
     }
 
     public List<WebElement> getItems() {
-        LOGGER.info(NAME + ".getItems");
+        LOGGER.debug(NAME + ".getItems");
         return this.getElement().findElements(By.cssSelector(ITEM_SELECTOR));
     }
 
-    public WebElement getItem(String label) {
-        LOGGER.info(NAME + ".getItem " + label);
-        Iterator<WebElement> elements = this.getItems().iterator();
-        while (elements.hasNext()) {
-            WebElement el = elements.next();
-            if (el.getText().equals(label)) {
-                return el;
+    public WebElement getItem(final String text) {
+        LOGGER.debug(NAME + ".getItem " + text);
+        for (WebElement item : this.getItems()) {
+            if (item.getText().equals(text)) {
+                return item;
             }
         }
-        throw new NotFoundException(label);
+        throw new NotFoundException(text);
     }
 
     public WebElement getActiveItem() {
-        LOGGER.info(NAME + ".getActiveItem");
+        LOGGER.debug(NAME + ".getActiveItem");
         return this.getElement().findElement(By.cssSelector(ACTIVE_ITEM_SELECTOR));
     }
 
     public WebElement getCollapsedMenuButton() {
-        LOGGER.info(NAME + ".getCollapsedMenuButton");
+        LOGGER.debug(NAME + ".getCollapsedMenuButton");
         return this.getElement().findElement(By.cssSelector(COLLAPSED_MENU_BUTTON_SELECTOR));
     }
 
     public WebElement getCollapsedMenu() {
-        LOGGER.info(NAME + ".getCollapsedMenu");
+        LOGGER.debug(NAME + ".getCollapsedMenu");
         return this.getElement().findElement(By.cssSelector(COLLAPSED_MENU_SELECTOR));
     }
 
     public List<WebElement> getCollapsedMenuItems() {
-        LOGGER.info(NAME + ".getCollapsedMenuItems");
+        LOGGER.debug(NAME + ".getCollapsedMenuItems");
         return this.getElement().findElements(By.cssSelector(COLLAPSED_MENU_ITEM_SELECTOR));
     }
 
-    public WebElement getCollapsedMenuItem(String label) {
-        LOGGER.info(NAME + ".getCollapsedMenuItem " + label);
-        Iterator<WebElement> elements = this.getCollapsedMenuItems().iterator();
-        while (elements.hasNext()) {
-            WebElement el = elements.next();
-            if (el.getText().equals(label)) {
-                return el;
+    public WebElement getCollapsedMenuItem(final String text) {
+        LOGGER.debug(NAME + ".getCollapsedMenuItem " + text);
+        for (final WebElement item : this.getCollapsedMenuItems()) {
+            if (item.getText().equals(text)) {
+                return item;
             }
         }
-        throw new NotFoundException(label);
+        throw new NotFoundException(text);
+    }
+
+    /* click helpers */
+
+    public void clickOnMenuItem(final String text) {
+        LOGGER.info(NAME + ".clickOnMenuItem " + text);
+        this.getCollapsedMenuButton().click();
+        this.getCollapsedMenuItem(text).click();
+    }
+
+    public void clickOnItem(final String text) {
+        LOGGER.info(NAME + ".clickOnItem " + text);
+        try {
+            this.getItem(text).click();
+        } catch (NotFoundException nfe) {
+            // fallback
+            this.clickOnMenuItem(text);
+        }
     }
 }

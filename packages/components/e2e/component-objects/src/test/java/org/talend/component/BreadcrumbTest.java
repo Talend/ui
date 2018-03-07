@@ -44,9 +44,9 @@ public class BreadcrumbTest extends StorybookTest {
         assertThat(getActionLog(), not(containsString("▶Text C clicked")));
 
         // when
-        breadcrumb.getItem("Text A").click();
-        breadcrumb.getItem("Text B").click();
-        breadcrumb.getItem("Text C").click();
+        breadcrumb.clickOnItem("Text A");
+        breadcrumb.clickOnItem("Text B");
+        breadcrumb.clickOnItem("Text C");
 
         // then
         assertThat(getActionLog(), containsString("▶Text A clicked"));
