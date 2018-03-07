@@ -102,6 +102,17 @@ cmfState.cmf.settings.props['Container(DataGrid)#default'] = {
 	cellRenderer: 'DefaultCellRenderer',
 };
 
+cmfState.cmf.settings.props['Container(DataGrid)#ProgressDatagrid'] = {
+	dataExpression: {
+		id: 'cmf.collections.get',
+		args: ['sample', []],
+	},
+	onFocusedCellActionCreator: 'datagrid:focus-cell',
+	onFocusedColumnActionCreator: 'datagrid:focus-column',
+	cellRenderer: 'DefaultCellRenderer',
+	loading: true,
+};
+
 cmfState.cmf.settings.props['Container(DataGrid)#CustomizedDatagrid'] = {
 	dataExpression: {
 		id: 'cmf.collections.get',
@@ -182,6 +193,16 @@ storiesOf('Container Datagrid')
 			<div style={{ height: '100vh' }}>
 				<IconsProvider />
 				<DataGrid />
+			</div>
+		),
+		options,
+	)
+	.addWithCMF(
+		'loading',
+		() => (
+			<div style={{ height: '100vh' }}>
+				<IconsProvider />
+				<DataGrid componentId="ProgressDatagrid" />
 			</div>
 		),
 		options,

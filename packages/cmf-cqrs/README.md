@@ -23,10 +23,10 @@ This is a library to help you to build configurable React App with CQRS pattern.
 
 ## Breaking changes log
 
-Before 1.0, `react-cmf-cqrs` do NOT follow semver version in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/react-cmf/blob/master/BREAKING_CHANGES_LOG.md).
+Before 1.0, `@talend/react-cmf-cqrs` do NOT follow semver version in releases.
+You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
-##Content
+## Content
 
 This package provides tools to deal with cqrs backend allowing websocket handling :
 
@@ -35,7 +35,7 @@ This package provides tools to deal with cqrs backend allowing websocket handlin
 * Smart Websocket middleware
 * ACK reducer
 
-##How it works
+## How it works
 
 * to start the websocket with smartWebsocket middleware :
 
@@ -60,6 +60,7 @@ ws = new SmartWebsocket(urlPrefix, {
 ```
 
 socketOptions is optionnal but allows websocket configuration from middleware instanciation within your application.
+
 ```javascript
 {
 	checkInterval: 5000,
@@ -71,7 +72,6 @@ socketOptions is optionnal but allows websocket configuration from middleware in
 * checkInterval : max duration between 2 websocket connections trials if closed
 * pingInterval : duration between ping message from the webapp to the server, like a heartbeat of the connection
 * pingTimeoutDelay : duration after which a PING message not being answered by a PONG will trigger a SOCKET_ON_PING_TIMEOUT and force close of the current connection
-
 
 In onMessage event, you should get middleware handlers as well.
 
@@ -98,7 +98,7 @@ const websocketMiddleware = cqrsMiddlewares.createWebsocketMiddleware(
 	API['stream-websocket'],
 	[...actionListeners],
 	[...socketListener],
-	{...socketOptions },
+	{ ...socketOptions },
 );
 const store = createStore(reducer, initialState, applyMiddleware(websocketMiddleware));
 ```
@@ -111,7 +111,7 @@ const websocketMiddleware = cqrsMiddlewares.createWebsocketMiddleware(
 	API['stream-websocket'],
 	[...actionListeners],
 	[...socketListener],
-	{...socketOptions},
+	{ ...socketOptions },
 );
 
 const store = cmfstore.initialize(reducer, initialState, enhancer, [websocketMiddleware]);
@@ -130,12 +130,12 @@ function myActionListener(previousState, action, nextState) {
 	return JSON.stringify(action);
 }
 ```
+
 the socketListener recieve for each message
 the messageEvent containing all information about the message recieved
 the store.dispatch function so you can dispatch an action
 the store.getState function in case you want to check the store state before doing anything
 the smartWebSocket itself so the listener can access to the websocket itself (eg: datastreams pong socket listener that get timeoutId and clear it before it's execution)
-
 
 ```javascript
 /** an example of an message listener dispatching each message recieved **/
@@ -147,16 +147,19 @@ function myMessageListener(messageEvent, dispatch, getState, smartWebSocket) {
 Additionnaly the websocket middleware dispatch action on socket state change and on message being recieved.
 
 on socket connection open success the following action get dispatched
+
 ```
 { type: SOCKET_ON_OPEN }
 ```
 
 on socket connection being closed the following action get dispatched
+
 ```
 { type: SOCKET_ON_CLOSE }
 ```
 
 on socket connection being closed by an error the following action get dispatched
+
 ```
 { type: SOCKET_ON_ERROR, event: errorEvent }
 ```
@@ -164,6 +167,7 @@ on socket connection being closed by an error the following action get dispatche
 on socket connection receiving a message, no action get dispatched but socketListeners are called which will take care of dispactching action or not or even do something else
 
 on socket connection timeout reached, the following action get dispatched
+
 ```
 { type: SOCKET_ON_PING_TIMEOUT }
 ```
