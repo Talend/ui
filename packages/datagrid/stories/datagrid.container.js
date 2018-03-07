@@ -17,21 +17,21 @@ Object.keys(api.expressions).forEach(id => api.expression.register(id, api.expre
 
 const registerActionCreator = api.actionCreator.register;
 registerActionCreator('datagrid:focus-cell', (event, data) => ({
-	type: 'DATAGRID_FOCUS_CELL',
 	...event,
 	...data,
+	type: 'DATAGRID_FOCUS_CELL',
 }));
 
 registerActionCreator('datagrid:focus-column', (event, data) => ({
-	type: 'DATAGRID_FOCUS_COLUMN',
 	...event,
 	...data,
+	type: 'DATAGRID_FOCUS_COLUMN',
 }));
 
 registerActionCreator('datagrid:vertical-scroll', (event, data) => ({
-	type: 'DATAGRID_SCROLL',
 	...event,
 	...data,
+	type: 'DATAGRID_SCROLL',
 }));
 
 sample.data = [

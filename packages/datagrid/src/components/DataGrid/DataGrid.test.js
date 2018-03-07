@@ -416,7 +416,7 @@ describe('#Datagrid method', () => {
 		expect(instance.removeFocusColumn).toHaveBeenCalled();
 		expect(deselectAll).toHaveBeenCalled();
 		expect(clearFocusedCell).toHaveBeenCalled();
-		expect(onFocusedColumn).toHaveBeenCalledWith(currentColId);
+		expect(onFocusedColumn).toHaveBeenCalledWith({ colId: currentColId });
 	});
 
 	it('should focus a column when an another column is focused', () => {
