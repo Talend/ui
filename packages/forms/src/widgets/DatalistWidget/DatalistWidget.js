@@ -399,8 +399,8 @@ class DatalistWidget extends React.Component {
 		if (this.state.noMatch) {
 			renderItemsContainer = renderNoMatch;
 		} else if (
-			this.state.hasFocus &&
 			this.state.items &&
+			this.state.hasFocus &&
 			this.state.items.length === 0 &&
 			this.props.renderEmptyList
 		) {
