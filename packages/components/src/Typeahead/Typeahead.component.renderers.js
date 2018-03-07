@@ -125,7 +125,9 @@ export function renderSectionTitle(section) {
 		return (
 			<div className={classNames(theme['section-header'], 'tc-typeahead-section-header')}>
 				{section.icon && <Icon name={section.icon.name} title={section.icon.title} />}
-				<span className={classNames(theme['section-header-title'], 'tc-typeahead-section-header-title')}>
+				<span
+					className={classNames(theme['section-header-title'], 'tc-typeahead-section-header-title')}
+				>
 					{section.title}
 				</span>
 			</div>
