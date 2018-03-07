@@ -4,11 +4,11 @@ import Schema from './Schema.js';
 
 const emptySchema = {
 	name: 'schema',
-	elements: []
+	elements: [],
 };
 const schema = {
 	name: 'schema',
-	elements: ['element_1', 'element_2', 'element_3']
+	elements: ['element_1', 'element_2', 'element_3'],
 };
 
 it('single-schema', () => {
