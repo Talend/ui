@@ -23,6 +23,7 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
     <Typeahead
       autoFocus={true}
       disabled={false}
+      docked={false}
       focusedItemIndex={undefined}
       id="my-select-tag"
       items={null}

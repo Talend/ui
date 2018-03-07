@@ -149,6 +149,7 @@ describe('cmfConnect', () => {
 			delete state.cmf.settings.props['TestComponent#connect-id'];
 		});
 	});
+
 	describe('#getMergeProps', () => {
 		it('should mergeProps in order', () => {
 			const props = getMergeProps({
@@ -202,6 +203,8 @@ describe('cmfConnect', () => {
 	});
 
 	describe('Higher Order Component', () => {
+		const Button = ({ onClick, label }) => (<button onClick={onClick} >{label}</button>);
+		const CMFConnectedButton = cmfConnect({})(Button);
 		it('should create a connected component', () => {
 			const TestComponent = jest.fn();
 			TestComponent.displayName = 'TestComponent';
@@ -240,6 +243,25 @@ describe('cmfConnect', () => {
 			expect(call[2]).toBe(data);
 			expect(call[3].registry).toBe(context.registry);
 			expect(call[3].store).toBe(context.store);
+		});
+
+		it('should pass defaultState when there is no component state in store', () => {
+			const TestComponent = () => (<div />);
+			TestComponent.displayName = 'MyComponentWithoutStateInStore';
+			const defaultState = new Map({ toto: 'lol' });
+			const CMFConnected = cmfConnect({ defaultState })(TestComponent);
+
+			const wrapper = mount(
+				<CMFConnected />,
+				{
+					context: mock.context(),
+					childContextTypes: {
+						registry: React.PropTypes.object,
+					},
+				},
+			);
+
+			expect(wrapper.find(TestComponent).props().state).toBe(defaultState);
 		});
 
 		it('should componentDidMount initState and dispatchActionCreator', () => {
@@ -500,6 +522,107 @@ describe('cmfConnect', () => {
 			expect(CMFConnectedArrow.displayName).toBe('Connect(CMF(ArrowComponent))');
 			expect(CMFConnectedFunction.displayName).toBe('Connect(CMF(FunctionComponent))');
 			expect(CMFConnectedClass.displayName).toBe('Connect(CMF(ClassComponent))');
+		});
+		it('should transform onEventDispatch props to onEvent handler', () => {
+			const onClickDispatch = {
+				type: 'MY_BUTTON_CLICKED',
+			};
+			const context = mock.context();
+			context.store.dispatch = jest.fn();
+
+			const wrapper = mount(
+				<CMFConnectedButton
+					onClickDispatch={onClickDispatch}
+				/>,
+				{
+					context,
+					childContextTypes: {
+						registry: React.PropTypes.object,
+					},
+				}
+			);
+			const props = wrapper.find(Button).props();
+			expect(props.onClickDispatch).toBeUndefined();
+			expect(props.onClick).toBeDefined();
+			expect(context.store.dispatch).not.toHaveBeenCalled();
+			props.onClick({ type: 'click' });
+			expect(context.store.dispatch).toHaveBeenCalledWith({
+				type: 'MY_BUTTON_CLICKED',
+				event: {
+					type: 'click',
+				},
+			});
+		});
+		it('should transform onEventActionCreator props to onEvent handler', () => {
+			const onClickActionCreator = 'myactionCreator';
+			const context = mock.context();
+			context.store.dispatch = jest.fn();
+			context.registry = {
+				'actionCreator:myactionCreator': event => ({ type: 'FETCH_STUFF', event }),
+			};
+
+			const wrapper = mount(
+				<CMFConnectedButton
+					onClickActionCreator={onClickActionCreator}
+				/>,
+				{
+					context,
+					childContextTypes: {
+						registry: React.PropTypes.object,
+					},
+				}
+			);
+			const props = wrapper.find(Button).props();
+			expect(props.onClick).toBeDefined();
+			expect(props.onClickActionCreator).toBeUndefined();
+			expect(context.store.dispatch).not.toHaveBeenCalled();
+			props.onClick({ type: 'click' });
+			expect(context.store.dispatch).toHaveBeenCalledWith({
+				type: 'FETCH_STUFF',
+				event: {
+					type: 'click',
+				},
+			});
+		});
+		it('should support onEventActionCreator props as object', () => {
+			const onClickActionCreator = {
+				id: 'myfetch',
+				data: {
+					url: '/api/foo',
+					cmf: { collectionId: 'foo' },
+				},
+			};
+			const context = mock.context();
+			context.store.dispatch = jest.fn();
+			context.registry = {
+				'actionCreator:myfetch': (event, data) => ({
+					type: 'FETCH_CONFIGURED',
+					event,
+					data,
+				}),
+			};
+
+			const wrapper = mount(
+				<CMFConnectedButton
+					onClickActionCreator={onClickActionCreator}
+				/>,
+				{
+					context,
+					childContextTypes: {
+						registry: React.PropTypes.object,
+					},
+				}
+			);
+			const props = wrapper.find(Button).props();
+			expect(props.onClick).toBeDefined();
+			expect(context.store.dispatch).not.toHaveBeenCalled();
+			const event = { type: 'click' };
+			props.onClick(event);
+			expect(context.store.dispatch.mock.calls[0][0]).toMatchObject({
+				type: 'FETCH_CONFIGURED',
+				event,
+				data: onClickActionCreator.data,
+			});
 		});
 	});
 });

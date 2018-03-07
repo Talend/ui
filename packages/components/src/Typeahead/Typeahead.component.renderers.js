@@ -3,6 +3,7 @@ import React from 'react';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
+import classNames from 'classnames';
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
@@ -18,7 +19,7 @@ export function renderInputComponent(props) {
 	);
 
 	return (
-		<div className={theme['typeahead-input-icon']}>
+		<div className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon')}>
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>
@@ -122,9 +123,13 @@ export function renderItemsContainerFactory(items, noResultText, searching, sear
 export function renderSectionTitle(section) {
 	if (section) {
 		return (
-			<div className={theme['section-header']}>
+			<div className={classNames(theme['section-header'], 'tc-typeahead-section-header')}>
 				{section.icon && <Icon name={section.icon.name} title={section.icon.title} />}
-				<span className={theme['section-header-title']}>{section.title}</span>
+				<span
+					className={classNames(theme['section-header-title'], 'tc-typeahead-section-header-title')}
+				>
+					{section.title}
+				</span>
 			</div>
 		);
 	}
@@ -142,11 +147,11 @@ export function renderItem(item, { value }) {
 	}
 	return (
 		<div className={theme.item} title={title}>
-			<span className={theme['item-title']}>
+			<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
 				<Emphasis value={value} text={title} />
 			</span>
 			{description && (
-				<p className={theme['item-description']}>
+				<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
 					<Emphasis value={value} text={description} />
 				</p>
 			)}

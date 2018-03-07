@@ -79,6 +79,7 @@ function addToRegistry(id, item, context) {
 /**
  * Internal: return element registred under the ID.
  * @param  {string} id the object's id in the registry you want to get
+ * @param  {object} context cmf context
  * @return {any}    the object you are looking for
  */
 function getFromRegistry(id, context) {

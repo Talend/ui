@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PieChartButton decorateWithOverlay should return the component wrapped 1`] = `
+<span>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    overlay={
+      <Popover
+        bsClass="popover"
+        id="id-test"
+        placement="right"
+      >
+        <div
+          className="fake-overlay"
+        />
+      </Popover>
+    }
+    placement="top"
+    rootClose={true}
+    trigger="click"
+  >
+    <div
+      className="fake-button-element"
+    />
+  </OverlayTrigger>
+</span>
+`;
+
+exports[`PieChartButton decorateWithTooltip should return the component wrapped with tooltip 1`] = `
+<TooltipTrigger
+  label="label"
+  tooltipPlacement="top"
+>
+  <div
+    className="fake-button-element"
+  />
+</TooltipTrigger>
+`;
+
+exports[`PieChartButton getCircle should get return a path 1`] = `
+<path
+  className="theme-tc-pie-chart-color-red tc-pie-chart-color-red"
+  d="M0,0Z"
+  transform="translate(10,10)"
+/>
+`;
+
+exports[`PieChartButton getCircle should get return a path with hover color 1`] = `
+<path
+  className="theme-tc-pie-chart-color-red tc-pie-chart-color-red"
+  d="M0,0Z"
+  transform="translate(10,10)"
+/>
+`;
+
+exports[`PieChartButton getEmptyPartCircle should get return a path for the rest 1`] = `
+<path
+  className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+  d="M0,0Z"
+  transform="translate(10,10)"
+/>
+`;
+
+exports[`PieChartButton snapshots render should render a PieChartButton 1`] = `
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="theme-tc-pie-chart tc-pie-chart"
+  disabled={false}
+  onClick={null}
+  onMouseDown={null}
+>
+  <svg
+    className="theme-tc-pie-chart-graph tc-pie-chart-graph"
+    height={20}
+    width={20}
+  >
+    <path
+      className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+      d="M1.0798635081746981,-8.934981522292736A9,9,0,0,1,3.2679771569343448,8.385721513486798L2.5137114511013143,5.448050544974975A6,6,0,0,0,1.079863508174698,-5.902024635979812Z"
+      transform="translate(10,10)"
+    />
+    <path
+      className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+      d="M1.1761019362637408,8.922823781489617A9,9,0,0,1,-1.734049908655706,8.83136857538463L-0.7968146875784861,5.946855165014463A6,6,0,0,0,0.4218362304307106,5.985152812977795Z"
+      transform="translate(10,10)"
+    />
+    <path
+      className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+      d="M-3.788072360973488,8.163976224121965A9,9,0,0,1,-4.378222438590741,7.863279740554863L-2.7239429984372805,5.346039145130208Z"
+      transform="translate(10,10)"
+    />
+    <path
+      className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+      d="M-6.125478298028102,6.593824051367063A9,9,0,0,1,-6.593824051367061,6.125478298028103L-4.242640687119285,4.242640687119286Z"
+      transform="translate(10,10)"
+    />
+    <path
+      className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
+      d="M-7.863279740554862,4.3782224385907424A9,9,0,0,1,-8.163976224121967,3.7880723609734854L-5.346039145130207,2.7239429984372814Z"
+      transform="translate(10,10)"
+    />
+    <path
+      className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+      d="M-8.83136857538463,1.7340499086557037A9,9,0,0,1,-1.0798635081746992,-8.934981522292736L-1.0798635081746997,-5.902024635979812A6,6,0,0,0,-5.946855165014464,0.7968146875784833Z"
+      transform="translate(10,10)"
+    />
+  </svg>
+  <div
+    className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+  >
+    50 %
+  </div>
+</Button>
+`;
+
+exports[`PieChartButton snapshots render should render a PieChartButton with an overlay 1`] = `
+<span>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    overlay={
+      <Popover
+        bsClass="popover"
+        id="id-popover"
+        placement="right"
+      >
+        <div>
+          I am an overlay
+        </div>
+      </Popover>
+    }
+    placement="bottom"
+    rootClose={true}
+    trigger="click"
+  >
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="default"
+      className="theme-tc-pie-chart tc-pie-chart"
+      disabled={false}
+      onClick={null}
+      onMouseDown={null}
+    >
+      <svg
+        className="theme-tc-pie-chart-graph tc-pie-chart-graph"
+        height={35}
+        width={35}
+      >
+        <path
+          className="theme-tc-pie-chart-color-rio-grande tc-pie-chart-color-rio-grande"
+          d="M1.4441414721137937,-14.930320003553877A15,15,0,0,1,5.111790709195919,14.102113165954181L4.36136036308964,11.179379937334208A12,12,0,0,0,1.4441414721137937,-11.912785375743198Z"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          className="theme-tc-pie-chart-color-chestnut-rose tc-pie-chart-color-chestnut-rose"
+          d="M2.314248484842055,14.820399925454314A15,15,0,0,1,-3.24026245504848,14.645842386916609L-2.3077929739400975,11.775996415990994A12,12,0,0,0,1.563818138735775,11.897666696834342Z"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          className="theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+          d="M-5.987182770060277,13.753313872586975A15,15,0,0,1,-7.60748691687456,12.92772767386374L-5.8338245643655835,10.486490878850022A12,12,0,0,0,-5.054713288951897,10.883467901661358Z"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          className="theme-tc-pie-chart-color-slate-gray tc-pie-chart-color-slate-gray"
+          d="M-9.944156903317985,11.230037554798884A15,15,0,0,1,-11.230037554798882,9.944156903317987L-8.788800759785158,8.170494550809014A12,12,0,0,0,-8.170494550809014,8.78880075978516Z"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          className="theme-tc-pie-chart-color-silver-chalice tc-pie-chart-color-silver-chalice"
+          d="M-12.92772767386374,7.607486916874562A15,15,0,0,1,-13.753313872586977,5.987182770060273L-10.883467901661358,5.054713288951895A12,12,0,0,0,-10.486490878850022,5.833824564365586Z"
+          transform="translate(17.5,17.5)"
+        />
+        <path
+          className="theme-tc-pie-chart-color-alto tc-pie-chart-color-alto"
+          d="M-14.645842386916609,3.240262455048476A15,15,0,0,1,-1.4441414721138024,-14.930320003553875L-1.444141472113798,-11.912785375743198A12,12,0,0,0,-11.775996415990996,2.3077929739400918Z"
+          transform="translate(17.5,17.5)"
+        />
+      </svg>
+      <div
+        className="theme-tc-pie-chart-label tc-pie-chart-label theme-tc-pie-chart-color-lightning-yellow tc-pie-chart-color-lightning-yellow"
+      >
+        1 %
+      </div>
+    </Button>
+  </OverlayTrigger>
+</span>
+`;
+
+exports[`PieChartButton snapshots render should render a Skeleton when the state is loading 1`] = `
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="theme-tc-pie-chart-loading tc-pie-chart-loading"
+  disabled={false}
+>
+  <Skeleton
+    className="theme-tc-pie-chart-loading-circle tc-pie-chart-loading-circle"
+    height={20}
+    size="medium"
+    type="circle"
+    width={20}
+  />
+  <Skeleton
+    size="small"
+    type="text"
+  />
+</Button>
+`;

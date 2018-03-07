@@ -1,7 +1,7 @@
 cmfConnect
 ==
 
-`cmfConnectù is a Higher Order Component (HOC) which connects your component to redux with some CMF API.
+`cmfConnect` is a Higher Order Component (HOC) which connects your component to redux with some CMF API.
 
 * It injects a state management on top of redux
 * It injects dispatch function
@@ -16,20 +16,20 @@ API
 --
 
 ```javascript
-cmfConnect(
+cmfConnect({
     componentId, // string or function(props) to compute the id in the store
     defaultState, // the default state when the component is mount
     keepComponent, // boolean, when the component is unmount, to keep its state in redux store
     mapStateToProps, // function(state, ownProps) that should return the props (same as redux)
     ...rest, // the rest is applied to connect function
-)(Component);
+})(Component);
 ```
 
 How to use component state
 --
 
 First, with CMF, you will not need to write reducer.
-If you want to use CMF state management, you must add a `displayName` to your component. 
+If you want to use CMF state management, you must add a `displayName` to your component.
 This is required.
 
 ```javascript
@@ -100,7 +100,7 @@ This lets save one render if you know the first state.
 How to use expression
 --
 
-CMF add a notion of expression. 
+CMF add a notion of expression.
 It's easy to use once your component is cmfConnected.
 
 ```javascript
@@ -114,6 +114,8 @@ function MyArticle(props) {
 ```
 
 The titleExpression will be evaluated and injected as title props.
+
+Expressions are a way to read the state, they are a mapStateToProps available in JSON.
 
 How to dispatch action creator
 ---
@@ -156,6 +158,61 @@ Here instead of having click handler dispatcher hard coded into that component, 
 `dispatchActionCreator` relies on its first parameter to resolve a function from registry.
 
 [You can see a schema here](http://www.plantuml.com/plantuml/png/XLJBReGm3Bpp5JvNuWSuz4BRsqehjkgbwW61WKYGe2JiKg7zzvf0U6J3bWl8dXbxx0IbKurmJYLo7Okc5Pm-O0W0lbz-8Cp5ZOUl49y-Oi4vPZg2inIj2WYW37LD6HPi0o5HcxIzZC1FCH57I89vrvieX5tx28885DQZmbIZa6dPK5-6_Dwt4fLYWYTOCgNbBuGr5ffaA2xgAwu84i8UiuuqvbnE0PiDZ9urulOmpDbzkvALrQRKCh8f7L5SIuPNX6mPflKW6iYQmW2zqlEiP-KlXhSBQirugGvqRTOlxVe9ZxfU67vFJ_focRkUBI_hb1RDoNCCniURTMkk2tKhRbPjEUJxZQasrLbbYosiQHL-d-k-xmU4dRqdSB-d__KtPZpW-yDnTMmk91U9iaIt1mzzF20vNJkDoNnNF7C_0XXsNB4wfp-9w--GjBNfxTqg4Z9OWS7u8kI4sToXOOrwVXEK_GC0)
+
+Next step you can do the same with a step more to CMF.
+
+```javascript
+import React from "react";
+import { cmfConnect } from "@talend/react-cmf";
+
+function SimpleButton ({label, onClick}) {
+    return (
+      <button onClick={props.onClick}>{label}</button>
+    );
+  }
+}
+export default cmfConnect({})(SimpleButton);
+
+// using the following configuration
+{
+	"props": {
+		"SimpleButton#default": {
+			"label": "What you want even an expression",
+			// just to dispatch static action onClick
+			"onClickDispatch": {
+				"type": "SIMPLE_BUTTON_CLICKED",
+				"what": "you want more"
+			}
+			// to dispatch action creator onClick with event, data (props) and context
+			"onClickActionCreator": "mycustomactioncreator"
+			// to dispatch action creator onClick with controlled arguments
+			"onClickActionCreator": {
+				"id": "cmf.http",
+				"data": {
+					"method": "GET",
+					"url": "/api/v1/foo",
+					"cmf": {
+						"collectionId": "foo"
+					}
+				}
+			}
+		}
+	}
+}
+
+// the first and third option will dispatch an action in redux with the serialized event.
+{
+	type: 'SIMPLE_BUTTON_CLICKED',
+	what: 'you want more',
+	event: {
+		type: 'click',
+		target: {
+			type: 'button'
+		}
+	}
+}
+```
+
 
 How to test
 --

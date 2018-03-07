@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Layout } from '@talend/react-components';
+import { Inject, Layout, HeaderBar } from '@talend/react-components';
 
-import HeaderBar from '../HeaderBar';
 import List from '../List';
 import SidePanel from '../SidePanel';
 
@@ -23,7 +22,7 @@ function wrapChildren(children) {
 	return [children];
 }
 
-function HomeListView({ id, hasTheme, sidepanel, list, header, children }) {
+function HomeListView({ getComponent, id, hasTheme, sidepanel, list, header, children }) {
 	if (!sidepanel || !list) {
 		return null;
 	}
@@ -31,23 +30,25 @@ function HomeListView({ id, hasTheme, sidepanel, list, header, children }) {
 	if (!Array.isArray(drawers)) {
 		drawers = wrapChildren(drawers);
 	}
+	const Renderers = Inject.getAll(getComponent, { HeaderBar, SidePanel, List });
 
 	return (
 		<Layout
 			id={id}
 			hasTheme={hasTheme}
 			mode="TwoColumns"
-			header={getContent(HeaderBar, header)}
-			one={getContent(SidePanel, sidepanel)}
+			header={getContent(Renderers.HeaderBar, header)}
+			one={getContent(Renderers.SidePanel, sidepanel)}
 			drawers={drawers}
 		>
-			{getContent(List, list)}
+			{getContent(Renderers.List, list)}
 		</Layout>
 	);
 }
 
 HomeListView.displayName = 'HomeListView';
 HomeListView.propTypes = {
+	getComponent: PropTypes.func,
 	id: PropTypes.string,
 	hasTheme: PropTypes.bool,
 	header: PropTypes.oneOfType([PropTypes.element, PropTypes.object]),

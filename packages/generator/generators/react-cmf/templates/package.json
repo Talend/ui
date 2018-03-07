@@ -65,12 +65,12 @@
     "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "0.155.1",
-    "@talend/icons": "0.155.1",
-    "@talend/react-cmf": "0.155.1",
-    "@talend/react-components": "0.155.1",
-    "@talend/react-containers": "0.155.1",
-    "@talend/react-forms": "0.155.1",
+    "@talend/bootstrap-theme": "0.162.0",
+    "@talend/icons": "0.162.0",
+    "@talend/react-cmf": "0.162.0",
+    "@talend/react-components": "0.162.0",
+    "@talend/react-containers": "0.162.0",
+    "@talend/react-forms": "0.162.0",
     "babel-polyfill": "6.26.0",
     "bootstrap-sass": "3.3.7",
     "bson-objectid": "1.1.5",
