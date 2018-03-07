@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import java.util.Iterator;
 
 /**
- * SidePanel is used to easy access to WebElements of the react-talend-component SidePanel component.
+ * TabBar is used to easy access to WebElements of the @talend/react-component TabBar component.
  *
  */
 public class TabBar extends Component {
