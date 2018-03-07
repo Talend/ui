@@ -2,8 +2,6 @@
 
 $tc-drawer-initial-offset: 1000px !default;
 $tc-drawer-bgcolor: #fff !default;
-$tc-drawer-transition-duration: 230ms !default;
-$tc-drawer-transition-easing: cubic-bezier(0.18, 0.89, 0.32, 1.28) !default;
 $tc-action-bar-background-color: $concrete !default;
 $tc-drawer-content-max-width: 650px !default;
 $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
@@ -51,6 +49,13 @@ $tc-drawer-tabs-background: tint($brand-primary, 90) !default;
 
 .drawer-stacked {
 	width: 100%;
+}
+
+.tc-drawer-main {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	overflow: hidden;
 }
 
 @media screen and (min-width: $screen-xs-max) {

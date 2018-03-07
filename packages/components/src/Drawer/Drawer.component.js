@@ -56,20 +56,15 @@ DrawerAnimation.propTypes = {
 	onClose: PropTypes.func,
 };
 DrawerAnimation.defaultProps = {
-	withTransition: true,
 	onClose: () => {},
 	onTransitionComplete: () => {},
 };
 
-function DrawerContainer({ stacked, className, children, withTransition = true, ...rest }) {
+function DrawerContainer({ stacked, className, children, ...rest }) {
 	const drawerContainerClasses = classnames(
 		theme['tc-drawer'],
 		className,
 		'tc-drawer',
-		{
-			[theme['tc-drawer-transition']]: withTransition,
-			'tc-drawer-transition': withTransition,
-		},
 		{
 			[theme['drawer-stacked']]: stacked,
 			stacked,
@@ -86,7 +81,6 @@ function DrawerContainer({ stacked, className, children, withTransition = true, 
 
 DrawerContainer.propTypes = {
 	stacked: PropTypes.bool,
-	withTransition: PropTypes.bool,
 	className: PropTypes.string,
 	children: PropTypes.node.isRequired,
 };
@@ -188,7 +182,6 @@ function Drawer({
 	footerActions,
 	onCancelAction,
 	tabs,
-	withTransition,
 }) {
 	if (!children) {
 		return null;
@@ -198,7 +191,6 @@ function Drawer({
 			stacked={stacked}
 			className={className}
 			style={style}
-			withTransition={withTransition}
 		>
 			<DrawerTitle title={title} onCancelAction={onCancelAction} />
 			{tabs && (
@@ -206,7 +198,7 @@ function Drawer({
 					<TabBar {...tabs} className={classnames('tc-drawer-tabs', theme['tc-drawer-tabs'])} />
 				</div>
 			)}
-			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
+			<div className={classnames('tc-drawer-main', theme['tc-drawer-main'])}>
 				<DrawerContent>{children}</DrawerContent>
 				<div
 					className={classnames(
@@ -233,14 +225,9 @@ Drawer.propTypes = {
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,
 	// footer action, see action bar for api
-	footerActions: PropTypes.shape(ActionBar.propTypes).isRequired,
+	footerActions: PropTypes.shape(ActionBar.propTypes),
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	tabs: PropTypes.shape(TabBar.propTypes),
-	withTransition: PropTypes.bool,
-};
-
-Drawer.defaultProps = {
-	withTransition: true,
 };
 
 Drawer.Animation = DrawerAnimation;
