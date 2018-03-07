@@ -24,7 +24,7 @@ Simplifies merging of CMF settings files to serve your webpack bundles.
 ## Breaking changes log
 
 Before 1.0, `@talend/react-cmf-webpack-plugin` does NOT follow semver in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/ui/blob/master/BREAKING_CHANGES_LOG.md).
+You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
 ## Content
 
@@ -45,14 +45,8 @@ You must have a _cmf.json_ file at root folder of your project:
 ```json
 {
 	"settings": {
-		"sources": [
-			"src/settings",
-			"node_modules/another_package_name/lib/settings/"
-		],
-		"sources-dev": [
-			"src/settings",
-			"../../another_package_name/src/settings/"
-		],
+		"sources": ["src/settings", "node_modules/another_package_name/lib/settings/"],
+		"sources-dev": ["src/settings", "../../another_package_name/src/settings/"],
 		"destination": "dist/settings.json"
 	}
 }
@@ -64,14 +58,12 @@ Edit your webpack.config.js file:
 const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 
 const webpackConfig = {
-  entry: 'index.js',
-  output: {
-    path: __dirname + '/dist',
-    filename: 'bundle.js',
-  },
-  plugins: [
-  	    new ReactCMFWebpackPlugin(),
-  ],
+	entry: 'index.js',
+	output: {
+		path: __dirname + '/dist',
+		filename: 'bundle.js',
+	},
+	plugins: [new ReactCMFWebpackPlugin()],
 };
 ```
 
@@ -79,12 +71,12 @@ const webpackConfig = {
 
 You can pass a bunch of configuration options to ReactCMFWebpackPlugin. Allowed values are as follows:
 
-| Option | Type | Default | Description |
-| --- | --- | --- | --- |
-| `dev` | Boolean | false | `devSource` entry will be used instead of `sources` one in _cmf.json_ file |
-| `quiet` | Boolean | false | No output at all |
-| `recursive` | Boolean | false | Recursive search for JSON files |
-| `watch` | Boolean | false | Watch settings in dev mode |
+| Option      | Type    | Default | Description                                                                |
+| ----------- | ------- | ------- | -------------------------------------------------------------------------- |
+| `dev`       | Boolean | false   | `devSource` entry will be used instead of `sources` one in _cmf.json_ file |
+| `quiet`     | Boolean | false   | No output at all                                                           |
+| `recursive` | Boolean | false   | Recursive search for JSON files                                            |
+| `watch`     | Boolean | false   | Watch settings in dev mode                                                 |
 
 Here's an example webpack config illustrating how to use these options:
 
@@ -92,18 +84,18 @@ Here's an example webpack config illustrating how to use these options:
 const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 
 const webpackConfig = {
-  entry: 'index.js',
-  output: {
-    path: __dirname + '/dist',
-    filename: 'bundle.js',
-  },
-  plugins: [
-    new ReactCMFWebpackPlugin({
-      dev: false,
-      quiet: false,
-      recursive: false,
-      watch: process.env.NODE_ENV === 'developement',
-    }),
-  ],
+	entry: 'index.js',
+	output: {
+		path: __dirname + '/dist',
+		filename: 'bundle.js',
+	},
+	plugins: [
+		new ReactCMFWebpackPlugin({
+			dev: false,
+			quiet: false,
+			recursive: false,
+			watch: process.env.NODE_ENV === 'developement',
+		}),
+	],
 };
 ```

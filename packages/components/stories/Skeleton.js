@@ -4,20 +4,27 @@ import talendIcons from '@talend/icons/dist/react';
 import Skeleton from '../src/Skeleton';
 import IconProvider from '../src/IconsProvider';
 
+import theme from './Skeleton.scss';
+
 const stories = storiesOf(Skeleton.displayName, module);
+const icons = {
+	'talend-locked': talendIcons['talend-locked'],
+	'talend-table': talendIcons['talend-table'],
+};
+
 if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
 }
 
-const icons = {
-	'talend-locked': talendIcons['talend-locked'],
-};
-
 stories
-	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
+	.addDecorator(story => (
+		<div className="col-lg-offset-2 col-lg-8">
+			<IconProvider defaultIcons={icons} />
+			{story()}
+		</div>
+	))
 	.addWithInfo('default', () => (
 		<div>
-			<IconProvider defaultIcons={icons} />
 			<h4>Circles :</h4>
 			<div>small</div>
 			<Skeleton type={Skeleton.TYPES.circle} size={Skeleton.SIZES.small} />
@@ -45,5 +52,11 @@ stories
 
 			<h4>Icons :</h4>
 			<Skeleton type={Skeleton.TYPES.icon} name="talend-locked" />
+			<h4>Icons with custom css:</h4>
+			<Skeleton
+				type={Skeleton.TYPES.icon}
+				name="talend-table"
+				className={theme['skeleton-96x96']}
+			/>
 		</div>
 	));
