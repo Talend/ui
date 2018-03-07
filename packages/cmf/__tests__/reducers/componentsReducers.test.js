@@ -88,7 +88,7 @@ describe('check component management reducer', () => {
 		};
 		reducer(initialState, action);
 		expect(console.warn).toBeCalledWith(LOGGER_PREFIX, `Beware component component1 try to recreate an existing
- State namespace key1, meaning that the original one will be overloaded`); // eslint no-console: ["error", { allow: ["warn"] }]
+ State namespace key1, meaning that the original one will be overloaded`);
 	});
 	it(`REACT_CMF.COMPONENT_MERGE_STATE should properly merge
 		component/key state into the store`,
@@ -142,9 +142,11 @@ describe('check component management reducer', () => {
 			key: 'key',
 		};
 		reducer(initialState, action);
-		expect(console.warn).toBeCalledWith(LOGGER_PREFIX, `Beware the component component try to remove a non existing
- State namespace key, it isn't a normal behavior execpt if two component are binded
- to this specific namespace`);
+		expect(console.warn).toBeCalledWith(
+			LOGGER_PREFIX,
+			`Beware the component component try to remove a non existing
+			 State namespace key, it isn't a normal behavior execpt if two component are binded
+			 to this specific namespace`);
 	});
 	it('should recall itself on action.cmf.componentState', () => {
 		const action = {
