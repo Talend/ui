@@ -22,10 +22,9 @@ yarn add --dev @talend/scripts
 3. Define the npm scripts
 ```json
 {
-  "start": "talend-scripts-start",
-  "prepublish": "talend-scripts-build",
-  "test": "talend-scripts-test",
-  "lint": "talend-scripts-lint"
+  "start": "talend-scripts start",
+  "prepublish": "talend-scripts build",
+  "lint:es": "talend-scripts lint:es"
 }
 ```
 
@@ -65,16 +64,23 @@ A preset is a node module `talend-scripts-preset-${presetName}`. It exports 3 fu
 
 ```javascript
 module.exports = {
-	getWebpackConfiguration(presetApi) {},
-	getJestConfiguration(presetApi) {}, // TODO
-	getEslintConfiguration(presetApi) {} // TODO
+	getWebpackConfiguration(presetApi) { },
+	getEslintConfigurationPath(presetApi) { },
 }
 ```
+| Preset function | Description |
+|---|---|
+| getWebpackConfiguration | Returns the webpack configuration object. |
+| getEslintConfigurationPath | Returns the path to .eslintrc file. It will be passed to eslint --config option. This path should be absolute or relative from cwd. |
+
 
 The preset api contains the run mode and utility functions
 
 ```javascript
-const { mode, getUserConfig } = presetApi;
+const {
+	mode,
+	getUserConfig,
+} = presetApi;
 ```
 
 | Preset api | Description |

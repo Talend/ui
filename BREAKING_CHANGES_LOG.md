@@ -2,6 +2,19 @@ Before 1.0, the stack do NOT follow semver version in releases.
 
 This document aims to ease the WIP migration from a version to another by providing intels about what to do to migrate.
 
+## v0.161.0
+* component: Action
+* PR: [fix(Action): use the new Inject API](https://github.com/Talend/ui/pull/1093)
+* Changes:
+| Before | After |
+|---|---|
+| props.renderers | props.getComponent |
+| props.name | no more resolve use actionId or componentId with "props" settings |
+| props.available as string | not supported anymore use props.availableExpression |
+| props.active as string | not supported anymore use props.activeExpression |
+| props.disabled as string | not supported anymore use props.disabledExpression |
+| props.inProgress as string | not supported anymore use props.inProgressExpression |
+
 ## v0.160.0
 * icon: AWS-kinesis
 * PR: [chore(icons): update AWS-kinesis.svg](https://github.com/Talend/ui/pull/1092)
@@ -35,6 +48,36 @@ After
 
 - `docked === true && onToggle !== undefined` : the toggle button is displayed
 - `docked !== true || onToggle === undefined` : the typeahead input is displayed
+
+* Component: TabBar
+* PR: [fix(components/tabbar): rename selected property](https://github.com/Talend/ui/pull/1111)
+* Change: `selected` has been renamed by `selectedKey`
+
+
+| Before | After |
+|---|---|
+| props.selected | props.selectedKey |
+
+
+* Component: Drawer
+* PR: [fix(components/tabbar): rename selected property](https://github.com/Talend/ui/pull/1111)
+* Change: `selected` has been renamed by `selectedKey` for drawer's tabs
+
+
+| Before | After |
+|---|---|
+| props.tabs.selected | props.tabs.selectedKey |
+
+
+* Component: Layout
+* PR: [fix(components/tabbar): rename selected property](https://github.com/Talend/ui/pull/1111)
+* Change: `selected` has been renamed by `selectedKey` for layout's tabs
+
+
+| Before | After |
+|---|---|
+| props.tabs.selected | props.tabs.selectedKey |
+
 
 ## v0.157.0
 * cmf: route onLeave/onEnter

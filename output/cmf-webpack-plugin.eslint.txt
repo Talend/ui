@@ -1,0 +1,11 @@
+
+> @talend/react-cmf-webpack-plugin@0.162.0 lint:es /home/travis/build/Talend/ui/packages/cmf-webpack-plugin
+> eslint --config ../../.eslintrc --ext .js src
+
+The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/cmf-webpack-plugin/src/index.js
+  46:41  warning  Unexpected unnamed function  func-names
+
+✖ 1 problem (0 errors, 1 warning)
+

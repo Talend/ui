@@ -26,8 +26,8 @@ exports[`ActionBar should render a btn-group 1`] = `
         },
       ]
     }
+    getComponent={undefined}
     left={true}
-    renderers={undefined}
     selected={undefined}
   />
 </nav>
@@ -70,8 +70,8 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
         },
       ]
     }
+    getComponent={undefined}
     left={true}
-    renderers={undefined}
     selected={0}
   />
 </nav>
@@ -114,7 +114,7 @@ exports[`ActionBar should render no-selected actions, all on right 1`] = `
         },
       ]
     }
-    renderers={undefined}
+    getComponent={undefined}
     right={true}
     selected={0}
   />
@@ -136,8 +136,8 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
         },
       ]
     }
+    getComponent={undefined}
     left={true}
-    renderers={undefined}
     selected={0}
   />
   <SwitchActions
@@ -167,7 +167,7 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
         },
       ]
     }
-    renderers={undefined}
+    getComponent={undefined}
     right={true}
     selected={0}
   />
@@ -210,8 +210,8 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
         },
       ]
     }
+    getComponent={undefined}
     left={true}
-    renderers={undefined}
     selected={1}
   />
 </nav>
@@ -223,8 +223,8 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
 >
   <SwitchActions
     actions={Array []}
+    getComponent={undefined}
     left={true}
-    renderers={undefined}
     selected={1}
   />
   <SwitchActions
@@ -259,7 +259,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
         },
       ]
     }
-    renderers={undefined}
+    getComponent={undefined}
     right={true}
     selected={1}
   />
@@ -280,8 +280,8 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
         },
       ]
     }
+    getComponent={undefined}
     left={true}
-    renderers={undefined}
     selected={1}
   />
   <SwitchActions
@@ -311,7 +311,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
         },
       ]
     }
-    renderers={undefined}
+    getComponent={undefined}
     right={true}
     selected={1}
   />
