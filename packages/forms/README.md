@@ -2,6 +2,11 @@
 
 [![Build Status](https://travis-ci.org/Talend/ui.svg?branch=master)](https://travis-ci.org/Talend/ui)
 
+## Breaking changes log
+
+Before 1.0, `@talend/react-forms` does NOT follow semver version in releases.
+You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
+
 ## Introduction
 
 This library is designed to be used on top of [react-jsonschema-form](https://mozilla-services.github.io/react-jsonschema-form/), a React component for building Web forms from JSONSchema.
@@ -22,7 +27,6 @@ handle forms rendering and get the data back.
 import Form from '@talend/react-forms';
 
 class MyForm extends React.Component {
-
 	onSubmit(formData) {
 		console.log(formData);
 	}
@@ -36,14 +40,13 @@ class MyForm extends React.Component {
 			{ style: 'link', onClick: this.onCancel, type: 'button', label: 'CANCEL' },
 			{ style: 'primary', type: 'submit', label: 'VALIDATE' },
 		];
-		return (
-			<Form data={this.props.data} actions={actions} onSubmit={this.onSubmit} />
-		);
+		return <Form data={this.props.data} actions={actions} onSubmit={this.onSubmit} />;
 	}
 }
 ```
 
 Here is the archetype of the data property required to render the form:
+
 ```json
 {
 	"jsonSchema": {},
@@ -51,28 +54,30 @@ Here is the archetype of the data property required to render the form:
 	"properties": {}
 }
 ```
+
 ### Actions
+
 Forms now render a **react-talend-components** `Action` component for each action given to it.
 Each action accept the following properties :
 
-| property              | propType                | required | default | doc |
-| ----------------------|:-----------------------:|:--------:|:-------:|:---:|
-| iconPosition          |	other                   | no       | - 
-| icon                  | string                  | no       | -
-| hideLabel             | bool                    | no       | -
-| disabled              | bool                    | no       | {false}
-| style                 | string                  | no       | "default" | equivalent to action **bsStyle** `props`
-| iconTransform         | string                  | no       | -
-| id                    | string                  | no       | -
-| inProgress            | bool                    | no       | {false}
-| label                 | string                  | yes      | -
-| link                  | bool                    | no       | -
-| model                 | object                  | no       | -
-| name                  | string                  | no       | - | render a name button html property
-| onClick               | func                    | yes      | - | execute the callback with `formData`, `formId`, `propertyName`, `propertyValue` as parameters
-| tooltip               | bool                    | no       | -
-| tooltipPlacement      | other                   | no       | "top"
-| type                  | 'submit'\|'button'      | no       | -      | by default render a button without `submit` **type**
+| property         |      propType      | required |  default  |                                              doc                                              |
+| ---------------- | :----------------: | :------: | :-------: | :-------------------------------------------------------------------------------------------: |
+| iconPosition     |       other        |    no    |     -     |
+| icon             |       string       |    no    |     -     |
+| hideLabel        |        bool        |    no    |     -     |
+| disabled         |        bool        |    no    |  {false}  |
+| style            |       string       |    no    | "default" |                           equivalent to action **bsStyle** `props`                            |
+| iconTransform    |       string       |    no    |     -     |
+| id               |       string       |    no    |     -     |
+| inProgress       |        bool        |    no    |  {false}  |
+| label            |       string       |   yes    |     -     |
+| link             |        bool        |    no    |     -     |
+| model            |       object       |    no    |     -     |
+| name             |       string       |    no    |     -     |                              render a name button html property                               |
+| onClick          |        func        |   yes    |     -     | execute the callback with `formData`, `formId`, `propertyName`, `propertyValue` as parameters |
+| tooltip          |        bool        |    no    |     -     |
+| tooltipPlacement |       other        |    no    |   "top"   |
+| type             | 'submit'\|'button' |    no    |     -     |                     by default render a button without `submit` **type**                      |
 
 ### Handlers
 
@@ -80,26 +85,22 @@ If uiSchema has some triggers like
 
 ```json
 {
-  "jsonSchema": {
-    "id": "ListExample",
-    "type": "object",
-    "properties": {
-      "propertyName": {
-        "type": "string",
-        "enum": [
-          "option 0",
-          "option 1",
-          "option 2"
-        ]
-      }
-    }
-  },
-  "uiSchema": {
-    "propertyName": {
-      "ui:trigger": [ "after" ]
-    }
-  },
-  "properties": {}
+	"jsonSchema": {
+		"id": "ListExample",
+		"type": "object",
+		"properties": {
+			"propertyName": {
+				"type": "string",
+				"enum": ["option 0", "option 1", "option 2"]
+			}
+		}
+	},
+	"uiSchema": {
+		"propertyName": {
+			"ui:trigger": ["after"]
+		}
+	},
+	"properties": {}
 }
 ```
 
@@ -109,7 +110,6 @@ Then `onChange` will be triggered when `propertyName` field value has changed.
 import Form from '@talend/react-forms';
 
 class MyForm extends React.Component {
-
 	onChange(formData, formId, propertyName, propertyValue) {
 		console.log(formData, formId, propertyName, propertyValue);
 	}
@@ -119,13 +119,7 @@ class MyForm extends React.Component {
 	}
 
 	render() {
-		return (
-			<Form
-			    data={this.props.data}
-			    onChange={this.onChange}
-			    onSubmit={this.onSubmit}
-			/>
-		);
+		return <Form data={this.props.data} onChange={this.onChange} onSubmit={this.onSubmit} />;
 	}
 }
 ```
@@ -134,8 +128,9 @@ class MyForm extends React.Component {
 
 The data and actions PropTypes are exported for easy reuse.
 You can use them by importing the DataPropTypes and ActionsPropTypes functions.
+
 ```javascript
-import Form, { DataPropTypes, ActionsPropTypes } from '@talend/react-forms'
+import Form, { DataPropTypes, ActionsPropTypes } from '@talend/react-forms';
 ```
 
 ## LICENSE

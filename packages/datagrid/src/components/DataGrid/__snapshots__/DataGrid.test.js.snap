@@ -253,3 +253,15 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
   />
 </div>
 `;
+
+exports[`#DataGrid should render one Skeleton is InProgress 1`] = `
+<div
+  className="theme-td-grid-loading theme-td-grid td-grid"
+>
+  <Skeleton
+    name="talend-table"
+    size="medium"
+    type="icon"
+  />
+</div>
+`;
