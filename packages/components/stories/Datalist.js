@@ -16,16 +16,8 @@ const propsMultiSection = {
 		{ title: 'cat 3', suggestions: [{ name: 'foobar', value: 'foobar' }] },
 		{ title: 'cat 4', suggestions: [{ name: 'lol', value: 'lol' }] },
 	],
-	onFinish: (event, payload) => {
-		console.log('toto');
-		console.log(event);
-		console.log(payload);
-	},
-	onChange: (event, payload) => {
-		console.log('toto');
-		console.log(event);
-		console.log(payload);
-	},
+	onFinish: action('onFinish'),
+	onChange: action('onChange'),
 };
 
 const singleSectionProps = {
