@@ -134,7 +134,7 @@ export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload) {
 }
 
 /**
- * function - fetch an url with POST method
+ * function - fetch a url with POST method
  *
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
@@ -149,7 +149,7 @@ export function* httpPost(url, payload, config) {
 }
 
 /**
- * function - fetch an url with PATCH method
+ * function - fetch a url with PATCH method
  *
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
@@ -164,7 +164,7 @@ export function* httpPatch(url, payload, config) {
 }
 
 /**
- * function - fetch an url with PUT method
+ * function - fetch a url with PUT method
  *
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
@@ -179,7 +179,7 @@ export function* httpPut(url, payload, config) {
 }
 
 /**
- * function - fetch an url with DELETE method
+ * function - fetch a url with DELETE method
  *
  * @param  {string} url     url to request
  * @param  {object} config  option that you want apply to the request
@@ -193,7 +193,7 @@ export function* httpDelete(url, config) {
 }
 
 /**
- * function - fetch an url with GET method
+ * function - fetch a url with GET method
  *
  * @param  {string} url     url to request
  * @param  {object} config  option that you want apply to the request
