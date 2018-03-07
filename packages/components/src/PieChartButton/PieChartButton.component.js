@@ -308,7 +308,7 @@ function PieChartButton({
 	model,
 	labelIndex,
 	className,
-	inProgress,
+	loading,
 	minimumPercentage,
 	display,
 	label,
@@ -325,7 +325,7 @@ function PieChartButton({
 }) {
 	const sizeObject = getDisplaySize(size, display);
 
-	if (inProgress) {
+	if (loading) {
 		return (
 			<Button
 				className={classnames(theme['tc-pie-chart-loading'], 'tc-pie-chart-loading', {
@@ -389,7 +389,7 @@ function PieChartButton({
 PieChartButton.propTypes = {
 	className: PropTypes.string,
 	display: PropTypes.oneOf(['small', 'medium', 'large']),
-	inProgress: PropTypes.bool,
+	loading: PropTypes.bool,
 	hideLabel: PropTypes.bool,
 	label: PropTypes.string,
 	labelIndex: PropTypes.number,
