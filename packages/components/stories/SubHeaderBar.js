@@ -89,21 +89,13 @@ stories
 	.addWithInfo('with right components', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar
-				{...viewProps}
-				onGoBack={backAction}
-				right={injectedComponentsRight}
-			/>
+			<SubHeaderBar {...viewProps} onGoBack={backAction} right={injectedComponentsRight} />
 		</div>
 	))
 	.addWithInfo('with center components', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar
-				{...viewProps}
-				onGoBack={backAction}
-				center={[componentAction]}
-			>
+			<SubHeaderBar {...viewProps} onGoBack={backAction} center={[componentAction]}>
 				{center}
 			</SubHeaderBar>
 		</div>
@@ -111,14 +103,8 @@ stories
 	.addWithInfo('with center components with tag props', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar
-				{...viewProps}
-				onGoBack={backAction}
-			>
-				<SubHeaderBar.Content
-					tag="form"
-					center
-				>
+			<SubHeaderBar {...viewProps} onGoBack={backAction}>
+				<SubHeaderBar.Content tag="form" center>
 					<input id="inputTitle" type="text" onChange={action('onChange')} value="" />
 				</SubHeaderBar.Content>
 			</SubHeaderBar>
@@ -127,11 +113,7 @@ stories
 	.addWithInfo('with center && right components', () => (
 		<div>
 			<IconsProvider />
-			<SubHeaderBar
-				{...viewProps}
-				onGoBack={backAction}
-				right={injectedComponentsRight}
-			>
+			<SubHeaderBar {...viewProps} onGoBack={backAction} right={injectedComponentsRight}>
 				{center}
 			</SubHeaderBar>
 		</div>
@@ -146,6 +128,34 @@ stories
 				onGoBack={backAction}
 				right={injectedComponentsRight}
 				editMode
+			>
+				{center}
+			</SubHeaderBar>
+		</div>
+	))
+	.addWithInfo('with skeleton', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				{...viewProps}
+				iconId="talend-file-csv-o"
+				subTitle="mySubTitle"
+				onGoBack={backAction}
+				loading
+			>
+				{center}
+			</SubHeaderBar>
+		</div>
+	))
+	.addWithInfo('with inProgress', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar
+				{...viewProps}
+				iconId="talend-file-csv-o"
+				subTitle="mySubTitle"
+				onGoBack={backAction}
+				inProgress
 			>
 				{center}
 			</SubHeaderBar>

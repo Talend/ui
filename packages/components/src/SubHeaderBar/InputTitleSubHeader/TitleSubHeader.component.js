@@ -23,6 +23,7 @@ function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
 							'btn-link',
 						)}
 						onDoubleClick={onEdit}
+						disabled={inProgress}
 					>
 						{title}
 					</button>
@@ -47,6 +48,7 @@ function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
 							theme['tc-subheader-details-text-title-pencil'],
 							'tc-subheader-details-text-title-pencil',
 						)}
+						disabled={inProgress}
 						hideLabel
 					/>
 				)}

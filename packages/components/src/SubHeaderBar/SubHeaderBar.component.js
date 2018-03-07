@@ -138,6 +138,7 @@ SubHeaderBar.propTypes = {
 	left: PropTypes.array,
 	right: PropTypes.array,
 	center: PropTypes.array,
+	inProgress: PropTypes.bool,
 	...Inject.PropTypes,
 };
 
