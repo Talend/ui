@@ -12,7 +12,7 @@ storiesOf('Component Datagrid').add('default', () => (
 			data={sample}
 			onFocusedCell={event => console.log(event)}
 			onFocusedColumn={event => console.log(event)}
-			onRowsSelected={event => console.log(event)}
+			onVerticalScroll={event => console.log(event)}
 			rowSelection="multiple"
 		/>
 	</div>
