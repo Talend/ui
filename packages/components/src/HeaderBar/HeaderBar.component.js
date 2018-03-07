@@ -163,8 +163,6 @@ function User({ name, firstName, lastName, getComponent, ...rest }) {
 				bsStyle="link"
 				icon="talend-user-circle"
 				pullRight
-				tooltipPlacement="bottom"
-				tooltipLabel={name}
 				label={getDisplayName({ name, firstName, lastName })}
 				{...rest}
 			/>
