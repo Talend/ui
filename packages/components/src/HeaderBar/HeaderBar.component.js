@@ -17,11 +17,9 @@ function Logo({ isFull, getComponent, t, ...props }) {
 	const itemClassName = classNames(theme['tc-header-bar-action'], {
 		[theme.separated]: !isFull,
 	});
-	const actionClassName = classNames(
-		theme['tc-header-bar-logo'],
-		'tc-header-bar-logo',
-		{ [theme.full]: isFull }
-	);
+	const actionClassName = classNames(theme['tc-header-bar-logo'], 'tc-header-bar-logo', {
+		[theme.full]: isFull,
+	});
 	const Renderers = Inject.getAll(getComponent, { Action });
 	return (
 		<li role="presentation" className={itemClassName}>
@@ -103,7 +101,7 @@ function Help({ getComponent, t, ...props }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
 		'tc-header-bar-help',
-		theme.separated
+		theme.separated,
 	);
 	const Renderers = Inject.getAll(getComponent, { Action });
 
