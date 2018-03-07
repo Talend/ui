@@ -86,22 +86,13 @@ export default class GMapping extends Component {
 		return (
 			<div id="mapping" className="mapper-element">
 				<div id="mapping-tools">
-					<button
-						id="show-all"
-						onClick={this.props.onShowAll}
-					>
+					<button id="show-all" onClick={this.props.onShowAll}>
 						{getShowAllButtonLabel(this.props.showAll)}
 					</button>
-					<button
-						id="clear-connection"
-						onClick={this.props.clearConnection}
-					>
+					<button id="clear-connection" onClick={this.props.clearConnection}>
 						Clear
 					</button>
-					<button
-						id="clear-mapping"
-						onClick={this.props.clearMapping}
-					>
+					<button id="clear-mapping" onClick={this.props.clearMapping}>
 						Clear All
 					</button>
 				</div>

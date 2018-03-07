@@ -1,12 +1,12 @@
 import { SchemaType } from './Constants';
 
 export function getSchema(state, type) {
-  if (type === SchemaType.INPUT) {
-    return state.inputSchema;
-  } else if (type === SchemaType.OUTPUT) {
-    return state.outputSchema;
-  }
-  return null;
+	if (type === SchemaType.INPUT) {
+		return state.inputSchema;
+	} else if (type === SchemaType.OUTPUT) {
+		return state.outputSchema;
+	}
+	return null;
 }
 
 export function isSelected(selection, element, type) {
@@ -25,11 +25,12 @@ export function getMappingItems(mapping, element, type) {
 }
 
 export function isMapped(mapping, element, type) {
-  if (mapping != null) {
-    return mapping.find(item =>
-      (type === SchemaType.INPUT && item.source === element)
-      || (type === SchemaType.OUTPUT && item.target === element)
-    )
-  }
-  return false;
+	if (mapping != null) {
+		return mapping.find(
+			item =>
+				(type === SchemaType.INPUT && item.source === element) ||
+				(type === SchemaType.OUTPUT && item.target === element),
+		);
+	}
+	return false;
 }

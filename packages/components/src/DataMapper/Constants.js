@@ -64,5 +64,5 @@ export const ConnectionParams = {
 		arrowWidth: 10,
 		arrowHeight: 10,
 		color: '#CCCCCC',
-	}
+	},
 };

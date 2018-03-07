@@ -8,7 +8,7 @@ import { getMappingItems } from '../Utils';
 function getMapped(mapping, side) {
 	const mappedElements = mapping.map(item => item[side]);
 	return Array.from(new Set(mappedElements));
-};
+}
 
 function getFocusedElements(mapping, focused, type) {
 	if (focused == null || focused.type === type) {
@@ -94,14 +94,12 @@ export default class Mapper extends Component {
 		}
 		let focusedConnections = null;
 		if (focused != null) {
-			const focusedItems =
-				getMappingItems(mapping, focused.element, focused.type);
+			const focusedItems = getMappingItems(mapping, focused.element, focused.type);
 			if (focusedItems != null) {
-				focusedConnections =
-					focusedItems.map(item => this.getConnectionFromItem(item));
+				focusedConnections = focusedItems.map(item => this.getConnectionFromItem(item));
 			}
 		}
-		return {current, pending, focused: focusedConnections, all: allConnections};
+		return { current, pending, focused: focusedConnections, all: allConnections };
 	}
 
 	reveal(selection) {

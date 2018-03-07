@@ -17,7 +17,6 @@ function getClassName(props) {
 }
 
 export default class SchemaElement extends Component {
-
 	constructor(props) {
 		super(props);
 		this.select = this.select.bind(this);
