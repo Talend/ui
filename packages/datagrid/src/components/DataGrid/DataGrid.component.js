@@ -130,7 +130,7 @@ export default class DataGrid extends React.Component {
 
 	onBodyScroll(event) {
 		if (event.direction === AG_GRID.SCROLL_VERTICAL_DIRECTION) {
-			this.props.onVerticalScroll({
+			this.props.onVerticalScroll(event, {
 				firstDisplayedRowIndex: this.gridAPI.getFirstDisplayedRow(),
 				lastDisplayedRowIndex: this.gridAPI.getLastDisplayedRow(),
 			});

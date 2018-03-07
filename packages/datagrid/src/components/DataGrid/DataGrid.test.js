@@ -622,7 +622,7 @@ describe('#Datagrid method', () => {
 
 		instance.onBodyScroll(event);
 
-		expect(onVerticalScroll).toHaveBeenCalledWith({
+		expect(onVerticalScroll).toHaveBeenCalledWith(event, {
 			firstDisplayedRowIndex: firstIndex,
 			lastDisplayedRowIndex: lastIndex,
 		});
