@@ -17,9 +17,11 @@ function Logo({ isFull, getComponent, t, ...props }) {
 	const itemClassName = classNames(theme['tc-header-bar-action'], {
 		[theme.separated]: !isFull,
 	});
-	const actionClassName = classNames(theme['tc-header-bar-logo'], {
-		[theme.full]: isFull,
-	});
+	const actionClassName = classNames(
+		theme['tc-header-bar-logo'],
+		'tc-header-bar-logo',
+		{ [theme.full]: isFull }
+	);
 	const Renderers = Inject.getAll(getComponent, { Action });
 	return (
 		<li role="presentation" className={itemClassName}>
@@ -48,7 +50,7 @@ function Brand({ label, isSeparated, getComponent, ...props }) {
 			<span role="heading">
 				<ActionComponent
 					bsStyle="link"
-					className={theme['tc-header-bar-brand']}
+					className={classNames(theme['tc-header-bar-brand'], 'tc-header-bar-brand')}
 					tooltipPlacement="bottom"
 					label={label}
 					{...props}
@@ -98,7 +100,11 @@ function Help({ getComponent, t, ...props }) {
 		tooltipPlacement: 'bottom',
 		...props,
 	};
-	const className = classNames(theme['tc-header-bar-action'], theme.separated);
+	const className = classNames(
+		theme['tc-header-bar-action'],
+		'tc-header-bar-help',
+		theme.separated
+	);
 	const Renderers = Inject.getAll(getComponent, { Action });
 
 	return (
@@ -138,6 +144,7 @@ function User({ name, firstName, lastName, getComponent, ...rest }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
 		theme['tc-header-bar-user'],
+		'tc-header-bar-user',
 		theme.separated,
 	);
 	const Renderers = Inject.getAll(getComponent, { ActionDropdown });
