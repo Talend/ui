@@ -38,7 +38,13 @@ describe('PieChartButton', () => {
 			},
 		];
 
-		it('shoud render a PieChartButton', () => {
+		it('should render a PieChartButton', () => {
+			const wrapper = shallow(<PieChartButton display="small" model={pieChartData} />);
+
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+
+		it('should trigger onClick', () => {
 			const onClick = jest.fn();
 			const event = {};
 			const wrapper = shallow(
@@ -56,13 +62,9 @@ describe('PieChartButton', () => {
 				},
 				model: pieChartData,
 			});
-
-			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
-		it('shoud render a PieChartButton with an overlay', () => {
-			const onClick = jest.fn();
-			const event = {};
+		it('should render a PieChartButton with an overlay', () => {
 			const overlayComponent = <div>I am an overlay</div>;
 			const wrapper = shallow(
 				<PieChartButton
@@ -71,26 +73,13 @@ describe('PieChartButton', () => {
 					model={pieChartData}
 					overlayComponent={overlayComponent}
 					overlayId="id-popover"
-					onClick={onClick}
 				/>,
 			);
-
-			wrapper
-				.find('Button')
-				.at(0)
-				.simulate('click', event);
-
-			expect(onClick).not.toHaveBeenCalledWith(event, {
-				action: {
-					label: 'my label',
-				},
-				model: pieChartData,
-			});
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
-		it('shoud render a Skeleton when the state is loading', () => {
+		it('should render a Skeleton when the state is loading', () => {
 			const wrapper = shallow(<PieChartButton loading model={pieChartData} />);
 
 			expect(wrapper.getElement()).toMatchSnapshot();

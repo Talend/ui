@@ -188,7 +188,7 @@ storiesOf('Container Datagrid')
 		options,
 	)
 	.addWithCMF(
-		'in Progress',
+		'loading',
 		() => (
 			<div style={{ height: '100vh' }}>
 				<IconsProvider />

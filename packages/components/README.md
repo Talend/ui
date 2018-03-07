@@ -75,11 +75,11 @@ it could be done by passing some props.
 
 The components have to manage the different state defined in the [guidelines](https://company-57688.frontify.com/document/92132#/messaging-communication/loading-feedback).
 
-| State   | Description                                                                                            |
-| ------- | ------------------------------------------------------------------------------------------------------ |
-| default | render the component                                                                                   |
-| loading | State when the component is loading (waiting data from the server). It shows the skeleton or a spinner |
-| waiting | State when the component is waiting (waiting data to refresh the component). It shows the heatbeat     |
+| State      | Description                                                                                            |
+| ---------- | ------------------------------------------------------------------------------------------------------ |
+| default    | render the component                                                                                   |
+| loading    | State when the component is loading (waiting data from the server). It shows the skeleton or a spinner |
+| inProgress | State when the component is waiting (waiting data to refresh the component). It shows the heatbeat     |
 
 ### onClick / onEvent
 

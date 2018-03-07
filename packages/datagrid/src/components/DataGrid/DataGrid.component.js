@@ -243,13 +243,7 @@ export default class DataGrid extends React.Component {
 	render() {
 		let content;
 		if (this.props.loading) {
-			content = (
-				<Skeleton
-					className={classNames(theme['td-grid-in-progress'], 'td-grid-in-progress')}
-					name="talend-table"
-					type={Skeleton.TYPES.icon}
-				/>
-			);
+			content = <Skeleton name="talend-table" type={Skeleton.TYPES.icon} />;
 		} else {
 			content = <AgGridReact {...this.getAgGridConfig()} />;
 		}
@@ -258,7 +252,7 @@ export default class DataGrid extends React.Component {
 			<div
 				className={classNames(
 					{
-						[theme['td-grid-in-progress']]: this.props.loading,
+						[theme['td-grid-loading']]: this.props.loading,
 					},
 					theme['td-grid'],
 					this.props.className,
