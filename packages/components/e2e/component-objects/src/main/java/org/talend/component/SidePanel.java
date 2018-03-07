@@ -35,6 +35,16 @@ public class SidePanel extends Component {
     }
 
     /**
+     * SidePanel constructor
+     *
+     * @param driver Selenium WebDriver
+     * @param id Unique ID of the component
+     */
+    SidePanel(WebDriver driver, String id) {
+        super(driver, NAME, id + SELECTOR);
+    }
+
+    /**
      * Get menu item from its label
      *
      * @param label item menu label

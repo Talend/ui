@@ -24,4 +24,14 @@ public class AppHeaderBar extends Component {
     AppHeaderBar(WebDriver driver) {
         super(driver, NAME, SELECTOR);
     }
+
+    /**
+     * AppHeaderBar constructor
+     *
+     * @param driver Selenium WebDriver
+     * @param id Unique ID of the component
+     */
+    AppHeaderBar(WebDriver driver, String id) {
+        super(driver, NAME, id + SELECTOR);
+    }
 }

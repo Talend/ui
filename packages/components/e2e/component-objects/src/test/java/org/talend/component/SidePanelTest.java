@@ -1,11 +1,7 @@
 package org.talend.component;
 
-import org.openqa.selenium.WebElement;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
 
 
 public class SidePanelTest extends StorybookTest {
@@ -14,7 +10,7 @@ public class SidePanelTest extends StorybookTest {
 
     @Before
     public void init() {
-        goToStory("SidePanel", "reverse");
+        goToStory("SidePanel", "default");
     }
 
     @Test
