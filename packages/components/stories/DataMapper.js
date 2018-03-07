@@ -313,9 +313,11 @@ stories
 			handleNavigation(ev) {
         const key = ev.keyCode;
         const isValidKey = key === Keys.UP
-												|| key === Keys.DOWN
-												|| key === Keys.SWITCH_SCHEMA;
-        return isValidKey && !isSelectionEmpty(this.state.selection);
+												|| key === Keys.DOWN;
+				const isValidSwitch = key === Keys.SWITCH_SCHEMA
+					&& this.state.pendingItem == null;
+        return !isSelectionEmpty(this.state.selection)
+					&& (isValidKey || isValidSwitch);
       }
 
 			handleFirstSelect(ev) {
@@ -374,9 +376,29 @@ stories
 			}
 
 			selectElement(element, type) {
-				this.setState(prevState => ({
-					selection: getSelection(prevState.mapping, prevState.selection, element, type),
-				}));
+				if (this.state.pendingItem == null) {
+					this.setState(prevState => ({
+						selection: getSelection(prevState.mapping, prevState.selection, element, type),
+					}));
+				} else {
+					if (this.state.pendingItem.type === type) {
+						// stop the link process
+						this.setState(prevState => ({
+							selection: getSelection(prevState.mapping, prevState.selection, element, type),
+							pendingItem: null,
+						}));
+					} else {
+						if (this.state.pendingItem.type === SchemaType.INPUT) {
+							this.performMapping(this.state.pendingItem.element,
+																	element,
+																	type);
+						} else {
+							this.performMapping(element,
+																	this.state.pendingItem.element,
+																	type);
+						}
+					}
+				}
 			}
 
 			clearSelection() {
@@ -398,7 +420,6 @@ stories
 			}
 
 			onShowAll() {
-				console.log('On show all');
 				this.setState(prevState => ({
 					showAll: !prevState.showAll,
 				}));
