@@ -128,6 +128,7 @@ describe('DatalistWidget', () => {
 			.simulate('focus');
 
 		// then
+		expect(wrapper.find('div.tf-typeahead-container').text()).toEqual('Empty list');
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
