@@ -5,7 +5,7 @@ import { onSagaStart, handle } from '../../src/sagas/component';
 import CONST from '../../src/constant';
 
 describe('sagas.component', () => {
-	it('should onSagaStart fork action.saga and wait for unmount to cancel', () => {
+	it('should onSagaStart forks action.saga without params and waits for unmount cancelling*', () => {
 		// given
 		const testAction = { type: 'TEST', saga: 'my-saga' };
 		function* saga() {}
@@ -21,7 +21,7 @@ describe('sagas.component', () => {
 		expect(gen.next().value).toEqual(cancel(task));
 	});
 
-	it('should onSagaStart fork action.saga with params and wait for unmount to cancel', () => {
+	it('should onSagaStart forks action.saga with params and waits for unmount cancelling*', () => {
 		// given
 		const testAction = {
 			type: 'TEST',
