@@ -74,6 +74,7 @@ In entry, the datagrid component waits a sample of dataset. By default, the data
 | headerRenderer        | header component to inject                             | string   | DefaultHeaderRenderer    |
 | onFocusedCell         | callback when one cell is focused                      | function |                          |
 | onFocusedColumn       | callback when one column is focused                    | function |                          |
+| onVerticalScroll      | callback when the grid scroll vertical                 | function |                          |
 | pinHeaderRenderer     | pinHeader component to inject                          | string   | DefaultPinHeaderRenderer |
 | data                  | data to set into the datagrid                          | Array    |                          |
 | rowSelection          | set the type of selection (single or multiple)         | string   | single                   |
