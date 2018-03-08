@@ -10,10 +10,10 @@ import java.util.Map;
 
 public class BrowserStackWebDriverTest extends WebDriverTest {
 
-    private Local browserStackLocalInstance;
+    private Local bsLocalInstance;
 
     public void setUp() throws Exception {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+        final DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browser", "Chrome");
         capabilities.setCapability("browser_version", "64.0");
         capabilities.setCapability("os", "Windows");
@@ -22,21 +22,29 @@ public class BrowserStackWebDriverTest extends WebDriverTest {
         capabilities.setCapability("browserstack.debug", "true");
         //capabilities.setCapability("browserstack.local", "true");
 
-        String username = System.getenv("BROWSERSTACK_USERNAME");
-        String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
-
-        if (capabilities.getCapability("browserstack.local") != null && capabilities.getCapability("browserstack.local") == "true") {
-            browserStackLocalInstance = new Local();
-            Map<String, String> options = new HashMap<String, String>();
-            options.put("key", accessKey);
-            browserStackLocalInstance.start(options);
+        final String username = System.getenv("BROWSERSTACK_USERNAME");
+        if (username == null) {
+            throw new IllegalArgumentException("BROWSERSTACK_USERNAME should be defined.");
         }
 
-        driver = new RemoteWebDriver(new URL("http://" + username + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub"), capabilities);
+        final String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
+        if (accessKey == null) {
+            throw new IllegalArgumentException("BROWSERSTACK_ACCESS_KEY should be defined.");
+        }
+
+        if (capabilities.getCapability("browserstack.local") != null && capabilities.getCapability("browserstack.local") == "true") {
+            bsLocalInstance = new Local();
+            Map<String, String> options = new HashMap<String, String>();
+            options.put("key", accessKey);
+            bsLocalInstance.start(options);
+        }
+
+        final URL browserStackUrl = new URL("http://" + username + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub");
+        driver = new RemoteWebDriver(browserStackUrl, capabilities);
     }
 
     public void tearDown() throws Exception {
         driver.quit();
-        if (browserStackLocalInstance != null) browserStackLocalInstance.stop();
+        if (bsLocalInstance != null) bsLocalInstance.stop();
     }
 }

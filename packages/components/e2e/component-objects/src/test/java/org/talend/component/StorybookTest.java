@@ -1,5 +1,6 @@
 package org.talend.component;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.client.utils.URIBuilder;
 import org.junit.After;
 import org.junit.Before;
@@ -14,9 +15,11 @@ public class StorybookTest {
 
     private static final String DEFAULT_STORY_NAME = "default";
 
-    private static final String STORYBOOK_HOST = "talend.surge.sh";
+    private static final String STORYBOOK_HOST = "localhost";
 
-    private static final int STORYBOOK_PORT = 80;
+    private static final int STORYBOOK_PORT = 6006;
+
+    private static final String STORYBOOK_CONTEXT = "";
 
     protected WebDriverTest webDriverTestConfiguration;
 
@@ -46,9 +49,18 @@ public class StorybookTest {
             URIBuilder builder = new URIBuilder();
 
             builder.setScheme("http");
-            builder.setHost(STORYBOOK_HOST);
-            builder.setPort(STORYBOOK_PORT);
-            builder.setPath("/components/");
+            final String storybookHost = System.getProperty("storybook.host", STORYBOOK_HOST);
+            builder.setHost(storybookHost);
+            final String storybookPort = System.getProperty("storybook.port");
+            if (StringUtils.isNotBlank(storybookPort)) {
+                builder.setPort(Integer.parseInt(storybookPort));
+            } else {
+                builder.setPort(STORYBOOK_PORT);
+            }
+            final String storybookContext = System.getProperty("storybook.context", STORYBOOK_CONTEXT);
+            if (StringUtils.isNotBlank(storybookContext)) {
+                builder.setPath(STORYBOOK_CONTEXT);
+            }
             builder.addParameter("selectedKind", categoryName);
             builder.addParameter("selectedStory", storyName);
 

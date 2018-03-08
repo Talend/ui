@@ -5,21 +5,25 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.talend</groupId>
     <artifactId>component-objects</artifactId>
-    <version>0.162.1</version>
+    <version>0.164.0</version>
 
     <properties>
         <!-- project -->
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
         <!-- dependencies -->
         <selenium.version>2.53.1</selenium.version>
         <log4j.version>2.7</log4j.version>
         <!-- plugins -->
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
-        <!-- browserstack or local -->
-        <config.remote>true</config.remote>
+        <!-- webdriver -->
+        <webdriver.chrome.driver/>
+        <!-- storybook -->
+        <storybook.url>localhost</storybook.url>
+        <storybook.port>6006</storybook.port>
+        <storybook.context/>
     </properties>
 
     <dependencies>
@@ -63,6 +67,25 @@
     </dependencies>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                    <configuration>
+                        <includes>
+                            <include>org/talend/component/**/*Test.java</include>
+                        </includes>
+                        <systemPropertyVariables>
+                            <storybook.url>${storybook.url}</storybook.url>
+                            <storybook.port>${storybook.port}</storybook.port>
+                            <storybook.context>${storybook.context}</storybook.context>
+                        </systemPropertyVariables>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -73,21 +96,63 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
-                <configuration>
-                    <includes>
-                        <include>org/talend/component/**/*Test.java</include>
-                    </includes>
-                    <systemPropertyVariables>
-                        <remote>${config.remote}</remote>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.lazerycode.selenium</groupId>
+                        <artifactId>driver-binary-downloader-maven-plugin</artifactId>
+                        <version>1.0.17</version>
+                        <configuration>
+                            <rootStandaloneServerDirectory>
+                                ${project.build.directory}/selenium_standalone_binaries
+                            </rootStandaloneServerDirectory>
+                            <downloadedZipFileDirectory>
+                                ${project.build.directory}/selenium_standalone_zips
+                            </downloadedZipFileDirectory>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>selenium</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>remote</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <remote>true</remote>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <distributionManagement>
         <snapshotRepository>
