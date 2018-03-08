@@ -24,7 +24,7 @@ public class List extends Component {
 
     static final String BUTTON_ACTIONBAR_SELECTOR = ACTIONBAR_SELECTOR + " #%s.btn";
 
-    static final String TOOL_BAR_ITEM_SELECTOR = TOOL_BAR_SELECTOR + "[role='toolbar'] #%s";
+    static final String TOOL_BAR_ITEM_SELECTOR = TOOL_BAR_SELECTOR + " div[role='toolbar'] #%s";
 
     /**
      * List constructor.
