@@ -22,14 +22,14 @@ public class BrowserStackWebDriverTest extends WebDriverTest {
         capabilities.setCapability("browserstack.debug", "true");
         //capabilities.setCapability("browserstack.local", "true");
 
-        final String username = System.getenv("BROWSERSTACK_USERNAME");
+        final String username = System.getenv("BROWSERSTACK_USER");
         if (username == null) {
-            throw new IllegalArgumentException("BROWSERSTACK_USERNAME should be defined.");
+            throw new IllegalArgumentException("BROWSERSTACK_USER should be defined.");
         }
 
-        final String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
+        final String accessKey = System.getenv("BROWSERSTACK_KEY");
         if (accessKey == null) {
-            throw new IllegalArgumentException("BROWSERSTACK_ACCESS_KEY should be defined.");
+            throw new IllegalArgumentException("BROWSERSTACK_KEY should be defined.");
         }
 
         if (capabilities.getCapability("browserstack.local") != null && capabilities.getCapability("browserstack.local") == "true") {

@@ -19,7 +19,7 @@ $> mvn clean verify -Plocal
 Remote configuration, which is provided by BrowserStack, will test [http://localhost:6006](http://localhost:6006) by default.
 
 ```shell
-$> BROWSERSTACK_USERNAME=$YOUR_BS_USERNAME BROWSERSTACK_ACCESS_KEY=$YOUR_BS_ACCESS_KEY mvn clean verify -Premote
+$> BROWSERSTACK_USER=$YOUR_BS_USER BROWSERSTACK_KEY=$YOUR_BS_KEY mvn clean verify -Premote
 ```
 
 ### Run with custom parameters

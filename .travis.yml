@@ -39,6 +39,7 @@ matrix:
     - language: java
       jdk: oraclejdk8
       script:
+        - cd packages/components/e2e/component-objects
         - mvn clean verify -Dremote=true -Dstorybook.host=talend.surge.sh -Dstorybook.port=80 -Dstorybook.context=components/
 
 branches:
