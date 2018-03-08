@@ -5,6 +5,5 @@ export default function validate(jsonSchema, data) {
 		return false;
 	}
 	const validator = new Ajv().compile(jsonSchema);
-	const valid = validator(data);
-	return valid;
+	return validator && validator(data);
 }
