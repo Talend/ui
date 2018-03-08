@@ -31,6 +31,7 @@ import expressions from './expressions';
 import sagas from './sagas';
 import selectors from './selectors';
 import component from './component';
+import schema from './schema';
 
 function registerInternals(context) {
 	actionCreator.register('cmf.saga.start', actions.saga.start, context);
@@ -42,6 +43,7 @@ export default {
 	actions,
 	actionCreator,
 	component,
+	schema,
 	expression,
 	expressions,
 	route,
