@@ -16,7 +16,7 @@ public class List extends Component {
 
     static final String LIST_SELECTOR = ".tc-list";
 
-    static final String TOOL_BAR_SELECTOR = '.tc-list-toolbar';
+    static final String TOOL_BAR_SELECTOR = ".tc-list-toolbar";
 
     static final String ACTIONBAR_SELECTOR = ".tc-actionbar-container";
 
