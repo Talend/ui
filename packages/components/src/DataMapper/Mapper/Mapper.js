@@ -109,12 +109,13 @@ export default class Mapper extends Component {
 			}
 		}
 
-		return { current,
+		return {
+			current,
 			pending,
 			focused: focusedConnections,
 			all: allConnections,
 			dnd: dndConnection,
-		 };
+		};
 	}
 
 	reveal(selection) {
