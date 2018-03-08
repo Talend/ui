@@ -296,7 +296,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -325,19 +325,122 @@ exports[`Storyshots HeaderBar default 1`] = `
         <span
           role="heading"
         >
-          <button
-            className="theme-tc-header-bar-brand btn btn-link"
-            disabled={false}
-            id="header-brand"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <div
+            className="dropdown btn-group btn-group-link"
           >
-            <span>
-              Example App Name
-            </span>
-          </button>
+            <button
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              type="button"
+            >
+              <span
+                className="tc-dropdown-button-title"
+              >
+                <span
+                  className="tc-dropdown-button-title-label"
+                >
+                  Example App Name
+                </span>
+              </span>
+               
+              <span
+                className="caret"
+              />
+            </button>
+            <ul
+              aria-labelledby="header-brand"
+              className="dropdown-menu"
+              role="menu"
+            >
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-dp"
+                  label="Data Preparation"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-dp"
+                    />
+                  </svg>
+                  Data Preparation
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-ic"
+                  label="Integration Cloud"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-ic"
+                    />
+                  </svg>
+                  Integration Cloud
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-mc"
+                  label="Management Console"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-mc"
+                    />
+                  </svg>
+                  Management Console
+                </a>
+              </li>
+            </ul>
+          </div>
         </span>
       </li>
     </ul>
@@ -376,7 +479,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -404,7 +507,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -488,130 +591,6 @@ exports[`Storyshots HeaderBar default 1`] = `
                   />
                 </svg>
                 Settings
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li
-        className="theme-tc-header-bar-action"
-        role="presentation"
-      >
-        <div
-          className="dropdown btn-group btn-group-link"
-        >
-          <button
-            aria-expanded={false}
-            aria-haspopup={true}
-            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-            disabled={false}
-            id="header-products"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onMouseOver={[Function]}
-            role="button"
-            type="button"
-          >
-            <span
-              className="tc-dropdown-button-title"
-            >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-launcher"
-                />
-              </svg>
-            </span>
-          </button>
-          <ul
-            aria-labelledby="header-products"
-            className="dropdown-menu dropdown-menu-right"
-            role="menu"
-          >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-dp"
-                label="Data Preparation"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-dp"
-                  />
-                </svg>
-                Data Preparation
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-ic"
-                label="Integration Cloud"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-ic"
-                  />
-                </svg>
-                Integration Cloud
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-mc"
-                label="Management Console"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-mc"
-                  />
-                </svg>
-                Management Console
               </a>
             </li>
           </ul>
@@ -903,7 +882,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -932,19 +911,122 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         <span
           role="heading"
         >
-          <button
-            className="theme-tc-header-bar-brand btn btn-link"
-            disabled={false}
-            id="header-brand"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <div
+            className="dropdown btn-group btn-group-link"
           >
-            <span>
-              Example App Name
-            </span>
-          </button>
+            <button
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              type="button"
+            >
+              <span
+                className="tc-dropdown-button-title"
+              >
+                <span
+                  className="tc-dropdown-button-title-label"
+                >
+                  Example App Name
+                </span>
+              </span>
+               
+              <span
+                className="caret"
+              />
+            </button>
+            <ul
+              aria-labelledby="header-brand"
+              className="dropdown-menu"
+              role="menu"
+            >
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-dp"
+                  label="Data Preparation"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-dp"
+                    />
+                  </svg>
+                  Data Preparation
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-ic"
+                  label="Integration Cloud"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-ic"
+                    />
+                  </svg>
+                  Integration Cloud
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-mc"
+                  label="Management Console"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-mc"
+                    />
+                  </svg>
+                  Management Console
+                </a>
+              </li>
+            </ul>
+          </div>
         </span>
       </li>
     </ul>
@@ -1031,7 +1113,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -1059,7 +1141,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -1143,130 +1225,6 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                   />
                 </svg>
                 Settings
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li
-        className="theme-tc-header-bar-action"
-        role="presentation"
-      >
-        <div
-          className="dropdown btn-group btn-group-link"
-        >
-          <button
-            aria-expanded={false}
-            aria-haspopup={true}
-            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-            disabled={false}
-            id="header-products"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onMouseOver={[Function]}
-            role="button"
-            type="button"
-          >
-            <span
-              className="tc-dropdown-button-title"
-            >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-launcher"
-                />
-              </svg>
-            </span>
-          </button>
-          <ul
-            aria-labelledby="header-products"
-            className="dropdown-menu dropdown-menu-right"
-            role="menu"
-          >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-dp"
-                label="Data Preparation"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-dp"
-                  />
-                </svg>
-                Data Preparation
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-ic"
-                label="Integration Cloud"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-ic"
-                  />
-                </svg>
-                Integration Cloud
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-mc"
-                label="Management Console"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-mc"
-                  />
-                </svg>
-                Management Console
               </a>
             </li>
           </ul>
@@ -1558,7 +1516,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -1587,19 +1545,122 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         <span
           role="heading"
         >
-          <button
-            className="theme-tc-header-bar-brand btn btn-link"
-            disabled={false}
-            id="header-brand"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <div
+            className="dropdown btn-group btn-group-link"
           >
-            <span>
-              Example App Name
-            </span>
-          </button>
+            <button
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              type="button"
+            >
+              <span
+                className="tc-dropdown-button-title"
+              >
+                <span
+                  className="tc-dropdown-button-title-label"
+                >
+                  Example App Name
+                </span>
+              </span>
+               
+              <span
+                className="caret"
+              />
+            </button>
+            <ul
+              aria-labelledby="header-brand"
+              className="dropdown-menu"
+              role="menu"
+            >
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-dp"
+                  label="Data Preparation"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-dp"
+                    />
+                  </svg>
+                  Data Preparation
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-ic"
+                  label="Integration Cloud"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-ic"
+                    />
+                  </svg>
+                  Integration Cloud
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-mc"
+                  label="Management Console"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-mc"
+                    />
+                  </svg>
+                  Management Console
+                </a>
+              </li>
+            </ul>
+          </div>
         </span>
       </li>
       <li
@@ -1704,7 +1765,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -1732,7 +1793,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -1816,130 +1877,6 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                   />
                 </svg>
                 Settings
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li
-        className="theme-tc-header-bar-action"
-        role="presentation"
-      >
-        <div
-          className="dropdown btn-group btn-group-link"
-        >
-          <button
-            aria-expanded={false}
-            aria-haspopup={true}
-            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-            disabled={false}
-            id="header-products"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onMouseOver={[Function]}
-            role="button"
-            type="button"
-          >
-            <span
-              className="tc-dropdown-button-title"
-            >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-launcher"
-                />
-              </svg>
-            </span>
-          </button>
-          <ul
-            aria-labelledby="header-products"
-            className="dropdown-menu dropdown-menu-right"
-            role="menu"
-          >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-dp"
-                label="Data Preparation"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-dp"
-                  />
-                </svg>
-                Data Preparation
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-ic"
-                label="Integration Cloud"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-ic"
-                  />
-                </svg>
-                Integration Cloud
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-mc"
-                label="Management Console"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-mc"
-                  />
-                </svg>
-                Management Console
               </a>
             </li>
           </ul>
@@ -2231,7 +2168,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo theme-full btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo theme-full btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -2260,19 +2197,122 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         <span
           role="heading"
         >
-          <button
-            className="theme-tc-header-bar-brand btn btn-link"
-            disabled={false}
-            id="header-brand"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <div
+            className="dropdown btn-group btn-group-link"
           >
-            <span>
-              Example App Name
-            </span>
-          </button>
+            <button
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              type="button"
+            >
+              <span
+                className="tc-dropdown-button-title"
+              >
+                <span
+                  className="tc-dropdown-button-title-label"
+                >
+                  Example App Name
+                </span>
+              </span>
+               
+              <span
+                className="caret"
+              />
+            </button>
+            <ul
+              aria-labelledby="header-brand"
+              className="dropdown-menu"
+              role="menu"
+            >
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-dp"
+                  label="Data Preparation"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-dp"
+                    />
+                  </svg>
+                  Data Preparation
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-ic"
+                  label="Integration Cloud"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-ic"
+                    />
+                  </svg>
+                  Integration Cloud
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-mc"
+                  label="Management Console"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-mc"
+                    />
+                  </svg>
+                  Management Console
+                </a>
+              </li>
+            </ul>
+          </div>
         </span>
       </li>
     </ul>
@@ -2311,7 +2351,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -2339,7 +2379,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -2423,130 +2463,6 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                   />
                 </svg>
                 Settings
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li
-        className="theme-tc-header-bar-action"
-        role="presentation"
-      >
-        <div
-          className="dropdown btn-group btn-group-link"
-        >
-          <button
-            aria-expanded={false}
-            aria-haspopup={true}
-            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-            disabled={false}
-            id="header-products"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onMouseOver={[Function]}
-            role="button"
-            type="button"
-          >
-            <span
-              className="tc-dropdown-button-title"
-            >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-launcher"
-                />
-              </svg>
-            </span>
-          </button>
-          <ul
-            aria-labelledby="header-products"
-            className="dropdown-menu dropdown-menu-right"
-            role="menu"
-          >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-dp"
-                label="Data Preparation"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-dp"
-                  />
-                </svg>
-                Data Preparation
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-ic"
-                label="Integration Cloud"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-ic"
-                  />
-                </svg>
-                Integration Cloud
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-mc"
-                label="Management Console"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-mc"
-                  />
-                </svg>
-                Management Console
               </a>
             </li>
           </ul>
@@ -2838,7 +2754,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -2867,19 +2783,122 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         <span
           role="heading"
         >
-          <button
-            className="theme-tc-header-bar-brand btn btn-link"
-            disabled={false}
-            id="header-brand"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <div
+            className="dropdown btn-group btn-group-link"
           >
-            <span>
-              Example App Name
-            </span>
-          </button>
+            <button
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              type="button"
+            >
+              <span
+                className="tc-dropdown-button-title"
+              >
+                <span
+                  className="tc-dropdown-button-title-label"
+                >
+                  Example App Name
+                </span>
+              </span>
+               
+              <span
+                className="caret"
+              />
+            </button>
+            <ul
+              aria-labelledby="header-brand"
+              className="dropdown-menu"
+              role="menu"
+            >
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-dp"
+                  label="Data Preparation"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-dp"
+                    />
+                  </svg>
+                  Data Preparation
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-ic"
+                  label="Integration Cloud"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-ic"
+                    />
+                  </svg>
+                  Integration Cloud
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-mc"
+                  label="Management Console"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-mc"
+                    />
+                  </svg>
+                  Management Console
+                </a>
+              </li>
+            </ul>
+          </div>
         </span>
       </li>
     </ul>
@@ -2918,7 +2937,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -2946,7 +2965,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -3030,130 +3049,6 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                   />
                 </svg>
                 Settings
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li
-        className="theme-tc-header-bar-action"
-        role="presentation"
-      >
-        <div
-          className="dropdown btn-group btn-group-link"
-        >
-          <button
-            aria-expanded={false}
-            aria-haspopup={true}
-            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-            disabled={false}
-            id="header-products"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onMouseOver={[Function]}
-            role="button"
-            type="button"
-          >
-            <span
-              className="tc-dropdown-button-title"
-            >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-launcher"
-                />
-              </svg>
-            </span>
-          </button>
-          <ul
-            aria-labelledby="header-products"
-            className="dropdown-menu dropdown-menu-right"
-            role="menu"
-          >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-dp"
-                label="Data Preparation"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-dp"
-                  />
-                </svg>
-                Data Preparation
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-ic"
-                label="Integration Cloud"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-ic"
-                  />
-                </svg>
-                Integration Cloud
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-mc"
-                label="Management Console"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-mc"
-                  />
-                </svg>
-                Management Console
               </a>
             </li>
           </ul>
@@ -3445,7 +3340,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -3474,19 +3369,122 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         <span
           role="heading"
         >
-          <button
-            className="theme-tc-header-bar-brand btn btn-link"
-            disabled={false}
-            id="header-brand"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <div
+            className="dropdown btn-group btn-group-link"
           >
-            <span>
-              Example App Name
-            </span>
-          </button>
+            <button
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              type="button"
+            >
+              <span
+                className="tc-dropdown-button-title"
+              >
+                <span
+                  className="tc-dropdown-button-title-label"
+                >
+                  Example App Name
+                </span>
+              </span>
+               
+              <span
+                className="caret"
+              />
+            </button>
+            <ul
+              aria-labelledby="header-brand"
+              className="dropdown-menu"
+              role="menu"
+            >
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-dp"
+                  label="Data Preparation"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-dp"
+                    />
+                  </svg>
+                  Data Preparation
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-ic"
+                  label="Integration Cloud"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-ic"
+                    />
+                  </svg>
+                  Integration Cloud
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-mc"
+                  label="Management Console"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-mc"
+                    />
+                  </svg>
+                  Management Console
+                </a>
+              </li>
+            </ul>
+          </div>
         </span>
       </li>
     </ul>
@@ -3553,7 +3551,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -3581,7 +3579,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -3665,130 +3663,6 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                   />
                 </svg>
                 Settings
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li
-        className="theme-tc-header-bar-action"
-        role="presentation"
-      >
-        <div
-          className="dropdown btn-group btn-group-link"
-        >
-          <button
-            aria-expanded={false}
-            aria-haspopup={true}
-            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-            disabled={false}
-            id="header-products"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onMouseOver={[Function]}
-            role="button"
-            type="button"
-          >
-            <span
-              className="tc-dropdown-button-title"
-            >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-launcher"
-                />
-              </svg>
-            </span>
-          </button>
-          <ul
-            aria-labelledby="header-products"
-            className="dropdown-menu dropdown-menu-right"
-            role="menu"
-          >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-dp"
-                label="Data Preparation"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-dp"
-                  />
-                </svg>
-                Data Preparation
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-ic"
-                label="Integration Cloud"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-ic"
-                  />
-                </svg>
-                Integration Cloud
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-mc"
-                label="Management Console"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-mc"
-                  />
-                </svg>
-                Management Console
               </a>
             </li>
           </ul>
@@ -4080,7 +3954,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -4109,19 +3983,122 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         <span
           role="heading"
         >
-          <button
-            className="theme-tc-header-bar-brand btn btn-link"
-            disabled={false}
-            id="header-brand"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <div
+            className="dropdown btn-group btn-group-link"
           >
-            <span>
-              Example App Name
-            </span>
-          </button>
+            <button
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              type="button"
+            >
+              <span
+                className="tc-dropdown-button-title"
+              >
+                <span
+                  className="tc-dropdown-button-title-label"
+                >
+                  Example App Name
+                </span>
+              </span>
+               
+              <span
+                className="caret"
+              />
+            </button>
+            <ul
+              aria-labelledby="header-brand"
+              className="dropdown-menu"
+              role="menu"
+            >
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-dp"
+                  label="Data Preparation"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-dp"
+                    />
+                  </svg>
+                  Data Preparation
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-ic"
+                  label="Integration Cloud"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-ic"
+                    />
+                  </svg>
+                  Integration Cloud
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-mc"
+                  label="Management Console"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-mc"
+                    />
+                  </svg>
+                  Management Console
+                </a>
+              </li>
+            </ul>
+          </div>
         </span>
       </li>
     </ul>
@@ -4186,7 +4163,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -4214,7 +4191,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -4298,130 +4275,6 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                   />
                 </svg>
                 Settings
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li
-        className="theme-tc-header-bar-action"
-        role="presentation"
-      >
-        <div
-          className="dropdown btn-group btn-group-link"
-        >
-          <button
-            aria-expanded={false}
-            aria-haspopup={true}
-            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-            disabled={false}
-            id="header-products"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onMouseOver={[Function]}
-            role="button"
-            type="button"
-          >
-            <span
-              className="tc-dropdown-button-title"
-            >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-launcher"
-                />
-              </svg>
-            </span>
-          </button>
-          <ul
-            aria-labelledby="header-products"
-            className="dropdown-menu dropdown-menu-right"
-            role="menu"
-          >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-dp"
-                label="Data Preparation"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-dp"
-                  />
-                </svg>
-                Data Preparation
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-ic"
-                label="Integration Cloud"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-ic"
-                  />
-                </svg>
-                Integration Cloud
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-mc"
-                label="Management Console"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-mc"
-                  />
-                </svg>
-                Management Console
               </a>
             </li>
           </ul>
@@ -4713,7 +4566,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -4742,19 +4595,122 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         <span
           role="heading"
         >
-          <button
-            className="theme-tc-header-bar-brand btn btn-link"
-            disabled={false}
-            id="header-brand"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <div
+            className="dropdown btn-group btn-group-link"
           >
-            <span>
-              Example App Name
-            </span>
-          </button>
+            <button
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              type="button"
+            >
+              <span
+                className="tc-dropdown-button-title"
+              >
+                <span
+                  className="tc-dropdown-button-title-label"
+                >
+                  Example App Name
+                </span>
+              </span>
+               
+              <span
+                className="caret"
+              />
+            </button>
+            <ul
+              aria-labelledby="header-brand"
+              className="dropdown-menu"
+              role="menu"
+            >
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-dp"
+                  label="Data Preparation"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-dp"
+                    />
+                  </svg>
+                  Data Preparation
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-ic"
+                  label="Integration Cloud"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-ic"
+                    />
+                  </svg>
+                  Integration Cloud
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-mc"
+                  label="Management Console"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-mc"
+                    />
+                  </svg>
+                  Management Console
+                </a>
+              </li>
+            </ul>
+          </div>
         </span>
       </li>
     </ul>
@@ -4815,7 +4771,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -4843,7 +4799,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -4927,130 +4883,6 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                   />
                 </svg>
                 Settings
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li
-        className="theme-tc-header-bar-action"
-        role="presentation"
-      >
-        <div
-          className="dropdown btn-group btn-group-link"
-        >
-          <button
-            aria-expanded={false}
-            aria-haspopup={true}
-            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-            disabled={false}
-            id="header-products"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onMouseOver={[Function]}
-            role="button"
-            type="button"
-          >
-            <span
-              className="tc-dropdown-button-title"
-            >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-launcher"
-                />
-              </svg>
-            </span>
-          </button>
-          <ul
-            aria-labelledby="header-products"
-            className="dropdown-menu dropdown-menu-right"
-            role="menu"
-          >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-dp"
-                label="Data Preparation"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-dp"
-                  />
-                </svg>
-                Data Preparation
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-ic"
-                label="Integration Cloud"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-ic"
-                  />
-                </svg>
-                Integration Cloud
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-mc"
-                label="Management Console"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-mc"
-                  />
-                </svg>
-                Management Console
               </a>
             </li>
           </ul>
@@ -5342,7 +5174,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -5371,19 +5203,122 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         <span
           role="heading"
         >
-          <button
-            className="theme-tc-header-bar-brand btn btn-link"
-            disabled={false}
-            id="header-brand"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <div
+            className="dropdown btn-group btn-group-link"
           >
-            <span>
-              Example App Name
-            </span>
-          </button>
+            <button
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              type="button"
+            >
+              <span
+                className="tc-dropdown-button-title"
+              >
+                <span
+                  className="tc-dropdown-button-title-label"
+                >
+                  Example App Name
+                </span>
+              </span>
+               
+              <span
+                className="caret"
+              />
+            </button>
+            <ul
+              aria-labelledby="header-brand"
+              className="dropdown-menu"
+              role="menu"
+            >
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-dp"
+                  label="Data Preparation"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-dp"
+                    />
+                  </svg>
+                  Data Preparation
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-ic"
+                  label="Integration Cloud"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-ic"
+                    />
+                  </svg>
+                  Integration Cloud
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-mc"
+                  label="Management Console"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-mc"
+                    />
+                  </svg>
+                  Management Console
+                </a>
+              </li>
+            </ul>
+          </div>
         </span>
       </li>
     </ul>
@@ -5773,7 +5708,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -5801,7 +5736,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -5885,130 +5820,6 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                   />
                 </svg>
                 Settings
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li
-        className="theme-tc-header-bar-action"
-        role="presentation"
-      >
-        <div
-          className="dropdown btn-group btn-group-link"
-        >
-          <button
-            aria-expanded={false}
-            aria-haspopup={true}
-            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-            disabled={false}
-            id="header-products"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onMouseOver={[Function]}
-            role="button"
-            type="button"
-          >
-            <span
-              className="tc-dropdown-button-title"
-            >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-launcher"
-                />
-              </svg>
-            </span>
-          </button>
-          <ul
-            aria-labelledby="header-products"
-            className="dropdown-menu dropdown-menu-right"
-            role="menu"
-          >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-dp"
-                label="Data Preparation"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-dp"
-                  />
-                </svg>
-                Data Preparation
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-ic"
-                label="Integration Cloud"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-ic"
-                  />
-                </svg>
-                Integration Cloud
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-mc"
-                label="Management Console"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-mc"
-                  />
-                </svg>
-                Management Console
               </a>
             </li>
           </ul>
@@ -6300,7 +6111,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -6329,19 +6140,122 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         <span
           role="heading"
         >
-          <button
-            className="theme-tc-header-bar-brand btn btn-link"
-            disabled={false}
-            id="header-brand"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <div
+            className="dropdown btn-group btn-group-link"
           >
-            <span>
-              Example App Name
-            </span>
-          </button>
+            <button
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              type="button"
+            >
+              <span
+                className="tc-dropdown-button-title"
+              >
+                <span
+                  className="tc-dropdown-button-title-label"
+                >
+                  Example App Name
+                </span>
+              </span>
+               
+              <span
+                className="caret"
+              />
+            </button>
+            <ul
+              aria-labelledby="header-brand"
+              className="dropdown-menu"
+              role="menu"
+            >
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-dp"
+                  label="Data Preparation"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-dp"
+                    />
+                  </svg>
+                  Data Preparation
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-ic"
+                  label="Integration Cloud"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-ic"
+                    />
+                  </svg>
+                  Integration Cloud
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-mc"
+                  label="Management Console"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-mc"
+                    />
+                  </svg>
+                  Management Console
+                </a>
+              </li>
+            </ul>
+          </div>
         </span>
       </li>
     </ul>
@@ -6406,7 +6320,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -6434,7 +6348,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -6518,130 +6432,6 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                   />
                 </svg>
                 Settings
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li
-        className="theme-tc-header-bar-action"
-        role="presentation"
-      >
-        <div
-          className="dropdown btn-group btn-group-link"
-        >
-          <button
-            aria-expanded={false}
-            aria-haspopup={true}
-            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-            disabled={false}
-            id="header-products"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onMouseOver={[Function]}
-            role="button"
-            type="button"
-          >
-            <span
-              className="tc-dropdown-button-title"
-            >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-launcher"
-                />
-              </svg>
-            </span>
-          </button>
-          <ul
-            aria-labelledby="header-products"
-            className="dropdown-menu dropdown-menu-right"
-            role="menu"
-          >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-dp"
-                label="Data Preparation"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-dp"
-                  />
-                </svg>
-                Data Preparation
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-ic"
-                label="Integration Cloud"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-ic"
-                  />
-                </svg>
-                Integration Cloud
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-mc"
-                label="Management Console"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-mc"
-                  />
-                </svg>
-                Management Console
               </a>
             </li>
           </ul>
@@ -6933,7 +6723,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -6962,19 +6752,122 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         <span
           role="heading"
         >
-          <button
-            className="theme-tc-header-bar-brand btn btn-link"
-            disabled={false}
-            id="header-brand"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <div
+            className="dropdown btn-group btn-group-link"
           >
-            <span>
-              Example App Name
-            </span>
-          </button>
+            <button
+              aria-expanded={false}
+              aria-haspopup={true}
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+              disabled={false}
+              id="header-brand"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              type="button"
+            >
+              <span
+                className="tc-dropdown-button-title"
+              >
+                <span
+                  className="tc-dropdown-button-title-label"
+                >
+                  Example App Name
+                </span>
+              </span>
+               
+              <span
+                className="caret"
+              />
+            </button>
+            <ul
+              aria-labelledby="header-brand"
+              className="dropdown-menu"
+              role="menu"
+            >
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-dp"
+                  label="Data Preparation"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-dp"
+                    />
+                  </svg>
+                  Data Preparation
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-ic"
+                  label="Integration Cloud"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-ic"
+                    />
+                  </svg>
+                  Integration Cloud
+                </a>
+              </li>
+              <li
+                className=""
+                role="presentation"
+                style={undefined}
+              >
+                <a
+                  href="#"
+                  icon="talend-logo-mc"
+                  label="Management Console"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="theme-tc-svg-icon tc-svg-icon"
+                    focusable="false"
+                    title={null}
+                  >
+                    <use
+                      xlinkHref="#talend-logo-mc"
+                    />
+                  </svg>
+                  Management Console
+                </a>
+              </li>
+            </ul>
+          </div>
         </span>
       </li>
     </ul>
@@ -7013,7 +6906,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -7135,130 +7028,6 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                 target="_blank"
               >
                 Support
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li
-        className="theme-tc-header-bar-action"
-        role="presentation"
-      >
-        <div
-          className="dropdown btn-group btn-group-link"
-        >
-          <button
-            aria-expanded={false}
-            aria-haspopup={true}
-            className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-            disabled={false}
-            id="header-products"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onMouseOver={[Function]}
-            role="button"
-            type="button"
-          >
-            <span
-              className="tc-dropdown-button-title"
-            >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-launcher"
-                />
-              </svg>
-            </span>
-          </button>
-          <ul
-            aria-labelledby="header-products"
-            className="dropdown-menu dropdown-menu-right"
-            role="menu"
-          >
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-dp"
-                label="Data Preparation"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-dp"
-                  />
-                </svg>
-                Data Preparation
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-ic"
-                label="Integration Cloud"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-ic"
-                  />
-                </svg>
-                Integration Cloud
-              </a>
-            </li>
-            <li
-              className=""
-              role="presentation"
-              style={undefined}
-            >
-              <a
-                href="#"
-                icon="talend-logo-mc"
-                label="Management Console"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="menuitem"
-                tabIndex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon"
-                  focusable="false"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-logo-mc"
-                  />
-                </svg>
-                Management Console
               </a>
             </li>
           </ul>
@@ -7559,7 +7328,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -7588,19 +7357,122 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               <span
                 role="heading"
               >
-                <button
-                  className="theme-tc-header-bar-brand btn btn-link"
-                  disabled={false}
-                  id="header-brand"
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                  type="button"
+                <div
+                  className="dropdown btn-group btn-group-link"
                 >
-                  <span>
-                    Example App Name
-                  </span>
-                </button>
+                  <button
+                    aria-expanded={false}
+                    aria-haspopup={true}
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    disabled={false}
+                    id="header-brand"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    type="button"
+                  >
+                    <span
+                      className="tc-dropdown-button-title"
+                    >
+                      <span
+                        className="tc-dropdown-button-title-label"
+                      >
+                        Example App Name
+                      </span>
+                    </span>
+                     
+                    <span
+                      className="caret"
+                    />
+                  </button>
+                  <ul
+                    aria-labelledby="header-brand"
+                    className="dropdown-menu"
+                    role="menu"
+                  >
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-dp"
+                        label="Data Preparation"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-dp"
+                          />
+                        </svg>
+                        Data Preparation
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-ic"
+                        label="Integration Cloud"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-ic"
+                          />
+                        </svg>
+                        Integration Cloud
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-mc"
+                        label="Management Console"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-mc"
+                          />
+                        </svg>
+                        Management Console
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </span>
             </li>
           </ul>
@@ -7639,7 +7511,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -7667,7 +7539,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
@@ -7751,130 +7623,6 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                         />
                       </svg>
                       Settings
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              className="theme-tc-header-bar-action"
-              role="presentation"
-            >
-              <div
-                className="dropdown btn-group btn-group-link"
-              >
-                <button
-                  aria-expanded={false}
-                  aria-haspopup={true}
-                  className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-                  disabled={false}
-                  id="header-products"
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onMouseOver={[Function]}
-                  role="button"
-                  type="button"
-                >
-                  <span
-                    className="tc-dropdown-button-title"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-launcher"
-                      />
-                    </svg>
-                  </span>
-                </button>
-                <ul
-                  aria-labelledby="header-products"
-                  className="dropdown-menu dropdown-menu-right"
-                  role="menu"
-                >
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-dp"
-                      label="Data Preparation"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-dp"
-                        />
-                      </svg>
-                      Data Preparation
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-ic"
-                      label="Integration Cloud"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-ic"
-                        />
-                      </svg>
-                      Integration Cloud
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-mc"
-                      label="Management Console"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-mc"
-                        />
-                      </svg>
-                      Management Console
                     </a>
                   </li>
                 </ul>
@@ -8178,7 +7926,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -8207,19 +7955,122 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               <span
                 role="heading"
               >
-                <button
-                  className="theme-tc-header-bar-brand btn btn-link"
-                  disabled={false}
-                  id="header-brand"
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                  type="button"
+                <div
+                  className="dropdown btn-group btn-group-link"
                 >
-                  <span>
-                    Example App Name
-                  </span>
-                </button>
+                  <button
+                    aria-expanded={false}
+                    aria-haspopup={true}
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    disabled={false}
+                    id="header-brand"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    type="button"
+                  >
+                    <span
+                      className="tc-dropdown-button-title"
+                    >
+                      <span
+                        className="tc-dropdown-button-title-label"
+                      >
+                        Example App Name
+                      </span>
+                    </span>
+                     
+                    <span
+                      className="caret"
+                    />
+                  </button>
+                  <ul
+                    aria-labelledby="header-brand"
+                    className="dropdown-menu"
+                    role="menu"
+                  >
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-dp"
+                        label="Data Preparation"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-dp"
+                          />
+                        </svg>
+                        Data Preparation
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-ic"
+                        label="Integration Cloud"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-ic"
+                          />
+                        </svg>
+                        Integration Cloud
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-mc"
+                        label="Management Console"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-mc"
+                          />
+                        </svg>
+                        Management Console
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </span>
             </li>
           </ul>
@@ -8258,7 +8109,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -8286,7 +8137,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
@@ -8370,130 +8221,6 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                         />
                       </svg>
                       Settings
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              className="theme-tc-header-bar-action"
-              role="presentation"
-            >
-              <div
-                className="dropdown btn-group btn-group-link"
-              >
-                <button
-                  aria-expanded={false}
-                  aria-haspopup={true}
-                  className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-                  disabled={false}
-                  id="header-products"
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onMouseOver={[Function]}
-                  role="button"
-                  type="button"
-                >
-                  <span
-                    className="tc-dropdown-button-title"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-launcher"
-                      />
-                    </svg>
-                  </span>
-                </button>
-                <ul
-                  aria-labelledby="header-products"
-                  className="dropdown-menu dropdown-menu-right"
-                  role="menu"
-                >
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-dp"
-                      label="Data Preparation"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-dp"
-                        />
-                      </svg>
-                      Data Preparation
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-ic"
-                      label="Integration Cloud"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-ic"
-                        />
-                      </svg>
-                      Integration Cloud
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-mc"
-                      label="Management Console"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-mc"
-                        />
-                      </svg>
-                      Management Console
                     </a>
                   </li>
                 </ul>
@@ -8797,7 +8524,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -8826,19 +8553,122 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               <span
                 role="heading"
               >
-                <button
-                  className="theme-tc-header-bar-brand btn btn-link"
-                  disabled={false}
-                  id="header-brand"
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                  type="button"
+                <div
+                  className="dropdown btn-group btn-group-link"
                 >
-                  <span>
-                    Example App Name
-                  </span>
-                </button>
+                  <button
+                    aria-expanded={false}
+                    aria-haspopup={true}
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    disabled={false}
+                    id="header-brand"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    type="button"
+                  >
+                    <span
+                      className="tc-dropdown-button-title"
+                    >
+                      <span
+                        className="tc-dropdown-button-title-label"
+                      >
+                        Example App Name
+                      </span>
+                    </span>
+                     
+                    <span
+                      className="caret"
+                    />
+                  </button>
+                  <ul
+                    aria-labelledby="header-brand"
+                    className="dropdown-menu"
+                    role="menu"
+                  >
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-dp"
+                        label="Data Preparation"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-dp"
+                          />
+                        </svg>
+                        Data Preparation
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-ic"
+                        label="Integration Cloud"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-ic"
+                          />
+                        </svg>
+                        Integration Cloud
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-mc"
+                        label="Management Console"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-mc"
+                          />
+                        </svg>
+                        Management Console
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </span>
             </li>
           </ul>
@@ -8877,7 +8707,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -8905,7 +8735,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
@@ -8989,130 +8819,6 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                         />
                       </svg>
                       Settings
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              className="theme-tc-header-bar-action"
-              role="presentation"
-            >
-              <div
-                className="dropdown btn-group btn-group-link"
-              >
-                <button
-                  aria-expanded={false}
-                  aria-haspopup={true}
-                  className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-                  disabled={false}
-                  id="header-products"
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onMouseOver={[Function]}
-                  role="button"
-                  type="button"
-                >
-                  <span
-                    className="tc-dropdown-button-title"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-launcher"
-                      />
-                    </svg>
-                  </span>
-                </button>
-                <ul
-                  aria-labelledby="header-products"
-                  className="dropdown-menu dropdown-menu-right"
-                  role="menu"
-                >
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-dp"
-                      label="Data Preparation"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-dp"
-                        />
-                      </svg>
-                      Data Preparation
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-ic"
-                      label="Integration Cloud"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-ic"
-                        />
-                      </svg>
-                      Integration Cloud
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-mc"
-                      label="Management Console"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-mc"
-                        />
-                      </svg>
-                      Management Console
                     </a>
                   </li>
                 </ul>
@@ -9416,7 +9122,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -9445,19 +9151,122 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               <span
                 role="heading"
               >
-                <button
-                  className="theme-tc-header-bar-brand btn btn-link"
-                  disabled={false}
-                  id="header-brand"
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                  type="button"
+                <div
+                  className="dropdown btn-group btn-group-link"
                 >
-                  <span>
-                    Example App Name
-                  </span>
-                </button>
+                  <button
+                    aria-expanded={false}
+                    aria-haspopup={true}
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    disabled={false}
+                    id="header-brand"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    type="button"
+                  >
+                    <span
+                      className="tc-dropdown-button-title"
+                    >
+                      <span
+                        className="tc-dropdown-button-title-label"
+                      >
+                        Example App Name
+                      </span>
+                    </span>
+                     
+                    <span
+                      className="caret"
+                    />
+                  </button>
+                  <ul
+                    aria-labelledby="header-brand"
+                    className="dropdown-menu"
+                    role="menu"
+                  >
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-dp"
+                        label="Data Preparation"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-dp"
+                          />
+                        </svg>
+                        Data Preparation
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-ic"
+                        label="Integration Cloud"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-ic"
+                          />
+                        </svg>
+                        Integration Cloud
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-mc"
+                        label="Management Console"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-mc"
+                          />
+                        </svg>
+                        Management Console
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </span>
             </li>
           </ul>
@@ -9496,7 +9305,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -9524,7 +9333,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
@@ -9608,130 +9417,6 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                         />
                       </svg>
                       Settings
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              className="theme-tc-header-bar-action"
-              role="presentation"
-            >
-              <div
-                className="dropdown btn-group btn-group-link"
-              >
-                <button
-                  aria-expanded={false}
-                  aria-haspopup={true}
-                  className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-                  disabled={false}
-                  id="header-products"
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onMouseOver={[Function]}
-                  role="button"
-                  type="button"
-                >
-                  <span
-                    className="tc-dropdown-button-title"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-launcher"
-                      />
-                    </svg>
-                  </span>
-                </button>
-                <ul
-                  aria-labelledby="header-products"
-                  className="dropdown-menu dropdown-menu-right"
-                  role="menu"
-                >
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-dp"
-                      label="Data Preparation"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-dp"
-                        />
-                      </svg>
-                      Data Preparation
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-ic"
-                      label="Integration Cloud"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-ic"
-                        />
-                      </svg>
-                      Integration Cloud
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-mc"
-                      label="Management Console"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-mc"
-                        />
-                      </svg>
-                      Management Console
                     </a>
                   </li>
                 </ul>
@@ -10035,7 +9720,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -10064,19 +9749,122 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               <span
                 role="heading"
               >
-                <button
-                  className="theme-tc-header-bar-brand btn btn-link"
-                  disabled={false}
-                  id="header-brand"
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                  type="button"
+                <div
+                  className="dropdown btn-group btn-group-link"
                 >
-                  <span>
-                    Example App Name
-                  </span>
-                </button>
+                  <button
+                    aria-expanded={false}
+                    aria-haspopup={true}
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    disabled={false}
+                    id="header-brand"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    type="button"
+                  >
+                    <span
+                      className="tc-dropdown-button-title"
+                    >
+                      <span
+                        className="tc-dropdown-button-title-label"
+                      >
+                        Example App Name
+                      </span>
+                    </span>
+                     
+                    <span
+                      className="caret"
+                    />
+                  </button>
+                  <ul
+                    aria-labelledby="header-brand"
+                    className="dropdown-menu"
+                    role="menu"
+                  >
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-dp"
+                        label="Data Preparation"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-dp"
+                          />
+                        </svg>
+                        Data Preparation
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-ic"
+                        label="Integration Cloud"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-ic"
+                          />
+                        </svg>
+                        Integration Cloud
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-mc"
+                        label="Management Console"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-mc"
+                          />
+                        </svg>
+                        Management Console
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </span>
             </li>
           </ul>
@@ -10115,7 +9903,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -10143,7 +9931,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
@@ -10227,130 +10015,6 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                         />
                       </svg>
                       Settings
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              className="theme-tc-header-bar-action"
-              role="presentation"
-            >
-              <div
-                className="dropdown btn-group btn-group-link"
-              >
-                <button
-                  aria-expanded={false}
-                  aria-haspopup={true}
-                  className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-                  disabled={false}
-                  id="header-products"
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onMouseOver={[Function]}
-                  role="button"
-                  type="button"
-                >
-                  <span
-                    className="tc-dropdown-button-title"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-launcher"
-                      />
-                    </svg>
-                  </span>
-                </button>
-                <ul
-                  aria-labelledby="header-products"
-                  className="dropdown-menu dropdown-menu-right"
-                  role="menu"
-                >
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-dp"
-                      label="Data Preparation"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-dp"
-                        />
-                      </svg>
-                      Data Preparation
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-ic"
-                      label="Integration Cloud"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-ic"
-                        />
-                      </svg>
-                      Integration Cloud
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-mc"
-                      label="Management Console"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-mc"
-                        />
-                      </svg>
-                      Management Console
                     </a>
                   </li>
                 </ul>
@@ -10654,7 +10318,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -10683,19 +10347,122 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               <span
                 role="heading"
               >
-                <button
-                  className="theme-tc-header-bar-brand btn btn-link"
-                  disabled={false}
-                  id="header-brand"
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                  type="button"
+                <div
+                  className="dropdown btn-group btn-group-link"
                 >
-                  <span>
-                    Example App Name
-                  </span>
-                </button>
+                  <button
+                    aria-expanded={false}
+                    aria-haspopup={true}
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    disabled={false}
+                    id="header-brand"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    type="button"
+                  >
+                    <span
+                      className="tc-dropdown-button-title"
+                    >
+                      <span
+                        className="tc-dropdown-button-title-label"
+                      >
+                        Example App Name
+                      </span>
+                    </span>
+                     
+                    <span
+                      className="caret"
+                    />
+                  </button>
+                  <ul
+                    aria-labelledby="header-brand"
+                    className="dropdown-menu"
+                    role="menu"
+                  >
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-dp"
+                        label="Data Preparation"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-dp"
+                          />
+                        </svg>
+                        Data Preparation
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-ic"
+                        label="Integration Cloud"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-ic"
+                          />
+                        </svg>
+                        Integration Cloud
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-mc"
+                        label="Management Console"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-mc"
+                          />
+                        </svg>
+                        Management Console
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </span>
             </li>
           </ul>
@@ -10734,7 +10501,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -10762,7 +10529,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
@@ -10846,130 +10613,6 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                         />
                       </svg>
                       Settings
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              className="theme-tc-header-bar-action"
-              role="presentation"
-            >
-              <div
-                className="dropdown btn-group btn-group-link"
-              >
-                <button
-                  aria-expanded={false}
-                  aria-haspopup={true}
-                  className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-                  disabled={false}
-                  id="header-products"
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onMouseOver={[Function]}
-                  role="button"
-                  type="button"
-                >
-                  <span
-                    className="tc-dropdown-button-title"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-launcher"
-                      />
-                    </svg>
-                  </span>
-                </button>
-                <ul
-                  aria-labelledby="header-products"
-                  className="dropdown-menu dropdown-menu-right"
-                  role="menu"
-                >
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-dp"
-                      label="Data Preparation"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-dp"
-                        />
-                      </svg>
-                      Data Preparation
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-ic"
-                      label="Integration Cloud"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-ic"
-                        />
-                      </svg>
-                      Integration Cloud
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-mc"
-                      label="Management Console"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-mc"
-                        />
-                      </svg>
-                      Management Console
                     </a>
                   </li>
                 </ul>
@@ -11273,7 +10916,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -11302,19 +10945,122 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               <span
                 role="heading"
               >
-                <button
-                  className="theme-tc-header-bar-brand btn btn-link"
-                  disabled={false}
-                  id="header-brand"
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  role={null}
-                  type="button"
+                <div
+                  className="dropdown btn-group btn-group-link"
                 >
-                  <span>
-                    Example App Name
-                  </span>
-                </button>
+                  <button
+                    aria-expanded={false}
+                    aria-haspopup={true}
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
+                    disabled={false}
+                    id="header-brand"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    type="button"
+                  >
+                    <span
+                      className="tc-dropdown-button-title"
+                    >
+                      <span
+                        className="tc-dropdown-button-title-label"
+                      >
+                        Example App Name
+                      </span>
+                    </span>
+                     
+                    <span
+                      className="caret"
+                    />
+                  </button>
+                  <ul
+                    aria-labelledby="header-brand"
+                    className="dropdown-menu"
+                    role="menu"
+                  >
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-dp"
+                        label="Data Preparation"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-dp"
+                          />
+                        </svg>
+                        Data Preparation
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-ic"
+                        label="Integration Cloud"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-ic"
+                          />
+                        </svg>
+                        Integration Cloud
+                      </a>
+                    </li>
+                    <li
+                      className=""
+                      role="presentation"
+                      style={undefined}
+                    >
+                      <a
+                        href="#"
+                        icon="talend-logo-mc"
+                        label="Management Console"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="theme-tc-svg-icon tc-svg-icon"
+                          focusable="false"
+                          title={null}
+                        >
+                          <use
+                            xlinkHref="#talend-logo-mc"
+                          />
+                        </svg>
+                        Management Console
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </span>
             </li>
           </ul>
@@ -11353,7 +11099,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -11381,7 +11127,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
@@ -11465,130 +11211,6 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                         />
                       </svg>
                       Settings
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              className="theme-tc-header-bar-action"
-              role="presentation"
-            >
-              <div
-                className="dropdown btn-group btn-group-link"
-              >
-                <button
-                  aria-expanded={false}
-                  aria-haspopup={true}
-                  className="theme-tc-header-bar-products dropdown-toggle btn btn-link"
-                  disabled={false}
-                  id="header-products"
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onMouseOver={[Function]}
-                  role="button"
-                  type="button"
-                >
-                  <span
-                    className="tc-dropdown-button-title"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      className="theme-tc-svg-icon tc-svg-icon"
-                      focusable="false"
-                      title={null}
-                    >
-                      <use
-                        xlinkHref="#talend-launcher"
-                      />
-                    </svg>
-                  </span>
-                </button>
-                <ul
-                  aria-labelledby="header-products"
-                  className="dropdown-menu dropdown-menu-right"
-                  role="menu"
-                >
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-dp"
-                      label="Data Preparation"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-dp"
-                        />
-                      </svg>
-                      Data Preparation
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-ic"
-                      label="Integration Cloud"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-ic"
-                        />
-                      </svg>
-                      Integration Cloud
-                    </a>
-                  </li>
-                  <li
-                    className=""
-                    role="presentation"
-                    style={undefined}
-                  >
-                    <a
-                      href="#"
-                      icon="talend-logo-mc"
-                      label="Management Console"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      role="menuitem"
-                      tabIndex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-logo-mc"
-                        />
-                      </svg>
-                      Management Console
                     </a>
                   </li>
                 </ul>
