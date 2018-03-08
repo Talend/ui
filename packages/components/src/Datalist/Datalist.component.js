@@ -43,6 +43,9 @@ class Datalist extends Component {
 		if (value !== previousValue) {
 			this.updateValue(event, value, true);
 		}
+		if (!value && previousValue) {
+			this.updateValue(event, previousValue, true);
+		}
 	}
 
 	/**
@@ -59,7 +62,9 @@ class Datalist extends Component {
 	 * Display suggestions on focus
 	 */
 	onFocus() {
-		this.updateGroups(this.state.value);
+		// settings back filter to empty
+		this.setState({ previousValue: this.state.value, value: '' });
+		this.updateGroups('');
 	}
 
 	/**

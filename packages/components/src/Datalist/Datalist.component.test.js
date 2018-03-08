@@ -119,7 +119,7 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
-	it('should update suggestions based on value on focus', () => {
+	it('should update show all suggestions then select the previous one on blur', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
@@ -142,7 +142,16 @@ describe('Datalist component', () => {
 			.simulate('focus');
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual(['foo', 'foobar']);
+		expect(wrapper.find(Typeahead).props().items).toEqual(['foo', 'bar', 'foobar', 'lol']);
+		expect(wrapper.find(Typeahead).props().value).toBe('');
+		// when
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('blur');
+
+		// then
+		expect(wrapper.find(Typeahead).props().value).toBe('foo');
 	});
 
 	it('should reset previous value on ESC keydown', () => {
