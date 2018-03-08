@@ -16,18 +16,15 @@ public class List extends Component {
 
     static final String LIST_SELECTOR = ".tc-list";
 
+    static final String TOOL_BAR_SELECTOR = '.tc-list-toolbar';
+
     static final String ACTIONBAR_SELECTOR = ".tc-actionbar-container";
 
     static final String BTN_SELECTOR = ACTIONBAR_SELECTOR + " .btn";
 
-    static final String ACTION_BAR_SELECTOR = ".tc-list-toolbar #%s.btn";
+    static final String BUTTON_ACTIONBAR_SELECTOR = ACTIONBAR_SELECTOR + " #%s.btn";
 
-    static final String TOOL_BAR_SELECTOR_DISPLAY_MODE = ".dropdown #talend-display-mode";
-
-    static final String TOOL_BAR_SELECTOR_SORT_BY = ".dropdown #talend-sort-by";
-
-    static final String TOOL_BAR_SELECTOR_SORT_ORDER = ".dropdown #talend-sort-order";
-
+    static final String TOOL_BAR_ITEM_SELECTOR = TOOL_BAR_SELECTOR + "[role='toolbar'] #%s";
 
     /**
      * List constructor.
@@ -72,34 +69,16 @@ public class List extends Component {
      * @return WebElement button
      */
     public WebElement getActionBarButtonById(String id) {
-        return this.getElement().findElement(By.cssSelector(String.format(ACTION_BAR_SELECTOR, id)));
+        return this.getElement().findElement(By.cssSelector(String.format(BUTTON_ACTIONBAR_SELECTOR, id)));
     }
 
     /**
-     * Get Display Mode in Tool Bar button of the list.
+     * Get item from toolbar given its id.
      *
      * @return WebElement button
      */
-    public WebElement getToolBarButtonDisplayMode() {
-        return this.getElement().findElement(By.cssSelector(TOOL_BAR_SELECTOR_DISPLAY_MODE));
-    }
-
-    /**
-     * Get Sort BY in Tool Bar button of the list.
-     *
-     * @return WebElement button
-     */
-    public WebElement getToolBarButtonSortBy() {
-        return this.getElement().findElement(By.cssSelector(TOOL_BAR_SELECTOR_SORT_BY));
-    }
-
-    /**
-     * Get Sort Order in Tool Bar button of the list.
-     *
-     * @return WebElement button
-     */
-    public WebElement getToolBarButtonSortOrder() {
-        return this.getElement().findElement(By.id(TOOL_BAR_SELECTOR_SORT_ORDER));
+    public WebElement getToolBarItemById(String id) {
+        return this.getElement().findElement(By.cssSelector(String.format(TOOL_BAR_ITEM_SELECTOR, id)));
     }
 
     /**
