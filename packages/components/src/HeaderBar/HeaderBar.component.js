@@ -217,6 +217,7 @@ function HeaderBar(props) {
 					<Components.Brand
 						getComponent={props.getComponent}
 						{...props.brand}
+						{...props.products}
 						isSeparated={!!props.env}
 					/>
 				)}
@@ -325,6 +326,10 @@ if (process.env.NODE_ENV !== 'production') {
 		information: PropTypes.shape(omit(Information.propTypes, 't')),
 		user: PropTypes.shape(User.propTypes),
 		notification: PropTypes.shape(AppNotification.propTypes, 't'),
+		products: PropTypes.shape({
+			items: PropTypes.array,
+			onSelect: PropTypes.func,
+		}),
 		getComponent: PropTypes.func,
 		t: PropTypes.func,
 	};

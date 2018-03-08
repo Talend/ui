@@ -296,7 +296,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -331,7 +331,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -479,7 +479,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -507,7 +507,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -882,7 +882,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -917,7 +917,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -1113,7 +1113,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -1141,7 +1141,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -1516,7 +1516,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -1551,7 +1551,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -1765,7 +1765,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -1793,7 +1793,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -2168,7 +2168,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo theme-full btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo theme-full btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -2203,7 +2203,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -2351,7 +2351,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -2379,7 +2379,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -2754,7 +2754,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -2789,7 +2789,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -2937,7 +2937,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -2965,7 +2965,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -3340,7 +3340,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -3375,7 +3375,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -3551,7 +3551,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -3579,7 +3579,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -3954,7 +3954,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -3989,7 +3989,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -4163,7 +4163,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -4191,7 +4191,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -4566,7 +4566,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -4601,7 +4601,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -4771,7 +4771,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -4799,7 +4799,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -5174,7 +5174,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -5209,7 +5209,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -5708,7 +5708,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -5736,7 +5736,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -6111,7 +6111,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -6146,7 +6146,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -6320,7 +6320,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -6348,7 +6348,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+        className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
         role="presentation"
       >
         <div
@@ -6723,7 +6723,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         role="presentation"
       >
         <button
-          className="theme-tc-header-bar-logo btn btn-link"
+          className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -6758,7 +6758,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
-              className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+              className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
               onClick={[Function]}
@@ -6906,7 +6906,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         </form>
       </li>
       <li
-        className="theme-tc-header-bar-action theme-separated"
+        className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
         role="presentation"
       >
         <button
@@ -7328,7 +7328,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -7363,7 +7363,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -7511,7 +7511,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -7539,7 +7539,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
@@ -7926,7 +7926,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -7961,7 +7961,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -8109,7 +8109,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -8137,7 +8137,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
@@ -8524,7 +8524,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -8559,7 +8559,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -8707,7 +8707,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -8735,7 +8735,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
@@ -9122,7 +9122,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -9157,7 +9157,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -9305,7 +9305,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -9333,7 +9333,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
@@ -9720,7 +9720,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -9755,7 +9755,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -9903,7 +9903,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -9931,7 +9931,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
@@ -10318,7 +10318,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -10353,7 +10353,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -10501,7 +10501,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -10529,7 +10529,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
@@ -10916,7 +10916,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
-                className="theme-tc-header-bar-logo btn btn-link"
+                className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -10951,7 +10951,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
-                    className="theme-tc-header-bar-brand dropdown-toggle btn btn-link"
+                    className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
                     onClick={[Function]}
@@ -11099,7 +11099,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               </form>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-separated"
+              className="theme-tc-header-bar-action tc-header-bar-help theme-separated"
               role="presentation"
             >
               <button
@@ -11127,7 +11127,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               </button>
             </li>
             <li
-              className="theme-tc-header-bar-action theme-tc-header-bar-user theme-separated"
+              className="theme-tc-header-bar-action theme-tc-header-bar-user tc-header-bar-user theme-separated"
               role="presentation"
             >
               <div
