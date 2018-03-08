@@ -30,17 +30,17 @@ $tc-input-subheader-size-small: 1rem !default;
 		width: $tc-input-subheader-size-large;
 		height: $tc-input-subheader-size-large;
 		color: $brand-primary;
-		margin-left: $padding-large;
+		margin-right: $padding-large;
 	}
 
 	& &-text {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding-left: $padding-large;
 		overflow: hidden;
 		flex: 1;
 		margin-right: 110px;
+		max-width: 45rem;
 
 		&-title {
 			display: inline-flex;

@@ -5,7 +5,7 @@ import { Action } from '../../Actions';
 import theme from './InputTitleSubHeader.scss';
 import { getDefaultTranslate } from '../../translate';
 
-function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
+function TitleSubHeader({ title, subTitle, onEdit, editable, disabled, t }) {
 	return (
 		<div className={classNames(theme['tc-subheader-details-text'], 'tc-subheader-details-text')}>
 			<div
@@ -23,7 +23,6 @@ function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
 							'btn-link',
 						)}
 						onDoubleClick={onEdit}
-						disabled={inProgress}
 					>
 						{title}
 					</button>
@@ -48,7 +47,7 @@ function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
 							theme['tc-subheader-details-text-title-pencil'],
 							'tc-subheader-details-text-title-pencil',
 						)}
-						disabled={inProgress}
+						disabled={disabled}
 						hideLabel
 					/>
 				)}
@@ -70,6 +69,7 @@ function TitleSubHeader({ title, subTitle, onEdit, editable, t }) {
 TitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
 	editable: PropTypes.bool,
+	disabled: PropTypes.bool,
 	onEdit: PropTypes.func,
 	subTitle: PropTypes.string,
 	t: PropTypes.func,

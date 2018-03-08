@@ -7,9 +7,16 @@ import InlineFormSubHeader from './InlineFormSubHeader.component';
 import theme from './InputTitleSubHeader.scss';
 import Icon from '../../Icon';
 
-function InputTitleSubHeader({ title, iconId, editMode, loading, inProgress, ...rest }) {
+function InputTitleSubHeader({
+	title,
+	iconId,
+	editMode,
+	loading = false,
+	inProgress = false,
+	...rest
+}) {
 	if (loading) {
-		return <Skeleton type="text" size="large" />;
+		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
 	const subheaderDetailsCn = classNames({
 		[theme['tc-subheader-details']]: true,
@@ -28,7 +35,7 @@ function InputTitleSubHeader({ title, iconId, editMode, loading, inProgress, ...
 			{editMode ? (
 				<InlineFormSubHeader title={title} {...rest} />
 			) : (
-				<TitleSubHeader title={title} {...rest} />
+				<TitleSubHeader title={title} disabled={inProgress} {...rest} />
 			)}
 		</div>
 	);

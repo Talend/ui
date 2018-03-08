@@ -156,6 +156,7 @@ stories
 				subTitle="mySubTitle"
 				onGoBack={backAction}
 				inProgress
+				editable
 			>
 				{center}
 			</SubHeaderBar>

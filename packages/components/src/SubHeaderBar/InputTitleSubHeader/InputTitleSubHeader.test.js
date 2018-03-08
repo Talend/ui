@@ -40,6 +40,14 @@ describe('InputTitleSubHeader', () => {
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(0);
 		expect(wrapper.find(InlineFormSubHeader)).toHaveLength(1);
 	});
+	it('should render skeleton', () => {
+		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} loading />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should render inProgress', () => {
+		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} inProgress />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
 });
 
 describe('TitleSubHeader', () => {
