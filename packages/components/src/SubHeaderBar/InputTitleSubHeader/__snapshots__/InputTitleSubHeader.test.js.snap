@@ -66,28 +66,6 @@ exports[`InputTitleSubHeader should render 1`] = `
 </div>
 `;
 
-exports[`InputTitleSubHeader should render inProgress 1`] = `
-<div
-  className="theme-tc-subheader-details tc-subheader-details theme-tc-subheader-details-blink tc-subheader-details-blink"
->
-  <TitleSubHeader
-    disabled={true}
-    editable={false}
-    onEdit={[Function]}
-    onSubmit={[Function]}
-    t={[Function]}
-    title="myTitle"
-  />
-</div>
-`;
-
-exports[`InputTitleSubHeader should render skeleton 1`] = `
-<Skeleton
-  size="large"
-  type="text"
-/>
-`;
-
 exports[`TitleSubHeader should render 1`] = `
 <div
   className="theme-tc-subheader-details-text tc-subheader-details-text"
