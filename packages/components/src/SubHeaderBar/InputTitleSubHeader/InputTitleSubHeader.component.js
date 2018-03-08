@@ -10,22 +10,21 @@ import Icon from '../../Icon';
 function InputTitleSubHeader({
 	title,
 	iconId,
-	editMode = false,
-	loading = false,
-	inProgress = false,
+	editMode,
+	loading,
+	inProgress,
 	...rest
 }) {
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
-	const subheaderDetailsCn = classNames({
-		[theme['tc-subheader-details']]: true,
-		'tc-subheader-details': true,
-		[theme['tc-subheader-details-blink']]: inProgress,
-		'tc-subheader-details-blink': inProgress,
-	});
 	return (
-		<div className={subheaderDetailsCn}>
+		<div
+			className={classNames(theme['tc-subheader-details'], 'tc-subheader-details', {
+				[theme['tc-subheader-details-blink']]: inProgress,
+				'tc-subheader-details-blink': inProgress,
+			})}
+		>
 			{iconId && (
 				<Icon
 					name={iconId}
@@ -51,6 +50,8 @@ InputTitleSubHeader.propTypes = {
 
 InputTitleSubHeader.defaultProps = {
 	editMode: false,
+	loading: false,
+	inProgress: false,
 };
 
 export { InputTitleSubHeader as default, InlineFormSubHeader, TitleSubHeader };
