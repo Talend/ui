@@ -133,6 +133,18 @@ You can use them by importing the DataPropTypes and ActionsPropTypes functions.
 import Form, { DataPropTypes, ActionsPropTypes } from '@talend/react-forms';
 ```
 
+### Validation
+
+You can use validation from outside (let say button outside the form) this way:
+
+```javascript
+import validate from '@talend/react-forms/lib/validate';
+
+function isValid({ payload}) {
+	return validate(payload.jsonSchema, payload.formData);
+}
+```
+
 ## LICENSE
 
 Copyright (c) 2006-2016 Talend
