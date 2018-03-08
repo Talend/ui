@@ -7,6 +7,9 @@ import PieChartButton from '../../PieChartButton';
 import getJSONPath from '../jsonPath';
 import theme from './Model.scss';
 
+const paddingLeft = 30;
+const marginLeft = 3;
+
 function getQualityModels(qualities) {
 	let invalidPercentage = qualities && qualities[-1] || 0;
 	let emptyPercentage = qualities && qualities[0] || 0;
@@ -24,16 +27,19 @@ function getQualityModels(qualities) {
 	};
 }
 
-function QualityCircles({ item, jsonPath, quality }) {
+function QualityCircles({ item, jsonpath, quality }) {
 	const {
 		key = '@talend-quality@',
 		onClick,
 	} = quality;
+
+	if (!item[key]) {
+		return null;
+	}
+
 	const { invalid, empty, valid } = getQualityModels(item[key]);
 	function rClick(e, info) {
-		e.preventDefault();
-		e.stopPropagation();
-		onClick(e, { ...info, jsonPath, item });
+		onClick(e, { ...info, jsonpath, item });
 	}
 
 	return (
@@ -46,14 +52,14 @@ function QualityCircles({ item, jsonPath, quality }) {
 }
 QualityCircles.propTypes = {
 	item: PropTypes.object, // TODO
-	jsonPath: PropTypes.string,
+	jsonpath: PropTypes.string,
 	quality: PropTypes.shape({
 		key: PropTypes.string,
 		onClick: PropTypes.func,
 	}),
 };
 
-function Caret({ data, jsonPath, onToggle, isOpened }) {
+function Caret({ data, jsonpath, onToggle, isOpened }) {
 	const iconName = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
 	const iconTransform = isOpened ? null : 'rotate-180';
 
@@ -63,9 +69,7 @@ function Caret({ data, jsonPath, onToggle, isOpened }) {
 			transform={iconTransform}
 			className={theme.caret}
 			onClick={e => {
-				e.preventDefault();
-				e.stopPropagation();
-				onToggle(e, { data, isOpened, jsonPath });
+				onToggle(e, { data, isOpened, jsonpath });
 			}}
 		/>
 	);
@@ -73,57 +77,75 @@ function Caret({ data, jsonPath, onToggle, isOpened }) {
 Caret.propTypes = {
 	data: PropTypes.any,
 	isOpened: PropTypes.bool,
-	jsonPath: PropTypes.string,
+	jsonpath: PropTypes.string,
 	onToggle: PropTypes.func,
 };
 
-function Item({ item, jsonPath, quality, opened, ...props }) {
-	const isOpened = opened.indexOf(jsonPath) !== -1;
+function Item(props) {
+	const { data, item, jsonpath, level, onSelect, onToggle, opened, quality } = props;
+	const isOpened = opened.indexOf(jsonpath) !== -1;
 	const type = item.type && (item.type.dqType || item.type.type);
-	const onClick = props.onSelect && (event => props.onSelect(event, jsonPath, item));
+	const onClick = onSelect && (event => onSelect(event, jsonpath, item));
+
+	const spaceAdjustment = {
+		marginLeft: marginLeft * level,
+		paddingLeft: ((paddingLeft * level) || paddingLeft),
+	};
 
 	return (
-		<button
-			className={classNames(theme.item, 'tc-object-model-item')}
-			onClick={onClick}
-		>
-			<div>
-				<div>
-					{item.fields &&
-						<Caret
-							data={props.data}
-							isOpened={isOpened}
-							jsonPath={props.jsonPath}
-							onToggle={props.onToggle}
-						/>
-					}
+		<li className={classNames(theme.item, 'tc-object-model-item')}>
+			<div className={theme.title} style={spaceAdjustment}>
+				{item.fields &&
+					<Caret
+						data={data}
+						isOpened={isOpened}
+						jsonpath={jsonpath}
+						onToggle={onToggle}
+					/>
+				}
+				<button onClick={onClick} className={theme.main}>
 					{item.doc}
 					{type && <span className={theme.type}>({type})</span>}
-				</div>
-				<QualityCircles item={item} quality={quality} jsonPath={jsonPath} />
+				</button>
 			</div>
-		</button>
+			<QualityCircles item={item} quality={quality} jsonpath={jsonpath} />
+			{item.fields && isOpened &&
+				<ul className={classNames(theme.fields, 'tc-object-model-item-fields')}>
+					{
+						item.fields.map((field, index) =>
+							<Item
+								key={index}
+								{...props}
+								jsonpath={getJSONPath(index, jsonpath, 'array')}
+								item={field}
+								level={level + 1}
+							/>
+						)
+					}
+				</ul>
+			}
+		</li>
 	);
 }
 Item.propTypes = {
 	item: PropTypes.shape({
 		// TODO
 	}),
-	jsonPath: PropTypes.string,
+	jsonpath: PropTypes.string,
 	onSelect: PropTypes.func,
 	opened: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default function Model({ className, style, ...props }) {
 	return (
-		<div className={classNames(theme.model, 'tc-object-model', className)} style={style}>
+		<ul className={classNames(theme.model, 'tc-object-model', className)} style={style}>
 			{
 				props.data &&
 				props.data.map((item, index) =>
-					<Item key={index} {...props} jsonPath={getJSONPath(index, '', 'array')} item={item} />
+					<Item key={index} {...props} jsonpath={getJSONPath(index, '', 'array')} item={item} level={0} />
 				)
 			}
-		</div>
+		</ul>
 	);
 }
 Model.defaultProps = {

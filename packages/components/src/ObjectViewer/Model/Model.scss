@@ -7,39 +7,57 @@
 	button {
 		background: transparent;
 		border: none;
-		padding: 0;
+		padding: $padding-small 0;
 	}
 
 	.item {
-		padding: $padding-small $padding-larger;
+		position: relative;
 		width: 100%;
 		text-align: left;
 
-		> div {
+		.title {
 			display: flex;
-			justify-content: space-between;
-		}
+			padding-left: $padding-larger;
 
-		&:hover {
-			background: $gallery;
-		}
+			&:hover {
+				background: $gallery;
+			}
 
-		.caret {
-			color: $brand-primary;
-			margin-right: $padding-small;
-			height: $svg-xs-size;
-			width: $svg-xs-size;
-		}
+			.caret {
+				flex-grow: 0;
+				color: $brand-primary;
+				margin-right: $padding-small;
+				height: $svg-xs-size;
+				width: $svg-xs-size;
+			}
 
-		.type {
-			color: $silver-chalice;
-			padding: 0 $padding-smaller;
-			text-transform: capitalize;
+			.main {
+				text-align: left;
+				flex-grow: 1;
+			}
+
+			.type {
+				color: $silver-chalice;
+				padding: 0 $padding-smaller;
+				text-transform: capitalize;
+			}
 		}
 
 		.quality {
+			position: absolute;
+			top: 0;
+			right: $padding-larger;
 			display: flex;
-			flex-grow: 0;
+		}
+
+		.fields {
+			list-style: none;
+			padding: 0;
+
+			.title > *:first-child {
+				border-left: 1px solid $silver;
+				padding-left: $padding-larger;
+			}
 		}
 	}
 }

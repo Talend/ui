@@ -308,11 +308,6 @@ const dataModelFields = [
 		type: {
 			type: 'object',
 		},
-		'@talend-quality@': {
-			0: 5,
-			1: 65,
-			'-1': 30,
-		},
 		fields: [
 			{
 				name: 'name',
@@ -354,6 +349,43 @@ const dataModelFields = [
 					'-1': 0,
 				},
 			},
+			{
+				name: 'nested',
+				doc: 'Nested things',
+				type: {
+					type: 'object',
+				},
+				fields: [
+					{
+						name: 'poo',
+						doc: 'Poo',
+						type: {
+							type: 'string',
+							dqType: 'Taste',
+							dqTypeKey: 'TASTE',
+						},
+						'@talend-quality@': {
+							0: 2,
+							1: 88,
+							'-1': 10,
+						},
+					},
+					{
+						name: 'pee',
+						doc: 'Pee',
+						type: {
+							type: 'string',
+							dqType: 'Taste',
+							dqTypeKey: 'TASTE',
+						},
+						'@talend-quality@': {
+							0: 4,
+							1: 96,
+							'-1': 0,
+						},
+					},
+				],
+			},
 		],
 	},
 	{
@@ -361,11 +393,6 @@ const dataModelFields = [
 		doc: 'Ratings',
 		type: {
 			type: 'object',
-		},
-		'@talend-quality@': {
-			0: 5,
-			1: 65,
-			'-1': 30,
 		},
 		fields: [
 			{
@@ -404,6 +431,8 @@ stories
 				displayMode="model"
 				data={dataModelFields}
 				onSelect={action('onSelect')}
+				onToggle={action('onToggle')}
+				opened={['[3]', '[3][3]']}
 				quality={{
 					key: '@talend-quality@',
 					onClick: action('onQualityClick'),
