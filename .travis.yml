@@ -37,10 +37,9 @@ matrix:
         - .travis/after_success_git.sh
 
     - language: java
-      jdk:
-        - oraclejdk8
+      jdk: oraclejdk8
       script:
-        - mvn clean verify test -Dstorybook.host=talend.surge.sh -Dstorybook.port=80 -Dstorybook.context=components/
+        - mvn clean verify -Dremote=true -Dstorybook.host=talend.surge.sh -Dstorybook.port=80 -Dstorybook.context=components/
 
 branches:
   only:
