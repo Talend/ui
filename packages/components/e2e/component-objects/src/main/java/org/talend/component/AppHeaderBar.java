@@ -1,7 +1,5 @@
 package org.talend.component;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
@@ -13,8 +11,6 @@ import java.util.List;
  * AppHeaderBar is used to easy access to WebElements of the react-talend-component AppHeaderBar component.
  */
 public class AppHeaderBar extends Component {
-
-    private static final Logger LOGGER = LogManager.getLogger(AppHeaderBar.class);
 
     private static final String NAME = "HeaderBar";
 
@@ -30,7 +26,9 @@ public class AppHeaderBar extends Component {
 
     private static final String USER_SELECTOR = USER_GROUP_SELECTOR + " .dropdown-toggle";
 
-    private static final String USER_MENU_ITEMS_SELECTOR = USER_GROUP_SELECTOR + " .dropdown-toggle";
+    private static final String USER_MENU_ITEMS_SELECTOR = USER_GROUP_SELECTOR + " .dropdown-menu a";
+
+    private static final String HELP_SELECTOR = ".tc-header-bar-help button";
 
     /**
      * AppHeaderBar constructor
@@ -130,5 +128,19 @@ public class AppHeaderBar extends Component {
     public void clickOnUserMenuItem(final String label) {
         this.getUser().click();
         this.getUserMenuItem(label).click();
+    }
+
+    /**
+     * Get the help button element
+     */
+    public WebElement getHelp() {
+        return driver.findElement(By.cssSelector(HELP_SELECTOR));
+    }
+
+    /**
+     * Click on the help button
+     */
+    public void clickOnHelp() {
+        this.getHelp().click();
     }
 }
