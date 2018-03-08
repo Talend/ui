@@ -10,7 +10,7 @@ import Icon from '../../Icon';
 function InputTitleSubHeader({
 	title,
 	iconId,
-	editMode,
+	editMode = false,
 	loading = false,
 	inProgress = false,
 	...rest

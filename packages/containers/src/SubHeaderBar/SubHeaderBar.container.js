@@ -115,7 +115,6 @@ class SubHeaderBar extends React.Component {
 			{},
 			omit(this.props, cmfConnect.INJECTED_PROPS),
 			{
-				editMode: state.get('editMode', false),
 				onEdit: this.onEdit,
 				onCancel: this.onCancel,
 				onSubmit: this.onSubmit,
@@ -123,7 +122,7 @@ class SubHeaderBar extends React.Component {
 				onGoBack: hasGoBack && this.onGoBack,
 			},
 			{
-				...state,
+				...state.toJS(),
 			},
 		);
 		return <Component {...props} />;
