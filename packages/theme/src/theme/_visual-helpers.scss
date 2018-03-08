@@ -38,7 +38,7 @@
 			background: linear-gradient(#{$gradient-angle}, $regal-blue 20%, $brand-primary 80%);
 		}
 
-		[role='heading'] span {
+		[role='heading'] span:last-of-type {
 			display: inline-flex;
 			align-items: center;
 
@@ -46,8 +46,8 @@
 				display: block;
 				content: '';
 				margin-right: $padding-small;
-				height: $svg-md-size;
-				width: $svg-md-size;
+				height: $navbar-brand-logo-height;
+				width: $navbar-brand-logo-height;
 				background-repeat: no-repeat;
 			}
 		}
