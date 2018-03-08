@@ -4,12 +4,14 @@ import React from 'react';
 import Table from './Table';
 import JSONLike from './JSONLike';
 import List from './List';
+import Model from './Model';
 
 export const DISPLAY_MODES = {
 	FLAT: 'flat',
+	LIST: 'list',
+	MODEL: 'model',
 	TABLE: 'table',
 	TREE: 'tree',
-	LIST: 'list',
 };
 
 export default function ObjectViewer({ displayMode, ...props }) {
@@ -26,6 +28,8 @@ export default function ObjectViewer({ displayMode, ...props }) {
 			return <JSONLike {...props} />;
 		case DISPLAY_MODES.LIST:
 			return <List {...props} />;
+		case DISPLAY_MODES.MODEL:
+			return <Model {...props} />;
 		default:
 			return <JSONLike {...props} />;
 	}

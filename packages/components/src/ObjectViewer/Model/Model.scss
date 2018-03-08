@@ -1,0 +1,45 @@
+.model {
+	font-family: 'Inconsolata';
+	font-size: 1.4rem;
+	letter-spacing: 0.6px;
+	padding: $padding-smaller 0;
+
+	button {
+		background: transparent;
+		border: none;
+		padding: 0;
+	}
+
+	.item {
+		padding: $padding-small $padding-larger;
+		width: 100%;
+		text-align: left;
+
+		> div {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&:hover {
+			background: $gallery;
+		}
+
+		.caret {
+			color: $brand-primary;
+			margin-right: $padding-small;
+			height: $svg-xs-size;
+			width: $svg-xs-size;
+		}
+
+		.type {
+			color: $silver-chalice;
+			padding: 0 $padding-smaller;
+			text-transform: capitalize;
+		}
+
+		.quality {
+			display: flex;
+			flex-grow: 0;
+		}
+	}
+}

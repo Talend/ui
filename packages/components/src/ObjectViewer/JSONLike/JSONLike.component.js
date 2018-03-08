@@ -7,6 +7,7 @@ import keycode from 'keycode';
 
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
+import getJSONPath from '../jsonPath';
 import theme from './JSONLike.scss';
 
 function noop() {}
@@ -76,20 +77,6 @@ NativeValue.propTypes = {
 NativeValue.defaultProps = {
 	className: theme['line-value'],
 };
-
-/**
- * return JSONPath braket notation
- * @param  {string} key    object key
- * @param  {string} prefix current jsonpath
- * @param  {string} type   one of 'array' or 'object'
- * @return {string}        jsonpath
- */
-export function getJSONPath(key, prefix, type) {
-	if (type === 'array') {
-		return `${prefix}[${key}]`;
-	}
-	return `${prefix}['${key}']`;
-}
 
 function getName(name) {
 	if (!name) {

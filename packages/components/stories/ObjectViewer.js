@@ -263,7 +263,154 @@ if (!stories.addWithInfo) {
 	stories.addWithInfo = stories.add;
 }
 
+const dataModelFields = [
+	{
+		name: 'id',
+		doc: 'Id',
+		type: {
+			type: 'integer',
+		},
+		'@talend-quality@': {
+			0: 5,
+			1: 65,
+			'-1': 30,
+		},
+	},
+	{
+		name: 'name',
+		doc: 'Name',
+		type: {
+			type: 'string',
+			dqType: 'Recipe',
+			dqTypeKey: 'RECIPE',
+		},
+		'@talend-quality@': {
+			0: 5,
+			1: 65,
+			'-1': 30,
+		},
+	},
+	{
+		name: 'price',
+		doc: 'Price per unit',
+		type: {
+			type: 'decimal',
+		},
+		'@talend-quality@': {
+			0: 5,
+			1: 65,
+			'-1': 30,
+		},
+	},
+	{
+		name: 'ingredients',
+		doc: 'Ingredients',
+		type: {
+			type: 'object',
+		},
+		'@talend-quality@': {
+			0: 5,
+			1: 65,
+			'-1': 30,
+		},
+		fields: [
+			{
+				name: 'name',
+				doc: 'Name',
+				type: {
+					type: 'string',
+					dqType: 'Ingredient',
+					dqTypeKey: 'INGREDIENT',
+				},
+				'@talend-quality@': {
+					0: 2,
+					1: 88,
+					'-1': 10,
+				},
+			},
+			{
+				name: 'amount',
+				doc: 'Amount',
+				type: {
+					type: 'number',
+				},
+				'@talend-quality@': {
+					0: 4,
+					1: 96,
+					'-1': 0,
+				},
+			},
+			{
+				name: 'unit',
+				doc: 'Unit',
+				type: {
+					type: 'string',
+					dqType: 'Unit',
+					dqTypeKey: 'UNIT',
+				},
+				'@talend-quality@': {
+					0: 4,
+					1: 96,
+					'-1': 0,
+				},
+			},
+		],
+	},
+	{
+		name: 'ratings',
+		doc: 'Ratings',
+		type: {
+			type: 'object',
+		},
+		'@talend-quality@': {
+			0: 5,
+			1: 65,
+			'-1': 30,
+		},
+		fields: [
+			{
+				name: 'michelin',
+				doc: 'Michelin',
+				type: {
+					type: 'integer',
+				},
+				'@talend-quality@': {
+					0: 2,
+					1: 88,
+					'-1': 10,
+				},
+			},
+			{
+				name: 'gaultmillau',
+				doc: 'Gault & Millau',
+				type: {
+					type: 'integer',
+				},
+				'@talend-quality@': {
+					0: 4,
+					1: 96,
+					'-1': 0,
+				},
+			},
+		],
+	},
+];
+
 stories
+	.addWithInfo('data model', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer
+				displayMode="model"
+				data={dataModelFields}
+				onSelect={action('onSelect')}
+				quality={{
+					key: '@talend-quality@',
+					onClick: action('onQualityClick'),
+				}}
+			/>
+		</div>
+	))
 	.addWithInfo('tree default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
