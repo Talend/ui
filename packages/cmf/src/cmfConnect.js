@@ -51,7 +51,7 @@ function serializeEvent(event) {
 	return event;
 }
 
-const CMF_PROPS = [
+export const CMF_PROPS = [
 	'didMountActionCreator', // componentDidMount action creator id in registry
 	'keepComponentState', // redux state management on unmount
 	'view', // view component id in registry
@@ -315,15 +315,11 @@ export default function cmfConnect({
 					}
 					// eslint-disable-next-line no-param-reassign
 					props[handlerKey] = (event, data) => {
-						this.dispatchActionCreator(
-							actionCreator,
-							serializeEvent(event),
-							{
-								props: this.props,
-								...data,
-								...(this.props[key].data || {}),
-							}
-						);
+						this.dispatchActionCreator(actionCreator, serializeEvent(event), {
+							props: this.props,
+							...data,
+							...(this.props[key].data || {}),
+						});
 						if (this.props[handlerKey]) {
 							this.props[handlerKey](event, data);
 						}
