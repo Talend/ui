@@ -9,13 +9,18 @@ import { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
 import theme from './Loader.scss';
 
 function Loader({ id, className, size = SIZE.default, appLogo }) {
-	const loaderClassNames = classNames('tc-loader', theme['tc-loader'], className, appLogo && theme['tc-app-loader']);
+	const loaderClassNames = classNames(
+		'tc-loader',
+		theme['tc-loader'],
+		className,
+		appLogo && theme['tc-app-loader'],
+	);
 
 	return (
-			<div id={id} aria-atomic="true" aria-busy="true" className={loaderClassNames}>
-				<CircularProgress size={size} />
-				{appLogo && <Icon name={appLogo} className={theme['tc-app-loader-icon']} />}
-			</div>
+		<div id={id} aria-atomic="true" aria-busy="true" className={loaderClassNames}>
+			<CircularProgress size={size} />
+			{appLogo && <Icon name={appLogo} className={theme['tc-app-loader-icon']} />}
+		</div>
 	);
 }
 

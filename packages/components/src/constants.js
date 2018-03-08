@@ -3,7 +3,7 @@ export const CIRCULAR_PROGRESS_SIZE = {
 	small: 'small',
 	default: 'default',
 	large: 'large',
-	larger: 'larger'
+	larger: 'larger',
 };
 
 export default I18N_DOMAIN_COMPONENTS;
