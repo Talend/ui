@@ -41,6 +41,10 @@ $background-color-on-hover: shade($brand-primary, 30);
 			list-style: none;
 			white-space: nowrap;
 
+			:global(.tc-typeahead-item-description) {
+				white-space: initial;
+			}
+
 			&:not(:last-child).separated:after {
 				content: '|';
 				color: $white;
@@ -54,7 +58,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 
 		.tc-header-bar-logo:global(.btn):global(.btn-link) {
 			line-height: $svg-lg-size;
-			padding: 12px $padding-normal;
+			padding: 12px $padding-large 12px $padding-normal;
 
 			:global(.tc-svg-icon) {
 				height: $svg-lg-size;
@@ -77,6 +81,17 @@ $background-color-on-hover: shade($brand-primary, 30);
 		fill: $st-tropaz;
 		height: $svg-lg-size;
 		width: $svg-lg-size;
+	}
+
+	.tc-header-bar-brand + :global(.dropdown-menu .tc-svg-icon) {
+		fill: $st-tropaz;
+		height: $svg-md-size;
+		width: $svg-md-size;
+	}
+
+	.tc-header-bar-brand + :global(.dropdown-menu) {
+		min-width: 100%;
+		width: auto;
 	}
 
 	:global(.btn):global(.btn-link) {

@@ -11,20 +11,22 @@
 [npm-url]: https://npmjs.org/package/generator-talend
 [travis-ci-image]: https://travis-ci.org/Talend/generator-talend.svg?branch=master
 [travis-ci-url]: https://travis-ci.org/Talend/generator-talend
-
 [dependencies-image]: https://david-dm.org/Talend/generator-talend.png
 [dependencies-url]: https://david-dm.org/Talend/generator-talend
 [devdependencies-image]: https://david-dm.org/Talend/generator-talend/dev-status.png
 [devdependencies-url]: https://david-dm.org/Talend/generator-talend#info=devDependencies
-
 [quality-badge]: http://npm.packagequality.com/shield/generator-talend.svg
 [quality-url]: http://packagequality.com/#?package=generator-talend
 
+## Breaking changes log
+
+Before 1.0, `generator-talend` does NOT follow semver version in releases.
+You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
 ## Installation
 
 You'll first need to install [yeoman](http://yeoman.io/) then install
- [generator-talend](https://github.com/Talend/generator-talend).
+[generator-talend](https://github.com/Talend/generator-talend).
 
 ```bash
 npm install -g yo
