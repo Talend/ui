@@ -21,7 +21,7 @@
         <!-- webdriver -->
         <webdriver.chrome.driver/>
         <!-- storybook -->
-        <storybook.url>localhost</storybook.url>
+        <storybook.host>localhost</storybook.host>
         <storybook.port>6006</storybook.port>
         <storybook.context/>
     </properties>
@@ -78,7 +78,7 @@
                             <include>org/talend/component/**/*Test.java</include>
                         </includes>
                         <systemPropertyVariables>
-                            <storybook.url>${storybook.url}</storybook.url>
+                            <storybook.host>${storybook.host}</storybook.host>
                             <storybook.port>${storybook.port}</storybook.port>
                             <storybook.context>${storybook.context}</storybook.context>
                         </systemPropertyVariables>
