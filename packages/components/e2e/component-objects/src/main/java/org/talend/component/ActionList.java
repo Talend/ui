@@ -62,4 +62,13 @@ public class ActionList extends Component {
     public WebElement getActiveMenu() throws NotFoundException {
         return this.getElement().findElement(By.cssSelector(MENU_ITEM_ACTIVE_SELECTOR));
     }
+
+    /**
+     * Click on a menu item
+     *
+     * @throws NotFoundException if no active element is find
+     */
+    public void clickOn(String label) {
+        this.getMenu(label).click();
+    }
 }

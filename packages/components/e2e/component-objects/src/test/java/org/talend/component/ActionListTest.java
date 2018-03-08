@@ -4,8 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
-import static org.hamcrest.Matchers.equalToIgnoringCase;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 
 public class ActionListTest extends StorybookTest {
@@ -33,5 +33,14 @@ public class ActionListTest extends StorybookTest {
 
         // then
         assertThat(action.getText(), equalToIgnoringCase("favorite datasets"));
+    }
+
+    @Test
+    public void should_click_on_menu() {
+        // when
+        actionListObject.clickOn("ALL DATASETS");
+
+        // then
+        assertThat(getActionLog(), startsWith("▶All clicked:"));
     }
 }
