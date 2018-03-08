@@ -47,7 +47,7 @@ function TitleSubHeader({ title, subTitle, onEdit, editable, disabled, t }) {
 							theme['tc-subheader-details-text-title-pencil'],
 							'tc-subheader-details-text-title-pencil',
 						)}
-						disabled
+						disabled={disabled}
 						hideLabel
 					/>
 				)}
