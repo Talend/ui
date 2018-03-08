@@ -14,6 +14,7 @@ function getInitialState() {
     inputSchema: inputSchema2,
     outputSchema: outputSchema2,
 		mapping: initialMapping,
+		dnd: null,
 		pendingItem: null,
 		selection: null,
 		focused: null,
@@ -232,10 +233,15 @@ stories
 				this.onEnterElement = this.onEnterElement.bind(this);
 				this.onLeaveElement = this.onLeaveElement.bind(this);
 				this.onShowAll = this.onShowAll.bind(this);
+				this.beginDrag = this.beginDrag.bind(this);
+				//this.dndInProgress = this.dndInProgress.bind(this);
+				this.canDrop = this.canDrop.bind(this);
+				this.drop = this.drop.bind(this);
+				this.endDrag = this.endDrag.bind(this);
 			}
 
       handleKeyEvent(ev) {
-				console.log(ev);
+				//console.log(ev);
 				let reveal = false;
 				if (this.handleFirstSelect(ev)) {
 					ev.preventDefault();
@@ -281,6 +287,8 @@ stories
   				}));
 				} else if (this.handleDelete(ev)) {
 					this.clearConnection();
+				} else if (this.isPreventDefaultNeeded(ev)) {
+					ev.preventDefault();
 				}
 				if (reveal) {
 					// reveal
@@ -337,6 +345,11 @@ stories
 					&& this.state.selection.connected != null;
 			}
 
+			isPreventDefaultNeeded(ev) {
+				return ev.keyCode === Keys.SWITCH_SCHEMA
+					&& this.state.pendingItem != null;
+			}
+
 			performMapping(source, target, selectionType) {
 				//console.log('performMapping(' + source + ', ' + target + ')');
 				let selectedSourceElement = source;
@@ -356,6 +369,7 @@ stories
 						type: selectionType,
 					},
 					pendingItem: null,
+					dnd: null,
 				}));
 			}
 
@@ -364,6 +378,7 @@ stories
 					mapping: [],
 					selection: clearConnected(prevState.selection),
 					pendingItem: null,
+					dnd: null,
 				}));
 			}
 
@@ -372,6 +387,7 @@ stories
 					mapping: removeConnections(prevState.mapping, prevState.selection),
 					selection: clearConnected(prevState.selection),
 					pendingItem: null,
+					dnd: null,
 				}));
 			}
 
@@ -425,6 +441,47 @@ stories
 				}));
 			}
 
+			beginDrag(element, type) {
+				this.setState(prevState => ({
+					dnd: {
+						source: {element, type},
+					}
+				}));
+			}
+
+			canDrop(element, type) {
+				//console.log(this.state.dnd);
+				if (this.state.dnd != null) {
+					if (this.state.dnd.target != null
+						&& this.state.dnd.target.element === element
+						&& this.state.dnd.target.type === type) {
+							return;
+					}
+					if (this.state.dnd.source.type === type) {
+						return;
+					}
+				}
+				//console.log('update state');
+				this.setState(prevState => ({
+					dnd: {
+						source: prevState.dnd.source,
+						target: {element, type},
+					}
+				}));
+			}
+
+			drop(element, type) {
+				this.setState(prevState => ({
+					dnd: null,
+				}));
+			}
+
+			endDrag() {
+				this.setState(prevState => ({
+					dnd: null,
+				}));
+			}
+
 			render() {
 				return (
 					<Mapper
@@ -446,6 +503,11 @@ stories
 						onEnterElement={this.onEnterElement}
 						onLeaveElement={this.onLeaveElement}
 						focused={this.state.focused}
+						dnd={this.state.dnd}
+						beginDrag={this.beginDrag}
+						canDrop={this.canDrop}
+						drop={this.drop}
+						endDrag={this.endDrag}
 					/>
 				);
 			}

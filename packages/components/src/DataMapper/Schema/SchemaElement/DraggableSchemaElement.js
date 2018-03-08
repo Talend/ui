@@ -7,21 +7,31 @@ import SchemaElement from './SchemaElement.js';
 
 const elementSource = {
 	beginDrag(props) {
+		props.beginDrag(props.name, props.schemaType);
 		return {
 			elementId: props.name,
 			schemaType: props.schemaType,
 		};
 	},
+	endDrag(props) {
+		props.endDrag();
+	},
 };
 
 const elementTarget = {
 	drop(props, monitor) {
+		props.drop(props.name, props.schemaType);
 		const sourceElem = monitor.getItem();
-		props.performMapping(sourceElem.elementId, props.name, SchemaType.INPUT);
+		if (sourceElem.schemaType === SchemaType.INPUT) {
+			props.performMapping(sourceElem.elementId, props.name, SchemaType.OUTPUT);
+		} else {
+			props.performMapping(props.name, sourceElem.elementId, SchemaType.INPUT);
+		}
 	},
 	canDrop(props, monitor) {
+		props.canDrop(props.name, props.schemaType);
 		const sourceElem = monitor.getItem();
-		return props.schemaType !== sourceElem.schemaType && sourceElem.schemaType === SchemaType.INPUT;
+		return props.schemaType !== sourceElem.schemaType;
 	},
 };
 

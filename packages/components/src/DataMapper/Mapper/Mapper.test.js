@@ -6,14 +6,30 @@ import TestUtils from 'react-dom/test-utils';
 import Mapper from './Mapper.js';
 import DraggableSchemaElement from '../Schema/SchemaElement/DraggableSchemaElement.js';
 
+/**
+ * Wraps a component into a DragDropContext that uses the TestBackend.
+ */
+function wrapInTestContext(DecoratedComponent) {
+	return DragDropContext(TestBackend)(
+		class TestContextContainer extends Component {
+			render() {
+				return <DecoratedComponent {...this.props} />;
+			}
+		},
+	);
+}
+
 it('clear-mapping', () => {
 	const clearMapping = jest.fn();
 	const performMapping = jest.fn();
 	const inputSchema = { name: 'input', elements: ['elem_in_1'] };
 	const outputSchema = { name: 'input', elements: ['elem_out_1'] };
 	const mapping = [{ source: 'elem_in_1', target: 'elem_out_1' }];
+
+	const MapperTestContext = wrapInTestContext(Mapper);
+
 	const mapper = (
-		<Mapper
+		<MapperTestContext
 			inputSchema={inputSchema}
 			mapping={mapping}
 			outputSchema={outputSchema}
@@ -31,19 +47,6 @@ it('clear-mapping', () => {
 	expect(performMapping).not.toBeCalled();
 });
 
-/**
- * Wraps a component into a DragDropContext that uses the TestBackend.
- */
-function wrapInTestContext(DecoratedComponent) {
-	return DragDropContext(TestBackend)(
-		class TestContextContainer extends Component {
-			render() {
-				return <DecoratedComponent {...this.props} />;
-			}
-		},
-	);
-}
-
 function getElementByName(elements, name) {
 	return elements.find(elem => elem.props.name === name);
 }
@@ -51,6 +54,10 @@ function getElementByName(elements, name) {
 it('perform-mapping', () => {
 	const clearMapping = jest.fn();
 	const performMapping = jest.fn();
+	const beginDrag = jest.fn();
+	const canDrop = jest.fn();
+	const drop = jest.fn();
+	const endDrag = jest.fn();
 	const inputSchema = { name: 'input', elements: ['elem_in_1'] };
 	const outputSchema = { name: 'input', elements: ['elem_out_1'] };
 	const mapping = [];
@@ -64,6 +71,10 @@ it('perform-mapping', () => {
 			outputSchema={outputSchema}
 			performMapping={performMapping}
 			clearMapping={clearMapping}
+			beginDrag={beginDrag}
+			canDrop={canDrop}
+			drop={drop}
+			endDrag={endDrag}
 			draggable="true"
 		/>
 	);

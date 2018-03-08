@@ -1,16 +1,15 @@
 export function createSchema(name, elementName, size) {
 	let elements = [];
 	for (let i = 0; i < size; i += 1) {
-		elements = elements.concat(elementName + '_' + i);
+		elements = elements.concat(`${elementName}_${i}`);
 	}
-	const schema = { name, elements };
-	console.log(schema);
-	return schema;
+	return { name, elements };
 }
 
 export function createMapping(inputSchema, outputSchema, shuffle) {
 	let mapping = [];
 	if (shuffle) {
+		// TODO
 	} else {
 		for (let i = 0; i < inputSchema.elements.length; i += 1) {
 			mapping = mapping.concat({

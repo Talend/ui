@@ -24,16 +24,6 @@ export default class SchemaElement extends Component {
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
 	}
 
-	handleMouseEnter(ev) {
-		//console.log('on mouse enter ' + this.props.name);
-		this.props.onEnterElement(this.props.name, this.props.schemaType);
-	}
-
-	handleMouseLeave(ev) {
-		//console.log('on mouse leave ' + this.props.name);
-		this.props.onLeaveElement(this.props.name, this.props.schemaType);
-	}
-
 	componentDidMount() {
 		if (this.element != null) {
 			this.element.addEventListener('mouseenter', this.handleMouseEnter);
@@ -46,6 +36,14 @@ export default class SchemaElement extends Component {
 			this.element.removeEventListener('mouseenter', this.handleMouseEnter);
 			this.element.removeEventListener('mouseleave', this.handleMouseLeave);
 		}
+	}
+
+	handleMouseEnter() {
+		this.props.onEnterElement(this.props.name, this.props.schemaType);
+	}
+
+	handleMouseLeave() {
+		this.props.onLeaveElement(this.props.name, this.props.schemaType);
 	}
 
 	select() {

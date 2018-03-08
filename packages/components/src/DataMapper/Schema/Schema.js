@@ -36,6 +36,10 @@ function renderSchemaElement(
 	onEnterElement,
 	onLeaveElement,
 	focusedElements,
+	beginDrag,
+	canDrop,
+	drop,
+	endDrag,
 ) {
 	if (draggable) {
 		return (
@@ -50,6 +54,10 @@ function renderSchemaElement(
 				onSelect={onSelect}
 				onEnterElement={onEnterElement}
 				onLeaveElement={onLeaveElement}
+				beginDrag={beginDrag}
+				canDrop={canDrop}
+				drop={drop}
+				endDrag={endDrag}
 			/>
 		);
 	}
@@ -109,6 +117,10 @@ export default class Schema extends Component {
 			onEnterElement,
 			onLeaveElement,
 			focusedElements,
+			beginDrag,
+			canDrop,
+			drop,
+			endDrag,
 		} = this.props;
 		return (
 			<div className="schema mapper-element">
@@ -133,6 +145,10 @@ export default class Schema extends Component {
 							onEnterElement,
 							onLeaveElement,
 							focusedElements,
+							beginDrag,
+							canDrop,
+							drop,
+							endDrag,
 						),
 					)}
 				</div>
@@ -154,4 +170,8 @@ Schema.propTypes = {
 	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
 	focusedElements: PropTypes.array,
+	beginDrag: PropTypes.func,
+	canDrop: PropTypes.func,
+	drop: PropTypes.func,
+	endDrag: PropTypes.func,
 };

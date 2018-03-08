@@ -23,7 +23,7 @@ function getFocusedElements(mapping, focused, type) {
 			focusedElements = focusedItems.map(item => item.source);
 		}
 	}
-	console.log('Focused elements in ' + type + 'schema are ' + focusedElements);
+	// console.log('Focused elements in ' + type + 'schema are ' + focusedElements);
 	return focusedElements;
 }
 
@@ -31,12 +31,13 @@ export default class Mapper extends Component {
 	constructor(props) {
 		super(props);
 		this.getConnections = this.getConnections.bind(this);
+		this.getYPosition = this.getYPosition.bind(this);
 		this.onScroll = this.onScroll.bind(this);
 	}
 
 	onScroll() {
-		if (this.gmap.updateCanvas) {
-			this.gmap.updateCanvas(true, false);
+		if (this.gmap.update) {
+			this.gmap.update();
 		}
 	}
 
@@ -54,7 +55,7 @@ export default class Mapper extends Component {
 	}
 
 	getConnection(source, target) {
-		//console.log('getConnection(' + source + ', ' + target + ')');
+		// console.log('getConnection(' + source + ', ' + target + ')');
 		const sourceYPos = this.getYPosition(source, SchemaType.INPUT);
 		const targetYPos = this.getYPosition(target, SchemaType.OUTPUT);
 		return { sourceYPos, targetYPos };
@@ -64,10 +65,11 @@ export default class Mapper extends Component {
 	//   pending : {sourceYPos, targetYPos},
 	//   focused: [ {sourceYPos1, targetYPos1}, {sourceYPos2, targetYPos2} ],
 	//   all: [ {sourceYPos1, targetYPos1}, {sourceYPos2, targetYPos2} ],
+	//   dnd: {sourceYPos, targetYPos},
 	// }
 	getConnections() {
-		const { mapping, selection, pendingItem, focused, showAll } = this.props;
-		if (mapping.length === 0 && pendingItem == null) {
+		const { mapping, selection, pendingItem, focused, showAll, dnd } = this.props;
+		if (mapping.length === 0 && pendingItem == null && dnd == null) {
 			return null;
 		}
 		let allConnections = null;
@@ -78,14 +80,13 @@ export default class Mapper extends Component {
 		if (selection != null) {
 			items = getMappingItems(mapping, selection.element, selection.type);
 		}
-		//console.log('getMappingItems returns ' + items);
+		// console.log('getMappingItems returns ' + items);
 		let current = null;
 		if (items != null) {
 			current = items.map(item => this.getConnectionFromItem(item));
 		}
 		let pending = null;
 		if (selection != null && pendingItem != null) {
-			//console.log('PENDING ITEM is ' + pendingItem);
 			if (pendingItem.type === SchemaType.INPUT) {
 				pending = this.getConnection(pendingItem.element, selection.element);
 			} else {
@@ -99,7 +100,21 @@ export default class Mapper extends Component {
 				focusedConnections = focusedItems.map(item => this.getConnectionFromItem(item));
 			}
 		}
-		return { current, pending, focused: focusedConnections, all: allConnections };
+		let dndConnection = null;
+		if (dnd != null && dnd.source != null && dnd.target != null) {
+			if (dnd.source.type === SchemaType.INPUT) {
+				dndConnection = this.getConnection(dnd.source.element, dnd.target.element);
+			} else {
+				dndConnection = this.getConnection(dnd.target.element, dnd.source.element);
+			}
+		}
+
+		return { current,
+			pending,
+			focused: focusedConnections,
+			all: allConnections,
+			dnd: dndConnection,
+		 };
 	}
 
 	reveal(selection) {
@@ -131,6 +146,11 @@ export default class Mapper extends Component {
 			focused,
 			showAll,
 			onShowAll,
+			dnd,
+			beginDrag,
+			canDrop,
+			drop,
+			endDrag,
 		} = this.props;
 		return (
 			<div id="mapper">
@@ -150,6 +170,10 @@ export default class Mapper extends Component {
 					onEnterElement={onEnterElement}
 					onLeaveElement={onLeaveElement}
 					focusedElements={getFocusedElements(mapping, focused, SchemaType.INPUT)}
+					beginDrag={beginDrag}
+					canDrop={canDrop}
+					drop={drop}
+					endDrag={endDrag}
 				/>
 				<Schema
 					ref={output => {
@@ -167,6 +191,10 @@ export default class Mapper extends Component {
 					onEnterElement={onEnterElement}
 					onLeaveElement={onLeaveElement}
 					focusedElements={getFocusedElements(mapping, focused, SchemaType.OUTPUT)}
+					beginDrag={beginDrag}
+					canDrop={canDrop}
+					drop={drop}
+					endDrag={endDrag}
 				/>
 				<GMapping
 					ref={gmap => {
@@ -176,9 +204,11 @@ export default class Mapper extends Component {
 					clearConnection={clearConnection}
 					clearMapping={clearMapping}
 					getConnections={this.getConnections}
+					getYPosition={this.getYPosition}
 					selection={selection}
 					showAll={showAll}
 					onShowAll={onShowAll}
+					dnd={dnd}
 				/>
 			</div>
 		);
@@ -201,4 +231,9 @@ Mapper.propTypes = {
 	focused: PropTypes.object,
 	showAll: PropTypes.bool,
 	onShowAll: PropTypes.func,
+	dnd: PropTypes.object,
+	beginDrag: PropTypes.func,
+	canDrop: PropTypes.func,
+	drop: PropTypes.func,
+	endDrag: PropTypes.func,
 };

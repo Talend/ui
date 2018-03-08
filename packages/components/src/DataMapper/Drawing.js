@@ -12,7 +12,7 @@ export function drawLine(x1, y1, x2, y2, width, color, canvas) {
 
 export function drawBezier(x1, y1, x2, y2, width, color, lineDash, canvas) {
 	const context = canvas.getContext('2d');
-	const x = (x2 - x1) / 2;
+	const x = (x2 - x1) / 2 + x1;
 	context.beginPath();
 	context.lineWidth = width;
 	context.lineJoin = 'round';
