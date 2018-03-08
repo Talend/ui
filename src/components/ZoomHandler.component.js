@@ -3,6 +3,9 @@ import React from 'react';
 import { select, event } from 'd3-selection';
 import { zoom as d3ZoomFactory } from 'd3-zoom';
 
+export function transformToString(transform) {
+	return `translate(${transform.x}, ${transform.y}) scale(${transform.k})`;
+}
 class ZoomHandler extends React.Component {
 	static propTypes = {
 		children: PropTypes.arrayOf(PropTypes.element).isRequired,
@@ -63,7 +66,10 @@ class ZoomHandler extends React.Component {
 	render() {
 		const { transform } = this.state;
 		const childrens = React.Children.map(this.props.children, children =>
-			React.cloneElement(children, { transform }),
+			React.cloneElement(children, {
+				transformData: transform,
+				transform: transformToString(transform),
+			}),
 		);
 		return (
 			<g x="0" y="0" width="100%" height="100%">

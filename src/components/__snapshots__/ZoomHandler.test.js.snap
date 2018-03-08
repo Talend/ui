@@ -1,4 +1,4 @@
-exports[`<ZoomHandler /> renders correctly <ZoomHandler /> renders correctly 1`] = `
+exports[`ZoomHandler renders correctly <ZoomHandler /> renders correctly <ZoomHandler /> renders correctly 1`] = `
 <g
   height="100%"
   width="100%"
@@ -16,7 +16,8 @@ exports[`<ZoomHandler /> renders correctly <ZoomHandler /> renders correctly 1`]
     x="0"
     y="0" />
   <rect
-    transform={
+    transform="translate(0, 0) scale(1)"
+    transformData={
       Object {
         "k": 1,
         "x": 0,
@@ -24,7 +25,8 @@ exports[`<ZoomHandler /> renders correctly <ZoomHandler /> renders correctly 1`]
       }
     } />
   <rect
-    transform={
+    transform="translate(0, 0) scale(1)"
+    transformData={
       Object {
         "k": 1,
         "x": 0,

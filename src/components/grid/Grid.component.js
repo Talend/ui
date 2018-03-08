@@ -3,10 +3,10 @@ import React from 'react';
 
 import { GRID_SIZE } from '../../constants/flowdesigner.constants';
 
-function Grid({ transform }) {
-	const smallGridSize = 10 * transform.k;
-	const largeGridSize = GRID_SIZE * transform.k;
-	const smallGridOpacity = transform.k < 1 ? transform.k : 1;
+function Grid({ transformData }) {
+	const smallGridSize = 10 * transformData.k;
+	const largeGridSize = GRID_SIZE * transformData.k;
+	const smallGridOpacity = transformData.k < 1 ? transformData.k : 1;
 	return (
 		<g>
 			<defs>
@@ -26,8 +26,8 @@ function Grid({ transform }) {
 					fill="none"
 					stroke="#BFBDBD"
 					strokeWidth="0.5"
-					x={transform.x}
-					y={transform.y}
+					x={transformData.x}
+					y={transformData.y}
 					width={largeGridSize}
 					height={largeGridSize}
 					patternUnits="userSpaceOnUse"
@@ -54,7 +54,7 @@ function Grid({ transform }) {
 }
 
 Grid.propTypes = {
-	transform: PropTypes.shape({
+	transformData: PropTypes.shape({
 		k: PropTypes.number.isRequired,
 		x: PropTypes.number.isRequired,
 		y: PropTypes.number.isRequired,
