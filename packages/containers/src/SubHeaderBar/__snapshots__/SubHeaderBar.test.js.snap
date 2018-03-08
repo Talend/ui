@@ -2,11 +2,26 @@
 
 exports[`SubHeaderBar container should render 1`] = `
 <Translate(SubHeaderBar)
+  __altered={false}
+  __hash={undefined}
+  __ownerID={undefined}
+  _root={
+    ArrayMapNode {
+      "entries": Array [
+        Array [
+          "editMode",
+          false,
+        ],
+      ],
+      "ownerID": OwnerID {},
+    }
+  }
   editMode={false}
   onCancel={[Function]}
   onChange={[Function]}
   onEdit={[Function]}
   onGoBack={undefined}
   onSubmit={[Function]}
+  size={1}
 />
 `;
