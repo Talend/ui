@@ -25,11 +25,11 @@ export function getHeaders(keys, isFlat) {
 		// $['id'][0]['foo'] -> id[0].foo
 		return keys.map(str =>
 			str
-				.replace("$['", '')
-				.replace("']['", '.')
-				.replace("]['", '].')
-				.replace("'][", '[')
-				.replace("']", ''),
+				.replace(/^\$\['/g, '')
+				.replace(/']\['/g, '.')
+				.replace(/]\['/g, '].')
+				.replace(/']\[/g, '[')
+				.replace(/']/g, ''),
 		);
 	}
 	return keys;
