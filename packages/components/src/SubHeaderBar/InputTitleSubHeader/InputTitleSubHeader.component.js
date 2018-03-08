@@ -7,14 +7,7 @@ import InlineFormSubHeader from './InlineFormSubHeader.component';
 import theme from './InputTitleSubHeader.scss';
 import Icon from '../../Icon';
 
-function InputTitleSubHeader({
-	title,
-	iconId,
-	editMode,
-	loading,
-	inProgress,
-	...rest
-}) {
+function InputTitleSubHeader({ title, iconId, editMode, loading, inProgress, ...rest }) {
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
