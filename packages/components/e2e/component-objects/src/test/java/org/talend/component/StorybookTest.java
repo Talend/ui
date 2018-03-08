@@ -59,7 +59,7 @@ public class StorybookTest {
             }
             final String storybookContext = System.getProperty("storybook.context", STORYBOOK_CONTEXT);
             if (StringUtils.isNotBlank(storybookContext)) {
-                builder.setPath(STORYBOOK_CONTEXT);
+                builder.setPath(storybookContext);
             }
             builder.addParameter("selectedKind", categoryName);
             builder.addParameter("selectedStory", storyName);
