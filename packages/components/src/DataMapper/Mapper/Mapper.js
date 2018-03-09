@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Schema from '../Schema/Schema.js';
 import GMapping from './GMapping.js';
 import { SchemaType, MappingSide } from '../Constants';
-import { getMappingItems } from '../Utils';
+import Utils from '../Utils';
 
 function getMapped(mapping, side) {
 	const mappedElements = mapping.map(item => item[side]);
@@ -15,7 +15,7 @@ function getFocusedElements(mapping, focused, type) {
 		return null;
 	}
 	let focusedElements = null;
-	const focusedItems = getMappingItems(mapping, focused.element, focused.type);
+	const focusedItems = Utils.getMappingItems(mapping, focused.element, focused.type);
 	if (focusedItems != null) {
 		if (focused.type === SchemaType.INPUT) {
 			focusedElements = focusedItems.map(item => item.target);
@@ -87,7 +87,7 @@ export default class Mapper extends Component {
 		}
 		let items = null;
 		if (selection != null) {
-			items = getMappingItems(mapping, selection.element, selection.type);
+			items = Utils.getMappingItems(mapping, selection.element, selection.type);
 		}
 		// console.log('getMappingItems returns ' + items);
 		let current = null;
@@ -104,7 +104,7 @@ export default class Mapper extends Component {
 		}
 		let focusedConnections = null;
 		if (focused != null) {
-			const focusedItems = getMappingItems(mapping, focused.element, focused.type);
+			const focusedItems = Utils.getMappingItems(mapping, focused.element, focused.type);
 			if (focusedItems != null) {
 				focusedConnections = focusedItems.map(item => this.getConnectionFromItem(item));
 			}
@@ -140,7 +140,7 @@ export default class Mapper extends Component {
 	}
 
 	revealConnection(element, type) {
-		const mappingItems = getMappingItems(this.props.mapping, element, type);
+		const mappingItems = Utils.getMappingItems(this.props.mapping, element, type);
 		if (mappingItems != null && mappingItems.length > 0) {
 			const item = mappingItems[0];
 			if (type === SchemaType.INPUT) {

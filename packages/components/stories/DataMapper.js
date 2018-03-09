@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { DataMapper as Mapper } from '../src/index';
 import { SchemaType, Keys, switchSchemaType, Configs } from '../src/DataMapper/Constants';
 import { createSchema, createMapping, inputSchema2, outputSchema2, emptyMapping, initialMapping } from '../src/DataMapper/Data';
-import { isSelected, isSelectionEmpty, getSchema, getMappingItems, isMapped } from '../src/DataMapper/Utils';
+import Utils from '../src/DataMapper/Utils';
 
 function getInitialState() {
 	const size = 50;
@@ -11,9 +11,9 @@ function getInitialState() {
 	const outputSchema = createSchema('Big output schema', 'output_element', size);
 	const mapping = createMapping(inputSchema, outputSchema, true);
 	return {
-    inputSchema: inputSchema,
-    outputSchema: outputSchema,
-		mapping: mapping,
+    inputSchema: inputSchema2,
+    outputSchema: outputSchema2,
+		mapping: initialMapping,
 		dnd: null,
 		pendingItem: null,
 		selection: null,
@@ -23,7 +23,7 @@ function getInitialState() {
 }
 
 function getConnected(mapping, element, type) {
-	const items = getMappingItems(mapping, element, type);
+	const items = Utils.getMappingItems(mapping, element, type);
 	if (items != null) {
 		if (type === SchemaType.INPUT) {
 			return items.map(item => item.target);
@@ -42,7 +42,7 @@ function appendConnected(mapping, source, target, type) {
 }
 
 function getSelection(ctrl, mapping, selection, element, type) {
-	if (isSelected(selection, element, type) && ctrl) {
+	if (Utils.isSelected(selection, element, type) && ctrl) {
 		return null;
 	}
 	return select(mapping, element, type);
@@ -72,7 +72,7 @@ function clearConnected(selection) {
 }
 
 function removeConnections(mapping, selection) {
-	if (isSelectionEmpty(selection)) {
+	if (Utils.isSelectionEmpty(selection)) {
 		return mapping;
 	}
 	const items = mapping.filter(item =>
@@ -101,7 +101,7 @@ function removeConnection(mapping, index) {
 }
 
 function getCurrentSelectedSchema(state) {
-  if (isSelectionEmpty(state.selection)) {
+  if (Utils.isSelectionEmpty(state.selection)) {
     return null;
   }
   if (state.selection.type === SchemaType.INPUT) {
@@ -112,10 +112,8 @@ function getCurrentSelectedSchema(state) {
   return null;
 }
 
-function navigateUpDown(state, nav) {
-  const selection = state.selection;
-  const schema = getCurrentSelectedSchema(state);
-  const selectedElemIndex = schema.elements.indexOf(selection.element);
+function getNextElement(schema, element, nav) {
+	const selectedElemIndex = schema.elements.indexOf(element);
   const size = schema.elements.length;
   let newSelectedElemIndex = selectedElemIndex;
   switch (nav) {
@@ -132,9 +130,26 @@ function navigateUpDown(state, nav) {
       }
       break;
 		default:
-			return;
+			return element;
   }
-  const newSelectedElement = schema.elements[newSelectedElemIndex];
+	return schema.elements[newSelectedElemIndex];
+}
+
+function navigateUpDown(state, nav) {
+
+	const selection = state.selection;
+  const schema = getCurrentSelectedSchema(state);
+	let newSelectedElement = getNextElement(schema, selection.element, nav);
+
+	if (state.pendingItem != null
+		&& state.pendingItem.type != selection.type
+		&& selection.type === SchemaType.OUTPUT) {
+		// do not select an already connected output elements
+		while (Utils.isMapped(state.mapping, newSelectedElement, selection.type)) {
+			newSelectedElement = getNextElement(schema, newSelectedElement, nav);
+		}
+	}
+
   return {
 		element: newSelectedElement,
 		connected: getConnected(state.mapping, newSelectedElement, selection.type),
@@ -151,7 +166,7 @@ function switchSchema(state, connectContext) {
 		&& selection.connected.length > 0) {
 		targetElem = selection.connected[0];
   }
-	const targetSchema = getSchema(state, targetType);
+	const targetSchema = Utils.getSchema(state, targetType);
 	if (targetElem == null) {
   	// try to find an element with the same name
    	targetElem = targetSchema.elements.find(elem =>
@@ -166,7 +181,7 @@ function switchSchema(state, connectContext) {
 		if (connectContext) {
 			// for connexion context we try to get a non connected element
 			for (let i = 0; i < targetSchema.elements.length; i += 1) {
-				if (!isMapped(state.mapping, targetSchema.elements[i], targetType)) {
+				if (!Utils.isMapped(state.mapping, targetSchema.elements[i], targetType)) {
 					targetElem = targetSchema.elements[i];
 					break;
 				}
@@ -306,14 +321,29 @@ stories
       }
 
 			handleStartConnection(ev) {
-				return ev.keyCode === Keys.ENTER
-					&& !isSelectionEmpty(this.state.selection)
-					&& this.state.pendingItem == null;
+				if (ev.keyCode === Keys.ENTER
+					&& !Utils.isSelectionEmpty(this.state.selection)
+					&& this.state.pendingItem == null) {
+					if (this.state.selection.type === SchemaType.INPUT) {
+						// input case
+						// at least one output element must be free (i.e. not connected)
+						return !Utils.fullMapped(this.state.mapping,
+							this.state.outputSchema,
+							SchemaType.OUTPUT);
+					} else {
+						// output case
+						// the current selected element cannot be already connected
+						return !Utils.isMapped(this.state.mapping,
+							this.state.selection.element,
+							this.state.selection.type);
+					}
+				}
+				return false;
 			}
 
 			handleEndConnection(ev) {
 				return ev.keyCode === Keys.ENTER
-					&& !isSelectionEmpty(this.state.selection)
+					&& !Utils.isSelectionEmpty(this.state.selection)
 					&& this.state.pendingItem != null
 					&& this.state.selection.type != this.state.pendingItem.type;
 			}
@@ -324,13 +354,13 @@ stories
 												|| key === Keys.DOWN;
 				const isValidSwitch = key === Keys.SWITCH_SCHEMA
 					&& this.state.pendingItem == null;
-        return !isSelectionEmpty(this.state.selection)
+        return !Utils.isSelectionEmpty(this.state.selection)
 					&& (isValidKey || isValidSwitch);
       }
 
 			handleFirstSelect(ev) {
 				const isValidKey = ev.keyCode === Keys.SWITCH_SCHEMA;
-				return isValidKey && isSelectionEmpty(this.state.selection);
+				return isValidKey && Utils.isSelectionEmpty(this.state.selection);
 			}
 
 			handleEscape(ev) {
@@ -341,13 +371,14 @@ stories
 			handleDelete(ev) {
 				const isValidKey = ev.keyCode === Keys.DELETE;
 				return isValidKey
-					&& !isSelectionEmpty(this.state.selection)
+					&& !Utils.isSelectionEmpty(this.state.selection)
 					&& this.state.selection.connected != null;
 			}
 
 			isPreventDefaultNeeded(ev) {
-				return ev.keyCode === Keys.SWITCH_SCHEMA
-					&& this.state.pendingItem != null;
+				return (ev.keyCode === Keys.SWITCH_SCHEMA
+					&& this.state.pendingItem != null)
+					|| ev.keyCode === Keys.ENTER;
 			}
 
 			performMapping(source, target, selectionType) {
@@ -451,25 +482,32 @@ stories
 				}));
 			}
 
-			canDrop(element, type) {
-				//console.log(this.state.dnd);
+			canDrop(source, target) {
+				let update = true;
 				if (this.state.dnd != null) {
 					if (this.state.dnd.target != null
-						&& this.state.dnd.target.element === element
-						&& this.state.dnd.target.type === type) {
-							return;
+						&& this.state.dnd.target.element === target.element
+						&& this.state.dnd.target.type === target.type) {
+							update = false;
 					}
-					if (this.state.dnd.source.type === type) {
-						return;
+					if (this.state.dnd.source.type === target.type) {
+						update = false;
 					}
 				}
-				//console.log('update state');
-				this.setState(prevState => ({
-					dnd: {
-						source: prevState.dnd.source,
-						target: {element, type},
-					}
-				}));
+				if (update) {
+					this.setState(prevState => ({
+						dnd: {
+							source: prevState.dnd.source,
+							target,
+						}
+					}));
+				}
+				return target.type !== source.type
+					&& ((target.type === SchemaType.INPUT
+								&& !Utils.isMapped(this.state.mapping, source.element, source.type))
+						|| (target.type === SchemaType.OUTPUT 
+								&& !Utils.isMapped(this.state.mapping, target.element, target.type))
+					);
 			}
 
 			drop(element, type) {
