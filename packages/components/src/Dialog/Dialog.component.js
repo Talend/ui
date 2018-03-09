@@ -37,9 +37,7 @@ function Dialog(props) {
 					<Renderers.ActionBar {...props.actionbar} />
 				</Modal.Footer>
 			)}
-			{props.footer && (
-				<Modal.Footer {...props.footer} />
-			)}
+			{props.footer && <Modal.Footer {...props.footer} />}
 		</Modal>
 	);
 }
