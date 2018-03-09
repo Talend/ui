@@ -3,9 +3,9 @@ $tc-circular-progress-light-fill: #eee !default;
 $tc-circular-progress-small: 1.2rem;
 $tc-circular-progress-regular: 2rem;
 $tc-circular-progress-large: 4rem;
-$tc-circular-progress-larger: 7em;
+$tc-circular-progress-xlarge: 20.5rem;
 $tc-circular-progress-stroke-width: 5;
-$tc-circular-progress-stroke-width-lgr: 2;
+$tc-circular-progress-stroke-width-xlarge: 1.5;
 
 .fixed {
 	transform: rotate(270deg);
@@ -69,12 +69,12 @@ $tc-circular-progress-stroke-width-lgr: 2;
 	height: $tc-circular-progress-large;
 }
 
-.larger {
-	width: $tc-circular-progress-larger;
-	height: $tc-circular-progress-larger;
+.xlarge {
+	width: $tc-circular-progress-xlarge;
+	height: $tc-circular-progress-xlarge;
 
 	.path {
 		stroke: $silver-chalice;
-		stroke-width: $tc-circular-progress-stroke-width-lgr;
+		stroke-width: $tc-circular-progress-stroke-width-xlarge;
 	}
 }
