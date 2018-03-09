@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import classNames from 'classnames';
 import Dialog from './Dialog.component';
 
@@ -17,15 +18,15 @@ function mockFakeComponent(name) {
 }
 
 jest.mock('react-dom');
-jest.mock('react-bootstrap/lib/Modal', () => {
-	const Modal = mockFakeComponent('Modal');
-	Modal.Header = mockFakeComponent('Header');
-	Modal.Title = mockFakeComponent('Title');
-	Modal.Body = mockFakeComponent('Body');
-	Modal.Footer = mockFakeComponent('Footer');
+// jest.mock('react-bootstrap/lib/Modal', () => {
+// 	const Modal = mockFakeComponent('Modal');
+// 	Modal.Header = mockFakeComponent('Header');
+// 	Modal.Title = mockFakeComponent('Title');
+// 	Modal.Body = mockFakeComponent('Body');
+// 	Modal.Footer = mockFakeComponent('Footer');
 
-	return Modal;
-});
+// 	return Modal;
+// });
 
 const defaultProps = {
 	show: true,
@@ -77,33 +78,33 @@ const children = (<div>BODY</div>);
 
 describe('Dialog', () => {
 	it('should render', () => {
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<Dialog {...defaultProps}>{children}</Dialog>
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render header', () => {
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<Dialog {...headerProps}>{children}</Dialog>
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render action', () => {
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<Dialog {...actionProps}>{children}</Dialog>
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render small', () => {
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<Dialog {...smallProps}>{children}</Dialog>
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render large', () => {
-		const wrapper = renderer.create(
+		const wrapper = shallow(
 			<Dialog {...largeProps}>{children}</Dialog>
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
