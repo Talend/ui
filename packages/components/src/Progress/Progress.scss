@@ -44,3 +44,20 @@ $infinite-indicator-width: 100% / $infinite-indicator-ratio;
 		}
 	}
 }
+
+:global(.modal-header) .progress {
+	flex-grow: 0;
+	flex-shrink: 0;
+	position: relative;
+	margin-top: -1px;
+	margin-bottom: 0;
+	border-radius: 0;
+	box-shadow: none;
+	height: 5px;
+	background-color: transparent;
+
+	:global(.progress-bar) {
+		background-color: $rio-grande;
+		box-shadow: none;
+	}
+}
