@@ -26,18 +26,6 @@ describe('Filter container', () => {
 	});
 
 	describe('onAfterChange', () => {
-		it('should call dispatchActionCreator method when onAfterChange', () => {
-			const onAfterChangeActionCreator = jest.fn();
-			const dispatchActionCreator = jest.fn();
-			const container = new Container({
-				onAfterChangeActionCreator,
-				dispatchActionCreator,
-			});
-
-			container.onAfterChange(12);
-			expect(dispatchActionCreator).toHaveBeenCalled();
-		});
-
 		it('should call onAfterChange props method when onAfterChange', () => {
 			const onAfterChange = jest.fn();
 			const container = new Container({
@@ -47,14 +35,6 @@ describe('Filter container', () => {
 			container.onAfterChange(12);
 			expect(onAfterChange).toHaveBeenCalled();
 		});
-
-		it('should not call dispatchActionCreator method when no onAfterChange', () => {
-			const dispatchActionCreator = jest.fn();
-			const container = new Container({ dispatchActionCreator });
-
-			container.onAfterChange(12);
-			expect(dispatchActionCreator).not.toHaveBeenCalled();
-		});
 	});
 
 	describe('onChange', () => {
@@ -62,19 +42,6 @@ describe('Filter container', () => {
 
 		beforeEach(() => {
 			setState = jest.fn();
-		});
-
-		it('should call dispatchActionCreator method when onChange', () => {
-			const onChangeActionCreator = jest.fn();
-			const dispatchActionCreator = jest.fn();
-			const container = new Container({
-				setState,
-				onChangeActionCreator,
-				dispatchActionCreator,
-			});
-
-			container.onChange(12);
-			expect(dispatchActionCreator).toHaveBeenCalled();
 		});
 
 		it('should call onChange props method when onChange', () => {
