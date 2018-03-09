@@ -40,6 +40,7 @@ function renderSchemaElement(
 	canDrop,
 	drop,
 	endDrag,
+	revealConnection,
 ) {
 	if (draggable) {
 		return (
@@ -58,6 +59,7 @@ function renderSchemaElement(
 				canDrop={canDrop}
 				drop={drop}
 				endDrag={endDrag}
+				revealConnection={revealConnection}
 			/>
 		);
 	}
@@ -71,15 +73,17 @@ function renderSchemaElement(
 			onSelect={onSelect}
 			onEnterElement={onEnterElement}
 			onLeaveElement={onLeaveElement}
+			revealConnection={revealConnection}
 		/>
 	);
 }
 
 export default class Schema extends Component {
+
 	getNode(element) {
 		const children = this.contentNode.childNodes;
-		const childranArray = Array.from(children);
-		return childranArray.find(c => c.firstChild.innerHTML === element);
+		const childrenArray = Array.from(children);
+		return childrenArray.find(c => c.firstChild.innerHTML === element);
 	}
 
 	getYPosition(element) {
@@ -89,6 +93,29 @@ export default class Schema extends Component {
 		const parentOffsetTop = this.contentNode.offsetTop;
 		const y = childOffsetTop - parentOffsetTop + child.clientHeight / 2 - scrollTop;
 		return y;
+	}
+
+	getVisibleElements() {
+		let visibleElements = [];
+		const contentHeight = this.contentNode.offsetHeight;
+		const elements = this.props.schema.elements;
+		const children = this.contentNode.childNodes;
+		const childrenArray = Array.from(children);
+		for (let i = 0; i < childrenArray.length; i += 1) {
+			const child = childrenArray[i];
+			const childHeight = child.clientHeight;
+			const element = elements[i];
+			const elemYPos = this.getYPosition(element);
+			if (elemYPos < 0) {
+				continue;
+			} else if (elemYPos > 0 && elemYPos < (contentHeight - childHeight / 2)) {
+				// element is visible
+				visibleElements = visibleElements.concat(element);
+			} else if (elemYPos > contentHeight - childHeight) {
+				break;
+			}
+		}
+		return visibleElements;
 	}
 
 	reveal(element) {
@@ -121,6 +148,7 @@ export default class Schema extends Component {
 			canDrop,
 			drop,
 			endDrag,
+			revealConnection,
 		} = this.props;
 		return (
 			<div className="schema mapper-element">
@@ -149,6 +177,7 @@ export default class Schema extends Component {
 							canDrop,
 							drop,
 							endDrag,
+							revealConnection,
 						),
 					)}
 				</div>
@@ -174,4 +203,5 @@ Schema.propTypes = {
 	canDrop: PropTypes.func,
 	drop: PropTypes.func,
 	endDrag: PropTypes.func,
+	revealConnection: PropTypes.func,
 };

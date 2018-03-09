@@ -9,7 +9,16 @@ export function createSchema(name, elementName, size) {
 export function createMapping(inputSchema, outputSchema, shuffle) {
 	let mapping = [];
 	if (shuffle) {
-		// TODO
+		let outputElements = outputSchema.elements.slice();
+		for (let i = 0; i < inputSchema.elements.length; i += 1) {
+			const index = Math.floor(Math.random() * outputElements.length);
+			const target = outputElements[index];
+			mapping = mapping.concat({
+				source: inputSchema.elements[i],
+				target: target,
+			});
+			outputElements.splice(index, 1);
+		}
 	} else {
 		for (let i = 0; i < inputSchema.elements.length; i += 1) {
 			mapping = mapping.concat({

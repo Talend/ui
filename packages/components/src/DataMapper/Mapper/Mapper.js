@@ -33,6 +33,7 @@ export default class Mapper extends Component {
 		this.getConnections = this.getConnections.bind(this);
 		this.getYPosition = this.getYPosition.bind(this);
 		this.onScroll = this.onScroll.bind(this);
+		this.revealConnection = this.revealConnection.bind(this);
 	}
 
 	onScroll() {
@@ -74,7 +75,15 @@ export default class Mapper extends Component {
 		}
 		let allConnections = null;
 		if (showAll) {
-			allConnections = mapping.map(item => this.getConnectionFromItem(item));
+			const inputVisibleElements = this.inputSchema.getVisibleElements();
+			const outputVisibleElements = this.outputSchema.getVisibleElements();
+			// filter mapping items
+			const visibleMapping = mapping.filter(item =>
+				(inputVisibleElements.includes(item.source))
+				|| (outputVisibleElements.includes(item.target))
+			);
+			// then build connections
+			allConnections = visibleMapping.map(item => this.getConnectionFromItem(item));
 		}
 		let items = null;
 		if (selection != null) {
@@ -129,6 +138,18 @@ export default class Mapper extends Component {
 		}
 	}
 
+	revealConnection(element, type) {
+		const mappingItems = getMappingItems(this.props.mapping, element, type);
+		if (mappingItems != null && mappingItems.length > 0) {
+			const item = mappingItems[0];
+			if (type === SchemaType.INPUT) {
+				this.outputSchema.reveal(item.target);
+			} else {
+				this.inputSchema.reveal(item.source);
+			}
+		}
+	}
+
 	render() {
 		const {
 			inputSchema,
@@ -174,6 +195,7 @@ export default class Mapper extends Component {
 					canDrop={canDrop}
 					drop={drop}
 					endDrag={endDrag}
+					revealConnection={this.revealConnection}
 				/>
 				<Schema
 					ref={output => {
@@ -195,6 +217,7 @@ export default class Mapper extends Component {
 					canDrop={canDrop}
 					drop={drop}
 					endDrag={endDrag}
+					revealConnection={this.revealConnection}
 				/>
 				<GMapping
 					ref={gmap => {

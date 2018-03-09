@@ -20,6 +20,7 @@ export default class SchemaElement extends Component {
 	constructor(props) {
 		super(props);
 		this.select = this.select.bind(this);
+		this.revealConnection = this.revealConnection.bind(this);
 		this.handleMouseEnter = this.handleMouseEnter.bind(this);
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
 	}
@@ -46,8 +47,12 @@ export default class SchemaElement extends Component {
 		this.props.onLeaveElement(this.props.name, this.props.schemaType);
 	}
 
-	select() {
-		this.props.onSelect(this.props.name, this.props.schemaType);
+	select(ev) {
+		this.props.onSelect(ev.ctrlKey, this.props.name, this.props.schemaType);
+	}
+
+	revealConnection() {
+		this.props.revealConnection(this.props.name, this.props.schemaType);
 	}
 
 	render() {
@@ -55,6 +60,7 @@ export default class SchemaElement extends Component {
 			<div
 				className={getClassName(this.props)}
 				onClick={this.select}
+				onDoubleClick={this.revealConnection}
 				role="button"
 				ref={elem => {
 					this.element = elem;
@@ -72,4 +78,5 @@ SchemaElement.propTypes = {
 	onSelect: PropTypes.func,
 	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
+	revealConnection: PropTypes.func,
 };

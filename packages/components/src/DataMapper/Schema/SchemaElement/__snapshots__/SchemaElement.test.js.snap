@@ -4,6 +4,7 @@ exports[`highlighted-element 1`] = `
 <div
   className="schema-element highlighted undefined"
   onClick={[Function]}
+  onDoubleClick={[Function]}
   role="button"
 >
   Highlighted_element
@@ -14,6 +15,7 @@ exports[`mapped-element 1`] = `
 <div
   className="schema-element mapped undefined"
   onClick={[Function]}
+  onDoubleClick={[Function]}
   role="button"
 >
   Mapped_element
@@ -24,6 +26,7 @@ exports[`single-element 1`] = `
 <div
   className="schema-element undefined"
   onClick={[Function]}
+  onDoubleClick={[Function]}
   role="button"
 >
   Single_element

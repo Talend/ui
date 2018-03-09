@@ -6,14 +6,14 @@ import { createSchema, createMapping, inputSchema2, outputSchema2, emptyMapping,
 import { isSelected, isSelectionEmpty, getSchema, getMappingItems, isMapped } from '../src/DataMapper/Utils';
 
 function getInitialState() {
-	const size = 1000;
+	const size = 50;
 	const inputSchema = createSchema('Big input schema', 'input_element', size);
 	const outputSchema = createSchema('Big output schema', 'output_element', size);
-	const mapping = createMapping(inputSchema, outputSchema, false);
+	const mapping = createMapping(inputSchema, outputSchema, true);
 	return {
-    inputSchema: inputSchema2,
-    outputSchema: outputSchema2,
-		mapping: initialMapping,
+    inputSchema: inputSchema,
+    outputSchema: outputSchema,
+		mapping: mapping,
 		dnd: null,
 		pendingItem: null,
 		selection: null,
@@ -41,8 +41,8 @@ function appendConnected(mapping, source, target, type) {
 	return [target];
 }
 
-function getSelection(mapping, selection, element, type) {
-	if (isSelected(selection, element, type)) {
+function getSelection(ctrl, mapping, selection, element, type) {
+	if (isSelected(selection, element, type) && ctrl) {
 		return null;
 	}
 	return select(mapping, element, type);
@@ -391,16 +391,18 @@ stories
 				}));
 			}
 
-			selectElement(element, type) {
+			selectElement(ctrl, element, type) {
 				if (this.state.pendingItem == null) {
 					this.setState(prevState => ({
-						selection: getSelection(prevState.mapping, prevState.selection, element, type),
+						selection: getSelection(ctrl, prevState.mapping,
+							prevState.selection, element, type),
 					}));
 				} else {
 					if (this.state.pendingItem.type === type) {
 						// stop the link process
 						this.setState(prevState => ({
-							selection: getSelection(prevState.mapping, prevState.selection, element, type),
+							selection: getSelection(ctrl, prevState.mapping,
+								prevState.selection, element, type),
 							pendingItem: null,
 						}));
 					} else {
