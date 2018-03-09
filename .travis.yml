@@ -10,40 +10,50 @@ notifications:
 
 jobs:
   include:
-    - stage: test
+    - stage: build
       language: node_js
+      node_js:
+        - '8'
       env:
         - ACTION=test
         - ACTION=test:demo
-      node_js:
-        - '8'
       before_install:
         - export TALEND_COMMIT_MSG=$TRAVIS_COMMIT_MESSAGE
         - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export TALEND_COMMIT_MSG="$(git log --format=%B -n 1 $TRAVIS_PULL_REQUEST_SHA)"; fi
       #   Configure git
         - .travis/before_install.sh
       before_script:
-        - sh -e /etc/init.d/xvfb start
         - yarn global add sassdoc http-server surge prettier
         - .travis/before_script_icons.sh
       script:
         - yarn $ACTION
       after_success:
-        - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo and static analysis skipped."; travis_terminate 0; fi
         - if [ "$ACTION" != 'test:demo' ]; then travis_terminate 0; fi
+
+    - stage: demo
+      script:
+        - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo and static analysis skipped."; travis_terminate 0; fi
         - .travis/after_success_static.sh
         - .travis/after_success_demo.sh
+
+    - stage: deploy
+      script:
         - .travis/after_success_deploy.sh
+
+    - stage: prettier
+      script:
         - .travis/after_success_prettier.sh
         - .travis/after_success_lint.sh
+
+    - stage: github
+      script:
         - .travis/after_success_git.sh
 
-    - stage: test e2e
+    - stage: e2e tests
       language: java
       jdk: oraclejdk8
       script:
-        - cd packages/components/e2e/component-objects
-        - mvn clean verify -Premote -Dstorybook.host="talend.surge.sh" -Dstorybook.port=80 -Dstorybook.context="/components/"
+        - .travis/after_success_e2e.sh
 
 branches:
   only:
