@@ -9,6 +9,7 @@
 	&-content {
 		display: flex;
 		flex-direction: column;
+		border: none;  // it keeps the border-radius
 	}
 	&-header {
 		border-top-left-radius: $border-radius-base;
