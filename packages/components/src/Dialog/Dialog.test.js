@@ -46,37 +46,27 @@ const largeProps = {
 	},
 };
 
-const children = (<div>BODY</div>);
+const children = <div>BODY</div>;
 
 describe('Dialog', () => {
 	it('should render', () => {
-		const wrapper = shallow(
-			<Dialog {...defaultProps}>{children}</Dialog>
-		);
+		const wrapper = shallow(<Dialog {...defaultProps}>{children}</Dialog>);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render header', () => {
-		const wrapper = shallow(
-			<Dialog {...headerProps}>{children}</Dialog>
-		);
+		const wrapper = shallow(<Dialog {...headerProps}>{children}</Dialog>);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render action', () => {
-		const wrapper = shallow(
-			<Dialog {...actionProps}>{children}</Dialog>
-		);
+		const wrapper = shallow(<Dialog {...actionProps}>{children}</Dialog>);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render small', () => {
-		const wrapper = shallow(
-			<Dialog {...smallProps}>{children}</Dialog>
-		);
+		const wrapper = shallow(<Dialog {...smallProps}>{children}</Dialog>);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render large', () => {
-		const wrapper = shallow(
-			<Dialog {...largeProps}>{children}</Dialog>
-		);
+		const wrapper = shallow(<Dialog {...largeProps}>{children}</Dialog>);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should spread props', () => {
