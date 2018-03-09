@@ -4,7 +4,6 @@ exports[`Dialog should render 1`] = `
 <div
   bsSize={undefined}
   className="Modal"
-  keyboard={undefined}
   show={true}
 >
   <div
@@ -21,7 +20,6 @@ exports[`Dialog should render action 1`] = `
 <div
   bsSize={undefined}
   className="Modal"
-  keyboard={undefined}
   show={true}
 >
   <div
@@ -64,7 +62,6 @@ exports[`Dialog should render header 1`] = `
 <div
   bsSize={undefined}
   className="Modal"
-  keyboard={undefined}
   show={true}
 >
   <div

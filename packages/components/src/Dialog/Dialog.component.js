@@ -10,34 +10,60 @@ import Progress from '../Progress';
 /**
  * @param {object} props react props
  * @example
-<Dialog name="Hello world"></Dialog>
+<Dialog header="Hello world">content</Dialog>
  */
-function Dialog(props) {
-	const modalProps = { bsSize: props.size, show: props.show, ...props.bsDialogProps };
-	const Renderers = Inject.getAll(props.getComponent, {
+function Dialog({
+	action,
+	actionbar,
+	bsDialogProps,
+	children,
+	closeButton,
+	components,
+	footer,
+	getComponent,
+	header,
+	progress,
+	size,
+	...props
+}) {
+	const Renderers = Inject.getAll(getComponent, {
 		ActionBar,
 		Action,
 	});
+	const injected = Inject.all(getComponent, components);
+
 	return (
-		<Modal keyboard={props.keyboard} {...modalProps}>
-			{props.header && (
-				<Modal.Header closeButton={props.closeButton}>
-					<Modal.Title>{props.header}</Modal.Title>
+		<Modal bsSize={size} {...bsDialogProps} {...props}>
+			{injected('before-modal-header')}
+			{header && (
+				<Modal.Header closeButton={closeButton}>
+					<Modal.Title>{header}</Modal.Title>
 				</Modal.Header>
 			)}
-			{props.progress && <Progress contained {...props.progress} />}
-			<Modal.Body>{props.children}</Modal.Body>
-			{props.action && (
+			{injected('after-modal-header')}
+			{progress && <Progress contained {...progress} />}
+			{injected('before-modal-body')}
+			<Modal.Body>
+				{injected('before-children')}
+				{children}
+				{injected('after-children')}
+			</Modal.Body>
+			{injected('before-modal-body')}
+			{action && (
 				<Modal.Footer>
-					<Renderers.Action {...props.action} />
+					<Renderers.Action {...action} />
 				</Modal.Footer>
 			)}
-			{props.actionbar && (
+			{actionbar && (
 				<Modal.Footer>
-					<Renderers.ActionBar {...props.actionbar} />
+					<Renderers.ActionBar {...actionbar} />
 				</Modal.Footer>
 			)}
-			{props.footer && <Modal.Footer {...props.footer} />}
+			{footer && (
+				<Modal.Footer {...footer}>
+					{injected('footer')}
+				</Modal.Footer>
+			)}
 		</Modal>
 	);
 }
@@ -50,7 +76,7 @@ Dialog.defaultProps = {
 
 Dialog.propTypes = {
 	header: PropTypes.string,
-	size: PropTypes.oneOf(['small', 'large']),
+	size: PropTypes.oneOf(['sm', 'small', 'lg', 'large']),
 	children: PropTypes.element,
 	show: PropTypes.bool,
 	action: PropTypes.shape(Action.propTypes),
@@ -60,6 +86,7 @@ Dialog.propTypes = {
 	closeButton: PropTypes.bool,
 	keyboard: PropTypes.bool,
 	getComponent: PropTypes.func,
+	components: PropTypes.object,
 	progress: PropTypes.object,
 };
 
