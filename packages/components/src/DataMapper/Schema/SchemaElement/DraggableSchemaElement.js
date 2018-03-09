@@ -29,9 +29,9 @@ const elementTarget = {
 		}
 	},
 	canDrop(props, monitor) {
-		const target = {element: props.name, type: props.schemaType};
+		const target = { element: props.name, type: props.schemaType };
 		const source = monitor.getItem();
-		return props.canDrop(source, target);		
+		return props.canDrop(source, target);
 	},
 };
 
