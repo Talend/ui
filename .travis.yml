@@ -31,25 +31,37 @@ jobs:
         - if [ "$ACTION" != 'test:demo' ]; then travis_terminate 0; fi
 
     - stage: demo
+      language: node_js
+      node_js:
+        - '8'
       script:
         - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo and static analysis skipped."; travis_terminate 0; fi
         - .travis/after_success_static.sh
         - .travis/after_success_demo.sh
 
     - stage: deploy
+      language: node_js
+      node_js:
+        - '8'
       script:
         - .travis/after_success_deploy.sh
 
-    - stage: prettier
+    - stage: Prettier
+      language: node_js
+      node_js:
+        - '8'
       script:
         - .travis/after_success_prettier.sh
         - .travis/after_success_lint.sh
 
-    - stage: github
+    - stage: GitHub
+      language: node_js
+      node_js:
+        - '8'
       script:
         - .travis/after_success_git.sh
 
-    - stage: e2e tests
+    - stage: E2E tests
       language: java
       jdk: oraclejdk8
       script:
