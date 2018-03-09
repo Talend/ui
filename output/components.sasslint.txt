@@ -13,3 +13,4 @@ src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
 ✖ 3 problems (0 errors, 3 warnings)
+

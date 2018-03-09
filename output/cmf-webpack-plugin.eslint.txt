@@ -8,3 +8,4 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   46:41  warning  Unexpected unnamed function  func-names
 
 ✖ 1 problem (0 errors, 1 warning)
+

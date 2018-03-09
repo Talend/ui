@@ -20,3 +20,4 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
 
 ✖ 5 problems (5 errors, 0 warnings)
+

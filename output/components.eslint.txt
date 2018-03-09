@@ -30,3 +30,4 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   33:3  warning  Unexpected console statement  no-console
 
 ✖ 11 problems (10 errors, 1 warning)
+
