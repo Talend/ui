@@ -1,13 +1,17 @@
 .modal-dialog {
 	max-height: 80vh;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	flex-wrap: nowrap;
 }
 
 .modal {
 	&-content {
 		display: flex;
 		flex-direction: column;
+		flex-basis: 100%;
+		flex-grow: 0;
+		flex-shrink: 0;
 		border: none;  // it keeps the border-radius
 	}
 	&-header {
@@ -17,8 +21,7 @@
 		border-color: $concrete;
 
 		.modal-title {
-			font-weight: 400;
-			font-size: 16px;
+			font-size: ceil(($font-size-base * 1.10));
 			color: $modal-header-color;
 		}
 
