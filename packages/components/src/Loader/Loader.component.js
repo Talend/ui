@@ -12,10 +12,10 @@ function Loader({ id, className, size = SIZE.default, iconName }) {
 	const loaderClassNames = classNames('tc-loader', theme['tc-loader'], className);
 
 	return (
-			<div id={id} aria-atomic="true" aria-busy="true" className={loaderClassNames}>
-				<CircularProgress size={size} />
-				{iconName && <Icon name={iconName} className={theme['tc-app-loader-icon']} />}
-			</div>
+		<div id={id} aria-atomic="true" aria-busy="true" className={loaderClassNames}>
+			<CircularProgress size={size} />
+			{iconName && <Icon name={iconName} className={theme['tc-app-loader-icon']} />}
+		</div>
 	);
 }
 

@@ -36,7 +36,7 @@ function CircularProgress({ size, light, percent, className }) {
 		[theme.small]: size === SIZE.small,
 		[theme.default]: size === SIZE.default,
 		[theme.large]: size === SIZE.large,
-    [theme.xlarge]: size === SIZE.xlarge,
+		[theme.xlarge]: size === SIZE.xlarge,
 	});
 
 	return (
