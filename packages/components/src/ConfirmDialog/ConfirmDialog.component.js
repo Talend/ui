@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
-import { ProgressBar, Modal } from 'react-bootstrap';
-
-import theme from './ConfirmDialog.scss';
+import Dialog from '../Dialog';
 import Action from '../Actions/Action';
 
 /**
@@ -35,45 +32,47 @@ import Action from '../Actions/Action';
  * @constructor
  */
 function ConfirmDialog({
-	size,
-	show,
-	header,
 	children,
 	validateAction,
 	secondaryActions,
 	cancelAction,
 	progressValue,
-	bodyOverflow = true,
+	...props
 }) {
+	const actions = {
+		left: [],
+		center: [],
+		right: [],
+	};
+	if (cancelAction) {
+		actions.left.push(cancelAction);
+	}
+	if (secondaryActions) {
+		actions.right = actions.right.concat(secondaryActions);
+	}
+	if (validateAction) {
+		actions.right.push(validateAction);
+	}
+	let progress;
+	if (progressValue) {
+		progress = { percent: progressValue };
+	}
 	return (
-		<Modal
-			bsSize={size}
-			show={show}
+		<Dialog
+			progress={progress}
+			closeButton={false}
+			actionbar={{ actions }}
+			children={children}
 			keyboard
-			className={classNames(
-				theme['tc-confirm-dialog'],
-				bodyOverflow && theme['modal-body-overflow'],
-			)}
-		>
-			{header ? (
-				<Modal.Header closeButton={false}>
-					<Modal.Title>{header}</Modal.Title>
-				</Modal.Header>
-			) : null}
-			{progressValue ? <ProgressBar now={progressValue} /> : null}
-			<Modal.Body>{children}</Modal.Body>
-			<Modal.Footer>
-				<Action {...cancelAction} />
-				<div className={theme['tc-confirm-actions']}>
-					{secondaryActions && secondaryActions.map((props, i) => <Action {...props} key={i} />)}
-					<Action {...validateAction} />
-				</div>
-			</Modal.Footer>
-		</Modal>
+			{...props}
+		/>
 	);
 }
 
 ConfirmDialog.displayName = 'ConfirmDialog';
+ConfirmDialog.defaultValue = {
+	secondaryActions: [],
+};
 
 ConfirmDialog.propTypes = {
 	header: PropTypes.string,
@@ -85,6 +84,7 @@ ConfirmDialog.propTypes = {
 	secondaryActions: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	progressValue: PropTypes.number,
 	bodyOverflow: PropTypes.bool,
+	getComponent: PropTypes.func,
 };
 
 export default ConfirmDialog;

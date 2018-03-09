@@ -1673,11 +1673,12 @@
                       <h4 class="modal-title">Modal title</h4>
                     </div>
                     <div class="modal-body">
-                      <p>One fine body…</p>
+                      <p class="modal-content-tpl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum tempor sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat facilisis nisi sed rutrum. Morbi non viverra magna. Cras nulla sapien, convallis sed mi sit amet, dictum interdum ligula. Suspendisse quis elit sit amet felis venenatis pellentesque. Donec mattis finibus facilisis. Phasellus convallis egestas elit, sit amet eleifend magna placerat et. Sed ut tortor eu nibh finibus sagittis id quis massa. Etiam elementum nunc quis tempor dignissim.</p>
+                      <p>Etiam tristique mi eu auctor vehicula. Fusce mattis varius velit auctor ultricies. Cras arcu ante, volutpat id elit sed, aliquet eleifend dolor. Praesent feugiat sodales ligula sit amet gravida. Sed quam lacus, commodo ac interdum in, scelerisque et mi. Aliquam pellentesque scelerisque lectus ut interdum. Pellentesque ut varius massa. Quisque id neque sit amet eros tincidunt pharetra. Donec lobortis mauris sed feugiat sagittis. Ut et nulla blandit, luctus nisl eget, blandit nisi. Suspendisse massa risus, tincidunt vel tincidunt nec, pretium a augue. Fusce dolor orci, lacinia quis nisl in, tempus auctor dolor. Nulla consectetur ligula in lectus blandit, et varius mauris sagittis. Mauris sagittis congue mattis. Nam gravida tellus iaculis, sagittis erat ac, mollis felis.</p>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button onclick="add_content('.modal-content-tpl')" type="button" class="btn btn-primary">Add content</button>
                     </div>
                   </div>
                 </div>
@@ -1745,6 +1746,10 @@
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
+      function add_content(cls) {
+        var content = document.querySelector(cls);
+        content.parentNode.appendChild(content.cloneNode(true));
+      }
     (function() {
 
         function setDropDownMenuVisibility(){
