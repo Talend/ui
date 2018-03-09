@@ -2,8 +2,8 @@ package org.talend.component;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.client.utils.URIBuilder;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.talend.config.WebDriverTest;
@@ -21,20 +21,20 @@ public class StorybookTest {
 
     private static final String STORYBOOK_CONTEXT = "";
 
-    protected WebDriverTest webDriverTestConfiguration;
+    protected static WebDriverTest webDriverTestConfiguration;
 
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
-    @Before
-    public void before() throws Exception {
+    @BeforeClass
+    public static void before() throws Exception {
         webDriverTestConfiguration = new WebDriverTestFactory().getWebDriverTestConfiguration();
         webDriverTestConfiguration.setUp();
         driver = webDriverTestConfiguration.driver;
         System.out.println("WebDriver is running: " + driver);
     }
 
-    @After
-    public void after() throws Exception {
+    @AfterClass
+    public static void after() throws Exception {
         webDriverTestConfiguration.tearDown();
     }
 

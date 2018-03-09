@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class WebDriverTest {
 
-    public WebDriver driver;
+    public static WebDriver driver;
 
     public abstract void setUp() throws Exception;
 
