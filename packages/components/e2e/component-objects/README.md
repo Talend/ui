@@ -28,12 +28,12 @@ $> BROWSERSTACK_USER=$YOUR_BS_USER BROWSERSTACK_KEY=$YOUR_BS_KEY mvn clean verif
 |---|---|---|
 |storybook.host|`localhost`|Storybook host to test|
 |storybook.port|`6006`|Storybook port to test|
-|storybook.context|_empty_|Storybook context to test (`components` for http://talend.surge.sh/components/)|
+|storybook.context|_empty_|Storybook context to test (`/components/` for http://talend.surge.sh/components/)|
 
 If you want to test [http://talend.surge.sh/components/](http://talend.surge.sh/components/)
 
 ```shell
-$> mvn clean verify -Plocal -Dstorybook.host=talend.surge.sh -Dstorybook.port=80 -Dstorybook.context=components
+$> mvn clean verify -Plocal -Dstorybook.host=talend.surge.sh -Dstorybook.port=80 -Dstorybook.context=/components/
 ```
 
 ## Use
