@@ -20,4 +20,10 @@ describe('Loader', () => {
 
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should render app loader', () => {
+		const wrapper = renderer.create(<Loader size={SIZE.xlarge} iconName={'svg-test'} />).toJSON();
+
+		expect(wrapper).toMatchSnapshot();
+	});
 });

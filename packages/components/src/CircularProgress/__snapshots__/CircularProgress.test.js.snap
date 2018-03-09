@@ -66,6 +66,28 @@ exports[`CircularProgress should render at small size if set 1`] = `
 </svg>
 `;
 
+exports[`CircularProgress should render at xlarge size if set 1`] = `
+<svg
+  className="tc-circular-progress theme-loader theme-animate theme-xlarge"
+  focusable="false"
+  viewBox="0 0 50 50"
+>
+  <circle
+    className="theme-path"
+    cx={25}
+    cy={25}
+    fill="none"
+    r={20}
+    style={
+      Object {
+        "strokeDasharray": 12.566370614359172,
+        "strokeDashoffset": 0,
+      }
+    }
+  />
+</svg>
+`;
+
 exports[`CircularProgress should render by default at default size 1`] = `
 <svg
   className="tc-circular-progress theme-loader theme-animate theme-default"
