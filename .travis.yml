@@ -16,7 +16,6 @@ jobs:
         - '8'
       env:
         - ACTION=test
-        - ACTION=test:demo
       before_install:
         - export TALEND_COMMIT_MSG=$TRAVIS_COMMIT_MESSAGE
         - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export TALEND_COMMIT_MSG="$(git log --format=%B -n 1 $TRAVIS_PULL_REQUEST_SHA)"; fi
@@ -27,8 +26,11 @@ jobs:
         - .travis/before_script_icons.sh
       script:
         - yarn $ACTION
-      after_success:
-        - if [ "$ACTION" != 'test:demo' ]; then travis_terminate 0; fi
+    - # stage name not required, will continue to use `test`
+      env:
+        - ACTION=test:demo
+      script:
+        - yarn $ACTION
 
     - stage: demo
       language: node_js
