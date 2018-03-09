@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 echo "E2E TESTS"
-cd "$TRAVIS_BUILD_DIR"
 cd packages/components/e2e/component-objects
 if [ "$TRAVIS_PULL_REQUEST" == 'false' ] && [ "$TRAVIS_BRANCH" == 'master' ]; then
 	mvn clean verify -Premote -Dstorybook.host="talend.surge.sh" -Dstorybook.port=80 -Dstorybook.context="/components/"

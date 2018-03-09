@@ -2,6 +2,8 @@ package org.talend.component;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
@@ -10,6 +12,7 @@ import org.talend.config.WebDriverTest;
 import org.talend.config.WebDriverTestFactory;
 
 public class StorybookTest {
+    private static final Logger LOGGER = LogManager.getLogger(StorybookTest.class);
 
     private static final String ACTION_LOGGER_CONSOLE_SELECTOR = ".horizontal.Pane2 > div > div > div:last-child";
 
@@ -21,7 +24,7 @@ public class StorybookTest {
 
     private static final String STORYBOOK_CONTEXT = "";
 
-    protected static WebDriverTest webDriverTestConfiguration;
+    private static WebDriverTest webDriverTestConfiguration;
 
     protected static WebDriver driver;
 
@@ -30,7 +33,7 @@ public class StorybookTest {
         webDriverTestConfiguration = new WebDriverTestFactory().getWebDriverTestConfiguration();
         webDriverTestConfiguration.setUp();
         driver = webDriverTestConfiguration.driver;
-        System.out.println("WebDriver is running: " + driver);
+        LOGGER.info("WebDriver is running: " + driver);
     }
 
     @AfterClass
