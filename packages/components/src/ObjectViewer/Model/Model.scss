@@ -7,6 +7,7 @@
 	button {
 		background: transparent;
 		border: none;
+		line-height: unset;
 		padding: $padding-small 0;
 	}
 
@@ -17,11 +18,6 @@
 
 		.title {
 			display: flex;
-			padding-left: $padding-larger;
-
-			&:hover {
-				background: $gallery;
-			}
 
 			.caret {
 				flex-grow: 0;
@@ -41,13 +37,29 @@
 				padding: 0 $padding-smaller;
 				text-transform: capitalize;
 			}
-		}
 
-		.quality {
-			position: absolute;
-			top: 0;
-			right: $padding-larger;
-			display: flex;
+			.menu {
+				position: absolute;
+				top: 0;
+				right: 0;
+				display: flex;
+
+				.menu-trigger {
+					font-weight: bolder;
+					letter-spacing: 0;
+					visibility: hidden;
+				}
+			}
+
+			&:focus,
+			&:focus-within,
+			&:hover {
+				background: $gallery;
+
+				> .menu .menu-trigger {
+					visibility: visible;
+				}
+			}
 		}
 
 		.fields {

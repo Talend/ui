@@ -4,8 +4,9 @@ import cloneDeep from 'lodash/cloneDeep';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
+import PropTypes from 'prop-types';
 
-import { ObjectViewer, IconsProvider } from '../src/index';
+import { Action, ObjectViewer, IconsProvider } from '../src/index';
 
 const icons = {
 	'talend-caret-down': talendIcons['talend-caret-down'],
@@ -422,6 +423,51 @@ const dataModelFields = [
 		],
 	},
 ];
+function QualityMenu(props) {
+	function filterClick(e) {
+		action('onFilterClick')(e, { ...props, action: 'filter' });
+	}
+	function removeClick(e) {
+		action('onRemoveClick')(e, { ...props, action: 'remove' });
+	}
+
+	const { type } = props;
+	const menuStyle = {
+		listStyle: 'none',
+		padding: 0,
+		margin: 0,
+	};
+	return (
+		<ul style={menuStyle}>
+			<li><Action link label={`Filter ${type} values`} onClick={filterClick} autoFocus /></li>
+			<li><Action link label={`Remove ${type} values`} onClick={removeClick} /></li>
+		</ul>
+	);
+}
+QualityMenu.propTypes = {
+	type: PropTypes.string,
+};
+
+function ModelItemMenu(props) {
+	function lolClick(e) {
+		action('onLolClick')(e, { ...props, action: 'lol' });
+	}
+	function mdrClick(e) {
+		action('onMdrClick')(e, { ...props, action: 'mdr' });
+	}
+
+	const menuStyle = {
+		listStyle: 'none',
+		padding: 0,
+		margin: 0,
+	};
+	return (
+		<ul style={menuStyle}>
+			<li><Action link label={'LOL action'} onClick={lolClick} autoFocus /></li>
+			<li><Action link label={'MDR action'} onClick={mdrClick} /></li>
+		</ul>
+	);
+}
 
 stories
 	.addWithInfo('data model', () => (
@@ -430,14 +476,22 @@ stories
 			<ObjectViewer
 				displayMode="model"
 				data={dataModelFields}
+				menu={ModelItemMenu}
 				onSelect={action('onSelect')}
 				onToggle={action('onToggle')}
 				opened={['[3]', '[3][3]']}
 				quality={{
 					key: '@talend-quality@',
-					onClick: action('onQualityClick'),
+					menu: QualityMenu,
 				}}
 			/>
+			<p>
+				TODO<br/>
+				<ul>
+					<li>Overlay accessibility. Now it's an overlay with custom element from props. Perhaps we should enforce dorpdown menus and manage autoFocus + unmount to restore focus</li>
+					<li>Container : the ObjectViewer container fits well to toggle/select items, but how to inject the menus and callbacks</li>
+				</ul>
+			</p>
 		</div>
 	))
 	.addWithInfo('tree default', () => (

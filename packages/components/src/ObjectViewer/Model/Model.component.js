@@ -2,62 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import QualityCircles from './QualityCircles.component';
 import Icon from '../../Icon';
-import PieChartButton from '../../PieChartButton';
+import { Action } from '../../Actions';
 import getJSONPath from '../jsonPath';
 import theme from './Model.scss';
 
 const paddingLeft = 30;
-const marginLeft = 3;
-
-function getQualityModels(qualities) {
-	let invalidPercentage = qualities && qualities[-1] || 0;
-	let emptyPercentage = qualities && qualities[0] || 0;
-	let validPercentage = qualities && qualities[1] || 0;
-	const total = invalidPercentage + emptyPercentage + validPercentage;
-	if (total) {
-		invalidPercentage = invalidPercentage / total * 100;
-		emptyPercentage = emptyPercentage / total * 100;
-		validPercentage = validPercentage / total * 100;
-	}
-	return {
-		invalid: [{ color: 'lightning-yellow', percentage: invalidPercentage }],
-		empty: [{ color: 'silver-chalice', percentage: emptyPercentage }],
-		valid: [{ color: 'rio-grande', percentage: validPercentage }],
-	};
-}
-
-function QualityCircles({ item, jsonpath, quality }) {
-	const {
-		key = '@talend-quality@',
-		onClick,
-	} = quality;
-
-	if (!item[key]) {
-		return null;
-	}
-
-	const { invalid, empty, valid } = getQualityModels(item[key]);
-	function rClick(e, info) {
-		onClick(e, { ...info, jsonpath, item });
-	}
-
-	return (
-		<div className={classNames(theme.quality, 'tc-object-model-quality')}>
-			<PieChartButton display={'small'} onClick={rClick} hideLabel model={invalid} />
-			<PieChartButton display={'small'} onClick={rClick} hideLabel model={empty} />
-			<PieChartButton display={'small'} onClick={rClick} hideLabel model={valid} />
-		</div>
-	);
-}
-QualityCircles.propTypes = {
-	item: PropTypes.object, // TODO
-	jsonpath: PropTypes.string,
-	quality: PropTypes.shape({
-		key: PropTypes.string,
-		onClick: PropTypes.func,
-	}),
-};
+const marginLeft = 4;
 
 function Caret({ data, jsonpath, onToggle, isOpened }) {
 	const iconName = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
@@ -81,16 +33,41 @@ Caret.propTypes = {
 	onToggle: PropTypes.func,
 };
 
+function Menu({ item, jsonpath, menu, quality }) {
+	const MenuComponent = menu;
+	return (
+		<div className={theme.menu}>
+			{
+				MenuComponent &&
+				<Action
+					className={theme['menu-trigger']}
+					link
+					label={'...'}
+					overlayPlacement={'bottom'}
+					overlayComponent={<MenuComponent item={item} jsonpath={jsonpath} />}
+				/>
+			}
+			<QualityCircles item={item} quality={quality} jsonpath={jsonpath} />
+		</div>
+	);
+}
+Menu.propTypes = {
+	item: PropTypes.object,
+	jsonpath: PropTypes.string,
+	menu: PropTypes.element,
+	quality: QualityCircles.propTypes.quality,
+};
+
+
 function Item(props) {
-	const { data, item, jsonpath, level, onSelect, onToggle, opened, quality } = props;
+	const { data, item, jsonpath, level, onSelect, onToggle, opened } = props;
 	const isOpened = opened.indexOf(jsonpath) !== -1;
 	const type = item.type && (item.type.dqType || item.type.type);
 	const onClick = onSelect && (event => onSelect(event, jsonpath, item));
 
-	const spaceAdjustment = {
-		marginLeft: marginLeft * level,
-		paddingLeft: ((paddingLeft * level) || paddingLeft),
-	};
+	const caretSpaceAdjustment = Math.max(marginLeft * level, 0);
+	const levelSpaceAdjustment = Math.max(paddingLeft * (level - 1), 0);
+	const spaceAdjustment = { paddingLeft: caretSpaceAdjustment + levelSpaceAdjustment };
 
 	return (
 		<li className={classNames(theme.item, 'tc-object-model-item')}>
@@ -107,8 +84,9 @@ function Item(props) {
 					{item.doc}
 					{type && <span className={theme.type}>({type})</span>}
 				</button>
+				{type !== 'object' && <Menu {...props} />}
 			</div>
-			<QualityCircles item={item} quality={quality} jsonpath={jsonpath} />
+
 			{item.fields && isOpened &&
 				<ul className={classNames(theme.fields, 'tc-object-model-item-fields')}>
 					{
@@ -156,6 +134,9 @@ Model.defaultProps = {
 Model.propTypes = {
 	className: PropTypes.string,
 	data: PropTypes.arrayOf(Item.propTypes.item).isRequired,
+	menu: PropTypes.element,
+	onSelect: PropTypes.func,
+	onToggle: PropTypes.func,
 	opened: PropTypes.arrayOf(PropTypes.string),
 	quality: QualityCircles.propTypes.quality,
 	style: PropTypes.object,
