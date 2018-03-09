@@ -8,7 +8,6 @@ function getShowAllButtonLabel(showAll) {
 }
 
 export default class GMapping extends Component {
-
 	constructor(props) {
 		super(props);
 		this.dndInProgress = this.dndInProgress.bind(this);
@@ -22,18 +21,18 @@ export default class GMapping extends Component {
 	dndInProgress(offset) {
 		const area = this.mappingArea.getDecoratedComponentInstance();
 		const pos = area.getMousePos(offset);
-		const sourceYPos =
-			this.props.getYPosition(
-				this.props.dnd.source.element,
-				this.props.dnd.source.type);
-    const params = ConnectionParams.PENDING;
+		const sourceYPos = this.props.getYPosition(
+			this.props.dnd.source.element,
+			this.props.dnd.source.type,
+		);
+		const params = ConnectionParams.PENDING;
 		// default case: source is input
 		let x1 = params.anchorRadius;
 		let y1 = sourceYPos;
 		let x2 = pos.x;
 		let y2 = pos.y;
 		if (this.props.dnd.source.type === SchemaType.OUTPUT) {
-    	x1 = pos.x;
+			x1 = pos.x;
 			y1 = pos.y;
 			x2 = area.getCanvasSize().width - params.arrowWidth / 2;
 			y2 = sourceYPos;

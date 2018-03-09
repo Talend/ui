@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import { ItemTypes, ConnectionParams } from '../Constants';
 import { drawBezier, drawPoint, drawArrow } from '../Drawing.js';
 
-const elementTarget = {	
+const elementTarget = {
 	canDrop(props, monitor) {
 		const clientOffset = monitor.getClientOffset();
-    props.dndInProgress(clientOffset);
+		props.dndInProgress(clientOffset);
 		return false;
 	},
 };
@@ -19,7 +19,6 @@ function collectForDropTarget(connect) {
 }
 
 class MappingArea extends Component {
-
 	componentDidMount() {
 		this.updateCanvasSize();
 	}
@@ -28,20 +27,20 @@ class MappingArea extends Component {
 		this.updateCanvas(true, true, true);
 	}
 
-  getMousePos(offset) {
-      const rect = this.canvas.getBoundingClientRect();
-      return {
-        x: offset.x - rect.left,
-        y: offset.y - rect.top,
-      };
-  }
+	getMousePos(offset) {
+		const rect = this.canvas.getBoundingClientRect();
+		return {
+			x: offset.x - rect.left,
+			y: offset.y - rect.top,
+		};
+	}
 
-  getCanvasSize() {
-    return {
-      width: this.canvas.width,
-      height: this.canvas.height,
-    };
-  }
+	getCanvasSize() {
+		return {
+			width: this.canvas.width,
+			height: this.canvas.height,
+		};
+	}
 
 	updateCanvasSize() {
 		this.canvas.width = this.canvasParentElem.clientWidth;
@@ -49,7 +48,7 @@ class MappingArea extends Component {
 	}
 
 	updateCanvas(clear, resetSize, renderDnd) {
-    // console.log('updateCanvas(' + clear + ', ' + resetSize + ', ' + renderDnd + ')');
+		// console.log('updateCanvas(' + clear + ', ' + resetSize + ', ' + renderDnd + ')');
 		if (clear) {
 			this.clearCanvas();
 		}
@@ -70,9 +69,9 @@ class MappingArea extends Component {
 			if (connections.focused != null) {
 				this.drawConnections(connections.focused, ConnectionParams.FOCUSED);
 			}
-      if (connections.dnd != null && renderDnd) {
-        this.drawConnection(connections.dnd, ConnectionParams.PENDING);
-      }
+			if (connections.dnd != null && renderDnd) {
+				this.drawConnection(connections.dnd, ConnectionParams.PENDING);
+			}
 		}
 	}
 
@@ -98,14 +97,14 @@ class MappingArea extends Component {
 	}
 
 	drawSingleConnection(x1, y1, x2, y2, params) {
-    // console.log('drawSingleConnection(' + x1 + ', ' + y1 + ', ' + x2 + ', ' + y2 + ')');
+		// console.log('drawSingleConnection(' + x1 + ', ' + y1 + ', ' + x2 + ', ' + y2 + ')');
 		drawPoint(x1, y1, params.anchorRadius, params.color, this.canvas);
 		drawBezier(x1, y1, x2, y2, params.lineWidth, params.color, params.lineDash, this.canvas);
 		drawArrow(x2, y2, params.arrowWidth, params.arrowHeight, params.color, this.canvas);
 	}
 
 	render() {
-		const { connectDropTarget	} = this.props;
+		const { connectDropTarget } = this.props;
 		return connectDropTarget(
 			<div
 				ref={c => {
@@ -119,7 +118,7 @@ class MappingArea extends Component {
 					}}
 					id="mapping-canvas"
 				/>
-			</div>
+			</div>,
 		);
 	}
 }
