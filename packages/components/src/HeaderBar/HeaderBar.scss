@@ -42,7 +42,8 @@ $background-color-on-hover: shade($brand-primary, 30);
 			white-space: nowrap;
 
 			:global {
-				.tc-typeahead-item-title, .tc-typeahead-item-description  {
+				.tc-typeahead-item-title,
+				.tc-typeahead-item-description {
 					white-space: initial;
 				}
 			}
