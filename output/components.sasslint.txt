@@ -3,14 +3,11 @@
 > sass-lint -v -q
 
 
-src/ConfirmDialog/ConfirmDialog.scss
-  76:4  warning  Expected indentation of 2 tabs but found 3  indentation
-
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
 
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 3 problems (0 errors, 3 warnings)
+✖ 2 problems (0 errors, 2 warnings)
 
