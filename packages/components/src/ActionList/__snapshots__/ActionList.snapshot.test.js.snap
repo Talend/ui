@@ -99,7 +99,7 @@ exports[`Storyshots ActionList default 1`] = `
       className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list"
     >
       <li
-        className="theme-tc-action-list-item tc-action-list-item active theme-active"
+        className="theme-tc-action-list-item tc-action-list-item"
         role="presentation"
         title="Recent datasets"
       >
@@ -128,7 +128,7 @@ exports[`Storyshots ActionList default 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-action-list-item tc-action-list-item"
+        className="theme-tc-action-list-item tc-action-list-item active theme-active"
         role="presentation"
         title="Favorite datasets"
       >
@@ -376,7 +376,7 @@ exports[`Storyshots ActionList single 1`] = `
       className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list"
     >
       <li
-        className="theme-tc-action-list-item tc-action-list-item"
+        className="theme-tc-action-list-item tc-action-list-item active theme-active"
         role="presentation"
         title="Favorite datasets"
       >
@@ -541,7 +541,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list custom-container-classname"
       >
         <li
-          className="theme-tc-action-list-item tc-action-list-item custom-item-classname active theme-active"
+          className="theme-tc-action-list-item tc-action-list-item custom-item-classname"
           role="presentation"
           title="Recent datasets"
         >
@@ -570,7 +570,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
           </button>
         </li>
         <li
-          className="theme-tc-action-list-item tc-action-list-item custom-item-classname"
+          className="theme-tc-action-list-item tc-action-list-item custom-item-classname active theme-active"
           role="presentation"
           title="Favorite datasets"
         >
