@@ -8,9 +8,10 @@ cache:
 notifications:
   email: false
 
-matrix:
+jobs:
   include:
-    - language: node_js
+    - stage: test
+      language: node_js
       env:
         - ACTION=test
         - ACTION=test:demo
@@ -37,7 +38,8 @@ matrix:
         - .travis/after_success_lint.sh
         - .travis/after_success_git.sh
 
-    - language: java
+    - stage: test e2e
+      language: java
       jdk: oraclejdk8
       script:
         - cd packages/components/e2e/component-objects
