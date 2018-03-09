@@ -47,7 +47,7 @@
 				.menu-trigger {
 					font-weight: bolder;
 					letter-spacing: 0;
-					visibility: hidden;
+					opacity: 0;
 				}
 			}
 
@@ -57,7 +57,7 @@
 				background: $gallery;
 
 				> .menu .menu-trigger {
-					visibility: visible;
+					opacity: 1;
 				}
 			}
 		}

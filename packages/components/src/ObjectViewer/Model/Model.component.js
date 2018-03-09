@@ -41,11 +41,13 @@ class ModelMenus extends React.Component {
 		this.onMenuItemClick = this.onMenuItemClick.bind(this);
 	}
 
+	/*
+	Accessibility : this is called in addition to menuItem.onClick
+	It hides the overlay containing the menu, and set focus back on the button
+	 */
 	onMenuItemClick() {
 		this.overlay.hide();
-		debugger;
-		console.log(ReactDOM.findDOMNode(this.button));
-		ReactDOM.findDOMNode(this.button).focus();
+		ReactDOM.findDOMNode(this.button).focus(); // eslint-disable-line react/no-find-dom-node
 	}
 
 	render() {
@@ -60,7 +62,14 @@ class ModelMenus extends React.Component {
 						link
 						label={'...'}
 						overlayPlacement={'bottom'}
-						overlayComponent={<Menu menuItems={menu} onMenuItemClick={this.onMenuItemClick} item={item} jsonpath={jsonpath} />}
+						overlayComponent={
+							<Menu
+								menuItems={menu}
+								onMenuItemClick={this.onMenuItemClick}
+								item={item}
+								jsonpath={jsonpath}
+							/>
+						}
 						overlayRef={overlay => { this.overlay = overlay; }}
 					/>
 				}
@@ -72,10 +81,9 @@ class ModelMenus extends React.Component {
 ModelMenus.propTypes = {
 	item: PropTypes.object,
 	jsonpath: PropTypes.string,
-	menu: PropTypes.element,
+	menu: Menu.propTypes.menuItems,
 	quality: QualityCircles.propTypes.quality,
 };
-
 
 function Item(props) {
 	const { data, item, jsonpath, level, onSelect, onToggle, opened } = props;

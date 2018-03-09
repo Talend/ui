@@ -448,6 +448,23 @@ QualityMenu.propTypes = {
 	type: PropTypes.string,
 };
 
+const recordFilterAction = action('onFilterClick');
+const recordRemovalAction = action('onRemoveClick');
+const qualityMenu = {
+	invalid: [
+		{ label: 'Filter invalid values', onClick: recordFilterAction },
+		{ label: 'Remove invalid values', onClick: recordRemovalAction },
+	],
+	empty: [
+		{ label: 'Filter empty values', onClick: recordFilterAction },
+		{ label: 'Remove empty values', onClick: recordRemovalAction },
+	],
+	valid: [
+		{ label: 'Filter valid values', onClick: recordFilterAction },
+		{ label: 'Remove valid values', onClick: recordRemovalAction },
+	],
+};
+
 const modelItemMenu = [
 	{ label: 'LOL action', onClick: action('onLolClick') },
 	{ label: 'MDR action', onClick: action('onMdrClick') },
@@ -466,16 +483,9 @@ stories
 				opened={['[3]', '[3][3]']}
 				quality={{
 					key: '@talend-quality@',
-					menu: QualityMenu,
+					menu: qualityMenu,
 				}}
 			/>
-			<p>
-				TODO<br />
-				<ul>
-					<li>Overlay accessibility. Now it's an overlay with custom element from props. Perhaps we should enforce dorpdown menus and manage autoFocus + unmount to restore focus</li>
-					<li>Container : the ObjectViewer container fits well to toggle/select items, but how to inject the menus and callbacks</li>
-				</ul>
-			</p>
 		</div>
 	))
 	.addWithInfo('tree default', () => (
