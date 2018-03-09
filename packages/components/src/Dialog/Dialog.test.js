@@ -1,32 +1,8 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import classNames from 'classnames';
 import Dialog from './Dialog.component';
 
-function mockFakeComponent(name) {
-	const fakeComponent = ({ children, className, ...rest }) => {
-		const mergedClassName = classNames(className, name);
-		return (<div {...rest} className={mergedClassName}>{children}</div>);
-	};
-	fakeComponent.propTypes = {
-		children: PropTypes.oneOfType([PropTypes.any]),
-		className: PropTypes.string,
-	};
-	return fakeComponent;
-}
-
 jest.mock('react-dom');
-// jest.mock('react-bootstrap/lib/Modal', () => {
-// 	const Modal = mockFakeComponent('Modal');
-// 	Modal.Header = mockFakeComponent('Header');
-// 	Modal.Title = mockFakeComponent('Title');
-// 	Modal.Body = mockFakeComponent('Body');
-// 	Modal.Footer = mockFakeComponent('Footer');
-
-// 	return Modal;
-// });
 
 const defaultProps = {
 	show: true,
@@ -47,12 +23,10 @@ const smallProps = {
 	show: true,
 	header: 'Hello world',
 	size: 'small',
-	bsDialogProps: {
-		onHide: jest.fn(),
-		dialogClassName: 'customDialogClassName',
-		keyboard: true,
-		backdrop: false,
-	},
+	onHide: jest.fn(),
+	dialogClassName: 'customDialogClassName',
+	keyboard: true,
+	backdrop: false,
 	action: {
 		label: 'OK',
 		onClick: jest.fn(),
@@ -62,12 +36,10 @@ const largeProps = {
 	show: true,
 	header: 'Hello world',
 	size: 'large',
-	bsDialogProps: {
-		onHide: jest.fn(),
-		dialogClassName: 'customDialogClassName',
-		keyboard: true,
-		backdrop: false,
-	},
+	onHide: jest.fn(),
+	dialogClassName: 'customDialogClassName',
+	keyboard: true,
+	backdrop: false,
 	action: {
 		label: 'OK',
 		onClick: jest.fn(),
