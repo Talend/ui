@@ -40,22 +40,12 @@ class Slider extends React.Component {
 		if (this.props.onAfterChange) {
 			this.props.onAfterChange(value);
 		}
-		if (this.props.onAfterChangeAction) {
-			this.props.dispatchActionCreator(this.props.onAfterChangeAction, null, {
-				value,
-			});
-		}
 	}
 
 	onChange(value) {
 		this.props.setState(prevState => prevState.state.set(VALUE_ATTR, value));
 		if (this.props.onChange) {
 			this.props.onChange(value);
-		}
-		if (this.props.onChangeAction) {
-			this.props.dispatchActionCreator(this.props.onChangeAction, null, {
-				value,
-			});
 		}
 	}
 
