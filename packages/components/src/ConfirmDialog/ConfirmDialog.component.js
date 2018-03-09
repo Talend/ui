@@ -63,6 +63,7 @@ function ConfirmDialog({
 			closeButton={false}
 			actionbar={{ actions }}
 			children={children}
+			keyboard
 			{...props}
 		/>
 	);

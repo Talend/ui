@@ -19,7 +19,7 @@ function Dialog(props) {
 		Action,
 	});
 	return (
-		<Modal {...modalProps}>
+		<Modal keyboard={props.keyboard} {...modalProps}>
 			{props.header && (
 				<Modal.Header closeButton={props.closeButton}>
 					<Modal.Title>{props.header}</Modal.Title>
@@ -60,6 +60,7 @@ Dialog.propTypes = {
 	footer: PropTypes.object,
 	actionbar: PropTypes.object,
 	closeButton: PropTypes.bool,
+	keyboard: PropTypes.bool,
 	getComponent: PropTypes.func,
 	progress: PropTypes.object,
 };
