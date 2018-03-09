@@ -49,23 +49,6 @@ describe('Filter container', () => {
 			},
 		});
 	});
-	it('should call onFilterActionCreator when onFilter event trigger', () => {
-		const props = {
-			setState: jest.fn(),
-			dispatchActionCreator: jest.fn(),
-			onFilterAction: jest.fn(),
-		};
-		const event = {};
-		const query = 'foo';
-		const wrapper = shallow(<Container {...props} />);
-		wrapper.simulate('filter', event, query);
-		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.onFilterAction, event, {
-			props: {
-				dockable: true,
-				...props,
-			},
-		});
-	});
 	it('should call onBlur when onBlur event trigger', () => {
 		const onBlur = jest.fn();
 		const event = {};
@@ -96,17 +79,6 @@ describe('Filter container', () => {
 		expect(props.setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(state);
 		expect(prevState.state.get('docked')).toBe(true);
-	});
-	it('should call onToggleActionCreator when onToggle event trigger', () => {
-		const props = {
-			onToggleAction: jest.fn(),
-			dispatchActionCreator: jest.fn(),
-			setState: jest.fn(),
-			state: Map({ docked: false }),
-		};
-		const wrapper = shallow(<Container {...props} />);
-		wrapper.simulate('toggle');
-		expect(props.dispatchActionCreator).toHaveBeenCalledWith(props.onToggleAction);
 	});
 	it('should call onToggle when onToggle event trigger', () => {
 		const props = {
