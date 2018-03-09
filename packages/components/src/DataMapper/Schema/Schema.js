@@ -79,7 +79,6 @@ function renderSchemaElement(
 }
 
 export default class Schema extends Component {
-
 	getNode(element) {
 		const children = this.contentNode.childNodes;
 		const childrenArray = Array.from(children);
@@ -108,7 +107,7 @@ export default class Schema extends Component {
 			const elemYPos = this.getYPosition(element);
 			if (elemYPos < 0) {
 				continue;
-			} else if (elemYPos > 0 && elemYPos < (contentHeight - childHeight / 2)) {
+			} else if (elemYPos > 0 && elemYPos < contentHeight - childHeight / 2) {
 				// element is visible
 				visibleElements = visibleElements.concat(element);
 			} else if (elemYPos > contentHeight - childHeight) {

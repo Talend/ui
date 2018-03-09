@@ -78,9 +78,9 @@ export default class Mapper extends Component {
 			const inputVisibleElements = this.inputSchema.getVisibleElements();
 			const outputVisibleElements = this.outputSchema.getVisibleElements();
 			// filter mapping items
-			const visibleMapping = mapping.filter(item =>
-				(inputVisibleElements.includes(item.source))
-				|| (outputVisibleElements.includes(item.target))
+			const visibleMapping = mapping.filter(
+				item =>
+					inputVisibleElements.includes(item.source) || outputVisibleElements.includes(item.target),
 			);
 			// then build connections
 			allConnections = visibleMapping.map(item => this.getConnectionFromItem(item));
