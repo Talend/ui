@@ -79,4 +79,12 @@ describe('Dialog', () => {
 		);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+	it('should spread props', () => {
+		const wrapper = shallow(<Dialog foo="bar" id="my-id" className="foo" />);
+		expect(wrapper.props()).toMatchObject({
+			foo: 'bar',
+			id: 'my-id',
+			className: 'foo',
+		});
+	});
 });
