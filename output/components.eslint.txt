@@ -8,6 +8,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Data.js
+  12:7  error  'outputElements' is never reassigned. Use 'const' instead  prefer-const
+  18:5  error  Expected property shorthand                                object-shorthand
+
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/Mapper.test.js
   13:9  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
   14:3  error  Component should be written as a pure function                                                 react/prefer-stateless-function
@@ -19,15 +23,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   131:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Schema.js
-  19:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
-  20:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+   19:2  error  Mixed spaces and tabs                 no-mixed-spaces-and-tabs
+   20:2  error  Mixed spaces and tabs                 no-mixed-spaces-and-tabs
+  109:5  error  Unexpected use of continue statement  no-continue
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaElement/DraggableSchemaElement.js
-  101:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
-  102:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  104:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  105:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaElement/SchemaElement.js
-  55:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  60:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -50,5 +55,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 20 problems (19 errors, 1 warning)
+✖ 23 problems (22 errors, 1 warning)
 
