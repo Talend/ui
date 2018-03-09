@@ -448,26 +448,10 @@ QualityMenu.propTypes = {
 	type: PropTypes.string,
 };
 
-function ModelItemMenu(props) {
-	function lolClick(e) {
-		action('onLolClick')(e, { ...props, action: 'lol' });
-	}
-	function mdrClick(e) {
-		action('onMdrClick')(e, { ...props, action: 'mdr' });
-	}
-
-	const menuStyle = {
-		listStyle: 'none',
-		padding: 0,
-		margin: 0,
-	};
-	return (
-		<ul style={menuStyle}>
-			<li><Action link label={'LOL action'} onClick={lolClick} autoFocus /></li>
-			<li><Action link label={'MDR action'} onClick={mdrClick} /></li>
-		</ul>
-	);
-}
+const modelItemMenu = [
+	{ label: 'LOL action', onClick: action('onLolClick') },
+	{ label: 'MDR action', onClick: action('onMdrClick') },
+];
 
 stories
 	.addWithInfo('data model', () => (
@@ -476,7 +460,7 @@ stories
 			<ObjectViewer
 				displayMode="model"
 				data={dataModelFields}
-				menu={ModelItemMenu}
+				menu={modelItemMenu}
 				onSelect={action('onSelect')}
 				onToggle={action('onToggle')}
 				opened={['[3]', '[3][3]']}
@@ -486,7 +470,7 @@ stories
 				}}
 			/>
 			<p>
-				TODO<br/>
+				TODO<br />
 				<ul>
 					<li>Overlay accessibility. Now it's an overlay with custom element from props. Perhaps we should enforce dorpdown menus and manage autoFocus + unmount to restore focus</li>
 					<li>Container : the ObjectViewer container fits well to toggle/select items, but how to inject the menus and callbacks</li>

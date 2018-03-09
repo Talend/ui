@@ -70,6 +70,7 @@ function noOp() {}
 function ActionButton(props) {
 	const {
 		bsStyle,
+		buttonRef,
 		inProgress,
 		disabled,
 		hideLabel,
@@ -80,6 +81,7 @@ function ActionButton(props) {
 		onClick = noOp,
 		overlayComponent,
 		overlayPlacement,
+		overlayRef,
 		tooltipPlacement,
 		tooltip,
 		tooltipLabel,
@@ -125,6 +127,7 @@ function ActionButton(props) {
 			bsStyle={style}
 			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
+			ref={buttonRef}
 			{...buttonProps}
 		>
 			{buttonContent}
@@ -136,6 +139,7 @@ function ActionButton(props) {
 			<span>
 				<OverlayTrigger
 					trigger="click"
+					ref={overlayRef}
 					rootClose
 					placement={overlayPlacement}
 					overlay={<Popover>{overlayComponent}</Popover>}
@@ -160,6 +164,7 @@ ActionButton.propTypes = {
 	...getIcon.propTypes,
 	id: PropTypes.string,
 	bsStyle: PropTypes.string,
+	buttonRef: PropTypes.func,
 	disabled: PropTypes.bool,
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
@@ -170,6 +175,7 @@ ActionButton.propTypes = {
 	onClick: PropTypes.func,
 	overlayComponent: PropTypes.element,
 	overlayPlacement: OverlayTrigger.propTypes.placement,
+	overlayRef: PropTypes.func,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,

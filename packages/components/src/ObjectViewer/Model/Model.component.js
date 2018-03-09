@@ -1,7 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import Menu from './Menu.component';
 import QualityCircles from './QualityCircles.component';
 import Icon from '../../Icon';
 import { Action } from '../../Actions';
@@ -33,25 +35,41 @@ Caret.propTypes = {
 	onToggle: PropTypes.func,
 };
 
-function Menu({ item, jsonpath, menu, quality }) {
-	const MenuComponent = menu;
-	return (
-		<div className={theme.menu}>
-			{
-				MenuComponent &&
-				<Action
-					className={theme['menu-trigger']}
-					link
-					label={'...'}
-					overlayPlacement={'bottom'}
-					overlayComponent={<MenuComponent item={item} jsonpath={jsonpath} />}
-				/>
-			}
-			<QualityCircles item={item} quality={quality} jsonpath={jsonpath} />
-		</div>
-	);
+class ModelMenus extends React.Component {
+	constructor(props) {
+		super(props);
+		this.onMenuItemClick = this.onMenuItemClick.bind(this);
+	}
+
+	onMenuItemClick() {
+		this.overlay.hide();
+		debugger;
+		console.log(ReactDOM.findDOMNode(this.button));
+		ReactDOM.findDOMNode(this.button).focus();
+	}
+
+	render() {
+		const { item, jsonpath, menu, quality } = this.props;
+		return (
+			<div className={theme.menu}>
+				{
+					menu &&
+					<Action
+						buttonRef={button => { this.button = button; }}
+						className={theme['menu-trigger']}
+						link
+						label={'...'}
+						overlayPlacement={'bottom'}
+						overlayComponent={<Menu menuItems={menu} onMenuItemClick={this.onMenuItemClick} item={item} jsonpath={jsonpath} />}
+						overlayRef={overlay => { this.overlay = overlay; }}
+					/>
+				}
+				<QualityCircles item={item} quality={quality} jsonpath={jsonpath} />
+			</div>
+		);
+	}
 }
-Menu.propTypes = {
+ModelMenus.propTypes = {
 	item: PropTypes.object,
 	jsonpath: PropTypes.string,
 	menu: PropTypes.element,
@@ -84,7 +102,7 @@ function Item(props) {
 					{item.doc}
 					{type && <span className={theme.type}>({type})</span>}
 				</button>
-				{type !== 'object' && <Menu {...props} />}
+				{type !== 'object' && <ModelMenus {...props} />}
 			</div>
 
 			{item.fields && isOpened &&
