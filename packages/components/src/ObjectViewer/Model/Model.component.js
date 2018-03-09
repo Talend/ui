@@ -61,6 +61,7 @@ class ModelMenus extends React.Component {
 						className={theme['menu-trigger']}
 						link
 						label={'...'}
+						overlayId={`tc-object-viewer-model-menu-${jsonpath}`}
 						overlayPlacement={'bottom'}
 						overlayComponent={
 							<Menu
@@ -160,7 +161,7 @@ Model.defaultProps = {
 Model.propTypes = {
 	className: PropTypes.string,
 	data: PropTypes.arrayOf(Item.propTypes.item).isRequired,
-	menu: PropTypes.element,
+	menu: Menu.propTypes.menuItems,
 	onSelect: PropTypes.func,
 	onToggle: PropTypes.func,
 	opened: PropTypes.arrayOf(PropTypes.string),

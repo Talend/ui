@@ -73,7 +73,7 @@ QualityCircle.propTypes = {
 		empty: Menu.propTypes.menuItems,
 		valid: Menu.propTypes.menuItems,
 	}),
-	model: PropTypes.object,
+	model: PropTypes.array,
 	type: PropTypes.oneOf('invalid', 'empty', 'valid'),
 };
 

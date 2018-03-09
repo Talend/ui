@@ -79,6 +79,7 @@ function ActionButton(props) {
 		model,
 		onMouseDown = noOp,
 		onClick = noOp,
+		overlayId,
 		overlayComponent,
 		overlayPlacement,
 		overlayRef,
@@ -142,7 +143,7 @@ function ActionButton(props) {
 					ref={overlayRef}
 					rootClose
 					placement={overlayPlacement}
-					overlay={<Popover>{overlayComponent}</Popover>}
+					overlay={<Popover id={overlayId}>{overlayComponent}</Popover>}
 				>
 					{btn}
 				</OverlayTrigger>
@@ -173,6 +174,7 @@ ActionButton.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
+	overlayId: PropTypes.string,
 	overlayComponent: PropTypes.element,
 	overlayPlacement: OverlayTrigger.propTypes.placement,
 	overlayRef: PropTypes.func,
