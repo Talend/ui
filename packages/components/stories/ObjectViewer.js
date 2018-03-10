@@ -488,9 +488,12 @@ stories
 			/>
 			<h2>TODO</h2>
 			<ul>
-				<li>Accessibility : navigate from item to item with up/down keys</li>
-				<li>Code duplication : to manage focus accessibility in menus, we had to implement some code in Item menu (that use Action) and in QualityCircles (that use PieChartButton). The code is the same but in 2 places, let's try to remove this duplication</li>
-				<li>Container : pass all extra props (not accepted by opther object viewers) or let's not integrate it into ObjectViewer (but this solution would duplicate toggle code).</li>
+				<li>Accessibility: navigate from item to item with up/down keys</li>
+				<li>Code duplication: to manage focus accessibility in menus, we had to implement some code in Item menu (that use Action) and in QualityCircles (that use PieChartButton). The code is the same but in 2 places, let's try to remove this duplication</li>
+				<li>i18n</li>
+				<li>Missing (don't have the model): cardinality</li>
+				<li>Unknown: object type. For now if type === object we don't display menus</li>
+				<li>Container: pass all extra props (not accepted by opther object viewers) or let's not integrate it into ObjectViewer (but this solution would duplicate toggle code).</li>
 			</ul>
 		</div>
 	))

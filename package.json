@@ -18,6 +18,7 @@
     "watch": "npm-watch",
     "publish": "lerna publish --force-publish=*",
     "build-storybook": "npm run test:demo && export ACTION='test:demo' && export TRAVIS_BRANCH='master' && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
+    "publish-jso": "cd packages/components/storybook-static && surge -d tlnd-jso.surge.sh",
     "publish-storybook": "npm run build-storybook && cd .static && surge",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %<(70,trunc)%s\" --date=short --color",
     "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms",

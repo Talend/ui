@@ -28,14 +28,17 @@ class QualityCircle extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onMenuItemClick = this.onMenuItemClick.bind(this);
+		this.onOverlayClose = this.onOverlayClose.bind(this);
+	}
+
+	onMenuItemClick() {
+		this.overlay.hide();
 	}
 
 	/*
-	Accessibility : this is called in addition to menuItem.onClick
-	It hides the overlay containing the menu, and set focus back on the button
+	Accessibility : set focus back on the button when overlay is closed
 	 */
-	onMenuItemClick() {
-		this.overlay.hide();
+	onOverlayClose() {
 		ReactDOM.findDOMNode(this.button).focus(); // eslint-disable-line react/no-find-dom-node
 	}
 
@@ -52,6 +55,7 @@ class QualityCircle extends React.Component {
 				overlayComponent={
 					<Menu
 						menuItems={menu[type]}
+						onClose={this.onOverlayClose}
 						onMenuItemClick={this.onMenuItemClick}
 						item={item}
 						jsonpath={jsonpath}
