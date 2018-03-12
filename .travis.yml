@@ -19,7 +19,7 @@ matrix:
   fast_finish: true
   include:
     - language: node_js
-      env: NAME="test"
+      env: NAME=test
       node_js:
         - '8'
       script:
@@ -28,10 +28,12 @@ matrix:
     - language: node_js
       node_js:
         - '8'
-      env: NAME="analysis"
+      env: NAME=analysis
       before_script:
         - yarn global add prettier
         - .travis/before_script_icons.sh
+      script:
+        - yarn install
       after_success:
         - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Analysis skipped."; travis_terminate 0; fi
         - .travis/after_success_prettier.sh
@@ -41,13 +43,13 @@ matrix:
     - language: java
       jdk: oraclejdk8
       env:
-        - NAME="demo" NODE_VERSION=8 CC=clang CXX=clang++
+        - NAME=demo NODE_VERSION=8 CC=clang CXX=clang++
       before_install:
         - nvm install $NODE_VERSION
       before_script:
         - yarn global add surge
-        - yarn install
       script:
+        - yarn install
         - yarn test:demo
       after_success:
         - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo skipped."; travis_terminate 0; fi
