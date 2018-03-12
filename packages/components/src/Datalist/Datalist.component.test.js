@@ -19,10 +19,10 @@ const props = {
 };
 
 const multiSectionMap = [
-	{ title: 'cat 1', items: [{ name: 'foo', value: 'foo' }] },
-	{ title: 'cat 2', items: [{ name: 'bar', value: 'bar' }] },
-	{ title: 'cat 3', items: [{ name: 'foobar', value: 'foobar' }] },
-	{ title: 'cat 4', items: [{ name: 'lol', value: 'lol' }] },
+	{ title: 'cat 1', suggestions: [{ name: 'foo', value: 'foo' }] },
+	{ title: 'cat 2', suggestions: [{ name: 'bar', value: 'bar' }] },
+	{ title: 'cat 3', suggestions: [{ name: 'foobar', value: 'foobar' }] },
+	{ title: 'cat 4', suggestions: [{ name: 'lol', value: 'lol' }] },
 ];
 
 describe('Datalist component', () => {
@@ -46,10 +46,11 @@ describe('Datalist component', () => {
 	});
 
 	it('should render typeahead multisection', () => {
+		// given
 		const multiSectionProps = { ...props, titleMap: multiSectionMap };
-		// when
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Datalist
+				autoFocus={true}
 				id={'my-datalist'}
 				isValid
 				multiSection={true}
@@ -57,12 +58,22 @@ describe('Datalist component', () => {
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				{...multiSectionProps}
-				value={'foo'}
+				value={'toto'}
 			/>,
 		);
 
+		// when
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: 'foo' } });
+
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find(Typeahead).props().items).toEqual([
+			{ suggestions: [{ title: 'foo' }], title: 'cat 1' },
+			{ suggestions: [{ title: 'foobar' }], title: 'cat 3' },
+		]);
 	});
 
 	it('should update suggestions on value change', () => {
@@ -76,7 +87,7 @@ describe('Datalist component', () => {
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				{...props}
-				value={'foo'}
+				value={'toto'}
 			/>,
 		);
 

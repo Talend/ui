@@ -203,12 +203,14 @@ class Datalist extends Component {
 			const escapedValue = escapeRegexCharacters(value.trim());
 			const regex = new RegExp(escapedValue, 'i');
 			if (this.props.multiSection) {
-				groups = groups.map(group => {
-					return {
-						...group,
-						suggestions: group.suggestions.filter(item => regex.test(item.title)),
-					};
-				});
+				groups = groups
+					.map(group => {
+						return {
+							...group,
+							suggestions: group.suggestions.filter(item => regex.test(item.title)),
+						};
+					})
+					.filter(group => group.suggestions.length > 0);
 			} else {
 				// only one group so items are inline
 				groups = groups.filter(itemValue => regex.test(itemValue));

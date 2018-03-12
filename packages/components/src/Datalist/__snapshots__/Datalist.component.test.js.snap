@@ -1,49 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Datalist component should render typeahead multisection 1`] = `
-<div
-  className="theme-tc-datalist"
->
-  <form
-    className="theme-tc-datalist-form"
-  >
-    <Typeahead
-      autoFocus={true}
-      disabled={false}
-      docked={false}
-      focusedItemIndex={undefined}
-      id="my-datalist"
-      items={null}
-      multiSection={true}
-      noResultText="No result."
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onSelect={[Function]}
-      placeholder="Type here"
-      position="left"
-      readOnly={false}
-      searching={false}
-      searchingText="Searching for matches…"
-      theme={
-        Object {
-          "container": "theme-container tc-datalist-container",
-          "itemsContainer": "theme-items-container",
-          "itemsList": "theme-items",
-        }
-      }
-      value="foo"
-    />
-  </form>
-  <div
-    className="theme-toggle"
-  >
-    <span
-      className="caret"
-    />
-  </div>
-</div>
+<Datalist component
+  autoFocus={true}
+  disabled={false}
+  errorMessage="This should be correct"
+  id="my-datalist"
+  isValid={true}
+  multiSection={true}
+  onChange={[Function]}
+  onFinish={[Function]}
+  placeholder="Type here"
+  readOnly={false}
+  title="My List"
+  titleMap={
+    Array [
+      Object {
+        "suggestions": Array [
+          Object {
+            "name": "foo",
+            "value": "foo",
+          },
+        ],
+        "title": "cat 1",
+      },
+      Object {
+        "suggestions": Array [
+          Object {
+            "name": "bar",
+            "value": "bar",
+          },
+        ],
+        "title": "cat 2",
+      },
+      Object {
+        "suggestions": Array [
+          Object {
+            "name": "foobar",
+            "value": "foobar",
+          },
+        ],
+        "title": "cat 3",
+      },
+      Object {
+        "suggestions": Array [
+          Object {
+            "name": "lol",
+            "value": "lol",
+          },
+        ],
+        "title": "cat 4",
+      },
+    ]
+  }
+  value="toto"
+/>
 `;
 
 exports[`Datalist component should render typeahead single section 1`] = `
