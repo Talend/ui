@@ -53,3 +53,13 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 		}
 	}
 }
+
+:global(.modal-footer) .tc-actionbar-container {
+	background-color: $white;
+	.navbar-left > *,
+	.navbar-center > *,
+	.navbar-right > * {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
