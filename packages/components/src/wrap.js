@@ -23,6 +23,15 @@ const OMIT_PROPS = [
 	'dispatchActionCreator',
 ];
 
+const BLACK_LISTED_ATTR = [
+	'childContextTypes',  // not authorized on function component
+	'propTypes',  // already set by HOC
+];
+
+function filterAttr(attr) {
+	return BLACK_LISTED_ATTR.includes(attr);
+}
+
 export default function wrap(Component, key) {
 	const Wrapper = ({ getComponent, components, text, ...props }) => {
 		const injected = Inject.all(getComponent, components);
@@ -35,7 +44,7 @@ export default function wrap(Component, key) {
 			</Component>
 		);
 	};
-	Object.keys(Component).forEach(attr => {
+	Object.keys(Component).filter(filterAttr).forEach(attr => {
 		Wrapper[attr] = Component[attr];
 	});
 	Wrapper.displayName = key;
