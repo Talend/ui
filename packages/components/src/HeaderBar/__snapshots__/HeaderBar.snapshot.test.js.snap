@@ -5455,7 +5455,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     >
                       <div
                         className="theme-item"
-                        title="title 2 les elephants elementaires ont des aile"
+                        title="title 2 les elephants elementaires ont des aile cum erat inquam controversia autem mihi utrumqo"
                       >
                         <span
                           className="theme-item-title tc-typeahead-item-title"
@@ -5491,6 +5491,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                             >
                               le
                             </em>
+                             cum erat inquam controversia autem mihi utrumqo
                           </span>
                         </span>
                         <p
