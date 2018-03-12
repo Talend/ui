@@ -13,17 +13,19 @@ before_install:
   # Configure git
   - .travis/before_install.sh
 
-node_js:
-  - '8'
 
 matrix:
   fast_finish: true
   include:
     - language: node_js
+      node_js:
+        - '8'
       script:
         - yarn test
 
     - language: node_js
+      node_js:
+        - '8'
       before_script:
         - yarn global add prettier
         - .travis/before_script_icons.sh
