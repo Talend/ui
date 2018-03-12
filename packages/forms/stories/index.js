@@ -127,7 +127,7 @@ decoratedStories.add('Multiple actions', () => {
 });
 
 function CustomDatalist(...args) {
-	function renderItemsContainer({ children, ...containerProps }) {
+	function renderItemsContainer({ children, containerProps }) {
 		return (
 			<div {...containerProps}>
 				{children}
@@ -158,6 +158,7 @@ function CustomDatalist(...args) {
 
 	renderItemsContainer.propTypes = {
 		children: PropTypes.element,
+		containerProps: PropTypes.object,
 	};
 
 	function renderNoMatch({ ...containerProps }) {
