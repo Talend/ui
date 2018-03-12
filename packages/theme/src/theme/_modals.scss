@@ -1,36 +1,44 @@
-
 .modal-dialog {
 	max-height: 80vh;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	flex-wrap: nowrap;
 }
 
 .modal {
-
+	&-content {
+		display: flex;
+		flex-direction: column;
+		flex-basis: 100%;
+		flex-grow: 0;
+		flex-shrink: 0;
+		border: none; // it keeps the border-radius
+	}
 	&-header {
 		border-top-left-radius: $border-radius-base;
 		border-top-right-radius: $border-radius-base;
 		background-color: $modal-header-bg;
+		border-color: $concrete;
 
 		.modal-title {
-			font-weight: bold;
+			font-size: 16px;
 			color: $modal-header-color;
-			text-align: center;
 		}
 
 		.close {
-			color: $modal-header-color;
+			color: $dove-gray;
 			opacity: 1;
 		}
 	}
 
 	&-body {
 		flex-grow: 1;
+		overflow-y: auto;
+		background-color: $wild-sand;
 	}
 
 	&-footer {
+		border-color: $concrete;
 		flex-shrink: 0;
-		border-top: none;
 	}
-
 }
