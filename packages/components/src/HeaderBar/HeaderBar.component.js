@@ -42,6 +42,7 @@ function Brand({ label, isSeparated, getComponent, ...props }) {
 	});
 	const Renderers = Inject.getAll(getComponent, { ActionDropdown, Action });
 	const ActionComponent = props && props.items ? Renderers.ActionDropdown : Renderers.Action;
+	const clickAction = props && props.items ? undefined : props.onClick;
 
 	return (
 		<li role="presentation" className={className}>
@@ -52,6 +53,7 @@ function Brand({ label, isSeparated, getComponent, ...props }) {
 					tooltipPlacement="bottom"
 					label={label}
 					{...props}
+					onClick={clickAction}
 				/>
 			</span>
 		</li>
