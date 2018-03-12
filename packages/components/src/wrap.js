@@ -29,7 +29,7 @@ const BLACK_LISTED_ATTR = [
 ];
 
 function filterAttr(attr) {
-	return BLACK_LISTED_ATTR.includes(attr);
+	return !BLACK_LISTED_ATTR.includes(attr);
 }
 
 export default function wrap(Component, key) {
