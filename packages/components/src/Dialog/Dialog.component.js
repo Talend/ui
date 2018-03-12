@@ -15,7 +15,6 @@ import Progress from '../Progress';
 function Dialog({
 	action,
 	actionbar,
-	bsDialogProps,
 	children,
 	closeButton,
 	components,
@@ -33,7 +32,7 @@ function Dialog({
 	const injected = Inject.all(getComponent, components);
 
 	return (
-		<Modal bsSize={size} {...bsDialogProps} {...props}>
+		<Modal bsSize={size} {...props}>
 			{injected('before-modal-header')}
 			{header && (
 				<Modal.Header closeButton={closeButton}>
@@ -80,7 +79,6 @@ Dialog.propTypes = {
 	children: PropTypes.element,
 	show: PropTypes.bool,
 	action: PropTypes.shape(Action.propTypes),
-	bsDialogProps: PropTypes.shape({ ...Modal.propTypes, manager: PropTypes.object }),
 	footer: PropTypes.object,
 	actionbar: PropTypes.object,
 	closeButton: PropTypes.bool,
