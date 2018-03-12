@@ -52,6 +52,7 @@ function Brand({ label, isSeparated, getComponent, ...props }) {
 					tooltipPlacement="bottom"
 					label={label}
 					{...props}
+					onClick={props && props.items && props.onClick}
 				/>
 			</span>
 		</li>

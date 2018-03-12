@@ -167,7 +167,7 @@ const decoratedStories = storiesOf('HeaderBar', module).addDecorator(story => (
 if (!decoratedStories.addWithInfo) {
 	decoratedStories.addWithInfo = decoratedStories.add;
 }
-const infoStyle =  stylesheet => ({
+const infoStyle = stylesheet => ({
 	...stylesheet,
 	button: {
 		...stylesheet.button,
@@ -185,6 +185,14 @@ decoratedStories
 	}, { styles: infoStyle })
 	.addWithInfo('with full logo', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
+		headerProps.logo.isFull = true;
+		return <HeaderBar {...headerProps} />;
+	}, { styles: infoStyle })
+	.addWithInfo('without products', () => {
+		const headerProps = Immutable.fromJS({
+			...props,
+			products: null,
+		}).toJS();
 		headerProps.logo.isFull = true;
 		return <HeaderBar {...headerProps} />;
 	}, { styles: infoStyle })
