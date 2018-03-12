@@ -3,7 +3,7 @@
 exports[`ConfirmDialog should render with a large container 1`] = `
 <div
   bsSize="large"
-  className="theme-tc-confirm-dialog theme-modal-body-overflow Modal"
+  className="Modal"
   keyboard={true}
   show={true}
 >
@@ -27,34 +27,45 @@ exports[`ConfirmDialog should render with a large container 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
+    <nav
+      className="theme-tc-actionbar-container tc-actionbar-container nav"
     >
-      <span>
-        CANCEL
-      </span>
-    </button>
-    <div
-      className="theme-tc-confirm-actions"
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+      <div
+        className="theme-navbar-left navbar-left"
       >
-        <span>
-          OK
-        </span>
-      </button>
-    </div>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+      <div
+        className="theme-navbar-center"
+      />
+      <div
+        className="theme-navbar-right navbar-right"
+      >
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </nav>
   </div>
 </div>
 `;
@@ -62,7 +73,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
 exports[`ConfirmDialog should render with a progress bar 1`] = `
 <div
   bsSize="large"
-  className="theme-tc-confirm-dialog theme-modal-body-overflow Modal"
+  className="Modal"
   keyboard={true}
   show={true}
 >
@@ -77,9 +88,18 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
     </div>
   </div>
   <div
-    className="ProgressBar"
-    now={25}
-  />
+    className="theme-progress"
+    id={undefined}
+  >
+    <div
+      className="theme-progress-percent"
+      style={
+        Object {
+          "width": "25%",
+        }
+      }
+    />
+  </div>
   <div
     className="Body"
   >
@@ -90,34 +110,45 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
+    <nav
+      className="theme-tc-actionbar-container tc-actionbar-container nav"
     >
-      <span>
-        CANCEL
-      </span>
-    </button>
-    <div
-      className="theme-tc-confirm-actions"
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+      <div
+        className="theme-navbar-left navbar-left"
       >
-        <span>
-          OK
-        </span>
-      </button>
-    </div>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+      <div
+        className="theme-navbar-center"
+      />
+      <div
+        className="theme-navbar-right navbar-right"
+      >
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </nav>
   </div>
 </div>
 `;
@@ -125,7 +156,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
 exports[`ConfirmDialog should render with a small container 1`] = `
 <div
   bsSize="small"
-  className="theme-tc-confirm-dialog theme-modal-body-overflow Modal"
+  className="Modal"
   keyboard={true}
   show={true}
 >
@@ -149,34 +180,45 @@ exports[`ConfirmDialog should render with a small container 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
+    <nav
+      className="theme-tc-actionbar-container tc-actionbar-container nav"
     >
-      <span>
-        CANCEL
-      </span>
-    </button>
-    <div
-      className="theme-tc-confirm-actions"
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+      <div
+        className="theme-navbar-left navbar-left"
       >
-        <span>
-          OK
-        </span>
-      </button>
-    </div>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+      <div
+        className="theme-navbar-center"
+      />
+      <div
+        className="theme-navbar-right navbar-right"
+      >
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </nav>
   </div>
 </div>
 `;
@@ -184,7 +226,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
 exports[`ConfirmDialog should render with additional actions 1`] = `
 <div
   bsSize={undefined}
-  className="theme-tc-confirm-dialog theme-modal-body-overflow Modal"
+  className="Modal"
   keyboard={true}
   show={true}
 >
@@ -208,46 +250,57 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
+    <nav
+      className="theme-tc-actionbar-container tc-actionbar-container nav"
     >
-      <span>
-        CANCEL
-      </span>
-    </button>
-    <div
-      className="theme-tc-confirm-actions"
-    >
-      <button
-        className="btn btn-info"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+      <div
+        className="theme-navbar-left navbar-left"
       >
-        <span>
-          Keep on Github
-        </span>
-      </button>
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+      <div
+        className="theme-navbar-center"
+      />
+      <div
+        className="theme-navbar-right navbar-right"
       >
-        <span>
-          OK
-        </span>
-      </button>
-    </div>
+        <button
+          className="btn btn-info"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            Keep on Github
+          </span>
+        </button>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </nav>
   </div>
 </div>
 `;
@@ -255,7 +308,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
 exports[`ConfirmDialog should render with defaults values 1`] = `
 <div
   bsSize={undefined}
-  className="theme-tc-confirm-dialog theme-modal-body-overflow Modal"
+  className="Modal"
   keyboard={true}
   show={true}
 >
@@ -279,34 +332,45 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
+    <nav
+      className="theme-tc-actionbar-container tc-actionbar-container nav"
     >
-      <span>
-        CANCEL
-      </span>
-    </button>
-    <div
-      className="theme-tc-confirm-actions"
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+      <div
+        className="theme-navbar-left navbar-left"
       >
-        <span>
-          OK
-        </span>
-      </button>
-    </div>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+      <div
+        className="theme-navbar-center"
+      />
+      <div
+        className="theme-navbar-right navbar-right"
+      >
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </nav>
   </div>
 </div>
 `;
@@ -314,7 +378,7 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
 exports[`ConfirmDialog should render without header 1`] = `
 <div
   bsSize={undefined}
-  className="theme-tc-confirm-dialog theme-modal-body-overflow Modal"
+  className="Modal"
   keyboard={true}
   show={true}
 >
@@ -328,34 +392,45 @@ exports[`ConfirmDialog should render without header 1`] = `
   <div
     className="Footer"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
+    <nav
+      className="theme-tc-actionbar-container tc-actionbar-container nav"
     >
-      <span>
-        CANCEL
-      </span>
-    </button>
-    <div
-      className="theme-tc-confirm-actions"
-    >
-      <button
-        className="btn btn-default"
-        disabled={false}
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        role={null}
-        type="button"
+      <div
+        className="theme-navbar-left navbar-left"
       >
-        <span>
-          OK
-        </span>
-      </button>
-    </div>
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+      <div
+        className="theme-navbar-center"
+      />
+      <div
+        className="theme-navbar-right navbar-right"
+      >
+        <button
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </nav>
   </div>
 </div>
 `;
