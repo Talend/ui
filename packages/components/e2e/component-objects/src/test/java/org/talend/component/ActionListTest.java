@@ -34,7 +34,7 @@ public class ActionListTest extends StorybookTest {
         // then
         assertThat(action.getText(), equalToIgnoringCase("favorite datasets"));
     }
-
+    
     @Test
     public void should_click_on_menu() {
         // when
