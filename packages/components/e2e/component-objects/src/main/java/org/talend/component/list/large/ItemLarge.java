@@ -83,7 +83,7 @@ public class ItemLarge extends Component {
         final Actions action = new Actions(driver);
         action
                 .moveToElement(this.getElement())
-                .pause(Duration.ofSeconds(1))
+                .pause(Duration.ofSeconds(1).toMillis())
                 .moveToElement(this.getAction(actionId))
                 .build()
                 .perform();
