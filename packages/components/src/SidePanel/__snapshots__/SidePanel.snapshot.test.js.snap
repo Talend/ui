@@ -137,7 +137,7 @@ exports[`Storyshots SidePanel default 1`] = `
       role="navigation"
     >
       <div
-        className="theme-toggle-btn"
+        className="theme-toggle-btn tc-side-panel-toggle-btn"
         title="Collapse"
       >
         <button
@@ -398,7 +398,7 @@ exports[`Storyshots SidePanel docked 1`] = `
       role="navigation"
     >
       <div
-        className="theme-toggle-btn"
+        className="theme-toggle-btn tc-side-panel-toggle-btn"
         title="Expand"
       >
         <button
@@ -655,7 +655,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
       role="navigation"
     >
       <div
-        className="theme-toggle-btn"
+        className="theme-toggle-btn tc-side-panel-toggle-btn"
         title="Expand"
       >
         <button
@@ -904,7 +904,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
     role="navigation"
   >
     <div
-      className="theme-toggle-btn"
+      className="theme-toggle-btn tc-side-panel-toggle-btn"
       title="Collapse"
     >
       <button
@@ -1382,7 +1382,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
     role="navigation"
   >
     <div
-      className="theme-toggle-btn"
+      className="theme-toggle-btn tc-side-panel-toggle-btn"
       title="Collapse"
     >
       <button
@@ -1640,7 +1640,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
           role="navigation"
         >
           <div
-            className="theme-toggle-btn"
+            className="theme-toggle-btn tc-side-panel-toggle-btn"
             title="Collapse"
           >
             <button
@@ -2252,7 +2252,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
           role="navigation"
         >
           <div
-            className="theme-toggle-btn"
+            className="theme-toggle-btn tc-side-panel-toggle-btn"
             title="Collapse"
           >
             <button
@@ -2865,7 +2865,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
         role="navigation"
       >
         <div
-          className="theme-toggle-btn"
+          className="theme-toggle-btn tc-side-panel-toggle-btn"
           title="Collapse"
         >
           <button
@@ -3130,7 +3130,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
         role="navigation"
       >
         <div
-          className="theme-toggle-btn"
+          className="theme-toggle-btn tc-side-panel-toggle-btn"
           title="Collapse"
         >
           <button
@@ -3395,7 +3395,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
         role="navigation"
       >
         <div
-          className="theme-toggle-btn"
+          className="theme-toggle-btn tc-side-panel-toggle-btn"
           title="Collapse"
         >
           <button
@@ -3660,7 +3660,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
         role="navigation"
       >
         <div
-          className="theme-toggle-btn"
+          className="theme-toggle-btn tc-side-panel-toggle-btn"
           title="Collapse"
         >
           <button
@@ -3925,7 +3925,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
         role="navigation"
       >
         <div
-          className="theme-toggle-btn"
+          className="theme-toggle-btn tc-side-panel-toggle-btn"
           title="Collapse"
         >
           <button
@@ -4190,7 +4190,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
         role="navigation"
       >
         <div
-          className="theme-toggle-btn"
+          className="theme-toggle-btn tc-side-panel-toggle-btn"
           title="Collapse"
         >
           <button
@@ -4455,7 +4455,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
         role="navigation"
       >
         <div
-          className="theme-toggle-btn"
+          className="theme-toggle-btn tc-side-panel-toggle-btn"
           title="Collapse"
         >
           <button

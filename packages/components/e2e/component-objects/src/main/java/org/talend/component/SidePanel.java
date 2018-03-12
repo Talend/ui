@@ -21,9 +21,9 @@ public class SidePanel extends Component {
 
     static final String SELECTOR = ".tc-side-panel";
 
-    static final String MENU_ITEMS_SELECTOR = SELECTOR + " .tc-action-list-item span";
+    static final String FOLD_BUTTON_SELECTOR = ".tc-side-panel-toggle-btn button";
 
-    static final String MENU_ITEM_ACTIVE_SELECTOR = SELECTOR + " .tc-action-list-item.active span";
+    private ActionList actionList;
 
     /**
      * SidePanel constructor
@@ -32,6 +32,7 @@ public class SidePanel extends Component {
      */
     SidePanel(WebDriver driver) {
         super(driver, NAME, SELECTOR);
+        this.actionList = new ActionList(driver);
     }
 
     /**
@@ -42,15 +43,7 @@ public class SidePanel extends Component {
      * @throws NotFoundException if no elements with this label are found
      */
     public WebElement getMenu(String label) throws NotFoundException {
-        LOGGER.info(NAME + ".getMenu " + label);
-        Iterator<WebElement> elements = this.getElement().findElements(By.cssSelector(MENU_ITEMS_SELECTOR)).iterator();
-        while (elements.hasNext()) {
-            WebElement el = elements.next();
-            if (el.getText().equals(label)) {
-                return el;
-            }
-        }
-        throw new NotFoundException(label);
+        return this.actionList.getMenu(label);
     }
 
     /**
@@ -60,6 +53,25 @@ public class SidePanel extends Component {
      * @throws NotFoundException if no active element is find
      */
     public WebElement getActiveMenu() throws NotFoundException {
-        return this.getElement().findElement(By.cssSelector(MENU_ITEM_ACTIVE_SELECTOR));
+        return this.actionList.getActiveMenu();
+    }
+
+    /**
+     * Get fold button
+     *
+     * @return WebElement of fold button
+     * @throws NotFoundException if no active element is find
+     */
+    public WebElement getFoldButton() throws NotFoundException {
+        return this.getElement().findElement(By.cssSelector(FOLD_BUTTON_SELECTOR));
+    }
+
+    /**
+     * Folds the side panel
+     *
+     * @throws NotFoundException if no active element is find
+     */
+    public void fold() throws NotFoundException {
+        this.getElement().findElement(By.cssSelector(FOLD_BUTTON_SELECTOR)).click();
     }
 }
