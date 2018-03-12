@@ -95,6 +95,7 @@ Object {
       "id": "portId",
       "nodeId": "nodeId",
       "setIndex": [Function],
+      "setPosition": [Function],
     },
   },
   "transform": Object {
@@ -274,6 +275,7 @@ Object {
       "id": "portId",
       "nodeId": "nodeId",
       "setIndex": [Function],
+      "setPosition": [Function],
     },
   },
   "transform": Object {

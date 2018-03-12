@@ -87,6 +87,9 @@ export const PortRecord = Record({
 	getPosition(): Position {
 		return this.getIn(['graphicalAttributes', 'position']);
 	},
+	setPosition(position: Position): PortRecordType {
+		return this.setIn(['graphicalAttributes', 'position'], position);
+	},
 	getPortType(): string {
 		return this.getIn(['graphicalAttributes', 'portType']);
 	},

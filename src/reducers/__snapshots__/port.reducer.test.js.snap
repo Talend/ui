@@ -33,6 +33,7 @@ Object {
       "id": "id1",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id2": Object {
       "data": Object {
@@ -53,6 +54,7 @@ Object {
       "id": "id2",
       "nodeId": "test",
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id3": Object {
       "data": Object {
@@ -73,6 +75,7 @@ Object {
       "id": "id3",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "portId": Object {
       "data": Object {
@@ -98,6 +101,7 @@ Object {
       "id": "portId",
       "nodeId": "nodeId",
       "setIndex": [Function],
+      "setPosition": [Function],
     },
   },
   "transform": Object {
@@ -149,6 +153,7 @@ Object {
       "id": "id1",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id2": Object {
       "data": Object {
@@ -169,6 +174,7 @@ Object {
       "id": "id2",
       "nodeId": "test",
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id3": Object {
       "data": Object {
@@ -189,6 +195,7 @@ Object {
       "id": "id3",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "portId1": Object {
       "data": Object {
@@ -214,6 +221,7 @@ Object {
       "id": "portId1",
       "nodeId": "nodeId",
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "portId2": Object {
       "data": Object {
@@ -239,6 +247,7 @@ Object {
       "id": "portId2",
       "nodeId": "nodeId",
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "portId3": Object {
       "data": Object {
@@ -264,6 +273,7 @@ Object {
       "id": "portId3",
       "nodeId": "nodeId",
       "setIndex": [Function],
+      "setPosition": [Function],
     },
   },
   "transform": Object {
@@ -306,6 +316,7 @@ Object {
       "id": "id2",
       "nodeId": "test",
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id3": Object {
       "data": Object {
@@ -329,6 +340,7 @@ Object {
       "id": "id3",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
   },
   "transform": Object {
@@ -371,6 +383,7 @@ Object {
       "id": "id1",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id3": Object {
       "data": Object {
@@ -391,6 +404,7 @@ Object {
       "id": "id3",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
   },
   "transform": Object {
@@ -433,6 +447,7 @@ Object {
       "id": "id1",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id2": Object {
       "data": Object {
@@ -453,6 +468,7 @@ Object {
       "id": "id2",
       "nodeId": "test",
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id3": Object {
       "data": Object {
@@ -473,6 +489,7 @@ Object {
       "id": "id3",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
   },
   "transform": Object {
@@ -515,6 +532,7 @@ Object {
       "id": "id1",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id2": Object {
       "data": Object {
@@ -535,6 +553,7 @@ Object {
       "id": "id2",
       "nodeId": "test",
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id3": Object {
       "data": Object {
@@ -555,6 +574,7 @@ Object {
       "id": "id3",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
   },
   "transform": Object {
@@ -597,6 +617,7 @@ Object {
       "id": "id1",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id2": Object {
       "data": Object {
@@ -617,6 +638,7 @@ Object {
       "id": "id2",
       "nodeId": "test",
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id3": Object {
       "data": Object {
@@ -637,6 +659,7 @@ Object {
       "id": "id3",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
   },
   "transform": Object {
@@ -680,6 +703,7 @@ Object {
       "id": "id1",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id2": Object {
       "data": Object {
@@ -700,6 +724,7 @@ Object {
       "id": "id2",
       "nodeId": "test",
       "setIndex": [Function],
+      "setPosition": [Function],
     },
     "id3": Object {
       "data": Object {
@@ -720,6 +745,7 @@ Object {
       "id": "id3",
       "nodeId": undefined,
       "setIndex": [Function],
+      "setPosition": [Function],
     },
   },
   "transform": Object {

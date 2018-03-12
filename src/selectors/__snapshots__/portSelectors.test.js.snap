@@ -18,6 +18,7 @@ Object {
     "id": "id2",
     "nodeId": "nodeId1",
     "setIndex": [Function],
+    "setPosition": [Function],
   },
   "id4": Object {
     "data": Object {
@@ -37,6 +38,7 @@ Object {
     "id": "id4",
     "nodeId": "nodeId2",
     "setIndex": [Function],
+    "setPosition": [Function],
   },
 }
 `;
@@ -61,6 +63,7 @@ Object {
     "id": "id2",
     "nodeId": "nodeId1",
     "setIndex": [Function],
+    "setPosition": [Function],
   },
 }
 `;
@@ -85,6 +88,7 @@ Object {
     "id": "id1",
     "nodeId": "nodeId1",
     "setIndex": [Function],
+    "setPosition": [Function],
   },
   "id3": Object {
     "data": Object {
@@ -104,6 +108,7 @@ Object {
     "id": "id3",
     "nodeId": "nodeId2",
     "setIndex": [Function],
+    "setPosition": [Function],
   },
 }
 `;
