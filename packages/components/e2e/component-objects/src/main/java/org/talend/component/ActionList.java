@@ -10,27 +10,27 @@ import org.openqa.selenium.WebElement;
 import java.util.Iterator;
 
 /**
- * SidePanel is used to easy access to WebElements of the react-talend-component SidePanel component.
+ * ActionList is used to easy access to WebElements of the react-talend-component ActionList component.
  *
  */
-public class SidePanel extends Component {
+public class ActionList extends Component {
 
-    private static final Logger LOGGER = LogManager.getLogger(SidePanel.class);
+    private static final Logger LOGGER = LogManager.getLogger(ActionList.class);
 
-    static final String NAME = "SidePanel";
+    static final String NAME = "ActionList";
 
-    static final String SELECTOR = ".tc-side-panel";
+    static final String SELECTOR = ".tc-action-list";
 
     static final String MENU_ITEMS_SELECTOR = SELECTOR + " .tc-action-list-item span";
 
     static final String MENU_ITEM_ACTIVE_SELECTOR = SELECTOR + " .tc-action-list-item.active span";
 
     /**
-     * SidePanel constructor
+     * ActionList constructor
      *
      * @param driver Selenium WebDriver
      */
-    SidePanel(WebDriver driver) {
+    ActionList(WebDriver driver) {
         super(driver, NAME, SELECTOR);
     }
 
@@ -61,5 +61,14 @@ public class SidePanel extends Component {
      */
     public WebElement getActiveMenu() throws NotFoundException {
         return this.getElement().findElement(By.cssSelector(MENU_ITEM_ACTIVE_SELECTOR));
+    }
+
+    /**
+     * Click on a menu item
+     *
+     * @throws NotFoundException if no active element is find
+     */
+    public void clickOn(String label) {
+        this.getMenu(label).click();
     }
 }

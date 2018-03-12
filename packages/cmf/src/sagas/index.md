@@ -74,3 +74,48 @@ const { data, response } = yield call(configuredHttp.get, `${API['dataset-sample
 ```
 
 The above configuration allow the configured instance of `http saga` to automatically inject into http call a CSRF token under `headerKey` header, which was retrieved from `cookieKey` cookie.
+
+# Component Saga
+
+First you have to plug all the thing to make it work :
+- In the configure.js :
+
+```javascript
+import { api } from '@talend/react-cmf';
+// ...
+// where you init your saga router
+yield all([
+	// ...
+	fork(api.sagas.component.handle),
+	// ...
+]);
+// where you init other things ( like register your app )
+api.registerInternals();
+api.saga.registerMany(sagasToRegister);
+```
+
+Then, we can add some cmf configuration :
+
+```json
+{
+    "MyComponent#default": {
+      "saga": "mySaga",
+      "coolProps": "coolData"
+    }
+}
+```
+
+Then, in your app, if you do that ( with a cmfConnected component ) :
+
+```jsx
+<MyComponent otherProps="otherData"/>
+```
+
+When the component mount, an action creator will be dispatched to start a saga, here : mySaga
+
+```javascript
+function* mySaga(props){
+	console.log(props.coolProps); // print coolData
+	console.log(props.otherData); // print otherData
+}
+```

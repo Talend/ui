@@ -44,7 +44,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "date-fns": "^1.27.2",
+    "date-fns": "1.27.2",
     "lodash": "4.17.4",
     "rc-slider": "8.4.1",
     "rc-tooltip": "3.7.0",
@@ -54,12 +54,12 @@
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
-    "@storybook/addon-actions": "^3.3.6",
-    "@storybook/addon-info": "^3.3.6",
-    "@storybook/addon-storyshots": "^3.3.6",
-    "@storybook/react": "^3.3.6",
-    "@talend/bootstrap-theme": "^0.162.0",
-    "@talend/icons": "^0.162.0",
+    "@storybook/addon-actions": "^3.3.14",
+    "@storybook/addon-info": "^3.3.14",
+    "@storybook/addon-storyshots": "^3.3.14",
+    "@storybook/react": "^3.3.14",
+    "@talend/bootstrap-theme": "^0.165.0",
+    "@talend/icons": "^0.165.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
@@ -113,8 +113,8 @@
     "uuid": "3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^0.162.0",
-    "@talend/icons": "^0.162.0",
+    "@talend/bootstrap-theme": "^0.165.0",
+    "@talend/icons": "^0.165.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "2.2.5",
     "d3-shape": "1.2.0",
@@ -151,5 +151,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.162.0"
+  "version": "0.165.0"
 }
