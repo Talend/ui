@@ -62,7 +62,10 @@ function SidePanel({
 	return (
 		<nav id={id} className={navCSS} role="navigation" aria-expanded={!(dockable && docked)}>
 			{dockable && (
-				<div className={theme['toggle-btn']} title={toggleButtonTitle}>
+				<div
+					className={classNames(theme['toggle-btn'], 'tc-side-panel-toggle-btn')}
+					title={toggleButtonTitle}
+				>
 					<Components.Action
 						id={id && `${id}-toggle-dock`}
 						bsStyle="link"
