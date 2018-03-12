@@ -470,6 +470,54 @@ const modelItemMenu = [
 	{ label: 'MDR action', onClick: action('onMdrClick') },
 ];
 
+const records = [
+	{
+		value: {
+			field0: {
+				value: 'Nom de la gare',
+				quality: 1,
+			},
+			field1: {
+				value: 'Code UIC',
+				quality: 1,
+				field2: {
+					value: 'Code postal',
+					quality: 1,
+				},
+				field3: {
+					value: 'Segmentation',
+					quality: 1,
+				},
+			},
+		},
+		quality: 1,
+	},
+	{
+		value: {
+			field0: {
+				value: 'Aéroport Charles de Gaulle 2 TGV',
+				quality: 1,
+			},
+			field1: {
+				value: '271494',
+				quality: 1,
+				field2: {
+					value: '95716',
+					quality: 1,
+				},
+				field3: {
+					value: '',
+					quality: 1,
+				},
+			},
+		},
+		quality: 1,
+	},
+];
+for (let i = 0; i < 100; i++) {
+	records.push(records[1]);
+}
+
 stories
 	.addWithInfo('data model', () => (
 		<div>
@@ -495,6 +543,15 @@ stories
 				<li>Unknown: object type. For now if type === object we don't display menus</li>
 				<li>Container: pass all extra props (not accepted by opther object viewers) or let's not integrate it into ObjectViewer (but this solution would duplicate toggle code).</li>
 			</ul>
+		</div>
+	))
+	.addWithInfo('records', () => (
+		<div style={{ height: 500 }}>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer
+				displayMode={'records'}
+				data={records}
+			/>
 		</div>
 	))
 	.addWithInfo('tree default', () => (
