@@ -44,10 +44,13 @@ storiesOf('Datalist', module)
 	))
 	.addWithInfo('default multiSection', () => {
 		const withoutAutoFocus = { ...propsMultiSection, autoFocus: false };
-		return (
+		const defaultValue = { ...withoutAutoFocus, value: 'lol' };
+	return (
 			<div>
 				<p>By default :</p>
 				<Datalist {...withoutAutoFocus} />
+				<p>default value :</p>
+				<Datalist {...defaultValue} />
 				<p>Auto focused :</p>
 				<Datalist {...propsMultiSection} />
 			</div>
@@ -55,10 +58,13 @@ storiesOf('Datalist', module)
 	})
 	.addWithInfo('default single section', () => {
 		const withoutAutoFocus = { ...singleSectionProps, autoFocus: false };
+		const defaultValue = { ...withoutAutoFocus, value: 'lol' };
 		return (
 			<div>
 				<p>By default :</p>
 				<Datalist {...withoutAutoFocus} />
+				<p>default value :</p>
+				<Datalist {...defaultValue} />
 				<p>Auto focused :</p>
 				<Datalist {...singleSectionProps} />
 			</div>
