@@ -46,7 +46,7 @@ let newState;
 
 function serializeEvent(event) {
 	if (event.persist) {
-		return event.persist();
+		event.persist();
 	}
 	return event;
 }
@@ -260,11 +260,11 @@ export default function cmfConnect({
 
 			componentDidMount() {
 				initState(this.props);
-				if (this.props.didMountActionCreator) {
-					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
-				}
 				if (this.props.saga) {
 					this.dispatchActionCreator('cmf.saga.start', { type: 'DID_MOUNT' }, this.props);
+				}
+				if (this.props.didMountActionCreator) {
+					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
 				}
 			}
 

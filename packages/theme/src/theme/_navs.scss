@@ -17,9 +17,7 @@
 	}
 
 	&-pills {
-
 		> li {
-
 			&,
 			& + li {
 				margin: 0;
@@ -78,6 +76,12 @@
 
 		> li {
 			margin: 0;
+			&:first-of-type > * {
+				padding-left: $padding-large;
+			}
+			&:last-of-type > * {
+				padding-right: $padding-large;
+			}
 
 			> a,
 			> button {
