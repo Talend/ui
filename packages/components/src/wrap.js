@@ -24,8 +24,8 @@ const OMIT_PROPS = [
 ];
 
 const BLACK_LISTED_ATTR = [
-	'childContextTypes',  // not authorized on function component
-	'propTypes',  // already set by HOC
+	'childContextTypes', // not authorized on function component
+	'propTypes', // already set by HOC
 ];
 
 function filterAttr(attr) {
@@ -44,22 +44,23 @@ export default function wrap(Component, key) {
 			</Component>
 		);
 	};
-	Object.keys(Component).filter(filterAttr).forEach(attr => {
-		Wrapper[attr] = Component[attr];
-	});
+	Object.keys(Component)
+		.filter(filterAttr)
+		.forEach(attr => {
+			Wrapper[attr] = Component[attr];
+		});
 	Wrapper.displayName = key;
 	Wrapper.propTypes = {
 		text: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-		children: PropTypes.oneOfType([
-			PropTypes.node,
-			PropTypes.arrayOf(PropTypes.node),
-		]),
+		children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
 		getComponent: PropTypes.func,
 		components: PropTypes.shape({
-			children: PropTypes.arrayOf(PropTypes.shape({
-				component: PropTypes.string,
-				componentId: PropTypes.string,
-			})),
+			children: PropTypes.arrayOf(
+				PropTypes.shape({
+					component: PropTypes.string,
+					componentId: PropTypes.string,
+				}),
+			),
 		}),
 	};
 	return Wrapper;
