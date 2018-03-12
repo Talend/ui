@@ -6,6 +6,7 @@ $tc-typeahead-input-width: 260px !default;
 	display: flex;
 	align-items: center;
 	width: 100%;
+	position: relative;
 
 	.tc-datalist-form {
 		width: 100%;
