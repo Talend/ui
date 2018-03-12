@@ -37,7 +37,7 @@ $tf-typeahead-section-border-color: #e0e0e0 !default;
 	z-index: 999;
 }
 
-.no-result {
+.empty, .no-result {
 	padding: $padding-smaller;
 	font-size: 1.5rem;
 	font-style: italic;
@@ -49,7 +49,7 @@ $tf-typeahead-section-border-color: #e0e0e0 !default;
 	}
 }
 
-.no-result,
+.empty, .no-result,
 .container-open .items-container {
 	padding-top: 1px;
 	padding-bottom: 1px;
