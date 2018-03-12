@@ -50,10 +50,10 @@ describe('Datalist component', () => {
 		const multiSectionProps = { ...props, titleMap: multiSectionMap };
 		const wrapper = mount(
 			<Datalist
-				autoFocus={true}
+				autoFocus
 				id={'my-datalist'}
 				isValid
-				multiSection={true}
+				multiSection
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}

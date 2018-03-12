@@ -146,9 +146,9 @@ class Datalist extends Component {
 			let enumValue = this.props.titleMap.find(item => item.name === value);
 			if (this.props.multiSection) {
 				this.props.titleMap.forEach(group => {
-					const item = group.suggestions.find(item => item.name === value.title);
-					if (item) {
-						enumValue = item;
+					const itemObj = group.suggestions.find(item => item.name === value.title);
+					if (itemObj) {
+						enumValue = itemObj;
 					}
 				});
 			}
@@ -173,16 +173,16 @@ class Datalist extends Component {
 	 * Building multiSection items or single section items
 	 * return the items list
 	 */
-	buildGroupItems(titleMap, multiSection) {
-		if (multiSection) {
-			return titleMap.map(group => {
-				return {
+	buildGroupItems() {
+		if (this.props.multiSection) {
+			return this.props.titleMap.map(group =>
+				({
 					title: group.title,
 					suggestions: group.suggestions.map(item => ({ title: item.name })),
-				};
-			});
+				})
+			);
 		}
-		return titleMap.map(item => item.name);
+		return this.props.titleMap.map(item => item.name);
 	}
 
 	/**
@@ -197,19 +197,17 @@ class Datalist extends Component {
 		}
 
 		// building multiSection items or single section items
-		let groups = this.buildGroupItems(this.props.titleMap, this.props.multiSection);
+		let groups = this.buildGroupItems();
 		if (value) {
 			// filtering
 			const escapedValue = escapeRegexCharacters(value.trim());
 			const regex = new RegExp(escapedValue, 'i');
 			if (this.props.multiSection) {
 				groups = groups
-					.map(group => {
-						return {
-							...group,
-							suggestions: group.suggestions.filter(item => regex.test(item.title)),
-						};
-					})
+					.map(group => ({
+						...group,
+						suggestions: group.suggestions.filter(item => regex.test(item.title)),
+					}))
 					.filter(group => group.suggestions.length > 0);
 			} else {
 				// only one group so items are inline

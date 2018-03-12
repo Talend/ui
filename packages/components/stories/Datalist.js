@@ -32,6 +32,8 @@ const singleSectionProps = {
 		{ name: 'foobar', value: 'foobar' },
 		{ name: 'lol', value: 'lol' },
 	],
+	onFinish: action('onFinish'),
+	onChange: action('onChange'),
 };
 
 storiesOf('Datalist', module)
