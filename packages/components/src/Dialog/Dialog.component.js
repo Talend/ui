@@ -58,11 +58,7 @@ function Dialog({
 					<Renderers.ActionBar {...actionbar} />
 				</Modal.Footer>
 			)}
-			{footer && (
-				<Modal.Footer {...footer}>
-					{injected('footer')}
-				</Modal.Footer>
-			)}
+			{footer && <Modal.Footer {...footer}>{injected('footer')}</Modal.Footer>}
 		</Modal>
 	);
 }
