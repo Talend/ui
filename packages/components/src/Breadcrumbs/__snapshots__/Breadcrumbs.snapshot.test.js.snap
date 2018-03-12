@@ -13,16 +13,18 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
   id="42"
 >
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="42-item-0"
+      title={undefined}
     >
       Text A
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -36,16 +38,18 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
     </svg>
   </li>
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="42-item-1"
+      title={undefined}
     >
       Text B
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -59,16 +63,18 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
     </svg>
   </li>
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="42-item-2"
+      title={undefined}
     >
       Text C
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -82,16 +88,18 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
     </svg>
   </li>
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="42-item-3"
+      title={undefined}
     >
       Text D
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -105,10 +113,11 @@ exports[`Breadcrumbs should not render dropdown because all items are shown 1`] 
     </svg>
   </li>
   <li
-    className="active"
+    className="tc-breadcrumb-item active"
   >
     <span
       id="42-item-4"
+      title={undefined}
     >
       Text E
     </span>
@@ -122,8 +131,38 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
   id="42"
 >
   <li
+    className="sr-only"
+  >
+    <span
+      id="42-item-0"
+      title={undefined}
+    >
+      Text A
+    </span>
+  </li>
+  <li
+    className="sr-only"
+  >
+    <span
+      id="42-item-1"
+      title={undefined}
+    >
+      Text B
+    </span>
+  </li>
+  <li
+    className="sr-only"
+  >
+    <span
+      id="42-item-2"
+      title={undefined}
+    >
+      Text C
+    </span>
+  </li>
+  <li
     aria-hidden="true"
-    className="theme-dots"
+    className="tc-breadcrumb-menu"
   >
     <div
       className="dropdown btn-group btn-group-link"
@@ -145,7 +184,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
           <span
             className="tc-dropdown-button-title-label"
           >
-            ...
+            …
           </span>
         </span>
       </button>
@@ -212,7 +251,8 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
     </div>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -226,16 +266,18 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
     </svg>
   </li>
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="42-item-3"
+      title={undefined}
     >
       Text D
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -249,10 +291,11 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
     </svg>
   </li>
   <li
-    className="active"
+    className="tc-breadcrumb-item active"
   >
     <span
       id="42-item-4"
+      title={undefined}
     >
       Text E
     </span>
@@ -266,8 +309,18 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
   id="my-breadcrumb"
 >
   <li
+    className="sr-only"
+  >
+    <span
+      id="my-breadcrumb-item-0"
+      title={undefined}
+    >
+      Text A
+    </span>
+  </li>
+  <li
     aria-hidden="true"
-    className="theme-dots"
+    className="tc-breadcrumb-menu"
   >
     <div
       className="dropdown btn-group btn-group-link"
@@ -289,7 +342,7 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
           <span
             className="tc-dropdown-button-title-label"
           >
-            ...
+            …
           </span>
         </span>
       </button>
@@ -320,7 +373,8 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
     </div>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -334,16 +388,18 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
     </svg>
   </li>
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="my-breadcrumb-item-1"
+      title={undefined}
     >
       Text B
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -357,16 +413,18 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
     </svg>
   </li>
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="my-breadcrumb-item-2"
+      title={undefined}
     >
       Text C
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -380,10 +438,11 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
     </svg>
   </li>
   <li
-    className="active"
+    className="tc-breadcrumb-item active"
   >
     <span
       id="my-breadcrumb-item-3"
+      title={undefined}
     >
       Text D
     </span>
@@ -397,8 +456,18 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
   id="42"
 >
   <li
+    className="sr-only"
+  >
+    <span
+      id="42-item-0"
+      title={undefined}
+    >
+      Text A
+    </span>
+  </li>
+  <li
     aria-hidden="true"
-    className="theme-dots"
+    className="tc-breadcrumb-menu"
   >
     <div
       className="dropdown btn-group btn-group-link"
@@ -420,7 +489,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
           <span
             className="tc-dropdown-button-title-label"
           >
-            ...
+            …
           </span>
         </span>
       </button>
@@ -451,7 +520,8 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
     </div>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -465,16 +535,18 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
     </svg>
   </li>
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="42-item-1"
+      title={undefined}
     >
       Text B
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -488,16 +560,18 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
     </svg>
   </li>
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="42-item-2"
+      title={undefined}
     >
       Text C
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -511,10 +585,11 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
     </svg>
   </li>
   <li
-    className="active"
+    className="tc-breadcrumb-item active"
   >
     <span
       id="42-item-3"
+      title={undefined}
     >
       Text D
     </span>
@@ -528,16 +603,18 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
   id="42"
 >
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="42-item-0"
+      title={undefined}
     >
       Text A
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -551,16 +628,18 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
     </svg>
   </li>
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="42-item-1"
+      title={undefined}
     >
       Text B
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -574,16 +653,18 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
     </svg>
   </li>
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="42-item-2"
+      title={undefined}
     >
       Text C
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -597,16 +678,18 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
     </svg>
   </li>
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="42-item-3"
+      title={undefined}
     >
       Text D
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -620,10 +703,11 @@ exports[`Breadcrumbs should render list of items without ellipsis when set enoug
     </svg>
   </li>
   <li
-    className="active"
+    className="tc-breadcrumb-item active"
   >
     <span
       id="42-item-4"
+      title={undefined}
     >
       Text E
     </span>
@@ -637,16 +721,18 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
   id="42"
 >
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="42-item-0"
+      title="Text tile A"
     >
       Text A
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -660,16 +746,18 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
     </svg>
   </li>
   <li
-    className=""
+    className="tc-breadcrumb-item"
   >
     <span
       id="42-item-1"
+      title="Text tile B"
     >
       Text B
     </span>
   </li>
   <li
-    className="separator"
+    aria-hidden="true"
+    className="tc-breadcrumb-separator separator"
   >
     <svg
       aria-hidden="true"
@@ -683,10 +771,11 @@ exports[`Breadcrumbs should render small list of items without ellipsis 1`] = `
     </svg>
   </li>
   <li
-    className="active"
+    className="tc-breadcrumb-item active"
   >
     <span
       id="42-item-2"
+      title={undefined}
     >
       Text C
     </span>
