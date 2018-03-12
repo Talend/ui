@@ -65,11 +65,14 @@ function Breadcrumbs(props) {
 			wrappedOnClick = event => onClick(event, item);
 		}
 		function getItemContent() {
-			return !isActive && onClick ? (
-				<Button id={id} bsStyle="link" role="link" title={title} onClick={wrappedOnClick}>
-					{text}
-				</Button>
-			) : (
+			if (!isActive && onClick) {
+				return (
+					<Button id={id} bsStyle="link" role="link" title={title} onClick={wrappedOnClick}>
+						{text}
+					</Button>
+				);
+			}
+			return (
 				<span id={id} title={title}>
 					{text}
 				</span>
