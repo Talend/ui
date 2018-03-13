@@ -91,6 +91,21 @@ describe('CMF http middleware', () => {
 		expect(options.credentials).toBe('omit');
 	});
 
+	it('should mergeOptions and add headers to default one', () => {
+		const action = {
+			type: HTTP_METHODS.POST,
+			extra: 'hello world',
+			body: { label: 'new label' },
+		};
+		const options = mergeOptions(action, { 'Accept-Language': 'fr-Fr' });
+		expect(options.type).toBe(undefined);
+		expect(options.method).toBe('POST');
+		expect(options.extra).toBe('hello world');
+		expect(options.body).toBe('{"label":"new label"}');
+		expect(options.headers).toEqual({ ...DEFAULT_HTTP_HEADERS, 'Accept-Language': 'fr-Fr' });
+		expect(options.credentials).toBe('same-origin');
+	});
+
 	it('should httpMiddleware return function', () => {
 		const store = {
 			dispatch: jest.fn(),

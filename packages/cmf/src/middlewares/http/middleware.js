@@ -98,11 +98,11 @@ export function getMethod(action) {
 	return HTTP_METHODS[action.type];
 }
 
-export function mergeOptions(action) {
+export function mergeOptions(action, headers) {
 	const options = Object.assign(
 		{
 			method: getMethod(action),
-			headers: DEFAULT_HTTP_HEADERS,
+			headers: { ...DEFAULT_HTTP_HEADERS, ...headers },
 			credentials: 'same-origin',
 		},
 		action,
@@ -205,7 +205,7 @@ export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
 		return next(action);
 	}
 	const httpAction = get(action, 'cmf.http', action);
-	const config = mergeCSRFToken(middlewareDefaultConfig, mergeOptions(httpAction));
+	const config = mergeCSRFToken(middlewareDefaultConfig, mergeOptions(httpAction, middlewareDefaultConfig.headers));
 	dispatch(http.onRequest(httpAction.url, config));
 	if (httpAction.onSend) {
 		dispatch({
