@@ -3,6 +3,7 @@ import React from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Emphasis from '@talend/react-components/lib/Emphasis';
 import classnames from 'classnames';
+import get from 'lodash/get';
 import Autowhatever from 'react-autowhatever';
 import keycode from 'keycode';
 import theme from './DatalistWidget.scss';
@@ -80,6 +81,7 @@ function getSectionItems(section) {
 class DatalistWidget extends React.Component {
 	static itemContainerStyle = theme['items-container'];
 	static noResultStyle = theme['no-result'];
+	static emptyStyle = theme.empty;
 
 	constructor(props) {
 		super(props);
@@ -399,9 +401,8 @@ class DatalistWidget extends React.Component {
 		if (this.state.noMatch) {
 			renderItemsContainer = renderNoMatch;
 		} else if (
-			this.state.items &&
+			get(this.state, 'initialItems.length') === 0 &&
 			this.state.hasFocus &&
-			this.state.items.length === 0 &&
 			this.props.renderEmptyList
 		) {
 			renderItemsContainer = this.props.renderEmptyList;

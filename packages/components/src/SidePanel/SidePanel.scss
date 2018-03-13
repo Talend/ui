@@ -39,7 +39,8 @@ $toggle-button-padding: $padding-small - 1;
 	}
 
 	.toggle-btn {
-		padding-bottom: $padding-normal + $padding-large;
+		padding-top: $padding-small;
+		padding-bottom: $padding-smaller + $padding-large;
 		padding-left: $toggle-button-padding;
 		text-align: left;
 
