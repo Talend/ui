@@ -140,12 +140,14 @@ class AbstractNode extends React.Component {
 	}
 
 	onDragStart() {
+		this.squaredDeltaDrag = 0;
 		if (this.props.onDragStart) {
 			this.props.onDragStart(event);
 		}
 	}
 
 	onDrag() {
+		this.squaredDeltaDrag += (event.dx * event.dx) + (event.dy * event.dy);
 		const position = {
 			x: event.x,
 			y: event.y,
@@ -159,6 +161,15 @@ class AbstractNode extends React.Component {
 	}
 
 	onDragEnd() {
+		// Ok this is pretty specific
+		// for a chrome windows bug
+		// where d3 inhibit onCLick propagation
+		// if there is any delta between down and up of the mouse
+		// here we add a tolerance, so the underlying click doesn't
+		// get smooshed if the user do not initiate drag 
+		if (this.squaredDeltaDrag < 1) {
+			select(window).on('click.drag', null);
+		}
 		const position = this.getEventPosition(event);
 		this.props.moveNodeToEnd(this.props.node.id, position);
 		this.d3Node.data([position]);
