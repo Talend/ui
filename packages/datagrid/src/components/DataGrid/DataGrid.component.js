@@ -59,6 +59,7 @@ export default class DataGrid extends React.Component {
 		getRowDataFn: serializer.getRowData,
 		getCellValueFn: serializer.getCellValue,
 		headerHeight: HEADER_HEIGHT,
+		enableColResize: true,
 		headerRenderer: 'DefaultHeaderRenderer',
 		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
 		rowHeight: ROW_HEIGHT,
@@ -157,6 +158,7 @@ export default class DataGrid extends React.Component {
 			rowHeight: this.props.rowHeight,
 			rowSelection: this.props.rowSelection,
 			suppressDragLeaveHidesColumns: true,
+			enableColResize: this.props.enableColResize,
 			onCellFocused: this.onFocusedCell,
 			onGridReady: this.onGridReady,
 		};

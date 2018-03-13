@@ -6,6 +6,7 @@ exports[`#DataGrid should render DataGrid 1`] = `
 >
   <AgGridReact
     columnDefs={Array []}
+    enableColResize={true}
     frameworkComponents={
       Object {
         "cellRenderer": [Function],
@@ -103,6 +104,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
         },
       ]
     }
+    enableColResize={true}
     frameworkComponents={
       Object {
         "cellRenderer": [Function],
