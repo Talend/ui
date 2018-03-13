@@ -118,9 +118,9 @@ class Items extends React.PureComponent {
 				isSwitchBox={this.props.isSwitchBox && !item.children}
 				searchCriteria={this.props.searchCriteria}
 			>
-				{ item.children && item.children.map((nestedItem, index) => (
+				{ item.children && item.children.map((nestedItem, nestedIndex) => (
 					<Item
-						key={index}
+						key={nestedIndex}
 						item={nestedItem}
 						parentItem={item}
 						searchCriteria={this.props.searchCriteria}

@@ -1,8 +1,8 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import classNames from 'classnames';
 import theme from './Item.scss';
 import ItemPropTypes from './Item.propTypes';
-import { Button } from 'react-bootstrap';
 import { Icon } from '../../../index';
 
 function itemLabelClasses() {
@@ -36,7 +36,7 @@ function Item(props) {
 							id={itemId}
 							type="checkbox"
 							checked={item.checked}
-							onChange={event => parentItem ? item.onChange(event, item, parentItem) : item.onChange(event, item)}
+							onChange={event => (parentItem ? item.onChange(event, item, parentItem) : item.onChange(event, item))}
 						/>
 						<span className={itemLabelClasses()}>
 							{searchCriteria ? getSearchedLabel(item.label) : item.label}
