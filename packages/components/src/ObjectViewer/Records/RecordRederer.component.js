@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import classNames from 'classnames';
 
+import Record from './RecordViewer.component';
 import ObjectViewer from '../../ObjectViewer';
 import theme from './RecordRederer.scss';
 
@@ -26,7 +27,8 @@ class MesureObjectViewer extends React.Component {
 
 	render() {
 		return (
-			<ObjectViewer {...omit(this.props, ['measure'])} />
+			<Record {...omit(this.props, ['measure'])} />
+			/* <ObjectViewer {...omit(this.props, ['measure'])} /> */
 		);
 	}
 }

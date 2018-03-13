@@ -11,6 +11,7 @@ import { Action, ObjectViewer, IconsProvider } from '../src/index';
 const icons = {
 	'talend-caret-down': talendIcons['talend-caret-down'],
 	'talend-chevron-left': talendIcons['talend-chevron-left'],
+	'talend-plus-circle': talendIcons['talend-plus-circle'],
 };
 
 const schema = new Map();
@@ -423,10 +424,12 @@ const dataModelFields = [
 		],
 	},
 ];
+
 function QualityMenu(props) {
 	function filterClick(e) {
 		action('onFilterClick')(e, { ...props, action: 'filter' });
 	}
+
 	function removeClick(e) {
 		action('onRemoveClick')(e, { ...props, action: 'remove' });
 	}
@@ -444,6 +447,7 @@ function QualityMenu(props) {
 		</ul>
 	);
 }
+
 QualityMenu.propTypes = {
 	type: PropTypes.string,
 };
@@ -510,6 +514,27 @@ const records = [
 					quality: 1,
 				},
 			},
+			ingredients: {
+				value: [
+					{
+						value: {
+							name: { quality: 1, value: 'brown sugar' },
+							amount: { quality: 1, value: 100 },
+							unit: { quality: 1, value: 'grams' },
+						},
+						quality: 1,
+					},
+					{
+						value: {
+							name: { quality: 1, value: 'egg' },
+							amount: { quality: 1, value: 20 },
+							unit: { quality: -1, value: 'kilograms' },
+						},
+						quality: -1,
+					},
+				],
+				quality: -1,
+			},
 		},
 		quality: 1,
 	},
@@ -537,11 +562,16 @@ stories
 			<h2>TODO</h2>
 			<ul>
 				<li>Accessibility: navigate from item to item with up/down keys</li>
-				<li>Code duplication: to manage focus accessibility in menus, we had to implement some code in Item menu (that use Action) and in QualityCircles (that use PieChartButton). The code is the same but in 2 places, let's try to remove this duplication</li>
+				<li>Code duplication: to manage focus accessibility in menus, we had to implement some code in Item menu
+					(that use Action) and in QualityCircles (that use PieChartButton). The code is the same but in 2
+					places, let's try to remove this duplication
+				</li>
 				<li>i18n</li>
 				<li>Missing (don't have the model): cardinality</li>
 				<li>Unknown: object type. For now if type === object we don't display menus</li>
-				<li>Container: pass all extra props (not accepted by opther object viewers) or let's not integrate it into ObjectViewer (but this solution would duplicate toggle code).</li>
+				<li>Container: pass all extra props (not accepted by opther object viewers) or let's not integrate it
+					into ObjectViewer (but this solution would duplicate toggle code).
+				</li>
 			</ul>
 		</div>
 	))

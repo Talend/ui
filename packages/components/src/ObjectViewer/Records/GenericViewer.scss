@@ -1,0 +1,87 @@
+.tc-viewer {
+	font-family: 'Inconsolata';
+	font-size: 1.4rem;
+	letter-spacing: 0.6px;
+	padding: $padding-smaller 0;
+
+	&,
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	button {
+		background: transparent;
+		border: none;
+		line-height: unset;
+		//padding: $padding-smaller 0;
+	}
+
+	.item {
+		position: relative;
+		width: 100%;
+		text-align: left;
+
+		.title {
+			display: flex;
+			padding: 5px 0;
+
+			&:focus,
+			&:focus-within,
+			&:hover {
+				background: $gallery;
+			}
+
+			.caret {
+				flex-grow: 0;
+				color: $brand-primary;
+				margin-right: $padding-small;
+				height: $svg-xs-size;
+				width: $svg-xs-size;
+			}
+
+			.main {
+				text-align: left;
+				flex-grow: 1;
+
+				display: flex;
+				align-items: center;
+			}
+
+			.badge {
+				top: $object-viewer-badge-offset;
+				height: 9px;
+				width: 9px;
+				background-color: rgba($brand-primary, 0.3);
+				color: $brand-primary;
+				font-size: 10px;
+				padding: 2px 5px;
+				display: inline-table;
+				margin-left: 10px;
+				vertical-align: text-bottom;
+			}
+
+			.key {
+				display: inline;
+				padding-left: $padding-smaller;
+				color: $dove-gray;
+			}
+
+			.value {
+				max-width: calc(100% - 6em);
+				color: $brand-primary;
+				vertical-align: bottom;
+				border: none;
+				background: none;
+				padding: 0;
+				cursor: text;
+				margin-left: 4px;
+				display: inline-block;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}
