@@ -15,10 +15,11 @@ storiesOf('Component Datagrid')
 				onFocusedColumn={event => console.log(event)}
 				onVerticalScroll={event => console.log(event)}
 				rowSelection="multiple"
+				enableColResize={false}
 			/>
 		</div>
 	))
-	.add('columns not resizable', () => (
+	.add('columns resizables', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />
 			<DataGrid
@@ -27,7 +28,6 @@ storiesOf('Component Datagrid')
 				onFocusedColumn={event => console.log(event)}
 				onVerticalScroll={event => console.log(event)}
 				rowSelection="multiple"
-				enableColResize={false}
 			/>
 		</div>
 	))

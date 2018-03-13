@@ -1,8 +1,16 @@
 $td-header-component-border-color: $gallery !default;
 $td-quality-bar-hover-height: 1rem !default;
+$td-grip-resize-width: 6px !default;
+
+:global(.ag-header-cell) {
+	border-right: $td-header-component-border-color 1px solid;
+
+	:global(.ag-header-cell-resize) {
+		width: $td-grip-resize-width;
+	}
+}
 
 .td-header-component {
-	border-right: $td-header-component-border-color 1px solid;
 	height: 100%;
 
 	&:hover :global(.td-quality-bar) {
@@ -11,7 +19,7 @@ $td-quality-bar-hover-height: 1rem !default;
 
 	.td-header {
 		height: 100%;
-		width: 100%;
+		width: calc(100% - #{$td-grip-resize-width});
 		padding: 1rem;
 		text-align: left;
 		background-color: inherit;

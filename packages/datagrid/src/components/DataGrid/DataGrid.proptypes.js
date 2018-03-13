@@ -11,6 +11,7 @@ const DATAGRID_PROPTYPES = {
 	className: PropTypes.string,
 	loading: PropTypes.bool,
 	enableColResize: PropTypes.bool,
+	columnMinWidth: PropTypes.number,
 	getComponent: PropTypes.func,
 	getPinnedColumnDefsFn: PropTypes.func,
 	getColumnDefsFn: PropTypes.func,
