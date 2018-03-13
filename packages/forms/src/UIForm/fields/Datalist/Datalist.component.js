@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import keycode from 'keycode';
-import get from 'lodash/get';
-
-import Typeahead from '@talend/react-components/lib/Typeahead';
-
+import DataList from '@talend/react-components/lib/Datalist';
 import FieldTemplate from '../FieldTemplate';
-
 import theme from './Datalist.scss';
 
 export function escapeRegexCharacters(str) {
@@ -17,170 +11,28 @@ export function escapeRegexCharacters(str) {
 class Datalist extends Component {
 	constructor(props) {
 		super(props);
-		this.onBlur = this.onBlur.bind(this);
 		this.onChange = this.onChange.bind(this);
-		this.onFocus = this.onFocus.bind(this);
-		this.onKeyDown = this.onKeyDown.bind(this);
-		this.onSelect = this.onSelect.bind(this);
-
-		this.theme = {
-			container: classNames(theme.container, 'tf-datalist-container'),
-			itemsContainer: theme['items-container'],
-			itemsList: theme.items,
-		};
-
-		this.state = { previousValue: props.value, value: props.value };
-	}
-
-	componentWillReceiveProps({ value }) {
-		this.setState({ previousValue: value, value });
+		this.onFinish = this.onFinish.bind(this);
 	}
 
 	/**
-	 * Persist the value (if not already persisted) and remove the suggestions on blur event
-	 * @param event The blur event
-	 */
-	onBlur(event) {
-		this.resetSuggestions();
-		const { value, previousValue } = this.state;
-
-		if (value !== previousValue) {
-			this.updateValue(event, value, true);
-		}
-	}
-
-	/**
-	 * Update value (non persistent) on input value change and update the suggestions
+	 * on change callback
 	 * @param event
 	 * @param value
 	 */
-	onChange(event, { value }) {
-		this.updateSuggestions(value);
-		this.updateValue(event, value, false);
+	onChange(event, payload) {
+		payload.schema = this.props.schema;
+		this.props.onChange(event, payload);
 	}
 
 	/**
-	 * Display suggestions on focus
+	 * on finish callback
+	 * @param event
+	 * @param value
 	 */
-	onFocus() {
-		this.updateSuggestions(this.state.value);
-	}
-
-	/**
-	 * Hook on input keydown
-	 * ESC: reset the value to the previous persited one
-	 * ENTER: select a suggestion, persist the value, or submit the form
-	 * UP/DOWN: update the active suggestion index
-	 * @param event The keydown event
-	 * @param highlightedItemIndex The previous focused suggestion index
-	 * @param newHighlightedItemIndex The new focused suggestion index
-	 */
-	onKeyDown(event, { highlightedItemIndex, newHighlightedItemIndex }) {
-		switch (event.which) {
-			case keycode.codes.esc:
-				event.preventDefault();
-				this.resetValue();
-				break;
-			case keycode.codes.enter:
-				if (!this.state.suggestions) {
-					break;
-				}
-				event.preventDefault();
-				if (Number.isInteger(highlightedItemIndex)) {
-					// suggestions are displayed and an item has the focus : we select it
-					this.onSelect(event, { itemIndex: highlightedItemIndex });
-				} else if (this.state.value !== this.state.previousValue) {
-					// there is no focused item and the current value is not persisted
-					// we persist it
-					this.updateValue(event, this.state.value, true);
-				}
-				this.resetSuggestions();
-				break;
-			case keycode.codes.down:
-				event.preventDefault();
-				if (!this.state.suggestions) {
-					// display all suggestions when they are not displayed
-					this.updateSuggestions();
-				}
-				this.setState({ focusedItemIndex: newHighlightedItemIndex });
-				break;
-			case keycode.codes.up:
-				event.preventDefault();
-				this.setState({ focusedItemIndex: newHighlightedItemIndex });
-				break;
-			default:
-				break;
-		}
-	}
-
-	/**
-	 * Select an item in suggestions list
-	 * @param event The select event
-	 * @param itemIndex The item index in suggestions list
-	 */
-	onSelect(event, { itemIndex }) {
-		const newValue = this.state.suggestions[itemIndex];
-		this.updateValue(event, newValue, true);
-	}
-
-	/**
-	 * Set a value.
-	 * This new value can be persisted, or not. If not, it enables the ESC key to reset the value
-	 * @param event The change event
-	 * @param value The new value
-	 * @param persist Value will be persisted if true
-	 */
-	updateValue(event, value, persist) {
-		const previousValue = persist ? value : this.state.previousValue;
-		this.setState({ value, previousValue });
-		if (persist) {
-			const enumValue = this.props.schema.titleMap.find(item => item.name === value);
-			const payload = { schema: this.props.schema, value: get(enumValue, 'value', value) };
-			this.props.onChange(event, payload);
-			this.props.onFinish(event, payload);
-		}
-	}
-
-	/**
-	 * Set back the value to the last validated value.
-	 * This remove the suggestions.
-	 */
-	resetValue() {
-		this.setState({
-			suggestions: undefined,
-			value: this.state.previousValue,
-		});
-	}
-
-	/**
-	 * Filter suggestions.
-	 * This sets at least an empty array, which means the suggestion box will always display
-	 * If the array is empty, the suggestion box will display a "No result" message
-	 * @param value The value to base suggestions on
-	 */
-	updateSuggestions(value) {
-		if (this.props.schema.readOnly || this.props.schema.disabled) {
-			return;
-		}
-
-		let suggestions = this.props.schema.titleMap.map(item => item.name);
-		if (value) {
-			const escapedValue = escapeRegexCharacters(value.trim());
-			const regex = new RegExp(escapedValue, 'i');
-			suggestions = suggestions.filter(itemValue => regex.test(itemValue));
-		}
-
-		this.setState({ suggestions });
-	}
-
-	/**
-	 * Remove all suggestions
-	 */
-	resetSuggestions() {
-		this.setState({
-			suggestions: undefined,
-			focusedItemIndex: undefined,
-		});
+	onFinish(event, payload) {
+		payload.schema = this.props.schema;
+		this.props.onFinish(event, payload);
 	}
 
 	render() {
@@ -194,26 +46,18 @@ class Datalist extends Component {
 				required={this.props.schema.required}
 			>
 				<div className={theme['tf-datalist']}>
-					<Typeahead
-						id={`${this.props.id}`}
+					<DataList
 						autoFocus={this.props.schema.autoFocus || false}
+						id={`${this.props.id}`}
 						disabled={this.props.schema.disabled || false}
-						focusedItemIndex={this.state.focusedItemIndex}
-						items={this.state.suggestions}
 						multiSection={false}
-						onBlur={this.onBlur}
+						onFinish={this.onFinish}
 						onChange={this.onChange}
-						onFocus={this.onFocus}
-						onKeyDown={this.onKeyDown}
-						onSelect={this.onSelect}
 						placeholder={this.props.schema.placeholder}
 						readOnly={this.props.schema.readOnly || false}
-						theme={this.theme}
-						value={this.state.value}
+						titleMap={this.props.schema.titleMap}
+						value={this.props.value}
 					/>
-					<div className={theme.toggle}>
-						<span className="caret" />
-					</div>
 				</div>
 			</FieldTemplate>
 		);
