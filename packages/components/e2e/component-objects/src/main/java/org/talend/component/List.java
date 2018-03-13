@@ -29,6 +29,16 @@ public class List extends Component {
     }
 
     /**
+     * List constructor
+     *
+     * @param driver Selenium WebDriver
+     * @param id Unique ID of the component
+     */
+    List(WebDriver driver, String id) {
+        super(driver, NAME, id + LIST_SELECTOR);
+    }
+
+    /**
      * Get add button of the list.
      *
      * @return WebElement button
