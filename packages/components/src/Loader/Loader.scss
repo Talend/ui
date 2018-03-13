@@ -1,3 +1,10 @@
 .tc-loader {
 	display: flex;
 }
+
+.tc-loader-container {
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+	background: $wild-sand;
+}
