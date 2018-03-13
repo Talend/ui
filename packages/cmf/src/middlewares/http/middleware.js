@@ -205,7 +205,10 @@ export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
 		return next(action);
 	}
 	const httpAction = get(action, 'cmf.http', action);
-	const config = mergeCSRFToken(middlewareDefaultConfig, mergeOptions(httpAction, middlewareDefaultConfig.headers));
+	const config = mergeCSRFToken(
+		middlewareDefaultConfig,
+		mergeOptions(httpAction, middlewareDefaultConfig.headers),
+	);
 	dispatch(http.onRequest(httpAction.url, config));
 	if (httpAction.onSend) {
 		dispatch({
