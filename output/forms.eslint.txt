@@ -19,8 +19,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
 
-/home/travis/build/Talend/ui/packages/forms/src/widgets/DatalistWidget/DatalistWidget.js
-  84:28  error  ["empty"] is better written in dot notation  dot-notation
-
-✖ 6 problems (6 errors, 0 warnings)
+✖ 5 problems (5 errors, 0 warnings)
 
