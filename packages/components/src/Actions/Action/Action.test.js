@@ -27,6 +27,12 @@ const renderers = {
 const getComponent = key => renderers[key];
 
 describe('getActionComponent', () => {
+	it('should return ActionButton with unknown displayMode and no getComponent', () => {
+		const component = getActionComponent({
+			displayMode: 'unknown',
+		});
+		expect(component).toBe(ActionButton);
+	});
 	it('should return ActionButton without displayMode', () => {
 		const component = getActionComponent({});
 		expect(component).toBe(ActionButton);

@@ -19,12 +19,12 @@ const actions = [
 		label: 'Recent datasets',
 		icon: 'talend-clock',
 		onClick: action('Recent clicked'),
-		active: true,
 	},
 	{
 		label: 'Favorite datasets',
 		icon: 'talend-star',
 		onClick: action('Favorite clicked'),
+		active: true,
 	},
 	{
 		label: 'Certified datasets',
