@@ -3,7 +3,9 @@
 exports[`#DataGridContainer should render DataGridContainer 1`] = `
 <DataGrid
   cellRenderer="DefaultCellRenderer"
+  columnMinWidth={30}
   data={Object {}}
+  enableColResize={true}
   getCellValueFn={[Function]}
   getColumnDefsFn={[Function]}
   getPinnedColumnDefsFn={[Function]}
