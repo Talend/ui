@@ -76,7 +76,6 @@ function drawArrow(x, y, width, height, color, canvas) {
 }
 
 class MappingArea extends Component {
-
 	componentDidMount() {
 		this.updateCanvas(true, true, true);
 	}

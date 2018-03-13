@@ -66,14 +66,7 @@ export default class Mapper extends Component {
 	//   dnd: {sourceYPos, targetYPos},
 	// }
 	getConnections() {
-		const {
-			mapping,
-			selection,
-			pendingItem,
-			focused,
-			showAll,
-			dnd,
-		} = this.props;
+		const { mapping, selection, pendingItem, focused, showAll, dnd } = this.props;
 		if (!mapping.length && !pendingItem && !dnd) return null;
 		let allConnections = null;
 		if (showAll) {
@@ -82,12 +75,10 @@ export default class Mapper extends Component {
 			// filter mapping items
 			const visibleMapping = mapping.filter(
 				item =>
-					inputVisibleElements.includes(item.source) ||
-					outputVisibleElements.includes(item.target),
+					inputVisibleElements.includes(item.source) || outputVisibleElements.includes(item.target),
 			);
 			// then build connections
-			allConnections = visibleMapping.map(item =>
-				this.getConnection(item.source, item.target));
+			allConnections = visibleMapping.map(item => this.getConnection(item.source, item.target));
 		}
 		let items = null;
 		if (selection) {
@@ -96,8 +87,7 @@ export default class Mapper extends Component {
 		// console.log('getMappingItems returns ' + items);
 		let current = null;
 		if (items) {
-			current = items.map(item =>
-				this.getConnection(item.source, item.target));
+			current = items.map(item => this.getConnection(item.source, item.target));
 		}
 		let pending = null;
 		if (selection && pendingItem) {
@@ -109,21 +99,17 @@ export default class Mapper extends Component {
 		}
 		let focusedConnections = null;
 		if (focused) {
-			const focusedItems =
-				getMappingItems(mapping, focused.element, focused.type);
+			const focusedItems = getMappingItems(mapping, focused.element, focused.type);
 			if (focusedItems) {
-				focusedConnections = focusedItems.map(item =>
-					this.getConnection(item.source, item.target));
+				focusedConnections = focusedItems.map(item => this.getConnection(item.source, item.target));
 			}
 		}
 		let dndConnection = null;
 		if (dnd && dnd.source && dnd.target) {
 			if (dnd.source.type === SchemaType.INPUT) {
-				dndConnection =
-					this.getConnection(dnd.source.element, dnd.target.element);
+				dndConnection = this.getConnection(dnd.source.element, dnd.target.element);
 			} else {
-				dndConnection =
-					this.getConnection(dnd.target.element, dnd.source.element);
+				dndConnection = this.getConnection(dnd.target.element, dnd.source.element);
 			}
 		}
 
@@ -199,9 +185,7 @@ export default class Mapper extends Component {
 					pendingItem={pendingItem}
 					onEnterElement={onEnterElement}
 					onLeaveElement={onLeaveElement}
-					focusedElements={
-						getFocusedElements(mapping, focused, SchemaType.INPUT)
-					}
+					focusedElements={getFocusedElements(mapping, focused, SchemaType.INPUT)}
 					beginDrag={beginDrag}
 					canDrop={canDrop}
 					drop={drop}
@@ -223,9 +207,7 @@ export default class Mapper extends Component {
 					pendingItem={pendingItem}
 					onEnterElement={onEnterElement}
 					onLeaveElement={onLeaveElement}
-					focusedElements={
-						getFocusedElements(mapping, focused, SchemaType.OUTPUT)
-					}
+					focusedElements={getFocusedElements(mapping, focused, SchemaType.OUTPUT)}
 					beginDrag={beginDrag}
 					canDrop={canDrop}
 					drop={drop}

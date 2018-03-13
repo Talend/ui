@@ -17,15 +17,13 @@ export function isSelected(selection, element, type) {
 
 function isHighlighted(element, selection, type, pendingItem, focusedElements) {
 	const connected =
-		selection == null	?
-		false :
-			selection.type !== type	&&
-			selection.connected != null	&&
-			selection.connected.includes(element);
+		selection == null
+			? false
+			: selection.type !== type &&
+			  selection.connected != null &&
+			  selection.connected.includes(element);
 	const pending =
-		pendingItem != null &&
-		pendingItem.type === type &&
-		pendingItem.element === element;
+		pendingItem != null && pendingItem.type === type && pendingItem.element === element;
 	const focused = focusedElements != null && focusedElements.includes(element);
 	return connected || pending || focused;
 }

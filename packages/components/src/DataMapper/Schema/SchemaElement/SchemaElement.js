@@ -23,7 +23,7 @@ function getClassName(props) {
 /**
  * A single element of a schema. It is mainly a name with a type (i/o).
  * @author timbault
-*/
+ */
 export default class SchemaElement extends Component {
 	constructor(props) {
 		super(props);
