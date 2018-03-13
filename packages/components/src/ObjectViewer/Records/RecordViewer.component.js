@@ -1,6 +1,5 @@
 import React from 'react';
 import GenericViewer from './GenericViewer.component';
-import Icon from '../../Icon';
 
 import theme from './RecordViewer.scss';
 
@@ -19,24 +18,19 @@ function getValue({ value }) {
 	return value;
 }
 
-function getIcon(type, isOpened, onClick) {
+function getIcon({ isOpened, type }) {
 	let name;
 	let transform;
+	let className;
 	if (type === 'object') {
 		name = 'talend-plus-circle';
+		className = theme.icon;
 	} else {
 		name = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
 		transform = isOpened ? null : 'rotate-180';
 	}
 
-	return (
-		<Icon
-			name={name}
-			className={theme.icon}
-			transform={transform}
-			onClick={onClick}
-		/>
-	);
+	return { className, name, transform };
 }
 
 export default function Record(props) {

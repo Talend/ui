@@ -5,7 +5,6 @@ import omit from 'lodash/omit';
 import classNames from 'classnames';
 
 import Record from './RecordViewer.component';
-import ObjectViewer from '../../ObjectViewer';
 import theme from './RecordRederer.scss';
 
 /**
@@ -28,7 +27,6 @@ class MesureObjectViewer extends React.Component {
 	render() {
 		return (
 			<Record {...omit(this.props, ['measure'])} />
-			/* <ObjectViewer {...omit(this.props, ['measure'])} /> */
 		);
 	}
 }
@@ -58,6 +56,7 @@ export default function RecordRenderer({ index, key, parent, style }) {
 				// 'style' attribute required to position cell (within parent List)
 				<div className={classNames(theme.row, 'tc-object-viewer-records-row')} style={style}>
 					<MesureObjectViewer
+						title={index}
 						measure={measure}
 						opened={opened}
 						data={datum}

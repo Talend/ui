@@ -5,8 +5,8 @@ import theme from './GenericViewer.scss';
 import getJSONPath from '../jsonPath';
 import Icon from '../../Icon';
 
-const paddingLeft = 30;
-const marginLeft = 6;
+const paddingLeft = 25;
+const marginLeft = 4;
 
 function defaultFormatValue(value) {
 	if (typeof value === 'string') {
@@ -33,18 +33,11 @@ function defaultGetValue(value) {
 	return value;
 }
 
-function getDefaultIcon(type, isOpened, onClick) {
+function defaultGetIcon({ isOpened }) {
 	const name = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
 	const transform = isOpened ? null : 'rotate-180';
 
-	return (
-		<Icon
-			name={name}
-			transform={transform}
-			className={theme.caret}
-			onClick={onClick}
-		/>
-	);
+	return { name, transform };
 }
 
 function DefaultValueItem({ dataKey, formatValue, getValue, style, value }) {
@@ -81,35 +74,55 @@ function DefaultItem(props) {
 		style,
 		type,
 	} = props;
-	function onIconClick(event) {
-		onToggle(event, { data, isOpened, jsonpath });
-	}
 
-	const content = [<span>{dataKey}</span>];
+	const content = [<span key={'datakey'}>{dataKey}</span>];
 	if (type === 'array') {
 		content.push(
-			<span>
-				<sup className={classNames(theme.badge, 'badge')}>{fields.length}</sup>
+			<span key={'length'}>
+				<sup className={classNames(theme.badge, 'badge', 'tc-object-viewer-badge')}>
+					{fields.length}
+				</sup>
 			</span>
 		);
 	}
 
 	let main;
 	if (onClick) {
-		main = (<button onClick={onClick} className={theme.main}>{content}</button>);
+		main = (
+			<button
+				key={'main'}
+				aria-label={`Select ${dataKey} (${jsonpath})`}
+				onClick={onClick}
+				className={theme.main}
+			>
+				{content}
+			</button>
+		);
 	} else {
-		main = (<span className={theme.main}>{content}</span>);
+		main = (<span key={'main'} className={theme.main}>{content}</span>);
+	}
+
+	const icon = getIcon(props);
+	function onIconClick(event) {
+		onToggle(event, { data, isOpened, jsonpath });
 	}
 
 	return (
 		<div className={theme.title} style={style}>
-			{getIcon(type, isOpened, onIconClick)}
+			<Icon
+				key={'icon'}
+				title={isOpened ? `Collapse ${dataKey} (${jsonpath})` : `Expand ${dataKey} (${jsonpath})`}
+				name={icon.name}
+				transform={icon.transform}
+				className={classNames(theme.caret, icon.className)}
+				onClick={onIconClick}
+			/>
 			{main}
 		</div>
 	);
 }
 DefaultItem.defaultProps = {
-	getIcon: getDefaultIcon,
+	getIcon: defaultGetIcon,
 	fields: [],
 };
 DefaultItem.propTypes = {
@@ -118,7 +131,7 @@ DefaultItem.propTypes = {
 	getIcon: PropTypes.func,
 	isOpened: PropTypes.bool,
 	jsonpath: PropTypes.string,
-	dataKey: PropTypes.string,
+	dataKey: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
 	onClick: PropTypes.func,
 	onToggle: PropTypes.func,
 	style: PropTypes.object,
@@ -133,7 +146,6 @@ function DefaultFields({ fields, jsonpath, level, type, ...props }) {
 					...props,
 					key: index,
 					level: level + 1,
-					jsonpath: getJSONPath(index, jsonpath, type),
 				};
 				if (type === 'array') {
 					itemProps.dataKey = index;
@@ -142,6 +154,8 @@ function DefaultFields({ fields, jsonpath, level, type, ...props }) {
 					itemProps.dataKey = field.dataKey;
 					itemProps.value = field.value;
 				}
+				itemProps.jsonpath = getJSONPath(itemProps.dataKey, jsonpath, type);
+
 				return (
 					<Item {...itemProps} />
 				);
@@ -173,8 +187,8 @@ function Item(props) {
 	const isOpened = opened.indexOf(jsonpath) !== -1;
 	const itemType = getDataType(value);
 
-	const caretSpaceAdjustment = Math.max(marginLeft * level, 0);
-	const levelSpaceAdjustment = Math.max(paddingLeft * (level - 1), 0);
+	const caretSpaceAdjustment = marginLeft * level;
+	const levelSpaceAdjustment = paddingLeft * level;
 	const spaceAdjustment = { paddingLeft: caretSpaceAdjustment + levelSpaceAdjustment };
 	const onClick = onSelect && (event => onSelect(event, jsonpath, value));
 
@@ -197,7 +211,7 @@ function Item(props) {
 	}
 
 	return (
-		<li className={classNames(theme.item, 'tc-viewer-item')}>
+		<li className={classNames(theme.item, 'tc-object-viewer-item')}>
 			<ItemComponent
 				{...props}
 				fields={fields}
@@ -234,10 +248,10 @@ Item.propTypes = {
 	value: PropTypes.any,
 };
 
-export default function GenericViewer({ className, style, ...props }) {
+export default function GenericViewer({ className, style, title, ...props }) {
 	return (
 		<ul className={classNames(theme['tc-viewer'], 'tc-viewer', className)} style={style}>
-			<Item {...props} value={props.data} level={0} />
+			<Item {...props} dataKey={title} jsonpath={'$'} value={props.data} level={0} />
 		</ul>
 	);
 }
@@ -247,5 +261,6 @@ GenericViewer.defaultProps = {
 GenericViewer.propTypes = {
 	className: PropTypes.string,
 	data: PropTypes.oneOfType(PropTypes.array, PropTypes.object),
+	title: PropTypes.string,
 	style: PropTypes.object,
 };

@@ -98,7 +98,7 @@ function Item(props) {
 	const type = item.type && (item.type.dqType || item.type.type);
 	const onClick = onSelect && (event => onSelect(event, jsonpath, item));
 
-	const caretSpaceAdjustment = Math.max(marginLeft * level, 0);
+	const caretSpaceAdjustment = marginLeft * level;
 	const levelSpaceAdjustment = Math.max(paddingLeft * level, paddingLeft);
 	const spaceAdjustment = { paddingLeft: caretSpaceAdjustment + levelSpaceAdjustment };
 
