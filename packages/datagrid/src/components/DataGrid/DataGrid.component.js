@@ -62,6 +62,7 @@ export default class DataGrid extends React.Component {
 		headerHeight: HEADER_HEIGHT,
 		columnMinWidth: COLUMN_MIN_WIDTH,
 		enableColResize: true,
+		startIndex: 0,
 		headerRenderer: 'DefaultHeaderRenderer',
 		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
 		rowHeight: ROW_HEIGHT,
@@ -156,7 +157,7 @@ export default class DataGrid extends React.Component {
 			onViewportChanged: this.updateStyleFocusColumn,
 			onVirtualColumnsChanged: this.updateStyleFocusColumn,
 			ref: this.setGridInstance, // use ref in AgGridReact to get the current instance
-			rowData: this.props.getRowDataFn(this.props.data),
+			rowData: this.props.getRowDataFn(this.props.data, this.props.startIndex),
 			rowHeight: this.props.rowHeight,
 			rowSelection: this.props.rowSelection,
 			suppressDragLeaveHidesColumns: true,
