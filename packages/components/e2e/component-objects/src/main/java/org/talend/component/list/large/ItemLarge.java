@@ -20,10 +20,6 @@ public class ItemLarge extends Component {
 
     private static final String TABLE_ITEM_TITLE_SELECTOR = TABLE_ITEM_TITLE_CONTAINER_SELECTOR + " > button";
 
-    private static final String TABLE_ITEM_ACTIONS_SELECTOR = TABLE_ITEM_TITLE_CONTAINER_SELECTOR + " > .tc-actions button";
-
-    private static final String TABLE_ITEM_ACTION_SELECTOR = TABLE_ITEM_ACTIONS_SELECTOR + "[id*=\"%s\"]";
-
     /**
      * Constructor.
      *
@@ -54,7 +50,7 @@ public class ItemLarge extends Component {
      * @return The action WebElement
      */
     public WebElement getAction(final String actionId) {
-        return this.getElement().findElement(By.cssSelector(String.format(TABLE_ITEM_ACTION_SELECTOR, actionId)));
+        return this.getElement().findElement(By.id(actionId));
     }
 
 
@@ -81,12 +77,7 @@ public class ItemLarge extends Component {
      */
     public void clickOnAction(final String actionId) {
         final Actions action = new Actions(driver);
-        action
-                .moveToElement(this.getElement())
-                .pause(Duration.ofSeconds(1).toMillis())
-                .moveToElement(this.getAction(actionId))
-                .build()
-                .perform();
+        action.moveToElement(this.getElement()).build().perform();
 
         // we need to get the button element again because of TooltipTrigger that replace the element on hover ...
         this.getAction(actionId).click();

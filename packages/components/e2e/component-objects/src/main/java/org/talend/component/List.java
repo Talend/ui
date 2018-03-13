@@ -22,8 +22,6 @@ public class List extends Component {
 
     static final String BTN_SELECTOR = ACTIONBAR_SELECTOR + " .btn";
 
-    static final String BUTTON_ACTIONBAR_SELECTOR = ACTIONBAR_SELECTOR + " #%s.btn";
-
     static final String TOOL_BAR_ITEM_SELECTOR = TOOL_BAR_SELECTOR + " div[role='toolbar'] #%s";
 
     /**
@@ -69,7 +67,7 @@ public class List extends Component {
      * @return WebElement button
      */
     public WebElement getActionBarButtonById(String id) {
-        return this.getElement().findElement(By.cssSelector(String.format(BUTTON_ACTIONBAR_SELECTOR, id)));
+        return this.getElement().findElement(By.cssSelector(ACTIONBAR_SELECTOR)).findElement(By.id(id));
     }
 
     /**
