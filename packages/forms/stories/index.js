@@ -190,11 +190,86 @@ function CustomDatalist(...args) {
 			</div>
 		);
 	}
+
+	function renderEmptyList({ containerProps }) {
+		return (
+			<div
+				{...containerProps}
+				className={`${DatalistWidget.itemContainerStyle} ${DatalistWidget.emptyStyle}`}
+			>
+				<div className={{ padding: '0 1em 1em 1em', width: '100%' }}>
+					<span>Empty list.</span>
+					<span
+						style={{
+							fontSize: '0.9em',
+							padding: '0.5em 0',
+							color: 'gray',
+							width: '100%',
+							display: 'inline-block',
+						}}
+					>
+						Other Actions
+					</span>
+					<Action 					
+						onMouseDown={action('clicked')}
+						bsStyle="primary"
+						id="default"
+						label="do some stuff"
+	 				/>
+				</div>
+			</div>
+		);
+	}
+	
 	return (
 		<DatalistWidget
 			{...args[0]}
 			renderItemsContainer={renderItemsContainer}
 			renderNoMatch={renderNoMatch}
+			renderEmptyList={renderEmptyList}
+		/>
+	);
+}
+
+function getEmptyDatalist() {
+	function fetchItems() {
+		return [];
+	}
+	const schema = {
+		jsonSchema: {
+			title: 'A simple typeahead',
+			description: 'A simple typeahead widget example.',
+			type: 'object',
+			definitions: {
+				emptyDatalist: {
+					type: 'string',
+					enum: [],
+				},
+			},
+			properties: {
+				emptyDatalist: {
+					$ref: '#/definitions/emptyDatalist',
+				},
+			},
+		},
+		uiSchema: {
+			emptyDatalist: {
+				'ui:widget': 'customDatalist',
+			},
+			'ui:order': ['emptyDatalist'],
+		},
+		properties: {
+			emptyDataList: undefined,
+		},
+	};
+
+	return (
+		<Form
+			data={schema}
+			formContext={{ fetchItems }}
+			onChange={action('CHANGE')}
+			onSubmit={action('SUBMIT')}
+			widgets={{ customDatalist: CustomDatalist }}
 		/>
 	);
 }
@@ -282,6 +357,7 @@ function getDatalist() {
 }
 
 decoratedStories.add('Datalist', getDatalist);
+decoratedStories.add('Datalist empty', getEmptyDatalist);
 decoratedStories.add('Datalist in modal', () => {
 	const props = {
 		header: 'Datalist in modal',
