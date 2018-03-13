@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import classNames from 'classnames';
 
-import Record from './RecordViewer.component';
+import RecordViewer from './RecordViewer.component';
 import theme from './RecordRederer.scss';
 
 /**
@@ -26,7 +26,7 @@ class MesureObjectViewer extends React.Component {
 
 	render() {
 		return (
-			<Record {...omit(this.props, ['measure'])} />
+			<RecordViewer {...omit(this.props, ['measure'])} />
 		);
 	}
 }
@@ -41,6 +41,7 @@ MesureObjectViewer.propTypes = {
  */
 export default function RecordRenderer({ index, key, parent, style }) {
 	const datum = parent.props.data[index];
+	const highlighted = parent.props.highlighted;
 	const opened = parent.props.opened[index];
 	const cache = parent.props.cache;
 	const onToggle = parent.props.onRowItemToggle;
@@ -57,6 +58,7 @@ export default function RecordRenderer({ index, key, parent, style }) {
 				<div className={classNames(theme.row, 'tc-object-viewer-records-row')} style={style}>
 					<MesureObjectViewer
 						title={index}
+						highlighted={highlighted}
 						measure={measure}
 						opened={opened}
 						data={datum}

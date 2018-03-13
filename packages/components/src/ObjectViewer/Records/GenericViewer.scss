@@ -24,7 +24,7 @@
 		width: 100%;
 		text-align: left;
 
-		.title {
+		.content {
 			display: flex;
 			padding: 5px 0;
 
@@ -99,4 +99,8 @@
 	background-color: #f3c446;
 	border-radius: 50%;
 	margin: 0 10px;
+}
+
+.highlight {
+	background-color: tint($brand-primary, 80);
 }

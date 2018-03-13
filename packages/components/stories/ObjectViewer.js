@@ -581,6 +581,7 @@ stories
 			<ObjectViewer
 				displayMode={'records'}
 				data={records}
+				highlighted={[/^\$\['ingredients']\[[^\]+]]\['name']$/]}
 			/>
 		</div>
 	))

@@ -42,6 +42,7 @@ export default class Records extends React.Component {
 						data={this.props.data}
 						deferredMeasurementCache={this.cache}
 						height={height}
+						highlighted={this.props.highlighted}
 						opened={this.state.opened}
 						rowCount={this.props.data.length}
 						onRowItemToggle={this.onToggle}
@@ -59,4 +60,5 @@ Records.defaultProps = {
 };
 Records.propTypes = {
 	data: PropTypes.arrayOf(PropTypes.object),
+	highlighted: PropTypes.arrayOf(PropTypes.string),
 };

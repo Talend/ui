@@ -45,10 +45,10 @@ function defaultGetIcon({ isOpened }) {
 }
 
 function DefaultValueItem(props) {
-	const { dataKey, formatValue, getQuality, getValue, style, value } = props;
+	const { className, dataKey, formatValue, getQuality, getValue, style, value } = props;
 	const quality = getQuality(props);
 	return (
-		<span className={theme.title} style={style}>
+		<span className={className} style={style}>
 			{quality === 'invalid' && <div className={classNames(theme['invalid-value'], 'tc-object-viewer-invalid-value')} />}
 			<span className={theme.key}>{dataKey}</span>:
 			<span className={theme.value}>{formatValue(getValue(value))}</span>
@@ -62,6 +62,7 @@ DefaultValueItem.defaultProps = {
 	value: '',
 };
 DefaultValueItem.propTypes = {
+	className: PropTypes.string,
 	dataKey: PropTypes.string,
 	formatValue: PropTypes.func,
 	getQuality: PropTypes.func,
@@ -72,6 +73,7 @@ DefaultValueItem.propTypes = {
 
 function DefaultItem(props) {
 	const {
+		className,
 		data,
 		fields,
 		getIcon,
@@ -123,7 +125,7 @@ function DefaultItem(props) {
 	}
 
 	return (
-		<div className={theme.title} style={style}>
+		<div className={className} style={style}>
 			<Icon
 				key={'icon'}
 				title={isOpened ? `Collapse ${dataKey} (${jsonpath})` : `Expand ${dataKey} (${jsonpath})`}
@@ -142,6 +144,7 @@ DefaultItem.defaultProps = {
 	fields: [],
 };
 DefaultItem.propTypes = {
+	className: PropTypes.string,
 	data: PropTypes.any,
 	fields: PropTypes.array,
 	getIcon: PropTypes.func,
@@ -194,6 +197,7 @@ function Item(props) {
 	const {
 		getDataType,
 		getFields,
+		highlighted,
 		jsonpath,
 		level,
 		nodeRenderers,
@@ -201,6 +205,7 @@ function Item(props) {
 		opened,
 		value,
 	} = props;
+	const isHighlighted = highlighted.find(pattern => jsonpath.match(pattern));
 	const isOpened = opened.indexOf(jsonpath) !== -1;
 	const itemType = getDataType(value);
 
@@ -227,12 +232,19 @@ function Item(props) {
 			ItemComponent = nodeRenderers.value || DefaultValueItem;
 	}
 
+	const itemContentClassName = classNames(
+		theme.content,
+		{ [theme.highlight]: isHighlighted }
+	);
+
 	return (
 		<li className={classNames(theme.item, 'tc-object-viewer-item')}>
 			<ItemComponent
 				{...props}
+				className={itemContentClassName}
 				fields={fields}
 				onClick={onClick}
+				isHighlighted={isHighlighted}
 				isOpened={isOpened}
 				style={spaceAdjustment}
 				type={itemType}
@@ -246,13 +258,16 @@ function Item(props) {
 Item.defaultProps = {
 	getDataType: defaultGetDataType,
 	getFields: defaultGetFields,
+	highlighted: [],
 	jsonpath: '',
+	opened: [],
 	nodeRenderers: {},
 	value: '',
 };
 Item.propTypes = {
 	getDataType: PropTypes.func,
 	getFields: PropTypes.func,
+	highlighted: PropTypes.arrayOf(PropTypes.string),
 	jsonpath: PropTypes.string,
 	level: PropTypes.number,
 	nodeRenderers: PropTypes.shape({
@@ -272,9 +287,6 @@ export default function GenericViewer({ className, style, title, ...props }) {
 		</ul>
 	);
 }
-GenericViewer.defaultProps = {
-	opened: [],
-};
 GenericViewer.propTypes = {
 	className: PropTypes.string,
 	data: PropTypes.oneOfType(PropTypes.array, PropTypes.object),
