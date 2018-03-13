@@ -65,7 +65,13 @@ class Items extends React.PureComponent {
 		const isToggle = this.hasToggleAll && index === 0;
 		const currentItem = this.props.items[index - Number(this.hasToggleAll)];
 		return (
-			<div className={classNames(itemContainer(isToggle && 'toggle'), { expanded: currentItem && currentItem.expanded })} key={key} style={style}>
+			<div
+				className={classNames(itemContainer(isToggle && 'toggle'), {
+					expanded: currentItem && currentItem.expanded,
+				})}
+				key={key}
+				style={style}
+			>
 				{this.renderToggleAllOrItem(index)}
 			</div>
 		);
@@ -118,14 +124,15 @@ class Items extends React.PureComponent {
 				isSwitchBox={this.props.isSwitchBox && !item.children}
 				searchCriteria={this.props.searchCriteria}
 			>
-				{ item.children && item.children.map((nestedItem, index) => (
-					<Item
-						key={index}
-						item={nestedItem}
-						parentItem={item}
-						searchCriteria={this.props.searchCriteria}
-					/>
-				)) }
+				{item.children &&
+					item.children.map((nestedItem, index) => (
+						<Item
+							key={index}
+							item={nestedItem}
+							parentItem={item}
+							searchCriteria={this.props.searchCriteria}
+						/>
+					))}
 			</Item>
 		);
 	}
