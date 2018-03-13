@@ -175,12 +175,10 @@ class Datalist extends Component {
 	 */
 	buildGroupItems() {
 		if (this.props.multiSection) {
-			return this.props.titleMap.map(group =>
-				({
-					title: group.title,
-					suggestions: group.suggestions.map(item => ({ title: item.name })),
-				})
-			);
+			return this.props.titleMap.map(group => ({
+				title: group.title,
+				suggestions: group.suggestions.map(item => ({ title: item.name })),
+			}));
 		}
 		return this.props.titleMap.map(item => item.name);
 	}
