@@ -34,6 +34,10 @@ $td-quality-bar-hover-height: 1rem !default;
 			font-size: 1.2rem;
 			font-weight: 700;
 			color: $dark-silver;
+			flex-grow: 1;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 	}
 }
