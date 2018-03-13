@@ -14,6 +14,17 @@ function getDataType({ value }) {
 	return Array.isArray(value) ? 'array' : typeof value;
 }
 
+function getQuality({ value }) {
+	switch (value.quality) {
+		case -1:
+			return 'invalid';
+		case 0:
+			return 'empty';
+		default:
+			return 'valid';
+	}
+}
+
 function getValue({ value }) {
 	return value;
 }
@@ -40,6 +51,7 @@ export default function Record(props) {
 			getFields={getFields}
 			getDataType={getDataType}
 			getIcon={getIcon}
+			getQuality={getQuality}
 			getValue={getValue}
 		/>
 	);

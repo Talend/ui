@@ -29,6 +29,10 @@ function defaultGetFields(data, type) {
 	return data;
 }
 
+function defaultGetQuality() {
+	return null;
+}
+
 function defaultGetValue(value) {
 	return value;
 }
@@ -40,9 +44,12 @@ function defaultGetIcon({ isOpened }) {
 	return { name, transform };
 }
 
-function DefaultValueItem({ dataKey, formatValue, getValue, style, value }) {
+function DefaultValueItem(props) {
+	const { dataKey, formatValue, getQuality, getValue, style, value } = props;
+	const quality = getQuality(props);
 	return (
 		<span className={theme.title} style={style}>
+			{quality === 'invalid' && <div className={classNames(theme['invalid-value'], 'tc-object-viewer-invalid-value')} />}
 			<span className={theme.key}>{dataKey}</span>:
 			<span className={theme.value}>{formatValue(getValue(value))}</span>
 		</span>
@@ -50,12 +57,14 @@ function DefaultValueItem({ dataKey, formatValue, getValue, style, value }) {
 }
 DefaultValueItem.defaultProps = {
 	formatValue: defaultFormatValue,
+	getQuality: defaultGetQuality,
 	getValue: defaultGetValue,
 	value: '',
 };
 DefaultValueItem.propTypes = {
 	dataKey: PropTypes.string,
 	formatValue: PropTypes.func,
+	getQuality: PropTypes.func,
 	getValue: PropTypes.func,
 	style: PropTypes.object,
 	value: PropTypes.any,
@@ -66,6 +75,7 @@ function DefaultItem(props) {
 		data,
 		fields,
 		getIcon,
+		getQuality,
 		isOpened,
 		jsonpath,
 		dataKey,
@@ -83,6 +93,11 @@ function DefaultItem(props) {
 					{fields.length}
 				</sup>
 			</span>
+		);
+	}
+	if (!isOpened && getQuality(props) === 'invalid') {
+		content.push(
+			<div key={'quality'} className={classNames(theme['invalid-dot'], 'tc-object-viewer-invalid-dot')} />
 		);
 	}
 
@@ -123,12 +138,14 @@ function DefaultItem(props) {
 }
 DefaultItem.defaultProps = {
 	getIcon: defaultGetIcon,
+	getQuality: defaultGetQuality,
 	fields: [],
 };
 DefaultItem.propTypes = {
 	data: PropTypes.any,
 	fields: PropTypes.array,
 	getIcon: PropTypes.func,
+	getQuality: PropTypes.func,
 	isOpened: PropTypes.bool,
 	jsonpath: PropTypes.string,
 	dataKey: PropTypes.oneOfType(PropTypes.string, PropTypes.number),

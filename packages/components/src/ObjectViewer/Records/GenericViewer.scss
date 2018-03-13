@@ -84,3 +84,19 @@
 	margin-left: 10px;
 	vertical-align: text-bottom;
 }
+
+.invalid-value {
+	height: 20px;
+	width: 3px;
+	background: $lightning-yellow;
+	position: absolute;
+	margin-left: -25px;
+}
+
+.invalid-dot {
+	height: 5px;
+	width: 5px;
+	background-color: #f3c446;
+	border-radius: 50%;
+	margin: 0 10px;
+}
