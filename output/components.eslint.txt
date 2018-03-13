@@ -8,15 +8,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
-/home/travis/build/Talend/ui/packages/components/src/Datalist/Datalist.component.js
-  144:42  error  'item' is already declared in the upper scope                 no-shadow
-  171:17  error  Expected 'this' to be used by class method 'buildGroupItems'  class-methods-use-this
-  173:33  error  Unexpected block statement surrounding arrow body             arrow-body-style
-  201:34  error  Unexpected block statement surrounding arrow body             arrow-body-style
-
-/home/travis/build/Talend/ui/packages/components/src/Datalist/Datalist.component.test.js
-  55:5  error  Value must be omitted for boolean attributes  react/jsx-boolean-value
-
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
@@ -38,5 +29,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 16 problems (15 errors, 1 warning)
+✖ 11 problems (10 errors, 1 warning)
 
