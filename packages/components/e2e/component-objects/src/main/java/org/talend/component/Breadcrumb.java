@@ -37,6 +37,16 @@ public class Breadcrumb extends Component {
         super(driver, NAME, SELECTOR);
     }
 
+    /**
+     * Breadcrumb constructor
+     *
+     * @param driver Selenium WebDriver
+     * @param id Unique ID of the component
+     */
+    public Breadcrumb(WebDriver driver, String id) {
+        super(driver, NAME, id + SELECTOR);
+    }
+
     public List<WebElement> getItems() {
         LOGGER.debug(NAME + ".getItems");
         return this.getElement().findElements(By.cssSelector(ITEM_SELECTOR));
