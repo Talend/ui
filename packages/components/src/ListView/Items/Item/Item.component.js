@@ -41,7 +41,7 @@ function Item(props) {
 							type="checkbox"
 							checked={item.checked}
 							onChange={event =>
-								(parentItem ? item.onChange(event, item, parentItem) : item.onChange(event, item))
+								parentItem ? item.onChange(event, item, parentItem) : item.onChange(event, item)
 							}
 						/>
 						<span className={itemLabelClasses()}>
