@@ -25,7 +25,11 @@ function Item(props) {
 	}
 
 	const itemId = id && `checkbox-${id}`;
-	const itemSelector = classNames('checkbox', { 'switch-nested': props.children }, { 'switch': isSwitchBox });
+	const itemSelector = classNames(
+		'checkbox',
+		{ 'switch-nested': props.children },
+		{ switch: isSwitchBox },
+	);
 
 	return (
 		<div id={id}>
@@ -36,27 +40,23 @@ function Item(props) {
 							id={itemId}
 							type="checkbox"
 							checked={item.checked}
-							onChange={event => (parentItem ? item.onChange(event, item, parentItem) : item.onChange(event, item))}
+							onChange={event =>
+								(parentItem ? item.onChange(event, item, parentItem) : item.onChange(event, item))
+							}
 						/>
 						<span className={itemLabelClasses()}>
 							{searchCriteria ? getSearchedLabel(item.label) : item.label}
 						</span>
 					</label>
-					{ props.children && (
+					{props.children && (
 						<div className={classNames('checkbox-nested-expand', { expanded: item.expanded })}>
-							<Button
-								bsStyle="link"
-								onClick={event => item.onExpandToggle(event, item)}
-							>
+							<Button bsStyle="link" onClick={event => item.onExpandToggle(event, item)}>
 								<Icon name="talend-caret-down" />
 							</Button>
 						</div>
 					)}
-					{ props.children && item.expanded && (
-						<div className="checkbox-nested">
-							{props.children}
-						</div>
-					)}
+					{props.children &&
+						item.expanded && <div className="checkbox-nested">{props.children}</div>}
 				</div>
 			</div>
 		</div>
