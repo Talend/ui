@@ -16,11 +16,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   76:56  error  'properties' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/ListView/Items/Item/Item.component.js
-   5:24  error  Absolute imports should come before relative imports           import/imports-first
   43:18  error  Arrow function used ambiguously with a conditional expression  no-confusing-arrow
-
-/home/travis/build/Talend/ui/packages/components/src/ListView/Items/Items.component.js
-  128:37  error  'index' is already declared in the upper scope  no-shadow
 
 /home/travis/build/Talend/ui/packages/components/src/ObjectViewer/JSONLike/JSONLike.component.js
   21:1  error  Line 21 exceeds the maximum line length of 100                                       max-len
@@ -36,5 +32,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 14 problems (13 errors, 1 warning)
+✖ 12 problems (11 errors, 1 warning)
 
