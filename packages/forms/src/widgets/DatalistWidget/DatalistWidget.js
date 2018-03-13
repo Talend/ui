@@ -81,7 +81,7 @@ function getSectionItems(section) {
 class DatalistWidget extends React.Component {
 	static itemContainerStyle = theme['items-container'];
 	static noResultStyle = theme['no-result'];
-	static emptyStyle = theme['empty'];
+	static emptyStyle = theme.empty;
 
 	constructor(props) {
 		super(props);
