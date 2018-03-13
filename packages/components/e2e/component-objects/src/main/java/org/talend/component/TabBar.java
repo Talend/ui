@@ -35,6 +35,17 @@ public class TabBar extends Component {
     }
 
     /**
+     * TabBar constructor
+     *
+     * @param driver Selenium WebDriver
+     * @param id Unique ID of the component
+     */
+    TabBar(WebDriver driver, String id) {
+        super(driver, NAME, id + SELECTOR);
+    }
+
+
+    /**
      * Get tab item from its label
      *
      * @param label item tab label
