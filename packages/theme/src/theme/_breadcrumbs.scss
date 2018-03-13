@@ -18,7 +18,6 @@ $breadcrumb-li-margin-right: $padding-normal + 7px;
 	> li {
 		align-items: center;
 		display: flex;
-		min-width: 46px;
 		position: relative;
 		margin-right: $breadcrumb-li-margin-right;
 
@@ -89,7 +88,6 @@ $breadcrumb-li-margin-right: $padding-normal + 7px;
 		&.active,
 		&:visited {
 			background-color: tint($black, 97);
-			outline: none;
 			text-decoration: none;
 		}
 	}
