@@ -49,7 +49,8 @@ class QualityCircle extends React.Component {
 				buttonRef={button => { this.button = button; }}
 				display={'small'}
 				hideLabel
-				label={`${model[0].percentage} %`}
+				aria-label={`Open menu for ${type} values (${model[0].percentage} %)`}
+				label={`${type} (${model[0].percentage} %)`}
 				model={model}
 				onClick={onClick && (event => onClick(event, { item, jsonpath, type }))}
 				overlayComponent={

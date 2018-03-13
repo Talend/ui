@@ -553,7 +553,7 @@ stories
 				menu={modelItemMenu}
 				onSelect={action('onSelect')}
 				onToggle={action('onToggle')}
-				opened={['[3]', '[3][3]']}
+				opened={['$[\'ingredients\']', '$[\'ingredients\'][\'nested\']']}
 				quality={{
 					key: '@talend-quality@',
 					menu: qualityMenu,

@@ -64,7 +64,7 @@ function Icon({ className, name, title, transform, onClick }) {
 		return (
 			// eslint doesn't recognizes the xlinkHref mention
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-			<button onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
+			<button onClick={onClick} className={classnames('tc-svg-anchor', theme.link)} title={title}>
 				<svg className={classname} {...accessibility}>
 					<use xlinkHref={`#${name}`} />
 				</svg>

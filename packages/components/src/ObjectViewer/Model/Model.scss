@@ -41,7 +41,7 @@
 			.menu {
 				position: absolute;
 				top: 0;
-				right: 0;
+				right: $padding-larger;
 				display: flex;
 
 				.menu-trigger {

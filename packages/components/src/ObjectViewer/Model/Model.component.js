@@ -19,6 +19,7 @@ function Caret({ data, jsonpath, onToggle, isOpened }) {
 
 	return (
 		<Icon
+			title={isOpened ? `Collapse ${jsonpath}` : `Expand ${jsonpath}`}
 			name={iconName}
 			transform={iconTransform}
 			className={theme.caret}
@@ -60,6 +61,7 @@ class ModelMenus extends React.Component {
 				{
 					menu &&
 					<Action
+						aria-label={'Open menu'}
 						buttonRef={button => { this.button = button; }}
 						className={theme['menu-trigger']}
 						link
@@ -97,7 +99,7 @@ function Item(props) {
 	const onClick = onSelect && (event => onSelect(event, jsonpath, item));
 
 	const caretSpaceAdjustment = Math.max(marginLeft * level, 0);
-	const levelSpaceAdjustment = Math.max(paddingLeft * (level - 1), 0);
+	const levelSpaceAdjustment = Math.max(paddingLeft * level, paddingLeft);
 	const spaceAdjustment = { paddingLeft: caretSpaceAdjustment + levelSpaceAdjustment };
 
 	return (
@@ -111,7 +113,7 @@ function Item(props) {
 						onToggle={onToggle}
 					/>
 				}
-				<button onClick={onClick} className={theme.main}>
+				<button onClick={onClick} className={theme.main} aria-label={`Select ${item.name} (${jsonpath})`}>
 					{item.doc}
 					{type && <span className={theme.type}>({type})</span>}
 				</button>
@@ -125,7 +127,7 @@ function Item(props) {
 							<Item
 								key={index}
 								{...props}
-								jsonpath={getJSONPath(index, jsonpath, 'array')}
+								jsonpath={getJSONPath(field.name, jsonpath, 'object')}
 								item={field}
 								level={level + 1}
 							/>
@@ -151,7 +153,7 @@ export default function Model({ className, style, ...props }) {
 			{
 				props.data &&
 				props.data.map((item, index) =>
-					<Item key={index} {...props} jsonpath={getJSONPath(index, '', 'array')} item={item} level={0} />
+					<Item key={index} {...props} jsonpath={getJSONPath(item.name, '$', 'object')} item={item} level={0} />
 				)
 			}
 		</ul>
