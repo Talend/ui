@@ -28,7 +28,7 @@ const BLACK_LISTED_ATTR = [
 	'propTypes', // already set by HOC
 ];
 
-function filterAttr(attr) {
+function isNotBlackListedAttr(attr) {
 	return !BLACK_LISTED_ATTR.includes(attr);
 }
 
@@ -45,7 +45,7 @@ export default function wrap(Component, key) {
 		);
 	};
 	Object.keys(Component)
-		.filter(filterAttr)
+		.filter(isNotBlackListedAttr)
 		.forEach(attr => {
 			Wrapper[attr] = Component[attr];
 		});
