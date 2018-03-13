@@ -112,7 +112,6 @@
 /// @access public
 /// @content Background image
 @mixin app-icon {
-
 	&[data-app-icon='tdc']:before {
 		background-image: $tdc-logo-colored;
 	}

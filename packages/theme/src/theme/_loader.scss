@@ -40,7 +40,7 @@ $tmc-logo-colored: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy
 	&:before,
 	&:after,
 	div:before,
-	div:after  {
+	div:after {
 		@include tc-animation(app-loader-spin, 1.2s, cubic-bezier(0.5, 0, 0.5, 1), infinite);
 		box-sizing: border-box;
 		content: '';
@@ -62,5 +62,4 @@ $tmc-logo-colored: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy
 	div:before {
 		animation-delay: -0.15s;
 	}
-
 }
