@@ -43,7 +43,14 @@ class Items extends React.PureComponent {
 		if (this.hasToggleAll && index === 0) {
 			return 40;
 		}
-		return this.props.getItemHeight();
+
+		let extraHeight = 0;
+		const currentItem = this.props.items[index - Number(this.hasToggleAll)];
+		if (currentItem && currentItem.children && currentItem.expanded) {
+			extraHeight = currentItem.children.length * this.props.getItemHeight();
+		}
+
+		return this.props.getItemHeight() + extraHeight;
 	}
 
 	getRowCount() {
@@ -56,8 +63,9 @@ class Items extends React.PureComponent {
 	rowRenderer(props) {
 		const { key, index, style } = props;
 		const isToggle = this.hasToggleAll && index === 0;
+		const currentItem = this.props.items[index - Number(this.hasToggleAll)];
 		return (
-			<div className={itemContainer(isToggle && 'toggle')} key={key} style={style}>
+			<div className={classNames(itemContainer(isToggle && 'toggle'), { expanded: currentItem && currentItem.expanded })} key={key} style={style}>
 				{this.renderToggleAllOrItem(index)}
 			</div>
 		);
@@ -107,9 +115,18 @@ class Items extends React.PureComponent {
 				key={computedId}
 				id={computedId}
 				item={item}
-				isSwitchBox={this.props.isSwitchBox}
+				isSwitchBox={this.props.isSwitchBox && !item.children}
 				searchCriteria={this.props.searchCriteria}
-			/>
+			>
+				{ item.children && item.children.map((nestedItem, index) => (
+					<Item
+						key={index}
+						item={nestedItem}
+						parentItem={item}
+						searchCriteria={this.props.searchCriteria}
+					/>
+				)) }
+			</Item>
 		);
 	}
 

@@ -3894,6 +3894,3947 @@ exports[`Items should render 1`] = `
 </Translate(Items)>
 `;
 
+exports[`Items should render with nested items 1`] = `
+<Translate(Items)
+  getItemHeight={[Function]}
+  items={
+    Array [
+      Object {
+        "label": "Lorem ipsum dolor default",
+      },
+      Object {
+        "checked": true,
+        "children": Array [
+          Object {
+            "label": "Lorem ipsum dolor sit amet 0",
+          },
+          Object {
+            "checked": true,
+            "label": "Lorem ipsum dolor sit amet 1",
+          },
+          Object {
+            "label": "Lorem ipsum dolor sit amet 2",
+          },
+        ],
+        "label": "Lorem ipsum dolor Parent",
+      },
+    ]
+  }
+>
+  <Items
+    getItemHeight={[Function]}
+    i18n={
+      I18n {
+        "addResource": [Function],
+        "addResourceBundle": [Function],
+        "addResources": [Function],
+        "format": [Function],
+        "getResource": [Function],
+        "getResourceBundle": [Function],
+        "hasResourceBundle": [Function],
+        "logger": Logger {
+          "debug": false,
+          "logger": Object {
+            "error": [Function],
+            "log": [Function],
+            "output": [Function],
+            "type": "logger",
+            "warn": [Function],
+          },
+          "options": Object {
+            "appendNamespaceToCIMode": false,
+            "appendNamespaceToMissingKey": false,
+            "contextSeparator": "_",
+            "debug": false,
+            "defaultNS": Array [
+              "translation",
+            ],
+            "fallbackLng": Array [
+              "dev",
+            ],
+            "fallbackNS": false,
+            "initImmediate": true,
+            "interpolation": Object {
+              "escapeValue": true,
+              "format": [Function],
+              "formatSeparator": ",",
+              "maxReplaces": 1000,
+              "nestingPrefix": "$t(",
+              "nestingSuffix": ")",
+              "prefix": "{{",
+              "suffix": "}}",
+              "unescapePrefix": "-",
+            },
+            "joinArrays": false,
+            "keySeparator": ".",
+            "load": "all",
+            "missingKeyHandler": false,
+            "nonExplicitWhitelist": false,
+            "ns": Array [
+              "translation",
+              "tui-components",
+            ],
+            "nsSeparator": ":",
+            "overloadTranslationOptionHandler": [Function],
+            "parseMissingKeyHandler": false,
+            "pluralSeparator": "_",
+            "postProcess": false,
+            "preload": false,
+            "returnEmptyString": true,
+            "returnNull": true,
+            "returnObjects": false,
+            "returnedObjectHandler": [Function],
+            "saveMissing": false,
+            "saveMissingTo": "fallback",
+            "simplifyPluralSuffix": true,
+            "whitelist": false,
+          },
+          "prefix": "i18next:",
+        },
+        "modules": Object {
+          "external": Array [],
+        },
+        "observers": Object {
+          "initialized": Array [
+            [Function],
+            [Function],
+            [Function],
+            [Function],
+          ],
+          "languageChanged": Array [
+            [Function],
+            [Function],
+            [Function],
+            [Function],
+          ],
+          "loaded": Array [
+            [Function],
+            [Function],
+            [Function],
+            [Function],
+          ],
+        },
+        "options": Object {
+          "appendNamespaceToCIMode": false,
+          "appendNamespaceToMissingKey": false,
+          "contextSeparator": "_",
+          "debug": false,
+          "defaultNS": Array [
+            "translation",
+          ],
+          "fallbackLng": Array [
+            "dev",
+          ],
+          "fallbackNS": false,
+          "initImmediate": true,
+          "interpolation": Object {
+            "escapeValue": true,
+            "format": [Function],
+            "formatSeparator": ",",
+            "maxReplaces": 1000,
+            "nestingPrefix": "$t(",
+            "nestingSuffix": ")",
+            "prefix": "{{",
+            "suffix": "}}",
+            "unescapePrefix": "-",
+          },
+          "joinArrays": false,
+          "keySeparator": ".",
+          "load": "all",
+          "missingKeyHandler": false,
+          "nonExplicitWhitelist": false,
+          "ns": Array [
+            "translation",
+            "tui-components",
+          ],
+          "nsSeparator": ":",
+          "overloadTranslationOptionHandler": [Function],
+          "parseMissingKeyHandler": false,
+          "pluralSeparator": "_",
+          "postProcess": false,
+          "preload": false,
+          "returnEmptyString": true,
+          "returnNull": true,
+          "returnObjects": false,
+          "returnedObjectHandler": [Function],
+          "saveMissing": false,
+          "saveMissingTo": "fallback",
+          "simplifyPluralSuffix": true,
+          "whitelist": false,
+        },
+        "removeResourceBundle": [Function],
+        "services": Object {
+          "backendConnector": Connector {
+            "backend": null,
+            "languageUtils": LanguageUtil {
+              "logger": Logger {
+                "debug": false,
+                "logger": Object {
+                  "error": [Function],
+                  "log": [Function],
+                  "output": [Function],
+                  "type": "logger",
+                  "warn": [Function],
+                },
+                "options": Object {
+                  "appendNamespaceToCIMode": false,
+                  "appendNamespaceToMissingKey": false,
+                  "contextSeparator": "_",
+                  "debug": false,
+                  "defaultNS": Array [
+                    "translation",
+                  ],
+                  "fallbackLng": Array [
+                    "dev",
+                  ],
+                  "fallbackNS": false,
+                  "initImmediate": true,
+                  "interpolation": Object {
+                    "escapeValue": true,
+                    "format": [Function],
+                    "formatSeparator": ",",
+                    "maxReplaces": 1000,
+                    "nestingPrefix": "$t(",
+                    "nestingSuffix": ")",
+                    "prefix": "{{",
+                    "suffix": "}}",
+                    "unescapePrefix": "-",
+                  },
+                  "joinArrays": false,
+                  "keySeparator": ".",
+                  "load": "all",
+                  "missingKeyHandler": false,
+                  "nonExplicitWhitelist": false,
+                  "ns": Array [
+                    "translation",
+                    "tui-components",
+                  ],
+                  "nsSeparator": ":",
+                  "overloadTranslationOptionHandler": [Function],
+                  "parseMissingKeyHandler": false,
+                  "pluralSeparator": "_",
+                  "postProcess": false,
+                  "prefix": "i18next::languageUtils:",
+                  "preload": false,
+                  "returnEmptyString": true,
+                  "returnNull": true,
+                  "returnObjects": false,
+                  "returnedObjectHandler": [Function],
+                  "saveMissing": false,
+                  "saveMissingTo": "fallback",
+                  "simplifyPluralSuffix": true,
+                  "whitelist": false,
+                },
+                "prefix": "i18next::languageUtils:",
+              },
+              "options": Object {
+                "appendNamespaceToCIMode": false,
+                "appendNamespaceToMissingKey": false,
+                "contextSeparator": "_",
+                "debug": false,
+                "defaultNS": Array [
+                  "translation",
+                ],
+                "fallbackLng": Array [
+                  "dev",
+                ],
+                "fallbackNS": false,
+                "initImmediate": true,
+                "interpolation": Object {
+                  "escapeValue": true,
+                  "format": [Function],
+                  "formatSeparator": ",",
+                  "maxReplaces": 1000,
+                  "nestingPrefix": "$t(",
+                  "nestingSuffix": ")",
+                  "prefix": "{{",
+                  "suffix": "}}",
+                  "unescapePrefix": "-",
+                },
+                "joinArrays": false,
+                "keySeparator": ".",
+                "load": "all",
+                "missingKeyHandler": false,
+                "nonExplicitWhitelist": false,
+                "ns": Array [
+                  "translation",
+                  "tui-components",
+                ],
+                "nsSeparator": ":",
+                "overloadTranslationOptionHandler": [Function],
+                "parseMissingKeyHandler": false,
+                "pluralSeparator": "_",
+                "postProcess": false,
+                "preload": false,
+                "returnEmptyString": true,
+                "returnNull": true,
+                "returnObjects": false,
+                "returnedObjectHandler": [Function],
+                "saveMissing": false,
+                "saveMissingTo": "fallback",
+                "simplifyPluralSuffix": true,
+                "whitelist": false,
+              },
+              "whitelist": false,
+            },
+            "logger": Logger {
+              "debug": false,
+              "logger": Object {
+                "error": [Function],
+                "log": [Function],
+                "output": [Function],
+                "type": "logger",
+                "warn": [Function],
+              },
+              "options": Object {
+                "appendNamespaceToCIMode": false,
+                "appendNamespaceToMissingKey": false,
+                "contextSeparator": "_",
+                "debug": false,
+                "defaultNS": Array [
+                  "translation",
+                ],
+                "fallbackLng": Array [
+                  "dev",
+                ],
+                "fallbackNS": false,
+                "initImmediate": true,
+                "interpolation": Object {
+                  "escapeValue": true,
+                  "format": [Function],
+                  "formatSeparator": ",",
+                  "maxReplaces": 1000,
+                  "nestingPrefix": "$t(",
+                  "nestingSuffix": ")",
+                  "prefix": "{{",
+                  "suffix": "}}",
+                  "unescapePrefix": "-",
+                },
+                "joinArrays": false,
+                "keySeparator": ".",
+                "load": "all",
+                "missingKeyHandler": false,
+                "nonExplicitWhitelist": false,
+                "ns": Array [
+                  "translation",
+                  "tui-components",
+                ],
+                "nsSeparator": ":",
+                "overloadTranslationOptionHandler": [Function],
+                "parseMissingKeyHandler": false,
+                "pluralSeparator": "_",
+                "postProcess": false,
+                "prefix": "i18next::backendConnector:",
+                "preload": false,
+                "returnEmptyString": true,
+                "returnNull": true,
+                "returnObjects": false,
+                "returnedObjectHandler": [Function],
+                "saveMissing": false,
+                "saveMissingTo": "fallback",
+                "simplifyPluralSuffix": true,
+                "whitelist": false,
+              },
+              "prefix": "i18next::backendConnector:",
+            },
+            "observers": Object {
+              "*": Array [
+                [Function],
+              ],
+              "loaded": Array [
+                [Function],
+              ],
+            },
+            "options": Object {
+              "appendNamespaceToCIMode": false,
+              "appendNamespaceToMissingKey": false,
+              "contextSeparator": "_",
+              "debug": false,
+              "defaultNS": Array [
+                "translation",
+              ],
+              "fallbackLng": Array [
+                "dev",
+              ],
+              "fallbackNS": false,
+              "initImmediate": true,
+              "interpolation": Object {
+                "escapeValue": true,
+                "format": [Function],
+                "formatSeparator": ",",
+                "maxReplaces": 1000,
+                "nestingPrefix": "$t(",
+                "nestingSuffix": ")",
+                "prefix": "{{",
+                "suffix": "}}",
+                "unescapePrefix": "-",
+              },
+              "joinArrays": false,
+              "keySeparator": ".",
+              "load": "all",
+              "missingKeyHandler": false,
+              "nonExplicitWhitelist": false,
+              "ns": Array [
+                "translation",
+                "tui-components",
+              ],
+              "nsSeparator": ":",
+              "overloadTranslationOptionHandler": [Function],
+              "parseMissingKeyHandler": false,
+              "pluralSeparator": "_",
+              "postProcess": false,
+              "preload": false,
+              "returnEmptyString": true,
+              "returnNull": true,
+              "returnObjects": false,
+              "returnedObjectHandler": [Function],
+              "saveMissing": false,
+              "saveMissingTo": "fallback",
+              "simplifyPluralSuffix": true,
+              "whitelist": false,
+            },
+            "queue": Array [],
+            "state": Object {},
+            "store": Object {},
+          },
+          "cacheConnector": Connector {
+            "cache": null,
+            "logger": Logger {
+              "debug": false,
+              "logger": Object {
+                "error": [Function],
+                "log": [Function],
+                "output": [Function],
+                "type": "logger",
+                "warn": [Function],
+              },
+              "options": Object {
+                "appendNamespaceToCIMode": false,
+                "appendNamespaceToMissingKey": false,
+                "contextSeparator": "_",
+                "debug": false,
+                "defaultNS": Array [
+                  "translation",
+                ],
+                "fallbackLng": Array [
+                  "dev",
+                ],
+                "fallbackNS": false,
+                "initImmediate": true,
+                "interpolation": Object {
+                  "escapeValue": true,
+                  "format": [Function],
+                  "formatSeparator": ",",
+                  "maxReplaces": 1000,
+                  "nestingPrefix": "$t(",
+                  "nestingSuffix": ")",
+                  "prefix": "{{",
+                  "suffix": "}}",
+                  "unescapePrefix": "-",
+                },
+                "joinArrays": false,
+                "keySeparator": ".",
+                "load": "all",
+                "missingKeyHandler": false,
+                "nonExplicitWhitelist": false,
+                "ns": Array [
+                  "translation",
+                  "tui-components",
+                ],
+                "nsSeparator": ":",
+                "overloadTranslationOptionHandler": [Function],
+                "parseMissingKeyHandler": false,
+                "pluralSeparator": "_",
+                "postProcess": false,
+                "prefix": "i18next::cacheConnector:",
+                "preload": false,
+                "returnEmptyString": true,
+                "returnNull": true,
+                "returnObjects": false,
+                "returnedObjectHandler": [Function],
+                "saveMissing": false,
+                "saveMissingTo": "fallback",
+                "simplifyPluralSuffix": true,
+                "whitelist": false,
+              },
+              "prefix": "i18next::cacheConnector:",
+            },
+            "observers": Object {
+              "*": Array [
+                [Function],
+              ],
+            },
+            "options": Object {
+              "appendNamespaceToCIMode": false,
+              "appendNamespaceToMissingKey": false,
+              "contextSeparator": "_",
+              "debug": false,
+              "defaultNS": Array [
+                "translation",
+              ],
+              "fallbackLng": Array [
+                "dev",
+              ],
+              "fallbackNS": false,
+              "initImmediate": true,
+              "interpolation": Object {
+                "escapeValue": true,
+                "format": [Function],
+                "formatSeparator": ",",
+                "maxReplaces": 1000,
+                "nestingPrefix": "$t(",
+                "nestingSuffix": ")",
+                "prefix": "{{",
+                "suffix": "}}",
+                "unescapePrefix": "-",
+              },
+              "joinArrays": false,
+              "keySeparator": ".",
+              "load": "all",
+              "missingKeyHandler": false,
+              "nonExplicitWhitelist": false,
+              "ns": Array [
+                "translation",
+                "tui-components",
+              ],
+              "nsSeparator": ":",
+              "overloadTranslationOptionHandler": [Function],
+              "parseMissingKeyHandler": false,
+              "pluralSeparator": "_",
+              "postProcess": false,
+              "preload": false,
+              "returnEmptyString": true,
+              "returnNull": true,
+              "returnObjects": false,
+              "returnedObjectHandler": [Function],
+              "saveMissing": false,
+              "saveMissingTo": "fallback",
+              "simplifyPluralSuffix": true,
+              "whitelist": false,
+            },
+            "services": [Circular],
+            "store": Object {},
+          },
+          "interpolator": Interpolator {
+            "escape": [Function],
+            "escapeValue": true,
+            "format": [Function],
+            "formatSeparator": ",",
+            "logger": Logger {
+              "debug": false,
+              "logger": Object {
+                "error": [Function],
+                "log": [Function],
+                "output": [Function],
+                "type": "logger",
+                "warn": [Function],
+              },
+              "options": Object {
+                "appendNamespaceToCIMode": false,
+                "appendNamespaceToMissingKey": false,
+                "contextSeparator": "_",
+                "debug": false,
+                "defaultNS": Array [
+                  "translation",
+                ],
+                "fallbackLng": Array [
+                  "dev",
+                ],
+                "fallbackNS": false,
+                "initImmediate": true,
+                "interpolation": Object {
+                  "escapeValue": true,
+                  "format": [Function],
+                  "formatSeparator": ",",
+                  "maxReplaces": 1000,
+                  "nestingPrefix": "$t(",
+                  "nestingSuffix": ")",
+                  "prefix": "{{",
+                  "suffix": "}}",
+                  "unescapePrefix": "-",
+                },
+                "joinArrays": false,
+                "keySeparator": ".",
+                "load": "all",
+                "missingKeyHandler": false,
+                "nonExplicitWhitelist": false,
+                "ns": Array [
+                  "translation",
+                  "tui-components",
+                ],
+                "nsSeparator": ":",
+                "overloadTranslationOptionHandler": [Function],
+                "parseMissingKeyHandler": false,
+                "pluralSeparator": "_",
+                "postProcess": false,
+                "prefix": "i18next::interpolator:",
+                "preload": false,
+                "returnEmptyString": true,
+                "returnNull": true,
+                "returnObjects": false,
+                "returnedObjectHandler": [Function],
+                "saveMissing": false,
+                "saveMissingTo": "fallback",
+                "simplifyPluralSuffix": true,
+                "whitelist": false,
+              },
+              "prefix": "i18next::interpolator:",
+            },
+            "maxReplaces": 1000,
+            "nestingPrefix": "\\\\$t\\\\(",
+            "nestingRegexp": /\\\\\\$t\\\\\\(\\(\\.\\+\\?\\)\\\\\\)/g,
+            "nestingSuffix": "\\\\)",
+            "options": Object {
+              "appendNamespaceToCIMode": false,
+              "appendNamespaceToMissingKey": false,
+              "contextSeparator": "_",
+              "debug": false,
+              "defaultNS": Array [
+                "translation",
+              ],
+              "fallbackLng": Array [
+                "dev",
+              ],
+              "fallbackNS": false,
+              "initImmediate": true,
+              "interpolation": Object {
+                "escapeValue": true,
+                "format": [Function],
+                "formatSeparator": ",",
+                "maxReplaces": 1000,
+                "nestingPrefix": "$t(",
+                "nestingSuffix": ")",
+                "prefix": "{{",
+                "suffix": "}}",
+                "unescapePrefix": "-",
+              },
+              "joinArrays": false,
+              "keySeparator": ".",
+              "load": "all",
+              "missingKeyHandler": false,
+              "nonExplicitWhitelist": false,
+              "ns": Array [
+                "translation",
+                "tui-components",
+              ],
+              "nsSeparator": ":",
+              "overloadTranslationOptionHandler": [Function],
+              "parseMissingKeyHandler": false,
+              "pluralSeparator": "_",
+              "postProcess": false,
+              "preload": false,
+              "returnEmptyString": true,
+              "returnNull": true,
+              "returnObjects": false,
+              "returnedObjectHandler": [Function],
+              "saveMissing": false,
+              "saveMissingTo": "fallback",
+              "simplifyPluralSuffix": true,
+              "whitelist": false,
+            },
+            "prefix": "\\\\{\\\\{",
+            "regexp": /\\\\\\{\\\\\\{\\(\\.\\+\\?\\)\\\\\\}\\\\\\}/g,
+            "regexpUnescape": /\\\\\\{\\\\\\{-\\(\\.\\+\\?\\)\\\\\\}\\\\\\}/g,
+            "suffix": "\\\\}\\\\}",
+            "unescapePrefix": "-",
+            "unescapeSuffix": "",
+          },
+          "languageUtils": LanguageUtil {
+            "logger": Logger {
+              "debug": false,
+              "logger": Object {
+                "error": [Function],
+                "log": [Function],
+                "output": [Function],
+                "type": "logger",
+                "warn": [Function],
+              },
+              "options": Object {
+                "appendNamespaceToCIMode": false,
+                "appendNamespaceToMissingKey": false,
+                "contextSeparator": "_",
+                "debug": false,
+                "defaultNS": Array [
+                  "translation",
+                ],
+                "fallbackLng": Array [
+                  "dev",
+                ],
+                "fallbackNS": false,
+                "initImmediate": true,
+                "interpolation": Object {
+                  "escapeValue": true,
+                  "format": [Function],
+                  "formatSeparator": ",",
+                  "maxReplaces": 1000,
+                  "nestingPrefix": "$t(",
+                  "nestingSuffix": ")",
+                  "prefix": "{{",
+                  "suffix": "}}",
+                  "unescapePrefix": "-",
+                },
+                "joinArrays": false,
+                "keySeparator": ".",
+                "load": "all",
+                "missingKeyHandler": false,
+                "nonExplicitWhitelist": false,
+                "ns": Array [
+                  "translation",
+                  "tui-components",
+                ],
+                "nsSeparator": ":",
+                "overloadTranslationOptionHandler": [Function],
+                "parseMissingKeyHandler": false,
+                "pluralSeparator": "_",
+                "postProcess": false,
+                "prefix": "i18next::languageUtils:",
+                "preload": false,
+                "returnEmptyString": true,
+                "returnNull": true,
+                "returnObjects": false,
+                "returnedObjectHandler": [Function],
+                "saveMissing": false,
+                "saveMissingTo": "fallback",
+                "simplifyPluralSuffix": true,
+                "whitelist": false,
+              },
+              "prefix": "i18next::languageUtils:",
+            },
+            "options": Object {
+              "appendNamespaceToCIMode": false,
+              "appendNamespaceToMissingKey": false,
+              "contextSeparator": "_",
+              "debug": false,
+              "defaultNS": Array [
+                "translation",
+              ],
+              "fallbackLng": Array [
+                "dev",
+              ],
+              "fallbackNS": false,
+              "initImmediate": true,
+              "interpolation": Object {
+                "escapeValue": true,
+                "format": [Function],
+                "formatSeparator": ",",
+                "maxReplaces": 1000,
+                "nestingPrefix": "$t(",
+                "nestingSuffix": ")",
+                "prefix": "{{",
+                "suffix": "}}",
+                "unescapePrefix": "-",
+              },
+              "joinArrays": false,
+              "keySeparator": ".",
+              "load": "all",
+              "missingKeyHandler": false,
+              "nonExplicitWhitelist": false,
+              "ns": Array [
+                "translation",
+                "tui-components",
+              ],
+              "nsSeparator": ":",
+              "overloadTranslationOptionHandler": [Function],
+              "parseMissingKeyHandler": false,
+              "pluralSeparator": "_",
+              "postProcess": false,
+              "preload": false,
+              "returnEmptyString": true,
+              "returnNull": true,
+              "returnObjects": false,
+              "returnedObjectHandler": [Function],
+              "saveMissing": false,
+              "saveMissingTo": "fallback",
+              "simplifyPluralSuffix": true,
+              "whitelist": false,
+            },
+            "whitelist": false,
+          },
+          "logger": Logger {
+            "debug": false,
+            "logger": Object {
+              "error": [Function],
+              "log": [Function],
+              "output": [Function],
+              "type": "logger",
+              "warn": [Function],
+            },
+            "options": Object {
+              "appendNamespaceToCIMode": false,
+              "appendNamespaceToMissingKey": false,
+              "contextSeparator": "_",
+              "debug": false,
+              "defaultNS": Array [
+                "translation",
+              ],
+              "fallbackLng": Array [
+                "dev",
+              ],
+              "fallbackNS": false,
+              "initImmediate": true,
+              "interpolation": Object {
+                "escapeValue": true,
+                "format": [Function],
+                "formatSeparator": ",",
+                "maxReplaces": 1000,
+                "nestingPrefix": "$t(",
+                "nestingSuffix": ")",
+                "prefix": "{{",
+                "suffix": "}}",
+                "unescapePrefix": "-",
+              },
+              "joinArrays": false,
+              "keySeparator": ".",
+              "load": "all",
+              "missingKeyHandler": false,
+              "nonExplicitWhitelist": false,
+              "ns": Array [
+                "translation",
+                "tui-components",
+              ],
+              "nsSeparator": ":",
+              "overloadTranslationOptionHandler": [Function],
+              "parseMissingKeyHandler": false,
+              "pluralSeparator": "_",
+              "postProcess": false,
+              "preload": false,
+              "returnEmptyString": true,
+              "returnNull": true,
+              "returnObjects": false,
+              "returnedObjectHandler": [Function],
+              "saveMissing": false,
+              "saveMissingTo": "fallback",
+              "simplifyPluralSuffix": true,
+              "whitelist": false,
+            },
+            "prefix": "i18next:",
+          },
+          "pluralResolver": PluralResolver {
+            "languageUtils": LanguageUtil {
+              "logger": Logger {
+                "debug": false,
+                "logger": Object {
+                  "error": [Function],
+                  "log": [Function],
+                  "output": [Function],
+                  "type": "logger",
+                  "warn": [Function],
+                },
+                "options": Object {
+                  "appendNamespaceToCIMode": false,
+                  "appendNamespaceToMissingKey": false,
+                  "contextSeparator": "_",
+                  "debug": false,
+                  "defaultNS": Array [
+                    "translation",
+                  ],
+                  "fallbackLng": Array [
+                    "dev",
+                  ],
+                  "fallbackNS": false,
+                  "initImmediate": true,
+                  "interpolation": Object {
+                    "escapeValue": true,
+                    "format": [Function],
+                    "formatSeparator": ",",
+                    "maxReplaces": 1000,
+                    "nestingPrefix": "$t(",
+                    "nestingSuffix": ")",
+                    "prefix": "{{",
+                    "suffix": "}}",
+                    "unescapePrefix": "-",
+                  },
+                  "joinArrays": false,
+                  "keySeparator": ".",
+                  "load": "all",
+                  "missingKeyHandler": false,
+                  "nonExplicitWhitelist": false,
+                  "ns": Array [
+                    "translation",
+                    "tui-components",
+                  ],
+                  "nsSeparator": ":",
+                  "overloadTranslationOptionHandler": [Function],
+                  "parseMissingKeyHandler": false,
+                  "pluralSeparator": "_",
+                  "postProcess": false,
+                  "prefix": "i18next::languageUtils:",
+                  "preload": false,
+                  "returnEmptyString": true,
+                  "returnNull": true,
+                  "returnObjects": false,
+                  "returnedObjectHandler": [Function],
+                  "saveMissing": false,
+                  "saveMissingTo": "fallback",
+                  "simplifyPluralSuffix": true,
+                  "whitelist": false,
+                },
+                "prefix": "i18next::languageUtils:",
+              },
+              "options": Object {
+                "appendNamespaceToCIMode": false,
+                "appendNamespaceToMissingKey": false,
+                "contextSeparator": "_",
+                "debug": false,
+                "defaultNS": Array [
+                  "translation",
+                ],
+                "fallbackLng": Array [
+                  "dev",
+                ],
+                "fallbackNS": false,
+                "initImmediate": true,
+                "interpolation": Object {
+                  "escapeValue": true,
+                  "format": [Function],
+                  "formatSeparator": ",",
+                  "maxReplaces": 1000,
+                  "nestingPrefix": "$t(",
+                  "nestingSuffix": ")",
+                  "prefix": "{{",
+                  "suffix": "}}",
+                  "unescapePrefix": "-",
+                },
+                "joinArrays": false,
+                "keySeparator": ".",
+                "load": "all",
+                "missingKeyHandler": false,
+                "nonExplicitWhitelist": false,
+                "ns": Array [
+                  "translation",
+                  "tui-components",
+                ],
+                "nsSeparator": ":",
+                "overloadTranslationOptionHandler": [Function],
+                "parseMissingKeyHandler": false,
+                "pluralSeparator": "_",
+                "postProcess": false,
+                "preload": false,
+                "returnEmptyString": true,
+                "returnNull": true,
+                "returnObjects": false,
+                "returnedObjectHandler": [Function],
+                "saveMissing": false,
+                "saveMissingTo": "fallback",
+                "simplifyPluralSuffix": true,
+                "whitelist": false,
+              },
+              "whitelist": false,
+            },
+            "logger": Logger {
+              "debug": false,
+              "logger": Object {
+                "error": [Function],
+                "log": [Function],
+                "output": [Function],
+                "type": "logger",
+                "warn": [Function],
+              },
+              "options": Object {
+                "appendNamespaceToCIMode": false,
+                "appendNamespaceToMissingKey": false,
+                "contextSeparator": "_",
+                "debug": false,
+                "defaultNS": Array [
+                  "translation",
+                ],
+                "fallbackLng": Array [
+                  "dev",
+                ],
+                "fallbackNS": false,
+                "initImmediate": true,
+                "interpolation": Object {
+                  "escapeValue": true,
+                  "format": [Function],
+                  "formatSeparator": ",",
+                  "maxReplaces": 1000,
+                  "nestingPrefix": "$t(",
+                  "nestingSuffix": ")",
+                  "prefix": "{{",
+                  "suffix": "}}",
+                  "unescapePrefix": "-",
+                },
+                "joinArrays": false,
+                "keySeparator": ".",
+                "load": "all",
+                "missingKeyHandler": false,
+                "nonExplicitWhitelist": false,
+                "ns": Array [
+                  "translation",
+                  "tui-components",
+                ],
+                "nsSeparator": ":",
+                "overloadTranslationOptionHandler": [Function],
+                "parseMissingKeyHandler": false,
+                "pluralSeparator": "_",
+                "postProcess": false,
+                "prefix": "i18next::pluralResolver:",
+                "preload": false,
+                "returnEmptyString": true,
+                "returnNull": true,
+                "returnObjects": false,
+                "returnedObjectHandler": [Function],
+                "saveMissing": false,
+                "saveMissingTo": "fallback",
+                "simplifyPluralSuffix": true,
+                "whitelist": false,
+              },
+              "prefix": "i18next::pluralResolver:",
+            },
+            "options": Object {
+              "compatibilityJSON": undefined,
+              "prepend": "_",
+              "simplifyPluralSuffix": true,
+            },
+            "rules": Object {
+              "ach": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "af": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ak": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "am": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "an": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ar": Object {
+                "numbers": Array [
+                  0,
+                  1,
+                  2,
+                  3,
+                  11,
+                  100,
+                ],
+                "plurals": [Function],
+              },
+              "arn": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ast": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ay": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "az": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "be": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "bg": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "bn": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "bo": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "br": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "bs": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "ca": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "cgg": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "cs": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "csb": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "cy": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  3,
+                  8,
+                ],
+                "plurals": [Function],
+              },
+              "da": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "de": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "dev": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "dz": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "el": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "en": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "eo": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "es": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "et": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "eu": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "fa": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "fi": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "fil": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "fo": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "fr": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "fur": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "fy": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ga": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  3,
+                  7,
+                  11,
+                ],
+                "plurals": [Function],
+              },
+              "gd": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  3,
+                  20,
+                ],
+                "plurals": [Function],
+              },
+              "gl": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "gu": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "gun": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ha": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "he": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "hi": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "hr": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "hu": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "hy": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ia": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "id": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "is": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "it": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ja": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "jbo": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "jv": Object {
+                "numbers": Array [
+                  0,
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "ka": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "kk": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "km": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "kn": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ko": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "ku": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "kw": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  3,
+                  4,
+                ],
+                "plurals": [Function],
+              },
+              "ky": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "lb": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ln": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "lo": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "lt": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  10,
+                ],
+                "plurals": [Function],
+              },
+              "lv": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  0,
+                ],
+                "plurals": [Function],
+              },
+              "mai": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mfe": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mg": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mi": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mk": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ml": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mn": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mnk": Object {
+                "numbers": Array [
+                  0,
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mr": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ms": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "mt": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  11,
+                  20,
+                ],
+                "plurals": [Function],
+              },
+              "nah": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "nap": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "nb": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ne": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "nl": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "nn": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "no": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "nso": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "oc": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "or": Object {
+                "numbers": Array [
+                  2,
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "pa": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "pap": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "pl": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "pms": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ps": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "pt": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "rm": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ro": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  20,
+                ],
+                "plurals": [Function],
+              },
+              "ru": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "sah": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "sco": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "se": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "si": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "sk": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "sl": Object {
+                "numbers": Array [
+                  5,
+                  1,
+                  2,
+                  3,
+                ],
+                "plurals": [Function],
+              },
+              "so": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "son": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "sq": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "sr": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "su": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "sv": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "sw": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ta": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "te": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "tg": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "th": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "ti": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "tk": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "tr": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "tt": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "ug": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "uk": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "ur": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "uz": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "vi": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "wa": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "wo": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "yo": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "zh": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+            },
+          },
+          "resourceStore": Object {},
+        },
+        "store": Object {},
+        "translator": Translator {
+          "backendConnector": Connector {
+            "backend": null,
+            "languageUtils": LanguageUtil {
+              "logger": Logger {
+                "debug": false,
+                "logger": Object {
+                  "error": [Function],
+                  "log": [Function],
+                  "output": [Function],
+                  "type": "logger",
+                  "warn": [Function],
+                },
+                "options": Object {
+                  "appendNamespaceToCIMode": false,
+                  "appendNamespaceToMissingKey": false,
+                  "contextSeparator": "_",
+                  "debug": false,
+                  "defaultNS": Array [
+                    "translation",
+                  ],
+                  "fallbackLng": Array [
+                    "dev",
+                  ],
+                  "fallbackNS": false,
+                  "initImmediate": true,
+                  "interpolation": Object {
+                    "escapeValue": true,
+                    "format": [Function],
+                    "formatSeparator": ",",
+                    "maxReplaces": 1000,
+                    "nestingPrefix": "$t(",
+                    "nestingSuffix": ")",
+                    "prefix": "{{",
+                    "suffix": "}}",
+                    "unescapePrefix": "-",
+                  },
+                  "joinArrays": false,
+                  "keySeparator": ".",
+                  "load": "all",
+                  "missingKeyHandler": false,
+                  "nonExplicitWhitelist": false,
+                  "ns": Array [
+                    "translation",
+                    "tui-components",
+                  ],
+                  "nsSeparator": ":",
+                  "overloadTranslationOptionHandler": [Function],
+                  "parseMissingKeyHandler": false,
+                  "pluralSeparator": "_",
+                  "postProcess": false,
+                  "prefix": "i18next::languageUtils:",
+                  "preload": false,
+                  "returnEmptyString": true,
+                  "returnNull": true,
+                  "returnObjects": false,
+                  "returnedObjectHandler": [Function],
+                  "saveMissing": false,
+                  "saveMissingTo": "fallback",
+                  "simplifyPluralSuffix": true,
+                  "whitelist": false,
+                },
+                "prefix": "i18next::languageUtils:",
+              },
+              "options": Object {
+                "appendNamespaceToCIMode": false,
+                "appendNamespaceToMissingKey": false,
+                "contextSeparator": "_",
+                "debug": false,
+                "defaultNS": Array [
+                  "translation",
+                ],
+                "fallbackLng": Array [
+                  "dev",
+                ],
+                "fallbackNS": false,
+                "initImmediate": true,
+                "interpolation": Object {
+                  "escapeValue": true,
+                  "format": [Function],
+                  "formatSeparator": ",",
+                  "maxReplaces": 1000,
+                  "nestingPrefix": "$t(",
+                  "nestingSuffix": ")",
+                  "prefix": "{{",
+                  "suffix": "}}",
+                  "unescapePrefix": "-",
+                },
+                "joinArrays": false,
+                "keySeparator": ".",
+                "load": "all",
+                "missingKeyHandler": false,
+                "nonExplicitWhitelist": false,
+                "ns": Array [
+                  "translation",
+                  "tui-components",
+                ],
+                "nsSeparator": ":",
+                "overloadTranslationOptionHandler": [Function],
+                "parseMissingKeyHandler": false,
+                "pluralSeparator": "_",
+                "postProcess": false,
+                "preload": false,
+                "returnEmptyString": true,
+                "returnNull": true,
+                "returnObjects": false,
+                "returnedObjectHandler": [Function],
+                "saveMissing": false,
+                "saveMissingTo": "fallback",
+                "simplifyPluralSuffix": true,
+                "whitelist": false,
+              },
+              "whitelist": false,
+            },
+            "logger": Logger {
+              "debug": false,
+              "logger": Object {
+                "error": [Function],
+                "log": [Function],
+                "output": [Function],
+                "type": "logger",
+                "warn": [Function],
+              },
+              "options": Object {
+                "appendNamespaceToCIMode": false,
+                "appendNamespaceToMissingKey": false,
+                "contextSeparator": "_",
+                "debug": false,
+                "defaultNS": Array [
+                  "translation",
+                ],
+                "fallbackLng": Array [
+                  "dev",
+                ],
+                "fallbackNS": false,
+                "initImmediate": true,
+                "interpolation": Object {
+                  "escapeValue": true,
+                  "format": [Function],
+                  "formatSeparator": ",",
+                  "maxReplaces": 1000,
+                  "nestingPrefix": "$t(",
+                  "nestingSuffix": ")",
+                  "prefix": "{{",
+                  "suffix": "}}",
+                  "unescapePrefix": "-",
+                },
+                "joinArrays": false,
+                "keySeparator": ".",
+                "load": "all",
+                "missingKeyHandler": false,
+                "nonExplicitWhitelist": false,
+                "ns": Array [
+                  "translation",
+                  "tui-components",
+                ],
+                "nsSeparator": ":",
+                "overloadTranslationOptionHandler": [Function],
+                "parseMissingKeyHandler": false,
+                "pluralSeparator": "_",
+                "postProcess": false,
+                "prefix": "i18next::backendConnector:",
+                "preload": false,
+                "returnEmptyString": true,
+                "returnNull": true,
+                "returnObjects": false,
+                "returnedObjectHandler": [Function],
+                "saveMissing": false,
+                "saveMissingTo": "fallback",
+                "simplifyPluralSuffix": true,
+                "whitelist": false,
+              },
+              "prefix": "i18next::backendConnector:",
+            },
+            "observers": Object {
+              "*": Array [
+                [Function],
+              ],
+              "loaded": Array [
+                [Function],
+              ],
+            },
+            "options": Object {
+              "appendNamespaceToCIMode": false,
+              "appendNamespaceToMissingKey": false,
+              "contextSeparator": "_",
+              "debug": false,
+              "defaultNS": Array [
+                "translation",
+              ],
+              "fallbackLng": Array [
+                "dev",
+              ],
+              "fallbackNS": false,
+              "initImmediate": true,
+              "interpolation": Object {
+                "escapeValue": true,
+                "format": [Function],
+                "formatSeparator": ",",
+                "maxReplaces": 1000,
+                "nestingPrefix": "$t(",
+                "nestingSuffix": ")",
+                "prefix": "{{",
+                "suffix": "}}",
+                "unescapePrefix": "-",
+              },
+              "joinArrays": false,
+              "keySeparator": ".",
+              "load": "all",
+              "missingKeyHandler": false,
+              "nonExplicitWhitelist": false,
+              "ns": Array [
+                "translation",
+                "tui-components",
+              ],
+              "nsSeparator": ":",
+              "overloadTranslationOptionHandler": [Function],
+              "parseMissingKeyHandler": false,
+              "pluralSeparator": "_",
+              "postProcess": false,
+              "preload": false,
+              "returnEmptyString": true,
+              "returnNull": true,
+              "returnObjects": false,
+              "returnedObjectHandler": [Function],
+              "saveMissing": false,
+              "saveMissingTo": "fallback",
+              "simplifyPluralSuffix": true,
+              "whitelist": false,
+            },
+            "queue": Array [],
+            "state": Object {},
+            "store": Object {},
+          },
+          "interpolator": Interpolator {
+            "escape": [Function],
+            "escapeValue": true,
+            "format": [Function],
+            "formatSeparator": ",",
+            "logger": Logger {
+              "debug": false,
+              "logger": Object {
+                "error": [Function],
+                "log": [Function],
+                "output": [Function],
+                "type": "logger",
+                "warn": [Function],
+              },
+              "options": Object {
+                "appendNamespaceToCIMode": false,
+                "appendNamespaceToMissingKey": false,
+                "contextSeparator": "_",
+                "debug": false,
+                "defaultNS": Array [
+                  "translation",
+                ],
+                "fallbackLng": Array [
+                  "dev",
+                ],
+                "fallbackNS": false,
+                "initImmediate": true,
+                "interpolation": Object {
+                  "escapeValue": true,
+                  "format": [Function],
+                  "formatSeparator": ",",
+                  "maxReplaces": 1000,
+                  "nestingPrefix": "$t(",
+                  "nestingSuffix": ")",
+                  "prefix": "{{",
+                  "suffix": "}}",
+                  "unescapePrefix": "-",
+                },
+                "joinArrays": false,
+                "keySeparator": ".",
+                "load": "all",
+                "missingKeyHandler": false,
+                "nonExplicitWhitelist": false,
+                "ns": Array [
+                  "translation",
+                  "tui-components",
+                ],
+                "nsSeparator": ":",
+                "overloadTranslationOptionHandler": [Function],
+                "parseMissingKeyHandler": false,
+                "pluralSeparator": "_",
+                "postProcess": false,
+                "prefix": "i18next::interpolator:",
+                "preload": false,
+                "returnEmptyString": true,
+                "returnNull": true,
+                "returnObjects": false,
+                "returnedObjectHandler": [Function],
+                "saveMissing": false,
+                "saveMissingTo": "fallback",
+                "simplifyPluralSuffix": true,
+                "whitelist": false,
+              },
+              "prefix": "i18next::interpolator:",
+            },
+            "maxReplaces": 1000,
+            "nestingPrefix": "\\\\$t\\\\(",
+            "nestingRegexp": /\\\\\\$t\\\\\\(\\(\\.\\+\\?\\)\\\\\\)/g,
+            "nestingSuffix": "\\\\)",
+            "options": Object {
+              "appendNamespaceToCIMode": false,
+              "appendNamespaceToMissingKey": false,
+              "contextSeparator": "_",
+              "debug": false,
+              "defaultNS": Array [
+                "translation",
+              ],
+              "fallbackLng": Array [
+                "dev",
+              ],
+              "fallbackNS": false,
+              "initImmediate": true,
+              "interpolation": Object {
+                "escapeValue": true,
+                "format": [Function],
+                "formatSeparator": ",",
+                "maxReplaces": 1000,
+                "nestingPrefix": "$t(",
+                "nestingSuffix": ")",
+                "prefix": "{{",
+                "suffix": "}}",
+                "unescapePrefix": "-",
+              },
+              "joinArrays": false,
+              "keySeparator": ".",
+              "load": "all",
+              "missingKeyHandler": false,
+              "nonExplicitWhitelist": false,
+              "ns": Array [
+                "translation",
+                "tui-components",
+              ],
+              "nsSeparator": ":",
+              "overloadTranslationOptionHandler": [Function],
+              "parseMissingKeyHandler": false,
+              "pluralSeparator": "_",
+              "postProcess": false,
+              "preload": false,
+              "returnEmptyString": true,
+              "returnNull": true,
+              "returnObjects": false,
+              "returnedObjectHandler": [Function],
+              "saveMissing": false,
+              "saveMissingTo": "fallback",
+              "simplifyPluralSuffix": true,
+              "whitelist": false,
+            },
+            "prefix": "\\\\{\\\\{",
+            "regexp": /\\\\\\{\\\\\\{\\(\\.\\+\\?\\)\\\\\\}\\\\\\}/g,
+            "regexpUnescape": /\\\\\\{\\\\\\{-\\(\\.\\+\\?\\)\\\\\\}\\\\\\}/g,
+            "suffix": "\\\\}\\\\}",
+            "unescapePrefix": "-",
+            "unescapeSuffix": "",
+          },
+          "languageUtils": LanguageUtil {
+            "logger": Logger {
+              "debug": false,
+              "logger": Object {
+                "error": [Function],
+                "log": [Function],
+                "output": [Function],
+                "type": "logger",
+                "warn": [Function],
+              },
+              "options": Object {
+                "appendNamespaceToCIMode": false,
+                "appendNamespaceToMissingKey": false,
+                "contextSeparator": "_",
+                "debug": false,
+                "defaultNS": Array [
+                  "translation",
+                ],
+                "fallbackLng": Array [
+                  "dev",
+                ],
+                "fallbackNS": false,
+                "initImmediate": true,
+                "interpolation": Object {
+                  "escapeValue": true,
+                  "format": [Function],
+                  "formatSeparator": ",",
+                  "maxReplaces": 1000,
+                  "nestingPrefix": "$t(",
+                  "nestingSuffix": ")",
+                  "prefix": "{{",
+                  "suffix": "}}",
+                  "unescapePrefix": "-",
+                },
+                "joinArrays": false,
+                "keySeparator": ".",
+                "load": "all",
+                "missingKeyHandler": false,
+                "nonExplicitWhitelist": false,
+                "ns": Array [
+                  "translation",
+                  "tui-components",
+                ],
+                "nsSeparator": ":",
+                "overloadTranslationOptionHandler": [Function],
+                "parseMissingKeyHandler": false,
+                "pluralSeparator": "_",
+                "postProcess": false,
+                "prefix": "i18next::languageUtils:",
+                "preload": false,
+                "returnEmptyString": true,
+                "returnNull": true,
+                "returnObjects": false,
+                "returnedObjectHandler": [Function],
+                "saveMissing": false,
+                "saveMissingTo": "fallback",
+                "simplifyPluralSuffix": true,
+                "whitelist": false,
+              },
+              "prefix": "i18next::languageUtils:",
+            },
+            "options": Object {
+              "appendNamespaceToCIMode": false,
+              "appendNamespaceToMissingKey": false,
+              "contextSeparator": "_",
+              "debug": false,
+              "defaultNS": Array [
+                "translation",
+              ],
+              "fallbackLng": Array [
+                "dev",
+              ],
+              "fallbackNS": false,
+              "initImmediate": true,
+              "interpolation": Object {
+                "escapeValue": true,
+                "format": [Function],
+                "formatSeparator": ",",
+                "maxReplaces": 1000,
+                "nestingPrefix": "$t(",
+                "nestingSuffix": ")",
+                "prefix": "{{",
+                "suffix": "}}",
+                "unescapePrefix": "-",
+              },
+              "joinArrays": false,
+              "keySeparator": ".",
+              "load": "all",
+              "missingKeyHandler": false,
+              "nonExplicitWhitelist": false,
+              "ns": Array [
+                "translation",
+                "tui-components",
+              ],
+              "nsSeparator": ":",
+              "overloadTranslationOptionHandler": [Function],
+              "parseMissingKeyHandler": false,
+              "pluralSeparator": "_",
+              "postProcess": false,
+              "preload": false,
+              "returnEmptyString": true,
+              "returnNull": true,
+              "returnObjects": false,
+              "returnedObjectHandler": [Function],
+              "saveMissing": false,
+              "saveMissingTo": "fallback",
+              "simplifyPluralSuffix": true,
+              "whitelist": false,
+            },
+            "whitelist": false,
+          },
+          "logger": Logger {
+            "debug": false,
+            "logger": Object {
+              "error": [Function],
+              "log": [Function],
+              "output": [Function],
+              "type": "logger",
+              "warn": [Function],
+            },
+            "options": Object {
+              "appendNamespaceToCIMode": false,
+              "appendNamespaceToMissingKey": false,
+              "contextSeparator": "_",
+              "debug": false,
+              "defaultNS": Array [
+                "translation",
+              ],
+              "fallbackLng": Array [
+                "dev",
+              ],
+              "fallbackNS": false,
+              "initImmediate": true,
+              "interpolation": Object {
+                "escapeValue": true,
+                "format": [Function],
+                "formatSeparator": ",",
+                "maxReplaces": 1000,
+                "nestingPrefix": "$t(",
+                "nestingSuffix": ")",
+                "prefix": "{{",
+                "suffix": "}}",
+                "unescapePrefix": "-",
+              },
+              "joinArrays": false,
+              "keySeparator": ".",
+              "load": "all",
+              "missingKeyHandler": false,
+              "nonExplicitWhitelist": false,
+              "ns": Array [
+                "translation",
+                "tui-components",
+              ],
+              "nsSeparator": ":",
+              "overloadTranslationOptionHandler": [Function],
+              "parseMissingKeyHandler": false,
+              "pluralSeparator": "_",
+              "postProcess": false,
+              "prefix": "i18next::translator:",
+              "preload": false,
+              "returnEmptyString": true,
+              "returnNull": true,
+              "returnObjects": false,
+              "returnedObjectHandler": [Function],
+              "saveMissing": false,
+              "saveMissingTo": "fallback",
+              "simplifyPluralSuffix": true,
+              "whitelist": false,
+            },
+            "prefix": "i18next::translator:",
+          },
+          "observers": Object {
+            "*": Array [
+              [Function],
+            ],
+          },
+          "options": Object {
+            "appendNamespaceToCIMode": false,
+            "appendNamespaceToMissingKey": false,
+            "contextSeparator": "_",
+            "debug": false,
+            "defaultNS": Array [
+              "translation",
+            ],
+            "fallbackLng": Array [
+              "dev",
+            ],
+            "fallbackNS": false,
+            "initImmediate": true,
+            "interpolation": Object {
+              "escapeValue": true,
+              "format": [Function],
+              "formatSeparator": ",",
+              "maxReplaces": 1000,
+              "nestingPrefix": "$t(",
+              "nestingSuffix": ")",
+              "prefix": "{{",
+              "suffix": "}}",
+              "unescapePrefix": "-",
+            },
+            "joinArrays": false,
+            "keySeparator": ".",
+            "load": "all",
+            "missingKeyHandler": false,
+            "nonExplicitWhitelist": false,
+            "ns": Array [
+              "translation",
+              "tui-components",
+            ],
+            "nsSeparator": ":",
+            "overloadTranslationOptionHandler": [Function],
+            "parseMissingKeyHandler": false,
+            "pluralSeparator": "_",
+            "postProcess": false,
+            "preload": false,
+            "returnEmptyString": true,
+            "returnNull": true,
+            "returnObjects": false,
+            "returnedObjectHandler": [Function],
+            "saveMissing": false,
+            "saveMissingTo": "fallback",
+            "simplifyPluralSuffix": true,
+            "whitelist": false,
+          },
+          "pluralResolver": PluralResolver {
+            "languageUtils": LanguageUtil {
+              "logger": Logger {
+                "debug": false,
+                "logger": Object {
+                  "error": [Function],
+                  "log": [Function],
+                  "output": [Function],
+                  "type": "logger",
+                  "warn": [Function],
+                },
+                "options": Object {
+                  "appendNamespaceToCIMode": false,
+                  "appendNamespaceToMissingKey": false,
+                  "contextSeparator": "_",
+                  "debug": false,
+                  "defaultNS": Array [
+                    "translation",
+                  ],
+                  "fallbackLng": Array [
+                    "dev",
+                  ],
+                  "fallbackNS": false,
+                  "initImmediate": true,
+                  "interpolation": Object {
+                    "escapeValue": true,
+                    "format": [Function],
+                    "formatSeparator": ",",
+                    "maxReplaces": 1000,
+                    "nestingPrefix": "$t(",
+                    "nestingSuffix": ")",
+                    "prefix": "{{",
+                    "suffix": "}}",
+                    "unescapePrefix": "-",
+                  },
+                  "joinArrays": false,
+                  "keySeparator": ".",
+                  "load": "all",
+                  "missingKeyHandler": false,
+                  "nonExplicitWhitelist": false,
+                  "ns": Array [
+                    "translation",
+                    "tui-components",
+                  ],
+                  "nsSeparator": ":",
+                  "overloadTranslationOptionHandler": [Function],
+                  "parseMissingKeyHandler": false,
+                  "pluralSeparator": "_",
+                  "postProcess": false,
+                  "prefix": "i18next::languageUtils:",
+                  "preload": false,
+                  "returnEmptyString": true,
+                  "returnNull": true,
+                  "returnObjects": false,
+                  "returnedObjectHandler": [Function],
+                  "saveMissing": false,
+                  "saveMissingTo": "fallback",
+                  "simplifyPluralSuffix": true,
+                  "whitelist": false,
+                },
+                "prefix": "i18next::languageUtils:",
+              },
+              "options": Object {
+                "appendNamespaceToCIMode": false,
+                "appendNamespaceToMissingKey": false,
+                "contextSeparator": "_",
+                "debug": false,
+                "defaultNS": Array [
+                  "translation",
+                ],
+                "fallbackLng": Array [
+                  "dev",
+                ],
+                "fallbackNS": false,
+                "initImmediate": true,
+                "interpolation": Object {
+                  "escapeValue": true,
+                  "format": [Function],
+                  "formatSeparator": ",",
+                  "maxReplaces": 1000,
+                  "nestingPrefix": "$t(",
+                  "nestingSuffix": ")",
+                  "prefix": "{{",
+                  "suffix": "}}",
+                  "unescapePrefix": "-",
+                },
+                "joinArrays": false,
+                "keySeparator": ".",
+                "load": "all",
+                "missingKeyHandler": false,
+                "nonExplicitWhitelist": false,
+                "ns": Array [
+                  "translation",
+                  "tui-components",
+                ],
+                "nsSeparator": ":",
+                "overloadTranslationOptionHandler": [Function],
+                "parseMissingKeyHandler": false,
+                "pluralSeparator": "_",
+                "postProcess": false,
+                "preload": false,
+                "returnEmptyString": true,
+                "returnNull": true,
+                "returnObjects": false,
+                "returnedObjectHandler": [Function],
+                "saveMissing": false,
+                "saveMissingTo": "fallback",
+                "simplifyPluralSuffix": true,
+                "whitelist": false,
+              },
+              "whitelist": false,
+            },
+            "logger": Logger {
+              "debug": false,
+              "logger": Object {
+                "error": [Function],
+                "log": [Function],
+                "output": [Function],
+                "type": "logger",
+                "warn": [Function],
+              },
+              "options": Object {
+                "appendNamespaceToCIMode": false,
+                "appendNamespaceToMissingKey": false,
+                "contextSeparator": "_",
+                "debug": false,
+                "defaultNS": Array [
+                  "translation",
+                ],
+                "fallbackLng": Array [
+                  "dev",
+                ],
+                "fallbackNS": false,
+                "initImmediate": true,
+                "interpolation": Object {
+                  "escapeValue": true,
+                  "format": [Function],
+                  "formatSeparator": ",",
+                  "maxReplaces": 1000,
+                  "nestingPrefix": "$t(",
+                  "nestingSuffix": ")",
+                  "prefix": "{{",
+                  "suffix": "}}",
+                  "unescapePrefix": "-",
+                },
+                "joinArrays": false,
+                "keySeparator": ".",
+                "load": "all",
+                "missingKeyHandler": false,
+                "nonExplicitWhitelist": false,
+                "ns": Array [
+                  "translation",
+                  "tui-components",
+                ],
+                "nsSeparator": ":",
+                "overloadTranslationOptionHandler": [Function],
+                "parseMissingKeyHandler": false,
+                "pluralSeparator": "_",
+                "postProcess": false,
+                "prefix": "i18next::pluralResolver:",
+                "preload": false,
+                "returnEmptyString": true,
+                "returnNull": true,
+                "returnObjects": false,
+                "returnedObjectHandler": [Function],
+                "saveMissing": false,
+                "saveMissingTo": "fallback",
+                "simplifyPluralSuffix": true,
+                "whitelist": false,
+              },
+              "prefix": "i18next::pluralResolver:",
+            },
+            "options": Object {
+              "compatibilityJSON": undefined,
+              "prepend": "_",
+              "simplifyPluralSuffix": true,
+            },
+            "rules": Object {
+              "ach": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "af": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ak": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "am": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "an": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ar": Object {
+                "numbers": Array [
+                  0,
+                  1,
+                  2,
+                  3,
+                  11,
+                  100,
+                ],
+                "plurals": [Function],
+              },
+              "arn": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ast": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ay": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "az": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "be": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "bg": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "bn": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "bo": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "br": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "bs": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "ca": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "cgg": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "cs": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "csb": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "cy": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  3,
+                  8,
+                ],
+                "plurals": [Function],
+              },
+              "da": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "de": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "dev": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "dz": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "el": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "en": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "eo": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "es": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "et": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "eu": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "fa": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "fi": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "fil": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "fo": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "fr": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "fur": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "fy": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ga": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  3,
+                  7,
+                  11,
+                ],
+                "plurals": [Function],
+              },
+              "gd": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  3,
+                  20,
+                ],
+                "plurals": [Function],
+              },
+              "gl": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "gu": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "gun": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ha": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "he": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "hi": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "hr": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "hu": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "hy": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ia": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "id": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "is": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "it": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ja": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "jbo": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "jv": Object {
+                "numbers": Array [
+                  0,
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "ka": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "kk": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "km": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "kn": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ko": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "ku": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "kw": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  3,
+                  4,
+                ],
+                "plurals": [Function],
+              },
+              "ky": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "lb": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ln": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "lo": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "lt": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  10,
+                ],
+                "plurals": [Function],
+              },
+              "lv": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  0,
+                ],
+                "plurals": [Function],
+              },
+              "mai": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mfe": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mg": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mi": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mk": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ml": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mn": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mnk": Object {
+                "numbers": Array [
+                  0,
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "mr": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ms": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "mt": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  11,
+                  20,
+                ],
+                "plurals": [Function],
+              },
+              "nah": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "nap": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "nb": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ne": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "nl": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "nn": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "no": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "nso": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "oc": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "or": Object {
+                "numbers": Array [
+                  2,
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "pa": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "pap": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "pl": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "pms": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ps": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "pt": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "rm": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ro": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  20,
+                ],
+                "plurals": [Function],
+              },
+              "ru": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "sah": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "sco": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "se": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "si": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "sk": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "sl": Object {
+                "numbers": Array [
+                  5,
+                  1,
+                  2,
+                  3,
+                ],
+                "plurals": [Function],
+              },
+              "so": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "son": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "sq": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "sr": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "su": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "sv": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "sw": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "ta": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "te": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "tg": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "th": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "ti": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "tk": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "tr": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "tt": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "ug": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "uk": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                  5,
+                ],
+                "plurals": [Function],
+              },
+              "ur": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "uz": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "vi": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "wa": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "wo": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+              "yo": Object {
+                "numbers": Array [
+                  1,
+                  2,
+                ],
+                "plurals": [Function],
+              },
+              "zh": Object {
+                "numbers": Array [
+                  1,
+                ],
+                "plurals": [Function],
+              },
+            },
+          },
+          "resourceStore": Object {},
+        },
+      }
+    }
+    i18nLoadedAt={null}
+    isSwitchBox={false}
+    items={
+      Array [
+        Object {
+          "label": "Lorem ipsum dolor default",
+        },
+        Object {
+          "checked": true,
+          "children": Array [
+            Object {
+              "label": "Lorem ipsum dolor sit amet 0",
+            },
+            Object {
+              "checked": true,
+              "label": "Lorem ipsum dolor sit amet 1",
+            },
+            Object {
+              "label": "Lorem ipsum dolor sit amet 2",
+            },
+          ],
+          "label": "Lorem ipsum dolor Parent",
+        },
+      ]
+    }
+    showToggleAll={true}
+    t={[Function]}
+  >
+    <div
+      className="theme-tc-listview-items tc-listview-items"
+    >
+      <Component>
+        <div
+          id="autoSizer"
+        >
+          <List
+            autoHeight={false}
+            className="theme-tc-list-items tc-list-items"
+            estimatedRowSize={30}
+            height={30}
+            items={
+              Array [
+                Object {
+                  "label": "Lorem ipsum dolor default",
+                },
+                Object {
+                  "checked": true,
+                  "children": Array [
+                    Object {
+                      "label": "Lorem ipsum dolor sit amet 0",
+                    },
+                    Object {
+                      "checked": true,
+                      "label": "Lorem ipsum dolor sit amet 1",
+                    },
+                    Object {
+                      "label": "Lorem ipsum dolor sit amet 2",
+                    },
+                  ],
+                  "label": "Lorem ipsum dolor Parent",
+                },
+              ]
+            }
+            noRowsRenderer={[Function]}
+            onRowsRendered={[Function]}
+            onScroll={[Function]}
+            overscanIndicesGetter={[Function]}
+            overscanRowCount={10}
+            rowCount={3}
+            rowHeight={[Function]}
+            rowRenderer={[Function]}
+            scrollToAlignment="auto"
+            scrollToIndex={-1}
+            style={Object {}}
+            width={30}
+          >
+            <Grid
+              aria-label="grid"
+              aria-readonly={true}
+              autoContainerWidth={true}
+              autoHeight={false}
+              autoWidth={false}
+              cellRangeRenderer={[Function]}
+              cellRenderer={[Function]}
+              className="ReactVirtualized__List theme-tc-list-items tc-list-items"
+              columnCount={1}
+              columnWidth={30}
+              containerRole="rowgroup"
+              containerStyle={Object {}}
+              estimatedColumnSize={100}
+              estimatedRowSize={30}
+              getScrollbarSize={[Function]}
+              height={30}
+              items={
+                Array [
+                  Object {
+                    "label": "Lorem ipsum dolor default",
+                  },
+                  Object {
+                    "checked": true,
+                    "children": Array [
+                      Object {
+                        "label": "Lorem ipsum dolor sit amet 0",
+                      },
+                      Object {
+                        "checked": true,
+                        "label": "Lorem ipsum dolor sit amet 1",
+                      },
+                      Object {
+                        "label": "Lorem ipsum dolor sit amet 2",
+                      },
+                    ],
+                    "label": "Lorem ipsum dolor Parent",
+                  },
+                ]
+              }
+              noContentRenderer={[Function]}
+              noRowsRenderer={[Function]}
+              onRowsRendered={[Function]}
+              onScroll={[Function]}
+              onScrollbarPresenceChange={[Function]}
+              onSectionRendered={[Function]}
+              overscanColumnCount={0}
+              overscanIndicesGetter={[Function]}
+              overscanRowCount={10}
+              role="grid"
+              rowCount={3}
+              rowHeight={[Function]}
+              rowRenderer={[Function]}
+              scrollToAlignment="auto"
+              scrollToColumn={-1}
+              scrollToIndex={-1}
+              scrollToRow={-1}
+              scrollingResetTimeInterval={150}
+              style={Object {}}
+              tabIndex={0}
+              width={30}
+            >
+              <div
+                aria-label="grid"
+                aria-readonly={true}
+                className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
+                onScroll={[Function]}
+                role="grid"
+                style={
+                  Object {
+                    "WebkitOverflowScrolling": "touch",
+                    "boxSizing": "border-box",
+                    "direction": "ltr",
+                    "height": 30,
+                    "overflowX": "hidden",
+                    "overflowY": "auto",
+                    "position": "relative",
+                    "width": 30,
+                    "willChange": "transform",
+                  }
+                }
+                tabIndex={0}
+              >
+                <div
+                  className="ReactVirtualized__Grid__innerScrollContainer"
+                  role="rowgroup"
+                  style={
+                    Object {
+                      "height": 124,
+                      "maxHeight": 124,
+                      "maxWidth": 30,
+                      "overflow": "hidden",
+                      "pointerEvents": "",
+                      "position": "relative",
+                      "width": "auto",
+                    }
+                  }
+                >
+                  <div
+                    className="theme-tc-item-container theme-toggle tc-item-container toggle"
+                    key="0-0"
+                    style={
+                      Object {
+                        "height": 40,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <div
+                      className="checkbox"
+                    >
+                      <label
+                        htmlFor="tc-listview-toggle-all"
+                      >
+                        <input
+                          checked={false}
+                          id="tc-listview-toggle-all"
+                          type="checkbox"
+                        />
+                        <strong>
+                          Toggle all
+                        </strong>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    className="theme-tc-item-container theme-false tc-item-container"
+                    key="1-0"
+                    style={
+                      Object {
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 40,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <Item
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor default",
+                        }
+                      }
+                    >
+                      <div>
+                        <div
+                          className="checkbox-container"
+                        >
+                          <div
+                            className="checkbox"
+                          >
+                            <label>
+                              <input
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
+                              >
+                                Lorem ipsum dolor default
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </Item>
+                  </div>
+                  <div
+                    className="theme-tc-item-container theme-false tc-item-container"
+                    key="2-0"
+                    style={
+                      Object {
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 82,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <Item
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "checked": true,
+                          "children": Array [
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 0",
+                            },
+                            Object {
+                              "checked": true,
+                              "label": "Lorem ipsum dolor sit amet 1",
+                            },
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 2",
+                            },
+                          ],
+                          "label": "Lorem ipsum dolor Parent",
+                        }
+                      }
+                    >
+                      <div>
+                        <div
+                          className="checkbox-container"
+                        >
+                          <div
+                            className="checkbox switch-nested"
+                          >
+                            <label>
+                              <input
+                                checked={true}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
+                              >
+                                Lorem ipsum dolor Parent
+                              </span>
+                            </label>
+                            <div
+                              className="checkbox-nested-expand"
+                            >
+                              <Button
+                                active={false}
+                                block={false}
+                                bsClass="btn"
+                                bsStyle="link"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                <button
+                                  className="btn btn-link"
+                                  disabled={false}
+                                  onClick={[Function]}
+                                  type="button"
+                                >
+                                  <Icon
+                                    name="talend-caret-down"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      className="theme-tc-svg-icon tc-svg-icon"
+                                      focusable="false"
+                                      title={null}
+                                    >
+                                      <use
+                                        xlinkHref="#talend-caret-down"
+                                      />
+                                    </svg>
+                                  </Icon>
+                                </button>
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </Item>
+                  </div>
+                </div>
+              </div>
+            </Grid>
+          </List>
+        </div>
+      </Component>
+    </div>
+  </Items>
+</Translate(Items)>
+`;
+
 exports[`Items should render with provided id 1`] = `
 <Translate(Items)
   getItemHeight={[Function]}
