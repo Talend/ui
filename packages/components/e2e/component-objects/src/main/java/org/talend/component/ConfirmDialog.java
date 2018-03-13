@@ -25,6 +25,16 @@ public class ConfirmDialog extends Component {
     }
 
     /**
+     * ConfirmDialog constructor
+     *
+     * @param driver Selenium WebDriver
+     * @param id Unique ID of the component
+     */
+    ConfirmDialog(WebDriver driver, String id) {
+        super(driver, NAME, id + CONFIRMDIALOG_SELECTOR);
+    }
+
+    /**
      * Return cancel button WebElement
      *
      * @return cancel button WebElement
