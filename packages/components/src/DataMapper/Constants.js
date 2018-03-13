@@ -1,12 +1,23 @@
+/**
+ * Defines the type of draggable element.
+*/
 export const ItemTypes = {
 	ELEMENT: 'element',
 };
 
+/**
+ * Defines the type of a schema.
+*/
 export const SchemaType = {
 	INPUT: 'input',
 	OUTPUT: 'output',
 };
 
+/**
+ * Switch between the two types of schema.
+ * @param {string} type - the type of the schema
+ * @returns {string}
+*/
 export function switchSchemaType(type) {
 	if (type === SchemaType.INPUT) {
 		return SchemaType.OUTPUT;
@@ -14,6 +25,9 @@ export function switchSchemaType(type) {
 	return SchemaType.INPUT;
 }
 
+/**
+ * Defines the two sides of a mapping item.
+*/
 export const MappingSide = {
 	SOURCE: 'source',
 	TARGET: 'target',
@@ -32,35 +46,39 @@ export const Configs = {
 	DRAGGABLE: true,
 };
 
+const defaultConnectionParams = {
+	anchorRadius: 5,
+	lineWidth: 4,
+	lineDash: null,
+	arrowWidth: 12,
+	arrowHeight: 12,
+};
+
+/**
+ * Defines the graphical parameters of a connection.
+ * PENDING: a connection is in progress
+ * CURRENT: connection of a selected mapped schema element
+ * FOCUSED: connection of an overflown mapped schema element
+ * ALL:
+*/
 export const ConnectionParams = {
 	PENDING: {
-		anchorRadius: 5,
-		lineWidth: 4,
+		...defaultConnectionParams,
 		lineDash: [4, 4],
-		arrowWidth: 12,
-		arrowHeight: 12,
 		color: '#111111',
 	},
 	CURRENT: {
-		anchorRadius: 5,
-		lineWidth: 4,
-		lineDash: null,
-		arrowWidth: 12,
-		arrowHeight: 12,
+		...defaultConnectionParams,
 		color: '#000000',
 	},
 	FOCUSED: {
-		anchorRadius: 5,
-		lineWidth: 4,
-		lineDash: null,
-		arrowWidth: 12,
-		arrowHeight: 12,
+		...defaultConnectionParams,
 		color: '#999999',
 	},
 	ALL: {
+		...defaultConnectionParams,
 		anchorRadius: 4,
 		lineWidth: 3,
-		lineDash: null,
 		arrowWidth: 10,
 		arrowHeight: 10,
 		color: '#CCCCCC',

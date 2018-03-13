@@ -7,19 +7,25 @@ function isMapped(element, mapped) {
 	return mapped == null ? false : mapped.includes(element);
 }
 
-function isSelected(element, selection, type) {
-	return selection == null ? false : selection.type === type && selection.element === element;
+/**
+ * isSelected indicates if the given (element, type) is selected
+ * (i.e. if it appears in the selection)
+ */
+export function isSelected(selection, element, type) {
+	return selection != null && selection.element === element && selection.type === type;
 }
 
 function isHighlighted(element, selection, type, pendingItem, focusedElements) {
 	const connected =
-		selection == null
-			? false
-			: selection.type !== type &&
-			  selection.connected != null &&
-			  selection.connected.includes(element);
+		selection == null	?
+		false :
+			selection.type !== type	&&
+			selection.connected != null	&&
+			selection.connected.includes(element);
 	const pending =
-		pendingItem != null && pendingItem.type === type && pendingItem.element === element;
+		pendingItem != null &&
+		pendingItem.type === type &&
+		pendingItem.element === element;
 	const focused = focusedElements != null && focusedElements.includes(element);
 	return connected || pending || focused;
 }
@@ -50,7 +56,7 @@ function renderSchemaElement(
 				schemaType={type}
 				mapped={isMapped(elem, mapped)}
 				performMapping={performMapping}
-				selected={isSelected(elem, selection, type)}
+				selected={isSelected(selection, elem, type)}
 				highlighted={isHighlighted(elem, selection, type, pendingItem, focusedElements)}
 				onSelect={onSelect}
 				onEnterElement={onEnterElement}
@@ -68,7 +74,7 @@ function renderSchemaElement(
 			key={elem}
 			name={elem}
 			schemaType={type}
-			selected={isSelected(elem, selection, type)}
+			selected={isSelected(selection, elem, type)}
 			highlighted={isHighlighted(elem, selection, type, pendingItem, focusedElements)}
 			onSelect={onSelect}
 			onEnterElement={onEnterElement}
@@ -101,16 +107,12 @@ export default class Schema extends Component {
 		const children = this.contentNode.childNodes;
 		const childrenArray = Array.from(children);
 		for (let i = 0; i < childrenArray.length; i += 1) {
-			const child = childrenArray[i];
-			const childHeight = child.clientHeight;
 			const element = elements[i];
 			const elemYPos = this.getYPosition(element);
-			if (elemYPos < 0) {
-				continue;
-			} else if (elemYPos > 0 && elemYPos < contentHeight - childHeight / 2) {
+			if (elemYPos > 0 && elemYPos < contentHeight) {
 				// element is visible
 				visibleElements = visibleElements.concat(element);
-			} else if (elemYPos > contentHeight - childHeight) {
+			} else if (elemYPos > contentHeight) {
 				break;
 			}
 		}

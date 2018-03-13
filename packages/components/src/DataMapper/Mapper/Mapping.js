@@ -8,12 +8,12 @@ function key(item) {
 
 export default function Mapping({ mapping, clearMapping, clearConnection }) {
 	return (
-		<div id="mapping" className="mapper-element">
+		<div className="mapping mapper-element">
 			<div className="mapping-tools">
-				<button id="clear-connection" onClick={clearConnection}>
+				<button className="clear-connection" onClick={clearConnection}>
 					Clear connection
 				</button>
-				<button id="clear-mapping" onClick={clearMapping}>
+				<button className="clear-mapping" onClick={clearMapping}>
 					Clear mapping
 				</button>
 			</div>

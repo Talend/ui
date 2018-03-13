@@ -20,7 +20,7 @@
 		border-radius: 16px;
 	}
 
-	#mapping {
+	.mapping {
 		background-color: #fbfdff;
 		padding: 8px;
 		margin: 8px;
@@ -28,7 +28,7 @@
 		width: 100%;
 	}
 
-	#mapping-canvas {
+	.mapping-canvas {
 		position: absolute;
 		left: 0;
 		right: auto;
@@ -50,7 +50,7 @@
 		order: 2;
 	}
 
-	#mapping-tools {
+	.mapping-tools {
 		display: flex;
 		justify-content: space-around;
 		border-radius: 4px;
@@ -62,7 +62,7 @@
 		height: 35px;
 	}
 
-	#mapping-content {
+	.mapping-content {
 		position: relative;
 		height: 80%;
 		width: 100%;

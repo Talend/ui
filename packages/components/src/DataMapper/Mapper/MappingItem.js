@@ -6,7 +6,7 @@ function display(item) {
 }
 
 export default function MappingItem({ mappingItem }) {
-	return <div id="mappingItem">{display(mappingItem)}</div>;
+	return <div className="mappingItem">{display(mappingItem)}</div>;
 }
 
 MappingItem.propTypes = {

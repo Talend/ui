@@ -1,13 +1,39 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 import MappingArea from './MappingArea.js';
 import { SchemaType, ConnectionParams } from '../Constants';
+import { DEFAULT_I18N } from '../../translate';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
+import { Actions } from '../../Actions/index.js';
 
 function getShowAllButtonLabel(showAll) {
+	return showAll ? 'MAPPING_HIDE' : 'MAPPING_SHOW_ALL';
+}
+
+function getShowAllButtonDefaultLabel(showAll) {
 	return showAll ? 'Hide' : 'Show All';
 }
 
-export default class GMapping extends Component {
+function getActions(t, showAll, onShowAll, clearConnection, clearMapping) {
+	return [
+		{
+			label: t(getShowAllButtonLabel(showAll),
+							{ defaultValue: getShowAllButtonDefaultLabel(showAll) }),
+			onClick: onShowAll,
+		},
+		{
+			label: t('MAPPING_CLEAR', { defaultValue: 'Clear' }),
+			onClick: clearConnection,
+		},
+		{
+			label: t('MAPPING_CLEAR_ALL', { defaultValue: 'Clear All' }),
+			onClick: clearMapping,
+		},
+	];
+}
+
+class GMapping extends Component {
 	constructor(props) {
 		super(props);
 		this.dndInProgress = this.dndInProgress.bind(this);
@@ -50,20 +76,16 @@ export default class GMapping extends Component {
 			dnd,
 			onShowAll,
 			showAll,
+			t,
 		} = this.props;
 		return (
-			<div id="mapping" className="mapper-element">
-				<div id="mapping-tools">
-					<button id="show-all" onClick={onShowAll}>
-						{getShowAllButtonLabel(showAll)}
-					</button>
-					<button id="clear-connection" onClick={clearConnection}>
-						Clear
-					</button>
-					<button id="clear-mapping" onClick={clearMapping}>
-						Clear All
-					</button>
-				</div>
+			<div className="mapping mapper-element">
+				<Actions
+					className="mapping-tools"
+					actions={
+						getActions(t, showAll, onShowAll, clearConnection, clearMapping)
+					}
+				/>
 				<MappingArea
 					ref={area => {
 						this.mappingArea = area;
@@ -86,4 +108,8 @@ GMapping.propTypes = {
 	showAll: PropTypes.bool,
 	onShowAll: PropTypes.func,
 	dnd: PropTypes.object,
+	t: PropTypes.func,
 };
+
+export default translate(I18N_DOMAIN_COMPONENTS,
+	{ i18n: DEFAULT_I18N, withRef: true })(GMapping);

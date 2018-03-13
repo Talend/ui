@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Returns the className of the schema element depending of its props.
+ * @param {object} props - The props of the schema element.
+ */
 function getClassName(props) {
 	let className = 'schema-element';
 	if (props.highlighted) {
@@ -16,6 +20,10 @@ function getClassName(props) {
 	return className;
 }
 
+/**
+ * A single element of a schema. It is mainly a name with a type (i/o).
+ * @author timbault
+*/
 export default class SchemaElement extends Component {
 	constructor(props) {
 		super(props);

@@ -3,27 +3,29 @@ import PropTypes from 'prop-types';
 import Schema from '../Schema/Schema.js';
 import GMapping from './GMapping.js';
 import { SchemaType, MappingSide } from '../Constants';
-import Utils from '../Utils';
 
 function getMapped(mapping, side) {
-	const mappedElements = mapping.map(item => item[side]);
-	return Array.from(new Set(mappedElements));
+	return mapping.map(item => item[side]);
+}
+
+export function getMappingItems(mapping, element, type) {
+	if (type === SchemaType.INPUT) {
+		return mapping.filter(item => item.source === element);
+	}
+	return mapping.filter(item => item.target === element);
 }
 
 function getFocusedElements(mapping, focused, type) {
-	if (focused == null || focused.type === type) {
-		return null;
-	}
+	if (!focused || focused.type === type) return null;
 	let focusedElements = null;
-	const focusedItems = Utils.getMappingItems(mapping, focused.element, focused.type);
-	if (focusedItems != null) {
+	const focusedItems = getMappingItems(mapping, focused.element, focused.type);
+	if (focusedItems) {
 		if (focused.type === SchemaType.INPUT) {
 			focusedElements = focusedItems.map(item => item.target);
 		} else {
 			focusedElements = focusedItems.map(item => item.source);
 		}
 	}
-	// console.log('Focused elements in ' + type + 'schema are ' + focusedElements);
 	return focusedElements;
 }
 
@@ -37,8 +39,9 @@ export default class Mapper extends Component {
 	}
 
 	onScroll() {
-		if (this.gmap.update) {
-			this.gmap.update();
+		const wrappedGMap = this.gmap.getWrappedInstance();
+		if (wrappedGMap.update) {
+			wrappedGMap.update();
 		}
 	}
 
@@ -47,12 +50,6 @@ export default class Mapper extends Component {
 			return this.inputSchema.getYPosition(element);
 		}
 		return this.outputSchema.getYPosition(element);
-	}
-
-	getConnectionFromItem(item) {
-		const source = item.source;
-		const target = item.target;
-		return this.getConnection(source, target);
 	}
 
 	getConnection(source, target) {
@@ -69,10 +66,15 @@ export default class Mapper extends Component {
 	//   dnd: {sourceYPos, targetYPos},
 	// }
 	getConnections() {
-		const { mapping, selection, pendingItem, focused, showAll, dnd } = this.props;
-		if (mapping.length === 0 && pendingItem == null && dnd == null) {
-			return null;
-		}
+		const {
+			mapping,
+			selection,
+			pendingItem,
+			focused,
+			showAll,
+			dnd,
+		} = this.props;
+		if (!mapping.length && !pendingItem && !dnd) return null;
 		let allConnections = null;
 		if (showAll) {
 			const inputVisibleElements = this.inputSchema.getVisibleElements();
@@ -80,22 +82,25 @@ export default class Mapper extends Component {
 			// filter mapping items
 			const visibleMapping = mapping.filter(
 				item =>
-					inputVisibleElements.includes(item.source) || outputVisibleElements.includes(item.target),
+					inputVisibleElements.includes(item.source) ||
+					outputVisibleElements.includes(item.target),
 			);
 			// then build connections
-			allConnections = visibleMapping.map(item => this.getConnectionFromItem(item));
+			allConnections = visibleMapping.map(item =>
+				this.getConnection(item.source, item.target));
 		}
 		let items = null;
-		if (selection != null) {
-			items = Utils.getMappingItems(mapping, selection.element, selection.type);
+		if (selection) {
+			items = getMappingItems(mapping, selection.element, selection.type);
 		}
 		// console.log('getMappingItems returns ' + items);
 		let current = null;
-		if (items != null) {
-			current = items.map(item => this.getConnectionFromItem(item));
+		if (items) {
+			current = items.map(item =>
+				this.getConnection(item.source, item.target));
 		}
 		let pending = null;
-		if (selection != null && pendingItem != null) {
+		if (selection && pendingItem) {
 			if (pendingItem.type === SchemaType.INPUT) {
 				pending = this.getConnection(pendingItem.element, selection.element);
 			} else {
@@ -103,18 +108,22 @@ export default class Mapper extends Component {
 			}
 		}
 		let focusedConnections = null;
-		if (focused != null) {
-			const focusedItems = Utils.getMappingItems(mapping, focused.element, focused.type);
-			if (focusedItems != null) {
-				focusedConnections = focusedItems.map(item => this.getConnectionFromItem(item));
+		if (focused) {
+			const focusedItems =
+				getMappingItems(mapping, focused.element, focused.type);
+			if (focusedItems) {
+				focusedConnections = focusedItems.map(item =>
+					this.getConnection(item.source, item.target));
 			}
 		}
 		let dndConnection = null;
-		if (dnd != null && dnd.source != null && dnd.target != null) {
+		if (dnd && dnd.source && dnd.target) {
 			if (dnd.source.type === SchemaType.INPUT) {
-				dndConnection = this.getConnection(dnd.source.element, dnd.target.element);
+				dndConnection =
+					this.getConnection(dnd.source.element, dnd.target.element);
 			} else {
-				dndConnection = this.getConnection(dnd.target.element, dnd.source.element);
+				dndConnection =
+					this.getConnection(dnd.target.element, dnd.source.element);
 			}
 		}
 
@@ -128,9 +137,7 @@ export default class Mapper extends Component {
 	}
 
 	reveal(selection) {
-		if (selection == null) {
-			return;
-		}
+		if (!selection == null) return;
 		const type = selection.type;
 		if (type === SchemaType.INPUT) {
 			this.inputSchema.reveal(selection.element);
@@ -140,8 +147,8 @@ export default class Mapper extends Component {
 	}
 
 	revealConnection(element, type) {
-		const mappingItems = Utils.getMappingItems(this.props.mapping, element, type);
-		if (mappingItems != null && mappingItems.length > 0) {
+		const mappingItems = getMappingItems(this.props.mapping, element, type);
+		if (mappingItems && mappingItems.length > 0) {
 			const item = mappingItems[0];
 			if (type === SchemaType.INPUT) {
 				this.outputSchema.reveal(item.target);
@@ -153,6 +160,7 @@ export default class Mapper extends Component {
 
 	render() {
 		const {
+			mapperId,
 			inputSchema,
 			mapping,
 			outputSchema,
@@ -175,7 +183,7 @@ export default class Mapper extends Component {
 			endDrag,
 		} = this.props;
 		return (
-			<div id="mapper">
+			<div id={mapperId}>
 				<Schema
 					ref={input => {
 						this.inputSchema = input;
@@ -191,7 +199,9 @@ export default class Mapper extends Component {
 					pendingItem={pendingItem}
 					onEnterElement={onEnterElement}
 					onLeaveElement={onLeaveElement}
-					focusedElements={getFocusedElements(mapping, focused, SchemaType.INPUT)}
+					focusedElements={
+						getFocusedElements(mapping, focused, SchemaType.INPUT)
+					}
 					beginDrag={beginDrag}
 					canDrop={canDrop}
 					drop={drop}
@@ -213,7 +223,9 @@ export default class Mapper extends Component {
 					pendingItem={pendingItem}
 					onEnterElement={onEnterElement}
 					onLeaveElement={onLeaveElement}
-					focusedElements={getFocusedElements(mapping, focused, SchemaType.OUTPUT)}
+					focusedElements={
+						getFocusedElements(mapping, focused, SchemaType.OUTPUT)
+					}
 					beginDrag={beginDrag}
 					canDrop={canDrop}
 					drop={drop}
@@ -240,6 +252,7 @@ export default class Mapper extends Component {
 }
 
 Mapper.propTypes = {
+	mapperId: PropTypes.string,
 	mapping: PropTypes.array,
 	selection: PropTypes.object,
 	inputSchema: PropTypes.object,
