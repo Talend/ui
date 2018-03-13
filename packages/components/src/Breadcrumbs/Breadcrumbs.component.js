@@ -42,14 +42,15 @@ function Breadcrumbs(props) {
 	 * @returns {*} Breadcrumb item rendering depending of its position
 	 */
 	function renderBreadcrumbItem(item, index) {
-		if (maxItemsReached && index < ellipsisIndex) {
-			return null;
-		}
 		const { text, title, onClick } = item;
 		const isActive = index === nbItems - 1;
 		const id = `${props.id}-item-${index}`;
 		const separator = index < props.items.length - 1 && (
-			<li className="separator" key={`${index}-separator`}>
+			<li
+				className={classNames('tc-breadcrumb-separator', 'separator')}
+				key={`${index}-separator`}
+				aria-hidden="true"
+			>
 				<Icon name="talend-chevron-left" transform="rotate-180" />
 			</li>
 		);
@@ -63,30 +64,41 @@ function Breadcrumbs(props) {
 		if (onClick) {
 			wrappedOnClick = event => onClick(event, item);
 		}
-
+		function getItemContent() {
+			if (!isActive && onClick) {
+				return (
+					<Button id={id} bsStyle="link" role="link" title={title} onClick={wrappedOnClick}>
+						{text}
+					</Button>
+				);
+			}
+			return (
+				<span id={id} title={title}>
+					{text}
+				</span>
+			);
+		}
+		if (maxItemsReached && index < ellipsisIndex) {
+			return (
+				<li className="sr-only" key={index}>
+					{getItemContent()}
+				</li>
+			);
+		}
 		if (maxItemsReached && index === ellipsisIndex) {
 			return [
-				<li className={classNames(theme.dots)} key={index} aria-hidden="true">
-					<ActionDropdown
-						id={`${props.id}-ellipsis`}
-						items={hiddenItems}
-						label="..."
-						link
-						noCaret
-					/>
+				<li className="sr-only" key={index + 0.1}>
+					{getItemContent()}
+				</li>,
+				<li className={'tc-breadcrumb-menu'} key={index + 0.2} aria-hidden="true">
+					<ActionDropdown id={`${props.id}-ellipsis`} items={hiddenItems} label="…" link noCaret />
 				</li>,
 				separator,
 			];
 		}
 		return [
-			<li className={isActive ? 'active' : ''} key={index}>
-				{!isActive && onClick ? (
-					<Button id={id} bsStyle="link" role="link" title={title} onClick={wrappedOnClick}>
-						{text}
-					</Button>
-				) : (
-					<span id={id}>{text}</span>
-				)}
+			<li className={classNames('tc-breadcrumb-item', { active: isActive })} key={index}>
+				{getItemContent()}
 			</li>,
 			separator,
 		];
