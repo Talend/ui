@@ -1,7 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import Typeahead from '@talend/react-components/lib/Typeahead';
-import keycode from 'keycode';
+import { shallow } from 'enzyme';
 import Datalist from './Datalist.component';
 
 const schema = {

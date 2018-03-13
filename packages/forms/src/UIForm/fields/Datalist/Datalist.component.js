@@ -21,8 +21,7 @@ class Datalist extends Component {
 	 * @param value
 	 */
 	onChange(event, payload) {
-		payload.schema = this.props.schema;
-		this.props.onChange(event, payload);
+		this.props.onChange(event, { ...payload, schema: this.props.schema });
 	}
 
 	/**
@@ -31,8 +30,7 @@ class Datalist extends Component {
 	 * @param value
 	 */
 	onFinish(event, payload) {
-		payload.schema = this.props.schema;
-		this.props.onFinish(event, payload);
+		this.props.onFinish(event, { ...payload, schema: this.props.schema });
 	}
 
 	render() {
