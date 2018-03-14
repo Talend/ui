@@ -20,6 +20,7 @@ public class ItemLarge extends Component {
 
     private static final String TABLE_ITEM_TITLE_SELECTOR = TABLE_ITEM_TITLE_CONTAINER_SELECTOR + " > button";
 
+    private static final String TABLE_ITEM_DETAIL_SELECTOR = "//span[text()='%s']/../span[2]";
     /**
      * Constructor.
      *
@@ -81,5 +82,15 @@ public class ItemLarge extends Component {
 
         // we need to get the button element again because of TooltipTrigger that replace the element on hover ...
         this.getAction(actionId).click();
+    }
+
+
+    /**
+     * Return details from the item.
+     *
+     * @param detailName The item name
+     */
+    public String getDetail(final String detailName) {
+        return this.getElement().findElement(By.xpath(String.format(TABLE_ITEM_DETAIL_SELECTOR, detailName))).getText();
     }
 }
