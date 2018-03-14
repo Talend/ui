@@ -82,16 +82,16 @@ public class List extends Component {
     /**
      * Get the table display element manager.
      *
-     * @return Large the table element manager
+     * @return table the table element manager
      */
     public Table getTable() {
         return new Table(driver);
     }
 
     /**
-     * Get the table display element manager.
+     * Get the Large display element manager.
      *
-     * @return Large the table element manager
+     * @return Large the Large element manager
      */
     public Large getLarge() {
         return new Large(driver);
