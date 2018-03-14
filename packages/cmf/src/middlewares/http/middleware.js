@@ -99,14 +99,14 @@ export function getMethod(action) {
 	return HTTP_METHODS[action.type];
 }
 
-export function mergeConfiguredHeader(config) { 
-	return (options) => {
+export function mergeConfiguredHeader(config) {
+	return options => {
 		// still need to keep the previous header added by action
 		return {
-			...options, 
+			...options,
 			headers: { ...options.headers, ...DEFAULT_HTTP_HEADERS, ...config.headers },
 		};
-	}
+	};
 }
 
 export function mergeOptions(action) {
