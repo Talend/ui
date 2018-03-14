@@ -20,6 +20,8 @@ public class ItemLarge extends Component {
 
     private static final String TABLE_ITEM_TITLE_SELECTOR = TABLE_ITEM_TITLE_CONTAINER_SELECTOR + " > button";
 
+    private static final String TABLE_ITEM_DETAIL_CONTAINER_SELECTOR = ".RowLarge__content___347RK";
+
     private static final String TABLE_ITEM_DETAIL_SELECTOR = "//span[text()='%s']/../span[2]";
     /**
      * Constructor.
@@ -40,6 +42,14 @@ public class ItemLarge extends Component {
         final List<WebElement> titleButtons = this.getElement().findElements(By.cssSelector(TABLE_ITEM_TITLE_SELECTOR));
         if (titleButtons.size() == 1) {
             return titleButtons.get(0);
+        }
+        return null;
+    }
+
+    public WebElement getDetail() {
+        final List<WebElement> details = this.getElement().findElements(By.cssSelector(TABLE_ITEM_DETAIL_CONTAINER_SELECTOR));
+        if (details.size() == 1) {
+            return details.get(0);
         }
         return null;
     }
@@ -90,7 +100,7 @@ public class ItemLarge extends Component {
      *
      * @param detailName The item name
      */
-    public String getDetail(final String detailName) {
-        return this.getElement().findElement(By.xpath(String.format(TABLE_ITEM_DETAIL_SELECTOR, detailName))).getText();
+    public String getDetailText(final String detailName) {
+        return this.getDetail().findElement(By.xpath(String.format(TABLE_ITEM_DETAIL_SELECTOR, detailName))).getText();
     }
 }
