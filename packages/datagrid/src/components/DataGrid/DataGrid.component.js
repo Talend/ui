@@ -155,6 +155,7 @@ export default class DataGrid extends React.Component {
 			navigateToNextCell: this.handleKeyboard,
 			onViewportChanged: this.updateStyleFocusColumn,
 			onVirtualColumnsChanged: this.updateStyleFocusColumn,
+			overlayNoRowsTemplate: this.props.overlayNoRowsTemplate,
 			ref: this.setGridInstance, // use ref in AgGridReact to get the current instance
 			rowData: this.props.getRowDataFn(this.props.data),
 			rowHeight: this.props.rowHeight,
