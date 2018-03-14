@@ -28,16 +28,15 @@ public class AppHeaderBar extends Component {
 
     private static final String USER_MENU_ITEMS_SELECTOR = USER_GROUP_SELECTOR + " .dropdown-menu a";
 
-    private static final String USER_MENU_BUTTON_ID = "user:menu";
-
     private static final String HELP_SELECTOR = ".tc-header-bar-help button";
 
     /**
      * AppHeaderBar constructor
+     * public constructor in order to be extended in a more specific way for each project
      *
      * @param driver Selenium WebDriver
      */
-    AppHeaderBar(WebDriver driver) {
+    public AppHeaderBar(WebDriver driver) {
         super(driver, HEADER_BAR_NAME, HEADER_BAR_SELECTOR);
     }
 
@@ -156,11 +155,4 @@ public class AppHeaderBar extends Component {
         this.getHelp().click();
     }
 
-
-    /**
-     * Get the help button element
-     */
-    public WebElement getUserMenuButton() {
-        return driver.findElement(By.id(USER_MENU_BUTTON_ID));
-    }
 }
