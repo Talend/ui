@@ -156,6 +156,12 @@ describe('#getRowData', () => {
 		expect(rowData).toMatchSnapshot();
 	});
 
+	it('should returns the row data with startIndex', () => {
+		const rowData = getRowData(sample, 10);
+
+		expect(rowData).toMatchSnapshot();
+	});
+
 	it('should returns an empty row data', () => {
 		const rowData = getRowData();
 

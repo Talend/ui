@@ -15,5 +15,6 @@ exports[`#DataGridContainer should render DataGridContainer 1`] = `
   pinHeaderRenderer="DefaultPinHeaderRenderer"
   rowHeight={39}
   rowSelection="single"
+  startIndex={0}
 />
 `;
