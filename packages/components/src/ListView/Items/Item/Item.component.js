@@ -31,21 +31,16 @@ function Item(props) {
 		{ switch: isSwitchBox },
 	);
 
-	const onChange = parentItem ?
-		event => item.onChange(event, item, parentItem) :
-		event => item.onChange(event, item);
+	const onChange = parentItem
+		? event => item.onChange(event, item, parentItem)
+		: event => item.onChange(event, item);
 
 	return (
 		<div id={id}>
 			<div className="checkbox-container">
 				<div className={itemClassName} key={item.index}>
 					<label htmlFor={itemId}>
-						<input
-							id={itemId}
-							type="checkbox"
-							checked={item.checked}
-							onChange={onChange}
-						/>
+						<input id={itemId} type="checkbox" checked={item.checked} onChange={onChange} />
 						<span className={itemLabelClasses()}>
 							{searchCriteria ? getSearchedLabel(item.label) : item.label}
 						</span>
