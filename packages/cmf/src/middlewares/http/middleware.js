@@ -1,3 +1,4 @@
+import flow from 'lodash/flow';
 import has from 'lodash/has';
 import get from 'lodash/get';
 import { HTTP_METHODS, HTTP_STATUS, testHTTPCode } from './constants';
@@ -98,11 +99,20 @@ export function getMethod(action) {
 	return HTTP_METHODS[action.type];
 }
 
-export function mergeOptions(action, headers) {
+export function mergeConfiguredHeader(config) { 
+	return (options) => {
+		// still need to keep the previous header added by action
+		return {
+			...options, 
+			headers: { ...options.headers, ...DEFAULT_HTTP_HEADERS, ...config.headers },
+		};
+	}
+}
+
+export function mergeOptions(action) {
 	const options = Object.assign(
 		{
 			method: getMethod(action),
-			headers: { ...DEFAULT_HTTP_HEADERS, ...headers },
 			credentials: 'same-origin',
 		},
 		action,
@@ -205,10 +215,12 @@ export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
 		return next(action);
 	}
 	const httpAction = get(action, 'cmf.http', action);
-	const config = mergeCSRFToken(
-		middlewareDefaultConfig,
-		mergeOptions(httpAction, middlewareDefaultConfig.headers),
-	);
+	const config = flow([
+		mergeOptions,
+		mergeConfiguredHeader(middlewareDefaultConfig),
+		mergeCSRFToken(middlewareDefaultConfig),
+	])(action);
+
 	dispatch(http.onRequest(httpAction.url, config));
 	if (httpAction.onSend) {
 		dispatch({
