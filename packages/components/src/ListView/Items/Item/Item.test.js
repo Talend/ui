@@ -19,6 +19,6 @@ describe('Item', () => {
 		checkbox.at(0).simulate('change', event);
 
 		// then
-		expect(item.onChange).toBeCalledWith(event, item);
+		expect(item.onChange).toBeCalledWith(event, item, undefined);
 	});
 });
