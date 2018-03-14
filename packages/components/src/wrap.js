@@ -23,6 +23,15 @@ const OMIT_PROPS = [
 	'dispatchActionCreator',
 ];
 
+const BLACK_LISTED_ATTR = [
+	'childContextTypes', // not authorized on function component
+	'propTypes', // already set by HOC
+];
+
+function isNotBlackListedAttr(attr) {
+	return !BLACK_LISTED_ATTR.includes(attr);
+}
+
 export default function wrap(Component, key) {
 	const Wrapper = ({ getComponent, components, text, ...props }) => {
 		const injected = Inject.all(getComponent, components);
@@ -35,22 +44,23 @@ export default function wrap(Component, key) {
 			</Component>
 		);
 	};
-	Object.keys(Component).forEach(attr => {
-		Wrapper[attr] = Component[attr];
-	});
+	Object.keys(Component)
+		.filter(isNotBlackListedAttr)
+		.forEach(attr => {
+			Wrapper[attr] = Component[attr];
+		});
 	Wrapper.displayName = key;
 	Wrapper.propTypes = {
 		text: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-		children: PropTypes.oneOfType([
-			PropTypes.node,
-			PropTypes.arrayOf(PropTypes.node),
-		]),
+		children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
 		getComponent: PropTypes.func,
 		components: PropTypes.shape({
-			children: PropTypes.arrayOf(PropTypes.shape({
-				component: PropTypes.string,
-				componentId: PropTypes.string,
-			})),
+			children: PropTypes.arrayOf(
+				PropTypes.shape({
+					component: PropTypes.string,
+					componentId: PropTypes.string,
+				}),
+			),
 		}),
 	};
 	return Wrapper;
