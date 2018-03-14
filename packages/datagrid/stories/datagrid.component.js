@@ -37,6 +37,19 @@ storiesOf('Component Datagrid')
 			<DataGrid
 				data={sample}
 				startIndex={1}
+  			onFocusedCell={event => console.log(event)}
+				onFocusedColumn={event => console.log(event)}
+				onVerticalScroll={event => console.log(event)}
+				rowSelection="multiple"
+			/>
+		</div>
+	))
+	.add('no row specific message', () => (
+		<div style={{ height: '100vh' }}>
+			<IconsProvider />
+			<DataGrid
+				data={[]}
+				overlayNoRowsTemplate="Custom message"
 				onFocusedCell={event => console.log(event)}
 				onFocusedColumn={event => console.log(event)}
 				onVerticalScroll={event => console.log(event)}
