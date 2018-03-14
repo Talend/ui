@@ -31,10 +31,6 @@ function Item(props) {
 		{ switch: isSwitchBox },
 	);
 
-	const onChange = parentItem ?
-		event => item.onChange(event, item, parentItem) :
-		event => item.onChange(event, item);
-
 	return (
 		<div id={id}>
 			<div className="checkbox-container">
@@ -44,7 +40,7 @@ function Item(props) {
 							id={itemId}
 							type="checkbox"
 							checked={item.checked}
-							onChange={onChange}
+							onChange={event => item.onChange(event, item, parentItem)}
 						/>
 						<span className={itemLabelClasses()}>
 							{searchCriteria ? getSearchedLabel(item.label) : item.label}
