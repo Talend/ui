@@ -12,9 +12,9 @@ import java.util.List;
  */
 public class AppHeaderBar extends Component {
 
-    private static final String NAME = "HeaderBar";
+    private static final String HEADER_BAR_NAME = "HeaderBar";
 
-    private static final String SELECTOR = ".tc-header-bar";
+    private static final String HEADER_BAR_SELECTOR = ".tc-header-bar";
 
     private static final String LOGO_SELECTOR = ".tc-header-bar-logo";
 
@@ -28,6 +28,8 @@ public class AppHeaderBar extends Component {
 
     private static final String USER_MENU_ITEMS_SELECTOR = USER_GROUP_SELECTOR + " .dropdown-menu a";
 
+    private static final String USER_MENU_BUTTON_ID = "user:menu";
+
     private static final String HELP_SELECTOR = ".tc-header-bar-help button";
 
     /**
@@ -36,16 +38,17 @@ public class AppHeaderBar extends Component {
      * @param driver Selenium WebDriver
      */
     AppHeaderBar(WebDriver driver) {
-        super(driver, NAME, SELECTOR);
+        super(driver, HEADER_BAR_NAME, HEADER_BAR_SELECTOR);
     }
 
-    /** AppHeaderBar constructor
-    *
-    * @param driver Selenium WebDriver
-    * @param id Unique ID of the component
-    */
+    /**
+     * AppHeaderBar constructor
+     *
+     * @param driver Selenium WebDriver
+     * @param id     Unique ID of the component
+     */
     AppHeaderBar(WebDriver driver, String id) {
-       super(driver, NAME, id + SELECTOR);
+        super(driver, HEADER_BAR_NAME, id + HEADER_BAR_SELECTOR);
     }
 
     /**
@@ -151,5 +154,13 @@ public class AppHeaderBar extends Component {
      */
     public void clickOnHelp() {
         this.getHelp().click();
+    }
+
+
+    /**
+     * Get the help button element
+     */
+    public WebElement getUserMenuButton() {
+        return driver.findElement(By.id(USER_MENU_BUTTON_ID));
     }
 }

@@ -2,13 +2,17 @@ package org.talend.component;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NotFoundException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
 /**
  * Parent class for API react-talend-component components.
- *
  */
 public class Component {
 
@@ -24,11 +28,13 @@ public class Component {
 
     protected WebElement root;
 
+    protected final WebDriverWait wait;
+
     /**
      * Component constructor
      *
-     * @param driver Selenium WebDriver
-     * @param name Component name
+     * @param driver   Selenium WebDriver
+     * @param name     Component name
      * @param selector Component CSS selector
      */
     public Component(WebDriver driver, String name, String selector) {
@@ -37,13 +43,14 @@ public class Component {
         this.jsExec = (JavascriptExecutor) driver;
         this.name = name;
         this.selector = selector;
+        this.wait = new WebDriverWait(this.driver, 1);
     }
 
     /**
      * Component constructor
      *
      * @param driver Selenium WebDriver
-     * @param root Component root element
+     * @param root   Component root element
      */
     public Component(WebDriver driver, String name, WebElement root) {
         LOGGER.info("Component " + name + " from provided root");
@@ -51,6 +58,7 @@ public class Component {
         this.jsExec = (JavascriptExecutor) driver;
         this.name = name;
         this.root = root;
+        this.wait = new WebDriverWait(this.driver, 7);
     }
 
     /**
@@ -67,9 +75,8 @@ public class Component {
      * Get component from its selector
      *
      * @return WebElement found with selector
-     * @throws NotFoundException if no elements are found or if more than one element are found
      */
-    public WebElement getElement() throws NotFoundException {
+    public WebElement getElement() {
         LOGGER.info(this.name + ".getElement " + this.selector);
 
         if (this.root != null) {
@@ -77,7 +84,7 @@ public class Component {
         }
 
         List<WebElement> elements = this.getElements();
-        if (elements.size() == 0) {
+        if (elements.isEmpty()) {
             LOGGER.debug("currentUrl: " + this.driver.getCurrentUrl());
             throw new NotFoundException(this.name);
         }

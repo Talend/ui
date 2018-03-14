@@ -1,8 +1,11 @@
 package org.talend.component.list.table;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NotFoundException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.talend.component.Component;
 
 import java.util.List;
@@ -14,7 +17,7 @@ import static java.util.stream.Collectors.toList;
  */
 public class Table extends Component {
 
-    private static final String NAME = "Table";
+    private static final String TABLE_NAME = "Table";
 
     private static final String TABLE_SELECTOR = ".tc-list-table%s";
 
@@ -25,8 +28,6 @@ public class Table extends Component {
     private static final String TABLE_GRID_SELECTOR = ".ReactVirtualized__Table__Grid";
 
     private static final String TABLE_ITEM_SELECTOR = ".ReactVirtualized__Table__row";
-
-    private final WebDriverWait wait;
 
     /**
      * Constructor.
@@ -43,8 +44,7 @@ public class Table extends Component {
      * @param driver Selenium WebDriver
      */
     public Table(final WebDriver driver, final String id) {
-        super(driver, NAME, String.format(TABLE_SELECTOR, id != null ? "#" + id : ""));
-        this.wait = new WebDriverWait(driver, 1);
+        super(driver, TABLE_NAME, String.format(TABLE_SELECTOR, id != null ? "#" + id : ""));
     }
 
     /**
@@ -101,14 +101,15 @@ public class Table extends Component {
 
     /**
      * Scroll to next set of rows
+     *
      * @return true if the element has been scrolled, false otherwise.
      */
     public boolean scrollDown() {
-        if (! canScrollDown()) {
+        if (!canScrollDown()) {
             return false;
         }
 
-        final WebElement firstElement = this.getElement().findElement(By.cssSelector(TABLE_ITEM_SELECTOR)) ;
+        final WebElement firstElement = this.getElement().findElement(By.cssSelector(TABLE_ITEM_SELECTOR));
         final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
         jsExec.executeScript("arguments[0].scrollTop += arguments[0].offsetHeight;", grid);
         try {
@@ -116,7 +117,6 @@ public class Table extends Component {
         } catch (TimeoutException e) {
             return false;
         }
-
         return true;
     }
 
