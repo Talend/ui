@@ -51,7 +51,7 @@ storiesOf('Component Datagrid')
 			<DataGrid data={sample} loading />
 		</div>
 	))
-	.add('Loading state', () => {
+	.add('Dynamic change schema', () => {
 		class WithLayout extends React.Component {
 			constructor() {
 				super();
@@ -60,7 +60,6 @@ storiesOf('Component Datagrid')
 			}
 
 			changeState() {
-				console.log(this.state.firstSample);
 				this.setState(prevState => ({
 					firstSample: !prevState.firstSample,
 				}));

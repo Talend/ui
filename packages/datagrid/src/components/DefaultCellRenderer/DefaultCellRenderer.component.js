@@ -11,9 +11,6 @@ import theme from './DefaultCell.scss';
 export const CELL_RENDERER_COMPONENT = 'cellRenderer';
 
 export default function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent }) {
-	if (value === undefined) {
-		return null;
-	}
 	return (
 		<div className={classNames(theme['td-cell'], 'td-cell')}>
 			{value.quality <= 0 && <QualityIndicator tooltip="Incorrect value" value={value.quality} />}
@@ -26,6 +23,10 @@ export default function DefaultCellRenderer({ avroRenderer, colDef, value, getCo
 		</div>
 	);
 }
+
+DefaultCellRenderer.defaultProps = {
+	value: {},
+};
 
 DefaultCellRenderer.propTypes = {
 	avroRenderer: DATAGRID_PROPTYPES.avroRenderer,
