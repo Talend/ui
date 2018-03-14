@@ -100,6 +100,7 @@ export function getMethod(action) {
 }
 
 export function mergeConfiguredHeader(config) {
+<<<<<<< HEAD
 	return options => {
 		// still need to keep the previous header added by action
 		return {
@@ -107,6 +108,13 @@ export function mergeConfiguredHeader(config) {
 			headers: { ...options.headers, ...DEFAULT_HTTP_HEADERS, ...config.headers },
 		};
 	};
+=======
+	// still need to keep the previous header added by action
+	return options => ({
+		...options,
+		headers: { ...options.headers, ...DEFAULT_HTTP_HEADERS, ...config.headers },
+	});
+>>>>>>> fixing lint
 }
 
 export function mergeOptions(action) {

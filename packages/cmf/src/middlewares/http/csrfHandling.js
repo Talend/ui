@@ -88,12 +88,22 @@ const mergeCSRFTokenConfig = curry(
  * @return {HTTPConfig}
  */
 export function mergeCSRFToken({ security = {} }) {
+<<<<<<< HEAD
 	return httpConfig => {
 		return flow([
+=======
+	return httpConfig => (
+		flow([
+>>>>>>> fixing lint
 			getCookie,
 			parseCookie,
 			findCSRFToken(security),
 			mergeCSRFTokenConfig(security, httpConfig),
+<<<<<<< HEAD
 		])();
 	};
+=======
+		])()
+	);
+>>>>>>> fixing lint
 }
