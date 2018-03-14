@@ -25,24 +25,26 @@ function Item(props) {
 	}
 
 	const itemId = id && `checkbox-${id}`;
-	const itemSelector = classNames(
+	const itemClassName = classNames(
 		'checkbox',
 		{ 'switch-nested': props.children },
 		{ switch: isSwitchBox },
 	);
 
+	const onChange = parentItem ?
+		event => item.onChange(event, item, parentItem) :
+		event => item.onChange(event, item);
+
 	return (
 		<div id={id}>
 			<div className="checkbox-container">
-				<div className={itemSelector} key={item.index}>
+				<div className={itemClassName} key={item.index}>
 					<label htmlFor={itemId}>
 						<input
 							id={itemId}
 							type="checkbox"
 							checked={item.checked}
-							onChange={event =>
-								(parentItem ? item.onChange(event, item, parentItem) : item.onChange(event, item))
-							}
+							onChange={onChange}
 						/>
 						<span className={itemLabelClasses()}>
 							{searchCriteria ? getSearchedLabel(item.label) : item.label}

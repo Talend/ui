@@ -39,13 +39,17 @@ class Items extends React.PureComponent {
 		this.hasToggleAll = this.props.showToggleAll && this.props.items.length > 1;
 	}
 
+	getItemByIndex(index) {
+		return this.props.items[index - Number(this.hasToggleAll)];
+	}
+
 	getRowHeight({ index }) {
 		if (this.hasToggleAll && index === 0) {
 			return 40;
 		}
 
 		let extraHeight = 0;
-		const currentItem = this.props.items[index - Number(this.hasToggleAll)];
+		const currentItem = this.getItemByIndex(index);
 		if (currentItem && currentItem.children && currentItem.expanded) {
 			extraHeight = currentItem.children.length * this.props.getItemHeight();
 		}
@@ -63,7 +67,7 @@ class Items extends React.PureComponent {
 	rowRenderer(props) {
 		const { key, index, style } = props;
 		const isToggle = this.hasToggleAll && index === 0;
-		const currentItem = this.props.items[index - Number(this.hasToggleAll)];
+		const currentItem = this.getItemByIndex(index);
 		return (
 			<div
 				className={classNames(itemContainer(isToggle && 'toggle'), {
