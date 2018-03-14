@@ -39,7 +39,7 @@
 			}
 
 			> * {
-				padding: 5px 0;
+				padding: $padding-smaller 0;
 			}
 
 			.main {
@@ -66,6 +66,11 @@
 				overflow: hidden;
 				white-space: nowrap;
 				text-overflow: ellipsis;
+
+				&:hover {
+					overflow: visible;
+					white-space: initial;
+				}
 			}
 		}
 	}
@@ -87,7 +92,7 @@
 	font-size: 10px;
 	padding: 2px 10px;
 	display: inline-table;
-	margin-left: 10px;
+	margin-left: $padding-small;
 	vertical-align: text-bottom;
 }
 
@@ -96,7 +101,7 @@
 	width: 3px;
 	background: $lightning-yellow;
 	position: absolute;
-	margin-left: -25px;
+	margin-left: -($padding-large + $padding-smaller);
 }
 
 .invalid-dot {
@@ -104,7 +109,7 @@
 	width: 5px;
 	background-color: #f3c446;
 	border-radius: 50%;
-	margin: 0 10px;
+	margin: 0 $padding-small;
 }
 
 .highlight {

@@ -42,13 +42,12 @@ function DefaultValueItem(props) {
 	];
 	if (onClick) {
 		return (
-			<div className={className}>
+			<div className={className} style={style}>
 				<button
 					key={'main'}
 					aria-label={`Select ${dataKey} (${jsonpath})`}
 					onClick={onClick}
 					className={theme.main}
-					style={style}
 				>
 					{content}
 				</button>
@@ -173,7 +172,7 @@ DefaultItem.propTypes = {
 
 function DefaultFields({ dataKey, fields, jsonpath, level, type, value, ...props }) {
 	return (
-		<ul>
+		<ul className={'tc-object-viewer-nested'}>
 			{fields.map((field, index) => {
 				const itemProps = {
 					...props,
