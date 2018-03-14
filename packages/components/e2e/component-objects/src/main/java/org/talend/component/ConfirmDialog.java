@@ -31,7 +31,7 @@ public class ConfirmDialog extends Component {
      * @param id Unique ID of the component
      */
     ConfirmDialog(WebDriver driver, String id) {
-        super(driver, NAME, id + CONFIRMDIALOG_SELECTOR);
+        super(driver, CONFIRMDIALOG_NAME, id + CONFIRMDIALOG_SELECTOR);
     }
 
     /**

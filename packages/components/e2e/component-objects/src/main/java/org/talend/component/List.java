@@ -40,7 +40,7 @@ public class List extends Component {
      * @param id Unique ID of the component
      */
     List(WebDriver driver, String id) {
-        super(driver, NAME, id + LIST_SELECTOR);
+        super(driver, LIST_NAME, id + LIST_SELECTOR);
     }
 
     /**
