@@ -12,9 +12,9 @@ import org.openqa.selenium.WebElement;
  */
 public class List extends Component {
 
-    static final String LIST_NAME = "List";
+    static final String NAME = "List";
 
-    static final String LIST_SELECTOR = ".tc-list";
+    static final String SELECTOR = ".tc-list";
 
     static final String TOOL_BAR_SELECTOR = ".tc-list-toolbar";
 
@@ -30,7 +30,7 @@ public class List extends Component {
      * @param driver Selenium WebDriver
      */
     List(WebDriver driver) {
-        super(driver, LIST_NAME, LIST_SELECTOR);
+        super(driver, NAME, SELECTOR);
     }
 
     /**
@@ -40,7 +40,7 @@ public class List extends Component {
      * @param id Unique ID of the component
      */
     List(WebDriver driver, String id) {
-        super(driver, LIST_NAME, id + LIST_SELECTOR);
+        super(driver, NAME, id + SELECTOR);
     }
 
     /**

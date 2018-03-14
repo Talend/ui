@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 
 public class Notification extends Component {
 
-    private static final String NOTIFICATION_NAME = "Notification";
+    private static final String NAME = "Notification";
 
-    private static final String NOTIFICATION_SELECTOR = ".tc-notification-container";
+    private static final String SELECTOR = ".tc-notification-container";
 
     private static final String NOTIFICATION_MESSAGE = ".tc-notification-error .tc-notification-message";
 
@@ -18,7 +18,7 @@ public class Notification extends Component {
      * @param driver Selenium WebDriver
      */
     Notification(WebDriver driver) {
-        super(driver, NOTIFICATION_NAME, NOTIFICATION_SELECTOR);
+        super(driver, NAME, SELECTOR);
     }
 
     /**

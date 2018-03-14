@@ -10,9 +10,9 @@ public class HeaderBar extends Component {
 
     private static final Logger LOGGER = LogManager.getLogger(AppHeaderBar.class);
 
-    static final String HEADER_NAME = "AppHeaderBar";
+    static final String NAME = "AppHeaderBar";
 
-    static final String HEADER_SELECTOR = ".tc-header-bar";
+    static final String SELECTOR = ".tc-header-bar";
 
     static final String HELP_SELECTOR = "header-help";
 
@@ -30,7 +30,7 @@ public class HeaderBar extends Component {
      * @param driver Selenium WebDriver
      */
     HeaderBar(WebDriver driver) {
-        super(driver, HEADER_NAME, HEADER_SELECTOR);
+        super(driver, NAME, SELECTOR);
     }
 
     public WebElement getHelp() {
