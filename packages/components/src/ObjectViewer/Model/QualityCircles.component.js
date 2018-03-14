@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import ModelItemMenu from './ModelItemMenu.component';
 import PieChartButton from '../../PieChartButton';
 import theme from './QualityCircles.scss';
-import Menu from './Menu.component';
 
 function getQualityModels(qualities) {
 	let invalidPercentage = qualities && qualities[-1] || 0;
@@ -54,7 +54,7 @@ class QualityCircle extends React.Component {
 				model={model}
 				onClick={onClick && (event => onClick(event, { item, jsonpath, type }))}
 				overlayComponent={
-					<Menu
+					<ModelItemMenu
 						menuItems={menu[type]}
 						onClose={this.onOverlayClose}
 						onMenuItemClick={this.onMenuItemClick}
@@ -74,12 +74,12 @@ QualityCircle.propTypes = {
 	item: PropTypes.object,
 	jsonpath: PropTypes.string,
 	menu: PropTypes.shape({
-		invalid: Menu.propTypes.menuItems,
-		empty: Menu.propTypes.menuItems,
-		valid: Menu.propTypes.menuItems,
+		invalid: ModelItemMenu.propTypes.menuItems,
+		empty: ModelItemMenu.propTypes.menuItems,
+		valid: ModelItemMenu.propTypes.menuItems,
 	}),
 	model: PropTypes.array,
-	type: PropTypes.oneOf('invalid', 'empty', 'valid'),
+	type: PropTypes.oneOf(['invalid', 'empty', 'valid']),
 };
 
 export default function QualityCircles({ item, jsonpath, quality }) {

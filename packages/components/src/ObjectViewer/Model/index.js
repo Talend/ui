@@ -1,1 +1,3 @@
-export { default } from './Model.component';
+import ModelViewer from './ModelViewer.component';
+
+export default ModelViewer;

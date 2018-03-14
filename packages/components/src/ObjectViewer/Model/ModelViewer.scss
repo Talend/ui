@@ -1,0 +1,42 @@
+.model {
+	&:global(.tc-object-viewer .tc-object-viewer-item .tc-object-viewer-content) {
+
+		&:focus,
+		&:focus-within,
+		&:hover {
+			.menu .menu-trigger {
+				opacity: 1;
+			}
+		}
+
+		> * {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+	}
+
+	.type {
+		color: $silver-chalice;
+		padding: 0 $padding-smaller;
+		text-transform: capitalize;
+	}
+}
+
+.menu {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: $padding-larger;
+	display: flex;
+
+	> span {
+		display: flex;
+	}
+
+	.menu-trigger {
+		font-weight: bolder;
+		letter-spacing: 0;
+		opacity: 0;
+		text-decoration: none;
+	}
+}

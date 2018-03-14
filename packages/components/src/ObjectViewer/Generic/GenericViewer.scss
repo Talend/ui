@@ -26,12 +26,20 @@
 
 		.content {
 			display: flex;
-			padding: 5px 0;
+			position: relative;
+
+			&.no-root {
+				display: none;
+			}
 
 			&:focus,
 			&:focus-within,
 			&:hover {
 				background: $gallery;
+			}
+
+			> * {
+				padding: 5px 0;
 			}
 
 			.main {
@@ -42,21 +50,19 @@
 				align-items: center;
 			}
 
+			.key-value {
+				display: flex;
+				overflow: hidden;
+			}
+
 			.key {
 				display: inline;
 				color: $dove-gray;
 			}
 
 			.value {
-				max-width: calc(100% - 6em);
 				color: $brand-primary;
-				vertical-align: bottom;
-				border: none;
-				background: none;
-				padding: 0;
-				cursor: text;
 				margin-left: 4px;
-				display: inline-block;
 				overflow: hidden;
 				white-space: nowrap;
 				text-overflow: ellipsis;

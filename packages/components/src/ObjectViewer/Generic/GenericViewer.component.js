@@ -1,74 +1,84 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import theme from './GenericViewer.scss';
-import getJSONPath from '../jsonPath';
+import {
+	defaultFormatValue,
+	defaultGetDataType,
+	defaultGetDisplayKey,
+	defaultGetFields,
+	defaultGetIcon,
+	defaultGetJSONPath,
+	defaultGetQuality,
+	defaultGetValue,
+} from './genericViewer.configuration';
 import Icon from '../../Icon';
+import theme from './GenericViewer.scss';
 
-const paddingLeft = 25;
-const marginLeft = 4;
-
-function defaultFormatValue(value) {
-	if (typeof value === 'string') {
-		return `"${value}"`;
-	}
-	return value;
-}
-
-function defaultGetDataType(data) {
-	if (Array.isArray(data)) {
-		return 'array';
-	}
-	return typeof data;
-}
-
-function defaultGetFields(data, type) {
-	if (type === 'object') {
-		return Object.keys(data).map(dataKey => ({ dataKey, value: data[dataKey] }));
-	}
-	return data;
-}
-
-function defaultGetQuality() {
-	return null;
-}
-
-function defaultGetValue(value) {
-	return value;
-}
-
-function defaultGetIcon({ isOpened }) {
-	const name = isOpened ? 'talend-caret-down' : 'talend-chevron-left';
-	const transform = isOpened ? null : 'rotate-180';
-
-	return { name, transform };
-}
+const paddingLeft = 30;
 
 function DefaultValueItem(props) {
-	const { className, dataKey, formatValue, getQuality, getValue, style, value } = props;
+	const {
+		className,
+		dataKey,
+		formatValue,
+		getDisplayKey,
+		getQuality,
+		getItemMenu,
+		getValue,
+		jsonpath,
+		onClick,
+		style,
+	} = props;
 	const quality = getQuality(props);
+	const formattedKey = getDisplayKey(props);
+	const formattedValue = formatValue(getValue(props));
+	const content = [
+		quality === 'invalid' && <div key={'quality'} className={classNames(theme['invalid-value'], 'tc-object-viewer-invalid-value')} />,
+		<div key={'key-value'} className={theme['key-value']}>
+			<span key={'key'} className={theme.key}>{formattedKey}</span>
+			{formattedValue && ': '}
+			<span key={'value'} title={formattedValue} className={theme.value}>{formattedValue}</span>
+		</div>,
+	];
+	if (onClick) {
+		return (
+			<div className={className}>
+				<button
+					key={'main'}
+					aria-label={`Select ${dataKey} (${jsonpath})`}
+					onClick={onClick}
+					className={theme.main}
+					style={style}
+				>
+					{content}
+				</button>
+				{getItemMenu && getItemMenu(props)}
+			</div>
+		);
+	}
 	return (
-		<span className={className} style={style}>
-			{quality === 'invalid' && <div className={classNames(theme['invalid-value'], 'tc-object-viewer-invalid-value')} />}
-			<span className={theme.key}>{dataKey}</span>:
-			<span className={theme.value}>{formatValue(getValue(value))}</span>
-		</span>
+		<div className={className} style={style}>
+			{content}
+		</div>
 	);
 }
 DefaultValueItem.defaultProps = {
 	formatValue: defaultFormatValue,
+	getDisplayKey: defaultGetDisplayKey,
 	getQuality: defaultGetQuality,
 	getValue: defaultGetValue,
-	value: '',
 };
 DefaultValueItem.propTypes = {
 	className: PropTypes.string,
 	dataKey: PropTypes.string,
 	formatValue: PropTypes.func,
+	getDisplayKey: PropTypes.func,
+	getItemMenu: PropTypes.func,
 	getQuality: PropTypes.func,
 	getValue: PropTypes.func,
+	jsonpath: PropTypes.string,
+	onClick: PropTypes.func,
 	style: PropTypes.object,
-	value: PropTypes.any,
 };
 
 function DefaultItem(props) {
@@ -77,6 +87,7 @@ function DefaultItem(props) {
 		data,
 		fields,
 		getIcon,
+		getDisplayKey,
 		getQuality,
 		isOpened,
 		jsonpath,
@@ -87,7 +98,7 @@ function DefaultItem(props) {
 		type,
 	} = props;
 
-	const content = [<span key={'datakey'}>{dataKey}</span>];
+	const content = [<span key={'datakey'}>{getDisplayKey(props)}</span>];
 	if (type === 'array') {
 		content.push(
 			<span key={'length'}>
@@ -140,6 +151,7 @@ function DefaultItem(props) {
 }
 DefaultItem.defaultProps = {
 	getIcon: defaultGetIcon,
+	getDisplayKey: defaultGetDisplayKey,
 	getQuality: defaultGetQuality,
 	fields: [],
 };
@@ -147,18 +159,19 @@ DefaultItem.propTypes = {
 	className: PropTypes.string,
 	data: PropTypes.any,
 	fields: PropTypes.array,
+	getDisplayKey: PropTypes.func,
 	getIcon: PropTypes.func,
 	getQuality: PropTypes.func,
 	isOpened: PropTypes.bool,
 	jsonpath: PropTypes.string,
-	dataKey: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
+	dataKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	onClick: PropTypes.func,
 	onToggle: PropTypes.func,
 	style: PropTypes.object,
 	type: PropTypes.string,
 };
 
-function DefaultFields({ fields, jsonpath, level, type, ...props }) {
+function DefaultFields({ dataKey, fields, jsonpath, level, type, value, ...props }) {
 	return (
 		<ul>
 			{fields.map((field, index) => {
@@ -174,7 +187,15 @@ function DefaultFields({ fields, jsonpath, level, type, ...props }) {
 					itemProps.dataKey = field.dataKey;
 					itemProps.value = field.value;
 				}
-				itemProps.jsonpath = getJSONPath(itemProps.dataKey, jsonpath, type);
+				itemProps.jsonpath = props.getJSONPath({
+					dataKey: itemProps.dataKey,
+					parent: {
+						dataKey,
+						jsonpath,
+						type,
+						value,
+					},
+				});
 
 				return (
 					<Item {...itemProps} />
@@ -185,12 +206,16 @@ function DefaultFields({ fields, jsonpath, level, type, ...props }) {
 }
 DefaultFields.defaultProps = {
 	fields: [],
+	getJSONPath: defaultGetJSONPath,
 };
 DefaultFields.propTypes = {
+	dataKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	fields: PropTypes.array,
+	getJSONPath: PropTypes.func,
 	jsonpath: PropTypes.string,
 	level: PropTypes.number,
 	type: PropTypes.string,
+	value: PropTypes.any,
 };
 
 function Item(props) {
@@ -201,18 +226,17 @@ function Item(props) {
 		jsonpath,
 		level,
 		nodeRenderers,
+		noRoot,
 		onSelect,
 		opened,
 		value,
 	} = props;
-	debugger;
+	const forceRootOpen = noRoot && level === 0;
 	const isHighlighted = highlighted.find(pattern => jsonpath.match(pattern));
-	const isOpened = opened.indexOf(jsonpath) !== -1;
+	const isOpened = forceRootOpen || (opened.indexOf(jsonpath) !== -1);
 	const itemType = getDataType(value);
 
-	const caretSpaceAdjustment = marginLeft * level;
-	const levelSpaceAdjustment = paddingLeft * level;
-	const spaceAdjustment = { paddingLeft: caretSpaceAdjustment + levelSpaceAdjustment };
+	const spaceAdjustment = { paddingLeft: paddingLeft * level };
 	const onClick = onSelect && (event => onSelect(event, jsonpath, value));
 
 	let ItemComponent;
@@ -235,6 +259,8 @@ function Item(props) {
 
 	const itemContentClassName = classNames(
 		theme.content,
+		'tc-object-viewer-content'
+,		{ [theme['no-root']]: forceRootOpen },
 		{ [theme.highlight]: isHighlighted }
 	);
 
@@ -261,14 +287,14 @@ Item.defaultProps = {
 	getFields: defaultGetFields,
 	highlighted: [],
 	jsonpath: '',
-	opened: [],
 	nodeRenderers: {},
+	opened: [],
 	value: '',
 };
 Item.propTypes = {
 	getDataType: PropTypes.func,
 	getFields: PropTypes.func,
-	highlighted: PropTypes.arrayOf(PropTypes.string),
+	highlighted: PropTypes.array,
 	jsonpath: PropTypes.string,
 	level: PropTypes.number,
 	nodeRenderers: PropTypes.shape({
@@ -276,21 +302,33 @@ Item.propTypes = {
 		object: PropTypes.func,
 		value: PropTypes.func,
 	}),
+	noRoot: PropTypes.bool,
 	onSelect: PropTypes.func,
 	opened: PropTypes.arrayOf(PropTypes.string),
 	value: PropTypes.any,
 };
 
 export default function GenericViewer({ className, style, title, ...props }) {
+	const cn = classNames(
+		theme['tc-viewer'],
+		'tc-object-viewer',
+		className,
+	);
 	return (
-		<ul className={classNames(theme['tc-viewer'], 'tc-viewer', className)} style={style}>
-			<Item {...props} dataKey={title} jsonpath={'$'} value={props.data} level={0} />
+		<ul className={cn} style={style}>
+			<Item
+				{...props}
+				dataKey={title}
+				jsonpath={'$'}
+				value={props.data}
+				level={0}
+			/>
 		</ul>
 	);
 }
 GenericViewer.propTypes = {
 	className: PropTypes.string,
-	data: PropTypes.oneOfType(PropTypes.array, PropTypes.object),
-	title: PropTypes.string,
+	data: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+	title: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	style: PropTypes.object,
 };

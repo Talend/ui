@@ -332,7 +332,6 @@ class AvroViewer extends React.Component {
 	}
 
 	render() {
-		debugger;
 		const partStyle = {
 			flexGrow: 1,
 			flexShrink: 1,

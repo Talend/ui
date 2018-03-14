@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Action } from '../../Actions';
 
-export default class Menu extends React.Component {
+export default class ModelItemMenu extends React.Component {
 	componentWillUnmount() {
 		this.props.onClose();
 	}
@@ -38,10 +38,10 @@ export default class Menu extends React.Component {
 		);
 	}
 }
-Menu.defaultProps = {
+ModelItemMenu.defaultProps = {
 	menuItems: [],
 };
-Menu.propTypes = {
+ModelItemMenu.propTypes = {
 	menuItems: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	onMenuItemClick: PropTypes.func,
 };
