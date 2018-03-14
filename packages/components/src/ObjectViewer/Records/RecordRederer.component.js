@@ -12,10 +12,12 @@ import theme from './RecordRederer.scss';
  * It allows CellMesurer to get the new size of the ObjectViewer and update the List cell height.
  */
 class MesureObjectViewer extends React.Component {
-	shouldComponentUpdate({ opened, data }) {
+	shouldComponentUpdate({ opened, highlighted, data }) {
 		// this is necessary to avoid an infinite call stack
 		// componentDidUpdate --> measure --> List render --> componentDidUpdate --> ...
-		return opened !== this.props.opened || data !== this.props.data;
+		return opened !== this.props.opened ||
+			highlighted !== this.props.highlighted ||
+			data !== this.props.data;
 	}
 
 	componentDidUpdate() {
@@ -32,6 +34,7 @@ class MesureObjectViewer extends React.Component {
 }
 MesureObjectViewer.propTypes = {
 	data: PropTypes.object,
+	highlighted: PropTypes.array,
 	measure: PropTypes.func,
 	opened: PropTypes.arrayOf(PropTypes.string),
 };
@@ -62,7 +65,7 @@ export default function RecordRenderer({ index, key, parent, style }) {
 						measure={measure}
 						opened={opened}
 						data={datum}
-						onToggle={(event, options) => onToggle(index, options)}
+						onToggle={(event, options) => onToggle(event, options, index)}
 					/>
 				</div>
 			)}

@@ -102,10 +102,16 @@ function Item(props) {
 	const levelSpaceAdjustment = Math.max(paddingLeft * level, paddingLeft);
 	const spaceAdjustment = { paddingLeft: caretSpaceAdjustment + levelSpaceAdjustment };
 
+	const children = item.fields || (item.items && item.items.fields);
+	let currentJsonPathAsParent = jsonpath;
+	if (type === 'array') {
+		currentJsonPathAsParent = getJSONPath('', jsonpath, 'array');
+	}
+
 	return (
 		<li className={classNames(theme.item, 'tc-object-model-item')}>
 			<div className={theme.title} style={spaceAdjustment}>
-				{item.fields &&
+				{children &&
 					<Caret
 						data={data}
 						isOpened={isOpened}
@@ -117,21 +123,24 @@ function Item(props) {
 					{item.doc}
 					{type && <span className={theme.type}>({type})</span>}
 				</button>
-				{type !== 'object' && <ModelMenus {...props} />}
+				{type !== 'record' && <ModelMenus {...props} />}
 			</div>
 
-			{item.fields && isOpened &&
+			{children && isOpened &&
 				<ul className={classNames(theme.fields, 'tc-object-model-item-fields')}>
 					{
-						item.fields.map((field, index) =>
-							<Item
-								key={index}
-								{...props}
-								jsonpath={getJSONPath(field.name, jsonpath, 'object')}
-								item={field}
-								level={level + 1}
-							/>
-						)
+						children.map((field, index) => {
+							const childJsonPath = getJSONPath(field.name, currentJsonPathAsParent);
+							return (
+								<Item
+									key={index}
+									{...props}
+									jsonpath={childJsonPath}
+									item={field}
+									level={level + 1}
+								/>
+							);
+						})
 					}
 				</ul>
 			}

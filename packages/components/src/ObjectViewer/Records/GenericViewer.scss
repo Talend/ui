@@ -102,5 +102,6 @@
 }
 
 .highlight {
-	background-color: tint($brand-primary, 80);
+	transition: background-color 0.5s ease-out;
+	background-color: tint($brand-primary, 90);
 }

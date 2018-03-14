@@ -205,6 +205,7 @@ function Item(props) {
 		opened,
 		value,
 	} = props;
+	debugger;
 	const isHighlighted = highlighted.find(pattern => jsonpath.match(pattern));
 	const isOpened = opened.indexOf(jsonpath) !== -1;
 	const itemType = getDataType(value);
