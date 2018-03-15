@@ -14,7 +14,7 @@ const icons = {
 
 const stories = storiesOf('AvroViewer', module);
 
-const dataModelFields = [
+const oldSchema = [
 	{
 		name: 'id',
 		doc: 'Id',
@@ -181,7 +181,88 @@ const dataModelFields = [
 		},
 	},
 ];
-const records = [
+const schema = [
+	{
+		name: 'name',
+		doc: 'Name',
+		type: {
+			type: 'string',
+			dqType: 'Recipe',
+			dqTypeKey: 'RECIPE',
+		},
+		'@talend-quality@': {
+			0: 5,
+			1: 65,
+			'-1': 30,
+		},
+	},
+	{
+		name: 'price',
+		doc: 'Price per unit',
+		type: {
+			type: 'decimal',
+		},
+		'@talend-quality@': {
+			0: 5,
+			1: 65,
+			'-1': 30,
+		},
+	},
+	{
+		name: 'ingredients',
+		doc: 'Ingredients',
+		type: {
+			type: 'array',
+		},
+		items: {
+			name: 'ingredient',
+			type: 'record',
+			fields: [
+				{
+					name: 'name',
+					doc: 'Name',
+					type: {
+						type: 'string',
+						dqType: 'Ingredient',
+						dqTypeKey: 'INGREDIENT',
+					},
+					'@talend-quality@': {
+						0: 2,
+						1: 88,
+						'-1': 10,
+					},
+				},
+				{
+					name: 'amount',
+					doc: 'Amount',
+					type: {
+						type: 'number',
+					},
+					'@talend-quality@': {
+						0: 4,
+						1: 96,
+						'-1': 0,
+					},
+				},
+				{
+					name: 'unit',
+					doc: 'Unit',
+					type: {
+						type: 'string',
+						dqType: 'Unit',
+						dqTypeKey: 'UNIT',
+					},
+					'@talend-quality@': {
+						0: 4,
+						1: 96,
+						'-1': 0,
+					},
+				},
+			],
+		},
+	},
+];
+const data = [
 	{
 		value: {
 			name: {
@@ -191,14 +272,6 @@ const records = [
 			price: {
 				value: 'Code UIC',
 				quality: 1,
-				field2: {
-					value: 'Code postal',
-					quality: 1,
-				},
-				field3: {
-					value: 'Segmentation',
-					quality: 1,
-				},
 			},
 		},
 		quality: 1,
@@ -212,14 +285,6 @@ const records = [
 			price: {
 				value: '271494',
 				quality: 1,
-				field2: {
-					value: '95716',
-					quality: 1,
-				},
-				field3: {
-					value: '',
-					quality: 1,
-				},
 			},
 			ingredients: {
 				value: [
@@ -247,8 +312,13 @@ const records = [
 	},
 ];
 for (let i = 0; i < 100; i++) {
-	records.push(records[1]);
+	data.push(data[1]);
 }
+
+const sample = {
+	schema,
+	data,
+};
 
 const recordFilterAction = action('onFilterClick');
 const recordRemovalAction = action('onRemoveClick');
@@ -342,7 +412,7 @@ class AvroViewer extends React.Component {
 				<div style={partStyle}>
 					<ObjectViewerWithToggle
 						displayMode="model"
-						data={dataModelFields}
+						data={sample.schema}
 						menu={modelItemMenu}
 						onSelect={this.onSelect}
 
@@ -355,8 +425,9 @@ class AvroViewer extends React.Component {
 				<div style={partStyle}>
 					<ObjectViewerWithToggle
 						displayMode={'records'}
-						data={records}
+						data={sample.data}
 						highlighted={this.state.highlighted}
+						schema={sample.schema}
 					/>
 				</div>
 			</div>
@@ -370,7 +441,7 @@ stories
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewerWithToggle
 				displayMode="model"
-				data={dataModelFields}
+				data={sample.schema}
 				menu={modelItemMenu}
 				onSelect={action('onSelect')}
 				onToggle={action('onToggle')}
@@ -400,8 +471,9 @@ stories
 		<div style={{ height: 500 }}>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewerWithToggle
+				schema={sample.schema}
 				displayMode={'records'}
-				data={records}
+				data={sample.data}
 				highlighted={[/^\$\['ingredients']\[[0-9]+]\['name']$/]}
 				onToggle={action('onToggle')}
 			/>

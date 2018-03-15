@@ -24,10 +24,11 @@ export default class Records extends React.Component {
 						height={height}
 						highlighted={this.props.highlighted}
 						opened={this.props.opened}
-						rowCount={this.props.data.length}
 						onRowItemToggle={this.props.onToggle}
+						rowCount={this.props.data.length}
 						rowHeight={this.cache.rowHeight}
 						rowRenderer={RecordRenderer}
+						schema={this.props.schema}
 						width={width}
 					/>
 				)}
@@ -41,6 +42,7 @@ Records.defaultProps = {
 Records.propTypes = {
 	data: PropTypes.arrayOf(PropTypes.object),
 	highlighted: PropTypes.arrayOf(PropTypes.string),
-	opened: PropTypes.array,
 	onToggle: PropTypes.func,
+	opened: PropTypes.array,
+	schema: PropTypes.object,
 };

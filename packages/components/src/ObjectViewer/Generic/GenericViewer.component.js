@@ -176,10 +176,20 @@ function DefaultFields({ dataKey, fields, jsonpath, level, type, value, ...props
 			{fields.map((field, index) => {
 				const itemProps = {
 					...props,
+					...field,
 					key: index,
 					level: level + 1,
+					jsonpath: props.getJSONPath({
+						dataKey: field.dataKey,
+						parent: {
+							dataKey,
+							jsonpath,
+							type,
+							value,
+						},
+					}),
 				};
-				if (type === 'array') {
+				/*if (type === 'array') {
 					itemProps.dataKey = index;
 					itemProps.value = field;
 				} else if (type === 'object') {
@@ -194,7 +204,7 @@ function DefaultFields({ dataKey, fields, jsonpath, level, type, value, ...props
 						type,
 						value,
 					},
-				});
+				});*/
 
 				return (
 					<Item {...itemProps} />

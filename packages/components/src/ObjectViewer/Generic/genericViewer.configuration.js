@@ -18,7 +18,7 @@ export function defaultGetFields(data, type) {
 	if (type === 'object') {
 		return Object.keys(data).map(dataKey => ({ dataKey, value: data[dataKey] }));
 	}
-	return data;
+	return data.map((datum, index) => ({ dataKey: index, value: datum }));
 }
 
 export function defaultGetDisplayKey({ dataKey }) {

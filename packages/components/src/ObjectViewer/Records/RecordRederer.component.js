@@ -43,11 +43,13 @@ MesureObjectViewer.propTypes = {
  * Records cell object viewer renderer.
  */
 export default function RecordRenderer({ index, key, parent, style }) {
-	const datum = parent.props.data[index];
-	const highlighted = parent.props.highlighted;
-	const opened = parent.props.opened[index];
 	const cache = parent.props.cache;
+	const highlighted = parent.props.highlighted;
 	const onToggle = parent.props.onRowItemToggle;
+	const opened = parent.props.opened[index];
+
+	const schema = parent.props.schema;
+	const datum = parent.props.data[index];
 	return (
 		<CellMeasurer
 			cache={cache}
@@ -60,12 +62,13 @@ export default function RecordRenderer({ index, key, parent, style }) {
 				// 'style' attribute required to position cell (within parent List)
 				<div className={classNames(theme.row, 'tc-object-viewer-records-row')} style={style}>
 					<MesureObjectViewer
-						title={index}
+						data={datum}
 						highlighted={highlighted}
 						measure={measure}
-						opened={opened}
-						data={datum}
 						onToggle={(event, options) => onToggle(event, options, index)}
+						opened={opened}
+						schema={schema}
+						title={index}
 					/>
 				</div>
 			)}
