@@ -5,6 +5,7 @@ import {
 	isHTTPRequest,
 	getMethod,
 	mergeOptions,
+	mergeConfiguredHeader,
 	httpMiddleware,
 	HTTPError,
 	status,
@@ -71,7 +72,6 @@ describe('CMF http middleware', () => {
 		expect(options.method).toBe('POST');
 		expect(options.extra).toBe('hello world');
 		expect(options.body).toBe('{"label":"new label"}');
-		expect(options.headers).toEqual(DEFAULT_HTTP_HEADERS);
 		expect(options.credentials).toBe('same-origin');
 	});
 
@@ -87,8 +87,20 @@ describe('CMF http middleware', () => {
 		expect(options.method).toBe('POST');
 		expect(options.extra).toBe('hello world');
 		expect(options.body).toBe('{"label":"new label"}');
-		expect(options.headers).toEqual(DEFAULT_HTTP_HEADERS);
 		expect(options.credentials).toBe('omit');
+	});
+
+	it('should merged additional headers to current one', () => {
+		const httpConfig = {
+			headers: {
+				'Accept-Language': 'fr-FR',
+			}
+		};
+		const defaultOptions = { url: '/url1', headers: { Accept: 'application/json'} };
+		const options = mergeConfiguredHeader(httpConfig)(defaultOptions);
+		expect(options.url).toBe('/url1');
+		expect(options.headers.Accept).toBe('application/json');
+		expect(options.headers['Accept-Language']).toBe('fr-FR');
 	});
 
 	it('should httpMiddleware return function', () => {
