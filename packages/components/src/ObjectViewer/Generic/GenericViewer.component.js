@@ -230,9 +230,9 @@ function Item(props) {
 		opened,
 		value,
 	} = props;
-	const forceRootOpen = noRoot && level === 0;
+	const isRoot = level === 0;
 	const isHighlighted = highlighted.find(pattern => jsonpath.match(pattern));
-	const isOpened = forceRootOpen || (opened.indexOf(jsonpath) !== -1);
+	const isOpened = (isRoot && noRoot) || (opened.indexOf(jsonpath) !== -1);
 	const itemType = getDataType(value);
 
 	const spaceAdjustment = { paddingLeft: paddingLeft * level };
@@ -258,9 +258,12 @@ function Item(props) {
 
 	const itemContentClassName = classNames(
 		theme.content,
-		'tc-object-viewer-content'
-,		{ [theme['no-root']]: forceRootOpen },
-		{ [theme.highlight]: isHighlighted }
+		'tc-object-viewer-content',
+		{
+			'tc-object-viewer-root': level === 0,
+			[theme['no-root']]: isRoot && noRoot,
+			[theme.highlight]: isHighlighted,
+		},
 	);
 
 	return (
