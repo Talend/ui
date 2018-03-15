@@ -101,7 +101,7 @@ public class List extends Component {
      * Get the table display element manager identified by id.
      *
      * @param id The table id
-     * @return Large the table element manager
+     * @return Table the table element manager
      */
     public Table getTable(final String id) {
         return new Table(driver, id);
