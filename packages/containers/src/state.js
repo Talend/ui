@@ -1,4 +1,4 @@
-import { componentState } from '@talend/react-cmf';
+import { componentState, cmfConnect } from '@talend/react-cmf';
 
 /* eslint-disable no-console */
 console.warn(`DEPRECATION WARNING: import state, {} from '@talend/react-containers'; is deprecated.
@@ -20,4 +20,4 @@ export const stateWillMount = props => {
 	/* eslint-enable no-console */
 	componentState.init(props);
 };
-export const statePropTypes = componentState.propTypes;
+export const statePropTypes = cmfConnect.propTypes;
