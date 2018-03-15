@@ -183,6 +183,18 @@ const oldSchema = [
 ];
 const schema = [
 	{
+		name: 'id',
+		doc: 'Id',
+		type: {
+			type: 'integer',
+		},
+		'@talend-quality@': {
+			0: 5,
+			1: 65,
+			'-1': 30,
+		},
+	},
+	{
 		name: 'name',
 		doc: 'Name',
 		type: {
@@ -211,12 +223,10 @@ const schema = [
 	{
 		name: 'ingredients',
 		doc: 'Ingredients',
-		type: {
-			type: 'array',
-		},
+		type: { type: 'array' },
 		items: {
 			name: 'ingredient',
-			type: 'record',
+			type: { type: 'record' },
 			fields: [
 				{
 					name: 'name',
@@ -258,6 +268,41 @@ const schema = [
 						'-1': 0,
 					},
 				},
+				{
+					name: 'nested',
+					doc: 'Nested things',
+					type: { type: 'record' },
+					fields: [
+						{
+							name: 'poo',
+							doc: 'Poo',
+							type: {
+								type: 'string',
+								dqType: 'Taste',
+								dqTypeKey: 'TASTE',
+							},
+							'@talend-quality@': {
+								0: 2,
+								1: 88,
+								'-1': 10,
+							},
+						},
+						{
+							name: 'pee',
+							doc: 'Pee',
+							type: {
+								type: 'string',
+								dqType: 'Taste',
+								dqTypeKey: 'TASTE',
+							},
+							'@talend-quality@': {
+								0: 4,
+								1: 96,
+								'-1': 0,
+							},
+						},
+					],
+				},
 			],
 		},
 	},
@@ -265,6 +310,10 @@ const schema = [
 const data = [
 	{
 		value: {
+			id: {
+				value: 0,
+				quality: 1,
+			},
 			name: {
 				value: 'Nom de la gare',
 				quality: 1,
@@ -278,6 +327,10 @@ const data = [
 	},
 	{
 		value: {
+			id: {
+				value: 1,
+				quality: 1,
+			},
 			name: {
 				value: 'Aéroport Charles de Gaulle 2 TGV',
 				quality: 1,
@@ -293,6 +346,13 @@ const data = [
 							name: { quality: 1, value: 'brown sugar' },
 							amount: { quality: 1, value: 100 },
 							unit: { quality: 1, value: 'grams' },
+							nested: {
+								quality: -1,
+								value: {
+									poo: { quality: 1, value: 'good' },
+									pee: { quality: -1, value: 'lol' },
+								},
+							},
 						},
 						quality: 1,
 					},
@@ -312,7 +372,7 @@ const data = [
 	},
 ];
 for (let i = 0; i < 100; i++) {
-	data.push(data[1]);
+	data.push({ ...data[1], id: { value: i, quality: 1 } });
 }
 
 const sample = {

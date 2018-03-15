@@ -12,6 +12,9 @@ import theme from './RecordViewer.scss';
 		fields: [
 			{ name: 'field1-avro-schema', ... },
 			{ name: 'field2-avro-schema', ... },
+			// an object schema can be a array of fields (root case)
+			// or a complete avro definition, where fields is an array of avro definition
+			{ name: 'object-field-avro-schema', fields: [], ... },
 		],
 	}
  * - array : schema.items.fields is an array containing the schema of each children properties
@@ -34,16 +37,19 @@ function getFields(avroSample, type) {
 	const schema = avroSample.schema;
 
 	if (type === 'object') {
-		return schema.map(subSchema => {
-			const dataKey = subSchema.name;
-			return {
-				dataKey,
-				value: {
-					schema: subSchema,
-					data: value[dataKey],
-				},
-			};
-		});
+		const fieldsSchema = Array.isArray(schema) ? schema : schema.fields;
+		return fieldsSchema
+			.filter(({ name }) => value[name] !== undefined)
+			.map(subSchema => {
+				const dataKey = subSchema.name;
+				return {
+					dataKey,
+					value: {
+						schema: subSchema,
+						data: value[dataKey],
+					},
+				};
+			});
 	}
 	return value.map((datum, index) => ({
 		dataKey: index,

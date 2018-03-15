@@ -36,7 +36,7 @@ function DefaultValueItem(props) {
 		quality === 'invalid' && <div key={'quality'} className={classNames(theme['invalid-value'], 'tc-object-viewer-invalid-value')} />,
 		<div key={'key-value'} className={theme['key-value']}>
 			<span key={'key'} className={theme.key}>{formattedKey}</span>
-			{formattedValue && ': '}
+			{formattedValue !== undefined && ': '}
 			<span key={'value'} title={formattedValue} className={theme.value}>{formattedValue}</span>
 		</div>,
 	];
@@ -189,22 +189,6 @@ function DefaultFields({ dataKey, fields, jsonpath, level, type, value, ...props
 						},
 					}),
 				};
-				/*if (type === 'array') {
-					itemProps.dataKey = index;
-					itemProps.value = field;
-				} else if (type === 'object') {
-					itemProps.dataKey = field.dataKey;
-					itemProps.value = field.value;
-				}
-				itemProps.jsonpath = props.getJSONPath({
-					dataKey: itemProps.dataKey,
-					parent: {
-						dataKey,
-						jsonpath,
-						type,
-						value,
-					},
-				});*/
 
 				return (
 					<Item {...itemProps} />
