@@ -76,7 +76,6 @@ function drawArrow(x, y, width, height, color, canvas) {
 }
 
 class MappingArea extends Component {
-
 	constructor(props) {
 		super(props);
 		this.updateCanvasRef = this.updateCanvasRef.bind(this);

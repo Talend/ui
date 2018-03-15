@@ -19,9 +19,10 @@ function getShowAllButtonDefaultLabel(showAll) {
 function getActions(t, showAll, onShowAll, clearConnection, clearMapping) {
 	return [
 		{
-			id: 'show-all',
-			label: t(getShowAllButtonLabel(showAll),
-							{ defaultValue: getShowAllButtonDefaultLabel(showAll) }),
+			id: 'show-all',			
+			label: t(getShowAllButtonLabel(showAll), {
+				defaultValue: getShowAllButtonDefaultLabel(showAll),
+			}),
 			onClick: onShowAll,
 		},
 		{
@@ -128,9 +129,7 @@ class GMapping extends Component {
 			<div className="mapping mapper-element">
 				<Actions
 					className="mapping-tools"
-					actions={
-						getActions(t, showAll, onShowAll, clearConnection, clearMapping)
-					}
+					actions={getActions(t, showAll, onShowAll, clearConnection, clearMapping)}
 				/>
 				{
 					renderMappingArea(
@@ -159,5 +158,4 @@ GMapping.propTypes = {
 	renderer: PropTypes.string,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS,
-	{ i18n: DEFAULT_I18N, withRef: true })(GMapping);
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N, withRef: true })(GMapping);

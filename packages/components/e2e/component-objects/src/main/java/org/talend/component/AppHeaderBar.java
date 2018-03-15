@@ -39,6 +39,15 @@ public class AppHeaderBar extends Component {
         super(driver, NAME, SELECTOR);
     }
 
+    /** AppHeaderBar constructor
+    *
+    * @param driver Selenium WebDriver
+    * @param id Unique ID of the component
+    */
+    AppHeaderBar(WebDriver driver, String id) {
+       super(driver, NAME, id + SELECTOR);
+    }
+
     /**
      * Get the header bar logo
      *

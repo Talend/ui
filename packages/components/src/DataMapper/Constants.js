@@ -1,13 +1,13 @@
 /**
  * Defines the type of draggable element.
-*/
+ */
 export const ItemTypes = {
 	ELEMENT: 'element',
 };
 
 /**
  * Defines the type of a schema.
-*/
+ */
 export const SchemaType = {
 	INPUT: 'input',
 	OUTPUT: 'output',
@@ -17,7 +17,7 @@ export const SchemaType = {
  * Switch between the two types of schema.
  * @param {string} type - the type of the schema
  * @returns {string}
-*/
+ */
 export function switchSchemaType(type) {
 	if (type === SchemaType.INPUT) {
 		return SchemaType.OUTPUT;
@@ -27,7 +27,7 @@ export function switchSchemaType(type) {
 
 /**
  * Defines the two sides of a mapping item.
-*/
+ */
 export const MappingSide = {
 	SOURCE: 'source',
 	TARGET: 'target',
@@ -78,7 +78,7 @@ const defaultConnectionParams = {
  * CURRENT: connection of a selected mapped schema element
  * FOCUSED: connection of an overflown mapped schema element
  * ALL:
-*/
+ */
 export const ConnectionParams = {
 	PENDING: {
 		...defaultConnectionParams,

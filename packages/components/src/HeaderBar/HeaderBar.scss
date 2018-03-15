@@ -41,8 +41,11 @@ $background-color-on-hover: shade($brand-primary, 30);
 			list-style: none;
 			white-space: nowrap;
 
-			:global(.tc-typeahead-item-description) {
-				white-space: initial;
+			:global {
+				.tc-typeahead-item-title,
+				.tc-typeahead-item-description {
+					white-space: initial;
+				}
 			}
 
 			&:not(:last-child).separated:after {

@@ -1,37 +1,63 @@
 sudo: false
-language: node_js
+
 cache:
+  yarn: true
   directories:
-    - $HOME/.cache/yarn
+    - node_modules
+    - $HOME/.m2
+
 notifications:
   email: false
-env:
-  - ACTION=test
-  - ACTION=test:demo
-addons:
-  firefox: "50.0"
-node_js:
-  - '8'
+
 before_install:
   - export TALEND_COMMIT_MSG=$TRAVIS_COMMIT_MESSAGE
   - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export TALEND_COMMIT_MSG="$(git log --format=%B -n 1 $TRAVIS_PULL_REQUEST_SHA)"; fi
-#   Configure git
+  # Configure git
   - .travis/before_install.sh
-before_script:
-  - sh -e /etc/init.d/xvfb start
-  - yarn global add sassdoc http-server surge prettier
-  - .travis/before_script_icons.sh
-script:
-  - yarn $ACTION
-after_success:
-  - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo and static analysis skipped."; travis_terminate 0; fi
-  - if [ "$ACTION" != 'test:demo' ]; then travis_terminate 0; fi
-  - .travis/after_success_static.sh
-  - .travis/after_success_demo.sh
-  - .travis/after_success_deploy.sh
-  - .travis/after_success_prettier.sh
-  - .travis/after_success_lint.sh
-  - .travis/after_success_git.sh
+
+matrix:
+  fast_finish: true
+  include:
+    - language: node_js
+      env: NAME=test
+      node_js:
+        - '8'
+      script:
+        - yarn test
+
+    - language: node_js
+      node_js:
+        - '8'
+      env: NAME=analysis
+      before_script:
+        - yarn global add prettier
+        - .travis/before_script_icons.sh
+      script:
+        - yarn install
+      after_success:
+        - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Analysis skipped."; travis_terminate 0; fi
+        - .travis/after_success_prettier.sh
+        - .travis/after_success_lint.sh
+        - .travis/after_success_git.sh
+
+    - language: java
+      jdk: oraclejdk8
+      env:
+        - NAME=demo NODE_VERSION=8 CC=clang CXX=clang++
+      before_install:
+        - nvm install $NODE_VERSION
+      before_script:
+        - yarn global add surge
+      script:
+        - yarn install
+        - yarn test:demo
+      after_success:
+        - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo skipped."; travis_terminate 0; fi
+        - .travis/after_success_static.sh
+        - .travis/after_success_demo.sh
+        - .travis/after_success_deploy.sh
+        - .travis/after_success_e2e.sh
+
 branches:
   only:
     - master

@@ -34,6 +34,17 @@ public class ActionList extends Component {
         super(driver, NAME, SELECTOR);
     }
 
+
+    /**
+     * ActionList constructor
+     *
+     * @param driver Selenium WebDriver
+     * @param id Unique ID of the component
+     */
+    ActionList(WebDriver driver, String id) {
+        super(driver, NAME, id + SELECTOR);
+    }
+
     /**
      * Get menu item from its label
      *
