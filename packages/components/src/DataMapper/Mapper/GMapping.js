@@ -19,7 +19,7 @@ function getShowAllButtonDefaultLabel(showAll) {
 function getActions(t, showAll, onShowAll, clearConnection, clearMapping) {
 	return [
 		{
-			id: 'show-all',			
+			id: 'show-all',
 			label: t(getShowAllButtonLabel(showAll), {
 				defaultValue: getShowAllButtonDefaultLabel(showAll),
 			}),
@@ -38,14 +38,7 @@ function getActions(t, showAll, onShowAll, clearConnection, clearMapping) {
 	];
 }
 
-function renderMappingArea(
-	renderer,
-	getConnections,
-	getYPosition,
-	dnd,
-	updateRef,
-	dndInProgress
-) {
+function renderMappingArea(renderer, getConnections, getYPosition, dnd, updateRef, dndInProgress) {
 	switch (renderer) {
 		case Constants.Connection.RENDERER.CANVAS:
 			return (
@@ -68,14 +61,11 @@ function renderMappingArea(
 				/>
 			);
 		default:
-			return (
-				<div>Cannot render mapping area</div>
-			);
+			return <div>Cannot render mapping area</div>;
 	}
 }
 
 class GMapping extends Component {
-
 	constructor(props) {
 		super(props);
 		this.dndInProgress = this.dndInProgress.bind(this);
@@ -131,15 +121,14 @@ class GMapping extends Component {
 					className="mapping-tools"
 					actions={getActions(t, showAll, onShowAll, clearConnection, clearMapping)}
 				/>
-				{
-					renderMappingArea(
-						renderer,
-						getConnections,
-						getYPosition,
-						dnd,
-						this.updateMappingAreaRef,
-						this.dndInProgress)
-				}
+				{renderMappingArea(
+					renderer,
+					getConnections,
+					getYPosition,
+					dnd,
+					this.updateMappingAreaRef,
+					this.dndInProgress,
+				)}
 			</div>
 		);
 	}

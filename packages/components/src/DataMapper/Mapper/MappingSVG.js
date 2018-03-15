@@ -19,48 +19,73 @@ function collectForDropTarget(connect) {
 }
 
 function appendSVGConnection(connection, svgConnections, style, x1, x2) {
-  const svgConnection = {
-    x1,
-    y1: connection.sourceYPos,
-    x2,
-    y2: connection.targetYPos,
-    style,
-  };
-  return svgConnections.concat(svgConnection);
+	const svgConnection = {
+		x1,
+		y1: connection.sourceYPos,
+		x2,
+		y2: connection.targetYPos,
+		style,
+	};
+	return svgConnections.concat(svgConnection);
 }
 
 function appendSVGConnections(connections, svgConnections, style, x1, x2) {
-  let svgcs = svgConnections.slice();
-  for (let i = 0; i < connections.length; i += 1) {
-    svgcs = appendSVGConnection(connections[i], svgcs, style, x1, x2);
-  }
-  return svgcs;
+	let svgcs = svgConnections.slice();
+	for (let i = 0; i < connections.length; i += 1) {
+		svgcs = appendSVGConnection(connections[i], svgcs, style, x1, x2);
+	}
+	return svgcs;
 }
 
 function buildSVGConnections(connections, dnd, container) {
-  let svgConnections = [];
-  if (container != null && connections != null) {
-    const xLeft = 8;
-    const xRight = container.clientWidth - 8;
-    if (connections.all != null) {
-      svgConnections = appendSVGConnections(connections.all, svgConnections,
-				Constants.Connection.STYLE.ALL, xLeft, xRight);
-    }
-    if (connections.current != null) {
-      svgConnections = appendSVGConnections(connections.current, svgConnections,
-				Constants.Connection.STYLE.CURRENT, xLeft, xRight);
-    }
-    if (connections.pending != null) {
-      svgConnections = appendSVGConnection(connections.pending, svgConnections,
-				Constants.Connection.STYLE.PENDING, xLeft, xRight);
-    }
-    if (connections.focused != null) {
-      svgConnections = appendSVGConnections(connections.focused, svgConnections,
-				Constants.Connection.STYLE.FOCUSED, xLeft, xRight);
-    }
+	let svgConnections = [];
+	if (container != null && connections != null) {
+		const xLeft = 8;
+		const xRight = container.clientWidth - 8;
+		if (connections.all != null) {
+			svgConnections = appendSVGConnections(
+				connections.all,
+				svgConnections,
+				Constants.Connection.STYLE.ALL,
+				xLeft,
+				xRight,
+			);
+		}
+		if (connections.current != null) {
+			svgConnections = appendSVGConnections(
+				connections.current,
+				svgConnections,
+				Constants.Connection.STYLE.CURRENT,
+				xLeft,
+				xRight,
+			);
+		}
+		if (connections.pending != null) {
+			svgConnections = appendSVGConnection(
+				connections.pending,
+				svgConnections,
+				Constants.Connection.STYLE.PENDING,
+				xLeft,
+				xRight,
+			);
+		}
+		if (connections.focused != null) {
+			svgConnections = appendSVGConnections(
+				connections.focused,
+				svgConnections,
+				Constants.Connection.STYLE.FOCUSED,
+				xLeft,
+				xRight,
+			);
+		}
 		if (connections.dnd) {
-			svgConnections = appendSVGConnection(connections.dnd, svgConnections,
-				Constants.Connection.STYLE.PENDING, xLeft, xRight);
+			svgConnections = appendSVGConnection(
+				connections.dnd,
+				svgConnections,
+				Constants.Connection.STYLE.PENDING,
+				xLeft,
+				xRight,
+			);
 		} else if (connections.dndInProgress) {
 			const pos = connections.dndInProgress.pos;
 			const sourceYPos = connections.dndInProgress.sourceYPos;
@@ -76,16 +101,16 @@ function buildSVGConnections(connections, dnd, container) {
 				y2 = sourceYPos;
 			}
 			const svgConnection = {
-		    x1,
-		    y1,
-		    x2,
-		    y2,
-		    style: Constants.Connection.STYLE.PENDING,
-		  };
+				x1,
+				y1,
+				x2,
+				y2,
+				style: Constants.Connection.STYLE.PENDING,
+			};
 			svgConnections = svgConnections.concat(svgConnection);
 		}
-  }
-  return svgConnections;
+	}
+	return svgConnections;
 }
 
 function getLineParams(connection) {
@@ -142,17 +167,11 @@ function getBezierParams(connection) {
 }
 
 function renderConnection(connection) {
-  return (
-		<Connection
-			params={getBezierParams(connection)}
-			style={connection.style}
-		/>
-	);
+	return <Connection params={getBezierParams(connection)} style={connection.style} />;
 }
 
 class MappingSVG extends Component {
-
-  constructor(props) {
+	constructor(props) {
 		super(props);
 		this.updateSVGParentRef = this.updateSVGParentRef.bind(this);
 		this.updateSVGRef = this.updateSVGRef.bind(this);
@@ -196,22 +215,18 @@ class MappingSVG extends Component {
 
 	render() {
 		const { connectDropTarget, getConnections, dnd } = this.props;
-    const connections = getConnections();
-    const svgConnections = buildSVGConnections(connections,	dnd,
-			this.svgParentElem);
+		const connections = getConnections();
+		const svgConnections = buildSVGConnections(connections, dnd, this.svgParentElem);
 		return connectDropTarget(
-			<div
-				ref={this.updateSVGParentRef}
-				className="mapping-content"
-			>
-        <svg
+			<div ref={this.updateSVGParentRef} className="mapping-content">
+				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					ref={this.updateSVGRef}
 					width={this.getWidth()}
 					height={this.getHeight()}
 				>
-          {svgConnections.map(connection => renderConnection(connection))}
-        </svg>
+					{svgConnections.map(connection => renderConnection(connection))}
+				</svg>
 			</div>,
 		);
 	}
@@ -223,5 +238,6 @@ MappingSVG.propTypes = {
 	dnd: PropTypes.object,
 };
 
-export default DropTarget(Constants.ItemTypes.ELEMENT,
-	elementTarget, collectForDropTarget)(MappingSVG);
+export default DropTarget(Constants.ItemTypes.ELEMENT, elementTarget, collectForDropTarget)(
+	MappingSVG,
+);
