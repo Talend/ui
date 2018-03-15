@@ -36,8 +36,8 @@ export function injectedHeaderRenderer(getComponent, headerRenderer, onFocusedCo
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} onKeyDown={onKeyDown} />;
 }
 
-export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
-	const Component = Inject.get(getComponent, cellRenderer, DefaultCellRenderer);
+export function injectedCellRenderer(getComponent, rendererId, avroRenderer) {
+	const Component = Inject.get(getComponent, rendererId, DefaultCellRenderer);
 
 	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
 }
