@@ -1,19 +1,18 @@
 package org.talend.component.list.large;
 
 import static java.util.stream.Collectors.toList;
-
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.talend.component.Component;
+import org.talend.component.list.ListContainer;
 
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Large.
  */
-public class Large extends Component {
+public class Large extends ListContainer {
 
     private static final String NAME = "Large";
 
@@ -39,6 +38,14 @@ public class Large extends Component {
         super(driver, NAME, String.format(LIST_LARGE_SELECTOR, id != null ? "#" + id : ""));
     }
 
+    public WebElement getElementToScroll() {
+        return this.getElement();
+    }
+
+    public WebElement getFirstElement() {
+        return this.getElement().findElement(By.cssSelector(TABLE_ITEM_SELECTOR));
+    }
+
     /**
      * Get all rendered items, represented by a row in the table.
      *
@@ -50,39 +57,6 @@ public class Large extends Component {
                 .stream() //
                 .map(webElement -> new ItemLarge(driver, webElement)) //
                 .collect(toList());
-    }
-
-    /**
-     * Scroll to top
-     */
-    public void scrollToTop() {
-        final WebElement listLarge = this.getElement();
-        jsExec.executeScript("arguments[0].scrollTop = 0", listLarge);
-    }
-
-    /**
-     * Test if grid can scroll down
-     */
-    public boolean canScrollDown() {
-        final WebElement listLarge = this.getElement();
-        return (boolean) jsExec.executeScript(
-                "return arguments[0].scrollHeight > (arguments[0].scrollTop + arguments[0].offsetHeight);",
-                listLarge
-        );
-    }
-
-    /**
-     * Scroll to next set of rows
-     * @return true if the element has been scrolled, false otherwise.
-     */
-    public boolean scrollDown() {
-        if (!canScrollDown()) {
-            return false;
-        }
-
-        final WebElement listLarge = this.getElement();
-        jsExec.executeScript("arguments[0].scrollTop += arguments[0].offsetHeight;", listLarge);
-        return true;
     }
 
     /**

@@ -1,9 +1,8 @@
 package org.talend.component.list.table;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.talend.component.Component;
+import org.talend.component.list.ListContainer;
 
 import java.util.List;
 
@@ -12,7 +11,7 @@ import static java.util.stream.Collectors.toList;
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Table.
  */
-public class Table extends Component {
+public class Table extends ListContainer {
 
     private static final String NAME = "Table";
 
@@ -25,8 +24,6 @@ public class Table extends Component {
     private static final String TABLE_GRID_SELECTOR = ".ReactVirtualized__Table__Grid";
 
     private static final String TABLE_ITEM_SELECTOR = ".ReactVirtualized__Table__row";
-
-    private final WebDriverWait wait;
 
     /**
      * Constructor.
@@ -44,7 +41,14 @@ public class Table extends Component {
      */
     public Table(final WebDriver driver, final String id) {
         super(driver, NAME, String.format(TABLE_SELECTOR, id != null ? "#" + id : ""));
-        this.wait = new WebDriverWait(driver, 1);
+    }
+
+    public WebElement getElementToScroll() {
+        return this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
+    }
+
+    public WebElement getFirstElement() {
+        return this.getElement().findElement(By.cssSelector(TABLE_ITEM_SELECTOR));
     }
 
     /**
@@ -78,46 +82,6 @@ public class Table extends Component {
                 .stream() //
                 .map(webElement -> new Item(driver, webElement)) //
                 .collect(toList());
-    }
-
-    /**
-     * Scroll to top
-     */
-    public void scrollToTop() {
-        final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
-        jsExec.executeScript("arguments[0].scrollTop = 0", grid);
-    }
-
-    /**
-     * Test if grid can scroll down
-     */
-    public boolean canScrollDown() {
-        final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
-        return (boolean) jsExec.executeScript(
-                "return arguments[0].scrollHeight > (arguments[0].scrollTop + arguments[0].offsetHeight);",
-                grid
-        );
-    }
-
-    /**
-     * Scroll to next set of rows
-     * @return true if the element has been scrolled, false otherwise.
-     */
-    public boolean scrollDown() {
-        if (! canScrollDown()) {
-            return false;
-        }
-
-        final WebElement firstElement = this.getElement().findElement(By.cssSelector(TABLE_ITEM_SELECTOR)) ;
-        final WebElement grid = this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
-        jsExec.executeScript("arguments[0].scrollTop += arguments[0].offsetHeight;", grid);
-        try {
-            wait.until(ExpectedConditions.stalenessOf(firstElement));
-        } catch (TimeoutException e) {
-            return false;
-        }
-
-        return true;
     }
 
     /**
