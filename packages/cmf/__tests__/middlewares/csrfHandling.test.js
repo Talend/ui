@@ -7,12 +7,9 @@ describe('csrf token injection', () => {
 		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True;`;
 
 		// when
-		const httpConfiguration = mergeCSRFToken(
-			{},
-			{
-				headers: { stuff: 'stuff' },
-			},
-		);
+		const httpConfiguration = mergeCSRFToken({})({
+			headers: { stuff: 'stuff' },
+		});
 		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
 		// then
 		expect(httpConfiguration).toEqual({
@@ -23,12 +20,9 @@ describe('csrf token injection', () => {
 	it('do not touch headers if no csrf token is available on a cookie', () => {
 		// given nothing
 		// when
-		const httpConfiguration = mergeCSRFToken(
-			{},
-			{
-				headers: { stuff: 'stuff' },
-			},
-		);
+		const httpConfiguration = mergeCSRFToken({})({
+			headers: { stuff: 'stuff' },
+		});
 		// then
 		expect(httpConfiguration).toEqual({ headers: { stuff: 'stuff' } });
 	});
