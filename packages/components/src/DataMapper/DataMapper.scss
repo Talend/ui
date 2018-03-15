@@ -15,8 +15,8 @@
 		padding: 8px;
 		margin: 8px;
 		background-color: #a8cdea;
-		height: 400px;
-		width: 60%;
+		height: 500px;
+		width: 75%;
 		border-radius: 16px;
 	}
 
@@ -25,7 +25,7 @@
 		padding: 8px;
 		margin: 8px;
 		border-radius: 8px;
-		width: 100%;
+		width: 300px;
 	}
 
 	.mapping-canvas {
@@ -54,7 +54,7 @@
 		display: flex;
 		justify-content: space-around;
 		border-radius: 4px;
-		background-color: #a8cdea;
+		/*background-color: #a8cdea;*/
 		font-weight: bold;
 		font-size: 1em;
 		padding: 4px;
@@ -68,6 +68,45 @@
 		width: 100%;
 		padding: 0;
 		margin: 0;
+	}
+
+	.connection {
+		stroke: #000000;
+		fill: #000000;
+		stroke-width: 4;
+		stroke-linecap: butt;
+	}
+
+	.connection.all {
+		stroke: #CCCCCC;
+		fill: #CCCCCC;
+		stroke-width: 3;
+	}
+
+	.connection.pending {
+		stroke: #111111;
+		fill: #111111;
+	}
+
+	.connection.curve.pending {
+		stroke-dasharray: 4, 4;
+	}
+
+	.connection.focused {
+		stroke: #999999;
+		fill: #999999;
+	}
+
+	circle {
+		r: 4;
+	}
+
+	circle.all {
+		r: 3;
+	}
+
+	.connection.curve {
+		fill: transparent;
 	}
 
 	.schema {
@@ -124,4 +163,5 @@
 	.schema-element:hover {
 		background-color: #ffe2d6;
 	}
+
 }

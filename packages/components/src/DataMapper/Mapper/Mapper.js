@@ -30,12 +30,16 @@ function getFocusedElements(mapping, focused, type) {
 }
 
 export default class Mapper extends Component {
+
 	constructor(props) {
 		super(props);
 		this.getConnections = this.getConnections.bind(this);
 		this.getYPosition = this.getYPosition.bind(this);
 		this.onScroll = this.onScroll.bind(this);
 		this.revealConnection = this.revealConnection.bind(this);
+		this.updateInputSchemaRef = this.updateInputSchemaRef.bind(this);
+		this.updateOutputSchemaRef = this.updateOutputSchemaRef.bind(this);
+		this.updateGMapRef = this.updateGMapRef.bind(this);
 	}
 
 	onScroll() {
@@ -64,6 +68,7 @@ export default class Mapper extends Component {
 	//   focused: [ {sourceYPos1, targetYPos1}, {sourceYPos2, targetYPos2} ],
 	//   all: [ {sourceYPos1, targetYPos1}, {sourceYPos2, targetYPos2} ],
 	//   dnd: {sourceYPos, targetYPos},
+	//	 dndInProgress: {sourceYPos, pos}
 	// }
 	getConnections() {
 		const {
@@ -76,7 +81,7 @@ export default class Mapper extends Component {
 		} = this.props;
 		if (!mapping.length && !pendingItem && !dnd) return null;
 		let allConnections = null;
-		if (showAll) {
+		if (showAll && this.inputSchema && this.outputSchema) {
 			const inputVisibleElements = this.inputSchema.getVisibleElements();
 			const outputVisibleElements = this.outputSchema.getVisibleElements();
 			// filter mapping items
@@ -126,6 +131,13 @@ export default class Mapper extends Component {
 					this.getConnection(dnd.target.element, dnd.source.element);
 			}
 		}
+		let dndInProgress = null;
+		if (!dndConnection && dnd && dnd.source && dnd.pos) {
+			dndInProgress = {
+				sourceYPos: this.getYPosition(dnd.source.element, dnd.source.type),
+				pos: dnd.pos,
+			};
+		}
 
 		return {
 			current,
@@ -133,6 +145,7 @@ export default class Mapper extends Component {
 			focused: focusedConnections,
 			all: allConnections,
 			dnd: dndConnection,
+			dndInProgress,
 		};
 	}
 
@@ -158,9 +171,22 @@ export default class Mapper extends Component {
 		}
 	}
 
+	updateInputSchemaRef(ref) {
+		this.inputSchema = ref;
+	}
+
+	updateOutputSchemaRef(ref) {
+		this.outputSchema = ref;
+	}
+
+	updateGMapRef(ref) {
+		this.gmap = ref;
+	}
+
 	render() {
 		const {
 			mapperId,
+			renderer,
 			inputSchema,
 			mapping,
 			outputSchema,
@@ -177,6 +203,7 @@ export default class Mapper extends Component {
 			showAll,
 			onShowAll,
 			dnd,
+			dndInProgress,
 			beginDrag,
 			canDrop,
 			drop,
@@ -185,9 +212,7 @@ export default class Mapper extends Component {
 		return (
 			<div id={mapperId}>
 				<Schema
-					ref={input => {
-						this.inputSchema = input;
-					}}
+					ref={this.updateInputSchemaRef}
 					type={SchemaType.INPUT}
 					schema={inputSchema}
 					draggable={draggable}
@@ -209,9 +234,7 @@ export default class Mapper extends Component {
 					revealConnection={this.revealConnection}
 				/>
 				<Schema
-					ref={output => {
-						this.outputSchema = output;
-					}}
+					ref={this.updateOutputSchemaRef}
 					type={SchemaType.OUTPUT}
 					schema={outputSchema}
 					draggable={draggable}
@@ -233,9 +256,7 @@ export default class Mapper extends Component {
 					revealConnection={this.revealConnection}
 				/>
 				<GMapping
-					ref={gmap => {
-						this.gmap = gmap;
-					}}
+					ref={this.updateGMapRef}
 					mapping={mapping}
 					clearConnection={clearConnection}
 					clearMapping={clearMapping}
@@ -245,6 +266,8 @@ export default class Mapper extends Component {
 					showAll={showAll}
 					onShowAll={onShowAll}
 					dnd={dnd}
+					dndInProgress={dndInProgress}
+					renderer={renderer}
 				/>
 			</div>
 		);
@@ -253,6 +276,7 @@ export default class Mapper extends Component {
 
 Mapper.propTypes = {
 	mapperId: PropTypes.string,
+	renderer: PropTypes.string,
 	mapping: PropTypes.array,
 	selection: PropTypes.object,
 	inputSchema: PropTypes.object,
@@ -269,6 +293,7 @@ Mapper.propTypes = {
 	showAll: PropTypes.bool,
 	onShowAll: PropTypes.func,
 	dnd: PropTypes.object,
+	dndInProgress: PropTypes.func,
 	beginDrag: PropTypes.func,
 	canDrop: PropTypes.func,
 	drop: PropTypes.func,

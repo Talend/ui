@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
 import PropTypes from 'prop-types';
-import { ItemTypes, ConnectionParams } from '../Constants';
+import * as Constants from '../Constants';
 
 const elementTarget = {
 	canDrop(props, monitor) {
@@ -77,6 +77,12 @@ function drawArrow(x, y, width, height, color, canvas) {
 
 class MappingArea extends Component {
 
+	constructor(props) {
+		super(props);
+		this.updateCanvasRef = this.updateCanvasRef.bind(this);
+		this.updateCanvasParentRef = this.updateCanvasParentRef.bind(this);
+	}
+
 	componentDidMount() {
 		this.updateCanvas(true, true, true);
 	}
@@ -116,21 +122,51 @@ class MappingArea extends Component {
 		const connections = this.props.getConnections();
 		if (connections != null) {
 			if (connections.all != null) {
-				this.drawConnections(connections.all, ConnectionParams.ALL);
+				this.drawConnections(connections.all,
+					Constants.ConnectionParams.ALL);
 			}
 			if (connections.current != null) {
-				this.drawConnections(connections.current, ConnectionParams.CURRENT);
+				this.drawConnections(connections.current,
+					Constants.ConnectionParams.CURRENT);
 			}
 			if (connections.pending != null) {
-				this.drawConnection(connections.pending, ConnectionParams.PENDING);
+				this.drawConnection(connections.pending,
+					Constants.ConnectionParams.PENDING);
 			}
 			if (connections.focused != null) {
-				this.drawConnections(connections.focused, ConnectionParams.FOCUSED);
+				this.drawConnections(connections.focused,
+					Constants.ConnectionParams.FOCUSED);
 			}
 			if (connections.dnd != null && renderDnd) {
-				this.drawConnection(connections.dnd, ConnectionParams.PENDING);
+				this.drawConnection(connections.dnd,
+					Constants.ConnectionParams.PENDING);
+			}
+			if (connections.dndInProgress && renderDnd) {
+				this.drawDndInProgress(connections.dndInProgress,
+					Constants.ConnectionParams.PENDING);
 			}
 		}
+	}
+
+	update() {
+		this.updateCanvas(true, false, false);
+	}
+
+	drawDndInProgress(dndInProgress, params) {
+		const pos = dndInProgress.pos;
+		const sourceYPos = dndInProgress.sourceYPos;
+		// default case: source is input
+		let x1 = params.anchorRadius;
+		let y1 = sourceYPos;
+		let x2 = pos.x;
+		let y2 = pos.y;
+		if (this.props.dnd.source.type === Constants.SchemaType.OUTPUT) {
+			x1 = pos.x;
+			y1 = pos.y;
+			x2 = this.getCanvasSize().width - params.arrowWidth / 2;
+			y2 = sourceYPos;
+		}
+		this.drawSingleConnection(x1, y1, x2, y2, params);
 	}
 
 	clearCanvas() {
@@ -161,19 +197,23 @@ class MappingArea extends Component {
 		drawArrow(x2, y2, params.arrowWidth, params.arrowHeight, params.color, this.canvas);
 	}
 
+	updateCanvasParentRef(ref) {
+		this.canvasParentElem = ref;
+	}
+
+	updateCanvasRef(ref) {
+		this.canvas = ref;
+	}
+
 	render() {
 		const { connectDropTarget } = this.props;
 		return connectDropTarget(
 			<div
-				ref={c => {
-					this.canvasParentElem = c;
-				}}
+				ref={this.updateCanvasParentRef}
 				className="mapping-content"
 			>
 				<canvas
-					ref={c => {
-						this.canvas = c;
-					}}
+					ref={this.updateCanvasRef}
 					className="mapping-canvas"
 				/>
 			</div>,
@@ -184,6 +224,8 @@ class MappingArea extends Component {
 MappingArea.propTypes = {
 	getConnections: PropTypes.func,
 	connectDropTarget: PropTypes.func,
+	dnd: PropTypes.object,
 };
 
-export default DropTarget(ItemTypes.ELEMENT, elementTarget, collectForDropTarget)(MappingArea);
+export default DropTarget(Constants.ItemTypes.ELEMENT,
+	elementTarget, collectForDropTarget)(MappingArea);

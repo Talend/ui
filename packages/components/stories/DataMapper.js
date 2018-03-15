@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { DataMapper as Mapper } from '../src/index';
 import { getMappingItems } from '../src/DataMapper/Mapper/Mapper';
 import { isSelected } from '../src/DataMapper/Schema/Schema';
-import { SchemaType, Keys, switchSchemaType, Configs } from '../src/DataMapper/Constants';
+import * as Constants from '../src/DataMapper/Constants';
 
 const inputSchema1 = {
 	name: 'user_info',
@@ -198,8 +198,8 @@ function isMapped(mapping, element, type) {
 	if (mapping != null) {
 		return mapping.find(
 			item =>
-				(type === SchemaType.INPUT && item.source === element) ||
-				(type === SchemaType.OUTPUT && item.target === element),
+				(type === Constants.SchemaType.INPUT && item.source === element) ||
+				(type === Constants.SchemaType.OUTPUT && item.target === element),
 		);
 	}
 	return false;
@@ -218,9 +218,9 @@ function fullMapped(mapping, schema, type) {
 
 /** Returns the schema corresponding to the given type */
 function getSchema(state, type) {
-	if (type === SchemaType.INPUT) {
+	if (type === Constants.SchemaType.INPUT) {
 		return state.inputSchema;
-	} else if (type === SchemaType.OUTPUT) {
+	} else if (type === Constants.SchemaType.OUTPUT) {
 		return state.outputSchema;
 	}
 	return null;
@@ -229,7 +229,7 @@ function getSchema(state, type) {
 function getConnected(mapping, element, type) {
 	const items = getMappingItems(mapping, element, type);
 	if (items != null) {
-		if (type === SchemaType.INPUT) {
+		if (type === Constants.SchemaType.INPUT) {
 			return items.map(item => item.target);
 		}
 		return items.map(item => item.source);
@@ -286,8 +286,8 @@ function removeConnections(mapping, selection) {
 		return mapping;
 	}
 	const items = mapping.filter(item =>
-		(selection.type === SchemaType.INPUT && item.source === selection.element)
-		|| (selection.type === SchemaType.OUTPUT && item.target === selection.element)
+		(selection.type === Constants.SchemaType.INPUT && item.source === selection.element)
+		|| (selection.type === Constants.SchemaType.OUTPUT && item.target === selection.element)
 	);
 	if (items != null) {
 		// remove items
@@ -309,9 +309,9 @@ function getCurrentSelectedSchema(state) {
   if (isSelectionEmpty(state.selection)) {
     return null;
   }
-  if (state.selection.type === SchemaType.INPUT) {
+  if (state.selection.type === Constants.SchemaType.INPUT) {
     return state.inputSchema;
-  } else if (state.selection.type === SchemaType.OUTPUT) {
+  } else if (state.selection.type === Constants.SchemaType.OUTPUT) {
     return state.outputSchema;
   }
   return null;
@@ -322,13 +322,13 @@ function getNextElement(schema, element, nav) {
   const size = schema.elements.length;
   let newSelectedElemIndex = selectedElemIndex;
   switch (nav) {
-    case Keys.UP:
+    case Constants.Keys.UP:
       newSelectedElemIndex = selectedElemIndex - 1;
       if (newSelectedElemIndex < 0) {
         newSelectedElemIndex = size - 1;
       }
       break;
-    case Keys.DOWN:
+    case Constants.Keys.DOWN:
       newSelectedElemIndex = selectedElemIndex + 1;
       if (newSelectedElemIndex >= size) {
         newSelectedElemIndex = 0;
@@ -348,7 +348,7 @@ function navigateUpDown(state, nav) {
 
 	if (state.pendingItem != null
 		&& state.pendingItem.type !== selection.type
-		&& selection.type === SchemaType.OUTPUT) {
+		&& selection.type === Constants.SchemaType.OUTPUT) {
 		// do not select an already connected output elements
 		while (isMapped(state.mapping, newSelectedElement, selection.type)) {
 			newSelectedElement = getNextElement(schema, newSelectedElement, nav);
@@ -364,7 +364,7 @@ function navigateUpDown(state, nav) {
 
 function switchSchema(state, connectContext) {
   const selection = state.selection;
-	const targetType = switchSchemaType(selection.type);
+	const targetType = Constants.switchSchemaType(selection.type);
 	let targetElem = null;
   if (!connectContext
 		&& selection.connected != null
@@ -406,20 +406,20 @@ function firstSelect(state) {
 	const element = state.inputSchema.elements[0];
 	return {
 		element,
-		connected: getConnected(state.mapping, element, SchemaType.INPUT),
-		type: SchemaType.INPUT,
+		connected: getConnected(state.mapping, element, Constants.SchemaType.INPUT),
+		type: Constants.SchemaType.INPUT,
 	};
 }
 
 function navigate(state, nav) {
   switch (nav) {
-    case Keys.UP:
+    case Constants.Keys.UP:
       return navigateUpDown(state, nav);
-    case Keys.DOWN:
+    case Constants.Keys.DOWN:
       return navigateUpDown(state, nav);
-    case Keys.SWITCH_SCHEMA:
+    case Constants.Keys.SWITCH_SCHEMA:
 			return switchSchema(state, false);
-		case Keys.ENTER:
+		case Constants.Keys.ENTER:
       return switchSchema(state, true);
 		default:
 			break;
@@ -442,9 +442,11 @@ class ConnectedDataMapper extends React.Component {
 		this.onLeaveElement = this.onLeaveElement.bind(this);
 		this.onShowAll = this.onShowAll.bind(this);
 		this.beginDrag = this.beginDrag.bind(this);
+		this.dndInProgress = this.dndInProgress.bind(this);
 		this.canDrop = this.canDrop.bind(this);
 		this.drop = this.drop.bind(this);
 		this.endDrag = this.endDrag.bind(this);
+		this.updateMapperRef = this.updateMapperRef.bind(this);
 	}
 
 	handleKeyEvent(ev) {
@@ -473,7 +475,7 @@ class ConnectedDataMapper extends React.Component {
 			reveal = true;
 		} else if (this.handleEndConnection(ev)) {
 			ev.preventDefault();
-			if (this.state.pendingItem.type === SchemaType.INPUT) {
+			if (this.state.pendingItem.type === Constants.SchemaType.INPUT) {
 				this.performMapping(this.state.pendingItem.element,
 														this.state.selection.element,
 														this.state.pendingItem.type);
@@ -512,15 +514,15 @@ class ConnectedDataMapper extends React.Component {
 	}
 
 	handleStartConnection(ev) {
-		if (ev.keyCode === Keys.ENTER
+		if (ev.keyCode === Constants.Keys.ENTER
 			&& !isSelectionEmpty(this.state.selection)
 			&& this.state.pendingItem == null) {
-			if (this.state.selection.type === SchemaType.INPUT) {
+			if (this.state.selection.type === Constants.SchemaType.INPUT) {
 				// input case
 				// at least one output element must be free (i.e. not connected)
 				return !fullMapped(this.state.mapping,
 					this.state.outputSchema,
-					SchemaType.OUTPUT);
+					Constants.SchemaType.OUTPUT);
 			}
 			// output case
 			// the current selected element cannot be already connected
@@ -532,7 +534,7 @@ class ConnectedDataMapper extends React.Component {
 	}
 
 	handleEndConnection(ev) {
-		return ev.keyCode === Keys.ENTER
+		return ev.keyCode === Constants.Keys.ENTER
 			&& !isSelectionEmpty(this.state.selection)
 			&& this.state.pendingItem != null
 			&& this.state.selection.type !== this.state.pendingItem.type;
@@ -540,41 +542,41 @@ class ConnectedDataMapper extends React.Component {
 
 	handleNavigation(ev) {
 		const key = ev.keyCode;
-		const isValidKey = key === Keys.UP
-										|| key === Keys.DOWN;
-		const isValidSwitch = key === Keys.SWITCH_SCHEMA
+		const isValidKey = key === Constants.Keys.UP
+										|| key === Constants.Keys.DOWN;
+		const isValidSwitch = key === Constants.Keys.SWITCH_SCHEMA
 			&& this.state.pendingItem == null;
 		return !isSelectionEmpty(this.state.selection)
 			&& (isValidKey || isValidSwitch);
 	}
 
 	handleFirstSelect(ev) {
-		const isValidKey = ev.keyCode === Keys.SWITCH_SCHEMA;
+		const isValidKey = ev.keyCode === Constants.Keys.SWITCH_SCHEMA;
 		return isValidKey && isSelectionEmpty(this.state.selection);
 	}
 
 	handleEscape(ev) {
-		const isValidKey = ev.keyCode === Keys.ESCAPE;
+		const isValidKey = ev.keyCode === Constants.Keys.ESCAPE;
 		return isValidKey && this.state.pendingItem != null;
 	}
 
 	handleDelete(ev) {
-		const isValidKey = ev.keyCode === Keys.DELETE;
+		const isValidKey = ev.keyCode === Constants.Keys.DELETE;
 		return isValidKey
 			&& !isSelectionEmpty(this.state.selection)
 			&& this.state.selection.connected != null;
 	}
 
 	isPreventDefaultNeeded(ev) {
-		return (ev.keyCode === Keys.SWITCH_SCHEMA
+		return (ev.keyCode === Constants.Keys.SWITCH_SCHEMA
 			&& this.state.pendingItem != null)
-			|| ev.keyCode === Keys.ENTER;
+			|| ev.keyCode === Constants.Keys.ENTER;
 	}
 
 	performMapping(source, target, selectionType) {
 		let selectedSourceElement = source;
 		let selectedTargetElement = target;
-		if (selectionType === SchemaType.OUTPUT) {
+		if (selectionType === Constants.SchemaType.OUTPUT) {
 			selectedSourceElement = target;
 			selectedTargetElement = source;
 		}
@@ -624,7 +626,7 @@ class ConnectedDataMapper extends React.Component {
 					prevState.selection, element, type),
 				pendingItem: null,
 			}));
-		} else if (this.state.pendingItem.type === SchemaType.INPUT) {
+		} else if (this.state.pendingItem.type === Constants.SchemaType.INPUT) {
 			this.performMapping(this.state.pendingItem.element,
 													element,
 													type);
@@ -663,6 +665,18 @@ class ConnectedDataMapper extends React.Component {
 		this.setState(prevState => ({
 			dnd: {
 				source: { element, type },
+				target: null,
+				pos: null,
+			},
+		}));
+	}
+
+	dndInProgress(pos) {
+		this.setState(prevState => ({
+			dnd: {
+				source: prevState.dnd.source,
+				target: null,
+				pos,
 			},
 		}));
 	}
@@ -684,13 +698,14 @@ class ConnectedDataMapper extends React.Component {
 				dnd: {
 					source: prevState.dnd.source,
 					target,
+					pos: null,
 				},
 			}));
 		}
 		return target.type !== source.type
-			&& ((target.type === SchemaType.INPUT
+			&& ((target.type === Constants.SchemaType.INPUT
 						&& !isMapped(this.state.mapping, source.element, source.type))
-				|| (target.type === SchemaType.OUTPUT
+				|| (target.type === Constants.SchemaType.OUTPUT
 						&& !isMapped(this.state.mapping, target.element, target.type))
 			);
 	}
@@ -707,20 +722,27 @@ class ConnectedDataMapper extends React.Component {
 		}));
 	}
 
+	updateMapperRef(ref) {
+		this.mapper = ref;
+	}
+
 	render() {
+		const {
+			mapperId,
+			renderer,
+		} = this.props;
 		return (
 			<Mapper
-				ref={m => {
-					this.mapper = m;
-				}}
-				mapperId={this.props.mapperId}
+				ref={this.updateMapperRef}
+				mapperId={mapperId}
+				renderer={renderer}
 				inputSchema={this.state.inputSchema}
 				mapping={this.state.mapping}
 				outputSchema={this.state.outputSchema}
 				performMapping={this.performMapping}
 				clearMapping={this.clearMapping}
 				clearConnection={this.clearConnection}
-				draggable={Configs.DRAGGABLE}
+				draggable={Constants.Configs.DRAGGABLE}
 				selection={this.state.selection}
 				pendingItem={this.state.pendingItem}
 				onSelect={this.selectElement}
@@ -730,6 +752,7 @@ class ConnectedDataMapper extends React.Component {
 				onLeaveElement={this.onLeaveElement}
 				focused={this.state.focused}
 				dnd={this.state.dnd}
+				dndInProgress={this.dndInProgress}
 				beginDrag={this.beginDrag}
 				canDrop={this.canDrop}
 				drop={this.drop}
@@ -742,6 +765,7 @@ class ConnectedDataMapper extends React.Component {
 ConnectedDataMapper.propTypes = {
 	initialState: PropTypes.object,
 	mapperId: PropTypes.string,
+	renderer: PropTypes.string,
 };
 
 const stories = storiesOf('DataMapper', module);
@@ -755,21 +779,38 @@ stories
 			{story()}
 		</div>
 	))
-	.addWithInfo('default', () => {
+	.addWithInfo('default (canvas)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={getDefaultInitialState()}
+			renderer={Constants.Connection.RENDERER.CANVAS}
 		/>;
 	})
-	.addWithInfo('empty', () => {
+	.addWithInfo('empty (canvas)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={getEmptyInitialState()}
+			renderer={Constants.Connection.RENDERER.CANVAS}
 		/>;
 	})
-	.addWithInfo('50-mapped', () => {
+	.addWithInfo('50-mapped (canvas)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={getBigSchemaInitialState()}
+			renderer={Constants.Connection.RENDERER.CANVAS}
+		/>;
+	})
+	.addWithInfo('default (svg)', () => {
+		return <ConnectedDataMapper
+			mapperId="mapper"
+			initialState={getDefaultInitialState()}
+			renderer={Constants.Connection.RENDERER.SVG}
+		/>;
+	})
+	.addWithInfo('50-mapped (svg)', () => {
+		return <ConnectedDataMapper
+			mapperId="mapper"
+			initialState={getBigSchemaInitialState()}
+			renderer={Constants.Connection.RENDERER.SVG}
 		/>;
 	});

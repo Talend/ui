@@ -55,12 +55,14 @@ it('perform-mapping', () => {
 	const clearMapping = jest.fn();
 	const performMapping = jest.fn();
 	const beginDrag = jest.fn();
-	const canDrop = jest.fn();
+	const dndInProgress = jest.fn();
+	const canDrop = jest.fn().mockReturnValue(true);
 	const drop = jest.fn();
 	const endDrag = jest.fn();
 	const inputSchema = { name: 'input', elements: ['elem_in_1'] };
 	const outputSchema = { name: 'input', elements: ['elem_out_1'] };
 	const mapping = [];
+	const draggable = true;
 
 	const MapperTestContext = wrapInTestContext(Mapper);
 
@@ -72,10 +74,11 @@ it('perform-mapping', () => {
 			performMapping={performMapping}
 			clearMapping={clearMapping}
 			beginDrag={beginDrag}
+			dndInProgress={dndInProgress}
 			canDrop={canDrop}
 			drop={drop}
 			endDrag={endDrag}
-			draggable="true"
+			draggable={draggable}
 		/>
 	);
 

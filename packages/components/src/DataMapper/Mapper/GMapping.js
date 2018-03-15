@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 import MappingArea from './MappingArea.js';
-import { SchemaType, ConnectionParams } from '../Constants';
+import MappingSVG from './MappingSVG.js';
+import * as Constants from '../Constants';
 import { DEFAULT_I18N } from '../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import { Actions } from '../../Actions/index.js';
@@ -18,57 +19,102 @@ function getShowAllButtonDefaultLabel(showAll) {
 function getActions(t, showAll, onShowAll, clearConnection, clearMapping) {
 	return [
 		{
+			id: 'show-all',
 			label: t(getShowAllButtonLabel(showAll),
 							{ defaultValue: getShowAllButtonDefaultLabel(showAll) }),
 			onClick: onShowAll,
 		},
 		{
+			id: 'clear-connection',
 			label: t('MAPPING_CLEAR', { defaultValue: 'Clear' }),
 			onClick: clearConnection,
 		},
 		{
+			id: 'clear-mapping',
 			label: t('MAPPING_CLEAR_ALL', { defaultValue: 'Clear All' }),
 			onClick: clearMapping,
 		},
 	];
 }
 
+function renderMappingArea(
+	renderer,
+	getConnections,
+	getYPosition,
+	dnd,
+	updateRef,
+	dndInProgress
+) {
+	switch (renderer) {
+		case Constants.Connection.RENDERER.CANVAS:
+			return (
+				<MappingArea
+					ref={updateRef}
+					getConnections={getConnections}
+					getYPosition={getYPosition}
+					dnd={dnd}
+					dndInProgress={dndInProgress}
+				/>
+			);
+		case Constants.Connection.RENDERER.SVG:
+			return (
+				<MappingSVG
+					ref={updateRef}
+					getConnections={getConnections}
+					getYPosition={getYPosition}
+					dnd={dnd}
+					dndInProgress={dndInProgress}
+				/>
+			);
+		default:
+			return (
+				<div>Cannot render mapping area</div>
+			);
+	}
+}
+
 class GMapping extends Component {
+
 	constructor(props) {
 		super(props);
 		this.dndInProgress = this.dndInProgress.bind(this);
+		this.updateMappingAreaRef = this.updateMappingAreaRef.bind(this);
+	}
+
+	getArea() {
+		if (this.mappingArea) {
+			let area = this.mappingArea;
+			if (this.mappingArea.getDecoratedComponentInstance) {
+				area = this.mappingArea.getDecoratedComponentInstance();
+			}
+			return area;
+		}
+		return {
+			update() {
+				// LOG
+			},
+			getMousePos(offset) {
+				return offset;
+			},
+		};
 	}
 
 	update() {
-		const area = this.mappingArea.getDecoratedComponentInstance();
-		area.updateCanvas(true, false, false);
+		this.getArea().update();
 	}
 
 	dndInProgress(offset) {
-		const area = this.mappingArea.getDecoratedComponentInstance();
-		const pos = area.getMousePos(offset);
-		const sourceYPos = this.props.getYPosition(
-			this.props.dnd.source.element,
-			this.props.dnd.source.type,
-		);
-		const params = ConnectionParams.PENDING;
-		// default case: source is input
-		let x1 = params.anchorRadius;
-		let y1 = sourceYPos;
-		let x2 = pos.x;
-		let y2 = pos.y;
-		if (this.props.dnd.source.type === SchemaType.OUTPUT) {
-			x1 = pos.x;
-			y1 = pos.y;
-			x2 = area.getCanvasSize().width - params.arrowWidth / 2;
-			y2 = sourceYPos;
-		}
-		area.updateCanvas(true, false, false);
-		area.drawSingleConnection(x1, y1, x2, y2, params);
+		const pos = this.getArea().getMousePos(offset);
+		this.props.dndInProgress(pos);
+	}
+
+	updateMappingAreaRef(ref) {
+		this.mappingArea = ref;
 	}
 
 	render() {
 		const {
+			renderer,
 			clearConnection,
 			clearMapping,
 			getConnections,
@@ -86,15 +132,15 @@ class GMapping extends Component {
 						getActions(t, showAll, onShowAll, clearConnection, clearMapping)
 					}
 				/>
-				<MappingArea
-					ref={area => {
-						this.mappingArea = area;
-					}}
-					getConnections={getConnections}
-					getYPosition={getYPosition}
-					dnd={dnd}
-					dndInProgress={this.dndInProgress}
-				/>
+				{
+					renderMappingArea(
+						renderer,
+						getConnections,
+						getYPosition,
+						dnd,
+						this.updateMappingAreaRef,
+						this.dndInProgress)
+				}
 			</div>
 		);
 	}
@@ -108,7 +154,9 @@ GMapping.propTypes = {
 	showAll: PropTypes.bool,
 	onShowAll: PropTypes.func,
 	dnd: PropTypes.object,
+	dndInProgress: PropTypes.func,
 	t: PropTypes.func,
+	renderer: PropTypes.string,
 };
 
 export default translate(I18N_DOMAIN_COMPONENTS,

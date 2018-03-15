@@ -85,6 +85,12 @@ function renderSchemaElement(
 }
 
 export default class Schema extends Component {
+
+	constructor(props) {
+		super(props);
+		this.updateContentNodeRef = this.updateContentNodeRef.bind(this);
+	}
+
 	getNode(element) {
 		const children = this.contentNode.childNodes;
 		const childrenArray = Array.from(children);
@@ -102,18 +108,20 @@ export default class Schema extends Component {
 
 	getVisibleElements() {
 		let visibleElements = [];
-		const contentHeight = this.contentNode.offsetHeight;
-		const elements = this.props.schema.elements;
-		const children = this.contentNode.childNodes;
-		const childrenArray = Array.from(children);
-		for (let i = 0; i < childrenArray.length; i += 1) {
-			const element = elements[i];
-			const elemYPos = this.getYPosition(element);
-			if (elemYPos > 0 && elemYPos < contentHeight) {
-				// element is visible
-				visibleElements = visibleElements.concat(element);
-			} else if (elemYPos > contentHeight) {
-				break;
+		if (this.contentNode) {
+			const contentHeight = this.contentNode.offsetHeight;
+			const elements = this.props.schema.elements;
+			const children = this.contentNode.childNodes;
+			const childrenArray = Array.from(children);
+			for (let i = 0; i < childrenArray.length; i += 1) {
+				const element = elements[i];
+				const elemYPos = this.getYPosition(element);
+				if (elemYPos > 0 && elemYPos < contentHeight) {
+					// element is visible
+					visibleElements = visibleElements.concat(element);
+				} else if (elemYPos > contentHeight) {
+					break;
+				}
 			}
 		}
 		return visibleElements;
@@ -130,6 +138,10 @@ export default class Schema extends Component {
 			const offset = elemYPos + nodeHeight - contentHeight;
 			this.contentNode.scrollTop = this.contentNode.scrollTop + offset;
 		}
+	}
+
+	updateContentNodeRef(ref) {
+		this.contentNode = ref;
 	}
 
 	render() {
@@ -155,9 +167,7 @@ export default class Schema extends Component {
 			<div className="schema mapper-element">
 				<div className="schema-name">{schema.name}</div>
 				<div
-					ref={content => {
-						this.contentNode = content;
-					}}
+					ref={this.updateContentNodeRef}
 					className="schema-content"
 					onScroll={this.props.onScroll}
 				>

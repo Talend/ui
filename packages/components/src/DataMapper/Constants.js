@@ -33,6 +33,24 @@ export const MappingSide = {
 	TARGET: 'target',
 };
 
+export const Connection = {
+	RENDERER: {
+		CANVAS: 'canvas',
+		SVG: 'svg',
+	},
+	STYLE: {
+		ALL: 'all',
+		CURRENT: 'current',
+		FOCUSED: 'focused',
+		PENDING: 'pending',
+	},
+	PART: {
+		START: 'start',
+		CURVE: 'curve',
+		END: 'end',
+	},
+};
+
 export const Keys = {
 	UP: 38,
 	DOWN: 40,

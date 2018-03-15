@@ -2,7 +2,7 @@
 
 exports[`single-item 1`] = `
 <div
-  id="mappingItem"
+  className="mappingItem"
 >
   [ undefined =&gt; undefined ]
 </div>

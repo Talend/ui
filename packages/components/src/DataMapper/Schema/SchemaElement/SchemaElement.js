@@ -25,12 +25,14 @@ function getClassName(props) {
  * @author timbault
 */
 export default class SchemaElement extends Component {
+
 	constructor(props) {
 		super(props);
 		this.select = this.select.bind(this);
 		this.revealConnection = this.revealConnection.bind(this);
 		this.handleMouseEnter = this.handleMouseEnter.bind(this);
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
+		this.updateElementRef = this.updateElementRef.bind(this);
 	}
 
 	componentDidMount() {
@@ -63,6 +65,10 @@ export default class SchemaElement extends Component {
 		this.props.revealConnection(this.props.name, this.props.schemaType);
 	}
 
+	updateElementRef(ref) {
+		this.element = ref;
+	}
+
 	render() {
 		return (
 			<div
@@ -70,9 +76,7 @@ export default class SchemaElement extends Component {
 				onClick={this.select}
 				onDoubleClick={this.revealConnection}
 				role="button"
-				ref={elem => {
-					this.element = elem;
-				}}
+				ref={this.updateElementRef}
 			>
 				{this.props.name}
 			</div>

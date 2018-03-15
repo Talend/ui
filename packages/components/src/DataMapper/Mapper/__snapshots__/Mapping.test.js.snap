@@ -2,20 +2,19 @@
 
 exports[`mapping 1`] = `
 <div
-  className="mapper-element"
-  id="mapping"
+  className="mapping mapper-element"
 >
   <div
     className="mapping-tools"
   >
     <button
-      id="clear-connection"
+      className="clear-connection"
       onClick={undefined}
     >
       Clear connection
     </button>
     <button
-      id="clear-mapping"
+      className="clear-mapping"
       onClick={undefined}
     >
       Clear mapping
@@ -25,17 +24,17 @@ exports[`mapping 1`] = `
     className="mapping-content"
   >
     <div
-      id="mappingItem"
+      className="mappingItem"
     >
       [ elem_in_1 =&gt; elem_out_1 ]
     </div>
     <div
-      id="mappingItem"
+      className="mappingItem"
     >
       [ elem_in_2 =&gt; elem_out_2 ]
     </div>
     <div
-      id="mappingItem"
+      className="mappingItem"
     >
       [ elem_in_3 =&gt; elem_out_3 ]
     </div>
