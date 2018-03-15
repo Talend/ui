@@ -3,11 +3,22 @@
 > sass-lint -v -q
 
 
+src/DataMapper/DataMapper.scss
+   74:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+   75:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+   81:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+   82:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+   87:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+   88:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+   96:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+   97:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  104:8   error  Qualifying elements are not allowed for class selectors                   no-qualifying-elements
+
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
 
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 2 problems (0 errors, 2 warnings)
+✖ 11 problems (9 errors, 2 warnings)
 
