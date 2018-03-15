@@ -207,7 +207,7 @@ export function* httpGet(url, config) {
 }
 
 export const handleDefaultConfiguration = curry((defaultConfig, config) =>
-	mergeCSRFToken(defaultConfig, config),
+	mergeCSRFToken(defaultConfig)(config),
 );
 
 export default {

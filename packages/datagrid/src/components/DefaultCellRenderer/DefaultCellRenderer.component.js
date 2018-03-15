@@ -24,6 +24,10 @@ export default function DefaultCellRenderer({ avroRenderer, colDef, value, getCo
 	);
 }
 
+DefaultCellRenderer.defaultProps = {
+	value: {},
+};
+
 DefaultCellRenderer.propTypes = {
 	avroRenderer: DATAGRID_PROPTYPES.avroRenderer,
 	colDef: PropTypes.shape({
