@@ -152,4 +152,13 @@ public class AppHeaderBar extends Component {
     public void clickOnHelp() {
         this.getHelp().click();
     }
+
+    /**
+     * Retrieve an item by its id
+     * @param id
+     * @return the header bar element with the given id
+     */
+    public WebElement getItemById(String id) {
+        return this.getElement().findElement(By.id(id));
+    }
 }
