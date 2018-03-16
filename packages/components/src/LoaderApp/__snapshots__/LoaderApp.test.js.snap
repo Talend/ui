@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoaderApp should render 1`] = `
+<div
+  className="tc-loader-app-container"
+>
+  <div
+    className="tc-loader-app"
+  >
+    <div
+      className="tc-loader-app-icon"
+    />
+  </div>
+</div>
+`;
