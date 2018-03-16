@@ -106,7 +106,7 @@ function DefaultItem(props) {
 	if (type === 'array') {
 		content.push(
 			<span key={'length'}>
-				<sup className={classNames(theme.badge, 'badge', 'tc-object-viewer-badge')}>
+				<sup key={'length-badge'} className={classNames(theme.badge, 'badge', 'tc-object-viewer-badge')}>
 					{fields.length}
 				</sup>
 			</span>
@@ -122,7 +122,7 @@ function DefaultItem(props) {
 	if (onClick) {
 		main = (
 			<button
-				key={'main'}
+				key={'main-button'}
 				aria-label={`Select ${dataKey} (${jsonpath})`}
 				onClick={onClick}
 				className={theme.main}
@@ -131,7 +131,7 @@ function DefaultItem(props) {
 			</button>
 		);
 	} else {
-		main = (<span key={'main'} className={theme.main}>{content}</span>);
+		main = (<span key={'main-text'} className={theme.main}>{content}</span>);
 	}
 
 	const icon = getIcon(props);

@@ -86,7 +86,7 @@ function getDisplayValue(props) {
 	const RendererComponent = injectedCellRenderer(
 		props.getComponent,
 		props.cellRenderer,
-		props.avroRenderers
+		props.avroRenderersIds
 	);
 
 	return (
@@ -97,7 +97,7 @@ function getDisplayValue(props) {
 	);
 }
 getDisplayValue.PropTypes = {
-	avroRenderers: PropTypes.object, // dictionary type/rendererId
+	avroRenderersIds: PropTypes.object, // dictionary type/rendererId
 	cellRenderer: PropTypes.string,	// top cell renderer id
 	getComponent: PropTypes.func,
 	value: PropTypes.shape({

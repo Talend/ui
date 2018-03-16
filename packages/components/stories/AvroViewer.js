@@ -5,6 +5,7 @@ import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
 import { ObjectViewer, IconsProvider } from '../src/index';
+import DefaultDateRenderer from '../src/ObjectViewer/AvroRenderer/DefaultDateRenderer.component';
 
 const icons = {
 	'talend-caret-down': talendIcons['talend-caret-down'],
@@ -296,6 +297,23 @@ function ToggleManager(Component) {
 
 const ObjectViewerWithToggle = ToggleManager(ObjectViewer);
 
+const customAvroRenderersIds = {
+	date: 'myCustomDateRenderer',
+};
+const customAvroRenderersRegistry = {
+	myCustomDateRenderer: props => {
+		let value = props.data.value;
+		if (typeof value === 'number') {
+			const date = new Date(value);
+			value = `Custom renderer, only year - ${date.getFullYear()}`;
+		}
+		return <span>{value}</span>;
+	},
+};
+function getComponent(componentId) {
+	return customAvroRenderersRegistry[componentId];
+}
+
 class AvroViewer extends React.Component {
 	constructor(props) {
 		super(props);
@@ -316,6 +334,10 @@ class AvroViewer extends React.Component {
 			flexShrink: 1,
 			flexBasis: 50,
 		};
+		let avroRenderersIds;
+		if (this.props.useCustomRenderers) {
+			avroRenderersIds = customAvroRenderersIds;
+		}
 		return (
 			<div style={{ display: 'flex', alignItems: 'stretch', height: '100%' }}>
 				<div style={partStyle}>
@@ -333,8 +355,10 @@ class AvroViewer extends React.Component {
 				</div>
 				<div style={partStyle}>
 					<ObjectViewerWithToggle
+						avroRenderersIds={avroRenderersIds}
 						displayMode={'records'}
 						data={sample.data}
+						getComponent={getComponent}
 						highlighted={this.state.highlighted}
 						schema={sample.schema}
 					/>
@@ -343,6 +367,9 @@ class AvroViewer extends React.Component {
 		);
 	}
 }
+AvroViewer.propTypes = {
+	useCustomRenderers: PropTypes.bool,
+};
 
 stories
 	.addWithInfo('data model', () => (
@@ -392,5 +419,11 @@ stories
 		<div style={{ height: 500 }}>
 			<IconsProvider defaultIcons={icons} />
 			<AvroViewer />
+		</div>
+	))
+	.addWithInfo('Avro viewer with custom date renderer', () => (
+		<div style={{ height: 500 }}>
+			<IconsProvider defaultIcons={icons} />
+			<AvroViewer useCustomRenderers />
 		</div>
 	));

@@ -50,6 +50,10 @@ export default function RecordRenderer({ index, key, parent, style }) {
 
 	const schema = parent.props.schema;
 	const datum = parent.props.data[index];
+
+	const getComponent = parent.props.getComponent;
+	const avroRenderersIds = parent.props.avroRenderersIds;
+
 	return (
 		<CellMeasurer
 			cache={cache}
@@ -62,7 +66,9 @@ export default function RecordRenderer({ index, key, parent, style }) {
 				// 'style' attribute required to position cell (within parent List)
 				<div className={classNames(theme.row, 'tc-object-viewer-records-row')} style={style}>
 					<MesureObjectViewer
+						avroRenderersIds={avroRenderersIds}
 						data={datum}
+						getComponent={getComponent}
 						highlighted={highlighted}
 						measure={measure}
 						onToggle={(event, options) => onToggle(event, options, index)}

@@ -13,23 +13,23 @@ function getDefaultRenderer(type) {
 	return defaultRenderers[type] || DefaultRenderer;
 }
 
-export default function DefaultAvroRenderer({ avroRenderer, colDef, data, getComponent }) {
+export default function DefaultAvroRenderer({ avroRenderersIds, colDef, data, getComponent }) {
 	const type = colDef.avro.type.type;
-	const componentId = avroRenderer[type];
+	const componentId = avroRenderersIds[type];
 	const Component = Inject.get(getComponent, componentId, getDefaultRenderer(type));
 
 	return <Component data={data} colDef={colDef} />;
 }
 DefaultAvroRenderer.displayName = 'DefaultAvroRenderer';
 DefaultAvroRenderer.defaultProps = {
-	avroRenderer: {},
+	avroRenderersIds: {},
 };
 DefaultAvroRenderer.propTypes = {
-	avroRenderer: PropTypes.object,
+	avroRenderersIds: PropTypes.object,
 	colDef: PropTypes.shape({
 		avro: PropTypes.shape({
 			type: PropTypes.shape({
-				type: PropTypes.oneOf(['boolean', 'date', 'int', 'string']),
+				type: PropTypes.string,
 			}),
 		}),
 	}),

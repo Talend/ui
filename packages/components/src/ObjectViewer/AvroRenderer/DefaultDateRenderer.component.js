@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function DefaultDateRenderer({ data }) {
 	let value = data.value;
-	if (typeof data.value === 'number') {
+	if (typeof value === 'number') {
 		const date = new Date(value);
 		value = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 	}
