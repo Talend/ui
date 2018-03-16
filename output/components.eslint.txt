@@ -1,5 +1,5 @@
 
-> @talend/react-components@0.165.0 lint:es /home/travis/build/Talend/ui/packages/components
+> @talend/react-components@0.167.0 lint:es /home/travis/build/Talend/ui/packages/components
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
@@ -17,7 +17,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MappingArea.js
    20:10  error  'drawLine' is defined but never used                                                           no-unused-vars
-  188:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+  217:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
+
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/Mapper/MappingSVG.js
+  116:10  error  'getLineParams' is defined but never used                                                      no-unused-vars
+  241:16  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/Schema.js
   23:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
@@ -28,7 +32,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   105:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaElement/SchemaElement.js
-  68:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
+  73:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -51,5 +55,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 21 problems (20 errors, 1 warning)
+✖ 23 problems (22 errors, 1 warning)
 

@@ -96,7 +96,6 @@ function renderSchemaElement(
 }
 
 export default class Schema extends Component {
-
 	constructor(props) {
 		super(props);
 		this.updateContentNodeRef = this.updateContentNodeRef.bind(this);

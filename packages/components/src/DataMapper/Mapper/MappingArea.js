@@ -121,28 +121,22 @@ class MappingArea extends Component {
 		const connections = this.props.getConnections();
 		if (connections != null) {
 			if (connections.all != null) {
-				this.drawConnections(connections.all,
-					Constants.ConnectionParams.ALL);
+				this.drawConnections(connections.all, Constants.ConnectionParams.ALL);
 			}
 			if (connections.current != null) {
-				this.drawConnections(connections.current,
-					Constants.ConnectionParams.CURRENT);
+				this.drawConnections(connections.current, Constants.ConnectionParams.CURRENT);
 			}
 			if (connections.pending != null) {
-				this.drawConnection(connections.pending,
-					Constants.ConnectionParams.PENDING);
+				this.drawConnection(connections.pending, Constants.ConnectionParams.PENDING);
 			}
 			if (connections.focused != null) {
-				this.drawConnections(connections.focused,
-					Constants.ConnectionParams.FOCUSED);
+				this.drawConnections(connections.focused, Constants.ConnectionParams.FOCUSED);
 			}
 			if (connections.dnd != null && renderDnd) {
-				this.drawConnection(connections.dnd,
-					Constants.ConnectionParams.PENDING);
+				this.drawConnection(connections.dnd, Constants.ConnectionParams.PENDING);
 			}
 			if (connections.dndInProgress && renderDnd) {
-				this.drawDndInProgress(connections.dndInProgress,
-					Constants.ConnectionParams.PENDING);
+				this.drawDndInProgress(connections.dndInProgress, Constants.ConnectionParams.PENDING);
 			}
 		}
 	}
@@ -207,14 +201,8 @@ class MappingArea extends Component {
 	render() {
 		const { connectDropTarget } = this.props;
 		return connectDropTarget(
-			<div
-				ref={this.updateCanvasParentRef}
-				className="mapping-content"
-			>
-				<canvas
-					ref={this.updateCanvasRef}
-					className="mapping-canvas"
-				/>
+			<div ref={this.updateCanvasParentRef} className="mapping-content">
+				<canvas ref={this.updateCanvasRef} className="mapping-canvas" />
 			</div>,
 		);
 	}
@@ -226,5 +214,6 @@ MappingArea.propTypes = {
 	dnd: PropTypes.object,
 };
 
-export default DropTarget(Constants.ItemTypes.ELEMENT,
-	elementTarget, collectForDropTarget)(MappingArea);
+export default DropTarget(Constants.ItemTypes.ELEMENT, elementTarget, collectForDropTarget)(
+	MappingArea,
+);

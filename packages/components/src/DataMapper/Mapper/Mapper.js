@@ -20,7 +20,6 @@ function getFocusedElements(dataAccessor, mapping, focused, side) {
 }
 
 export default class Mapper extends Component {
-
 	constructor(props) {
 		super(props);
 		this.getConnections = this.getConnections.bind(this);
