@@ -5,12 +5,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.talend.component.Component;
 
-import java.util.List;
-
-import static java.util.stream.Collectors.toList;
-
 /**
- * A List is used to easy access to WebElements of the react-talend-component List component - Table.
+ *  Abtract class Container for List component
  */
 public abstract class ListContainer extends Component {
 
