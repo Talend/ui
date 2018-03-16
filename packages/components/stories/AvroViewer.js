@@ -141,9 +141,9 @@ const schema = [
 								dqTypeKey: 'TASTE',
 							},
 							'@talend-quality@': {
-								0: 4,
-								1: 96,
-								'-1': 0,
+								0: 0,
+								1: 0,
+								'-1': 100,
 							},
 						},
 					],
@@ -203,7 +203,7 @@ const data = [
 								},
 							},
 						},
-						quality: 1,
+						quality: -1,
 					},
 					{
 						value: {

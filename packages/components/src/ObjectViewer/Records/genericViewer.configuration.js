@@ -3,11 +3,6 @@ import PropTypes from 'prop-types';
 import theme from './RecordViewer.scss';
 import { injectedCellRenderer } from '../AvroRenderer';
 
-
-function formatData(value) {
-	return value;
-}
-
 /**
  * We are schema driven.
  * We have 2 cases that has children
@@ -79,14 +74,7 @@ function getDataType(avroSample) {
  */
 function getQuality(props) {
 	const avroSample = props.value;
-	switch (avroSample.data.quality) {
-		case -1:
-			return 'invalid';
-		case 0:
-			return 'empty';
-		default:
-			return 'valid';
-	}
+	return avroSample.data.quality;
 }
 
 /**
@@ -139,7 +127,6 @@ function getIcon({ isOpened, type }) {
 }
 
 export default {
-	formatData,
 	getDataType,
 	getDisplayValue,
 	getFields,

@@ -31,11 +31,20 @@ function DefaultValueItem(props) {
 	const formattedKey = getDisplayKey(props);
 	const formattedValue = getDisplayValue(props);
 	const content = [
-		quality === 'invalid' && <div key={'quality'} className={classNames(theme['invalid-value'], 'tc-object-viewer-invalid-value')} />,
+		(quality === -1) && (
+			<div
+				key={'quality'}
+				className={classNames(theme['invalid-value'], 'tc-object-viewer-invalid-value')}
+			/>
+		),
 		<div key={'key-value'} className={theme['key-value']}>
-			<span key={'key'} className={theme.key}>{formattedKey}</span>
+			<span key={'key'} className={theme.key}>
+				{formattedKey}
+			</span>
 			{formattedValue !== undefined && ': '}
-			<span key={'value'} title={formattedValue} className={theme.value}>{formattedValue}</span>
+			<span key={'value'} title={formattedValue} className={theme.value}>
+				{formattedValue}
+			</span>
 		</div>,
 	];
 	if (onClick) {
@@ -103,7 +112,7 @@ function DefaultItem(props) {
 			</span>
 		);
 	}
-	if (!isOpened && getQuality(props) === 'invalid') {
+	if (!isOpened && getQuality(props) === -1) {
 		content.push(
 			<div key={'quality'} className={classNames(theme['invalid-dot'], 'tc-object-viewer-invalid-dot')} />
 		);
