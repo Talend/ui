@@ -107,32 +107,3 @@
 		}
 	}
 }
-
-/// define icon specific to applications
-/// @access public
-/// @content Background image
-@mixin app-icon {
-	&[data-app-icon='tdc']:before {
-		background-image: $tdc-logo-colored;
-	}
-
-	&[data-app-icon='tdp']:before {
-		background-image: $tdp-logo-colored;
-	}
-
-	&[data-app-icon='tds']:before {
-		background-image: $tds-logo-colored;
-	}
-
-	&[data-app-icon='tfd']:before {
-		background-image: $tfd-logo-colored;
-	}
-
-	&[data-app-icon='tic']:before {
-		background-image: $tic-logo-colored;
-	}
-
-	&[data-app-icon='tmc']:before {
-		background-image: $tmc-logo-colored;
-	}
-}
