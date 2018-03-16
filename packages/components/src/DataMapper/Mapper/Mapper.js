@@ -11,10 +11,13 @@ function getMappedElements(dataAccessor, mapping, side) {
 
 function getFocusedElements(dataAccessor, mapping, focused, side) {
 	if (!focused || focused.side === side) return null;
-	const focusedItems = dataAccessor.getMappingItemsWithElement(mapping,
-		focused.element, focused.side);
+	const focusedItems = dataAccessor.getMappingItemsWithElement(
+		mapping,
+		focused.element,
+		focused.side,
+	);
 	if (focusedItems) {
-			return focusedItems.map(item => dataAccessor.getMappedElement(item, side));
+		return focusedItems.map(item => dataAccessor.getMappedElement(item, side));
 	}
 	return null;
 }
@@ -66,15 +69,7 @@ export default class Mapper extends Component {
 	//	 dndInProgress: {sourceYPos, pos}
 	// }
 	getConnections() {
-		const {
-			dataAccessor,
-			mapping,
-			selection,
-			pendingItem,
-			focused,
-			showAll,
-			dnd,
-		} = this.props;
+		const { dataAccessor, mapping, selection, pendingItem, focused, showAll, dnd } = this.props;
 		if (dataAccessor.isMappingEmpty(mapping) && !pendingItem && !dnd) return null;
 		let allConnections = null;
 		if (showAll && this.inputSchemaRef && this.outputSchemaRef) {
@@ -84,14 +79,19 @@ export default class Mapper extends Component {
 			const mappingItems = dataAccessor.getMappingItems(mapping);
 			const visibleMappingItems = mappingItems.filter(
 				item =>
-					dataAccessor.includes(inputVisibleElements,
-						dataAccessor.getMappedElement(item, MappingSide.INPUT))
-					|| dataAccessor.includes(outputVisibleElements,
-						dataAccessor.getMappedElement(item, MappingSide.OUTPUT)),
+					dataAccessor.includes(
+						inputVisibleElements,
+						dataAccessor.getMappedElement(item, MappingSide.INPUT),
+					) ||
+					dataAccessor.includes(
+						outputVisibleElements,
+						dataAccessor.getMappedElement(item, MappingSide.OUTPUT),
+					),
 			);
 			// then build connections
 			allConnections = visibleMappingItems.map(item =>
-				this.getConnectionFromItem(dataAccessor, item));
+				this.getConnectionFromItem(dataAccessor, item),
+			);
 		}
 		let items = null;
 		if (selection) {
@@ -100,8 +100,7 @@ export default class Mapper extends Component {
 		// console.log('getMappingItems returns ' + items);
 		let current = null;
 		if (items) {
-			current = items.map(item =>
-				this.getConnectionFromItem(dataAccessor, item));
+			current = items.map(item => this.getConnectionFromItem(dataAccessor, item));
 		}
 		let pending = null;
 		if (selection && pendingItem) {
@@ -113,11 +112,15 @@ export default class Mapper extends Component {
 		}
 		let focusedConnections = null;
 		if (focused) {
-			const focusedItems = dataAccessor.getMappingItemsWithElement(mapping,
-				focused.element, focused.side);
+			const focusedItems = dataAccessor.getMappingItemsWithElement(
+				mapping,
+				focused.element,
+				focused.side,
+			);
 			if (focusedItems) {
 				focusedConnections = focusedItems.map(item =>
-					this.getConnectionFromItem(dataAccessor, item));
+					this.getConnectionFromItem(dataAccessor, item),
+				);
 			}
 		}
 		let dndConnection = null;
@@ -157,8 +160,7 @@ export default class Mapper extends Component {
 
 	revealConnection(element, side) {
 		const dataAccessor = this.props.dataAccessor;
-		const mappingItems = dataAccessor.getMappingItemsWithElement(this.props.mapping,
-			element, side);
+		const mappingItems = dataAccessor.getMappingItemsWithElement(this.props.mapping, element, side);
 		if (mappingItems && mappingItems.length > 0) {
 			const item = mappingItems[0];
 			if (side === MappingSide.INPUT) {

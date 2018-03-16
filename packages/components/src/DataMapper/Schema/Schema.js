@@ -4,8 +4,7 @@ import SchemaElement from './SchemaElement/SchemaElement.js';
 import DraggableSchemaElement from './SchemaElement/DraggableSchemaElement.js';
 
 function isMapped(dataAccessor, element, mappedElements) {
-	return mappedElements == null ?
-		false : dataAccessor.includes(mappedElements, element);
+	return mappedElements == null ? false : dataAccessor.includes(mappedElements, element);
 }
 
 /**
@@ -13,9 +12,11 @@ function isMapped(dataAccessor, element, mappedElements) {
  * (i.e. if it appears in the selection)
  */
 export function isSelected(dataAccessor, selection, element, side) {
-	return selection != null
-		&& dataAccessor.areEquals(selection.element, element)
-		&& selection.side === side;
+	return (
+		selection != null &&
+		dataAccessor.areEquals(selection.element, element) &&
+		selection.side === side
+	);
 }
 
 function isHighlighted(dataAccessor, element, selection, side, pendingItem, focusedElements) {
@@ -26,11 +27,10 @@ function isHighlighted(dataAccessor, element, selection, side, pendingItem, focu
 			  selection.connected != null &&
 			  dataAccessor.includes(selection.connected, element);
 	const pending =
-		pendingItem != null
-		&& pendingItem.side === side
-		&& dataAccessor.areEquals(pendingItem.element, element);
-	const focused = focusedElements != null
-		&& dataAccessor.includes(focusedElements, element);
+		pendingItem != null &&
+		pendingItem.side === side &&
+		dataAccessor.areEquals(pendingItem.element, element);
+	const focused = focusedElements != null && dataAccessor.includes(focusedElements, element);
 	return connected || pending || focused;
 }
 
@@ -63,9 +63,14 @@ function renderSchemaElement(
 				mapped={isMapped(dataAccessor, element, mappedElements)}
 				performMapping={performMapping}
 				selected={isSelected(dataAccessor, selection, element, side)}
-				highlighted={
-					isHighlighted(dataAccessor, element, selection, side, pendingItem, focusedElements)
-				}
+				highlighted={isHighlighted(
+					dataAccessor,
+					element,
+					selection,
+					side,
+					pendingItem,
+					focusedElements,
+				)}
 				onSelect={onSelect}
 				onEnterElement={onEnterElement}
 				onLeaveElement={onLeaveElement}
@@ -84,9 +89,14 @@ function renderSchemaElement(
 			element={element}
 			side={side}
 			selected={isSelected(dataAccessor, selection, element, side)}
-			highlighted={
-				isHighlighted(dataAccessor, element, selection, side, pendingItem, focusedElements)
-			}
+			highlighted={isHighlighted(
+				dataAccessor,
+				element,
+				selection,
+				side,
+				pendingItem,
+				focusedElements,
+			)}
 			onSelect={onSelect}
 			onEnterElement={onEnterElement}
 			onLeaveElement={onLeaveElement}
@@ -102,18 +112,19 @@ export default class Schema extends Component {
 	}
 
 	shouldComponentUpdate(nextProps) {
-		return !(nextProps.dnd != null && (
-			nextProps.dnd.pos != null || (
-				nextProps.dnd.source != null && nextProps.dnd.source.side === nextProps.side
-			)
-		));
+		return !(
+			nextProps.dnd != null &&
+			(nextProps.dnd.pos != null ||
+				(nextProps.dnd.source != null && nextProps.dnd.source.side === nextProps.side))
+		);
 	}
 
 	getNode(element) {
 		const children = this.contentNode.childNodes;
 		const childrenArray = Array.from(children);
-		return childrenArray.find(c =>
-			c.firstChild.innerHTML === this.props.dataAccessor.getElementName(element));
+		return childrenArray.find(
+			c => c.firstChild.innerHTML === this.props.dataAccessor.getElementName(element),
+		);
 	}
 
 	getYPosition(element) {
@@ -191,27 +202,29 @@ export default class Schema extends Component {
 					className="schema-content"
 					onScroll={this.props.onScroll}
 				>
-					{dataAccessor.getSchemaElements(schema).map(elem =>
-						renderSchemaElement(
-							dataAccessor,
-							side,
-							elem,
-							draggable,
-							mappedElements,
-							performMapping,
-							selection,
-							onSelect,
-							pendingItem,
-							onEnterElement,
-							onLeaveElement,
-							focusedElements,
-							beginDrag,
-							canDrop,
-							drop,
-							endDrag,
-							revealConnection,
-						),
-					)}
+					{dataAccessor
+						.getSchemaElements(schema)
+						.map(elem =>
+							renderSchemaElement(
+								dataAccessor,
+								side,
+								elem,
+								draggable,
+								mappedElements,
+								performMapping,
+								selection,
+								onSelect,
+								pendingItem,
+								onEnterElement,
+								onLeaveElement,
+								focusedElements,
+								beginDrag,
+								canDrop,
+								drop,
+								endDrag,
+								revealConnection,
+							),
+						)}
 				</div>
 			</div>
 		);

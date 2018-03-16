@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import VirtualizedList from '../../VirtualizedList';
 
 export default class SchemaAsList extends Component {
-
 	constructor(props) {
 		super(props);
 	}
@@ -51,9 +50,7 @@ export default class SchemaAsList extends Component {
 					ref={this.updateContentNodeRef}
 					className="schema-content"
 					onScroll={this.props.onScroll}
-				>
-					
-				</div>
+				/>
 			</div>
 		);
 	}

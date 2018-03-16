@@ -17,22 +17,14 @@ const schema = {
 
 it('single-schema', () => {
 	// create React tree
-	const tree = renderer.create(
-		<Schema
-			dataAccessor={dataAccessor}
-			schema={schema}
-		/>
-	).toJSON();
+	const tree = renderer.create(<Schema dataAccessor={dataAccessor} schema={schema} />).toJSON();
 	expect(tree).toMatchSnapshot();
 });
 
 it('empty-schema', () => {
 	// create React tree
-	const tree = renderer.create(
-		<Schema
-			dataAccessor={dataAccessor}
-			schema={emptySchema}
-		/>
-	).toJSON();
+	const tree = renderer
+		.create(<Schema dataAccessor={dataAccessor} schema={emptySchema} />)
+		.toJSON();
 	expect(tree).toMatchSnapshot();
 });
