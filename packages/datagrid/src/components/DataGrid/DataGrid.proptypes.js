@@ -16,6 +16,7 @@ const DATAGRID_PROPTYPES = {
 	getPinnedColumnDefsFn: PropTypes.func,
 	getColumnDefsFn: PropTypes.func,
 	getRowDataFn: PropTypes.func,
+	startIndex: PropTypes.number,
 	getCellValueFn: PropTypes.func,
 	headerHeight: PropTypes.number,
 	headerRenderer: PropTypes.string,

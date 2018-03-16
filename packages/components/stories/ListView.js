@@ -57,6 +57,69 @@ const withSwitchBox = {
 	isSwitchBox: true,
 };
 
+const withNestedItems = {
+	required: true,
+	isSwitchBox: true,
+	items: [
+		{
+			label: 'LoremParent',
+			value: 'LoremParent',
+			onChange: action('onChange'),
+			onExpandToggle: action('onExpandToggle'),
+			expanded: true,
+			children: [
+				{
+					label: 'Lorem',
+					value: 'Lorem',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Ipsum',
+					value: 'Ipsum',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Dolor',
+					value: 'Dolor',
+					onChange: action('onChange'),
+				},
+			]
+		},
+		{
+			label: 'IpsumParent',
+			value: 'IpsumParent',
+			onChange: action('onChange'),
+			onExpandToggle: action('onExpandToggle'),
+			expanded: true,
+			children: [
+				{
+					label: 'Lorem2',
+					value: 'Lorem2',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Ipsum2',
+					value: 'Ipsum2',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Dolor2',
+					value: 'Dolor2',
+					onChange: action('onChange'),
+				},
+			]
+		},
+	],
+	headerDefault: [filterAction],
+	getItemHeight: () => 33,
+	onAddChange: action('onAddChange'),
+	onAddKeyDown: action('onAddKeyDown'),
+	headerLabel: 'Choose wisely',
+	toggleAllChecked: false,
+	onToggleAll: action('onToggleAll'),
+	showToggleAll: false,
+};
+
 storiesOf('ListView', module)
 	.addDecorator(story => (
 		<I18nextProvider i18n={i18n}>
@@ -116,6 +179,13 @@ storiesOf('ListView', module)
 		return (
 			<ListView
 				{...withSwitchBox}
+			/>
+		);
+	})
+	.addWithInfo('with nested items', () => {
+		return (
+			<ListView
+				{...withNestedItems}
 			/>
 		);
 	})
