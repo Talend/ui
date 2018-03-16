@@ -223,7 +223,6 @@ function Item(props) {
 		highlighted,
 		jsonpath,
 		level,
-		nodeRenderers,
 		noRoot,
 		onSelect,
 		opened,
@@ -242,17 +241,17 @@ function Item(props) {
 	let fields;
 	switch (itemType) {
 		case 'array':
-			ItemComponent = nodeRenderers.array || DefaultItem;
-			FieldsComponent = nodeRenderers.arrayFields || DefaultFields;
+			ItemComponent = DefaultItem;
+			FieldsComponent = DefaultFields;
 			fields = getFields(value, itemType);
 			break;
 		case 'object':
-			ItemComponent = nodeRenderers.object || DefaultItem;
-			FieldsComponent = nodeRenderers.objectFields || DefaultFields;
+			ItemComponent = DefaultItem;
+			FieldsComponent = DefaultFields;
 			fields = getFields(value, itemType);
 			break;
 		default:
-			ItemComponent = nodeRenderers.value || DefaultValueItem;
+			ItemComponent = DefaultValueItem;
 	}
 
 	const itemContentClassName = classNames(
@@ -288,7 +287,6 @@ Item.defaultProps = {
 	getFields: defaultGetFields,
 	highlighted: [],
 	jsonpath: '',
-	nodeRenderers: {},
 	opened: [],
 	value: '',
 };
@@ -298,11 +296,6 @@ Item.propTypes = {
 	highlighted: PropTypes.array,
 	jsonpath: PropTypes.string,
 	level: PropTypes.number,
-	nodeRenderers: PropTypes.shape({
-		array: PropTypes.func,
-		object: PropTypes.func,
-		value: PropTypes.func,
-	}),
 	noRoot: PropTypes.bool,
 	onSelect: PropTypes.func,
 	opened: PropTypes.arrayOf(PropTypes.string),
