@@ -28,6 +28,10 @@ const BLACK_LISTED_ATTR = [
 	'propTypes', // already set by HOC
 ];
 
+const COMPONENT_EXCEPTIONS = {
+	MenuItem: props => props.divider,
+};
+
 function isNotBlackListedAttr(attr) {
 	return !BLACK_LISTED_ATTR.includes(attr);
 }
@@ -36,6 +40,9 @@ export default function wrap(Component, key) {
 	const Wrapper = ({ getComponent, components, text, ...props }) => {
 		const injected = Inject.all(getComponent, components);
 		const newprops = Object.assign({}, omit(props, OMIT_PROPS));
+		if (COMPONENT_EXCEPTIONS[key] && COMPONENT_EXCEPTIONS[key](props)) {
+			return <Component {...newprops} />;
+		}
 		return (
 			<Component {...newprops}>
 				{injected('children')}
