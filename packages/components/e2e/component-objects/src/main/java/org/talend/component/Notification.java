@@ -10,7 +10,9 @@ public class Notification extends Component {
 
     private static final String SELECTOR = ".tc-notification-container";
 
-    private static final String NOTIFICATION_MESSAGE = ".tc-notification-error .tc-notification-message";
+    private static final String NOTIFICATION_ERROR_MESSAGE = ".tc-notification-error .tc-notification-message";
+
+    private static final String NOTIFICATION_WARNING_MESSAGE = ".tc-notification-warning .tc-notification-message";
 
     /**
      * Notification constructor
@@ -27,6 +29,10 @@ public class Notification extends Component {
      * @return notification message WebElement
      */
     public WebElement getNotificationMessage(int index) {
-        return this.getElement().findElements(By.cssSelector(NOTIFICATION_MESSAGE)).get(index);
+        return this.getElement().findElements(By.cssSelector(NOTIFICATION_ERROR_MESSAGE)).get(index);
+    }
+
+    public WebElement getWarningMessage(int index) {
+        return this.getElement().findElements(By.cssSelector(NOTIFICATION_WARNING_MESSAGE)).get(index);
     }
 }
