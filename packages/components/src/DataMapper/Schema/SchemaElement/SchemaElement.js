@@ -16,12 +16,12 @@ function getClassName(props) {
 	if (props.selected) {
 		className += ' selected';
 	}
-	className += ` ${props.schemaType}`;
+	className += ` ${props.side}`;
 	return className;
 }
 
 /**
- * A single element of a schema. It is mainly a name with a type (i/o).
+ * A single element of a schema. It is mainly a name with a side (i/o).
  * @author timbault
  */
 export default class SchemaElement extends Component {
@@ -36,37 +36,37 @@ export default class SchemaElement extends Component {
 	}
 
 	componentDidMount() {
-		if (this.element != null) {
-			this.element.addEventListener('mouseenter', this.handleMouseEnter);
-			this.element.addEventListener('mouseleave', this.handleMouseLeave);
+		if (this.elementRef != null) {
+			this.elementRef.addEventListener('mouseenter', this.handleMouseEnter);
+			this.elementRef.addEventListener('mouseleave', this.handleMouseLeave);
 		}
 	}
 
 	componentWillUnmount() {
-		if (this.element != null) {
-			this.element.removeEventListener('mouseenter', this.handleMouseEnter);
-			this.element.removeEventListener('mouseleave', this.handleMouseLeave);
+		if (this.elementRef != null) {
+			this.elementRef.removeEventListener('mouseenter', this.handleMouseEnter);
+			this.elementRef.removeEventListener('mouseleave', this.handleMouseLeave);
 		}
 	}
 
 	handleMouseEnter() {
-		this.props.onEnterElement(this.props.name, this.props.schemaType);
+		this.props.onEnterElement(this.props.element, this.props.side);
 	}
 
 	handleMouseLeave() {
-		this.props.onLeaveElement(this.props.name, this.props.schemaType);
+		this.props.onLeaveElement(this.props.element, this.props.side);
 	}
 
 	select(ev) {
-		this.props.onSelect(ev.ctrlKey, this.props.name, this.props.schemaType);
+		this.props.onSelect(ev.ctrlKey, this.props.element, this.props.side);
 	}
 
 	revealConnection() {
-		this.props.revealConnection(this.props.name, this.props.schemaType);
+		this.props.revealConnection(this.props.element, this.props.side);
 	}
 
 	updateElementRef(ref) {
-		this.element = ref;
+		this.elementRef = ref;
 	}
 
 	render() {
@@ -78,15 +78,16 @@ export default class SchemaElement extends Component {
 				role="button"
 				ref={this.updateElementRef}
 			>
-				{this.props.name}
+				{this.props.dataAccessor.getElementName(this.props.element)}
 			</div>
 		);
 	}
 }
 
 SchemaElement.propTypes = {
-	name: PropTypes.string,
-	schemaType: PropTypes.string,
+	dataAccessor: PropTypes.object,
+	element: PropTypes.any.isRequired,
+	side: PropTypes.string,
 	onSelect: PropTypes.func,
 	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,

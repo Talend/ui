@@ -69,7 +69,7 @@ function buildSVGConnections(connections, dnd, container) {
 			let y1 = sourceYPos;
 			let x2 = pos.x;
 			let y2 = pos.y;
-			if (dnd.source.type === Constants.SchemaType.OUTPUT) {
+			if (dnd.source.side === Constants.MappingSide.OUTPUT) {
 				x1 = pos.x;
 				y1 = pos.y;
 				x2 = xRight;

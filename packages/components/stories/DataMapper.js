@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
 import { DataMapper as Mapper } from '../src/index';
-import { getMappingItems } from '../src/DataMapper/Mapper/Mapper';
 import { isSelected } from '../src/DataMapper/Schema/Schema';
 import * as Constants from '../src/DataMapper/Constants';
+import DefaultDataAccessor from '../src/DataMapper/DefaultDataAccessor';
+import DataAccessorWrapper from '../src/DataMapper/DataAccessorWrapper';
 
 const inputSchema1 = {
 	name: 'user_info',
@@ -101,6 +102,8 @@ const initialMapping = [
 	},
 ];
 
+const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
+
 function createSchema(name, elementName, size) {
 	let elements = [];
 	for (let i = 0; i < size; i += 1) {
@@ -142,9 +145,13 @@ function createMapping(inputSchema, outputSchema, shuffle) {
 	return createOneToOneMapping(inputSchema, outputSchema);
 }
 
+/**
+* Default empty state
+*/
 const emptyState = {
-	inputSchema: [],
-	outputSchema: [],
+	dataAccessor,
+	inputSchema: {},
+	outputSchema: {},
 	mapping: [],
 	dnd: null,
 	pendingItem: null,
@@ -185,83 +192,48 @@ function getBigSchemaInitialState() {
 	};
 }
 
-/** isSelectionEmpty returns true if the given selection is empty */
-function isSelectionEmpty(selection) {
-	return selection == null || selection.element == null || selection.type == null;
-}
-
 /**
- * isMapped returns true if the given (element, type) is mapped
- * (i.e. if it appears in the mapping)
- */
-function isMapped(mapping, element, type) {
-	if (mapping != null) {
-		return mapping.find(
-			item =>
-				(type === Constants.SchemaType.INPUT && item.source === element) ||
-				(type === Constants.SchemaType.OUTPUT && item.target === element),
-		);
-	}
-	return false;
+* isSelectionEmpty returns true if the given selection is empty
+*/
+function isSelectionEmpty(selection) {
+	return selection == null || selection.element == null || selection.side == null;
 }
 
-/** fullMapped returns true if all the elements of the given schema are mapped */
-function fullMapped(mapping, schema, type) {
-	// TODO could be optimized
-	for (let i = 0; i < schema.elements.length; i += 1) {
-		if (!isMapped(mapping, schema.elements[i], type)) {
-			return false;
-		}
-	}
-	return true;
-}
-
-/** Returns the schema corresponding to the given type */
-function getSchema(state, type) {
-	if (type === Constants.SchemaType.INPUT) {
+/** Returns the schema corresponding to the given side */
+function getSchema(state, side) {
+	if (side === Constants.MappingSide.INPUT) {
 		return state.inputSchema;
-	} else if (type === Constants.SchemaType.OUTPUT) {
+	} else if (side === Constants.MappingSide.OUTPUT) {
 		return state.outputSchema;
 	}
 	return null;
 }
 
-function getConnected(mapping, element, type) {
-	const items = getMappingItems(mapping, element, type);
-	if (items != null) {
-		if (type === Constants.SchemaType.INPUT) {
-			return items.map(item => item.target);
-		}
-		return items.map(item => item.source);
-	}
-	return null;
-}
-
-function appendConnected(mapping, source, target, type) {
-	const connected = getConnected(mapping, source, type);
+function appendConnected(mapping, source, target, side) {
+	const connected = dataAccessor.getConnectedElements(mapping, source, side);
 	if (connected != null) {
 		return connected.concat(target);
 	}
 	return [target];
 }
 
-function select(mapping, element, type) {
+function select(mapping, element, side) {
 	return {
 		element,
-		connected: getConnected(mapping, element, type),
-		type,
+		connected: dataAccessor.getConnectedElements(mapping, element, side),
+		side,
 	};
 }
 
-function getSelection(ctrl, mapping, selection, element, type) {
-	if (isSelected(selection, element, type) && ctrl) {
+function getSelection(ctrl, mapping, selection, element, side) {
+	if (isSelected(dataAccessor, selection, element, side) && ctrl) {
 		return null;
 	}
-	return select(mapping, element, type);
+	return select(mapping, element, side);
 }
 
-function getFocused(element, type) {
-	return { element, type };
+function getFocused(element, side) {
+	return { element, side };
 }
 
 function clearConnected(selection) {
@@ -271,34 +243,23 @@ function clearConnected(selection) {
 	return {
 		element: selection.element,
 		connected: null,
-		type: selection.type,
+		side: selection.side,
 	};
-}
-
-function removeConnection(mapping, index) {
-	const updatedMapping = mapping.slice();
-	updatedMapping.splice(index, 1);
-	return updatedMapping;
 }
 
 function removeConnections(mapping, selection) {
 	if (isSelectionEmpty(selection)) {
 		return mapping;
 	}
-	const items = mapping.filter(item =>
-		(selection.type === Constants.SchemaType.INPUT && item.source === selection.element)
-		|| (selection.type === Constants.SchemaType.OUTPUT && item.target === selection.element)
-	);
+	const items = dataAccessor.getMappingItemsWithElement(mapping, selection.element, selection.side);
 	if (items != null) {
 		// remove items
-		let updatedMapping = mapping.slice();
+		let updatedMapping = mapping;
 		for (let i = 0; i < items.length; i += 1) {
 			const item = items[i];
-			const index = updatedMapping.findIndex(it =>
-				it.source === item.source && it.target === item.target);
-			if (index >= 0) {
-				updatedMapping = removeConnection(updatedMapping, index);
-			}
+			const source = dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT);
+			const target = dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT);
+			updatedMapping = dataAccessor.removeMapping(updatedMapping, source, target);
 		}
 		return updatedMapping;
 	}
@@ -309,17 +270,17 @@ function getCurrentSelectedSchema(state) {
   if (isSelectionEmpty(state.selection)) {
     return null;
   }
-  if (state.selection.type === Constants.SchemaType.INPUT) {
+  if (state.selection.side === Constants.MappingSide.INPUT) {
     return state.inputSchema;
-  } else if (state.selection.type === Constants.SchemaType.OUTPUT) {
+  } else if (state.selection.side === Constants.MappingSide.OUTPUT) {
     return state.outputSchema;
   }
   return null;
 }
 
 function getNextElement(schema, element, nav) {
-	const selectedElemIndex = schema.elements.indexOf(element);
-  const size = schema.elements.length;
+	const selectedElemIndex = dataAccessor.getSchemaElementIndex(schema, element);
+  const size = dataAccessor.getSchemaSize(schema);
   let newSelectedElemIndex = selectedElemIndex;
   switch (nav) {
     case Constants.Keys.UP:
@@ -337,7 +298,7 @@ function getNextElement(schema, element, nav) {
 		default:
 			return element;
   }
-	return schema.elements[newSelectedElemIndex];
+	return dataAccessor.getSchemaElement(schema, newSelectedElemIndex);
 }
 
 function navigateUpDown(state, nav) {
@@ -347,67 +308,83 @@ function navigateUpDown(state, nav) {
 	let newSelectedElement = getNextElement(schema, selection.element, nav);
 
 	if (state.pendingItem != null
-		&& state.pendingItem.type !== selection.type
-		&& selection.type === Constants.SchemaType.OUTPUT) {
+		&& state.pendingItem.side !== selection.side
+		&& selection.side === Constants.MappingSide.OUTPUT) {
 		// do not select an already connected output elements
-		while (isMapped(state.mapping, newSelectedElement, selection.type)) {
+		while (dataAccessor.isElementMapped(state.mapping, newSelectedElement, selection.side)) {
 			newSelectedElement = getNextElement(schema, newSelectedElement, nav);
 		}
 	}
 
   return {
 		element: newSelectedElement,
-		connected: getConnected(state.mapping, newSelectedElement, selection.type),
-		type: selection.type,
+		connected: dataAccessor.getConnectedElements(state.mapping, newSelectedElement, selection.side),
+		side: selection.side,
 	};
 }
 
-function switchSchema(state, connectContext) {
+/**
+* This method tries to find an element in the schema with the same name as
+* given element.
+*/
+function findTargetElement(schema, selection, mappingInProgress) {
+	const elements = dataAccessor.getSchemaElements(schema);
+	return elements.find(elem =>
+		(!mappingInProgress && dataAccessor.haveSameName(elem, selection.element))
+		|| (mappingInProgress
+				&& dataAccessor.haveSameName(elem, selection.element)
+				&& (selection.connected == null || !dataAccessor.includes(selection.connected, elem)))
+	);
+}
+
+function findNonConnectedTargetElement(schema, mapping, side) {
+	for (let i = 0; i < dataAccessor.getSchemaSize(schema); i += 1) {
+		const elem = dataAccessor.getSchemaElement(schema, i);
+		if (!dataAccessor.isElementMapped(mapping, elem, side)) {
+			return elem;
+		}
+	}
+	return null;
+}
+
+function switchSchema(state, mappingInProgress) {
   const selection = state.selection;
-	const targetType = Constants.switchSchemaType(selection.type);
+	const targetSide = Constants.switchMappingSide(selection.side);
 	let targetElem = null;
-  if (!connectContext
+  if (!mappingInProgress
 		&& selection.connected != null
 		&& selection.connected.length > 0) {
 		targetElem = selection.connected[0];
   }
-	const targetSchema = getSchema(state, targetType);
+	const targetSchema = getSchema(state, targetSide);
 	if (targetElem == null) {
   	// try to find an element with the same name
-   	targetElem = targetSchema.elements.find(elem =>
-			(!connectContext && elem === selection.element)
-			|| (connectContext
-					&& elem === selection.element
-					&& (selection.connected == null || !selection.connected.includes(elem)))
-		);
+   	targetElem = findTargetElement(targetSchema, selection, mappingInProgress);
 	}
   if (targetElem == null) {
     // get the first element in target schema
-		if (connectContext) {
+		if (mappingInProgress) {
 			// for connexion context we try to get a non connected element
-			for (let i = 0; i < targetSchema.elements.length; i += 1) {
-				if (!isMapped(state.mapping, targetSchema.elements[i], targetType)) {
-					targetElem = targetSchema.elements[i];
-					break;
-				}
-			}
+			targetElem = findNonConnectedTargetElement(targetSchema, state.mapping, targetSide);
 		} else {
-    	targetElem = targetSchema.elements[0];
+			// by default select the first element
+    	targetElem = dataAccessor.getSchemaElement(targetSchema, 0);
 		}
   }
   return {
 		element: targetElem,
-		connected: getConnected(state.mapping, targetElem, targetType),
-		type: targetType,
+		connected: dataAccessor.getConnectedElements(state.mapping, targetElem, targetSide),
+		side: targetSide,
 	};
 }
 
 function firstSelect(state) {
-	const element = state.inputSchema.elements[0];
+	const element = dataAccessor.getSchemaElement(state.inputSchema, 0);
 	return {
 		element,
-		connected: getConnected(state.mapping, element, Constants.SchemaType.INPUT),
-		type: Constants.SchemaType.INPUT,
+		connected: dataAccessor.getConnectedElements(state.mapping, element,
+			Constants.MappingSide.INPUT),
+		side: Constants.MappingSide.INPUT,
 	};
 }
 
@@ -425,6 +402,10 @@ function navigate(state, nav) {
 			break;
   }
   return state.selection;
+}
+
+function arePositionsClosed(pos1, pos2, delta) {
+	return Math.abs(pos1.x - pos2.x) <= delta && Math.abs(pos1.y - pos2.y) <= delta;
 }
 
 class ConnectedDataMapper extends React.Component {
@@ -469,29 +450,29 @@ class ConnectedDataMapper extends React.Component {
 				selection: navigate(prevState, ev.keyCode),
 				pendingItem: {
 					element: prevState.selection.element,
-					type: prevState.selection.type,
+					side: prevState.selection.side,
 				},
 			}));
 			reveal = true;
 		} else if (this.handleEndConnection(ev)) {
 			ev.preventDefault();
-			if (this.state.pendingItem.type === Constants.SchemaType.INPUT) {
+			if (this.state.pendingItem.side === Constants.MappingSide.INPUT) {
 				this.performMapping(this.state.pendingItem.element,
 														this.state.selection.element,
-														this.state.pendingItem.type);
+														this.state.pendingItem.side);
 			} else {
 				this.performMapping(this.state.selection.element,
 														this.state.pendingItem.element,
-														this.state.pendingItem.type);
+														this.state.pendingItem.side);
 			}
 			reveal = true;
 		} else if (this.handleEscape(ev)) {
 			ev.preventDefault();
-			const fromItem = this.state.pendingItem.element;
-			const fromType = this.state.pendingItem.type;
+			const fromElement = this.state.pendingItem.element;
+			const fromSide = this.state.pendingItem.side;
 			this.setState(prevState => ({
 				pendingItem: null,
-				selection: select(prevState.mapping, fromItem, fromType),
+				selection: select(prevState.mapping, fromElement, fromSide),
 			}));
 		} else if (this.handleDelete(ev)) {
 			this.clearConnection();
@@ -517,18 +498,22 @@ class ConnectedDataMapper extends React.Component {
 		if (ev.keyCode === Constants.Keys.ENTER
 			&& !isSelectionEmpty(this.state.selection)
 			&& this.state.pendingItem == null) {
-			if (this.state.selection.type === Constants.SchemaType.INPUT) {
+			if (this.state.selection.side === Constants.MappingSide.INPUT) {
 				// input case
 				// at least one output element must be free (i.e. not connected)
-				return !fullMapped(this.state.mapping,
+				return !this.state.dataAccessor.isFullMapped(
+					this.state.mapping,
 					this.state.outputSchema,
-					Constants.SchemaType.OUTPUT);
+					Constants.MappingSide.OUTPUT
+				);
 			}
 			// output case
 			// the current selected element cannot be already connected
-			return !isMapped(this.state.mapping,
+			return !this.state.dataAccessor.isElementMapped(
+				this.state.mapping,
 				this.state.selection.element,
-				this.state.selection.type);
+				this.state.selection.side
+			);
 		}
 		return false;
 	}
@@ -537,7 +522,7 @@ class ConnectedDataMapper extends React.Component {
 		return ev.keyCode === Constants.Keys.ENTER
 			&& !isSelectionEmpty(this.state.selection)
 			&& this.state.pendingItem != null
-			&& this.state.selection.type !== this.state.pendingItem.type;
+			&& this.state.selection.side !== this.state.pendingItem.side;
 	}
 
 	handleNavigation(ev) {
@@ -573,22 +558,22 @@ class ConnectedDataMapper extends React.Component {
 			|| ev.keyCode === Constants.Keys.ENTER;
 	}
 
-	performMapping(source, target, selectionType) {
-		let selectedSourceElement = source;
-		let selectedTargetElement = target;
-		if (selectionType === Constants.SchemaType.OUTPUT) {
-			selectedSourceElement = target;
-			selectedTargetElement = source;
+	performMapping(sourceElement, targetElement, selectionSide) {
+		let selectedSourceElement = sourceElement;
+		let selectedTargetElement = targetElement;
+		if (selectionSide === Constants.MappingSide.OUTPUT) {
+			selectedSourceElement = targetElement;
+			selectedTargetElement = sourceElement;
 		}
 		this.setState(prevState => ({
-			mapping: prevState.mapping.concat([{ source, target }]),
+			mapping: prevState.dataAccessor.addMapping(prevState.mapping, sourceElement, targetElement),
 			selection: {
 				element: selectedSourceElement,
 				connected: appendConnected(prevState.mapping,
 																	selectedSourceElement,
 																	selectedTargetElement,
-																	selectionType),
-				type: selectionType,
+																	selectionSide),
+				side: selectionSide,
 			},
 			pendingItem: null,
 			dnd: null,
@@ -597,7 +582,7 @@ class ConnectedDataMapper extends React.Component {
 
 	clearMapping() {
 		this.setState(prevState => ({
-			mapping: [],
+			mapping: prevState.dataAccessor.clearMapping(prevState.mapping),
 			selection: clearConnected(prevState.selection),
 			pendingItem: null,
 			dnd: null,
@@ -613,27 +598,27 @@ class ConnectedDataMapper extends React.Component {
 		}));
 	}
 
-	selectElement(ctrl, element, type) {
+	selectElement(ctrl, element, side) {
 		if (this.state.pendingItem == null) {
 			this.setState(prevState => ({
 				selection: getSelection(ctrl, prevState.mapping,
-					prevState.selection, element, type),
+					prevState.selection, element, side),
 			}));
-		} else if (this.state.pendingItem.type === type) {
+		} else if (this.state.pendingItem.side === side) {
 			// stop the link process
 			this.setState(prevState => ({
 				selection: getSelection(ctrl, prevState.mapping,
-					prevState.selection, element, type),
+					prevState.selection, element, side),
 				pendingItem: null,
 			}));
-		} else if (this.state.pendingItem.type === Constants.SchemaType.INPUT) {
+		} else if (this.state.pendingItem.side === Constants.MappingSide.INPUT) {
 			this.performMapping(this.state.pendingItem.element,
 													element,
-													type);
+													side);
 		} else {
 			this.performMapping(element,
 													this.state.pendingItem.element,
-													type);
+													side);
 		}
 	}
 
@@ -643,13 +628,13 @@ class ConnectedDataMapper extends React.Component {
 		});
 	}
 
-	onEnterElement(element, type) {
+	onEnterElement(element, side) {
 		this.setState({
-			focused: getFocused(element, type),
+			focused: getFocused(element, side),
 		});
 	}
 
-	onLeaveElement(element, type) {
+	onLeaveElement(element, side) {
 		this.setState({
 			focused: null,
 		});
@@ -661,10 +646,10 @@ class ConnectedDataMapper extends React.Component {
 		}));
 	}
 
-	beginDrag(element, type) {
+	beginDrag(element, side) {
 		this.setState(prevState => ({
 			dnd: {
-				source: { element, type },
+				source: { element, side },
 				target: null,
 				pos: null,
 			},
@@ -672,6 +657,11 @@ class ConnectedDataMapper extends React.Component {
 	}
 
 	dndInProgress(pos) {
+		if (this.state.dnd.pos != null
+			&& arePositionsClosed(this.state.dnd.pos, pos, 3)) {
+			// do not update state
+			return;
+		}
 		this.setState(prevState => ({
 			dnd: {
 				source: prevState.dnd.source,
@@ -681,15 +671,15 @@ class ConnectedDataMapper extends React.Component {
 		}));
 	}
 
-	canDrop(source, target) {
+	canDrop(sourceItem, targetItem) {
 		let update = true;
 		if (this.state.dnd != null) {
 			if (this.state.dnd.target != null
-				&& this.state.dnd.target.element === target.element
-				&& this.state.dnd.target.type === target.type) {
+				&& this.state.dnd.target.element === targetItem.element
+				&& this.state.dnd.target.side === targetItem.side) {
 					update = false;
 			}
-			if (this.state.dnd.source.type === target.type) {
+			if (this.state.dnd.source.side === targetItem.side) {
 				update = false;
 			}
 		}
@@ -697,20 +687,24 @@ class ConnectedDataMapper extends React.Component {
 			this.setState(prevState => ({
 				dnd: {
 					source: prevState.dnd.source,
-					target,
+					target: targetItem,
 					pos: null,
 				},
 			}));
 		}
-		return target.type !== source.type
-			&& ((target.type === Constants.SchemaType.INPUT
-						&& !isMapped(this.state.mapping, source.element, source.type))
-				|| (target.type === Constants.SchemaType.OUTPUT
-						&& !isMapped(this.state.mapping, target.element, target.type))
+		return targetItem.side !== sourceItem.side
+			&& ((targetItem.side === Constants.MappingSide.INPUT
+						&& !this.state.dataAccessor.isElementMapped(
+							this.state.mapping, sourceItem.element, sourceItem.side
+						))
+				|| (targetItem.side === Constants.MappingSide.OUTPUT
+						&& !this.state.dataAccessor.isElementMapped(
+							this.state.mapping, targetItem.element, targetItem.side
+						))
 			);
 	}
 
-	drop(element, type) {
+	drop(element, side) {
 		this.setState(prevState => ({
 			dnd: null,
 		}));
@@ -733,6 +727,7 @@ class ConnectedDataMapper extends React.Component {
 		} = this.props;
 		return (
 			<Mapper
+				dataAccessor={this.state.dataAccessor}
 				ref={this.updateMapperRef}
 				mapperId={mapperId}
 				renderer={renderer}

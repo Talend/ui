@@ -5,6 +5,14 @@ import { DragDropContext } from 'react-dnd';
 import TestUtils from 'react-dom/test-utils';
 import Mapper from './Mapper.js';
 import DraggableSchemaElement from '../Schema/SchemaElement/DraggableSchemaElement.js';
+import DefaultDataAccessor from '../DefaultDataAccessor';
+import DataAccessorWrapper from '../DataAccessorWrapper';
+
+const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
+
+function getElementByName(elements, name) {
+	return elements.find(elem => dataAccessor.getElementName(elem.props.element) === name);
+}
 
 /**
  * Wraps a component into a DragDropContext that uses the TestBackend.
@@ -30,6 +38,7 @@ it('clear-mapping', () => {
 
 	const mapper = (
 		<MapperTestContext
+			dataAccessor={dataAccessor}
 			inputSchema={inputSchema}
 			mapping={mapping}
 			outputSchema={outputSchema}
@@ -46,10 +55,6 @@ it('clear-mapping', () => {
 	expect(clearMapping).toBeCalled();
 	expect(performMapping).not.toBeCalled();
 });
-
-function getElementByName(elements, name) {
-	return elements.find(elem => elem.props.name === name);
-}
 
 it('perform-mapping', () => {
 	const clearMapping = jest.fn();
@@ -68,6 +73,7 @@ it('perform-mapping', () => {
 
 	const mapper = (
 		<MapperTestContext
+			dataAccessor={dataAccessor}
 			inputSchema={inputSchema}
 			mapping={mapping}
 			outputSchema={outputSchema}

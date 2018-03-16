@@ -1,6 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import DraggableSchemaElement from './DraggableSchemaElement.js';
+import DefaultDataAccessor from '../../DefaultDataAccessor';
+import DataAccessorWrapper from '../../DataAccessorWrapper';
+
+const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
 
 it('single-element', () => {
 	// Obtain the reference to the component before React DnD wrapping
@@ -11,7 +15,8 @@ it('single-element', () => {
 	const tree = renderer
 		.create(
 			<OriginalSchemaElement
-				name="Single_element"
+				dataAccessor={dataAccessor}
+				element="Single_element"
 				connectDragSource={identity}
 				connectDropTarget={identity}
 			/>,
@@ -29,7 +34,8 @@ it('mapped-element', () => {
 	const tree = renderer
 		.create(
 			<OriginalSchemaElement
-				name="Mapped_element"
+				dataAccessor={dataAccessor}
+				element="Mapped_element"
 				mapped="true"
 				connectDragSource={identity}
 				connectDropTarget={identity}
@@ -48,7 +54,8 @@ it('drag-over-element', () => {
 	const tree = renderer
 		.create(
 			<OriginalSchemaElement
-				name="Drag_over_element"
+				dataAccessor={dataAccessor}
+				element="Drag_over_element"
 				dragOver="true"
 				connectDragSource={identity}
 				connectDropTarget={identity}

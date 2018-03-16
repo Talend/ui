@@ -19,7 +19,7 @@ function getShowAllButtonDefaultLabel(showAll) {
 function getActions(t, showAll, onShowAll, clearConnection, clearMapping) {
 	return [
 		{
-			id: 'show-all',			
+			id: 'show-all',
 			label: t(getShowAllButtonLabel(showAll), {
 				defaultValue: getShowAllButtonDefaultLabel(showAll),
 			}),
@@ -83,10 +83,10 @@ class GMapping extends Component {
 	}
 
 	getArea() {
-		if (this.mappingArea) {
-			let area = this.mappingArea;
-			if (this.mappingArea.getDecoratedComponentInstance) {
-				area = this.mappingArea.getDecoratedComponentInstance();
+		if (this.mappingAreaRef) {
+			let area = this.mappingAreaRef;
+			if (this.mappingAreaRef.getDecoratedComponentInstance) {
+				area = this.mappingAreaRef.getDecoratedComponentInstance();
 			}
 			return area;
 		}
@@ -110,7 +110,7 @@ class GMapping extends Component {
 	}
 
 	updateMappingAreaRef(ref) {
-		this.mappingArea = ref;
+		this.mappingAreaRef = ref;
 	}
 
 	render() {

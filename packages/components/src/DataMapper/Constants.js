@@ -6,32 +6,24 @@ export const ItemTypes = {
 };
 
 /**
- * Defines the type of a schema.
+ * Defines the two sides of a mapping (input and output)
  */
-export const SchemaType = {
+export const MappingSide = {
 	INPUT: 'input',
 	OUTPUT: 'output',
 };
 
 /**
- * Switch between the two types of schema.
- * @param {string} type - the type of the schema
+ * Switch between the two sides of mapping.
+ * @param {string} side - the side of the mapping
  * @returns {string}
  */
-export function switchSchemaType(type) {
-	if (type === SchemaType.INPUT) {
-		return SchemaType.OUTPUT;
+export function switchMappingSide(side) {
+	if (side === MappingSide.INPUT) {
+		return MappingSide.OUTPUT;
 	}
-	return SchemaType.INPUT;
+	return MappingSide.INPUT;
 }
-
-/**
- * Defines the two sides of a mapping item.
- */
-export const MappingSide = {
-	SOURCE: 'source',
-	TARGET: 'target',
-};
 
 export const Connection = {
 	RENDERER: {

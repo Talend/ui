@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { DragSource, DropTarget } from 'react-dnd';
 import PropTypes from 'prop-types';
 import flow from 'lodash/flow';
-import { ItemTypes, SchemaType } from '../../Constants';
+import { ItemTypes, MappingSide } from '../../Constants';
 import SchemaElement from './SchemaElement.js';
 
 const elementSource = {
 	beginDrag(props) {
-		props.beginDrag(props.name, props.schemaType);
+		props.beginDrag(props.element, props.side);
 		return {
-			element: props.name,
-			type: props.schemaType,
+			element: props.element,
+			side: props.side,
 		};
 	},
 	endDrag(props) {
@@ -20,18 +20,18 @@ const elementSource = {
 
 const elementTarget = {
 	drop(props, monitor) {
-		props.drop(props.name, props.schemaType);
-		const sourceElem = monitor.getItem();
-		if (sourceElem.type === SchemaType.INPUT) {
-			props.performMapping(sourceElem.element, props.name, SchemaType.OUTPUT);
+		props.drop(props.element, props.side);
+		const sourceItem = monitor.getItem();
+		if (sourceItem.side === MappingSide.INPUT) {
+			props.performMapping(sourceItem.element, props.element, MappingSide.OUTPUT);
 		} else {
-			props.performMapping(props.name, sourceElem.element, SchemaType.INPUT);
+			props.performMapping(props.element, sourceItem.element, MappingSide.INPUT);
 		}
 	},
 	canDrop(props, monitor) {
-		const target = { element: props.name, type: props.schemaType };
-		const source = monitor.getItem();
-		return props.canDrop(source, target);
+		const targetItem = { element: props.element, side: props.side };
+		const sourceItem = monitor.getItem();
+		return props.canDrop(sourceItem, targetItem);
 	},
 };
 
@@ -52,8 +52,9 @@ function collectForDropTarget(connect, monitor) {
 class DraggableSchemaElement extends Component {
 	render() {
 		const {
-			name,
-			schemaType,
+			dataAccessor,
+			element,
+			side,
 			mapped,
 			connectDragSource,
 			connectDropTarget,
@@ -69,10 +70,11 @@ class DraggableSchemaElement extends Component {
 			connectDropTarget(
 				<div>
 					<SchemaElement
+						dataAccessor={dataAccessor}
 						highlighted={isHighlighted}
 						mapped={mapped}
-						name={name}
-						schemaType={schemaType}
+						element={element}
+						side={side}
 						selected={selected}
 						onSelect={onSelect}
 						onEnterElement={onEnterElement}
@@ -86,8 +88,9 @@ class DraggableSchemaElement extends Component {
 }
 
 DraggableSchemaElement.propTypes = {
-	name: PropTypes.string,
-	schemaType: PropTypes.string,
+	dataAccessor: PropTypes.object,
+	element: PropTypes.any.isRequired,
+	side: PropTypes.string,
 	mapped: PropTypes.bool,
 	connectDragSource: PropTypes.func,
 	connectDropTarget: PropTypes.func,

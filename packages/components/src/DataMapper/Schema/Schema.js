@@ -3,36 +3,43 @@ import PropTypes from 'prop-types';
 import SchemaElement from './SchemaElement/SchemaElement.js';
 import DraggableSchemaElement from './SchemaElement/DraggableSchemaElement.js';
 
-function isMapped(element, mapped) {
-	return mapped == null ? false : mapped.includes(element);
+function isMapped(dataAccessor, element, mappedElements) {
+	return mappedElements == null ?
+		false : dataAccessor.includes(mappedElements, element);
 }
 
 /**
- * isSelected indicates if the given (element, type) is selected
+ * isSelected indicates if the given (element, side) is selected
  * (i.e. if it appears in the selection)
  */
-export function isSelected(selection, element, type) {
-	return selection != null && selection.element === element && selection.type === type;
+export function isSelected(dataAccessor, selection, element, side) {
+	return selection != null
+		&& dataAccessor.areEquals(selection.element, element)
+		&& selection.side === side;
 }
 
-function isHighlighted(element, selection, type, pendingItem, focusedElements) {
+function isHighlighted(dataAccessor, element, selection, side, pendingItem, focusedElements) {
 	const connected =
 		selection == null
 			? false
-			: selection.type !== type &&
+			: selection.side !== side &&
 			  selection.connected != null &&
-			  selection.connected.includes(element);
+			  dataAccessor.includes(selection.connected, element);
 	const pending =
-		pendingItem != null && pendingItem.type === type && pendingItem.element === element;
-	const focused = focusedElements != null && focusedElements.includes(element);
+		pendingItem != null
+		&& pendingItem.side === side
+		&& dataAccessor.areEquals(pendingItem.element, element);
+	const focused = focusedElements != null
+		&& dataAccessor.includes(focusedElements, element);
 	return connected || pending || focused;
 }
 
 function renderSchemaElement(
-	type,
-	elem,
+	dataAccessor,
+	side,
+	element,
 	draggable,
-	mapped,
+	mappedElements,
 	performMapping,
 	selection,
 	onSelect,
@@ -49,13 +56,16 @@ function renderSchemaElement(
 	if (draggable) {
 		return (
 			<DraggableSchemaElement
-				key={elem}
-				name={elem}
-				schemaType={type}
-				mapped={isMapped(elem, mapped)}
+				dataAccessor={dataAccessor}
+				key={dataAccessor.getElementId(element)}
+				element={element}
+				side={side}
+				mapped={isMapped(dataAccessor, element, mappedElements)}
 				performMapping={performMapping}
-				selected={isSelected(selection, elem, type)}
-				highlighted={isHighlighted(elem, selection, type, pendingItem, focusedElements)}
+				selected={isSelected(dataAccessor, selection, element, side)}
+				highlighted={
+					isHighlighted(dataAccessor, element, selection, side, pendingItem, focusedElements)
+				}
 				onSelect={onSelect}
 				onEnterElement={onEnterElement}
 				onLeaveElement={onLeaveElement}
@@ -69,11 +79,14 @@ function renderSchemaElement(
 	}
 	return (
 		<SchemaElement
-			key={elem}
-			name={elem}
-			schemaType={type}
-			selected={isSelected(selection, elem, type)}
-			highlighted={isHighlighted(elem, selection, type, pendingItem, focusedElements)}
+			dataAccessor={dataAccessor}
+			key={dataAccessor.getElementId(element)}
+			element={element}
+			side={side}
+			selected={isSelected(dataAccessor, selection, element, side)}
+			highlighted={
+				isHighlighted(dataAccessor, element, selection, side, pendingItem, focusedElements)
+			}
 			onSelect={onSelect}
 			onEnterElement={onEnterElement}
 			onLeaveElement={onLeaveElement}
@@ -89,10 +102,19 @@ export default class Schema extends Component {
 		this.updateContentNodeRef = this.updateContentNodeRef.bind(this);
 	}
 
+	shouldComponentUpdate(nextProps) {
+		return !(nextProps.dnd != null && (
+			nextProps.dnd.pos != null || (
+				nextProps.dnd.source != null && nextProps.dnd.source.side === nextProps.side
+			)
+		));
+	}
+
 	getNode(element) {
 		const children = this.contentNode.childNodes;
 		const childrenArray = Array.from(children);
-		return childrenArray.find(c => c.firstChild.innerHTML === element);
+		return childrenArray.find(c =>
+			c.firstChild.innerHTML === this.props.dataAccessor.getElementName(element));
 	}
 
 	getYPosition(element) {
@@ -108,7 +130,7 @@ export default class Schema extends Component {
 		let visibleElements = [];
 		if (this.contentNode) {
 			const contentHeight = this.contentNode.offsetHeight;
-			const elements = this.props.schema.elements;
+			const elements = this.props.dataAccessor.getSchemaElements(this.props.schema);
 			const children = this.contentNode.childNodes;
 			const childrenArray = Array.from(children);
 			for (let i = 0; i < childrenArray.length; i += 1) {
@@ -144,10 +166,11 @@ export default class Schema extends Component {
 
 	render() {
 		const {
-			type,
+			dataAccessor,
+			side,
 			schema,
 			draggable,
-			mapped,
+			mappedElements,
 			performMapping,
 			selection,
 			onSelect,
@@ -163,18 +186,19 @@ export default class Schema extends Component {
 		} = this.props;
 		return (
 			<div className="schema mapper-element">
-				<div className="schema-name">{schema.name}</div>
+				<div className="schema-name">{dataAccessor.getSchemaName(schema)}</div>
 				<div
 					ref={this.updateContentNodeRef}
 					className="schema-content"
 					onScroll={this.props.onScroll}
 				>
-					{schema.elements.map(elem =>
+					{dataAccessor.getSchemaElements(schema).map(elem =>
 						renderSchemaElement(
-							type,
+							dataAccessor,
+							side,
 							elem,
 							draggable,
-							mapped,
+							mappedElements,
 							performMapping,
 							selection,
 							onSelect,
@@ -196,9 +220,10 @@ export default class Schema extends Component {
 }
 
 Schema.propTypes = {
-	type: PropTypes.string,
+	dataAccessor: PropTypes.object,
+	side: PropTypes.string,
 	schema: PropTypes.object,
-	mapped: PropTypes.array,
+	mappedElements: PropTypes.array,
 	performMapping: PropTypes.func,
 	selection: PropTypes.object,
 	draggable: PropTypes.bool,
@@ -208,6 +233,7 @@ Schema.propTypes = {
 	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
 	focusedElements: PropTypes.array,
+	dnd: PropTypes.object,
 	beginDrag: PropTypes.func,
 	canDrop: PropTypes.func,
 	drop: PropTypes.func,

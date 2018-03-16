@@ -159,7 +159,7 @@ class MappingArea extends Component {
 		let y1 = sourceYPos;
 		let x2 = pos.x;
 		let y2 = pos.y;
-		if (this.props.dnd.source.type === Constants.SchemaType.OUTPUT) {
+		if (this.props.dnd.source.side === Constants.MappingSide.OUTPUT) {
 			x1 = pos.x;
 			y1 = pos.y;
 			x2 = this.getCanvasSize().width - params.arrowWidth / 2;
