@@ -25,4 +25,17 @@ Loader.propTypes = {
 	size: PropTypes.oneOf(Object.values(SIZE)),
 };
 
+
+function LoaderApp() {
+	return (
+		<div className="loader-container">
+			<div className="tc-app-loader">
+				<div className="tc-app-icon" />
+			</div>
+		</div>
+	);
+}
+
+Loader.App = LoaderApp;
+
 export default Loader;
