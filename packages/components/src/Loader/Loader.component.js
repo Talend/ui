@@ -25,5 +25,4 @@ Loader.propTypes = {
 	size: PropTypes.oneOf(Object.values(SIZE)),
 };
 
-
 export default Loader;

@@ -1,4 +1,3 @@
-
 const LOADER_STYLE = `@keyframes app-loader-spin {
 	0% {
 		transform: rotate(0deg);
