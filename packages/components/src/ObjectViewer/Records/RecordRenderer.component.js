@@ -15,9 +15,11 @@ class MesureObjectViewer extends React.Component {
 	shouldComponentUpdate({ opened, highlighted, data }) {
 		// this is necessary to avoid an infinite call stack
 		// componentDidUpdate --> measure --> List render --> componentDidUpdate --> ...
-		return opened !== this.props.opened ||
+		return (
+			opened !== this.props.opened ||
 			highlighted !== this.props.highlighted ||
-			data !== this.props.data;
+			data !== this.props.data
+		);
 	}
 
 	componentDidUpdate() {
@@ -27,9 +29,7 @@ class MesureObjectViewer extends React.Component {
 	}
 
 	render() {
-		return (
-			<RecordViewer {...omit(this.props, ['measure'])} />
-		);
+		return <RecordViewer {...omit(this.props, ['measure'])} />;
 	}
 }
 MesureObjectViewer.propTypes = {
@@ -55,13 +55,7 @@ export default function RecordRenderer({ index, key, parent, style }) {
 	const avroRenderersIds = parent.props.avroRenderersIds;
 
 	return (
-		<CellMeasurer
-			cache={cache}
-			columnIndex={0}
-			key={key}
-			parent={parent}
-			rowIndex={index}
-		>
+		<CellMeasurer cache={cache} columnIndex={0} key={key} parent={parent} rowIndex={index}>
 			{({ measure }) => (
 				// 'style' attribute required to position cell (within parent List)
 				<div className={classNames(theme.row, 'tc-object-viewer-records-row')} style={style}>

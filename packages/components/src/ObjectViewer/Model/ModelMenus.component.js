@@ -30,11 +30,12 @@ export default class ModelMenus extends React.Component {
 		const { item, jsonpath, menu, quality } = this.props;
 		return (
 			<div className={theme.menu}>
-				{
-					menu &&
+				{menu && (
 					<Action
 						aria-label={'Open menu'}
-						buttonRef={button => { this.button = button; }}
+						buttonRef={button => {
+							this.button = button;
+						}}
 						className={theme['menu-trigger']}
 						link
 						label={'...'}
@@ -49,9 +50,11 @@ export default class ModelMenus extends React.Component {
 								jsonpath={jsonpath}
 							/>
 						}
-						overlayRef={overlay => { this.overlay = overlay; }}
+						overlayRef={overlay => {
+							this.overlay = overlay;
+						}}
 					/>
-				}
+				)}
 				<QualityCircles item={item} quality={quality} jsonpath={jsonpath} />
 			</div>
 		);

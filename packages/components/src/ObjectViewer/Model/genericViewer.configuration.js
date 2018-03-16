@@ -37,10 +37,7 @@ function getDataType(item) {
  */
 function getDisplayKey({ value }) {
 	const type = value.type && (value.type.dqType || value.type.type);
-	return [
-		value.doc,
-		type && <span className={theme.type}>({type})</span>,
-	];
+	return [value.doc, type && <span className={theme.type}>({type})</span>];
 }
 
 /**

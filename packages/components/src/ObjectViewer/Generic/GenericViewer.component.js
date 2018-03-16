@@ -31,7 +31,7 @@ function DefaultValueItem(props) {
 	const formattedKey = getDisplayKey(props);
 	const formattedValue = getDisplayValue(props);
 	const content = [
-		(quality === -1) && (
+		quality === -1 && (
 			<div
 				key={'quality'}
 				className={classNames(theme['invalid-value'], 'tc-object-viewer-invalid-value')}
@@ -107,10 +107,13 @@ function DefaultItem(props) {
 	if (type === 'array') {
 		content.push(
 			<span key={'length'}>
-				<sup key={'length-badge'} className={classNames(theme.badge, 'badge', 'tc-object-viewer-badge')}>
+				<sup
+					key={'length-badge'}
+					className={classNames(theme.badge, 'badge', 'tc-object-viewer-badge')}
+				>
 					{fields.length}
 				</sup>
-			</span>
+			</span>,
 		);
 	}
 	if (!isOpened && getQuality(props) === -1) {
@@ -119,7 +122,7 @@ function DefaultItem(props) {
 				key={'quality'}
 				className={classNames(theme['invalid-dot'], 'tc-object-viewer-invalid-dot')}
 				title={'Invalid value indicator'}
-			/>
+			/>,
 		);
 	}
 
@@ -136,7 +139,11 @@ function DefaultItem(props) {
 			</button>
 		);
 	} else {
-		main = (<span key={'main-text'} className={theme.main}>{content}</span>);
+		main = (
+			<span key={'main-text'} className={theme.main}>
+				{content}
+			</span>
+		);
 	}
 
 	const icon = getIcon(props);
@@ -200,9 +207,7 @@ function DefaultFields({ dataKey, fields, jsonpath, level, type, value, ...props
 					}),
 				};
 
-				return (
-					<Item {...itemProps} />
-				);
+				return <Item {...itemProps} />;
 			})}
 		</ul>
 	);
@@ -235,7 +240,7 @@ function Item(props) {
 	} = props;
 	const isRoot = level === 0;
 	const isHighlighted = highlighted.find(pattern => jsonpath.match(pattern));
-	const isOpened = (isRoot && noRoot) || (opened.indexOf(jsonpath) !== -1);
+	const isOpened = (isRoot && noRoot) || opened.indexOf(jsonpath) !== -1;
 	const itemType = getDataType(value);
 
 	const spaceAdjustment = { paddingLeft: paddingLeft * level };
@@ -259,15 +264,11 @@ function Item(props) {
 			ItemComponent = DefaultValueItem;
 	}
 
-	const itemContentClassName = classNames(
-		theme.content,
-		'tc-object-viewer-content',
-		{
-			'tc-object-viewer-root': level === 0,
-			[theme['no-root']]: isRoot && noRoot,
-			[theme.highlight]: isHighlighted,
-		},
-	);
+	const itemContentClassName = classNames(theme.content, 'tc-object-viewer-content', {
+		'tc-object-viewer-root': level === 0,
+		[theme['no-root']]: isRoot && noRoot,
+		[theme.highlight]: isHighlighted,
+	});
 
 	return (
 		<li className={classNames(theme.item, 'tc-object-viewer-item')}>
@@ -281,9 +282,7 @@ function Item(props) {
 				style={spaceAdjustment}
 				type={itemType}
 			/>
-			{isOpened &&
-				<FieldsComponent {...props} type={itemType} fields={fields} />
-			}
+			{isOpened && <FieldsComponent {...props} type={itemType} fields={fields} />}
 		</li>
 	);
 }
@@ -308,20 +307,10 @@ Item.propTypes = {
 };
 
 export default function GenericViewer({ className, style, title, ...props }) {
-	const cn = classNames(
-		theme['tc-viewer'],
-		'tc-object-viewer',
-		className,
-	);
+	const cn = classNames(theme['tc-viewer'], 'tc-object-viewer', className);
 	return (
 		<ul className={cn} style={style}>
-			<Item
-				{...props}
-				dataKey={title}
-				jsonpath={'$'}
-				value={props.data}
-				level={0}
-			/>
+			<Item {...props} dataKey={title} jsonpath={'$'} value={props.data} level={0} />
 		</ul>
 	);
 }

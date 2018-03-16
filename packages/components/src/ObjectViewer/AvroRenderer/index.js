@@ -22,10 +22,6 @@ import Inject from '../../Inject';
 export function injectedCellRenderer(getComponent, rendererId, avroRenderersIds, defaultRenderer) {
 	const Component = Inject.get(getComponent, rendererId, defaultRenderer || DefaultAvroRenderer);
 	return props => (
-		<Component
-			{...props}
-			avroRenderersIds={avroRenderersIds}
-			getComponent={getComponent}
-		/>
+		<Component {...props} avroRenderersIds={avroRenderersIds} getComponent={getComponent} />
 	);
 }

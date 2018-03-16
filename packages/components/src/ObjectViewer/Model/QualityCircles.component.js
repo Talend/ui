@@ -8,9 +8,9 @@ import PieChartButton from '../../PieChartButton';
 import theme from './QualityCircles.scss';
 
 function getQualityModels(qualities) {
-	let invalidPercentage = qualities && qualities[-1] || 0;
-	let emptyPercentage = qualities && qualities[0] || 0;
-	let validPercentage = qualities && qualities[1] || 0;
+	let invalidPercentage = (qualities && qualities[-1]) || 0;
+	let emptyPercentage = (qualities && qualities[0]) || 0;
+	let validPercentage = (qualities && qualities[1]) || 0;
 	const total = invalidPercentage + emptyPercentage + validPercentage;
 	if (total) {
 		invalidPercentage = invalidPercentage / total * 100;
@@ -46,7 +46,9 @@ class QualityCircle extends React.Component {
 		const { menu, onClick, item, jsonpath, model, type } = this.props;
 		return (
 			<PieChartButton
-				buttonRef={button => { this.button = button; }}
+				buttonRef={button => {
+					this.button = button;
+				}}
 				display={'small'}
 				hideLabel
 				aria-label={`Open menu for ${type} values (${model[0].percentage} %)`}
@@ -63,7 +65,9 @@ class QualityCircle extends React.Component {
 						type={type}
 					/>
 				}
-				overlayRef={overlay => { this.overlay = overlay; }}
+				overlayRef={overlay => {
+					this.overlay = overlay;
+				}}
 			/>
 		);
 	}
@@ -83,11 +87,7 @@ QualityCircle.propTypes = {
 };
 
 export default function QualityCircles({ item, jsonpath, quality }) {
-	const {
-		key = '@talend-quality@',
-		onClick,
-		menu,
-	} = quality;
+	const { key = '@talend-quality@', onClick, menu } = quality;
 
 	if (!item[key]) {
 		return null;
@@ -98,11 +98,29 @@ export default function QualityCircles({ item, jsonpath, quality }) {
 	return (
 		<div className={classNames(theme.quality, 'tc-object-model-quality')}>
 			<QualityCircle
-				onClick={onClick} menu={menu} item={item} jsonpath={jsonpath} model={invalid}
+				onClick={onClick}
+				menu={menu}
+				item={item}
+				jsonpath={jsonpath}
+				model={invalid}
 				type={'invalid'}
 			/>
-			<QualityCircle onClick={onClick} menu={menu} item={item} jsonpath={jsonpath} model={empty} type={'empty'} />
-			<QualityCircle onClick={onClick} menu={menu} item={item} jsonpath={jsonpath} model={valid} type={'valid'} />
+			<QualityCircle
+				onClick={onClick}
+				menu={menu}
+				item={item}
+				jsonpath={jsonpath}
+				model={empty}
+				type={'empty'}
+			/>
+			<QualityCircle
+				onClick={onClick}
+				menu={menu}
+				item={item}
+				jsonpath={jsonpath}
+				model={valid}
+				type={'valid'}
+			/>
 		</div>
 	);
 }

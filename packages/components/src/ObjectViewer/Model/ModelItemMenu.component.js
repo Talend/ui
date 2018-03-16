@@ -9,25 +9,23 @@ export default class ModelItemMenu extends React.Component {
 
 	render() {
 		const { menuItems, onMenuItemClick, ...props } = this.props;
-		const
-			menuStyle = {
-				listStyle: 'none',
-				padding: 0,
-				margin: 0,
-			};
+		const menuStyle = {
+			listStyle: 'none',
+			padding: 0,
+			margin: 0,
+		};
 
 		return (
-
 			<ul style={menuStyle}>
 				{menuItems.map((item, index) => {
-					const onClick = item.onClick && (
+					const onClick =
+						item.onClick &&
 						function onClick(event) {
 							if (onMenuItemClick) {
 								onMenuItemClick(event);
 							}
 							item.onClick(event, props);
-						}
-					);
+						};
 					return (
 						<li key={index}>
 							<Action link autoFocus={index === 0} {...item} onClick={onClick} />

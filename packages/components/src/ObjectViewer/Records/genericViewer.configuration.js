@@ -41,18 +41,16 @@ function getFields(avroSample, type) {
 
 	if (type === 'object') {
 		const fieldsSchema = Array.isArray(schema) ? schema : schema.fields;
-		return fieldsSchema
-			.filter(({ name }) => value[name] !== undefined)
-			.map(subSchema => {
-				const dataKey = subSchema.name;
-				return {
-					dataKey,
-					value: {
-						schema: subSchema,
-						data: value[dataKey],
-					},
-				};
-			});
+		return fieldsSchema.filter(({ name }) => value[name] !== undefined).map(subSchema => {
+			const dataKey = subSchema.name;
+			return {
+				dataKey,
+				value: {
+					schema: subSchema,
+					data: value[dataKey],
+				},
+			};
+		});
 	}
 	return value.map((datum, index) => ({
 		dataKey: index,
@@ -86,19 +84,14 @@ function getDisplayValue(props) {
 	const RendererComponent = injectedCellRenderer(
 		props.getComponent,
 		props.cellRenderer,
-		props.avroRenderersIds
+		props.avroRenderersIds,
 	);
 
-	return (
-		<RendererComponent
-			colDef={{ avro: avroSample.schema }}
-			data={avroSample.data}
-		/>
-	);
+	return <RendererComponent colDef={{ avro: avroSample.schema }} data={avroSample.data} />;
 }
 getDisplayValue.PropTypes = {
 	avroRenderersIds: PropTypes.object, // dictionary type/rendererId
-	cellRenderer: PropTypes.string,	// top cell renderer id
+	cellRenderer: PropTypes.string, // top cell renderer id
 	getComponent: PropTypes.func,
 	value: PropTypes.shape({
 		schema: PropTypes.object,
