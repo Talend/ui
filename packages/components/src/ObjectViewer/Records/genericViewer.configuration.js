@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import theme from './RecordViewer.scss';
 import { injectedCellRenderer } from '../AvroRenderer';
 
@@ -107,6 +108,15 @@ function getDisplayValue(props) {
 		/>
 	);
 }
+getDisplayValue.PropTypes = {
+	avroRenderers: PropTypes.object, // dictionary type/rendererId
+	cellRenderer: PropTypes.string,	// top cell renderer id
+	getComponent: PropTypes.func,
+	value: PropTypes.shape({
+		schema: PropTypes.object,
+		data: PropTypes.object,
+	}).isRequired,
+};
 
 /**
  * For objects (technical type provided, the corresponding avro type is records),
