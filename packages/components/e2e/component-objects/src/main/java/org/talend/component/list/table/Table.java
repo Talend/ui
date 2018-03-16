@@ -1,8 +1,7 @@
 package org.talend.component.list.table;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.talend.component.list.ListContainer;
+import org.talend.component.list.ListItems;
 
 import java.util.List;
 
@@ -11,7 +10,7 @@ import static java.util.stream.Collectors.toList;
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Table.
  */
-public class Table extends ListContainer {
+public class Table extends ListItems {
 
     private static final String NAME = "Table";
 
@@ -71,7 +70,7 @@ public class Table extends ListContainer {
         return this.getElement().findElement(By.cssSelector(String.format(TABLE_COLUMN_HEADER_KEY_CLASS, columnKey)));
     }
 
-    /**
+    /*
      * Get all rendered items, represented by a row in the table.
      *
      * @return The list of Items

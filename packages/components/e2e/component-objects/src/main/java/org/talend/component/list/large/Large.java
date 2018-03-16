@@ -7,12 +7,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.talend.component.list.ListContainer;
+import org.talend.component.list.ListItems;
 
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Large.
  */
-public class Large extends ListContainer {
+public class Large extends ListItems {
 
     private static final String NAME = "Large";
 

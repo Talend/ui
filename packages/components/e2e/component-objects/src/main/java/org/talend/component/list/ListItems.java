@@ -8,14 +8,14 @@ import org.talend.component.Component;
 /**
  *  Abtract class Container for List component
  */
-public abstract class ListContainer extends Component {
+public abstract class ListItems extends Component {
 
     abstract public WebElement getElementToScroll();
     abstract public WebElement getFirstElement();
 
     private final WebDriverWait wait;
 
-    public ListContainer(final WebDriver driver, final String name, final String id) {
+    public ListItems(final WebDriver driver, final String name, final String id) {
         super(driver, name, id);
         this.wait = new WebDriverWait(driver, 1);
     }
