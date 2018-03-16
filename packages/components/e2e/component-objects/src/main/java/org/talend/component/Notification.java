@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+import java.util.Optional;
+
 public class Notification extends Component {
 
     private static final String NAME = "Notification";
@@ -29,10 +32,12 @@ public class Notification extends Component {
      * @return notification message WebElement
      */
     public WebElement getNotificationMessage(int index) {
-        return this.getElement().findElements(By.cssSelector(NOTIFICATION_ERROR_MESSAGE)).get(index);
+        List<WebElement> notifications = this.getElement().findElements(By.cssSelector(NOTIFICATION_ERROR_MESSAGE));
+        return notifications != null ? notifications.get(index) : null;
     }
 
     public WebElement getWarningMessage(int index) {
-        return this.getElement().findElements(By.cssSelector(NOTIFICATION_WARNING_MESSAGE)).get(index);
+        List<WebElement> notifications = this.getElement().findElements(By.cssSelector(NOTIFICATION_WARNING_MESSAGE));
+        return notifications != null ? notifications.get(index) : null;
     }
 }
