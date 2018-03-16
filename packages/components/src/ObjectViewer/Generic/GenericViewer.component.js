@@ -35,6 +35,7 @@ function DefaultValueItem(props) {
 			<div
 				key={'quality'}
 				className={classNames(theme['invalid-value'], 'tc-object-viewer-invalid-value')}
+				title={'Invalid value indicator'}
 			/>
 		),
 		<div key={'key-value'} className={theme['key-value']}>
@@ -114,7 +115,11 @@ function DefaultItem(props) {
 	}
 	if (!isOpened && getQuality(props) === -1) {
 		content.push(
-			<div key={'quality'} className={classNames(theme['invalid-dot'], 'tc-object-viewer-invalid-dot')} />
+			<div
+				key={'quality'}
+				className={classNames(theme['invalid-dot'], 'tc-object-viewer-invalid-dot')}
+				title={'Invalid value indicator'}
+			/>
 		);
 	}
 
