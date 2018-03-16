@@ -5,7 +5,7 @@ import omit from 'lodash/omit';
 import classNames from 'classnames';
 
 import RecordViewer from './RecordViewer.component';
-import theme from './RecordRederer.scss';
+import theme from './RecordRenderer.scss';
 
 /**
  * Wrapper around ObjectViewer to trigger a React-Virtualized/CellMesurer#mesure() after update.

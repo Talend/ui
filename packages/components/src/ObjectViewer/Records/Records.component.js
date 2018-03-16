@@ -2,7 +2,7 @@ import React from 'react';
 import { AutoSizer, CellMeasurerCache, List } from 'react-virtualized';
 import PropTypes from 'prop-types';
 
-import RecordRenderer from './RecordRederer.component';
+import RecordRenderer from './RecordRenderer.component';
 
 export default class Records extends React.Component {
 	constructor(props) {
