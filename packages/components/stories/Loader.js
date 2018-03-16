@@ -7,8 +7,8 @@ import classNames from 'classnames';
 import appLoaderTheme from '@talend/bootstrap-theme/src/theme/_loader.scss';
 
 const containerStyle = {
-  alignItems: 'center',
-  justifyContent: 'center',
+	alignItems: 'center',
+	justifyContent: 'center',
 };
 
 const decoratedStories = storiesOf('Loader', module)
