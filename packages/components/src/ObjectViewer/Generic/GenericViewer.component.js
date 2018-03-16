@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {
-	defaultFormatValue,
 	defaultGetDataType,
 	defaultGetDisplayKey,
+	defaultGetDisplayValue,
 	defaultGetFields,
 	defaultGetIcon,
 	defaultGetJSONPath,
 	defaultGetQuality,
-	defaultGetValue,
 } from './genericViewer.configuration';
 import Icon from '../../Icon';
 import theme from './GenericViewer.scss';
@@ -20,18 +19,17 @@ function DefaultValueItem(props) {
 	const {
 		className,
 		dataKey,
-		formatValue,
 		getDisplayKey,
 		getQuality,
 		getItemMenu,
-		getValue,
+		getDisplayValue,
 		jsonpath,
 		onClick,
 		style,
 	} = props;
 	const quality = getQuality(props);
 	const formattedKey = getDisplayKey(props);
-	const formattedValue = formatValue(getValue(props));
+	const formattedValue = getDisplayValue(props);
 	const content = [
 		quality === 'invalid' && <div key={'quality'} className={classNames(theme['invalid-value'], 'tc-object-viewer-invalid-value')} />,
 		<div key={'key-value'} className={theme['key-value']}>
@@ -62,19 +60,17 @@ function DefaultValueItem(props) {
 	);
 }
 DefaultValueItem.defaultProps = {
-	formatValue: defaultFormatValue,
 	getDisplayKey: defaultGetDisplayKey,
 	getQuality: defaultGetQuality,
-	getValue: defaultGetValue,
+	getDisplayValue: defaultGetDisplayValue,
 };
 DefaultValueItem.propTypes = {
 	className: PropTypes.string,
 	dataKey: PropTypes.string,
-	formatValue: PropTypes.func,
 	getDisplayKey: PropTypes.func,
 	getItemMenu: PropTypes.func,
 	getQuality: PropTypes.func,
-	getValue: PropTypes.func,
+	getDisplayValue: PropTypes.func,
 	jsonpath: PropTypes.string,
 	onClick: PropTypes.func,
 	style: PropTypes.object,

@@ -105,14 +105,12 @@ function getJSONPath({ dataKey, parent }) {
 /**
  * We don't display values, just a key with its type.
  */
-function getValue() {
-	return;
-}
+function getDisplayValue() {}
 
 export default {
 	getDataType,
 	getDisplayKey,
+	getDisplayValue,
 	getFields,
 	getJSONPath,
-	getValue,
 };

@@ -92,7 +92,7 @@ function getQuality(props) {
  * The value is an avro entry that contains { schema, data }.
  * The data is an avro data, containing the real value.
  */
-function getValue(props) {
+function getDisplayValue(props) {
 	const avroSample = props.value;
 	const RendererComponent = injectedCellRenderer(
 		props.getComponent,
@@ -131,8 +131,8 @@ function getIcon({ isOpened, type }) {
 export default {
 	formatData,
 	getDataType,
+	getDisplayValue,
 	getFields,
 	getIcon,
 	getQuality,
-	getValue,
 };

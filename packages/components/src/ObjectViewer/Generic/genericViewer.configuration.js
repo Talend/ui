@@ -1,12 +1,5 @@
 import getJSONPathUtils from '../jsonPath';
 
-export function defaultFormatValue(value) {
-	if (typeof value === 'string') {
-		return `"${value}"`;
-	}
-	return value;
-}
-
 export function defaultGetDataType(data) {
 	if (Array.isArray(data)) {
 		return 'array';
@@ -25,16 +18,19 @@ export function defaultGetDisplayKey({ dataKey }) {
 	return dataKey;
 }
 
+export function defaultGetDisplayValue({ value }) {
+	if (typeof value === 'string') {
+		return `"${value}"`;
+	}
+	return value;
+}
+
 export function defaultGetJSONPath({ dataKey, parent }) {
 	return getJSONPathUtils(dataKey, parent.jsonpath, parent.type);
 }
 
 export function defaultGetQuality() {
 	return null;
-}
-
-export function defaultGetValue({ value }) {
-	return value;
 }
 
 export function defaultGetIcon({ isOpened }) {
