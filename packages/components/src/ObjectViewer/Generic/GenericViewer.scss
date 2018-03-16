@@ -26,7 +26,6 @@
 
 		.content {
 			display: flex;
-			position: relative;
 
 			&.no-root {
 				display: none;
@@ -53,6 +52,7 @@
 			.key-value {
 				display: flex;
 				overflow: hidden;
+				position: relative; // enable custom configuration to render component with position relative to this one
 			}
 
 			.key {

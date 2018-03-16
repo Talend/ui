@@ -1,4 +1,11 @@
+import React from 'react';
 import theme from './RecordViewer.scss';
+import { injectedCellRenderer } from '../AvroRenderer';
+
+
+function formatData(value) {
+	return value;
+}
 
 /**
  * We are schema driven.
@@ -87,7 +94,18 @@ function getQuality(props) {
  */
 function getValue(props) {
 	const avroSample = props.value;
-	return avroSample.data.value;
+	const RendererComponent = injectedCellRenderer(
+		props.getComponent,
+		props.cellRenderer,
+		props.avroRenderers
+	);
+
+	return (
+		<RendererComponent
+			colDef={{ avro: avroSample.schema }}
+			data={avroSample.data}
+		/>
+	);
 }
 
 /**
@@ -111,6 +129,7 @@ function getIcon({ isOpened, type }) {
 }
 
 export default {
+	formatData,
 	getDataType,
 	getFields,
 	getIcon,
