@@ -18,21 +18,21 @@ const LOADER_STYLE = `@keyframes app-loader-spin {
 	}
 }
 
-.loader-container {
+.tc-loader-app-container {
 	display: flex;
 	height: 100vh;
 	width: 100vw;
 	background: #f6f6f6;
 }
 
-.tc-app-loader {
+.tc-loader-app {
 	width: 16.5rem;
 	height: 16.5rem;
 	margin: auto;
 }
 
-.tc-app-loader:before,
-.tc-app-loader:after {
+.tc-loader-app:before,
+.tc-loader-app:after {
 	animation: app-loader-spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 	box-sizing: border-box;
 	content: '';
@@ -46,15 +46,15 @@ const LOADER_STYLE = `@keyframes app-loader-spin {
 	border-color: #ababab transparent transparent transparent;
 }
 
-.tc-app-loader:before {
+.tc-loader-app:before {
 	animation-delay: -0.3s;
 }
 
-.tc-app-loader:after {
+.tc-loader-app:after {
 	animation-delay: -0.15s;
 }
 
-.tc-app-icon:before {
+.tc-loader-app-icon:before {
 	animation: app-loader-fadeIn 1.5s linear infinite;
 	background-image: ICON_BASE_64;
 	content: '';
@@ -64,9 +64,9 @@ const LOADER_STYLE = `@keyframes app-loader-spin {
 	border-radius: 50%;
 }`;
 
-const LOADER_APP = `<div class="loader-container">
-	<div class="tc-app-loader">
-		<div class="tc-app-icon"></div>
+const LOADER_APP = `<div class="tc-loader-app-container">
+	<div class="tc-loader-app">
+		<div class="tc-loader-app-icon"></div>
 	</div>
 </div>
 `;
