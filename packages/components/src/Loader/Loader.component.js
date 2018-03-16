@@ -25,7 +25,6 @@ Loader.propTypes = {
 	size: PropTypes.oneOf(Object.values(SIZE)),
 };
 
-
 function LoaderApp() {
 	return (
 		<div className="loader-container">
