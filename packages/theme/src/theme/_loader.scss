@@ -4,7 +4,6 @@ $loader-size: 16.5rem;
 $logo-size: 15rem;
 
 .tc-app-icon {
-
 	&:before {
 		@include tc-animation(app-loader-fadeIn, 1.5s, linear, infinite);
 		background-image: $brand-icon;
