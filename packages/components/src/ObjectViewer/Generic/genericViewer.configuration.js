@@ -1,7 +1,9 @@
 import getJSONPathUtils from '../jsonPath';
 
 export function defaultGetDataType(data) {
-	if (Array.isArray(data)) {
+	if (data === null) {
+		return null;
+	} else if (Array.isArray(data)) {
 		return 'array';
 	}
 	return typeof data;
@@ -21,6 +23,8 @@ export function defaultGetDisplayKey({ dataKey }) {
 export function defaultGetDisplayValue({ value }) {
 	if (typeof value === 'string') {
 		return `"${value}"`;
+	} else if (typeof value === 'boolean') {
+		return String(value);
 	}
 	return value;
 }
