@@ -157,7 +157,7 @@ class FilterBar extends React.Component {
 						[theme.animate]: this.props.dockable,
 					})}
 				>
-					{((this.props.iconAlwaysVisible) || !(this.state.focus || this.state.value)) && (
+					{(this.props.iconAlwaysVisible || !(this.state.focus || this.state.value)) && (
 						<Icon name="talend-search" className={theme['search-icon']} />
 					)}
 					<FilterInput

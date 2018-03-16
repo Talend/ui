@@ -101,7 +101,6 @@ describe('FilterBar', () => {
 		expect(filterInstance.find(Icon).length).toEqual(1);
 	});
 
-
 	it('should call onFilter when input value change', () => {
 		// given
 		const filterInstance = mount(<FilterBar {...defaultProps} />);
