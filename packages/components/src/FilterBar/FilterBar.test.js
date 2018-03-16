@@ -81,6 +81,17 @@ describe('FilterBar', () => {
 		expect(defaultProps.onToggle).toBeCalled();
 	});
 
+	it('should have the icon visible on focus', () => {
+		const props = { iconAlwaysVisible: false };
+
+		// given
+		const filterInstance = mount(<FilterBar {...props} />);
+		// when
+		filterInstance.find('button').simulate('click');
+		// then
+		expect(defaultProps.onToggle).toBeCalled();
+	});
+
 	it('should call onFilter when input value change', () => {
 		// given
 		const filterInstance = mount(<FilterBar {...defaultProps} />);
