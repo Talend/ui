@@ -13,13 +13,17 @@ A set of stateless components which follows the [Talend Guidelines](http://guide
 [npm-url]: https://npmjs.org/package/@talend/react-components
 [travis-ci-image]: https://travis-ci.org/Talend/react-talend-components.svg?branch=master
 [travis-ci-url]: https://travis-ci.org/Talend/react-talend-components
-
 [dependencies-image]: https://david-dm.org/Talend/ui/status.svg?path=packages/components
 [dependencies-url]: https://david-dm.org/Talend/ui?path=packages/components
 [devdependencies-image]: https://david-dm.org/Talend/ui/dev-status.svg?path=packages/components
 [devdependencies-url]: https://david-dm.org/Talend/ui?path=packages/components&type=dev
 [peerdependencies-image]: https://david-dm.org/Talend/ui/peer-status.svg?path=packages/components
 [peerdependencies-url]: https://david-dm.org/Talend/ui?path=packages/components&type=peer
+
+## Breaking changes log
+
+Before 1.0, `@talend/react-components` does NOT follow semver in releases.
+You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
 ## Conventions
 
@@ -67,12 +71,22 @@ If you feel the need to add {children} this means we have forget a use case.
 In this case please expose your use case and try to see how
 it could be done by passing some props.
 
+### Different state in a component
+
+The components have to manage the different state defined in the [guidelines](https://company-57688.frontify.com/document/92132#/messaging-communication/loading-feedback).
+
+| State      | Description                                                                                            |
+| ---------- | ------------------------------------------------------------------------------------------------------ |
+| default    | render the component                                                                                   |
+| loading    | State when the component is loading (waiting data from the server). It shows the skeleton or a spinner |
+| inProgress | State when the component is waiting (waiting data to refresh the component). It shows the heatbeat     |
+
 ### onClick / onEvent
 
 The API we have for all components is the following for an event handler
 
 ```javascript
-const onClick(event, payload) {
+function onClick(event, payload) {
 	//do what ever you want
 }
 return <APureComponents onClick={onClick} />
@@ -93,7 +107,7 @@ we are using [React StoryBook](https://getstorybook.io).
 ### No anchor
 
 If you want to create a link
-please use Action component which accept a *link* prop.
+please use Action component which accept a _link_ prop.
 
 Anchor need href. We are in a single page application, so JavaScript
 decides the behavior, not the browser.
@@ -103,8 +117,8 @@ If you want to use Button from react-bootstrap don't forget
 to add the role + bsStyle="link".
 
 ```javascript
-const model = {id: ...};
-const onClick(event, payload) {
+const model = {id: 'my-id'};
+function onClick(event, payload) {
 	//do what ever you want
 	payload.action.label === 'click me';
 	payload.model === model;
@@ -114,19 +128,24 @@ const onClick(event, payload) {
 	icon="svg-yeah"
 	onClick={onClick}
 	model={model}
-	/>
+/>
 ```
 
 ### Use Icon for icon
 
-We all are used to ```<i className="fa fa-XX" />``` but this is finished now.
-We are using ```<Icon name="fa-xx" />``` because with this one we are able
+We all are used to `<i className="fa fa-XX" />` but this is finished now.
+We are using `<Icon name="fa-xx" />` because with this one we are able
 to support svg icons which is on the way to be our next gen icons sets.
 
 If you want you can register an new Icon this way:
 
 ```javascript
-Icon.register('svg-test', (<svg viewBox="0 0 20 20"><path d="M10.219,1.688c-4.471,0-8.094,3.623-8.094,8.094s3.623,8.094,8.094,8.094s8.094-3.623,8.094-8.094S14.689,1.688,10.219,1.688 M10.219,17.022c-3.994,0-7.242-3.247-7.242-7.241c0-3.994,3.248-7.242,7.242-7.242c3.994,0,7.241,3.248,7.241,7.242C17.46,13.775,14.213,17.022,10.219,17.022 M15.099,7.03c-0.167-0.167-0.438-0.167-0.604,0.002L9.062,12.48l-2.269-2.277c-0.166-0.167-0.437-0.167-0.603,0c-0.166,0.166-0.168,0.437-0.002,0.603l2.573,2.578c0.079,0.08,0.188,0.125,0.3,0.125s0.222-0.045,0.303-0.125l5.736-5.751C15.268,7.466,15.265,7.196,15.099,7.03" /></svg>));
+Icon.register(
+	'svg-test',
+	<svg viewBox="0 0 20 20">
+		<path d="M10.219,1.688c-4.471,0-8.094,3.623-8.094,8.094s3.623,8.094,8.094,8.094s8.094-3.623,8.094-8.094S14.689,1.688,10.219,1.688 M10.219,17.022c-3.994,0-7.242-3.247-7.242-7.241c0-3.994,3.248-7.242,7.242-7.242c3.994,0,7.241,3.248,7.241,7.242C17.46,13.775,14.213,17.022,10.219,17.022 M15.099,7.03c-0.167-0.167-0.438-0.167-0.604,0.002L9.062,12.48l-2.269-2.277c-0.166-0.167-0.437-0.167-0.603,0c-0.166,0.166-0.168,0.437-0.002,0.603l2.573,2.578c0.079,0.08,0.188,0.125,0.3,0.125s0.222-0.045,0.303-0.125l5.736-5.751C15.268,7.466,15.265,7.196,15.099,7.03" />
+	</svg>
+);
 ```
 
 ### Add component into screenshot CI
@@ -136,7 +155,8 @@ open screenshots.config.json file.
 The top of the file should stay unchanged.
 The stories are registred this way:
 
-```javascript
+```json
+{
     "Action": {
       "default": [
         {
@@ -144,14 +164,15 @@ The stories are registred this way:
           "selector": ["#default", "#hidelabel"]
         }
       ]
-    },
+    }
+}
 ```
 
-* *Action* is the string name of 'storiesOf(' call
-* *default* is the exact string of the .add / .addWithInfo call
+* _Action_ is the string name of 'storiesOf(' call
+* _default_ is the exact string of the .add / .addWithInfo call
 * the content is an array of Object with name + selector
-* *name* will be the name of the screenshot(s)
-* *selector* is a string or an array of string which is behind used to call document.querySelect(*selector*) so you can try your selector.
+* _name_ will be the name of the screenshot(s)
+* _selector_ is a string or an array of string which is behind used to call document.querySelect(_selector_) so you can try your selector.
 
 ## npm scripts
 

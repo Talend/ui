@@ -39,19 +39,19 @@ import api from './api';
 import deprecated from './deprecated';
 import CONSTANT from './constant';
 
-import { statePropTypes, initState, getStateAccessors, getStateProps } from './componentState';
+import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
 
 let newState;
 
 function serializeEvent(event) {
 	if (event.persist) {
-		return event.persist();
+		event.persist();
 	}
 	return event;
 }
 
-const CMF_PROPS = [
+export const CMF_PROPS = [
 	'didMountActionCreator', // componentDidMount action creator id in registry
 	'keepComponentState', // redux state management on unmount
 	'view', // view component id in registry
@@ -242,7 +242,7 @@ export default function cmfConnect({
 			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 			static propTypes = {
 				...WrappedComponent.propTypes,
-				...statePropTypes,
+				...cmfConnect.propTypes,
 			};
 			static contextTypes = {
 				store: PropTypes.object,
@@ -260,11 +260,11 @@ export default function cmfConnect({
 
 			componentDidMount() {
 				initState(this.props);
-				if (this.props.didMountActionCreator) {
-					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
-				}
 				if (this.props.saga) {
 					this.dispatchActionCreator('cmf.saga.start', { type: 'DID_MOUNT' }, this.props);
+				}
+				if (this.props.didMountActionCreator) {
+					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
 				}
 			}
 
@@ -315,15 +315,11 @@ export default function cmfConnect({
 					}
 					// eslint-disable-next-line no-param-reassign
 					props[handlerKey] = (event, data) => {
-						this.dispatchActionCreator(
-							actionCreator,
-							serializeEvent(event),
-							{
-								props: this.props,
-								...data,
-								...(this.props[key].data || {}),
-							}
-						);
+						this.dispatchActionCreator(actionCreator, serializeEvent(event), {
+							props: this.props,
+							...data,
+							...(this.props[key].data || {}),
+						});
 						if (this.props[handlerKey]) {
 							this.props[handlerKey](event, data);
 						}

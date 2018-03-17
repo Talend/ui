@@ -52,6 +52,7 @@ export function getActionComponent({ displayMode, getComponent }) {
 		ActionIconToggle,
 		ActionButton,
 	});
+
 	switch (displayMode) {
 		case TYPE_FILE:
 			return Renderers.ActionFile;
@@ -62,10 +63,7 @@ export function getActionComponent({ displayMode, getComponent }) {
 		case TYPE_ICON_TOGGLE:
 			return Renderers.ActionIconToggle;
 		default:
-			if (displayMode) {
-				return getComponent(displayMode);
-			}
-			return Renderers.ActionButton;
+			return Inject.get(getComponent, displayMode, Renderers.ActionButton);
 	}
 }
 

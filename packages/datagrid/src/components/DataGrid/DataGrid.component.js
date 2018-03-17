@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { AgGridReact } from 'ag-grid-react';
 import keycode from 'keycode';
 import 'ag-grid/dist/styles/ag-grid.css';
-import { Inject } from '@talend/react-components';
+import { Inject, Skeleton } from '@talend/react-components';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
@@ -16,12 +16,17 @@ import { NAMESPACE_INDEX } from '../../constants';
 import serializer from '../DatasetSerializer';
 import theme from './DataGrid.scss';
 
-export const AG_GRID_ELEMENT = 'eGridDiv';
+export const AG_GRID = {
+	CUSTOM_HEADER_KEY: 'headerComponent',
+	CUSTOM_CELL_KEY: 'cellRenderer',
+	DEFAULT_ROW_SELECTION: 'single',
+	ELEMENT: 'eGridDiv',
+	SCROLL_VERTICAL_DIRECTION: 'vertical',
+};
+
 const FOCUSED_COLUMN_CLASS_NAME = 'column-focus';
-const AG_GRID_CUSTOM_HEADER_KEY = 'headerComponent';
-const AG_GRID_CUSTOM_CELL_KEY = 'cellRenderer';
-const AG_GRID_DEFAULT_ROW_SELECTION = 'single';
 const HEADER_HEIGHT = 55;
+const COLUMN_MIN_WIDTH = 30;
 const ROW_HEIGHT = 39;
 const CELL_WIDTH = 150;
 
@@ -55,10 +60,13 @@ export default class DataGrid extends React.Component {
 		getRowDataFn: serializer.getRowData,
 		getCellValueFn: serializer.getCellValue,
 		headerHeight: HEADER_HEIGHT,
+		columnMinWidth: COLUMN_MIN_WIDTH,
+		enableColResize: true,
+		startIndex: 0,
 		headerRenderer: 'DefaultHeaderRenderer',
 		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
 		rowHeight: ROW_HEIGHT,
-		rowSelection: AG_GRID_DEFAULT_ROW_SELECTION,
+		rowSelection: AG_GRID.DEFAULT_ROW_SELECTION,
 	};
 
 	static propTypes = DATAGRID_PROPTYPES;
@@ -70,6 +78,7 @@ export default class DataGrid extends React.Component {
 		this.onFocusedColumn = this.onFocusedColumn.bind(this);
 		this.onFocusedCell = this.onFocusedCell.bind(this);
 		this.onGridReady = this.onGridReady.bind(this);
+		this.onBodyScroll = this.onBodyScroll.bind(this);
 		this.setGridInstance = this.setGridInstance.bind(this);
 		this.setCurrentFocusedColumn = this.setCurrentFocusedColumn.bind(this);
 		this.updateStyleFocusColumn = this.updateStyleFocusColumn.bind(this);
@@ -111,7 +120,7 @@ export default class DataGrid extends React.Component {
 		this.setCurrentFocusedColumn(colId);
 		this.updateStyleFocusColumn();
 
-		this.props.onFocusedColumn(colId);
+		this.props.onFocusedColumn({ colId });
 	}
 
 	onKeyDownHeaderColumn(event, colId) {
@@ -123,6 +132,15 @@ export default class DataGrid extends React.Component {
 		}
 	}
 
+	onBodyScroll(event) {
+		if (event.direction === AG_GRID.SCROLL_VERTICAL_DIRECTION) {
+			this.props.onVerticalScroll(event, {
+				firstDisplayedRowIndex: this.gridAPI.getFirstDisplayedRow(),
+				lastDisplayedRowIndex: this.gridAPI.getLastDisplayedRow(),
+			});
+		}
+	}
+
 	setCurrentFocusedColumn(colId) {
 		this.currentColId = colId;
 	}
@@ -131,63 +149,27 @@ export default class DataGrid extends React.Component {
 		this.gridInstance = gridInstance;
 	}
 
-	removeFocusColumn() {
-		// workaround see README.md#Workaround Active Column
-		const focusedCells = this.gridInstance[AG_GRID_ELEMENT].querySelectorAll(
-			`.${FOCUSED_COLUMN_CLASS_NAME}`,
-		);
-
-		for (const focusedCell of focusedCells) {
-			focusedCell.classList.remove(FOCUSED_COLUMN_CLASS_NAME);
-		}
-	}
-
-	updateStyleFocusColumn() {
-		const colId = this.currentColId;
-
-		if (!colId || colId.includes(NAMESPACE_INDEX)) {
-			return;
-		}
-
-		// workaround see README.md#Workaround Active Column
-		const columnsCells = this.gridInstance[AG_GRID_ELEMENT].querySelectorAll(
-			`[col-id="${colId}"]:not(.${FOCUSED_COLUMN_CLASS_NAME})`,
-		);
-
-		for (const columnCell of columnsCells) {
-			columnCell.classList.add(FOCUSED_COLUMN_CLASS_NAME);
-		}
-	}
-
-	handleKeyboard({ nextCellDef, previousCellDef }) {
-		if (!nextCellDef) {
-			return null;
-		}
-
-		if (this.gridAPI && previousCellDef.rowIndex !== nextCellDef.rowIndex) {
-			// ag-grid workaround: ag-grid set a selected row only by a click by an user
-			// This allows, when the user move the cell by the keyboard/tab, to set the selected row
-			this.gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
-		}
-
-		return nextCellDef;
-	}
-
-	render() {
+	getAgGridConfig() {
 		const agGridOptions = {
 			headerHeight: this.props.headerHeight,
 			tabToNextCell: this.handleKeyboard,
 			navigateToNextCell: this.handleKeyboard,
 			onViewportChanged: this.updateStyleFocusColumn,
 			onVirtualColumnsChanged: this.updateStyleFocusColumn,
+			overlayNoRowsTemplate: this.props.overlayNoRowsTemplate,
 			ref: this.setGridInstance, // use ref in AgGridReact to get the current instance
-			rowData: this.props.getRowDataFn(this.props.data),
+			rowData: this.props.getRowDataFn(this.props.data, this.props.startIndex),
 			rowHeight: this.props.rowHeight,
 			rowSelection: this.props.rowSelection,
 			suppressDragLeaveHidesColumns: true,
+			enableColResize: this.props.enableColResize,
 			onCellFocused: this.onFocusedCell,
 			onGridReady: this.onGridReady,
 		};
+
+		if (this.props.onVerticalScroll) {
+			agGridOptions.onBodyScroll = this.onBodyScroll;
+		}
 
 		const pinnedColumnDefs = this.props.getPinnedColumnDefsFn(this.props.data);
 		const columnDefs = this.props.getColumnDefsFn(this.props.data);
@@ -197,10 +179,11 @@ export default class DataGrid extends React.Component {
 			adaptedColumnDefs = pinnedColumnDefs.map(pinnedColumnDef => ({
 				lockPosition: true,
 				pinned: 'left',
+				minWidth: this.props.columnMinWidth,
 				valueGetter: this.props.getCellValueFn,
 				width: CELL_WIDTH,
 				...pinnedColumnDef,
-				[AG_GRID_CUSTOM_HEADER_KEY]: PIN_HEADER_RENDERER_COMPONENT,
+				[AG_GRID.CUSTOM_HEADER_KEY]: PIN_HEADER_RENDERER_COMPONENT,
 			}));
 		}
 
@@ -209,10 +192,11 @@ export default class DataGrid extends React.Component {
 				columnDefs.map(columnDef => ({
 					width: CELL_WIDTH,
 					lockPinned: true,
+					minWidth: this.props.columnMinWidth,
 					valueGetter: this.props.getCellValueFn,
 					...columnDef,
-					[AG_GRID_CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
-					[AG_GRID_CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
+					[AG_GRID.CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
+					[AG_GRID.CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
 				})),
 			);
 		}
@@ -237,9 +221,71 @@ export default class DataGrid extends React.Component {
 			),
 		};
 
+		return agGridOptions;
+	}
+
+	removeFocusColumn() {
+		// workaround see README.md#Workaround Active Column
+		const focusedCells = this.gridInstance[AG_GRID.ELEMENT].querySelectorAll(
+			`.${FOCUSED_COLUMN_CLASS_NAME}`,
+		);
+
+		for (const focusedCell of focusedCells) {
+			focusedCell.classList.remove(FOCUSED_COLUMN_CLASS_NAME);
+		}
+	}
+
+	updateStyleFocusColumn() {
+		const colId = this.currentColId;
+
+		if (!colId || colId.includes(NAMESPACE_INDEX)) {
+			return;
+		}
+
+		// workaround see README.md#Workaround Active Column
+		const columnsCells = this.gridInstance[AG_GRID.ELEMENT].querySelectorAll(
+			`[col-id="${colId}"]:not(.${FOCUSED_COLUMN_CLASS_NAME})`,
+		);
+
+		for (const columnCell of columnsCells) {
+			columnCell.classList.add(FOCUSED_COLUMN_CLASS_NAME);
+		}
+	}
+
+	handleKeyboard({ nextCellDef, previousCellDef }) {
+		if (!nextCellDef) {
+			return null;
+		}
+
+		if (this.gridAPI && previousCellDef.rowIndex !== nextCellDef.rowIndex) {
+			// ag-grid workaround: ag-grid set a selected row only by a click by an user
+			// This allows, when the user move the cell by the keyboard/tab, to set the selected row
+			this.gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
+		}
+
+		return nextCellDef;
+	}
+
+	render() {
+		let content;
+		if (this.props.loading) {
+			content = <Skeleton name="talend-table" type={Skeleton.TYPES.icon} />;
+		} else {
+			content = <AgGridReact {...this.getAgGridConfig()} />;
+		}
+
 		return (
-			<div className={classNames(theme['td-grid'], this.props.className, 'td-grid')}>
-				<AgGridReact {...agGridOptions} />
+			<div
+				className={classNames(
+					{
+						[theme['td-grid-loading']]: this.props.loading,
+					},
+					theme['td-grid'],
+					this.props.className,
+					'td-grid',
+				)}
+			>
+				{content}
 			</div>
 		);
 	}

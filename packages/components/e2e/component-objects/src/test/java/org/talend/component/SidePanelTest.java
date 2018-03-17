@@ -1,11 +1,11 @@
 package org.talend.component;
 
-import org.openqa.selenium.WebElement;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.WebElement;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalToIgnoringCase;
+import static org.junit.Assert.assertThat;
 
 
 public class SidePanelTest extends StorybookTest {
@@ -14,7 +14,7 @@ public class SidePanelTest extends StorybookTest {
 
     @Before
     public void init() {
-        goToStory("SidePanel", "reverse");
+        goToStory("SidePanel", "default");
     }
 
     @Test
@@ -29,7 +29,25 @@ public class SidePanelTest extends StorybookTest {
     @Test
     public void should_get_active_menu() {
         // when
-        sidePanelObject.getActiveMenu();
+        WebElement menu = sidePanelObject.getActiveMenu();
+
+        // then
+        assertThat(menu.getText(), equalToIgnoringCase("preparations"));
+    }
+
+    @Test
+    public void should_get_fold_button() {
+        // when
+        sidePanelObject.getFoldButton();
+
+        // then
+        // should not throw NotFoundException
+    }
+
+    @Test
+    public void should_fold_the_side_panel() {
+        // when
+        sidePanelObject.fold();
 
         // then
         // should not throw NotFoundException

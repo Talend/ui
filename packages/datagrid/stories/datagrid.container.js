@@ -17,15 +17,21 @@ Object.keys(api.expressions).forEach(id => api.expression.register(id, api.expre
 
 const registerActionCreator = api.actionCreator.register;
 registerActionCreator('datagrid:focus-cell', (event, data) => ({
-	type: 'DATAGRID_FOCUS_CELL',
 	...event,
 	...data,
+	type: 'DATAGRID_FOCUS_CELL',
 }));
 
 registerActionCreator('datagrid:focus-column', (event, data) => ({
-	type: 'DATAGRID_FOCUS_COLUMN',
 	...event,
 	...data,
+	type: 'DATAGRID_FOCUS_COLUMN',
+}));
+
+registerActionCreator('datagrid:vertical-scroll', (event, data) => ({
+	...event,
+	...data,
+	type: 'DATAGRID_SCROLL',
 }));
 
 sample.data = [
@@ -92,7 +98,19 @@ cmfState.cmf.settings.props['Container(DataGrid)#default'] = {
 	},
 	onFocusedCellActionCreator: 'datagrid:focus-cell',
 	onFocusedColumnActionCreator: 'datagrid:focus-column',
+	onVerticalScrollActionCreator: 'datagrid:vertical-scroll',
 	cellRenderer: 'DefaultCellRenderer',
+};
+
+cmfState.cmf.settings.props['Container(DataGrid)#ProgressDatagrid'] = {
+	dataExpression: {
+		id: 'cmf.collections.get',
+		args: ['sample', []],
+	},
+	onFocusedCellActionCreator: 'datagrid:focus-cell',
+	onFocusedColumnActionCreator: 'datagrid:focus-column',
+	cellRenderer: 'DefaultCellRenderer',
+	loading: true,
 };
 
 cmfState.cmf.settings.props['Container(DataGrid)#CustomizedDatagrid'] = {
@@ -102,6 +120,7 @@ cmfState.cmf.settings.props['Container(DataGrid)#CustomizedDatagrid'] = {
 	},
 	onFocusedCellActionCreator: 'datagrid:focus-cell',
 	onFocusedColumnActionCreator: 'datagrid:focus-column',
+	onVerticalScrollActionCreator: 'datagrid:vertical-scroll',
 	cellRenderer: 'CustomCellRenderer',
 	headerRenderer: 'CustomHeaderRenderer',
 	pinHeaderRenderer: 'CustomPinHeaderRenderer',
@@ -119,6 +138,7 @@ cmfState.cmf.settings.props['Container(DataGrid)#CustomizedAvroDatagrid'] = {
 	},
 	onFocusedCellActionCreator: 'datagrid:focus-cell',
 	onFocusedColumnActionCreator: 'datagrid:focus-column',
+	onVerticalScrollActionCreator: 'datagrid:vertical-scroll',
 	headerRenderer: 'CustomHeaderRenderer',
 	pinHeaderRenderer: 'CustomPinHeaderRenderer',
 };
@@ -130,6 +150,7 @@ cmfState.cmf.settings.props['Container(DataGrid)#HightLightRows'] = {
 	},
 	onFocusedCellActionCreator: 'datagrid:focus-cell',
 	onFocusedColumnActionCreator: 'datagrid:focus-column',
+	onScrollActionCreator: 'datagrid:vertical-scroll',
 	cellRenderer: 'DefaultCellRenderer',
 	rowSelection: 'multiple',
 };
@@ -172,6 +193,16 @@ storiesOf('Container Datagrid')
 			<div style={{ height: '100vh' }}>
 				<IconsProvider />
 				<DataGrid />
+			</div>
+		),
+		options,
+	)
+	.addWithCMF(
+		'loading',
+		() => (
+			<div style={{ height: '100vh' }}>
+				<IconsProvider />
+				<DataGrid componentId="ProgressDatagrid" />
 			</div>
 		),
 		options,

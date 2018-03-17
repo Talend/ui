@@ -8,7 +8,7 @@ import { NAMESPACE_DATA, NAMESPACE_INDEX } from '../../constants';
 import DataGrid, {
 	injectedCellRenderer,
 	injectedHeaderRenderer,
-	AG_GRID_ELEMENT,
+	AG_GRID,
 } from './DataGrid.component';
 
 function PinHeaderRenderer() {}
@@ -188,7 +188,13 @@ describe('#DataGrid', () => {
 		shallow(<DataGrid {...props} />);
 		expect(getColumnDefsFn).toHaveBeenCalledWith(sample);
 		expect(getPinnedColumnDefsFn).toHaveBeenCalledWith(sample);
-		expect(getRowDataFn).toHaveBeenCalledWith(sample);
+		expect(getRowDataFn).toHaveBeenCalledWith(sample, 0);
+	});
+
+	it('should render one Skeleton is InProgress', () => {
+		const wrapper = shallow(<DataGrid loading getComponent={getComponent} />);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
@@ -232,7 +238,7 @@ describe('#Datagrid method', () => {
 		const gridElement = document.querySelector('.grid-element');
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		wrapper.instance().setGridInstance({
-			[AG_GRID_ELEMENT]: gridElement,
+			[AG_GRID.ELEMENT]: gridElement,
 		});
 
 		wrapper.instance().removeFocusColumn();
@@ -250,7 +256,7 @@ describe('#Datagrid method', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		const instance = wrapper.instance();
 		instance.setGridInstance({
-			[AG_GRID_ELEMENT]: gridElement,
+			[AG_GRID.ELEMENT]: gridElement,
 		});
 		instance.currentColId = `${NAMESPACE_DATA}colId`;
 
@@ -269,7 +275,7 @@ describe('#Datagrid method', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		const instance = wrapper.instance();
 		instance.setGridInstance({
-			[AG_GRID_ELEMENT]: gridElement,
+			[AG_GRID.ELEMENT]: gridElement,
 		});
 
 		wrapper.instance().updateStyleFocusColumn();
@@ -287,7 +293,7 @@ describe('#Datagrid method', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		const instance = wrapper.instance();
 		instance.setGridInstance({
-			[AG_GRID_ELEMENT]: gridElement,
+			[AG_GRID.ELEMENT]: gridElement,
 		});
 		instance.currentColId = `${NAMESPACE_INDEX}index`;
 
@@ -416,7 +422,7 @@ describe('#Datagrid method', () => {
 		expect(instance.removeFocusColumn).toHaveBeenCalled();
 		expect(deselectAll).toHaveBeenCalled();
 		expect(clearFocusedCell).toHaveBeenCalled();
-		expect(onFocusedColumn).toHaveBeenCalledWith(currentColId);
+		expect(onFocusedColumn).toHaveBeenCalledWith({ colId: currentColId });
 	});
 
 	it('should focus a column when an another column is focused', () => {
@@ -595,6 +601,52 @@ describe('#Datagrid method', () => {
 
 		expect(setFocusedCell).not.toHaveBeenCalledWith(0, colId);
 		expect(ensureIndexVisible).not.toHaveBeenCalledWith(0);
+	});
+
+	it('should trigger an event when the grid scroll vertical', () => {
+		const firstIndex = 0;
+		const lastIndex = 20;
+		const event = {
+			direction: AG_GRID.SCROLL_VERTICAL_DIRECTION,
+		};
+		const api = {
+			getFirstDisplayedRow: () => firstIndex,
+			getLastDisplayedRow: () => lastIndex,
+		};
+		const onVerticalScroll = jest.fn();
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} onVerticalScroll={onVerticalScroll} />,
+		);
+		const instance = wrapper.instance();
+
+		wrapper
+			.find('AgGridReact')
+			.props()
+			.onGridReady({
+				api,
+			});
+
+		instance.onBodyScroll(event);
+
+		expect(onVerticalScroll).toHaveBeenCalledWith(event, {
+			firstDisplayedRowIndex: firstIndex,
+			lastDisplayedRowIndex: lastIndex,
+		});
+	});
+
+	it('should not trigger an event when the grid scroll horizontal', () => {
+		const event = {
+			direction: 'horizontal',
+		};
+		const onVerticalScroll = jest.fn();
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} onVerticalScroll={onVerticalScroll} />,
+		);
+		const instance = wrapper.instance();
+
+		instance.onBodyScroll(event);
+
+		expect(onVerticalScroll).not.toHaveBeenCalled();
 	});
 });
 

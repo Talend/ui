@@ -20,7 +20,7 @@ export function getColumnDefs(sample) {
 	}));
 }
 
-export function getRowData(sample) {
+export function getRowData(sample, startIndex = 0) {
 	if (!sample) {
 		return [];
 	}
@@ -37,7 +37,7 @@ export function getRowData(sample) {
 				},
 			}),
 			{
-				[`${NAMESPACE_INDEX}${COLUMN_INDEX}`]: index,
+				[`${NAMESPACE_INDEX}${COLUMN_INDEX}`]: index + startIndex,
 			},
 		),
 	);

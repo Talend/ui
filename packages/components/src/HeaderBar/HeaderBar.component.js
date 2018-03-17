@@ -17,7 +17,7 @@ function Logo({ isFull, getComponent, t, ...props }) {
 	const itemClassName = classNames(theme['tc-header-bar-action'], {
 		[theme.separated]: !isFull,
 	});
-	const actionClassName = classNames(theme['tc-header-bar-logo'], {
+	const actionClassName = classNames(theme['tc-header-bar-logo'], 'tc-header-bar-logo', {
 		[theme.full]: isFull,
 	});
 	const Renderers = Inject.getAll(getComponent, { Action });
@@ -40,17 +40,20 @@ function Brand({ label, isSeparated, getComponent, ...props }) {
 	const className = classNames(theme['tc-header-bar-action'], {
 		[theme.separated]: isSeparated,
 	});
-	const Renderers = Inject.getAll(getComponent, { Action });
+	const Renderers = Inject.getAll(getComponent, { ActionDropdown, Action });
+	const ActionComponent = props && props.items ? Renderers.ActionDropdown : Renderers.Action;
+	const clickAction = props && props.items ? undefined : props.onClick;
 
 	return (
 		<li role="presentation" className={className}>
 			<span role="heading">
-				<Renderers.Action
+				<ActionComponent
 					bsStyle="link"
-					className={theme['tc-header-bar-brand']}
+					className={classNames(theme['tc-header-bar-brand'], 'tc-header-bar-brand')}
 					tooltipPlacement="bottom"
 					label={label}
 					{...props}
+					onClick={clickAction}
 				/>
 			</span>
 		</li>
@@ -97,7 +100,11 @@ function Help({ getComponent, t, ...props }) {
 		tooltipPlacement: 'bottom',
 		...props,
 	};
-	const className = classNames(theme['tc-header-bar-action'], theme.separated);
+	const className = classNames(
+		theme['tc-header-bar-action'],
+		'tc-header-bar-help',
+		theme.separated,
+	);
 	const Renderers = Inject.getAll(getComponent, { Action });
 
 	return (
@@ -137,6 +144,7 @@ function User({ name, firstName, lastName, getComponent, ...rest }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
 		theme['tc-header-bar-user'],
+		'tc-header-bar-user',
 		theme.separated,
 	);
 	const Renderers = Inject.getAll(getComponent, { ActionDropdown });
@@ -189,25 +197,6 @@ function AppNotification({ getComponent, hasUnread, t, ...props }) {
 	);
 }
 
-function Products({ getComponent, t, ...props }) {
-	const Renderers = Inject.getAll(getComponent, { ActionDropdown });
-	return (
-		<li role="presentation" className={theme['tc-header-bar-action']}>
-			<Renderers.ActionDropdown
-				bsStyle="link"
-				className={theme['tc-header-bar-products']}
-				icon="talend-launcher"
-				label={t('HEADERBAR_APPS', { defaultValue: 'Apps' })}
-				pullRight
-				hideLabel
-				noCaret
-				tooltipPlacement="bottom"
-				{...props}
-			/>
-		</li>
-	);
-}
-
 function HeaderBar(props) {
 	const Components = Inject.getAll(props.getComponent, {
 		Logo,
@@ -217,7 +206,6 @@ function HeaderBar(props) {
 		User,
 		Information,
 		Help,
-		Products,
 		AppNotification,
 	});
 
@@ -231,6 +219,7 @@ function HeaderBar(props) {
 					<Components.Brand
 						getComponent={props.getComponent}
 						{...props.brand}
+						{...props.products}
 						isSeparated={!!props.env}
 					/>
 				)}
@@ -257,9 +246,6 @@ function HeaderBar(props) {
 						/>
 					)}
 				{props.user && <Components.User getComponent={props.getComponent} {...props.user} />}
-				{props.products && (
-					<Components.Products getComponent={props.getComponent} {...props.products} t={props.t} />
-				)}
 			</ul>
 		</nav>
 	);
@@ -272,7 +258,6 @@ HeaderBar.Search = Search;
 HeaderBar.Help = Help;
 HeaderBar.Information = Information;
 HeaderBar.User = User;
-HeaderBar.Products = Products;
 HeaderBar.displayName = 'HeaderBar';
 
 if (process.env.NODE_ENV !== 'production') {
@@ -334,11 +319,6 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func.isRequired,
 	};
 
-	Products.propTypes = {
-		renderers: PropTypes.shape({ ActionDropdown: PropTypes.func }),
-		t: PropTypes.func.isRequired,
-	};
-
 	HeaderBar.propTypes = {
 		logo: PropTypes.shape(omit(Logo.propTypes, 't')),
 		brand: PropTypes.shape(Brand.propTypes),
@@ -347,8 +327,11 @@ if (process.env.NODE_ENV !== 'production') {
 		help: PropTypes.shape(omit(Help.propTypes, 't')),
 		information: PropTypes.shape(omit(Information.propTypes, 't')),
 		user: PropTypes.shape(User.propTypes),
-		notification: PropTypes.shape(AppNotification.propTypes, 't'),
-		products: PropTypes.shape(omit(Products.propTypes, 't')),
+		notification: PropTypes.shape(omit(AppNotification.propTypes, 't')),
+		products: PropTypes.shape({
+			items: PropTypes.array,
+			onSelect: PropTypes.func,
+		}),
 		getComponent: PropTypes.func,
 		t: PropTypes.func,
 	};

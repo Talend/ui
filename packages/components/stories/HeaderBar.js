@@ -48,7 +48,7 @@ const typeaheadItems = [
 					'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
 			},
 			{
-				title: 'title 2 les elephants elementaires ont des aile ',
+				title: 'title 2 les elephants elementaires ont des aile cum erat inquam controversia autem mihi utrumqo',
 				description:
 					'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
 			},
@@ -133,7 +133,6 @@ const props = {
 		lastName: 'Doe',
 	},
 	products: {
-		id: 'header-products',
 		items: [
 			{
 				icon: 'talend-logo-dp',
@@ -168,17 +167,35 @@ const decoratedStories = storiesOf('HeaderBar', module).addDecorator(story => (
 if (!decoratedStories.addWithInfo) {
 	decoratedStories.addWithInfo = decoratedStories.add;
 }
+const infoStyle = stylesheet => ({
+	...stylesheet,
+	button: {
+		...stylesheet.button,
+		topRight: {
+			...stylesheet.button.topRight,
+			top: '48px',
+		},
+	},
+});
 
 decoratedStories
 	.addWithInfo('default', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		return <HeaderBar {...headerProps} />;
-	})
+	}, { styles: infoStyle })
 	.addWithInfo('with full logo', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.logo.isFull = true;
 		return <HeaderBar {...headerProps} />;
-	})
+	}, { styles: infoStyle })
+	.addWithInfo('without products', () => {
+		const headerProps = Immutable.fromJS({
+			...props,
+			products: null,
+		}).toJS();
+		headerProps.logo.isFull = true;
+		return <HeaderBar {...headerProps} />;
+	}, { styles: infoStyle })
 	.addWithInfo('with environment dropdown', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.env = {
@@ -192,21 +209,21 @@ decoratedStories
 			label: 'Default',
 		};
 		return <HeaderBar {...headerProps} />;
-	})
+	}, { styles: infoStyle })
 	.addWithInfo('with unread notifications', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.notification = {
 			hasUnread: true,
 		};
 		return <HeaderBar {...headerProps} />;
-	})
+	}, { styles: infoStyle })
 	.addWithInfo('with read notifications', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.notification = {
 			hasUnread: false,
 		};
 		return <HeaderBar {...headerProps} />;
-	})
+	}, { styles: infoStyle })
 	.addWithInfo('with help split dropdown', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.help.items = [
@@ -222,7 +239,7 @@ decoratedStories
 			},
 		];
 		return <HeaderBar {...headerProps} />;
-	})
+	}, { styles: infoStyle })
 	.addWithInfo('with search input', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.search = {
@@ -231,7 +248,7 @@ decoratedStories
 			onChange: action('onSearchChange'),
 		};
 		return <HeaderBar {...headerProps} />;
-	})
+	}, { styles: infoStyle })
 	.addWithInfo('while searching', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.search = {
@@ -242,7 +259,7 @@ decoratedStories
 			onChange: action('onSearchChange'),
 		};
 		return <HeaderBar {...headerProps} />;
-	})
+	}, { styles: infoStyle })
 	.addWithInfo('with search results', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.search = {
@@ -254,7 +271,7 @@ decoratedStories
 			onSelect: action('onSearchResultSelect'),
 		};
 		return <HeaderBar {...headerProps} />;
-	})
+	}, { styles: infoStyle })
 	.addWithInfo('with no search result', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.search = {
@@ -265,7 +282,7 @@ decoratedStories
 			onChange: action('onSearchChange'),
 		};
 		return <HeaderBar {...headerProps} />;
-	})
+	}, { styles: infoStyle })
 	.addWithInfo('without user and with information', () => {
 		const headerProps = Immutable.fromJS(props).toJS();
 		headerProps.user = null;
@@ -300,8 +317,8 @@ decoratedStories
 			],
 		};
 		return <HeaderBar {...headerProps} />;
-	})
-	.addWithInfo('barebone', () => <HeaderBar />);
+	}, { styles: infoStyle })
+	.addWithInfo('barebone', () => <HeaderBar />, { styles: infoStyle });
 
 const appStyle = require('./config/themes.scss');
 
