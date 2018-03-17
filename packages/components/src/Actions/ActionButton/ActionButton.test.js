@@ -25,7 +25,7 @@ describe('Action', () => {
 
 	it('should render a button with loading state', () => {
 		// when
-		const wrapper = shallow(<ActionButton {...myAction} loading />);
+		const wrapper = shallow(<ActionButton loading />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -33,7 +33,7 @@ describe('Action', () => {
 
 	it('should render a link button with loading state', () => {
 		// when
-		const wrapper = shallow(<ActionButton {...myAction} link loading />);
+		const wrapper = shallow(<ActionButton link loading />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
