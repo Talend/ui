@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { CSSTransition, transit } from 'react-css-transition';
 import classnames from 'classnames';
+import omit from 'lodash/omit';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
 import TabBar from '../TabBar';
@@ -14,55 +15,60 @@ class DrawerAnimation extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleTransitionComplete = this.handleTransitionComplete.bind(this);
-		this.state = { transitioned: false };
+		this.close = this.close.bind(this);
+		this.state = { transitioned: false, active: true };
 	}
 
 	handleTransitionComplete() {
-		this.props.onTransitionComplete();
-		this.setState({ transitioned: true });
+		if (this.state.active) {
+			this.props.onTransitionComplete();
+			this.setState({ transitioned: true });
+		} else {
+			this.props.onClose();
+		}
+	}
+
+	close() {
+		this.setState({ active: false });
 	}
 
 	render() {
-		const { children, withTransition, ...rest } = this.props;
-		const transitionDuration = withTransition ? DEFAULT_TRANSITION_DURATION : 0;
+		const restProps = omit(this.props, Object.keys(DrawerAnimation.propTypes));
 		return (
 			<CSSTransition
-				{...rest}
+				{...restProps}
+				transitionAppear
+				active={this.state.active}
 				onTransitionComplete={this.handleTransitionComplete}
 				defaultStyle={{ transform: 'translateX(100%)' }}
-				enterStyle={{ transform: transit('translateX(0%)', transitionDuration, 'ease-in-out') }}
-				leaveStyle={{ transform: transit('translateX(100%)', transitionDuration, 'ease-in-out') }}
+				enterStyle={{
+					transform: transit('translateX(0%)', DEFAULT_TRANSITION_DURATION, 'ease-in-out'),
+				}}
+				leaveStyle={{
+					transform: transit('translateX(100%)', DEFAULT_TRANSITION_DURATION, 'ease-in-out'),
+				}}
 			>
-				{React.cloneElement(children, this.state)}
+				{this.props.children({ close: this.close, ...this.state })}
 			</CSSTransition>
 		);
 	}
 }
 
 DrawerAnimation.propTypes = {
-	children: PropTypes.node,
-	withTransition: PropTypes.bool,
+	children: PropTypes.func,
 	onTransitionComplete: PropTypes.func,
+	onClose: PropTypes.func,
 };
 DrawerAnimation.defaultProps = {
-	withTransition: true,
+	onClose: () => {},
 	onTransitionComplete: () => {},
 };
 
-function DrawerContainer({ stacked, className, children, withTransition = true, ...rest }) {
-	const drawerContainerClasses = classnames(
-		theme['tc-drawer'],
-		className,
-		'tc-drawer',
-		{
-			[theme['tc-drawer-transition']]: withTransition,
-			'tc-drawer-transition': withTransition,
-		},
-		{
-			[theme['drawer-stacked']]: stacked,
-			stacked,
-		},
-	);
+function DrawerContainer({ stacked, className, children, ...rest }) {
+	const drawerContainerClasses = classnames(theme['tc-drawer'], className, 'tc-drawer', {
+		[theme['drawer-stacked']]: stacked,
+		stacked,
+	});
 	return (
 		<div className={drawerContainerClasses} {...rest}>
 			<div className={classnames('tc-drawer-container', theme['tc-drawer-container'])}>
@@ -74,7 +80,6 @@ function DrawerContainer({ stacked, className, children, withTransition = true, 
 
 DrawerContainer.propTypes = {
 	stacked: PropTypes.bool,
-	withTransition: PropTypes.bool,
 	className: PropTypes.string,
 	children: PropTypes.node.isRequired,
 };
@@ -176,25 +181,19 @@ function Drawer({
 	footerActions,
 	onCancelAction,
 	tabs,
-	withTransition,
 }) {
 	if (!children) {
 		return null;
 	}
 	return (
-		<DrawerContainer
-			stacked={stacked}
-			className={className}
-			style={style}
-			withTransition={withTransition}
-		>
+		<DrawerContainer stacked={stacked} className={className} style={style}>
 			<DrawerTitle title={title} onCancelAction={onCancelAction} />
 			{tabs && (
 				<div className={classnames('tc-drawer-tabs-container', theme['tc-drawer-tabs-container'])}>
 					<TabBar {...tabs} className={classnames('tc-drawer-tabs', theme['tc-drawer-tabs'])} />
 				</div>
 			)}
-			<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
+			<div className={classnames('tc-drawer-main', theme['tc-drawer-main'])}>
 				<DrawerContent>{children}</DrawerContent>
 				<div
 					className={classnames(
@@ -221,14 +220,9 @@ Drawer.propTypes = {
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,
 	// footer action, see action bar for api
-	footerActions: PropTypes.shape(ActionBar.propTypes).isRequired,
+	footerActions: PropTypes.shape(ActionBar.propTypes),
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	tabs: PropTypes.shape(TabBar.propTypes),
-	withTransition: PropTypes.bool,
-};
-
-Drawer.defaultProps = {
-	withTransition: true,
 };
 
 Drawer.Animation = DrawerAnimation;

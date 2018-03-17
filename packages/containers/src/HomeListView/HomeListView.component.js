@@ -12,23 +12,9 @@ function getContent(Component, props) {
 	return <Component {...props} />;
 }
 
-function wrapChildren(children) {
-	if (children && children.props && children.props.children) {
-		return [children, ...wrapChildren(children.props.children)];
-	} else if (children && !children.props) {
-		// this happens ony in tests with enzyme's mount
-		return [];
-	}
-	return [children];
-}
-
 function HomeListView({ getComponent, id, hasTheme, sidepanel, list, header, children }) {
 	if (!sidepanel || !list) {
 		return null;
-	}
-	let drawers = children || [];
-	if (!Array.isArray(drawers)) {
-		drawers = wrapChildren(drawers);
 	}
 	const Renderers = Inject.getAll(getComponent, { HeaderBar, SidePanel, List });
 
@@ -39,7 +25,7 @@ function HomeListView({ getComponent, id, hasTheme, sidepanel, list, header, chi
 			mode="TwoColumns"
 			header={getContent(Renderers.HeaderBar, header)}
 			one={getContent(Renderers.SidePanel, sidepanel)}
-			drawers={drawers}
+			drawers={children}
 		>
 			{getContent(Renderers.List, list)}
 		</Layout>

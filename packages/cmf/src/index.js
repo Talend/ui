@@ -8,8 +8,7 @@ import cmfConnect from './cmfConnect';
 import ConnectedDispatcher from './Dispatcher';
 import Inject from './Inject.component.js';
 import RegistryProvider from './RegistryProvider';
-import UIRouter from './UIRouter';
-import history from './history';
+import CMFRouter from './route/CMFRouter';
 import store from './store';
 import actions from './actions/';
 import reducers from './reducers/';
@@ -46,7 +45,7 @@ export {
 	reducers,
 	componentState,
 	RegistryProvider,
-	UIRouter,
+	CMFRouter,
 	getErrorMiddleware,
 	httpMiddleware,
 	sagaRouter,

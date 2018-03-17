@@ -97,8 +97,8 @@ const VERSIONS = Object.assign({}, ADDONS, {
 	'rc-tooltip': '3.7.0',
 	'react-i18next': '^5.2.0',
 	'react-redux': '5.0.5',
-	'react-router': '3.2.0',
-	'react-router-redux': '4.0.8',
+	'react-router': '4.2.0',
+	'react-router-redux': '5.0.0-alpha.9',
 	'react-test-renderer': REACT_VERSION,
 	'react-virtualized': '9.10.1',
 	reselect: '^2.5.4',
@@ -180,6 +180,7 @@ const files = [
 	'./packages/sagas/package.json',
 	'./packages/theme/package.json',
 	'./packages/datagrid/package.json',
+	'./examples/cmf-app/package.json',
 ];
 
 const templates = ['./packages/generator/generators/react-cmf/templates/package.json'];

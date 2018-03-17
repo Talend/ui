@@ -5,15 +5,18 @@ import WithDrawer from './WithDrawer.component';
 import Drawer from './../Drawer';
 
 describe('WithDrawer', () => {
-	it('should inject route as key if available', () => {
-		const drawer = <Drawer route={{ path: 'path' }} >test</Drawer>;
-		const wrapper = shallow(<WithDrawer drawers={[drawer]} />);
-		expect(wrapper.children().children().key()).toEqual('path');
-	});
+	it('should wrap drawers in a container', () => {
+		// given
+		const drawers = [<div>My first drawer</div>, <div>My second drawer</div>];
 
-	it('should inject generated key if route isn\'t available', () => {
-		const drawer = <Drawer>test</Drawer>;
-		const wrapper = shallow(<WithDrawer drawers={[drawer]} />);
-		expect(wrapper.children().children().key()).toEqual('0');
+		// when
+		const wrapper = shallow(
+			<WithDrawer drawers={drawers}>
+				<div>My content</div>
+			</WithDrawer>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
