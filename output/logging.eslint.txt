@@ -19,5 +19,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   30:3  warning  Unexpected console statement  no-console
   36:3  warning  Unexpected console statement  no-console
 
-✖ 9 problems (2 errors, 7 warnings)
+/home/travis/build/Talend/ui/packages/logging/src/react/react-logger.js
+  16:3  warning  Unexpected console statement  no-console
+
+✖ 10 problems (2 errors, 8 warnings)
 
