@@ -54,9 +54,7 @@ export function CMFRouterComponent(props) {
 			</ConnectedRouter>
 		);
 	}
-	return (
-		<div className="is-loading">loading</div>
-	);
+	return <div className="is-loading">loading</div>;
 }
 CMFRouterComponent.displayName = 'CMFRouter';
 CMFRouterComponent.propTypes = {

@@ -32,9 +32,7 @@ export default function App(props) {
 	const history = props.history || createHashHistory();
 	return (
 		<Provider store={props.store}>
-			<RegistryProvider>
-				{props.children || <CMFRouter history={history} />}
-			</RegistryProvider>
+			<RegistryProvider>{props.children || <CMFRouter history={history} />}</RegistryProvider>
 		</Provider>
 	);
 }

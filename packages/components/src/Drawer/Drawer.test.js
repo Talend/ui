@@ -112,14 +112,10 @@ describe('Drawer.Content', () => {
 describe('Drawer.Animation', () => {
 	it('should wrap drawer in a CSSTransition', () => {
 		// given
-		const DrawerContent = () => (<div>My drawer content</div>);
+		const DrawerContent = () => <div>My drawer content</div>;
 
 		// when
-		const wrapper = shallow(
-			<Drawer.Animation>
-				{() => <DrawerContent />}
-			</Drawer.Animation>
-		);
+		const wrapper = shallow(<Drawer.Animation>{() => <DrawerContent />}</Drawer.Animation>);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -127,13 +123,13 @@ describe('Drawer.Animation', () => {
 
 	it('should pass animation props to the drawer component', () => {
 		// given
-		const DrawerContent = animationProps => (<div {...animationProps}>My drawer content</div>);
+		const DrawerContent = animationProps => <div {...animationProps}>My drawer content</div>;
 
 		// when
 		const wrapper = shallow(
 			<Drawer.Animation>
-				{animationProps => (<DrawerContent {...animationProps} />)}
-			</Drawer.Animation>
+				{animationProps => <DrawerContent {...animationProps} />}
+			</Drawer.Animation>,
 		);
 
 		// then
@@ -145,13 +141,13 @@ describe('Drawer.Animation', () => {
 
 	it('should call onClose() function after close transition', () => {
 		// given
-		const DrawerContent = animationProps => (<div {...animationProps}>My drawer content</div>);
+		const DrawerContent = animationProps => <div {...animationProps}>My drawer content</div>;
 		const onClose = jest.fn();
 
 		const wrapper = mount(
 			<Drawer.Animation onClose={onClose}>
-				{animationProps => (<DrawerContent {...animationProps} />)}
-			</Drawer.Animation>
+				{animationProps => <DrawerContent {...animationProps} />}
+			</Drawer.Animation>,
 		);
 
 		// when

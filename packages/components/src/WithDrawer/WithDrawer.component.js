@@ -23,9 +23,7 @@ function WithDrawer({ drawers, children }) {
 	return (
 		<div className={theme['tc-with-drawer']}>
 			{children}
-			<div className={theme['tc-with-drawer-container']}>
-				{drawers}
-			</div>
+			<div className={theme['tc-with-drawer-container']}>{drawers}</div>
 		</div>
 	);
 }

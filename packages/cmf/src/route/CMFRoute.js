@@ -43,23 +43,18 @@ export function getConnectedComponent(view, componentId, context) {
  * @param parentRouteId The parent unique identifier
  * @returns {any[]} The list of Route/CMFRoute child components
  */
-function getChildRoutes({
-	childRoutes = [],
-	context,
-	indexRoute,
-	parentPath,
-	parentRouteId,
-}) {
+function getChildRoutes({ childRoutes = [], context, indexRoute, parentPath, parentRouteId }) {
 	const children = childRoutes.map((route, index) => (
-		<CMFRoute key={index} {...route} cmfParentPath={parentPath} routeId={`${parentRouteId}.${index}`} />
+		<CMFRoute
+			key={index}
+			{...route}
+			cmfParentPath={parentPath}
+			routeId={`${parentRouteId}.${index}`}
+		/>
 	));
 
 	if (indexRoute) {
-		const IndexComponent = getConnectedComponent(
-			indexRoute.view,
-			indexRoute.component,
-			context
-		);
+		const IndexComponent = getConnectedComponent(indexRoute.view, indexRoute.component, context);
 		children.push(<Route key={-1} exact path={parentPath} component={IndexComponent} />);
 	}
 
@@ -76,7 +71,7 @@ function getChildRoutes({
  */
 function CMFRouteComponent({ Component, onEnter, onLeave, ...props }) {
 	// Backward compat: add props.params
-	const routeComponent = (<Component {...props} params={props.match.params} />);
+	const routeComponent = <Component {...props} params={props.match.params} />;
 
 	if (onEnter || onLeave) {
 		return (
@@ -125,18 +120,21 @@ function getSafePath(parentPath = '', path) {
  * @param context The CMF context
  * @returns {*} The CMF route
  */
-export default function CMFRoute({
-	childRoutes,
-	cmfParentPath,
-	component,
-	exact,
-	indexRoute,
-	onEnter,
-	onLeave,
-	path,
-	routeId = 'root',
-	view,
-}, context) {
+export default function CMFRoute(
+	{
+		childRoutes,
+		cmfParentPath,
+		component,
+		exact,
+		indexRoute,
+		onEnter,
+		onLeave,
+		path,
+		routeId = 'root',
+		view,
+	},
+	context,
+) {
 	const safePath = getSafePath(cmfParentPath, path);
 
 	let memoizedComponent = routeComponents[routeId];
@@ -164,13 +162,7 @@ export default function CMFRoute({
 		routeComponents[routeId] = memoizedComponent;
 	}
 
-	return (
-		<Route
-			path={safePath}
-			exact={exact}
-			component={memoizedComponent}
-		/>
-	);
+	return <Route path={safePath} exact={exact} component={memoizedComponent} />;
 }
 
 CMFRoute.propTypes = {

@@ -41,8 +41,12 @@ class DrawerAnimation extends React.Component {
 				active={this.state.active}
 				onTransitionComplete={this.handleTransitionComplete}
 				defaultStyle={{ transform: 'translateX(100%)' }}
-				enterStyle={{ transform: transit('translateX(0%)', DEFAULT_TRANSITION_DURATION, 'ease-in-out') }}
-				leaveStyle={{ transform: transit('translateX(100%)', DEFAULT_TRANSITION_DURATION, 'ease-in-out') }}
+				enterStyle={{
+					transform: transit('translateX(0%)', DEFAULT_TRANSITION_DURATION, 'ease-in-out'),
+				}}
+				leaveStyle={{
+					transform: transit('translateX(100%)', DEFAULT_TRANSITION_DURATION, 'ease-in-out'),
+				}}
 			>
 				{this.props.children({ close: this.close, ...this.state })}
 			</CSSTransition>
@@ -61,15 +65,10 @@ DrawerAnimation.defaultProps = {
 };
 
 function DrawerContainer({ stacked, className, children, ...rest }) {
-	const drawerContainerClasses = classnames(
-		theme['tc-drawer'],
-		className,
-		'tc-drawer',
-		{
-			[theme['drawer-stacked']]: stacked,
-			stacked,
-		},
-	);
+	const drawerContainerClasses = classnames(theme['tc-drawer'], className, 'tc-drawer', {
+		[theme['drawer-stacked']]: stacked,
+		stacked,
+	});
 	return (
 		<div className={drawerContainerClasses} {...rest}>
 			<div className={classnames('tc-drawer-container', theme['tc-drawer-container'])}>
@@ -187,11 +186,7 @@ function Drawer({
 		return null;
 	}
 	return (
-		<DrawerContainer
-			stacked={stacked}
-			className={className}
-			style={style}
-		>
+		<DrawerContainer stacked={stacked} className={className} style={style}>
 			<DrawerTitle title={title} onCancelAction={onCancelAction} />
 			{tabs && (
 				<div className={classnames('tc-drawer-tabs-container', theme['tc-drawer-tabs-container'])}>

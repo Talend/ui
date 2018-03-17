@@ -7,16 +7,13 @@ import Drawer from './../Drawer';
 describe('WithDrawer', () => {
 	it('should wrap drawers in a container', () => {
 		// given
-		const drawers = [
-			<div>My first drawer</div>,
-			<div>My second drawer</div>,
-		];
+		const drawers = [<div>My first drawer</div>, <div>My second drawer</div>];
 
 		// when
 		const wrapper = shallow(
 			<WithDrawer drawers={drawers}>
 				<div>My content</div>
-			</WithDrawer>
+			</WithDrawer>,
 		);
 
 		// then
