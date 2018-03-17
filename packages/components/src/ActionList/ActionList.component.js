@@ -85,7 +85,6 @@ function ActionList(props) {
 		<ul
 			className={classNames(
 				'nav',
-				'nav-inverse',
 				'nav-pills',
 				'nav-stacked',
 				theme['tc-action-list'],

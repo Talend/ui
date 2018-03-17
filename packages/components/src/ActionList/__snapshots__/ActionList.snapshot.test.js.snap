@@ -95,7 +95,7 @@ exports[`Storyshots ActionList default 1`] = `
     }
   >
     <ul
-      className="nav nav-inverse nav-pills nav-stacked theme-tc-action-list tc-action-list"
+      className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list"
     >
       <li
         className="theme-tc-action-list-item tc-action-list-item"
@@ -371,7 +371,7 @@ exports[`Storyshots ActionList single 1`] = `
     }
   >
     <ul
-      className="nav nav-inverse nav-pills nav-stacked theme-tc-action-list tc-action-list"
+      className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list"
     >
       <li
         className="theme-tc-action-list-item tc-action-list-item active theme-active"
@@ -535,7 +535,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
       }
     >
       <ul
-        className="nav nav-inverse nav-pills nav-stacked theme-tc-action-list tc-action-list custom-container-classname"
+        className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list custom-container-classname"
       >
         <li
           className="theme-tc-action-list-item tc-action-list-item custom-item-classname"
