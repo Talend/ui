@@ -13,6 +13,7 @@ export default class ErrorReporter extends Component {
 
 	// eslint-disable-next-line class-methods-use-this
 	componentDidCatch(error) {
+		console.log('test')
 		TraceKit.report(error);
 	}
 

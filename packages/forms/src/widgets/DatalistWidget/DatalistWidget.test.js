@@ -109,6 +109,29 @@ describe('DatalistWidget', () => {
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
+	it('should render "empty list" message', () => {
+		// given
+		const wrapper = mount(
+			<DatalistWidget
+				id="myWidget"
+				required
+				schema={{}}
+				onChange={jest.fn()}
+				renderEmptyList={() => 'Empty list'}
+			/>,
+		);
+
+		// when
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('focus');
+
+		// then
+		expect(wrapper.find('div.tf-typeahead-container').text()).toEqual('Empty list');
+		expect(toJson(wrapper)).toMatchSnapshot();
+	});
+
 	it('should render all suggestions on focus', () => {
 		// given
 		const wrapper = mount(

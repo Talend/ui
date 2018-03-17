@@ -4,7 +4,7 @@ import { api, cmfConnect } from '@talend/react-cmf';
 import { ActionFile } from '@talend/react-components';
 
 export function mapStateToProps(state, ownProps) {
-	if (!ownProps.actionId && !ownProps.name) {
+	if (!ownProps.actionId) {
 		return {};
 	}
 	return api.action.getActionInfo(
@@ -14,7 +14,7 @@ export function mapStateToProps(state, ownProps) {
 				getState: () => state,
 			},
 		},
-		ownProps.actionId || ownProps.name,
+		ownProps.actionId,
 	);
 }
 

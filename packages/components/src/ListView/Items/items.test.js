@@ -18,6 +18,14 @@ describe('Items', () => {
 		getItemHeight: () => 42,
 	};
 
+	const propsNested = {
+		items: [
+			{ label: 'Lorem ipsum dolor default' },
+			{ label: 'Lorem ipsum dolor Parent', checked: true, children: props.items },
+		],
+		getItemHeight: () => 42,
+	};
+
 	it('should render', () => {
 		// when
 		const wrapper = mount(<Items {...props} />);
@@ -40,5 +48,13 @@ describe('Items', () => {
 
 		// then
 		expect(wrapper.find('#tc-listview-toggle-all').exists()).toBeFalsy();
+	});
+
+	it('should render with nested items', () => {
+		// when
+		const wrapper = mount(<Items {...propsNested} />);
+
+		// then
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });

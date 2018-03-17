@@ -9,9 +9,8 @@
 @import './variables';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 @import './visual-helpers';
+@import './datagrid';
 
-/// Breadcrumb items max width
-/// @type Number
 $breadcrumb-items-max-width: 250px !default;
 
 /// Button font size
@@ -41,12 +40,12 @@ $input-group-addon-padding: 8px !default;
 /// Modal header background color
 ///
 /// @type Color
-$modal-header-bg: $brand-primary !default;
+$modal-header-bg: $white !default;
 
 /// Modal header color
 ///
 /// @type Color
-$modal-header-color: $white !default;
+$modal-header-color: $black !default;
 
 /// Navbar brand logo width
 /// @type Number (Unit)

@@ -19,7 +19,7 @@ exports[`Default Array Template component should render default array template 1
     id="my-template"
   >
     <li
-      className="theme-item"
+      className="theme-item item item-0"
     >
       <ArrayItem
         hasMoveDown={true}
@@ -37,7 +37,7 @@ exports[`Default Array Template component should render default array template 1
       </ArrayItem>
     </li>
     <li
-      className="theme-item"
+      className="theme-item item item-1"
     >
       <ArrayItem
         hasMoveDown={true}
@@ -55,7 +55,7 @@ exports[`Default Array Template component should render default array template 1
       </ArrayItem>
     </li>
     <li
-      className="theme-item"
+      className="theme-item item item-2"
     >
       <ArrayItem
         hasMoveDown={false}

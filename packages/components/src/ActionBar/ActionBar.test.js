@@ -10,44 +10,42 @@ describe('ActionBar', () => {
 		const props = {
 			selected: 0,
 			actions: {
-				left: [
-					{ label: 'Preparations', icon: 'fa fa-asterisk', onClick: onClickMock },
-				],
+				left: [{ label: 'Preparations', icon: 'fa fa-asterisk', onClick: onClickMock }],
 			},
 		};
 
 		// when
-		const actionBar = (
-			<ActionBar {...props} />
-		);
+		const actionBar = <ActionBar {...props} />;
 		const wrapper = mount(actionBar);
-		wrapper.find(Action).at(0).simulate('click');
+		wrapper
+			.find(Action)
+			.at(0)
+			.simulate('click');
 
 		// then
 		expect(onClickMock).toHaveBeenCalled();
 	});
 
-	it('should support custom renderers', () => {
+	it('should support custom component', () => {
 		// given
 		function MyAction(props) {
-			return (<div className="my-custom-action" {...props} />);
+			return <div className="my-custom-action" {...props} />;
 		}
 		const props = {
 			selected: 0,
 			actions: {
-				left: [
-					{ label: 'Preparations', icon: 'talend-preparation' },
-				],
+				left: [{ label: 'Preparations', icon: 'talend-preparation' }],
 			},
-			renderers: {
-				Action: MyAction,
+			getComponent: key => {
+				if (key === 'Action') {
+					return MyAction;
+				}
+				return undefined;
 			},
 		};
 
 		// when
-		const actionBar = (
-			<ActionBar {...props} />
-		);
+		const actionBar = <ActionBar {...props} />;
 		const wrapper = mount(actionBar);
 		const render = wrapper.find('.my-custom-action').first();
 

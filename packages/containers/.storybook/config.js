@@ -227,7 +227,7 @@ function loadStories() {
 		state.cmf.settings.props.appheaderbar = {
 			app: 'Hello Test',
 		};
-		state.cmf.settings.props['Container(HeaderBar)#default'] = {
+		state.cmf.settings.props['Translate(HeaderBar)#default'] = {
 			logo: { name: 'appheaderbar:logo', isFull: true },
 			brand: { label: 'DATA STREAMS' },
 			notification: { name: 'appheaderbar:notification' },

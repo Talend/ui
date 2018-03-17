@@ -34,15 +34,24 @@ import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
+import omit from 'lodash/omit';
 import api from './api';
 import deprecated from './deprecated';
+import CONSTANT from './constant';
 
-import { statePropTypes, initState, getStateAccessors, getStateProps } from './componentState';
+import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
 
 let newState;
 
-const CMF_PROPS = [
+function serializeEvent(event) {
+	if (event.persist) {
+		event.persist();
+	}
+	return event;
+}
+
+export const CMF_PROPS = [
 	'didMountActionCreator', // componentDidMount action creator id in registry
 	'keepComponentState', // redux state management on unmount
 	'view', // view component id in registry
@@ -52,6 +61,9 @@ const CMF_PROPS = [
 
 export const INJECTED_PROPS = [
 	'setState',
+	'deleteState',
+	'updateState',
+	'componentId',
 	'state',
 	'initState',
 	'getCollection',
@@ -149,6 +161,7 @@ export function getDispatchToProps({
 	let userProps = {};
 	if (mapDispatchToProps) {
 		if (process.env.NODE_ENV === 'development') {
+			// eslint-disable-next-line no-console
 			console.warn(`DEPRECATION WARNING: mapDispatchToProps will be removed from cmfConnect.
 			Please use the injectedProps dispatchActionCreator or dispatch`);
 		}
@@ -229,7 +242,7 @@ export default function cmfConnect({
 			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 			static propTypes = {
 				...WrappedComponent.propTypes,
-				...statePropTypes,
+				...cmfConnect.propTypes,
 			};
 			static contextTypes = {
 				store: PropTypes.object,
@@ -241,15 +254,17 @@ export default function cmfConnect({
 			constructor(props, context) {
 				super(props, context);
 				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
+				this.onEvent = this.onEvent.bind(this);
+				this.onEventDispatch = this.onEventDispatch.bind(this);
 			}
 
 			componentDidMount() {
 				initState(this.props);
-				if (this.props.didMountActionCreator) {
-					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
-				}
 				if (this.props.saga) {
 					this.dispatchActionCreator('cmf.saga.start', { type: 'DID_MOUNT' }, this.props);
+				}
+				if (this.props.didMountActionCreator) {
+					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
 				}
 			}
 
@@ -269,14 +284,60 @@ export default function cmfConnect({
 				}
 			}
 
+			onEvent() {
+				return Object.keys(this.props).reduce(this.onEventDispatch, { toOmit: [] });
+			}
+
+			onEventDispatch(props, key) {
+				if (CONSTANT.IS_HANDLER_DISPATCH_REGEX.test(key)) {
+					const handlerKey = key.replace(CONSTANT.IS_HANDLER_DISPATCH, '');
+					props.toOmit.push(key);
+					// eslint-disable-next-line no-param-reassign
+					props[handlerKey] = (event, data) => {
+						const payload = Object.assign(
+							{
+								event: serializeEvent(event),
+								data,
+							},
+							this.props[key],
+						);
+						this.props.dispatch(payload);
+						if (this.props[handlerKey]) {
+							this.props[handlerKey](event, data);
+						}
+					};
+				} else if (CONSTANT.IS_HANDLER_ACTION_CREATOR_REGEX.test(key)) {
+					props.toOmit.push(key);
+					const handlerKey = key.replace(CONSTANT.IS_HANDLER_ACTION_CREATOR, '');
+					let actionCreator = this.props[key];
+					if (typeof this.props[key] === 'object') {
+						actionCreator = this.props[key].id;
+					}
+					// eslint-disable-next-line no-param-reassign
+					props[handlerKey] = (event, data) => {
+						this.dispatchActionCreator(actionCreator, serializeEvent(event), {
+							props: this.props,
+							...data,
+							...(this.props[key].data || {}),
+						});
+						if (this.props[handlerKey]) {
+							this.props[handlerKey](event, data);
+						}
+					};
+				}
+				return props;
+			}
+
 			dispatchActionCreator(actionCreatorId, event, data, context) {
 				const extendedContext = Object.assign({}, this.context, context);
 				this.props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
 			}
 
 			render() {
+				const { toOmit, ...handlers } = this.onEvent();
 				const props = {
-					...this.props,
+					...omit(this.props, toOmit),
+					...handlers,
 					dispatchActionCreator: this.dispatchActionCreator,
 				};
 				if (!props.state && defaultState) {
@@ -287,7 +348,6 @@ export default function cmfConnect({
 				CMF_PROPS.forEach(key => {
 					delete props[key];
 				});
-
 				return createElement(WrappedComponent, props);
 			}
 		}

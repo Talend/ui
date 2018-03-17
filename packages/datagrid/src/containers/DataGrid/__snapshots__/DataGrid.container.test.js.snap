@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DataGridContainer should render DataGridContainer 1`] = `
+<DataGrid
+  cellRenderer="DefaultCellRenderer"
+  columnMinWidth={30}
+  data={Object {}}
+  enableColResize={true}
+  getCellValueFn={[Function]}
+  getColumnDefsFn={[Function]}
+  getPinnedColumnDefsFn={[Function]}
+  getRowDataFn={[Function]}
+  headerHeight={55}
+  headerRenderer="DefaultHeaderRenderer"
+  pinHeaderRenderer="DefaultPinHeaderRenderer"
+  rowHeight={39}
+  rowSelection="single"
+  startIndex={0}
+/>
+`;

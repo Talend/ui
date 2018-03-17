@@ -85,7 +85,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 			>
 				<Icon {...prev} />
 			</NavItem>,
-			<NavItem key={'pages'} disabled>
+			<NavItem key={'current'} disabled>
 				<span className="btn-link">
 					{currentPage}/{pagesLength}
 				</span>
@@ -100,6 +100,7 @@ function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, ...o
 				<Icon {...next} />
 			</NavItem>,
 			<NavItem
+				key={'last'}
 				eventKey={LAST}
 				key={LAST}
 				id={id && `${id}-nav-to-last`}

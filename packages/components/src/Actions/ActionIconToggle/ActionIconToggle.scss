@@ -13,7 +13,7 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 }
 
 .tc-icon-toggle {
-	@include tc-icon-toggle();
+	@include tc-icon-toggle;
 
 	display: flex;
 	justify-content: center;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ActionBar should support custom renderers 1`] = `
+exports[`ActionBar should support custom component 1`] = `
 Object {
   "className": "my-custom-action",
   "icon": "talend-preparation",

@@ -30,7 +30,7 @@ const tabs = {
 		},
 	],
 	onSelect: jest.fn(),
-	selected: '2',
+	selectedKey: '2',
 };
 const drawers = [
 	<div style={{ width: 500 }}>

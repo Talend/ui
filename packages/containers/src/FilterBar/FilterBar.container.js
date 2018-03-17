@@ -49,11 +49,6 @@ class FilterBar extends React.Component {
 				props: this.props,
 			});
 		}
-		if (this.props.onFilterActionCreator) {
-			this.props.dispatchActionCreator(this.props.onFilterActionCreator, event, {
-				props: this.props,
-			});
-		}
 	}
 
 	onToggle(event) {
@@ -64,9 +59,6 @@ class FilterBar extends React.Component {
 			}
 			return state.set(QUERY_ATTR, '');
 		});
-		if (this.props.onToggleActionCreator) {
-			this.props.dispatchActionCreator(this.props.onToggleActionCreator);
-		}
 		if (this.props.onToggle) {
 			this.props.onToggle(event);
 		}

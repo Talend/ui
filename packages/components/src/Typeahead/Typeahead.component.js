@@ -19,8 +19,8 @@ import { Action } from '../Actions';
  *
  * <Typeahead {...props} />
  */
-function Typeahead({ onToggle, icon, position, ...rest }) {
-	if (onToggle) {
+function Typeahead({ onToggle, icon, position, docked, ...rest }) {
+	if (docked && onToggle) {
 		return (
 			<Action
 				onClick={onToggle}
@@ -40,17 +40,18 @@ function Typeahead({ onToggle, icon, position, ...rest }) {
 
 	const themeProps = {
 		theme: {
-			containerOpen: theme['container-open'],
-			highlight: theme['highlight-match'],
-			input: theme['typeahead-input'],
-			itemHighlighted: theme['item-highlighted'],
-			itemsContainer: theme['items-container'],
+			containerOpen: classNames(theme['container-open'], 'tc-typeahead-container-open'),
+			highlight: classNames(theme['highlight-match'], 'tc-typeahead-highlight-match'),
+			input: classNames(theme['typeahead-input'], 'tc-typeahead-typeahead-input'),
+			itemHighlighted: classNames(theme['item-highlighted'], 'tc-typeahead-item-highlighted'),
+			itemsContainer: classNames(theme['items-container'], 'tc-typeahead-items-container'),
 			itemsList: theme.items,
-			sectionContainer: theme['section-container'],
+			sectionContainer: classNames(theme['section-container'], 'tc-typeahead-section-container'),
 
 			...rest.theme,
 			container: classNames(
 				theme['tc-typeahead-container'],
+				'tc-typeahead-container',
 				position === 'right' && theme.right,
 				rest.theme && rest.theme.container,
 				rest.className,
@@ -122,6 +123,7 @@ Typeahead.defaultProps = {
 	readOnly: false,
 	searching: false,
 	searchingText: 'Searching for matches…',
+	docked: false,
 };
 
 Typeahead.propTypes = {
@@ -135,6 +137,7 @@ Typeahead.propTypes = {
 
 	// toggle button
 	onToggle: PropTypes.func,
+	docked: PropTypes.bool,
 	icon: PropTypes.shape({
 		name: PropTypes.string,
 		title: PropTypes.string,

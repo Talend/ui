@@ -79,7 +79,7 @@ describe('Drawer', () => {
 				},
 			],
 			onSelect: jest.fn(),
-			selected: '2',
+			selectedKey: '2',
 		};
 		const wrapper = renderer
 			.create(
