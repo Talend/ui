@@ -35,6 +35,7 @@ import component from './component';
 function registerInternals(context) {
 	actionCreator.register('cmf.saga.start', actions.saga.start, context);
 	actionCreator.register('cmf.saga.stop', actions.saga.stop, context);
+	expression.registerMany(expressions, context);
 }
 
 export default {
