@@ -1,9 +1,7 @@
 package org.talend.component;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -41,7 +39,7 @@ public class ListTest extends StorybookTest {
     public void should_get_table_using_display() {
         // when
         // should not throw NotFoundException
-        WebElement element = listObject.getDisplay().getElement();
+        listObject.getDisplay().getElement();
         final WebElement title = listObject.getDisplay().getItem("Title with actions").getTitle();
 
         // then

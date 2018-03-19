@@ -117,7 +117,7 @@ public class List extends Component {
     public Display getDisplay() {
         Large large = new Large(driver);
         try {
-            large.getElementToScroll();
+            large.getElement();
         } catch (NotFoundException e) {
             return new Table(driver);
         }
