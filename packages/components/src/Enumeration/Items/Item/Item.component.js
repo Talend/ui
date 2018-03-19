@@ -37,6 +37,7 @@ function Item({ id, item, searchCriteria, showCheckboxes }) {
 		actions,
 		onSelectItem,
 	} = item.itemProps;
+	const actualLabel = item[key] instanceof Array ? item[key].join(',') : item[key];
 
 	function getAction(action, index) {
 		function onClick(event) {
@@ -94,7 +95,7 @@ function Item({ id, item, searchCriteria, showCheckboxes }) {
 					className={itemLabelClasses()}
 					disabled="disabled"
 				>
-					{getSearchedLabel(item[key].join(','))}
+					{getSearchedLabel(actualLabel)}
 				</button>
 			);
 		}
@@ -109,7 +110,7 @@ function Item({ id, item, searchCriteria, showCheckboxes }) {
 					className={classNames(theme['tc-enumeration-checkbox'], 'tc-enumeration-checkbox')}
 					checked={item.isSelected}
 				/> }
-				<span>{item[key].join(',')}</span>
+				<span>{actualLabel}</span>
 			</Button>
 		);
 	}
