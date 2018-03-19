@@ -361,12 +361,8 @@ form {
 		}
 	}
 
-	.form-group-lg {
-		select {
-			&.form-control {
-				line-height: 1.5;
-			}
-		}
+	.form-group-lg select.form-control {
+		line-height: 1.5;
 	}
 
 	.form-group > .form-control::placeholder {
@@ -378,20 +374,18 @@ form {
 		color: $silver-chalice;
 	}
 
-	textarea {
-		&.form-control {
-			box-shadow: none;
-			padding: 0;
-			border: none;
-			border-radius: 0;
-			font-size: $form-input-font-size;
-			font-weight: $form-base-font-weight;
-			border-bottom: $form-border-bottom;
-			border-right: 1px solid $gallery;
+	textarea.form-control {
+		box-shadow: none;
+		padding: 0;
+		border: none;
+		border-radius: 0;
+		font-size: $form-input-font-size;
+		font-weight: $form-base-font-weight;
+		border-bottom: $form-border-bottom;
+		border-right: 1px solid $gallery;
 
-			&:focus {
-				@include box-shadow($form-focus-shadow);
-			}
+		&:focus {
+			@include box-shadow($form-focus-shadow);
 		}
 	}
 }
