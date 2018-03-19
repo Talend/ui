@@ -37,14 +37,11 @@ yarn add --dev @talend/bootstrap-theme
 In every project, we use webpack with sass-loader + css modules.
 
 Create your webpack file and fill it with your own configuration.
-1. You should at least just change the `$brand-primary` first to get your own colors;
-2. Include the application specific `$brand-icon` image data to launch the app loader with app logo.
-   - $brand-icon is the base64 svg image data generated from '/ui/packages/icons/src/svg/[app]-colored.svg'
+You should at least just change the `$brand-primary` first to get your own colors;
 
 ```javascript
 const SASS_DATA = `
   $brand-primary: #77828A;
-  $brand-icon: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR......');
   @import '~@talend/bootstrap-theme/src/theme/guidelines';
 `;
 

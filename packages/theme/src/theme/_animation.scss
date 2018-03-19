@@ -2,29 +2,6 @@
 	animation: $animation-name 1.5s ease infinite;
 }
 
-@mixin tc-animation($animation-name, $duration, $function, $iteration) {
-	animation: $animation-name $duration $function $iteration;
-}
-
-@keyframes app-loader-spin {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes app-loader-fadeIn {
-	0%,
-	100% {
-		opacity: 0.5;
-	}
-	50% {
-		opacity: 1;
-	}
-}
-
 @keyframes object-blink {
 	0%,
 	100% {

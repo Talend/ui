@@ -25,6 +25,7 @@ import './ListView';
 import './Layout';
 import './List';
 import './Loader';
+import './LoaderApp';
 import './Notification';
 import './ObjectViewer';
 import './PieChartButton';

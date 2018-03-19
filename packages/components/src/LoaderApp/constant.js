@@ -70,7 +70,7 @@ const LOADER_APP = `<div class="tc-loader-app-container">
 </div>
 `;
 
-function getLoaderStyle(icon) {
+function getLoaderStyle(icon = '') {
 	return LOADER_STYLE.replace('ICON_BASE_64', icon);
 }
 
