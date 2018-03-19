@@ -5,6 +5,7 @@ import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
+import Skeleton from '../../Skeleton';
 import Icon from '../../Icon';
 import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionButton.scss';
@@ -12,9 +13,22 @@ import theme from './ActionButton.scss';
 const LEFT = 'left';
 const RIGHT = 'right';
 
-function getIcon({ icon, iconTransform, inProgress }) {
+function getIcon({ icon, iconTransform, inProgress, loading }) {
 	if (inProgress) {
 		return <CircularProgress size="small" key="icon" />;
+	}
+
+	if (loading) {
+		return (
+			<Skeleton
+				size="small"
+				type="circle"
+				className={classNames(
+					theme['tc-action-button-skeleton-circle'],
+					'tc-action-button-skeleton-circle',
+				)}
+			/>
+		);
 	}
 
 	if (icon) {
@@ -29,15 +43,19 @@ getIcon.propTypes = {
 	inProgress: PropTypes.bool,
 };
 
-function getLabel({ hideLabel, label }) {
+function getLabel({ hideLabel, label, loading }) {
 	if (hideLabel) {
 		return null;
+	}
+	if (loading) {
+		return <Skeleton type="text" size="medium" />;
 	}
 	return <span key="label">{label}</span>;
 }
 
 getLabel.propTypes = {
 	label: PropTypes.string,
+	loading: PropTypes.bool,
 	hideLabel: PropTypes.bool,
 };
 
@@ -74,6 +92,7 @@ function ActionButton(props) {
 		disabled,
 		hideLabel,
 		label,
+		loading,
 		link,
 		model,
 		onMouseDown = noOp,
@@ -91,7 +110,13 @@ function ActionButton(props) {
 		return null;
 	}
 
+	if (loading && !link) {
+		return <Skeleton type="button" />;
+	}
+
 	const buttonProps = getPropsFrom(Button, rest);
+	const buttonContent = getContent(props);
+	const btnIsDisabled = inProgress || disabled;
 	const style = link ? 'link' : bsStyle;
 	let rClick = null;
 	let rMouseDown = null;
@@ -110,9 +135,6 @@ function ActionButton(props) {
 				model,
 			});
 	}
-
-	const buttonContent = getContent(props);
-	const btnIsDisabled = inProgress || disabled;
 
 	if (btnIsDisabled) {
 		buttonProps.className = classNames(buttonProps.className, theme['btn-disabled']);
@@ -164,6 +186,7 @@ ActionButton.propTypes = {
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 	label: PropTypes.string.isRequired,
+	loading: PropTypes.bool,
 	link: PropTypes.bool,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
@@ -180,6 +203,7 @@ ActionButton.defaultProps = {
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 	inProgress: false,
+	loading: false,
 	disabled: false,
 };
 
