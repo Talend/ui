@@ -66,6 +66,22 @@
 			.btn.btn-link {
 				width: 100%;
 				text-align: left;
+				background-color: transparent;
+			}
+		}
+	}
+
+	&-pills.nav-inverse {
+		> li {
+			&:focus,
+			&:hover {
+				background-color: rgba($white, 0.12);
+			}
+
+			&:active,
+			&.active,
+			&.open {
+				background-color: rgba($white, 0.25);
 			}
 		}
 	}
