@@ -43,5 +43,5 @@ App.propTypes = {
 	store: PropTypes.object.isRequired,
 	children: PropTypes.node,
 	history: PropTypes.object,
-	loading: PropTypes.node,
+	loading: PropTypes.string,
 };

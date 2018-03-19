@@ -16,11 +16,11 @@ describe('CMF App', () => {
 			},
 		};
 		const history = {};
-		const wrapper = shallow(<App store={store} history={history} />);
+		const wrapper = shallow(<App store={store} history={history} loading="LoaderApp" />);
 		expect(wrapper.contains(
 			<Provider store={store}>
 				<RegistryProvider>
-					<UIRouter history={history} />
+					<UIRouter history={history} loading="LoaderApp" />
 				</RegistryProvider>
 			</Provider>)
 		).toEqual(true);
