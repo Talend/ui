@@ -327,7 +327,7 @@ if (process.env.NODE_ENV !== 'production') {
 		help: PropTypes.shape(omit(Help.propTypes, 't')),
 		information: PropTypes.shape(omit(Information.propTypes, 't')),
 		user: PropTypes.shape(User.propTypes),
-		notification: PropTypes.shape(AppNotification.propTypes, 't'),
+		notification: PropTypes.shape(omit(AppNotification.propTypes, 't')),
 		products: PropTypes.shape({
 			items: PropTypes.array,
 			onSelect: PropTypes.func,
