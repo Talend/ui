@@ -130,7 +130,7 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
-	it('should update show all suggestions then select the previous one on blur', () => {
+	it('should update show all suggestions on focus even if a value is selected', () => {
 		// given
 		const wrapper = mount(
 			<Datalist
@@ -144,7 +144,7 @@ describe('Datalist component', () => {
 				value={'foo'}
 			/>,
 		);
-		expect(wrapper.find(Typeahead).props().items).toBe(null);
+		expect(wrapper.find(Typeahead).props().items).toEqual(null);
 
 		// when
 		wrapper
@@ -154,14 +154,6 @@ describe('Datalist component', () => {
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual(['foo', 'bar', 'foobar', 'lol']);
-		expect(wrapper.find(Typeahead).props().value).toBe('');
-		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('blur');
-
-		// then
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
 	});
 
@@ -271,6 +263,7 @@ describe('Datalist component', () => {
 
 		// when
 		input.simulate('keydown', { which: keycode.codes.enter });
+		input.simulate('blur');
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
@@ -302,5 +295,55 @@ describe('Datalist component', () => {
 				.find(Typeahead)
 				.props().value,
 		).toBe('bar');
+	});
+
+	it('should set proper focusedItemIndex single section display', () => {
+		// given
+		const wrapper = mount(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				{...props}
+				value={'foobar'}
+			/>,
+		);
+
+		// when
+		const input = wrapper.find('input').at(0);
+		input.simulate('focus');
+
+		// then
+		expect(wrapper.find(Typeahead).props().value).toBe('foobar');
+		expect(wrapper.find(Typeahead).props().focusedItemIndex).toBe(2);
+	});
+
+	it('should set proper focusedItemIndex and focusedSectionIndex on multi section', () => {
+		// given
+		const sectionProps = { ...props, titleMap: multiSectionMap };
+		const wrapper = mount(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				multiSection={true}
+				errorMessage={'This should be correct'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				{...sectionProps}
+				value={'foobar'}
+			/>,
+		);
+
+		// when
+		const input = wrapper.find('input').at(0);
+		input.simulate('focus');
+
+		// then
+		expect(wrapper.find(Typeahead).props().value).toBe('foobar');
+		expect(wrapper.find(Typeahead).props().focusedSectionIndex).toBe(2);
+		expect(wrapper.find(Typeahead).props().focusedItemIndex).toBe(0);
 	});
 });

@@ -43,9 +43,6 @@ class Datalist extends Component {
 		if (value !== previousValue) {
 			this.updateValue(event, value, true);
 		}
-		if (!value && previousValue) {
-			this.updateValue(event, previousValue, true);
-		}
 	}
 
 	/**
@@ -54,17 +51,32 @@ class Datalist extends Component {
 	 * @param value
 	 */
 	onChange(event, { value }) {
-		this.updateGroups(value);
+		this.updateGroups(value, true);
 		this.updateValue(event, value, false);
 	}
 
 	/**
 	 * Display suggestions on focus
 	 */
-	onFocus() {
-		// settings back filter to empty
-		this.setState({ previousValue: this.state.value, value: '' });
-		this.updateGroups('');
+	onFocus(event) {
+		event.target.select();
+		this.updateGroups(this.state.value);
+		if (this.props.multiSection) {
+			this.props.titleMap.forEach((group, sectionIndex) => {
+				const focusedIndex = group.suggestions.findIndex(item => item.name === this.state.value);
+				if (focusedIndex > -1) {
+					this.setState({
+						focusedItemIndex: focusedIndex,
+						focusedSectionIndex: sectionIndex,
+					});
+				}
+			});
+		} else {
+			const index = this.props.titleMap.findIndex(item => item.name === this.state.value);
+			this.setState({
+				focusedItemIndex: index,
+			});
+		}
 	}
 
 	/**
@@ -76,26 +88,33 @@ class Datalist extends Component {
 	 * @param highlightedItemIndex The previous focused suggestion index
 	 * @param newHighlightedItemIndex The new focused suggestion index
 	 */
-	onKeyDown(event, { highlightedItemIndex, newHighlightedItemIndex }) {
+	onKeyDown(event, params) {
+		const {
+			highlightedItemIndex,
+			highlightedSectionIndex,
+			newHighlightedItemIndex,
+			newHighlightedSectionIndex
+		} = params;
 		switch (event.which) {
 			case keycode.codes.esc:
 				event.preventDefault();
 				this.resetValue();
 				break;
-			case keycode.codes.enter:
+		case keycode.codes.enter:
 				if (!this.state.groups) {
 					break;
 				}
 				event.preventDefault();
 				if (Number.isInteger(highlightedItemIndex)) {
 					// suggestions are displayed and an item has the focus : we select it
-					this.onSelect(event, { itemIndex: highlightedItemIndex });
+					this.onSelect(event, { itemIndex: highlightedItemIndex, sectionIndex: highlightedSectionIndex });
 				} else if (this.state.value !== this.state.previousValue) {
 					// there is no focused item and the current value is not persisted
 					// we persist it
 					this.updateValue(event, this.state.value, true);
 				}
-				this.resetSuggestions();
+				// blurs the input, reset suggestions and unfocus input
+				event.target.blur();
 				break;
 			case keycode.codes.down:
 				event.preventDefault();
@@ -103,11 +122,17 @@ class Datalist extends Component {
 					// display all suggestions when they are not displayed
 					this.updateGroups();
 				}
-				this.setState({ focusedItemIndex: newHighlightedItemIndex });
+				this.setState({
+					focusedItemIndex: newHighlightedItemIndex,
+					focusedSectionIndex: newHighlightedSectionIndex,
+				});
 				break;
 			case keycode.codes.up:
 				event.preventDefault();
-				this.setState({ focusedItemIndex: newHighlightedItemIndex });
+				this.setState({
+					focusedItemIndex: newHighlightedItemIndex,
+					focusedSectionIndex: newHighlightedSectionIndex,
+				});
 				break;
 			default:
 				break;
@@ -164,7 +189,7 @@ class Datalist extends Component {
 	 */
 	resetValue() {
 		this.setState({
-			suggestions: undefined,
+			groups: undefined,
 			value: this.state.previousValue,
 		});
 	}
@@ -189,7 +214,7 @@ class Datalist extends Component {
 	 * If the array is empty, the suggestion box will display a "No result" message
 	 * @param value The value to base suggestions on
 	 */
-	updateGroups(value) {
+	updateGroups(value, filterOn) {
 		if (this.props.readOnly || this.props.disabled) {
 			return;
 		}
@@ -204,12 +229,14 @@ class Datalist extends Component {
 				groups = groups
 					.map(group => ({
 						...group,
-						suggestions: group.suggestions.filter(item => regex.test(item.title)),
+						suggestions: filterOn ?
+							group.suggestions.filter(item => filterOn && regex.test(item.title)) :
+							group.suggestions,
 					}))
 					.filter(group => group.suggestions.length > 0);
 			} else {
 				// only one group so items are inline
-				groups = groups.filter(itemValue => regex.test(itemValue));
+				groups = filterOn ? groups.filter(itemValue => regex.test(itemValue)) : groups;
 			}
 		}
 
@@ -223,6 +250,7 @@ class Datalist extends Component {
 		this.setState({
 			groups: undefined,
 			focusedItemIndex: undefined,
+			focusedSectionIndex: undefined,
 		});
 	}
 
@@ -235,6 +263,7 @@ class Datalist extends Component {
 						autoFocus={this.props.autoFocus || false}
 						disabled={this.props.disabled || false}
 						focusedItemIndex={this.state.focusedItemIndex}
+						focusedSectionIndex={this.state.focusedSectionIndex}
 						items={this.state.groups}
 						multiSection={this.props.multiSection}
 						onBlur={this.onBlur}

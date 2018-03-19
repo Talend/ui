@@ -69,6 +69,7 @@ exports[`Datalist component should render typeahead single section 1`] = `
       disabled={false}
       docked={false}
       focusedItemIndex={undefined}
+      focusedSectionIndex={undefined}
       id="my-datalist"
       items={null}
       multiSection={false}
