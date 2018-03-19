@@ -36,6 +36,25 @@ const actions = [
 	},
 ];
 
+const actionsLinks = [
+	{
+		label: 'Preparations',
+		icon: 'talend-dataprep',
+		href: '/preparations',
+		active: true,
+	},
+	{
+		label: 'Datasets',
+		icon: 'talend-download',
+		href: '/datasets',
+	},
+	{
+		label: 'Favorites',
+		icon: 'talend-star',
+		href: '/favorites',
+	},
+];
+
 const items = [
 	{
 		key: 'preparations',
@@ -75,6 +94,16 @@ stories
 				id="context"
 				actions={actions}
 				onSelect={action('onItemSelect')}
+				onToggleDock={action('onToggleDock')}
+				tooltipPlacement="top"
+			/>
+		</div>
+	))
+	.addWithInfo('links', () => (
+		<div style={{ display: 'inline-table', background: '#236192' }}>
+			<SidePanel
+				id="context"
+				actions={actionsLinks}
 				onToggleDock={action('onToggleDock')}
 				tooltipPlacement="top"
 			/>
