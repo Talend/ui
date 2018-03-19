@@ -63,7 +63,7 @@ stories
 		</div>
 	))
 	.addWithInfo('default', () => (
-		<div style={{ display: 'inline-table', background: '#236192' }}>
+		<div style={{ display: 'inline-table' }}>
 			<ActionList
 				id="context"
 				actions={actions}
@@ -111,7 +111,7 @@ stories
 					}`
 				}
 			</style>
-			<div style={{ display: 'inline-table', background: '#236192' }}>
+			<div style={{ display: 'inline-table' }}>
 				<ActionList
 					id="context"
 					actions={actions}
@@ -125,7 +125,7 @@ stories
 		</div>
 	))
 	.addWithInfo('single', () => (
-		<div style={{ display: 'inline-table', background: '#236192' }}>
+		<div style={{ display: 'inline-table' }}>
 			<ActionList
 				id="context"
 				actions={[actions[1]]}
