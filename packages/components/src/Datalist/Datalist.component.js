@@ -93,21 +93,24 @@ class Datalist extends Component {
 			highlightedItemIndex,
 			highlightedSectionIndex,
 			newHighlightedItemIndex,
-			newHighlightedSectionIndex
+			newHighlightedSectionIndex,
 		} = params;
 		switch (event.which) {
 			case keycode.codes.esc:
 				event.preventDefault();
 				this.resetValue();
 				break;
-		case keycode.codes.enter:
+			case keycode.codes.enter:
 				if (!this.state.groups) {
 					break;
 				}
 				event.preventDefault();
 				if (Number.isInteger(highlightedItemIndex)) {
 					// suggestions are displayed and an item has the focus : we select it
-					this.onSelect(event, { itemIndex: highlightedItemIndex, sectionIndex: highlightedSectionIndex });
+					this.onSelect(event, {
+						itemIndex: highlightedItemIndex,
+						sectionIndex: highlightedSectionIndex,
+					});
 				} else if (this.state.value !== this.state.previousValue) {
 					// there is no focused item and the current value is not persisted
 					// we persist it
@@ -229,9 +232,9 @@ class Datalist extends Component {
 				groups = groups
 					.map(group => ({
 						...group,
-						suggestions: filterOn ?
-							group.suggestions.filter(item => filterOn && regex.test(item.title)) :
-							group.suggestions,
+						suggestions: filterOn
+							? group.suggestions.filter(item => filterOn && regex.test(item.title))
+							: group.suggestions,
 					}))
 					.filter(group => group.suggestions.length > 0);
 			} else {
