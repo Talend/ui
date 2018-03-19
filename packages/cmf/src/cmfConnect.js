@@ -39,14 +39,14 @@ import api from './api';
 import deprecated from './deprecated';
 import CONSTANT from './constant';
 
-import { statePropTypes, initState, getStateAccessors, getStateProps } from './componentState';
+import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
 
 let newState;
 
 function serializeEvent(event) {
 	if (event.persist) {
-		return event.persist();
+		event.persist();
 	}
 	return event;
 }
@@ -242,7 +242,7 @@ export default function cmfConnect({
 			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 			static propTypes = {
 				...WrappedComponent.propTypes,
-				...statePropTypes,
+				...cmfConnect.propTypes,
 			};
 			static contextTypes = {
 				store: PropTypes.object,
@@ -260,11 +260,11 @@ export default function cmfConnect({
 
 			componentDidMount() {
 				initState(this.props);
-				if (this.props.didMountActionCreator) {
-					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
-				}
 				if (this.props.saga) {
 					this.dispatchActionCreator('cmf.saga.start', { type: 'DID_MOUNT' }, this.props);
+				}
+				if (this.props.didMountActionCreator) {
+					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
 				}
 			}
 
