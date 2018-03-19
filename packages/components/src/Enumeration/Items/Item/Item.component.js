@@ -32,11 +32,7 @@ function itemDefaultActionsClasses() {
 }
 
 function Item({ id, item, searchCriteria, showCheckboxes }) {
-	const {
-		key,
-		actions,
-		onSelectItem,
-	} = item.itemProps;
+	const { key, actions, onSelectItem } = item.itemProps;
 	const actualLabel = item[key] instanceof Array ? item[key].join(',') : item[key];
 
 	function getAction(action, index) {
@@ -70,31 +66,28 @@ function Item({ id, item, searchCriteria, showCheckboxes }) {
 	function getSearchedLabel(label) {
 		let indexes = allIndexOf(label.toLowerCase(), searchCriteria.toLowerCase());
 		indexes = removeDuplicates(indexes, searchCriteria);
-		return (<span>
-			{/* Set the label to go on the first index if the index is not 0 */}
-			{indexes[0] !== 0 ? label.substring(0, indexes[0]) : null}
-			{indexes.map((matchIndex, index, matchIndexes) =>
-				(
+		return (
+			<span>
+				{/* Set the label to go on the first index if the index is not 0 */}
+				{indexes[0] !== 0 ? label.substring(0, indexes[0]) : null}
+				{indexes.map((matchIndex, index, matchIndexes) => (
 					<span key={index}>
 						{/* get the string from label with indexes ( to keep words case ) */}
 						<strong>{label.substring(matchIndex, matchIndex + searchCriteria.length)}</strong>
 						{/* get the string before next index if there is */}
-						{index === matchIndex.length + 1 ? null :
-							label.substring(matchIndex + searchCriteria.length, matchIndexes[index + 1])
-						}
+						{index === matchIndex.length + 1
+							? null
+							: label.substring(matchIndex + searchCriteria.length, matchIndexes[index + 1])}
 					</span>
-				))
-			}
-		</span>);
+				))}
+			</span>
+		);
 	}
 
 	function getActionLabel() {
 		if (searchCriteria) {
 			return (
-				<button
-					className={itemLabelClasses()}
-					disabled="disabled"
-				>
+				<button className={itemLabelClasses()} disabled="disabled">
 					{getSearchedLabel(actualLabel)}
 				</button>
 			);
@@ -106,10 +99,12 @@ function Item({ id, item, searchCriteria, showCheckboxes }) {
 				onClick={event => onSelectItem(item, event)}
 				key={item.index}
 			>
-				{ showCheckboxes && <Checkbox
-					className={classNames(theme['tc-enumeration-checkbox'], 'tc-enumeration-checkbox')}
-					checked={item.isSelected}
-				/> }
+				{showCheckboxes && (
+					<Checkbox
+						className={classNames(theme['tc-enumeration-checkbox'], 'tc-enumeration-checkbox')}
+						checked={item.isSelected}
+					/>
+				)}
 				<span>{actualLabel}</span>
 			</Button>
 		);
