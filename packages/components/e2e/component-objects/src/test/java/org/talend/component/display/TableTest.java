@@ -1,12 +1,12 @@
-package org.talend.component.table;
+package org.talend.component.display;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import org.talend.component.StorybookTest;
-import org.talend.component.list.table.Cell;
-import org.talend.component.list.table.Item;
-import org.talend.component.list.table.Table;
+import org.talend.component.list.display.Cell;
+import org.talend.component.list.Item;
+import org.talend.component.list.display.Table;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;

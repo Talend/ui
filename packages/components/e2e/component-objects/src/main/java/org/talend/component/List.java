@@ -1,7 +1,7 @@
 package org.talend.component;
 
-import org.talend.component.list.large.Large;
-import org.talend.component.list.table.Table;
+import org.talend.component.list.display.Large;
+import org.talend.component.list.display.Table;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

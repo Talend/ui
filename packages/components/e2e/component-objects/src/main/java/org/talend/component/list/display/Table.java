@@ -1,7 +1,9 @@
-package org.talend.component.list.table;
+package org.talend.component.list.display;
 
 import org.openqa.selenium.*;
-import org.talend.component.list.ListItems;
+import org.talend.component.list.Display;
+import org.talend.component.list.Item;
+import org.talend.component.list.ListDisplay;
 
 import java.util.List;
 
@@ -10,7 +12,7 @@ import static java.util.stream.Collectors.toList;
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Table.
  */
-public class Table extends ListItems {
+public class Table extends ListDisplay implements Display {
 
     private static final String NAME = "Table";
 
@@ -46,10 +48,6 @@ public class Table extends ListItems {
         return this.getElement().findElement(By.cssSelector(TABLE_GRID_SELECTOR));
     }
 
-    public WebElement getFirstElement() {
-        return this.getElement().findElement(By.cssSelector(TABLE_ITEM_SELECTOR));
-    }
-
     /**
      * Get the headers.
      *
@@ -81,50 +79,6 @@ public class Table extends ListItems {
                 .stream() //
                 .map(webElement -> new Item(driver, webElement)) //
                 .collect(toList());
-    }
-
-    /**
-     * Get a specific item, find by the item title.
-     * It should be unique in the list.
-     *
-     * @param itemTitle The item title
-     * @return The Item
-     */
-    public Item getItem(final String itemTitle) {
-        this.scrollToTop();
-        Item item = null;
-
-        while (item == null) {
-            item = getDisplayedItems() //
-                    .stream() //
-                    .filter(nextItem -> {
-                        final WebElement title = nextItem.getTitle();
-                        return title != null && itemTitle.equalsIgnoreCase(title.getText());
-                    }) //
-                    .findFirst() //
-                    .orElse(null);
-
-            if (item == null && !this.scrollDown()) {
-                throw new NotFoundException("List table item not found with title " + itemTitle);
-            }
-        }
-
-        return item;
-    }
-
-    /**
-     * Test if an item exists, based on its title
-     *
-     * @param itemTitle Title label of the list item
-     * @return true if the item is in the list
-     */
-    public Boolean hasItem(String itemTitle) {
-        try {
-            this.getItem(itemTitle);
-        } catch (NotFoundException e) {
-            return false;
-        }
-        return true;
     }
 
     /**
