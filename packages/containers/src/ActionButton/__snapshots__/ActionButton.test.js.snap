@@ -6,6 +6,7 @@ exports[`CMF(Container(ActionButton)) should inject a component overlay 1`] = `
   bsStyle="default"
   disabled={false}
   inProgress={false}
+  loading={false}
   onClick={[Function]}
   overlayComponent={
     <Inject
@@ -25,6 +26,7 @@ exports[`CMF(Container(ActionButton)) should render 1`] = `
   disabled={false}
   extra="foo"
   inProgress={false}
+  loading={false}
   onClick={[Function]}
   tooltipPlacement="top"
 />
