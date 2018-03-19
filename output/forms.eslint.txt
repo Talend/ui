@@ -19,5 +19,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
 
-✖ 5 problems (5 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
+  287:5   error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
+  322:45  error  ["readonly"] is better written in dot notation                                                                   dot-notation
+
+✖ 7 problems (7 errors, 0 warnings)
 
