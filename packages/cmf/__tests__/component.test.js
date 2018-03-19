@@ -16,11 +16,15 @@ describe('component', () => {
 		foo.expressions = {
 			baz: function baz() {},
 		};
+		foo.sagas = {
+			bas: function bas() {},
+		};
 		component.register('foo', foo, context);
-		expect(Object.keys(context.registry).length).toBe(3);
+		expect(Object.keys(context.registry).length).toBe(4);
 		expect(context.registry['_.route.component:foo']).toBe(foo);
 		expect(context.registry['expression:baz']).toBe(foo.expressions.baz);
 		expect(context.registry['actionCreator:bar']).toBe(foo.actions.bar);
+		expect(context.registry['SAGA:bas']).toBe(foo.sagas.bas);
 	});
 	it('get should return component registred', () => {
 		function foo() {}
