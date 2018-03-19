@@ -69,4 +69,19 @@ describe('Item', () => {
 		// then
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	it('should display value if it is a string', () => {
+		const props = {
+			item: {
+				...item,
+				values: 'toto',
+			},
+		};
+
+		const wrapper = renderer.create(
+			<Item {...props} />
+		).toJSON();
+
+		expect(wrapper).toMatchSnapshot();
+	});
 });
