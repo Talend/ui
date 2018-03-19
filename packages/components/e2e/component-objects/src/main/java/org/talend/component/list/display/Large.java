@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.talend.component.list.Display;
 import org.talend.component.list.Item;
 import org.talend.component.list.ListDisplay;
 

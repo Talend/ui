@@ -10,7 +10,7 @@ import java.util.List;
 /**
  *  Abtract class Container for List component
  */
-public abstract class ListDisplay extends Component {
+public abstract class ListDisplay extends Component implements Display {
 
     abstract public WebElement getElementToScroll();
     abstract public List<Item> getDisplayedItems();

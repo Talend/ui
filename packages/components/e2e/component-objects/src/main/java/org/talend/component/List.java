@@ -1,5 +1,7 @@
 package org.talend.component;
 
+import org.openqa.selenium.NotFoundException;
+import org.talend.component.list.Display;
 import org.talend.component.list.display.Large;
 import org.talend.component.list.display.Table;
 import org.openqa.selenium.By;
@@ -105,5 +107,20 @@ public class List extends Component {
      */
     public Table getTable(final String id) {
         return new Table(driver, id);
+    }
+
+    /**
+     * Get the table display element manager.
+     *
+     * @return table the table element manager
+     */
+    public Display getDisplay() {
+        Large large = new Large(driver);
+        try {
+            large.getElementToScroll();
+        } catch (NotFoundException e) {
+            return new Table(driver);
+        }
+        return large;
     }
 }

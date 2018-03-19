@@ -12,7 +12,7 @@ import static java.util.stream.Collectors.toList;
 /**
  * A List is used to easy access to WebElements of the react-talend-component List component - Table.
  */
-public class Table extends ListDisplay implements Display {
+public class Table extends ListDisplay {
 
     private static final String NAME = "Table";
 
