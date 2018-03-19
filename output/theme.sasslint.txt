@@ -10,10 +10,11 @@ src/theme/_dropdowns.scss
   22:22  error  !important not allowed  no-important
 
 src/theme/_forms.scss
-  128:7   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  364:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  377:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  467:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  111:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  127:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  358:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  371:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  461:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
@@ -21,5 +22,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 10 problems (7 errors, 3 warnings)
+✖ 11 problems (8 errors, 3 warnings)
 
