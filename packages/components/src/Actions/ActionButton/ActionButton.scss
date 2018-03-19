@@ -1,3 +1,8 @@
 .btn-disabled {
 	pointer-events: none;
 }
+
+.tc-action-button-skeleton-circle {
+	margin-left: $padding-smaller;
+	margin-right: $padding-small;
+}

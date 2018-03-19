@@ -188,7 +188,7 @@ describe('#DataGrid', () => {
 		shallow(<DataGrid {...props} />);
 		expect(getColumnDefsFn).toHaveBeenCalledWith(sample);
 		expect(getPinnedColumnDefsFn).toHaveBeenCalledWith(sample);
-		expect(getRowDataFn).toHaveBeenCalledWith(sample);
+		expect(getRowDataFn).toHaveBeenCalledWith(sample, 0);
 	});
 
 	it('should render one Skeleton is InProgress', () => {
