@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { translate } from 'react-i18next';
 import Badge from '@talend/react-components/lib/Badge';
 import Typeahead from '@talend/react-components/lib/Typeahead';
 import classNames from 'classnames';
 import keycode from 'keycode';
 import theme from './MultiSelectTagWidget.scss';
+import I18N_DOMAIN_FORMS from "../../constants";
+import {DEFAULT_I18N} from "../../translate";
 
 const DROP_DOWN_ITEM_HEIGHT = 49;
 
@@ -40,7 +43,7 @@ function filterOptions(props) {
 	return transformOptions(props.options).filter(option => props.value.indexOf(option.value) < 0);
 }
 
-class MultiSelectTagWidget extends React.Component {
+export class MultiSelectTagWidget extends React.Component {
 	constructor(props) {
 		super(props);
 		this.withCategory = typeof props.options.groupBy !== 'undefined';
@@ -278,13 +281,15 @@ class MultiSelectTagWidget extends React.Component {
 	}
 
 	render() {
-		const { value, readonly, options, id, noAvailableMessage } = this.props;
+		const { value, readonly, options, id, noAvailableMessage, t } = this.props;
 		const valueToLabel = mapValueToLabel(transformOptions(options));
 		let badgeValue;
 		let badgeProps;
 		const defaultLabel = readonly &&
 			(!options.enumOptions || !options.enumOptions.length) && (
-				<label className="control-label">none</label>
+				<label className="control-label" htmlFor={id}>
+					{t('MULTISELECTTAG_WIDGET_NONE', { defaultValue: 'none' })}
+				</label>
 			);
 
 		const caret = !readonly && (
@@ -319,7 +324,7 @@ class MultiSelectTagWidget extends React.Component {
 
 		return (
 			<div
-				className={classNames(readonly && theme['readonly'], 'dropdown')}
+				className={classNames(readonly && theme.readonly, 'dropdown')}
 				ref={component => this.setComponentRef(component)}
 			>
 				{caret}
@@ -363,4 +368,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default MultiSelectTagWidget;
+export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(MultiSelectTagWidget);
