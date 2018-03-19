@@ -1,180 +1,268 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dialog should render 1`] = `
-<div
+<Modal
+  animation={true}
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
   bsSize={undefined}
-  className="Modal"
-  keyboard={undefined}
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[Function]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
   show={true}
 >
-  <div
-    className="Body"
+  <ModalBody
+    bsClass="modal-body"
+    componentClass="div"
   >
     <div>
       BODY
     </div>
-  </div>
-</div>
+  </ModalBody>
+</Modal>
 `;
 
 exports[`Dialog should render action 1`] = `
-<div
+<Modal
+  animation={true}
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
   bsSize={undefined}
-  className="Modal"
-  keyboard={undefined}
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[Function]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
   show={true}
 >
-  <div
-    className="Header"
+  <ModalHeader
+    bsClass="modal-header"
     closeButton={true}
+    closeLabel="Close"
   >
-    <div
-      className="Title"
+    <ModalTitle
+      bsClass="modal-title"
+      componentClass="h4"
     >
       Hello world
-    </div>
-  </div>
-  <div
-    className="Body"
+    </ModalTitle>
+  </ModalHeader>
+  <ModalBody
+    bsClass="modal-body"
+    componentClass="div"
   >
     <div>
       BODY
     </div>
-  </div>
-  <div
-    className="Footer"
+  </ModalBody>
+  <ModalFooter
+    bsClass="modal-footer"
+    componentClass="div"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
+    <Action
+      label="OK"
       onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
-    >
-      <span>
-        OK
-      </span>
-    </button>
-  </div>
-</div>
+    />
+  </ModalFooter>
+</Modal>
 `;
 
 exports[`Dialog should render header 1`] = `
-<div
+<Modal
+  animation={true}
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
   bsSize={undefined}
-  className="Modal"
-  keyboard={undefined}
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[Function]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
   show={true}
 >
-  <div
-    className="Header"
+  <ModalHeader
+    bsClass="modal-header"
     closeButton={true}
+    closeLabel="Close"
   >
-    <div
-      className="Title"
+    <ModalTitle
+      bsClass="modal-title"
+      componentClass="h4"
     >
       Hello world
-    </div>
-  </div>
-  <div
-    className="Body"
+    </ModalTitle>
+  </ModalHeader>
+  <ModalBody
+    bsClass="modal-body"
+    componentClass="div"
   >
     <div>
       BODY
     </div>
-  </div>
-</div>
+  </ModalBody>
+</Modal>
 `;
 
 exports[`Dialog should render large 1`] = `
-<div
+<Modal
+  animation={true}
+  autoFocus={true}
   backdrop={false}
+  bsClass="modal"
   bsSize="large"
-  className="Modal"
   dialogClassName="customDialogClassName"
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
   keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
   onHide={[Function]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
   show={true}
 >
-  <div
-    className="Header"
+  <ModalHeader
+    bsClass="modal-header"
     closeButton={true}
+    closeLabel="Close"
   >
-    <div
-      className="Title"
+    <ModalTitle
+      bsClass="modal-title"
+      componentClass="h4"
     >
       Hello world
-    </div>
-  </div>
-  <div
-    className="Body"
+    </ModalTitle>
+  </ModalHeader>
+  <ModalBody
+    bsClass="modal-body"
+    componentClass="div"
   >
     <div>
       BODY
     </div>
-  </div>
-  <div
-    className="Footer"
+  </ModalBody>
+  <ModalFooter
+    bsClass="modal-footer"
+    componentClass="div"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
+    <Action
+      label="OK"
       onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
-    >
-      <span>
-        OK
-      </span>
-    </button>
-  </div>
-</div>
+    />
+  </ModalFooter>
+</Modal>
 `;
 
 exports[`Dialog should render small 1`] = `
-<div
+<Modal
+  animation={true}
+  autoFocus={true}
   backdrop={false}
+  bsClass="modal"
   bsSize="small"
-  className="Modal"
   dialogClassName="customDialogClassName"
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
   keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
   onHide={[Function]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
   show={true}
 >
-  <div
-    className="Header"
+  <ModalHeader
+    bsClass="modal-header"
     closeButton={true}
+    closeLabel="Close"
   >
-    <div
-      className="Title"
+    <ModalTitle
+      bsClass="modal-title"
+      componentClass="h4"
     >
       Hello world
-    </div>
-  </div>
-  <div
-    className="Body"
+    </ModalTitle>
+  </ModalHeader>
+  <ModalBody
+    bsClass="modal-body"
+    componentClass="div"
   >
     <div>
       BODY
     </div>
-  </div>
-  <div
-    className="Footer"
+  </ModalBody>
+  <ModalFooter
+    bsClass="modal-footer"
+    componentClass="div"
   >
-    <button
-      className="btn btn-default"
-      disabled={false}
+    <Action
+      label="OK"
       onClick={[Function]}
-      onMouseDown={[Function]}
-      role={null}
-      type="button"
-    >
-      <span>
-        OK
-      </span>
-    </button>
-  </div>
-</div>
+    />
+  </ModalFooter>
+</Modal>
 `;
