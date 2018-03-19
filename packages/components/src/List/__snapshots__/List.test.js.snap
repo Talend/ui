@@ -5187,6 +5187,7 @@ exports[`List should render 1`] = `
                           icon="talend-search"
                           inProgress={false}
                           label="Toggle filter"
+                          loading={false}
                           onClick={[Function]}
                           tooltipPlacement="top"
                         >
@@ -10439,6 +10440,7 @@ exports[`List should render id if provided 1`] = `
                           id="context-filter"
                           inProgress={false}
                           label="Toggle filter"
+                          loading={false}
                           onClick={[Function]}
                           tooltipPlacement="top"
                         >
