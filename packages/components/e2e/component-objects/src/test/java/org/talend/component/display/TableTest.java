@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import org.talend.component.StorybookTest;
-import org.talend.component.list.display.Cell;
+import org.talend.component.list.Cell;
 import org.talend.component.list.Item;
 import org.talend.component.list.display.Table;
 

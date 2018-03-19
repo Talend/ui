@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.talend.component.Component;
-import org.talend.component.list.display.Cell;
 
 import java.util.List;
 
@@ -24,9 +23,9 @@ public class Item extends Component {
 
     private static final String ITEM_TITLE_SELECTOR = ITEM_TITLE_CONTAINER_SELECTOR + " > button";
 
-    private static final String TABLE_ITEM_SELECT_CHECKBOX_SELECTOR = ".tc-list-internal-row-selector input[type=checkbox]";
+    private static final String ITEM_SELECT_CHECKBOX_SELECTOR = ".tc-list-internal-row-selector input[type=checkbox]";
 
-    private static final String TABLE_ITEM_CELL_SELECTOR = ".tc-list-cell-%s";
+    private static final String ITEM_CELL_SELECTOR = ".tc-list-cell-%s";
 
     private final WebDriverWait wait;
 
@@ -80,7 +79,7 @@ public class Item extends Component {
      * @return The checkbox WebElement
      */
     public WebElement getSelectionCheckbox() {
-        return this.getElement().findElement(By.cssSelector(TABLE_ITEM_SELECT_CHECKBOX_SELECTOR));
+        return this.getElement().findElement(By.cssSelector(ITEM_SELECT_CHECKBOX_SELECTOR));
     }
 
     /**
@@ -90,7 +89,7 @@ public class Item extends Component {
      * @return The Cell
      */
     public Cell getCell(final String columnKey) {
-        final WebElement cell = this.getElement().findElement(By.cssSelector(String.format(TABLE_ITEM_CELL_SELECTOR, columnKey)));
+        final WebElement cell = this.getElement().findElement(By.cssSelector(String.format(ITEM_CELL_SELECTOR, columnKey)));
         return new Cell(driver, cell);
     }
 

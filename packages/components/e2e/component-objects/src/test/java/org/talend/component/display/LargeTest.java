@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import org.talend.component.StorybookTest;
 import org.talend.component.list.Item;
-import org.talend.component.list.display.Cell;
 import org.talend.component.list.display.Large;
 
 import static org.hamcrest.MatcherAssert.assertThat;

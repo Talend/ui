@@ -1,4 +1,4 @@
-package org.talend.component.list.display;
+package org.talend.component.list;
 
 import org.talend.component.Component;
 import org.openqa.selenium.By;

@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public interface Display {
-    public List<Item> getDisplayedItems();
-    public Boolean hasItem(String itemTitle);
-    public Item getItem(final String itemTitle);
-    public WebElement getElement() throws NotFoundException;
+    List<Item> getDisplayedItems();
+    Boolean hasItem(String itemTitle);
+    Item getItem(final String itemTitle);
+    WebElement getElement() throws NotFoundException;
 }
