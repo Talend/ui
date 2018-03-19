@@ -5,7 +5,6 @@ import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.talend.component.Component;
 
 import java.util.List;
@@ -17,7 +16,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClick
  */
 public class Item extends Component {
 
-    private static final String NAME = "Item";
+    private static final String ITEM_NAME = "Item";
 
     private static final String TABLE_ITEM_TITLE_CONTAINER_SELECTOR = ".tc-list-title";
 
@@ -27,17 +26,15 @@ public class Item extends Component {
 
     private static final String TABLE_ITEM_CELL_SELECTOR = ".tc-list-cell-%s";
 
-    private final WebDriverWait wait;
 
     /**
      * Constructor.
      *
      * @param driver Selenium WebDriver
-     * @param root The Item WebElement. This will scope the selection
+     * @param root   The Item WebElement. This will scope the selection
      */
     public Item(final WebDriver driver, final WebElement root) {
-        super(driver, NAME, root);
-        this.wait = new WebDriverWait(driver, 1);
+        super(driver, ITEM_NAME, root);
     }
 
     /**
@@ -55,8 +52,9 @@ public class Item extends Component {
 
     /**
      * Extract current row id and build a specific action selector
+     *
      * @param actionId
-     * @return
+     * @return By
      */
     private By getActionSelector(final String actionId) {
         final String cellID = this.getElement().findElement(By.cssSelector(TABLE_ITEM_TITLE_CONTAINER_SELECTOR)).getAttribute("id");
@@ -124,7 +122,7 @@ public class Item extends Component {
      * The item action is identified by its id.
      *
      * @param columnKey The columnKey
-     * @param actionId The item action id
+     * @param actionId  The item action id
      */
     public void clickOnCellAction(final String columnKey, final String actionId) {
         WebElement button;

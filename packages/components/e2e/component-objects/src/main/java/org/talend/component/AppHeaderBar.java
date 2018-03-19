@@ -12,9 +12,9 @@ import java.util.List;
  */
 public class AppHeaderBar extends Component {
 
-    private static final String NAME = "HeaderBar";
+    private static final String HEADER_BAR_NAME = "HeaderBar";
 
-    private static final String SELECTOR = ".tc-header-bar";
+    private static final String HEADER_BAR_SELECTOR = ".tc-header-bar";
 
     private static final String LOGO_SELECTOR = ".tc-header-bar-logo";
 
@@ -32,20 +32,22 @@ public class AppHeaderBar extends Component {
 
     /**
      * AppHeaderBar constructor
+     * public constructor in order to be extended in a more specific way for each project
      *
      * @param driver Selenium WebDriver
      */
-    AppHeaderBar(WebDriver driver) {
-        super(driver, NAME, SELECTOR);
+    public AppHeaderBar(WebDriver driver) {
+        super(driver, HEADER_BAR_NAME, HEADER_BAR_SELECTOR);
     }
 
-    /** AppHeaderBar constructor
-    *
-    * @param driver Selenium WebDriver
-    * @param id Unique ID of the component
-    */
+    /**
+     * AppHeaderBar constructor
+     *
+     * @param driver Selenium WebDriver
+     * @param id     Unique ID of the component
+     */
     AppHeaderBar(WebDriver driver, String id) {
-       super(driver, NAME, id + SELECTOR);
+        super(driver, HEADER_BAR_NAME, id + HEADER_BAR_SELECTOR);
     }
 
     /**
@@ -152,4 +154,5 @@ public class AppHeaderBar extends Component {
     public void clickOnHelp() {
         this.getHelp().click();
     }
+
 }
