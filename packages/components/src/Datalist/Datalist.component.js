@@ -61,22 +61,7 @@ class Datalist extends Component {
 	onFocus(event) {
 		event.target.select();
 		this.updateGroups(this.state.value);
-		if (this.props.multiSection) {
-			this.props.titleMap.forEach((group, sectionIndex) => {
-				const focusedIndex = group.suggestions.findIndex(item => item.name === this.state.value);
-				if (focusedIndex > -1) {
-					this.setState({
-						focusedItemIndex: focusedIndex,
-						focusedSectionIndex: sectionIndex,
-					});
-				}
-			});
-		} else {
-			const index = this.props.titleMap.findIndex(item => item.name === this.state.value);
-			this.setState({
-				focusedItemIndex: index,
-			});
-		}
+		this.updateSelectedIndexes(this.state.value);
 	}
 
 	/**
@@ -124,6 +109,8 @@ class Datalist extends Component {
 				if (!this.state.groups) {
 					// display all suggestions when they are not displayed
 					this.updateGroups();
+					this.updateSelectedIndexes(this.state.value);
+					break;
 				}
 				this.setState({
 					focusedItemIndex: newHighlightedItemIndex,
@@ -153,6 +140,25 @@ class Datalist extends Component {
 			newValue = this.state.groups[sectionIndex].suggestions[itemIndex];
 		}
 		this.updateValue(event, newValue, true);
+	}
+
+	updateSelectedIndexes(value) {
+		if (this.props.multiSection) {
+			this.props.titleMap.forEach((group, sectionIndex) => {
+				const focusedIndex = group.suggestions.findIndex(item => item.name === value);
+				if (focusedIndex > -1) {
+					this.setState({
+						focusedItemIndex: focusedIndex,
+						focusedSectionIndex: sectionIndex,
+					});
+				}
+			});
+		} else {
+			const index = this.props.titleMap.findIndex(item => item.name === value);
+			this.setState({
+				focusedItemIndex: index,
+			});
+		}
 	}
 
 	/**
@@ -191,8 +197,8 @@ class Datalist extends Component {
 	 * This remove the suggestions.
 	 */
 	resetValue() {
+		this.resetSuggestions();
 		this.setState({
-			groups: undefined,
 			value: this.state.previousValue,
 		});
 	}
