@@ -1,6 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Datalist component should render typeahead multisection 1`] = `
+exports[`Datalist component should render a typeahead 1`] = `
+<div
+  className="theme-tc-datalist"
+>
+  <form
+    className="theme-tc-datalist-form"
+  >
+    <Typeahead
+      autoFocus={true}
+      disabled={false}
+      docked={false}
+      focusedItemIndex={undefined}
+      focusedSectionIndex={undefined}
+      id="my-datalist"
+      items={null}
+      multiSection={false}
+      noResultText="No result."
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onSelect={[Function]}
+      placeholder="Type here"
+      position="left"
+      readOnly={false}
+      searching={false}
+      searchingText="Searching for matches…"
+      theme={
+        Object {
+          "container": "theme-container tc-datalist-container",
+          "itemsContainer": "theme-items-container",
+          "itemsList": "theme-items",
+        }
+      }
+      value="foo"
+    />
+  </form>
+  <div
+    className="theme-toggle"
+  >
+    <span
+      className="caret"
+    />
+  </div>
+</div>
+`;
+
+exports[`Datalist component should update grouped suggestions on value change 1`] = `
 <Datalist component
   autoFocus={true}
   disabled={false}
@@ -55,51 +102,4 @@ exports[`Datalist component should render typeahead multisection 1`] = `
   }
   value="toto"
 />
-`;
-
-exports[`Datalist component should render typeahead single section 1`] = `
-<div
-  className="theme-tc-datalist"
->
-  <form
-    className="theme-tc-datalist-form"
-  >
-    <Typeahead
-      autoFocus={true}
-      disabled={false}
-      docked={false}
-      focusedItemIndex={undefined}
-      focusedSectionIndex={undefined}
-      id="my-datalist"
-      items={null}
-      multiSection={false}
-      noResultText="No result."
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onSelect={[Function]}
-      placeholder="Type here"
-      position="left"
-      readOnly={false}
-      searching={false}
-      searchingText="Searching for matches…"
-      theme={
-        Object {
-          "container": "theme-container tc-datalist-container",
-          "itemsContainer": "theme-items-container",
-          "itemsList": "theme-items",
-        }
-      }
-      value="foo"
-    />
-  </form>
-  <div
-    className="theme-toggle"
-  >
-    <span
-      className="caret"
-    />
-  </div>
-</div>
 `;
