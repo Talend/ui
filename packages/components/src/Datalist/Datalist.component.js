@@ -46,16 +46,6 @@ class Datalist extends Component {
 	}
 
 	/**
-	 * Reset the focused item and section
-	 */
-	resetSelection() {
-		this.setState({
-			focusedItemIndex: undefined,
-			focusedSectionIndex: undefined,
-		});
-	}
-
-	/**
 	 * Update value (non persistent) on input value change and update the suggestions
 	 * @param event the change event
 	 * @param value
@@ -155,6 +145,16 @@ class Datalist extends Component {
 			newValue = this.state.groups[sectionIndex].suggestions[itemIndex];
 		}
 		this.updateValue(event, newValue, true);
+	}
+
+	/**
+	 * Reset the focused item and section
+	 */
+	resetSelection() {
+		this.setState({
+			focusedItemIndex: undefined,
+			focusedSectionIndex: undefined,
+		});
 	}
 
 	/**
@@ -264,7 +264,7 @@ class Datalist extends Component {
 					.map(group => ({
 						...group,
 						suggestions:
-							value != this.state.previousValue
+							value !== this.state.previousValue
 								? group.suggestions.filter(item => regex.test(item.title))
 								: group.suggestions,
 					}))
@@ -272,7 +272,7 @@ class Datalist extends Component {
 			} else {
 				// only one group so items are inline
 				groups =
-					value != this.state.previousValue
+					value !== this.state.previousValue
 						? groups.filter(itemValue => regex.test(itemValue))
 						: groups;
 			}
