@@ -61,4 +61,16 @@ describe('Item', () => {
 		expect(buttons.length).toBe(3);
 		expect(props.item.itemProps.onSelectItem).toBeCalled();
 	});
+
+	it('should display a label if "item[key]" is a string', () => {
+		const props = {
+			item: {
+				...item,
+				values: 'toto',
+			},
+		};
+
+		const wrapper = mount(<Item {...props} />);
+		expect(wrapper.find('span').text()).toEqual('toto');
+	});
 });
