@@ -163,15 +163,18 @@ class Datalist extends Component {
 	 */
 	updateSelectedIndexes(value) {
 		if (this.props.multiSection) {
-			this.props.titleMap.forEach((group, sectionIndex) => {
-				const focusedIndex = group.suggestions.findIndex(item => item.name === value);
+			const groups = this.props.titleMap;
+			for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex++) {
+				const focusedIndex =
+					groups[sectionIndex].suggestions.findIndex(item => item.name === value);
 				if (focusedIndex > -1) {
 					this.setState({
 						focusedItemIndex: focusedIndex,
 						focusedSectionIndex: sectionIndex,
 					});
+					break;
 				}
-			});
+			}
 		} else {
 			const index = this.props.titleMap.findIndex(item => item.name === value);
 			this.setState({
@@ -198,12 +201,14 @@ class Datalist extends Component {
 		if (persist) {
 			let enumValue = this.props.titleMap.find(item => item.name === value);
 			if (this.props.multiSection) {
-				this.props.titleMap.forEach(group => {
-					const itemObj = group.suggestions.find(item => item.name === value.title);
+				const groups = this.props.titleMap;
+				for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex++) {
+					const itemObj = groups[sectionIndex].suggestions.find(item => item.name === value.title);
 					if (itemObj) {
 						enumValue = itemObj;
+						break;
 					}
-				});
+				}
 			}
 			const payload = { value: get(enumValue, 'value', value) };
 			this.props.onChange(event, payload);
