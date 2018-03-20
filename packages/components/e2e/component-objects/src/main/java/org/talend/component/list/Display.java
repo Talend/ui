@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface Display {
     List<Item> getDisplayedItems();
-    Boolean hasItem(String itemTitle);
+    Boolean hasItem(final String itemTitle);
     Item getItem(final String itemTitle);
     WebElement getElement() throws NotFoundException;
 }
