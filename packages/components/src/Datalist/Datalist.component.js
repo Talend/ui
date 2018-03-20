@@ -91,7 +91,7 @@ class Datalist extends Component {
 				this.resetValue();
 				break;
 			case keycode.codes.enter:
-				if (!this.state.groups) {
+				if (!this.state.suggestions) {
 					break;
 				}
 				event.preventDefault();
@@ -111,7 +111,7 @@ class Datalist extends Component {
 				break;
 			case keycode.codes.down:
 				event.preventDefault();
-				if (!this.state.groups) {
+				if (!this.state.suggestions) {
 					// display all suggestions when they are not displayed
 					this.updateSuggestions();
 					this.updateSelectedIndexes(this.state.value);
@@ -140,9 +140,9 @@ class Datalist extends Component {
 	 * @param itemIndex The item index in suggestions list
 	 */
 	onSelect(event, { sectionIndex, itemIndex }) {
-		let newValue = this.state.groups[itemIndex];
+		let newValue = this.state.suggestions[itemIndex];
 		if (this.props.multiSection) {
-			newValue = this.state.groups[sectionIndex].suggestions[itemIndex];
+			newValue = this.state.suggestions[sectionIndex].suggestions[itemIndex];
 		}
 		this.updateValue(event, newValue, true);
 	}
@@ -278,7 +278,7 @@ class Datalist extends Component {
 			}
 		}
 
-		this.setState({ groups });
+		this.setState({ suggestions: groups });
 	}
 
 	/**
@@ -286,7 +286,7 @@ class Datalist extends Component {
 	 */
 	resetSuggestions() {
 		this.setState({
-			groups: undefined,
+			suggestions: undefined,
 		});
 		this.resetSelection();
 	}
@@ -301,7 +301,7 @@ class Datalist extends Component {
 						disabled={this.props.disabled || false}
 						focusedItemIndex={this.state.focusedItemIndex}
 						focusedSectionIndex={this.state.focusedSectionIndex}
-						items={this.state.groups}
+						items={this.state.suggestions}
 						multiSection={this.props.multiSection}
 						onBlur={this.onBlur}
 						onChange={this.onChange}
