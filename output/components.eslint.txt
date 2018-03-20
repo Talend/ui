@@ -8,6 +8,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
 
+/home/travis/build/Talend/ui/packages/components/src/Datalist/Datalist.component.js
+  48:2  error  resetSelection should be placed after onSelect  react/sort-comp
+
 /home/travis/build/Talend/ui/packages/components/src/Datalist/Datalist.component.test.js
   331:5  error  Value must be omitted for boolean attributes  react/jsx-boolean-value
 
@@ -32,5 +35,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 12 problems (11 errors, 1 warning)
+✖ 13 problems (12 errors, 1 warning)
 
