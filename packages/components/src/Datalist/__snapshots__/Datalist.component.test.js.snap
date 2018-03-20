@@ -56,7 +56,6 @@ exports[`Datalist component should update grouped suggestions on value change 1`
   isValid={true}
   multiSection={true}
   onChange={[Function]}
-  onFinish={[Function]}
   placeholder="Type here"
   readOnly={false}
   title="My List"

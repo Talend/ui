@@ -35,7 +35,6 @@ describe('Datalist component', () => {
 				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
-				onFinish={jest.fn()}
 				{...props}
 				value={'foo'}
 			/>,
@@ -56,7 +55,6 @@ describe('Datalist component', () => {
 				multiSection
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
-				onFinish={jest.fn()}
 				{...multiSectionProps}
 				value={'toto'}
 			/>,
@@ -85,7 +83,6 @@ describe('Datalist component', () => {
 				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
-				onFinish={jest.fn()}
 				{...props}
 				value={'toto'}
 			/>,
@@ -103,7 +100,6 @@ describe('Datalist component', () => {
 	it('should reset suggestions and change value on blur', () => {
 		// given
 		const onChange = jest.fn();
-		const onFinish = jest.fn();
 		const wrapper = mount(
 			<Datalist
 				id={'my-datalist'}
@@ -111,7 +107,6 @@ describe('Datalist component', () => {
 				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={onChange}
-				onFinish={onFinish}
 				{...props}
 				value={'foo'}
 			/>,
@@ -126,7 +121,6 @@ describe('Datalist component', () => {
 		// then
 		const payload = { value: 'fo' };
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
-		expect(onFinish).toBeCalledWith(expect.anything(), payload);
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
@@ -139,7 +133,6 @@ describe('Datalist component', () => {
 				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
-				onFinish={jest.fn()}
 				{...props}
 				value={'foo'}
 			/>,
@@ -166,7 +159,6 @@ describe('Datalist component', () => {
 				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
-				onFinish={jest.fn()}
 				{...props}
 				value={'foo'}
 			/>,
@@ -197,7 +189,6 @@ describe('Datalist component', () => {
 				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
-				onFinish={jest.fn()}
 				{...props}
 				value={'foo'}
 			/>,
@@ -217,7 +208,6 @@ describe('Datalist component', () => {
 	it('should change value on ENTER keydown with no selected suggestion', () => {
 		// given
 		const onChange = jest.fn();
-		const onFinish = jest.fn();
 		const wrapper = mount(
 			<Datalist
 				id={'my-datalist'}
@@ -225,7 +215,6 @@ describe('Datalist component', () => {
 				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={onChange}
-				onFinish={onFinish}
 				{...props}
 				value={'foo'}
 			/>,
@@ -240,7 +229,6 @@ describe('Datalist component', () => {
 		// then
 		const payload = { value: 'fo' };
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
-		expect(onFinish).toBeCalledWith(expect.anything(), payload);
 	});
 
 	it('should reset suggestions on ENTER keydown', () => {
@@ -252,7 +240,6 @@ describe('Datalist component', () => {
 				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
-				onFinish={jest.fn()}
 				{...props}
 				value={'foo'}
 			/>,
@@ -277,7 +264,6 @@ describe('Datalist component', () => {
 				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
-				onFinish={jest.fn()}
 				{...props}
 				value={'foo'}
 			/>,
@@ -305,7 +291,6 @@ describe('Datalist component', () => {
 				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
-				onFinish={jest.fn()}
 				{...props}
 				value={'foobar'}
 			/>,
@@ -330,7 +315,6 @@ describe('Datalist component', () => {
 				multiSection
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
-				onFinish={jest.fn()}
 				{...sectionProps}
 				value={'foobar'}
 			/>,
