@@ -21,7 +21,9 @@ class Datalist extends Component {
 	 * @param payload
 	 */
 	onChange(event, payload) {
-		this.props.onChange(event, { ...payload, schema: this.props.schema });
+		const payloadWithSchema = { ...payload, schema: this.props.schema };
+		this.props.onChange(event, payloadWithSchema);
+		this.onFinish(event, payloadWithSchema);
 	}
 
 	/**
@@ -30,7 +32,7 @@ class Datalist extends Component {
 	 * @param payload
 	 */
 	onFinish(event, payload) {
-		this.props.onFinish(event, { ...payload, schema: this.props.schema });
+		this.props.onFinish(event, payload);
 	}
 
 	render() {
@@ -49,7 +51,6 @@ class Datalist extends Component {
 						id={`${this.props.id}`}
 						disabled={this.props.schema.disabled || false}
 						multiSection={false}
-						onFinish={this.onFinish}
 						onChange={this.onChange}
 						placeholder={this.props.schema.placeholder}
 						readOnly={this.props.schema.readOnly || false}

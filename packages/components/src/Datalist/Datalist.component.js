@@ -207,7 +207,6 @@ class Datalist extends Component {
 			}
 			const payload = { value: get(enumValue, 'value', value) };
 			this.props.onChange(event, payload);
-			this.props.onFinish(event, payload);
 		}
 	}
 
@@ -328,7 +327,6 @@ if (process.env.NODE_ENV !== 'production') {
 		autoFocus: PropTypes.bool,
 		id: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
-		onFinish: PropTypes.func.isRequired,
 		disabled: PropTypes.bool,
 		multiSection: PropTypes.bool.isRequired,
 		placeholder: PropTypes.string,
