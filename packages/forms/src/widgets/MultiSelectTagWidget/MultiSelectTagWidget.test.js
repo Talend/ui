@@ -57,7 +57,7 @@ describe('MultiSelectTagWidget', () => {
 		};
 
 		const wrapper = mount(
-			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />
+			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
 		);
 
 		// when
@@ -92,7 +92,7 @@ describe('MultiSelectTagWidget', () => {
 		};
 
 		const wrapper = mount(
-			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />
+			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
 		);
 
 		// when
@@ -138,7 +138,7 @@ describe('MultiSelectTagWidget', () => {
 		};
 
 		const wrapper = mount(
-			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />
+			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
 		);
 
 		// when
