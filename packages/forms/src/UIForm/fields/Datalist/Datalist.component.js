@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import DataList from '@talend/react-components/lib/Datalist';
+import DataListComponent from '@talend/react-components/lib/Datalist';
 import FieldTemplate from '../FieldTemplate';
 import theme from './Datalist.scss';
 
@@ -18,7 +18,7 @@ class Datalist extends Component {
 	/**
 	 * on change callback
 	 * @param event
-	 * @param value
+	 * @param payload
 	 */
 	onChange(event, payload) {
 		this.props.onChange(event, { ...payload, schema: this.props.schema });
@@ -27,7 +27,7 @@ class Datalist extends Component {
 	/**
 	 * on finish callback
 	 * @param event
-	 * @param value
+	 * @param payload
 	 */
 	onFinish(event, payload) {
 		this.props.onFinish(event, { ...payload, schema: this.props.schema });
@@ -44,7 +44,7 @@ class Datalist extends Component {
 				required={this.props.schema.required}
 			>
 				<div className={theme['tf-datalist']}>
-					<DataList
+					<DataListComponent
 						autoFocus={this.props.schema.autoFocus || false}
 						id={`${this.props.id}`}
 						disabled={this.props.schema.disabled || false}
