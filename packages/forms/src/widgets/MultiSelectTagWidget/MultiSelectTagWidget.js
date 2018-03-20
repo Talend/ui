@@ -43,7 +43,7 @@ function filterOptions(props) {
 	return transformOptions(props.options).filter(option => props.value.indexOf(option.value) < 0);
 }
 
-export class MultiSelectTagWidget extends React.Component {
+export class MultiSelectTagWidgetComponent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.withCategory = typeof props.options.groupBy !== 'undefined';
@@ -354,7 +354,7 @@ export class MultiSelectTagWidget extends React.Component {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-	MultiSelectTagWidget.propTypes = {
+	MultiSelectTagWidgetComponent.propTypes = {
 		id: PropTypes.string,
 		value: PropTypes.array, //eslint-disable-line
 		options: PropTypes.shape({
@@ -365,7 +365,8 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func,
 		schema: PropTypes.object.isRequired, //eslint-disable-line
 		noAvailableMessage: PropTypes.string,
+		t: PropTypes.func,
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(MultiSelectTagWidget);
+export default translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(MultiSelectTagWidgetComponent);
