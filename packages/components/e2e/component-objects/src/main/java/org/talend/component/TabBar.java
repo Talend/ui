@@ -30,7 +30,7 @@ public class TabBar extends Component {
      *
      * @param driver Selenium WebDriver
      */
-    TabBar(WebDriver driver) {
+    public TabBar(WebDriver driver) {
         super(driver, NAME, SELECTOR);
     }
 
@@ -40,7 +40,7 @@ public class TabBar extends Component {
      * @param driver Selenium WebDriver
      * @param id Unique ID of the component
      */
-    TabBar(WebDriver driver, String id) {
+    public TabBar(WebDriver driver, String id) {
         super(driver, NAME, id + SELECTOR);
     }
 
