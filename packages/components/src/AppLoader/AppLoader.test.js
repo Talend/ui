@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import LoaderApp from './LoaderApp.component';
+import AppLoader from './AppLoader.component';
 
-describe('LoaderApp', () => {
+describe('AppLoader', () => {
 	it('should render', () => {
-		const wrapper = shallow(<LoaderApp />);
+		const wrapper = shallow(<AppLoader />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

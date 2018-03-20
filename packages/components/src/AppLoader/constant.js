@@ -17,21 +17,21 @@ const LOADER_STYLE = `@keyframes app-loader-spin {
 	}
 }
 
-.tc-loader-app-container {
+.tc-app-loader-container {
 	display: flex;
 	height: 100vh;
 	width: 100vw;
 	background: #f6f6f6;
 }
 
-.tc-loader-app {
+.tc-app-loader {
 	width: 16.5rem;
 	height: 16.5rem;
 	margin: auto;
 }
 
-.tc-loader-app:before,
-.tc-loader-app:after {
+.tc-app-loader:before,
+.tc-app-loader:after {
 	animation: app-loader-spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 	box-sizing: border-box;
 	content: '';
@@ -45,15 +45,15 @@ const LOADER_STYLE = `@keyframes app-loader-spin {
 	border-color: #ababab transparent transparent transparent;
 }
 
-.tc-loader-app:before {
+.tc-app-loader:before {
 	animation-delay: -0.3s;
 }
 
-.tc-loader-app:after {
+.tc-app-loader:after {
 	animation-delay: -0.15s;
 }
 
-.tc-loader-app-icon:before {
+.tc-app-loader-icon:before {
 	animation: app-loader-fadeIn 1.5s linear infinite;
 	background-image: ICON_BASE_64;
 	content: '';
@@ -63,9 +63,9 @@ const LOADER_STYLE = `@keyframes app-loader-spin {
 	border-radius: 50%;
 }`;
 
-const LOADER_APP = `<div class="tc-loader-app-container">
-	<div class="tc-loader-app">
-		<div class="tc-loader-app-icon"></div>
+const APP_LOADER = `<div class="tc-app-loader-container">
+	<div class="tc-app-loader">
+		<div class="tc-app-loader-icon"></div>
 	</div>
 </div>
 `;
@@ -75,6 +75,6 @@ function getLoaderStyle(icon = '') {
 }
 
 export default {
-	LOADER_APP,
+	APP_LOADER,
 	getLoaderStyle,
 };

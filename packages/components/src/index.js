@@ -11,6 +11,7 @@ import {
 } from './Actions';
 import ActionBar from './ActionBar';
 import ActionList from './ActionList';
+import AppLoader from './AppLoader';
 import Notification from './Notification';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
@@ -32,7 +33,6 @@ import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
 import List from './List';
 import Loader from './Loader';
-import LoaderApp from './LoaderApp';
 import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
 import Skeleton from './Skeleton';
@@ -126,6 +126,7 @@ export {
 	ActionFile,
 	ActionIconToggle,
 	ActionSplitDropdown,
+	AppLoader,
 	Badge,
 	Breadcrumbs,
 	Checkbox,
@@ -148,7 +149,6 @@ export {
 	List,
 	ListView,
 	Loader,
-	LoaderApp,
 	Notification,
 	ObjectViewer,
 	Progress,

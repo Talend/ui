@@ -5,7 +5,7 @@ This is a set of tools and component to build your application loader
 1. In your webpack config import Loader/App and define the icon
 
 ```javascript
-const Loader = require('@talend/react-components/lib/LoaderApp/constant').default;
+const Loader = require('@talend/react-components/lib/AppLoader/constant').default;
 const ICON = `url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR......')`;
 `;
 ```
