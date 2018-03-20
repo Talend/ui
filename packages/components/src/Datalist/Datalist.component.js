@@ -61,7 +61,7 @@ class Datalist extends Component {
 	 * @param value
 	 */
 	onChange(event, { value }) {
-		this.updateSuggestions(value, true);
+		this.updateSuggestions(value);
 		this.updateValue(event, value, false);
 		// resetting selection here in order to reinit the section + item indexes
 		this.resetSelection();
@@ -240,9 +240,11 @@ class Datalist extends Component {
 	 * Filter suggestions.
 	 * This sets at least an empty array, which means the suggestion box will always display
 	 * If the array is empty, the suggestion box will display a "No result" message
+	 * Checking if the new value is equal to previous one,
+	 * in that case we have to show all suggestions, otherwise we need to filter the suggestions
 	 * @param value The value to base suggestions on
 	 */
-	updateSuggestions(value, filterOn) {
+	updateSuggestions(value) {
 		if (this.props.readOnly || this.props.disabled) {
 			return;
 		}
@@ -257,14 +259,15 @@ class Datalist extends Component {
 				groups = groups
 					.map(group => ({
 						...group,
-						suggestions: filterOn
-							? group.suggestions.filter(item => filterOn && regex.test(item.title))
+						suggestions: value != this.state.previousValue
+							? group.suggestions.filter(item => regex.test(item.title))
 							: group.suggestions,
 					}))
 					.filter(group => group.suggestions.length > 0);
 			} else {
 				// only one group so items are inline
-				groups = filterOn ? groups.filter(itemValue => regex.test(itemValue)) : groups;
+				groups = value != this.state.previousValue ?
+					groups.filter(itemValue => regex.test(itemValue)) : groups;
 			}
 		}
 
