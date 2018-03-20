@@ -9,7 +9,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:2  error  Unexpected require()                                                                    global-require
 
 /home/travis/build/Talend/ui/packages/components/src/Datalist/Datalist.component.js
-  51:2  error  resetSelection should be placed after onSelect  react/sort-comp
+   51:2   error  resetSelection should be placed after onSelect  react/sort-comp
+  263:14  error  Expected '!==' and instead saw '!='             eqeqeq
+  271:12  error  Expected '!==' and instead saw '!='             eqeqeq
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
@@ -32,5 +34,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 12 problems (11 errors, 1 warning)
+✖ 14 problems (13 errors, 1 warning)
 
