@@ -49,7 +49,11 @@ function CellTitleSelector(props) {
 		);
 	}
 
-	return (<span id={id} className={className}>{cellData}</span>);
+	return (
+		<span id={id} className={className}>
+			{cellData}
+		</span>
+	);
 }
 
 CellTitleSelector.propTypes = {
