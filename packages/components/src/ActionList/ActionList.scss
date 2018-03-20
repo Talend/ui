@@ -3,9 +3,6 @@
 /// @group Custom widgets
 ////
 
-$list-item-hover-color: rgba($white, 0.12) !default;
-$list-item-active-color: rgba($white, 0.25) !default;
-$list-item-color: $white !default;
 $tc-action-list-item-width: 200px !default;
 $tc-action-list-item-labels-width: 135px !default;
 $tc-action-list-item-icons-size: 20px !default;
@@ -13,8 +10,6 @@ $tc-action-list-item-border-size: 2px !default;
 
 .tc-action-list {
 	.tc-action-list-item {
-		color: $list-item-color;
-
 		:global {
 			.tc-svg-icon {
 				width: $tc-action-list-item-icons-size;
@@ -24,8 +19,6 @@ $tc-action-list-item-border-size: 2px !default;
 
 			.btn.btn-link {
 				padding: $padding-normal;
-				font-size: $font-size-small;
-				text-align: left;
 				text-overflow: inherit;
 				text-transform: uppercase;
 
@@ -38,23 +31,6 @@ $tc-action-list-item-border-size: 2px !default;
 					transition: 0.1s opacity ease-out;
 				}
 			}
-		}
-
-		&:hover,
-		&.active {
-			color: $list-item-color;
-
-			:global(.tc-svg-icon) {
-				color: $list-item-color;
-			}
-		}
-
-		&:hover {
-			background-color: $list-item-hover-color;
-		}
-
-		&.active {
-			background-color: $list-item-active-color;
 		}
 	}
 }

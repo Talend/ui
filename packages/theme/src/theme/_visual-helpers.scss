@@ -78,6 +78,10 @@
 		overflow: hidden;
 		background: linear-gradient(#{$gradient-angle}, $st-tropaz, $brand-primary 95%);
 
+		.nav-inverse {
+			background-color: transparent;
+		}
+
 		&:before {
 			content: '';
 			position: absolute;
