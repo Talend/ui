@@ -57,7 +57,7 @@ class Datalist extends Component {
 
 	/**
 	 * Update value (non persistent) on input value change and update the suggestions
-	 * @param event
+	 * @param event the change event
 	 * @param value
 	 */
 	onChange(event, { value }) {
@@ -69,6 +69,7 @@ class Datalist extends Component {
 
 	/**
 	 * Display suggestions on focus
+	 * @param event the focus event
 	 */
 	onFocus(event) {
 		event.target.select();

@@ -54,7 +54,7 @@ storiesOf('Datalist', module)
 				<p>Auto focused :</p>
 				<Datalist {...propsMultiSection} />
 			</div>
-		)
+		);
 	})
 	.addWithInfo('default single section', () => {
 		const withoutAutoFocus = { ...singleSectionProps, autoFocus: false };
@@ -68,5 +68,5 @@ storiesOf('Datalist', module)
 				<p>Auto focused :</p>
 				<Datalist {...singleSectionProps} />
 			</div>
-		)
+		);
 	});
