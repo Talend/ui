@@ -126,7 +126,7 @@ export function getStateToProps({
 
 	let userProps = {};
 	if (mapStateToProps) {
-		userProps = mapStateToProps(state, props, cmfProps);
+		userProps = mapStateToProps(state, { ...props, ...ownProps }, cmfProps);
 	}
 	Object.assign(props, userProps);
 	Object.assign(props, api.expression.mapStateToProps(state, { ...ownProps, ...props }));
@@ -332,10 +332,6 @@ export default function cmfConnect({
 				};
 				if (!props.state && defaultState) {
 					props.state = defaultState;
-				}
-				// override
-				if (props.initialState && !defaultState) {
-
 				}
 				// remove all internal props already used by the container
 				CMF_PROPS.forEach(key => {
