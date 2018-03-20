@@ -3,11 +3,14 @@
 > sass-lint -v -q
 
 
+src/Datalist/Datalist.scss
+  61:13  warning  Property `padding` should be written more concisely as `0 $padding-normal` instead of `0 $padding-normal 0 $padding-normal`  shorthand-values
+
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
 
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 2 problems (0 errors, 2 warnings)
+✖ 3 problems (0 errors, 3 warnings)
 
