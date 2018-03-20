@@ -67,7 +67,6 @@ describe('Datalist component', () => {
 			.simulate('change', { target: { value: 'foo' } });
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(wrapper.find(Typeahead).props().items).toEqual([
 			{ suggestions: [{ title: 'foo' }], title: 'cat 1' },
 			{ suggestions: [{ title: 'foobar' }], title: 'cat 3' },
