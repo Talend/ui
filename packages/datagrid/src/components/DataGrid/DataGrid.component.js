@@ -26,6 +26,7 @@ export const AG_GRID = {
 
 const FOCUSED_COLUMN_CLASS_NAME = 'column-focus';
 const HEADER_HEIGHT = 55;
+const COLUMN_MIN_WIDTH = 30;
 const ROW_HEIGHT = 39;
 const CELL_WIDTH = 150;
 
@@ -59,6 +60,9 @@ export default class DataGrid extends React.Component {
 		getRowDataFn: serializer.getRowData,
 		getCellValueFn: serializer.getCellValue,
 		headerHeight: HEADER_HEIGHT,
+		columnMinWidth: COLUMN_MIN_WIDTH,
+		enableColResize: true,
+		startIndex: 0,
 		headerRenderer: 'DefaultHeaderRenderer',
 		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
 		rowHeight: ROW_HEIGHT,
@@ -152,11 +156,13 @@ export default class DataGrid extends React.Component {
 			navigateToNextCell: this.handleKeyboard,
 			onViewportChanged: this.updateStyleFocusColumn,
 			onVirtualColumnsChanged: this.updateStyleFocusColumn,
+			overlayNoRowsTemplate: this.props.overlayNoRowsTemplate,
 			ref: this.setGridInstance, // use ref in AgGridReact to get the current instance
-			rowData: this.props.getRowDataFn(this.props.data),
+			rowData: this.props.getRowDataFn(this.props.data, this.props.startIndex),
 			rowHeight: this.props.rowHeight,
 			rowSelection: this.props.rowSelection,
 			suppressDragLeaveHidesColumns: true,
+			enableColResize: this.props.enableColResize,
 			onCellFocused: this.onFocusedCell,
 			onGridReady: this.onGridReady,
 		};
@@ -173,6 +179,7 @@ export default class DataGrid extends React.Component {
 			adaptedColumnDefs = pinnedColumnDefs.map(pinnedColumnDef => ({
 				lockPosition: true,
 				pinned: 'left',
+				minWidth: this.props.columnMinWidth,
 				valueGetter: this.props.getCellValueFn,
 				width: CELL_WIDTH,
 				...pinnedColumnDef,
@@ -185,6 +192,7 @@ export default class DataGrid extends React.Component {
 				columnDefs.map(columnDef => ({
 					width: CELL_WIDTH,
 					lockPinned: true,
+					minWidth: this.props.columnMinWidth,
 					valueGetter: this.props.getCellValueFn,
 					...columnDef,
 					[AG_GRID.CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,

@@ -3,10 +3,11 @@
 /// @group Forms
 ////
 
-$form-shadow: inset 0 -1px 0 $silver-chalice;
+$form-border-bottom: solid 1px $gallery;
 $form-focus-shadow: inset 0 -2px 0 $scooter;
 
 @import 'forms.switch';
+@import 'forms.switch-nested';
 
 form {
 	// Bootswatch Paper theme fork
@@ -25,8 +26,6 @@ form {
 
 	div:not(.has-success):not(.has-warning):not(.has-error) {
 		textarea,
-		textarea.form-control,
-		input.form-control,
 		input[type='text'],
 		input[type='password'],
 		input[type='email'],
@@ -40,11 +39,25 @@ form {
 				color: $scooter;
 			}
 		}
+
+		.input-lg ~ .control-label {
+			font-size: $font-size-large;
+		}
+
+		.input-sm ~ .control-label {
+			font-size: $font-size-small;
+		}
+
+		label {
+			&.control-label {
+				color: $silver-chalice;
+				font-weight: $form-base-font-weight;
+				font-size: $font-size-base;
+			}
+		}
 	}
 
 	textarea,
-	textarea.form-control,
-	input.form-control,
 	input[type='text'],
 	input[type='password'],
 	input[type='email'],
@@ -54,12 +67,13 @@ form {
 	[type='email'].form-control,
 	[type='tel'].form-control,
 	[contenteditable].form-control {
-		@include box-shadow($form-shadow);
+		box-shadow: none;
 		padding: 0;
 		border: none;
 		border-radius: 0;
 		font-size: $form-input-font-size;
 		font-weight: $form-base-font-weight;
+		border-bottom: $form-border-bottom;
 
 		&:focus {
 			@include box-shadow($form-focus-shadow);
@@ -67,6 +81,7 @@ form {
 
 		&[disabled] {
 			background-color: transparent;
+			border-bottom: dashed 1px $gallery;
 		}
 
 		&[readonly],
@@ -91,11 +106,11 @@ form {
 		}
 	}
 
-	select,
 	select.form-control {
-		@include box-shadow($form-shadow);
+		box-shadow: none;
 		border: none;
 		border-radius: 0;
+		border-bottom: $form-border-bottom;
 		appearance: none;
 		padding-left: 0;
 		padding-right: 0 \9; // remove padding for < ie9 since default arrow can't be removed
@@ -277,7 +292,7 @@ form {
 	.has-warning {
 		input:not([type='checkbox']),
 		.form-control,
-		input.form-control[readonly],
+		input[readonly],
 		input[type='text'][readonly],
 		[type='text'].form-control[readonly],
 		input:not([type='checkbox']):focus,
@@ -290,7 +305,7 @@ form {
 	.has-error {
 		input:not([type='checkbox']),
 		.form-control,
-		input.form-control[readonly],
+		input[readonly],
 		input[type='text'][readonly],
 		[type='text'].form-control[readonly],
 		input:not([type='checkbox']):focus,
@@ -301,8 +316,14 @@ form {
 
 		.error-detail {
 			padding-left: 0;
+			margin-top: -10px;
+			margin-bottom: 0;
 
 			.text-danger {
+				line-height: 15px;
+				font-size: $font-size-small;
+				font-weight: $form-base-font-weight;
+				color: $chestnut-rose;
 				list-style-type: none;
 			}
 		}
@@ -311,7 +332,7 @@ form {
 	.has-success {
 		input:not([type='checkbox']),
 		.form-control,
-		input.form-control[readonly],
+		input[readonly],
 		input[type='text'][readonly],
 		[type='text'].form-control[readonly],
 		input:not([type='checkbox']):focus,
@@ -332,10 +353,31 @@ form {
 		}
 	}
 
-	.form-group-lg {
-		select,
-		select.form-control {
-			line-height: 1.5;
+	.form-group-lg select.form-control {
+		line-height: 1.5;
+	}
+
+	.form-group > .form-control::placeholder {
+		color: $silver;
+	}
+
+	.form-control + label {
+		font-size: $font-size-base;
+		color: $silver-chalice;
+	}
+
+	textarea.form-control {
+		box-shadow: none;
+		padding: 0;
+		border: none;
+		border-radius: 0;
+		font-size: $form-input-font-size;
+		font-weight: $form-base-font-weight;
+		border-bottom: $form-border-bottom;
+		border-right: 1px solid $gallery;
+
+		&:focus {
+			@include box-shadow($form-focus-shadow);
 		}
 	}
 }

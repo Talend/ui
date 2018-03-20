@@ -40,7 +40,7 @@ import console from './console';
 import deprecated from './deprecated';
 import CONSTANT from './constant';
 
-import { statePropTypes, initState, getStateAccessors, getStateProps } from './componentState';
+import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
 
 let newState;
@@ -242,7 +242,7 @@ export default function cmfConnect({
 			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 			static propTypes = {
 				...WrappedComponent.propTypes,
-				...statePropTypes,
+				...cmfConnect.propTypes,
 			};
 			static contextTypes = {
 				store: PropTypes.object,

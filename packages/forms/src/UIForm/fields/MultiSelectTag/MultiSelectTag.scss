@@ -1,5 +1,5 @@
-@import "~@talend/react-components/lib/Badge/Badge.scss";
-@import "~@talend/bootstrap-theme/src/theme/_forms.scss";
+@import '~@talend/react-components/lib/Badge/Badge.scss';
+@import '~@talend/bootstrap-theme/src/theme/_forms.scss';
 $tf-datalist-items-background-color: $white !default;
 $tf-datalist-items-shadow-color: $shadow !default;
 $tf-typeahead-input-width: 135px !default;
@@ -12,7 +12,8 @@ $tf-typeahead-input-width: 135px !default;
 
 	border: 0;
 	border-radius: 0;
-	box-shadow: $form-shadow;
+	border-bottom: $form-border-bottom;
+	box-shadow: none;
 	height: auto;
 	padding: 0;
 
@@ -28,6 +29,7 @@ $tf-typeahead-input-width: 135px !default;
 		}
 
 		:global(input) {
+			border: 0;
 			padding-left: $tc-badge-margin;
 		}
 

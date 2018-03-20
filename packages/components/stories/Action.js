@@ -38,6 +38,12 @@ storiesOf('Action', module)
 			<Action id="hidelabel" {...myAction} hideLabel />
 			<p>In progress</p>
 			<Action id="inprogress" {...myAction} inProgress />
+			<p>loading</p>
+			<Action id="loading" loading />
+			<p>Icon button</p>
+			<Action id="icon" {...myAction} link />
+			<p>Loading Icon button</p>
+			<Action id="icon" link loading />
 			<p>Disabled</p>
 			<Action id="disabled" {...myAction} disabled />
 			<p>Reverse display</p>

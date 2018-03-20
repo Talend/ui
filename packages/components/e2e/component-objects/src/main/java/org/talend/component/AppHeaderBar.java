@@ -39,6 +39,15 @@ public class AppHeaderBar extends Component {
         super(driver, NAME, SELECTOR);
     }
 
+    /** AppHeaderBar constructor
+    *
+    * @param driver Selenium WebDriver
+    * @param id Unique ID of the component
+    */
+    AppHeaderBar(WebDriver driver, String id) {
+       super(driver, NAME, id + SELECTOR);
+    }
+
     /**
      * Get the header bar logo
      *
@@ -111,8 +120,10 @@ public class AppHeaderBar extends Component {
     }
 
     /**
-     * Get a user menu item element
+     * Get a user menu item element by label
+     * Deprecation : This is not i18n proof, use #getUserMenuItemById instead
      */
+    @Deprecated
     public WebElement getUserMenuItem(final String menuLabel) {
         for (final WebElement item : this.getUserMenuItems()) {
             if (item.getText().equals(menuLabel)) {
@@ -123,11 +134,28 @@ public class AppHeaderBar extends Component {
     }
 
     /**
-     * Open the user menu and click on the item
+     * Get a user menu item element
      */
+    public WebElement getUserMenuItemById(final String menuId) {
+        return driver.findElement(By.cssSelector(USER_MENU_ITEMS_SELECTOR + "#" + menuId));
+    }
+
+    /**
+     * Open the user menu and click on the item
+     * Deprecation : This is not i18n proof, use #clickOnUserMenuItemById instead
+     */
+    @Deprecated
     public void clickOnUserMenuItem(final String label) {
         this.getUser().click();
         this.getUserMenuItem(label).click();
+    }
+
+    /**
+     * Open the user menu and click on the item
+     */
+    public void clickOnUserMenuItemById(final String menuId) {
+        this.getUser().click();
+        this.getUserMenuItemById(menuId).click();
     }
 
     /**
