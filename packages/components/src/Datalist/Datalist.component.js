@@ -94,7 +94,7 @@ class Datalist extends Component {
 				event.preventDefault();
 				this.resetValue();
 				break;
-		case keycode.codes.enter:
+			case keycode.codes.enter:
 				if (!this.state.groups) {
 					break;
 				}
