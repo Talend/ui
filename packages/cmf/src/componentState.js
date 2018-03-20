@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import invariant from 'invariant';
+import Immutable from 'immutable';
 import actions from './actions';
 
 /**
@@ -55,12 +55,6 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 
 	const accessors = {
 		setState(state) {
-			if (!DEFAULT_STATE) {
-				invariant(
-					process.env.NODE_ENV === 'production',
-					'you must provide a defaultState to use setState',
-				);
-			}
 			dispatch((_, getState) => {
 				let newState = state;
 				if (typeof newState === 'function') {
@@ -71,14 +65,19 @@ export function getStateAccessors(dispatch, name, id, DEFAULT_STATE) {
 			});
 		},
 		initState(initialState) {
+			let state;
 			if (DEFAULT_STATE) {
-				const state = DEFAULT_STATE.merge(initialState);
+				state = DEFAULT_STATE.merge(initialState);
+			} else if (initialState) {
+				state = Immutable.Map.isMap(initialState) ? initialState : Immutable.fromJS(initialState);
+			}
+			if (state) {
 				const componentState = actions.components.addState(name, id, state);
 				dispatchAction('initState', componentState);
 			}
 		},
-		deleteState() {
-			if (DEFAULT_STATE) {
+		deleteState(initialState) {
+			if (DEFAULT_STATE || initialState) {
 				const componentState = actions.components.removeState(name, id);
 				dispatchAction('deleteState', componentState);
 			}
