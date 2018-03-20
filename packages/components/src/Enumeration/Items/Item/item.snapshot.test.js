@@ -11,15 +11,18 @@ const item = {
 		onAbortItem: jest.fn(), // provided click callback
 		onSelectItem: jest.fn(), // provided click callback
 		isSelected: false,
-		actions: [{
-			label: 'Edit',
-			id: 'edit',
-			onClick: jest.fn(), // provided click callback
-		}, {
-			label: 'Delete',
-			id: 'delete',
-			onClick: jest.fn(), // provided click callback
-		}],
+		actions: [
+			{
+				label: 'Edit',
+				id: 'edit',
+				onClick: jest.fn(), // provided click callback
+			},
+			{
+				label: 'Delete',
+				id: 'delete',
+				onClick: jest.fn(), // provided click callback
+			},
+		],
 	},
 };
 
@@ -45,9 +48,7 @@ describe('Item', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<Item {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Item {...props} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
@@ -61,9 +62,7 @@ describe('Item', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(
-			<Item {...props} />
-		).toJSON();
+		const wrapper = renderer.create(<Item {...props} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();
