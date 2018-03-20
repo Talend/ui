@@ -165,8 +165,9 @@ class Datalist extends Component {
 		if (this.props.multiSection) {
 			const groups = this.props.titleMap;
 			for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex++) {
-				const focusedIndex =
-					groups[sectionIndex].suggestions.findIndex(item => item.name === value);
+				const focusedIndex = groups[sectionIndex].suggestions.findIndex(
+					item => item.name === value,
+				);
 				if (focusedIndex > -1) {
 					this.setState({
 						focusedItemIndex: focusedIndex,
