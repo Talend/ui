@@ -50,23 +50,25 @@ function getOnEventSetStateHandler(instance, config, currentHandler) {
 			if (Array.isArray(value)) {
 				if (value.length === 1) {
 					// eslint-disable-next-line no-param-reassign
-					acc[key] = args[0];
+					acc[key] = args[value[0]];
 				} else if (value.length === 2) {
 					// eslint-disable-next-line no-param-reassign
-					acc[key] = get(args[0], args[1]);
+					acc[key] = get(args[value[0]], value[1]);
 				} else {
 					throw new Error('onEventSetState array must have 1 or 2 element for ', key, args);
 				}
 			} else if (value === 'toggle') {
 				// because toggle need to read the state we dispatch it with a function
-				instance.props.setState(props => props.setState({ key: !props.state.get(key) }));
+				instance.props.setState(props => props.setState({ [key]: !props.state.get(key) }));
 			} else {
 				// eslint-disable-next-line no-param-reassign
 				acc[key] = value;
 			}
 			return acc;
 		}, {});
-		instance.props.setState(state);
+		if (Object.keys(state).length > 0) {
+			instance.props.setState(state);
+		}
 	};
 }
 
