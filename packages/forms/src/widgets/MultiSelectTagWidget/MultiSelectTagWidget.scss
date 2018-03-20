@@ -25,7 +25,8 @@ $tf-typeahead-section-border-color: #e0e0e0 !default;
 
 	border: 0;
 	border-radius: 0;
-	box-shadow: $form-shadow;
+	border-bottom: $form-border-bottom;
+	box-shadow: none;
 	padding: 0;
 
 	.typeahead {
@@ -58,5 +59,13 @@ $tf-typeahead-section-border-color: #e0e0e0 !default;
 			color: $tf-typeahead-section-header-color;
 			border-top: 1px solid $tf-typeahead-section-border-color;
 		}
+	}
+}
+
+.readonly {
+	.wrapper {
+		border: none;
+		box-shadow: none;
+		pointer-events: none;
 	}
 }
