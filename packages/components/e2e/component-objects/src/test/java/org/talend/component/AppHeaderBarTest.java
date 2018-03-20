@@ -64,4 +64,16 @@ public class AppHeaderBarTest extends StorybookTest {
         // then
         assertThat(getActionLog(), startsWith("▶onSettingsClick:"));
     }
+
+    @Test
+    public void should_click_on_user_menu_by_id() {
+        // given
+        assertThat(getActionLog(), not(startsWith("▶onSettingsClick:")));
+
+        // when
+        headerBar.clickOnUserMenuItemById("settings");
+
+        // then
+        assertThat(getActionLog(), startsWith("▶onSettingsClick:"));
+    }
 }

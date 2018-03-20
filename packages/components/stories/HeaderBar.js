@@ -123,6 +123,7 @@ const props = {
 		id: 'header-user',
 		items: [
 			{
+				id: 'settings',
 				icon: 'talend-cog',
 				label: 'Settings',
 				onClick: action('onSettingsClick'),
