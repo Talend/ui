@@ -11,6 +11,7 @@ describe('wrap', () => {
 	};
 	Button.displayName = 'Button';
 	Button.foo = 'bar';
+	Button.childContextTypes = 'should not be here';
 	it('should create a component', () => {
 		const WrappedButton = wrap(Button, 'MyButton');
 		expect(WrappedButton.displayName).toBe('MyButton');
@@ -21,5 +22,7 @@ describe('wrap', () => {
 	it('should re-expose all attributes', () => {
 		const WrappedButton = wrap(Button, 'MyButton');
 		expect(WrappedButton.foo).toBe('bar');
+		expect(WrappedButton.childContextTypes).toBeUndefined();
+		expect(WrappedButton.propTypes).not.toEqual(Button.propTypes);
 	});
 });
