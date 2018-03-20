@@ -58,7 +58,7 @@ $tc-datalist-item-height: 40px !default;
 			flex-direction: column;
 			justify-content: center;
 			height: $tc-datalist-item-height;
-			padding: 0 $padding-normal 0 $padding-normal;
+			padding: 0 $padding-normal;
 			&:hover {
 				background-color: $concrete;
 			}

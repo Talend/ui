@@ -26,7 +26,7 @@ const multiSectionMap = [
 ];
 
 describe('Datalist component', () => {
-	it('should render typeahead single section', () => {
+	it('should render a typeahead', () => {
 		// when
 		const wrapper = shallow(
 			<Datalist
@@ -45,7 +45,7 @@ describe('Datalist component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render typeahead multisection', () => {
+	it('should update grouped suggestions on value change', () => {
 		// given
 		const multiSectionProps = { ...props, titleMap: multiSectionMap };
 		const wrapper = mount(
@@ -263,7 +263,6 @@ describe('Datalist component', () => {
 
 		// when
 		input.simulate('keydown', { which: keycode.codes.enter });
-		input.simulate('blur');
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
@@ -328,7 +327,7 @@ describe('Datalist component', () => {
 			<Datalist
 				id={'my-datalist'}
 				isValid
-				multiSection={true}
+				multiSection
 				errorMessage={'This should be correct'}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}

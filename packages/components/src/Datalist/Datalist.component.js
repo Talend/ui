@@ -45,6 +45,9 @@ class Datalist extends Component {
 		}
 	}
 
+	/**
+	 * Reset the focused item and section
+	 */
 	resetSelection() {
 		this.setState({
 			focusedItemIndex: undefined,
@@ -58,7 +61,7 @@ class Datalist extends Component {
 	 * @param value
 	 */
 	onChange(event, { value }) {
-		this.updateGroups(value, true);
+		this.updateSuggestions(value, true);
 		this.updateValue(event, value, false);
 		// resetting selection here in order to reinit the section + item indexes
 		this.resetSelection();
@@ -69,7 +72,7 @@ class Datalist extends Component {
 	 */
 	onFocus(event) {
 		event.target.select();
-		this.updateGroups(this.state.value);
+		this.updateSuggestions(this.state.value);
 		this.updateSelectedIndexes(this.state.value);
 	}
 
@@ -81,6 +84,8 @@ class Datalist extends Component {
 	 * @param event The keydown event
 	 * @param highlightedItemIndex The previous focused suggestion index
 	 * @param newHighlightedItemIndex The new focused suggestion index
+	 * @param highlightedSectionIndex The previous focused section index
+	 * @param newHighlightedSectionIndex The new focused section index
 	 */
 	onKeyDown(event, params) {
 		const {
@@ -117,7 +122,7 @@ class Datalist extends Component {
 				event.preventDefault();
 				if (!this.state.groups) {
 					// display all suggestions when they are not displayed
-					this.updateGroups();
+					this.updateSuggestions();
 					this.updateSelectedIndexes(this.state.value);
 					break;
 				}
@@ -151,6 +156,10 @@ class Datalist extends Component {
 		this.updateValue(event, newValue, true);
 	}
 
+	/**
+	 * Update the focused item and section given the current value
+	 * Managing the two cases (multi section and single section)
+	 */
 	updateSelectedIndexes(value) {
 		if (this.props.multiSection) {
 			this.props.titleMap.forEach((group, sectionIndex) => {
@@ -232,7 +241,7 @@ class Datalist extends Component {
 	 * If the array is empty, the suggestion box will display a "No result" message
 	 * @param value The value to base suggestions on
 	 */
-	updateGroups(value, filterOn) {
+	updateSuggestions(value, filterOn) {
 		if (this.props.readOnly || this.props.disabled) {
 			return;
 		}

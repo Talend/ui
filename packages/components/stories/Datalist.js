@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Datalist, IconsProvider } from '../src/index';
+import { Datalist } from '../src/index';
 
 const propsMultiSection = {
 	autoFocus: true,
@@ -69,4 +69,4 @@ storiesOf('Datalist', module)
 				<Datalist {...singleSectionProps} />
 			</div>
 		)
-	})
+	});
