@@ -14,6 +14,7 @@ exports[`Header should render filter header 1`] = `
   />
   <button
     className="btn btn-link"
+    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}

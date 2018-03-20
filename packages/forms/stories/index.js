@@ -107,6 +107,7 @@ decoratedStories.add('Multiple actions', () => {
 			type: 'submit',
 			label: 'SUBMIT',
 			disabled: true,
+			feature: 'form.feature',
 			onClick: action('SUBMIT'),
 		},
 	];
@@ -210,7 +211,7 @@ function CustomDatalist(...args) {
 					>
 						Other Actions
 					</span>
-					<Action 					
+					<Action
 						onMouseDown={action('clicked')}
 						bsStyle="primary"
 						id="default"
@@ -220,7 +221,7 @@ function CustomDatalist(...args) {
 			</div>
 		);
 	}
-	
+
 	return (
 		<DatalistWidget
 			{...args[0]}

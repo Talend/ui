@@ -46,6 +46,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
               >
                 <button
                   className="btn btn-default"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onMouseDown={[Function]}
@@ -64,6 +65,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                 </button>
                 <button
                   className="btn btn-default"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onMouseDown={[Function]}
@@ -89,6 +91,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         >
           <button
             className="theme-undefined btn btn-link"
+            data-feature={undefined}
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -240,6 +243,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
               >
                 <button
                   className="btn btn-default"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onMouseDown={[Function]}
@@ -258,6 +262,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                 </button>
                 <button
                   className="btn btn-default"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onMouseDown={[Function]}
@@ -283,6 +288,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         >
           <button
             className="theme-undefined btn btn-link"
+            data-feature={undefined}
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -434,6 +440,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
               >
                 <button
                   className="btn btn-default"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onMouseDown={[Function]}
@@ -452,6 +459,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                 </button>
                 <button
                   className="btn btn-default"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onMouseDown={[Function]}
@@ -477,6 +485,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
         >
           <button
             className="theme-undefined btn btn-link"
+            data-feature={undefined}
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}

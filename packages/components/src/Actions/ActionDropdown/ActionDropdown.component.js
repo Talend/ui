@@ -57,7 +57,7 @@ function getMenuItem(item, index, getComponent) {
 		return <Renderers.MenuItem key={index} divider />;
 	}
 	return (
-		<Renderers.MenuItem key={index} eventKey={item} {...item} onClick={wrapOnClick(item)}>
+		<Renderers.MenuItem key={index} eventKey={item} {...item} data-feature={item.feature} onClick={wrapOnClick(item)}>
 			{item.icon && <Icon name={item.icon} />}
 			{item.label}
 		</Renderers.MenuItem>
@@ -162,6 +162,7 @@ ActionDropdown.propTypes = {
 		PropTypes.shape({
 			icon: PropTypes.string,
 			label: PropTypes.string,
+			feature: PropTypes.string,
 			...MenuItem.propTypes,
 		}),
 	).isRequired,

@@ -297,6 +297,7 @@ exports[`Storyshots HeaderBar default 1`] = `
       >
         <button
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -364,6 +365,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-dp"
                   label="Data Preparation"
@@ -391,6 +393,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-ic"
                   label="Integration Cloud"
@@ -418,6 +421,7 @@ exports[`Storyshots HeaderBar default 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-mc"
                   label="Management Console"
@@ -457,6 +461,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         >
           <button
             className="theme-only-icon-cls btn btn-link"
+            data-feature={undefined}
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -484,6 +489,7 @@ exports[`Storyshots HeaderBar default 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-help"
           onClick={[Function]}
@@ -572,6 +578,7 @@ exports[`Storyshots HeaderBar default 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="#"
                 icon="talend-cog"
                 id="settings"
@@ -884,6 +891,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       >
         <button
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -951,6 +959,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-dp"
                   label="Data Preparation"
@@ -978,6 +987,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-ic"
                   label="Integration Cloud"
@@ -1005,6 +1015,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-mc"
                   label="Management Console"
@@ -1119,6 +1130,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-help"
           onClick={[Function]}
@@ -1207,6 +1219,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="#"
                 icon="talend-cog"
                 id="settings"
@@ -1519,6 +1532,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       >
         <button
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -1586,6 +1600,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-dp"
                   label="Data Preparation"
@@ -1613,6 +1628,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-ic"
                   label="Integration Cloud"
@@ -1640,6 +1656,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-mc"
                   label="Management Console"
@@ -1718,6 +1735,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="#"
                 label="Runtime Environment"
                 onClick={[Function]}
@@ -1745,6 +1763,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         >
           <button
             className="theme-only-icon-cls btn btn-link"
+            data-feature={undefined}
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1772,6 +1791,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-help"
           onClick={[Function]}
@@ -1860,6 +1880,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="#"
                 icon="talend-cog"
                 id="settings"
@@ -2172,6 +2193,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       >
         <button
           className="theme-tc-header-bar-logo tc-header-bar-logo theme-full btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -2239,6 +2261,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-dp"
                   label="Data Preparation"
@@ -2266,6 +2289,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-ic"
                   label="Integration Cloud"
@@ -2293,6 +2317,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-mc"
                   label="Management Console"
@@ -2332,6 +2357,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         >
           <button
             className="theme-only-icon-cls btn btn-link"
+            data-feature={undefined}
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -2359,6 +2385,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-help"
           onClick={[Function]}
@@ -2447,6 +2474,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="#"
                 icon="talend-cog"
                 id="settings"
@@ -2759,6 +2787,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
       >
         <button
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -2826,6 +2855,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-dp"
                   label="Data Preparation"
@@ -2853,6 +2883,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-ic"
                   label="Integration Cloud"
@@ -2880,6 +2911,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-mc"
                   label="Management Console"
@@ -2919,6 +2951,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         >
           <button
             className="theme-only-icon-cls btn btn-link"
+            data-feature={undefined}
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -2946,6 +2979,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-help"
           onClick={[Function]}
@@ -3034,6 +3068,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="#"
                 icon="talend-cog"
                 id="settings"
@@ -3346,6 +3381,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       >
         <button
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -3413,6 +3449,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-dp"
                   label="Data Preparation"
@@ -3440,6 +3477,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-ic"
                   label="Integration Cloud"
@@ -3467,6 +3505,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-mc"
                   label="Management Console"
@@ -3561,6 +3600,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-help"
           onClick={[Function]}
@@ -3649,6 +3689,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="#"
                 icon="talend-cog"
                 id="settings"
@@ -3961,6 +4002,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       >
         <button
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -4028,6 +4070,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-dp"
                   label="Data Preparation"
@@ -4055,6 +4098,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-ic"
                   label="Integration Cloud"
@@ -4082,6 +4126,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-mc"
                   label="Management Console"
@@ -4121,6 +4166,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         >
           <button
             className="theme-only-icon-cls btn btn-link"
+            data-feature={undefined}
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -4148,6 +4194,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onFocus={[Function]}
@@ -4174,6 +4221,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-help"
           onClick={[Function]}
@@ -4262,6 +4310,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="#"
                 icon="talend-cog"
                 id="settings"
@@ -4574,6 +4623,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       >
         <button
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -4641,6 +4691,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-dp"
                   label="Data Preparation"
@@ -4668,6 +4719,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-ic"
                   label="Integration Cloud"
@@ -4695,6 +4747,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-mc"
                   label="Management Console"
@@ -4783,6 +4836,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-help"
           onClick={[Function]}
@@ -4871,6 +4925,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="#"
                 icon="talend-cog"
                 id="settings"
@@ -5183,6 +5238,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       >
         <button
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -5250,6 +5306,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-dp"
                   label="Data Preparation"
@@ -5277,6 +5334,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-ic"
                   label="Integration Cloud"
@@ -5304,6 +5362,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-mc"
                   label="Management Console"
@@ -5722,6 +5781,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-help"
           onClick={[Function]}
@@ -5810,6 +5870,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="#"
                 icon="talend-cog"
                 id="settings"
@@ -6122,6 +6183,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       >
         <button
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -6189,6 +6251,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-dp"
                   label="Data Preparation"
@@ -6216,6 +6279,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-ic"
                   label="Integration Cloud"
@@ -6243,6 +6307,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-mc"
                   label="Management Console"
@@ -6282,6 +6347,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         >
           <button
             className="theme-only-icon-cls btn btn-link"
+            data-feature={undefined}
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -6309,6 +6375,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onFocus={[Function]}
@@ -6335,6 +6402,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-help"
           onClick={[Function]}
@@ -6423,6 +6491,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="#"
                 icon="talend-cog"
                 id="settings"
@@ -6735,6 +6804,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
       >
         <button
           className="theme-tc-header-bar-logo tc-header-bar-logo theme-full btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -6765,6 +6835,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
         >
           <button
             className="theme-tc-header-bar-brand tc-header-bar-brand btn btn-link"
+            data-feature={undefined}
             disabled={false}
             id="header-brand"
             onClick={[Function]}
@@ -6792,6 +6863,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
         >
           <button
             className="theme-only-icon-cls btn btn-link"
+            data-feature={undefined}
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -6819,6 +6891,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-help"
           onClick={[Function]}
@@ -6907,6 +6980,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="#"
                 icon="talend-cog"
                 id="settings"
@@ -7219,6 +7293,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
       >
         <button
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-logo"
           onClick={[Function]}
@@ -7286,6 +7361,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-dp"
                   label="Data Preparation"
@@ -7313,6 +7389,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-ic"
                   label="Integration Cloud"
@@ -7340,6 +7417,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                 style={undefined}
               >
                 <a
+                  data-feature={undefined}
                   href="#"
                   icon="talend-logo-mc"
                   label="Management Console"
@@ -7379,6 +7457,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         >
           <button
             className="theme-only-icon-cls btn btn-link"
+            data-feature={undefined}
             disabled={false}
             onClick={[Function]}
             onFocus={[Function]}
@@ -7406,6 +7485,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature={undefined}
           disabled={false}
           id="header-help"
           onClick={[Function]}
@@ -7475,6 +7555,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="#"
                 label="Guided tour"
                 onClick={[Function]}
@@ -7497,6 +7578,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="https://community.talend.com/"
                 label="Community"
                 onClick={[Function]}
@@ -7514,6 +7596,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
               style={undefined}
             >
               <a
+                data-feature={undefined}
                 href="https://www.talend.com/services/technical-support/"
                 label="Support"
                 onClick={[Function]}
@@ -7824,6 +7907,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
             >
               <button
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -7891,6 +7975,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-dp"
                         label="Data Preparation"
@@ -7918,6 +8003,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-ic"
                         label="Integration Cloud"
@@ -7945,6 +8031,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-mc"
                         label="Management Console"
@@ -7984,6 +8071,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               >
                 <button
                   className="theme-only-icon-cls btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -8011,6 +8099,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
             >
               <button
                 className="btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-help"
                 onClick={[Function]}
@@ -8099,6 +8188,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                     style={undefined}
                   >
                     <a
+                      data-feature={undefined}
                       href="#"
                       icon="talend-cog"
                       id="settings"
@@ -8423,6 +8513,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
             >
               <button
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -8490,6 +8581,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-dp"
                         label="Data Preparation"
@@ -8517,6 +8609,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-ic"
                         label="Integration Cloud"
@@ -8544,6 +8637,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-mc"
                         label="Management Console"
@@ -8583,6 +8677,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               >
                 <button
                   className="theme-only-icon-cls btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -8610,6 +8705,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
             >
               <button
                 className="btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-help"
                 onClick={[Function]}
@@ -8698,6 +8794,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                     style={undefined}
                   >
                     <a
+                      data-feature={undefined}
                       href="#"
                       icon="talend-cog"
                       id="settings"
@@ -9022,6 +9119,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
             >
               <button
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -9089,6 +9187,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-dp"
                         label="Data Preparation"
@@ -9116,6 +9215,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-ic"
                         label="Integration Cloud"
@@ -9143,6 +9243,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-mc"
                         label="Management Console"
@@ -9182,6 +9283,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               >
                 <button
                   className="theme-only-icon-cls btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -9209,6 +9311,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
             >
               <button
                 className="btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-help"
                 onClick={[Function]}
@@ -9297,6 +9400,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                     style={undefined}
                   >
                     <a
+                      data-feature={undefined}
                       href="#"
                       icon="talend-cog"
                       id="settings"
@@ -9621,6 +9725,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
             >
               <button
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -9688,6 +9793,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-dp"
                         label="Data Preparation"
@@ -9715,6 +9821,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-ic"
                         label="Integration Cloud"
@@ -9742,6 +9849,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-mc"
                         label="Management Console"
@@ -9781,6 +9889,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               >
                 <button
                   className="theme-only-icon-cls btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -9808,6 +9917,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
             >
               <button
                 className="btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-help"
                 onClick={[Function]}
@@ -9896,6 +10006,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                     style={undefined}
                   >
                     <a
+                      data-feature={undefined}
                       href="#"
                       icon="talend-cog"
                       id="settings"
@@ -10220,6 +10331,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
             >
               <button
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -10287,6 +10399,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-dp"
                         label="Data Preparation"
@@ -10314,6 +10427,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-ic"
                         label="Integration Cloud"
@@ -10341,6 +10455,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-mc"
                         label="Management Console"
@@ -10380,6 +10495,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               >
                 <button
                   className="theme-only-icon-cls btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -10407,6 +10523,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
             >
               <button
                 className="btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-help"
                 onClick={[Function]}
@@ -10495,6 +10612,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                     style={undefined}
                   >
                     <a
+                      data-feature={undefined}
                       href="#"
                       icon="talend-cog"
                       id="settings"
@@ -10819,6 +10937,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
             >
               <button
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -10886,6 +11005,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-dp"
                         label="Data Preparation"
@@ -10913,6 +11033,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-ic"
                         label="Integration Cloud"
@@ -10940,6 +11061,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-mc"
                         label="Management Console"
@@ -10979,6 +11101,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               >
                 <button
                   className="theme-only-icon-cls btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -11006,6 +11129,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
             >
               <button
                 className="btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-help"
                 onClick={[Function]}
@@ -11094,6 +11218,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                     style={undefined}
                   >
                     <a
+                      data-feature={undefined}
                       href="#"
                       icon="talend-cog"
                       id="settings"
@@ -11418,6 +11543,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
             >
               <button
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-logo"
                 onClick={[Function]}
@@ -11485,6 +11611,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-dp"
                         label="Data Preparation"
@@ -11512,6 +11639,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-ic"
                         label="Integration Cloud"
@@ -11539,6 +11667,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                       style={undefined}
                     >
                       <a
+                        data-feature={undefined}
                         href="#"
                         icon="talend-logo-mc"
                         label="Management Console"
@@ -11578,6 +11707,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               >
                 <button
                   className="theme-only-icon-cls btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -11605,6 +11735,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
             >
               <button
                 className="btn btn-link"
+                data-feature={undefined}
                 disabled={false}
                 id="header-help"
                 onClick={[Function]}
@@ -11693,6 +11824,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                     style={undefined}
                   >
                     <a
+                      data-feature={undefined}
                       href="#"
                       icon="talend-cog"
                       id="settings"

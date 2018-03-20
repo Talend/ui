@@ -12,6 +12,7 @@ exports[`Header should render header with one button 1`] = `
   >
     <button
       className="btn btn-link"
+      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
@@ -48,6 +49,7 @@ exports[`Header should render header with one button and indicate the component 
   >
     <button
       className="btn btn-link"
+      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
@@ -125,6 +127,7 @@ exports[`Header should render header with one dropdown and two items 1`] = `
           style={undefined}
         >
           <a
+            data-feature={undefined}
             href="#"
             id="append-uploding"
             label="Add values from a file"
@@ -142,6 +145,7 @@ exports[`Header should render header with one dropdown and two items 1`] = `
           style={undefined}
         >
           <a
+            data-feature={undefined}
             href="#"
             id="append-uploding"
             label="Overwrite existing values"

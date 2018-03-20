@@ -20,6 +20,7 @@ const { TITLE_MODE_TEXT } = cellTitleDisplayModes;
 function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 	const {
 		id,
+		feature,
 		onClick,
 		actionsKey,
 		persistentActionsKey,
@@ -40,6 +41,7 @@ function CellTitle({ cellData, columnData, rowData, rowIndex }) {
 				cellData={cellData}
 				className={theme['main-title']}
 				displayMode={displayMode}
+				feature={feature}
 				onClick={onClick}
 				onEditCancel={onEditCancel}
 				onEditSubmit={onEditSubmit}
@@ -63,6 +65,8 @@ CellTitle.propTypes = {
 	columnData: PropTypes.shape({
 		// The List id. This is used as the title parts ids prefix.
 		id: PropTypes.string,
+		// The feature for analytics purpose,
+		feature: PropTypes.string,
 		// The onClick callback triggered on title main button click.
 		onClick: PropTypes.func,
 		// The actions property key. Actions = props.rowData[props.actionsKey]

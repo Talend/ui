@@ -93,6 +93,7 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
       style={undefined}
     >
       <a
+        data-feature={undefined}
         href="#"
         icon="talend-icon"
         label="document 1"
@@ -120,6 +121,7 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
       style={undefined}
     >
       <a
+        data-feature={undefined}
         href="#"
         label="document 2"
         onClick={[Function]}
@@ -177,6 +179,7 @@ exports[`ActionDropdown should render a button with icon 1`] = `
       style={undefined}
     >
       <a
+        data-feature={undefined}
         href="#"
         icon="talend-icon"
         label="document 1"
@@ -204,6 +207,7 @@ exports[`ActionDropdown should render a button with icon 1`] = `
       style={undefined}
     >
       <a
+        data-feature={undefined}
         href="#"
         label="document 2"
         onClick={[Function]}
@@ -264,6 +268,7 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
       style={undefined}
     >
       <a
+        data-feature={undefined}
         href="#"
         icon="talend-icon"
         label="document 1"
@@ -291,6 +296,7 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
       style={undefined}
     >
       <a
+        data-feature={undefined}
         href="#"
         label="document 2"
         onClick={[Function]}
@@ -345,6 +351,7 @@ exports[`ActionDropdown should render a button with label 1`] = `
       style={undefined}
     >
       <a
+        data-feature={undefined}
         href="#"
         icon="talend-icon"
         label="document 1"
@@ -372,6 +379,7 @@ exports[`ActionDropdown should render a button with label 1`] = `
       style={undefined}
     >
       <a
+        data-feature={undefined}
         href="#"
         label="document 2"
         onClick={[Function]}

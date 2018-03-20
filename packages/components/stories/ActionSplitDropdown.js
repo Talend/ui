@@ -14,10 +14,12 @@ const icons = {
 const items = [
 	{
 		label: 'From Local',
+		feature: 'actionsplitdropdown.items',
 		onClick: action('From Local click'),
 	},
 	{
 		label: 'From Remote',
+		feature: 'actionsplitdropdown.items',
 		onClick: action('From Remote click'),
 	},
 ];
@@ -36,6 +38,7 @@ const itemsWithIcons = [
 const myAction = {
 	label: 'Add File',
 	icon: 'talend-environment',
+	feature: 'actionsplitdropdown',
 	onClick: action('onAdd'),
 	items,
 	emptyDropdownLabel: 'No option',

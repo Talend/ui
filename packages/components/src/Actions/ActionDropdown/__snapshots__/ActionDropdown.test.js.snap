@@ -44,6 +44,7 @@ exports[`getMenuItem should return a MenuItem with divider 1`] = `
 exports[`getMenuItem should return a MenuItem with icon and label 1`] = `
 <MenuItem
   bsClass="dropdown"
+  data-feature={undefined}
   disabled={false}
   divider={false}
   eventKey={
@@ -67,6 +68,7 @@ exports[`getMenuItem should return a MenuItem with icon and label 1`] = `
 exports[`getMenuItem should return a MenuItem with label 1`] = `
 <MenuItem
   bsClass="dropdown"
+  data-feature={undefined}
   disabled={false}
   divider={false}
   eventKey={

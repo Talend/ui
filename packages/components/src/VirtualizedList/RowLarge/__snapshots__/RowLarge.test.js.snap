@@ -27,6 +27,7 @@ exports[`RowLarge should render large row 1`] = `
           cellData="Title from second item"
           className="theme-main-title"
           displayMode="text"
+          feature={undefined}
           id="my-list-1-title-cell"
           onClick={undefined}
           onEditCancel={undefined}

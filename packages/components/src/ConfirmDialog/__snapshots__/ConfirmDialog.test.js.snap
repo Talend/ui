@@ -35,6 +35,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
       >
         <button
           className="btn btn-default"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -54,6 +55,7 @@ exports[`ConfirmDialog should render with a large container 1`] = `
       >
         <button
           className="btn btn-default"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -118,6 +120,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
       >
         <button
           className="btn btn-default"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -137,6 +140,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
       >
         <button
           className="btn btn-default"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -188,6 +192,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
       >
         <button
           className="btn btn-default"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -207,6 +212,7 @@ exports[`ConfirmDialog should render with a small container 1`] = `
       >
         <button
           className="btn btn-default"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -258,6 +264,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
       >
         <button
           className="btn btn-default"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -277,6 +284,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
       >
         <button
           className="btn btn-info"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -289,6 +297,7 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
         </button>
         <button
           className="btn btn-default"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -340,6 +349,7 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
       >
         <button
           className="btn btn-default"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -359,6 +369,7 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
       >
         <button
           className="btn btn-default"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -400,6 +411,7 @@ exports[`ConfirmDialog should render without header 1`] = `
       >
         <button
           className="btn btn-default"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -419,6 +431,7 @@ exports[`ConfirmDialog should render without header 1`] = `
       >
         <button
           className="btn btn-default"
+          data-feature={undefined}
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}

@@ -63,6 +63,7 @@ exports[`Enumeration should render with header in add state and list in default 
     />
     <button
       className="btn btn-link"
+      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
@@ -84,6 +85,7 @@ exports[`Enumeration should render with header in add state and list in default 
     </button>
     <button
       className="btn btn-link"
+      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
@@ -179,6 +181,7 @@ exports[`Enumeration should render with header in add state and list in default 
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -200,6 +203,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -253,6 +257,7 @@ exports[`Enumeration should render with header in add state and list in default 
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -274,6 +279,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -327,6 +333,7 @@ exports[`Enumeration should render with header in add state and list in default 
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -348,6 +355,7 @@ exports[`Enumeration should render with header in add state and list in default 
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -392,6 +400,7 @@ exports[`Enumeration should render with header in default state and first item i
     >
       <button
         className="btn btn-link"
+        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onFocus={[Function]}
@@ -489,6 +498,7 @@ exports[`Enumeration should render with header in default state and first item i
                 >
                   <button
                     className="theme-btn-disabled btn btn-link"
+                    data-feature={undefined}
                     disabled={true}
                     onClick={[Function]}
                     onMouseDown={[Function]}
@@ -509,6 +519,7 @@ exports[`Enumeration should render with header in default state and first item i
                 </span>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -562,6 +573,7 @@ exports[`Enumeration should render with header in default state and first item i
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -583,6 +595,7 @@ exports[`Enumeration should render with header in default state and first item i
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -636,6 +649,7 @@ exports[`Enumeration should render with header in default state and first item i
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -657,6 +671,7 @@ exports[`Enumeration should render with header in default state and first item i
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -702,6 +717,7 @@ exports[`Enumeration should render with header in default state with custom labe
     >
       <button
         className="btn btn-link"
+        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onFocus={[Function]}
@@ -798,6 +814,7 @@ exports[`Enumeration should render with header in default state with custom labe
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -819,6 +836,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -872,6 +890,7 @@ exports[`Enumeration should render with header in default state with custom labe
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -893,6 +912,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -946,6 +966,7 @@ exports[`Enumeration should render with header in default state with custom labe
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -967,6 +988,7 @@ exports[`Enumeration should render with header in default state with custom labe
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1012,6 +1034,7 @@ exports[`Enumeration should render with header in default state, list in default
     >
       <button
         className="btn btn-link"
+        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1108,6 +1131,7 @@ exports[`Enumeration should render with header in default state, list in default
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1129,6 +1153,7 @@ exports[`Enumeration should render with header in default state, list in default
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1182,6 +1207,7 @@ exports[`Enumeration should render with header in default state, list in default
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1203,6 +1229,7 @@ exports[`Enumeration should render with header in default state, list in default
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1256,6 +1283,7 @@ exports[`Enumeration should render with header in default state, list in default
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1277,6 +1305,7 @@ exports[`Enumeration should render with header in default state, list in default
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1323,6 +1352,7 @@ exports[`Enumeration should render with header in search state and list in defau
     />
     <button
       className="btn btn-link"
+      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
@@ -1344,6 +1374,7 @@ exports[`Enumeration should render with header in search state and list in defau
     </button>
     <button
       className="btn btn-link"
+      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
@@ -1442,6 +1473,7 @@ exports[`Enumeration should render with header in search state and list in defau
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1463,6 +1495,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1519,6 +1552,7 @@ exports[`Enumeration should render with header in search state and list in defau
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1540,6 +1574,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1596,6 +1631,7 @@ exports[`Enumeration should render with header in search state and list in defau
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1617,6 +1653,7 @@ exports[`Enumeration should render with header in search state and list in defau
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1658,6 +1695,7 @@ exports[`Enumeration should render with header in selected state with trash icon
     </span>
     <button
       className="btn btn-link"
+      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
@@ -1742,6 +1780,7 @@ exports[`Enumeration should render with header in selected state with trash icon
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1763,6 +1802,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1816,6 +1856,7 @@ exports[`Enumeration should render with header in selected state with trash icon
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1837,6 +1878,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1890,6 +1932,7 @@ exports[`Enumeration should render with header in selected state with trash icon
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1911,6 +1954,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -1952,6 +1996,7 @@ exports[`Enumeration should render with header in selected state with trash icon
     </span>
     <button
       className="btn btn-link"
+      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
@@ -2054,6 +2099,7 @@ exports[`Enumeration should render with header in selected state with trash icon
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -2075,6 +2121,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -2146,6 +2193,7 @@ exports[`Enumeration should render with header in selected state with trash icon
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -2167,6 +2215,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -2238,6 +2287,7 @@ exports[`Enumeration should render with header in selected state with trash icon
               >
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -2259,6 +2309,7 @@ exports[`Enumeration should render with header in selected state with trash icon
                 </button>
                 <button
                   className="btn btn-link"
+                  data-feature={undefined}
                   disabled={false}
                   onClick={[Function]}
                   onFocus={[Function]}
@@ -2303,6 +2354,7 @@ exports[`Enumeration should render with header without items 1`] = `
     >
       <button
         className="btn btn-link"
+        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onFocus={[Function]}

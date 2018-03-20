@@ -15,6 +15,7 @@ function CellTitleSelector(props) {
 		cellData,
 		className,
 		displayMode,
+		feature,
 		onClick,
 		onEditSubmit,
 		onEditCancel,
@@ -38,6 +39,7 @@ function CellTitleSelector(props) {
 			<Button
 				id={id && `${id}-btn`}
 				className={className}
+				data-feature={feature}
 				onClick={event => onClick(event, rowData)}
 				role="link"
 				bsStyle="link"
@@ -57,6 +59,8 @@ CellTitleSelector.propTypes = {
 	cellData: PropTypes.string.isRequired,
 	/** The title element className. */
 	className: PropTypes.string,
+	/** The title element feature for analytics purpose. */
+	feature: PropTypes.string,
 	/** The display mode. */
 	displayMode: PropTypes.oneOf([TITLE_MODE_TEXT, TITLE_MODE_INPUT]),
 	/** The onClick callback triggered on title main button click. */

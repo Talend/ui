@@ -69,6 +69,7 @@ class ActionFile extends React.Component {
 		id: PropTypes.string,
 		bsStyle: PropTypes.string,
 		disabled: PropTypes.bool,
+		feature: PropTypes.string,
 		hideLabel: PropTypes.bool,
 		iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 		label: PropTypes.string.isRequired,
@@ -108,6 +109,7 @@ class ActionFile extends React.Component {
 			name,
 			available,
 			disabled,
+			feature,
 			inProgress,
 			hideLabel,
 			tooltip,
@@ -132,6 +134,7 @@ class ActionFile extends React.Component {
 					type="file"
 					name={name}
 					id={localId}
+					data-feature={feature}
 					disabled={inProgress || disabled}
 					className={theme['action-file-label']}
 				/>

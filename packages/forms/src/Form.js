@@ -59,6 +59,7 @@ export function renderActions(actions, handleActionClick) {
 			<Action
 				key={index}
 				bsStyle={action.style}
+				feature={action.feature}
 				label={action.title}
 				{...Object.assign(action, { onClick: handleActionClick(action.onClick) })}
 			>
@@ -190,6 +191,7 @@ export const ActionsPropTypes = PropTypes.arrayOf(
 	PropTypes.shape({
 		style: PropTypes.string,
 		type: PropTypes.oneOf(['submit', 'reset', 'button']),
+		feature: PropTypes.string,
 		onClick: PropTypes.func,
 		label: PropTypes.string,
 		icon: PropTypes.string,

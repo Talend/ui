@@ -19,6 +19,7 @@ exports[`Header should render header input with error 1`] = `
   </div>
   <button
     className="btn btn-link"
+    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -40,6 +41,7 @@ exports[`Header should render header input with error 1`] = `
   </button>
   <button
     className="btn btn-link"
+    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -76,6 +78,7 @@ exports[`Header should render header input with two buttons 1`] = `
   />
   <button
     className="btn btn-link"
+    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -97,6 +100,7 @@ exports[`Header should render header input with two buttons 1`] = `
   </button>
   <button
     className="btn btn-link"
+    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}

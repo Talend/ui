@@ -19,6 +19,7 @@ exports[`Notification should render 1`] = `
     >
       <button
         className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -48,6 +49,7 @@ exports[`Notification should render 1`] = `
           This is a feedback of your operation1, This is a feedback of your operation1
           <button
             className="theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action-default"
+            data-feature={undefined}
             disabled={false}
             onClick={[Function]}
             onMouseDown={[Function]}
@@ -83,6 +85,7 @@ exports[`Notification should render 1`] = `
     >
       <button
         className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -117,6 +120,7 @@ exports[`Notification should render 1`] = `
           This is a feedback of your operation1, This is a feedback of your operation1
           <button
             className="theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action-default"
+            data-feature={undefined}
             disabled={false}
             onClick={[Function]}
             onMouseDown={[Function]}
@@ -149,6 +153,7 @@ exports[`Notification should render 1`] = `
     >
       <button
         className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -196,6 +201,7 @@ exports[`Notification should render 1`] = `
     >
       <button
         className="theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}

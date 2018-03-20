@@ -100,6 +100,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
   >
     <button
       className="theme-btn-disabled btn btn-primary"
+      data-feature={undefined}
       disabled={true}
       onClick={[Function]}
       onMouseDown={[Function]}
@@ -112,6 +113,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
     </button>
     <button
       className="btn btn-link"
+      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onMouseDown={[Function]}
