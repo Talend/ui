@@ -11,15 +11,18 @@ const item = {
 		onSubmitItem: jest.fn(), // provided click callback
 		onAbortItem: jest.fn(), // provided click callback
 		onSelectItem: jest.fn(), // provided click callback
-		actions: [{
-			label: 'Edit',
-			id: 'edit',
-			onClick: jest.fn(), // provided click callback
-		}, {
-			label: 'Delete',
-			id: 'delete',
-			onClick: jest.fn(), // provided click callback
-		}],
+		actions: [
+			{
+				label: 'Edit',
+				id: 'edit',
+				onClick: jest.fn(), // provided click callback
+			},
+			{
+				label: 'Delete',
+				id: 'delete',
+				onClick: jest.fn(), // provided click callback
+			},
+		],
 	},
 };
 
@@ -41,7 +44,6 @@ describe('Item', () => {
 		expect(buttons.length).toBe(3);
 		expect(props.item.itemProps.actions[0].onClick).toBeCalled();
 	});
-
 
 	it('should display value with three buttons and trigger callback on item click', () => {
 		// given
