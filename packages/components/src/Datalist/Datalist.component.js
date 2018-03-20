@@ -45,6 +45,13 @@ class Datalist extends Component {
 		}
 	}
 
+	resetSelection() {
+		this.setState({
+			focusedItemIndex: undefined,
+			focusedSectionIndex: undefined,
+		});
+	}
+
 	/**
 	 * Update value (non persistent) on input value change and update the suggestions
 	 * @param event
@@ -53,6 +60,8 @@ class Datalist extends Component {
 	onChange(event, { value }) {
 		this.updateGroups(value, true);
 		this.updateValue(event, value, false);
+		// resetting selection here in order to reinit the section + item indexes
+		this.resetSelection();
 	}
 
 	/**
@@ -85,7 +94,7 @@ class Datalist extends Component {
 				event.preventDefault();
 				this.resetValue();
 				break;
-			case keycode.codes.enter:
+		case keycode.codes.enter:
 				if (!this.state.groups) {
 					break;
 				}
@@ -101,8 +110,8 @@ class Datalist extends Component {
 					// we persist it
 					this.updateValue(event, this.state.value, true);
 				}
-				// blurs the input, reset suggestions and unfocus input
-				event.target.blur();
+				// resetting suggestions to close dropdown
+				this.resetSuggestions();
 				break;
 			case keycode.codes.down:
 				event.preventDefault();
@@ -258,9 +267,8 @@ class Datalist extends Component {
 	resetSuggestions() {
 		this.setState({
 			groups: undefined,
-			focusedItemIndex: undefined,
-			focusedSectionIndex: undefined,
 		});
+		this.resetSelection();
 	}
 
 	render() {
