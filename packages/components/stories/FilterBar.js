@@ -18,6 +18,11 @@ const propsDockToggle = {
 	tooltipPlacement: 'bottom',
 };
 
+const propsIconAlwaysVisble = Object.assign({}, propsDockToggle, {
+	iconAlwaysVisible: true,
+	dockable: false,
+});
+
 const propsNoDockToggle = {
 	id: 'FILTER-noDockAndNoDockable',
 	dockable: false,
@@ -48,6 +53,15 @@ stories
 			<p>When not docked but dockable in an ActionBar</p>
 			<ActionBar>
 				<FilterBar {...propsDockToggle} />
+			</ActionBar>
+		</div>
+	))
+	.addWithInfo('no docked, no dockable and icon visible', () => (
+		<div style={divStyle}>
+			<IconsProvider />
+			<p>When icon always visible and not docked, no dockable in an ActionBar</p>
+			<ActionBar>
+				<FilterBar {...propsIconAlwaysVisble} />
 			</ActionBar>
 		</div>
 	))
