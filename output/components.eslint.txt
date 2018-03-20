@@ -10,8 +10,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/Datalist/Datalist.component.js
    51:2   error  resetSelection should be placed after onSelect  react/sort-comp
-  263:14  error  Expected '!==' and instead saw '!='             eqeqeq
-  271:12  error  Expected '!==' and instead saw '!='             eqeqeq
+  262:14  error  Expected '!==' and instead saw '!='             eqeqeq
+  270:12  error  Expected '!==' and instead saw '!='             eqeqeq
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
