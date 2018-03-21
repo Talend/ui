@@ -18,7 +18,7 @@ plugins: [
     new HtmlWebpackPlugin({
         ...
         loader_style: Loader.getLoaderStyle(ICON),
-        loader: Loader.LOADER_APP,
+        loader: Loader.APP_LOADER,
     }),
     ...
 ]
@@ -48,7 +48,7 @@ plugins: [
 ```javascript
 function App(props) {
     if (!props.hasData) {
-        return <Loader.App />;
+        return <AppLoader />;
     }
     return (
         <div>

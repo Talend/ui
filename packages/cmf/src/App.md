@@ -30,7 +30,7 @@ const store = cmfstore.initialize(
 store.dispatch(actions.settingsActions.fetchSettings('/settings.json'));
 
 render(
-	<App store={store} history={syncHistoryWithStore(browserHistory, store)} loading="LoaderApp" />,
+	<App store={store} history={syncHistoryWithStore(browserHistory, store)} loading="AppLoader" />,
 	document.getElementById('app'),
 );
 ```
