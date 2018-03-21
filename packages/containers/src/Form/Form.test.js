@@ -62,7 +62,12 @@ describe('Container(Form)', () => {
 				language={key => key}
 			/>,
 		);
-		expect(wrapper.dive().dive().getElement().type.name).toEqual(UIForm.name);
+		expect(
+			wrapper
+				.dive()
+				.dive()
+				.getElement().type.name,
+		).toEqual(UIForm.name);
 	});
 
 	it('should use props.onSubmit', () => {
