@@ -6,6 +6,7 @@ import get from 'lodash/get';
 import { Map, fromJS } from 'immutable';
 import invariant from 'invariant';
 import ACTIONS from '../actions';
+import console from './../console';
 
 export const defaultState = new Map();
 
@@ -52,7 +53,8 @@ export function errorIfMergingStateDoesntExist(state, action) {
 		invariant(
 			process.env.NODE_ENV === 'production',
 			`Error, the component ${action.componentName} try to mutate a non existing
- State namespace ${action.key}, this namespace may be not yet created or already removed.`);
+ State namespace ${action.key}, this namespace may be not yet created or already removed.`,
+		);
 	}
 }
 
@@ -69,20 +71,14 @@ export function componentsReducers(state = defaultState, action) {
 			if (action.initialComponentState) {
 				return state.setIn(
 					[action.componentName, action.key],
-					fromJS(action.initialComponentState)
+					fromJS(action.initialComponentState),
 				);
 			}
-			return state.setIn(
-				[action.componentName, action.key],
-				new Map()
-			);
+			return state.setIn([action.componentName, action.key], new Map());
 		case ACTIONS.components.COMPONENT_MERGE_STATE:
 			errorIfMergingStateDoesntExist(state, action);
 
-			return state.mergeIn(
-				[action.componentName, action.key],
-				fromJS(action.componentState)
-			);
+			return state.mergeIn([action.componentName, action.key], fromJS(action.componentState));
 		case ACTIONS.components.COMPONENT_REMOVE_STATE:
 			warnIfRemovingStateDoesntExist(state, action);
 			return state.deleteIn([action.componentName, action.key]);

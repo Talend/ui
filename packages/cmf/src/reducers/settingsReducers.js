@@ -5,6 +5,7 @@
 import get from 'lodash/get';
 import invariant from 'invariant';
 import * as ACTIONS from '../actions/settingsActions';
+import console from './../console';
 
 export const defaultState = {
 	initialized: false,
@@ -76,7 +77,7 @@ export function settingsReducers(state = defaultState, action) {
 			return Object.assign({}, state, { initialized: true }, prepareSettings(action.settings));
 		case ACTIONS.REQUEST_KO:
 			alert(`Settings can't be loaded ${get(action, 'error.message')}`); // eslint-disable-line
-			console.error(action.error); // eslint-disable-line
+			console.error(action.error);
 			return Object.assign({}, state, { initialized: true }, action.settings);
 		default:
 			return state;

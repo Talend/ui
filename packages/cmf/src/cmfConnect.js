@@ -36,6 +36,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import omit from 'lodash/omit';
 import api from './api';
+import console from './console';
 import deprecated from './deprecated';
 import CONSTANT from './constant';
 
@@ -161,7 +162,6 @@ export function getDispatchToProps({
 	let userProps = {};
 	if (mapDispatchToProps) {
 		if (process.env.NODE_ENV === 'development') {
-			// eslint-disable-next-line no-console
 			console.warn(`DEPRECATION WARNING: mapDispatchToProps will be removed from cmfConnect.
 			Please use the injectedProps dispatchActionCreator or dispatch`);
 		}

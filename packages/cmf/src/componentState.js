@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import invariant from 'invariant';
+
 import actions from './actions';
+import console from './console';
 
 /**
  * This module provide props.setState and props.state into
