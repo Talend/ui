@@ -4,7 +4,6 @@ exports[`Connected ActionFile should render 1`] = `
 <span>
   <input
     className="theme-action-file-label"
-    data-feature={undefined}
     disabled={false}
     id="42"
     name={undefined}
