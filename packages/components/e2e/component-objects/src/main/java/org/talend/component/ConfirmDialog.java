@@ -11,7 +11,7 @@ public class ConfirmDialog extends Component {
 
     private static final String NAME = "ConfirmDialog";
 
-    private static final String CONFIRMDIALOG_SELECTOR = ".modal-content";
+    private static final String SELECTOR = ".modal-content";
 
     private static final String CONFIRMDIALOG_BUTTONS_SELECTOR = ".modal-footer .btn";
 
@@ -21,7 +21,7 @@ public class ConfirmDialog extends Component {
      * @param driver Selenium WebDriver
      */
     ConfirmDialog(WebDriver driver) {
-        super(driver, NAME, CONFIRMDIALOG_SELECTOR);
+        super(driver, NAME, SELECTOR);
     }
 
     /**
@@ -31,7 +31,7 @@ public class ConfirmDialog extends Component {
      * @param id Unique ID of the component
      */
     ConfirmDialog(WebDriver driver, String id) {
-        super(driver, NAME, id + CONFIRMDIALOG_SELECTOR);
+        super(driver, NAME, id + SELECTOR);
     }
 
     /**
