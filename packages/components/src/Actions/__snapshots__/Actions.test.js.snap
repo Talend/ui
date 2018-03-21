@@ -6,7 +6,6 @@ exports[`Actions should render actions 1`] = `
 >
   <button
     className="btn btn-primary"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onMouseDown={[Function]}
@@ -25,7 +24,6 @@ exports[`Actions should render actions 1`] = `
   </button>
   <button
     className="btn btn-default"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onMouseDown={[Function]}
@@ -44,7 +42,6 @@ exports[`Actions should render actions 1`] = `
   </button>
   <button
     className="btn btn-default"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onMouseDown={[Function]}
@@ -106,7 +103,6 @@ exports[`Actions should render actions 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="document 1"
           onClick={[Function]}
@@ -123,7 +119,6 @@ exports[`Actions should render actions 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="document 2"
           onClick={[Function]}
@@ -141,7 +136,6 @@ exports[`Actions should render actions 1`] = `
   >
     <button
       className="theme-tc-split-dropdown btn btn-default"
-      data-feature={undefined}
       disabled={false}
       hideLabel={false}
       link={false}
@@ -189,7 +183,6 @@ exports[`Actions should render actions 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="file 1"
           onClick={[Function]}
@@ -206,7 +199,6 @@ exports[`Actions should render actions 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="file 2"
           onClick={[Function]}
@@ -228,7 +220,6 @@ exports[`Actions should render actions with "link" theme 1`] = `
 >
   <button
     className="btn btn-link"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onMouseDown={[Function]}
@@ -247,7 +238,6 @@ exports[`Actions should render actions with "link" theme 1`] = `
   </button>
   <button
     className="btn btn-link"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onMouseDown={[Function]}
@@ -266,7 +256,6 @@ exports[`Actions should render actions with "link" theme 1`] = `
   </button>
   <button
     className="btn btn-link"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onMouseDown={[Function]}
@@ -328,7 +317,6 @@ exports[`Actions should render actions with "link" theme 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="document 1"
           onClick={[Function]}
@@ -345,7 +333,6 @@ exports[`Actions should render actions with "link" theme 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="document 2"
           onClick={[Function]}
@@ -363,7 +350,6 @@ exports[`Actions should render actions with "link" theme 1`] = `
   >
     <button
       className="theme-tc-split-dropdown btn btn-default"
-      data-feature={undefined}
       disabled={false}
       hideLabel={false}
       link={true}
@@ -411,7 +397,6 @@ exports[`Actions should render actions with "link" theme 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="file 1"
           onClick={[Function]}
@@ -428,7 +413,6 @@ exports[`Actions should render actions with "link" theme 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="file 2"
           onClick={[Function]}
@@ -450,7 +434,6 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
 >
   <button
     className="btn btn-link"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -468,7 +451,6 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
   </button>
   <button
     className="btn btn-link"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -486,7 +468,6 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
   </button>
   <button
     className="btn btn-link"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -544,7 +525,6 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="document 1"
           onClick={[Function]}
@@ -561,7 +541,6 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="document 2"
           onClick={[Function]}
@@ -579,7 +558,6 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
   >
     <button
       className="theme-tc-split-dropdown btn btn-default"
-      data-feature={undefined}
       disabled={false}
       hideLabel={true}
       link={true}
@@ -627,7 +605,6 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="file 1"
           onClick={[Function]}
@@ -644,7 +621,6 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="file 2"
           onClick={[Function]}
@@ -666,7 +642,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
 >
   <button
     className="btn btn-primary"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -684,7 +659,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
   </button>
   <button
     className="btn btn-default"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -702,7 +676,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
   </button>
   <button
     className="btn btn-default"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -760,7 +733,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="document 1"
           onClick={[Function]}
@@ -777,7 +749,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="document 2"
           onClick={[Function]}
@@ -795,7 +766,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
   >
     <button
       className="theme-tc-split-dropdown btn btn-default"
-      data-feature={undefined}
       disabled={false}
       hideLabel={true}
       link={false}
@@ -843,7 +813,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="file 1"
           onClick={[Function]}
@@ -860,7 +829,6 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
         style={undefined}
       >
         <a
-          data-feature={undefined}
           href="#"
           label="file 2"
           onClick={[Function]}

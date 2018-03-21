@@ -19,7 +19,6 @@ exports[`Storyshots TabBar default 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
             id="tab-bar-action-1"
             onClick={[Function]}
@@ -37,7 +36,6 @@ exports[`Storyshots TabBar default 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
             id="tab-bar-action-2"
             onClick={[Function]}
@@ -55,7 +53,6 @@ exports[`Storyshots TabBar default 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
             id="tab-bar-action-3"
             onClick={[Function]}

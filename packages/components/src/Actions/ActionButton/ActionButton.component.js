@@ -90,7 +90,6 @@ function ActionButton(props) {
 		bsStyle,
 		inProgress,
 		disabled,
-		feature,
 		hideLabel,
 		label,
 		loading,
@@ -147,7 +146,6 @@ function ActionButton(props) {
 			onClick={rClick}
 			bsStyle={style}
 			disabled={btnIsDisabled}
-			data-feature={feature}
 			role={link ? 'link' : null}
 			{...buttonProps}
 		>
@@ -185,7 +183,6 @@ ActionButton.propTypes = {
 	id: PropTypes.string,
 	bsStyle: PropTypes.string,
 	disabled: PropTypes.bool,
-	feature: PropTypes.string,
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 	label: PropTypes.string.isRequired,

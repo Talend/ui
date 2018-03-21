@@ -44,7 +44,6 @@ exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
   </button>
   <button
     className="tc-badge-delete-icon theme-tc-badge-delete-icon btn btn-default"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -86,7 +85,6 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
   </button>
   <button
     className="tc-badge-delete-icon theme-tc-badge-delete-icon btn btn-default"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}
@@ -154,7 +152,6 @@ exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1
   >
     <button
       className="tc-badge-delete-icon theme-tc-badge-delete-icon theme-btn-disabled btn btn-default"
-      data-feature={undefined}
       disabled={true}
       id="tc-badge-delete-delete"
       onClick={[Function]}
@@ -196,7 +193,6 @@ exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
   </button>
   <button
     className="tc-badge-delete-icon theme-tc-badge-delete-icon btn btn-default"
-    data-feature={undefined}
     disabled={false}
     onClick={[Function]}
     onFocus={[Function]}

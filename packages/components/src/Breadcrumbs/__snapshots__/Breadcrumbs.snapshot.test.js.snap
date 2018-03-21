@@ -199,7 +199,6 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
           style={undefined}
         >
           <a
-            data-feature={undefined}
             href="#"
             id="42-item-0"
             label="Text A"
@@ -218,7 +217,6 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
           style={undefined}
         >
           <a
-            data-feature={undefined}
             href="#"
             id="42-item-1"
             label="Text B"
@@ -237,7 +235,6 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
           style={undefined}
         >
           <a
-            data-feature={undefined}
             href="#"
             id="42-item-2"
             label="Text C"
@@ -360,7 +357,6 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
           style={undefined}
         >
           <a
-            data-feature={undefined}
             href="#"
             id="my-breadcrumb-item-0"
             label="Text A"
@@ -508,7 +504,6 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
           style={undefined}
         >
           <a
-            data-feature={undefined}
             href="#"
             id="42-item-0"
             label="Text A"

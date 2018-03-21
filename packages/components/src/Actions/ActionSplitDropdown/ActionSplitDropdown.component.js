@@ -30,7 +30,7 @@ import { wrapOnClick } from '../Action/Action.component';
  */
 
 function ActionSplitDropdown(props) {
-	const { icon, items, label, feature, emptyDropdownLabel, className, ...rest } = props;
+	const { icon, items, label, emptyDropdownLabel, className, ...rest } = props;
 
 	const Title = (
 		<span>
@@ -45,12 +45,11 @@ function ActionSplitDropdown(props) {
 			title={Title}
 			id={uuid.v4()}
 			className={classNames(className, theme['tc-split-dropdown'])}
-			data-feature={feature}
 			{...rest}
 		>
 			{items.length ? (
 				items.map((item, index) => (
-					<MenuItem {...item} key={index} data-feature={item.feature} onClick={wrapOnClick(item)}>
+					<MenuItem {...item} key={index} onClick={wrapOnClick(item)}>
 						{item.icon && <Icon name={item.icon} />}
 						{item.label}
 					</MenuItem>
@@ -70,12 +69,10 @@ ActionSplitDropdown.propTypes = {
 		PropTypes.shape({
 			icon: PropTypes.string,
 			label: PropTypes.string,
-			feature: PropTypes.string,
 			...MenuItem.propTypes,
 		}),
 	).isRequired,
 	label: PropTypes.string.isRequired,
-	feature: PropTypes.string,
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	onClick: PropTypes.func,
 	emptyDropdownLabel: PropTypes.string,

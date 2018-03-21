@@ -8,20 +8,20 @@ const actions = [
 	{
 		label: 'Preparations',
 		icon: 'fa fa-asterisk',
-		feature: 'actions.item',
+		'data-feature': 'actions.item',
 		onClick: action('Preparations clicked'),
 		bsStyle: 'primary',
 	},
 	{
 		label: 'Datasets',
 		icon: 'fa fa-file-excel-o',
-		feature: 'actions.item',
+		'data-feature': 'actions.item',
 		onClick: action('Datasets clicked'),
 	},
 	{
 		label: 'Favorites',
 		icon: 'fa fa-star',
-		feature: 'actions.item',
+		'data-feature': 'actions.item',
 		onClick: action('Favorites clicked'),
 		inProgress: true,
 	},
@@ -32,12 +32,12 @@ const actions = [
 		items: [
 			{
 				label: 'document 1',
-				feature: 'actions.dropdown.items',
+				'data-feature': 'actions.dropdown.items',
 				onClick: action('document 1 click'),
 			},
 			{
 				label: 'document 2',
-				feature: 'actions.dropdown.items',
+				'data-feature': 'actions.dropdown.items',
 				onClick: action('document 2 click'),
 			},
 		],
@@ -46,17 +46,17 @@ const actions = [
 		id: 'split-dropdown-id',
 		displayMode: 'splitDropdown',
 		label: 'add file',
-		feature: 'actions.splitdropdown',
+		'data-feature': 'actions.splitdropdown',
 		onClick: action('click'),
 		items: [
 			{
 				label: 'file 1',
-				feature: 'actions.splitdropdown.items',
+				'data-feature': 'actions.splitdropdown.items',
 				onClick: action('file 1 click'),
 			},
 			{
 				label: 'file 2',
-				feature: 'actions.splitdropdown.items',
+				'data-feature': 'actions.splitdropdown.items',
 				onClick: action('file 2 click'),
 			},
 		],

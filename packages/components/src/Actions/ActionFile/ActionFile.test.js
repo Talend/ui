@@ -8,7 +8,7 @@ const myAction = {
 	label: 'Click me',
 	icon: 'talend-caret-down',
 	onChange: jest.fn(),
-	feature: 'action.feature',
+	'data-feature': 'action.feature',
 };
 
 describe('ActionFile', () => {

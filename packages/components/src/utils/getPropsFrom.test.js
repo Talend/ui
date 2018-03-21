@@ -13,6 +13,8 @@ describe('Action', () => {
 			href: 'www.google.de',
 			target: '_blank',
 			type: 'button',
+			'aria-label': 'aria-label',
+			'data-feature': 'data-feature',
 
 			// native props should be kept
 			className: 'my class',
@@ -27,13 +29,15 @@ describe('Action', () => {
 		// then
 		expect(buttonProps).toEqual({
 			active: true,
+			'aria-label': 'aria-label',
+			'data-feature': 'data-feature',
 			disabled: false,
 			block: false,
 			onClick,
 			href: 'www.google.de',
 			type: 'button',
 			className: 'my class',
-			target: '_blank',
+			target: '_blank'
 		});
 	});
 });

@@ -11,7 +11,7 @@ const icons = {
 
 const myAction = {
 	label: 'Click me',
-	feature: 'actionfile',
+	'data-feature': 'actionfile',
 	icon: 'talend-upload',
 	onChange: action('You changed me'),
 	displayMode: 'file',

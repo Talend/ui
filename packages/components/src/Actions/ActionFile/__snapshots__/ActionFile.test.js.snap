@@ -4,7 +4,6 @@ exports[`ActionFile should apply transformation on icon 1`] = `
 <span>
   <input
     className="theme-action-file-label"
-    data-feature="action.feature"
     disabled={false}
     id={42}
     name={undefined}
@@ -30,7 +29,6 @@ exports[`ActionFile should display a Progress indicator if set 1`] = `
 <span>
   <input
     className="theme-action-file-label"
-    data-feature="action.feature"
     disabled={true}
     id={42}
     name={undefined}
@@ -55,7 +53,6 @@ exports[`ActionFile should display a disabled Icon 1`] = `
 <span>
   <input
     className="theme-action-file-label"
-    data-feature="action.feature"
     disabled={true}
     id={42}
     name={undefined}
@@ -81,7 +78,6 @@ exports[`ActionFile should pass all props to the Button 1`] = `
 <span>
   <input
     className="theme-action-file-label"
-    data-feature="action.feature"
     disabled={false}
     id={42}
     name={undefined}
@@ -107,7 +103,6 @@ exports[`ActionFile should render a div with a input[type="file"] and a label to
 <span>
   <input
     className="theme-action-file-label"
-    data-feature="action.feature"
     disabled={false}
     id={42}
     name={undefined}
@@ -133,7 +128,6 @@ exports[`ActionFile should render action with html property name = props.name if
 <span>
   <input
     className="theme-action-file-label"
-    data-feature="action.feature"
     disabled={false}
     id={42}
     name="custom_name"
@@ -159,7 +153,6 @@ exports[`ActionFile should reverse icon/label 1`] = `
 <span>
   <input
     className="theme-action-file-label"
-    data-feature="action.feature"
     disabled={false}
     id={42}
     name={undefined}

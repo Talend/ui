@@ -23,7 +23,6 @@ exports[`Status should render a label 1`] = `
     >
       <button
         className="btn btn-sm btn-default"
-        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -42,7 +41,6 @@ exports[`Status should render a label 1`] = `
       </button>
       <button
         className="btn btn-sm btn-default"
-        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -92,7 +90,6 @@ exports[`Status should render a label with Icon 1`] = `
     >
       <button
         className="btn btn-sm btn-default"
-        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -111,7 +108,6 @@ exports[`Status should render a label with Icon 1`] = `
       </button>
       <button
         className="btn btn-sm btn-default"
-        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -204,7 +200,6 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
     >
       <button
         className="btn btn-sm btn-default"
-        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -223,7 +218,6 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
       </button>
       <button
         className="btn btn-sm btn-default"
-        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -286,7 +280,6 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
     >
       <button
         className="btn btn-sm btn-default"
-        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -305,7 +298,6 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
       </button>
       <button
         className="btn btn-sm btn-default"
-        data-feature={undefined}
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}

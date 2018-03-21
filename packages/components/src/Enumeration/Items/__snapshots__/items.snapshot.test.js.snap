@@ -73,7 +73,6 @@ exports[`Items should display one item in edit mode and the other in default 1`]
             >
               <button
                 className="btn btn-link"
-                data-feature={undefined}
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -127,7 +126,6 @@ exports[`Items should display one item in edit mode and the other in default 1`]
             >
               <button
                 className="btn btn-link"
-                data-feature={undefined}
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -149,7 +147,6 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               </button>
               <button
                 className="btn btn-link"
-                data-feature={undefined}
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -203,7 +200,6 @@ exports[`Items should display one item in edit mode and the other in default 1`]
             >
               <button
                 className="btn btn-link"
-                data-feature={undefined}
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -225,7 +221,6 @@ exports[`Items should display one item in edit mode and the other in default 1`]
               </button>
               <button
                 className="btn btn-link"
-                data-feature={undefined}
                 disabled={false}
                 onClick={[Function]}
                 onFocus={[Function]}

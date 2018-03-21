@@ -13,7 +13,7 @@ const inactiveIconToggle = {
 	icon: 'talend-panel-opener-right',
 	id: 'my-inactive-action',
 	label: 'Click me, I\'m inactive',
-	feature: 'actionicontoggle',
+	'data-feature': 'actionicontoggle',
 	onClick: action('You clicked the inactive button'),
 	tooltipPlacement: 'top',
 };
@@ -23,7 +23,7 @@ const activeIconToggle = {
 	icon: 'talend-panel-opener-right',
 	id: 'my-active-action',
 	label: 'Click me, I\'m inactive',
-	feature: 'actionicontoggle',
+	'data-feature': 'actionicontoggle',
 	onClick: action('You clicked the active button'),
 	tooltipPlacement: 'top',
 };

@@ -104,7 +104,6 @@ exports[`Storyshots ActionList default 1`] = `
       >
         <button
           className="btn btn-link"
-          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-recent-datasets"
           onClick={[Function]}
@@ -134,7 +133,6 @@ exports[`Storyshots ActionList default 1`] = `
       >
         <button
           className="btn btn-link"
-          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-favorite-datasets"
           onClick={[Function]}
@@ -164,7 +162,6 @@ exports[`Storyshots ActionList default 1`] = `
       >
         <button
           className="btn btn-link"
-          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-certified-datasets"
           onClick={[Function]}
@@ -194,7 +191,6 @@ exports[`Storyshots ActionList default 1`] = `
       >
         <button
           className="btn btn-link"
-          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-all-datasets"
           onClick={[Function]}
@@ -224,7 +220,6 @@ exports[`Storyshots ActionList default 1`] = `
       >
         <button
           className="btn btn-link"
-          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-import-file"
           onClick={[Function]}
@@ -254,7 +249,6 @@ exports[`Storyshots ActionList default 1`] = `
       >
         <button
           className="btn btn-link"
-          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-use-magic"
           onClick={[Function]}
@@ -386,7 +380,6 @@ exports[`Storyshots ActionList single 1`] = `
       >
         <button
           className="btn btn-link"
-          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-favorite-datasets"
           onClick={[Function]}
@@ -551,7 +544,6 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-recent-datasets"
             onClick={[Function]}
@@ -581,7 +573,6 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-favorite-datasets"
             onClick={[Function]}
@@ -611,7 +602,6 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-certified-datasets"
             onClick={[Function]}
@@ -641,7 +631,6 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-all-datasets"
             onClick={[Function]}
@@ -671,7 +660,6 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-import-file"
             onClick={[Function]}
@@ -701,7 +689,6 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-use-magic"
             onClick={[Function]}

@@ -3,7 +3,7 @@
 exports[`ActionSplitDropdown should render "no option" item when items array is empty 1`] = `
 <SplitButton
   className="theme-tc-split-dropdown"
-  data-feature="action.add"
+  feature="action.add"
   id={42}
   onClick={[Function]}
   title={
@@ -31,7 +31,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
 exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
 <SplitButton
   className="theme-tc-split-dropdown"
-  data-feature="action.add"
+  feature="action.add"
   id={42}
   onClick={[Function]}
   title={
@@ -47,7 +47,6 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
 >
   <MenuItem
     bsClass="dropdown"
-    data-feature="action.local"
     disabled={false}
     divider={false}
     feature="action.local"
@@ -59,7 +58,6 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
   </MenuItem>
   <MenuItem
     bsClass="dropdown"
-    data-feature="action.remote"
     disabled={false}
     divider={false}
     feature="action.remote"
@@ -75,7 +73,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
 exports[`ActionSplitDropdown should render a button with label 1`] = `
 <SplitButton
   className="theme-tc-split-dropdown"
-  data-feature="action.add"
+  feature="action.add"
   id={42}
   onClick={[Function]}
   title={
@@ -88,7 +86,6 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
 >
   <MenuItem
     bsClass="dropdown"
-    data-feature="action.local"
     disabled={false}
     divider={false}
     feature="action.local"
@@ -100,7 +97,6 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
   </MenuItem>
   <MenuItem
     bsClass="dropdown"
-    data-feature="action.remote"
     disabled={false}
     divider={false}
     feature="action.remote"
@@ -116,7 +112,7 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
 exports[`ActionSplitDropdown should render items with icons 1`] = `
 <SplitButton
   className="theme-tc-split-dropdown"
-  data-feature="action.add"
+  feature="action.add"
   id={42}
   onClick={[Function]}
   title={
@@ -132,7 +128,6 @@ exports[`ActionSplitDropdown should render items with icons 1`] = `
 >
   <MenuItem
     bsClass="dropdown"
-    data-feature={undefined}
     disabled={false}
     divider={false}
     header={false}
@@ -147,7 +142,6 @@ exports[`ActionSplitDropdown should render items with icons 1`] = `
   </MenuItem>
   <MenuItem
     bsClass="dropdown"
-    data-feature={undefined}
     disabled={false}
     divider={false}
     header={false}

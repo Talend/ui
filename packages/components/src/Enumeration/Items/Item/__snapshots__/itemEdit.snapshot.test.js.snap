@@ -17,7 +17,6 @@ exports[`Item should display input value with error 1`] = `
   >
     <button
       className="btn btn-link"
-      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
@@ -28,7 +27,6 @@ exports[`Item should display input value with error 1`] = `
     />
     <button
       className="btn btn-link"
-      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
@@ -63,7 +61,6 @@ exports[`Item should display input value with two buttons 1`] = `
   >
     <button
       className="btn btn-link"
-      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
@@ -74,7 +71,6 @@ exports[`Item should display input value with two buttons 1`] = `
     />
     <button
       className="btn btn-link"
-      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}
@@ -108,7 +104,6 @@ exports[`Item should display input value with two buttons. The validate button i
     >
       <button
         className="theme-btn-disabled btn btn-link"
-        data-feature={undefined}
         disabled={true}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -118,7 +113,6 @@ exports[`Item should display input value with two buttons. The validate button i
     </span>
     <button
       className="btn btn-link"
-      data-feature={undefined}
       disabled={false}
       onClick={[Function]}
       onFocus={[Function]}

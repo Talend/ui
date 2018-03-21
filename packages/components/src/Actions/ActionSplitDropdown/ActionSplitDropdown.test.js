@@ -7,12 +7,12 @@ const items = [
 	{
 		label: 'From Local',
 		onClick: jest.fn(),
-		feature: 'action.local',
+		'data-feature': 'action.local',
 	},
 	{
 		label: 'From Remote',
 		onClick: jest.fn(),
-		feature: 'action.remote',
+		'data-feature': 'action.remote',
 	},
 ];
 
@@ -22,7 +22,7 @@ describe('ActionSplitDropdown', () => {
 		const props = {
 			label: 'Add File',
 			onClick: jest.fn(),
-			feature: 'action.add',
+			'data-feature': 'action.add',
 			items,
 		};
 
@@ -39,7 +39,7 @@ describe('ActionSplitDropdown', () => {
 			label: 'Add File',
 			icon: 'fa fa-plus',
 			onClick: jest.fn(),
-			feature: 'action.add',
+			'data-feature': 'action.add',
 			items,
 		};
 
@@ -56,7 +56,7 @@ describe('ActionSplitDropdown', () => {
 			label: 'Add File',
 			icon: 'fa fa-plus',
 			onClick: jest.fn(),
-			feature: 'action.add',
+			'data-feature': 'action.add',
 			items: [
 				{
 					label: 'From Local',
@@ -84,7 +84,7 @@ describe('ActionSplitDropdown', () => {
 			label: 'Add File',
 			icon: 'fa fa-plus',
 			onClick: jest.fn(),
-			feature: 'action.add',
+			'data-feature': 'action.add',
 			items: [],
 			emptyDropdownLabel: 'No option',
 		};

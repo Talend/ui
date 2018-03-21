@@ -61,11 +61,11 @@ describe('getMenuItem', () => {
 	});
 	it('should return a MenuItem with icon and label', () => {
 		expect(
-			getMenuItem({ label: 'Toto', icon: 'talend-bell', feature: 'action.feature' }),
+			getMenuItem({ label: 'Toto', icon: 'talend-bell', 'data-feature': 'action.feature' }),
 		).toMatchSnapshot();
 	});
 	it('should return a MenuItem with label', () => {
-		expect(getMenuItem({ label: 'Toto', feature: 'action.feature' })).toMatchSnapshot();
+		expect(getMenuItem({ label: 'Toto', 'data-feature': 'action.feature' })).toMatchSnapshot();
 	});
 });
 

@@ -6,7 +6,7 @@ const myAction = {
 	label: 'Click me',
 	icon: 'talend-caret-down',
 	onClick: jest.fn(),
-	feature: 'action.feature',
+	'data-feature': 'action.feature',
 };
 
 const mouseDownAction = {

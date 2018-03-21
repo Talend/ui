@@ -23,7 +23,7 @@ import theme from './ActionIconToggle.scss';
  <ActionIconToggle {...props} />
  */
 function ActionIconToggle(props) {
-	const { active, className, feature, icon, id, label, tooltipPlacement, ...rest } = props;
+	const { active, className, icon, id, label, tooltipPlacement, ...rest } = props;
 
 	const cn = classNames(className, 'tc-icon-toggle', theme['tc-icon-toggle'], {
 		[theme.active]: active,
@@ -35,7 +35,6 @@ function ActionIconToggle(props) {
 				{...getPropsFrom(Button, rest)}
 				id={id}
 				className={cn}
-				data-feature={feature}
 				bsStyle="link"
 			>
 				<Icon name={icon} />
@@ -47,7 +46,6 @@ function ActionIconToggle(props) {
 ActionIconToggle.propTypes = {
 	active: PropTypes.bool,
 	className: PropTypes.string,
-	feature: PropTypes.string,
 	icon: PropTypes.string.isRequired,
 	id: PropTypes.string,
 	label: PropTypes.string.isRequired,

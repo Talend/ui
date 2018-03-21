@@ -8,7 +8,7 @@ const primary = {
 	label: 'Primary',
 	icon: 'talend-cog',
 	bsStyle: 'primary',
-	feature: 'actionbar.primary',
+	'data-feature': 'actionbar.primary',
 	onClick: action('You clicked me'),
 };
 
@@ -18,24 +18,24 @@ const actions = {
 		{
 			label: 'Secondary1',
 			icon: 'talend-cog',
-			feature: 'actionbar.secondary',
+			'data-feature': 'actionbar.secondary',
 			onClick: action('You clicked me'),
 		},
 		{
 			displayMode: ActionBar.DISPLAY_MODES.SPLIT_DROPDOWN,
 			label: 'Secondary3',
 			icon: 'talend-cog',
-			feature: 'actionbar.splitdropdown',
+			'data-feature': 'actionbar.splitdropdown',
 			onClick: action('on split button click'),
 			items: [
 				{
 					label: 'From Local',
-					feature: 'actionbar.splitdropdown.items',
+					'data-feature': 'actionbar.splitdropdown.items',
 					onClick: action('From Local click'),
 				},
 				{
 					label: 'From Remote',
-					feature: 'actionbar.splitdropdown.items',
+					'data-feature': 'actionbar.splitdropdown.items',
 					onClick: action('From Remote click'),
 				},
 			],

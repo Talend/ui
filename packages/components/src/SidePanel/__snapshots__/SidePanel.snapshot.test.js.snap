@@ -141,8 +141,8 @@ exports[`Storyshots SidePanel default 1`] = `
         title="Collapse"
       >
         <button
+          aria-controls="context"
           className="btn btn-link"
-          data-feature={undefined}
           disabled={false}
           id="context-toggle-dock"
           onClick={[Function]}
@@ -176,7 +176,6 @@ exports[`Storyshots SidePanel default 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
             id="context-nav-preparations"
             onClick={[Function]}
@@ -206,7 +205,6 @@ exports[`Storyshots SidePanel default 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
             id="context-nav-datasets"
             onClick={[Function]}
@@ -236,7 +234,6 @@ exports[`Storyshots SidePanel default 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
             id="context-nav-favorites"
             onClick={[Function]}
@@ -406,9 +403,10 @@ exports[`Storyshots SidePanel docked 1`] = `
         title="Expand"
       >
         <button
+          aria-controls={undefined}
           className="btn btn-link"
-          data-feature={undefined}
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -440,8 +438,8 @@ exports[`Storyshots SidePanel docked 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
+            id={undefined}
             onClick={[Function]}
             onMouseDown={[Function]}
             role={null}
@@ -469,8 +467,8 @@ exports[`Storyshots SidePanel docked 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
+            id={undefined}
             onClick={[Function]}
             onMouseDown={[Function]}
             role={null}
@@ -498,8 +496,8 @@ exports[`Storyshots SidePanel docked 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
+            id={undefined}
             onClick={[Function]}
             onMouseDown={[Function]}
             role={null}
@@ -667,9 +665,10 @@ exports[`Storyshots SidePanel large docked 1`] = `
         title="Expand"
       >
         <button
+          aria-controls={undefined}
           className="btn btn-link"
-          data-feature={undefined}
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -701,8 +700,8 @@ exports[`Storyshots SidePanel large docked 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
+            id={undefined}
             onClick={[Function]}
             onMouseDown={[Function]}
             role={null}
@@ -730,8 +729,8 @@ exports[`Storyshots SidePanel large docked 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
+            id={undefined}
             onClick={[Function]}
             onMouseDown={[Function]}
             role={null}
@@ -759,8 +758,8 @@ exports[`Storyshots SidePanel large docked 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
+            id={undefined}
             onClick={[Function]}
             onMouseDown={[Function]}
             role={null}
@@ -920,9 +919,10 @@ exports[`Storyshots SidePanel large reverse 1`] = `
       title="Collapse"
     >
       <button
+        aria-controls={undefined}
         className="btn btn-link"
-        data-feature={undefined}
         disabled={false}
+        id={undefined}
         onClick={[Function]}
         onMouseDown={[Function]}
         role={null}
@@ -953,8 +953,8 @@ exports[`Storyshots SidePanel large reverse 1`] = `
       >
         <button
           className="btn btn-link"
-          data-feature={undefined}
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -983,8 +983,8 @@ exports[`Storyshots SidePanel large reverse 1`] = `
       >
         <button
           className="btn btn-link"
-          data-feature={undefined}
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -1012,8 +1012,8 @@ exports[`Storyshots SidePanel large reverse 1`] = `
       >
         <button
           className="btn btn-link"
-          data-feature={undefined}
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -1180,8 +1180,8 @@ exports[`Storyshots SidePanel links 1`] = `
         title="Collapse"
       >
         <button
+          aria-controls="context"
           className="btn btn-link"
-          data-feature={undefined}
           disabled={false}
           id="context-toggle-dock"
           onClick={[Function]}
@@ -1215,7 +1215,6 @@ exports[`Storyshots SidePanel links 1`] = `
         >
           <a
             className="btn btn-link"
-            data-feature={undefined}
             href="/preparations"
             id="context-nav-preparations"
             onClick={[Function]}
@@ -1245,7 +1244,6 @@ exports[`Storyshots SidePanel links 1`] = `
         >
           <a
             className="btn btn-link"
-            data-feature={undefined}
             href="/datasets"
             id="context-nav-datasets"
             onClick={[Function]}
@@ -1275,7 +1273,6 @@ exports[`Storyshots SidePanel links 1`] = `
         >
           <a
             className="btn btn-link"
-            data-feature={undefined}
             href="/favorites"
             id="context-nav-favorites"
             onClick={[Function]}
@@ -1450,8 +1447,8 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
+            id={undefined}
             onClick={[Function]}
             onMouseDown={[Function]}
             role={null}
@@ -1480,8 +1477,8 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
+            id={undefined}
             onClick={[Function]}
             onMouseDown={[Function]}
             role={null}
@@ -1509,8 +1506,8 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         >
           <button
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
+            id={undefined}
             onClick={[Function]}
             onMouseDown={[Function]}
             role={null}
@@ -1670,9 +1667,10 @@ exports[`Storyshots SidePanel reverse 1`] = `
       title="Collapse"
     >
       <button
+        aria-controls={undefined}
         className="btn btn-link"
-        data-feature={undefined}
         disabled={false}
+        id={undefined}
         onClick={[Function]}
         onMouseDown={[Function]}
         role={null}
@@ -1703,8 +1701,8 @@ exports[`Storyshots SidePanel reverse 1`] = `
       >
         <button
           className="btn btn-link"
-          data-feature={undefined}
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -1733,8 +1731,8 @@ exports[`Storyshots SidePanel reverse 1`] = `
       >
         <button
           className="btn btn-link"
-          data-feature={undefined}
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -1762,8 +1760,8 @@ exports[`Storyshots SidePanel reverse 1`] = `
       >
         <button
           className="btn btn-link"
-          data-feature={undefined}
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -1932,9 +1930,10 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
             title="Collapse"
           >
             <button
+              aria-controls={undefined}
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
+              id={undefined}
               onClick={[Function]}
               onMouseDown={[Function]}
               role={null}
@@ -1965,8 +1964,8 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
             >
               <button
                 className="btn btn-link"
-                data-feature={undefined}
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -1994,8 +1993,8 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
             >
               <button
                 className="btn btn-link"
-                data-feature={undefined}
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -2023,8 +2022,8 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
             >
               <button
                 className="btn btn-link"
-                data-feature={undefined}
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -2052,8 +2051,8 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
             >
               <button
                 className="btn btn-link"
-                data-feature={undefined}
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -2549,9 +2548,10 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
             title="Collapse"
           >
             <button
+              aria-controls={undefined}
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
+              id={undefined}
               onClick={[Function]}
               onMouseDown={[Function]}
               role={null}
@@ -2582,8 +2582,8 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
             >
               <button
                 className="btn btn-link"
-                data-feature={undefined}
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -2611,8 +2611,8 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
             >
               <button
                 className="btn btn-link"
-                data-feature={undefined}
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -2640,8 +2640,8 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
             >
               <button
                 className="btn btn-link"
-                data-feature={undefined}
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -2669,8 +2669,8 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
             >
               <button
                 className="btn btn-link"
-                data-feature={undefined}
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -3167,8 +3167,8 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
@@ -3202,7 +3202,6 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-preparations"
               onClick={[Function]}
@@ -3232,7 +3231,6 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-datasets"
               onClick={[Function]}
@@ -3262,7 +3260,6 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-favorites"
               onClick={[Function]}
@@ -3436,8 +3433,8 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
@@ -3471,7 +3468,6 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-preparations"
               onClick={[Function]}
@@ -3501,7 +3497,6 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-datasets"
               onClick={[Function]}
@@ -3531,7 +3526,6 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-favorites"
               onClick={[Function]}
@@ -3705,8 +3699,8 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
@@ -3740,7 +3734,6 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-preparations"
               onClick={[Function]}
@@ -3770,7 +3763,6 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-datasets"
               onClick={[Function]}
@@ -3800,7 +3792,6 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-favorites"
               onClick={[Function]}
@@ -3974,8 +3965,8 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
@@ -4009,7 +4000,6 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-preparations"
               onClick={[Function]}
@@ -4039,7 +4029,6 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-datasets"
               onClick={[Function]}
@@ -4069,7 +4058,6 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-favorites"
               onClick={[Function]}
@@ -4243,8 +4231,8 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
@@ -4278,7 +4266,6 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-preparations"
               onClick={[Function]}
@@ -4308,7 +4295,6 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-datasets"
               onClick={[Function]}
@@ -4338,7 +4324,6 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-favorites"
               onClick={[Function]}
@@ -4512,8 +4497,8 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
@@ -4547,7 +4532,6 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-preparations"
               onClick={[Function]}
@@ -4577,7 +4561,6 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-datasets"
               onClick={[Function]}
@@ -4607,7 +4590,6 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-favorites"
               onClick={[Function]}
@@ -4781,8 +4763,8 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
-            data-feature={undefined}
             disabled={false}
             id="context-toggle-dock"
             onClick={[Function]}
@@ -4816,7 +4798,6 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-preparations"
               onClick={[Function]}
@@ -4846,7 +4827,6 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-datasets"
               onClick={[Function]}
@@ -4876,7 +4856,6 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
           >
             <button
               className="btn btn-link"
-              data-feature={undefined}
               disabled={false}
               id="context-nav-favorites"
               onClick={[Function]}

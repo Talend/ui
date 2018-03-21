@@ -14,7 +14,7 @@ const myAction = {
 			id: 'context-dropdown-item-document-1',
 			icon: 'talend-file-json-o',
 			label: 'document 1',
-			feature: 'actiondropdown.items',
+			'data-feature': 'actiondropdown.items',
 			onClick: action('document 1 click'),
 		},
 		{
@@ -23,7 +23,7 @@ const myAction = {
 		{
 			id: 'context-dropdown-item-document-2',
 			label: 'document 2',
-			feature: 'actiondropdown.items',
+			'data-feature': 'actiondropdown.items',
 			onClick: action('document 2 click'),
 		},
 	],
@@ -46,7 +46,7 @@ const withComponents = {
 			{
 				component: 'Action',
 				label: 'First item',
-				feature: 'actiondropdown.items',
+				'data-feature': 'actiondropdown.items',
 			},
 			{
 				divider: true,
@@ -54,7 +54,7 @@ const withComponents = {
 			{
 				component: 'FilterBar',
 				label: 'Second item',
-				feature: 'actiondropdown.items',
+				'data-feature': 'actiondropdown.items',
 			},
 		],
 	},
@@ -74,7 +74,7 @@ const mixItemsComponents = {
 			id: 'context-dropdown-item-document-1',
 			icon: 'talend-file-json-o',
 			label: 'document 1',
-			feature: 'actiondropdown.items',
+			'data-feature': 'actiondropdown.items',
 			onClick: action('document 1 click'),
 		},
 		{
@@ -83,7 +83,7 @@ const mixItemsComponents = {
 		{
 			id: 'context-dropdown-item-document-2',
 			label: 'document 2',
-			feature: 'actiondropdown.items',
+			'data-feature': 'actiondropdown.items',
 			onClick: action('document 2 click'),
 		},
 	],
@@ -92,7 +92,7 @@ const mixItemsComponents = {
 			{
 				component: 'Action',
 				label: 'Third item',
-				feature: 'actiondropdown.items',
+				'data-feature': 'actiondropdown.items',
 			},
 			{
 				divider: true,
@@ -100,7 +100,7 @@ const mixItemsComponents = {
 			{
 				component: 'Action',
 				label: 'Fourth item',
-				feature: 'actiondropdown.items',
+				'data-feature': 'actiondropdown.items',
 			},
 		],
 	},
@@ -115,7 +115,7 @@ const propsTooltip = {
 			id: 'context-dropdown-item-document-1',
 			icon: 'talend-file-json-o',
 			label: 'document 1',
-			feature: 'actiondropdown.items',
+			'data-feature': 'actiondropdown.items',
 			onClick: action('document 1 click'),
 		},
 		{
@@ -124,7 +124,7 @@ const propsTooltip = {
 		{
 			id: 'context-dropdown-item-document-2',
 			label: 'document 2',
-			feature: 'actiondropdown.items',
+			'data-feature': 'actiondropdown.items',
 			onClick: action('document 2 click'),
 		},
 	],
@@ -133,7 +133,7 @@ const propsTooltip = {
 const oneEventAction = {
 	id: 'context-dropdown-events',
 	label: 'Dropdown',
-	items: [{ id: 'item-1', label: 'Item 1', feature: 'actiondropdown.items' }, { id: 'item-2', label: 'Item 2', feature: 'actiondropdown.items' }],
+	items: [{ id: 'item-1', label: 'Item 1', 'data-feature': 'actiondropdown.items' }, { id: 'item-2', label: 'Item 2', 'data-feature': 'actiondropdown.items' }],
 	onSelect: action('onItemSelect'),
 };
 
