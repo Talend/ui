@@ -61,7 +61,12 @@ describe('Container(Form)', () => {
 				uiform
 			/>,
 		);
-		expect(wrapper.dive().dive().getElement().type.name).toEqual(UIForm.name);
+		expect(
+			wrapper
+				.dive()
+				.dive()
+				.getElement().type.name,
+		).toEqual(UIForm.name);
 	});
 
 	it('should render UIForm with not language prop set', () => {
