@@ -82,7 +82,6 @@ describe('Container(Form)', () => {
 			/>,
 		);
 		expect(wrapper.dive().dive().getElement().props.language.OBJECT_REQUIRED).toEqual('Field translated');
-		expect(wrapper.dive().dive().getElement().type.name).toEqual(UIForm.name);
 	});
 
 	it('should render UIForm with language prop not set', () => {
@@ -97,7 +96,6 @@ describe('Container(Form)', () => {
 			/>,
 		);
 		expect(wrapper.dive().dive().getElement().props.language.OBJECT_REQUIRED).toEqual('Missing required field');
-		expect(wrapper.dive().dive().getElement().type.name).toEqual(UIForm.name);
 	});
 
 	it('should use props.onSubmit', () => {
