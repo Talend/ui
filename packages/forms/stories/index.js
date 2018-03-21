@@ -107,7 +107,7 @@ decoratedStories.add('Multiple actions', () => {
 			type: 'submit',
 			label: 'SUBMIT',
 			disabled: true,
-			feature: 'form.feature',
+			'data-feature': 'form.feature',
 			onClick: action('SUBMIT'),
 		},
 	];
