@@ -7,13 +7,13 @@ function serializeEvent(event) {
 	return event;
 }
 
-function getOnEventActionCreator(instance, config, original) {
+function getOnEventActionCreatorHandler(instance, config, original) {
 	let actionCreator = config;
 	if (typeof config === 'object') {
 		actionCreator = config.id;
 	}
 	return function onEventActionCreator(...args) {
-		instance.dispatchActionCreator(actionCreator, serializeEvent(event), {
+		instance.dispatchActionCreator(actionCreator, serializeEvent(args[0]), {
 			props: instance.props,
 			...args[1],
 			...(config.data || {}),
@@ -73,7 +73,7 @@ function getOnEventSetStateHandler(instance, config, currentHandler) {
 }
 
 export default {
-	getOnEventActionCreator,
+	getOnEventActionCreatorHandler,
 	getOnEventDispatchHandler,
 	getOnEventSetStateHandler,
 };
