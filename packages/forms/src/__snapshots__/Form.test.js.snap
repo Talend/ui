@@ -133,7 +133,6 @@ Object {
       null,
       "Reset",
     ],
-    "feature": undefined,
     "label": "Reset",
     "style": "link",
     "type": "reset",
