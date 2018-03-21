@@ -133,6 +133,7 @@ exports[`Storyshots SidePanel default 1`] = `
       title="Collapse"
     >
       <button
+        aria-controls="context"
         className="btn btn-link"
         disabled={false}
         id="context-toggle-dock"
@@ -166,7 +167,6 @@ exports[`Storyshots SidePanel default 1`] = `
         title="Preparations"
       >
         <button
-          aria-controls="context"
           className="btn btn-link"
           disabled={false}
           id="context-nav-preparations"
@@ -386,8 +386,10 @@ exports[`Storyshots SidePanel docked 1`] = `
       title="Expand"
     >
       <button
+        aria-controls={undefined}
         className="btn btn-link"
         disabled={false}
+        id={undefined}
         onClick={[Function]}
         onMouseDown={[Function]}
         role={null}
@@ -418,7 +420,6 @@ exports[`Storyshots SidePanel docked 1`] = `
         title="Preparations"
       >
         <button
-          aria-controls={undefined}
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -450,6 +451,7 @@ exports[`Storyshots SidePanel docked 1`] = `
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -478,6 +480,7 @@ exports[`Storyshots SidePanel docked 1`] = `
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -636,8 +639,10 @@ exports[`Storyshots SidePanel large docked 1`] = `
       title="Expand"
     >
       <button
+        aria-controls={undefined}
         className="btn btn-link"
         disabled={false}
+        id={undefined}
         onClick={[Function]}
         onMouseDown={[Function]}
         role={null}
@@ -668,7 +673,6 @@ exports[`Storyshots SidePanel large docked 1`] = `
         title="Preparations"
       >
         <button
-          aria-controls={undefined}
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -700,6 +704,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -728,6 +733,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -1139,6 +1145,7 @@ exports[`Storyshots SidePanel links 1`] = `
       title="Collapse"
     >
       <button
+        aria-controls="context"
         className="btn btn-link"
         disabled={false}
         id="context-toggle-dock"
@@ -1397,6 +1404,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -1426,6 +1434,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -1454,6 +1463,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
