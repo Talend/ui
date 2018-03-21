@@ -19,6 +19,7 @@ import Breadcrumbs from './Breadcrumbs';
 import CircularProgress from './CircularProgress';
 import CollapsiblePanel from './CollapsiblePanel';
 import ConfirmDialog from './ConfirmDialog';
+import Datalist from './Datalist';
 import Dialog from './Dialog';
 import Drawer from './Drawer';
 import Emphasis from './Emphasis';
@@ -131,6 +132,7 @@ export {
 	CircularProgress,
 	CollapsiblePanel,
 	ConfirmDialog,
+	Datalist,
 	Dialog,
 	Drawer,
 	Emphasis,
