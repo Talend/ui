@@ -61,6 +61,7 @@
             <groupId>com.browserstack</groupId>
             <artifactId>browserstack-local-java</artifactId>
             <version>0.3.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

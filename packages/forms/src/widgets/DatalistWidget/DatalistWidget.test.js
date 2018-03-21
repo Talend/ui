@@ -260,6 +260,30 @@ describe('DatalistWidget', () => {
 		expect(wrapper.find('input').prop('value')).toEqual('banane');
 	});
 
+	it('should select known value on input blur with enumOptions', () => {
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<DatalistWidget
+				id="myWidget"
+				required
+				schema={schema}
+				onChange={onChange}
+				options={{ enumOptions: [{ label: 'foo', value: 'bar' }], restricted: true }}
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
+
+		// when
+		input.simulate('focus');
+		input.simulate('change', { target: { value: 'bar' } });
+		input.simulate('blur');
+
+		// then
+		expect(onChange).toBeCalled();
+		expect(wrapper.find('input').prop('value')).toEqual('foo');
+	});
+
 	it('should not trigger onChange if value is not changed', () => {
 		const onChange = jest.fn();
 		const value = 'banane';
