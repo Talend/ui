@@ -59,9 +59,39 @@ describe('Container(Form)', () => {
 				actions={[]}
 				formProps={{ other: true }} // extra props
 				uiform
-				language={key => key}
 			/>,
 		);
+		expect(wrapper.dive().dive().getElement().type.name).toEqual(UIForm.name);
+	});
+
+	it('should render UIForm with not language prop set', () => {
+		const wrapper = shallow(
+			<Container
+				formId="test-form"
+				jsonSchema={{ schema: true }}
+				uiSchema={{ uiSchema: true }}
+				actions={[]}
+				formProps={{ other: true }} // extra props
+				uiform
+				language={{ OBJECT_REQUIRED: 'Field translated' }}
+			/>,
+		);
+		expect(wrapper.dive().dive().getElement().props.language.OBJECT_REQUIRED).toEqual('Field translated');
+		expect(wrapper.dive().dive().getElement().type.name).toEqual(UIForm.name);
+	});
+
+	it('should render UIForm with language prop not set', () => {
+		const wrapper = shallow(
+			<Container
+				formId="test-form"
+				jsonSchema={{ schema: true }}
+				uiSchema={{ uiSchema: true }}
+				actions={[]}
+				formProps={{ other: true }} // extra props
+				uiform
+			/>,
+		);
+		expect(wrapper.dive().dive().getElement().props.language.OBJECT_REQUIRED).toEqual('Missing required field');
 		expect(wrapper.dive().dive().getElement().type.name).toEqual(UIForm.name);
 	});
 
