@@ -6,6 +6,7 @@ exports[`#DataGrid should render DataGrid 1`] = `
 >
   <AgGridReact
     columnDefs={Array []}
+    enableColResize={true}
     frameworkComponents={
       Object {
         "cellRenderer": [Function],
@@ -19,6 +20,7 @@ exports[`#DataGrid should render DataGrid 1`] = `
     onGridReady={[Function]}
     onViewportChanged={[Function]}
     onVirtualColumnsChanged={[Function]}
+    overlayNoRowsTemplate={undefined}
     rowData={Array []}
     rowHeight={39}
     rowSelection="single"
@@ -39,6 +41,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
           "field": "index.index",
           "headerComponent": "pinHeaderRenderer",
           "lockPosition": true,
+          "minWidth": 30,
           "pinned": "left",
           "valueGetter": [Function],
           "width": 100,
@@ -68,6 +71,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
           "headerComponent": "headerGrid",
           "headerName": "Nom de la gare",
           "lockPinned": true,
+          "minWidth": 30,
           "type": "FR Commune",
           "valueGetter": [Function],
           "width": 150,
@@ -97,12 +101,14 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
           "headerComponent": "headerGrid",
           "headerName": "Code UIC",
           "lockPinned": true,
+          "minWidth": 30,
           "type": "int",
           "valueGetter": [Function],
           "width": 150,
         },
       ]
     }
+    enableColResize={true}
     frameworkComponents={
       Object {
         "cellRenderer": [Function],
@@ -116,6 +122,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
     onGridReady={[Function]}
     onViewportChanged={[Function]}
     onVirtualColumnsChanged={[Function]}
+    overlayNoRowsTemplate={undefined}
     rowData={
       Array [
         Object {
