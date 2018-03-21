@@ -35,6 +35,9 @@ export default class UIForm extends React.Component {
 			tv4.addLanguage('@talend', props.language);
 			tv4.language('@talend'); // set it
 		}
+		if (props.customFormats) {
+			tv4.addFormat(props.customFormats);
+		}
 	}
 
 	/**
@@ -284,6 +287,10 @@ if (process.env.NODE_ENV !== 'production') {
 		 * This is triggered on fields that has their uiSchema > customValidation : true
 		 */
 		customValidation: PropTypes.func,
+		/*
+		 * Form definition: Custom formats
+		 */
+		customFormats: PropTypes.object,
 		/**
 		 * User callback: Trigger
 		 * Prototype: function onTrigger(event, { trigger, schema, properties })
