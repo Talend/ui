@@ -164,7 +164,7 @@ class Datalist extends Component {
 	updateSelectedIndexes(value) {
 		if (this.props.multiSection) {
 			const groups = this.props.titleMap;
-			for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex++) {
+			for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex += 1) {
 				const focusedIndex = groups[sectionIndex].suggestions.findIndex(
 					item => item.name === value,
 				);
@@ -203,7 +203,7 @@ class Datalist extends Component {
 			let enumValue = this.props.titleMap.find(item => item.name === value);
 			if (this.props.multiSection) {
 				const groups = this.props.titleMap;
-				for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex++) {
+				for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex += 1) {
 					const itemObj = groups[sectionIndex].suggestions.find(item => item.name === value.title);
 					if (itemObj) {
 						enumValue = itemObj;
