@@ -12,6 +12,7 @@ import './CircularProgress';
 import './CollapsiblePanel';
 import './ConfirmDialog';
 import './Checkbox';
+import './Datalist';
 import './Dialog';
 import './Drawer';
 import './Emphasis';
