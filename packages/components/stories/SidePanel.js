@@ -89,58 +89,48 @@ stories
 		</div>
 	))
 	.addWithInfo('default', () => (
-		<div style={{ display: 'inline-table', background: '#236192' }}>
-			<SidePanel
-				id="context"
-				actions={actions}
-				onSelect={action('onItemSelect')}
-				onToggleDock={action('onToggleDock')}
-				tooltipPlacement="top"
-			/>
-		</div>
+		<SidePanel
+			id="context"
+			actions={actions}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			tooltipPlacement="top"
+		/>
 	))
 	.addWithInfo('links', () => (
-		<div style={{ display: 'inline-table', background: '#236192' }}>
-			<SidePanel
-				id="context"
-				actions={actionsLinks}
-				onToggleDock={action('onToggleDock')}
-				tooltipPlacement="top"
-			/>
-		</div>
+		<SidePanel
+			id="context"
+			actions={actionsLinks}
+			onToggleDock={action('onToggleDock')}
+			tooltipPlacement="top"
+		/>
 	))
 	.addWithInfo('docked', () => (
-		<div style={{ display: 'inline-table', background: '#236192' }}>
-			<SidePanel
-				actions={actions}
-				onToggleDock={action('Toggle dock clicked')}
-				docked
-				tooltipPlacement="top"
-			/>
-		</div>
+		<SidePanel
+			actions={actions}
+			onToggleDock={action('Toggle dock clicked')}
+			docked
+			tooltipPlacement="top"
+		/>
 	))
 	.addWithInfo('not dockable', () => (
-		<div style={{ display: 'inline-table', background: '#236192' }}>
-			<SidePanel
-				actions={items}
-				onSelect={action('onItemSelect')}
-				onToggleDock={action('onToggleDock')}
-				dockable={false}
-				selected={items[1]}
-				tooltipPlacement="top"
-			/>
-		</div>
+		<SidePanel
+			actions={items}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			dockable={false}
+			selected={items[1]}
+			tooltipPlacement="top"
+		/>
 	))
 	.addWithInfo('large docked', () => (
-		<div style={{ display: 'inline-table', background: '#236192' }}>
-			<SidePanel
-				actions={actions}
-				onToggleDock={action('Toggle dock clicked')}
-				docked
-				large
-				tooltipPlacement="top"
-			/>
-		</div>
+		<SidePanel
+			actions={actions}
+			onToggleDock={action('Toggle dock clicked')}
+			docked
+			large
+			tooltipPlacement="top"
+		/>
 	))
 	.addWithInfo('reverse', () => (
 		<SidePanel
