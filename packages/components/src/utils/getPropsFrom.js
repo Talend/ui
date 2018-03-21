@@ -15,12 +15,10 @@ function extractComponentProps(Component, props) {
 
 function extractNativeProps(props) {
 	const extractedProps = {};
-	NATIVE_PROPS.forEach(nativeProp => {
-		Object.keys(props).forEach(propName => {
-			if (propName.startsWith(nativeProp)) {
-				extractedProps[propName] = props[propName];
-			}
-		});
+	Object.keys(props).forEach(propName => {
+		if (NATIVE_PROPS.some(nativeProp => propName.startsWith(nativeProp))) {
+			extractedProps[propName] = props[propName];
+		}
 	});
 	return extractedProps;
 }
