@@ -90,7 +90,6 @@ exports[`Storyshots ActionList default 1`] = `
   <div
     style={
       Object {
-        "background": "#236192",
         "display": "inline-table",
       }
     }
@@ -367,7 +366,6 @@ exports[`Storyshots ActionList single 1`] = `
   <div
     style={
       Object {
-        "background": "#236192",
         "display": "inline-table",
       }
     }
@@ -532,7 +530,6 @@ exports[`Storyshots ActionList with custom class names 1`] = `
     <div
       style={
         Object {
-          "background": "#236192",
           "display": "inline-table",
         }
       }

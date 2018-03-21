@@ -145,6 +145,13 @@ exports[`Action should render a button with a overlay component 1`] = `
 </span>
 `;
 
+exports[`Action should render a button with loading state 1`] = `
+<Skeleton
+  size="medium"
+  type="button"
+/>
+`;
+
 exports[`Action should render a button without an overlay component if inProgress is true 1`] = `
 <Button
   active={false}
@@ -163,6 +170,29 @@ exports[`Action should render a button without an overlay component if inProgres
   <span>
     Click me
   </span>
+</Button>
+`;
+
+exports[`Action should render a link button with loading state 1`] = `
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="link"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role="link"
+>
+  <Skeleton
+    className="theme-tc-action-button-skeleton-circle tc-action-button-skeleton-circle"
+    size="small"
+    type="circle"
+  />
+  <Skeleton
+    size="medium"
+    type="text"
+  />
 </Button>
 `;
 

@@ -23,6 +23,22 @@ describe('Action', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render a button with loading state', () => {
+		// when
+		const wrapper = shallow(<ActionButton loading />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render a link button with loading state', () => {
+		// when
+		const wrapper = shallow(<ActionButton link loading />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should click on the button trigger the onclick props', () => {
 		// given
 		const wrapper = shallow(<ActionButton extra="extra" {...myAction} />);

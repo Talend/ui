@@ -170,6 +170,26 @@ cmfstore.setHttpMiddleware(httpMiddleware(httpDefaultConfig));
 const store = cmfstore.initialize(appReducer, preloadedState, enhancer, middleware);
 ```
 
+## Additional headers
+
+in addition to the headers that can be passed through the action itself, it is also possible to pass headers for all actions
+(without having to set them for each actions)
+
+In order to do so, we just need to pass the headers in the http configuration object.
+
+```javascript
+import { store as cmfstore, httpMiddleware } from 'react-cmf';
+
+//...
+const httpDefaultConfig = {
+	headers: {
+		'Accept-Language': 'en-US',
+	}
+};
+
+cmfstore.setHttpMiddleware(httpMiddleware(httpDefaultConfig));
+```
+
 ## CSRF token handling
 
 overloading the http middleware automaticaly injected and configured from cmf allow you
