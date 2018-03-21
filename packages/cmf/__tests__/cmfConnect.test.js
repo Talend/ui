@@ -604,11 +604,12 @@ describe('cmfConnect', () => {
 			expect(props.onClickSetState).toBeUndefined();
 			props.onClick({ type: 'click' });
 			expect(context.store.dispatch).toHaveBeenCalled();
-			expect(context.store.dispatch.mock.calls[0]).toMatchObject({
+			expect(context.store.dispatch.mock.calls[0][0]).toMatchObject({
 				id: 'default',
 				type: 'Button.initState',
 				cmf: {
 					componentState: {
+						initialComponentState: expect.anything(),
 						componentName: 'Button',
 						key: 'default',
 						type: 'REACT_CMF.COMPONENT_ADD_STATE',
