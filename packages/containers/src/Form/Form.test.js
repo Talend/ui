@@ -4,6 +4,7 @@ import { fromJS } from 'immutable';
 
 import Container from './Form.container';
 import Connected from './Form.connect';
+import { UIForm } from '../../../forms/lib/UIForm';
 
 describe('Container(Form)', () => {
 	it('should pass props to Form lib', () => {
@@ -32,6 +33,36 @@ describe('Container(Form)', () => {
 			/>,
 		);
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render with prop uiform = false : Form', () => {
+		const wrapper = shallow(
+			<Container
+				formId="test-form"
+				jsonSchema={{ schema: true }}
+				uiSchema={{ uiSchema: true }}
+				actions={[]}
+				formProps={{ other: true }} // extra props
+				uiform={false}
+				language={key => key}
+			/>,
+		);
+		expect(wrapper.dive().getElement().type.name).toEqual(Container.name);
+	});
+
+	it('should render with prop uiform = true : UIForm', () => {
+		const wrapper = shallow(
+			<Container
+				formId="test-form"
+				jsonSchema={{ schema: true }}
+				uiSchema={{ uiSchema: true }}
+				actions={[]}
+				formProps={{ other: true }} // extra props
+				uiform
+				language={key => key}
+			/>,
+		);
+		expect(wrapper.dive().dive().getElement().type.name).toEqual(UIForm.name);
 	});
 
 	it('should use props.onSubmit', () => {
