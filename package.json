@@ -60,8 +60,8 @@
     "immutable": "3.8.1",
     "jest-cli": "18.1.0",
     "node-sass": "3.13.0",
-    "react": "15.4.1",
     "prop-types": "^15.5.10",
+    "react": "15.4.1",
     "react-addons-test-utils": "15.4.1",
     "react-dom": "15.4.1",
     "react-redux": "5.0.0",
@@ -93,7 +93,7 @@
     "d3-shape": "1.0.3",
     "d3-zoom": "1.0.2",
     "invariant": "2.2.2",
-    "lodash": "4.17.2",
+    "lodash": "^4.17.5",
     "prop-types": "^15.5.10",
     "react-immutable-proptypes": "2.1.0"
   }
