@@ -44,7 +44,6 @@ import { mapStateToViewProps } from './settings';
 
 let newState;
 
-
 export const CMF_PROPS = [
 	'didMountActionCreator', // componentDidMount action creator id in registry
 	'keepComponentState', // redux state management on unmount
@@ -290,25 +289,23 @@ export default function cmfConnect({
 					const handlerKey = key.replace(CONSTANT.IS_HANDLER_DISPATCH, '');
 					const original = props[handlerKey];
 					// eslint-disable-next-line no-param-reassign
-					props[handlerKey] = onEvent.getOnEventDispatchHandler(
-						this, this.props[key], original
-					);
+					props[handlerKey] = onEvent.getOnEventDispatchHandler(this, this.props[key], original);
 				} else if (CONSTANT.IS_HANDLER_ACTION_CREATOR_REGEX.test(key)) {
 					props.toOmit.push(key);
 					const handlerKey = key.replace(CONSTANT.IS_HANDLER_ACTION_CREATOR, '');
 					const original = props[handlerKey];
 					// eslint-disable-next-line no-param-reassign
 					props[handlerKey] = onEvent.getOnEventActionCreatorHandler(
-						this, this.props[key], original
+						this,
+						this.props[key],
+						original,
 					);
 				} else if (CONSTANT.IS_HANDLER_SETSTATE_REGEX.test(key)) {
 					props.toOmit.push(key);
 					const handlerKey = key.replace(CONSTANT.IS_HANDLER_SETSTATE, '');
 					const original = props[handlerKey];
 					// eslint-disable-next-line no-param-reassign
-					props[handlerKey] = onEvent.getOnEventSetStateHandler(
-						this, this.props[key], original
-					);
+					props[handlerKey] = onEvent.getOnEventSetStateHandler(this, this.props[key], original);
 				}
 				return props;
 			}
