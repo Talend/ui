@@ -31,12 +31,7 @@ function ActionIconToggle(props) {
 
 	return (
 		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
-			<Button
-				{...getPropsFrom(Button, rest)}
-				id={id}
-				className={cn}
-				bsStyle="link"
-			>
+			<Button {...getPropsFrom(Button, rest)} id={id} className={cn} bsStyle="link">
 				<Icon name={icon} />
 			</Button>
 		</TooltipTrigger>

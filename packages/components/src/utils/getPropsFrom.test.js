@@ -37,7 +37,7 @@ describe('Action', () => {
 			href: 'www.google.de',
 			type: 'button',
 			className: 'my class',
-			target: '_blank'
+			target: '_blank',
 		});
 	});
 });
