@@ -9,40 +9,35 @@ exports[`Datalist component should render typeahead 1`] = `
   label="My List"
   required={undefined}
 >
-  <div
-    className="theme-tf-datalist"
-  >
-    <Datalist component
-      autoFocus={true}
-      disabled={false}
-      id="my-datalist"
-      multiSection={false}
-      onChange={[Function]}
-      onFinish={[Function]}
-      placeholder="Type here"
-      readOnly={false}
-      titleMap={
-        Array [
-          Object {
-            "name": "foo",
-            "value": "foo",
-          },
-          Object {
-            "name": "bar",
-            "value": "bar",
-          },
-          Object {
-            "name": "foobar",
-            "value": "foobar",
-          },
-          Object {
-            "name": "lol",
-            "value": "lol",
-          },
-        ]
-      }
-      value="foo"
-    />
-  </div>
+  <Datalist component
+    autoFocus={true}
+    disabled={false}
+    id="my-datalist"
+    multiSection={false}
+    onChange={[Function]}
+    placeholder="Type here"
+    readOnly={false}
+    titleMap={
+      Array [
+        Object {
+          "name": "foo",
+          "value": "foo",
+        },
+        Object {
+          "name": "bar",
+          "value": "bar",
+        },
+        Object {
+          "name": "foobar",
+          "value": "foobar",
+        },
+        Object {
+          "name": "lol",
+          "value": "lol",
+        },
+      ]
+    }
+    value="foo"
+  />
 </FieldTemplate>
 `;

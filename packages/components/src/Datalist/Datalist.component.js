@@ -63,7 +63,7 @@ class Datalist extends Component {
 	 */
 	onFocus(event) {
 		event.target.select();
-		this.updateSuggestions(this.state.value);
+		this.updateSuggestions();
 		this.updateSelectedIndexes(this.state.value);
 	}
 
@@ -137,6 +137,7 @@ class Datalist extends Component {
 	/**
 	 * Select an item in suggestions list
 	 * @param event The select event
+	 * @param sectionIndex The section index in suggestions list
 	 * @param itemIndex The item index in suggestions list
 	 */
 	onSelect(event, { sectionIndex, itemIndex }) {
@@ -265,7 +266,7 @@ class Datalist extends Component {
 					.map(group => ({
 						...group,
 						suggestions:
-							value !== this.state.previousValue
+							value
 								? group.suggestions.filter(item => regex.test(item.title))
 								: group.suggestions,
 					}))
@@ -273,7 +274,7 @@ class Datalist extends Component {
 			} else {
 				// only one group so items are inline
 				groups =
-					value !== this.state.previousValue
+					value
 						? groups.filter(itemValue => regex.test(itemValue))
 						: groups;
 			}

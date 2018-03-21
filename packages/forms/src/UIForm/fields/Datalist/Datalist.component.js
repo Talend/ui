@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import FieldTemplate from '../FieldTemplate';
-import theme from './Datalist.scss';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -12,27 +11,18 @@ class Datalist extends Component {
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);
-		this.onFinish = this.onFinish.bind(this);
 	}
 
 	/**
-	 * on change callback
+	 * On change callback
+	 * We call onFinish to trigger validation on datalist item selection
 	 * @param event
 	 * @param payload
 	 */
 	onChange(event, payload) {
 		const payloadWithSchema = { ...payload, schema: this.props.schema };
 		this.props.onChange(event, payloadWithSchema);
-		this.onFinish(event, payloadWithSchema);
-	}
-
-	/**
-	 * on finish callback
-	 * @param event
-	 * @param payload
-	 */
-	onFinish(event, payload) {
-		this.props.onFinish(event, payload);
+		this.props.onFinish(event, payloadWithSchema);
 	}
 
 	render() {
@@ -45,19 +35,17 @@ class Datalist extends Component {
 				label={this.props.schema.title}
 				required={this.props.schema.required}
 			>
-				<div className={theme['tf-datalist']}>
-					<DataListComponent
-						autoFocus={this.props.schema.autoFocus || false}
-						id={`${this.props.id}`}
-						disabled={this.props.schema.disabled || false}
-						multiSection={false}
-						onChange={this.onChange}
-						placeholder={this.props.schema.placeholder}
-						readOnly={this.props.schema.readOnly || false}
-						titleMap={this.props.schema.titleMap}
-						value={this.props.value}
-					/>
-				</div>
+				<DataListComponent
+					autoFocus={this.props.schema.autoFocus || false}
+					id={`${this.props.id}`}
+					disabled={this.props.schema.disabled || false}
+					multiSection={false}
+					onChange={this.onChange}
+					placeholder={this.props.schema.placeholder}
+					readOnly={this.props.schema.readOnly || false}
+					titleMap={this.props.schema.titleMap}
+					value={this.props.value}
+				/>
 			</FieldTemplate>
 		);
 	}

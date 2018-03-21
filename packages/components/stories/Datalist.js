@@ -45,7 +45,7 @@ storiesOf('Datalist', module)
 	.addWithInfo('default multiSection', () => {
 		const withoutAutoFocus = { ...propsMultiSection, autoFocus: false };
 		const defaultValue = { ...withoutAutoFocus, value: 'lol' };
-	return (
+		return (
 			<div>
 				<p>By default :</p>
 				<Datalist {...withoutAutoFocus} />
