@@ -10,6 +10,7 @@ const inactiveIconToggle = {
 	label: "Click me, I'm inactive",
 	onClick: jest.fn(),
 	tooltipPlacement: 'top',
+	feature: 'action.feature',
 };
 
 describe('ActionIconToggle', () => {

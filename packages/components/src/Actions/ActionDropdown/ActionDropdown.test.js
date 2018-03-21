@@ -60,10 +60,10 @@ describe('getMenuItem', () => {
 		expect(getMenuItem({ divider: true })).toMatchSnapshot();
 	});
 	it('should return a MenuItem with icon and label', () => {
-		expect(getMenuItem({ label: 'Toto', icon: 'talend-bell' })).toMatchSnapshot();
+		expect(getMenuItem({ label: 'Toto', icon: 'talend-bell', feature: 'action.feature' })).toMatchSnapshot();
 	});
 	it('should return a MenuItem with label', () => {
-		expect(getMenuItem({ label: 'Toto' })).toMatchSnapshot();
+		expect(getMenuItem({ label: 'Toto', feature: 'action.feature' })).toMatchSnapshot();
 	});
 });
 
