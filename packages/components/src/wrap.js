@@ -23,10 +23,26 @@ const OMIT_PROPS = [
 	'dispatchActionCreator',
 ];
 
+const BLACK_LISTED_ATTR = [
+	'childContextTypes', // not authorized on function component
+	'propTypes', // already set by HOC
+];
+
+const COMPONENT_EXCEPTIONS = {
+	MenuItem: props => props.divider,
+};
+
+function isNotBlackListedAttr(attr) {
+	return !BLACK_LISTED_ATTR.includes(attr);
+}
+
 export default function wrap(Component, key) {
 	const Wrapper = ({ getComponent, components, text, ...props }) => {
 		const injected = Inject.all(getComponent, components);
 		const newprops = Object.assign({}, omit(props, OMIT_PROPS));
+		if (COMPONENT_EXCEPTIONS[key] && COMPONENT_EXCEPTIONS[key](props)) {
+			return <Component {...newprops} />;
+		}
 		return (
 			<Component {...newprops}>
 				{injected('children')}
@@ -35,22 +51,23 @@ export default function wrap(Component, key) {
 			</Component>
 		);
 	};
-	Object.keys(Component).forEach(attr => {
-		Wrapper[attr] = Component[attr];
-	});
+	Object.keys(Component)
+		.filter(isNotBlackListedAttr)
+		.forEach(attr => {
+			Wrapper[attr] = Component[attr];
+		});
 	Wrapper.displayName = key;
 	Wrapper.propTypes = {
 		text: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-		children: PropTypes.oneOfType([
-			PropTypes.node,
-			PropTypes.arrayOf(PropTypes.node),
-		]),
+		children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
 		getComponent: PropTypes.func,
 		components: PropTypes.shape({
-			children: PropTypes.arrayOf(PropTypes.shape({
-				component: PropTypes.string,
-				componentId: PropTypes.string,
-			})),
+			children: PropTypes.arrayOf(
+				PropTypes.shape({
+					component: PropTypes.string,
+					componentId: PropTypes.string,
+				}),
+			),
 		}),
 	};
 	return Wrapper;

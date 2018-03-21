@@ -90,7 +90,6 @@ exports[`Storyshots ActionList default 1`] = `
   <div
     style={
       Object {
-        "background": "#236192",
         "display": "inline-table",
       }
     }
@@ -99,12 +98,13 @@ exports[`Storyshots ActionList default 1`] = `
       className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list"
     >
       <li
-        className="theme-tc-action-list-item tc-action-list-item active theme-active"
+        className="theme-tc-action-list-item tc-action-list-item"
         role="presentation"
         title="Recent datasets"
       >
         <button
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-recent-datasets"
           onClick={[Function]}
@@ -128,12 +128,13 @@ exports[`Storyshots ActionList default 1`] = `
         </button>
       </li>
       <li
-        className="theme-tc-action-list-item tc-action-list-item"
+        className="theme-tc-action-list-item tc-action-list-item active theme-active"
         role="presentation"
         title="Favorite datasets"
       >
         <button
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-favorite-datasets"
           onClick={[Function]}
@@ -163,6 +164,7 @@ exports[`Storyshots ActionList default 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-certified-datasets"
           onClick={[Function]}
@@ -192,6 +194,7 @@ exports[`Storyshots ActionList default 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-all-datasets"
           onClick={[Function]}
@@ -221,6 +224,7 @@ exports[`Storyshots ActionList default 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-import-file"
           onClick={[Function]}
@@ -250,6 +254,7 @@ exports[`Storyshots ActionList default 1`] = `
       >
         <button
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-use-magic"
           onClick={[Function]}
@@ -367,7 +372,6 @@ exports[`Storyshots ActionList single 1`] = `
   <div
     style={
       Object {
-        "background": "#236192",
         "display": "inline-table",
       }
     }
@@ -376,12 +380,13 @@ exports[`Storyshots ActionList single 1`] = `
       className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list"
     >
       <li
-        className="theme-tc-action-list-item tc-action-list-item"
+        className="theme-tc-action-list-item tc-action-list-item active theme-active"
         role="presentation"
         title="Favorite datasets"
       >
         <button
           className="btn btn-link"
+          data-feature="actionlist.item"
           disabled={false}
           id="context-nav-favorite-datasets"
           onClick={[Function]}
@@ -532,7 +537,6 @@ exports[`Storyshots ActionList with custom class names 1`] = `
     <div
       style={
         Object {
-          "background": "#236192",
           "display": "inline-table",
         }
       }
@@ -541,12 +545,13 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list custom-container-classname"
       >
         <li
-          className="theme-tc-action-list-item tc-action-list-item custom-item-classname active theme-active"
+          className="theme-tc-action-list-item tc-action-list-item custom-item-classname"
           role="presentation"
           title="Recent datasets"
         >
           <button
             className="btn btn-link"
+            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-recent-datasets"
             onClick={[Function]}
@@ -570,12 +575,13 @@ exports[`Storyshots ActionList with custom class names 1`] = `
           </button>
         </li>
         <li
-          className="theme-tc-action-list-item tc-action-list-item custom-item-classname"
+          className="theme-tc-action-list-item tc-action-list-item custom-item-classname active theme-active"
           role="presentation"
           title="Favorite datasets"
         >
           <button
             className="btn btn-link"
+            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-favorite-datasets"
             onClick={[Function]}
@@ -605,6 +611,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         >
           <button
             className="btn btn-link"
+            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-certified-datasets"
             onClick={[Function]}
@@ -634,6 +641,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         >
           <button
             className="btn btn-link"
+            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-all-datasets"
             onClick={[Function]}
@@ -663,6 +671,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         >
           <button
             className="btn btn-link"
+            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-import-file"
             onClick={[Function]}
@@ -692,6 +701,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         >
           <button
             className="btn btn-link"
+            data-feature="actionlist.item"
             disabled={false}
             id="context-nav-use-magic"
             onClick={[Function]}

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import { Map } from 'immutable';
 import { List as Component } from '@talend/react-components';
@@ -50,11 +51,11 @@ class List extends React.Component {
 			sort: PropTypes.object,
 			filter: PropTypes.object,
 			pagination: PropTypes.shape({
-				onChange: PropTypes.string,
+				onChange: PropTypes.func,
 			}),
 		}),
 		displayMode: PropTypes.string,
-		items: PropTypes.arrayOf(PropTypes.object).isRequired,
+		items: ImmutablePropTypes.list.isRequired,
 		...cmfConnect.propTypes,
 	};
 

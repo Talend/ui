@@ -53,7 +53,9 @@ function SidePanel({
 		reverse,
 		[theme.reverse]: reverse,
 	});
-	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list');
+	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list', {
+		'nav-inverse': !reverse,
+	});
 
 	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand' });
 	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse' });
@@ -62,7 +64,10 @@ function SidePanel({
 	return (
 		<nav id={id} className={navCSS} role="navigation" aria-expanded={!(dockable && docked)}>
 			{dockable && (
-				<div className={theme['toggle-btn']} title={toggleButtonTitle}>
+				<div
+					className={classNames(theme['toggle-btn'], 'tc-side-panel-toggle-btn')}
+					title={toggleButtonTitle}
+				>
 					<Components.Action
 						id={id && `${id}-toggle-dock`}
 						bsStyle="link"

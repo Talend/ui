@@ -12,6 +12,7 @@ const icons = {
 const myAction = {
 	label: 'Click me',
 	icon: 'talend-dataprep',
+	'data-feature': 'action',
 	onClick: action('You clicked me'),
 };
 
@@ -20,6 +21,7 @@ const OverlayComponent = <div>I am an overlay</div>;
 const mouseDownAction = {
 	label: 'Click me',
 	icon: 'talend-dataprep',
+	'data-feature': 'action',
 	onMouseDown: action('You clicked me'),
 };
 
@@ -38,6 +40,12 @@ storiesOf('Action', module)
 			<Action id="hidelabel" {...myAction} hideLabel />
 			<p>In progress</p>
 			<Action id="inprogress" {...myAction} inProgress />
+			<p>loading</p>
+			<Action id="loading" loading />
+			<p>Icon button</p>
+			<Action id="icon" {...myAction} link />
+			<p>Loading Icon button</p>
+			<Action id="icon" link loading />
 			<p>Disabled</p>
 			<Action id="disabled" {...myAction} disabled />
 			<p>Reverse display</p>
@@ -72,6 +80,7 @@ storiesOf('Action', module)
 	.addWithPropsCombinations('combinations', Action, {
 		label: ['Click me'],
 		icon: ['talend-dataprep'],
+		'data-feature': ['my.feature'],
 		onClick: [action('You clicked me')],
 		hideLabel: [false, true],
 		inProgress: [true, false],
