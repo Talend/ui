@@ -7,7 +7,6 @@ exports[`CellTitleSelector should render the button 1`] = `
   bsClass="btn"
   bsStyle="link"
   className="my-title-classname"
-  data-feature={undefined}
   disabled={false}
   id="my-title-btn"
   onClick={[Function]}
