@@ -265,18 +265,14 @@ class Datalist extends Component {
 				groups = groups
 					.map(group => ({
 						...group,
-						suggestions:
-							value
-								? group.suggestions.filter(item => regex.test(item.title))
-								: group.suggestions,
+						suggestions: value
+							? group.suggestions.filter(item => regex.test(item.title))
+							: group.suggestions,
 					}))
 					.filter(group => group.suggestions.length > 0);
 			} else {
 				// only one group so items are inline
-				groups =
-					value
-						? groups.filter(itemValue => regex.test(itemValue))
-						: groups;
+				groups = value ? groups.filter(itemValue => regex.test(itemValue)) : groups;
 			}
 		}
 
