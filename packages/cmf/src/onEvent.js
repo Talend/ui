@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import CONSTANT from './constant';
 
 function serializeEvent(event) {
 	if (event.persist) {
@@ -72,8 +73,32 @@ function getOnEventSetStateHandler(instance, config, currentHandler) {
 	};
 }
 
+const GET_HANDLER = {
+	DISPATCH: getOnEventDispatchHandler,
+	ACTION_CREATOR: getOnEventActionCreatorHandler,
+	SETSTATE: getOnEventSetStateHandler,
+};
+
+function addOnEventSupport(handlerType, instance, props, key) {
+	if (CONSTANT[`IS_HANDLER_${handlerType}_REGEX`].test(key)) {
+		props.toOmit.push(key);
+		const handlerKey = key.replace(CONSTANT[`IS_HANDLER_${handlerType}`], '');
+		const original = props[handlerKey];
+		// eslint-disable-next-line no-param-reassign
+		props[handlerKey] = GET_HANDLER[handlerType](instance, instance.props[key], original);
+	}
+}
+
+const ACTION_CREATOR = 'ACTION_CREATOR';
+const DISPATCH = 'DISPATCH';
+const SETSTATE = 'SETSTATE';
+
 export default {
 	getOnEventActionCreatorHandler,
 	getOnEventDispatchHandler,
 	getOnEventSetStateHandler,
+	addOnEventSupport,
+	ACTION_CREATOR,
+	DISPATCH,
+	SETSTATE,
 };
