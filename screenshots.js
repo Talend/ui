@@ -24,71 +24,65 @@ function log(msg) {
 	}
 }
 
-async function asyncForEach(array, callback) {
-	for (let index = 0; index < array.length; index += 1) {
-		await callback(array[index], index, array);
-	}
-}
-
 const TMP_CONFIG = { postfix: '.png' };
 
-async function compare(masterPage, branchPage, path = 'theme') {
-	const themeConfig = config[path];
-	log(`\nCompare ${path}`);
-	log('Go to master page');
-	await masterPage.goto(`http://talend.surge.sh/${path}`);
-	log('-- ok');
-	log('Go to PR page');
-	await branchPage.goto(`http://${PR}.talend.surge.sh/${path}`);
-	log('-- ok');
 
-	await asyncForEach(themeConfig, async pageConfig => {
-		log(`Process ${pageConfig}`);
-		let masterScreenShot;
-		const masterElement = await masterPage.$(`${pageConfig.selector}`);
-		if (masterElement) {
-			masterScreenShot = await tmp.file(TMP_CONFIG);
-			await masterElement.screenshot({ path: masterScreenShot.path });
+(async () => {
+	async function asyncForEach(array, callback) {
+		for (let index = 0; index < array.length; index += 1) {
+			await callback(array[index], index, array);
+		}
+	}
+
+
+	async function getScreenShot(page, config) {
+		let screenshot;
+		const element = await page.$(`${config.selector}`);
+		if (!!element) {
+			screenshot = await tmp.file(TMP_CONFIG);
+			await element.screenshot({ path: screenshot.path });
 		} else {
-			console.error('Not found element in master', pageConfig);
+			console.error('Not found element in master', config);
 			return;
 		}
+		return screenshot;
+	}
 
-		let branchScreenShot;
-		const branchElement = await branchPage.$(pageConfig.selector);
-		if (branchElement) {
-			branchScreenShot = await tmp.file(TMP_CONFIG);
-			await branchElement.screenshot({ path: branchScreenShot.path });
-		} else {
-			console.error('Not found element in branch', pageConfig);
-			return;
-		}
-		log('Read img for master');
-		const img1 = PNG.sync.read(fs.readFileSync(masterScreenShot.path));
+	async function process(masterPage, branchPage, pageConfig) {
+		log(`Process ${pageConfig.name} ${pageConfig.selector}`);
+		const masterScreenShot = await getScreenShot(masterPage, pageConfig);
+		const branchScreenShot = await getScreenShot(branchPage, pageConfig);
+		log('Read img master');
+		const masterImage = PNG.sync.read(fs.readFileSync(masterScreenShot.path));
 		log('-- ok');
-		log('Read img for PR');
-		const img2 = PNG.sync.read(fs.readFileSync(branchScreenShot.path));
+		log('Read img PR');
+		const branchImage = PNG.sync.read(fs.readFileSync(branchScreenShot.path));
 		log('-- ok');
 		log('compute diff');
-		const diff = new PNG({ width: img1.width, height: img1.height });
-		const howmuch = pixelmatch(
-			img1.data,
-			img2.data,
-			diff.data,
-			img1.width,
-			img1.height,
-			{ threshold: 0.1 }
-		);
-		if (howmuch > 0) {
+		const diff = new PNG({ width: masterImage.width, height: masterImage.height });
+		const diffPixel = pixelmatch(masterImage.data, branchImage.data, diff.data, masterImage.width, masterImage.height, { threshold: 0.1 });
+		if (diffPixel > 0) {
 			const diffScreenShot = await tmp.file({ prefix: pageConfig.name, keep: true, ...TMP_CONFIG });
-			console.error(`#### ${howmuch} pixel differ from the original one ${diffScreenShot.path}`);
+			console.error(`-- ${diffPixel} pixels differ from the original one ${diffScreenShot.path}`);
 			diff.pack().pipe(fs.createWriteStream(diffScreenShot.path));
 		} else {
 			log('-- no diff');
 		}
-	});
-}
-(async () => {
+	}
+
+	async function compare(masterPage, branchPage, path='theme') {
+		log(`\nCompare ${path}`);
+		let filesRead = 0;
+		log('Go to master page');
+		await masterPage.goto(`http://talend.surge.sh/${path}`);
+		log('-- ok');
+		log('Go to PR page');
+		await branchPage.goto(`http://${PR}.talend.surge.sh/${path}`);
+		log('-- ok');
+
+		await asyncForEach(config[path], async (config) => await process(masterPage, branchPage, config));
+	}
+
 	log('Launch puppeteer');
 	const browser = await puppeteer.launch();
 	log('Open browser for master pages');

@@ -9,10 +9,6 @@
       "selector": "#hidelabel"
     },
     {
-      "name": "action-disabled",
-      "selector": "#disabled"
-    },
-    {
       "name": "action-reverseDisplay",
       "selector": "#reverseDisplay"
     }
