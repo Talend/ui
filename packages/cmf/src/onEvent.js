@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import Immutable from 'immutable';
 import CONSTANT from './constant';
 
 function serializeEvent(event) {
@@ -8,7 +9,7 @@ function serializeEvent(event) {
 	return event;
 }
 
-function getOnEventActionCreatorHandler(instance, config, original) {
+function getOnEventActionCreatorHandler(instance, config, currentHandler) {
 	let actionCreator = config;
 	if (typeof config === 'object') {
 		actionCreator = config.id;
@@ -19,8 +20,8 @@ function getOnEventActionCreatorHandler(instance, config, original) {
 			...args[1],
 			...(config.data || {}),
 		});
-		if (original) {
-			original(...args);
+		if (currentHandler) {
+			currentHandler(...args);
 		}
 	};
 }
@@ -79,19 +80,35 @@ const GET_HANDLER = {
 	SETSTATE: getOnEventSetStateHandler,
 };
 
-function addOnEventSupport(handlerType, instance, props, key) {
-	if (CONSTANT[`IS_HANDLER_${handlerType}_REGEX`].test(key)) {
-		props.toOmit.push(key);
-		const handlerKey = key.replace(CONSTANT[`IS_HANDLER_${handlerType}`], '');
-		const original = props[handlerKey];
-		// eslint-disable-next-line no-param-reassign
-		props[handlerKey] = GET_HANDLER[handlerType](instance, instance.props[key], original);
-	}
-}
-
 const ACTION_CREATOR = 'ACTION_CREATOR';
 const DISPATCH = 'DISPATCH';
 const SETSTATE = 'SETSTATE';
+
+const INITIAL_STATE = new Immutable.Map();
+
+function addOnEventSupport(handlerType, instance, props, key) {
+	if (CONSTANT[`IS_HANDLER_${handlerType}_REGEX`].test(key)) {
+		if (handlerType === SETSTATE) {
+			if (!props.spreadCMFState) {
+				// eslint-disable-next-line no-param-reassign
+				props.spreadCMFState = true;
+			}
+			if (!props.initialState) {
+				// eslint-disable-next-line no-param-reassign
+				props.initialState = INITIAL_STATE;
+			}
+		}
+		props.toOmit.push(key);
+		const handlerKey = key.replace(CONSTANT[`IS_HANDLER_${handlerType}`], '');
+		const originalEventHandler = props[handlerKey];
+		// eslint-disable-next-line no-param-reassign
+		props[handlerKey] = GET_HANDLER[handlerType](
+			instance,
+			instance.props[key],
+			originalEventHandler,
+		);
+	}
+}
 
 export default {
 	getOnEventActionCreatorHandler,

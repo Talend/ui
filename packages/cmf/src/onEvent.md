@@ -2,7 +2,7 @@
 
 The concept here is to create handler (`onClick` for example).
 
-A handler is function that recieve most of the time an event as first param and maybe some other params.
+A handler is function that received most of the time an event as first param and maybe some other params.
 
 React pure component often take handler as props so you can add some business or trigger some changes in your app.
 
@@ -60,6 +60,8 @@ function MyComponent(props) {
 
 # onEventSetState
 
+## static example
+
 If you want to disable the button when the user click, you can do the following:
 
 ```javascript
@@ -82,3 +84,32 @@ The initialState props will tell cmfConnect to initialize this MyButton componen
 
 The `spreadCMFState` props will request cmfConnect to
 transform the content of the state into props
+
+It's not required, it you put onClickSetState props it will
+detect you want that behavior
+
+## dynamic example
+
+## toggle example
+
+```javascript
+function MyCheckbox(props) {
+    return (
+         <input
+            type="checkbox"
+            name={props.name}
+            value={props.value}
+            {...props}
+        />
+    );
+}
+export default cmfConnect({})(MyCheckbox);
+```
+
+later on
+
+```javascript
+function MyForm(props) {
+    return <MyCheckBox onClickSetState={{checked: 'toggle'}} />;
+}
+```
