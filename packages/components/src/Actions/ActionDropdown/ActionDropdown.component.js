@@ -130,6 +130,7 @@ function ActionDropdown(props) {
 			role="button"
 			onSelect={onItemSelect}
 			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button')}
+			aria-label={tooltipLabel || label}
 			{...rest}
 		>
 			{!items.length && !components && <Renderers.MenuItem disabled>No options</Renderers.MenuItem>}
