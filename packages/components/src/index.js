@@ -11,6 +11,7 @@ import {
 } from './Actions';
 import ActionBar from './ActionBar';
 import ActionList from './ActionList';
+import AppLoader from './AppLoader';
 import Notification from './Notification';
 import HeaderBar from './HeaderBar';
 import HttpError from './HttpError';
@@ -126,6 +127,7 @@ export {
 	ActionFile,
 	ActionIconToggle,
 	ActionSplitDropdown,
+	AppLoader,
 	Badge,
 	Breadcrumbs,
 	Checkbox,

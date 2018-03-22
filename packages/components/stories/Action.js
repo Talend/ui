@@ -12,6 +12,7 @@ const icons = {
 const myAction = {
 	label: 'Click me',
 	icon: 'talend-dataprep',
+	'data-feature': 'action',
 	onClick: action('You clicked me'),
 };
 
@@ -20,6 +21,7 @@ const OverlayComponent = <div>I am an overlay</div>;
 const mouseDownAction = {
 	label: 'Click me',
 	icon: 'talend-dataprep',
+	'data-feature': 'action',
 	onMouseDown: action('You clicked me'),
 };
 
@@ -78,6 +80,7 @@ storiesOf('Action', module)
 	.addWithPropsCombinations('combinations', Action, {
 		label: ['Click me'],
 		icon: ['talend-dataprep'],
+		'data-feature': ['my.feature'],
 		onClick: [action('You clicked me')],
 		hideLabel: [false, true],
 		inProgress: [true, false],
