@@ -75,8 +75,8 @@ describe('Inject.all', () => {
 			],
 			col2: { component: 'Action', label: 'LabelAction3', icon: 'IconAction3' },
 		};
-		const ret = Inject.all(getComponent, components);
-		expect(ret('col1')).toEqual([
+		const inject = Inject.all(getComponent, components);
+		expect(inject('col1')).toEqual([
 			<Inject
 				component="Action"
 				getComponent={getComponent}
@@ -130,12 +130,13 @@ describe('Inject.all', () => {
 			],
 			col2: { component: 'Action', label: 'LabelAction3', icon: 'IconAction3' },
 		};
-		expect(Inject.all(getComponent, components)('col2')).toEqual(
+		expect(Inject.all(getComponent, components)('col2', { customProps: 'customProps' })).toEqual(
 			<Inject
 				component="Action"
 				getComponent={getComponent}
 				icon="IconAction3"
 				label="LabelAction3"
+				customProps="customProps"
 			/>,
 		);
 	});
