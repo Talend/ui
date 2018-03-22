@@ -173,7 +173,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
         <g
           className="ti-kinesis-brand-lighter-color"
           fill="#8C8C8C"
-          fillRule="none-zero"
+          fillRule="nonzero"
         >
           <polygon
             points=".002 11.516 6.636 13.72 13.429 11.516 6.648 9.883"
@@ -197,7 +197,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
         <g
           className="ti-kinesis-brand-plain-color"
           fill="#515151"
-          fillRule="none-zero"
+          fillRule="nonzero"
         >
           <polygon
             points="6.64 13.719 6.64 15.999 13.43 12.855 13.43 11.515"
@@ -221,7 +221,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
         <g
           className="ti-kinesis-brand-darker-color"
           fill="#000"
-          fillRule="none-zero"
+          fillRule="nonzero"
         >
           <polygon
             points="0 12.855 6.64 16 6.64 13.718 0 11.515"
@@ -3215,7 +3215,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
         <g
           className="ti-kinesis-brand-lighter-color"
           fill="#8C8C8C"
-          fillRule="none-zero"
+          fillRule="nonzero"
         >
           <polygon
             points=".002 11.516 6.636 13.72 13.429 11.516 6.648 9.883"
@@ -3239,7 +3239,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
         <g
           className="ti-kinesis-brand-plain-color"
           fill="#515151"
-          fillRule="none-zero"
+          fillRule="nonzero"
         >
           <polygon
             points="6.64 13.719 6.64 15.999 13.43 12.855 13.43 11.515"
@@ -3263,7 +3263,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
         <g
           className="ti-kinesis-brand-darker-color"
           fill="#000"
-          fillRule="none-zero"
+          fillRule="nonzero"
         >
           <polygon
             points="0 12.855 6.64 16 6.64 13.718 0 11.515"
