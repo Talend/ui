@@ -1,10 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { fromJS } from 'immutable';
 
 import Container from './Form.container';
 import Connected from './Form.connect';
-import { UIForm } from '../../../forms/lib/UIForm';
+import Form from '@talend/react-forms';
+import { UIForm } from '@talend/react-forms/lib/UIForm';
 
 describe('Container(Form)', () => {
 	it('should pass props to Form lib', () => {
@@ -36,41 +37,28 @@ describe('Container(Form)', () => {
 	});
 
 	it('should render with prop uiform = false : Form', () => {
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Container
-				formId="test-form"
-				jsonSchema={{ schema: true }}
-				uiSchema={{ uiSchema: true }}
-				actions={[]}
-				formProps={{ other: true }} // extra props
+				jsonSchema={{}}
+				uiSchema={{}}
 				uiform={false}
-				language={key => key}
-			/>,
+			/>
 		);
-		expect(wrapper
-			.find('TalendForm').dive()
-			.find('Form').dive()
-			.find('form').length
-		).toBe(1);
+
+		expect(wrapper.find(Form).length).toBe(1);
+		expect(wrapper.find(UIForm).length).toBe(0);
 	});
 
 	it('should render with prop uiform = true : UIForm', () => {
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Container
-				formId="test-form"
-				jsonSchema={{ schema: true }}
-				uiSchema={{ uiSchema: true }}
-				actions={[]}
-				formProps={{ other: true }} // extra props
+				jsonSchema={{}}
+				uiSchema={[]}
 				uiform
 			/>,
 		);
-		expect(
-			wrapper
-				.find('TalendForm').dive()
-				.find('Container(UIForm)').dive()
-				.find('TalendUIForm').length
-			).toBe(1);
+		expect(wrapper.find(Form).length).toBe(1);
+		expect(wrapper.find(UIForm).length).toBe(1);
 	});
 
 	it('should render UIForm with language prop set', () => {
