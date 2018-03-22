@@ -122,28 +122,54 @@ exports[`Storyshots SidePanel default 1`] = `
       </svg>
     </symbol>
   </svg>
-  <div
-    style={
-      Object {
-        "background": "#236192",
-        "display": "inline-table",
-      }
-    }
+  <nav
+    aria-expanded={true}
+    className="theme-tc-side-panel tc-side-panel"
+    id="context"
+    role="navigation"
   >
-    <nav
-      aria-expanded={true}
-      className="theme-tc-side-panel tc-side-panel"
-      id="context"
-      role="navigation"
+    <div
+      className="theme-toggle-btn tc-side-panel-toggle-btn"
+      title="Collapse"
     >
-      <div
-        className="theme-toggle-btn tc-side-panel-toggle-btn"
-        title="Collapse"
+      <button
+        aria-controls="context"
+        className="btn btn-link"
+        disabled={false}
+        id="context-toggle-dock"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="theme-tc-svg-icon tc-svg-icon"
+          focusable="false"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-opener"
+          />
+        </svg>
+        <span>
+          
+        </span>
+      </button>
+    </div>
+    <ul
+      className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list nav-inverse"
+    >
+      <li
+        aria-current={true}
+        className="theme-tc-action-list-item tc-action-list-item active theme-active"
+        role="presentation"
+        title="Preparations"
       >
         <button
           className="btn btn-link"
           disabled={false}
-          id="context-toggle-dock"
+          id="context-nav-preparations"
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -156,108 +182,74 @@ exports[`Storyshots SidePanel default 1`] = `
             title={null}
           >
             <use
-              xlinkHref="#talend-opener"
+              xlinkHref="#talend-dataprep"
             />
           </svg>
           <span>
-            
+            Preparations
           </span>
         </button>
-      </div>
-      <ul
-        className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list nav-inverse"
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Datasets"
       >
-        <li
-          aria-current={true}
-          className="theme-tc-action-list-item tc-action-list-item active theme-active"
-          role="presentation"
-          title="Preparations"
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="context-nav-datasets"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
         >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            id="context-nav-preparations"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-dataprep"
-              />
-            </svg>
-            <span>
-              Preparations
-            </span>
-          </button>
-        </li>
-        <li
-          className="theme-tc-action-list-item tc-action-list-item"
-          role="presentation"
-          title="Datasets"
+            <use
+              xlinkHref="#talend-download"
+            />
+          </svg>
+          <span>
+            Datasets
+          </span>
+        </button>
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Favorites"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id="context-nav-favorites"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
         >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            id="context-nav-datasets"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-download"
-              />
-            </svg>
-            <span>
-              Datasets
-            </span>
-          </button>
-        </li>
-        <li
-          className="theme-tc-action-list-item tc-action-list-item"
-          role="presentation"
-          title="Favorites"
-        >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            id="context-nav-favorites"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-star"
-              />
-            </svg>
-            <span>
-              Favorites
-            </span>
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </div>
+            <use
+              xlinkHref="#talend-star"
+            />
+          </svg>
+          <span>
+            Favorites
+          </span>
+        </button>
+      </li>
+    </ul>
+  </nav>
 </div>
 `;
 
@@ -383,27 +375,54 @@ exports[`Storyshots SidePanel docked 1`] = `
       </svg>
     </symbol>
   </svg>
-  <div
-    style={
-      Object {
-        "background": "#236192",
-        "display": "inline-table",
-      }
-    }
+  <nav
+    aria-expanded={false}
+    className="theme-tc-side-panel tc-side-panel docked theme-docked"
+    id={undefined}
+    role="navigation"
   >
-    <nav
-      aria-expanded={false}
-      className="theme-tc-side-panel tc-side-panel docked theme-docked"
-      id={undefined}
-      role="navigation"
+    <div
+      className="theme-toggle-btn tc-side-panel-toggle-btn"
+      title="Expand"
     >
-      <div
-        className="theme-toggle-btn tc-side-panel-toggle-btn"
-        title="Expand"
+      <button
+        aria-controls={undefined}
+        className="btn btn-link"
+        disabled={false}
+        id={undefined}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="theme-tc-svg-icon tc-svg-icon"
+          focusable="false"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-opener"
+          />
+        </svg>
+        <span>
+          
+        </span>
+      </button>
+    </div>
+    <ul
+      className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list nav-inverse"
+    >
+      <li
+        aria-current={true}
+        className="theme-tc-action-list-item tc-action-list-item active theme-active"
+        role="presentation"
+        title="Preparations"
       >
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -416,105 +435,74 @@ exports[`Storyshots SidePanel docked 1`] = `
             title={null}
           >
             <use
-              xlinkHref="#talend-opener"
+              xlinkHref="#talend-dataprep"
             />
           </svg>
           <span>
-            
+            Preparations
           </span>
         </button>
-      </div>
-      <ul
-        className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list nav-inverse"
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Datasets"
       >
-        <li
-          aria-current={true}
-          className="theme-tc-action-list-item tc-action-list-item active theme-active"
-          role="presentation"
-          title="Preparations"
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id={undefined}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
         >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-dataprep"
-              />
-            </svg>
-            <span>
-              Preparations
-            </span>
-          </button>
-        </li>
-        <li
-          className="theme-tc-action-list-item tc-action-list-item"
-          role="presentation"
-          title="Datasets"
+            <use
+              xlinkHref="#talend-download"
+            />
+          </svg>
+          <span>
+            Datasets
+          </span>
+        </button>
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Favorites"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id={undefined}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
         >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-download"
-              />
-            </svg>
-            <span>
-              Datasets
-            </span>
-          </button>
-        </li>
-        <li
-          className="theme-tc-action-list-item tc-action-list-item"
-          role="presentation"
-          title="Favorites"
-        >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-star"
-              />
-            </svg>
-            <span>
-              Favorites
-            </span>
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </div>
+            <use
+              xlinkHref="#talend-star"
+            />
+          </svg>
+          <span>
+            Favorites
+          </span>
+        </button>
+      </li>
+    </ul>
+  </nav>
 </div>
 `;
 
@@ -640,27 +628,54 @@ exports[`Storyshots SidePanel large docked 1`] = `
       </svg>
     </symbol>
   </svg>
-  <div
-    style={
-      Object {
-        "background": "#236192",
-        "display": "inline-table",
-      }
-    }
+  <nav
+    aria-expanded={false}
+    className="theme-tc-side-panel tc-side-panel docked theme-docked large theme-large"
+    id={undefined}
+    role="navigation"
   >
-    <nav
-      aria-expanded={false}
-      className="theme-tc-side-panel tc-side-panel docked theme-docked large theme-large"
-      id={undefined}
-      role="navigation"
+    <div
+      className="theme-toggle-btn tc-side-panel-toggle-btn"
+      title="Expand"
     >
-      <div
-        className="theme-toggle-btn tc-side-panel-toggle-btn"
-        title="Expand"
+      <button
+        aria-controls={undefined}
+        className="btn btn-link"
+        disabled={false}
+        id={undefined}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="theme-tc-svg-icon tc-svg-icon"
+          focusable="false"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-opener"
+          />
+        </svg>
+        <span>
+          
+        </span>
+      </button>
+    </div>
+    <ul
+      className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list nav-inverse"
+    >
+      <li
+        aria-current={true}
+        className="theme-tc-action-list-item tc-action-list-item active theme-active"
+        role="presentation"
+        title="Preparations"
       >
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -673,105 +688,74 @@ exports[`Storyshots SidePanel large docked 1`] = `
             title={null}
           >
             <use
-              xlinkHref="#talend-opener"
+              xlinkHref="#talend-dataprep"
             />
           </svg>
           <span>
-            
+            Preparations
           </span>
         </button>
-      </div>
-      <ul
-        className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list nav-inverse"
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Datasets"
       >
-        <li
-          aria-current={true}
-          className="theme-tc-action-list-item tc-action-list-item active theme-active"
-          role="presentation"
-          title="Preparations"
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id={undefined}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
         >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-dataprep"
-              />
-            </svg>
-            <span>
-              Preparations
-            </span>
-          </button>
-        </li>
-        <li
-          className="theme-tc-action-list-item tc-action-list-item"
-          role="presentation"
-          title="Datasets"
+            <use
+              xlinkHref="#talend-download"
+            />
+          </svg>
+          <span>
+            Datasets
+          </span>
+        </button>
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Favorites"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id={undefined}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
         >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-download"
-              />
-            </svg>
-            <span>
-              Datasets
-            </span>
-          </button>
-        </li>
-        <li
-          className="theme-tc-action-list-item tc-action-list-item"
-          role="presentation"
-          title="Favorites"
-        >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-star"
-              />
-            </svg>
-            <span>
-              Favorites
-            </span>
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </div>
+            <use
+              xlinkHref="#talend-star"
+            />
+          </svg>
+          <span>
+            Favorites
+          </span>
+        </button>
+      </li>
+    </ul>
+  </nav>
 </div>
 `;
 
@@ -908,8 +892,10 @@ exports[`Storyshots SidePanel large reverse 1`] = `
       title="Collapse"
     >
       <button
+        aria-controls={undefined}
         className="btn btn-link"
         disabled={false}
+        id={undefined}
         onClick={[Function]}
         onMouseDown={[Function]}
         role={null}
@@ -941,6 +927,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -970,6 +957,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -998,6 +986,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -1145,32 +1134,58 @@ exports[`Storyshots SidePanel links 1`] = `
       </svg>
     </symbol>
   </svg>
-  <div
-    style={
-      Object {
-        "background": "#236192",
-        "display": "inline-table",
-      }
-    }
+  <nav
+    aria-expanded={true}
+    className="theme-tc-side-panel tc-side-panel"
+    id="context"
+    role="navigation"
   >
-    <nav
-      aria-expanded={true}
-      className="theme-tc-side-panel tc-side-panel"
-      id="context"
-      role="navigation"
+    <div
+      className="theme-toggle-btn tc-side-panel-toggle-btn"
+      title="Collapse"
     >
-      <div
-        className="theme-toggle-btn tc-side-panel-toggle-btn"
-        title="Collapse"
+      <button
+        aria-controls="context"
+        className="btn btn-link"
+        disabled={false}
+        id="context-toggle-dock"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
       >
-        <button
+        <svg
+          aria-hidden="true"
+          className="theme-tc-svg-icon tc-svg-icon"
+          focusable="false"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-opener"
+          />
+        </svg>
+        <span>
+          
+        </span>
+      </button>
+    </div>
+    <ul
+      className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list nav-inverse"
+    >
+      <li
+        aria-current={true}
+        className="theme-tc-action-list-item tc-action-list-item active theme-active"
+        role="presentation"
+        title="Preparations"
+      >
+        <a
           className="btn btn-link"
-          disabled={false}
-          id="context-toggle-dock"
+          href="/preparations"
+          id="context-nav-preparations"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
           role={null}
-          type="button"
         >
           <svg
             aria-hidden="true"
@@ -1179,108 +1194,74 @@ exports[`Storyshots SidePanel links 1`] = `
             title={null}
           >
             <use
-              xlinkHref="#talend-opener"
+              xlinkHref="#talend-dataprep"
             />
           </svg>
           <span>
-            
+            Preparations
           </span>
-        </button>
-      </div>
-      <ul
-        className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list nav-inverse"
+        </a>
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Datasets"
       >
-        <li
-          aria-current={true}
-          className="theme-tc-action-list-item tc-action-list-item active theme-active"
-          role="presentation"
-          title="Preparations"
+        <a
+          className="btn btn-link"
+          href="/datasets"
+          id="context-nav-datasets"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          role={null}
         >
-          <a
-            className="btn btn-link"
-            href="/preparations"
-            id="context-nav-preparations"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            onMouseDown={[Function]}
-            role={null}
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-dataprep"
-              />
-            </svg>
-            <span>
-              Preparations
-            </span>
-          </a>
-        </li>
-        <li
-          className="theme-tc-action-list-item tc-action-list-item"
-          role="presentation"
-          title="Datasets"
+            <use
+              xlinkHref="#talend-download"
+            />
+          </svg>
+          <span>
+            Datasets
+          </span>
+        </a>
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Favorites"
+      >
+        <a
+          className="btn btn-link"
+          href="/favorites"
+          id="context-nav-favorites"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          role={null}
         >
-          <a
-            className="btn btn-link"
-            href="/datasets"
-            id="context-nav-datasets"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            onMouseDown={[Function]}
-            role={null}
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-download"
-              />
-            </svg>
-            <span>
-              Datasets
-            </span>
-          </a>
-        </li>
-        <li
-          className="theme-tc-action-list-item tc-action-list-item"
-          role="presentation"
-          title="Favorites"
-        >
-          <a
-            className="btn btn-link"
-            href="/favorites"
-            id="context-nav-favorites"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-          >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-star"
-              />
-            </svg>
-            <span>
-              Favorites
-            </span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+            <use
+              xlinkHref="#talend-star"
+            />
+          </svg>
+          <span>
+            Favorites
+          </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
 `;
 
@@ -1406,111 +1387,105 @@ exports[`Storyshots SidePanel not dockable 1`] = `
       </svg>
     </symbol>
   </svg>
-  <div
-    style={
-      Object {
-        "background": "#236192",
-        "display": "inline-table",
-      }
-    }
+  <nav
+    aria-expanded={true}
+    className="theme-tc-side-panel tc-side-panel"
+    id={undefined}
+    role="navigation"
   >
-    <nav
-      aria-expanded={true}
-      className="theme-tc-side-panel tc-side-panel"
-      id={undefined}
-      role="navigation"
+    <ul
+      className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list nav-inverse"
     >
-      <ul
-        className="nav nav-pills nav-stacked theme-tc-action-list tc-action-list theme-tc-side-panel-list tc-side-panel-list nav-inverse"
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Preparations"
       >
-        <li
-          className="theme-tc-action-list-item tc-action-list-item"
-          role="presentation"
-          title="Preparations"
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id={undefined}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
         >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-dataprep"
-              />
-            </svg>
-            <span>
-              Preparations
-            </span>
-          </button>
-        </li>
-        <li
-          aria-current={true}
-          className="theme-tc-action-list-item tc-action-list-item active theme-active"
-          role="presentation"
-          title="Datasets"
+            <use
+              xlinkHref="#talend-dataprep"
+            />
+          </svg>
+          <span>
+            Preparations
+          </span>
+        </button>
+      </li>
+      <li
+        aria-current={true}
+        className="theme-tc-action-list-item tc-action-list-item active theme-active"
+        role="presentation"
+        title="Datasets"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id={undefined}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
         >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-download"
-              />
-            </svg>
-            <span>
-              Datasets
-            </span>
-          </button>
-        </li>
-        <li
-          className="theme-tc-action-list-item tc-action-list-item"
-          role="presentation"
-          title="Favorites"
+            <use
+              xlinkHref="#talend-download"
+            />
+          </svg>
+          <span>
+            Datasets
+          </span>
+        </button>
+      </li>
+      <li
+        className="theme-tc-action-list-item tc-action-list-item"
+        role="presentation"
+        title="Favorites"
+      >
+        <button
+          className="btn btn-link"
+          disabled={false}
+          id={undefined}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
         >
-          <button
-            className="btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            role={null}
-            type="button"
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            title={null}
           >
-            <svg
-              aria-hidden="true"
-              className="theme-tc-svg-icon tc-svg-icon"
-              focusable="false"
-              title={null}
-            >
-              <use
-                xlinkHref="#talend-star"
-              />
-            </svg>
-            <span>
-              Favorites
-            </span>
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </div>
+            <use
+              xlinkHref="#talend-star"
+            />
+          </svg>
+          <span>
+            Favorites
+          </span>
+        </button>
+      </li>
+    </ul>
+  </nav>
 </div>
 `;
 
@@ -1647,8 +1622,10 @@ exports[`Storyshots SidePanel reverse 1`] = `
       title="Collapse"
     >
       <button
+        aria-controls={undefined}
         className="btn btn-link"
         disabled={false}
+        id={undefined}
         onClick={[Function]}
         onMouseDown={[Function]}
         role={null}
@@ -1680,6 +1657,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -1709,6 +1687,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -1737,6 +1716,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
         <button
           className="btn btn-link"
           disabled={false}
+          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role={null}
@@ -1905,8 +1885,10 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
             title="Collapse"
           >
             <button
+              aria-controls={undefined}
               className="btn btn-link"
               disabled={false}
+              id={undefined}
               onClick={[Function]}
               onMouseDown={[Function]}
               role={null}
@@ -1938,6 +1920,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -1966,6 +1949,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -1994,6 +1978,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -2022,6 +2007,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -2517,8 +2503,10 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
             title="Collapse"
           >
             <button
+              aria-controls={undefined}
               className="btn btn-link"
               disabled={false}
+              id={undefined}
               onClick={[Function]}
               onMouseDown={[Function]}
               role={null}
@@ -2550,6 +2538,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -2578,6 +2567,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -2606,6 +2596,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -2634,6 +2625,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               <button
                 className="btn btn-link"
                 disabled={false}
+                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role={null}
@@ -3130,6 +3122,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
@@ -3395,6 +3388,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
@@ -3660,6 +3654,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
@@ -3925,6 +3920,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
@@ -4190,6 +4186,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
@@ -4455,6 +4452,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
@@ -4720,6 +4718,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
           title="Collapse"
         >
           <button
+            aria-controls="context"
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
