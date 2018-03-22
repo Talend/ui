@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { translate } from 'react-i18next';
 import Icon from '../Icon';
 import theme from './Skeleton.scss';
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import { DEFAULT_I18N } from '../translate';
 
 /**
  * This component show some skeleton stuff
@@ -13,7 +16,7 @@ import theme from './Skeleton.scss';
  * @param {number} props.height height to override size's height
  * @param {string} props.className classes to apply on skeleton
  */
-function Skeleton({ type, size, width, height, name, className }) {
+function Skeleton({ type, size, width, height, name, className, t }) {
 	const classes = classnames(
 		theme['tc-skeleton'],
 		theme[`tc-skeleton-${type}`],
@@ -24,10 +27,13 @@ function Skeleton({ type, size, width, height, name, className }) {
 		className,
 	);
 
+	const translatedType = t(`SKELETON_TYPE_${type}`, { defaultValue: type });
+	const ariaLabel = t('SKELETON_LOADING', { defaultValue: ' {{type}} (loading)', type: translatedType });
+
 	if (type === 'icon') {
-		return <Icon className={classes} name={name} />;
+		return <Icon className={classes} name={name} aria-label={ariaLabel} />;
 	}
-	return <span style={{ width, height }} className={classes} />;
+	return <span style={{ width, height }} className={classes} aria-label={ariaLabel} />;
 }
 
 Skeleton.TYPES = {
@@ -61,6 +67,7 @@ Skeleton.propTypes = {
 	height: PropTypes.number,
 	name: PropTypes.string,
 	className: PropTypes.string,
+	t: PropTypes.func,
 };
 
 Skeleton.defaultProps = {
@@ -70,4 +77,4 @@ Skeleton.defaultProps = {
 
 Skeleton.displayName = 'Skeleton';
 
-export default Skeleton;
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(Skeleton);
