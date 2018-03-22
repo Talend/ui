@@ -47,7 +47,11 @@ describe('Container(Form)', () => {
 				language={key => key}
 			/>,
 		);
-		expect(wrapper.dive().getElement().type.name).toEqual(Container.name);
+		expect(wrapper
+			.find('TalendForm').dive()
+			.find('Form').dive()
+			.find('form').length
+		).toBe(1);
 	});
 
 	it('should render with prop uiform = true : UIForm', () => {
@@ -63,13 +67,13 @@ describe('Container(Form)', () => {
 		);
 		expect(
 			wrapper
-				.dive()
-				.dive()
-				.getElement().type.name,
-		).toEqual(UIForm.name);
+				.find('TalendForm').dive()
+				.find('Container(UIForm)').dive()
+				.find('TalendUIForm').length
+			).toBe(1);
 	});
 
-	it('should render UIForm with not language prop set', () => {
+	it('should render UIForm with language prop set', () => {
 		const wrapper = shallow(
 			<Container
 				formId="test-form"
@@ -83,29 +87,11 @@ describe('Container(Form)', () => {
 		);
 		expect(
 			wrapper
-				.dive()
-				.dive()
-				.getElement().props.language.OBJECT_REQUIRED,
+				.find('TalendForm').dive()
+				.find('Container(UIForm)').dive()
+				.find('TalendUIForm')
+				.props().language.OBJECT_REQUIRED,
 		).toEqual('Field translated');
-	});
-
-	it('should render UIForm with language prop not set', () => {
-		const wrapper = shallow(
-			<Container
-				formId="test-form"
-				jsonSchema={{ schema: true }}
-				uiSchema={{ uiSchema: true }}
-				actions={[]}
-				formProps={{ other: true }} // extra props
-				uiform
-			/>,
-		);
-		expect(
-			wrapper
-				.dive()
-				.dive()
-				.getElement().props.language.OBJECT_REQUIRED,
-		).toEqual('Missing required field');
 	});
 
 	it('should use props.onSubmit', () => {
