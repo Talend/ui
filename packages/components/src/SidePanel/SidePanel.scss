@@ -4,7 +4,6 @@
 ////
 
 $list-item-hover-color: rgba($white, 0.12) !default;
-$list-item-active-color: rgba($white, 0.25) !default;
 $list-item-reverse-hover-color: rgba($white, 0.5) !default;
 $list-item-color: $white !default;
 $list-item-reverse-color: $brand-primary !default;
@@ -25,6 +24,7 @@ $toggle-button-padding: $padding-small - 1;
 	display: flex;
 	flex-direction: column;
 	overflow-x: hidden;
+	background: $list-item-reverse-color;
 
 	&,
 	> ul {
