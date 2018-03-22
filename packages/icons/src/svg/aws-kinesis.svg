@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
   <g fill="none" transform="translate(1.362)">
-    <g class ="ti-kinesis-brand-lighter-color" fill="#8C8C8C" fill-rule="none-zero">
+    <g class ="ti-kinesis-brand-lighter-color" fill="#8C8C8C" fill-rule="nonzero">
     <polygon points=".002 11.516 6.636 13.72 13.429 11.516 6.648 9.883"/>
     <polygon points=".001 9.098 6.64 9.779 13.429 9.098 6.64 8.732"/>
     <polygon points="12.684 8.066 9.139 8.066 9.139 5.11 12.684 4.182"/>
@@ -9,7 +9,7 @@
     <polygon points="6.64 0 .002 3.403 .002 8.069 6.64 8.069"/>
     </g>
 
-    <g class ="ti-kinesis-brand-plain-color" fill="#515151" fill-rule="none-zero">
+    <g class ="ti-kinesis-brand-plain-color" fill="#515151" fill-rule="nonzero">
     <polygon points="6.64 13.719 6.64 15.999 13.43 12.855 13.43 11.515"/>
     <polygon points="6.64 9.756 6.64 12.037 13.43 10.44 13.43 9.099"/>
     <polygon points="12.685 8.067 13.432 8.067 13.432 4.485 12.685 4.181"/>
@@ -18,7 +18,7 @@
     <polygon points="6.64 0 6.64 8.068 7.98 8.068 7.98 .774"/>
     </g>
 
-    <g class ="ti-kinesis-brand-darker-color" fill="#000" fill-rule="none-zero">
+    <g class ="ti-kinesis-brand-darker-color" fill="#000" fill-rule="nonzero">
     <polygon points="0 12.855 6.64 16 6.64 13.718 0 11.515"/>
     <polygon points="0 10.44 6.64 12.037 6.64 9.756 0 9.099"/>
     </g>
