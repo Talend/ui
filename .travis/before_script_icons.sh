@@ -2,7 +2,7 @@
 
 echo "OPTIMIZE ICONS"
 cd "$TRAVIS_BUILD_DIR"
-if [ "$TRAVIS_PULL_REQUEST" != 'false' ] && [ "$TALEND_COMMIT_MSG" =~ 'icon' ]; then
+if [ "$TRAVIS_PULL_REQUEST" != 'false' ] && [[ "$TALEND_COMMIT_MSG" =~ 'icon' ]]; then
 	lerna exec --scope=@talend/icons -- yarn svgo
 	echo "✓ Icons have been optimized"
 	yarn build-icons
