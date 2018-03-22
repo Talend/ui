@@ -29,6 +29,7 @@ function story() {
 		},
 		{
 			bsStyle: 'primary',
+			'data-feature': 'form.feature',
 			title: 'Submit',
 			type: 'submit',
 			widget: 'button',
