@@ -48,9 +48,7 @@ describe('AppLoader saga', () => {
 			// when
 			const gen = handleStep(step);
 			// then
-			expect(gen.next().value).toEqual(
-				all([call(waitFor, 'store1'), call(waitFor, 'store2')]),
-			);
+			expect(gen.next().value).toEqual(all([call(waitFor, 'store1'), call(waitFor, 'store2')]));
 		});
 	});
 });
