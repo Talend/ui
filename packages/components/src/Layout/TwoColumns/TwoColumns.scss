@@ -5,7 +5,6 @@
 
 /// Layout first columns in two columns background color
 /// @type Color
-$tc-layout-two-columns-sidemenu-bg: $brand-primary !default;
 $tc-layout-header-height: $navbar-height !default;
 
 .container {
@@ -17,7 +16,9 @@ $tc-layout-header-height: $navbar-height !default;
 .sidemenu {
 	flex-shrink: 0;
 	flex-grow: 0;
-	background-color: $tc-layout-two-columns-sidemenu-bg;
+	> * {
+		height: 100%;
+	}
 }
 
 .main {

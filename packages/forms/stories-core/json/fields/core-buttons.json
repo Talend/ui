@@ -11,14 +11,16 @@
       "title": "Check me",
       "widget": "button",
       "triggers": ["after"],
-      "description": "This should trigger a successful check"
+      "description": "This should trigger a successful check",
+      "data-feature": "form.check"
     },
     {
       "key": "checkfail",
       "title": "Check me",
       "widget": "button",
       "triggers": ["after"],
-      "description": "This should trigger a failing check"
+      "description": "This should trigger a failing check",
+      "data-feature": "form.check"
     },
     {
       "widget": "buttons",
@@ -51,7 +53,8 @@
           "title": "Reset",
           "type": "reset",
           "name": "reset",
-          "widget": "button"
+          "widget": "button",
+          "data-feature": "form.reset"
         },
         {
           "position": "right",
@@ -59,14 +62,16 @@
           "triggers": ["test"],
           "name": "test",
           "type": "button",
-          "widget": "button"
+          "widget": "button",
+          "data-feature": "form.test"
         },
         {
           "bsStyle": "primary",
           "title": "Submit",
           "name": "submit",
           "type": "submit",
-          "widget": "button"
+          "widget": "button",
+          "data-feature": "form.submit"
         }
       ]
     }
