@@ -90,6 +90,19 @@ detect you want that behavior
 
 ## dynamic example
 
+Context: the event handler is called with arguments and you need the value of an argument.
+For example on input an onChange is called with event as first argument and we want the event.target.value:
+
+```javascript
+{
+    onChangeSetState: {
+        value: [0, 'target.value'],
+    },
+};
+```
+
+CMF will detect you pass an array in this case, the first argument is a number which is index of arguments[index] and the second one is the path inside the object (we use lodash.get here).
+
 ## toggle example
 
 ```javascript
@@ -110,6 +123,12 @@ later on
 
 ```javascript
 function MyForm(props) {
-    return <MyCheckBox onClickSetState={{checked: 'toggle'}} />;
+    return <MyCheckBox initialState={{checked: false}} onClickSetState={{checked: 'toggle'}} />;
 }
 ```
+
+So here what happens. First we set initialState props so we tell CMF to create a props.state from this state which will be transformed to immutable.
+
+Next each click set props.state to the oposite boolean version.
+
+Note: it use internally the callback function to read the state value.
