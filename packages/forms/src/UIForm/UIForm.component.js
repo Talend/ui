@@ -11,6 +11,7 @@ import Buttons from './fields/Button/Buttons.component';
 import { getValue, mutateValue } from './utils/properties';
 import { removeError, addError } from './utils/errors';
 import getLanguage from './lang';
+import customFormats from './customFormats';
 
 export default class UIForm extends React.Component {
 	static displayName = 'TalendUIForm';
@@ -35,8 +36,9 @@ export default class UIForm extends React.Component {
 			tv4.addLanguage('@talend', props.language);
 			tv4.language('@talend'); // set it
 		}
-		if (props.customFormats) {
-			tv4.addFormat(props.customFormats);
+		const allFormats = Object.assign({}, customFormats, props.customFormats);
+		if (Object.keys(allFormats).length > 0) {
+			tv4.addFormat(allFormats);
 		}
 	}
 
