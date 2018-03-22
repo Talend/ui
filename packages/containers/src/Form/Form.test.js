@@ -37,26 +37,14 @@ describe('Container(Form)', () => {
 	});
 
 	it('should render with prop uiform = false : Form', () => {
-		const wrapper = mount(
-			<Container
-				jsonSchema={{}}
-				uiSchema={{}}
-				uiform={false}
-			/>
-		);
+		const wrapper = mount(<Container jsonSchema={{}} uiSchema={{}} uiform={false} />);
 
 		expect(wrapper.find(Form).length).toBe(1);
 		expect(wrapper.find(UIForm).length).toBe(0);
 	});
 
 	it('should render with prop uiform = true : UIForm', () => {
-		const wrapper = mount(
-			<Container
-				jsonSchema={{}}
-				uiSchema={[]}
-				uiform
-			/>,
-		);
+		const wrapper = mount(<Container jsonSchema={{}} uiSchema={[]} uiform />);
 		expect(wrapper.find(Form).length).toBe(1);
 		expect(wrapper.find(UIForm).length).toBe(1);
 	});
@@ -75,8 +63,10 @@ describe('Container(Form)', () => {
 		);
 		expect(
 			wrapper
-				.find('TalendForm').dive()
-				.find('Container(UIForm)').dive()
+				.find('TalendForm')
+				.dive()
+				.find('Container(UIForm)')
+				.dive()
 				.find('TalendUIForm')
 				.props().language.OBJECT_REQUIRED,
 		).toEqual('Field translated');
