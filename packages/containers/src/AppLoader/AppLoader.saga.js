@@ -46,7 +46,6 @@ export function* handleStep(step) {
  * @param {array} props.steps an array of steps to handle
  */
 export function* appLoaderSaga({ steps }) {
-	console.log(steps);
 	for (const step of steps) {
 		yield call(handleStep, step);
 	}
