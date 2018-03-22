@@ -67,11 +67,11 @@ Inject.all = function injectAll(getComponent, components, CustomInject = Inject)
 	if (!getComponent || !components) {
 		return nothing;
 	}
-	return key => {
+	return (key, props) => {
 		if (Array.isArray(components[key])) {
 			return Inject.map(getComponent, components[key], CustomInject);
 		} else if (typeof components[key] === 'object') {
-			return <CustomInject getComponent={getComponent} {...components[key]} />;
+			return <CustomInject getComponent={getComponent} {...props} {...components[key]} />;
 		}
 		return null;
 	};
