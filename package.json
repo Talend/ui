@@ -26,7 +26,8 @@
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %<(70,trunc)%s\" --date=short --color",
     "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms",
     "extract-i18n-components": "i18next packages/components/src -r -o i18n/components -n tui-components -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'",
-    "extract-i18n-forms": "i18next packages/forms/src -r -o i18n/forms -n tui-forms -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'"
+    "extract-i18n-forms": "i18next packages/forms/src -r -o i18n/forms -n tui-forms -l en --write-old false --fileFilter '*.js' --directoryFilter '!__snapshots__'",
+    "compare-screenshots": "node screenshots.js -v"
   },
   "watch": {
     "build-cmf": {
@@ -82,6 +83,7 @@
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
+  "engines" : { "node" : ">=8.10.0 <9.0.0" },
   "version": "0.0.0",
   "private": true,
   "workspaces": [
