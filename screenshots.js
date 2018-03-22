@@ -42,7 +42,7 @@ const TMP_CONFIG = { postfix: '.png' };
 			screenshot = await tmp.file(TMP_CONFIG);
 			await element.screenshot({ path: screenshot.path });
 		} else {
-			console.error('Not found element in master', config);
+			console.error(`Not found element ${config.name} at ${page.url()}`);
 			return;
 		}
 		return screenshot;
@@ -91,7 +91,11 @@ const TMP_CONFIG = { postfix: '.png' };
 	const branchPage = await browser.newPage();
 
 	await asyncForEach(Object.keys(config), async path => {
-		await compare(masterPage, branchPage, path);
+		try {
+			await compare(masterPage, branchPage, path);
+		} catch(error) {
+			console.error(path, error);
+		}
 	});
 
 	log('Close browser');
