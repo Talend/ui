@@ -6,9 +6,7 @@ exports[`highlighted-element 1`] = `
   onClick={[Function]}
   onDoubleClick={[Function]}
   role="button"
->
-  Highlighted_element
-</div>
+/>
 `;
 
 exports[`mapped-element 1`] = `
@@ -17,9 +15,7 @@ exports[`mapped-element 1`] = `
   onClick={[Function]}
   onDoubleClick={[Function]}
   role="button"
->
-  Mapped_element
-</div>
+/>
 `;
 
 exports[`single-element 1`] = `
@@ -28,7 +24,5 @@ exports[`single-element 1`] = `
   onClick={[Function]}
   onDoubleClick={[Function]}
   role="button"
->
-  Single_element
-</div>
+/>
 `;

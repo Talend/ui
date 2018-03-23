@@ -7,9 +7,7 @@ exports[`drag-over-element 1`] = `
     onClick={[Function]}
     onDoubleClick={[Function]}
     role="button"
-  >
-    Drag_over_element
-  </div>
+  />
 </div>
 `;
 
@@ -20,9 +18,7 @@ exports[`mapped-element 1`] = `
     onClick={[Function]}
     onDoubleClick={[Function]}
     role="button"
-  >
-    Mapped_element
-  </div>
+  />
 </div>
 `;
 
@@ -33,8 +29,6 @@ exports[`single-element 1`] = `
     onClick={[Function]}
     onDoubleClick={[Function]}
     role="button"
-  >
-    Single_element
-  </div>
+  />
 </div>
 `;

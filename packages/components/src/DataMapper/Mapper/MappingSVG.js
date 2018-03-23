@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
 import PropTypes from 'prop-types';
 import Connection from './ConnectionSVG.js';
+import Anchor from './AnchorSVG.js';
 import * as Constants from '../Constants';
+
+const padding = 8;
+const extraWidth = 26;
 
 const elementTarget = {
 	canDrop(props, monitor) {
@@ -37,11 +41,11 @@ function appendSVGConnections(connections, svgConnections, style, x1, x2) {
 	return svgcs;
 }
 
-function buildSVGConnections(connections, dnd, container) {
+function buildSVGConnections(connections, dnd, bounds) {
 	let svgConnections = [];
-	if (container != null && connections != null) {
-		const xLeft = 8;
-		const xRight = container.clientWidth - 8;
+	if (bounds != null && connections != null) {
+		const xLeft = bounds.left;
+		const xRight = bounds.right;
 		if (connections.all != null) {
 			svgConnections = appendSVGConnections(
 				connections.all,
@@ -133,11 +137,9 @@ function buildBezierPath(connection) {
 	return start + curve1 + curve2 + end;
 }
 
-function buildArrowPath(connection) {
-	const x = connection.x2;
-	const y = connection.y2;
-	const w = 4;
-	const h = 4;
+function buildArrowPath(x, y) {
+	const w = 5;
+	const h = 5;
 	const x1 = x - w;
 	const y1 = y - h;
 	const x2 = x + w;
@@ -153,7 +155,7 @@ function buildArrowPath(connection) {
 
 function getBezierParams(connection) {
 	const path = buildBezierPath(connection);
-	const arrow = buildArrowPath(connection);
+	const arrow = buildArrowPath(connection.x2, connection.y2);
 	return {
 		kind: 'bezier',
 		x1: connection.x1,
@@ -167,7 +169,88 @@ function getBezierParams(connection) {
 }
 
 function renderConnection(connection) {
-	return <Connection params={getBezierParams(connection)} style={connection.style} />;
+	return (
+		<Connection
+			params={getBezierParams(connection)}
+			style={connection.style}
+		/>
+	);
+}
+
+function appendSVGAnchor(anchorYPos, svgAnchors, bounds, part, style) {
+	const svgAnchor = {
+		x: part === Constants.Anchor.PART.START ? bounds.left : bounds.right,
+		y: anchorYPos,
+		part,
+		style,
+	};
+	return svgAnchors.concat(svgAnchor);
+}
+
+function appendSVGAnchors(anchorYPositions, svgAnchors, part, style, bounds) {
+	let svga = svgAnchors.slice();
+	for (let i = 0; i < anchorYPositions.length; i += 1) {
+		svga = appendSVGAnchor(anchorYPositions[i], svga, bounds, part, style);
+	}
+	return svga;
+}
+
+function appendStyledSVGAnchors(svgAnchors, anchors, bounds, style) {
+	let result = svgAnchors.slice();
+	if (anchors.input) {
+		result = appendSVGAnchors(anchors.input, result,
+			Constants.Anchor.PART.START, style, bounds);
+	}
+	if (anchors.output) {
+		result = appendSVGAnchors(anchors.output, result,
+			Constants.Anchor.PART.END, style, bounds);
+	}
+	return result;
+}
+
+function buildSVGAnchors(anchors, bounds) {
+	let svgAnchors = [];
+	if (anchors.unmapped) {
+		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.unmapped, bounds,
+			Constants.Anchor.STYLE.UNMAPPED);
+	}
+	if (anchors.mapped) {
+		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.mapped, bounds,
+			Constants.Anchor.STYLE.MAPPED);
+	}
+	if (anchors.selected) {
+		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.selected, bounds,
+			Constants.Anchor.STYLE.SELECTED);
+	}
+	if (anchors.focused) {
+		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.focused, bounds,
+			Constants.Anchor.STYLE.FOCUSED);
+	}
+	return svgAnchors;
+}
+
+function getAnchorParams(anchor) {
+	switch (anchor.part) {
+		case Constants.Anchor.PART.START:
+			return {
+				r: 3,
+			};
+		case Constants.Anchor.PART.END:
+			return {
+				arrow: buildArrowPath(anchor.x, anchor.y),
+			};
+		default:
+			return null;
+	}
+}
+
+function renderAnchor(anchor) {
+	return (
+		<Anchor
+			anchor={anchor}
+			params={getAnchorParams(anchor)}
+		/>
+	);
 }
 
 class MappingSVG extends Component {
@@ -189,7 +272,7 @@ class MappingSVG extends Component {
 
 	getWidth() {
 		if (this.svgParentElem) {
-			return this.svgParentElem.clientWidth;
+			return this.svgParentElem.clientWidth + extraWidth;
 		}
 		return 100;
 	}
@@ -214,9 +297,28 @@ class MappingSVG extends Component {
 	}
 
 	render() {
-		const { connectDropTarget, getConnections, dnd } = this.props;
+
+		const {
+			connectDropTarget,
+			getConnections,
+			getAnchors,
+			dnd,
+		} = this.props;
+
+		let bounds = null;
+		if (this.svgParentElem != null) {
+			bounds = {
+				left: padding,
+				right: this.svgParentElem.clientWidth - padding + extraWidth,
+			};
+		}
+
 		const connections = getConnections();
-		const svgConnections = buildSVGConnections(connections, dnd, this.svgParentElem);
+		const svgConnections = buildSVGConnections(connections, dnd, bounds);
+
+		const anchors = getAnchors();
+		const svgAnchors = buildSVGAnchors(anchors, bounds);
+
 		return connectDropTarget(
 			<div ref={this.updateSVGParentRef} className="mapping-content">
 				<svg
@@ -225,6 +327,7 @@ class MappingSVG extends Component {
 					width={this.getWidth()}
 					height={this.getHeight()}
 				>
+					{svgAnchors.map(anchor => renderAnchor(anchor))}
 					{svgConnections.map(connection => renderConnection(connection))}
 				</svg>
 			</div>,
@@ -234,6 +337,7 @@ class MappingSVG extends Component {
 
 MappingSVG.propTypes = {
 	getConnections: PropTypes.func,
+	getAnchors: PropTypes.func,
 	connectDropTarget: PropTypes.func,
 	dnd: PropTypes.object,
 };

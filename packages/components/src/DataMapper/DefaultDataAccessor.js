@@ -4,7 +4,8 @@ import * as Constants from './Constants';
 * Internal function only used by the dataAccessor.
 */
 function getMappingItemIndex(mapping, source, target) {
-	return mapping.findIndex(item => item.source === source && item.target === target);
+	return mapping.findIndex(item =>
+		item.source.id === source.id && item.target.id === target.id);
 }
 
 /**
@@ -63,28 +64,28 @@ export default class DefaultDataAccessor {
 	* Identifier must be unique.
 	*/
 	getElementId(element) {
-		return element;
+		return element.id;
 	}
 
 	/**
 	* Returns the name of the element.
 	*/
 	getElementName(element) {
-		return element;
+		return element.name;
 	}
 
 	/**
 	* Returns the semantic type of the element.
 	*/
 	getElementType(element) {
-		return 'string';
+		return element.type;
 	}
 
 	/**
 	* Returns a description fot the element.
 	*/
 	getElementDescription(element) {
-		return `Description of ${element}`;
+		return element.description;
 	}
 
 	/**
@@ -144,7 +145,7 @@ export default class DefaultDataAccessor {
 	* Returns true if the array of elements contains the specified element.
 	*/
 	includes(elements, element) {
-		return elements.includes(element);
+		return elements.find(elem => elem.id === element.id);
 	}
 
 }

@@ -25,6 +25,32 @@ export function switchMappingSide(side) {
 	return MappingSide.INPUT;
 }
 
+export const Types = {
+	STRING: 'string',
+	TEXT: 'text',
+	BOOLEAN: 'boolean',
+	DOUBLE: 'double',
+	DATE: 'date',
+	EMAIL: 'Email',
+	URL: 'URL',
+	ADDRESS: 'address',
+	CITY: 'City',
+	FR_POSTAL_CODE: 'FR Postal Code',
+};
+
+export const Anchor = {
+	STYLE: {
+		UNMAPPED: 'unmapped',
+		MAPPED: 'mapped',
+		FOCUSED: 'focused',
+		SELECTED: 'selected',
+	},
+	PART: {
+		START: 'start',
+		END: 'end',
+	},
+};
+
 export const Connection = {
 	RENDERER: {
 		CANVAS: 'canvas',
@@ -40,6 +66,25 @@ export const Connection = {
 		START: 'start',
 		CURVE: 'curve',
 		END: 'end',
+	},
+};
+
+export const Schema = {
+	RENDERER: {
+		DEFAULT: 'default',
+		VIRTUAL_LIST: 'virtual-list',
+		LIST: 'list',
+	},
+	DATA_KEYS: {
+		ID: 'id',
+		NAME: 'name',
+		TYPE: 'type',
+		DESC: 'desc',
+	},
+	COLUMN: {
+		NAME: 'name',
+		TYPE: 'type',
+		DESCRIPTION: 'description',
 	},
 };
 

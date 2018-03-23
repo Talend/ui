@@ -13,7 +13,7 @@ function getShowAllButtonLabel(showAll) {
 }
 
 function getShowAllButtonDefaultLabel(showAll) {
-	return showAll ? 'Hide' : 'Show All';
+	return showAll ? 'Hide' : 'Show';
 }
 
 function getActions(t, showAll, onShowAll, clearConnection, clearMapping) {
@@ -38,7 +38,15 @@ function getActions(t, showAll, onShowAll, clearConnection, clearMapping) {
 	];
 }
 
-function renderMappingArea(renderer, getConnections, getYPosition, dnd, updateRef, dndInProgress) {
+function renderMappingArea(
+	renderer,
+	getConnections,
+	getAnchors,
+	getYPosition,
+	dnd,
+	updateRef,
+	dndInProgress
+) {
 	switch (renderer) {
 		case Constants.Connection.RENDERER.CANVAS:
 			return (
@@ -55,6 +63,7 @@ function renderMappingArea(renderer, getConnections, getYPosition, dnd, updateRe
 				<MappingSVG
 					ref={updateRef}
 					getConnections={getConnections}
+					getAnchors={getAnchors}
 					getYPosition={getYPosition}
 					dnd={dnd}
 					dndInProgress={dndInProgress}
@@ -109,6 +118,7 @@ class GMapping extends Component {
 			clearConnection,
 			clearMapping,
 			getConnections,
+			getAnchors,
 			getYPosition,
 			dnd,
 			onShowAll,
@@ -124,6 +134,7 @@ class GMapping extends Component {
 				{renderMappingArea(
 					renderer,
 					getConnections,
+					getAnchors,
 					getYPosition,
 					dnd,
 					this.updateMappingAreaRef,
@@ -136,6 +147,7 @@ class GMapping extends Component {
 
 GMapping.propTypes = {
 	getConnections: PropTypes.func,
+	getAnchors: PropTypes.func,
 	getYPosition: PropTypes.func,
 	clearConnection: PropTypes.func,
 	clearMapping: PropTypes.func,

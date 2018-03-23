@@ -6,6 +6,8 @@ import { isSelected } from '../src/DataMapper/Schema/Schema';
 import * as Constants from '../src/DataMapper/Constants';
 import DefaultDataAccessor from '../src/DataMapper/DefaultDataAccessor';
 import DataAccessorWrapper from '../src/DataMapper/DataAccessorWrapper';
+import DefaultRenderer from '../src/DataMapper/Schema/SchemaRenderers/DefaultRenderer';
+import ListRenderer from '../src/DataMapper/Schema/SchemaRenderers/ListRenderer';
 
 const inputSchema1 = {
 	name: 'user_info',
@@ -102,7 +104,22 @@ const initialMapping = [
 	},
 ];
 
+const inputListColumns = [
+  Constants.Schema.DATA_KEYS.TYPE,
+	Constants.Schema.DATA_KEYS.NAME,
+];
+
+const outputListColumns = [
+	Constants.Schema.DATA_KEYS.NAME,
+  Constants.Schema.DATA_KEYS.TYPE,
+	Constants.Schema.DATA_KEYS.DESC,
+];
+
 const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
+
+const defaultSchemaRenderer = new DefaultRenderer();
+const inputListRenderer = new ListRenderer();
+const outputListRenderer = new ListRenderer();
 
 function createSchema(name, elementName, size) {
 	let elements = [];
@@ -110,6 +127,42 @@ function createSchema(name, elementName, size) {
 		elements = elements.concat(`${elementName}_${i}`);
 	}
 	return { name, elements };
+}
+
+function randomType() {
+	const keys = Object.keys(Constants.Types);
+	const nbrOfTypes = keys.length;
+	const index = Math.floor((Math.random() * nbrOfTypes));
+	return Constants.Types[keys[index]];
+}
+
+function buildElement(elem, index) {
+	return {
+		id: `${index}`,
+		name: elem,
+		type: randomType(),
+		description: `Description of ${elem}`,
+	};
+}
+
+function finalizeSchema(schema) {
+	const result = {
+		name: schema.name,
+	};
+	const elements = schema.elements.map(buildElement);
+	result.elements = elements;
+	return result;
+}
+
+function buildMappingItem(item, inputSchema, outputSchema) {
+	return {
+		source: inputSchema.elements.find(elem => elem.name === item.source),
+		target: outputSchema.elements.find(elem => elem.name === item.target),
+	};
+}
+
+function finalizeMapping(mapping, inputSchema, outputSchema) {
+	return mapping.map(item => buildMappingItem(item, inputSchema, outputSchema));
 }
 
 function createShuffledMapping(inputSchema, outputSchema) {
@@ -161,28 +214,36 @@ const emptyState = {
 };
 
 function getDefaultInitialState() {
+	const inputSchema = finalizeSchema(inputSchema2);
+	const outputSchema = finalizeSchema(outputSchema2);
+	const mapping = finalizeMapping(initialMapping, inputSchema, outputSchema);
 	return {
 		...emptyState,
-    inputSchema: inputSchema2,
-    outputSchema: outputSchema2,
-		mapping: initialMapping,
+    inputSchema,
+    outputSchema,
+		mapping,
 	};
 }
 
 function getEmptyInitialState() {
+	const inputSchema = finalizeSchema(inputSchema2);
+	const outputSchema = finalizeSchema(outputSchema2);
 	return {
 		...emptyState,
-    inputSchema: inputSchema2,
-    outputSchema: outputSchema2,
+    inputSchema,
+    outputSchema,
 		mapping: emptyMapping,
 	};
 }
 
 function getBigSchemaInitialState() {
 	const size = 50;
-	const inputSchema = createSchema('Big input schema', 'input_element', size);
-	const outputSchema = createSchema('Big output schema', 'output_element', size);
-	const mapping = createMapping(inputSchema, outputSchema, true);
+	const schema1 = createSchema('Big input schema', 'input_element', size);
+	const schema2 = createSchema('Big output schema', 'output_element', size);
+	const tempMap = createMapping(schema1, schema2, true);
+	const inputSchema = finalizeSchema(schema1);
+	const outputSchema = finalizeSchema(schema2);
+	const mapping = finalizeMapping(tempMap, inputSchema, outputSchema);
 	return {
 		...emptyState,
     inputSchema,
@@ -654,6 +715,7 @@ class ConnectedDataMapper extends React.Component {
 				pos: null,
 			},
 		}));
+		return { element, side };
 	}
 
 	dndInProgress(pos) {
@@ -723,14 +785,20 @@ class ConnectedDataMapper extends React.Component {
 	render() {
 		const {
 			mapperId,
-			renderer,
+			mappingRenderer,
+			inputSchemaRenderer,
+			outputSchemaRenderer,
+			inputSchemaColumns,
+			outputSchemaColumns,
 		} = this.props;
 		return (
 			<Mapper
 				dataAccessor={this.state.dataAccessor}
 				ref={this.updateMapperRef}
 				mapperId={mapperId}
-				renderer={renderer}
+				mappingRenderer={mappingRenderer}
+				inputSchemaRenderer={inputSchemaRenderer}
+				outputSchemaRenderer={outputSchemaRenderer}
 				inputSchema={this.state.inputSchema}
 				mapping={this.state.mapping}
 				outputSchema={this.state.outputSchema}
@@ -752,6 +820,8 @@ class ConnectedDataMapper extends React.Component {
 				canDrop={this.canDrop}
 				drop={this.drop}
 				endDrag={this.endDrag}
+				inputSchemaColumns={inputSchemaColumns}
+				outputSchemaColumns={outputSchemaColumns}
 			/>
 		);
 	}
@@ -760,7 +830,11 @@ class ConnectedDataMapper extends React.Component {
 ConnectedDataMapper.propTypes = {
 	initialState: PropTypes.object,
 	mapperId: PropTypes.string,
-	renderer: PropTypes.string,
+	mappingRenderer: PropTypes.string,
+	inputSchemaRenderer: PropTypes.object,
+	outputSchemaRenderer: PropTypes.object,
+	inputSchemaColumns: PropTypes.array,
+	outputSchemaColumns: PropTypes.array,
 };
 
 const stories = storiesOf('DataMapper', module);
@@ -778,34 +852,66 @@ stories
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={getDefaultInitialState()}
-			renderer={Constants.Connection.RENDERER.CANVAS}
+			mappingRenderer={Constants.Connection.RENDERER.CANVAS}
+			inputSchemaRenderer={defaultSchemaRenderer}
+			outputSchemaRenderer={defaultSchemaRenderer}
 		/>;
 	})
 	.addWithInfo('empty (canvas)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={getEmptyInitialState()}
-			renderer={Constants.Connection.RENDERER.CANVAS}
+			mappingRenderer={Constants.Connection.RENDERER.CANVAS}
+			inputSchemaRenderer={defaultSchemaRenderer}
+			outputSchemaRenderer={defaultSchemaRenderer}
 		/>;
 	})
 	.addWithInfo('50-mapped (canvas)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={getBigSchemaInitialState()}
-			renderer={Constants.Connection.RENDERER.CANVAS}
+			mappingRenderer={Constants.Connection.RENDERER.CANVAS}
+			inputSchemaRenderer={defaultSchemaRenderer}
+			outputSchemaRenderer={defaultSchemaRenderer}
 		/>;
 	})
 	.addWithInfo('default (svg)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={getDefaultInitialState()}
-			renderer={Constants.Connection.RENDERER.SVG}
+			mappingRenderer={Constants.Connection.RENDERER.SVG}
+			inputSchemaRenderer={defaultSchemaRenderer}
+			outputSchemaRenderer={defaultSchemaRenderer}
 		/>;
 	})
 	.addWithInfo('50-mapped (svg)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
 			initialState={getBigSchemaInitialState()}
-			renderer={Constants.Connection.RENDERER.SVG}
+			mappingRenderer={Constants.Connection.RENDERER.SVG}
+			inputSchemaRenderer={defaultSchemaRenderer}
+			outputSchemaRenderer={defaultSchemaRenderer}
+		/>;
+	})
+	.addWithInfo('default (svg, list)', () => {
+		return <ConnectedDataMapper
+			mapperId="mapper"
+			initialState={getDefaultInitialState()}
+			mappingRenderer={Constants.Connection.RENDERER.SVG}
+			inputSchemaRenderer={inputListRenderer}
+			outputSchemaRenderer={outputListRenderer}
+			inputSchemaColumns={inputListColumns}
+			outputSchemaColumns={outputListColumns}
+		/>;
+	})
+	.addWithInfo('50-mapped (svg, list)', () => {
+		return <ConnectedDataMapper
+			mapperId="mapper"
+			initialState={getBigSchemaInitialState()}
+			mappingRenderer={Constants.Connection.RENDERER.SVG}
+			inputSchemaRenderer={inputListRenderer}
+			outputSchemaRenderer={outputListRenderer}
+			inputSchemaColumns={inputListColumns}
+			outputSchemaColumns={outputListColumns}
 		/>;
 	});

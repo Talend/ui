@@ -56,6 +56,17 @@ export default class DataAccessorWrapper {
 		return -1;
 	}
 
+  getSchemaElementFromId(schema, id) {
+    if (this.dataAccessor.getSchemaElementFromId) {
+      return this.dataAccessor.getSchemaElementFromId(schema, id);
+    }
+    const elements = this.getSchemaElements(schema);
+    if (elements) {
+      return elements.find(elem => this.getElementId(elem) === id);
+    }
+    return null;
+  }
+
 	/**
 	* Returns the identifier of the element.
 	* Identifier must be unique.
@@ -173,7 +184,7 @@ export default class DataAccessorWrapper {
   }
 
   /**
-   * isMapped returns true if the given (element, side) is mapped
+   * isElementMapped returns true if the given (element, side) is mapped
    * (i.e. if it appears in the mapping)
    */
   isElementMapped(mapping, element, side) {

@@ -34,25 +34,19 @@ exports[`single-schema 1`] = `
       onClick={[Function]}
       onDoubleClick={[Function]}
       role="button"
-    >
-      element_1
-    </div>
+    />
     <div
       className="schema-element undefined"
       onClick={[Function]}
       onDoubleClick={[Function]}
       role="button"
-    >
-      element_2
-    </div>
+    />
     <div
       className="schema-element undefined"
       onClick={[Function]}
       onDoubleClick={[Function]}
       role="button"
-    >
-      element_3
-    </div>
+    />
   </div>
 </div>
 `;

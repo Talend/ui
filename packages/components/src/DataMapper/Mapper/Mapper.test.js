@@ -7,11 +7,43 @@ import Mapper from './Mapper.js';
 import DraggableSchemaElement from '../Schema/SchemaElement/DraggableSchemaElement.js';
 import DefaultDataAccessor from '../DefaultDataAccessor';
 import DataAccessorWrapper from '../DataAccessorWrapper';
+import * as Constants from '../Constants';
+import DefaultRenderer from '../Schema/SchemaRenderers/DefaultRenderer';
 
 const dataAccessor = new DataAccessorWrapper(new DefaultDataAccessor());
+const defaultSchemaRenderer = new DefaultRenderer();
+
+const element1 = {
+	id: '1',
+	name: 'elem_in_1',
+	type: 'string',
+	description: 'bla bla bla',
+};
+
+const element2 = {
+	id: '2',
+	name: 'elem_out_1',
+	type: 'string',
+	description: 'bla bla bla',
+};
+
+const inputSchema = {
+	name: 'input',
+	elements: [element1],
+};
+
+const outputSchema = {
+	name: 'output',
+	elements: [element2],
+};
+
+function isNamed(element, name) {
+	const elementName = dataAccessor.getElementName(element);
+	return elementName === name;
+}
 
 function getElementByName(elements, name) {
-	return elements.find(elem => dataAccessor.getElementName(elem.props.element) === name);
+	return elements.find(elem => isNamed(elem.props.element, name));
 }
 
 /**
@@ -30,10 +62,7 @@ function wrapInTestContext(DecoratedComponent) {
 it('clear-mapping', () => {
 	const clearMapping = jest.fn();
 	const performMapping = jest.fn();
-	const inputSchema = { name: 'input', elements: ['elem_in_1'] };
-	const outputSchema = { name: 'input', elements: ['elem_out_1'] };
 	const mapping = [{ source: 'elem_in_1', target: 'elem_out_1' }];
-
 	const MapperTestContext = wrapInTestContext(Mapper);
 
 	const mapper = (
@@ -44,6 +73,8 @@ it('clear-mapping', () => {
 			outputSchema={outputSchema}
 			performMapping={performMapping}
 			clearMapping={clearMapping}
+			inputSchemaRenderer={defaultSchemaRenderer}
+			outputSchemaRenderer={defaultSchemaRenderer}
 		/>
 	);
 	const wrapper = mount(mapper);
@@ -59,13 +90,15 @@ it('clear-mapping', () => {
 it('perform-mapping', () => {
 	const clearMapping = jest.fn();
 	const performMapping = jest.fn();
-	const beginDrag = jest.fn();
+	const item = {
+		element: element1,
+		side: Constants.MappingSide.INPUT,
+	};
+	const beginDrag = jest.fn().mockReturnValue(item);
 	const dndInProgress = jest.fn();
 	const canDrop = jest.fn().mockReturnValue(true);
 	const drop = jest.fn();
 	const endDrag = jest.fn();
-	const inputSchema = { name: 'input', elements: ['elem_in_1'] };
-	const outputSchema = { name: 'input', elements: ['elem_out_1'] };
 	const mapping = [];
 	const draggable = true;
 
@@ -85,6 +118,8 @@ it('perform-mapping', () => {
 			drop={drop}
 			endDrag={endDrag}
 			draggable={draggable}
+			inputSchemaRenderer={defaultSchemaRenderer}
+			outputSchemaRenderer={defaultSchemaRenderer}
 		/>
 	);
 
@@ -95,8 +130,9 @@ it('perform-mapping', () => {
 
 	// Find the drag source ID and use it to simulate the dragging operation
 	const elements = TestUtils.scryRenderedComponentsWithType(root, DraggableSchemaElement);
-
+	//console.log(elements[0]);
 	const sourceElem = getElementByName(elements, 'elem_in_1');
+	//console.log('FOUND ELEM IS: ' + sourceElem);
 	const decoratedSourceElem = sourceElem.getDecoratedComponentInstance();
 
 	// simulate begin drag source node 'elem_in_1'
@@ -117,8 +153,8 @@ it('perform-mapping', () => {
 	expect(performMapping.mock.calls.length).toBe(1);
 
 	// The first argument of the first call to the function was 'elem_in_1'
-	expect(performMapping.mock.calls[0][0]).toBe('elem_in_1');
+	expect(performMapping.mock.calls[0][0]).toBe(element1);
 
 	// The second argument of the first call to the function was 'elem_out_1'
-	expect(performMapping.mock.calls[0][1]).toBe('elem_out_1');
+	expect(performMapping.mock.calls[0][1]).toBe(element2);
 });

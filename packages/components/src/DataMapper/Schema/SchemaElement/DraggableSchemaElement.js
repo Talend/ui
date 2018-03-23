@@ -7,11 +7,7 @@ import SchemaElement from './SchemaElement.js';
 
 const elementSource = {
 	beginDrag(props) {
-		props.beginDrag(props.element, props.side);
-		return {
-			element: props.element,
-			side: props.side,
-		};
+		return props.beginDrag(props.element, props.side);
 	},
 	endDrag(props) {
 		props.endDrag();
