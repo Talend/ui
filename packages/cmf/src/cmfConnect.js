@@ -124,7 +124,7 @@ export function getStateToProps({
 
 	let userProps = {};
 	if (mapStateToProps) {
-		userProps = mapStateToProps(state, { ...props, ...ownProps }, cmfProps);
+		userProps = mapStateToProps(state, { ...ownProps, ...props }, cmfProps);
 	}
 	Object.assign(props, userProps);
 	Object.assign(props, api.expression.mapStateToProps(state, { ...ownProps, ...props }));
