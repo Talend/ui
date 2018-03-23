@@ -4,15 +4,24 @@
 
 
 src/DataMapper/DataMapper.scss
-   74:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-   75:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-   81:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-   82:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-   87:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-   88:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-   96:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-   97:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  104:8   error  Qualifying elements are not allowed for class selectors                   no-qualifying-elements
+   48:10  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  109:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  110:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  116:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  117:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  122:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  123:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  131:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  132:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  139:8   error  Qualifying elements are not allowed for class selectors                   no-qualifying-elements
+  148:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  150:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  154:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  155:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  159:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  164:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  169:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  218:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
 
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
@@ -20,5 +29,5 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 11 problems (9 errors, 2 warnings)
+✖ 20 problems (18 errors, 2 warnings)
 
