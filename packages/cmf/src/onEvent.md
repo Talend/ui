@@ -129,6 +129,5 @@ function MyForm(props) {
 
 So here what happens. First we set initialState props so we tell CMF to create a props.state from this state which will be transformed to immutable.
 
-Next each click set props.state to the oposite boolean version.
-
-Note: it use internally the callback function to read the state value.
+Next each click will do `props.setState((state) => {value: !state.value})` to the opposite boolean value.
+Note: it use the callback version of the setState to ensure the read state is the good one.
