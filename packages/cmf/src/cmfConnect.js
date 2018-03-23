@@ -278,12 +278,15 @@ export default function cmfConnect({
 			}
 
 			getOnEventProps() {
-				return Object.keys(this.props).reduce((props, key) => {
-					onEvent.addOnEventSupport(onEvent.DISPATCH, this, props, key);
-					onEvent.addOnEventSupport(onEvent.ACTION_CREATOR, this, props, key);
-					onEvent.addOnEventSupport(onEvent.SETSTATE, this, props, key);
-					return props;
-				}, { toOmit: [] });
+				return Object.keys(this.props).reduce(
+					(props, key) => {
+						onEvent.addOnEventSupport(onEvent.DISPATCH, this, props, key);
+						onEvent.addOnEventSupport(onEvent.ACTION_CREATOR, this, props, key);
+						onEvent.addOnEventSupport(onEvent.SETSTATE, this, props, key);
+						return props;
+					},
+					{ toOmit: [] },
+				);
 			}
 
 			dispatchActionCreator(actionCreatorId, event, data, context) {
