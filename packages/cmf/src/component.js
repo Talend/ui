@@ -33,7 +33,7 @@ function get(id, context) {
  */
 function register(id, component, context) {
 	if (!component) {
-		invariant(process.env.NODE_ENV !== 'production', 'You can register undefined as a component');
+		invariant(process.env.NODE_ENV === 'production', 'You can register undefined as a component');
 		return;
 	}
 	registry.addToRegistry(`${CONST.REGISTRY_COMPONENT_PREFIX}:${id}`, component, context);
