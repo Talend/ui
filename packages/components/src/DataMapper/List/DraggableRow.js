@@ -40,30 +40,30 @@ function collectForDropTarget(connect, monitor) {
 
 class DraggableRow extends Component {
 	render() {
-    const {
-      element,
-      classNameProvider,
-      dataKeys,
-      onClick,
-      onDoubleClick,
-      rowDataGetter,
-      onEnterElement,
-    	onLeaveElement,
-      connectDragSource,
+		const {
+			element,
+			classNameProvider,
+			dataKeys,
+			onClick,
+			onDoubleClick,
+			rowDataGetter,
+			onEnterElement,
+			onLeaveElement,
+			connectDragSource,
 			connectDropTarget,
-    } = this.props;
+		} = this.props;
 		return connectDragSource(
 			connectDropTarget(
 				<div>
 					<Row
-            element={element}
-            onClick={onClick}
-            onDoubleClick={onDoubleClick}
-            classNameProvider={classNameProvider}
-            dataKeys={dataKeys}
-            rowDataGetter={rowDataGetter}
-            onEnterElement={onEnterElement}
-            onLeaveElement={onLeaveElement}
+						element={element}
+						onClick={onClick}
+						onDoubleClick={onDoubleClick}
+						classNameProvider={classNameProvider}
+						dataKeys={dataKeys}
+						rowDataGetter={rowDataGetter}
+						onEnterElement={onEnterElement}
+						onLeaveElement={onLeaveElement}
 					/>
 				</div>,
 			),
@@ -72,13 +72,13 @@ class DraggableRow extends Component {
 }
 
 DraggableRow.propTypes = {
-  element: PropTypes.object,
+	element: PropTypes.object,
 	classNameProvider: PropTypes.func,
-  dataKeys: PropTypes.array,
-  rowDataGetter: PropTypes.func,
+	dataKeys: PropTypes.array,
+	rowDataGetter: PropTypes.func,
 	onClick: PropTypes.func,
-  onDoubleClick: PropTypes.func,
-  onEnterElement: PropTypes.func,
+	onDoubleClick: PropTypes.func,
+	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
 	connectDragSource: PropTypes.func,
 	connectDropTarget: PropTypes.func,

@@ -4,31 +4,37 @@ import SchemaElement from '../SchemaElement/SchemaElement.js';
 import DraggableSchemaElement from '../SchemaElement/DraggableSchemaElement.js';
 
 function renderSchemaElement(props, element) {
-  const {
-  	dataAccessor,
-  	side,
-  	draggable,
-  	mappedElements,
-  	performMapping,
-  	selection,
-  	onSelect,
-  	pendingItem,
-  	onEnterElement,
-  	onLeaveElement,
-  	focusedElements,
-  	beginDrag,
-  	canDrop,
-  	drop,
-  	endDrag,
-  	revealConnection,
-    isMapped,
-    isSelected,
-    isHighlighted,
-  } = props;
-  const key = dataAccessor.getElementId(element);
-  const selected = isSelected(dataAccessor, selection, element, side);
-  const highlighted = isHighlighted(dataAccessor, element, selection,
-    side, pendingItem, focusedElements);
+	const {
+		dataAccessor,
+		side,
+		draggable,
+		mappedElements,
+		performMapping,
+		selection,
+		onSelect,
+		pendingItem,
+		onEnterElement,
+		onLeaveElement,
+		focusedElements,
+		beginDrag,
+		canDrop,
+		drop,
+		endDrag,
+		revealConnection,
+		isMapped,
+		isSelected,
+		isHighlighted,
+	} = props;
+	const key = dataAccessor.getElementId(element);
+	const selected = isSelected(dataAccessor, selection, element, side);
+	const highlighted = isHighlighted(
+		dataAccessor,
+		element,
+		selection,
+		side,
+		pendingItem,
+		focusedElements,
+	);
 	if (draggable) {
 		return (
 			<DraggableSchemaElement
@@ -38,7 +44,7 @@ function renderSchemaElement(props, element) {
 				side={side}
 				mapped={isMapped(dataAccessor, element, mappedElements)}
 				performMapping={performMapping}
-        selected={selected}
+				selected={selected}
 				highlighted={highlighted}
 				onSelect={onSelect}
 				onEnterElement={onEnterElement}
@@ -68,7 +74,7 @@ function renderSchemaElement(props, element) {
 }
 
 renderSchemaElement.propTypes = {
-  dataAccessor: PropTypes.object,
+	dataAccessor: PropTypes.object,
 	side: PropTypes.string,
 	mappedElements: PropTypes.array,
 	performMapping: PropTypes.func,
@@ -84,32 +90,21 @@ renderSchemaElement.propTypes = {
 	drop: PropTypes.func,
 	endDrag: PropTypes.func,
 	revealConnection: PropTypes.func,
-  isMapped: PropTypes.func,
-  isSelected: PropTypes.func,
-  isHighlighted: PropTypes.func,
+	isMapped: PropTypes.func,
+	isSelected: PropTypes.func,
+	isHighlighted: PropTypes.func,
 };
 
 export default class DefaultRenderer {
-
-  renderContent(props) {
-    const {
-			dataAccessor,
-			schema,
-      onScroll,
-      updateContentNodeRef,
-		} = props;
-    const content = dataAccessor.getSchemaElements(schema).map(
-      elem => renderSchemaElement(props, elem)
-    );
-    return (
-      <div
-        ref={updateContentNodeRef}
-        className="schema-content"
-        onScroll={onScroll}
-      >
-        {content}
-      </div>
-    );
-  }
-
+	renderContent(props) {
+		const { dataAccessor, schema, onScroll, updateContentNodeRef } = props;
+		const content = dataAccessor
+			.getSchemaElements(schema)
+			.map(elem => renderSchemaElement(props, elem));
+		return (
+			<div ref={updateContentNodeRef} className="schema-content" onScroll={onScroll}>
+				{content}
+			</div>
+		);
+	}
 }

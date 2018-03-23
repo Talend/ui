@@ -7,23 +7,11 @@ function getClassname(anchor) {
 }
 
 function renderCircle(anchor, params) {
-	return (
-		<circle
-			className={getClassname(anchor)}
-			cx={anchor.x}
-			cy={anchor.y}
-			r={params.r}
-		/>
-	);
+	return <circle className={getClassname(anchor)} cx={anchor.x} cy={anchor.y} r={params.r} />;
 }
 
 function renderArrow(anchor, params) {
-  return (
-		<path
-      className={getClassname(anchor)}
-      d={params.arrow}
-    />
-	);
+	return <path className={getClassname(anchor)} d={params.arrow} />;
 }
 
 function renderAnchor(anchor, params) {
@@ -47,4 +35,4 @@ export default class AnchorSVG extends Component {
 AnchorSVG.propTypes = {
 	anchor: PropTypes.object,
 	params: PropTypes.object,
-}
+};

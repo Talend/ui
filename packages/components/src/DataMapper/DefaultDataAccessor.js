@@ -4,8 +4,7 @@ import * as Constants from './Constants';
  * Internal function only used by the dataAccessor.
  */
 function getMappingItemIndex(mapping, source, target) {
-	return mapping.findIndex(item =>
-		item.source.id === source.id && item.target.id === target.id);
+	return mapping.findIndex(item => item.source.id === source.id && item.target.id === target.id);
 }
 
 /**

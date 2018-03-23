@@ -55,16 +55,16 @@ export default class DataAccessorWrapper {
 		return -1;
 	}
 
-  getSchemaElementFromId(schema, id) {
-    if (this.dataAccessor.getSchemaElementFromId) {
-      return this.dataAccessor.getSchemaElementFromId(schema, id);
-    }
-    const elements = this.getSchemaElements(schema);
-    if (elements) {
-      return elements.find(elem => this.getElementId(elem) === id);
-    }
-    return null;
-  }
+	getSchemaElementFromId(schema, id) {
+		if (this.dataAccessor.getSchemaElementFromId) {
+			return this.dataAccessor.getSchemaElementFromId(schema, id);
+		}
+		const elements = this.getSchemaElements(schema);
+		if (elements) {
+			return elements.find(elem => this.getElementId(elem) === id);
+		}
+		return null;
+	}
 
 	/**
 	 * Returns the identifier of the element.
@@ -182,19 +182,17 @@ export default class DataAccessorWrapper {
 		return this.areEquals(mappedElement, element);
 	}
 
-  /**
-   * isElementMapped returns true if the given (element, side) is mapped
-   * (i.e. if it appears in the mapping)
-   */
-  isElementMapped(mapping, element, side) {
-  	if (mapping != null) {
-  		const mappingItems = this.getMappingItems(mapping);
-  		return mappingItems.find(
-  			item => this.isElementInMappingItem(item, element, side)
-  		);
-  	}
-  	return false;
-  }
+	/**
+	 * isElementMapped returns true if the given (element, side) is mapped
+	 * (i.e. if it appears in the mapping)
+	 */
+	isElementMapped(mapping, element, side) {
+		if (mapping != null) {
+			const mappingItems = this.getMappingItems(mapping);
+			return mappingItems.find(item => this.isElementInMappingItem(item, element, side));
+		}
+		return false;
+	}
 
 	/**
 	 * isFullMapped returns true if all the elements of the given schema are mapped
