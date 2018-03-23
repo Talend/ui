@@ -11,4 +11,6 @@ export default {
 	IS_HANDLER_ACTION_CREATOR: 'ActionCreator',
 	IS_HANDLER_DISPATCH_REGEX: /^(on).*(Dispatch)$/,
 	IS_HANDLER_ACTION_CREATOR_REGEX: /^(on).*(ActionCreator)$/,
+	IS_HANDLER_SETSTATE: 'SetState',
+	IS_HANDLER_SETSTATE_REGEX: /^(on).*(SetState)$/,
 };
