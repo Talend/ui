@@ -23,6 +23,8 @@ public class Application {
 
     public ConfirmDialog ConfirmDialog;
 
+    public Notification Notification;
+
     /**
      * Application constructor
      *
@@ -35,5 +37,6 @@ public class Application {
         this.List = new List(driver);
         this.Drawer = new Drawer(driver);
         this.ConfirmDialog = new ConfirmDialog(driver);
+        this.Notification = new Notification(driver);
     }
 }

@@ -2,6 +2,11 @@ package org.talend.component;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.WebElement;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.startsWith;
 
 public class ListTest extends StorybookTest {
 
@@ -29,4 +34,15 @@ public class ListTest extends StorybookTest {
         // then
         // should not throw NotFoundException
     }
+
+    @Test
+    public void should_get_table_using_display() {
+        // when
+        // should not throw NotFoundException
+        listObject.getDisplay().getElement();
+        final WebElement title = listObject.getDisplay().getItem("Title with actions").getTitle();
+
+        // then
+        assertThat(title.getTagName(), is("button"));
+        assertThat(title.getText(), is("Title with actions"));    }
 }

@@ -6,6 +6,7 @@ const myAction = {
 	label: 'Click me',
 	icon: 'talend-caret-down',
 	onClick: jest.fn(),
+	'data-feature': 'action.feature',
 };
 
 const mouseDownAction = {
@@ -18,6 +19,22 @@ describe('Action', () => {
 	it('should render a button', () => {
 		// when
 		const wrapper = shallow(<ActionButton {...myAction} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render a button with loading state', () => {
+		// when
+		const wrapper = shallow(<ActionButton loading />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render a link button with loading state', () => {
+		// when
+		const wrapper = shallow(<ActionButton link loading />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
