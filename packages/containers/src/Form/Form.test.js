@@ -1,9 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { fromJS } from 'immutable';
 
 import Container from './Form.container';
 import Connected from './Form.connect';
+import Form from '@talend/react-forms';
+import { UIForm } from '@talend/react-forms/lib/UIForm';
 
 describe('Container(Form)', () => {
 	it('should pass props to Form lib', () => {
@@ -32,6 +34,42 @@ describe('Container(Form)', () => {
 			/>,
 		);
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render with prop uiform = false : Form', () => {
+		const wrapper = mount(<Container jsonSchema={{}} uiSchema={{}} uiform={false} />);
+
+		expect(wrapper.find(Form).length).toBe(1);
+		expect(wrapper.find(UIForm).length).toBe(0);
+	});
+
+	it('should render with prop uiform = true : UIForm', () => {
+		const wrapper = mount(<Container jsonSchema={{}} uiSchema={[]} uiform />);
+		expect(wrapper.find(Form).length).toBe(1);
+		expect(wrapper.find(UIForm).length).toBe(1);
+	});
+
+	it('should render UIForm with language prop set', () => {
+		const wrapper = shallow(
+			<Container
+				formId="test-form"
+				jsonSchema={{ schema: true }}
+				uiSchema={{ uiSchema: true }}
+				actions={[]}
+				formProps={{ other: true }} // extra props
+				uiform
+				language={{ OBJECT_REQUIRED: 'Field translated' }}
+			/>,
+		);
+		expect(
+			wrapper
+				.find('TalendForm')
+				.dive()
+				.find('Container(UIForm)')
+				.dive()
+				.find('TalendUIForm')
+				.props().language.OBJECT_REQUIRED,
+		).toEqual('Field translated');
 	});
 
 	it('should use props.onSubmit', () => {
