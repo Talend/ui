@@ -40,10 +40,8 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 export function ContainerActionDropdown({ items, ...props }) {
 	const safeProps = omit(props, cmfConnect.INJECTED_PROPS);
 	if (items) {
-		const clikableItems = items.map(item => ({
-			...getOnClick(item, props),
-			...item,
-		}));
+		// keep initial object as it can be immutable and have a prototype
+		const clikableItems = items.map(item => (Object.assign(item, ...getOnClick(item, props))));
 		return <ActionDropdown items={clikableItems} {...safeProps} />;
 	}
 	return <ActionDropdown {...safeProps} />;

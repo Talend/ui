@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { Iterable } from 'immutable';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
 import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
@@ -51,7 +52,7 @@ InjectDropdownMenuItem.propTypes = {
 };
 InjectDropdownMenuItem.displayname = 'InjectDropdownMenuItem';
 
-function getMenuItem(item, index, getComponent) {
+function renderJsMenuItem(item, index, getComponent) {
 	const Renderers = Inject.getAll(getComponent, { MenuItem });
 	if (item.divider) {
 		return <Renderers.MenuItem key={index} divider />;
@@ -62,6 +63,14 @@ function getMenuItem(item, index, getComponent) {
 			{item.label}
 		</Renderers.MenuItem>
 	);
+}
+
+function getMenuItem(item, index, getComponent) {
+	if (Iterable.isIterable(item)) {
+		return renderJsMenuItem(item.toJS(), index, getComponent);
+	}
+
+	return renderJsMenuItem(item, index, getComponent);
 }
 
 /**
@@ -132,7 +141,9 @@ function ActionDropdown(props) {
 			className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button')}
 			{...rest}
 		>
-			{!items.length && !components && <Renderers.MenuItem disabled>No options</Renderers.MenuItem>}
+			{!items.length &&
+				!items.size &&
+				!components && <Renderers.MenuItem disabled>No options</Renderers.MenuItem>}
 			{injected('beforeItemsDropdown')}
 			{items.map((item, key) => getMenuItem(item, key, getComponent))}
 			{injected('itemsDropdown')}
