@@ -1,7 +1,7 @@
 import './Action';
 import './ActionBar';
-import './ActionFile';
 import './ActionDropdown';
+import './ActionFile';
 import './ActionIconToggle';
 import './ActionList';
 import './ActionSplitDropdown';
