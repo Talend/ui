@@ -18,32 +18,38 @@ const actions = [
 	{
 		label: 'Recent datasets',
 		icon: 'talend-clock',
+		'data-feature': 'actionlist.item',
 		onClick: action('Recent clicked'),
 	},
 	{
 		label: 'Favorite datasets',
 		icon: 'talend-star',
+		'data-feature': 'actionlist.item',
 		onClick: action('Favorite clicked'),
 		active: true,
 	},
 	{
 		label: 'Certified datasets',
 		icon: 'talend-badge',
+		'data-feature': 'actionlist.item',
 		onClick: action('Certified clicked'),
 	},
 	{
 		label: 'All datasets',
 		icon: 'talend-expanded',
+		'data-feature': 'actionlist.item',
 		onClick: action('All clicked'),
 	},
 	{
 		label: 'Import file',
 		icon: 'talend-folder',
+		'data-feature': 'actionlist.item',
 		onClick: action('Import clicked'),
 	},
 	{
 		label: 'Use magic',
 		icon: 'talend-tdp-negative',
+		'data-feature': 'actionlist.item',
 		onClick: action('Magic clicked'),
 	},
 ];

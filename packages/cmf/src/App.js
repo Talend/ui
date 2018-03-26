@@ -33,7 +33,7 @@ export default function App(props) {
 	return (
 		<Provider store={props.store}>
 			<RegistryProvider>
-				{props.children || <UIRouter history={hist} />}
+				{props.children || <UIRouter history={hist} loading={props.loading} />}
 			</RegistryProvider>
 		</Provider>
 	);
@@ -43,4 +43,5 @@ App.propTypes = {
 	store: PropTypes.object.isRequired,
 	children: PropTypes.node,
 	history: PropTypes.object,
+	loading: PropTypes.string,
 };

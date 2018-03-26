@@ -137,11 +137,11 @@ class Form extends React.Component {
 			customFormats: this.props.customFormats,
 			buttonBlockClass: this.props.buttonBlockClass,
 			children: this.props.children,
+			uiform: this.props.uiform,
+			language: this.props.language,
 			...this.props.formProps,
 		};
-		if (this.props.uiform) {
-			props.uiform = true;
-		}
+
 		return <ComponentForm {...props}>{this.props.children}</ComponentForm>;
 	}
 }
