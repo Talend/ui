@@ -292,26 +292,24 @@ class Datalist extends Component {
 	render() {
 		return (
 			<div className={theme['tc-datalist']}>
-				<form className={theme['tc-datalist-form']}>
-					<Typeahead
-						id={`${this.props.id}`}
-						autoFocus={this.props.autoFocus || false}
-						disabled={this.props.disabled || false}
-						focusedItemIndex={this.state.focusedItemIndex}
-						focusedSectionIndex={this.state.focusedSectionIndex}
-						items={this.state.suggestions}
-						multiSection={this.props.multiSection}
-						onBlur={this.onBlur}
-						onChange={this.onChange}
-						onFocus={this.onFocus}
-						onKeyDown={this.onKeyDown}
-						onSelect={this.onSelect}
-						placeholder={this.props.placeholder}
-						readOnly={this.props.readOnly || false}
-						theme={this.theme}
-						value={this.state.value}
-					/>
-				</form>
+				<Typeahead
+					id={`${this.props.id}`}
+					autoFocus={this.props.autoFocus || false}
+					disabled={this.props.disabled || false}
+					focusedItemIndex={this.state.focusedItemIndex}
+					focusedSectionIndex={this.state.focusedSectionIndex}
+					items={this.state.suggestions}
+					multiSection={this.props.multiSection}
+					onBlur={this.onBlur}
+					onChange={this.onChange}
+					onFocus={this.onFocus}
+					onKeyDown={this.onKeyDown}
+					onSelect={this.onSelect}
+					placeholder={this.props.placeholder}
+					readOnly={this.props.readOnly || false}
+					theme={this.theme}
+					value={this.state.value}
+				/>
 				<div className={theme.toggle}>
 					<span className="caret" />
 				</div>
