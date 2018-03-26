@@ -134,11 +134,9 @@ describe('cmfConnect', () => {
 				mapStateToProps,
 				WrappedComponent: { displayName: 'TestComponent' },
 			});
-			expect(mapStateToProps).toHaveBeenCalledWith(
-				state,
-				{ view: 'simple', name: 'my app' },
-				expect.anything(),
-			);
+			expect(mapStateToProps).toHaveBeenCalled();
+			expect(mapStateToProps.mock.calls[0][0]).toBe(state);
+			expect(mapStateToProps.mock.calls[0][1]).toMatchObject({ view: 'simple', name: 'my app'});
 			delete state.cmf.settings.props['TestComponent#connect-id'];
 		});
 	});
@@ -583,6 +581,40 @@ describe('cmfConnect', () => {
 				type: 'FETCH_CONFIGURED',
 				event,
 				data: onClickActionCreator.data,
+			});
+		});
+		it('should transform onEventSetState props to onEvent handler', () => {
+			const config = {
+				disabled: true,
+			};
+			const context = mock.context();
+			context.store.dispatch = jest.fn();
+
+			const wrapper = mount(
+				<CMFConnectedButton onClickSetState={config} initialState={{}} spreadCMFState />,
+				{
+					context,
+					childContextTypes: {
+						registry: React.PropTypes.object,
+					},
+				}
+			);
+			const props = wrapper.find(Button).props();
+			expect(props.onClick).toBeDefined();
+			expect(props.onClickSetState).toBeUndefined();
+			props.onClick({ type: 'click' });
+			expect(context.store.dispatch).toHaveBeenCalled();
+			expect(context.store.dispatch.mock.calls[0][0]).toMatchObject({
+				id: 'default',
+				type: 'Button.initState',
+				cmf: {
+					componentState: {
+						initialComponentState: expect.anything(),
+						componentName: 'Button',
+						key: 'default',
+						type: 'REACT_CMF.COMPONENT_ADD_STATE',
+					},
+				},
 			});
 		});
 	});
