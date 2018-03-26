@@ -1,10 +1,10 @@
 import './Action';
-import './ActionFile';
 import './ActionBar';
-import './ActionList';
+import './ActionFile';
 import './ActionDropdown';
-import './ActionSplitDropdown';
 import './ActionIconToggle';
+import './ActionList';
+import './ActionSplitDropdown';
 import './Actions';
 import './AppLoader';
 import './Badge';

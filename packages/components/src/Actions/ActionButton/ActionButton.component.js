@@ -207,6 +207,7 @@ ActionButton.propTypes = {
 	overlayComponent: PropTypes.element,
 	overlayPlacement: OverlayTrigger.propTypes.placement,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	t: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
 };

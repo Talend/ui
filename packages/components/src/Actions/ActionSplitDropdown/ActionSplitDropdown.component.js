@@ -2,10 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { SplitButton, MenuItem } from 'react-bootstrap';
+import { translate } from 'react-i18next';
 import uuid from 'uuid';
 import Icon from '../../Icon';
 import theme from './ActionSplitDropdown.scss';
 import { wrapOnClick } from '../Action/Action.component';
+import { DEFAULT_I18N } from '../../translate';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 /**
  * @param {object} props react props
@@ -30,7 +33,7 @@ import { wrapOnClick } from '../Action/Action.component';
  */
 
 function ActionSplitDropdown(props) {
-	const { icon, items, label, emptyDropdownLabel, className, ...rest } = props;
+	const { icon, items, label, emptyDropdownLabel, className, t, ...rest } = props;
 
 	const Title = (
 		<span>
@@ -45,6 +48,8 @@ function ActionSplitDropdown(props) {
 			title={Title}
 			id={uuid.v4()}
 			className={classNames(className, theme['tc-split-dropdown'])}
+			aria-label={label}
+			toggleLabel={t('ACTION_MENU_OPEN', { defaultValue: 'Open "{{label}}" menu', label })}
 			{...rest}
 		>
 			{items.length ? (
@@ -77,10 +82,11 @@ ActionSplitDropdown.propTypes = {
 	onClick: PropTypes.func,
 	emptyDropdownLabel: PropTypes.string,
 	className: PropTypes.string,
+	t: PropTypes.func,
 };
 
 ActionSplitDropdown.defaultProps = {
 	items: [],
 };
 
-export default ActionSplitDropdown;
+export default translate(I18N_DOMAIN_COMPONENTS, { i18n: DEFAULT_I18N })(ActionSplitDropdown);
