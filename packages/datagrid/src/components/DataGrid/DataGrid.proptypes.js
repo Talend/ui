@@ -27,6 +27,9 @@ const DATAGRID_PROPTYPES = {
 	data: PropTypes.object,
 	rowSelection: PropTypes.string,
 	rowHeight: PropTypes.number,
+	deltaRowDataMode: PropTypes.bool,
+	rowBuffer: PropTypes.number,
+	rowNodeIdentifier: PropTypes.string,
 };
 
 export default DATAGRID_PROPTYPES;
