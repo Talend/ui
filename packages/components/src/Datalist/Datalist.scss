@@ -29,6 +29,8 @@ $tc-datalist-item-height: 40px !default;
 	}
 
 	.items-container {
+		display: flex;
+		flex-direction: column;
 		position: absolute;
 		top: 100%;
 		right: 0;
