@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import Immutable from 'immutable';
 
 import ActionDropdown from './ActionDropdown.component';
 
@@ -16,6 +17,7 @@ const items = [
 		onClick: jest.fn(),
 	},
 ];
+const immutableItems = Immutable.fromJS(items);
 
 describe('ActionDropdown', () => {
 	it('should render a button with label', () => {
@@ -24,6 +26,21 @@ describe('ActionDropdown', () => {
 			id: 'dropdown-id',
 			label: 'related items',
 			items,
+		};
+
+		// when
+		const wrapper = renderer.create(<ActionDropdown {...props} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render a button with label and a filled dropdown when immutable items', () => {
+		// given
+		const props = {
+			id: 'dropdown-id',
+			label: 'related items',
+			items: immutableItems,
 		};
 
 		// when
