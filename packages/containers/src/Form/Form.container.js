@@ -62,11 +62,27 @@ class Form extends React.Component {
 	onTrigger(formData, formId, propertyName, propertyValue) {
 		if (this.props.onTrigger) {
 			this.props.onTrigger(formData, formId, propertyName, propertyValue);
+		} else if (propertyName !== 'properties') {
+			this.props.dispatchActionCreator(
+				'Form#onTriggerAfter',
+				{ type: 'onTrigger', target: this, props: this.props },
+				{
+					formData,
+					formId,
+					propertyName,
+					propertyValue,
+				},
+			);
 		}
 	}
 
 	onChange(form) {
-		this.props.setState({ data: form.formData, dirty: true });
+		this.props.setState(oldState => {
+			if (oldState.state.get('formData')) {
+				return { formData: oldState.state.get('formData').mergeDeep(form.formData) };
+			}
+			return { ...form, dirty: true };
+		});
 		if (this.props.onChange) {
 			this.props.onChange(form);
 		}
