@@ -1,4 +1,5 @@
 import React from 'react';
+import i18n from 'i18next';
 import { shallow, mount } from 'enzyme';
 import { actions, data, mergedSchema, initProps } from '../../__mocks__/data';
 
@@ -17,24 +18,30 @@ describe('UIForm component', () => {
 
 	it('should render form', () => {
 		// when
-		const wrapper = shallow(<UIForm {...data} {...props} />);
+		const wrapper = shallow(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('TalendUIForm').dive().getElement()).toMatchSnapshot();
 	});
 
 	it('should render provided actions', () => {
 		// when
-		const wrapper = shallow(<UIForm {...data} {...props} actions={actions} />);
+		const wrapper = shallow(<UIForm
+			{...data}
+			{...props}
+			i18n={i18n}
+			t={key => key}
+			actions={actions}
+		/>);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('TalendUIForm').dive().getElement()).toMatchSnapshot();
 	});
 
 	describe('#onChange', () => {
 		it('should call onChange callback', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
 			const newValue = 'toto';
 			const event = { target: { value: newValue } };
 
@@ -58,7 +65,7 @@ describe('UIForm component', () => {
 
 		it('should not perform trigger onChange', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} properties={{ firstname: 'to' }} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} properties={{ firstname: 'to' }} />);
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
@@ -79,7 +86,7 @@ describe('UIForm component', () => {
 				...data,
 				properties: { firstname: 'toto' },
 			};
-			const wrapper = mount(<UIForm {...validData} {...props} />);
+			const wrapper = mount(<UIForm {...validData} {...props} i18n={i18n} t={key => key} />);
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
@@ -108,7 +115,7 @@ describe('UIForm component', () => {
 
 		it('should NOT perform trigger when field has errors', () => {
 			// given: required firstname is empty
-			const wrapper = mount(<UIForm {...data} {...props} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
@@ -123,14 +130,14 @@ describe('UIForm component', () => {
 
 		it('should set errors, applying widget errors hook', () => {
 			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
 			const newValue = 'toto is toto';
 			const event = { target: { value: newValue } };
 			const newErrors = { lastname: 'lol' };
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
-			wrapper.instance().onFinish(
+			wrapper.find('TalendUIForm').instance().onFinish(
 				event,
 				{ schema: mergedSchema[0], value: newValue },
 				{
@@ -148,7 +155,7 @@ describe('UIForm component', () => {
 	describe('#onTrigger', () => {
 		it('should call trigger callback', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
 
 			// when
 			wrapper
@@ -171,10 +178,10 @@ describe('UIForm component', () => {
 
 		it('should prevent event default', () => {
 			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
 
 			// when
-			wrapper.instance().onSubmit(submitEvent);
+			wrapper.find('TalendUIForm').instance().onSubmit(submitEvent);
 
 			// then
 			expect(submitEvent.preventDefault).toBeCalled();
@@ -182,21 +189,21 @@ describe('UIForm component', () => {
 
 		it('should validate all fields', () => {
 			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
 
 			// when
-			wrapper.instance().onSubmit(submitEvent);
+			wrapper.find('TalendUIForm').instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(submitEvent, { firstname: 'Missing required field' });
+			expect(props.setErrors).toBeCalledWith(submitEvent, { firstname: 'Missing required property: firstname' });
 		});
 
 		it('should not call submit callback when form is invalid', () => {
 			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
 
 			// when
-			wrapper.instance().onSubmit(submitEvent);
+			wrapper.find('TalendUIForm').instance().onSubmit(submitEvent);
 
 			// then
 			expect(props.onSubmit).not.toBeCalled();
@@ -209,10 +216,16 @@ describe('UIForm component', () => {
 				lastname: 'This has at least 10 characters',
 				firstname: 'This is required',
 			};
-			const wrapper = shallow(<UIForm {...data} {...props} properties={validProperties} />);
+			const wrapper = mount(<UIForm
+				{...data}
+				{...props}
+				i18n={i18n}
+				t={key => key}
+				properties={validProperties}
+			/>);
 
 			// when
-			wrapper.instance().onSubmit(submitEvent);
+			wrapper.find('TalendUIForm').instance().onSubmit(submitEvent);
 
 			// then
 			expect(props.onSubmit).toBeCalled();
