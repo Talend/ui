@@ -292,6 +292,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Go to Portal"
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -327,6 +328,7 @@ exports[`Storyshots HeaderBar default 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
+              aria-label="Example App Name"
               className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -452,6 +454,7 @@ exports[`Storyshots HeaderBar default 1`] = `
           role="search"
         >
           <button
+            aria-label="Search"
             className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -479,6 +482,7 @@ exports[`Storyshots HeaderBar default 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Help"
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -512,6 +516,22 @@ exports[`Storyshots HeaderBar default 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label={
+              <span
+                className="theme-user-name user-name"
+              >
+                <span
+                  className="theme-user-firstname user-firstname"
+                >
+                  John
+                </span>
+                <span
+                  className="theme-user-lastname user-lastname"
+                >
+                  Doe
+                </span>
+              </span>
+            }
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -875,6 +895,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Go to Portal"
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -910,6 +931,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
+              aria-label="Example App Name"
               className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -1110,6 +1132,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Help"
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -1143,6 +1166,22 @@ exports[`Storyshots HeaderBar while searching 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label={
+              <span
+                className="theme-user-name user-name"
+              >
+                <span
+                  className="theme-user-firstname user-firstname"
+                >
+                  John
+                </span>
+                <span
+                  className="theme-user-lastname user-lastname"
+                >
+                  Doe
+                </span>
+              </span>
+            }
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -1506,6 +1545,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Go to Portal"
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -1541,6 +1581,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
+              aria-label="Example App Name"
               className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -1663,6 +1704,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label="Default"
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-environment"
@@ -1732,6 +1774,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
           role="search"
         >
           <button
+            aria-label="Search"
             className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -1759,6 +1802,7 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Help"
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -1792,6 +1836,22 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label={
+              <span
+                className="theme-user-name user-name"
+              >
+                <span
+                  className="theme-user-firstname user-firstname"
+                >
+                  John
+                </span>
+                <span
+                  className="theme-user-lastname user-lastname"
+                >
+                  Doe
+                </span>
+              </span>
+            }
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -2155,6 +2215,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Go to Portal"
           className="theme-tc-header-bar-logo tc-header-bar-logo theme-full btn btn-link"
           disabled={false}
           id="header-logo"
@@ -2190,6 +2251,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
+              aria-label="Example App Name"
               className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -2315,6 +2377,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
           role="search"
         >
           <button
+            aria-label="Search"
             className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -2342,6 +2405,7 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Help"
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -2375,6 +2439,22 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label={
+              <span
+                className="theme-user-name user-name"
+              >
+                <span
+                  className="theme-user-firstname user-firstname"
+                >
+                  John
+                </span>
+                <span
+                  className="theme-user-lastname user-lastname"
+                >
+                  Doe
+                </span>
+              </span>
+            }
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -2738,6 +2818,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Go to Portal"
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -2773,6 +2854,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
+              aria-label="Example App Name"
               className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -2898,6 +2980,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
           role="search"
         >
           <button
+            aria-label="Search"
             className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -2925,6 +3008,7 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Help"
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -2958,6 +3042,22 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label={
+              <span
+                className="theme-user-name user-name"
+              >
+                <span
+                  className="theme-user-firstname user-firstname"
+                >
+                  John
+                </span>
+                <span
+                  className="theme-user-lastname user-lastname"
+                >
+                  Doe
+                </span>
+              </span>
+            }
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -3321,6 +3421,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Go to Portal"
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -3356,6 +3457,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
+              aria-label="Example App Name"
               className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -3536,6 +3638,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Help"
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -3569,6 +3672,22 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label={
+              <span
+                className="theme-user-name user-name"
+              >
+                <span
+                  className="theme-user-firstname user-firstname"
+                >
+                  John
+                </span>
+                <span
+                  className="theme-user-lastname user-lastname"
+                >
+                  Doe
+                </span>
+              </span>
+            }
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -3932,6 +4051,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Go to Portal"
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -3967,6 +4087,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
+              aria-label="Example App Name"
               className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -4092,6 +4213,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
           role="search"
         >
           <button
+            aria-label="Search"
             className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -4119,6 +4241,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Notifications"
           className="btn btn-link"
           disabled={false}
           onClick={[Function]}
@@ -4145,6 +4268,7 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Help"
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -4178,6 +4302,22 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label={
+              <span
+                className="theme-user-name user-name"
+              >
+                <span
+                  className="theme-user-firstname user-firstname"
+                >
+                  John
+                </span>
+                <span
+                  className="theme-user-lastname user-lastname"
+                >
+                  Doe
+                </span>
+              </span>
+            }
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -4541,6 +4681,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Go to Portal"
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -4576,6 +4717,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
+              aria-label="Example App Name"
               className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -4750,6 +4892,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Help"
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -4783,6 +4926,22 @@ exports[`Storyshots HeaderBar with search input 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label={
+              <span
+                className="theme-user-name user-name"
+              >
+                <span
+                  className="theme-user-firstname user-firstname"
+                >
+                  John
+                </span>
+                <span
+                  className="theme-user-lastname user-lastname"
+                >
+                  Doe
+                </span>
+              </span>
+            }
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -5146,6 +5305,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Go to Portal"
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -5181,6 +5341,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
+              aria-label="Example App Name"
               className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -5685,6 +5846,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Help"
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -5718,6 +5880,22 @@ exports[`Storyshots HeaderBar with search results 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label={
+              <span
+                className="theme-user-name user-name"
+              >
+                <span
+                  className="theme-user-firstname user-firstname"
+                >
+                  John
+                </span>
+                <span
+                  className="theme-user-lastname user-lastname"
+                >
+                  Doe
+                </span>
+              </span>
+            }
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -6081,6 +6259,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Go to Portal"
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -6116,6 +6295,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
+              aria-label="Example App Name"
               className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -6241,6 +6421,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
           role="search"
         >
           <button
+            aria-label="Search"
             className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -6268,6 +6449,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Notifications"
           className="btn btn-link"
           disabled={false}
           onClick={[Function]}
@@ -6294,6 +6476,7 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Help"
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -6327,6 +6510,22 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label={
+              <span
+                className="theme-user-name user-name"
+              >
+                <span
+                  className="theme-user-firstname user-firstname"
+                >
+                  John
+                </span>
+                <span
+                  className="theme-user-lastname user-lastname"
+                >
+                  Doe
+                </span>
+              </span>
+            }
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -6690,6 +6889,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Go to Portal"
           className="theme-tc-header-bar-logo tc-header-bar-logo theme-full btn btn-link"
           disabled={false}
           id="header-logo"
@@ -6720,6 +6920,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
           role="heading"
         >
           <button
+            aria-label="Example App Name"
             className="theme-tc-header-bar-brand tc-header-bar-brand btn btn-link"
             disabled={false}
             id="header-brand"
@@ -6747,6 +6948,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
           role="search"
         >
           <button
+            aria-label="Search"
             className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -6774,6 +6976,7 @@ exports[`Storyshots HeaderBar without products 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Help"
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -6807,6 +7010,22 @@ exports[`Storyshots HeaderBar without products 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label={
+              <span
+                className="theme-user-name user-name"
+              >
+                <span
+                  className="theme-user-firstname user-firstname"
+                >
+                  John
+                </span>
+                <span
+                  className="theme-user-lastname user-lastname"
+                >
+                  Doe
+                </span>
+              </span>
+            }
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             id="header-user"
@@ -7170,6 +7389,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Go to Portal"
           className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
           disabled={false}
           id="header-logo"
@@ -7205,6 +7425,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
             <button
               aria-expanded={false}
               aria-haspopup={true}
+              aria-label="Example App Name"
               className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
               disabled={false}
               id="header-brand"
@@ -7330,6 +7551,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
           role="search"
         >
           <button
+            aria-label="Search"
             className="theme-only-icon-cls btn btn-link"
             disabled={false}
             onClick={[Function]}
@@ -7357,6 +7579,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
         role="presentation"
       >
         <button
+          aria-label="Help"
           className="btn btn-link"
           disabled={false}
           id="header-help"
@@ -7390,6 +7613,7 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
           <button
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label="Information"
             className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
             disabled={false}
             displayMode="dropdown"
@@ -7771,6 +7995,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Go to Portal"
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -7806,6 +8031,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
+                    aria-label="Example App Name"
                     className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -7931,6 +8157,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                 role="search"
               >
                 <button
+                  aria-label="Search"
                   className="theme-only-icon-cls btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -7958,6 +8185,7 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Help"
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -7991,6 +8219,22 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
+                  aria-label={
+                    <span
+                      className="theme-user-name user-name"
+                    >
+                      <span
+                        className="theme-user-firstname user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="theme-user-lastname user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
+                  }
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"
@@ -8366,6 +8610,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Go to Portal"
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -8401,6 +8646,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
+                    aria-label="Example App Name"
                     className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -8526,6 +8772,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                 role="search"
               >
                 <button
+                  aria-label="Search"
                   className="theme-only-icon-cls btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -8553,6 +8800,7 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Help"
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -8586,6 +8834,22 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
+                  aria-label={
+                    <span
+                      className="theme-user-name user-name"
+                    >
+                      <span
+                        className="theme-user-firstname user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="theme-user-lastname user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
+                  }
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"
@@ -8961,6 +9225,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Go to Portal"
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -8996,6 +9261,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
+                    aria-label="Example App Name"
                     className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -9121,6 +9387,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                 role="search"
               >
                 <button
+                  aria-label="Search"
                   className="theme-only-icon-cls btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -9148,6 +9415,7 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Help"
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -9181,6 +9449,22 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
+                  aria-label={
+                    <span
+                      className="theme-user-name user-name"
+                    >
+                      <span
+                        className="theme-user-firstname user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="theme-user-lastname user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
+                  }
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"
@@ -9556,6 +9840,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Go to Portal"
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -9591,6 +9876,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
+                    aria-label="Example App Name"
                     className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -9716,6 +10002,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                 role="search"
               >
                 <button
+                  aria-label="Search"
                   className="theme-only-icon-cls btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -9743,6 +10030,7 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Help"
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -9776,6 +10064,22 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
+                  aria-label={
+                    <span
+                      className="theme-user-name user-name"
+                    >
+                      <span
+                        className="theme-user-firstname user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="theme-user-lastname user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
+                  }
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"
@@ -10151,6 +10455,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Go to Portal"
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -10186,6 +10491,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
+                    aria-label="Example App Name"
                     className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -10311,6 +10617,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                 role="search"
               >
                 <button
+                  aria-label="Search"
                   className="theme-only-icon-cls btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -10338,6 +10645,7 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Help"
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -10371,6 +10679,22 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
+                  aria-label={
+                    <span
+                      className="theme-user-name user-name"
+                    >
+                      <span
+                        className="theme-user-firstname user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="theme-user-lastname user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
+                  }
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"
@@ -10746,6 +11070,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Go to Portal"
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -10781,6 +11106,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
+                    aria-label="Example App Name"
                     className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -10906,6 +11232,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                 role="search"
               >
                 <button
+                  aria-label="Search"
                   className="theme-only-icon-cls btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -10933,6 +11260,7 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Help"
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -10966,6 +11294,22 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
+                  aria-label={
+                    <span
+                      className="theme-user-name user-name"
+                    >
+                      <span
+                        className="theme-user-firstname user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="theme-user-lastname user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
+                  }
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"
@@ -11341,6 +11685,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Go to Portal"
                 className="theme-tc-header-bar-logo tc-header-bar-logo btn btn-link"
                 disabled={false}
                 id="header-logo"
@@ -11376,6 +11721,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                   <button
                     aria-expanded={false}
                     aria-haspopup={true}
+                    aria-label="Example App Name"
                     className="theme-tc-header-bar-brand tc-header-bar-brand dropdown-toggle btn btn-link"
                     disabled={false}
                     id="header-brand"
@@ -11501,6 +11847,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                 role="search"
               >
                 <button
+                  aria-label="Search"
                   className="theme-only-icon-cls btn btn-link"
                   disabled={false}
                   onClick={[Function]}
@@ -11528,6 +11875,7 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
               role="presentation"
             >
               <button
+                aria-label="Help"
                 className="btn btn-link"
                 disabled={false}
                 id="header-help"
@@ -11561,6 +11909,22 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                 <button
                   aria-expanded={false}
                   aria-haspopup={true}
+                  aria-label={
+                    <span
+                      className="theme-user-name user-name"
+                    >
+                      <span
+                        className="theme-user-firstname user-firstname"
+                      >
+                        John
+                      </span>
+                      <span
+                        className="theme-user-lastname user-lastname"
+                      >
+                        Doe
+                      </span>
+                    </span>
+                  }
                   className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                   disabled={false}
                   id="header-user"

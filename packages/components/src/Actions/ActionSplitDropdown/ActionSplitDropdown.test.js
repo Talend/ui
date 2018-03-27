@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import ActionSplitDropdown from './ActionSplitDropdown.component';
+import { ActionSplitDropdown } from './ActionSplitDropdown.component';
+import { getDefaultTranslate } from '../../translate';
 
 const items = [
 	{
@@ -24,6 +25,7 @@ describe('ActionSplitDropdown', () => {
 			onClick: jest.fn(),
 			'data-feature': 'action.add',
 			items,
+			t: getDefaultTranslate,
 		};
 
 		// when
@@ -41,6 +43,7 @@ describe('ActionSplitDropdown', () => {
 			onClick: jest.fn(),
 			'data-feature': 'action.add',
 			items,
+			t: getDefaultTranslate,
 		};
 
 		// when
@@ -69,6 +72,7 @@ describe('ActionSplitDropdown', () => {
 					icon: 'fa fa-plus',
 				},
 			],
+			t: getDefaultTranslate,
 		};
 
 		// when
@@ -87,6 +91,7 @@ describe('ActionSplitDropdown', () => {
 			'data-feature': 'action.add',
 			items: [],
 			emptyDropdownLabel: 'No option',
+			t: getDefaultTranslate,
 		};
 
 		// when
@@ -116,6 +121,7 @@ describe('ActionSplitDropdown', () => {
 					model: 'model',
 				},
 			],
+			t: getDefaultTranslate,
 		};
 
 		// when

@@ -88,7 +88,7 @@ function noOp() {}
 };
  <Action {...props} />
  */
-function ActionButton(props) {
+export function ActionButton(props) {
 	const {
 		bsStyle,
 		inProgress,

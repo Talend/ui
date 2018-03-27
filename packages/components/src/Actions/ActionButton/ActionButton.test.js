@@ -1,12 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ActionButton from './ActionButton.component';
+import { ActionButton } from './ActionButton.component';
+import { getDefaultTranslate } from '../../translate';
 
 const myAction = {
 	label: 'Click me',
 	icon: 'talend-caret-down',
 	onClick: jest.fn(),
 	'data-feature': 'action.feature',
+	t: getDefaultTranslate,
 };
 
 const mouseDownAction = {
@@ -26,7 +28,7 @@ describe('Action', () => {
 
 	it('should render a button with loading state', () => {
 		// when
-		const wrapper = shallow(<ActionButton loading />);
+		const wrapper = shallow(<ActionButton t={getDefaultTranslate} loading />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -34,7 +36,7 @@ describe('Action', () => {
 
 	it('should render a link button with loading state', () => {
 		// when
-		const wrapper = shallow(<ActionButton link loading />);
+		const wrapper = shallow(<ActionButton t={getDefaultTranslate} link loading />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

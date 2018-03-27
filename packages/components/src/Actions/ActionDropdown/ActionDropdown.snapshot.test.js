@@ -3,8 +3,6 @@ import renderer from 'react-test-renderer';
 
 import ActionDropdown from './ActionDropdown.component';
 
-jest.mock('react-dom');
-
 const items = [
 	{
 		icon: 'talend-icon',

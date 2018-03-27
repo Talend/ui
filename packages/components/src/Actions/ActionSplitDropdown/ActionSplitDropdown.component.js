@@ -32,7 +32,7 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
  <ActionSplitDropdown {...props} />
  */
 
-function ActionSplitDropdown(props) {
+export function ActionSplitDropdown(props) {
 	const { icon, items, label, emptyDropdownLabel, className, t, ...rest } = props;
 
 	const Title = (
