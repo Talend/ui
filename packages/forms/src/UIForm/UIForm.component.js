@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import tv4 from 'tv4';
-import translate from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import merge from './merge';
 import { formPropTypes } from './utils/propTypes';
@@ -42,7 +42,7 @@ class UIForm extends React.Component {
 			tv4.addLanguage('@talend', language);
 			tv4.language('@talend'); // set it
 		}
-		const allFormats = Object.assign({}, customFormats, props.customFormats);
+		const allFormats = Object.assign({}, customFormats(props.t), props.customFormats);
 		if (Object.keys(allFormats).length > 0) {
 			tv4.addFormat(allFormats);
 		}
@@ -266,9 +266,9 @@ class UIForm extends React.Component {
 		);
 	}
 }
-
+const I18NUIForm = translate(I18N_DOMAIN_FORMS)(UIForm);
 if (process.env.NODE_ENV !== 'production') {
-	UIForm.propTypes = {
+	I18NUIForm.propTypes = {
 		...formPropTypes,
 
 		/** Form definition: Json schema that specify the data model */
@@ -316,10 +316,10 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-UIForm.defaultProps = {
+I18NUIForm.defaultProps = {
 	noHtml5Validate: true,
 	buttonBlockClass: 'form-actions',
 	properties: {},
 };
 
-export default translate(I18N_DOMAIN_FORMS)(UIForm);
+export default I18NUIForm;

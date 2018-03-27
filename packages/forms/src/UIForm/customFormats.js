@@ -1,5 +1,3 @@
-import tv4 from 'tv4';
-
 const customFormats = t => ({
 	'no-leading-trailing-space': fieldData => {
 		if (typeof fieldData === 'string' && /^\s|\s$/.test(fieldData)) {
