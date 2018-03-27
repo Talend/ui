@@ -1,23 +1,27 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import ReSelect from 'react-select';
+import 'react-select/dist/react-select.css';
 import FieldTemplate from '../FieldTemplate';
 
-function getSelectedOptions(select, multiple) {
-	if (multiple) {
-		return Array.prototype.slice
-			.call(select.options)
-			.filter(option => option.selected)
-			.map(option => option.value);
+function getSelectedOptions(selectedValue, multiple) {
+	if (!selectedValue) {
+		return selectedValue;
 	}
-
-	return select.value;
+	if (multiple) {
+		return selectedValue.map(option => option.value);
+	}
+	return selectedValue.value;
 }
 
 export default function Select({ id, isValid, errorMessage, onChange, onFinish, schema, value }) {
 	const { autoFocus, description, disabled = false, placeholder, readOnly = false, title } = schema;
 
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
-
+	const options = schema.titleMap.map(option => ({
+		value: option.value,
+		label: option.name,
+	}));
 	return (
 		<FieldTemplate
 			description={description}
@@ -28,30 +32,21 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 			labelAfter
 			required={schema.required}
 		>
-			<select
+			<ReSelect
 				id={id}
-				multiple={multiple}
+				multi={multiple}
 				autoFocus={autoFocus}
-				className="form-control"
 				disabled={disabled}
-				onChange={event => {
-					const payload = { schema, value: getSelectedOptions(event.target, multiple) };
+				onChange={selectedValue => {
+					const payload = { schema, value: getSelectedOptions(selectedValue, multiple) };
 					onChange(event, payload);
 					onFinish(event, payload);
 				}}
 				readOnly={readOnly}
 				value={value}
-			>
-				<option disabled>{placeholder}</option>
-				{schema.titleMap &&
-					schema.titleMap.map((option, index) => {
-						const optionProps = {
-							key: index,
-							value: option.value,
-						};
-						return <option {...optionProps}>{option.name}</option>;
-					})}
-			</select>
+				options={options}
+				placeholder={placeholder}
+			/>
 		</FieldTemplate>
 	);
 }
