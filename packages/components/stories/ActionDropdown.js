@@ -1,4 +1,5 @@
 import React from 'react';
+import Immutable from 'immutable';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -27,6 +28,29 @@ const myAction = {
 			onClick: action('document 2 click'),
 		},
 	],
+};
+
+const withImmutable = {
+	id: 'context-dropdown-related-items',
+	label: 'related immutable items',
+	items: Immutable.fromJS([
+		{
+			id: 'context-dropdown-item-document-1',
+			icon: 'talend-file-json-o',
+			label: 'document 1',
+			'data-feature': 'actiondropdown.items',
+			onClick: action('document 1 click'),
+		},
+		{
+			divider: true,
+		},
+		{
+			id: 'context-dropdown-item-document-2',
+			label: 'document 2',
+			'data-feature': 'actiondropdown.items',
+			onClick: action('document 2 click'),
+		},
+	]),
 };
 
 const withComponents = {
@@ -142,6 +166,10 @@ storiesOf('ActionDropdown', module).addWithInfo('default', () => (
 		<p>By default :</p>
 		<div id="default">
 			<ActionDropdown {...myAction} />
+		</div>
+		<p>With immutable items :</p>
+		<div id="default">
+			<ActionDropdown {...withImmutable} />
 		</div>
 		<p>With one event handler:</p>
 		<div id="oneEvent">
