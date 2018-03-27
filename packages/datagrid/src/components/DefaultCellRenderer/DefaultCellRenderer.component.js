@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Skeleton } from '@talend/react-components';
 
 import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
 
@@ -10,7 +11,15 @@ import theme from './DefaultCell.scss';
 
 export const CELL_RENDERER_COMPONENT = 'cellRenderer';
 
-export default function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent }) {
+export default function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }) {
+	if (data.loading) {
+		return (
+			<div className={classNames(theme['td-cell'], 'td-cell')}>
+				<Skeleton />
+			</div>
+		);
+	}
+
 	return (
 		<div className={classNames(theme['td-cell'], 'td-cell')}>
 			{value.quality <= 0 && <QualityIndicator tooltip="Incorrect value" value={value.quality} />}
@@ -38,5 +47,6 @@ DefaultCellRenderer.propTypes = {
 		}),
 	}),
 	value: PropTypes.object,
+	data: PropTypes.object,
 	getComponent: PropTypes.func,
 };
