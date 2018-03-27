@@ -21,21 +21,27 @@ describe('UIForm component', () => {
 		const wrapper = shallow(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
 
 		// then
-		expect(wrapper.find('TalendUIForm').dive().getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.find('TalendUIForm')
+				.dive()
+				.getElement(),
+		).toMatchSnapshot();
 	});
 
 	it('should render provided actions', () => {
 		// when
-		const wrapper = shallow(<UIForm
-			{...data}
-			{...props}
-			i18n={i18n}
-			t={key => key}
-			actions={actions}
-		/>);
+		const wrapper = shallow(
+			<UIForm {...data} {...props} i18n={i18n} t={key => key} actions={actions} />,
+		);
 
 		// then
-		expect(wrapper.find('TalendUIForm').dive().getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.find('TalendUIForm')
+				.dive()
+				.getElement(),
+		).toMatchSnapshot();
 	});
 
 	describe('#onChange', () => {
@@ -65,7 +71,9 @@ describe('UIForm component', () => {
 
 		it('should not perform trigger onChange', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} properties={{ firstname: 'to' }} />);
+			const wrapper = mount(
+				<UIForm {...data} {...props} i18n={i18n} t={key => key} properties={{ firstname: 'to' }} />,
+			);
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
@@ -137,15 +145,18 @@ describe('UIForm component', () => {
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
-			wrapper.find('TalendUIForm').instance().onFinish(
-				event,
-				{ schema: mergedSchema[0], value: newValue },
-				{
-					widgetChangeErrors() {
-						return newErrors;
+			wrapper
+				.find('TalendUIForm')
+				.instance()
+				.onFinish(
+					event,
+					{ schema: mergedSchema[0], value: newValue },
+					{
+						widgetChangeErrors() {
+							return newErrors;
+						},
 					},
-				},
-			);
+				);
 
 			// then
 			expect(props.setErrors).toBeCalledWith(event, newErrors);
@@ -181,7 +192,10 @@ describe('UIForm component', () => {
 			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
 
 			// when
-			wrapper.find('TalendUIForm').instance().onSubmit(submitEvent);
+			wrapper
+				.find('TalendUIForm')
+				.instance()
+				.onSubmit(submitEvent);
 
 			// then
 			expect(submitEvent.preventDefault).toBeCalled();
@@ -192,10 +206,15 @@ describe('UIForm component', () => {
 			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
 
 			// when
-			wrapper.find('TalendUIForm').instance().onSubmit(submitEvent);
+			wrapper
+				.find('TalendUIForm')
+				.instance()
+				.onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(submitEvent, { firstname: 'Missing required property: firstname' });
+			expect(props.setErrors).toBeCalledWith(submitEvent, {
+				firstname: 'Missing required property: firstname',
+			});
 		});
 
 		it('should not call submit callback when form is invalid', () => {
@@ -203,7 +222,10 @@ describe('UIForm component', () => {
 			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
 
 			// when
-			wrapper.find('TalendUIForm').instance().onSubmit(submitEvent);
+			wrapper
+				.find('TalendUIForm')
+				.instance()
+				.onSubmit(submitEvent);
 
 			// then
 			expect(props.onSubmit).not.toBeCalled();
@@ -216,16 +238,15 @@ describe('UIForm component', () => {
 				lastname: 'This has at least 10 characters',
 				firstname: 'This is required',
 			};
-			const wrapper = mount(<UIForm
-				{...data}
-				{...props}
-				i18n={i18n}
-				t={key => key}
-				properties={validProperties}
-			/>);
+			const wrapper = mount(
+				<UIForm {...data} {...props} i18n={i18n} t={key => key} properties={validProperties} />,
+			);
 
 			// when
-			wrapper.find('TalendUIForm').instance().onSubmit(submitEvent);
+			wrapper
+				.find('TalendUIForm')
+				.instance()
+				.onSubmit(submitEvent);
 
 			// then
 			expect(props.onSubmit).toBeCalled();
