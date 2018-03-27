@@ -26,6 +26,7 @@ form {
 
 	div:not(.has-success):not(.has-warning):not(.has-error) {
 		textarea,
+        input.form-control,
 		input[type='text'],
 		input[type='password'],
 		input[type='email'],
@@ -60,6 +61,7 @@ form {
 	}
 
 	textarea,
+    input.form-control,
 	input[type='text'],
 	input[type='password'],
 	input[type='email'],
