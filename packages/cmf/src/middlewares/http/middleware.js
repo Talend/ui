@@ -103,7 +103,7 @@ export function mergeConfiguredHeader(config) {
 	// still need to keep the previous header added by action
 	return options => ({
 		...options,
-		headers: { ...options.headers, ...DEFAULT_HTTP_HEADERS, ...config.headers },
+		headers: { ...DEFAULT_HTTP_HEADERS, ...options.headers, ...config.headers },
 	});
 }
 

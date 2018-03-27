@@ -103,6 +103,26 @@ describe('CMF http middleware', () => {
 		expect(options.headers['Accept-Language']).toBe('fr-FR');
 	});
 
+	it('should override default http header', () => {
+		const httpConfig = {
+			headers: {
+				'Accept-Language': 'fr-FR',
+			}
+		};
+		const actionOptions = {
+			url: '/url1',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'a content type',
+			}
+		};
+		const options = mergeConfiguredHeader(httpConfig)(actionOptions);
+		expect(options.url).toBe('/url1');
+		expect(options.headers.Accept).toBe('application/json');
+		expect(options.headers['Accept-Language']).toBe('fr-FR');
+		expect(options.headers['Content-Type']).toBe('a content type');
+	});
+
 	it('should httpMiddleware return function', () => {
 		const store = {
 			dispatch: jest.fn(),
