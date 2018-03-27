@@ -4,23 +4,10 @@ import React from 'react';
 import { GRID_SIZE } from '../../constants/flowdesigner.constants';
 
 function Grid({ transformData }) {
-	const smallGridSize = 10 * transformData.k;
 	const largeGridSize = GRID_SIZE * transformData.k;
-	const smallGridOpacity = transformData.k < 1 ? transformData.k : 1;
 	return (
 		<g>
 			<defs>
-				<pattern
-					id="smallGrid"
-					fill="none"
-					stroke="#BFBDBD"
-					strokeWidth="0.5"
-					width={smallGridSize}
-					height={smallGridSize}
-					patternUnits="userSpaceOnUse"
-				>
-					<path d={`M ${smallGridSize} 0 L 0 0 0 ${smallGridSize}`} />
-				</pattern>
 				<pattern
 					id="grid"
 					fill="none"
@@ -32,12 +19,7 @@ function Grid({ transformData }) {
 					height={largeGridSize}
 					patternUnits="userSpaceOnUse"
 				>
-					<rect
-						width={largeGridSize}
-						height={largeGridSize}
-						fillOpacity={smallGridOpacity}
-						fill="url(#smallGrid)"
-					/>
+					<rect width={largeGridSize} height={largeGridSize} />
 					<path d={`M ${largeGridSize} 0 L 0 0 0 ${largeGridSize}`} />
 				</pattern>
 			</defs>

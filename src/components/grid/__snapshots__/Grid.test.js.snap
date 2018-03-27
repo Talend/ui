@@ -3,17 +3,6 @@ exports[`Grid.component should render a grid by default 1`] = `
   <defs>
     <pattern
       fill="none"
-      height={10}
-      id="smallGrid"
-      patternUnits="userSpaceOnUse"
-      stroke="#BFBDBD"
-      strokeWidth="0.5"
-      width={10}>
-      <path
-        d="M 10 0 L 0 0 0 10" />
-    </pattern>
-    <pattern
-      fill="none"
       height={40}
       id="grid"
       patternUnits="userSpaceOnUse"
@@ -23,8 +12,6 @@ exports[`Grid.component should render a grid by default 1`] = `
       x={0}
       y={0}>
       <rect
-        fill="url(#smallGrid)"
-        fillOpacity={1}
         height={40}
         width={40} />
       <path
@@ -50,17 +37,6 @@ exports[`Grid.component should render custom component with transform injected 1
   <defs>
     <pattern
       fill="none"
-      height={10}
-      id="smallGrid"
-      patternUnits="userSpaceOnUse"
-      stroke="#BFBDBD"
-      strokeWidth="0.5"
-      width={10}>
-      <path
-        d="M 10 0 L 0 0 0 10" />
-    </pattern>
-    <pattern
-      fill="none"
       height={40}
       id="grid"
       patternUnits="userSpaceOnUse"
@@ -70,8 +46,6 @@ exports[`Grid.component should render custom component with transform injected 1
       x={0}
       y={0}>
       <rect
-        fill="url(#smallGrid)"
-        fillOpacity={1}
         height={40}
         width={40} />
       <path
