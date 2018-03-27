@@ -1,11 +1,7 @@
 import { api } from '@talend/react-cmf';
 
 function onTriggerAfter(event, data) {
-	const {
-		collectionId,
-		properties,
-		url,
-	} = data;
+	const { collectionId, properties, url } = data;
 	// const definitionName = properties['@definitionName'];
 	// const store = context.store.getState();
 	// const data = store.cmf.collections.get(collectionId);
