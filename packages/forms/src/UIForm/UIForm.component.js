@@ -314,6 +314,7 @@ if (process.env.NODE_ENV !== 'production') {
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
 	};
+	UIForm.propTypes = I18NUIForm.propTypes;
 }
 
 I18NUIForm.defaultProps = {
