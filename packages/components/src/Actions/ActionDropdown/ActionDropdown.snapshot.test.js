@@ -41,6 +41,7 @@ describe('ActionDropdown', () => {
 			id: 'dropdown-id',
 			label: 'related items',
 			items: immutableItems,
+			open: true,
 		};
 
 		// when

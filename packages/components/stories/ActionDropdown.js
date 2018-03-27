@@ -53,6 +53,8 @@ const withImmutable = {
 	]),
 };
 
+const openWithImmutable = { ...withImmutable, open: true };
+
 const withComponents = {
 	id: 'context-dropdown-custom-items',
 	label: 'custom items',
@@ -167,10 +169,6 @@ storiesOf('ActionDropdown', module).addWithInfo('default', () => (
 		<div id="default">
 			<ActionDropdown {...myAction} />
 		</div>
-		<p>With immutable items :</p>
-		<div id="default">
-			<ActionDropdown {...withImmutable} />
-		</div>
 		<p>With one event handler:</p>
 		<div id="oneEvent">
 			<ActionDropdown {...oneEventAction} />
@@ -202,6 +200,14 @@ storiesOf('ActionDropdown', module).addWithInfo('default', () => (
 		<p>Tool tip</p>
 		<div id="toolTip">
 			<ActionDropdown {...propsTooltip} />
+		</div>
+		<p>With immutable items :</p>
+		<div id="default">
+			<ActionDropdown {...withImmutable} />
+		</div>
+		<p>Opened and with immutable items :</p>
+		<div id="open_immutable">
+			<ActionDropdown {...openWithImmutable} />
 		</div>
 		<IconsProvider />
 	</div>
