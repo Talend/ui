@@ -101,6 +101,7 @@ describe('CMF http middleware', () => {
 		expect(options.url).toBe('/url1');
 		expect(options.headers.Accept).toBe('application/json');
 		expect(options.headers['Accept-Language']).toBe('fr-FR');
+		expect(options.headers['Content-Type']).toBe('application/json');
 	});
 
 	it('should override default http header', () => {
@@ -121,6 +122,27 @@ describe('CMF http middleware', () => {
 		expect(options.headers.Accept).toBe('application/json');
 		expect(options.headers['Accept-Language']).toBe('fr-FR');
 		expect(options.headers['Content-Type']).toBe('a content type');
+	});
+
+	it('should remove content type when data is a FormData', () => {
+		const httpConfig = {
+			headers: {
+				'Accept-Language': 'fr-FR',
+			}
+		};
+		const actionOptions = {
+			url: '/url1',
+			body: new FormData(),
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'a content type',
+			}
+		};
+		const options = mergeConfiguredHeader(httpConfig)(actionOptions);
+		expect(options.url).toBe('/url1');
+		expect(options.headers.Accept).toBe('application/json');
+		expect(options.headers['Accept-Language']).toBe('fr-FR');
+		expect(options.headers['Content-Type']).toBeUndefined();
 	});
 
 	it('should httpMiddleware return function', () => {
@@ -212,7 +234,9 @@ describe('CMF http middleware', () => {
 		const config = {
 			body: formData,
 			credentials: 'same-origin',
-			headers: DEFAULT_HTTP_HEADERS,
+			headers: {
+				Accept: 'application/json',
+			},
 			method: 'POST',
 			onError: 'CALL_ME_BACK on error',
 			onResponse: 'CALL_ME_BACK on response',
