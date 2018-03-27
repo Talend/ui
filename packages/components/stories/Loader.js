@@ -1,9 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
 import { Loader, CIRCULAR_PROGRESS_SIZE as SIZE } from '../src/';
-
 
 const containerStyle = {
 	display: 'flex',
@@ -12,7 +10,6 @@ const containerStyle = {
 	height: '100vh',
 	width: '100vw',
 };
-
 
 const decoratedStories = storiesOf('Loader', module)
 	.addDecorator(story => (
