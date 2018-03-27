@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { AgGridReact } from 'ag-grid-react';
 import keycode from 'keycode';
+import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid/dist/styles/ag-grid.css';
 import { Inject, Skeleton } from '@talend/react-components';
 
@@ -55,6 +55,7 @@ function getAvroRenderer(avroRenderer) {
 export default class DataGrid extends React.Component {
 	static defaultProps = {
 		cellRenderer: 'DefaultCellRenderer',
+		getRowDataFn: serializer.getRowData,
 		getPinnedColumnDefsFn: serializer.getPinnedColumnDefs,
 		getColumnDefsFn: serializer.getColumnDefs,
 		getCellValueFn: serializer.getCellValue,

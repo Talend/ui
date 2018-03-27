@@ -38,6 +38,7 @@ export function getRowData(sample, startIndex = 0) {
 			}),
 			{
 				[`${NAMESPACE_INDEX}${COLUMN_INDEX}`]: index + startIndex,
+				loading: !!row.loading,
 			},
 		),
 	);

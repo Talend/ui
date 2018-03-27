@@ -35,6 +35,7 @@ export default function DefaultCellRenderer({ avroRenderer, colDef, value, getCo
 
 DefaultCellRenderer.defaultProps = {
 	value: {},
+	data: {},
 };
 
 DefaultCellRenderer.propTypes = {
