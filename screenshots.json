@@ -67,8 +67,8 @@
       "selector": "#toolTip"
     },
     {
-      "name": "action-dropdown-open-immutable",
-      "selector": "#open_immutable"
+      "name": "action-dropdown-openImmutable",
+      "selector": "#openImmutable"
     }
   ],
   "components/iframe.html?selectedKind=ActionSplitDropdown&selectedStory=default&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel": [

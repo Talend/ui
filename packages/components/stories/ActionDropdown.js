@@ -206,7 +206,7 @@ storiesOf('ActionDropdown', module).addWithInfo('default', () => (
 			<ActionDropdown {...withImmutable} />
 		</div>
 		<p>Opened and with immutable items :</p>
-		<div id="open_immutable">
+		<div id="openImmutable">
 			<ActionDropdown {...openWithImmutable} />
 		</div>
 		<IconsProvider />
