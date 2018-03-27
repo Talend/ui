@@ -104,6 +104,23 @@ describe('CMF http middleware', () => {
 		expect(options.headers['Content-Type']).toBe('application/json');
 	});
 
+	it('should override config headers when giving action headers', () => {
+		const httpConfig = {
+			headers: {
+				'Accept-Language': 'fr-FR',
+			}
+		};
+		const defaultOptions = {
+			url: '/url1',
+			headers: { Accept: 'application/json', 'Accept-Language': 'en-US', }
+		};
+		const options = mergeConfiguredHeader(httpConfig)(defaultOptions);
+		expect(options.url).toBe('/url1');
+		expect(options.headers.Accept).toBe('application/json');
+		expect(options.headers['Accept-Language']).toBe('en-US');
+		expect(options.headers['Content-Type']).toBe('application/json');
+	});
+
 	it('should override default http header', () => {
 		const httpConfig = {
 			headers: {

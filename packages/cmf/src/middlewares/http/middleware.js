@@ -104,7 +104,7 @@ export function mergeConfiguredHeader(config) {
 	return options => {
 		const headerMergedConfig = {
 			...options,
-			headers: { ...DEFAULT_HTTP_HEADERS, ...options.headers, ...config.headers },
+			headers: { ...DEFAULT_HTTP_HEADERS, ...config.headers, ...options.headers },
 		};
 		if (headerMergedConfig.body && headerMergedConfig.body instanceof FormData) {
 			delete headerMergedConfig.headers['Content-Type'];
