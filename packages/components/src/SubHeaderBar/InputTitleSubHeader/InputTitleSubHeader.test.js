@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Icon, Action } from '../../index';
+import { Skeleton, Icon, Action } from '../../index';
 import InputTitleSubHeader, {
 	InlineFormSubHeader,
 	TitleSubHeader,
@@ -39,6 +39,17 @@ describe('InputTitleSubHeader', () => {
 		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} editMode />);
 		expect(wrapper.find(TitleSubHeader)).toHaveLength(0);
 		expect(wrapper.find(InlineFormSubHeader)).toHaveLength(1);
+	});
+	it('should render skeleton', () => {
+		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} loading />);
+		expect(wrapper.find(Skeleton)).toHaveLength(1);
+	});
+	it('should render inProgress', () => {
+		const wrapper = shallow(<InputTitleSubHeader {...defaultProps} inProgress />);
+		expect(wrapper.props().className).toEqual(
+			'theme-tc-subheader-details tc-subheader-details theme-tc-subheader-details-blink tc-subheader-details-blink',
+		);
+		expect(wrapper.find(TitleSubHeader).props().disabled).toEqual(true);
 	});
 });
 
