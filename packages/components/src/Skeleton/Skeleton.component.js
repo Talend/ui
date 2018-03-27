@@ -28,7 +28,10 @@ function Skeleton({ type, size, width, height, name, className, t }) {
 	);
 
 	const translatedType = t(`SKELETON_TYPE_${type}`, { defaultValue: type });
-	const ariaLabel = t('SKELETON_LOADING', { defaultValue: ' {{type}} (loading)', type: translatedType });
+	const ariaLabel = t('SKELETON_LOADING', {
+		defaultValue: ' {{type}} (loading)',
+		type: translatedType,
+	});
 
 	if (type === 'icon') {
 		return <Icon className={classes} name={name} aria-label={ariaLabel} />;

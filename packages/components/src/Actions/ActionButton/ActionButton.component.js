@@ -146,7 +146,10 @@ export function ActionButton(props) {
 
 	let ariaLabel = tooltipLabel || label;
 	if (inProgress) {
-		ariaLabel = t('ACTION_IN_PROGRESS', { defaultValue: '{{label}} (in progress)', label: ariaLabel });
+		ariaLabel = t('ACTION_IN_PROGRESS', {
+			defaultValue: '{{label}} (in progress)',
+			label: ariaLabel,
+		});
 	}
 	if (loading) {
 		ariaLabel = t('SKELETON_LOADING', { defaultValue: ' {{type}} (loading)', type: ariaLabel });
