@@ -30,10 +30,12 @@ form {
 		input[type='password'],
 		input[type='email'],
 		input[type='number'],
+		input[type='search'],
 		[type='text'].form-control,
 		[type='password'].form-control,
 		[type='email'].form-control,
 		[type='tel'].form-control,
+		[type='search'].form-control,
 		[contenteditable].form-control {
 			&:focus:not([readonly]) + label {
 				color: $scooter;
@@ -62,10 +64,12 @@ form {
 	input[type='password'],
 	input[type='email'],
 	input[type='number'],
+	input[type='search'],
 	[type='text'].form-control,
 	[type='password'].form-control,
 	[type='email'].form-control,
 	[type='tel'].form-control,
+	[type='search'].form-control,
 	[contenteditable].form-control {
 		box-shadow: none;
 		padding: 0;
