@@ -3,10 +3,11 @@ import React from 'react';
 import ReSelect from 'react-select';
 import 'react-select/dist/react-select.css';
 import FieldTemplate from '../FieldTemplate';
+import theme from './Select.scss';
 
 function getSelectedOptions(selectedValue, multiple) {
 	if (!selectedValue) {
-		return selectedValue;
+		return undefined;
 	}
 	if (multiple) {
 		return selectedValue.map(option => option.value);
@@ -29,7 +30,6 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 			id={id}
 			isValid={isValid}
 			label={title}
-			labelAfter
 			required={schema.required}
 		>
 			<ReSelect
@@ -37,6 +37,7 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 				multi={multiple}
 				autoFocus={autoFocus}
 				disabled={disabled}
+				className={theme.select}
 				onChange={selectedValue => {
 					const payload = { schema, value: getSelectedOptions(selectedValue, multiple) };
 					onChange(event, payload);
