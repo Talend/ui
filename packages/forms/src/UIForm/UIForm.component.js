@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import tv4 from 'tv4';
+import translate from 'react-i18next';
 
 import merge from './merge';
 import { formPropTypes } from './utils/propTypes';
@@ -12,8 +13,9 @@ import { getValue, mutateValue } from './utils/properties';
 import { removeError, addError } from './utils/errors';
 import getLanguage from './lang';
 import customFormats from './customFormats';
+import { I18N_DOMAIN_FORMS } from '../constants';
 
-export default class UIForm extends React.Component {
+class UIForm extends React.Component {
 	static displayName = 'TalendUIForm';
 	constructor(props) {
 		super(props);
@@ -32,8 +34,12 @@ export default class UIForm extends React.Component {
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onActionClick = this.onActionClick.bind(this);
 		// control the tv4 language here.
+		const language = getLanguage(props.t);
+		if (typeof props.language === 'function') {
+			Object.assign(language, props.language(props.t));
+		}
 		if (!tv4.language('@talend')) {
-			tv4.addLanguage('@talend', props.language);
+			tv4.addLanguage('@talend', language);
 			tv4.language('@talend'); // set it
 		}
 		const allFormats = Object.assign({}, customFormats, props.customFormats);
@@ -314,5 +320,6 @@ UIForm.defaultProps = {
 	noHtml5Validate: true,
 	buttonBlockClass: 'form-actions',
 	properties: {},
-	language: getLanguage(),
 };
+
+export default translate(I18N_DOMAIN_FORMS)(UIForm);

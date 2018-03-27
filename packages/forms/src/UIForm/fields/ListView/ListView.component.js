@@ -4,7 +4,7 @@ import keycode from 'keycode';
 import ListView from '@talend/react-components/lib/ListView';
 import { translate } from 'react-i18next';
 
-import I18N_DOMAIN_FORMS from '../../../constants';
+import { I18N_DOMAIN_FORMS } from '../../../constants';
 import { DEFAULT_I18N, getDefaultTranslate } from '../../../translate';
 import { getItemsProps, initItems, updateItems } from './ListView.utils';
 import FieldTemplate from '../FieldTemplate';
