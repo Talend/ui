@@ -6,7 +6,7 @@ const customFormats = t => ({
 	email: fieldData => {
 		if (typeof fieldData === 'string' && !emailRegExp.test(fieldData)) {
 			return t('FORMAT_EMAIL', {
-				defaultValue: 'must be a valid email (e.g : paul.dupont@mail.com)',
+				defaultValue: 'must be a valid email (e.g.: user@company.com)',
 			});
 		}
 		return null;
@@ -14,7 +14,7 @@ const customFormats = t => ({
 	'url-http-https': fieldData => {
 		if (typeof fieldData === 'string' && !urlHttpOrHttpsRegexp.test(fieldData)) {
 			return t('FORMAT_URL_HTTP_HTTPS', {
-				defaultValue: 'must be a valid url (e.g : http://my.domain.com or https://my.domain.com)',
+				defaultValue: 'must be a valid url (e.g.: http://my.domain.com or https://my.domain.com)',
 			});
 		}
 		return null;
@@ -22,7 +22,7 @@ const customFormats = t => ({
 	'no-leading-trailing-space': fieldData => {
 		if (typeof fieldData === 'string' && /^\s|\s$/.test(fieldData)) {
 			return t('FORMAT_NO_LEADING_TRAILING_SPACE', {
-				defaultValue: 'must be string without leading or trailing space',
+				defaultValue: 'must be a string without leading or trailing space',
 			});
 		}
 		return null;
