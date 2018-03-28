@@ -18,7 +18,7 @@ describe('UIForm component', () => {
 
 	it('should render form', () => {
 		// when
-		const wrapper = shallow(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
+		const wrapper = shallow(<UIForm {...data} {...props} i18n={i18n} />);
 
 		// then
 		expect(
@@ -32,7 +32,7 @@ describe('UIForm component', () => {
 	it('should render provided actions', () => {
 		// when
 		const wrapper = shallow(
-			<UIForm {...data} {...props} i18n={i18n} t={key => key} actions={actions} />,
+			<UIForm {...data} {...props} i18n={i18n} actions={actions} />,
 		);
 
 		// then
@@ -47,7 +47,7 @@ describe('UIForm component', () => {
 	describe('#onChange', () => {
 		it('should call onChange callback', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} />);
 			const newValue = 'toto';
 			const event = { target: { value: newValue } };
 
@@ -72,7 +72,7 @@ describe('UIForm component', () => {
 		it('should not perform trigger onChange', () => {
 			// given
 			const wrapper = mount(
-				<UIForm {...data} {...props} i18n={i18n} t={key => key} properties={{ firstname: 'to' }} />,
+				<UIForm {...data} {...props} i18n={i18n} properties={{ firstname: 'to' }} />,
 			);
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
@@ -94,7 +94,7 @@ describe('UIForm component', () => {
 				...data,
 				properties: { firstname: 'toto' },
 			};
-			const wrapper = mount(<UIForm {...validData} {...props} i18n={i18n} t={key => key} />);
+			const wrapper = mount(<UIForm {...validData} {...props} i18n={i18n} />);
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
@@ -123,7 +123,7 @@ describe('UIForm component', () => {
 
 		it('should NOT perform trigger when field has errors', () => {
 			// given: required firstname is empty
-			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} />);
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
@@ -138,7 +138,7 @@ describe('UIForm component', () => {
 
 		it('should set errors, applying widget errors hook', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} />);
 			const newValue = 'toto is toto';
 			const event = { target: { value: newValue } };
 			const newErrors = { lastname: 'lol' };
@@ -166,7 +166,7 @@ describe('UIForm component', () => {
 	describe('#onTrigger', () => {
 		it('should call trigger callback', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} />);
 
 			// when
 			wrapper
@@ -189,7 +189,7 @@ describe('UIForm component', () => {
 
 		it('should prevent event default', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} />);
 
 			// when
 			wrapper
@@ -203,7 +203,7 @@ describe('UIForm component', () => {
 
 		it('should validate all fields', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} />);
 
 			// when
 			wrapper
@@ -219,7 +219,7 @@ describe('UIForm component', () => {
 
 		it('should not call submit callback when form is invalid', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} t={key => key} />);
+			const wrapper = mount(<UIForm {...data} {...props} i18n={i18n} />);
 
 			// when
 			wrapper
@@ -239,7 +239,7 @@ describe('UIForm component', () => {
 				firstname: 'This is required',
 			};
 			const wrapper = mount(
-				<UIForm {...data} {...props} i18n={i18n} t={key => key} properties={validProperties} />,
+				<UIForm {...data} {...props} i18n={i18n} properties={validProperties} />,
 			);
 
 			// when
