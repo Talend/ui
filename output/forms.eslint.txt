@@ -7,9 +7,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-/home/travis/build/Talend/ui/packages/forms/src/Form.js
-  202:18  error  'customFormats' PropType is defined but prop is never used  react/no-unused-prop-types
-
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/CheckBox/SimpleCheckBox.component.js
   9:4  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
@@ -17,9 +14,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   24:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.test.js
-  152:6  error  Expected indentation of 4 tabs but found 5  indent
-  153:7  error  Expected indentation of 5 tabs but found 6  indent
-  156:6  error  Expected indentation of 4 tabs but found 5  indent
+  161:6  error  Expected indentation of 4 tabs but found 5  indent
+  162:7  error  Expected indentation of 5 tabs but found 6  indent
+  165:6  error  Expected indentation of 4 tabs but found 5  indent
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.js
+  5:8  error  Using exported name 'UIFormComponent' as identifier for default export  import/no-named-as-default
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/templates.js
   1:8  error  Using exported name 'DefaultArrayTemplate' as identifier for default export  import/no-named-as-default
