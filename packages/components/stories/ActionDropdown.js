@@ -65,7 +65,7 @@ const withComponents = {
 		} else if (key === 'FilterBar') {
 			return FilterBar;
 		}
-		return Action;
+		throw new Error('Component not found');
 	},
 	components: {
 		itemsDropdown: [
@@ -93,7 +93,7 @@ const mixItemsComponents = {
 		if (key === 'Action') {
 			return Action;
 		}
-		return Action;
+		throw new Error('Component not found');
 	},
 	items: [
 		{

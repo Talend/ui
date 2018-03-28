@@ -7,6 +7,7 @@ exports[`ActionIconToggle should render a button 1`] = `
 >
   <Button
     active={false}
+    aria-label="Click me, I'm inactive"
     block={false}
     bsClass="btn"
     bsStyle="link"
@@ -30,6 +31,7 @@ exports[`ActionIconToggle should render an active button 1`] = `
 >
   <Button
     active={false}
+    aria-label="Click me, I'm inactive"
     block={false}
     bsClass="btn"
     bsStyle="link"
