@@ -78,10 +78,10 @@ form {
 		border-radius: 0;
 		font-size: $form-input-font-size;
 		font-weight: $form-base-font-weight;
-		@include box-shadow($form-shadow);
+		box-shadow: $form-shadow;
 
 		&:focus {
-			@include box-shadow($form-focus-shadow);
+			box-shadow: $form-focus-shadow;
 		}
 
 		&[disabled] {
@@ -115,7 +115,7 @@ form {
 	select.form-control {
 		border: none;
 		border-radius: 0;
-		@include box-shadow($form-shadow);
+		box-shadow: $form-shadow;
 		appearance: none;
 		padding-left: 0;
 		padding-right: 0 \9; // remove padding for < ie9 since default arrow can't be removed
@@ -377,11 +377,11 @@ form {
 		border-radius: 0;
 		font-size: $form-input-font-size;
 		font-weight: $form-base-font-weight;
-		@include box-shadow($form-shadow);
+		box-shadow: $form-shadow;
 		border-right: 1px solid $gallery;
 
 		&:focus {
-			@include box-shadow($form-focus-shadow);
+			box-shadow: $form-focus-shadow;
 		}
 	}
 }

@@ -25,7 +25,7 @@ $tf-typeahead-section-border-color: #e0e0e0 !default;
 
 	border: 0;
 	border-radius: 0;
-	@include box-shadow($form-shadow);
+	box-shadow: $form-shadow;
 	padding: 0;
 
 	.typeahead {
