@@ -47,11 +47,7 @@ describe('UIForm component', () => {
 		expect(tv4.validate('abc', { format: 'noABC' })).toBe(true);
 		expect(tv4.validate('def', { format: 'noABC' })).toBe(true);
 
-		mount(<UIForm
-			{...data}
-			{...props}
-			customFormats={customFormats}
-		/>);
+		mount(<UIForm {...data} {...props} customFormats={customFormats} />);
 
 		expect(tv4.validate('abc', { format: 'noABC' })).toBe(false);
 		expect(tv4.validate('def', { format: 'noABC' })).toBe(true);
@@ -84,9 +80,7 @@ describe('UIForm component', () => {
 
 		it('should not perform trigger onChange', () => {
 			// given
-			const wrapper = mount(
-				<UIForm {...data} {...props} properties={{ firstname: 'to' }} />,
-			);
+			const wrapper = mount(<UIForm {...data} {...props} properties={{ firstname: 'to' }} />);
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
@@ -161,9 +155,15 @@ describe('UIForm component', () => {
 			wrapper
 				.find('TalendUIForm')
 				.instance()
-				.onFinish(event,
+				.onFinish(
+					event,
 					{ schema: mergedSchema[0], value: newValue },
-					{ widgetChangeErrors() { return newErrors; } });
+					{
+						widgetChangeErrors() {
+							return newErrors;
+						},
+					},
+				);
 
 			// then
 			expect(props.setErrors).toBeCalledWith(event, newErrors);
@@ -245,9 +245,7 @@ describe('UIForm component', () => {
 				lastname: 'This has at least 10 characters',
 				firstname: 'This is required',
 			};
-			const wrapper = mount(
-				<UIForm {...data} {...props} properties={validProperties} />,
-			);
+			const wrapper = mount(<UIForm {...data} {...props} properties={validProperties} />);
 
 			// when
 			wrapper
