@@ -106,7 +106,7 @@ export function mergeConfiguredHeader(config) {
 			...options,
 			headers: { ...DEFAULT_HTTP_HEADERS, ...config.headers, ...options.headers },
 		};
-		if (headerMergedConfig.body && headerMergedConfig.body instanceof FormData) {
+		if (headerMergedConfig.body instanceof FormData) {
 			delete headerMergedConfig.headers['Content-Type'];
 		}
 		return headerMergedConfig;
