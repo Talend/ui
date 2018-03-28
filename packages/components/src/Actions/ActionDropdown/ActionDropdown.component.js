@@ -52,7 +52,7 @@ InjectDropdownMenuItem.propTypes = {
 };
 InjectDropdownMenuItem.displayname = 'InjectDropdownMenuItem';
 
-function renderJsMenuItem(item, index, getComponent) {
+function renderMutableMenuItem(item, index, getComponent) {
 	const Renderers = Inject.getAll(getComponent, { MenuItem });
 	if (item.divider) {
 		return <Renderers.MenuItem key={index} divider />;
@@ -67,10 +67,10 @@ function renderJsMenuItem(item, index, getComponent) {
 
 function getMenuItem(item, index, getComponent) {
 	if (Iterable.isIterable(item)) {
-		return renderJsMenuItem(item.toJS(), index, getComponent);
+		return renderMutableMenuItem(item.toJS(), index, getComponent);
 	}
 
-	return renderJsMenuItem(item, index, getComponent);
+	return renderMutableMenuItem(item, index, getComponent);
 }
 
 /**
