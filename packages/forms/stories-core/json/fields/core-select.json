@@ -44,7 +44,8 @@
   "uiSchema": [
     {
       "key": "simpleChoiceList",
-      "title": "Simple choice list"
+      "title": "Simple choice list",
+      "autoFocus": true
     },
     {
       "key": "choiceListWithTitles",
