@@ -385,3 +385,84 @@ exports[`ActionDropdown should render a button with label 1`] = `
   </ul>
 </div>
 `;
+
+exports[`ActionDropdown should render a button with label and a filled dropdown when immutable items 1`] = `
+<div
+  className="dropdown btn-group btn-group-default"
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup={true}
+    className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
+    disabled={false}
+    id="dropdown-id"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    type="button"
+  >
+    <span
+      className="tc-dropdown-button-title"
+    >
+      <span
+        className="tc-dropdown-button-title-label"
+      >
+        related items
+      </span>
+    </span>
+     
+    <span
+      className="caret"
+    />
+  </button>
+  <ul
+    aria-labelledby="dropdown-id"
+    className="dropdown-menu"
+    role="menu"
+  >
+    <li
+      className=""
+      role="presentation"
+      style={undefined}
+    >
+      <a
+        href="#"
+        icon="talend-icon"
+        label="document 1"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1"
+      >
+        <svg
+          aria-hidden="true"
+          className="theme-tc-svg-icon tc-svg-icon"
+          focusable="false"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-icon"
+          />
+        </svg>
+        document 1
+      </a>
+    </li>
+    <li
+      className=""
+      role="presentation"
+      style={undefined}
+    >
+      <a
+        href="#"
+        label="document 2"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1"
+      >
+        document 2
+      </a>
+    </li>
+  </ul>
+</div>
+`;
