@@ -99,6 +99,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
     className="buttons"
   >
     <button
+      aria-label="Submit"
       className="theme-btn-disabled btn btn-primary"
       disabled={true}
       onClick={[Function]}
@@ -111,6 +112,7 @@ exports[`<Form/> actions should render form with custom css 1`] = `
       </span>
     </button>
     <button
+      aria-label="Reset"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -133,6 +135,7 @@ Object {
       null,
       "Reset",
     ],
+    "i18nLoadedAt": null,
     "label": "Reset",
     "style": "link",
     "type": "reset",

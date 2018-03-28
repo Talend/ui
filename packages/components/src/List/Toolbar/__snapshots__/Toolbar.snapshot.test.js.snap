@@ -11,6 +11,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
       className="theme-navbar-left navbar-left"
     >
       <button
+        aria-label="Add"
         className="btn btn-primary"
         disabled={false}
         id="my-toolbar-actions-add"
@@ -55,6 +56,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
          selected
       </span>
       <button
+        aria-label="Delete selection"
         className="btn btn-default"
         disabled={false}
         id="my-toolbar-actions-delete"
@@ -218,6 +220,7 @@ exports[`Toolbar should render filter form 1`] = `
       className="container-fluid"
     >
       <button
+        aria-label="Toggle filter"
         className="navbar-right btn btn-link"
         disabled={false}
         id="my-toolbar-filter"
