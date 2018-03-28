@@ -228,8 +228,12 @@ function buildSVGAnchors(anchors, bounds) {
 		);
 	}
 	if (anchors.mapped) {
-		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.mapped, bounds,
-			Constants.Anchor.STYLE.MAPPED);
+		svgAnchors = appendStyledSVGAnchors(
+			svgAnchors,
+			anchors.mapped,
+			bounds,
+			Constants.Anchor.STYLE.MAPPED,
+		);
 	}
 	return svgAnchors;
 }

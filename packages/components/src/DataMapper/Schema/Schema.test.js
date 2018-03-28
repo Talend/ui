@@ -45,14 +45,16 @@ const noFilters = [];
 
 it('single-schema', () => {
 	// create React tree
-	const tree = renderer.create(
-		<Schema
-			dataAccessor={dataAccessor}
-			schema={schema}
-			schemaRenderer={defaultSchemaRenderer}
-			filters={noFilters}
-		/>
-	).toJSON();
+	const tree = renderer
+		.create(
+			<Schema
+				dataAccessor={dataAccessor}
+				schema={schema}
+				schemaRenderer={defaultSchemaRenderer}
+				filters={noFilters}
+			/>,
+		)
+		.toJSON();
 	expect(tree).toMatchSnapshot();
 });
 
@@ -65,7 +67,8 @@ it('empty-schema', () => {
 				schema={emptySchema}
 				schemaRenderer={defaultSchemaRenderer}
 				filters={noFilters}
-			/>)
+			/>,
+		)
 		.toJSON();
 	expect(tree).toMatchSnapshot();
 });

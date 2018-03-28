@@ -4,8 +4,7 @@ import SchemaHeader from './SchemaHeader';
 import * as Constants from '../Constants';
 
 function isMapped(dataAccessor, element, mappedElements) {
-	return mappedElements == null ?
-		false : dataAccessor.includes(mappedElements, element);
+	return mappedElements == null ? false : dataAccessor.includes(mappedElements, element);
 }
 
 /**
@@ -13,9 +12,11 @@ function isMapped(dataAccessor, element, mappedElements) {
  * (i.e. if it appears in the selection)
  */
 export function isSelected(dataAccessor, selection, element, side) {
-	return selection != null
-		&& dataAccessor.areEquals(selection.element, element)
-		&& selection.side === side;
+	return (
+		selection != null &&
+		dataAccessor.areEquals(selection.element, element) &&
+		selection.side === side
+	);
 }
 
 function isHighlighted(dataAccessor, element, selection, side, pendingItem, focusedElements) {
@@ -26,17 +27,15 @@ function isHighlighted(dataAccessor, element, selection, side, pendingItem, focu
 			  selection.connected != null &&
 			  dataAccessor.includes(selection.connected, element);
 	const pending =
-		pendingItem != null
-		&& pendingItem.side === side
-		&& dataAccessor.areEquals(pendingItem.element, element);
-	const focused = focusedElements != null
-		&& dataAccessor.includes(focusedElements, element);
+		pendingItem != null &&
+		pendingItem.side === side &&
+		dataAccessor.areEquals(pendingItem.element, element);
+	const focused = focusedElements != null && dataAccessor.includes(focusedElements, element);
 	return connected || pending || focused;
 }
 
 export default class Schema extends Component {
-
-  constructor(props) {
+	constructor(props) {
 		super(props);
 		this.updateContentNodeRef = this.updateContentNodeRef.bind(this);
 		this.onContentScroll = this.onContentScroll.bind(this);
@@ -46,15 +45,17 @@ export default class Schema extends Component {
 		// check first is a drag and drop is in progress
 		let needUpdate = true;
 		if (nextProps.dnd) {
-			needUpdate = !(nextProps.dnd.pos != null || (
-				nextProps.dnd.source != null && nextProps.dnd.source.side === nextProps.side
-			));
+			needUpdate = !(
+				nextProps.dnd.pos != null ||
+				(nextProps.dnd.source != null && nextProps.dnd.source.side === nextProps.side)
+			);
 		}
 		// then check if rendering focused elements is needed
-		if (needUpdate &&
+		if (
+			needUpdate &&
 			nextProps.trigger &&
-			(nextProps.trigger.code === Constants.Events.ENTER_ELEM
-				|| nextProps.trigger.code === Constants.Events.LEAVE_ELEM)
+			(nextProps.trigger.code === Constants.Events.ENTER_ELEM ||
+				nextProps.trigger.code === Constants.Events.LEAVE_ELEM)
 		) {
 			if (this.props.dataAccessor.areEqual(this.props.focusedElements, nextProps.focusedElements)) {
 				needUpdate = false;
@@ -122,26 +123,16 @@ export default class Schema extends Component {
 	}
 
 	render() {
-    const {
-      schemaRenderer,
-      ...tempProps
-    } = this.props;
-		const {
-			dataAccessor,
-			schema,
-			side,
-			filters,
-			filterComponents,
-			onFilterChange,
-		} = this.props;
-    const contentProps = {
-      ...tempProps,
-      updateContentNodeRef: this.updateContentNodeRef,
-      isMapped,
-      isSelected,
-      isHighlighted,
+		const { schemaRenderer, ...tempProps } = this.props;
+		const { dataAccessor, schema, side, filters, filterComponents, onFilterChange } = this.props;
+		const contentProps = {
+			...tempProps,
+			updateContentNodeRef: this.updateContentNodeRef,
+			isMapped,
+			isSelected,
+			isHighlighted,
 			onScroll: this.onContentScroll,
-    };
+		};
 		return (
 			<div className={`schema mapper-element ${side}`}>
 				<SchemaHeader

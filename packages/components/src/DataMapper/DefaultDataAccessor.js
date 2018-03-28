@@ -8,9 +8,9 @@ function areElementsEqual(element1, element2) {
  * Internal function only used by the dataAccessor.
  */
 function getMappingItemIndex(mapping, source, target) {
-	return mapping.findIndex(item =>
-		areElementsEqual(item.source, source) &&
-		areElementsEqual(item.target, target));
+	return mapping.findIndex(
+		item => areElementsEqual(item.source, source) && areElementsEqual(item.target, target),
+	);
 }
 
 /**
@@ -27,7 +27,6 @@ function removeMappingItem(mapping, index) {
  * schema and mapping data.
  */
 export default class DefaultDataAccessor {
-
 	areEquals(element1, element2) {
 		return areElementsEqual(element1, element2);
 	}
@@ -72,8 +71,7 @@ export default class DefaultDataAccessor {
 	 * returns -1 if it is not in the schema.
 	 */
 	getSchemaElementIndex(schema, element) {
-		return schema.elements.findIndex(elem =>
-			areElementsEqual(elem, element));
+		return schema.elements.findIndex(elem => areElementsEqual(elem, element));
 	}
 
 	/**
