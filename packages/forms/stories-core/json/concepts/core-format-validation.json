@@ -1,0 +1,33 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "properties": {
+      "lastname": {
+        "type": "string",
+        "format": "string-without-space"
+      },
+      "firstname": {
+        "type": "string",
+        "format": "no-leading-trailing-space"
+      }
+    },
+    "required": [
+      "lastname",
+      "firstname"
+    ]
+  },
+  "uiSchema": [
+    {
+      "key": "lastname",
+      "title": "Last Name",
+      "description": "This field has a format validation (string without space)"
+    },
+    {
+      "key": "firstname",
+      "title": "First Name",
+      "description": "This field has a format validation (string without leading or trailing space)"
+    }
+  ],
+  "properties": {}
+}
