@@ -5,9 +5,6 @@ import MandatoryField from '../../List/MandatoryField';
 import * as Constants from '../../Constants';
 
 class SchemaClassNameProvider {
-	updateProps(props) {
-		this.props = props;
-	}
 
   updateProps(props) {
     this.props = props;
@@ -63,6 +60,7 @@ class SchemaClassNameProvider {
 }
 
 class SchemaDndListener {
+
 	updateProps(props) {
 		this.props = props;
 	}
@@ -94,9 +92,6 @@ class SchemaDndListener {
 }
 
 class RowDataGetter {
-	updateProps(props) {
-		this.props = props;
-	}
 
   updateProps(props) {
     this.props = props;
@@ -136,15 +131,6 @@ class RowRenderers {
 }
 
 export default class ListRenderer {
-	constructor() {
-		this.select = this.select.bind(this);
-		this.revealConnection = this.revealConnection.bind(this);
-		this.onEnterElement = this.onEnterElement.bind(this);
-		this.onLeaveElement = this.onLeaveElement.bind(this);
-		this.classNameProvider = new SchemaClassNameProvider();
-		this.dndListener = new SchemaDndListener();
-		this.rowDataGetter = new RowDataGetter();
-	}
 
   constructor() {
     this.select = this.select.bind(this);
@@ -156,6 +142,12 @@ export default class ListRenderer {
     this.rowDataGetter = new RowDataGetter();
     this.rowRenderers = new RowRenderers();
   }
+
+  getElement(ev) {
+      const node = ev.currentTarget;
+      const elementId = node.dataset.id;
+      return this.props.dataAccessor.getSchemaElementFromId(this.props.schema, elementId);
+    }
 
 	select(ev) {
 		const element = this.getElement(ev);
@@ -174,10 +166,6 @@ export default class ListRenderer {
 	onLeaveElement(element) {
 		this.props.onLeaveElement(element, this.props.side);
 	}
-
-  onLeaveElement(element) {
-    this.props.onLeaveElement(element, this.props.side);
-  }
 
   renderContent(props) {
     this.props = props;
