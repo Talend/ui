@@ -19,15 +19,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Radios/Radios.component.js
   24:7  error  Form controls using a label to identify them must be programmatically associated with the control using htmlFor  jsx-a11y/label-has-for
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.test.js
-  161:6  error  Expected indentation of 4 tabs but found 5  indent
-  162:7  error  Expected indentation of 5 tabs but found 6  indent
-  165:6  error  Expected indentation of 4 tabs but found 5  indent
-
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/templates.js
   1:8  error  Using exported name 'DefaultArrayTemplate' as identifier for default export  import/no-named-as-default
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
 
-✖ 8 problems (8 errors, 0 warnings)
+✖ 9 problems (9 errors, 0 warnings)
+
