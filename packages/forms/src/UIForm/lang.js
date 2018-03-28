@@ -1,4 +1,4 @@
-export function defaultTranslate(message, options) {
+function defaultTranslate(message, options) {
 	return options.defaultValue;
 }
 
