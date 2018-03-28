@@ -1,3 +1,10 @@
 .select {
-
+	:global(.Select-control) {
+		border: none;
+		border-bottom: 1px solid $black;
+		border-radius: 0;
+	}
+	:global(.is-focused):not(:global(.is-open)) > :global(.Select-control) {
+		border-color: none;
+	}
 }
