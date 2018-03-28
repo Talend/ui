@@ -1,4 +1,5 @@
 import React from 'react';
+import Immutable from 'immutable';
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
 import { IconsProvider } from '@talend/react-components';
 
@@ -33,6 +34,23 @@ export default function ExampleAction() {
 			],
 		},
 	};
+	const propsImmutableItems = {
+		id: 'immutable-items',
+		displayMode: 'dropdown',
+		label: 'my immutable items',
+		onSelect: action('selectAction'),
+		items: Immutable.fromJS([
+			{
+				id: 'item1',
+				label: 'First immutable label',
+			},
+			{
+				id: 'item2',
+				label: '2nd immutable',
+			},
+		]),
+	};
+
 
 	return (
 		<div>
@@ -47,6 +65,8 @@ export default function ExampleAction() {
 			<ActionDropdown actionId="menu:dropdown-href" />
 			<p>ActionDropdown with components</p>
 			<ActionDropdown {...propsInjectedItems} />
+			<p>ActionDropdown with immutable items</p>
+			<ActionDropdown {...propsImmutableItems} />
 		</div>
 	);
 }
