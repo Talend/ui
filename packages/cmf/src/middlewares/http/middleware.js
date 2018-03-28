@@ -101,10 +101,16 @@ export function getMethod(action) {
 
 export function mergeConfiguredHeader(config) {
 	// still need to keep the previous header added by action
-	return options => ({
-		...options,
-		headers: { ...options.headers, ...DEFAULT_HTTP_HEADERS, ...config.headers },
-	});
+	return options => {
+		const headerMergedConfig = {
+			...options,
+			headers: { ...DEFAULT_HTTP_HEADERS, ...config.headers, ...options.headers },
+		};
+		if (headerMergedConfig.body instanceof FormData) {
+			delete headerMergedConfig.headers['Content-Type'];
+		}
+		return headerMergedConfig;
+	};
 }
 
 export function mergeOptions(action) {
