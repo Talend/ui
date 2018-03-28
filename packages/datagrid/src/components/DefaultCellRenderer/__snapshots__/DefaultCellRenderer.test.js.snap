@@ -88,3 +88,14 @@ exports[`#DefaultCellRenderer should render DefaultCellRenderer with TALEND_QUAL
   />
 </div>
 `;
+
+exports[`#DefaultCellRenderer should render the default cell on loading state 1`] = `
+<div
+  className="theme-td-cell td-cell"
+>
+  <Skeleton
+    size="medium"
+    type="text"
+  />
+</div>
+`;
