@@ -2,51 +2,71 @@
 
 exports[`empty-schema 1`] = `
 <div
-  className="schema mapper-element"
+  className="schema mapper-element undefined"
 >
   <div
-    className="schema-name"
+    className="schema-header undefined"
   >
-    schema
+    <div
+      className="schema-name undefined"
+    >
+      schema
+    </div>
   </div>
   <div
+    className="separator horizontal"
+  />
+  <div
     className="schema-content"
-    onScroll={undefined}
+    onScroll={[Function]}
   />
 </div>
 `;
 
 exports[`single-schema 1`] = `
 <div
-  className="schema mapper-element"
+  className="schema mapper-element undefined"
 >
   <div
-    className="schema-name"
+    className="schema-header undefined"
   >
-    schema
+    <div
+      className="schema-name undefined"
+    >
+      schema
+    </div>
   </div>
   <div
+    className="separator horizontal"
+  />
+  <div
     className="schema-content"
-    onScroll={undefined}
+    onScroll={[Function]}
   >
     <div
       className="schema-element undefined"
       onClick={[Function]}
       onDoubleClick={[Function]}
       role="button"
-    />
+    >
+      element_1
+    </div>
     <div
       className="schema-element undefined"
       onClick={[Function]}
       onDoubleClick={[Function]}
       role="button"
-    />
+    >
+      element_2
+    </div>
     <div
       className="schema-element undefined"
       onClick={[Function]}
       onDoubleClick={[Function]}
       role="button"
-    />
+    >
+      element_3
+    </div>
   </div>
 </div>
 `;
