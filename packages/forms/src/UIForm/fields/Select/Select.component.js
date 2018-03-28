@@ -37,7 +37,7 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 				multi={multiple}
 				autoFocus={autoFocus}
 				disabled={disabled}
-				className={theme.select}
+				className={theme.override}
 				onChange={selectedValue => {
 					const payload = { schema, value: getSelectedOptions(selectedValue, multiple) };
 					onChange(event, payload);
