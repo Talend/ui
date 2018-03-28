@@ -18,14 +18,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   162:7  error  Expected indentation of 5 tabs but found 6  indent
   165:6  error  Expected indentation of 4 tabs but found 5  indent
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.js
-  5:8  error  Using exported name 'UIFormComponent' as identifier for default export  import/no-named-as-default
-
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/templates.js
   1:8  error  Using exported name 'DefaultArrayTemplate' as identifier for default export  import/no-named-as-default
 
 /home/travis/build/Talend/ui/packages/forms/src/widgets/ColumnsWidget/ColumnsWidget.js
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
 
-✖ 9 problems (9 errors, 0 warnings)
+✖ 8 problems (8 errors, 0 warnings)
 
