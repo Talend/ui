@@ -58,10 +58,31 @@ describe('Container(Form)', () => {
 				uiform
 				language={{ OBJECT_REQUIRED: 'Field translated' }}
 			/>,
-		);
-		const wrapperTalendForm = wrapper.find('TalendForm');
-		const wrapperTalendUIForm = wrapperTalendForm.find('TalendUIForm');
-		expect(wrapperTalendUIForm.props().language.OBJECT_REQUIRED).toEqual('Field translated');
+		).find('TalendUIForm');
+		expect(wrapper.props().language.OBJECT_REQUIRED).toEqual('Field translated');
+	});
+
+	it('should render UIForm with customFormat prop set', () => {
+		// given
+		const notABCRegExp = /[^abc]+/g;
+		const customFormats = {
+			noABC: fieldData => {
+				if (typeof fieldData === 'string' && !notABCRegExp.test(fieldData)) {
+					return 'test custom';
+				}
+				return null;
+			},
+		};
+		const wrapper = mount(<Container
+			formId="test-form"
+			jsonSchema={{}}
+			uiSchema={{}}
+			actions={[]}
+			formProps={{ other: true }}
+			uiform
+			customFormats={customFormats}
+		/>).find('TalendUIForm');
+		expect(wrapper.props().customFormats).toEqual(customFormats);
 	});
 
 	it('should use props.onSubmit', () => {
