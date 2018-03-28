@@ -151,16 +151,7 @@ function User({ name, firstName, lastName, getComponent, ...rest }) {
 
 	function getDisplayName(params) {
 		if (params.firstName && params.lastName) {
-			return (
-				<span className={classNames(theme['user-name'], 'user-name')}>
-					<span className={classNames(theme['user-firstname'], 'user-firstname')}>
-						{params.firstName}
-					</span>
-					<span className={classNames(theme['user-lastname'], 'user-lastname')}>
-						{params.lastName}
-					</span>
-				</span>
-			);
+			return `${params.firstName} ${params.lastName}`;
 		}
 		return params.name;
 	}
