@@ -145,25 +145,22 @@ describe('UIForm component', () => {
 
 		it('should set errors, applying widget errors hook', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} />);
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 			const newValue = 'toto is toto';
 			const event = { target: { value: newValue } };
 			const newErrors = { lastname: 'lol' };
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
-			wrapper
-				.find('TalendUIForm')
-				.instance()
-				.onFinish(
-					event,
-					{ schema: mergedSchema[0], value: newValue },
-					{
-						widgetChangeErrors() {
-							return newErrors;
-						},
+			wrapper.instance().onFinish(
+				event,
+				{ schema: mergedSchema[0], value: newValue },
+				{
+					widgetChangeErrors() {
+						return newErrors;
 					},
-				);
+				},
+			);
 
 			// then
 			expect(props.setErrors).toBeCalledWith(event, newErrors);
@@ -196,13 +193,10 @@ describe('UIForm component', () => {
 
 		it('should prevent event default', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} />);
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 
 			// when
-			wrapper
-				.find('TalendUIForm')
-				.instance()
-				.onSubmit(submitEvent);
+			wrapper.instance().onSubmit(submitEvent);
 
 			// then
 			expect(submitEvent.preventDefault).toBeCalled();
@@ -210,13 +204,10 @@ describe('UIForm component', () => {
 
 		it('should validate all fields', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} />);
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 
 			// when
-			wrapper
-				.find('TalendUIForm')
-				.instance()
-				.onSubmit(submitEvent);
+			wrapper.instance().onSubmit(submitEvent);
 
 			// then
 			expect(props.setErrors).toBeCalledWith(submitEvent, {
@@ -226,11 +217,10 @@ describe('UIForm component', () => {
 
 		it('should not call submit callback when form is invalid', () => {
 			// given
-			const wrapper = mount(<UIForm {...data} {...props} />);
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 
 			// when
 			wrapper
-				.find('TalendUIForm')
 				.instance()
 				.onSubmit(submitEvent);
 
@@ -245,13 +235,10 @@ describe('UIForm component', () => {
 				lastname: 'This has at least 10 characters',
 				firstname: 'This is required',
 			};
-			const wrapper = mount(<UIForm {...data} {...props} properties={validProperties} />);
+			const wrapper = mount(<UIFormComponent {...data} {...props} properties={validProperties} />);
 
 			// when
-			wrapper
-				.find('TalendUIForm')
-				.instance()
-				.onSubmit(submitEvent);
+			wrapper.instance().onSubmit(submitEvent);
 
 			// then
 			expect(props.onSubmit).toBeCalled();
