@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import Immutable from 'immutable';
 
 import ActionDropdown from './ActionDropdown.component';
@@ -33,6 +34,26 @@ describe('ActionDropdown', () => {
 
 		// then
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render the same as when plain object or immutable list', () => {
+		// given
+		const props = {
+			id: 'dropdown-id',
+			label: 'related items',
+			items,
+		};
+		const immutableProps = {
+			...props,
+			items: immutableItems,
+		};
+
+		// when
+		const immutableWrapper = shallow(<ActionDropdown {...immutableProps} />);
+		const wrapper = shallow(<ActionDropdown {...props} />);
+
+		// then
+		expect(wrapper.html()).toEqual(immutableWrapper.html());
 	});
 
 	it('should render a button with label and a filled dropdown when immutable items', () => {
