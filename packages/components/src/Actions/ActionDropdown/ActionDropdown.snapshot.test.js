@@ -5,8 +5,6 @@ import Immutable from 'immutable';
 
 import ActionDropdown from './ActionDropdown.component';
 
-jest.mock('react-dom');
-
 const items = [
 	{
 		icon: 'talend-icon',

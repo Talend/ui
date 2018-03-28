@@ -170,6 +170,7 @@ exports[`Breadcrumbs should render dropdown containing 3 items 1`] = `
       <button
         aria-expanded={false}
         aria-haspopup={true}
+        aria-label="…"
         className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
         disabled={false}
         id="42-ellipsis"
@@ -328,6 +329,7 @@ exports[`Breadcrumbs should render items ids when provided 1`] = `
       <button
         aria-expanded={false}
         aria-haspopup={true}
+        aria-label="…"
         className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
         disabled={false}
         id="my-breadcrumb-ellipsis"
@@ -475,6 +477,7 @@ exports[`Breadcrumbs should render items with ellipsis and 3 visible items by de
       <button
         aria-expanded={false}
         aria-haspopup={true}
+        aria-label="…"
         className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
         disabled={false}
         id="42-ellipsis"

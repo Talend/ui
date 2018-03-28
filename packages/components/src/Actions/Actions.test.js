@@ -1,9 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import Actions from './Actions.component';
-
-jest.mock('react-dom');
 
 const actions = [
 	{
@@ -66,10 +64,10 @@ describe('Actions', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<Actions {...props} />).toJSON();
+		const wrapper = shallow(<Actions {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render actions with hidden labels and tooltips', () => {
@@ -81,10 +79,10 @@ describe('Actions', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<Actions {...props} />).toJSON();
+		const wrapper = shallow(<Actions {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render actions with "link" theme', () => {
@@ -96,10 +94,10 @@ describe('Actions', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<Actions {...props} />).toJSON();
+		const wrapper = shallow(<Actions {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render actions with defined tooltip placement', () => {
@@ -112,9 +110,9 @@ describe('Actions', () => {
 		};
 
 		// when
-		const wrapper = renderer.create(<Actions {...props} />).toJSON();
+		const wrapper = shallow(<Actions {...props} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

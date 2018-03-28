@@ -45,7 +45,7 @@ storiesOf('Action', module)
 			<p>Icon button</p>
 			<Action id="icon" {...myAction} link />
 			<p>Loading Icon button</p>
-			<Action id="icon" link loading />
+			<Action id="icon" link label={'Click me'} loading />
 			<p>Disabled</p>
 			<Action id="disabled" {...myAction} disabled />
 			<p>Reverse display</p>
@@ -61,17 +61,17 @@ storiesOf('Action', module)
 				id="hidelabel"
 				overlayComponent={OverlayComponent}
 				overlayPlacement="top"
-				tooltipPlacement="left"
+				tooltipPlacement="right"
 				{...mouseDownAction}
 				hideLabel
 			/>
-			<p>Action with popover</p>
+			<p>Action in progress</p>
 			<Action
 				id="hidelabel"
 				inProgress="true"
 				overlayComponent={OverlayComponent}
 				overlayPlacement="top"
-				tooltipPlacement="left"
+				tooltipPlacement="right"
 				{...mouseDownAction}
 				hideLabel
 			/>
