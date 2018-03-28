@@ -6,17 +6,18 @@ export default function MandatoryField({ element, dataKey, rowDataGetter, classN
   const data = rowDataGetter.getData(element, dataKey);
   const label = data[0];
   const mandatory = data[1];
+  const className = classnames(classNameProvider.get(element, dataKey));
   return (
     <div
-      className={`comp-list-row-data mandatory-field ${classnames(classNameProvider.get(element, dataKey))}`}
+      className={`comp-list-row-data mandatory-field ${className}`}
     >
       <div
-        className="mandatory-field-label"
+        className={`mandatory-field-label`}
       >
         {label}
       </div>
       <div
-        className="mandatory-field-info"
+        className={`mandatory-field-info`}
       >
         {mandatory ? '*' : ''}
       </div>

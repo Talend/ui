@@ -17,7 +17,8 @@ export default class NameFilter extends Filter {
   }
 
   select(dataAccessor, schema, element) {
-    return dataAccessor.getElementName(element).match(this.name);
+    const elemName = dataAccessor.getElementName(element);
+    return elemName.match(this.name) || elemName.toLowerCase().match(this.name);
   }
 
 }

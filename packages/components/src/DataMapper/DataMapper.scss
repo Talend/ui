@@ -21,6 +21,7 @@
 
 	.comp-list-row {
 		display: flex;
+		height: 25px;
 	}
 
 	.comp-list-row.input {
@@ -32,11 +33,15 @@
 	}
 
 	.comp-list-row-data-name {
-		width: 150px;
+		min-width: 150px;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 
 	.comp-list-row-data-type {
-		width: 100px;
+		min-width: 100px;
+		text-overflow: ellipsis;
+		overflow: hidden;
 		color: #66bdff;
 	}
 
@@ -44,9 +49,15 @@
 		text-align: left;
 	}
 
+	.comp-list-row-data-name.input {
+		text-align: right;
+	}
+
 	.comp-list-row-data-desc {
 		color: #aaaaaa;
 		font-style: italic;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 
 	.mandatory-field {
@@ -191,7 +202,7 @@
 	}
 
 	.schema.input {
-		width: 300px;
+		width: 400px;
 	}
 
 	.schema-header {

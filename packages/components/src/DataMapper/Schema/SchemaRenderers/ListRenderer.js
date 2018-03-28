@@ -119,9 +119,16 @@ class RowDataGetter {
 
 class RowRenderers {
 
+  constructor(side) {
+    this.side = side;
+  }
+
   getComponent(key) {
     switch (key) {
       case Constants.Schema.DATA_KEYS.NAME:
+        if (this.side === Constants.MappingSide.INPUT) {
+          return RowLabel;
+        }
         return MandatoryField;
       default:
         return RowLabel;
@@ -132,7 +139,7 @@ class RowRenderers {
 
 export default class ListRenderer {
 
-  constructor() {
+  constructor(side) {
     this.select = this.select.bind(this);
     this.revealConnection = this.revealConnection.bind(this);
     this.onEnterElement = this.onEnterElement.bind(this);
@@ -140,7 +147,7 @@ export default class ListRenderer {
     this.classNameProvider = new SchemaClassNameProvider();
     this.dndListener = new SchemaDndListener();
     this.rowDataGetter = new RowDataGetter();
-    this.rowRenderers = new RowRenderers();
+    this.rowRenderers = new RowRenderers(side);
   }
 
   getElement(ev) {
