@@ -220,9 +220,7 @@ describe('UIForm component', () => {
 			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 
 			// when
-			wrapper
-				.instance()
-				.onSubmit(submitEvent);
+			wrapper.instance().onSubmit(submitEvent);
 
 			// then
 			expect(props.onSubmit).not.toBeCalled();

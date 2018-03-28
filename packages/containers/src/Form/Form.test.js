@@ -73,15 +73,17 @@ describe('Container(Form)', () => {
 				return null;
 			},
 		};
-		const wrapper = mount(<Container
-			formId="test-form"
-			jsonSchema={{}}
-			uiSchema={{}}
-			actions={[]}
-			formProps={{ other: true }}
-			uiform
-			customFormats={customFormats}
-		/>).find('TalendUIForm');
+		const wrapper = mount(
+			<Container
+				formId="test-form"
+				jsonSchema={{}}
+				uiSchema={{}}
+				actions={[]}
+				formProps={{ other: true }}
+				uiform
+				customFormats={customFormats}
+			/>,
+		).find('TalendUIForm');
 		expect(wrapper.props().customFormats).toEqual(customFormats);
 	});
 
