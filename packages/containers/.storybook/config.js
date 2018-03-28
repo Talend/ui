@@ -1,11 +1,10 @@
 import 'babel-polyfill';
 import { storiesOf, configure, setAddon } from '@storybook/react';
-import createSagaMiddleware from 'redux-saga';
-import { all, fork } from 'redux-saga/effects';
 import { action } from '@storybook/addon-actions';
+import createSagaMiddleware from 'redux-saga';
 import cmf from 'react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
-import { api, store as cmfstore } from '@talend/react-cmf';
+import { api } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';
@@ -19,16 +18,9 @@ import { registerAllContainers } from '../src/register';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
 
-api.registerInternals();
 registerAllContainers();
 const actionLogger = action('dispatch');
-
-function* initSaga() {
-	yield all([fork(api.sagas.component.handle)]);
-}
 const sagaMiddleware = createSagaMiddleware();
-const store = cmfstore.initialize({}, {}, undefined, [sagaMiddleware]);
-sagaMiddleware.run(initSaga);
 
 const TOGGLE_FLAG_TYPE = 'TOGGLE_FLAG_TYPE';
 function flagToggleReducer(state = {}, { type, flagId }) {
@@ -383,12 +375,14 @@ function loadStories() {
 			story.addWithCMF('Default', examples[example], {
 				state,
 				reducer,
+				sagaMiddleware,
 			});
 		} else {
 			Object.keys(examples[example]).forEach(usecase => {
 				story.addWithCMF(usecase, examples[example][usecase], {
 					state,
 					reducer,
+					sagaMiddleware,
 				});
 			});
 		}
