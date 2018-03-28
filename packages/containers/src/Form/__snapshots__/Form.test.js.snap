@@ -7,6 +7,7 @@ Object {
   "buttonBlockClass": "form-actions",
   "children": undefined,
   "className": "tc-form rjsf foo pristine",
+  "customFormats": undefined,
   "data": Object {
     "jsonSchema": Object {
       "schema": true,
@@ -32,6 +33,7 @@ exports[`Container(Form) should render a Form 1`] = `
   actions={Array []}
   buttonBlockClass="form-actions"
   className="tc-form rjsf pristine"
+  customFormats={undefined}
   data={
     Object {
       "jsonSchema": Object {
