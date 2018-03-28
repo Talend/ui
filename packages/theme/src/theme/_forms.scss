@@ -83,6 +83,7 @@ form {
 
 		&:focus {
 			border-bottom: $form-focus-border-bottom;
+			box-shadow: none;
 		}
 
 		&[disabled] {
@@ -384,6 +385,7 @@ form {
 
 		&:focus {
 			border-bottom: $form-focus-border-bottom;
+            box-shadow: none;
 		}
 	}
 }
