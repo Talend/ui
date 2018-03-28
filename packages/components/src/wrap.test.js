@@ -25,10 +25,4 @@ describe('wrap', () => {
 		expect(WrappedButton.childContextTypes).toBeUndefined();
 		expect(WrappedButton.propTypes).not.toEqual(Button.propTypes);
 	});
-
-	it('should return null if not available', () => {
-		const WrappedButton = wrap(Button, 'MyButton');
-		const wrapper = mount(<WrappedButton available={false} />);
-		expect(wrapper.html()).toBeNull();
-	});
 });
