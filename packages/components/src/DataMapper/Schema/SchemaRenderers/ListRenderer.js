@@ -99,43 +99,40 @@ class RowDataGetter {
 }
 
 class RowRenderers {
+	constructor(side) {
+		this.side = side;
+	}
 
-  constructor(side) {
-    this.side = side;
-  }
-
-  getComponent(key) {
-    switch (key) {
-      case Constants.Schema.DATA_KEYS.NAME:
-        if (this.side === Constants.MappingSide.INPUT) {
-          return RowLabel;
-        }
-        return MandatoryField;
-      default:
-        return RowLabel;
-    }
-  }
-
+	getComponent(key) {
+		switch (key) {
+			case Constants.Schema.DATA_KEYS.NAME:
+				if (this.side === Constants.MappingSide.INPUT) {
+					return RowLabel;
+				}
+				return MandatoryField;
+			default:
+				return RowLabel;
+		}
+	}
 }
 
 export default class ListRenderer {
+	constructor(side) {
+		this.select = this.select.bind(this);
+		this.revealConnection = this.revealConnection.bind(this);
+		this.onEnterElement = this.onEnterElement.bind(this);
+		this.onLeaveElement = this.onLeaveElement.bind(this);
+		this.classNameProvider = new SchemaClassNameProvider();
+		this.dndListener = new SchemaDndListener();
+		this.rowDataGetter = new RowDataGetter();
+		this.rowRenderers = new RowRenderers(side);
+	}
 
-  constructor(side) {
-    this.select = this.select.bind(this);
-    this.revealConnection = this.revealConnection.bind(this);
-    this.onEnterElement = this.onEnterElement.bind(this);
-    this.onLeaveElement = this.onLeaveElement.bind(this);
-    this.classNameProvider = new SchemaClassNameProvider();
-    this.dndListener = new SchemaDndListener();
-    this.rowDataGetter = new RowDataGetter();
-    this.rowRenderers = new RowRenderers(side);
-  }
-
-  getElement(ev) {
-    const node = ev.currentTarget;
-    const elementId = node.dataset.id;
-    return this.props.dataAccessor.getSchemaElementFromId(this.props.schema, elementId);
-  }
+	getElement(ev) {
+		const node = ev.currentTarget;
+		const elementId = node.dataset.id;
+		return this.props.dataAccessor.getSchemaElementFromId(this.props.schema, elementId);
+	}
 
 	select(ev) {
 		const element = this.getElement(ev);
