@@ -4,7 +4,7 @@
 ////
 
 $form-border-bottom: solid 1px $gallery;
-$form-focus-shadow: inset 0 -2px 0 $scooter;
+$form-focus-border-bottom: solid 2px $scooter;
 
 @import 'forms.switch';
 @import 'forms.switch-nested';
@@ -82,7 +82,7 @@ form {
 		border-bottom: $form-border-bottom;
 
 		&:focus {
-			@include box-shadow($form-focus-shadow);
+			border-bottom: $form-focus-border-bottom;
 		}
 
 		&[disabled] {
@@ -383,7 +383,7 @@ form {
 		border-right: 1px solid $gallery;
 
 		&:focus {
-			@include box-shadow($form-focus-shadow);
+			border-bottom: $form-focus-border-bottom;
 		}
 	}
 }
