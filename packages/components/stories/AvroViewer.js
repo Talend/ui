@@ -7,6 +7,8 @@ import talendIcons from '@talend/icons/dist/react';
 import { ObjectViewer, IconsProvider } from '../src/index';
 import DefaultDateRenderer from '../src/ObjectViewer/AvroRenderer/DefaultDateRenderer.component';
 
+import TmpAvroViewer from '../src/AvroViewer';
+
 const icons = {
 	'talend-caret-down': talendIcons['talend-caret-down'],
 	'talend-chevron-left': talendIcons['talend-chevron-left'],
@@ -448,7 +450,7 @@ function ToggleManager(Component) {
 		}
 
 		onToggle(event, options, index = 'default') {
-			let itemOpened = this.state.opened && this.state.opened[index] || [];
+			let itemOpened = (this.state.opened && this.state.opened[index]) || [];
 			if (options.isOpened) {
 				itemOpened = itemOpened.filter(path => path !== options.jsonpath);
 			} else {
@@ -470,9 +472,7 @@ function ToggleManager(Component) {
 
 		render() {
 			const opened = this.state.isSingle ? this.state.opened.default : this.state.opened;
-			return (
-				<Component {...this.props} onToggle={this.onToggle} opened={opened} />
-			);
+			return <Component {...this.props} onToggle={this.onToggle} opened={opened} />;
 		}
 	};
 }
@@ -504,7 +504,9 @@ class AvroViewer extends React.Component {
 	}
 
 	onSelect(event, jsonpath) {
-		const adaptedJsonPath = jsonpath.replace(/[-[{}()*+?.,\\^$|#\s]/g, '\\$&').replace(/\[]/g, '[[0-9]+]');
+		const adaptedJsonPath = jsonpath
+			.replace(/[-[{}()*+?.,\\^$|#\s]/g, '\\$&')
+			.replace(/\[]/g, '[[0-9]+]');
 		this.setState({
 			highlighted: [new RegExp(`^${adaptedJsonPath}$`)],
 		});
@@ -528,7 +530,6 @@ class AvroViewer extends React.Component {
 						data={sample.schema}
 						menu={modelItemMenu}
 						onSelect={this.onSelect}
-
 						quality={{
 							key: '@talend-quality@',
 							menu: qualityMenu,
@@ -553,6 +554,13 @@ AvroViewer.propTypes = {
 	useCustomRenderers: PropTypes.bool,
 };
 
+const tmpProps = {
+	sample,
+	modelItemMenu,
+	qualityMenu,
+	getComponent,
+};
+
 stories
 	.addWithInfo('simple JSON object', () => (
 		<div>
@@ -574,7 +582,6 @@ stories
 				menu={modelItemMenu}
 				onSelect={action('onSelect')}
 				onToggle={action('onToggle')}
-
 				quality={{
 					key: '@talend-quality@',
 					menu: qualityMenu,
@@ -604,5 +611,11 @@ stories
 		<div style={{ height: 500 }}>
 			<IconsProvider defaultIcons={icons} />
 			<AvroViewer useCustomRenderers />
+		</div>
+	))
+	.addWithInfo('Avro viewer tmp', () => (
+		<div style={{ height: 500 }}>
+			<IconsProvider defaultIcons={icons} />
+			<TmpAvroViewer {...tmpProps} />
 		</div>
 	));

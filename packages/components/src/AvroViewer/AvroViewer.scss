@@ -1,0 +1,11 @@
+.tc-avro {
+    display: flex;
+    height: 100%;
+    align-items: stretch;
+
+    &-viewer {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 50;
+    }
+}
