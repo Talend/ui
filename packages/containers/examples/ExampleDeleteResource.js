@@ -35,6 +35,7 @@ const views = {
 	header: 'My header title',
 	'cancel-action': 'dialog:delete:cancel',
 	'validate-action': 'dialog:delete:validate',
+	routeParams: { id: 'myID' },
 };
 
 const params = {
