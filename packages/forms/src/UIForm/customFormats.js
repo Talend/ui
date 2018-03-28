@@ -1,6 +1,7 @@
-const urlHttpOrHttpsRegexp = /^(http|https):\/\/\S+$/;
-const stringWithoutSpaceRegExp = /^\S+$/g;
 const emailRegExp = /^\S+@\S+$/g;
+const urlHttpOrHttpsRegExp = /^(http|https):\/\/\S+$/;
+const leadingTralingSpaceRegExp = /^\s|\s$/;
+const stringWithoutSpaceRegExp = /^\S+$/g;
 
 const customFormats = t => ({
 	email: fieldData => {
@@ -12,7 +13,7 @@ const customFormats = t => ({
 		return null;
 	},
 	'url-http-https': fieldData => {
-		if (typeof fieldData === 'string' && !urlHttpOrHttpsRegexp.test(fieldData)) {
+		if (typeof fieldData === 'string' && !urlHttpOrHttpsRegExp.test(fieldData)) {
 			return t('FORMAT_URL_HTTP_HTTPS', {
 				defaultValue: 'must be a valid url (e.g.: http://my.domain.com or https://my.domain.com)',
 			});
@@ -20,7 +21,7 @@ const customFormats = t => ({
 		return null;
 	},
 	'no-leading-trailing-space': fieldData => {
-		if (typeof fieldData === 'string' && /^\s|\s$/.test(fieldData)) {
+		if (typeof fieldData === 'string' && leadingTralingSpaceRegExp.test(fieldData)) {
 			return t('FORMAT_NO_LEADING_TRAILING_SPACE', {
 				defaultValue: 'must be a string without leading or trailing space',
 			});

@@ -199,7 +199,6 @@ export const ActionsPropTypes = PropTypes.arrayOf(
 
 if (process.env.NODE_ENV !== 'production') {
 	Form.propTypes = {
-		customFormats: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 		uiform: PropTypes.bool,
 		data: DataPropTypes.isRequired,
 		onChange: PropTypes.func,

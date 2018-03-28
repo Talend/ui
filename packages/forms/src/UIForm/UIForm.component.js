@@ -14,8 +14,9 @@ import { removeError, addError } from './utils/errors';
 import getLanguage from './lang';
 import customFormats from './customFormats';
 import { I18N_DOMAIN_FORMS } from '../constants';
+import { DEFAULT_I18N } from '../translate';
 
-class UIForm extends React.Component {
+export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
 	constructor(props) {
 		super(props);
@@ -36,16 +37,14 @@ class UIForm extends React.Component {
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
 		if (typeof props.language === 'function') {
-			Object.assign(language, props.language(props.t));
+			Object.assign(language, props.language);
 		}
 		if (!tv4.language('@talend')) {
 			tv4.addLanguage('@talend', language);
 			tv4.language('@talend'); // set it
 		}
-		const allFormats = Object.assign({}, customFormats(props.t), props.customFormats);
-		if (Object.keys(allFormats).length > 0) {
-			tv4.addFormat(allFormats);
-		}
+		const allFormats = Object.assign(customFormats(props.t), props.customFormats);
+		tv4.addFormat(allFormats);
 	}
 
 	/**
@@ -266,7 +265,8 @@ class UIForm extends React.Component {
 		);
 	}
 }
-const I18NUIForm = translate(I18N_DOMAIN_FORMS)(UIForm);
+const I18NUIForm = translate(I18N_DOMAIN_FORMS, { i18n: DEFAULT_I18N })(UIFormComponent);
+
 if (process.env.NODE_ENV !== 'production') {
 	I18NUIForm.propTypes = {
 		...formPropTypes,
@@ -314,7 +314,7 @@ if (process.env.NODE_ENV !== 'production') {
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
 	};
-	UIForm.propTypes = I18NUIForm.propTypes;
+	UIFormComponent.propTypes = I18NUIForm.propTypes;
 }
 
 I18NUIForm.defaultProps = {
@@ -322,5 +322,6 @@ I18NUIForm.defaultProps = {
 	buttonBlockClass: 'form-actions',
 	properties: {},
 };
+UIFormComponent.defaultProps = I18NUIForm.defaultProps;
 
 export default I18NUIForm;
