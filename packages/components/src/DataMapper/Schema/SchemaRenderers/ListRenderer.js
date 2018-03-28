@@ -119,16 +119,6 @@ class RowRenderers {
 }
 
 export default class ListRenderer {
-	constructor() {
-		this.select = this.select.bind(this);
-		this.revealConnection = this.revealConnection.bind(this);
-		this.onEnterElement = this.onEnterElement.bind(this);
-		this.onLeaveElement = this.onLeaveElement.bind(this);
-		this.classNameProvider = new SchemaClassNameProvider();
-		this.dndListener = new SchemaDndListener();
-		this.rowDataGetter = new RowDataGetter();
-		this.rowRenderers = new RowRenderers();
-	}
 
   constructor(side) {
     this.select = this.select.bind(this);
@@ -139,6 +129,12 @@ export default class ListRenderer {
     this.dndListener = new SchemaDndListener();
     this.rowDataGetter = new RowDataGetter();
     this.rowRenderers = new RowRenderers(side);
+  }
+
+  getElement(ev) {
+    const node = ev.currentTarget;
+    const elementId = node.dataset.id;
+    return this.props.dataAccessor.getSchemaElementFromId(this.props.schema, elementId);
   }
 
 	select(ev) {
