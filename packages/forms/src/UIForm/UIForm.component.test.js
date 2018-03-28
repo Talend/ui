@@ -31,9 +31,7 @@ describe('UIForm component', () => {
 
 	it('should render provided actions', () => {
 		// when
-		const wrapper = shallow(
-			<UIForm {...data} {...props} i18n={i18n} actions={actions} />,
-		);
+		const wrapper = shallow(<UIForm {...data} {...props} i18n={i18n} actions={actions} />);
 
 		// then
 		expect(
