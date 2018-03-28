@@ -12,11 +12,14 @@ src/theme/_dropdowns.scss
 src/theme/_forms.scss
    29:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
    64:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  116:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  132:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  363:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  376:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  467:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+   81:3   error    Mixins should come before declarations                   mixins-before-declarations
+  115:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  118:3   error    Mixins should come before declarations                   mixins-before-declarations
+  130:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  361:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  374:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  380:3   error    Mixins should come before declarations                   mixins-before-declarations
+  463:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_tables.scss
   21:2   warning  Vendor prefixes should not be used  no-vendor-prefixes
@@ -24,5 +27,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 13 problems (10 errors, 3 warnings)
+✖ 16 problems (13 errors, 3 warnings)
 
