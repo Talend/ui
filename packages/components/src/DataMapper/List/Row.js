@@ -2,22 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-function renderRowData(
-  element,
-  key,
-  rowDataGetter,
-  classNameProvider,
-  rowRenderers,
-) {
-  const FilterComponent = rowRenderers.getComponent(key);
-  return (
-    <FilterComponent
-      element={element}
-      dataKey={key}
-      rowDataGetter={rowDataGetter}
-      classNameProvider={classNameProvider}
-    />
-  );
+function renderRowData(element, key, rowDataGetter, classNameProvider, rowRenderers) {
+	const FilterComponent = rowRenderers.getComponent(key);
+	return (
+		<FilterComponent
+			element={element}
+			dataKey={key}
+			rowDataGetter={rowDataGetter}
+			classNameProvider={classNameProvider}
+		/>
+	);
 }
 
 export default class Row extends Component {
@@ -54,38 +48,30 @@ export default class Row extends Component {
 		this.elementRef = ref;
 	}
 
-  render() {
-    const {
-      element,
-      classNameProvider,
-      dataKeys,
-      rowDataGetter,
-      rowRenderers,
-      onClick,
-      onDoubleClick,
-    } = this.props;
-    return (
-      <div
-        className={`comp-list-row ${classnames(classNameProvider.get(element))}`}
-        onClick={onClick}
-        onDoubleClick={onDoubleClick}
-        ref={this.updateElementRef}
-        data-id={rowDataGetter.getData(element, 'id')}
-      >
-        {
-          dataKeys.map(key =>
-            renderRowData(
-              element,
-              key,
-              rowDataGetter,
-              classNameProvider,
-              rowRenderers,
-            )
-          )
-        }
-      </div>
-    );
-  }
+	render() {
+		const {
+			element,
+			classNameProvider,
+			dataKeys,
+			rowDataGetter,
+			rowRenderers,
+			onClick,
+			onDoubleClick,
+		} = this.props;
+		return (
+			<div
+				className={`comp-list-row ${classnames(classNameProvider.get(element))}`}
+				onClick={onClick}
+				onDoubleClick={onDoubleClick}
+				ref={this.updateElementRef}
+				data-id={rowDataGetter.getData(element, 'id')}
+			>
+				{dataKeys.map(key =>
+					renderRowData(element, key, rowDataGetter, classNameProvider, rowRenderers),
+				)}
+			</div>
+		);
+	}
 }
 
 Row.propTypes = {
@@ -93,7 +79,7 @@ Row.propTypes = {
 	classNameProvider: PropTypes.func,
 	dataKeys: PropTypes.array,
 	rowDataGetter: PropTypes.func,
-  rowRenderers: PropTypes.object,
+	rowRenderers: PropTypes.object,
 	onClick: PropTypes.func,
 	onDoubleClick: PropTypes.func,
 	onEnterElement: PropTypes.func,

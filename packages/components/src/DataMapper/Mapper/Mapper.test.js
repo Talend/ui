@@ -166,5 +166,4 @@ it('perform-mapping', () => {
 
 	// The second argument of the first call to the function was 'elem_out_1'
 	expect(performMapping.mock.calls[0][1]).toBe(element2);
-	
 });

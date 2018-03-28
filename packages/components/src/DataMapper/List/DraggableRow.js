@@ -40,17 +40,17 @@ function collectForDropTarget(connect, monitor) {
 
 class DraggableRow extends Component {
 	render() {
-    const {
-      element,
-      classNameProvider,
-      dataKeys,
-      onClick,
-      onDoubleClick,
-      rowDataGetter,
+		const {
+			element,
+			classNameProvider,
+			dataKeys,
+			onClick,
+			onDoubleClick,
+			rowDataGetter,
 			rowRenderers,
-      onEnterElement,
-    	onLeaveElement,
-      connectDragSource,
+			onEnterElement,
+			onLeaveElement,
+			connectDragSource,
 			connectDropTarget,
 		} = this.props;
 		classNameProvider.onDragOver(this.props.dragOver);
@@ -58,15 +58,15 @@ class DraggableRow extends Component {
 			connectDropTarget(
 				<div>
 					<Row
-            element={element}
-            onClick={onClick}
-            onDoubleClick={onDoubleClick}
-            classNameProvider={classNameProvider}
-            dataKeys={dataKeys}
-            rowDataGetter={rowDataGetter}
+						element={element}
+						onClick={onClick}
+						onDoubleClick={onDoubleClick}
+						classNameProvider={classNameProvider}
+						dataKeys={dataKeys}
+						rowDataGetter={rowDataGetter}
 						rowRenderers={rowRenderers}
-            onEnterElement={onEnterElement}
-            onLeaveElement={onLeaveElement}
+						onEnterElement={onEnterElement}
+						onLeaveElement={onLeaveElement}
 					/>
 				</div>,
 			),

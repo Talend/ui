@@ -96,26 +96,15 @@ renderSchemaElement.propTypes = {
 };
 
 export default class DefaultRenderer {
-
-  renderContent(props) {
-    const {
-			dataAccessor,
-			schema,
-      onScroll,
-      updateContentNodeRef,
-		} = props;
-    const content = dataAccessor.getSchemaElements(schema, true).map(
-      elem => renderSchemaElement(props, elem)
-    );
-    return (
-      <div
-        ref={updateContentNodeRef}
-        className="schema-content"
-        onScroll={onScroll}
-      >
-        {content}
-      </div>
-    );
-  }
-
+	renderContent(props) {
+		const { dataAccessor, schema, onScroll, updateContentNodeRef } = props;
+		const content = dataAccessor
+			.getSchemaElements(schema, true)
+			.map(elem => renderSchemaElement(props, elem));
+		return (
+			<div ref={updateContentNodeRef} className="schema-content" onScroll={onScroll}>
+				{content}
+			</div>
+		);
+	}
 }

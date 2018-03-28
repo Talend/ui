@@ -1,4 +1,3 @@
-
 export const Events = {
 	ENTER_ELEM: 'enter-elem',
 	LEAVE_ELEM: 'leave-elem',

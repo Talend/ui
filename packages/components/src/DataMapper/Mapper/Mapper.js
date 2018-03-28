@@ -23,12 +23,16 @@ function getFocusedElements(dataAccessor, mapping, focused, side) {
 }
 
 function updateVisibleMapping(dataAccessor, mapping, visibleInputElements, visibleOutputElements) {
-	return mapping.filter(item =>
-		dataAccessor.includes(visibleInputElements,
-			dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT))
-		||
-		dataAccessor.includes(visibleOutputElements,
-			dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT))
+	return mapping.filter(
+		item =>
+			dataAccessor.includes(
+				visibleInputElements,
+				dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT),
+			) ||
+			dataAccessor.includes(
+				visibleOutputElements,
+				dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT),
+			),
 	);
 }
 
@@ -38,20 +42,26 @@ function filterMappingItems(
 	outputSchema,
 	mappingItems,
 	visibleInputElements,
-	visibleOutputElements
+	visibleOutputElements,
 ) {
-	return mappingItems.filter(item =>
-		(dataAccessor.includes(visibleInputElements,
-			dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT))
-			&& !dataAccessor.isFiltered(outputSchema,
-				dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT))
-		)
-		||
-		(dataAccessor.includes(visibleOutputElements,
-			dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT))
-			&& !dataAccessor.isFiltered(inputSchema,
-				dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT))
-		)
+	return mappingItems.filter(
+		item =>
+			(dataAccessor.includes(
+				visibleInputElements,
+				dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT),
+			) &&
+				!dataAccessor.isFiltered(
+					outputSchema,
+					dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT),
+				)) ||
+			(dataAccessor.includes(
+				visibleOutputElements,
+				dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT),
+			) &&
+				!dataAccessor.isFiltered(
+					inputSchema,
+					dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT),
+				)),
 	);
 }
 
@@ -64,7 +74,6 @@ function filterHasChanged(dataAccessor, schema, version) {
 }
 
 export default class Mapper extends Component {
-
 	constructor(props) {
 		super(props);
 		this.visibleInputElements = null;
@@ -88,27 +97,17 @@ export default class Mapper extends Component {
 			this.visibleMapping = null;
 			this.mappingVersion = nextProps.dataAccessor.getMappingVersion();
 		}
-		if (filterHasChanged(
-			nextProps.dataAccessor,
-			this.props.inputSchema,
-			this.inputFilterVersion
-		)) {
+		if (filterHasChanged(nextProps.dataAccessor, this.props.inputSchema, this.inputFilterVersion)) {
 			this.visibleMapping = null;
 			this.visibleInputElements = null;
-			this.inputFilterVersion = nextProps.dataAccessor.getFilterVersion(
-				this.props.inputSchema
-			);
+			this.inputFilterVersion = nextProps.dataAccessor.getFilterVersion(this.props.inputSchema);
 		}
-		if (filterHasChanged(
-			nextProps.dataAccessor,
-			this.props.outputSchema,
-			this.outputFilterVersion
-		)) {
+		if (
+			filterHasChanged(nextProps.dataAccessor, this.props.outputSchema, this.outputFilterVersion)
+		) {
 			this.visibleMapping = null;
 			this.visibleOutputElements = null;
-			this.outputFilterVersion = nextProps.dataAccessor.getFilterVersion(
-				this.props.outputSchema
-			);
+			this.outputFilterVersion = nextProps.dataAccessor.getFilterVersion(this.props.outputSchema);
 		}
 	}
 
@@ -118,10 +117,10 @@ export default class Mapper extends Component {
 				if (this.inputSchemaRef) {
 					this.visibleInputElements = this.inputSchemaRef.getVisibleElements();
 					this.visibleMapping = updateVisibleMapping(
-							this.props.dataAccessor,
-							this.props.mapping,
-							this.visibleInputElements,
-							this.visibleOutputElements,
+						this.props.dataAccessor,
+						this.props.mapping,
+						this.visibleInputElements,
+						this.visibleOutputElements,
 					);
 				}
 				break;
@@ -129,10 +128,10 @@ export default class Mapper extends Component {
 				if (this.outputSchemaRef) {
 					this.visibleOutputElements = this.outputSchemaRef.getVisibleElements();
 					this.visibleMapping = updateVisibleMapping(
-							this.props.dataAccessor,
-							this.props.mapping,
-							this.visibleInputElements,
-							this.visibleOutputElements,
+						this.props.dataAccessor,
+						this.props.mapping,
+						this.visibleInputElements,
+						this.visibleOutputElements,
 					);
 				}
 				break;
@@ -218,11 +217,7 @@ export default class Mapper extends Component {
 	//	},
 	// }
 	getAnchors() {
-		const {
-			dataAccessor,
-			focused,
-			selection,
-		} = this.props;
+		const { dataAccessor, focused, selection } = this.props;
 		const anchors = {
 			unmapped: {},
 			mapped: {},
@@ -231,72 +226,72 @@ export default class Mapper extends Component {
 		};
 
 		if (this.inputSchemaRef && this.outputSchemaRef) {
-
 			const inputVisibleElements = this.getInputVisibleElements();
 			const outputVisibleElements = this.getOutputVisibleElements();
 			const visibleMapping = this.getVisibleMapping();
 
 			// first get input elements which are not mapped
-			const unmappedInputElements = inputVisibleElements.filter(elem =>
-				!dataAccessor.isElementMapped(visibleMapping, elem, Constants.MappingSide.INPUT)
+			const unmappedInputElements = inputVisibleElements.filter(
+				elem => !dataAccessor.isElementMapped(visibleMapping, elem, Constants.MappingSide.INPUT),
 			);
 			if (unmappedInputElements) {
-				const yPositions = unmappedInputElements.map(
-					elem => this.getYPosition(elem, Constants.MappingSide.INPUT)
+				const yPositions = unmappedInputElements.map(elem =>
+					this.getYPosition(elem, Constants.MappingSide.INPUT),
 				);
 				anchors.unmapped.input = yPositions;
 			}
 			// then get output elements which are not mapped
-			const unmappedOutputElements = outputVisibleElements.filter(elem =>
-				!dataAccessor.isElementMapped(visibleMapping, elem, Constants.MappingSide.OUTPUT)
+			const unmappedOutputElements = outputVisibleElements.filter(
+				elem => !dataAccessor.isElementMapped(visibleMapping, elem, Constants.MappingSide.OUTPUT),
 			);
 			if (unmappedOutputElements) {
-				const yPositions = unmappedOutputElements.map(
-					elem => this.getYPosition(elem, Constants.MappingSide.OUTPUT)
+				const yPositions = unmappedOutputElements.map(elem =>
+					this.getYPosition(elem, Constants.MappingSide.OUTPUT),
 				);
 				anchors.unmapped.output = yPositions;
 			}
 			// input mapped elements
 			const mappedInputElements = inputVisibleElements.filter(elem =>
-				dataAccessor.isElementMapped(visibleMapping, elem, Constants.MappingSide.INPUT)
+				dataAccessor.isElementMapped(visibleMapping, elem, Constants.MappingSide.INPUT),
 			);
 			if (mappedInputElements) {
-				const yPositions = mappedInputElements.map(
-					elem => this.getYPosition(elem, Constants.MappingSide.INPUT)
+				const yPositions = mappedInputElements.map(elem =>
+					this.getYPosition(elem, Constants.MappingSide.INPUT),
 				);
 				anchors.mapped.input = yPositions;
 			}
 			// output mapped elements
 			const mappedOutputElements = outputVisibleElements.filter(elem =>
-				dataAccessor.isElementMapped(visibleMapping, elem, Constants.MappingSide.OUTPUT)
+				dataAccessor.isElementMapped(visibleMapping, elem, Constants.MappingSide.OUTPUT),
 			);
 			if (mappedOutputElements) {
-				const yPositions = mappedOutputElements.map(
-					elem => this.getYPosition(elem, Constants.MappingSide.OUTPUT)
+				const yPositions = mappedOutputElements.map(elem =>
+					this.getYPosition(elem, Constants.MappingSide.OUTPUT),
 				);
 				anchors.mapped.output = yPositions;
 			}
 			// selected Anchor
 			if (selection) {
 				if (selection.side === Constants.MappingSide.INPUT) {
-					anchors.selected.input =
-						[this.getYPosition(selection.element, Constants.MappingSide.INPUT)];
+					anchors.selected.input = [
+						this.getYPosition(selection.element, Constants.MappingSide.INPUT),
+					];
 				} else {
-					anchors.selected.output =
-						[this.getYPosition(selection.element, Constants.MappingSide.OUTPUT)];
+					anchors.selected.output = [
+						this.getYPosition(selection.element, Constants.MappingSide.OUTPUT),
+					];
 				}
 			}
 			// FOCUSED Anchor
 			if (focused) {
 				if (focused.side === Constants.MappingSide.INPUT) {
-					anchors.focused.input =
-						[this.getYPosition(focused.element, Constants.MappingSide.INPUT)];
+					anchors.focused.input = [this.getYPosition(focused.element, Constants.MappingSide.INPUT)];
 				} else {
-					anchors.focused.output =
-						[this.getYPosition(focused.element, Constants.MappingSide.OUTPUT)];
+					anchors.focused.output = [
+						this.getYPosition(focused.element, Constants.MappingSide.OUTPUT),
+					];
 				}
 			}
-
 		}
 		return anchors;
 	}
@@ -332,9 +327,14 @@ export default class Mapper extends Component {
 		// first check if we display all the connections ('show all' option)
 		let allConnections = null;
 		if (showAll && this.inputSchemaRef && this.outputSchemaRef) {
-			const filteredMappingItems =
-				filterMappingItems(dataAccessor, inputSchema, outputSchema,
-					visibleMapping, inputVisibleElements, outputVisibleElements);
+			const filteredMappingItems = filterMappingItems(
+				dataAccessor,
+				inputSchema,
+				outputSchema,
+				visibleMapping,
+				inputVisibleElements,
+				outputVisibleElements,
+			);
 			// then build connections
 			if (filteredMappingItems) {
 				allConnections = filteredMappingItems.map(item =>
@@ -349,17 +349,22 @@ export default class Mapper extends Component {
 			selectionItems = dataAccessor.getMappingItemsWithElement(
 				visibleMapping,
 				selection.element,
-				selection.side
+				selection.side,
 			);
 		}
 		let current = null;
 		if (selectionItems) {
-			const filteredSelectionItems =
-				filterMappingItems(dataAccessor, inputSchema, outputSchema,
-					selectionItems, inputVisibleElements, outputVisibleElements);
+			const filteredSelectionItems = filterMappingItems(
+				dataAccessor,
+				inputSchema,
+				outputSchema,
+				selectionItems,
+				inputVisibleElements,
+				outputVisibleElements,
+			);
 			if (filteredSelectionItems) {
-				current = filteredSelectionItems.map(
-					item => this.getConnectionFromItem(dataAccessor, item)
+				current = filteredSelectionItems.map(item =>
+					this.getConnectionFromItem(dataAccessor, item),
 				);
 			}
 		}
@@ -383,9 +388,14 @@ export default class Mapper extends Component {
 				focused.side,
 			);
 			if (focusedItems) {
-				const filteredFocusedItems =
-					filterMappingItems(dataAccessor, inputSchema, outputSchema,
-						focusedItems, inputVisibleElements, outputVisibleElements);
+				const filteredFocusedItems = filterMappingItems(
+					dataAccessor,
+					inputSchema,
+					outputSchema,
+					focusedItems,
+					inputVisibleElements,
+					outputVisibleElements,
+				);
 				if (filteredFocusedItems) {
 					focusedConnections = filteredFocusedItems.map(item =>
 						this.getConnectionFromItem(dataAccessor, item),
@@ -437,11 +447,11 @@ export default class Mapper extends Component {
 			const item = mappingItems[0];
 			if (side === Constants.MappingSide.INPUT) {
 				this.outputSchemaRef.reveal(
-					dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT)
+					dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT),
 				);
 			} else {
 				this.inputSchemaRef.reveal(
-					dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT)
+					dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT),
 				);
 			}
 		}
@@ -475,15 +485,7 @@ export default class Mapper extends Component {
 			filters,
 			...commonSchemaProps
 		} = this.props;
-		const {
-			dataAccessor,
-			selection,
-			focused,
-			showAll,
-			onShowAll,
-			dnd,
-			dndInProgress,
-		} = this.props;
+		const { dataAccessor, selection, focused, showAll, onShowAll, dnd, dndInProgress } = this.props;
 		return (
 			<div id={mapperId}>
 				<Schema
@@ -494,12 +496,13 @@ export default class Mapper extends Component {
 					side={Constants.MappingSide.INPUT}
 					onScroll={this.onScroll}
 					revealConnection={this.revealConnection}
-					mappedElements={
-						getMappedElements(dataAccessor, mapping, Constants.MappingSide.INPUT)
-					}
-			    focusedElements={
-						getFocusedElements(dataAccessor, mapping, focused, Constants.MappingSide.INPUT)
-					}
+					mappedElements={getMappedElements(dataAccessor, mapping, Constants.MappingSide.INPUT)}
+					focusedElements={getFocusedElements(
+						dataAccessor,
+						mapping,
+						focused,
+						Constants.MappingSide.INPUT,
+					)}
 					columnKeys={inputSchemaColumns}
 					filters={filters.input}
 				/>
@@ -511,12 +514,13 @@ export default class Mapper extends Component {
 					side={Constants.MappingSide.OUTPUT}
 					onScroll={this.onScroll}
 					revealConnection={this.revealConnection}
-					mappedElements={
-						getMappedElements(dataAccessor, mapping, Constants.MappingSide.OUTPUT)
-					}
-			    focusedElements={
-						getFocusedElements(dataAccessor, mapping, focused, Constants.MappingSide.OUTPUT)
-					}
+					mappedElements={getMappedElements(dataAccessor, mapping, Constants.MappingSide.OUTPUT)}
+					focusedElements={getFocusedElements(
+						dataAccessor,
+						mapping,
+						focused,
+						Constants.MappingSide.OUTPUT,
+					)}
 					columnKeys={outputSchemaColumns}
 					filters={filters.output}
 				/>

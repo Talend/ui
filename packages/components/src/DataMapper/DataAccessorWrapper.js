@@ -1,7 +1,6 @@
 import * as Constants from './Constants';
 
 export default class DataAccessorWrapper {
-
 	constructor(dataAccessor) {
 		this.dataAccessor = dataAccessor;
 		this.filters = {};
@@ -201,19 +200,19 @@ export default class DataAccessorWrapper {
 		return -1;
 	}
 
-  getSchemaElementFromId(schema, id) {
+	getSchemaElementFromId(schema, id) {
 		if (this.isCacheInitialized()) {
 			return this.getElementFromCache(schema, id);
 		}
-    if (this.dataAccessor.getSchemaElementFromId) {
-      return this.dataAccessor.getSchemaElementFromId(schema, id);
-    }
-    const elements = this.getSchemaElements(schema, false);
-    if (elements) {
-      return elements.find(elem => this.getElementId(elem) === id);
-    }
-    return null;
-  }
+		if (this.dataAccessor.getSchemaElementFromId) {
+			return this.dataAccessor.getSchemaElementFromId(schema, id);
+		}
+		const elements = this.getSchemaElements(schema, false);
+		if (elements) {
+			return elements.find(elem => this.getElementId(elem) === id);
+		}
+		return null;
+	}
 
 	/**
 	 * Returns the identifier of the element.
@@ -398,5 +397,4 @@ export default class DataAccessorWrapper {
 		log = log.concat(']');
 		return log;
 	}
-
 }
