@@ -135,7 +135,7 @@ class ActionFile extends React.Component {
 					disabled={inProgress || disabled}
 					className={classNames(theme['action-file-input'], 'sr-only')}
 				/>
-				<label htmlFor={localId} className={labelClasses} role={'button'}>
+				<label htmlFor={localId} className={labelClasses}>
 					{buttonContent}
 				</label>
 			</span>

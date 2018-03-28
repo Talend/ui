@@ -398,6 +398,7 @@ exports[`ActionDropdown should render a button with label and a filled dropdown 
   <button
     aria-expanded={false}
     aria-haspopup={true}
+    aria-label="related items"
     className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
     disabled={false}
     id="dropdown-id"
