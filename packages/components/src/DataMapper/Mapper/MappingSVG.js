@@ -214,10 +214,6 @@ function buildSVGAnchors(anchors, bounds) {
 		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.unmapped, bounds,
 			Constants.Anchor.STYLE.UNMAPPED);
 	}
-	if (anchors.mapped) {
-		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.mapped, bounds,
-			Constants.Anchor.STYLE.MAPPED);
-	}
 	if (anchors.selected) {
 		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.selected, bounds,
 			Constants.Anchor.STYLE.SELECTED);
@@ -225,6 +221,10 @@ function buildSVGAnchors(anchors, bounds) {
 	if (anchors.focused) {
 		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.focused, bounds,
 			Constants.Anchor.STYLE.FOCUSED);
+	}
+	if (anchors.mapped) {
+		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.mapped, bounds,
+			Constants.Anchor.STYLE.MAPPED);
 	}
 	return svgAnchors;
 }
@@ -323,6 +323,7 @@ class MappingSVG extends Component {
 			<div ref={this.updateSVGParentRef} className="mapping-content">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
+					className="mapping-svg"
 					ref={this.updateSVGRef}
 					width={this.getWidth()}
 					height={this.getHeight()}

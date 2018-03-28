@@ -28,13 +28,20 @@ const element2 = {
 };
 
 const inputSchema = {
+	id: 'schema_1',
 	name: 'input',
 	elements: [element1],
 };
 
 const outputSchema = {
+	id: 'schema_2',
 	name: 'output',
 	elements: [element2],
+};
+
+const noFilters = {
+	input: [],
+	output: [],
 };
 
 function isNamed(element, name) {
@@ -75,6 +82,7 @@ it('clear-mapping', () => {
 			clearMapping={clearMapping}
 			inputSchemaRenderer={defaultSchemaRenderer}
 			outputSchemaRenderer={defaultSchemaRenderer}
+			filters={noFilters}
 		/>
 	);
 	const wrapper = mount(mapper);
@@ -120,6 +128,7 @@ it('perform-mapping', () => {
 			draggable={draggable}
 			inputSchemaRenderer={defaultSchemaRenderer}
 			outputSchemaRenderer={defaultSchemaRenderer}
+			filters={noFilters}
 		/>
 	);
 
@@ -130,9 +139,9 @@ it('perform-mapping', () => {
 
 	// Find the drag source ID and use it to simulate the dragging operation
 	const elements = TestUtils.scryRenderedComponentsWithType(root, DraggableSchemaElement);
-	//console.log(elements[0]);
+
 	const sourceElem = getElementByName(elements, 'elem_in_1');
-	//console.log('FOUND ELEM IS: ' + sourceElem);
+
 	const decoratedSourceElem = sourceElem.getDecoratedComponentInstance();
 
 	// simulate begin drag source node 'elem_in_1'
@@ -157,4 +166,5 @@ it('perform-mapping', () => {
 
 	// The second argument of the first call to the function was 'elem_out_1'
 	expect(performMapping.mock.calls[0][1]).toBe(element2);
+	
 });

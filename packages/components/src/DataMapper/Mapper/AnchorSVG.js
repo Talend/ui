@@ -47,4 +47,4 @@ export default class AnchorSVG extends Component {
 AnchorSVG.propTypes = {
 	anchor: PropTypes.object,
 	params: PropTypes.object,
-}
+};

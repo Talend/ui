@@ -47,11 +47,13 @@ class DraggableRow extends Component {
       onClick,
       onDoubleClick,
       rowDataGetter,
+			rowRenderers,
       onEnterElement,
     	onLeaveElement,
       connectDragSource,
 			connectDropTarget,
     } = this.props;
+		classNameProvider.onDragOver(this.props.dragOver);
 		return connectDragSource(
 			connectDropTarget(
 				<div>
@@ -62,6 +64,7 @@ class DraggableRow extends Component {
             classNameProvider={classNameProvider}
             dataKeys={dataKeys}
             rowDataGetter={rowDataGetter}
+						rowRenderers={rowRenderers}
             onEnterElement={onEnterElement}
             onLeaveElement={onLeaveElement}
 					/>
@@ -76,12 +79,14 @@ DraggableRow.propTypes = {
 	classNameProvider: PropTypes.func,
   dataKeys: PropTypes.array,
   rowDataGetter: PropTypes.func,
+	rowRenderers: PropTypes.object,
 	onClick: PropTypes.func,
   onDoubleClick: PropTypes.func,
   onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
 	connectDragSource: PropTypes.func,
 	connectDropTarget: PropTypes.func,
+	dragOver: PropTypes.bool,
 };
 
 export default flow(

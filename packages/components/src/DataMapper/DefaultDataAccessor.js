@@ -1,11 +1,16 @@
 import * as Constants from './Constants';
 
+function areElementsEqual(element1, element2) {
+	return element1.id === element2.id;
+}
+
 /**
  * Internal function only used by the dataAccessor.
  */
 function getMappingItemIndex(mapping, source, target) {
 	return mapping.findIndex(item =>
-		item.source.id === source.id && item.target.id === target.id);
+		areElementsEqual(item.source, source) &&
+		areElementsEqual(item.target, target));
 }
 
 /**
@@ -22,6 +27,18 @@ function removeMappingItem(mapping, index) {
  * schema and mapping data.
  */
 export default class DefaultDataAccessor {
+
+	areEquals(element1, element2) {
+		return areElementsEqual(element1, element2);
+	}
+
+	/**
+	 * Returns the unique identifier as string of the schema.
+	 */
+	getSchemaId(schema) {
+		return schema.id;
+	}
+
 	/**
 	 * Returns the name of the schema.
 	 */
@@ -55,12 +72,13 @@ export default class DefaultDataAccessor {
 	 * returns -1 if it is not in the schema.
 	 */
 	getSchemaElementIndex(schema, element) {
-		return schema.elements.indexOf(element);
+		return schema.elements.findIndex(elem =>
+			areElementsEqual(elem, element));
 	}
 
 	/**
 	 * Returns the identifier of the element.
-	 * Identifier must be unique.
+	 * Identifier must be a unique string.
 	 */
 	getElementId(element) {
 		return element.id;
@@ -85,6 +103,10 @@ export default class DefaultDataAccessor {
 	 */
 	getElementDescription(element) {
 		return element.description;
+	}
+
+	isElementMandatory(element) {
+		return element.mandatory;
 	}
 
 	/**
@@ -144,6 +166,10 @@ export default class DefaultDataAccessor {
 	 * Returns true if the array of elements contains the specified element.
 	 */
 	includes(elements, element) {
-		return elements.find(elem => elem.id === element.id);
+		const result = elements.find(elem => this.areEquals(elem, element));
+		if (result) {
+			return result;
+		}
+		return false;
 	}
 }

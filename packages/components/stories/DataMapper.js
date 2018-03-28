@@ -8,8 +8,13 @@ import DefaultDataAccessor from '../src/DataMapper/DefaultDataAccessor';
 import DataAccessorWrapper from '../src/DataMapper/DataAccessorWrapper';
 import DefaultRenderer from '../src/DataMapper/Schema/SchemaRenderers/DefaultRenderer';
 import ListRenderer from '../src/DataMapper/Schema/SchemaRenderers/ListRenderer';
+import FilterComponents from '../src/DataMapper/Schema/Filters/FilterComponents';
+import NameFilter, { ID as NameFilterId } from '../src/DataMapper/Schema/Filters/NameFilter';
+import MandatoryFieldFilter, { ID as MandatoryFieldFilterId } from '../src/DataMapper/Schema/Filters/MandatoryFieldFilter';
+import { IconsProvider } from '../src/';
 
 const inputSchema1 = {
+	id: 'schema_1',
 	name: 'user_info',
 	elements: [
 		'firstname',
@@ -24,6 +29,7 @@ const inputSchema1 = {
 };
 
 const inputSchema2 = {
+	id: 'schema_2',
 	name: 'user_info_full',
 	elements: [
 		'firstname',
@@ -47,6 +53,7 @@ const inputSchema2 = {
 };
 
 const outputSchema1 = {
+	id: 'schema_3',
 	name: 'customer_data',
 	elements: [
 		'name',
@@ -61,6 +68,7 @@ const outputSchema1 = {
 };
 
 const outputSchema2 = {
+	id: 'schema_4',
 	name: 'customer_data_full',
 	elements: [
 		'name',
@@ -121,35 +129,56 @@ const defaultSchemaRenderer = new DefaultRenderer();
 const inputListRenderer = new ListRenderer();
 const outputListRenderer = new ListRenderer();
 
-function createSchema(name, elementName, size) {
+const filterComponents = new FilterComponents();
+
+function clone(object) {
+	return JSON.parse(JSON.stringify(object));
+}
+
+function createSchema(id, name, elementName, size) {
 	let elements = [];
 	for (let i = 0; i < size; i += 1) {
 		elements = elements.concat(`${elementName}_${i}`);
 	}
-	return { name, elements };
+	return { id, name, elements };
+}
+
+function randomInt(max) {
+	return Math.floor((Math.random() * max));
 }
 
 function randomType() {
 	const keys = Object.keys(Constants.Types);
 	const nbrOfTypes = keys.length;
-	const index = Math.floor((Math.random() * nbrOfTypes));
+	const index = randomInt(nbrOfTypes);
 	return Constants.Types[keys[index]];
 }
 
-function buildElement(elem, index) {
+function isMandatory(withMandatoryFields) {
+	if (withMandatoryFields) {
+		return randomInt(2) === 1;
+	}
+	return false;
+}
+
+function buildElement(elem, index, withMandatoryFields) {
 	return {
 		id: `${index}`,
 		name: elem,
 		type: randomType(),
 		description: `Description of ${elem}`,
+		mandatory: isMandatory(withMandatoryFields),
 	};
 }
 
-function finalizeSchema(schema) {
+function finalizeSchema(schema, withMandatoryFields) {
 	const result = {
+		id: schema.id,
 		name: schema.name,
 	};
-	const elements = schema.elements.map(buildElement);
+	const elements = schema.elements.map(
+		(elem, index) => buildElement(elem, index, withMandatoryFields)
+	);
 	result.elements = elements;
 	return result;
 }
@@ -165,24 +194,28 @@ function finalizeMapping(mapping, inputSchema, outputSchema) {
 	return mapping.map(item => buildMappingItem(item, inputSchema, outputSchema));
 }
 
-function createShuffledMapping(inputSchema, outputSchema) {
+function createShuffledMapping(inputSchema, outputSchema, size) {
 	let mapping = [];
+	const inputElements = inputSchema.elements.slice();
 	const outputElements = outputSchema.elements.slice();
-	for (let i = 0; i < inputSchema.elements.length; i += 1) {
-		const index = Math.floor(Math.random() * outputElements.length);
-		const target = outputElements[index];
+	for (let i = 0; i < size; i += 1) {
+		const sourceIndex = Math.floor(Math.random() * inputElements.length);
+		const targetIndex = Math.floor(Math.random() * outputElements.length);
+		const source = inputElements[sourceIndex];
+		const target = outputElements[targetIndex];
 		mapping = mapping.concat({
-			source: inputSchema.elements[i],
+			source,
 			target,
 		});
-		outputElements.splice(index, 1);
+		inputElements.splice(sourceIndex, 1);
+		outputElements.splice(targetIndex, 1);
 	}
 	return mapping;
 }
 
-function createOneToOneMapping(inputSchema, outputSchema) {
+function createOneToOneMapping(inputSchema, outputSchema, size) {
 	let mapping = [];
-	for (let i = 0; i < inputSchema.elements.length; i += 1) {
+	for (let i = 0; i < size; i += 1) {
 		mapping = mapping.concat({
 			source: inputSchema.elements[i],
 			target: outputSchema.elements[i],
@@ -191,11 +224,41 @@ function createOneToOneMapping(inputSchema, outputSchema) {
 	return mapping;
 }
 
-function createMapping(inputSchema, outputSchema, shuffle) {
+function createMapping(inputSchema, outputSchema, shuffle, size) {
 	if (shuffle) {
-		return createShuffledMapping(inputSchema, outputSchema);
+		return createShuffledMapping(inputSchema, outputSchema, size);
 	}
-	return createOneToOneMapping(inputSchema, outputSchema);
+	return createOneToOneMapping(inputSchema, outputSchema, size);
+}
+
+function createFilter(key, schema) {
+	let filter = null;
+	switch (key) {
+		case MandatoryFieldFilterId:
+			filter = new MandatoryFieldFilter(false);
+			break;
+		case NameFilterId:
+			filter = new NameFilter(false);
+			break;
+		default:
+			break;
+	}
+	if (filter) {
+		// register filter in dataAccessor
+		dataAccessor.addFilter(schema, filter);
+	}
+	return filter;
+}
+
+function initializeFilters(schema, keys) {
+	let filters = [];
+	for (let i = 0; i < keys.length; i += 1) {
+		const filter = createFilter(keys[i], schema);
+		if (filter) {
+			filters = filters.concat(filter);
+		}
+	}
+	return filters;
 }
 
 /**
@@ -211,38 +274,46 @@ const emptyState = {
 	selection: null,
 	focused: null,
 	showAll: false,
+	filters: {},
 };
 
 function getDefaultInitialState() {
-	const inputSchema = finalizeSchema(inputSchema2);
-	const outputSchema = finalizeSchema(outputSchema2);
+	const inputSchema = finalizeSchema(inputSchema2, false);
+	const outputSchema = finalizeSchema(outputSchema2, true);
 	const mapping = finalizeMapping(initialMapping, inputSchema, outputSchema);
 	return {
 		...emptyState,
     inputSchema,
     outputSchema,
 		mapping,
+		filters: {
+			input: initializeFilters(inputSchema, [NameFilterId]),
+			output: initializeFilters(outputSchema, [NameFilterId, MandatoryFieldFilterId]),
+		},
 	};
 }
 
 function getEmptyInitialState() {
-	const inputSchema = finalizeSchema(inputSchema2);
-	const outputSchema = finalizeSchema(outputSchema2);
+	const inputSchema = finalizeSchema(inputSchema2, false);
+	const outputSchema = finalizeSchema(outputSchema2, true);
 	return {
 		...emptyState,
     inputSchema,
     outputSchema,
 		mapping: emptyMapping,
+		filters: {
+			input: initializeFilters(inputSchema, [NameFilterId]),
+			output: initializeFilters(outputSchema, [NameFilterId, MandatoryFieldFilterId]),
+		},
 	};
 }
 
-function getBigSchemaInitialState() {
-	const size = 50;
-	const schema1 = createSchema('Big input schema', 'input_element', size);
-	const schema2 = createSchema('Big output schema', 'output_element', size);
-	const tempMap = createMapping(schema1, schema2, true);
-	const inputSchema = finalizeSchema(schema1);
-	const outputSchema = finalizeSchema(schema2);
+function getBigSchemaInitialState(inputSchemaSize, outputSchemaSize, mappingSize) {
+	const schema1 = createSchema('big_schema_1', 'Big input schema', 'input_element', inputSchemaSize);
+	const schema2 = createSchema('big_schema_2', 'Big output schema', 'output_element', outputSchemaSize);
+	const tempMap = createMapping(schema1, schema2, true, mappingSize);
+	const inputSchema = finalizeSchema(schema1, false);
+	const outputSchema = finalizeSchema(schema2, true);
 	const mapping = finalizeMapping(tempMap, inputSchema, outputSchema);
 	return {
 		...emptyState,
@@ -250,7 +321,17 @@ function getBigSchemaInitialState() {
     outputSchema,
 		mapping,
 		showAll: true,
+		filters: {
+			input: initializeFilters(inputSchema, [NameFilterId]),
+			output: initializeFilters(outputSchema, [NameFilterId, MandatoryFieldFilterId]),
+		},
 	};
+}
+
+function initializeCache(state) {
+	state.dataAccessor.populateCache(state.inputSchema);
+	state.dataAccessor.populateCache(state.outputSchema);
+	return state;
 }
 
 /**
@@ -340,8 +421,8 @@ function getCurrentSelectedSchema(state) {
 }
 
 function getNextElement(schema, element, nav) {
-	const selectedElemIndex = dataAccessor.getSchemaElementIndex(schema, element);
-  const size = dataAccessor.getSchemaSize(schema);
+	const selectedElemIndex = dataAccessor.getSchemaElementIndex(schema, element, true);
+  const size = dataAccessor.getSchemaSize(schema, true);
   let newSelectedElemIndex = selectedElemIndex;
   switch (nav) {
     case Constants.Keys.UP:
@@ -359,7 +440,7 @@ function getNextElement(schema, element, nav) {
 		default:
 			return element;
   }
-	return dataAccessor.getSchemaElement(schema, newSelectedElemIndex);
+	return dataAccessor.getSchemaElement(schema, newSelectedElemIndex, true);
 }
 
 function navigateUpDown(state, nav) {
@@ -389,7 +470,7 @@ function navigateUpDown(state, nav) {
 * given element.
 */
 function findTargetElement(schema, selection, mappingInProgress) {
-	const elements = dataAccessor.getSchemaElements(schema);
+	const elements = dataAccessor.getSchemaElements(schema, true);
 	return elements.find(elem =>
 		(!mappingInProgress && dataAccessor.haveSameName(elem, selection.element))
 		|| (mappingInProgress
@@ -399,8 +480,8 @@ function findTargetElement(schema, selection, mappingInProgress) {
 }
 
 function findNonConnectedTargetElement(schema, mapping, side) {
-	for (let i = 0; i < dataAccessor.getSchemaSize(schema); i += 1) {
-		const elem = dataAccessor.getSchemaElement(schema, i);
+	for (let i = 0; i < dataAccessor.getSchemaSize(schema, true); i += 1) {
+		const elem = dataAccessor.getSchemaElement(schema, i, true);
 		if (!dataAccessor.isElementMapped(mapping, elem, side)) {
 			return elem;
 		}
@@ -429,7 +510,7 @@ function switchSchema(state, mappingInProgress) {
 			targetElem = findNonConnectedTargetElement(targetSchema, state.mapping, targetSide);
 		} else {
 			// by default select the first element
-    	targetElem = dataAccessor.getSchemaElement(targetSchema, 0);
+    	targetElem = dataAccessor.getSchemaElement(targetSchema, 0, true);
 		}
   }
   return {
@@ -440,7 +521,7 @@ function switchSchema(state, mappingInProgress) {
 }
 
 function firstSelect(state) {
-	const element = dataAccessor.getSchemaElement(state.inputSchema, 0);
+	const element = dataAccessor.getSchemaElement(state.inputSchema, 0, true);
 	return {
 		element,
 		connected: dataAccessor.getConnectedElements(state.mapping, element,
@@ -469,6 +550,30 @@ function arePositionsClosed(pos1, pos2, delta) {
 	return Math.abs(pos1.x - pos2.x) <= delta && Math.abs(pos1.y - pos2.y) <= delta;
 }
 
+function filterSelection(state, selection) {
+	if (selection) {
+		const schema = getSchema(state, selection.side);
+		if (state.dataAccessor.isFiltered(schema, selection.element)) {
+			// clear selection
+			return null;
+		}
+		return selection;
+	}
+	return null;
+}
+
+function filterFocused(state, focused) {
+	if (focused) {
+		const schema = getSchema(state, focused.side);
+		if (state.dataAccessor.isFiltered(schema, focused.element)) {
+			// clear focused
+			return null;
+		}
+		return focused;
+	}
+	return null;
+}
+
 class ConnectedDataMapper extends React.Component {
 
 	constructor(props) {
@@ -488,6 +593,7 @@ class ConnectedDataMapper extends React.Component {
 		this.canDrop = this.canDrop.bind(this);
 		this.drop = this.drop.bind(this);
 		this.endDrag = this.endDrag.bind(this);
+		this.onFilterChange = this.onFilterChange.bind(this);
 		this.updateMapperRef = this.updateMapperRef.bind(this);
 	}
 
@@ -496,18 +602,21 @@ class ConnectedDataMapper extends React.Component {
 		if (this.handleFirstSelect(ev)) {
 			ev.preventDefault();
 			this.setState(prevState => ({
+				trigger: null,
 				selection: firstSelect(prevState),
 			}));
 			reveal = true;
 		} else if (this.handleNavigation(ev)) {
 			ev.preventDefault();
 			this.setState(prevState => ({
+				trigger: null,
 				selection: navigate(prevState, ev.keyCode),
 			}));
 			reveal = true;
 		} else if (this.handleStartConnection(ev)) {
 			ev.preventDefault();
 			this.setState(prevState => ({
+				trigger: null,
 				selection: navigate(prevState, ev.keyCode),
 				pendingItem: {
 					element: prevState.selection.element,
@@ -532,6 +641,7 @@ class ConnectedDataMapper extends React.Component {
 			const fromElement = this.state.pendingItem.element;
 			const fromSide = this.state.pendingItem.side;
 			this.setState(prevState => ({
+				trigger: null,
 				pendingItem: null,
 				selection: select(prevState.mapping, fromElement, fromSide),
 			}));
@@ -627,6 +737,7 @@ class ConnectedDataMapper extends React.Component {
 			selectedTargetElement = sourceElement;
 		}
 		this.setState(prevState => ({
+			trigger: null,
 			mapping: prevState.dataAccessor.addMapping(prevState.mapping, sourceElement, targetElement),
 			selection: {
 				element: selectedSourceElement,
@@ -643,6 +754,7 @@ class ConnectedDataMapper extends React.Component {
 
 	clearMapping() {
 		this.setState(prevState => ({
+			trigger: null,
 			mapping: prevState.dataAccessor.clearMapping(prevState.mapping),
 			selection: clearConnected(prevState.selection),
 			pendingItem: null,
@@ -652,6 +764,7 @@ class ConnectedDataMapper extends React.Component {
 
 	clearConnection() {
 		this.setState(prevState => ({
+			trigger: null,
 			mapping: removeConnections(prevState.mapping, prevState.selection),
 			selection: clearConnected(prevState.selection),
 			pendingItem: null,
@@ -662,12 +775,14 @@ class ConnectedDataMapper extends React.Component {
 	selectElement(ctrl, element, side) {
 		if (this.state.pendingItem == null) {
 			this.setState(prevState => ({
+				trigger: null,
 				selection: getSelection(ctrl, prevState.mapping,
 					prevState.selection, element, side),
 			}));
 		} else if (this.state.pendingItem.side === side) {
 			// stop the link process
 			this.setState(prevState => ({
+				trigger: null,
 				selection: getSelection(ctrl, prevState.mapping,
 					prevState.selection, element, side),
 				pendingItem: null,
@@ -685,36 +800,49 @@ class ConnectedDataMapper extends React.Component {
 
 	clearSelection() {
 		this.setState({
+			trigger: null,
 			selection: null,
 		});
 	}
 
 	onEnterElement(element, side) {
 		this.setState({
+			trigger: {
+				code: Constants.Events.ENTER_ELEM,
+				element,
+				side,
+			},
 			focused: getFocused(element, side),
 		});
 	}
 
 	onLeaveElement(element, side) {
 		this.setState({
+			trigger: {
+				code: Constants.Events.LEAVE_ELEM,
+				element,
+				side,
+			},
 			focused: null,
 		});
 	}
 
 	onShowAll() {
 		this.setState(prevState => ({
+			trigger: null,
 			showAll: !prevState.showAll,
 		}));
 	}
 
 	beginDrag(element, side) {
-		this.setState(prevState => ({
+		this.setState({
+			trigger: null,
 			dnd: {
 				source: { element, side },
 				target: null,
 				pos: null,
 			},
-		}));
+		});
 		return { element, side };
 	}
 
@@ -725,6 +853,7 @@ class ConnectedDataMapper extends React.Component {
 			return;
 		}
 		this.setState(prevState => ({
+			trigger: null,
 			dnd: {
 				source: prevState.dnd.source,
 				target: null,
@@ -747,6 +876,7 @@ class ConnectedDataMapper extends React.Component {
 		}
 		if (update) {
 			this.setState(prevState => ({
+				trigger: null,
 				dnd: {
 					source: prevState.dnd.source,
 					target: targetItem,
@@ -766,15 +896,32 @@ class ConnectedDataMapper extends React.Component {
 			);
 	}
 
-	drop(element, side) {
-		this.setState(prevState => ({
+	drop(element) {
+		this.setState({
+			trigger: null,
 			dnd: null,
-		}));
+		});
 	}
 
 	endDrag() {
-		this.setState(prevState => ({
+		this.setState({
+			trigger: null,
 			dnd: null,
+		});
+	}
+
+	onFilterChange(side, filter) {
+		if (side === Constants.MappingSide.INPUT) {
+			this.state.dataAccessor.filterSchema(this.state.inputSchema, filter.getId());
+		} else {
+			this.state.dataAccessor.filterSchema(this.state.outputSchema, filter.getId());
+		}
+		this.setState(prevState => ({
+			trigger: null,
+			pendingItem: null,
+			dnd: null,
+			selection: filterSelection(prevState, prevState.selection),
+			focused: filterFocused(prevState, prevState.focused),
 		}));
 	}
 
@@ -822,6 +969,10 @@ class ConnectedDataMapper extends React.Component {
 				endDrag={this.endDrag}
 				inputSchemaColumns={inputSchemaColumns}
 				outputSchemaColumns={outputSchemaColumns}
+				filters={this.state.filters}
+				filterComponents={filterComponents}
+				onFilterChange={this.onFilterChange}
+				trigger={this.state.trigger}
 			/>
 		);
 	}
@@ -845,13 +996,14 @@ if (!stories.addWithInfo) {
 stories
 	.addDecorator(story => (
 		<div id="mapper-container">
+			<IconsProvider />
 			{story()}
 		</div>
 	))
 	.addWithInfo('default (canvas)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={getDefaultInitialState()}
+			initialState={initializeCache(getDefaultInitialState())}
 			mappingRenderer={Constants.Connection.RENDERER.CANVAS}
 			inputSchemaRenderer={defaultSchemaRenderer}
 			outputSchemaRenderer={defaultSchemaRenderer}
@@ -860,7 +1012,7 @@ stories
 	.addWithInfo('empty (canvas)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={getEmptyInitialState()}
+			initialState={initializeCache(getEmptyInitialState())}
 			mappingRenderer={Constants.Connection.RENDERER.CANVAS}
 			inputSchemaRenderer={defaultSchemaRenderer}
 			outputSchemaRenderer={defaultSchemaRenderer}
@@ -869,7 +1021,7 @@ stories
 	.addWithInfo('50-mapped (canvas)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={getBigSchemaInitialState()}
+			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50))}
 			mappingRenderer={Constants.Connection.RENDERER.CANVAS}
 			inputSchemaRenderer={defaultSchemaRenderer}
 			outputSchemaRenderer={defaultSchemaRenderer}
@@ -878,7 +1030,7 @@ stories
 	.addWithInfo('default (svg)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={getDefaultInitialState()}
+			initialState={initializeCache(getDefaultInitialState())}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
 			inputSchemaRenderer={defaultSchemaRenderer}
 			outputSchemaRenderer={defaultSchemaRenderer}
@@ -887,7 +1039,7 @@ stories
 	.addWithInfo('50-mapped (svg)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={getBigSchemaInitialState()}
+			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50))}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
 			inputSchemaRenderer={defaultSchemaRenderer}
 			outputSchemaRenderer={defaultSchemaRenderer}
@@ -896,7 +1048,7 @@ stories
 	.addWithInfo('default (svg, list)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={getDefaultInitialState()}
+			initialState={initializeCache(getDefaultInitialState())}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
 			inputSchemaRenderer={inputListRenderer}
 			outputSchemaRenderer={outputListRenderer}
@@ -907,7 +1059,18 @@ stories
 	.addWithInfo('50-mapped (svg, list)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={getBigSchemaInitialState()}
+			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50))}
+			mappingRenderer={Constants.Connection.RENDERER.SVG}
+			inputSchemaRenderer={inputListRenderer}
+			outputSchemaRenderer={outputListRenderer}
+			inputSchemaColumns={inputListColumns}
+			outputSchemaColumns={outputListColumns}
+		/>;
+	})
+	.addWithInfo('size:100 mapped:50 (svg, list)', () => {
+		return <ConnectedDataMapper
+			mapperId="mapper"
+			initialState={initializeCache(getBigSchemaInitialState(100, 100, 50))}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
 			inputSchemaRenderer={inputListRenderer}
 			outputSchemaRenderer={outputListRenderer}

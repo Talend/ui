@@ -98,7 +98,7 @@ export default class DefaultRenderer {
       onScroll,
       updateContentNodeRef,
 		} = props;
-    const content = dataAccessor.getSchemaElements(schema).map(
+    const content = dataAccessor.getSchemaElements(schema, true).map(
       elem => renderSchemaElement(props, elem)
     );
     return (

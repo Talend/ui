@@ -9,6 +9,7 @@ function renderRow(
   classNameProvider,
   dataKeys,
   rowDataGetter,
+  rowRenderers,
   draggable,
   dndListener,
   onClick,
@@ -26,6 +27,7 @@ function renderRow(
         classNameProvider={classNameProvider}
         dataKeys={dataKeys}
         rowDataGetter={rowDataGetter}
+        rowRenderers={rowRenderers}
         onEnterElement={onEnterElement}
   			onLeaveElement={onLeaveElement}
         dndListener={dndListener}
@@ -41,6 +43,7 @@ function renderRow(
       classNameProvider={classNameProvider}
       dataKeys={dataKeys}
       rowDataGetter={rowDataGetter}
+      rowRenderers={rowRenderers}
       onEnterElement={onEnterElement}
 			onLeaveElement={onLeaveElement}
 		/>
@@ -55,6 +58,7 @@ export default class List extends Component {
       elements,
       dataKeys,
       rowDataGetter,
+      rowRenderers,
       onScroll,
       draggable,
       dndListener,
@@ -76,6 +80,7 @@ export default class List extends Component {
             classNameProvider,
             dataKeys,
             rowDataGetter,
+            rowRenderers,
             draggable,
             dndListener,
             onClick,
@@ -94,6 +99,7 @@ List.propTypes = {
 	classNameProvider: PropTypes.func,
   dataKeys: PropTypes.array,
   rowDataGetter: PropTypes.func,
+  rowRenderers: PropTypes.object,
   onScroll: PropTypes.func,
 	draggable: PropTypes.bool,
 	onClick: PropTypes.func,

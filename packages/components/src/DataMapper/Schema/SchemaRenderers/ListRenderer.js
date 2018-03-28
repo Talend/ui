@@ -1,11 +1,17 @@
 import React from 'react';
 import List from '../../List/List';
+import RowLabel from '../../List/RowLabel';
+import MandatoryField from '../../List/MandatoryField';
 import * as Constants from '../../Constants';
 
 class SchemaClassNameProvider {
 
   updateProps(props) {
     this.props = props;
+  }
+
+  onDragOver(status) {
+    this.dragOver = status;
   }
 
   get(element, key) {
@@ -25,7 +31,7 @@ class SchemaClassNameProvider {
     } else if (element) {
       return {
         'schema-element': true,
-        highlighted: isHighlighted(
+        highlighted: this.dragOver || isHighlighted(
           dataAccessor,
           element,
           selection,
@@ -99,13 +105,29 @@ class RowDataGetter {
       case Constants.Schema.DATA_KEYS.ID:
         return this.props.dataAccessor.getElementId(element);
       case Constants.Schema.DATA_KEYS.NAME:
-        return this.props.dataAccessor.getElementName(element);
+        return [
+          this.props.dataAccessor.getElementName(element),
+          this.props.dataAccessor.isElementMandatory(element),
+        ];
       case Constants.Schema.DATA_KEYS.TYPE:
         return this.props.dataAccessor.getElementType(element);
       case Constants.Schema.DATA_KEYS.DESC:
         return this.props.dataAccessor.getElementDescription(element);
       default:
         return 'No data available!';
+    }
+  }
+
+}
+
+class RowRenderers {
+
+  getComponent(key) {
+    switch (key) {
+      case Constants.Schema.DATA_KEYS.NAME:
+        return MandatoryField;
+      default:
+        return RowLabel;
     }
   }
 
@@ -121,6 +143,7 @@ export default class ListRenderer {
     this.classNameProvider = new SchemaClassNameProvider();
     this.dndListener = new SchemaDndListener();
     this.rowDataGetter = new RowDataGetter();
+    this.rowRenderers = new RowRenderers();
   }
 
   getElement(ev) {
@@ -153,7 +176,7 @@ export default class ListRenderer {
     this.dndListener.updateProps(props);
     this.rowDataGetter.updateProps(props);
     const {
-      dataAccessor,			
+      dataAccessor,
 			schema,
 			draggable,
       onScroll,
@@ -163,9 +186,10 @@ export default class ListRenderer {
     return (
       <List
         classNameProvider={this.classNameProvider}
-        elements={dataAccessor.getSchemaElements(schema)}
+        elements={dataAccessor.getSchemaElements(schema, true)}
         dataKeys={columnKeys}
         rowDataGetter={this.rowDataGetter}
+        rowRenderers={this.rowRenderers}
         onScroll={onScroll}
         draggable={draggable}
         dndListener={this.dndListener}

@@ -5,15 +5,18 @@ import classnames from 'classnames';
 function renderRowData(
   element,
   key,
-  data,
+  rowDataGetter,
   classNameProvider,
+  rowRenderers,
 ) {
+  const FilterComponent = rowRenderers.getComponent(key);
   return (
-    <div
-      className={`comp-list-row-data ${classnames(classNameProvider.get(element, key))}`}
-    >
-      {data}
-    </div>
+    <FilterComponent
+      element={element}
+      dataKey={key}
+      rowDataGetter={rowDataGetter}
+      classNameProvider={classNameProvider}
+    />
   );
 }
 
@@ -58,6 +61,7 @@ export default class Row extends Component {
       classNameProvider,
       dataKeys,
       rowDataGetter,
+      rowRenderers,
       onClick,
       onDoubleClick,
     } = this.props;
@@ -74,8 +78,9 @@ export default class Row extends Component {
             renderRowData(
               element,
               key,
-              rowDataGetter.getData(element, key),
+              rowDataGetter,
               classNameProvider,
+              rowRenderers,
             )
           )
         }
@@ -89,6 +94,7 @@ Row.propTypes = {
 	classNameProvider: PropTypes.func,
   dataKeys: PropTypes.array,
   rowDataGetter: PropTypes.func,
+  rowRenderers: PropTypes.object,
 	onClick: PropTypes.func,
   onDoubleClick: PropTypes.func,
   onEnterElement: PropTypes.func,

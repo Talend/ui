@@ -49,6 +49,17 @@
 		font-style: italic;
 	}
 
+	.mandatory-field {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.mandatory-field-info {
+		color: #FF0000;
+		font-weight: bold;
+		margin-left: 1px;
+	}
+
 	.mapping {
 		background-color: #fbfdff;
 		padding: 8px;
@@ -91,18 +102,25 @@
 	}
 
 	.mapping-content {
-		/*background-color: #EFEFEF;*/
+		/*background-color: #0000FF;*/
 		position: relative;
 		height: 92%;
 		width: 100%;
 		padding: 0;
+		padding-top: 2px;
+		padding-bottom: 2px;
 		margin: 0;
+		margin-top: 2px;
+		margin-bottom: 2px;
 	}
 
-	svg {
-		/*background-color: #EFEFEF;*/
+	.mapping-svg {
+		/*background-color: #0000AA;*/
 		position: absolute;
+		padding: 0;
+		margin: 0;
 		margin-left: -12px;
+		margin-top: -2px;
 	}
 
 	.connection {
@@ -176,8 +194,10 @@
 		width: 300px;
 	}
 
-	.schema-name {
-		background-color: #66BDFF;
+	.schema-header {
+		display: flex;
+		justify-content: space-between;
+		background-color: #FFFFFF;
 		font-weight: bold;
 		font-size: 1.2em;
 		padding: 4px;
@@ -186,16 +206,29 @@
 	}
 
 	.schema-content {
+		/*background-color: #0000AA;*/
 		height: 92%;
 		overflow: auto;
-		padding: 4px;
-		margin: 4px;
+		padding: 0;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		margin: 0;
+		margin-top: 2px;
+		margin-bottom: 2px;
 	}
 
 	.schema-element {
 		padding: 2px;
 		margin: 2px;
 		border-radius: 4px;
+	}
+
+	.separator.horizontal {
+		padding: 0;
+		margin: 0;
+		height: 2px;
+		width: 100%;
+		background-color: #E9E9E9;
 	}
 
 	.input {
