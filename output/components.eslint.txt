@@ -40,6 +40,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   93:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
   94:2  error  A function with a name starting with an uppercase letter should only be used as a constructor  new-cap
 
+/home/travis/build/Talend/ui/packages/components/src/DataMapper/List/MandatoryField.js
+  12:20  error  Strings must use singlequote  quotes
+  13:20  error  Strings must use singlequote  quotes
+
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/List/Row.js
   62:4  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
@@ -83,9 +87,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaRenderers/DefaultRenderer.js
   99:15  error  Expected 'this' to be used by class method 'renderContent'  class-methods-use-this
 
-/home/travis/build/Talend/ui/packages/components/src/DataMapper/Schema/SchemaRenderers/ListRenderer.js
-  102:14  error  Expected 'this' to be used by class method 'getComponent'  class-methods-use-this
-
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/__snapshots__/config.js
   1:1  error  '@storybook/react' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
   4:2  error  Unexpected require()                                                                    global-require
@@ -107,5 +108,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 57 problems (56 errors, 1 warning)
+✖ 58 problems (57 errors, 1 warning)
 

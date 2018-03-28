@@ -4,26 +4,26 @@
 
 
 src/DataMapper/DataMapper.scss
-   48:10  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-   58:10  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  127:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  128:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  134:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  135:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  140:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  141:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  149:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  150:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  157:8   error  Qualifying elements are not allowed for class selectors                   no-qualifying-elements
-  166:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  168:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  172:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  173:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+   57:10  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+   69:10  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  138:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  139:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  145:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  146:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  151:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  152:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  160:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  161:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  168:8   error  Qualifying elements are not allowed for class selectors                   no-qualifying-elements
   177:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  182:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  187:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  200:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  251:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  179:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  183:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  184:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  188:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  193:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  198:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  211:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  262:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
 
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
