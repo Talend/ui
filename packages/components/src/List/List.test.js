@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import List from './List.component';
-import toJsonWithoutI18n from '../../__mocks__/props-without-i18n';
+import toJsonWithoutI18n from '../../test/props-without-i18n';
 
 const listProps = {
 	columns: [{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }],
