@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import List from './List.component';
+import toJsonWithoutI18n from '../../__mocks__/props-without-i18n';
 
 const listProps = {
 	columns: [{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }],
@@ -46,7 +46,7 @@ const props = {
 describe('List', () => {
 	it('should render', () => {
 		const wrapper = mount(<List {...props} />);
-		expect(toJson(wrapper.find('.tc-list'))).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper.find('.tc-list'))).toMatchSnapshot();
 	});
 
 	it('should render id if provided', () => {
@@ -55,11 +55,11 @@ describe('List', () => {
 			...props,
 		};
 		const wrapper = mount(<List {...tProps} />);
-		expect(toJson(wrapper.find('.tc-list'))).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper.find('.tc-list'))).toMatchSnapshot();
 	});
 
 	it('should not render the toolbar without toolbar props', () => {
 		const wrapper = mount(<List displayMode="table" list={listProps} />);
-		expect(toJson(wrapper.find('.tc-list'))).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper.find('.tc-list'))).toMatchSnapshot();
 	});
 });
