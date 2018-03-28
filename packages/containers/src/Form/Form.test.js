@@ -5,7 +5,6 @@ import { fromJS } from 'immutable';
 import Container from './Form.container';
 import Connected from './Form.connect';
 
-
 describe('Container(Form)', () => {
 	it('should pass props to Form lib', () => {
 		const wrapper = shallow(
@@ -58,13 +57,11 @@ describe('Container(Form)', () => {
 				formProps={{ other: true }}
 				uiform
 				language={{ OBJECT_REQUIRED: 'Field translated' }}
-			/>
+			/>,
 		);
 		const wrapperTalendForm = wrapper.find('TalendForm');
 		const wrapperTalendUIForm = wrapperTalendForm.find('TalendUIForm');
-		expect(
-			wrapperTalendUIForm.props().language.OBJECT_REQUIRED,
-		).toEqual('Field translated');
+		expect(wrapperTalendUIForm.props().language.OBJECT_REQUIRED).toEqual('Field translated');
 	});
 
 	it('should use props.onSubmit', () => {
