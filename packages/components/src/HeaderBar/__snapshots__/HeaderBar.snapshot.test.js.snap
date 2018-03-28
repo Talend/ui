@@ -539,16 +539,9 @@ exports[`Storyshots HeaderBar default 1`] = `
                 <span
                   className="theme-user-name user-name"
                 >
-                  <span
-                    className="theme-user-firstname user-firstname"
-                  >
-                    John
-                  </span>
-                  <span
-                    className="theme-user-lastname user-lastname"
-                  >
-                    Doe
-                  </span>
+                  John
+                   
+                  Doe
                 </span>
               </span>
             </span>
@@ -1170,16 +1163,9 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 <span
                   className="theme-user-name user-name"
                 >
-                  <span
-                    className="theme-user-firstname user-firstname"
-                  >
-                    John
-                  </span>
-                  <span
-                    className="theme-user-lastname user-lastname"
-                  >
-                    Doe
-                  </span>
+                  John
+                   
+                  Doe
                 </span>
               </span>
             </span>
@@ -1819,16 +1805,9 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 <span
                   className="theme-user-name user-name"
                 >
-                  <span
-                    className="theme-user-firstname user-firstname"
-                  >
-                    John
-                  </span>
-                  <span
-                    className="theme-user-lastname user-lastname"
-                  >
-                    Doe
-                  </span>
+                  John
+                   
+                  Doe
                 </span>
               </span>
             </span>
@@ -2402,16 +2381,9 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 <span
                   className="theme-user-name user-name"
                 >
-                  <span
-                    className="theme-user-firstname user-firstname"
-                  >
-                    John
-                  </span>
-                  <span
-                    className="theme-user-lastname user-lastname"
-                  >
-                    Doe
-                  </span>
+                  John
+                   
+                  Doe
                 </span>
               </span>
             </span>
@@ -2985,16 +2957,9 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 <span
                   className="theme-user-name user-name"
                 >
-                  <span
-                    className="theme-user-firstname user-firstname"
-                  >
-                    John
-                  </span>
-                  <span
-                    className="theme-user-lastname user-lastname"
-                  >
-                    Doe
-                  </span>
+                  John
+                   
+                  Doe
                 </span>
               </span>
             </span>
@@ -3596,16 +3561,9 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 <span
                   className="theme-user-name user-name"
                 >
-                  <span
-                    className="theme-user-firstname user-firstname"
-                  >
-                    John
-                  </span>
-                  <span
-                    className="theme-user-lastname user-lastname"
-                  >
-                    Doe
-                  </span>
+                  John
+                   
+                  Doe
                 </span>
               </span>
             </span>
@@ -4205,16 +4163,9 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                 <span
                   className="theme-user-name user-name"
                 >
-                  <span
-                    className="theme-user-firstname user-firstname"
-                  >
-                    John
-                  </span>
-                  <span
-                    className="theme-user-lastname user-lastname"
-                  >
-                    Doe
-                  </span>
+                  John
+                   
+                  Doe
                 </span>
               </span>
             </span>
@@ -4810,16 +4761,9 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 <span
                   className="theme-user-name user-name"
                 >
-                  <span
-                    className="theme-user-firstname user-firstname"
-                  >
-                    John
-                  </span>
-                  <span
-                    className="theme-user-lastname user-lastname"
-                  >
-                    Doe
-                  </span>
+                  John
+                   
+                  Doe
                 </span>
               </span>
             </span>
@@ -5745,16 +5689,9 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 <span
                   className="theme-user-name user-name"
                 >
-                  <span
-                    className="theme-user-firstname user-firstname"
-                  >
-                    John
-                  </span>
-                  <span
-                    className="theme-user-lastname user-lastname"
-                  >
-                    Doe
-                  </span>
+                  John
+                   
+                  Doe
                 </span>
               </span>
             </span>
@@ -6354,16 +6291,9 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                 <span
                   className="theme-user-name user-name"
                 >
-                  <span
-                    className="theme-user-firstname user-firstname"
-                  >
-                    John
-                  </span>
-                  <span
-                    className="theme-user-lastname user-lastname"
-                  >
-                    Doe
-                  </span>
+                  John
+                   
+                  Doe
                 </span>
               </span>
             </span>
@@ -6834,16 +6764,9 @@ exports[`Storyshots HeaderBar without products 1`] = `
                 <span
                   className="theme-user-name user-name"
                 >
-                  <span
-                    className="theme-user-firstname user-firstname"
-                  >
-                    John
-                  </span>
-                  <span
-                    className="theme-user-lastname user-lastname"
-                  >
-                    Doe
-                  </span>
+                  John
+                   
+                  Doe
                 </span>
               </span>
             </span>
@@ -8018,16 +7941,9 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                       <span
                         className="theme-user-name user-name"
                       >
-                        <span
-                          className="theme-user-firstname user-firstname"
-                        >
-                          John
-                        </span>
-                        <span
-                          className="theme-user-lastname user-lastname"
-                        >
-                          Doe
-                        </span>
+                        John
+                         
+                        Doe
                       </span>
                     </span>
                   </span>
@@ -8613,16 +8529,9 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                       <span
                         className="theme-user-name user-name"
                       >
-                        <span
-                          className="theme-user-firstname user-firstname"
-                        >
-                          John
-                        </span>
-                        <span
-                          className="theme-user-lastname user-lastname"
-                        >
-                          Doe
-                        </span>
+                        John
+                         
+                        Doe
                       </span>
                     </span>
                   </span>
@@ -9208,16 +9117,9 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                       <span
                         className="theme-user-name user-name"
                       >
-                        <span
-                          className="theme-user-firstname user-firstname"
-                        >
-                          John
-                        </span>
-                        <span
-                          className="theme-user-lastname user-lastname"
-                        >
-                          Doe
-                        </span>
+                        John
+                         
+                        Doe
                       </span>
                     </span>
                   </span>
@@ -9803,16 +9705,9 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                       <span
                         className="theme-user-name user-name"
                       >
-                        <span
-                          className="theme-user-firstname user-firstname"
-                        >
-                          John
-                        </span>
-                        <span
-                          className="theme-user-lastname user-lastname"
-                        >
-                          Doe
-                        </span>
+                        John
+                         
+                        Doe
                       </span>
                     </span>
                   </span>
@@ -10398,16 +10293,9 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                       <span
                         className="theme-user-name user-name"
                       >
-                        <span
-                          className="theme-user-firstname user-firstname"
-                        >
-                          John
-                        </span>
-                        <span
-                          className="theme-user-lastname user-lastname"
-                        >
-                          Doe
-                        </span>
+                        John
+                         
+                        Doe
                       </span>
                     </span>
                   </span>
@@ -10993,16 +10881,9 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                       <span
                         className="theme-user-name user-name"
                       >
-                        <span
-                          className="theme-user-firstname user-firstname"
-                        >
-                          John
-                        </span>
-                        <span
-                          className="theme-user-lastname user-lastname"
-                        >
-                          Doe
-                        </span>
+                        John
+                         
+                        Doe
                       </span>
                     </span>
                   </span>
@@ -11588,16 +11469,9 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                       <span
                         className="theme-user-name user-name"
                       >
-                        <span
-                          className="theme-user-firstname user-firstname"
-                        >
-                          John
-                        </span>
-                        <span
-                          className="theme-user-lastname user-lastname"
-                        >
-                          Doe
-                        </span>
+                        John
+                         
+                        Doe
                       </span>
                     </span>
                   </span>
