@@ -5,23 +5,25 @@
 
 src/DataMapper/DataMapper.scss
    48:10  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  109:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  110:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  116:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  117:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  122:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  123:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  131:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  132:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  139:8   error  Qualifying elements are not allowed for class selectors                   no-qualifying-elements
-  148:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+   58:10  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  127:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  128:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  134:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  135:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  140:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  141:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  149:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
   150:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  154:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  155:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  159:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  164:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  169:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
-  218:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  157:8   error  Qualifying elements are not allowed for class selectors                   no-qualifying-elements
+  166:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  168:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  172:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  173:9   error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  177:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  182:11  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  187:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  200:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
+  251:21  error  Hex values should use the shorthand format - 3 characters where possible  hex-length
 
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
@@ -29,5 +31,5 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-✖ 20 problems (18 errors, 2 warnings)
+✖ 22 problems (20 errors, 2 warnings)
 
