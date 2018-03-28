@@ -45,7 +45,7 @@ function renderMappingArea(
 	getYPosition,
 	dnd,
 	updateRef,
-	dndInProgress
+	dndInProgress,
 ) {
 	switch (renderer) {
 		case Constants.Connection.RENDERER.CANVAS:

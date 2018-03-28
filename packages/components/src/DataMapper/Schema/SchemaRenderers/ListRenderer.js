@@ -5,6 +5,9 @@ import MandatoryField from '../../List/MandatoryField';
 import * as Constants from '../../Constants';
 
 class SchemaClassNameProvider {
+	updateProps(props) {
+		this.props = props;
+	}
 
   updateProps(props) {
     this.props = props;
@@ -60,41 +63,40 @@ class SchemaClassNameProvider {
 }
 
 class SchemaDndListener {
+	updateProps(props) {
+		this.props = props;
+	}
 
-  updateProps(props) {
-    this.props = props;
-  }
+	beginDrag(element) {
+		return this.props.beginDrag(element, this.props.side);
+	}
 
-  beginDrag(element) {
-    return this.props.beginDrag(element, this.props.side);
-  }
+	canDrop(sourceItem, targetElement) {
+		const targetItem = {
+			element: targetElement,
+			side: this.props.side,
+		};
+		return this.props.canDrop(sourceItem, targetItem);
+	}
 
-  canDrop(sourceItem, targetElement) {
-    const targetItem = {
-      element: targetElement,
-      side: this.props.side,
-    };
-    return this.props.canDrop(sourceItem, targetItem);
-  }
-
-  drop(sourceItem, targetElement) {
-    this.props.drop(targetElement, this.props.side);
-    if (sourceItem.side === Constants.MappingSide.INPUT) {
-			this.props.performMapping(sourceItem.element, targetElement,
-        Constants.MappingSide.OUTPUT);
+	drop(sourceItem, targetElement) {
+		this.props.drop(targetElement, this.props.side);
+		if (sourceItem.side === Constants.MappingSide.INPUT) {
+			this.props.performMapping(sourceItem.element, targetElement, Constants.MappingSide.OUTPUT);
 		} else {
-			this.props.performMapping(targetElement, sourceItem.element,
-        Constants.MappingSide.INPUT);
+			this.props.performMapping(targetElement, sourceItem.element, Constants.MappingSide.INPUT);
 		}
-  }
+	}
 
-  endDrag() {
-    this.props.endDrag();
-  }
-
+	endDrag() {
+		this.props.endDrag();
+	}
 }
 
 class RowDataGetter {
+	updateProps(props) {
+		this.props = props;
+	}
 
   updateProps(props) {
     this.props = props;
@@ -134,6 +136,15 @@ class RowRenderers {
 }
 
 export default class ListRenderer {
+	constructor() {
+		this.select = this.select.bind(this);
+		this.revealConnection = this.revealConnection.bind(this);
+		this.onEnterElement = this.onEnterElement.bind(this);
+		this.onLeaveElement = this.onLeaveElement.bind(this);
+		this.classNameProvider = new SchemaClassNameProvider();
+		this.dndListener = new SchemaDndListener();
+		this.rowDataGetter = new RowDataGetter();
+	}
 
   constructor() {
     this.select = this.select.bind(this);
@@ -146,25 +157,23 @@ export default class ListRenderer {
     this.rowRenderers = new RowRenderers();
   }
 
-  getElement(ev) {
-    const node = ev.currentTarget;
-    const elementId = node.dataset.id;
-    return this.props.dataAccessor.getSchemaElementFromId(this.props.schema, elementId);
-  }
+	select(ev) {
+		const element = this.getElement(ev);
+		this.props.onSelect(ev.ctrlKey, element, this.props.side);
+	}
 
-  select(ev) {
-    const element = this.getElement(ev);
-    this.props.onSelect(ev.ctrlKey, element, this.props.side);
-  }
+	revealConnection(ev) {
+		const element = this.getElement(ev);
+		this.props.revealConnection(element, this.props.side);
+	}
 
-  revealConnection(ev) {
-    const element = this.getElement(ev);
-    this.props.revealConnection(element, this.props.side);
-  }
+	onEnterElement(element) {
+		this.props.onEnterElement(element, this.props.side);
+	}
 
-  onEnterElement(element) {
-    this.props.onEnterElement(element, this.props.side);
-  }
+	onLeaveElement(element) {
+		this.props.onLeaveElement(element, this.props.side);
+	}
 
   onLeaveElement(element) {
     this.props.onLeaveElement(element, this.props.side);

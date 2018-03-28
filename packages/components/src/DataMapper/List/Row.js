@@ -21,39 +21,38 @@ function renderRowData(
 }
 
 export default class Row extends Component {
-
-  constructor(props) {
-    super(props);
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+	constructor(props) {
+		super(props);
+		this.handleMouseEnter = this.handleMouseEnter.bind(this);
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
 		this.updateElementRef = this.updateElementRef.bind(this);
-  }
+	}
 
-  componentDidMount() {
-    if (this.elementRef != null) {
-      this.elementRef.addEventListener('mouseenter', this.handleMouseEnter);
-      this.elementRef.addEventListener('mouseleave', this.handleMouseLeave);
-    }
-  }
+	componentDidMount() {
+		if (this.elementRef != null) {
+			this.elementRef.addEventListener('mouseenter', this.handleMouseEnter);
+			this.elementRef.addEventListener('mouseleave', this.handleMouseLeave);
+		}
+	}
 
-  componentWillUnmount() {
-    if (this.elementRef != null) {
-      this.elementRef.removeEventListener('mouseenter', this.handleMouseEnter);
-      this.elementRef.removeEventListener('mouseleave', this.handleMouseLeave);
-    }
-  }
+	componentWillUnmount() {
+		if (this.elementRef != null) {
+			this.elementRef.removeEventListener('mouseenter', this.handleMouseEnter);
+			this.elementRef.removeEventListener('mouseleave', this.handleMouseLeave);
+		}
+	}
 
-  handleMouseEnter() {
-    this.props.onEnterElement(this.props.element);
-  }
+	handleMouseEnter() {
+		this.props.onEnterElement(this.props.element);
+	}
 
-  handleMouseLeave() {
-    this.props.onLeaveElement(this.props.element);
-  }
+	handleMouseLeave() {
+		this.props.onLeaveElement(this.props.element);
+	}
 
-  updateElementRef(ref) {
-    this.elementRef = ref;
-  }
+	updateElementRef(ref) {
+		this.elementRef = ref;
+	}
 
   render() {
     const {
@@ -92,11 +91,11 @@ export default class Row extends Component {
 Row.propTypes = {
 	element: PropTypes.object,
 	classNameProvider: PropTypes.func,
-  dataKeys: PropTypes.array,
-  rowDataGetter: PropTypes.func,
+	dataKeys: PropTypes.array,
+	rowDataGetter: PropTypes.func,
   rowRenderers: PropTypes.object,
 	onClick: PropTypes.func,
-  onDoubleClick: PropTypes.func,
-  onEnterElement: PropTypes.func,
+	onDoubleClick: PropTypes.func,
+	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
 };

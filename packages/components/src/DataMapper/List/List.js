@@ -47,7 +47,7 @@ function renderRow(
       onEnterElement={onEnterElement}
 			onLeaveElement={onLeaveElement}
 		/>
-  );
+	);
 }
 
 export default class List extends Component {
@@ -103,9 +103,9 @@ List.propTypes = {
   onScroll: PropTypes.func,
 	draggable: PropTypes.bool,
 	onClick: PropTypes.func,
-  onDoubleClick: PropTypes.func,
-  onEnterElement: PropTypes.func,
+	onDoubleClick: PropTypes.func,
+	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
 	dndListener: PropTypes.func,
-  updateListNodeRef: PropTypes.func,
+	updateListNodeRef: PropTypes.func,
 };

@@ -169,12 +169,7 @@ function getBezierParams(connection) {
 }
 
 function renderConnection(connection) {
-	return (
-		<Connection
-			params={getBezierParams(connection)}
-			style={connection.style}
-		/>
-	);
+	return <Connection params={getBezierParams(connection)} style={connection.style} />;
 }
 
 function appendSVGAnchor(anchorYPos, svgAnchors, bounds, part, style) {
@@ -198,12 +193,10 @@ function appendSVGAnchors(anchorYPositions, svgAnchors, part, style, bounds) {
 function appendStyledSVGAnchors(svgAnchors, anchors, bounds, style) {
 	let result = svgAnchors.slice();
 	if (anchors.input) {
-		result = appendSVGAnchors(anchors.input, result,
-			Constants.Anchor.PART.START, style, bounds);
+		result = appendSVGAnchors(anchors.input, result, Constants.Anchor.PART.START, style, bounds);
 	}
 	if (anchors.output) {
-		result = appendSVGAnchors(anchors.output, result,
-			Constants.Anchor.PART.END, style, bounds);
+		result = appendSVGAnchors(anchors.output, result, Constants.Anchor.PART.END, style, bounds);
 	}
 	return result;
 }
@@ -211,16 +204,28 @@ function appendStyledSVGAnchors(svgAnchors, anchors, bounds, style) {
 function buildSVGAnchors(anchors, bounds) {
 	let svgAnchors = [];
 	if (anchors.unmapped) {
-		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.unmapped, bounds,
-			Constants.Anchor.STYLE.UNMAPPED);
+		svgAnchors = appendStyledSVGAnchors(
+			svgAnchors,
+			anchors.unmapped,
+			bounds,
+			Constants.Anchor.STYLE.UNMAPPED,
+		);
 	}
 	if (anchors.selected) {
-		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.selected, bounds,
-			Constants.Anchor.STYLE.SELECTED);
+		svgAnchors = appendStyledSVGAnchors(
+			svgAnchors,
+			anchors.selected,
+			bounds,
+			Constants.Anchor.STYLE.SELECTED,
+		);
 	}
 	if (anchors.focused) {
-		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.focused, bounds,
-			Constants.Anchor.STYLE.FOCUSED);
+		svgAnchors = appendStyledSVGAnchors(
+			svgAnchors,
+			anchors.focused,
+			bounds,
+			Constants.Anchor.STYLE.FOCUSED,
+		);
 	}
 	if (anchors.mapped) {
 		svgAnchors = appendStyledSVGAnchors(svgAnchors, anchors.mapped, bounds,
@@ -245,12 +250,7 @@ function getAnchorParams(anchor) {
 }
 
 function renderAnchor(anchor) {
-	return (
-		<Anchor
-			anchor={anchor}
-			params={getAnchorParams(anchor)}
-		/>
-	);
+	return <Anchor anchor={anchor} params={getAnchorParams(anchor)} />;
 }
 
 class MappingSVG extends Component {
@@ -297,13 +297,7 @@ class MappingSVG extends Component {
 	}
 
 	render() {
-
-		const {
-			connectDropTarget,
-			getConnections,
-			getAnchors,
-			dnd,
-		} = this.props;
+		const { connectDropTarget, getConnections, getAnchors, dnd } = this.props;
 
 		let bounds = null;
 		if (this.svgParentElem != null) {
