@@ -25,24 +25,6 @@ class Datalist extends Component {
 			itemsList: theme.items,
 		};
 
-		/*let foundType = this.props.titleMap.find(item => item.name === props.value);
-		if (this.props.multiSection) {
-			const groups = this.props.titleMap;
-			for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex += 1) {
-				const itemObj = groups[sectionIndex].suggestions.find(item => item.name === props.value);
-				if (itemObj) {
-					foundType = itemObj;
-					break;
-				}
-			}
-		}
-		if (foundType) {
-			this.state = {
-				previousValue: props.value, value: props.value,
-			};
-		} else {
-			this.state = {};
-		} */
 		this.state = { previousValue: props.value, value: props.value };
 	}
 
