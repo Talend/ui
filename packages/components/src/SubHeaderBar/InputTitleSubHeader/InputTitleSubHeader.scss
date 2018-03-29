@@ -38,10 +38,9 @@ $tc-input-subheader-size-small: 1rem !default;
 		flex-direction: column;
 		justify-content: center;
 		overflow: hidden;
-		flex: 1;
+		flex: 1 auto;
 		margin-right: 110px;
 		max-width: 45rem;
-		min-width: 45rem; // needed for IE 11
 
 		&-title {
 			display: inline-flex;
