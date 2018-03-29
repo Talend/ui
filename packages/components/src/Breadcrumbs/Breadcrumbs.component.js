@@ -66,12 +66,14 @@ function Breadcrumbs(props) {
 		function getItemContent() {
 			if (!isActive && onClick) {
 				return (
-					<Action id={id}
-					        bsStyle="link"
-					        role="link"
-					        title={title}
-					        label={text}
-					        onClick={wrappedOnClick}/>
+					<Action
+						id={id}
+						bsStyle="link"
+						role="link"
+						title={title}
+						label={text}
+						onClick={wrappedOnClick}
+					/>
 				);
 			}
 			return (
