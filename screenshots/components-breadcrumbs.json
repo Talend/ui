@@ -1,0 +1,8 @@
+{
+  "components/iframe.html?selectedKind=Breadcrumbs&selectedStory=default": [
+    {
+      "name": "badge-default",
+      "selector": ".tc-breadcrumb"
+    }
+  ]
+}

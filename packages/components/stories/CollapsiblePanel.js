@@ -270,77 +270,91 @@ storiesOf('CollapsiblePanel', module)
 				<CollapsiblePanel {...propsCollapsiblePanel} />
 			</div>
 			<p>No content :</p>
-			<div id="one">
+			<div id="no-content">
 				<CollapsiblePanel {...propsPanel} />
 			</div>
 			<p>No content - Header with Actions :</p>
-			<div id="two">
+			<div id="with-actions">
 				<CollapsiblePanel {...propsPanelWithActions} />
 			</div>
 			<p>No content - Header without Actions :</p>
-			<div id="three">
+			<div id="without-actions">
 				<CollapsiblePanel {...propsPanelWithoutActions} />
 			</div>
 			<p>Header with groups :</p>
-			<CollapsiblePanel{...propsCollapsiblePanelWithHeaderGroups} />
+			<div id="with-groups">
+				<CollapsiblePanel {...propsCollapsiblePanelWithHeaderGroups} />
+			</div>
 			<p>Header with fixed circularProgress :</p>
-			<CollapsiblePanel {...propsCollapsiblePanelWithHeaderGroupsWithProgress} />
+			<div id="with-fixed-progress">
+				<CollapsiblePanel {...propsCollapsiblePanelWithHeaderGroupsWithProgress} />
+			</div>
 		</div>
 	))
 	.addWithInfo('Textual content', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider defaultIcons={icons}/>
+			<IconsProvider defaultIcons={icons} />
 			<p>With Content:</p>
-			<div id="selectable-panel-with-content2">
+			<div id="textual-with-content">
 				<CollapsiblePanel {...propsCollapsibleSelectablePanel} />
 			</div>
 			<p>Opened with Content:</p>
-			<div id="selectable-panel-with-content3">
+			<div id="textual-opened-with-content">
 				<CollapsiblePanel {...propsCollapsibleSelectablePanel} expanded />
 			</div>
 			<p>Panel Without readonly tag and without content:</p>
-			<div id="selectable-panel-with-content4">
+			<div id="textual-without-readonly">
 				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} status={''} />
 			</div>
 		</div>
 	))
 	.addWithInfo('Selected Collapsible', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider defaultIcons={icons}/>
+			<IconsProvider defaultIcons={icons} />
 			<p>Selected Panel With Content:</p>
-			<div id="selectable-panel-with-content1">
+			<div id="selected-with-content">
 				<CollapsiblePanel {...propsCollapsibleSelectedPanel} />
 			</div>
 			<p>Selected Panel Without readonly tag and without content:</p>
-			<div id="selectable-panel-with-content2">
+			<div id="selected-without-readonly">
 				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} />
 			</div>
 			<p>Selected Panel Without content:</p>
-			<div id="selected-panel-without-content">
+			<div id="selected-without-content">
 				<CollapsiblePanel {...propsSelectedPanelWithoutContent} />
 			</div>
 			<p>Selected key/Value CollapsiblePanel:</p>
-			<CollapsiblePanel {...propsCollapsiblePanel} status={'selected'}/>
+			<div id="selected-key-value">
+				<CollapsiblePanel {...propsCollapsiblePanel} status={'selected'}/>
+			</div>
 			<p>Selected key/Value CollapsiblePanel without content:</p>
 			<CollapsiblePanel {...propsPanelWithoutActions} status={'selected'}/>
 		</div>
 	))
 	.addWithInfo('Status Collapsible', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider defaultIcons={icons}/>
+			<IconsProvider defaultIcons={icons} />
 			<p>CollapsiblePanel with status info:</p>
-			<CollapsiblePanel {...propsInProgressCollapsiblePanel} status={'inProgress'}/>
+			<div id="status-info">
+				<CollapsiblePanel {...propsInProgressCollapsiblePanel} status={'inProgress'}/>
+			</div>
 			<p>CollapsiblePanel with status successful:</p>
-			<CollapsiblePanel {...propsSuccessfulCollapsiblePanel} status={'successful'}/>
+			<div id="status-success">
+				<CollapsiblePanel {...propsSuccessfulCollapsiblePanel} status={'successful'}/>
+			</div>
 			<p>CollapsiblePanel with status failed:</p>
-			<CollapsiblePanel {...propsFailedCollapsiblePanel} status={'failed'}/>
+			<div id="status-failed">
+				<CollapsiblePanel {...propsFailedCollapsiblePanel} status={'failed'} />
+			</div>
 			<p>CollapsiblePanel with status canceled:</p>
-			<CollapsiblePanel {...propsCanceledCollapsiblePanel} status={'canceled'}/>
+			<div id="status-canceled">
+				<CollapsiblePanel {...propsCanceledCollapsiblePanel} status={'canceled'} />
+			</div>
 		</div>
 	))
 	.addWithInfo('Adjustment textual collapsibles', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider defaultIcons={icons}/>
+			<IconsProvider defaultIcons={icons} />
 			<p>Adjustement Story:</p>
 			<div id="selectable-panel-with-content1">
 				<CollapsiblePanel {...propsCollapsibleSelectedPanel} />
