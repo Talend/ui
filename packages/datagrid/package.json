@@ -145,8 +145,8 @@
   },
   "version": "0.171.0",
   "dependencies": {
-    "ag-grid": "^16.0.0",
-    "ag-grid-react": "^16.0.0",
+    "ag-grid": "^17.0.0",
+    "ag-grid-react": "^17.0.0",
     "react-dom-factories": "^1.0.2"
   }
 }
