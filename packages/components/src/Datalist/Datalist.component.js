@@ -25,6 +25,24 @@ class Datalist extends Component {
 			itemsList: theme.items,
 		};
 
+		/*let foundType = this.props.titleMap.find(item => item.name === props.value);
+		if (this.props.multiSection) {
+			const groups = this.props.titleMap;
+			for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex += 1) {
+				const itemObj = groups[sectionIndex].suggestions.find(item => item.name === props.value);
+				if (itemObj) {
+					foundType = itemObj;
+					break;
+				}
+			}
+		}
+		if (foundType) {
+			this.state = {
+				previousValue: props.value, value: props.value,
+			};
+		} else {
+			this.state = {};
+		} */
 		this.state = { previousValue: props.value, value: props.value };
 	}
 
@@ -198,7 +216,6 @@ class Datalist extends Component {
 		this.setState({
 			// setting the filtered value so it needs to be actual value
 			value: typeof value === 'object' ? value.title : value,
-			previousValue: typeof previousValue === 'object' ? previousValue.title : previousValue,
 		});
 		if (persist) {
 			let enumValue = this.props.titleMap.find(item => item.name === value);
@@ -212,8 +229,19 @@ class Datalist extends Component {
 					}
 				}
 			}
-			const payload = { value: get(enumValue, 'value', value) };
-			this.props.onChange(event, payload);
+			const payload = { value: get(enumValue, 'value') };
+			if (payload.value) {
+				this.props.onChange(event, payload);
+				// setting the previous value to current only if the current value exists
+				this.setState({
+					previousValue: typeof previousValue === 'object' ? previousValue.title : previousValue,
+				});
+			} else {
+				this.setState({
+					// if the value is not find we put the previous one or reset if there's none
+					value: this.state.previousValue || '',
+				});
+			}
 		}
 	}
 

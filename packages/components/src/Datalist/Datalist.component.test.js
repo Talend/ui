@@ -111,6 +111,33 @@ describe('Datalist component', () => {
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: 'foobar' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(1);
+
+		// when
+		input.simulate('blur');
+
+		// then
+		const payload = { value: 'foobar' };
+		expect(onChange).toBeCalledWith(expect.anything(), payload);
+		expect(wrapper.find(Typeahead).props().items).toBe(null);
+	});
+
+	it('should reset suggestions and not change value on blur', () => {
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				{...props}
+				value={'foo'}
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
 		input.simulate('change', { target: { value: 'fo' } });
 		expect(wrapper.find(Typeahead).props().items.length).toBe(2);
 
@@ -118,8 +145,8 @@ describe('Datalist component', () => {
 		input.simulate('blur');
 
 		// then
-		const payload = { value: 'fo' };
-		expect(onChange).toBeCalledWith(expect.anything(), payload);
+		const payload = { value: 'far' };
+		expect(onChange).not.toBeCalled();
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
@@ -219,6 +246,32 @@ describe('Datalist component', () => {
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: 'foobar' } });
+		expect(onChange).not.toBeCalled();
+
+		// when
+		input.simulate('keydown', { which: keycode.codes.enter });
+
+		// then
+		const payload = { value: 'foobar' };
+		expect(onChange).toBeCalledWith(expect.anything(), payload);
+	});
+
+	it('should not change value on ENTER keydown when value does not exist', () => {
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				{...props}
+				value={'foo'}
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
 		input.simulate('change', { target: { value: 'fo' } });
 		expect(onChange).not.toBeCalled();
 
@@ -226,8 +279,7 @@ describe('Datalist component', () => {
 		input.simulate('keydown', { which: keycode.codes.enter });
 
 		// then
-		const payload = { value: 'fo' };
-		expect(onChange).toBeCalledWith(expect.anything(), payload);
+		expect(onChange).not.toBeCalled();
 	});
 
 	it('should reset suggestions on ENTER keydown', () => {
