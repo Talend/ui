@@ -1,4 +1,4 @@
-$dropdown-shadow: 0 -1px 3px 0px  rgba(0,0,0,0.2) !default;
+$dropdown-shadow: 0 -1px 3px 0px rgba(0, 0, 0, 0.2) !default;
 $form-shadow: inset 0 -1px 0 $gallery !default;
 $form-focus-shadow: inset 0 -2px 0 $scooter;
 
@@ -23,7 +23,7 @@ $form-focus-shadow: inset 0 -2px 0 $scooter;
 		box-shadow: $form-focus-shadow;
 	}
 	:global(.Select-menu-outer) {
-		margin-top: 0;  // to see border-bottom of select-control
+		margin-top: 0; // to see border-bottom of select-control
 		border: 1px solid $gallery;
 		border-radius: 4px;
 		box-shadow: $dropdown-shadow;
