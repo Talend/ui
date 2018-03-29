@@ -211,7 +211,7 @@ class Datalist extends Component {
 					}
 				}
 			}
-			let payload = { value: get(enumValue, 'value') };
+			const payload = { value: get(enumValue, 'value') };
 			if (payload.value || !this.props.restricted) {
 				this.props.onChange(
 					event,
