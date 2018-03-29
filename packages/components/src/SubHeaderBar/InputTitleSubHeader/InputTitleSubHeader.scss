@@ -114,6 +114,7 @@ $tc-input-subheader-size-small: 1rem !default;
 				padding: 0;
 				margin-left: $padding-large;
 				justify-content: center;
+				align-items: center;
 
 				> svg {
 					width: $tc-input-subheader-size-medium;

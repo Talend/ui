@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
+import toJsonWithoutI18n from '../__mocks__/props-without-i18n';
 
 // FIXME: Temporary fix only on tests while the issue
 // described on the following pull request isn't fixed.
@@ -312,7 +313,7 @@ describe('<Form/>', () => {
 			reset.simulate('click');
 			expect(onClickReset.mock.calls.length).toEqual(1);
 			expect(onClickReset.mock.calls[0][0]).toBeTruthy();
-			expect(onClickReset.mock.calls[0][1]).toMatchSnapshot();
+			expect(toJsonWithoutI18n(onClickReset.mock.calls[0][1])).toMatchSnapshot();
 		});
 
 		it('should render form with custom css', () => {

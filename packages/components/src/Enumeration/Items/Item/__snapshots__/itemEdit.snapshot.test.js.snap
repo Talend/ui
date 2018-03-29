@@ -16,6 +16,7 @@ exports[`Item should display input value with error 1`] = `
     className="theme-tc-enumeration-item-actions tc-enumeration-item-actions"
   >
     <button
+      aria-label="Validate"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -26,6 +27,7 @@ exports[`Item should display input value with error 1`] = `
       type="button"
     />
     <button
+      aria-label="Cancel"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -60,6 +62,7 @@ exports[`Item should display input value with two buttons 1`] = `
     className="theme-tc-enumeration-item-actions tc-enumeration-item-actions"
   >
     <button
+      aria-label="Validate"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -70,6 +73,7 @@ exports[`Item should display input value with two buttons 1`] = `
       type="button"
     />
     <button
+      aria-label="Cancel"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
@@ -103,6 +107,7 @@ exports[`Item should display input value with two buttons. The validate button i
       onMouseOver={[Function]}
     >
       <button
+        aria-label="Validate"
         className="theme-btn-disabled btn btn-link"
         disabled={true}
         onClick={[Function]}
@@ -112,6 +117,7 @@ exports[`Item should display input value with two buttons. The validate button i
       />
     </span>
     <button
+      aria-label="Cancel"
       className="btn btn-link"
       disabled={false}
       onClick={[Function]}
