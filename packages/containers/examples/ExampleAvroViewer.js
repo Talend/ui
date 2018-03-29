@@ -1,19 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
-
-import { ObjectViewer, IconsProvider } from '../src/index';
-import DefaultDateRenderer from '../src/ObjectViewer/AvroRenderer/DefaultDateRenderer.component';
+import AvroViewer from '../src/AvroViewer';
 
 const icons = {
 	'talend-caret-down': talendIcons['talend-caret-down'],
 	'talend-chevron-left': talendIcons['talend-chevron-left'],
 	'talend-plus-circle': talendIcons['talend-plus-circle'],
 };
-
-const stories = storiesOf('AvroViewer', module);
 
 const simpleJson = [
 	{
@@ -434,173 +426,17 @@ const modelItemMenu = [
 	{ label: 'MDR action', onClick: action('onMdrClick') },
 ];
 
-function ToggleManager(Component) {
-	return class ToggledComponentWrapper extends React.Component {
-		static displayName = `ToggleManager(${Component.displayName})`;
-		static propTypes = {
-			onToggle: PropTypes.func,
-		};
-
-		constructor(props) {
-			super(props);
-			this.state = { opened: [], isSingle: false };
-			this.onToggle = this.onToggle.bind(this);
-		}
-
-		onToggle(event, options, index = 'default') {
-			let itemOpened = (this.state.opened && this.state.opened[index]) || [];
-			if (options.isOpened) {
-				itemOpened = itemOpened.filter(path => path !== options.jsonpath);
-			} else {
-				itemOpened = itemOpened.concat(options.jsonpath);
-			}
-
-			this.setState({
-				isSingle: index === 'default',
-				opened: {
-					...this.state.opened,
-					[index]: itemOpened,
-				},
-			});
-
-			if (this.props.onToggle) {
-				this.props.onToggle(event, options, index);
-			}
-		}
-
-		render() {
-			const opened = this.state.isSingle ? this.state.opened.default : this.state.opened;
-			return <Component {...this.props} onToggle={this.onToggle} opened={opened} />;
-		}
-	};
-}
-
-const ObjectViewerWithToggle = ToggleManager(ObjectViewer);
-
-const customAvroRenderersIds = {
-	date: 'myCustomDateRenderer',
-};
-const customAvroRenderersRegistry = {
-	myCustomDateRenderer: props => {
-		let value = props.data.value;
-		if (typeof value === 'number') {
-			const date = new Date(value);
-			value = `Custom renderer, only year - ${date.getFullYear()}`;
-		}
-		return <span>{value}</span>;
-	},
-};
-function getComponent(componentId) {
-	return customAvroRenderersRegistry[componentId];
-}
-
-class AvroViewer extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = { highlighted: [] };
-		this.onSelect = this.onSelect.bind(this);
-	}
-
-	onSelect(event, jsonpath) {
-		const adaptedJsonPath = jsonpath
-			.replace(/[-[{}()*+?.,\\^$|#\s]/g, '\\$&')
-			.replace(/\[]/g, '[[0-9]+]');
-		this.setState({
-			highlighted: [new RegExp(`^${adaptedJsonPath}$`)],
-		});
-	}
-
-	render() {
-		const partStyle = {
-			flexGrow: 1,
-			flexShrink: 1,
-			flexBasis: 50,
-		};
-		let avroRenderersIds;
-		if (this.props.useCustomRenderers) {
-			avroRenderersIds = customAvroRenderersIds;
-		}
-		return (
-			<div style={{ display: 'flex', alignItems: 'stretch', height: '100%' }}>
-				<div style={partStyle}>
-					<ObjectViewerWithToggle
-						displayMode="model"
-						data={sample.schema}
-						menu={modelItemMenu}
-						onSelect={this.onSelect}
-						quality={{
-							key: '@talend-quality@',
-							menu: qualityMenu,
-						}}
-					/>
-				</div>
-				<div style={partStyle}>
-					<ObjectViewerWithToggle
-						avroRenderersIds={avroRenderersIds}
-						displayMode={'records'}
-						data={sample.data}
-						getComponent={getComponent}
-						highlighted={this.state.highlighted}
-						schema={sample.schema}
-					/>
-				</div>
-			</div>
-		);
-	}
-}
-AvroViewer.propTypes = {
-	useCustomRenderers: PropTypes.bool,
+const props = {
+	sample,
+	modelItemMenu,
+	qualityMenu,
 };
 
-stories
-	.addWithInfo('simple JSON object', () => (
+const ExampleAvroViewer = {
+	default: () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
-			<ObjectViewerWithToggle
-				displayMode="generic"
-				data={simpleJson}
-				onSelect={action('onSelect')}
-				onToggle={action('onToggle')}
-			/>
+			<IconsProvider />
+			<AvroViewer {...props} />
 		</div>
-	))
-	.addWithInfo('data model', () => (
-		<div>
-			<IconsProvider defaultIcons={icons} />
-			<ObjectViewerWithToggle
-				displayMode="model"
-				data={sample.schema}
-				menu={modelItemMenu}
-				onSelect={action('onSelect')}
-				onToggle={action('onToggle')}
-				quality={{
-					key: '@talend-quality@',
-					menu: qualityMenu,
-				}}
-			/>
-		</div>
-	))
-	.addWithInfo('records', () => (
-		<div style={{ height: 500 }}>
-			<IconsProvider defaultIcons={icons} />
-			<ObjectViewerWithToggle
-				schema={sample.schema}
-				displayMode={'records'}
-				data={sample.data}
-				highlighted={[/^\$\['ingredients']\[[0-9]+]\['name']$/]}
-				onToggle={action('onToggle')}
-			/>
-		</div>
-	))
-	.addWithInfo('Avro viewer', () => (
-		<div style={{ height: 500 }}>
-			<IconsProvider defaultIcons={icons} />
-			<AvroViewer />
-		</div>
-	))
-	.addWithInfo('Avro viewer with custom date renderer', () => (
-		<div style={{ height: 500 }}>
-			<IconsProvider defaultIcons={icons} />
-			<AvroViewer useCustomRenderers />
-		</div>
-	));
+	),
+};
