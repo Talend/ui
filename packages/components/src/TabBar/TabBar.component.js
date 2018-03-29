@@ -46,9 +46,7 @@ function TabBar({ items, onSelect, selectedKey, className }) {
 TabBar.displayName = 'TabBar';
 
 TabBar.propTypes = {
-	items: PropTypes.arrayOf(
-		Tab.propTypes,
-	).isRequired,
+	items: PropTypes.arrayOf(Tab.propTypes).isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selectedKey: PropTypes.string,
 	className: PropTypes.string,
