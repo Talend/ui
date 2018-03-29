@@ -221,10 +221,7 @@ class Datalist extends Component {
 					previousValue: typeof previousValue === 'object' ? previousValue.title : previousValue,
 				});
 			} else {
-				this.setState({
-					// if the value is not find we put the previous one or reset if there's none
-					value: this.state.previousValue || '',
-				});
+				this.resetValue();
 			}
 		}
 	}
