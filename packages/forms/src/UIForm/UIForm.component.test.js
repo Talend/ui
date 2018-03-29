@@ -1,8 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import tv4 from 'tv4';
 import { actions, data, mergedSchema, initProps } from '../../__mocks__/data';
 
-import UIForm from './UIForm.component';
+import UIForm, { UIFormComponent } from './UIForm.component';
 
 describe('UIForm component', () => {
 	let props;
@@ -17,7 +18,7 @@ describe('UIForm component', () => {
 
 	it('should render form', () => {
 		// when
-		const wrapper = shallow(<UIForm {...data} {...props} />);
+		const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -25,10 +26,31 @@ describe('UIForm component', () => {
 
 	it('should render provided actions', () => {
 		// when
-		const wrapper = shallow(<UIForm {...data} {...props} actions={actions} />);
+		const wrapper = shallow(<UIFormComponent {...data} {...props} actions={actions} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should take in account customFormat', () => {
+		// given
+		const notABCRegExp = /[^abc]+/g;
+		const customFormats = {
+			noABC: fieldData => {
+				if (typeof fieldData === 'string' && !notABCRegExp.test(fieldData)) {
+					return 'test custom';
+				}
+				return null;
+			},
+		};
+
+		expect(tv4.validate('abc', { format: 'noABC' })).toBe(true);
+		expect(tv4.validate('def', { format: 'noABC' })).toBe(true);
+
+		mount(<UIForm {...data} {...props} customFormats={customFormats} />);
+
+		expect(tv4.validate('abc', { format: 'noABC' })).toBe(false);
+		expect(tv4.validate('def', { format: 'noABC' })).toBe(true);
 	});
 
 	describe('#onChange', () => {
@@ -123,7 +145,7 @@ describe('UIForm component', () => {
 
 		it('should set errors, applying widget errors hook', () => {
 			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 			const newValue = 'toto is toto';
 			const event = { target: { value: newValue } };
 			const newErrors = { lastname: 'lol' };
@@ -171,7 +193,7 @@ describe('UIForm component', () => {
 
 		it('should prevent event default', () => {
 			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 
 			// when
 			wrapper.instance().onSubmit(submitEvent);
@@ -182,18 +204,20 @@ describe('UIForm component', () => {
 
 		it('should validate all fields', () => {
 			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 
 			// when
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(submitEvent, { firstname: 'Missing required field' });
+			expect(props.setErrors).toBeCalledWith(submitEvent, {
+				firstname: 'Missing required field',
+			});
 		});
 
 		it('should not call submit callback when form is invalid', () => {
 			// given
-			const wrapper = shallow(<UIForm {...data} {...props} />);
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
 
 			// when
 			wrapper.instance().onSubmit(submitEvent);
@@ -209,7 +233,7 @@ describe('UIForm component', () => {
 				lastname: 'This has at least 10 characters',
 				firstname: 'This is required',
 			};
-			const wrapper = shallow(<UIForm {...data} {...props} properties={validProperties} />);
+			const wrapper = mount(<UIFormComponent {...data} {...props} properties={validProperties} />);
 
 			// when
 			wrapper.instance().onSubmit(submitEvent);
