@@ -39,7 +39,6 @@ function log(msg) {
 
 const TMP_CONFIG = { postfix: '.png' };
 
-
 (async () => {
 	async function asyncForEach(array, callback) {
 		for (let index = 0; index < array.length; index += 1) {
@@ -47,16 +46,15 @@ const TMP_CONFIG = { postfix: '.png' };
 		}
 	}
 
-
 	async function getScreenShot(page, config) {
 		let screenshot;
 		const element = await page.$(`${config.selector}`);
-		if (!!element) {
+		if (element) {
 			screenshot = await tmp.file(TMP_CONFIG);
 			await element.screenshot({ path: screenshot.path });
 		} else {
 			console.error(`Not found element ${config.name} at ${page.url()}`);
-			return;
+			return undefined;
 		}
 		return screenshot;
 	}
@@ -66,14 +64,29 @@ const TMP_CONFIG = { postfix: '.png' };
 		const masterScreenShot = await getScreenShot(masterPage, pageConfig);
 		const branchScreenShot = await getScreenShot(branchPage, pageConfig);
 		log('Read img master');
+		if (!masterScreenShot) {
+			console.error('-- do not exists on master');
+			return;
+		}
 		const masterImage = PNG.sync.read(fs.readFileSync(masterScreenShot.path));
 		log('-- ok');
 		log('Read img PR');
 		const branchImage = PNG.sync.read(fs.readFileSync(branchScreenShot.path));
+		if (!branchImage) {
+			console.error('-- do not exists on PR');
+			return;
+		}
 		log('-- ok');
 		log('compute diff');
 		const diff = new PNG({ width: masterImage.width, height: masterImage.height });
-		const diffPixel = pixelmatch(masterImage.data, branchImage.data, diff.data, masterImage.width, masterImage.height, { threshold: 0.1 });
+		const diffPixel = pixelmatch(
+			masterImage.data,
+			branchImage.data,
+			diff.data,
+			masterImage.width,
+			masterImage.height,
+			{ threshold: 0.1 },
+		);
 		if (diffPixel > 0) {
 			const diffScreenShot = await tmp.file({ prefix: pageConfig.name, keep: true, ...TMP_CONFIG });
 			console.error(`-- ${diffPixel} pixels differ from the original one ${diffScreenShot.path}`);
@@ -83,9 +96,8 @@ const TMP_CONFIG = { postfix: '.png' };
 		}
 	}
 
-	async function compare(masterPage, branchPage, path='theme') {
+	async function compare(masterPage, branchPage, path = 'theme') {
 		log(`\nCompare ${path}`);
-		let filesRead = 0;
 		log('Go to master page');
 		await masterPage.goto(`http://talend.surge.sh/${path}`);
 		log('-- ok');
@@ -93,7 +105,7 @@ const TMP_CONFIG = { postfix: '.png' };
 		await branchPage.goto(`http://${PR}.talend.surge.sh/${path}`);
 		log('-- ok');
 
-		await asyncForEach(config[path], async (config) => await process(masterPage, branchPage, config));
+		await asyncForEach(config[path], async config => await process(masterPage, branchPage, config));
 	}
 
 	log('Launch puppeteer');
@@ -106,7 +118,7 @@ const TMP_CONFIG = { postfix: '.png' };
 	await asyncForEach(Object.keys(config), async path => {
 		try {
 			await compare(masterPage, branchPage, path);
-		} catch(error) {
+		} catch (error) {
 			console.error(path, error);
 		}
 	});
