@@ -2546,7 +2546,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
         <path
           className="ti-tdp-positive-bg"
           d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0"
-          fill="#4f93a7"
+          fill="#00A1B3"
         />
         <g
           className="ti-tdp-positive-logo"
@@ -5495,7 +5495,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
         <path
           className="ti-tdp-positive-bg"
           d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0"
-          fill="#4f93a7"
+          fill="#00A1B3"
         />
         <g
           className="ti-tdp-positive-logo"

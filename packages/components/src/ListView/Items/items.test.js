@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import Items from './Items.component';
+import toJsonWithoutI18n from './../../../test/props-without-i18n';
 
 jest.mock(
 	'../../../../../node_modules/react-virtualized/dist/commonjs/AutoSizer/AutoSizer',
@@ -31,7 +31,7 @@ describe('Items', () => {
 		const wrapper = mount(<Items {...props} />);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render with provided id', () => {
@@ -39,7 +39,7 @@ describe('Items', () => {
 		const wrapper = mount(<Items {...props} id={'my-widget'} />);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render without toggleAll checkbox', () => {
@@ -55,6 +55,6 @@ describe('Items', () => {
 		const wrapper = mount(<Items {...propsNested} />);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 });

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.talend</groupId>
     <artifactId>component-objects</artifactId>
-    <version>0.171.0</version>
+    <version>0.172.0</version>
 
     <properties>
         <!-- project -->

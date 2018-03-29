@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Action } from '../../index';
 import { cellTitleDisplayModes } from '../utils/constants';
 import CellTitleInput from './CellTitleInput.component';
 
@@ -19,6 +19,7 @@ function CellTitleSelector(props) {
 		onEditSubmit,
 		onEditCancel,
 		rowData,
+		columnData,
 	} = props;
 
 	if (displayMode === TITLE_MODE_INPUT) {
@@ -35,15 +36,15 @@ function CellTitleSelector(props) {
 
 	if (onClick) {
 		return (
-			<Button
+			<Action
+				{...columnData}
 				id={id && `${id}-btn`}
 				className={className}
 				onClick={event => onClick(event, rowData)}
 				role="link"
 				bsStyle="link"
-			>
-				{cellData}
-			</Button>
+				label={cellData}
+			/>
 		);
 	}
 
@@ -69,6 +70,8 @@ CellTitleSelector.propTypes = {
 	onEditCancel: PropTypes.func,
 	/** Input mode : the submit callback on ENTER keydown or blur. */
 	onEditSubmit: PropTypes.func,
+	/** The column item */
+	columnData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	/** The collection item. */
 	rowData: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
