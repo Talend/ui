@@ -213,10 +213,7 @@ class Datalist extends Component {
 			}
 			const selectedEnumValue = get(enumValue, 'value');
 			if (selectedEnumValue || !this.props.restricted) {
-				this.props.onChange(
-					event,
-					{ value: selectedEnumValue || value },
-				);
+				this.props.onChange(event, { value: selectedEnumValue || value });
 				this.setState({
 					previousValue: typeof previousValue === 'object' ? previousValue.title : previousValue,
 				});
