@@ -1,7 +1,7 @@
-const emailRegExp = /^\S+@\S+$/g;
+const emailRegExp = /^\S+@\S+$/;
 const urlHttpOrHttpsRegExp = /^(http|https):\/\/\S+$/;
 const leadingTralingSpaceRegExp = /^\s|\s$/;
-const stringWithoutSpaceRegExp = /^\S+$/g;
+const stringWithoutSpaceRegExp = /^\S+$/;
 
 const customFormats = t => ({
 	email: fieldData => {

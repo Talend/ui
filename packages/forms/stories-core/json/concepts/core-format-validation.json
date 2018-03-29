@@ -10,11 +10,21 @@
       "firstname": {
         "type": "string",
         "format": "no-leading-trailing-space"
+      },
+      "website": {
+        "type": "string",
+        "format": "url-http-https"
+      },
+      "email": {
+        "type": "string",
+        "format": "email"
       }
     },
     "required": [
       "lastname",
-      "firstname"
+      "firstname",
+      "website",
+      "email"
     ]
   },
   "uiSchema": [
@@ -27,6 +37,16 @@
       "key": "firstname",
       "title": "First Name",
       "description": "This field has a format validation (string without leading or trailing space)"
+    },
+    {
+      "key": "website",
+      "title": "Website",
+      "description": "This field has a format validation (need to be an http or https url)"
+    },
+    {
+      "key": "email",
+      "title": "Email",
+      "description": "This field has a format validation (need to be an email)"
     }
   ],
   "properties": {}
