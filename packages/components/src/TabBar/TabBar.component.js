@@ -11,7 +11,7 @@ function Tab({ item, onClick, isSelected }) {
 	};
 	return (
 		<li className={classNames(['tc-tab-bar-action', isSelected && 'active'])}>
-			<Action {...item} bsStyle="link" id={item.id} label={item.label} onClick={onSelect} />
+			<Action bsStyle="link" onClick={onSelect} {...item} />
 		</li>
 	);
 }
@@ -31,11 +31,10 @@ function TabBar({ items, onSelect, selectedKey, className }) {
 		<nav className={classNames(['nav', 'tc-tab-bar', className, theme['tc-tab-bar']])}>
 			<ul className="nav nav-tabs tc-tab-bar-actions">
 				{items.map(item => (
-					<Tab
-						key={item.key}
-						onClick={onSelect}
-						isSelected={selectedKey === item.key}
-						item={item}
+					<Tab key={item.key}
+					     onClick={onSelect}
+					     isSelected={selectedKey === item.key}
+					     item={item}
 					/>
 				))}
 			</ul>
