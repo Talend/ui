@@ -7,40 +7,75 @@ exports[`Select field should render disabled input 1`] = `
   id="mySelect"
   isValid={true}
   label="My Select title"
-  labelAfter={true}
   required={undefined}
 >
-  <select
+  <Select
+    arrowRenderer={[Function]}
     autoFocus={true}
-    className="form-control"
+    autosize={true}
+    backspaceRemoves={true}
+    backspaceToRemoveMessage="Press backspace to remove {label}"
+    className="theme-override"
+    clearAllText="Clear all"
+    clearRenderer={[Function]}
+    clearValueText="Clear value"
+    clearable={true}
+    closeOnSelect={true}
+    deleteRemoves={true}
+    delimiter=","
     disabled={true}
+    escapeClearsValue={true}
+    filterOptions={[Function]}
     id="mySelect"
-    multiple={false}
+    ignoreAccents={true}
+    ignoreCase={true}
+    inputProps={Object {}}
+    isLoading={false}
+    joinValues={false}
+    labelKey="label"
+    matchPos="any"
+    matchProp="any"
+    menuBuffer={0}
+    menuRenderer={[Function]}
+    multi={false}
+    noResultsText="No results found"
+    onBlurResetsInput={true}
     onChange={[Function]}
+    onCloseResetsInput={true}
+    onSelectResetsInput={true}
+    openOnClick={true}
+    optionComponent={[Function]}
+    options={
+      Array [
+        Object {
+          "label": "My foo title",
+          "value": "foo",
+        },
+        Object {
+          "label": "My bar title",
+          "value": "bar",
+        },
+        Object {
+          "label": "My lol title",
+          "value": "lol",
+        },
+      ]
+    }
+    pageSize={5}
+    placeholder="Please select a value"
     readOnly={false}
+    removeSelected={true}
+    required={false}
+    rtl={false}
+    scrollMenuIntoView={true}
+    searchable={true}
+    simpleValue={false}
+    tabSelectsValue={true}
+    trimFilter={true}
     value="lol"
-  >
-    <option
-      disabled={true}
-    >
-      Please select a value
-    </option>
-    <option
-      value="foo"
-    >
-      My foo title
-    </option>
-    <option
-      value="bar"
-    >
-      My bar title
-    </option>
-    <option
-      value="lol"
-    >
-      My lol title
-    </option>
-  </select>
+    valueComponent={[Function]}
+    valueKey="value"
+  />
 </FieldTemplate>
 `;
 
@@ -51,40 +86,75 @@ exports[`Select field should render readOnly input 1`] = `
   id="mySelect"
   isValid={true}
   label="My Select title"
-  labelAfter={true}
   required={undefined}
 >
-  <select
+  <Select
+    arrowRenderer={[Function]}
     autoFocus={true}
-    className="form-control"
+    autosize={true}
+    backspaceRemoves={true}
+    backspaceToRemoveMessage="Press backspace to remove {label}"
+    className="theme-override"
+    clearAllText="Clear all"
+    clearRenderer={[Function]}
+    clearValueText="Clear value"
+    clearable={true}
+    closeOnSelect={true}
+    deleteRemoves={true}
+    delimiter=","
     disabled={false}
+    escapeClearsValue={true}
+    filterOptions={[Function]}
     id="mySelect"
-    multiple={false}
+    ignoreAccents={true}
+    ignoreCase={true}
+    inputProps={Object {}}
+    isLoading={false}
+    joinValues={false}
+    labelKey="label"
+    matchPos="any"
+    matchProp="any"
+    menuBuffer={0}
+    menuRenderer={[Function]}
+    multi={false}
+    noResultsText="No results found"
+    onBlurResetsInput={true}
     onChange={[Function]}
+    onCloseResetsInput={true}
+    onSelectResetsInput={true}
+    openOnClick={true}
+    optionComponent={[Function]}
+    options={
+      Array [
+        Object {
+          "label": "My foo title",
+          "value": "foo",
+        },
+        Object {
+          "label": "My bar title",
+          "value": "bar",
+        },
+        Object {
+          "label": "My lol title",
+          "value": "lol",
+        },
+      ]
+    }
+    pageSize={5}
+    placeholder="Please select a value"
     readOnly={true}
+    removeSelected={true}
+    required={false}
+    rtl={false}
+    scrollMenuIntoView={true}
+    searchable={true}
+    simpleValue={false}
+    tabSelectsValue={true}
+    trimFilter={true}
     value="lol"
-  >
-    <option
-      disabled={true}
-    >
-      Please select a value
-    </option>
-    <option
-      value="foo"
-    >
-      My foo title
-    </option>
-    <option
-      value="bar"
-    >
-      My bar title
-    </option>
-    <option
-      value="lol"
-    >
-      My lol title
-    </option>
-  </select>
+    valueComponent={[Function]}
+    valueKey="value"
+  />
 </FieldTemplate>
 `;
 
@@ -95,45 +165,80 @@ exports[`Select field should render select multiple 1`] = `
   id="mySelect"
   isValid={true}
   label="My Select title"
-  labelAfter={true}
   required={undefined}
 >
-  <select
+  <Select
+    arrowRenderer={[Function]}
     autoFocus={true}
-    className="form-control"
+    autosize={true}
+    backspaceRemoves={true}
+    backspaceToRemoveMessage="Press backspace to remove {label}"
+    className="theme-override"
+    clearAllText="Clear all"
+    clearRenderer={[Function]}
+    clearValueText="Clear value"
+    clearable={true}
+    closeOnSelect={true}
+    deleteRemoves={true}
+    delimiter=","
     disabled={false}
+    escapeClearsValue={true}
+    filterOptions={[Function]}
     id="mySelect"
-    multiple={true}
+    ignoreAccents={true}
+    ignoreCase={true}
+    inputProps={Object {}}
+    isLoading={false}
+    joinValues={false}
+    labelKey="label"
+    matchPos="any"
+    matchProp="any"
+    menuBuffer={0}
+    menuRenderer={[Function]}
+    multi={true}
+    noResultsText="No results found"
+    onBlurResetsInput={true}
     onChange={[Function]}
+    onCloseResetsInput={true}
+    onSelectResetsInput={true}
+    openOnClick={true}
+    optionComponent={[Function]}
+    options={
+      Array [
+        Object {
+          "label": "My foo title",
+          "value": "foo",
+        },
+        Object {
+          "label": "My bar title",
+          "value": "bar",
+        },
+        Object {
+          "label": "My lol title",
+          "value": "lol",
+        },
+      ]
+    }
+    pageSize={5}
+    placeholder="Please select a value"
     readOnly={false}
+    removeSelected={true}
+    required={false}
+    rtl={false}
+    scrollMenuIntoView={true}
+    searchable={true}
+    simpleValue={false}
+    tabSelectsValue={true}
+    trimFilter={true}
     value={
       Array [
         "foo",
         "lol",
       ]
     }
-  >
-    <option
-      disabled={true}
-    >
-      Please select a value
-    </option>
-    <option
-      value="foo"
-    >
-      My foo title
-    </option>
-    <option
-      value="bar"
-    >
-      My bar title
-    </option>
-    <option
-      value="lol"
-    >
-      My lol title
-    </option>
-  </select>
+    valueComponent={[Function]}
+    valueKey="value"
+  />
 </FieldTemplate>
 `;
 
@@ -144,39 +249,74 @@ exports[`Select field should render simple select 1`] = `
   id="mySelect"
   isValid={true}
   label="My Select title"
-  labelAfter={true}
   required={undefined}
 >
-  <select
+  <Select
+    arrowRenderer={[Function]}
     autoFocus={true}
-    className="form-control"
+    autosize={true}
+    backspaceRemoves={true}
+    backspaceToRemoveMessage="Press backspace to remove {label}"
+    className="theme-override"
+    clearAllText="Clear all"
+    clearRenderer={[Function]}
+    clearValueText="Clear value"
+    clearable={true}
+    closeOnSelect={true}
+    deleteRemoves={true}
+    delimiter=","
     disabled={false}
+    escapeClearsValue={true}
+    filterOptions={[Function]}
     id="mySelect"
-    multiple={false}
+    ignoreAccents={true}
+    ignoreCase={true}
+    inputProps={Object {}}
+    isLoading={false}
+    joinValues={false}
+    labelKey="label"
+    matchPos="any"
+    matchProp="any"
+    menuBuffer={0}
+    menuRenderer={[Function]}
+    multi={false}
+    noResultsText="No results found"
+    onBlurResetsInput={true}
     onChange={[Function]}
+    onCloseResetsInput={true}
+    onSelectResetsInput={true}
+    openOnClick={true}
+    optionComponent={[Function]}
+    options={
+      Array [
+        Object {
+          "label": "My foo title",
+          "value": "foo",
+        },
+        Object {
+          "label": "My bar title",
+          "value": "bar",
+        },
+        Object {
+          "label": "My lol title",
+          "value": "lol",
+        },
+      ]
+    }
+    pageSize={5}
+    placeholder="Please select a value"
     readOnly={false}
+    removeSelected={true}
+    required={false}
+    rtl={false}
+    scrollMenuIntoView={true}
+    searchable={true}
+    simpleValue={false}
+    tabSelectsValue={true}
+    trimFilter={true}
     value="lol"
-  >
-    <option
-      disabled={true}
-    >
-      Please select a value
-    </option>
-    <option
-      value="foo"
-    >
-      My foo title
-    </option>
-    <option
-      value="bar"
-    >
-      My bar title
-    </option>
-    <option
-      value="lol"
-    >
-      My lol title
-    </option>
-  </select>
+    valueComponent={[Function]}
+    valueKey="value"
+  />
 </FieldTemplate>
 `;
