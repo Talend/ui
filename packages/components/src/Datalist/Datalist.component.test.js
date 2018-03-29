@@ -96,7 +96,7 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().items).toEqual(['foo', 'foobar']);
 	});
 
-	it('should reset suggestions and change value on blur', () => {
+	it('should reset suggestions and change value on blur when value in suggestions', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = mount(
@@ -123,7 +123,7 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
-	it('should reset suggestions and change value on blur when not in restricted mode', () => {
+	it('should reset suggestions and change value on blur when not in restricted mode and value not in suggestions', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = mount(
@@ -150,7 +150,7 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
-	it('should reset suggestions and not change value on blur in restricted mode', () => {
+	it('should reset suggestions and not change value on blur in restricted mode and value does not exist', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = mount(
@@ -284,7 +284,7 @@ describe('Datalist component', () => {
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 	});
 
-	it('should change value on ENTER keydown when not in restricted mode', () => {
+	it('should change value on ENTER keydown when not in restricted mode and value does not exist', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = mount(
