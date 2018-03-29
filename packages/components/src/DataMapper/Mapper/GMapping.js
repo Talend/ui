@@ -131,9 +131,7 @@ class GMapping extends Component {
 			<div className="mapping mapper-element">
 				<Actions
 					className="mapping-tools"
-					actions={
-						getActions(t, preferences.showAll, onShowAll, clearConnection, clearMapping)
-					}
+					actions={getActions(t, preferences.showAll, onShowAll, clearConnection, clearMapping)}
 				/>
 				<div className="separator horizontal" />
 				{renderMappingArea(

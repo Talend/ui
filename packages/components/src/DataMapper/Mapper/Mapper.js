@@ -182,23 +182,40 @@ export default class Mapper extends Component {
 		return Constants.Connection.VISIBILITY.NONE;
 	}
 
-	getConnectionWithVisibility(sourceElement, targetElement,
-		sourceIsVisible, targetIsVisible, gradientMargin) {
+	getConnectionWithVisibility(
+		sourceElement,
+		targetElement,
+		sourceIsVisible,
+		targetIsVisible,
+		gradientMargin,
+	) {
 		const sourceYPos = this.getYPosition(sourceElement, Constants.MappingSide.INPUT);
 		const targetYPos = this.getYPosition(targetElement, Constants.MappingSide.OUTPUT);
 		return {
 			sourceYPos,
 			targetYPos,
 			visibility: this.getVisibility(
-				sourceIsVisible, targetIsVisible, sourceYPos, targetYPos, gradientMargin),
+				sourceIsVisible,
+				targetIsVisible,
+				sourceYPos,
+				targetYPos,
+				gradientMargin,
+			),
 		};
 	}
 
-	getConnectionWithVisibilityFromItem(dataAccessor, item,
-		visibleInputElements, visibleOutputElements, gradientMargin) {
+	getConnectionWithVisibilityFromItem(
+		dataAccessor,
+		item,
+		visibleInputElements,
+		visibleOutputElements,
+		gradientMargin,
+	) {
 		const sourceElement = dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT);
 		const targetElement = dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT);
-		return this.getConnectionWithVisibility(sourceElement, targetElement,
+		return this.getConnectionWithVisibility(
+			sourceElement,
+			targetElement,
 			dataAccessor.includes(visibleInputElements, sourceElement),
 			dataAccessor.includes(visibleOutputElements, targetElement),
 			gradientMargin,
@@ -386,7 +403,7 @@ export default class Mapper extends Component {
 							inputVisibleElements,
 							outputVisibleElements,
 							preferences.gradientMargin,
-						)
+						),
 					);
 				} else {
 					allConnections = filteredMappingItems.map(item =>
@@ -545,7 +562,7 @@ export default class Mapper extends Component {
 			preferences,
 			onShowAll,
 			dnd,
-			dndInProgress
+			dndInProgress,
 		} = this.props;
 		return (
 			<div id={mapperId}>

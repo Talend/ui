@@ -47,23 +47,17 @@ function renderBezierCurve(params, style) {
 	return (
 		<g>
 			<circle
-				className={
-					getClassname(Constants.Connection.PART.START, params, style)
-				}
+				className={getClassname(Constants.Connection.PART.START, params, style)}
 				cx={params.x1}
 				cy={params.y1}
 				r={getRadius(style)}
 			/>
 			<path
-				className={
-					getClassname(Constants.Connection.PART.CURVE, params, style)
-				}
+				className={getClassname(Constants.Connection.PART.CURVE, params, style)}
 				d={params.path}
 			/>
 			<path
-				className={
-					getClassname(Constants.Connection.PART.END, params, style)
-				}
+				className={getClassname(Constants.Connection.PART.END, params, style)}
 				d={params.arrow}
 			/>
 		</g>

@@ -74,7 +74,6 @@ const preferences = {
 };
 
 it('clear-mapping', () => {
-
 	const mapping = [{ source: 'elem_in_1', target: 'elem_out_1' }];
 	const MapperTestContext = wrapInTestContext(Mapper);
 
@@ -103,7 +102,6 @@ it('clear-mapping', () => {
 });
 
 it('perform-mapping', () => {
-
 	const item = {
 		element: element1,
 		side: Constants.MappingSide.INPUT,
