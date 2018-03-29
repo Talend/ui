@@ -123,7 +123,7 @@ describe('Datalist component', () => {
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
-	it('should reset suggestions and not change value on blur', () => {
+	it('should reset suggestions and change value on blur when not in restricted mode', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = mount(
@@ -138,6 +138,34 @@ describe('Datalist component', () => {
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: 'foooo' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(0);
+
+		// when
+		input.simulate('blur');
+
+		// then
+		const payload = { value: 'foooo' };
+		expect(onChange).toBeCalledWith(expect.anything(), payload);
+		expect(wrapper.find(Typeahead).props().items).toBe(null);
+	});
+
+	it('should reset suggestions and not change value on blur in restricted mode', () => {
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				{...props}
+				value={'foo'}
+				restricted
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
 		input.simulate('change', { target: { value: 'fo' } });
 		expect(wrapper.find(Typeahead).props().items.length).toBe(2);
 
@@ -145,7 +173,6 @@ describe('Datalist component', () => {
 		input.simulate('blur');
 
 		// then
-		const payload = { value: 'far' };
 		expect(onChange).not.toBeCalled();
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
@@ -257,7 +284,7 @@ describe('Datalist component', () => {
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 	});
 
-	it('should not change value on ENTER keydown when value does not exist', () => {
+	it('should change value on ENTER keydown when not in restricted mode', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = mount(
@@ -267,6 +294,33 @@ describe('Datalist component', () => {
 				multiSection={false}
 				errorMessage={'This should be correct'}
 				onChange={onChange}
+				{...props}
+				value={'foo'}
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: 'foooo' } });
+		expect(onChange).not.toBeCalled();
+
+		// when
+		input.simulate('keydown', { which: keycode.codes.enter });
+
+		// then
+		const payload = { value: 'foooo' };
+		expect(onChange).toBeCalledWith(expect.anything(), payload);
+	});
+
+	it('should not change value on ENTER when value does not exist in restricted mode', () => {
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id={'my-datalist'}
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				restricted
 				{...props}
 				value={'foo'}
 			/>,

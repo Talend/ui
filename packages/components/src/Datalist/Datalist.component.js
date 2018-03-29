@@ -211,9 +211,12 @@ class Datalist extends Component {
 					}
 				}
 			}
-			const payload = { value: get(enumValue, 'value') };
-			if (payload.value) {
-				this.props.onChange(event, payload);
+			let payload = { value: get(enumValue, 'value') };
+			if (payload.value || !this.props.restricted) {
+				this.props.onChange(
+					event,
+					payload.value ? payload : { value: get(enumValue, 'value', value) },
+				);
 				// setting the previous value to current only if the current value exists
 				this.setState({
 					previousValue: typeof previousValue === 'object' ? previousValue.title : previousValue,
@@ -331,6 +334,7 @@ class Datalist extends Component {
 Datalist.displayName = 'Datalist component';
 Datalist.defaultProps = {
 	value: '',
+	restricted: false,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -342,6 +346,7 @@ if (process.env.NODE_ENV !== 'production') {
 		multiSection: PropTypes.bool.isRequired,
 		placeholder: PropTypes.string,
 		readOnly: PropTypes.bool,
+		restricted: PropTypes.bool,
 		titleMap: PropTypes.arrayOf(
 			PropTypes.oneOfType([
 				PropTypes.shape({
