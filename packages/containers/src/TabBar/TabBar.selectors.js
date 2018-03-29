@@ -1,7 +1,7 @@
 import { DEFAULT_STATE, DISPLAY_NAME } from './TabBar.container';
 
 /**
- * Selector on the state from the subheader bar id given.
+ * Selector on the state from the tabbar id given.
  * @param {object} state
  * @param {string} idComponent
  */
@@ -10,7 +10,7 @@ export function getComponentState(state, idComponent) {
 }
 
 /**
- * Return the editMode attr from the state of subheader bar id given.
+ * Return the selectedKey attr from the state of tabbar id given.
  * @param {object} state
  * @param {string} idComponent
  */
