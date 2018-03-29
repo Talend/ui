@@ -134,6 +134,7 @@ exports[`Storyshots SidePanel default 1`] = `
     >
       <button
         aria-controls="context"
+        aria-label=""
         className="btn btn-link"
         disabled={false}
         id="context-toggle-dock"
@@ -167,6 +168,7 @@ exports[`Storyshots SidePanel default 1`] = `
         title="Preparations"
       >
         <button
+          aria-label="Preparations"
           className="btn btn-link"
           disabled={false}
           id="context-nav-preparations"
@@ -196,6 +198,7 @@ exports[`Storyshots SidePanel default 1`] = `
         title="Datasets"
       >
         <button
+          aria-label="Datasets"
           className="btn btn-link"
           disabled={false}
           id="context-nav-datasets"
@@ -225,6 +228,7 @@ exports[`Storyshots SidePanel default 1`] = `
         title="Favorites"
       >
         <button
+          aria-label="Favorites"
           className="btn btn-link"
           disabled={false}
           id="context-nav-favorites"
@@ -387,6 +391,7 @@ exports[`Storyshots SidePanel docked 1`] = `
     >
       <button
         aria-controls={undefined}
+        aria-label=""
         className="btn btn-link"
         disabled={false}
         id={undefined}
@@ -420,6 +425,7 @@ exports[`Storyshots SidePanel docked 1`] = `
         title="Preparations"
       >
         <button
+          aria-label="Preparations"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -449,6 +455,7 @@ exports[`Storyshots SidePanel docked 1`] = `
         title="Datasets"
       >
         <button
+          aria-label="Datasets"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -478,6 +485,7 @@ exports[`Storyshots SidePanel docked 1`] = `
         title="Favorites"
       >
         <button
+          aria-label="Favorites"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -640,6 +648,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
     >
       <button
         aria-controls={undefined}
+        aria-label=""
         className="btn btn-link"
         disabled={false}
         id={undefined}
@@ -673,6 +682,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
         title="Preparations"
       >
         <button
+          aria-label="Preparations"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -702,6 +712,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
         title="Datasets"
       >
         <button
+          aria-label="Datasets"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -731,6 +742,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
         title="Favorites"
       >
         <button
+          aria-label="Favorites"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -893,6 +905,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
     >
       <button
         aria-controls={undefined}
+        aria-label=""
         className="btn btn-link"
         disabled={false}
         id={undefined}
@@ -925,6 +938,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         title="Preparations"
       >
         <button
+          aria-label="Preparations"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -955,6 +969,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         title="Datasets"
       >
         <button
+          aria-label="Datasets"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -984,6 +999,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
         title="Favorites"
       >
         <button
+          aria-label="Favorites"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -1146,6 +1162,7 @@ exports[`Storyshots SidePanel links 1`] = `
     >
       <button
         aria-controls="context"
+        aria-label=""
         className="btn btn-link"
         disabled={false}
         id="context-toggle-dock"
@@ -1179,6 +1196,7 @@ exports[`Storyshots SidePanel links 1`] = `
         title="Preparations"
       >
         <a
+          aria-label="Preparations"
           className="btn btn-link"
           href="/preparations"
           id="context-nav-preparations"
@@ -1208,6 +1226,7 @@ exports[`Storyshots SidePanel links 1`] = `
         title="Datasets"
       >
         <a
+          aria-label="Datasets"
           className="btn btn-link"
           href="/datasets"
           id="context-nav-datasets"
@@ -1237,6 +1256,7 @@ exports[`Storyshots SidePanel links 1`] = `
         title="Favorites"
       >
         <a
+          aria-label="Favorites"
           className="btn btn-link"
           href="/favorites"
           id="context-nav-favorites"
@@ -1402,6 +1422,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         title="Preparations"
       >
         <button
+          aria-label="Preparations"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -1432,6 +1453,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         title="Datasets"
       >
         <button
+          aria-label="Datasets"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -1461,6 +1483,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
         title="Favorites"
       >
         <button
+          aria-label="Favorites"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -1623,6 +1646,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
     >
       <button
         aria-controls={undefined}
+        aria-label=""
         className="btn btn-link"
         disabled={false}
         id={undefined}
@@ -1655,6 +1679,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
         title="Preparations"
       >
         <button
+          aria-label="Preparations"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -1685,6 +1710,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
         title="Datasets"
       >
         <button
+          aria-label="Datasets"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -1714,6 +1740,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
         title="Favorites"
       >
         <button
+          aria-label="Favorites"
           className="btn btn-link"
           disabled={false}
           id={undefined}
@@ -1886,6 +1913,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
           >
             <button
               aria-controls={undefined}
+              aria-label=""
               className="btn btn-link"
               disabled={false}
               id={undefined}
@@ -1918,6 +1946,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               title="Preparations"
             >
               <button
+                aria-label="Preparations"
                 className="btn btn-link"
                 disabled={false}
                 id={undefined}
@@ -1947,6 +1976,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               title="Datasets"
             >
               <button
+                aria-label="Datasets"
                 className="btn btn-link"
                 disabled={false}
                 id={undefined}
@@ -1976,6 +2006,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               title="Favorites"
             >
               <button
+                aria-label="Favorites"
                 className="btn btn-link"
                 disabled={false}
                 id={undefined}
@@ -2005,6 +2036,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               title="Some super super super long name"
             >
               <button
+                aria-label="Some super super super long name"
                 className="btn btn-link"
                 disabled={false}
                 id={undefined}
@@ -2504,6 +2536,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
           >
             <button
               aria-controls={undefined}
+              aria-label=""
               className="btn btn-link"
               disabled={false}
               id={undefined}
@@ -2536,6 +2569,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               title="Preparations"
             >
               <button
+                aria-label="Preparations"
                 className="btn btn-link"
                 disabled={false}
                 id={undefined}
@@ -2565,6 +2599,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               title="Datasets"
             >
               <button
+                aria-label="Datasets"
                 className="btn btn-link"
                 disabled={false}
                 id={undefined}
@@ -2594,6 +2629,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               title="Favorites"
             >
               <button
+                aria-label="Favorites"
                 className="btn btn-link"
                 disabled={false}
                 id={undefined}
@@ -2623,6 +2659,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               title="Some super super super long name"
             >
               <button
+                aria-label="Some super super super long name"
                 className="btn btn-link"
                 disabled={false}
                 id={undefined}
@@ -3123,6 +3160,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
         >
           <button
             aria-controls="context"
+            aria-label=""
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
@@ -3156,6 +3194,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
             title="Preparations"
           >
             <button
+              aria-label="Preparations"
               className="btn btn-link"
               disabled={false}
               id="context-nav-preparations"
@@ -3185,6 +3224,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
             title="Datasets"
           >
             <button
+              aria-label="Datasets"
               className="btn btn-link"
               disabled={false}
               id="context-nav-datasets"
@@ -3214,6 +3254,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
             title="Favorites"
           >
             <button
+              aria-label="Favorites"
               className="btn btn-link"
               disabled={false}
               id="context-nav-favorites"
@@ -3389,6 +3430,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
         >
           <button
             aria-controls="context"
+            aria-label=""
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
@@ -3422,6 +3464,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
             title="Preparations"
           >
             <button
+              aria-label="Preparations"
               className="btn btn-link"
               disabled={false}
               id="context-nav-preparations"
@@ -3451,6 +3494,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
             title="Datasets"
           >
             <button
+              aria-label="Datasets"
               className="btn btn-link"
               disabled={false}
               id="context-nav-datasets"
@@ -3480,6 +3524,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
             title="Favorites"
           >
             <button
+              aria-label="Favorites"
               className="btn btn-link"
               disabled={false}
               id="context-nav-favorites"
@@ -3655,6 +3700,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
         >
           <button
             aria-controls="context"
+            aria-label=""
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
@@ -3688,6 +3734,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
             title="Preparations"
           >
             <button
+              aria-label="Preparations"
               className="btn btn-link"
               disabled={false}
               id="context-nav-preparations"
@@ -3717,6 +3764,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
             title="Datasets"
           >
             <button
+              aria-label="Datasets"
               className="btn btn-link"
               disabled={false}
               id="context-nav-datasets"
@@ -3746,6 +3794,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
             title="Favorites"
           >
             <button
+              aria-label="Favorites"
               className="btn btn-link"
               disabled={false}
               id="context-nav-favorites"
@@ -3921,6 +3970,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
         >
           <button
             aria-controls="context"
+            aria-label=""
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
@@ -3954,6 +4004,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
             title="Preparations"
           >
             <button
+              aria-label="Preparations"
               className="btn btn-link"
               disabled={false}
               id="context-nav-preparations"
@@ -3983,6 +4034,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
             title="Datasets"
           >
             <button
+              aria-label="Datasets"
               className="btn btn-link"
               disabled={false}
               id="context-nav-datasets"
@@ -4012,6 +4064,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
             title="Favorites"
           >
             <button
+              aria-label="Favorites"
               className="btn btn-link"
               disabled={false}
               id="context-nav-favorites"
@@ -4187,6 +4240,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
         >
           <button
             aria-controls="context"
+            aria-label=""
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
@@ -4220,6 +4274,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
             title="Preparations"
           >
             <button
+              aria-label="Preparations"
               className="btn btn-link"
               disabled={false}
               id="context-nav-preparations"
@@ -4249,6 +4304,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
             title="Datasets"
           >
             <button
+              aria-label="Datasets"
               className="btn btn-link"
               disabled={false}
               id="context-nav-datasets"
@@ -4278,6 +4334,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
             title="Favorites"
           >
             <button
+              aria-label="Favorites"
               className="btn btn-link"
               disabled={false}
               id="context-nav-favorites"
@@ -4453,6 +4510,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
         >
           <button
             aria-controls="context"
+            aria-label=""
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
@@ -4486,6 +4544,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
             title="Preparations"
           >
             <button
+              aria-label="Preparations"
               className="btn btn-link"
               disabled={false}
               id="context-nav-preparations"
@@ -4515,6 +4574,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
             title="Datasets"
           >
             <button
+              aria-label="Datasets"
               className="btn btn-link"
               disabled={false}
               id="context-nav-datasets"
@@ -4544,6 +4604,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
             title="Favorites"
           >
             <button
+              aria-label="Favorites"
               className="btn btn-link"
               disabled={false}
               id="context-nav-favorites"
@@ -4719,6 +4780,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
         >
           <button
             aria-controls="context"
+            aria-label=""
             className="btn btn-link"
             disabled={false}
             id="context-toggle-dock"
@@ -4752,6 +4814,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
             title="Preparations"
           >
             <button
+              aria-label="Preparations"
               className="btn btn-link"
               disabled={false}
               id="context-nav-preparations"
@@ -4781,6 +4844,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
             title="Datasets"
           >
             <button
+              aria-label="Datasets"
               className="btn btn-link"
               disabled={false}
               id="context-nav-datasets"
@@ -4810,6 +4874,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
             title="Favorites"
           >
             <button
+              aria-label="Favorites"
               className="btn btn-link"
               disabled={false}
               id="context-nav-favorites"

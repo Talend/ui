@@ -8,6 +8,7 @@ exports[`Header should render header with trash icon in case of multiple selecti
     2 selected values
   </span>
   <button
+    aria-label="Validate"
     className="btn btn-link"
     disabled={false}
     onClick={[Function]}
