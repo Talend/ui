@@ -259,6 +259,94 @@ const outputSchemaUX = {
 	],
 };
 
+const descriptions = [
+	'Ab esse ad posse valet, a posse ad esse non valet consequentia',
+	'A bove ante, ab asino retro, a stulto undique caveto',
+	'Actus dicatur bonus qui est conformis legi et rationi',
+	'Adversus periculum naturalis ratio permittit se defendere',
+	'An nescis, mi fili, quantilla prudentia mundus regatur',
+	'Cælum non animum mutant qui trans mare currunt',
+	'Consuetudo est jus quodam moribus institutum, quod pro lege usurpatur ubi deficit lex',
+	'De primis socialismi germanici lineamentis apud Lutherum, Kant, Fichte, Hegel et Marx',
+	'Domus accipere debemus, non proprietatem domus, sed domicilium',
+	'Duplex legum incertudino ; altera ubi lex nulla præscribitur, altera ubi ambigua et obscura',
+	'Entitas ipsa involvit aptitudinem ad extorquendum certum assensum',
+	'Ex nudo pacto oritur actio nudum a solemnitate sed non nudum a causa',
+	'Exemplum est argumentatio in qua ex uno singulari infertur, quod fieri potest a pari, vel a contrario, vel a fortiori',
+	'Felix qui potuit rerum cognoscere causas',
+	'Homo sum, humani nil a me alienum puto',
+	'Ignorantia juris neminem excusat (Ignorantia juris neminem excusat)',
+	'Juris præcepta sunt hæc : honeste vivere, alterum non lædere, suum cuique tribuere',
+	'Lex naturalis non scribitur, sed profluit quodam naturali fonte in singulis exprimititur',
+	'Libido sciendi',
+	'Lux in tenebris',
+	'Nec ut emat melius, nec ut vendat, quidquam simulabit aut dissimulabit vir bonus',
+];
+
+const names = [
+	'name',
+	'firstname',
+	'lastname',
+	'date',
+	'address',
+	'city',
+	'state',
+	'zip',
+	'country',
+	'area',
+	'company',
+	'industry',
+	'site',
+	'info',
+	'reference',
+	'birthday',
+	'code',
+	'employer',
+	'incomes',
+	'tax',
+	'skills',
+	'language',
+	'place',
+	'zone',
+	'news',
+	'data',
+];
+
+const types = [
+	'string',
+	'text',
+	'boolean',
+	'double',
+	'float',
+	'date',
+	'Email',
+	'URL',
+	'address',
+	'City',
+	'FR Postal Code',
+	'state',
+	'picklist',
+	'currency',
+	'textarea',
+	'reference',
+	'First Name',
+	'Address Line.',
+	'US County',
+	'US State Code',
+	'FR Postal Code',
+	'US Phone',
+	'Code',
+	'number',
+	'bytes',
+	'image',
+	'price',
+	'Account number',
+	'identifier',
+	'UID',
+	'description',
+	'comments',
+];
+
 const emptyMapping = [];
 
 const initialMapping = [
@@ -316,14 +404,47 @@ function randomInt(max) {
 }
 
 function randomType() {
-	const keys = Object.keys(Constants.Types);
-	const nbrOfTypes = keys.length;
+	const nbrOfTypes = types.length;
 	const index = randomInt(nbrOfTypes);
-	return Constants.Types[keys[index]];
+	return types[index];
+}
+
+function randomMandatory(a, b) {
+	return randomInt(b) > a ;
 }
 
 function buildMandatory() {
-	return randomInt(2) === 1;
+	return randomMandatory(0, 2);
+}
+
+function randomName() {
+	const nbrOfNames = names.length;
+	const index = randomInt(nbrOfNames);
+	return names[index];
+}
+
+function randomDescription() {
+	const nbrOfDesc = descriptions.length;
+	const index = randomInt(nbrOfDesc);
+	return descriptions[index];
+}
+
+function buildRandomElement(index, a, b) {
+	return {
+		id: `${index}`,
+		name: randomName(),
+		type: randomType(),
+		description: randomDescription(),
+		mandatory: randomMandatory(a, b),
+	};
+}
+
+function createRandomSchema(id, name, size, a, b) {
+	let elements = [];
+	for (let i = 0; i < size; i += 1) {
+		elements = elements.concat(buildRandomElement(i, a, b));
+	}
+	return { id, name, elements };
 }
 
 function buildElement(elem, index, withMandatoryFields, types, descriptions, mandatories) {
@@ -337,7 +458,7 @@ function buildElement(elem, index, withMandatoryFields, types, descriptions, man
 	if (descriptions) {
 		description = descriptions[index];
 	} else {
-		description = `Description of ${elem}`;
+		description = `Description of ${elem}: `;
 	}
 	let mandatory = withMandatoryFields;
 	if (withMandatoryFields) {
@@ -447,6 +568,92 @@ function initializeFilters(schema, keys) {
 	return filters;
 }
 
+function prefs(showAll, withGradient, gradientStops, gradientMargin) {
+	return { showAll, withGradient, gradientStops, gradientMargin };
+}
+
+function getDefaultPreferences() {
+	return prefs(false, false, [], 0);
+}
+
+const defaultGradientStops = [
+	{
+		key: 1,
+		offset: 0,
+	},
+	{
+		key: 2,
+		offset: 20,
+	},
+];
+
+const gradientStops3 = [
+	{
+		key: 11,
+		offset: 0,
+	},
+	{
+		key: 11,
+		offset: 10,
+	},
+	{
+		key: 13,
+		offset: 15,
+	},
+];
+
+const gradientStops4 = [
+	{
+		key: 61,
+		offset: 0,
+	},
+	{
+		key: 61,
+		offset: 5,
+	},
+	{
+		key: 66,
+		offset: 10,
+	},
+	{
+		key: 66,
+		offset: 100,
+	},
+];
+
+const gradientStops6 = [
+	{
+		key: 61,
+		offset: 0,
+	},
+	{
+		key: 61,
+		offset: 10,
+	},
+	{
+		key: 66,
+		offset: 20,
+	},
+	{
+		key: 66,
+		offset: 80,
+	},
+	{
+		key: 61,
+		offset: 90,
+	},
+	{
+		key: 61,
+		offset: 100,
+	},
+];
+
+const showAllPrefs = prefs(true, false, [], 0);
+const fullPrefs = prefs(true, true, defaultGradientStops, 50);
+const alternativePrefs3 = prefs(true, true, gradientStops3, 150);
+const alternativePrefs4 = prefs(true, true, gradientStops4, 100);
+const alternativePrefs6 = prefs(true, true, gradientStops6, 150);
+
 /**
 * Default empty state
 */
@@ -459,7 +666,7 @@ const emptyState = {
 	pendingItem: null,
 	selection: null,
 	focused: null,
-	showAll: false,
+	preferences: getDefaultPreferences(),
 	filters: {},
 };
 
@@ -494,7 +701,7 @@ function getEmptyInitialState() {
 	};
 }
 
-function getBigSchemaInitialState(inputSchemaSize, outputSchemaSize, mappingSize) {
+function getBigSchemaInitialState(inputSchemaSize, outputSchemaSize, mappingSize, preferences) {
 	const schema1 = createSchema('big_schema_1', 'Big input schema', 'input_element', inputSchemaSize);
 	const schema2 = createSchema('big_schema_2', 'Big output schema', 'output_element', outputSchemaSize);
 	const tempMap = createMapping(schema1, schema2, true, mappingSize);
@@ -506,7 +713,7 @@ function getBigSchemaInitialState(inputSchemaSize, outputSchemaSize, mappingSize
     inputSchema,
     outputSchema,
 		mapping,
-		showAll: true,
+		preferences,
 		filters: {
 			input: initializeFilters(inputSchema, [NameFilterId]),
 			output: initializeFilters(outputSchema, [NameFilterId, MandatoryFieldFilterId]),
@@ -514,7 +721,41 @@ function getBigSchemaInitialState(inputSchemaSize, outputSchemaSize, mappingSize
 	};
 }
 
-function getUXInitialState(mappingSize) {
+function getRandomInitialState(
+	inputSchemaParams,
+	outputSchemaParams,
+	mappingSize,
+	preferences,
+) {
+	const inputSchema = createRandomSchema(
+		inputSchemaParams.id,
+		inputSchemaParams.name,
+		inputSchemaParams.size,
+		inputSchemaParams.a,
+		inputSchemaParams.b,
+	);
+	const outputSchema = createRandomSchema(
+		outputSchemaParams.id,
+		outputSchemaParams.name,
+		outputSchemaParams.size,
+		outputSchemaParams.a,
+		outputSchemaParams.b,
+	);
+	const mapping = createMapping(inputSchema, outputSchema, true, mappingSize);
+	return {
+		...emptyState,
+    inputSchema,
+    outputSchema,
+		mapping,
+		preferences,
+		filters: {
+			input: initializeFilters(inputSchema, [NameFilterId]),
+			output: initializeFilters(outputSchema, [NameFilterId, MandatoryFieldFilterId]),
+		},
+	};
+}
+
+function getUXInitialState(mappingSize, preferences) {
 	const inputSchema = finalizeSchema(inputSchemaUX, false);
 	const outputSchema = finalizeSchema(outputSchemaUX, true);
 	const mapping = createMapping(inputSchema, outputSchema, true, mappingSize);
@@ -523,6 +764,7 @@ function getUXInitialState(mappingSize) {
     inputSchema,
     outputSchema,
 		mapping,
+		preferences,
 		filters: {
 			input: initializeFilters(inputSchema, [NameFilterId]),
 			output: initializeFilters(outputSchema, [NameFilterId, MandatoryFieldFilterId]),
@@ -1032,7 +1274,12 @@ class ConnectedDataMapper extends React.Component {
 	onShowAll() {
 		this.setState(prevState => ({
 			trigger: null,
-			showAll: !prevState.showAll,
+			preferences : {
+				showAll: !prevState.preferences.showAll,
+				withGradient: prevState.preferences.withGradient,
+				gradientStops: prevState.preferences.gradientStops,
+				gradientMargin: prevState.preferences.gradientMargin,
+			},
 		}));
 	}
 
@@ -1158,7 +1405,7 @@ class ConnectedDataMapper extends React.Component {
 				selection={this.state.selection}
 				pendingItem={this.state.pendingItem}
 				onSelect={this.selectElement}
-				showAll={this.state.showAll}
+				preferences={this.state.preferences}
 				onShowAll={this.onShowAll}
 				onEnterElement={this.onEnterElement}
 				onLeaveElement={this.onLeaveElement}
@@ -1223,7 +1470,7 @@ stories
 	.addWithInfo('50-mapped (canvas)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50))}
+			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50, showAllPrefs))}
 			mappingRenderer={Constants.Connection.RENDERER.CANVAS}
 			inputSchemaRenderer={defaultSchemaRenderer}
 			outputSchemaRenderer={defaultSchemaRenderer}
@@ -1241,7 +1488,7 @@ stories
 	.addWithInfo('50-mapped (svg)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50))}
+			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50, showAllPrefs))}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
 			inputSchemaRenderer={defaultSchemaRenderer}
 			outputSchemaRenderer={defaultSchemaRenderer}
@@ -1261,7 +1508,7 @@ stories
 	.addWithInfo('50-mapped (svg, list)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50))}
+			initialState={initializeCache(getBigSchemaInitialState(50, 50, 50, alternativePrefs4))}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
 			inputSchemaRenderer={inputListRenderer}
 			outputSchemaRenderer={outputListRenderer}
@@ -1272,7 +1519,7 @@ stories
 	.addWithInfo('size:100 mapped:50 (svg, list)', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={initializeCache(getBigSchemaInitialState(100, 100, 50))}
+			initialState={initializeCache(getBigSchemaInitialState(100, 100, 50, alternativePrefs4))}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
 			inputSchemaRenderer={inputListRenderer}
 			outputSchemaRenderer={outputListRenderer}
@@ -1282,7 +1529,38 @@ stories
 	}).addWithInfo('UX proto', () => {
 		return <ConnectedDataMapper
 			mapperId="mapper"
-			initialState={initializeCache(getUXInitialState(0))}
+			initialState={initializeCache(getUXInitialState(15, alternativePrefs4))}
+			mappingRenderer={Constants.Connection.RENDERER.SVG}
+			inputSchemaRenderer={inputListRenderer}
+			outputSchemaRenderer={outputListRenderer}
+			inputSchemaColumns={inputListColumns}
+			outputSchemaColumns={outputListColumns}
+		/>;
+	}).addWithInfo('Random', () => {
+		return <ConnectedDataMapper
+			mapperId="mapper"
+			initialState={
+				initializeCache(
+					getRandomInitialState(
+						{
+							id: 'f4d51fg5d1fvg',
+							name: 'CUSTOMERS-25K PREP',
+							size: 50,
+							a: 1,
+							b: 1,
+						},
+						{
+							id: 'sdgf5fsdf45',
+							name: 'SALESFORCE.ACCOUNT',
+							size: 50,
+							a: 1,
+							b: 3,
+						},
+						20,
+						alternativePrefs4,
+					)
+				)
+			}
 			mappingRenderer={Constants.Connection.RENDERER.SVG}
 			inputSchemaRenderer={inputListRenderer}
 			outputSchemaRenderer={outputListRenderer}

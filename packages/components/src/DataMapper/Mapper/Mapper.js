@@ -164,6 +164,47 @@ export default class Mapper extends Component {
 		);
 	}
 
+	getVisibility(sourceIsVisible, targetIsVisible, sourceYPos, targetYPos, gradientMargin) {
+		const delta = Math.abs(sourceYPos - targetYPos);
+		if (sourceIsVisible && targetIsVisible) {
+			return Constants.Connection.VISIBILITY.FULL;
+		} else if (sourceIsVisible) {
+			if (delta <= gradientMargin) {
+				return Constants.Connection.VISIBILITY.FULL;
+			}
+			return Constants.Connection.VISIBILITY.LEFT;
+		} else if (targetIsVisible) {
+			if (delta <= gradientMargin) {
+				return Constants.Connection.VISIBILITY.FULL;
+			}
+			return Constants.Connection.VISIBILITY.RIGHT;
+		}
+		return Constants.Connection.VISIBILITY.NONE;
+	}
+
+	getConnectionWithVisibility(sourceElement, targetElement,
+		sourceIsVisible, targetIsVisible, gradientMargin) {
+		const sourceYPos = this.getYPosition(sourceElement, Constants.MappingSide.INPUT);
+		const targetYPos = this.getYPosition(targetElement, Constants.MappingSide.OUTPUT);
+		return {
+			sourceYPos,
+			targetYPos,
+			visibility: this.getVisibility(
+				sourceIsVisible, targetIsVisible, sourceYPos, targetYPos, gradientMargin),
+		};
+	}
+
+	getConnectionWithVisibilityFromItem(dataAccessor, item,
+		visibleInputElements, visibleOutputElements, gradientMargin) {
+		const sourceElement = dataAccessor.getMappedElement(item, Constants.MappingSide.INPUT);
+		const targetElement = dataAccessor.getMappedElement(item, Constants.MappingSide.OUTPUT);
+		return this.getConnectionWithVisibility(sourceElement, targetElement,
+			dataAccessor.includes(visibleInputElements, sourceElement),
+			dataAccessor.includes(visibleOutputElements, targetElement),
+			gradientMargin,
+		);
+	}
+
 	getInputVisibleElements() {
 		if (this.visibleInputElements) {
 			return this.visibleInputElements;
@@ -299,7 +340,7 @@ export default class Mapper extends Component {
 	// { current : [ {sourceYPos1, targetYPos1}, {sourceYPos2, targetYPos2} ],
 	//   pending : {sourceYPos, targetYPos},
 	//   focused: [ {sourceYPos1, targetYPos1}, {sourceYPos2, targetYPos2} ],
-	//   all: [ {sourceYPos1, targetYPos1}, {sourceYPos2, targetYPos2} ],
+	//   all: [ {sourceYPos1, targetYPos1, visibility}, {sourceYPos2, targetYPos2, visibility} ],
 	//   dnd: {sourceYPos, targetYPos},
 	//	 dndInProgress: {sourceYPos, pos}
 	// }
@@ -311,7 +352,7 @@ export default class Mapper extends Component {
 			selection,
 			pendingItem,
 			focused,
-			showAll,
+			preferences,
 			dnd,
 		} = this.props;
 
@@ -326,7 +367,7 @@ export default class Mapper extends Component {
 
 		// first check if we display all the connections ('show all' option)
 		let allConnections = null;
-		if (showAll && this.inputSchemaRef && this.outputSchemaRef) {
+		if (preferences.showAll && this.inputSchemaRef && this.outputSchemaRef) {
 			const filteredMappingItems = filterMappingItems(
 				dataAccessor,
 				inputSchema,
@@ -337,9 +378,21 @@ export default class Mapper extends Component {
 			);
 			// then build connections
 			if (filteredMappingItems) {
-				allConnections = filteredMappingItems.map(item =>
-					this.getConnectionFromItem(dataAccessor, item),
-				);
+				if (preferences.withGradient) {
+					allConnections = filteredMappingItems.map(item =>
+						this.getConnectionWithVisibilityFromItem(
+							dataAccessor,
+							item,
+							inputVisibleElements,
+							outputVisibleElements,
+							preferences.gradientMargin,
+						)
+					);
+				} else {
+					allConnections = filteredMappingItems.map(item =>
+						this.getConnectionFromItem(dataAccessor, item),
+					);
+				}
 			}
 		}
 
@@ -485,7 +538,15 @@ export default class Mapper extends Component {
 			filters,
 			...commonSchemaProps
 		} = this.props;
-		const { dataAccessor, selection, focused, showAll, onShowAll, dnd, dndInProgress } = this.props;
+		const {
+			dataAccessor,
+			selection,
+			focused,
+			preferences,
+			onShowAll,
+			dnd,
+			dndInProgress
+		} = this.props;
 		return (
 			<div id={mapperId}>
 				<Schema
@@ -533,7 +594,7 @@ export default class Mapper extends Component {
 					getAnchors={this.getAnchors}
 					getYPosition={this.getYPosition}
 					selection={selection}
-					showAll={showAll}
+					preferences={preferences}
 					onShowAll={onShowAll}
 					dnd={dnd}
 					dndInProgress={dndInProgress}
@@ -563,7 +624,7 @@ Mapper.propTypes = {
 	onEnterElement: PropTypes.func,
 	onLeaveElement: PropTypes.func,
 	focused: PropTypes.object,
-	showAll: PropTypes.bool,
+	preferences: PropTypes.object,
 	onShowAll: PropTypes.func,
 	dnd: PropTypes.object,
 	dndInProgress: PropTypes.func,

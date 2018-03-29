@@ -66,9 +66,15 @@ function wrapInTestContext(DecoratedComponent) {
 	);
 }
 
+const clearMapping = jest.fn();
+const performMapping = jest.fn();
+const preferences = {
+	showAll: false,
+	withGradient: false,
+};
+
 it('clear-mapping', () => {
-	const clearMapping = jest.fn();
-	const performMapping = jest.fn();
+
 	const mapping = [{ source: 'elem_in_1', target: 'elem_out_1' }];
 	const MapperTestContext = wrapInTestContext(Mapper);
 
@@ -83,6 +89,7 @@ it('clear-mapping', () => {
 			inputSchemaRenderer={defaultSchemaRenderer}
 			outputSchemaRenderer={defaultSchemaRenderer}
 			filters={noFilters}
+			preferences={preferences}
 		/>
 	);
 	const wrapper = mount(mapper);
@@ -96,8 +103,7 @@ it('clear-mapping', () => {
 });
 
 it('perform-mapping', () => {
-	const clearMapping = jest.fn();
-	const performMapping = jest.fn();
+
 	const item = {
 		element: element1,
 		side: Constants.MappingSide.INPUT,
@@ -129,6 +135,7 @@ it('perform-mapping', () => {
 			inputSchemaRenderer={defaultSchemaRenderer}
 			outputSchemaRenderer={defaultSchemaRenderer}
 			filters={noFilters}
+			preferences={preferences}
 		/>
 	);
 

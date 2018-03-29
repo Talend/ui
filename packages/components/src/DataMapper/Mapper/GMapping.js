@@ -46,6 +46,7 @@ function renderMappingArea(
 	dnd,
 	updateRef,
 	dndInProgress,
+	preferences,
 ) {
 	switch (renderer) {
 		case Constants.Connection.RENDERER.CANVAS:
@@ -67,6 +68,7 @@ function renderMappingArea(
 					getYPosition={getYPosition}
 					dnd={dnd}
 					dndInProgress={dndInProgress}
+					preferences={preferences}
 				/>
 			);
 		default:
@@ -122,14 +124,16 @@ class GMapping extends Component {
 			getYPosition,
 			dnd,
 			onShowAll,
-			showAll,
+			preferences,
 			t,
 		} = this.props;
 		return (
 			<div className="mapping mapper-element">
 				<Actions
 					className="mapping-tools"
-					actions={getActions(t, showAll, onShowAll, clearConnection, clearMapping)}
+					actions={
+						getActions(t, preferences.showAll, onShowAll, clearConnection, clearMapping)
+					}
 				/>
 				<div className="separator horizontal" />
 				{renderMappingArea(
@@ -140,6 +144,7 @@ class GMapping extends Component {
 					dnd,
 					this.updateMappingAreaRef,
 					this.dndInProgress,
+					preferences,
 				)}
 			</div>
 		);
@@ -152,7 +157,7 @@ GMapping.propTypes = {
 	getYPosition: PropTypes.func,
 	clearConnection: PropTypes.func,
 	clearMapping: PropTypes.func,
-	showAll: PropTypes.bool,
+	preferences: PropTypes.object,
 	onShowAll: PropTypes.func,
 	dnd: PropTypes.object,
 	dndInProgress: PropTypes.func,

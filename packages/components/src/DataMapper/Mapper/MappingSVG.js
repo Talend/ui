@@ -23,12 +23,15 @@ function collectForDropTarget(connect) {
 }
 
 function appendSVGConnection(connection, svgConnections, style, x1, x2) {
+	const visibility = connection.visibility ?
+		connection.visibility : Constants.Connection.VISIBILITY.FULL;
 	const svgConnection = {
 		x1,
 		y1: connection.sourceYPos,
 		x2,
 		y2: connection.targetYPos,
 		style,
+		visibility,
 	};
 	return svgConnections.concat(svgConnection);
 }
@@ -165,11 +168,17 @@ function getBezierParams(connection) {
 		path,
 		arrow,
 		style: connection.style,
+		visibility: connection.visibility,
 	};
 }
 
 function renderConnection(connection) {
-	return <Connection params={getBezierParams(connection)} style={connection.style} />;
+	return (
+		<Connection
+			params={getBezierParams(connection)}
+			style={connection.style}
+		/>
+	);
 }
 
 function appendSVGAnchor(anchorYPos, svgAnchors, bounds, part, style) {
@@ -257,6 +266,61 @@ function renderAnchor(anchor) {
 	return <Anchor anchor={anchor} params={getAnchorParams(anchor)} />;
 }
 
+function renderGradientStop(stop) {
+	return (
+		<stop
+			id={`grad-stop-${stop.key}`}
+			offset={`${stop.offset}%`}
+		/>
+	);
+}
+
+function renderLinearGradient(preferences) {
+	if (preferences.withGradient) {
+		return (
+			<defs>
+				<linearGradient
+					id="grad-left-top"
+					x1="0%"
+					y1="0%"
+					x2="100%"
+					y2="100%"
+				>
+					{preferences.gradientStops.map(stop => renderGradientStop(stop))}
+				</linearGradient>
+				<linearGradient
+					id="grad-left-bottom"
+					x1="0%"
+					y1="100%"
+					x2="100%"
+					y2="0%"
+				>
+					{preferences.gradientStops.map(stop => renderGradientStop(stop))}
+				</linearGradient>
+				<linearGradient
+					id="grad-right-top"
+					x1="100%"
+					y1="0%"
+					x2="0%"
+					y2="100%"
+				>
+					{preferences.gradientStops.map(stop => renderGradientStop(stop))}
+				</linearGradient>
+				<linearGradient
+					id="grad-right-bottom"
+					x1="100%"
+					y1="100%"
+					x2="0%"
+					y2="0%"
+				>
+					{preferences.gradientStops.map(stop => renderGradientStop(stop))}
+				</linearGradient>
+			</defs>
+		);
+	}
+	return null;
+}
+
 class MappingSVG extends Component {
 	constructor(props) {
 		super(props);
@@ -301,7 +365,13 @@ class MappingSVG extends Component {
 	}
 
 	render() {
-		const { connectDropTarget, getConnections, getAnchors, dnd } = this.props;
+		const {
+			connectDropTarget,
+			getConnections,
+			getAnchors,
+			dnd,
+			preferences,
+		} = this.props;
 
 		let bounds = null;
 		if (this.svgParentElem != null) {
@@ -326,6 +396,7 @@ class MappingSVG extends Component {
 					width={this.getWidth()}
 					height={this.getHeight()}
 				>
+					{renderLinearGradient(preferences)}
 					{svgAnchors.map(anchor => renderAnchor(anchor))}
 					{svgConnections.map(connection => renderConnection(connection))}
 				</svg>
@@ -339,6 +410,7 @@ MappingSVG.propTypes = {
 	getAnchors: PropTypes.func,
 	connectDropTarget: PropTypes.func,
 	dnd: PropTypes.object,
+	preferences: PropTypes.object,
 };
 
 export default DropTarget(Constants.ItemTypes.ELEMENT, elementTarget, collectForDropTarget)(

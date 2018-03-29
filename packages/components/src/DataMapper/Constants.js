@@ -72,6 +72,12 @@ export const Connection = {
 		CURVE: 'curve',
 		END: 'end',
 	},
+	VISIBILITY: {
+		FULL: 'full',
+		LEFT: 'left',
+		RIGHT: 'right',
+		NONE: 'none',
+	},
 };
 
 export const Schema = {

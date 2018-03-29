@@ -31,7 +31,7 @@ export default class NameFilterComponent extends Component {
 		return (
 			<FilterBar
 				id="filter-schema"
-				className="filter"
+				className="filter-name"
 				placeholder="Filter..."
 				dockable
 				docked={this.state.docked}
