@@ -195,6 +195,7 @@ exports[`Drawer should render with tabs 1`] = `
             className="tc-tab-bar-action"
           >
             <button
+              aria-label="Tab 1"
               className="btn btn-link"
               disabled={false}
               id={undefined}
@@ -212,6 +213,7 @@ exports[`Drawer should render with tabs 1`] = `
             className="tc-tab-bar-action active"
           >
             <button
+              aria-label="Tab 2"
               className="btn btn-link"
               disabled={false}
               id={undefined}

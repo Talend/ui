@@ -18,6 +18,7 @@ exports[`Storyshots TabBar default 1`] = `
           className="tc-tab-bar-action"
         >
           <button
+            aria-label="Tab1"
             className="btn btn-link"
             disabled={false}
             id="tab-bar-action-1"
@@ -35,6 +36,7 @@ exports[`Storyshots TabBar default 1`] = `
           className="tc-tab-bar-action active"
         >
           <button
+            aria-label="Tab2"
             className="btn btn-link"
             disabled={false}
             id="tab-bar-action-2"
@@ -52,6 +54,7 @@ exports[`Storyshots TabBar default 1`] = `
           className="tc-tab-bar-action"
         >
           <button
+            aria-label="Tab3"
             className="btn btn-link"
             disabled={false}
             id="tab-bar-action-3"

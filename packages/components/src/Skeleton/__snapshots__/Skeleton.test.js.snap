@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Skeleton default 1`] = `
+exports[`Storyshots Translate(Skeleton) default 1`] = `
 <div
   className="col-lg-offset-2 col-lg-8"
 >
@@ -46,6 +46,7 @@ exports[`Storyshots Skeleton default 1`] = `
       small
     </div>
     <span
+      aria-label=" circle (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-small tc-skeleton tc-skeleton-circle tc-skeleton-circle-small"
       style={
         Object {
@@ -58,6 +59,7 @@ exports[`Storyshots Skeleton default 1`] = `
       medium
     </div>
     <span
+      aria-label=" circle (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium"
       style={
         Object {
@@ -70,6 +72,7 @@ exports[`Storyshots Skeleton default 1`] = `
       large
     </div>
     <span
+      aria-label=" circle (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-large tc-skeleton tc-skeleton-circle tc-skeleton-circle-large"
       style={
         Object {
@@ -82,6 +85,7 @@ exports[`Storyshots Skeleton default 1`] = `
       custom size override class definition 
     </div>
     <span
+      aria-label=" circle (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-small tc-skeleton tc-skeleton-circle tc-skeleton-circle-small"
       style={
         Object {
@@ -97,6 +101,7 @@ exports[`Storyshots Skeleton default 1`] = `
       small:
     </div>
     <span
+      aria-label=" text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
       style={
         Object {
@@ -109,6 +114,7 @@ exports[`Storyshots Skeleton default 1`] = `
       medium:
     </div>
     <span
+      aria-label=" text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-medium tc-skeleton tc-skeleton-text tc-skeleton-text-medium"
       style={
         Object {
@@ -121,6 +127,7 @@ exports[`Storyshots Skeleton default 1`] = `
       large:
     </div>
     <span
+      aria-label=" text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-large tc-skeleton tc-skeleton-text tc-skeleton-text-large"
       style={
         Object {
@@ -133,6 +140,7 @@ exports[`Storyshots Skeleton default 1`] = `
       extra-large:
     </div>
     <span
+      aria-label=" text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-xlarge tc-skeleton tc-skeleton-text tc-skeleton-text-xlarge"
       style={
         Object {
@@ -145,6 +153,7 @@ exports[`Storyshots Skeleton default 1`] = `
       custom width:
     </div>
     <span
+      aria-label=" text (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small"
       style={
         Object {
@@ -157,6 +166,7 @@ exports[`Storyshots Skeleton default 1`] = `
       Button: 
     </h4>
     <span
+      aria-label=" button (loading)"
       className="theme-tc-skeleton theme-tc-skeleton-button theme-tc-skeleton-button-medium tc-skeleton tc-skeleton-button tc-skeleton-button-medium"
       style={
         Object {
