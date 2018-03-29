@@ -40,6 +40,7 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 				className={theme.override}
 				onChange={selectedValue => {
 					const payload = { schema, value: getSelectedOptions(selectedValue, multiple) };
+					const event = { type: 'change', target: { value: selectedValue } };
 					onChange(event, payload);
 					onFinish(event, payload);
 				}}
