@@ -32,6 +32,7 @@ import SidePanel from './SidePanel';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 import SubHeaderBar from './SubHeaderBar';
+import TabBar from './TabBar';
 
 export {
 	actionAPI,
@@ -62,6 +63,7 @@ export {
 	SelectObject,
 	SidePanel,
 	SubHeaderBar,
+	TabBar,
 	TooltipTrigger,
 	TreeView,
 	Typeahead,
