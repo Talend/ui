@@ -5,16 +5,15 @@ const PNG = require('pngjs').PNG;
 const pixelmatch = require('pixelmatch');
 const puppeteer = require('puppeteer');
 
-
 program
-.option('-p, --pullrequest [pr]', 'Pull request')
-.option('-c, --config [config]', 'JSON config file')
-.option('-v, --verbose', 'Verbose')
-.parse(process.argv);
+	.option('-p, --pullrequest [pr]', 'Pull request')
+	.option('-c, --config [config]', 'JSON config file')
+	.option('-v, --verbose', 'Verbose')
+	.parse(process.argv);
 
 const PR = program.pullrequest;
 
-if (!PR && !program.url) {
+if (!PR) {
 	console.error('you must precise a PR number using -p or --pullrequest');
 	process.exit();
 }
