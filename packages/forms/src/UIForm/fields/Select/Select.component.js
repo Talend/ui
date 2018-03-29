@@ -38,9 +38,20 @@ export default function Select({ id, isValid, errorMessage, onChange, onFinish, 
 				autoFocus={autoFocus}
 				disabled={disabled}
 				className={theme.override}
+				matchProp="label"
 				onChange={selectedValue => {
 					const payload = { schema, value: getSelectedOptions(selectedValue, multiple) };
-					const event = { type: 'change', target: { value: selectedValue } };
+					const event = {
+						target: {
+							value: multiple ? undefined : payload.value,
+							options: multiple ? options.map(option => Object.assign(
+								{
+									value: option.value,
+									selected: selectedValue.find(v => v.value === option.value) !== undefined,
+								}
+							)) : undefined,
+						},
+					};
 					onChange(event, payload);
 					onFinish(event, payload);
 				}}

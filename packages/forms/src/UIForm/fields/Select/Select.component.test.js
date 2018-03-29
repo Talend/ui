@@ -130,10 +130,10 @@ describe('Select field', () => {
 				value={'lol'}
 			/>,
 		);
-		const event = { target: { value: 'bar' } };
-
+		const value = { value: 'bar' };
+		const event = { target: value };
 		// when
-		wrapper.find('select').simulate('change', event);
+		wrapper.find('Select').simulate('change', value);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { schema, value: 'bar' });
@@ -174,7 +174,7 @@ describe('Select field', () => {
 		);
 
 		// when
-		wrapper.find('select').simulate('change', event);
+		wrapper.find('Select').simulate('change', [{ value: 'foo' }, { value: 'lol' }]);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { schema: multipleSchema, value: ['foo', 'lol'] });
