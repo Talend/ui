@@ -5,17 +5,30 @@ const PNG = require('pngjs').PNG;
 const pixelmatch = require('pixelmatch');
 const puppeteer = require('puppeteer');
 
-const config = require('./screenshots.json');
-
 program
 	.option('-p, --pullrequest [pr]', 'Pull request')
+	.option('-c, --config [config]', 'JSON config file')
 	.option('-v, --verbose', 'Verbose')
 	.parse(process.argv);
 
 const PR = program.pullrequest;
+
 if (!PR) {
 	console.error('you must precise a PR number using -p or --pullrequest');
 	process.exit();
+}
+
+let config = {};
+
+if (program.config) {
+	config = require(program.config);
+} else {
+	const files = fs.readdirSync('./screenshots');
+	files.forEach(filepath => {
+		if (filepath.endsWith('.json')) {
+			Object.assign(config, require(`./screenshots/${filepath}`));
+		}
+	});
 }
 
 function log(msg) {

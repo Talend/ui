@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { translate } from 'react-i18next';
 import { Action } from '@talend/react-components/lib/Actions';
 import ArrayItem from './ArrayItem.component';
-import I18N_DOMAIN_FORMS from '../../../constants';
+import { I18N_DOMAIN_FORMS } from '../../../constants';
 import { DEFAULT_I18N, getDefaultTranslate } from '../../../translate';
 
 import theme from './Array.scss';
